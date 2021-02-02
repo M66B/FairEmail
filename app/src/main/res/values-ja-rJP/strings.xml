@@ -3,7 +3,6 @@
     <string name="app_search">検索</string>
     <string name="app_changelog">変更履歴</string>
     <string name="app_welcome">FairEmailはプライバシーとセキュリティに焦点を当てたオープンソースのメールアプリです。その為一部の機能は以前とは異なる動作をする場合があります</string>
-    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">Androidのバグによりクラッシュが発生する為、このデバイスではFairEmailはサポートされていません</string>
     <string name="app_exit">もう一度押すと終了します</string>
     <string name="app_cake">空き容量が足りません</string>
@@ -105,20 +104,12 @@
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
     <string name="title_setup_quick">クイックセットアップ</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_pop3">POP3 アカウント</string>
@@ -136,19 +127,16 @@
     <string name="title_setup_select_account">アカウントの選択</string>
     <string name="title_setup_instructions">セットアップ手順</string>
     <string name="title_setup_no_settings">\'%1$s\'ドメインの設定が見つかりません</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードを再確認しアカウントで外部アクセス(IMAP/SMTP)が有効になっている事を確認して下さい</string>
     <string name="title_setup_app_password_hint">このプロバイダーにはアカウントのパスワードで無くアプリのパスワードが必要です。プロバイダーの指示を確認して下さい</string>
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
     <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">管理する</string>
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与する</string>
     <string name="title_setup_identity_what">IDとは？</string>
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">確実にメールを受け取るために必要です</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、バッテリーの最適化をオフにするとバッテリー使用量が少なくなります。</string>
     <string name="title_setup_doze_instructions">次のダイアログで上部の\"全てのアプリ\"を選び、FairEmailを選択し\"最適化しない\"を選んで完了します</string>
@@ -156,7 +144,6 @@
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
     <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
-    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">移動</string>
     <string name="title_setup_to_do">タスク</string>
     <string name="title_setup_done">完了</string>
@@ -201,10 +188,6 @@
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
-    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
-        All options have commonly used standard values, which you do not need to change unless you have a different preference.
-    </string>
-    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
     <string name="title_advanced_section_connection">接続</string>
@@ -214,7 +197,6 @@
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
-    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>
@@ -290,9 +272,6 @@
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>
     <string name="title_advanced_circular">丸いアイコンで表示</string>
-    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
-    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
-    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
@@ -396,7 +375,6 @@
     <string name="title_advanced_tracking">トラッキング画像の認識と無効化を試みます</string>
     <string name="title_advanced_hide_timezone">タイムゾーンデータ無しでメッセージを送信</string>
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
@@ -420,14 +398,9 @@
     </string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_shortcuts">頻繁に使用される連絡先をAndroid共有メニューに表示</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類</string>
-    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
-    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
@@ -440,7 +413,6 @@
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">アプリの設定</string>
     <string name="title_advanced_more">その他のオプション</string>
     <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます。</string>
@@ -587,7 +559,6 @@
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_drafts">下書きフォルダがありません</string>
     <string name="title_no_junk_folder">このアカウントではスパムフォルダが選択されていません</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーはUTF-8をサポートしていません</string>
@@ -615,8 +586,6 @@
     <string name="title_advanced_expand_read">エキスパンド時にメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>
     <string name="title_synchronize_subfolders">サブフォルダ</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
-    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">同期</string>
     <string name="title_synchronize_batch_enable">同期を有効化</string>
     <string name="title_synchronize_batch_disable">同期を無効化</string>
@@ -660,8 +629,6 @@
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
     <string name="title_download_folder">メッセージテキストと添付ファイルを自動的にダウンロードする</string>
     <string name="title_notify_folder">新しいメッセージで通知する</string>
-    <string name="title_auto_classify_source">Classify new messages in this folder</string>
-    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">メッセージの同期(日毎)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増えます</string>
     <string name="title_keep_days">メッセージを保持する(日毎)</string>
@@ -717,7 +684,6 @@
     <string name="title_forward">転送</string>
     <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
-    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">ルール &#8230; を作成します</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>
@@ -759,7 +725,6 @@
     <string name="title_reply_to_all">全員に返信</string>
     <string name="title_reply_list">リストに返信</string>
     <string name="title_reply_receipt">開封確認メッセージを送信</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">テンプレートで返信</string>
     <string name="title_move_undo">%1$s に移動中 (%2$d)</string>
     <string name="title_open_with">開く</string>
@@ -795,7 +760,6 @@
     <string name="title_ask_delete_rule">ルールを完全に削除しますか？</string>
     <string name="title_ask_discard">下書きを破棄しますか？</string>
     <string name="title_ask_show_html">元のメッセージを表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
-    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">ダーク背景で元のメッセージを表示する事は出来ません。これは目で見にくい暗いテキストや画像が見えなくなる可能性がある為です</string>
     <string name="title_ask_show_html_images">元のメッセージを表示する時に常に画像を表示する</string>
     <string name="title_ask_show_image">画像表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
@@ -837,7 +801,6 @@
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">～経由で送信</string>
     <string name="title_send_at">&#8230; 日時指定送信</string>
-    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">暗号化</string>
     <string name="title_send_priority">優先度</string>
     <string name="title_no_server">\'%1$s\'にサーバが見つかりません</string>
@@ -893,7 +856,6 @@
     <string name="title_key_missing">%1$s のキーがありません</string>
     <string name="title_send_reminder_remark">リマインダーは送信設定で再び有効にできます</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">開封確認メッセージを要求する</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは開封確認メッセージの要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>

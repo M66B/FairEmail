@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail 搜尋</string>
     <string name="app_changelog">更新紀錄</string>
     <string name="app_welcome">FairEmail 是一款重視隱私及安全的郵件軟體。因此，在您使用時可能會覺得有些不同。</string>
-    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">預設頻道</string>
     <string name="app_exit">再次「返回」離開程式</string>
     <string name="app_cake">儲存空間不足</string>
@@ -106,20 +105,12 @@
     <string name="title_setup">設定</string>
     <string name="title_setup_help">幫助</string>
     <string name="title_setup_quick">快速設定</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">有些提供者讓新增一個帳號變得困難。請不要將此怪罪於 FairEmail 而是向你的提供商請求支援。</string>
     <string name="title_setup_quick_hint">快速設定將會透過 autoconfig.thunderbird.net 取得設定資訊</string>
     <string name="title_setup_quick_imap">IMAP 伺服器用於接收訊息</string>
     <string name="title_setup_quick_smtp">SMTP 伺服器用於傳送訊息</string>
     <string name="title_setup_wizard">精靈</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">我需要一個新的 email 地址。</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">此電子郵件提供者僅在官方應用程式版本中同意OAuth</string>
     <string name="title_setup_other">其他服務商</string>
     <string name="title_setup_pop3">POP3 帳號</string>
@@ -137,19 +128,16 @@
     <string name="title_setup_select_account">選擇帳號</string>
     <string name="title_setup_instructions">設定說明</string>
     <string name="title_setup_no_settings">無法從 \'%1$s\' 獲得設定</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">請再次確認您的郵件地址及密碼，以及有外部存取（IMAP/SMTP）的權限。</string>
     <string name="title_setup_app_password_hint">這個郵件服務商需要使用額外的應用程式密碼而不是帳號本身的密碼，請確認服務商提供的步驟</string>
     <string name="title_setup_no_inbox">收件箱未找到</string>
     <string name="title_setup_advanced_protection">當參與進階保護項目時，使用第三方email應用是不可能的。這是Google設置的一項限制。</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">獲取</string>
     <string name="title_setup_grant_again">取得必須的權限</string>
     <string name="title_setup_identity_what">什麼是身份？</string>
     <string name="title_setup_permissions">取得權限</string>
     <string name="title_setup_permissions_remark">取用聯絡人資訊（可選）</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">為了可靠地接收email</string>
     <string name="title_setup_doze_hint">雖然聽起來衝突，但關閉電池最佳化可以促成更少的電量消耗</string>
     <string name="title_setup_doze_instructions">下一個畫面中，選擇「所有應用程式」後尋找 FairMail，接著選擇「不要最佳化」</string>
@@ -157,7 +145,6 @@
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_data">已啟用節省流量</string>
     <string name="title_setup_advanced_options">顯示進階選項</string>
-    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">前往收件匣</string>
     <string name="title_setup_to_do">必須要完成</string>
     <string name="title_setup_done">完成</string>
@@ -202,10 +189,6 @@
     <string name="title_setup_defaults">回復為預設</string>
     <string name="title_setup_reset_questions">重置提示</string>
     <string name="title_advanced_hint_title">更多進階選項</string>
-    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
-        All options have commonly used standard values, which you do not need to change unless you have a different preference.
-    </string>
-    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">寄送</string>
     <string name="title_advanced_section_connection">連線</string>
@@ -215,7 +198,6 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">其他</string>
-    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">接收所有帳號訊息</string>
     <string name="title_advanced_when">何時</string>
     <string name="title_advanced_always">這些帳號隨時都接受訊息</string>
@@ -277,7 +259,6 @@
     <string name="title_advanced_landscape3">在螢幕橫向時預設顯示導航選單</string>
     <string name="title_advanced_startup">起使畫面</string>
     <string name="title_advanced_cards">使用卡片樣式而不是表格樣式</string>
-    <string name="title_advanced_cards_beige">Use beige background when using card style</string>
     <string name="title_advanced_date_header">以日期分組</string>
     <string name="title_advanced_threading">將會話串起</string>
     <string name="title_advanced_threading_unread">在會話中顯示未讀訊息的數量</string>
@@ -318,12 +299,10 @@
     <string name="title_advanced_overview_mode">縮放原始訊息以符合螢幕</string>
     <string name="title_advanced_contrast">訊息內容高對比</string>
     <string name="title_advanced_monospaced">訊息內容預設使用等寬字體</string>
-    <string name="title_advanced_monospaced_pre">Use monospaced font for preformatted text</string>
     <string name="title_advanced_text_color">使用文字顏色</string>
     <string name="title_advanced_text_size">使用文字大小</string>
     <string name="title_advanced_text_font">使用字體</string>
     <string name="title_advanced_text_align">設定字體對齊方式</string>
-    <string name="title_advanced_text_separators">Use separator lines</string>
     <string name="title_advanced_collapse_quotes">折疊引用的文字</string>
     <string name="title_advanced_image_placeholders">顯示圖片替代物</string>
     <string name="title_advanced_images_inline">自動顯示行內圖片</string>
@@ -397,7 +376,6 @@
     <string name="title_advanced_tracking">嘗試辨識和禁止追蹤器圖片</string>
     <string name="title_advanced_hide_timezone">傳送沒有時區資料的郵件</string>
     <string name="title_advanced_display_hidden">顯示隱藏的訊息內文</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">從最近的應用程式中移除並防止截圖</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物認證超時設定</string>
@@ -406,7 +384,6 @@
     <string name="title_advanced_sign_default">預設數位簽章</string>
     <string name="title_advanced_encrypt_default">預設加密</string>
     <string name="title_advanced_auto_decrypt">自動解密訊息</string>
-    <string name="title_advanced_auto_undo_decrypt">Undo decryption on closing conversation</string>
     <string name="title_advanced_openpgp">要使用的 OpenPGP 應用程式</string>
     <string name="title_advanced_autocrypt">使用 Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt 手動模式</string>
@@ -420,14 +397,9 @@
 金鑰和證書通常可以在 “進階-加密和憑證” 內找到。    </string>
     <string name="title_advanced_external_search">允許其他應用程式搜尋訊息</string>
     <string name="title_advanced_shortcuts">在 Adnroid 分享選單中顯示常用的聯絡人</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">建立搜尋索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 訊息被索引 (%3$s)</string>
     <string name="title_advanced_classification">分類訊息</string>
-    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
-    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">語言</string>
     <string name="title_advanced_language_system">系統</string>
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
@@ -440,7 +412,6 @@
     <string name="title_advanced_debug">除錯模式</string>
     <string name="title_advanced_cleanup_attachments">刪除舊訊息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">應用程式設定</string>
     <string name="title_advanced_more">更多選項</string>
     <string name="title_advanced_manual_hint">如果停用了接收郵件，仍然可以下拉郵件列表來手動接收郵件</string>
@@ -478,7 +449,6 @@
     <string name="title_advanced_preview_hint">僅在消息文本已被下載時可用</string>
     <string name="title_advanced_preview_issue">由於某些Android版本中的錯誤，當行數超過一時，滾動可能會變慢</string>
     <string name="title_advanced_overview_mode_hint">這可能會導致字體很小</string>
-    <string name="title_advanced_placeholders_hint">This applies to reformatted messages only</string>
     <string name="title_advanced_inline_hint">內聯圖像是消息中包含的圖像</string>
     <string name="title_advanced_parse_classes_hint">這將更準確地顯示消息，但可能會延遲</string>
     <string name="title_advanced_language_detection_hint">是否支援語言偵測隨裝置製造商決定</string>
@@ -495,7 +465,6 @@
     <string name="title_advanced_notify_remove_hint">輕掃掉並標記已讀郵件後，新郵件通知將始終被刪除</string>
     <string name="title_advanced_notify_manage_hint">點擊頻道名稱以設置頻道屬性</string>
     <string name="title_advanced_notify_manage_default_hint">設定預設音效等等</string>
-    <string name="title_advanced_notify_manage_service_hint">To disable the \'monitoring\' notification</string>
     <string name="title_advanced_notify_preview_all_hint">對於可顯示全文（最多5,000個字符）的可穿戴設備</string>
     <string name="title_advanced_notify_preview_only_hint">這會延遲通知的顯示，直到下載了消息文本為止</string>
     <string name="title_advanced_wearable_hint">通知僅在下載消息文本後發送到可穿戴設備</string>
@@ -587,7 +556,6 @@
     <string name="title_no_inbox">收件箱未找到</string>
     <string name="title_no_drafts">沒有草稿文件夾</string>
     <string name="title_no_junk_folder">沒有為此帳戶選擇垃圾郵件文件夾</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">該提供者使用專有的電子郵件協議，因此無法使用第三方電子郵件客戶端</string>
     <string name="title_no_idle">該提供商不支持推送消息。 這將延遲接收新消息並增加電池使用量。</string>
     <string name="title_no_utf8">該提供商不支援UTF-8</string>
@@ -615,8 +583,6 @@
     <string name="title_advanced_expand_read">將郵件標記為擴展閱讀</string>
     <string name="title_synchronize_now">馬上同步</string>
     <string name="title_synchronize_subfolders">子資料夾</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
-    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">開啟同步</string>
     <string name="title_synchronize_batch_disable">關閉同步</string>
@@ -667,8 +633,6 @@
     <string name="title_keep_days">保留消息（天）</string>
     <string name="title_keep_days_remark">舊郵件將從設備中刪除，但仍保留在服務器上</string>
     <string name="title_keep_all">保留所有消息</string>
-    <string name="title_poll_system">Set system folders to periodically check for new messages</string>
-    <string name="title_poll_user">Set user folders to periodically check for new messages</string>
     <string name="title_auto_trash">自動將舊郵件移至垃圾箱</string>
     <string name="title_auto_delete">自動永久刪除舊郵件</string>
     <string name="title_auto_delete_hint">舊郵件是不再保留在設備上的郵件</string>
@@ -716,7 +680,6 @@
     <string name="title_forward">前進</string>
     <string name="title_new_message">新訊息</string>
     <string name="title_editasnew">編輯為新</string>
-    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">建立規則 &#8230;</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日曆</string>
@@ -758,7 +721,6 @@
     <string name="title_reply_to_all">回復全部</string>
     <string name="title_reply_list">回覆清單</string>
     <string name="title_reply_receipt">發送已讀回執</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">回复模板</string>
     <string name="title_move_undo">移動到 %1$s (%2$d)</string>
     <string name="title_open_with">打開用</string>
@@ -794,7 +756,6 @@
     <string name="title_ask_delete_rule">永久刪除規則？</string>
     <string name="title_ask_discard">捨棄草稿？</string>
     <string name="title_ask_show_html">顯示原始消息可能會洩露隱私敏感信息</string>
-    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">無法在深色背景上顯示原始消息，因為這可能會使深色文本和圖像不可見</string>
     <string name="title_ask_show_html_images">在顯示原始消息時始終顯示圖像</string>
     <string name="title_ask_show_image">顯示圖像可能會洩露隱私敏感信息</string>
@@ -835,7 +796,6 @@
     <string name="title_send_now">立即發送</string>
     <string name="title_send_via">通過發送</string>
     <string name="title_send_at">發送於 &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">優先</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服務器</string>
@@ -891,7 +851,6 @@
     <string name="title_key_missing">沒有鑰匙給 %1$s</string>
     <string name="title_send_reminder_remark">可以在發送設置中再次啟用提醒</string>
     <string name="title_send_plain_text">僅純文本</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">索取收據</string>
     <string name="title_send_receipt_remark">大多數提供商和電子郵件客戶端都會忽略收據請求</string>
     <string name="title_from_missing">遺失寄件人</string>
@@ -1189,11 +1148,8 @@
     <string name="title_hint_message_selection">長按一條消息以開始選擇多條消息； 按住並向上或向下滑動以選擇更多消息</string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下載消息可能需要一些時間，具體取決於提供商的速度，互聯網連接，設備和消息的數量。 在下載消息時，該應用程序的響應速度可能會變慢。</string>
-    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
     <string name="title_hint_battery">由於預設情況下 FairEmail 始終會接收訊息，因此 Android 會將 FairEmail 一直視為活動中。看似 FairEmail 一直在消耗電量，但並非如此 。</string>
     <string name="title_hint_reformat">出於隱私和安全原因，FairEmail 預設將會重新格式化郵件。 要檢視原始訊息，請點擊郵件內文上方的 “全螢幕” 圖示。</string>
-    <string name="title_hint_design">The design is intentionally not distracting, but kept highly functional. There are many options to customize the appearance, but please understand that it is impossible to make everybody completely happy at the same time.</string>
-    <string name="title_hint_junk">Spam filtering should be done by the email server and cannot be done reliably on a battery powered device with limited capabilities.</string>
     <string name="title_hint_contact_actions">長按選項</string>
     <string name="title_hint_eml">這是原始消息文件內容的摘要。 使用操作欄中的保存圖標保存原始消息，以查看所有內容。</string>
     <string name="title_open_link">打開鏈接</string>

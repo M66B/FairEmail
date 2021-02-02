@@ -893,7 +893,7 @@
     <string name="title_key_missing">没有 %1$s 的密钥</string>
     <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">状态报告</string>
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
     <string name="title_from_missing">缺少发件人</string>

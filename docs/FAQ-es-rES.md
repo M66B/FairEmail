@@ -722,7 +722,7 @@ Desde la versión 1.1315 es posible utilizar expresiones de búsqueda como esta:
 manzana +banana -cereza ?nueces
 ```
 
-This will result in searching like this:
+Esto resultará en una búsqueda como esta:
 
 ```
 ("manzana" Y "banana" Y NO "cereza") O "nueces"

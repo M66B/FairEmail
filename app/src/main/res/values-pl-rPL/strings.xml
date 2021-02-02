@@ -926,7 +926,7 @@
     <string name="title_key_missing">Brak klucza dla %1$s</string>
     <string name="title_send_reminder_remark">Przypomnienia można włączyć ponownie w ustawieniach wysyłania</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Raport o stanie</string>
     <string name="title_send_receipt">Poproś o potwierdzenie</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
     <string name="title_from_missing">Brak nadawcy</string>

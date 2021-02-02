@@ -927,7 +927,7 @@
     <string name="title_key_missing">Нет ключа для %1$s</string>
     <string name="title_send_reminder_remark">Напоминания можно повторно включить в настройках отправки</string>
     <string name="title_send_plain_text">Только простой текст</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Отчёт о состоянии</string>
     <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>

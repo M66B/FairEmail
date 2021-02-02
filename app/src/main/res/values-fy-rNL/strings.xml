@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail sykje</string>
     <string name="app_changelog">Feroarjelog</string>
     <string name="app_welcome">FairEmail is in iepen boarne e-post app rjochte op privacy en feiligens. Om dizze reden kinne guon funksjes oars wurkje as jo wend binne.</string>
-    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FailEmail wurdt net stipe op dit apparaat om\'t bugs yn Android crashes feroarsaakje</string>
     <string name="app_exit">Gean \'werom\' opnij om út te gean</string>
     <string name="app_cake">Net genôch opslachromte oer</string>
@@ -77,8 +76,6 @@
     <string name="title_block_sender_hint">        In stjoerder blokkearje sil in regel meitsje om takomstige berjochten automatysk te ferpleatsen nei de spam-map.
         Regels meitsje en brûke is in pro-funksje.
     </string>
-    <string name="title_junk_filter">Use local spam filter</string>
-    <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
     <string name="title_notification_sending">Ferstjoere berjochten</string>
     <string name="title_notification_waiting">Wachtsje op geskikte ferbining</string>
     <string name="title_notification_idle">Ynaktyf</string>
@@ -117,23 +114,14 @@
     <string name="title_setup">Ynstellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Flugge opset</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Guon oanbieders meitsje it dreech om in akkount ta te foegjen. Doch asjebleaft FairEmail hjir gjin skuld foar, mar freegje ynstee om stipe.</string>
     <string name="title_setup_quick_hint">De rappe opset sil konfiguraasje-ynformaasje ophelje fan autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-tsjinner om berjochten te ûntfangen</string>
     <string name="title_setup_quick_smtp">SMTP-tsjinner om berjochten te ferstjoeren</string>
     <string name="title_setup_wizard">Tsjoender</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Ik haw in nij e-postadres nedich</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">De e-postprovider hat OAuth allinich goedkard foar offisjele appferzjes</string>
     <string name="title_setup_other">Oare oanbieder</string>
-    <string name="title_setup_pop3">POP3 account</string>
     <string name="title_setup_gmail_support">Autorisearjen fan Google-akkounts sil allinich yn offisjele ferzjes wurkje om\'t Android de app-hantekening kontroleart</string>
     <string name="title_setup_gmail_rationale">Jou asjebleaft tagongsrjochten om in akkount te selektearjen en jo namme te lêzen</string>
     <string name="title_setup_gmail_permissions">Google sil om tagongsrjochten freegje om al jo e-post te lêzen, te komponearjen, te ferstjoeren en te wiskjen. FairEmail sil jo berjochten nea wiskje sûnder jo eksplisite tastimming.</string>
@@ -148,19 +136,16 @@
     <string name="title_setup_select_account">Selektearje akkount</string>
     <string name="title_setup_instructions">Ynstel ynstruksjes</string>
     <string name="title_setup_no_settings">Gjin ynstellings fûn foar domein \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Kontrolearje asjebleaft jo e-postadres en wachtwurd en soargje derfoar dat eksterne tagong (IMAP / SMTP) is ynskeakele foar jo akkount</string>
     <string name="title_setup_app_password_hint">Dizze provider fereasket in appwachtwurd ynstee fan it akkountwachtwurd, kontrolearje asjebleaft de ynstruksjes fan jo provider</string>
     <string name="title_setup_no_inbox">Postfak net fûn</string>
     <string name="title_setup_advanced_protection">As jo ynskreaun binne yn it avansearre beskermingsprogramma is it net mooglik om in e-postapp fan tredden te brûken. Dit is in beheining oplein troch Google.</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Beheare</string>
     <string name="title_setup_grant">Subsydzje</string>
     <string name="title_setup_grant_again">Subsydzje fereaske tagongsrjochten</string>
     <string name="title_setup_identity_what">Wat is in identiteit?</string>
     <string name="title_setup_permissions">Subsydzje tagongsrjochten</string>
     <string name="title_setup_permissions_remark">Om tagong te krijen ta kontaktynformaasje (opsjoneel)</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Om e-post betrouber te ûntfangen</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil it útskeakeljen fan batterijoptimaasjes resultearje yn minder batterijgebrûk</string>
     <string name="title_setup_doze_instructions">Selektearje yn it folgjende dialooch \"Alle apps\" boppe, selektearje dizze app en selektearje en befestigje \"Net optimalisearje\"</string>
@@ -168,7 +153,6 @@
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
     <string name="title_setup_data">Data saver is ynskeakele</string>
     <string name="title_setup_advanced_options">Avansearre opsjes sjen litte</string>
-    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Gean</string>
     <string name="title_setup_to_do">Dwaan</string>
     <string name="title_setup_done">Dien</string>
@@ -213,10 +197,6 @@
     <string name="title_setup_defaults">Standert weromsette</string>
     <string name="title_setup_reset_questions">Fragen weromsette</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
-    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.
-        All options have commonly used standard values, which you do not need to change unless you have a different preference.
-    </string>
-    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Ûntfangen</string>
     <string name="title_advanced_section_send">Stjoere</string>
     <string name="title_advanced_section_connection">Ferbining</string>
@@ -226,7 +206,6 @@
     <string name="title_advanced_section_encryption">Fersifering</string>
     <string name="title_advanced_section_notifications">Notifikaasjes</string>
     <string name="title_advanced_section_misc">Ferskate</string>
-    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Berjochten ûntfange foar alle akkounts</string>
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_always">Untfang altyd berjochten foar dizze akkounts</string>
@@ -302,9 +281,6 @@
     <string name="title_advanced_generated_icons">Sjoch generearre ikoanen</string>
     <string name="title_advanced_identicons">Sjoch identykons</string>
     <string name="title_advanced_circular">Sjoch rûne ikoanen</string>
-    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
-    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
-    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">Sjoch nammen en e-postadressen</string>
     <string name="title_advanced_replace_name">Foarkar in kontaktnamme boppe in ferstjoerde namme</string>
     <string name="title_advanced_distinguish_contacts">Understreke de stjoerder as de stjoerder bekend is as lokaal \'nei\' kontakt</string>
@@ -344,7 +320,6 @@
     <string name="title_advanced_navbar_colorize">Kleurje de navigaasjebalke fan Android yn</string>
     <string name="title_advanced_parse_classes">Untwerp stylblêden</string>
     <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
-    <string name="title_advanced_sync_on_launch">Synchronize on start</string>
     <string name="title_advanced_double_back">Dûbel \'werom\' om út te gean</string>
     <string name="title_advanced_pull_refresh">Lûk del om te ferfarskjen</string>
     <string name="title_advanced_autoscroll">Rôlje nei boppe op ûntfangen fan nije berjochten</string>
@@ -408,7 +383,6 @@
     <string name="title_advanced_tracking">Besykjen om trackingôfbyldings te herkennen en te útskeakeljen</string>
     <string name="title_advanced_hide_timezone">Berjochten ferstjoere sûnder tiidsône-gegevens</string>
     <string name="title_advanced_display_hidden">Ferbergje berjochten teksten werjaan</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Ferbergje fan it skerm fan resinte apps en foarkomme dat jo screenshots nimme</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Time-out foar biometryske ferifikaasje</string>
@@ -432,14 +406,8 @@
     </string>
     <string name="title_advanced_external_search">Stean oare apps tastean om yn berjochten te sykjen</string>
     <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Sykje-yndeks bouwe</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berjochten yndekseare (%3$s)</string>
-    <string name="title_advanced_classification">Classify messages</string>
-    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
-    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Kontrolearje periodyk as FairEmail noch aktyf is</string>
@@ -452,7 +420,6 @@
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup_attachments">Bylagen fan âlde berjochten wiskje</string>
     <string name="title_advanced_cleanup">Skjinmeitsjen</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">App ynstellings</string>
     <string name="title_advanced_more">Mear opsjes</string>
     <string name="title_advanced_manual_hint">As it ûntfangen fan berjochten is útskeakele, is it noch altyd mooglik om berjochten mei de hân te ûntfangen troch de berjochtenlist nei ûnderen te lûken</string>
@@ -599,7 +566,6 @@
     <string name="title_no_inbox">Postfak net fûn</string>
     <string name="title_no_drafts">Gjin konsept-map</string>
     <string name="title_no_junk_folder">D\'r is gjin spam-map selektearre foar dit akkount</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Dizze provider brûkt in proprietêr e-postprotokol en dêrom is it net mooglik e-postkliïnten fan tredden te brûken</string>
     <string name="title_no_idle">Dizze provider stipet gjin pushberjochten. Dit sil de ûntfangst fan nije berjochten fertrage en it batterijgebrûk ferheegje.</string>
     <string name="title_no_utf8">Dizze provider stipet UTF-8 net</string>
@@ -627,8 +593,6 @@
     <string name="title_advanced_expand_read">Markearje berjochten lêzen as útwreidzjen</string>
     <string name="title_synchronize_now">Syngronisearje no</string>
     <string name="title_synchronize_subfolders">Submappen</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
-    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
     <string name="title_synchronize_batch_enable">Syngronisaasje ynskeakelje</string>
     <string name="title_synchronize_batch_disable">Syngronisaasje útsette</string>
@@ -672,8 +636,6 @@
     <string name="title_poll_folder">Kontrolearje periodyk ynstee fan trochgeande syngronisaasje</string>
     <string name="title_download_folder">Berjochtenteksten en bylagen automatysk downloade</string>
     <string name="title_notify_folder">Meld oer nije berjochten</string>
-    <string name="title_auto_classify_source">Classify new messages in this folder</string>
-    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Berjochten (dagen) syngronisearje</string>
     <string name="title_sync_days_remark">Dizze wearde ferheegje sil gebrûk meitsje fan batterij en gegevens</string>
     <string name="title_keep_days">Berjochten bewarje (dagen)</string>
@@ -705,7 +667,6 @@
     <string name="title_folder_user_only">Allinne brûker mappen</string>
     <string name="title_folder_primary">Mappen primêr akkount</string>
     <string name="title_folders_unified">Ferienige mappen ynbox</string>
-    <string name="title_folder_local_drafts">Local drafts</string>
     <string name="title_no_folders">Gjin mappen</string>
     <string name="title_no_messages">Gjin berjochten</string>
     <string name="title_filters_active">Ien of mear filters aktyf</string>
@@ -729,7 +690,6 @@
     <string name="title_forward">Foarút</string>
     <string name="title_new_message">Nij berjocht</string>
     <string name="title_editasnew">Bewurkje as nij</string>
-    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Regel meitsje &#8230;</string>
     <string name="title_share">Diele</string>
     <string name="title_event">Tafoegje oan aginda</string>
@@ -771,7 +731,6 @@
     <string name="title_reply_to_all">Antwurdzje allegear</string>
     <string name="title_reply_list">Antwurdzje op list</string>
     <string name="title_reply_receipt">Stjoer lêsbewiis</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Antwurdzje mei sjabloan</string>
     <string name="title_move_undo">Bewege nei %1$s (%2$d)</string>
     <string name="title_open_with">Iepenje mei</string>
@@ -807,7 +766,6 @@
     <string name="title_ask_delete_rule">Regel permanint wiskje?</string>
     <string name="title_ask_discard">Untwerp fuortjaan?</string>
     <string name="title_ask_show_html">It orizjinele berjocht sjen litte kin privacy gefoelige ynformaasje lekke</string>
-    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">It orizjinele berjocht werjaan op in donkere eftergrûn is net mooglik, om\'t tsjustere teksten en ôfbyldings ûnsichtber kinne wurde</string>
     <string name="title_ask_show_html_images">Toan altyd ôfbyldings by it werjaan fan orizjinele berjochten</string>
     <string name="title_ask_show_image">Ofbyldings sjen kinne privacy-sensitive ynformaasje lekke</string>
@@ -849,7 +807,6 @@
     <string name="title_send_now">Stjoer no</string>
     <string name="title_send_via">Stjoer fia</string>
     <string name="title_send_at">Stjoere by &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Fersifering</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Gjin server fûn op \'%1$s\'</string>
@@ -905,7 +862,6 @@
     <string name="title_key_missing">Gjin kaai foar %1$s</string>
     <string name="title_send_reminder_remark">Herinneringen kinne wer ynskeakele wurde yn \'e stjoereynstellings</string>
     <string name="title_send_plain_text">Platte tekst allinich</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Untfange oanfreegje</string>
     <string name="title_send_receipt_remark">De measte oanbieders en e-postkliïnten negearje ûntfangstoanfragen</string>
     <string name="title_from_missing">Ofstjoerder mist</string>
@@ -1136,7 +1092,6 @@
     <string name="title_legend_encrypted">Is fersifere</string>
     <string name="title_legend_auth">Ferifikaasje mislearre</string>
     <string name="title_legend_found">Is fûn</string>
-    <string name="title_legend_classified">Was automatically classified</string>
     <string name="title_legend_snoozed">Is snoozed</string>
     <string name="title_legend_browsed">Wurdt trochsocht of socht</string>
     <string name="title_legend_answered">Waard beantwurd</string>
@@ -1204,7 +1159,6 @@
     <string name="title_hint_message_selection">Druk lang op in berjocht om meardere berjochten te selektearjen; Hâld en swipe omheech of omleech om mear berjochten te selektearjen</string>
     <string name="title_hint_important">Belangryk</string>
     <string name="title_hint_sync">Berjochten downloade kin wat tiid duorje, ôfhinklik fan de snelheid fan de oanbieder, ynternetferbining, it apparaat en fan it oantal berjochten. By it downloaden fan berjochten kin de app stadiger reagearje.</string>
-    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
     <string name="title_hint_battery">Sûnt FairEmail standert altyd berjochten krijt, sil Android FairEmail rapportearje as altyd aktyf. Dêrom kin it derút sjen as FairEmail altyd batterijekrêft konsumeart hoewol dit eins net it gefal is.</string>
     <string name="title_hint_reformat">Standert herformateart FairEmail berjochten om privacy en feiligens redenen. Om it orizjinele berjocht te besjen, tikje jo op it ikoan \'folslein skerm\' boppe de tekst fan it berjocht.</string>
     <string name="title_hint_design">It ûntwerp is mei opsetsin net steurende, mar heul funksjoneel hâlden. D\'r binne in soad opsjes om it uterlik oan te passen, mar begryp asjebleaft dat it ûnmooglik is om elkenien tagelyk folslein lokkich te meitsjen.</string>

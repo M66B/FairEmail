@@ -43,18 +43,6 @@
         <item quantity="many">Моніторинг %1$d облікових записів</item>
         <item quantity="other">Моніторинг облікових записів %1$d</item>
     </plurals>
-    <plurals name="title_notification_operations">
-        <item quantity="one">%1$d операція очікується</item>
-        <item quantity="few">очікується операцій %1$d</item>
-        <item quantity="many">%1$d operations pending</item>
-        <item quantity="other">очікується %1$d операція</item>
-    </plurals>
-    <plurals name="title_notification_unseen">
-        <item quantity="one">%1$d нове повідомлення</item>
-        <item quantity="few">%1$d new messages</item>
-        <item quantity="many">%1$d нових повідомлень</item>
-        <item quantity="other">%1$d нове повідомлення</item>
-    </plurals>
     <plurals name="title_notification_unsent">
         <item quantity="one">%1$d повідомлення для надсилання</item>
         <item quantity="few">%1$d повідомлень для надсилання</item>
@@ -148,7 +136,7 @@
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
     <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
     <string name="title_setup_manual">Налаштування вручну та додаткові параметри</string>
-    <string name="title_setup_account_remark">Отримання електронної пошти</string>
+    <string name="title_setup_account_remark">Отримання email</string>
     <string name="title_setup_identity_remark">Надсилання email</string>
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір і свайп дії в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях ідентифікації</string>
     <string name="title_setup_accounts">Облікові записи</string>
@@ -474,7 +462,6 @@
     <string name="title_advanced_debug">Режим зневадження</string>
     <string name="title_advanced_cleanup_attachments">Видалити вкладення для старих повідомлень</string>
     <string name="title_advanced_cleanup">Очищення</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">Налаштування додатка</string>
     <string name="title_advanced_more">Інші параметри</string>
     <string name="title_advanced_manual_hint">Якщо отримання повідомлень вимкнено, то можливо отримувати повідомлення вручну, шляхом відтягуваня списку повідомлень донизу</string>
@@ -793,7 +780,7 @@
     <string name="title_reply_to_all">Відповісти всім</string>
     <string name="title_reply_list">Відповісти до списку</string>
     <string name="title_reply_receipt">Надіслати повідомлення про перегляд</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
+    <string name="title_reply_address_unknown">Повідомити \'адреса невідома\'</string>
     <string name="title_reply_template">Відповісти з шаблоном</string>
     <string name="title_move_undo">Переміщення до %1$s (%2$d)</string>
     <string name="title_open_with">Відкрити за допомогою</string>
@@ -927,7 +914,7 @@
     <string name="title_key_missing">Немає ключа для %1$s</string>
     <string name="title_send_reminder_remark">Нагадування можуть знову бути увімкнені в налаштуваннях для надсилання</string>
     <string name="title_send_plain_text">Тільки звичайний текст</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Звіти про стан</string>
     <string name="title_send_receipt">Запит підтвердження отримання</string>
     <string name="title_send_receipt_remark">Більшість постачальників та email клієнтів ігнорують запити на отримання</string>
     <string name="title_from_missing">Відсутній відправник</string>
@@ -1340,12 +1327,6 @@
     <string name="title_accessibility_expanded">Розгорнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>
     <string name="title_accessibility_unseen">Не прочитано</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d message</item>
-        <item quantity="few">%1$d messages</item>
-        <item quantity="many">%1$d messages</item>
-        <item quantity="other">%1$d повідомлення</item>
-    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важливо</string>
     <string name="title_keyword_label2">Службовий</string>

@@ -451,7 +451,6 @@
     <string name="title_advanced_debug">Λειτουργία αποσφαλμάτωσης</string>
     <string name="title_advanced_cleanup_attachments">Διαγραφή συνημμένων από παλιά μηνύματα</string>
     <string name="title_advanced_cleanup">Καθαρισμός</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">Ρυθμίσεις εφαρμογής</string>
     <string name="title_advanced_more">Περισσότερες επιλογές</string>
     <string name="title_advanced_manual_hint">Αν η λήψη μηνυμάτων είναι απενεργοποιημένη, μπορεί ακόμη να γίνει χειροκίνητη λήψη, σύροντας προς τα κάτω τη λίστα μηνυμάτων</string>
@@ -770,7 +769,6 @@
     <string name="title_reply_to_all">Απάντηση σε όλους</string>
     <string name="title_reply_list">Απάντηση σε λίστα</string>
     <string name="title_reply_receipt">Αποστολή αποδεικτικού ανάγνωσης</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Απάντηση με ένα πρότυπο</string>
     <string name="title_move_undo">Μετακίνηση προς %1$s (%2$d)</string>
     <string name="title_open_with">Άνοιγμα με</string>
@@ -904,7 +902,7 @@
     <string name="title_key_missing">Κανένα κλειδί για %1$s</string>
     <string name="title_send_reminder_remark">Οι ειδοποιήσεις μπορούν πάλι να ενεργοποιηθούν από τις ρυθμίσεις αποστολής</string>
     <string name="title_send_plain_text">Απλό κείμενο μόνο</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Αναφορά κατάστασης</string>
     <string name="title_send_receipt">Αίτημα για αποδεικτικό</string>
     <string name="title_send_receipt_remark">Οι περισσότεροι πάροχοι και πελάτες ταχυδρομείου αγνοούν τα αιτήματα αποδεικτικού</string>
     <string name="title_from_missing">Λείπει αποστολέας</string>

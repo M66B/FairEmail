@@ -771,7 +771,7 @@
     <string name="title_reply_to_all">Répondre à tous</string>
     <string name="title_reply_list">Répondre à la liste</string>
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
+    <string name="title_reply_address_unknown">Signaler « adresse inconnue »</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec</string>
@@ -905,7 +905,7 @@
     <string name="title_key_missing">Aucune clé pour %1$s</string>
     <string name="title_send_reminder_remark">Les rappels peuvent être activés à nouveau dans les paramètres d\'envoi</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Rapport d\'état</string>
     <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>

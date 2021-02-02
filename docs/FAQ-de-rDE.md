@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, lesen Sie bitte zuerst die unten stehenden häufig ge
 
 In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern, ob SSL/TLS oder STARTTLS verwendet werden soll und Ihren Benutzernamen (meistens, aber nicht immer, Ihre E-Mail-Adresse) und Ihr Passwort.
+Wenn der Schnelleinrichtungs-Assistent fehlschlägt, müssen Sie manuell ein Konto (für den Empfang von E-Mails) und eine Identität (für den Versand von E-Mails) einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern, ob SSL/TLS oder STARTTLS verwendet werden soll und Ihren Benutzernamen (meistens, aber nicht immer, Ihre E-Mail-Adresse) und Ihr Passwort.
 
 Die Suche nach *IMAP* und dem Namen des Email-Anbieters reichen im Internet meist aus, um die richtige Anleitung zu finden.
 

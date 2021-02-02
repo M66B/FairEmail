@@ -419,7 +419,6 @@
     <string name="title_advanced_notify_remove">Odebrat oznámení o nové zprávě při stisku oznámení</string>
     <string name="title_advanced_notify_clear">Odebrat oznámení nové zprávy při zobrazení seznamu zpráv</string>
     <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
-    <string name="title_advanced_notify_messaging">Use Android \'messaging style\' notification format</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při použití biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
@@ -439,7 +438,6 @@
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
-    <string name="title_advanced_auto_undo_decrypt">Undo decryption on closing conversation</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_autocrypt">Použít Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Vzájemný režim Autocrypt</string>
@@ -459,9 +457,6 @@
     <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
-    <string name="title_advanced_classification">Classify messages</string>
-    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
-    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
@@ -694,8 +689,6 @@
     <string name="title_poll_folder">Kontrolovat pravidelně namísto průběžné synchronizace</string>
     <string name="title_download_folder">Automaticky stahovat obsah a přílohy zpráv</string>
     <string name="title_notify_folder">Oznamovat nové zprávy</string>
-    <string name="title_auto_classify_source">Classify new messages in this folder</string>
-    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Synchronizovat zprávy (dny)</string>
     <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
@@ -793,7 +786,6 @@
     <string name="title_reply_to_all">Odpovědět všem</string>
     <string name="title_reply_list">Odpovědět seznamu</string>
     <string name="title_reply_receipt">Odeslat potvrzení o přečtení</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Odpovědět šablonou</string>
     <string name="title_move_undo">Přesouvání do %1$s (%2$d)</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
@@ -927,7 +919,6 @@
     <string name="title_key_missing">Není klíč pro %1$s</string>
     <string name="title_send_reminder_remark">Připomenutí lze znovu zapnout v nastavení odesílání</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_from_missing">Chybí odesílatel</string>
@@ -1158,7 +1149,6 @@
     <string name="title_legend_encrypted">Je šifrováno</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
     <string name="title_legend_found">Byl nalezen</string>
-    <string name="title_legend_classified">Was automatically classified</string>
     <string name="title_legend_snoozed">Je odloženo</string>
     <string name="title_legend_browsed">Je prohlédnuto/vyhledáno</string>
     <string name="title_legend_answered">Bylo odpovězeno</string>

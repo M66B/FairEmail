@@ -771,7 +771,6 @@
     <string name="title_reply_to_all">Besvar alle</string>
     <string name="title_reply_list">Besvar liste</string>
     <string name="title_reply_receipt">Send læst-kvittering</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Besvar med skabelon</string>
     <string name="title_move_undo">Flytter til %1$s (%2$d)</string>
     <string name="title_open_with">Åbn med</string>
@@ -849,7 +848,6 @@
     <string name="title_send_now">Send nu</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server fundet på \'%1$s\'</string>
@@ -905,7 +903,7 @@
     <string name="title_key_missing">Ingen tast til %1$s</string>
     <string name="title_send_reminder_remark">Påmindelser kan geaktiveres under Send-indstillinger</string>
     <string name="title_send_plain_text">Kun klartekst</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
+    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Statusrapport</string>
     <string name="title_send_receipt">Bed om kvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
     <string name="title_from_missing">Afsender mangler</string>

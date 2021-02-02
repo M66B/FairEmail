@@ -3,7 +3,6 @@
     <string name="app_search">Busca do FairEmail</string>
     <string name="app_changelog">Registo de alterações</string>
     <string name="app_welcome">O FairEmail é uma aplicação de email de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que estás acostumado.</string>
-    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque erros no Android causam falhas</string>
     <string name="app_exit"> Clique novamente em \'voltar\' para sair</string>
     <string name="app_cake">Espaço insuficiente</string>
@@ -226,7 +225,6 @@
     <string name="title_advanced_section_encryption">Encriptação</string>
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
-    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Receber mensagens de todas as contas</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_always">Receber sempre mensagens para estas contas</string>
@@ -245,24 +243,18 @@
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente ao sincronizar mensagens</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automaticamente o intervalo de manutenção de connexão</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
-    <string name="title_advanced_keyboard_no_fullscreen">Prevent fullscreen keyboard</string>
     <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
-    <string name="title_advanced_compose_font">Default font</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
-    <string name="title_advanced_separate_reply">Insert a horizontal line before a reply/forward header</string>
     <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento extendido</string>
-    <string name="title_advanced_write_below">Write below the sender\'s text</string>
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
-    <string name="title_advanced_limit_reply">Limit the number of nested quotes</string>
     <string name="title_advanced_resize_reply">Redimensionar imagens no texto da resposta</string>
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
-    <string name="title_advanced_flow">\'format flowed\' for plain text</string>
     <string name="title_advanced_receipt">Quando solicitado recibo</string>
     <string name="title_advanced_usenet_signature">Seguir a convenção de assinatura Usenet</string>
     <string name="title_advanced_remove_signatures">Remover assinaturas reconhecidas</string>
@@ -274,7 +266,6 @@
     <string name="title_advanced_roaming">Descarregar mensagens e anexos em roaming</string>
     <string name="title_advanced_rlah">Faça roaming como no país de origem</string>
     <string name="title_advanced_timeout">Conexão expira em (segundos)</string>
-    <string name="title_advanced_prefer_ip4">Prefer IPv4 over IPv6</string>
     <string name="title_advanced_ssl_harden">Fortificar conexões SSL</string>
     <string name="title_advanced_manage_connectivity">Gerir conectividade</string>
     <string name="title_advanced_caption_general">Geral</string>
@@ -283,12 +274,10 @@
     <string name="title_advanced_caption_message">Mensagem</string>
     <string name="title_advanced_caption_message_header">Cabeçalho da mensagem</string>
     <string name="title_advanced_caption_message_body">Corpo da mensagem</string>
-    <string name="title_advanced_portrait2">Use two rows in portrait mode</string>
     <string name="title_advanced_landscape">Usar duas colunas no modo paisagem</string>
     <string name="title_advanced_landscape3">Mostrar menu de navegação no modo paisagem por omissão</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
-    <string name="title_advanced_cards_beige">Use beige background when using card style</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensagens não lidas nas conversas</string>
@@ -302,21 +291,14 @@
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar Identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
-    <string name="title_advanced_color_saturation">Saturation: %1$s %%</string>
-    <string name="title_advanced_color_value">Brightness: %1$s %%</string>
-    <string name="title_advanced_color_threshold">Threshold letter color: %1$s %%</string>
     <string name="title_advanced_name_email">Mostrar nomes e endereços de e-mail</string>
     <string name="title_advanced_replace_name">Preferir um nome de contato sobre um nome enviado</string>
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_show_recipients">Mostrar destinatários no cabeçalho da mensagem</string>
-    <string name="title_advanced_font_size_sender">Text size sender</string>
-    <string name="title_advanced_font_size_subject">Text size subject</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_subject_elipsed">Quando necessário, encurte o assunto</string>
-    <string name="title_advanced_highlight_color">Highlight color</string>
     <string name="title_advanced_keywords">Mostrar palavras-chave no cabeçalho da mensagem</string>
-    <string name="title_advanced_labels">Show Gmail labels in message header</string>
     <string name="title_advanced_flags">Mostrar estrelas</string>
     <string name="title_advanced_flags_background">Mostrar fundo colorido em vez de estrelas coloridas</string>
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
@@ -324,19 +306,8 @@
     <string name="title_advanced_preview_lines">Número de linhas de pré-visualização</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
-    <string name="title_advanced_thumbnails">Show image thumbnails after the message text</string>
-    <string name="title_advanced_message_text_zoom">Default message text zoom</string>
-    <string name="title_advanced_overview_mode">Zoom original messages to fit the screen</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
-    <string name="title_advanced_monospaced">Use monospaced font for message text by default</string>
-    <string name="title_advanced_monospaced_pre">Use monospaced font for preformatted text</string>
-    <string name="title_advanced_text_color">Use text colors</string>
-    <string name="title_advanced_text_size">Use text sizes</string>
-    <string name="title_advanced_text_font">Use fonts</string>
-    <string name="title_advanced_text_align">Use text alignment</string>
-    <string name="title_advanced_text_separators">Use separator lines</string>
     <string name="title_advanced_collapse_quotes">Encolher texto cidado</string>
-    <string name="title_advanced_image_placeholders">Show image placeholders</string>
     <string name="title_advanced_images_inline">Mostrar automaticamente imagens embutidas</string>
     <string name="title_advanced_seekbar">Exibir posição relativa de conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>
@@ -344,7 +315,6 @@
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recepção não puder autenticar a mensagem</string>
-    <string name="title_advanced_sync_on_launch">Synchronize on start</string>
     <string name="title_advanced_double_back">Duplo \'voltar\' para sair</string>
     <string name="title_advanced_pull_refresh">Arrastar para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Voltar ao topo quando recebe novas mensagens</string>
@@ -352,15 +322,12 @@
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
     <string name="title_advanced_volumenav">Volume para cima/baixo para ir para próxima/anterior conversa</string>
     <string name="title_advanced_reversed">Inverter direção de navegação</string>
-    <string name="title_advanced_swipe_close">Swipe down to close conversation</string>
-    <string name="title_advanced_swipe_move">Swipe up to move conversation</string>
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensagens lidas</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem de cada vez</string>
     <string name="title_advanced_collapse_multiple">Esconder mensagens numa conversa com múltiplas mensagens ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
-    <string name="title_advanced_undo">Undo timeout</string>
     <string name="title_advanced_quick_filter">Mostrar ícones de filtro rápido não-intrusivos</string>
     <string name="title_advanced_quick_scroll">Mostrar ícones não-intrusivos de navegação rápida</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao mover mensagens</string>
@@ -372,18 +339,14 @@
     <string name="title_advanced_default_snooze">Tempo para adiamento predefinido</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
-    <string name="title_advanced_notifications_service">Receive channel</string>
-    <string name="title_advanced_notifications_newest_first">Show newest notifications first</string>
     <string name="title_advanced_notifications_background">Use o serviço em segundo plano para sincronizar mensagens</string>
     <string name="title_advanced_notifications_background_hint">Um serviço em segundo plano pode ser interrompido pelo Android a qualquer momento, mas não requer uma notificação na barra de status</string>
     <string name="title_advanced_badge">Mostrar ícone do launcher com o número de mensagens novas</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
-    <string name="title_advanced_notify_background">Show notifications when in the background only</string>
     <string name="title_advanced_notify_known">Mostrar notificações apenas para contatos</string>
     <string name="title_advanced_notify_summary">Mostrar apenas resumo na notificação</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_preview_all">Pré-visualizar todo o texto</string>
-    <string name="title_advanced_notify_preview_only">Show notifications with a preview text only</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixo</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
@@ -397,7 +360,6 @@
     <string name="title_advanced_notify_remove">Remover nova notificação de mensagem ao tocar na notificação</string>
     <string name="title_advanced_notify_clear">Remover novas notificações de mensagens ao ver lista de mensagens</string>
     <string name="title_advanced_wearable_preview">Enviar notificações apenas com uma visualização de mensagem para wearables</string>
-    <string name="title_advanced_notify_messaging">Use Android \'messaging style\' notification format</string>
     <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
@@ -405,41 +367,26 @@
     <string name="title_advanced_browse_links">Delegar abertura de links para o Android</string>
     <string name="title_advanced_confirm_images">Confirmar a exibição de imagens</string>
     <string name="title_advanced_confirm_html">Mostrar mensagens reformatadas por padrão</string>
-    <string name="title_advanced_tracking">Attempt to recognize and disable tracking images</string>
     <string name="title_advanced_hide_timezone">Enviar mensagens sem dados de fuso horário</string>
     <string name="title_advanced_display_hidden">Mostrar texto oculto de mensagens</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Esconder do ecrã de aplicações recentes e impedir captura de ecrã</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo limite para autenticação biométrica</string>
-    <string name="title_advanced_disconnect_links">Use lists to warn about tracking links</string>
-    <string name="title_advanced_disconnect_images">Use lists to recognize tracking images</string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
-    <string name="title_advanced_auto_undo_decrypt">Undo decryption on closing conversation</string>
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
     <string name="title_advanced_autocrypt">Usar Autocript</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt modo mútuo</string>
-    <string name="title_advanced_encrypt_subject">Encrypt subject</string>
     <string name="title_advanced_check_certificate">Verificar a chave pública ao enviar</string>
     <string name="title_advanced_manage_certificates">Gerir chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Gerir chaves privadas</string>
     <string name="title_advanced_ca">Certificados CA instalados</string>
-    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.
-        Keys and certificates can generally be found under Advanced - Encryption and credentials.
-    </string>
     <string name="title_advanced_external_search">Permitir procura de mensagens por outras aplicações</string>
     <string name="title_advanced_shortcuts">Mostrar contatos usados com frequência no menu de partilha do Android</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
-    <string name="title_advanced_classification">Classify messages</string>
-    <string name="title_advanced_class_min_chance">Minimum class probability: %1$s %%</string>
-    <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
@@ -448,1030 +395,24 @@
     <string name="title_advanced_experiments">Ativar funcionalidades experimentais</string>
     <string name="title_advanced_query_threads">Limitar acesso paralelo à base de dados</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
-    <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_debug">Modo de Depuração</string>
     <string name="title_advanced_cleanup_attachments">Apagar anexos de mensagens antigas</string>
     <string name="title_advanced_cleanup">Limpeza</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
     <string name="title_advanced_app">Definições da aplicação</string>
     <string name="title_advanced_more">Mais opções</string>
-    <string name="title_advanced_manual_hint">If receiving messages is disabled, it is still possible to manually receive messages by pulling down the message list</string>
-    <string name="title_advanced_poll_hint">Periodically checking for new messages will compare local and remote messages every time, which is an expensive operation that may result in extra battery usage, especially if there are a lot of messages. Always receive will prevent this by continuously following changes.</string>
-    <string name="title_advanced_optimize_hint">This might change the sync frequency to save battery usage depending on the capabilities and behavior of the email servers</string>
     <string name="title_advanced_schedule_hint">Toque num horário para o definir</string>
     <string name="title_advanced_no_date_hint">Alguns provedores armazenam mensagens com data desconhecida, inválida ou futura como mensagens sem data</string>
     <string name="title_advanced_unseen_hint">Alguns provedores não têm o suporte correto, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
-    <string name="title_advanced_deleted_unseen">When disabled, unread messages are kept on the device forever</string>
-    <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
-    <string name="title_advanced_gmail_thread_hint">This only applies to newly received messages and can break existing groups</string>
-    <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
-    <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
-    <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
-    <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
-    <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
-    <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
-    <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
-    <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
-    <string name="title_advanced_rlah_hint">Assuming no roaming within the EU</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Enabling this can cause connection problems on some devices</string>
-    <string name="title_advanced_timeout_hint">The read/write timeout will be set to the double of the connection timeout. Higher values will result in more battery use.</string>
-    <string name="title_advanced_ssl_harden_hint">Enabling this will disable weak SSL protocols and ciphers, which can lead to connection problems</string>
-    <string name="title_advanced_roaming_hint">Messages headers will always be fetched when roaming. You can use the device\'s roaming setting to disable internet while roaming.</string>
-    <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
-    <string name="title_advanced_layout_hint">Switching to a more compact layout and changing the message text size can be done in the top action bar menu in the message view</string>
-    <string name="title_advanced_startup_hint">Long press any folder in the folder list to add or remove it from the list of unified folders</string>
-    <string name="title_advanced_beige_hint">Light themes only</string>
-    <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
-    <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
-    <string name="title_advanced_threading_hint">Group messages related to each other</string>
-    <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
-    <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
-    <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
-    <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
-    <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
-    <string name="title_advanced_overview_mode_hint">This can result in very small fonts</string>
-    <string name="title_advanced_placeholders_hint">This applies to reformatted messages only</string>
-    <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
-    <string name="title_advanced_parse_classes_hint">This will more accurately display messages, but possibly with a delay</string>
-    <string name="title_advanced_language_detection_hint">Language detection support depends on the device manufacturer</string>
-    <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
-    <string name="title_advanced_autoseen_hint">Automatically marking messages read on expanding can be disabled in the individual account settings</string>
-    <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
-    <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
-    <string name="title_advanced_bcc_hint">The address won\'t be shown, but will be added on sending</string>
-    <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
-    <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
-    <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
-    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
-    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
-    <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
-    <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
-    <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc</string>
-    <string name="title_advanced_notify_manage_service_hint">To disable the \'monitoring\' notification</string>
-    <string name="title_advanced_notify_preview_all_hint">For wearables that can show the full text (up to 5,000 characters)</string>
-    <string name="title_advanced_notify_preview_only_hint">This delays showing of notifications until the message text has been downloaded</string>
-    <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
-    <string name="title_advanced_messaging_hint">This is required for Android Auto support</string>
-    <string name="title_advanced_move_hint">The target folder can be configured in the account settings</string>
-    <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
-    <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
-    <string name="title_advanced_queries_hint">Enabling this will decrease performance, however, enabling is required on some devices</string>
-    <string name="title_advanced_fts_hint">Enabling this improves search performance, but also increases battery and storage space usage</string>
-    <string name="title_advanced_english_hint">This will restart the app</string>
-    <string name="title_advanced_experiments_hint">List of current experimental features</string>
-    <string name="title_advanced_protocol_hint">This will significantly increase battery and storage space usage!</string>
-    <string name="title_advanced_debug_hint">Enable extra logging and show ugly debug information at various places</string>
-    <string name="title_advanced_cleanup_attachments_hint">When manually cleaning, this will remove attachments from messages that are no longer synchronized</string>
-    <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
-    <string name="title_advanced_edit_name">Edit name</string>
-    <string name="title_advanced_swipe_actions">Set swipe actions</string>
-    <string name="title_advanced_swipe_actions_hint">This will set the swipe left and right action for all IMAP accounts</string>
-    <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
-    <string name="title_identity_color_hint">Identity colors take precedence over folder and account colors</string>
-    <string name="title_advanced_sender">Allow editing sender address</string>
-    <string name="title_advanced_sender_regex">Regex to match username of incoming email addresses</string>
-    <string name="title_identity_reply_to">Reply to address</string>
-    <string name="title_identity_unicode">Use Unicode transport</string>
-    <string name="title_identity_unicode_remark">Most servers do not support this</string>
-    <string name="title_identity_max_size">Maximum message size (MB)</string>
-    <string name="title_identity_receipt">Request delivery/read receipt by default</string>
-    <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>
-    <string name="title_optional">Optional</string>
-    <string name="title_recommended">Recommended</string>
-    <string name="title_account_linked">Linked account</string>
-    <string name="title_account_name">Account name</string>
-    <string name="title_account_name_hint">Used to differentiate folders</string>
-    <string name="title_account_interval_hint">Frequency of refreshing the connection for push messages or frequency of checking for new messages</string>
-    <string name="title_account_partial_fetch_hint">Disable this only in case of empty messages or corrupt attachments</string>
-    <string name="title_color">Color</string>
-    <string name="title_account_ondemand">Synchronize manually</string>
-    <string name="title_account_notify">Separate notifications</string>
-    <string name="title_account_left">Swipe left</string>
-    <string name="title_account_right">Swipe right</string>
-    <string name="title_account_move">Default move to</string>
-    <string name="title_account_gmail">For reliable synchronisation of a Gmail account, the Gmail quick setup wizard should be used whenever possible</string>
-    <string name="title_domain">Domain name</string>
-    <string name="title_autoconfig">Get settings</string>
-    <string name="title_aliases">Aliases</string>
-    <string name="title_provider">Provider</string>
-    <string name="title_custom">Custom</string>
-    <string name="title_host">Host name</string>
-    <string name="title_encryption">Encryption</string>
-    <string name="title_encryption_none">None</string>
-    <string name="title_allow_insecure">Allow insecure connections</string>
-    <string name="title_insecure_remark">Insecure connections should only be allowed on trusted networks and never on public networks</string>
-    <string name="title_port">Port number</string>
-    <string name="title_user">User name</string>
-    <string name="title_password">Password</string>
-    <string name="title_case_sensitive">Usernames and passwords are usually case sensitive</string>
-    <string name="title_client_certificate">Client certificate</string>
-    <string name="title_realm">Realm</string>
-    <string name="title_use_ip">Use local IP address instead of host name</string>
-    <string name="title_ehlo">Custom HELO/EHLO identification</string>
-    <string name="title_primary">Primary</string>
-    <string name="title_primary_account">Primary (default account)</string>
-    <string name="title_primary_identity">Primary (default identity)</string>
-    <string name="title_self_identity">Remove email address when replying</string>
-    <string name="title_leave_on_server">Leave messages on server</string>
-    <string name="title_leave_deleted">Leave deleted messages on server</string>
-    <string name="title_leave_on_device">Leave messages on device</string>
-    <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>
-    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
-    <string name="title_server_time">Use received time (server)</string>
-    <string name="title_received_header">Use \'Received\' header</string>
-    <string name="title_date_header">Use \'Date\' header (sent time)</string>
-    <string name="title_date_remark">Changes will be applied to new messages only</string>
-    <string name="title_related_identity">Add related identity</string>
-    <string name="title_check">Check</string>
-    <string name="title_trust">Trust server certificate with fingerprint %1$s</string>
-    <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
-    <string name="title_address_duplicate">Address \'%1$s\' duplicate</string>
-    <string name="title_address_parse_error">Address \'%1$s\' invalid: %2$s</string>
-    <string name="title_no_account">Account missing</string>
-    <string name="title_no_host">Host name missing</string>
-    <string name="title_no_user">User name missing</string>
-    <string name="title_no_password">Password missing</string>
-    <string name="title_no_inbox">Inbox not found</string>
-    <string name="title_no_drafts">No drafts folder</string>
-    <string name="title_no_junk_folder">There is no spam folder selected for this account</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
-    <string name="title_no_standard">This provider uses a proprietary email protocol and therefore it is not possible to use third party email clients</string>
-    <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
-    <string name="title_no_utf8">This provider does not support UTF-8</string>
-    <string name="title_no_sync">Synchronization errors since %1$s</string>
-    <string name="title_reply_domain">The sender (%1$s) and reply domain (%2$s) differ</string>
-    <string name="title_identity_required">An identity is required to send emails</string>
-    <string name="title_drafts_required">A drafts folder is required to send emails</string>
-    <string name="title_drafts_select">Sending emails requires a drafts folder to be selected in the account settings</string>
-    <string name="title_account_delete">Delete this account permanently?</string>
-    <string name="title_identity_delete">Delete this identity permanently?</string>
-    <string name="title_edit_html">Edit as HTML</string>
-    <string name="title_sign_key">Sign key: %1$s</string>
-    <string name="title_last_connected">Last connected: %1$s</string>
-    <string name="title_backoff_until">Waiting after failure until: %1$s</string>
-    <string name="title_storage_quota">Server storage usage: %1$s/%2$s</string>
-    <string name="title_pop_support">The POP3 protocol supports downloading and deleting messages from the inbox only. POP3 cannot mark messages as read, move messages, etc. POP3 will use more battery power and data than IMAP. So, consider using the IMAP protocol whenever possible.</string>
-    <string name="title_oauth_support">OAuth is not supported</string>
-    <string name="title_review">Review</string>
-    <string name="title_hint_alias">Long press an identity to display options, like copy to create alias identities</string>
-    <string name="title_service_auth">The email server said: \'%1$s\'</string>
-    <string name="title_service_vpn">This might be caused by the VPN that is being used</string>
-    <string name="title_service_port">Please double check the port number</string>
-    <string name="title_service_protocol">Please double check the protocol (SSL/TLS or STARTTLS)</string>
-    <string name="title_advanced_browse">Browse messages on the server</string>
-    <string name="title_advanced_expand_read">Mark messages read on expanding</string>
-    <string name="title_synchronize_now">Synchronize now</string>
-    <string name="title_synchronize_subfolders">Subfolders</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
-    <string name="title_synchronize_more_hint">This will result in a single download of older messages, so it will not result in more battery usage for everyday use</string>
-    <string name="title_synchronize_enabled">Synchronize</string>
-    <string name="title_synchronize_batch_enable">Enable synchronization</string>
-    <string name="title_synchronize_batch_disable">Disable synchronization</string>
-    <string name="title_delete_local">Delete local messages</string>
-    <string name="title_delete_browsed">Delete browsed/searched messages</string>
-    <string name="title_empty_trash">Empty trash</string>
-    <string name="title_empty_spam">Empty spam</string>
-    <string name="title_edit_properties">Edit properties</string>
-    <string name="title_edit_rules">Edit rules</string>
-    <string name="title_create_channel">Create notification channel</string>
-    <string name="title_edit_channel">Edit notification channel</string>
-    <string name="title_delete_channel">Delete notification channel</string>
-    <string name="title_insert_contact">Add contact</string>
-    <string name="title_edit_contact">Edit contact</string>
-    <string name="title_create_sub_folder">Create sub folder</string>
-    <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
-    <string name="title_empty_spam_ask">Delete all spam messages permanently?</string>
-    <string name="title_empty_trash_all_ask">Delete all trashed messages of all accounts permanently?</string>
-    <string name="title_empty_spam_all_ask">Delete all spam messages of all accounts permanently?</string>
-    <string name="title_empty_all">This will delete all messages both from the device and the server</string>
-    <string name="title_delete_operation_title">Delete operations</string>
-    <string name="title_delete_operation_error">With an error message</string>
-    <string name="title_delete_operation_fetch">Fetch operations</string>
-    <string name="title_delete_operation_move">Move operations</string>
-    <string name="title_delete_operation_flag">Flag operations</string>
-    <string name="title_delete_operation_delete">Delete operations</string>
-    <string name="title_delete_operation_deleted">%1$d operations deleted</string>
-    <string name="title_delete_contacts">Delete all local contacts?</string>
-    <string name="title_no_operations">No pending operations</string>
-    <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronization problems</string>
-    <string name="title_folder_name">Folder name</string>
-    <string name="title_display_name">Display name</string>
-    <string name="title_show_folders">Show hidden folders</string>
-    <string name="title_show_flagged">Show starred message count</string>
-    <string name="title_subscribed_only">Subscribed only</string>
-    <string name="title_apply_to_all">Apply to all &#8230;</string>
-    <string name="title_hide_folder">Hide folder</string>
-    <string name="title_unified_folder">Show in unified inbox</string>
-    <string name="title_navigation_folder">Show in navigation menu</string>
-    <string name="title_synchronize_folder">Synchronize (receive messages)</string>
-    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
-    <string name="title_download_folder">Automatically download message texts and attachments</string>
-    <string name="title_notify_folder">Notify on new messages</string>
-    <string name="title_auto_classify_source">Classify new messages in this folder</string>
-    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
-    <string name="title_sync_days">Synchronize messages (days)</string>
-    <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
-    <string name="title_keep_days">Keep messages (days)</string>
-    <string name="title_keep_days_remark">Old messages will be removed from the device, but will remain on the server</string>
-    <string name="title_keep_all">Keep all messages</string>
-    <string name="title_poll_system">Set system folders to periodically check for new messages</string>
-    <string name="title_poll_user">Set user folders to periodically check for new messages</string>
-    <string name="title_auto_trash">Automatically move old messages to trash</string>
-    <string name="title_auto_delete">Automatically permanently delete old messages</string>
-    <string name="title_auto_delete_hint">Old messages are messages that are no longer kept on the device</string>
-    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.
-        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
-    </string>
-    <string name="title_folder_name_missing">Folder name missing</string>
-    <string name="title_folder_exists">Folder %1$s exists</string>
-    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
-    <string name="title_months">Months</string>
-    <string name="title_months_all">All</string>
-    <string name="title_folder_unified">Unified inbox</string>
-    <string name="title_folder_inbox">Inbox</string>
-    <string name="title_folder_outbox">Outbox</string>
-    <string name="title_folder_all">Archive</string>
-    <string name="title_folder_drafts">Drafts</string>
-    <string name="title_folder_trash">Trash</string>
-    <string name="title_folder_junk">Spam</string>
-    <string name="title_folder_sent">Sent</string>
-    <string name="title_folder_system">System</string>
-    <string name="title_folder_user">User</string>
-    <string name="title_folder_user_only">User folders only</string>
-    <string name="title_folder_primary">Folders primary account</string>
-    <string name="title_folders_unified">Unified inbox folders</string>
-    <string name="title_folder_local_drafts">Local drafts</string>
-    <string name="title_no_folders">No folders</string>
-    <string name="title_no_messages">No messages</string>
-    <string name="title_filters_active">One or more filters active</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
-    <string name="title_subject_reply">Re: %1$s</string>
-    <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Buttons</string>
-    <string name="title_seen">Mark read</string>
-    <string name="title_unseen">Mark unread</string>
-    <string name="title_toggle_seen">Toggle read</string>
-    <string name="title_hide">Hide</string>
-    <string name="title_unhide">Show</string>
-    <string name="title_flag">Add star</string>
-    <string name="title_flag_color">Colored star &#8230;</string>
-    <string name="title_unflag">Remove star</string>
-    <string name="title_set_importance">Set importance</string>
-    <string name="title_importance_low">Low</string>
-    <string name="title_importance_normal">Normal</string>
-    <string name="title_importance_high">High</string>
-    <string name="title_search_in_text">Search in text &#8230;</string>
-    <string name="title_forward">Forward</string>
-    <string name="title_new_message">New message</string>
-    <string name="title_editasnew">Edit as new</string>
-    <string name="title_edit_notes">Edit local notes</string>
-    <string name="title_create_rule">Create rule &#8230;</string>
-    <string name="title_share">Share</string>
-    <string name="title_event">Add to calendar</string>
-    <string name="title_pin">Add shortcut</string>
-    <string name="title_print">Print</string>
-    <string name="title_print_header">Print header</string>
-    <string name="title_show_headers">Show headers</string>
-    <string name="title_raw_save">Save raw message</string>
-    <string name="title_raw_send">Send as attachment</string>
-    <string name="title_manage_keywords">Manage keywords</string>
-    <string name="title_manage_labels">Manage Gmail labels</string>
-    <string name="title_add_keyword">Add keyword</string>
-    <string name="title_show_inline">Show inline attachments</string>
-    <string name="title_download_all">Download all</string>
-    <string name="title_save_all">Save all</string>
-    <string name="title_save_eml">Save raw message file</string>
-    <string name="title_trash">Trash</string>
-    <string name="title_copy">Copy &#8230;</string>
-    <string name="title_copy_to">Copy to &#8230;</string>
-    <string name="title_subscribe">Subscribe</string>
-    <string name="title_delete">Delete</string>
-    <string name="title_more">More</string>
-    <string name="title_spam">Spam</string>
-    <string name="title_move">Move</string>
-    <string name="title_copy_btn">Copy</string>
-    <string name="title_keywords_btn">Keywords</string>
-    <string name="title_unsubscribe">Unsubscribe</string>
-    <string name="title_message_rule">Create rule</string>
-    <string name="title_no_junk">Not spam</string>
-    <string name="title_move_to">Move to &#8230;</string>
-    <string name="title_move_to_folder">Move to &#8230;</string>
-    <string name="title_move_to_account">Move to %1$s &#8230;</string>
-    <string name="title_report_spam">Treat as spam</string>
-    <string name="title_delete_permanently">Delete permanently</string>
-    <string name="title_snooze">Snooze &#8230;</string>
-    <string name="title_archive">Archive</string>
-    <string name="title_reply">Reply</string>
-    <string name="title_reply_to_sender">Reply to sender</string>
-    <string name="title_reply_to_all">Reply to all</string>
-    <string name="title_reply_list">Reply to list</string>
-    <string name="title_reply_receipt">Send read receipt</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
-    <string name="title_reply_template">Reply with template</string>
-    <string name="title_move_undo">Moving to %1$s (%2$d)</string>
-    <string name="title_open_with">Open with</string>
-    <string name="title_authentication_failed">%1$s authentication failed</string>
-    <string name="title_receipt_subject">Read receipt: %1$s</string>
-    <string name="title_receipt_text">This read receipt only acknowledges that the message was displayed. There is no guarantee that the recipient has read the message contents.</string>
-    <string name="title_no_answers">No reply templates defined</string>
-    <string name="title_no_viewer">No viewer app available for %1$s</string>
-    <string name="title_no_recorder">No suitable audio recorder app available</string>
-    <string name="title_no_camera">No suitable camera app available</string>
-    <string name="title_no_saf">Storage access framework not available</string>
-    <string name="title_no_stream">An outdated app sent a file path instead of a file stream</string>
-    <string name="title_no_internet">No or no suitable internet connection</string>
-    <string name="title_no_connection">Connecting to one or more accounts &#8230;</string>
-    <string name="title_no_folder">Folder does not exist</string>
-    <string name="title_no_format">The originally received message will be included</string>
-    <string name="title_no_image">Image could not be decoded</string>
-    <string name="title_no_search">Search on server is not available for this account</string>
-    <string name="title_too_large">Message too large to completely reformat</string>
-    <string name="title_truncated">Message too large to display completely</string>
-    <string name="title_insufficient_memory">Message too large to fit into the available memory</string>
-    <string name="title_show_full">Show full message</string>
-    <string name="title_unused_inline">Unused inline images will be removed on send</string>
-    <string name="title_accross_remark">Messages moved across accounts will be downloaded again resulting in extra data usage</string>
-    <string name="title_raw_saved">Raw message saved</string>
-    <string name="title_attachment_eml">Attached message</string>
-    <string name="title_attachment_saved">Attachment saved</string>
-    <string name="title_attachments_saved">Attachments saved</string>
-    <string name="title_attachments_incomplete">Some attachments or images were not downloaded and could not be added</string>
-    <string name="title_ask_save">Save changes?</string>
-    <string name="title_ask_delete">Delete message permanently?</string>
-    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
-    <string name="title_ask_delete_rule">Delete rule permanently?</string>
-    <string name="title_ask_discard">Discard draft?</string>
-    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
-    <string name="title_ask_show_html_dark">Use dark theme</string>
-    <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
-    <string name="title_ask_show_html_images">Always show images on showing original messages</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
-    <string name="title_ask_show_image_hint">Images recognized as tracking images will not be shown</string>
-    <string name="title_ask_delete_local">Delete local messages? Messages will remain on the remote server.</string>
-    <string name="title_ask_help">Help improve FairEmail</string>
-    <string name="title_ask_reporting">Send error reports?</string>
-    <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
-    <string name="title_ask_review">Please review FairEmail</string>
-    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.
-        It would be appreciated if you could rate FairEmail in the Play Store.
-    </string>
-    <string name="title_ask_once">This message will only appear once, unless you select \'Later\'</string>
-    <string name="title_third_party">You are using a version of a third party</string>
-    <string name="title_expand_warning">Expanding this message will download %1$s</string>
-    <string name="title_download_message">Downloading &#8230;</string>
-    <string name="title_reformatted">This is the reformatted message view. You can tap on the &#x26F6; icon to view the original message and to hide this message.</string>
-    <string name="title_compose">Compose</string>
-    <string name="title_submitter">Sent by:</string>
-    <string name="title_delivered_to">Delivered to:</string>
-    <string name="title_from">From:</string>
-    <string name="title_to">To:</string>
-    <string name="title_reply_to">Reply to:</string>
-    <string name="title_cc">CC:</string>
-    <string name="title_bcc">BCC:</string>
-    <string name="title_recipients">%1$d recipients</string>
-    <string name="title_via_identity">Via:</string>
-    <string name="title_sent">Sent:</string>
-    <string name="title_received">Received:</string>
-    <string name="title_stored">Stored:</string>
-    <string name="title_size">Size:</string>
-    <string name="title_language">Language:</string>
-    <string name="title_subject">Subject:</string>
-    <string name="title_attachment">Attachment:</string>
-    <string name="title_body_hint">Your message</string>
-    <string name="title_discard">Discard</string>
-    <string name="title_save">Save</string>
-    <string name="title_send">Send</string>
-    <string name="title_send_now">Send now</string>
-    <string name="title_send_via">Send via</string>
-    <string name="title_send_at">Send at &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
-    <string name="title_send_encryption">Encryption</string>
-    <string name="title_send_priority">Priority</string>
-    <string name="title_no_server">No server found at \'%1$s\'</string>
-    <string name="title_style">Style</string>
-    <string name="title_style_bold">Bold</string>
-    <string name="title_style_italic">Italic</string>
-    <string name="title_style_underline">Underline</string>
-    <string name="title_style_size">Size</string>
-    <string name="title_style_size_small">Small</string>
-    <string name="title_style_size_medium">Medium</string>
-    <string name="title_style_size_large">Large</string>
-    <string name="title_style_color">Color &#8230;</string>
-    <string name="title_style_align">Align</string>
-    <string name="title_style_align_start">Start</string>
-    <string name="title_style_align_center">Center</string>
-    <string name="title_style_align_end">End</string>
-    <string name="title_style_list">List</string>
-    <string name="title_style_list_bullets">Bullets</string>
-    <string name="title_style_list_numbered">Numbered</string>
-    <string name="title_style_font">Font</string>
-    <string name="title_style_font_default">Default</string>
-    <string name="title_style_blockquote">Block quote</string>
-    <string name="title_style_strikethrough">Strikethrough</string>
-    <string name="title_style_clear">Clear formatting</string>
-    <string name="title_style_link">Insert link</string>
-    <string name="title_add_image">Add image</string>
-    <string name="title_add_image_inline">Insert</string>
-    <string name="title_add_image_attach">Attach</string>
-    <string name="title_add_image_resize">Resize</string>
-    <string name="title_add_image_privacy">Remove privacy sensitive data</string>
-    <string name="title_add_image_privacy_remark">Geographic location, serial numbers, file names, etc</string>
-    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_add_image_select">Select file</string>
-    <string name="title_add_attachment">Add attachment</string>
-    <string name="title_attachment_file">Attach file</string>
-    <string name="title_attachment_photo">Take photo</string>
-    <string name="title_attachment_audio">Record audio</string>
-    <string name="title_show_addresses">Show CC/BCC</string>
-    <string name="title_save_drafts">Save drafts on the server</string>
-    <string name="title_send_dialog">Show send options</string>
-    <string name="title_image_dialog">Show image options</string>
-    <string name="title_media_toolbar">Media toolbar</string>
-    <string name="title_insert_contact_group">Insert contact group</string>
-    <string name="title_insert_template">Insert template</string>
-    <string name="title_edit_plain_text">Edit as plain text</string>
-    <string name="title_edit_formatted_text">Edit as reformatted text</string>
-    <string name="title_select_certificate">Select public key</string>
-    <string name="title_certificate_missing">No public key for %1$s</string>
-    <string name="title_certificate_invalid">Public key of %1$s is invalid</string>
-    <string name="title_no_key">No private key</string>
-    <string name="title_invalid_key">Invalid private key</string>
-    <string name="title_unknown_key">Private key does not match any encryption keys</string>
-    <string name="title_key_missing">No key for %1$s</string>
-    <string name="title_send_reminder_remark">Reminders can be enabled again in the send settings</string>
-    <string name="title_send_plain_text">Plain text only</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
-    <string name="title_send_receipt">Request receipt</string>
-    <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
-    <string name="title_from_missing">Sender missing</string>
-    <string name="title_extra_missing">Username missing</string>
-    <string name="title_to_missing">Recipient missing</string>
-    <string name="title_pgp_reminder">PGP keys available</string>
-    <string name="title_subject_reminder">Subject is empty</string>
-    <string name="title_text_reminder">Message is empty</string>
-    <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
-    <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
-    <string name="title_plain_reminder">All formatting will be lost</string>
-    <string name="title_size_reminder">Message (%1$s) larger than server limit (%2$s)</string>
-    <string name="title_attachments_missing">Not all attachments have been downloaded</string>
-    <string name="title_dialog_hint">This dialog can be enabled again via the three-dots menu in the top action bar</string>
-    <string name="title_draft_deleted">Draft discarded</string>
-    <string name="title_draft_saved">Draft saved</string>
-    <string name="title_ask_send_via">Send message to %1$s via %2$s?</string>
-    <string name="title_queued">Sending message</string>
-    <string name="title_queued_at">Message will be sent around %1$s</string>
-    <string name="title_sign">Sign</string>
-    <string name="title_verify">Verify</string>
-    <string name="title_encrypt">Encrypt</string>
-    <string name="title_decrypt">Decrypt</string>
-    <string name="title_resync">Resync</string>
-    <string name="title_no_openpgp">OpenKeychain not found</string>
-    <string name="title_user_interaction">Transferring to OpenKeychain</string>
-    <string name="title_signed_data">Verify the signature to show the message text</string>
-    <string name="title_not_encrypted">Message is not signed or encrypted</string>
-    <string name="title_no_sign_key">No sign key selected</string>
-    <string name="title_reset_sign_key">Reset sign key</string>
-    <string name="title_signature_none">Message not signed</string>
-    <string name="title_signature_valid">Message signature valid</string>
-    <string name="title_signature_valid_from">Message signature valid: %1$s</string>
-    <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
-    <string name="title_signature_unconfirmed_from">Message signature valid but not confirmed: %1$s</string>
-    <string name="title_signature_invalid">Message signature invalid</string>
-    <string name="title_signature_invalid_reason">Message signature invalid: %1$s</string>
-    <string name="title_signature_key_missing">Key for signature verification is missing</string>
-    <string name="title_signature_certificate_invalid">Certificate chain invalid</string>
-    <string name="title_signature_sender">Sender\'s address</string>
-    <string name="title_signature_email">Signature\'s address</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
-    <string name="title_signature_subject">Subject</string>
-    <string name="title_signature_validity">Validity</string>
-    <string name="title_signature_outdated">This public key is currently not valid</string>
-    <string name="title_signature_store">Store</string>
-    <string name="title_search">Search</string>
-    <string name="title_search_for_hint">Enter text</string>
-    <string name="title_search_hint">        Searching will initially look at messages stored on your device.
-        To search the server too, tap on the \'search again\' button.
-    </string>
-    <string name="title_search_index_hint">Searching via the search index is fast, but will only find whole words</string>
-    <string name="title_search_text_hint">Searching for text in messages, when there are a large number of messages, might not work on some servers</string>
-    <string name="title_search_size_hint">Searching for messages by size, when there are a large number of messages, might not work on some servers</string>
-    <string name="title_search_more">More options</string>
-    <string name="title_search_use_index">Use search index</string>
-    <string name="title_search_in_senders">In senders (from)</string>
-    <string name="title_search_in_recipients">In recipients (to, cc)</string>
-    <string name="title_search_in_subject">In subject</string>
-    <string name="title_search_in_keywords">In keywords (if supported)</string>
-    <string name="title_search_in_message">In message text</string>
-    <string name="title_search_with">Limit search to</string>
-    <string name="title_search_with_unseen">Unread</string>
-    <string name="title_search_with_flagged">Starred</string>
-    <string name="title_search_with_hidden">Hidden (on device only)</string>
-    <string name="title_search_with_encrypted">Encrypted (on device only)</string>
-    <string name="title_search_with_attachments">With attachments (on device only)</string>
-    <string name="title_search_with_size">Message size larger than</string>
-    <string name="title_search_with_before">Before</string>
-    <string name="title_search_with_after">After</string>
-    <string name="title_search_flag_unseen">unread</string>
-    <string name="title_search_flag_flagged">starred</string>
-    <string name="title_search_flag_hidden">hidden</string>
-    <string name="title_search_flag_encrypted">encrypted</string>
-    <string name="title_search_flag_attachments">attachments</string>
-    <string name="title_search_flag_invite">invitation</string>
-    <string name="title_search_flag_size">size &gt; %1$s</string>
-    <string name="title_search_device">Search on device</string>
-    <string name="title_search_server">Search on server</string>
-    <string name="title_search_in">Search in</string>
-    <string name="title_sort_on">Sort on</string>
-    <string name="title_sort_on_time">Time</string>
-    <string name="title_sort_on_unread">Unread</string>
-    <string name="title_sort_on_starred">Starred</string>
-    <string name="title_sort_on_priority">Priority</string>
-    <string name="title_sort_on_sender">Sender</string>
-    <string name="title_sort_on_subject">Subject</string>
-    <string name="title_sort_on_size">Size</string>
-    <string name="title_sort_on_attachments">Attachments</string>
-    <string name="title_sort_on_hidden">Hidden</string>
-    <string name="title_sort_ascending">Oldest first</string>
-    <string name="title_filter">Filter out</string>
-    <string name="title_filter_seen">Read</string>
-    <string name="title_filter_unflagged">Unstarred</string>
-    <string name="title_filter_unknown">Unknown senders</string>
-    <string name="title_filter_hidden">Hidden</string>
     <string name="title_filter_duplicates">Duplicados</string>
-    <string name="title_compact">Compact view</string>
-    <string name="title_zoom">Text size</string>
-    <string name="title_select_language">Select language</string>
-    <string name="title_select_all">Select all</string>
-    <string name="title_select_found">Select found</string>
-    <string name="title_mark_all_read">Mark all read</string>
-    <string name="title_force_sync">Force sync</string>
-    <string name="title_force_send">Force send</string>
-    <string name="title_language_all">All</string>
-    <string name="title_previous">Previous</string>
-    <string name="title_next">Next</string>
-    <string name="title_edit_signature">Edit signature</string>
-    <string name="title_edit_signature_text">Signature text</string>
-    <string name="title_edit_signature_image">Insert image</string>
-    <string name="title_answer_caption">Edit template</string>
-    <string name="title_answer_reply">Reply template</string>
-    <string name="title_answer_name">Template name</string>
-    <string name="title_answer_group">Template group (optional)</string>
-    <string name="title_answer_standard">Default</string>
-    <string name="title_answer_favorite">Favorite</string>
-    <string name="title_answer_hide">Hide from menus</string>
-    <string name="title_answer_text">Template text</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
     <string name="title_answer_template_email">$email$ será substituído pelo endereço de correio eletrónico do remetente</string>
-    <string name="title_rule_noop">No action</string>
-    <string name="title_rule_seen">Mark read</string>
-    <string name="title_rule_unseen">Mark unread</string>
-    <string name="title_rule_hide">Hide</string>
-    <string name="title_rule_ignore">Suppress notification</string>
-    <string name="title_rule_snooze">Snooze</string>
-    <string name="title_rule_flag">Add star</string>
-    <string name="title_rule_importance">Set importance</string>
-    <string name="title_rule_keyword">Add keyword</string>
-    <string name="title_rule_move">Move</string>
-    <string name="title_rule_copy">Copy (label)</string>
-    <string name="title_rule_answer">Reply/forward</string>
-    <string name="title_rule_tts">Text to speech</string>
-    <string name="title_rule_automation">Automation</string>
-    <string name="title_rule_caption">Edit rule</string>
-    <string name="title_rule_title">Rule applies to</string>
-    <string name="title_rule_name">Name</string>
-    <string name="title_rule_order">Order</string>
-    <string name="title_rule_enabled">Enabled</string>
-    <string name="title_rule_stop">Stop processing rules after executing this rule</string>
-    <string name="title_rule_sender">Sender contains</string>
-    <string name="title_rule_sender_known">Sender is a contact</string>
-    <string name="title_rule_recipient">Recipient contains</string>
-    <string name="title_rule_subject">Subject contains</string>
-    <string name="title_rule_attachments">Has attachments</string>
-    <string name="title_rule_header">Header contains</string>
-    <string name="title_rule_time">Time between</string>
-    <string name="title_rule_regex">Regex</string>
-    <string name="title_rule_and">AND</string>
-    <string name="title_rule_action">Action</string>
-    <string name="title_rule_action_remark">This action will be applied to new messages arriving in the folder %1$s</string>
-    <string name="title_rule_hours">Hours</string>
-    <string name="title_rule_schedule_end">From the end of the time condition</string>
-    <string name="title_rule_folder">Folder</string>
-    <string name="title_rule_thread">All messages in same conversation and folder</string>
-    <string name="title_rule_identity">Identity</string>
-    <string name="title_rule_template">Reply template</string>
-    <string name="title_rule_forward_to">Forward to</string>
-    <string name="title_rule_cc">Reply to CC addresses</string>
-    <string name="title_rule_with_attachments">With attachments</string>
-    <string name="title_rule_answer_remark">Only one reply will be sent for any conversation, to avoid reply loops</string>
-    <string name="title_rule_name_missing">Rule name missing</string>
-    <string name="title_rule_condition_missing">Condition missing</string>
-    <string name="title_rule_folder_missing">Folder missing</string>
-    <string name="title_rule_identity_missing">Identity missing</string>
-    <string name="title_rule_answer_missing">Template missing</string>
-    <string name="title_rule_keyword_missing">Keyword missing</string>
-    <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
-    <string name="title_rule_execute">Execute now</string>
-    <string name="title_rule_applied">Affected messages: %1$d</string>
-    <string name="title_rule_check">Check</string>
-    <string name="title_rule_no_headers">Header conditions cannot be checked</string>
-    <string name="title_rule_matched">Matching messages</string>
-    <string name="title_rule_no_matches">No matching messages</string>
-    <string name="title_rule_tts_ok">Setup okay</string>
-    <string name="title_rule_tts_setup">Check setup</string>
-    <string name="title_rule_tts_data">Install voice data</string>
-    <string name="title_rule_tts_prefix">New message</string>
-    <string name="title_rule_tts_from">From</string>
-    <string name="title_rule_tts_subject">Subject</string>
-    <string name="title_rule_tts_content">Text</string>
-    <string name="title_legend_section_synchronize">Synchronize</string>
-    <string name="title_legend_section_folders">Folders</string>
-    <string name="title_legend_section_messages">Messages</string>
-    <string name="title_legend_section_compose">Compose</string>
-    <string name="title_legend_section_keyboard">Keyboard</string>
-    <string name="title_legend_oauth">OAuth authorization</string>
-    <string name="title_legend_folder_connected">Folder connected</string>
-    <string name="title_legend_folder_disconnected">Folder disconnected</string>
-    <string name="title_legend_download_on">Download message content automatically</string>
-    <string name="title_legend_download_off">Download message content on demand</string>
-    <string name="title_legend_synchronize_on">Synchronize on</string>
-    <string name="title_legend_synchronize_off">Synchronize off</string>
-    <string name="title_legend_synchronize_poll">Synchronize periodically</string>
-    <string name="title_legend_disconnected">Disconnected</string>
-    <string name="title_legend_backoff">Waiting after failure</string>
-    <string name="title_legend_connecting">Connecting</string>
-    <string name="title_legend_connected">Connected</string>
-    <string name="title_legend_executing">Executing operations</string>
-    <string name="title_legend_synchronizing">Synchronizing</string>
-    <string name="title_legend_downloading">Downloading</string>
-    <string name="title_legend_closing">Closing</string>
-    <string name="title_legend_unified">Unified inbox / primary account</string>
-    <string name="title_legend_inbox">Inbox</string>
-    <string name="title_legend_drafts">Drafts</string>
-    <string name="title_legend_sent">Sent</string>
-    <string name="title_legend_archive">Archive</string>
-    <string name="title_legend_trash">Trash</string>
-    <string name="title_legend_junk">Spam</string>
-    <string name="title_legend_primary">Primary</string>
-    <string name="title_legend_subscribed">Subscribed to</string>
-    <string name="title_legend_rule">Has rules</string>
-    <string name="title_legend_similar">Search similar messages</string>
-    <string name="title_legend_notify">Notify on new messages</string>
-    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
-    <string name="title_legend_download_fetch">Number of message downloaded / headers fetched</string>
-    <string name="title_legend_stop">Stop processing rules</string>
-    <string name="title_legend_thread">Conversation</string>
-    <string name="title_legend_bookmark">Last opened conversation</string>
-    <string name="title_legend_zoom">Change text size</string>
-    <string name="title_legend_draft">Has draft</string>
-    <string name="title_legend_priority">Has high priority</string>
-    <string name="title_legend_priority_low">Has low priority</string>
-    <string name="title_legend_importance">Is important</string>
-    <string name="title_legend_importance_low">Is not important</string>
-    <string name="title_legend_signed">Is signed</string>
-    <string name="title_legend_encrypted">Is encrypted</string>
-    <string name="title_legend_auth">Authentication failed</string>
-    <string name="title_legend_found">Was found</string>
-    <string name="title_legend_classified">Was automatically classified</string>
-    <string name="title_legend_snoozed">Is snoozed</string>
-    <string name="title_legend_browsed">Is browsed or searched</string>
-    <string name="title_legend_answered">Was answered</string>
-    <string name="title_legend_forwarded">Was forwarded</string>
-    <string name="title_legend_plain_only">Is plain text only</string>
-    <string name="title_legend_receipt">Receipt was requested</string>
-    <string name="title_legend_auto_submitted">Was automatically sent</string>
-    <string name="title_legend_attachment">Has attachment</string>
-    <string name="title_legend_flagged">Is favorite</string>
-    <string name="title_legend_contacts">Manage contacts</string>
-    <string name="title_legend_search">Search for sender</string>
-    <string name="title_legend_view">View content</string>
-    <string name="title_legend_hide">Hide content</string>
-    <string name="title_legend_download">Download content</string>
-    <string name="title_legend_external_image">External image placeholder</string>
-    <string name="title_legend_embedded_image">Embedded image placeholder</string>
-    <string name="title_legend_tracking_pixel">Tracking image</string>
-    <string name="title_legend_broken_image">Broken image</string>
-    <string name="title_legend_pick">Pick contact</string>
-    <string name="title_legend_cc">Show CC/BCC</string>
-    <string name="title_legend_link">Insert link</string>
-    <string name="title_legend_file">Attach file</string>
-    <string name="title_legend_picture">Insert picture</string>
-    <string name="title_legend_photo">Take photo</string>
-    <string name="title_legend_audio">Record audio</string>
-    <string name="title_legend_bold">Make text bold</string>
-    <string name="title_legend_italic">Make text italic</string>
-    <string name="title_legend_underline">Underline text</string>
-    <string name="title_legend_text_style">Set text style</string>
-    <string name="title_legend_metered">Connection is metered</string>
-    <string name="title_legend_unmetered">Connection is unmetered</string>
-    <string name="title_legend_roaming">Roaming</string>
-    <string name="title_legend_expander">Expander</string>
-    <string name="title_legend_avatar">Avatar</string>
-    <string name="title_legend_show_quotes">Show quotes</string>
-    <string name="title_legend_show_junk">Treat as spam</string>
-    <string name="title_legend_create_rule">Create rule</string>
-    <string name="title_legend_show_unsubscribe">Unsubscribe from list</string>
-    <string name="title_legend_show_images">Show images</string>
-    <string name="title_legend_show_full">Show original message</string>
-    <string name="title_legend_edit">Edit</string>
-    <string name="title_legend_default_color">Default color</string>
-    <string name="title_legend_close_hint">Close hint</string>
-    <string name="title_legend_connection_state">Connection state</string>
-    <string name="title_legend_sync_state">Synchronization state</string>
-    <string name="title_legend_download_state">Download state</string>
-    <string name="title_legend_save">Save</string>
-    <string name="title_legend_delete">Delete</string>
-    <string name="title_legend_count">Count</string>
-    <string name="title_legend_folder_type">Folder type</string>
-    <string name="title_legend_enter">Open</string>
-    <string name="title_legend_a">Archive</string>
-    <string name="title_legend_c">Compose</string>
-    <string name="title_legend_d">Trash (delete)</string>
-    <string name="title_legend_m">Menu (multiple select)</string>
-    <string name="title_legend_n">Next</string>
-    <string name="title_legend_p">Previous</string>
-    <string name="title_legend_r">Reply</string>
-    <string name="title_legend_s">Select/deselect</string>
-    <string name="title_legend_t">Focus text</string>
-    <string name="title_hint_folder_actions">Long press a folder for options, like adding a folder to the navigation menu for quick access</string>
-    <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>
-    <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
-    <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
-    <string name="title_hint_message_selection">Long press a message to start selecting multiple messages; Hold and swipe up or down to select more messages</string>
-    <string name="title_hint_important">Important</string>
-    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection, the device and on the number of messages. While downloading messages the app might respond slower.</string>
-    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
-    <string name="title_hint_battery">Since FairEmail by default always receives messages, Android will report FairEmail as always being active. Therefore it might look as if FairEmail is always consuming battery power although this is in fact not the case.</string>
-    <string name="title_hint_reformat">By default, FairEmail reformats messages for privacy and security reasons. To view the original message, tap the \'full screen\' icon above the message text.</string>
-    <string name="title_hint_design">The design is intentionally not distracting, but kept highly functional. There are many options to customize the appearance, but please understand that it is impossible to make everybody completely happy at the same time.</string>
-    <string name="title_hint_junk">Spam filtering should be done by the email server and cannot be done reliably on a battery powered device with limited capabilities.</string>
-    <string name="title_hint_contact_actions">Long press for options</string>
-    <string name="title_hint_eml">This is a summary of the content of a raw message file. Save the raw message with the save icon in the action bar to view all content.</string>
-    <string name="title_open_link">Open link</string>
-    <string name="title_different_link">The title and the link address are different</string>
-    <string name="title_tracking_link">This website might track you</string>
-    <string name="title_link_http">Traffic will not be encrypted</string>
-    <string name="title_link_https">Traffic will be encrypted</string>
-    <string name="title_sanitize_link">Remove tracking parameters</string>
-    <string name="title_insecure_link">This link is insecure</string>
-    <string name="title_check_owner">Check owner</string>
-    <string name="title_remark_owner">Information will be retrieved from <a href="https://ipinfo.io/">ipinfo.io</a></string>
-    <string name="title_ip_owner">Owner IP address</string>
-    <string name="title_select_app">Select app</string>
-    <string name="title_updated">There is an update to version %1$s available</string>
-    <string name="title_issue">Do you have a question or problem?</string>
-    <string name="title_yes">Yes</string>
-    <string name="title_no">No</string>
-    <string name="title_later">Later</string>
-    <string name="title_undo">Undo</string>
-    <string name="title_redo">Redo</string>
-    <string name="title_add">Add</string>
-    <string name="title_browse">Open with</string>
-    <string name="title_info">Info</string>
-    <string name="title_download">Download</string>
-    <string name="title_report">Report</string>
-    <string name="title_fix">Fix</string>
-    <string name="title_enable">Enable</string>
-    <string name="title_enabled">Enabled</string>
-    <string name="title_executing">Executing</string>
-    <string name="title_completed">Completed</string>
-    <string name="title_default_changed">Default changed</string>
-    <string name="title_clipboard_copy">Copy to clipboard</string>
-    <string name="title_clipboard_copied">Copied to clipboard</string>
-    <string name="title_ask_what">Ask what to do</string>
-    <string name="title_no_ask_again">Do not ask this again</string>
-    <string name="title_no_ask_for_again">Do not ask this again for %1$s</string>
-    <string name="title_no_body">No message text found</string>
-    <string name="title_no_charset">Unsupported encoding: %1$s</string>
-    <string name="title_via">Via: %1$s</string>
-    <string name="title_1hour">1 hour</string>
-    <string name="title_1day">1 day</string>
-    <string name="title_1week">1 week</string>
-    <string name="title_now">Now</string>
-    <string name="title_after">After %1$s</string>
-    <string name="title_reset">Reset</string>
-    <string name="title_hours">Hours</string>
-    <string name="title_minutes">Minutes</string>
-    <string name="title_dismiss">Dismiss</string>
-    <string name="title_snooze_now">Snooze</string>
-    <string name="title_loading">Loading &#8230;</string>
-    <string name="title_fetching_again">Fetching message again from the server</string>
-    <string name="title_conversation_actions">Actions</string>
-    <string name="title_conversation_action_reply">Reply with: \'%1$s\'</string>
-    <string name="title_conversation_action_copy">Copy: \'%1$s\'</string>
-    <string name="title_icalendar_accept">Accept</string>
-    <string name="title_icalendar_decline">Decline</string>
-    <string name="title_icalendar_maybe">Maybe</string>
-    <string name="title_icalendar_calendar">Calendar</string>
-    <string name="title_pro_feature">This is a pro feature</string>
-    <string name="title_pro_list">List of pro features</string>
-    <string name="title_pro_purchase">Buy</string>
-    <string name="title_pro_once">Only once</string>
-    <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
-        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
-        To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
-        FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
-    </string>
-    <string name="title_pro_hide">Hide small message for %1$d weeks</string>
-    <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported.</string>
-    <string name="title_pro_price">Why are the pro features so expensive?</string>
-    <string name="title_pro_restore">How can I restore a purchase?</string>
-    <string name="title_pro_pending">Purchase pending</string>
-    <string name="title_pro_activated">All pro features are activated</string>
-    <string name="title_pro_valid">All pro features activated</string>
-    <string name="title_pro_invalid">Invalid response</string>
-    <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
-    <string name="title_boundary_error">Error downloading messages from the mail server</string>
-    <string name="title_boundary_retry">Try again</string>
-    <string name="title_unexpected_error">Unexpected error</string>
-    <string name="title_log">Log</string>
-    <string name="title_auto_scroll">Auto scroll</string>
-    <string name="title_log_clear">Clear</string>
-    <string name="title_rules_search_hint">Search name or condition</string>
-    <string name="title_rules_export">Export rules</string>
-    <string name="title_rules_import">Import rules</string>
-    <string name="title_rules_delete_all">Delete all rules</string>
-    <string name="title_rules_delete_junk">Delete spam rules</string>
-    <string name="title_rules_delete_all_confirm">Delete all rules?</string>
-    <string name="title_rules_delete_junk_confirm">Delete all rules moving messages to the spam folder?</string>
-    <string name="title_debug_info">Debug info</string>
-    <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
-    <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
-    <string name="title_unexpected_info_remark">Please describe what you were doing when you got the error:</string>
-    <string name="title_widget_title_count">New message count</string>
-    <string name="title_widget_title_list">Message list</string>
-    <string name="title_widget_account">Account</string>
-    <string name="title_widget_account_all">All</string>
-    <string name="title_widget_folder">Folder</string>
-    <string name="title_widget_folder_unified">Unified inbox folders</string>
-    <string name="title_widget_unseen">Unread messages only</string>
-    <string name="title_widget_flagged">Starred messages only</string>
-    <string name="title_widget_font_size">Text size</string>
-    <string name="title_widget_padding">Padding size</string>
-    <string name="title_widget_semi_transparent">Semi transparent background</string>
-    <string name="title_widget_background">Background color</string>
-    <string name="title_accessibility_collapsed">Collapsed</string>
-    <string name="title_accessibility_expanded">Expanded</string>
-    <string name="title_accessibility_seen">Read</string>
-    <string name="title_accessibility_unseen">Unread</string>
-    <plurals name="title_accessibility_messages">
-        <item quantity="one">%1$d message</item>
-        <item quantity="other">%1$d messages</item>
-    </plurals>
     <!-- Thunderbird -->
-    <string name="title_keyword_label1">Important</string>
-    <string name="title_keyword_label2">Work</string>
-    <string name="title_keyword_label3">Personal</string>
-    <string name="title_keyword_label4">To do</string>
-    <string name="title_keyword_label5">Later</string>
-    <string name="title_accessibility_flagged">Starred</string>
-    <string name="title_accessibility_unflagged">Unstarred</string>
-    <string name="title_accessibility_collapse">Collapse</string>
-    <string name="title_accessibility_expand">Expand</string>
-    <string name="title_accessibility_view_contact">View contact</string>
-    <string name="title_accessibility_show_authentication_result">Show authentication result</string>
-    <string name="title_accessibility_show_snooze_time">Show snooze time</string>
-    <string name="title_accessibility_view_help">View help</string>
-    <string name="title_accessibility_selected">Selected</string>
-    <string name="title_accessibility_answered">Replied</string>
-    <string name="title_accessibility_scroll_down">Scroll down</string>
-    <string name="title_accessibility_scroll_up">Scroll up</string>
-    <string name="title_accessibility_filter_out_seen">Toggle read messages filter</string>
-    <string name="title_accessibility_filter_out_unflagged">Toggle starred messages filter</string>
-    <string name="title_accessibility_filter_out_snoozed">Toggle snoozed messages filter</string>
-    <string name="title_accessibility_edit">Edit</string>
-    <string name="title_accessibility_show_addresses">Show addresses</string>
-    <string name="title_accessibility_hide_addresses">Hide addresses</string>
-    <string name="title_accessibility_attachment">Attachment</string>
-    <string name="title_accessibility_from">Sender</string>
-    <string name="title_accessibility_to">Recipient</string>
-    <string-array name="pollIntervalNames">
-        <item>Always</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
-        <item>Every day</item>
-    </string-array>
-    <string-array name="sendDelayedNames">
-        <item>No</item>
-        <item>15 seconds</item>
-        <item>30 seconds</item>
-        <item>1 minute</item>
-        <item>2 minutes</item>
-        <item>5 minutes</item>
-        <item>10 minutes</item>
-    </string-array>
-    <string-array name="startupNames">
-        <item>Unified inbox</item>
-        <item>Unified folders</item>
-        <item>Primary account folders</item>
-        <item>Accounts</item>
-    </string-array>
-    <string-array name="downloadNames">
-        <item>16 KB</item>
-        <item>32 KB</item>
-        <item>64 KB</item>
-        <item>128 KB</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
-        <item>∞</item>
-    </string-array>
-    <string-array name="onCloseNames">
-        <item>Do nothing</item>
-        <item>Go to previous conversation</item>
-        <item>Go to next conversation</item>
-    </string-array>
-    <string-array name="resizeNames">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-        <item>Extra large</item>
-    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
-    <string-array name="targetNames">
-        <item>To</item>
-        <item>Cc</item>
-        <item>Bcc</item>
-    </string-array>
-    <string-array name="biometricsTimeoutNames">
-        <item>One minute</item>
-        <item>2 minutes</item>
-        <item>5 minutes</item>
-        <item>10 minutes</item>
-        <item>20 minutes</item>
-    </string-array>
-    <string-array name="ellipsizeNames">
-        <item>At the start</item>
-        <item>In the middle</item>
-        <item>At the end</item>
-        <item>Show untruncated</item>
-    </string-array>
-    <string-array name="priorityNames">
-        <item>Low</item>
-        <item>Normal</item>
-        <item>High</item>
-    </string-array>
-    <string-array name="linesNames">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-    <string-array name="fontSizeNames">
-        <item>Default</item>
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-    </string-array>
-    <string-array name="receiptNames">
-        <item>Read receipt only</item>
-        <item>Delivery receipt only</item>
-        <item>Read+delivery receipt</item>
-    </string-array>
-    <string-array name="signatureNames">
-        <item>Above the text</item>
-        <item>Below the text</item>
-        <item>At the bottom</item>
-    </string-array>
-    <string-array name="encryptNames">
-        <item>None</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
-    </string-array>
-    <string-array name="sizeNames">
-        <item>0 B</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
-        <item>5 MB</item>
-        <item>10 MB</item>
-        <item>20 MB</item>
-        <item>50 MB</item>
-    </string-array>
-    <string-array name="undoNames">
-        <item>Off</item>
-        <item>2.5 s</item>
-        <item>5 s</item>
-        <item>7.5 s</item>
-        <item>10 s</item>
-    </string-array>
-    <string-array name="fontNameNames">
-        <item>Cursive</item>
-        <item>Serif</item>
-        <item>Sans-serif</item>
-        <item>Monospace</item>
-    </string-array>
 </resources>

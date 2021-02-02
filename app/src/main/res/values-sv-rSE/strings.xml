@@ -3,7 +3,6 @@
     <string name="app_search">FairEmail-sökning</string>
     <string name="app_changelog">Ändringslogg</string>
     <string name="app_welcome">FairEmail är en e-postapp baserad på öppen källkod som fokuserar på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
-    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="app_exit">Tryck \"tillbaka\" igen för att avsluta</string>
     <string name="app_cake">Otillräckligt lagringsutrymme kvar</string>
@@ -117,20 +116,12 @@
     <string name="title_setup">Inställningar</string>
     <string name="title_setup_help">Hjälp</string>
     <string name="title_setup_quick">Snabbinstallation</string>
-    <string name="title_setup_quick_accounts">Add accounts</string>
     <string name="title_setup_quick_support">Vissa leverantörer gör det svårt att lägga till ett konto. Vänligen skyll inte på FairEmail för det, be om support istället.</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_wizard">Guide</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">Jag behöver en ny e-postadress</string>
-    <string name="title_setup_manual">Manual setup and more options</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
     <string name="title_setup_oauth_permission">E-postleverantören har godkänt OAuth endast för officiella appversioner</string>
     <string name="title_setup_other">Annan leverantör</string>
     <string name="title_setup_pop3">POP3-konto</string>
@@ -148,19 +139,16 @@
     <string name="title_setup_select_account">Välj konto</string>
     <string name="title_setup_instructions">Inställningsinstruktioner</string>
     <string name="title_setup_no_settings">Inga inställningar hittades för domänen \"%1$s\"</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
     <string name="title_setup_no_auth_hint">Vänligen dubbelkolla din e-postadress och lösenord och se till att extern åtkomst (IMAP/SMTP) är aktiverad för ditt konto</string>
     <string name="title_setup_app_password_hint">Denna leverantör kräver ett app-lösenord istället för kontots lösenord, vänligen kontrollera instruktionerna hos din leverantör</string>
     <string name="title_setup_no_inbox">Inkorgen hittades inte</string>
     <string name="title_setup_advanced_protection">När du är inskriven i det avancerade skyddsprogrammet är det inte möjligt att använda en tredje parts e-postapp. Detta är en begränsning som införts av Google.</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_manage">Hantera</string>
     <string name="title_setup_grant">Bevilja</string>
     <string name="title_setup_grant_again">Bevilja obligatoriska behörigheter</string>
     <string name="title_setup_identity_what">Vad är en identitet?</string>
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
-    <string name="title_setup_doze">Disable battery optimizations</string>
     <string name="title_setup_doze_remark">Att på ett tillförlitligt sätt ta emot e-post</string>
     <string name="title_setup_doze_hint">Även om detta kan låta motsägelsefullt, att stänga av batterioptimeringar kommer att resultera i mindre batterianvändning</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
@@ -168,7 +156,6 @@
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>
     <string name="title_setup_advanced_options">Visa avancerade inställningar</string>
-    <string name="title_setup_inbox">Go to inbox</string>
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_to_do">Att göra</string>
     <string name="title_setup_done">Klar</string>
@@ -215,7 +202,6 @@
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.
         Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
-    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Ta emot</string>
     <string name="title_advanced_section_send">Skicka</string>
     <string name="title_advanced_section_connection">Anslutning</string>
@@ -225,7 +211,6 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_default">All options have commonly used standard values</string>
     <string name="title_advanced_receive">Ta emot meddelanden för alla konton</string>
     <string name="title_advanced_when">När</string>
     <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
@@ -407,7 +392,6 @@
     <string name="title_advanced_tracking">Försök att känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_hide_timezone">Skicka meddelanden utan tidszon</string>
     <string name="title_advanced_display_hidden">Visa dolda meddelandetexter</string>
-    <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Dölj dig från senaste appar-skärmen och förhindra tagning av skärmdumpar</string>
     <string name="title_advanced_pin">PIN-kod</string>
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
@@ -431,9 +415,6 @@
     </string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_classification">Klassificera meddelanden</string>
@@ -598,7 +579,6 @@
     <string name="title_no_inbox">Inkorgen hittades inte</string>
     <string name="title_no_drafts">Ingen utkastmapp</string>
     <string name="title_no_junk_folder">Det finns ingen skräppostmapp vald för detta konto</string>
-    <string name="title_no_composable">Sending emails requires an identity to be configured, and a drafts folder to be selected in the account settings</string>
     <string name="title_no_standard">Denna leverantör använder ett egenutvecklat e-postprotokoll och därför är det inte möjligt att använda tredje parts e-postklienter</string>
     <string name="title_no_idle">Leverantören stödjer inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_utf8">Denna leverantör stödjer inte UTF-8</string>
@@ -626,7 +606,6 @@
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_synchronize_subfolders">Undermappar</string>
-    <string name="title_synchronize_more">Fetch more messages</string>
     <string name="title_synchronize_more_hint">Detta kommer att resultera i en enda nedladdning av äldre meddelanden, så det kommer inte att resultera i mer batterianvändning för dagligt bruk</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
     <string name="title_synchronize_batch_enable">Aktivera synkronisering</string>
@@ -671,8 +650,6 @@
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
     <string name="title_download_folder">Hämta automatiskt meddelandetexter och bilagor</string>
     <string name="title_notify_folder">Notifiera för nya meddelanden</string>
-    <string name="title_auto_classify_source">Classify new messages in this folder</string>
-    <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
     <string name="title_sync_days">Synkronisera meddelanden (dagar)</string>
     <string name="title_sync_days_remark">Ökning av detta värde kommer att öka batteri- och dataanvändningen</string>
     <string name="title_keep_days">Behåll meddelanden (dagar)</string>
@@ -728,7 +705,6 @@
     <string name="title_forward">Vidarebefordra</string>
     <string name="title_new_message">Nytt meddelande</string>
     <string name="title_editasnew">Redigera som ny</string>
-    <string name="title_edit_notes">Edit local notes</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
     <string name="title_share">Dela</string>
     <string name="title_event">Lägg till i kalender</string>
@@ -770,7 +746,6 @@
     <string name="title_reply_to_all">Svara till alla</string>
     <string name="title_reply_list">Svara på listan</string>
     <string name="title_reply_receipt">Skicka läskvitto</string>
-    <string name="title_reply_address_unknown">Report \'address unknown\'</string>
     <string name="title_reply_template">Svara med mall</string>
     <string name="title_move_undo">Flyttar till %1$s (%2$d)</string>
     <string name="title_open_with">Öppna med</string>
@@ -806,7 +781,6 @@
     <string name="title_ask_delete_rule">Ta bort regel permanent?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
-    <string name="title_ask_show_html_dark">Use dark theme</string>
     <string name="title_ask_show_html_remark">Att visa originalmeddelandet med en mörk bakgrund är inte möjligt eftersom det kan orsaka osynliga mörka texter och bilder</string>
     <string name="title_ask_show_html_images">Visa alltid bilder när originalmeddelanden visas</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
@@ -848,7 +822,6 @@
     <string name="title_send_now">Skicka nu</string>
     <string name="title_send_via">Skicka via</string>
     <string name="title_send_at">Skickad &#8230;</string>
-    <string name="title_send_archive">Archive read messages</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server hittades vid \"%1$s\"</string>
@@ -904,7 +877,6 @@
     <string name="title_key_missing">Ingen nyckel för %1$s</string>
     <string name="title_send_reminder_remark">Påminnelser kan aktiveras igen i sändningsinställningarna</string>
     <string name="title_send_plain_text">Endast oformaterad text</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Status report</string>
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>
     <string name="title_from_missing">Avsändaren saknas</string>
