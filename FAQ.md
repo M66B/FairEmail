@@ -507,6 +507,12 @@ you can either enable access for "less secure apps" and use your account passwor
 or enable two factor authentication and use an app specific password.
 To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
+**Important**: sometimes Google issues this alert:
+
+*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+
+This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
