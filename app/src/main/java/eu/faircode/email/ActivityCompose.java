@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,7 +32,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
@@ -88,13 +85,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         Bundle args;
         String action = intent.getAction();
         if (isShared(action)) {
-            ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-            if (am != null) {
-                List<ActivityManager.AppTask> tasks = am.getAppTasks();
-                if (tasks != null && tasks.size() > 0) {
-                    tasks.get(0).setExcludeFromRecents(true);
-                }
-            }
+            Helper.excludeFromRecents(this);
 
             args = new Bundle();
             args.putString("action", "new");

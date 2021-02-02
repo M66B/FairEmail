@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -763,6 +764,15 @@ public class Helper {
 
         String message = context.getString(R.string.title_no_viewer, sb.toString());
         ToastEx.makeText(context, message, Toast.LENGTH_LONG).show();
+    }
+
+    static void excludeFromRecents(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (am != null) {
+            List<ActivityManager.AppTask> tasks = am.getAppTasks();
+            if (tasks != null && tasks.size() > 0)
+                tasks.get(0).setExcludeFromRecents(true);
+        }
     }
 
     // Graphics
