@@ -2865,9 +2865,9 @@ Since this is an experimental feature, my advice is to start with just one folde
 
 <br />
 
-*Send address unknown (version 1.1477+)*
+*Send hard bounce (version 1.1477+)*
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) *Address unknown* (=hard bounce) via the reply/answer menu.
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
 
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider.
 The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
