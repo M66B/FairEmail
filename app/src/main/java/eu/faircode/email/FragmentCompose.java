@@ -4795,6 +4795,9 @@ public class FragmentCompose extends FragmentBase {
                                     }
                             }
 
+                            if (EntityMessage.DSN_HARD_BOUNCE.equals(draft.dsn))
+                                args.putBoolean("remind_dsn", true);
+
                             // Check size
                             if (identity != null && identity.max_size != null) {
                                 Properties props = MessageHelper.getSessionProperties();
@@ -4815,7 +4818,6 @@ public class FragmentCompose extends FragmentBase {
                                     args.putLong("max_size", identity.max_size);
                                 }
                             }
-
                         } else {
                             int mid;
                             if (action == R.id.action_undo)
@@ -5011,6 +5013,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
+                boolean remind_dsn = args.getBoolean("remind_dsn", false);
                 boolean remind_size = args.getBoolean("remind_size", false);
                 boolean formatted = args.getBoolean("formatted", false);
 
@@ -5018,7 +5021,7 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
-                        address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_size ||
+                        address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_dsn || remind_size ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
                                 (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
@@ -5637,13 +5640,14 @@ public class FragmentCompose extends FragmentBase {
             long id = args.getLong("id");
             String address_error = args.getString("address_error");
             String mx_error = args.getString("mx_error");
+            final boolean remind_dsn = args.getBoolean("remind_dsn", false);
+            final boolean remind_size = args.getBoolean("remind_size", false);
             final boolean remind_to = args.getBoolean("remind_to", false);
             final boolean remind_extra = args.getBoolean("remind_extra", false);
             final boolean remind_pgp = args.getBoolean("remind_pgp", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
-            final boolean remind_size = args.getBoolean("remind_size", false);
             final boolean formatted = args.getBoolean("formatted", false);
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
@@ -5660,6 +5664,7 @@ public class FragmentCompose extends FragmentBase {
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
+            final TextView tvRemindDsn = dview.findViewById(R.id.tvRemindDsn);
             final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
@@ -5687,6 +5692,8 @@ public class FragmentCompose extends FragmentBase {
 
             tvAddressError.setText(address_error == null ? mx_error : address_error);
             tvAddressError.setVisibility(address_error == null && mx_error == null ? View.GONE : View.VISIBLE);
+
+            tvRemindDsn.setVisibility(remind_dsn ? View.VISIBLE : View.GONE);
 
             tvRemindSize.setText(getString(R.string.title_size_reminder,
                     Helper.humanReadableByteCount(size),

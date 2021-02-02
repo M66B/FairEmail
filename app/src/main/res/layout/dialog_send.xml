@@ -33,6 +33,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvRemindDsn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_dsn_reminder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorError"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddressError" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +54,7 @@
             android:textColor="?attr/colorError"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAddressError" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindDsn" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindTo"
@@ -52,7 +64,6 @@
             android:text="@string/title_to_missing"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemindSize" />
 
@@ -220,7 +231,6 @@
             android:id="@+id/tvEncrypt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
             android:text="@string/title_send_encryption"
