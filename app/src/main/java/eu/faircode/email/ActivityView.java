@@ -995,9 +995,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         String action = intent.getAction();
-        Log.i("View intent=" + intent +
-                " action=" + action +
-                " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
+        Log.i("View intent=" + intent + " " + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
         if (action != null) {
             intent.setAction(null);
             setIntent(intent);
