@@ -582,6 +582,69 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        try {
+            return super.dispatchTouchEvent(ev);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IllegalArgumentException: captureChildView: parameter must be a descendant of the ViewDragHelper's tracked parent view (androidx.coordinatorlayout.widget.CoordinatorLayout{35ad956 V.E...... ........ 0,0-1080,2100})
+                        at androidx.customview.widget.ViewDragHelper.captureChildView(ViewDragHelper:472)
+                        at androidx.customview.widget.ViewDragHelper.tryCaptureViewForDrag(ViewDragHelper:914)
+                        at androidx.customview.widget.ViewDragHelper.processTouchEvent(ViewDragHelper:1155)
+                        at com.google.android.material.behavior.SwipeDismissBehavior.onTouchEvent(SwipeDismissBehavior:215)
+                        at androidx.coordinatorlayout.widget.CoordinatorLayout.onTouchEvent(CoordinatorLayout:563)
+                        at android.view.View.dispatchTouchEvent(View.java:13483)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3082)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2767)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3088)
+                        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2781)
+                        at com.android.internal.policy.DecorView.superDispatchTouchEvent(DecorView.java:496)
+                        at com.android.internal.policy.PhoneWindow.superDispatchTouchEvent(PhoneWindow.java:1853)
+                        at android.app.Activity.dispatchTouchEvent(Activity.java:4059)
+                        at androidx.appcompat.view.WindowCallbackWrapper.dispatchTouchEvent(WindowCallbackWrapper:69)
+                        at com.android.internal.policy.DecorView.dispatchTouchEvent(DecorView.java:454)
+                        at android.view.View.dispatchPointerEvent(View.java:13744)
+                        at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:5635)
+                        at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:5435)
+                        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4936)
+                        at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4989)
+                        at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4955)
+                        at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:5095)
+                        at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4963)
+                        at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:5152)
+                        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4936)
+                        at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4989)
+                        at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4955)
+                        at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4963)
+                        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4936)
+                        at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:7688)
+                        at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:7657)
+                        at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:7618)
+                        at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:7818)
+                        at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:251)
+                        at android.os.MessageQueue.nativePollOnce(MessageQueue.java:-2)
+                        at android.os.MessageQueue.next(MessageQueue.java:336)
+                        at android.os.Looper.loop(Looper.java:181)
+                        at android.app.ActivityThread.main(ActivityThread.java:7562)
+             */
+            return false;
+        }
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         try {
             return super.onTouchEvent(event);
