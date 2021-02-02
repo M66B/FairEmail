@@ -897,7 +897,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     view.setAction("folder:" + folder.id);
                     view.putExtra("account", folder.account);
                     view.putExtra("type", folder.type);
-                    view.putExtra("refresh", true);
                     view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                     int resid = EntityFolder.getIcon(folder.type);
