@@ -6007,16 +6007,17 @@ public class FragmentCompose extends FragmentBase {
                                 }
 
                                 @Override
-                                protected Boolean onExecute(Context context, Bundle args) {
+                                protected @NonNull
+                                Boolean onExecute(Context context, Bundle args) {
                                     long account = args.getLong("account");
                                     String inreplyto = args.getString("inreplyto");
 
                                     if (TextUtils.isEmpty(inreplyto))
-                                        return null;
+                                        return false;
 
                                     List<EntityMessage> messages = db.message().getMessagesByMsgId(account, inreplyto);
                                     if (messages == null)
-                                        return null;
+                                        return false;
 
                                     boolean canArchive = false;
                                     for (EntityMessage message : messages) {
@@ -6031,7 +6032,7 @@ public class FragmentCompose extends FragmentBase {
                                     }
 
                                     if (!canArchive)
-                                        return null;
+                                        return false;
 
                                     DB db = DB.getInstance(context);
                                     EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
