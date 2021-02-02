@@ -309,7 +309,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             JSONObject jcondition = new JSONObject(rule.condition);
                             JSONObject jheader = jcondition.optJSONObject("header");
                             if (jheader != null)
-                                return 0;
+                                throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
 
                             int applied = 0;
                             List<Long> ids =
@@ -347,7 +347,12 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
+                            if (ex instanceof IllegalArgumentException)
+                                Snackbar.make(
+                                        parentFragment.getView(), ex.getMessage(), Snackbar.LENGTH_LONG)
+                                        .setGestureInsetBottomIgnored(true).show();
+                            else
+                                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
                         }
                     }.execute(context, owner, args, "rule:execute");
                 }
