@@ -767,11 +767,18 @@ public class Helper {
     }
 
     static void excludeFromRecents(Context context) {
-        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        if (am != null) {
+        try {
+            ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            if (am == null)
+                return;
+
             List<ActivityManager.AppTask> tasks = am.getAppTasks();
-            if (tasks != null && tasks.size() > 0)
-                tasks.get(0).setExcludeFromRecents(true);
+            if (tasks == null || tasks.size() == 0)
+                return;
+
+            tasks.get(0).setExcludeFromRecents(true);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
