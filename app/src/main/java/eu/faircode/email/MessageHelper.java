@@ -2370,13 +2370,16 @@ public class MessageHelper {
                     part.isMimeType("application/x-pkcs7-mime")) {
                 ContentType ct = new ContentType(part.getContentType());
                 String smimeType = ct.getParameter("smime-type");
-                if ("enveloped-data".equals(smimeType)) {
+                if ("enveloped-data".equalsIgnoreCase(smimeType) ||
+                        "smime.p7m".equalsIgnoreCase(ct.getParameter("name"))) {
                     getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
                     return parts;
-                } else if ("signed-data".equals(smimeType)) {
+                } else if ("signed-data".equalsIgnoreCase(smimeType) ||
+                        "smime.p7s".equalsIgnoreCase(ct.getParameter("name"))) {
                     getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                     return parts;
-                }
+                } else
+                    Log.e(ct.toString());
             }
         } catch (ParseException ex) {
             Log.w(ex);
