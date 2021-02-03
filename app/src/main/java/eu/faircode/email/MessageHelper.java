@@ -2353,8 +2353,10 @@ public class MessageHelper {
                         parts.attachments.add(apart);
 
                         return parts;
-                    }
-                }
+                    } else
+                        Log.e(ct + " parts=" + multipart.getCount());
+                } else
+                    Log.e(ct.toString());
             } else if (part.isMimeType("multipart/encrypted")) {
                 ContentType ct = new ContentType(part.getContentType());
                 String protocol = ct.getParameter("protocol");
@@ -2364,8 +2366,10 @@ public class MessageHelper {
                         // Ignore header
                         getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
                         return parts;
-                    }
-                }
+                    } else
+                        Log.e(ct + " parts=" + multipart.getCount());
+                } else
+                    Log.e(ct.toString());
             } else if (part.isMimeType("application/pkcs7-mime") ||
                     part.isMimeType("application/x-pkcs7-mime")) {
                 ContentType ct = new ContentType(part.getContentType());
