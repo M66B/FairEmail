@@ -1920,23 +1920,28 @@ public class MessageHelper {
                 } else if (h.isDSN()) {
                     StringBuilder report = new StringBuilder();
                     report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
-                    for (String line : result.split("\\r?\\n")) {
-                        if (line.length() > 0)
-                            if (Character.isWhitespace(line.charAt(0)))
-                                report.append(line).append("<br />");
+                    for (String line : result.split("\\r?\\n"))
+                        if (line.length() == 0)
+                            report.append("<br>");
+                        else if (Character.isWhitespace(line.charAt(0)))
+                            report.append(line).append("<br>");
+                        else {
+                            int colon = line.indexOf(':');
+                            if (colon < 0)
+                                report.append(line);
                             else {
-                                int colon = line.indexOf(':');
-                                if (colon < 0)
-                                    report.append(line);
-                                else
-                                    report
-                                            .append("<strong>")
-                                            .append(line.substring(0, colon))
-                                            .append("</strong>")
-                                            .append(line.substring(colon))
-                                            .append("<br />");
+                                String name = line.substring(0, colon).trim();
+                                String value = line.substring(colon + 1).trim();
+                                value = decodeMime(value);
+                                report
+                                        .append("<strong>")
+                                        .append(TextUtils.htmlEncode(name))
+                                        .append("</strong>")
+                                        .append(": ")
+                                        .append(TextUtils.htmlEncode(value))
+                                        .append("<br>");
                             }
-                    }
+                        }
                     report.append("</div>");
                     result = report.toString();
                 } else
