@@ -498,6 +498,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.reply_domain, other.reply_domain) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     Objects.equals(this.sender, other.sender) &&
+                    MessageHelper.equal(this.return_path, other.return_path) &&
                     MessageHelper.equal(this.submitter, other.submitter) &&
                     MessageHelper.equal(this.from, other.from) &&
                     MessageHelper.equal(this.to, other.to) &&
