@@ -591,7 +591,7 @@ public class MessageHelper {
                 from = ((InternetAddress) message.from[0]).getAddress();
 
             StringBuilder sb = new StringBuilder();
-            sb.append("Reporting-MTA: dns;").append("dummy.faircode.eu").append("\r\n");
+            sb.append("Reporting-MTA: dns;").append(EmailService.getDefaultEhlo()).append("\r\n");
             sb.append("\r\n");
 
             if (from != null)
