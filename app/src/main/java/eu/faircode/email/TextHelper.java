@@ -65,9 +65,11 @@ public class TextHelper {
             System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
         }
 
+        long start = new Date().getTime();
         Log.i("cld3 sample=" + sample.length);
         DetectResult result = jni_detect_language(sample);
-        Log.i("Language=" + result);
+        long elapse = new Date().getTime() - start;
+        Log.i("cld3 language=" + result + " elapse=" + elapse);
 
         if (result.probability < MIN_PROBABILITY)
             return null;
