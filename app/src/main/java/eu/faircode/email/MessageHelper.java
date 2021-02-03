@@ -1214,10 +1214,14 @@ public class MessageHelper {
         header = header.replaceAll("\\?=[\\r\\n\\t ]+=\\?", "\\?==\\?");
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
+        List<Address> result = new ArrayList<>();
         for (Address address : addresses) {
             InternetAddress iaddress = (InternetAddress) address;
             String email = iaddress.getAddress();
             String personal = iaddress.getPersonal();
+
+            if (TextUtils.isEmpty(email) && TextUtils.isEmpty(personal))
+                continue;
 
             email = decodeMime(email);
             if (!Helper.isSingleScript(email))
@@ -1232,9 +1236,11 @@ public class MessageHelper {
                     Log.w(ex);
                 }
             }
+
+            result.add(address);
         }
 
-        return addresses;
+        return (result.size() == 0 ? null : result.toArray(new Address[0]));
     }
 
     Address[] getReturnPath() throws MessagingException {
