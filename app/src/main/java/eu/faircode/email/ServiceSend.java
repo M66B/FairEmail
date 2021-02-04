@@ -205,6 +205,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         .setContentIntent(getPendingIntent(this))
                         .setAutoCancel(false)
                         .setShowWhen(true)
+                        .setOnlyAlertOnce(true)
                         .setDefaults(0) // disable sound on pre Android 8
                         .setLocalOnly(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
