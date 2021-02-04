@@ -2438,7 +2438,7 @@ public class MessageHelper {
                     String sample = text.substring(0, Math.min(200, text.length()));
                     throw new ParseException(content.getClass().getName() + ": " + sample);
                 } else
-                    throw new ParseException(content.getClass().getName());
+                    throw new IllegalArgumentException(content.getClass().getName());
 
                 boolean other = false;
                 List<Part> plain = new ArrayList<>();
