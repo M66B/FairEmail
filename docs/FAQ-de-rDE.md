@@ -243,7 +243,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [~~(122) Warum wird Empfängername/E-Mail-Adresse mit einer Warnfarbe angezeigt?~~](#user-content-faq122)
 * [(123) Was geschieht, wenn FairEmail keine Verbindung zu einem E-Mail-Server herstellen kann?](#user-content-faq123)
 * [(124) Warum erhalte ich den Hinweis »Nachricht zu groß oder zu komplex, um sie anzuzeigen«?](#user-content-faq124)
-* [(125) Was sind die aktuellen experimentellen Eigenschaften?](#user-content-faq125)
+* [(125) Was sind die aktuellen experimentellen Funktionen?](#user-content-faq125)
 * [(126) Können Nachrichtenvorschauen an mein Wearable gesendet werden?](#user-content-faq126)
 * [(127) Wie kann ich den Fehler »Syntaktisch ungültige HELO-Argumente« beheben?](#user-content-faq127)
 * [(128) Wie kann ich die gestellten Fragen zurücksetzen, zum Beispiel um Bilder zu zeigen?](#user-content-faq128)
@@ -443,7 +443,7 @@ In the display section of the settings you can enable or disable for example:
 * *Conversation action bar*: to disable the bottom navigation bar
 * *Hervorhebungsfarbe*: zum Auswählen einer Farbe für den Absender von ungelesenen Nachrichten
 * *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
+* *Namen und E-Mail-Adressen anzeigen*: um Namen anzuzeigen oder um Namen und E-Mail-Adressen anzuzeigen
 * *Show subject italic*: to show the message subject as normal text
 * *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show 1-4 lines of the message text
@@ -466,6 +466,12 @@ Some people ask:
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+
+**Important**: sometimes Google issues this alert:
+
+*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+
+This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
@@ -873,7 +879,7 @@ The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *...
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The errors *... BYE Logging out ...*, *... „Verbindung zurückgesetzt …”* bedeutet, dass der E-Mail-Server oder etwas zwischen dem E-Mail-Server und der App, zum Beispiel ein Router oder eine Firewall (App), eine bestehende Verbindung aktiv beendet hat.
+The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server or something between the email server and the app, for example a router or a firewall (app), actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
@@ -2358,9 +2364,15 @@ Please see [this FAQ](#user-content-faq163) for details.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
-*Send user unknown (version 1.1477+)*
+<br />
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) *User unknown* via the answer menu.
+*Send hard bounce (version 1.1477+)*
+
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+
+Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+
+For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 

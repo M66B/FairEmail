@@ -467,6 +467,12 @@ If you use the Play store or GitHub version of FairEmail, you can use the quick 
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
+**Important**: sometimes Google issues this alert:
+
+*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+
+This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
@@ -2358,9 +2364,15 @@ Please see [this FAQ](#user-content-faq163) for details.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
-*Send user unknown (version 1.1477+)*
+<br />
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) *User unknown* via the answer menu.
+*Send hard bounce (version 1.1477+)*
+
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+
+Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+
+For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 

@@ -771,6 +771,7 @@
     <string name="title_reply_to_all">Besvar alle</string>
     <string name="title_reply_list">Besvar liste</string>
     <string name="title_reply_receipt">Send læst-kvittering</string>
+    <string name="title_reply_hard_bounce">Send hard bounce</string>
     <string name="title_reply_template">Besvar med skabelon</string>
     <string name="title_move_undo">Flytter til %1$s (%2$d)</string>
     <string name="title_open_with">Åbn med</string>
@@ -903,7 +904,7 @@
     <string name="title_key_missing">Ingen tast til %1$s</string>
     <string name="title_send_reminder_remark">Påmindelser kan geaktiveres under Send-indstillinger</string>
     <string name="title_send_plain_text">Kun klartekst</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Statusrapport</string>
+    <string name="title_send_dsn">Statusrapport</string>
     <string name="title_send_receipt">Bed om kvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
     <string name="title_from_missing">Afsender mangler</string>
@@ -915,6 +916,7 @@
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_plain_reminder">Al formatering vil gå tabt</string>
+    <string name="title_dsn_reminder">Hard bounces skader den oprindelige afsenders e-mailomdømme!</string>
     <string name="title_size_reminder">Besked (%1$s) større end servergrænsen (%2$s)</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
     <string name="title_dialog_hint">Denne dialog kan slås til igen via trepriksmenuen i den øverste handlingsbjælke</string>

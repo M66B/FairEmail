@@ -771,7 +771,7 @@
     <string name="title_reply_to_all">Antwoord aan iedereen</string>
     <string name="title_reply_list">Antwoord aan lijst</string>
     <string name="title_reply_receipt">Stuur leesbevestiging</string>
-    <string name="title_reply_address_unknown">Rapporteer \'adres onbekend\'</string>
+    <string name="title_reply_hard_bounce">Stuur hard bounce</string>
     <string name="title_reply_template">Antwoord met sjabloon</string>
     <string name="title_move_undo">Verplaatsen naar %1$s (%2$d)</string>
     <string name="title_open_with">Openen met</string>
@@ -905,7 +905,7 @@
     <string name="title_key_missing">Geen sleutel voor %1$s</string>
     <string name="title_send_reminder_remark">Herinneringen kunnen weer worden ingeschakeld in de verzendinstellingen</string>
     <string name="title_send_plain_text">Alleen platte tekst</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Statusrapport</string>
+    <string name="title_send_dsn">Statusrapport</string>
     <string name="title_send_receipt">Vraag bevestiging</string>
     <string name="title_send_receipt_remark">De meeste providers en e-mail clients negeren bevestigingsverzoeken</string>
     <string name="title_from_missing">Zender ontbreekt</string>
@@ -917,6 +917,7 @@
     <string name="title_attachment_keywords">bijlage,bijlagen</string>
     <string name="title_attachment_reminder">Was u van plan een bijlage toe te voegen?</string>
     <string name="title_plain_reminder">Alle opmaak zal verloren gaan</string>
+    <string name="title_dsn_reminder">Hard bounces schaden de e-mailreputatie van de oorspronkelijke afzender!</string>
     <string name="title_size_reminder">Bericht (%1$s) groter dan de serverlimiet (%2$s)</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
     <string name="title_dialog_hint">Dit dialoogvenster kan opnieuw worden ingeschakeld via het 3-puntenmenu in de bovenste actiebalk</string>

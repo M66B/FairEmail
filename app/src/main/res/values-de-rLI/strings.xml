@@ -771,7 +771,7 @@
     <string name="title_reply_to_all">Allen antworten</string>
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
-    <string name="title_reply_address_unknown">Antworten mit \'Adresse unbekannt\'</string>
+    <string name="title_reply_hard_bounce">Unzustellbarkeitsnachricht (Hard Bounce) senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
     <string name="title_move_undo">Wird nach »%1$s« verschoben (%2$d)</string>
     <string name="title_open_with">Öffnen mit</string>
@@ -905,7 +905,7 @@
     <string name="title_key_missing">Kein Schlüssel für %1$s</string>
     <string name="title_send_reminder_remark">Erinnerungen können in den Sendeeinstellungen wieder aktiviert werden</string>
     <string name="title_send_plain_text">Nur einfacher Text</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Statusbericht</string>
+    <string name="title_send_dsn">Statusbericht</string>
     <string name="title_send_receipt">Bestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsanforderungen</string>
     <string name="title_from_missing">Absender fehlt</string>
@@ -917,6 +917,7 @@
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei</string>
     <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
     <string name="title_plain_reminder">Alle Formatierungen gehen verloren</string>
+    <string name="title_dsn_reminder">Unzustellbarkeitsnachrichten (Hard Bounces) schaden dem E-Mail-Ruf des ursprünglichen Absenders!</string>
     <string name="title_size_reminder">Nachricht (%1$s) größer als Serverbegrenzung (%2$s)</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
     <string name="title_dialog_hint">Dieser Dialog kann über das Drei-Punkte-Menü (⋮) in der oberen Aktionsleiste wieder aktiviert werden</string>

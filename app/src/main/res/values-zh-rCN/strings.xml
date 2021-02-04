@@ -759,7 +759,7 @@
     <string name="title_reply_to_all">回复全部</string>
     <string name="title_reply_list">回复列表</string>
     <string name="title_reply_receipt">发送已读回执</string>
-    <string name="title_reply_address_unknown">报告 \'地址未知\'</string>
+    <string name="title_reply_hard_bounce">发送硬退信通知</string>
     <string name="title_reply_template">使用模板回复</string>
     <string name="title_move_undo">正移动到 %1$s(%2$d)</string>
     <string name="title_open_with">打开方式</string>
@@ -893,7 +893,7 @@
     <string name="title_key_missing">没有 %1$s 的密钥</string>
     <string name="title_send_reminder_remark">在发送设置中可以再次启用提醒</string>
     <string name="title_send_plain_text">仅纯文本</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">状态报告</string>
+    <string name="title_send_dsn">状态报告</string>
     <string name="title_send_receipt">请求回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
     <string name="title_from_missing">缺少发件人</string>
@@ -905,6 +905,7 @@
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_plain_reminder">所有文本格式都将丢失</string>
+    <string name="title_dsn_reminder">硬退信损害原始发件人的电子邮件声誉!</string>
     <string name="title_size_reminder">消息 (%1$s) 超出服务器限制 (%2$s)</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>

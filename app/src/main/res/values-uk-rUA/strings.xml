@@ -699,7 +699,7 @@
     <string name="title_folder_name_missing">Відсутнє ім\'я теки</string>
     <string name="title_folder_exists">Тека %1$s вже існує</string>
     <string name="title_folder_delete">Остаточно видалити цю теку і будь-які повідомлення, які вона містить?</string>
-    <string name="title_months">Місяць(ів)</string>
+    <string name="title_months">Місяців</string>
     <string name="title_months_all">Всі</string>
     <string name="title_folder_unified">Загальна тека Вхідні</string>
     <string name="title_folder_inbox">Вхідні</string>
@@ -780,7 +780,7 @@
     <string name="title_reply_to_all">Відповісти всім</string>
     <string name="title_reply_list">Відповісти до списку</string>
     <string name="title_reply_receipt">Надіслати повідомлення про перегляд</string>
-    <string name="title_reply_address_unknown">Повідомити \'адреса невідома\'</string>
+    <string name="title_reply_hard_bounce">Надіслати жорстку відмову у повідомлені про стан доставки</string>
     <string name="title_reply_template">Відповісти з шаблоном</string>
     <string name="title_move_undo">Переміщення до %1$s (%2$d)</string>
     <string name="title_open_with">Відкрити за допомогою</string>
@@ -847,7 +847,7 @@
     <string name="title_sent">Надіслано:</string>
     <string name="title_received">Отримано:</string>
     <string name="title_stored">Збережене:</string>
-    <string name="title_size">Размір:</string>
+    <string name="title_size">Розмір:</string>
     <string name="title_language">Мова:</string>
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вкладення:</string>
@@ -914,7 +914,7 @@
     <string name="title_key_missing">Немає ключа для %1$s</string>
     <string name="title_send_reminder_remark">Нагадування можуть знову бути увімкнені в налаштуваннях для надсилання</string>
     <string name="title_send_plain_text">Тільки звичайний текст</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Звіти про стан</string>
+    <string name="title_send_dsn">Звіти про стан</string>
     <string name="title_send_receipt">Запит підтвердження отримання</string>
     <string name="title_send_receipt_remark">Більшість постачальників та email клієнтів ігнорують запити на отримання</string>
     <string name="title_from_missing">Відсутній відправник</string>

@@ -771,7 +771,7 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder a la lista</string>
     <string name="title_reply_receipt">Enviar acuse de lectura</string>
-    <string name="title_reply_address_unknown">Reportar \'dirección desconocida\'</string>
+    <string name="title_reply_hard_bounce">Enviar rebote duro</string>
     <string name="title_reply_template">Responder con plantilla</string>
     <string name="title_move_undo">Moviendo a %1$s (%2$d)</string>
     <string name="title_open_with">Abrir con</string>
@@ -905,7 +905,7 @@
     <string name="title_key_missing">No hay clave para %1$s</string>
     <string name="title_send_reminder_remark">Los recordatorios pueden ser activados de nuevo en la configuración de envío</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Informe de estado</string>
+    <string name="title_send_dsn">Informe de estado</string>
     <string name="title_send_receipt">Solicitar acuse</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
     <string name="title_from_missing">Falta remitente</string>
@@ -917,6 +917,7 @@
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
     <string name="title_plain_reminder">Todo el formato se perderá</string>
+    <string name="title_dsn_reminder">¡Los rebotes duros dañan la reputación de correo del remitente original!</string>
     <string name="title_size_reminder">Mensaje (%1$s) más grande que el límite del servidor (%2$s)</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
     <string name="title_dialog_hint">Este diálogo se puede activar de nuevo a través del menú de tres puntos en la barra de acción superior</string>

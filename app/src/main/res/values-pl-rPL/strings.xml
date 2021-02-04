@@ -792,7 +792,7 @@
     <string name="title_reply_to_all">Odpowiedz wszystkim</string>
     <string name="title_reply_list">Odpowiedz do listy</string>
     <string name="title_reply_receipt">Wyślij potwierdzenie odczytu</string>
-    <string name="title_reply_address_unknown">Zgłoś „adres nieznany”</string>
+    <string name="title_reply_hard_bounce">Wyślij \"twarde odbicie\"</string>
     <string name="title_reply_template">Odpowiedz z szablonem</string>
     <string name="title_move_undo">Przenoszę do %1$s (%2$d)</string>
     <string name="title_open_with">Otwórz za pomocą</string>
@@ -926,7 +926,7 @@
     <string name="title_key_missing">Brak klucza dla %1$s</string>
     <string name="title_send_reminder_remark">Przypomnienia można włączyć ponownie w ustawieniach wysyłania</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
-    <string name="title_send_dsn" comment="title_send_dsn&#10;Title for delivery/disposition notifications&#10;(receipts and 'address unknown' messages)">Raport o stanie</string>
+    <string name="title_send_dsn">Raport o stanie</string>
     <string name="title_send_receipt">Poproś o potwierdzenie</string>
     <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
     <string name="title_from_missing">Brak nadawcy</string>

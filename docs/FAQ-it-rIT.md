@@ -467,6 +467,12 @@ If you use the Play store or GitHub version of FairEmail, you can use the quick 
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. Per usare una password dovrai configurar un profilo e un'identità tramite la configurazione manuale invece che tramite la procedura guidata rapida.
 
+**Important**: sometimes Google issues this alert:
+
+*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+
+This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
@@ -607,7 +613,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. Questo può essere fatto premendo a lungo un'identità nell'elenco delle identità (Impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Identità).
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
@@ -781,7 +787,7 @@ On some devices, where there are lots of applications competing for memory, Andr
 
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
-Disabilitare le ottimizzazioni della batteria (passaggio 3 della configurazione) riduce la possibilità che Android interromperà il servizio di sincronizzazione.
+Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
 In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
@@ -855,9 +861,9 @@ There are general errors and errors specific to Gmail accounts (see below).
 **General errors**
 
 <a name="authfailed"></a>
-L'errore *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Sei pregato di vedere [questo FAQ](#user-content-faq88) su come configurare un profilo di Yahoo.
+L'errore *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
@@ -865,11 +871,11 @@ The errors *... invalid greeting ...*, *... requires valid address ...* and *...
 
 L'errore *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
-L'errore *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
-L'errore *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
 
-L'errore *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
@@ -1041,7 +1047,7 @@ Note that downloading external images from a remote server can be used to record
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
 
-Nella configurazione troverai il pulsante *Gestione notifiche* per navigare direttamente alle impostazioni di notifica di Android per FairEmail.
+In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
@@ -1083,7 +1089,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
 
-Ci sono scorciatoie disponibili per comporre un nuovo messaggio a un contatto preferito.
+There are shortcuts available to compose a new message to a favorite contact.
 
 Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
@@ -2358,9 +2364,15 @@ Please see [this FAQ](#user-content-faq163) for details.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
-*Send user unknown (version 1.1477+)*
+<br />
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) *User unknown* via the answer menu.
+*Send hard bounce (version 1.1477+)*
+
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+
+Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+
+For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 

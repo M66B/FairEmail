@@ -53,7 +53,7 @@ Questions liées:
 * Ajouter un dossier au menu de navigation : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans le menu de navigation*
 * Charger plus de messages : appuyez longuement sur un dossier dans la liste de dossiers, sélectionnez *Récupérer plus de messages*
 * Supprimez un message, sautez la corbeille : dans le menu à 3 points juste au-dessus du texte du message *Supprimer* ou désélectionnez le dossier corbeille dans les paramètres du compte
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Supprimer un compte: Paramètres > cliquer sur "gérer" dans Configurer les comptes > sélectionner le compte > menu à trois points > supprimer
 * Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers > Modifier les propriétés > Menu à trois points > Supprimer
 * Annuler l'envoi : Dans la boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
 * Stocker les messages envoyés dans la boîte de réception : veuillez [voir ceci dans FAQ](#user-content-faq142)
@@ -282,7 +282,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(161) Pouvez-vous ajouter un paramètre pour changer les couleurs primaire et d'accentuation ?](#user-content-faq161)
 * [(162) L'IMAP NOTIFY est-il pris en charge ?](#user-content-faq162)
 * [(163) Qu'est-ce que la classification des messages ?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
+* [(164) Pouvez-vous ajouter des thèmes personnalisables ?](#user-content-faq164)
 
 [J’ai une autre question.](#user-content-support)
 
@@ -390,15 +390,15 @@ Les opérations ne sont effectuées que lorsqu'il y a une connexion au serveur d
 <br />
 *... Certificat de sécurité invalide (impossible de vérifier l'identité du serveur) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
+Cela peut être dû à l'utilisation d'un nom de serveur incorrect, il faut donc d'abord vérifier le nom du serveur dans les paramètres avancés du compte/identité (Paramètres > "Gérer" dans configurer les comptes). Voir la documentation de votre fournisseur de messagerie concernant le nom du serveur.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Vous pouvez essayer de résoudre ce problème en contactant votre fournisseur de messagerie ou en obtenant un certificat de sécurité valide, car les certificats de sécurité non valides ne sont pas sécurisés et exposent aux attaques d'intermédiaires. Si l'argent est un problème, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Let’s Encrypt](https://letsencrypt.org).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Sinon, vous pouvez accepter l'empreinte digitale des certificats de serveur non valides comme ceci :
 
 1. Assurez-vous que vous utilisez une connexion internet fiable (pas de réseaux Wi-Fi publics, etc)
 1. Aller à l'écran de configuration rapide via le menu de navigation (Faites glisser depuis le côté gauche vers l'intérieur)
-1. Tap Manual setup and more options, tap Accounts/Identities and tap the faulty account and identity
+1. Paramètres/"Gérer" dans Configurer les comptes/sélectionner le compte défectueux
 1. Contrôlez/enregistrez le compte et l'identité
 1. Cochez la case en dessous du message d'erreur et enregistrez à nouveau
 
@@ -453,7 +453,7 @@ In the display section of the settings you can enable or disable for example:
 
 Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
-Some people ask:
+Certaines personnes demandent :
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
@@ -461,11 +461,17 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour paramétrer facilement un compte Gmail et une identité. L'assistant de configuration rapide de Gmail n'est pas disponible pour les versions tierces, comme la version F-Droid, car Google n'a approuve l'utilisation d'OAuth que pour les versions officielles.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+
+**Important**: sometimes Google issues this alert:
+
+*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+
+This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
@@ -1024,15 +1030,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![Image externe](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Image intégrée](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Image cassée](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -2358,9 +2364,15 @@ Please see [this FAQ](#user-content-faq163) for details.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
-*Send user unknown (version 1.1477+)*
+<br />
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) *User unknown* via the answer menu.
+*Send hard bounce (version 1.1477+)*
+
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+
+Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+
+For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 
