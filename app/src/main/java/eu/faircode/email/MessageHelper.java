@@ -718,9 +718,12 @@ public class MessageHelper {
                             flowed.add(sb.toString());
 
                             int i = 0;
-                            while (i < sb.length() &&
-                                    (sb.charAt(i) == '>' || sb.charAt(i) == ' '))
+                            if (sb.length() > 0 && sb.charAt(0) == '>') {
                                 i++;
+                                while (i < sb.length() &&
+                                        (sb.charAt(i) == '>' || sb.charAt(i) == ' '))
+                                    i++;
+                            }
                             String prefix = sb.substring(0, i).trim();
 
                             sb = new StringBuilder(prefix);
