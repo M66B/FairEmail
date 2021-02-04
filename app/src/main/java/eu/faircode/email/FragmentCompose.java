@@ -5551,6 +5551,7 @@ public class FragmentCompose extends FragmentBase {
             boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_image, null);
+            final ImageView ivType = dview.findViewById(R.id.ivType);
             final RadioGroup rgAction = dview.findViewById(R.id.rgAction);
             final CheckBox cbResize = dview.findViewById(R.id.cbResize);
             final Spinner spResize = dview.findViewById(R.id.spResize);
@@ -5559,6 +5560,8 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
+            ivType.setImageResource(title == R.string.title_attachment_photo
+                    ? R.drawable.twotone_photo_camera_24 : R.drawable.twotone_image_24);
             rgAction.check(add_inline ? R.id.rbInline : R.id.rbAttach);
             cbResize.setChecked(resize_images);
             spResize.setEnabled(resize_images);
