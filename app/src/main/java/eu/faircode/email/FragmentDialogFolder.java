@@ -27,6 +27,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
@@ -60,12 +62,12 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final long account = getArguments().getLong("account");
         final long[] disabled = getArguments().getLongArray("disabled");
 
-        List<String> selected_folders = new ArrayList<>();
-
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String json = prefs.getString("selected_folders", "[]");
+        final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
+        List<String> selected_folders = new ArrayList<>();
+        String json = prefs.getString("selected_folders", "[]");
         try {
             JSONArray jarray = new JSONArray(json);
             for (int i = 0; i < jarray.length(); i++)
@@ -165,6 +167,13 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
             @Override
             public void afterTextChanged(Editable s) {
+            }
+        });
+
+        etSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                imm.hideSoftInputFromWindow(view.getApplicationWindowToken(), 0);
             }
         });
 
