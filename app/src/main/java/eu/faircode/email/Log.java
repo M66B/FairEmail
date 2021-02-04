@@ -1105,7 +1105,7 @@ public class Log {
             return true;
 
         while (ex != null) {
-            for (StackTraceElement ste : ex.getStackTrace())
+            for (StackTraceElement ste :stack)
                 if (ste.getClassName().startsWith(BuildConfig.APPLICATION_ID))
                     return true;
             ex = ex.getCause();
