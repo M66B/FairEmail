@@ -2607,21 +2607,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onCompose() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean identities_asked = prefs.getBoolean("identities_asked", false);
-        if (identities_asked)
-            startActivity(new Intent(getContext(), ActivityCompose.class)
-                    .putExtra("action", "new")
-                    .putExtra("account", account)
-            );
-        else {
-            Bundle args = new Bundle();
-            args.putLong("account", account);
+        Bundle args = new Bundle();
+        args.putLong("account", account);
 
-            FragmentDialogIdentity fragment = new FragmentDialogIdentity();
-            fragment.setArguments(args);
-            fragment.show(getParentFragmentManager(), "messages:identities");
-        }
+        new SimpleTask<Boolean>() {
+            @Override
+            protected Boolean onExecute(Context context, Bundle args) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean identities_asked = prefs.getBoolean("identities_asked", false);
+                if (identities_asked)
+                    return false;
+
+                DB db = DB.getInstance(context);
+                List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+                return (identities != null && identities.size() > 1);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Boolean ask) {
+                if (ask) {
+                    FragmentDialogIdentity fragment = new FragmentDialogIdentity();
+                    fragment.setArguments(args);
+                    fragment.show(getParentFragmentManager(), "messages:identities");
+                } else
+                    startActivity(new Intent(getContext(), ActivityCompose.class)
+                            .putExtra("action", "new")
+                            .putExtra("account", account));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "message:compose");
     }
 
     private void onMore() {
