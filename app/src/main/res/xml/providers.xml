@@ -845,15 +845,16 @@
             starttls="false" />
     </provider>
     <provider
-        name="Arcor.de"
+        name="Arcor.de/Vodafone.de"
         appPassword="true"
-        link="https://www.vodafone.de/hilfe/email/abrufen-senden.html">
+        domain="arcor\\.de,vodafone\\.de,vodafonemail\\.de"
+        link="https://www.vodafone.de/hilfe/email/abrufen-senden.html#wie-lauten-die-server-einstellungen-fuer-vodafone-e-mail">
         <imap
-            host="imap.arcor.de"
+            host="imap.vodafonemail.de"
             port="993"
             starttls="false" />
         <smtp
-            host="mail.arcor.de"
+            host="smtp.vodafonemail.de"
             port="465"
             starttls="false" />
     </provider>
