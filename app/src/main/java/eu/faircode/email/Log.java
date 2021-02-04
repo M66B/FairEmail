@@ -1092,6 +1092,12 @@ public class Log {
              */
             return false;
 
+        for (StackTraceElement ste : stack) {
+            String clazz = ste.getClassName();
+            if (clazz != null && clazz.startsWith("org.chromium.net."))
+                return false;
+        }
+
         if (isDead(ex))
             return false;
 
