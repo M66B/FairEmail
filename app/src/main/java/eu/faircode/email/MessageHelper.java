@@ -711,12 +711,19 @@ public class MessageHelper {
             List<String> flowed = new ArrayList<>();
             for (String line : plainContent.split("\\r?\\n")) {
                 if (line.contains(" ") && !"-- ".equals(line)) {
-                    StringBuffer sb = new StringBuffer();
+                    StringBuilder sb = new StringBuilder();
                     for (String word : line.split(" ")) {
                         if (sb.length() + word.length() > FORMAT_FLOWED_LINE_LENGTH) {
                             sb.append(' ');
                             flowed.add(sb.toString());
-                            sb = new StringBuffer();
+
+                            int i = 0;
+                            while (i < sb.length() &&
+                                    (sb.charAt(i) == '>' || sb.charAt(i) == ' '))
+                                i++;
+                            String prefix = sb.substring(0, i).trim();
+
+                            sb = new StringBuilder(prefix);
                         }
                         if (sb.length() > 0)
                             sb.append(' ');
