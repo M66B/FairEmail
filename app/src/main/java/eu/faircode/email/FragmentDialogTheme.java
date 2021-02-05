@@ -188,50 +188,44 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
                         editor.remove("highlight_color");
 
-                        switch (rgTheme.getCheckedRadioButtonId()) {
-                            case R.id.rbThemeBlueOrange:
-                                if (system)
-                                    editor.putString("theme",
-                                            (reverse ? "orange_blue_system" : "blue_orange_system") +
-                                                    (black ? "_black" : "")).apply();
-                                else
-                                    editor.putString("theme",
-                                            (reverse ? "orange_blue" : "blue_orange") +
-                                                    (black ? "_black" : dark ? "_dark" : "_light")).apply();
-                                break;
-                            case R.id.rbThemeRedGreen:
-                                if (system)
-                                    editor.putString("theme",
-                                            (reverse ? "green_red_system" : "red_green_system") +
-                                                    (black ? "_black" : "")).apply();
-                                else
-                                    editor.putString("theme",
-                                            (reverse ? "green_red" : "red_green") +
-                                                    (black ? "_black" : dark ? "_dark" : "_light")).apply();
-                                break;
-                            case R.id.rbThemeYellowPurple:
-                                if (system)
-                                    editor.putString("theme",
-                                            (reverse ? "purple_yellow_system" : "yellow_purple_system") +
-                                                    (black ? "_black" : "")).apply();
-                                else
-                                    editor.putString("theme",
-                                            (reverse ? "purple_yellow" : "yellow_purple") +
-                                                    (black ? "_black" : dark ? "_dark" : "_light")).apply();
-                                break;
-                            case R.id.rbThemeGrey:
-                                if (system)
-                                    editor.putString("theme", "grey_system").apply();
-                                else
-                                    editor.putString("theme",
-                                            "grey" + (dark ? "_dark" : "_light")).apply();
-                                break;
-                            case R.id.rbThemeBlack:
-                                editor.putString("theme", "black").apply();
-                                break;
-                            case R.id.rbThemeBlackAndWhite:
-                                editor.putString("theme", "black_and_white").apply();
-                                break;
+                        int checkedRadioButtonId = rgTheme.getCheckedRadioButtonId();
+                        if (checkedRadioButtonId == R.id.rbThemeBlueOrange) {
+                            if (system)
+                                editor.putString("theme",
+                                        (reverse ? "orange_blue_system" : "blue_orange_system") +
+                                                (black ? "_black" : "")).apply();
+                            else
+                                editor.putString("theme",
+                                        (reverse ? "orange_blue" : "blue_orange") +
+                                                (black ? "_black" : dark ? "_dark" : "_light")).apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeRedGreen) {
+                            if (system)
+                                editor.putString("theme",
+                                        (reverse ? "green_red_system" : "red_green_system") +
+                                                (black ? "_black" : "")).apply();
+                            else
+                                editor.putString("theme",
+                                        (reverse ? "green_red" : "red_green") +
+                                                (black ? "_black" : dark ? "_dark" : "_light")).apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeYellowPurple) {
+                            if (system)
+                                editor.putString("theme",
+                                        (reverse ? "purple_yellow_system" : "yellow_purple_system") +
+                                                (black ? "_black" : "")).apply();
+                            else
+                                editor.putString("theme",
+                                        (reverse ? "purple_yellow" : "yellow_purple") +
+                                                (black ? "_black" : dark ? "_dark" : "_light")).apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeGrey) {
+                            if (system)
+                                editor.putString("theme", "grey_system").apply();
+                            else
+                                editor.putString("theme",
+                                        "grey" + (dark ? "_dark" : "_light")).apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeBlack) {
+                            editor.putString("theme", "black").apply();
+                        } else if (checkedRadioButtonId == R.id.rbThemeBlackAndWhite) {
+                            editor.putString("theme", "black_and_white").apply();
                         }
 
                         editor.apply();

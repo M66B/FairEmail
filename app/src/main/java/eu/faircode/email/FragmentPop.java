@@ -714,13 +714,11 @@ public class FragmentPop extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_delete:
-                onMenuDelete();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_delete) {
+            onMenuDelete();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuDelete() {

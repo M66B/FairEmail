@@ -95,16 +95,15 @@ public class FragmentAbout extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_changelog:
-                onMenuChangelog();
-                return true;
-            case R.id.menu_attribution:
-                onMenuAttribution();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_changelog) {
+            onMenuChangelog();
+            return true;
+        } else if (itemId == R.id.menu_attribution) {
+            onMenuAttribution();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuChangelog() {

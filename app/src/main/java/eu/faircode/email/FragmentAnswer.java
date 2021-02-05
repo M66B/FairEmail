@@ -133,19 +133,18 @@ public class FragmentAnswer extends FragmentBase {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_insert_image:
-                        onInsertImage();
-                        return true;
-                    case R.id.action_delete:
-                        onActionDelete();
-                        return true;
-                    case R.id.action_save:
-                        onActionSave();
-                        return true;
-                    default:
-                        return false;
+                int itemId = menuItem.getItemId();
+                if (itemId == R.id.action_insert_image) {
+                    onInsertImage();
+                    return true;
+                } else if (itemId == R.id.action_delete) {
+                    onActionDelete();
+                    return true;
+                } else if (itemId == R.id.action_save) {
+                    onActionSave();
+                    return true;
                 }
+                return false;
             }
         });
 
@@ -223,13 +222,11 @@ public class FragmentAnswer extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_help:
-                onMenuHelp();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_help) {
+            onMenuHelp();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuHelp() {

@@ -379,13 +379,11 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_default:
-                onMenuDefault();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_default) {
+            onMenuDefault();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuDefault() {

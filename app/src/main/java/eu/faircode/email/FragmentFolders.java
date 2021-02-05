@@ -468,37 +468,36 @@ public class FragmentFolders extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_search:
-                onMenuSearch();
-                return true;
-            case R.id.menu_unified:
-                onMenuUnified();
-                return true;
-            case R.id.menu_theme:
-                onMenuTheme();
-                return true;
-            case R.id.menu_compact:
-                onMenuCompact();
-                return true;
-            case R.id.menu_show_hidden:
-                onMenuShowHidden();
-                return true;
-            case R.id.menu_show_flagged:
-                onMenuShowFlagged();
-                return true;
-            case R.id.menu_subscribed_only:
-                onMenuSubscribedOnly();
-                return true;
-            case R.id.menu_apply_all:
-                onMenuApplyToAll();
-                return true;
-            case R.id.menu_force_sync:
-                onMenuForceSync();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_search) {
+            onMenuSearch();
+            return true;
+        } else if (itemId == R.id.menu_unified) {
+            onMenuUnified();
+            return true;
+        } else if (itemId == R.id.menu_theme) {
+            onMenuTheme();
+            return true;
+        } else if (itemId == R.id.menu_compact) {
+            onMenuCompact();
+            return true;
+        } else if (itemId == R.id.menu_show_hidden) {
+            onMenuShowHidden();
+            return true;
+        } else if (itemId == R.id.menu_show_flagged) {
+            onMenuShowFlagged();
+            return true;
+        } else if (itemId == R.id.menu_subscribed_only) {
+            onMenuSubscribedOnly();
+            return true;
+        } else if (itemId == R.id.menu_apply_all) {
+            onMenuApplyToAll();
+            return true;
+        } else if (itemId == R.id.menu_force_sync) {
+            onMenuForceSync();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuSearch() {

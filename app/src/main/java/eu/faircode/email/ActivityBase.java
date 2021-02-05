@@ -673,14 +673,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                onBackPressed();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     protected boolean backHandled() {

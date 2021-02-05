@@ -217,26 +217,21 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.string.title_enabled:
-                            onActionSync(!item.isChecked());
-                            return true;
-
-                        case R.string.title_primary:
-                            onActionPrimary(!item.isChecked());
-                            return true;
-
-                        case R.string.title_reset_sign_key:
-                            onActionClearSignKey();
-                            return true;
-
-                        case R.string.title_copy:
-                            onActionCopy();
-                            return true;
-
-                        default:
-                            return false;
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_enabled) {
+                        onActionSync(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_primary) {
+                        onActionPrimary(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_reset_sign_key) {
+                        onActionClearSignKey();
+                        return true;
+                    } else if (itemId == R.string.title_copy) {
+                        onActionCopy();
+                        return true;
                     }
+                    return false;
                 }
 
                 private void onActionSync(boolean sync) {

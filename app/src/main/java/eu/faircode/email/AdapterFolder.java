@@ -393,32 +393,29 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (folder.tbd != null)
                     return;
 
-                switch (view.getId()) {
-                    case R.id.ibExpander:
-                        onCollapse(folder);
-                        break;
-                    case R.id.tvFlagged:
-                    case R.id.ibFlagged:
-                        onFlagged(folder);
-                        break;
-                    default:
-                        if (listener == null) {
-                            if (!folder.selectable)
-                                return;
+                int id = view.getId();
+                if (id == R.id.ibExpander) {
+                    onCollapse(folder);
+                } else if (id == R.id.tvFlagged || id == R.id.ibFlagged) {
+                    onFlagged(folder);
+                } else {
+                    if (listener == null) {
+                        if (!folder.selectable)
+                            return;
 
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                            .putExtra("account", folder.account)
-                                            .putExtra("folder", folder.id)
-                                            .putExtra("type", folder.type));
-                        } else {
-                            if (folder.read_only)
-                                return;
-                            if (disabledIds.contains(folder.id))
-                                return;
-                            listener.onFolderSelected(folder);
-                        }
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", folder.account)
+                                        .putExtra("folder", folder.id)
+                                        .putExtra("type", folder.type));
+                    } else {
+                        if (folder.read_only)
+                            return;
+                        if (disabledIds.contains(folder.id))
+                            return;
+                        listener.onFolderSelected(folder);
+                    }
                 }
             }
         }
@@ -585,95 +582,74 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.getGroupId() == Menu.FIRST) {
-                        switch (item.getItemId()) {
-                            case R.string.title_synchronize_now:
-                                onActionSync(true);
-                                return true;
-                            case R.string.title_synchronize_batch_enable:
-                                onActionEnable(true);
-                                return true;
-                            case R.string.title_synchronize_batch_disable:
-                                onActionEnable(false);
-                                return true;
-                            default:
-                                return false;
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_synchronize_now) {
+                            onActionSync(true);
+                            return true;
+                        } else if (itemId == R.string.title_synchronize_batch_enable) {
+                            onActionEnable(true);
+                            return true;
+                        } else if (itemId == R.string.title_synchronize_batch_disable) {
+                            onActionEnable(false);
+                            return true;
                         }
+                        return false;
                     }
 
-                    switch (item.getItemId()) {
-                        case R.string.title_synchronize_now:
-                            onActionSync(false);
-                            return true;
-
-                        case R.string.title_synchronize_more:
-                            onActionSyncMore();
-                            return true;
-
-                        case R.string.title_unified_folder:
-                        case R.string.title_navigation_folder:
-                        case R.string.title_notify_folder:
-                        case R.string.title_synchronize_enabled:
-                            onActionProperty(item.getItemId(), !item.isChecked());
-                            return true;
-
-                        case R.string.title_subscribe:
-                            onActionSubscribe();
-                            return true;
-
-                        case R.string.title_delete_local:
-                            OnActionDeleteLocal(false);
-                            return true;
-
-                        case R.string.title_delete_browsed:
-                            OnActionDeleteLocal(true);
-                            return true;
-
-                        case R.string.title_empty_trash:
-                            onActionEmpty(EntityFolder.TRASH);
-                            return true;
-
-                        case R.string.title_empty_spam:
-                            onActionEmpty(EntityFolder.JUNK);
-                            return true;
-
-                        case R.string.title_edit_rules:
-                            onActionEditRules();
-                            return true;
-
-                        case R.string.title_edit_properties:
-                            onActionEditProperties();
-                            return true;
-
-                        case R.string.title_create_channel:
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                                onActionCreateChannel();
-                            return true;
-
-                        case R.string.title_edit_channel:
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                                onActionEditChannel();
-                            return true;
-
-                        case R.string.title_delete_channel:
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                                onActionDeleteChannel();
-                            return true;
-
-                        case R.string.title_create_sub_folder:
-                            onActionCreateFolder();
-                            return true;
-
-                        case R.string.title_pin:
-                            onActionPinFolder();
-                            return true;
-
-                        case R.string.title_delete:
-                            onActionDeleteFolder();
-                            return true;
-
-                        default:
-                            return false;
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_synchronize_now) {
+                        onActionSync(false);
+                        return true;
+                    } else if (itemId == R.string.title_synchronize_more) {
+                        onActionSyncMore();
+                        return true;
+                    } else if (itemId == R.string.title_unified_folder || itemId == R.string.title_navigation_folder || itemId == R.string.title_notify_folder || itemId == R.string.title_synchronize_enabled) {
+                        onActionProperty(item.getItemId(), !item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_subscribe) {
+                        onActionSubscribe();
+                        return true;
+                    } else if (itemId == R.string.title_delete_local) {
+                        OnActionDeleteLocal(false);
+                        return true;
+                    } else if (itemId == R.string.title_delete_browsed) {
+                        OnActionDeleteLocal(true);
+                        return true;
+                    } else if (itemId == R.string.title_empty_trash) {
+                        onActionEmpty(EntityFolder.TRASH);
+                        return true;
+                    } else if (itemId == R.string.title_empty_spam) {
+                        onActionEmpty(EntityFolder.JUNK);
+                        return true;
+                    } else if (itemId == R.string.title_edit_rules) {
+                        onActionEditRules();
+                        return true;
+                    } else if (itemId == R.string.title_edit_properties) {
+                        onActionEditProperties();
+                        return true;
+                    } else if (itemId == R.string.title_create_channel) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            onActionCreateChannel();
+                        return true;
+                    } else if (itemId == R.string.title_edit_channel) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            onActionEditChannel();
+                        return true;
+                    } else if (itemId == R.string.title_delete_channel) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                            onActionDeleteChannel();
+                        return true;
+                    } else if (itemId == R.string.title_create_sub_folder) {
+                        onActionCreateFolder();
+                        return true;
+                    } else if (itemId == R.string.title_pin) {
+                        onActionPinFolder();
+                        return true;
+                    } else if (itemId == R.string.title_delete) {
+                        onActionDeleteFolder();
+                        return true;
                     }
+                    return false;
                 }
 
                 private void onActionSync(boolean childs) {
@@ -754,22 +730,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             boolean enabled = args.getBoolean("enabled");
 
                             DB db = DB.getInstance(context);
-                            switch (property) {
-                                case R.string.title_unified_folder:
-                                    db.folder().setFolderUnified(id, enabled);
-                                    break;
-                                case R.string.title_navigation_folder:
-                                    db.folder().setFolderNavigation(id, enabled);
-                                    break;
-                                case R.string.title_notify_folder:
-                                    db.folder().setFolderNotify(id, enabled);
-                                    break;
-                                case R.string.title_synchronize_enabled:
-                                    db.folder().setFolderSynchronize(id, enabled);
-                                    ServiceSynchronize.reload(context, aid, false, "folder sync=" + enabled);
-                                    break;
-                                default:
-                                    throw new IllegalArgumentException("Unknown folder property=" + property);
+                            if (property == R.string.title_unified_folder) {
+                                db.folder().setFolderUnified(id, enabled);
+                            } else if (property == R.string.title_navigation_folder) {
+                                db.folder().setFolderNavigation(id, enabled);
+                            } else if (property == R.string.title_notify_folder) {
+                                db.folder().setFolderNotify(id, enabled);
+                            } else if (property == R.string.title_synchronize_enabled) {
+                                db.folder().setFolderSynchronize(id, enabled);
+                                ServiceSynchronize.reload(context, aid, false, "folder sync=" + enabled);
+                            } else {
+                                throw new IllegalArgumentException("Unknown folder property=" + property);
                             }
 
                             return null;

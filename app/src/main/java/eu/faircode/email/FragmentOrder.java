@@ -165,13 +165,11 @@ public class FragmentOrder extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_reset_order:
-                onMenuResetOrder();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_reset_order) {
+            onMenuResetOrder();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuResetOrder() {

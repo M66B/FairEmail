@@ -237,30 +237,24 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.string.title_rule_enabled:
-                            onActionEnabled(!item.isChecked());
-                            return true;
-
-                        case R.string.title_rule_execute:
-                            onActionExecute();
-                            return true;
-
-                        case R.string.title_reset:
-                            onActionReset();
-                            return true;
-
-                        case R.string.title_move_to_folder:
-                            onActionMove();
-                            return true;
-
-                        case R.string.title_copy:
-                            onActionCopy();
-                            return true;
-
-                        default:
-                            return false;
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_rule_enabled) {
+                        onActionEnabled(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_rule_execute) {
+                        onActionExecute();
+                        return true;
+                    } else if (itemId == R.string.title_reset) {
+                        onActionReset();
+                        return true;
+                    } else if (itemId == R.string.title_move_to_folder) {
+                        onActionMove();
+                        return true;
+                    } else if (itemId == R.string.title_copy) {
+                        onActionCopy();
+                        return true;
                     }
+                    return false;
                 }
 
                 private void onActionEnabled(boolean enabled) {

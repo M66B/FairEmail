@@ -252,13 +252,11 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_response:
-                onMenuResponse();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_response) {
+            onMenuResponse();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuResponse() {

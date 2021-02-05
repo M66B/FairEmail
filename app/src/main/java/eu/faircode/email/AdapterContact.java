@@ -235,25 +235,24 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.string.title_advanced_never_favorite:
-                            onActionNeverFavorite();
-                            return true;
-                        case R.string.title_share:
-                            onActionShare();
-                            return true;
-                        case R.string.title_pin:
-                            onActionPin();
-                            return true;
-                        case R.string.title_advanced_edit_name:
-                            onActionEdit();
-                            return true;
-                        case R.string.title_delete:
-                            onActionDelete();
-                            return true;
-                        default:
-                            return false;
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_advanced_never_favorite) {
+                        onActionNeverFavorite();
+                        return true;
+                    } else if (itemId == R.string.title_share) {
+                        onActionShare();
+                        return true;
+                    } else if (itemId == R.string.title_pin) {
+                        onActionPin();
+                        return true;
+                    } else if (itemId == R.string.title_advanced_edit_name) {
+                        onActionEdit();
+                        return true;
+                    } else if (itemId == R.string.title_delete) {
+                        onActionDelete();
+                        return true;
                     }
+                    return false;
                 }
 
                 private void onActionNeverFavorite() {

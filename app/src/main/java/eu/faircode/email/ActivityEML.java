@@ -355,13 +355,11 @@ public class ActivityEML extends ActivityBase {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_save:
-                onMenuSave();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_save) {
+            onMenuSave();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuSave() {

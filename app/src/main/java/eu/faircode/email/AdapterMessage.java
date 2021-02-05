@@ -2770,16 +2770,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             InternetAddress to = (InternetAddress) message.to[0];
                             Attendee attendee = new Attendee(to.getPersonal(), to.getAddress());
 
-                            switch (action) {
-                                case R.id.btnCalendarAccept:
-                                    attendee.setParticipationStatus(ParticipationStatus.ACCEPTED);
-                                    break;
-                                case R.id.btnCalendarDecline:
-                                    attendee.setParticipationStatus(ParticipationStatus.DECLINED);
-                                    break;
-                                case R.id.btnCalendarMaybe:
-                                    attendee.setParticipationStatus(ParticipationStatus.TENTATIVE);
-                                    break;
+                            if (action == R.id.btnCalendarAccept) {
+                                attendee.setParticipationStatus(ParticipationStatus.ACCEPTED);
+                            } else if (action == R.id.btnCalendarDecline) {
+                                attendee.setParticipationStatus(ParticipationStatus.DECLINED);
+                            } else if (action == R.id.btnCalendarMaybe) {
+                                attendee.setParticipationStatus(ParticipationStatus.TENTATIVE);
                             }
 
                             ev.addAttendee(attendee);
@@ -2805,16 +2801,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onExecuted(Bundle args, Object result) {
                     if (result instanceof File) {
                         String status = null;
-                        switch (action) {
-                            case R.id.btnCalendarAccept:
-                                status = context.getString(R.string.title_icalendar_accept);
-                                break;
-                            case R.id.btnCalendarDecline:
-                                status = context.getString(R.string.title_icalendar_decline);
-                                break;
-                            case R.id.btnCalendarMaybe:
-                                status = context.getString(R.string.title_icalendar_maybe);
-                                break;
+                        if (action == R.id.btnCalendarAccept) {
+                            status = context.getString(R.string.title_icalendar_accept);
+                        } else if (action == R.id.btnCalendarDecline) {
+                            status = context.getString(R.string.title_icalendar_decline);
+                        } else if (action == R.id.btnCalendarMaybe) {
+                            status = context.getString(R.string.title_icalendar_maybe);
                         }
 
                         if (args.getBoolean("share"))
@@ -2925,119 +2917,78 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else if (view.getId() == R.id.ibAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
-                switch (view.getId()) {
-                    case R.id.ibExpanderAddress:
-                        onToggleAddresses(message);
-                        break;
-
-                    case R.id.ibSaveAttachments:
-                        onSaveAttachments(message);
-                        break;
-                    case R.id.ibDownloadAttachments:
-                        onDownloadAttachments(message);
-                        break;
-
-                    case R.id.ibFull:
-                        onShow(message, true);
-                        break;
-                    case R.id.ibImages:
-                        onShow(message, false);
-                        break;
-                    case R.id.ibDecrypt:
-                        boolean lock =
-                                (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
-                                        !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
-                                        (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
-                                                !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
-                        if (lock)
-                            properties.lock(message.id);
-                        else
-                            onActionDecrypt(message, false);
-                        break;
-                    case R.id.ibVerify:
+                int id = view.getId();
+                if (id == R.id.ibExpanderAddress) {
+                    onToggleAddresses(message);
+                } else if (id == R.id.ibSaveAttachments) {
+                    onSaveAttachments(message);
+                } else if (id == R.id.ibDownloadAttachments) {
+                    onDownloadAttachments(message);
+                } else if (id == R.id.ibFull) {
+                    onShow(message, true);
+                } else if (id == R.id.ibImages) {
+                    onShow(message, false);
+                } else if (id == R.id.ibDecrypt) {
+                    boolean lock =
+                            (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                    !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
+                                    (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                                            !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
+                    if (lock)
+                        properties.lock(message.id);
+                    else
                         onActionDecrypt(message, false);
-                        break;
-
-                    case R.id.ibUndo:
-                        FragmentMessages.onActionUndo(message, context, owner, parentFragment.getParentFragmentManager());
-                        break;
-                    case R.id.ibRule:
-                        onMenuCreateRule(message);
-                        break;
-                    case R.id.ibUnsubscribe:
-                        onActionUnsubscribe(message);
-                        break;
-                    case R.id.ibPrint:
-                        onMenuPrint(message);
-                        break;
-                    case R.id.ibShare:
-                        onMenuShare(message, false);
-                        break;
-                    case R.id.ibEvent:
-                        if (ActivityBilling.isPro(context))
-                            onMenuShare(message, true);
-                        else
-                            context.startActivity(new Intent(context, ActivityBilling.class));
-                        break;
-                    case R.id.ibSearch:
-                        onSearchContact(message);
-                        break;
-                    case R.id.ibAnswer:
-                        onActionAnswer(message, ibAnswer);
-                        break;
-                    case R.id.ibNotes:
-                        onMenuNotes(message);
-                        break;
-                    case R.id.ibLabels:
-                        onActionLabels(message);
-                        break;
-                    case R.id.ibKeywords:
-                        onMenuManageKeywords(message);
-                        break;
-                    case R.id.ibCopy:
-                        onActionMove(message, true);
-                        break;
-                    case R.id.ibMove:
-                        onActionMove(message, false);
-                        break;
-                    case R.id.ibArchive:
-                    case R.id.ibArchiveBottom:
-                        onActionArchive(message);
-                        break;
-                    case R.id.ibTrash:
-                    case R.id.ibTrashBottom:
-                        onActionTrash(message, (Boolean) ibTrash.getTag());
-                        break;
-                    case R.id.ibJunk:
-                        onActionJunk(message);
-                        break;
-                    case R.id.ibInbox:
-                        onActionInbox(message);
-                        break;
-                    case R.id.ibMore:
-                        onActionMore(message);
-                        break;
-                    case R.id.ibTools:
-                        onActionTools(message);
-                        break;
-
-                    case R.id.ibDownloading:
-                        Helper.viewFAQ(context, 15);
-                        break;
-
-                    case R.id.ibSeen:
-                    case R.id.ibSeenBottom:
-                        onMenuUnseen(message);
-                        break;
-
-                    case R.id.btnCalendarAccept:
-                    case R.id.btnCalendarDecline:
-                    case R.id.btnCalendarMaybe:
-                    case R.id.ibCalendar:
-                        onActionCalendar(message, view.getId(), false);
-                        break;
-                    default:
-                        onToggleMessage(message);
+                } else if (id == R.id.ibVerify) {
+                    onActionDecrypt(message, false);
+                } else if (id == R.id.ibUndo) {
+                    FragmentMessages.onActionUndo(message, context, owner, parentFragment.getParentFragmentManager());
+                } else if (id == R.id.ibRule) {
+                    onMenuCreateRule(message);
+                } else if (id == R.id.ibUnsubscribe) {
+                    onActionUnsubscribe(message);
+                } else if (id == R.id.ibPrint) {
+                    onMenuPrint(message);
+                } else if (id == R.id.ibShare) {
+                    onMenuShare(message, false);
+                } else if (id == R.id.ibEvent) {
+                    if (ActivityBilling.isPro(context))
+                        onMenuShare(message, true);
+                    else
+                        context.startActivity(new Intent(context, ActivityBilling.class));
+                } else if (id == R.id.ibSearch) {
+                    onSearchContact(message);
+                } else if (id == R.id.ibAnswer) {
+                    onActionAnswer(message, ibAnswer);
+                } else if (id == R.id.ibNotes) {
+                    onMenuNotes(message);
+                } else if (id == R.id.ibLabels) {
+                    onActionLabels(message);
+                } else if (id == R.id.ibKeywords) {
+                    onMenuManageKeywords(message);
+                } else if (id == R.id.ibCopy) {
+                    onActionMove(message, true);
+                } else if (id == R.id.ibMove) {
+                    onActionMove(message, false);
+                } else if (id == R.id.ibArchive || id == R.id.ibArchiveBottom) {
+                    onActionArchive(message);
+                } else if (id == R.id.ibTrash || id == R.id.ibTrashBottom) {
+                    onActionTrash(message, (Boolean) ibTrash.getTag());
+                } else if (id == R.id.ibJunk) {
+                    onActionJunk(message);
+                } else if (id == R.id.ibInbox) {
+                    onActionInbox(message);
+                } else if (id == R.id.ibMore) {
+                    onActionMore(message);
+                } else if (id == R.id.ibTools) {
+                    onActionTools(message);
+                } else if (id == R.id.ibDownloading) {
+                    Helper.viewFAQ(context, 15);
+                } else if (id == R.id.ibSeen || id == R.id.ibSeenBottom) {
+                    onMenuUnseen(message);
+                } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe || id == R.id.ibCalendar) {
+                    onActionCalendar(message, view.getId(), false);
+                } else {
+                    onToggleMessage(message);
                 }
             } else {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -3154,27 +3105,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null || message.folderReadOnly)
                 return false;
 
-            switch (view.getId()) {
-                case R.id.ibFlagged:
-                    onMenuColoredStar(message);
-                    return true;
-                case R.id.ibFull:
-                    onActionOpenFull(message);
-                    return true;
-                case R.id.ibTrash:
-                case R.id.ibTrashBottom:
-                    if (EntityFolder.OUTBOX.equals(message.folderType))
-                        return false;
-                    onActionTrash(message, true);
-                    return true;
-                case R.id.btnCalendarAccept:
-                case R.id.btnCalendarDecline:
-                case R.id.btnCalendarMaybe:
-                    onActionCalendar(message, view.getId(), true);
-                    return true;
-                default:
+            int id = view.getId();
+            if (id == R.id.ibFlagged) {
+                onMenuColoredStar(message);
+                return true;
+            } else if (id == R.id.ibFull) {
+                onActionOpenFull(message);
+                return true;
+            } else if (id == R.id.ibTrash || id == R.id.ibTrashBottom) {
+                if (EntityFolder.OUTBOX.equals(message.folderType))
                     return false;
+                onActionTrash(message, true);
+                return true;
+            } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe) {
+                onActionCalendar(message, view.getId(), true);
+                return true;
             }
+            return false;
         }
 
         public boolean onKeyPressed(KeyEvent event) {
@@ -3434,22 +3381,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.string.title_create_channel:
-                            onActionCreateChannel();
-                            return true;
-
-                        case R.string.title_edit_channel:
-                            onActionEditChannel();
-                            return true;
-
-                        case R.string.title_delete_channel:
-                            onActionDeleteChannel();
-                            return true;
-
-                        default:
-                            return false;
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_create_channel) {
+                        onActionCreateChannel();
+                        return true;
+                    } else if (itemId == R.string.title_edit_channel) {
+                        onActionEditChannel();
+                        return true;
+                    } else if (itemId == R.string.title_delete_channel) {
+                        onActionDeleteChannel();
+                        return true;
                     }
+                    return false;
                 }
 
                 @TargetApi(Build.VERSION_CODES.O)
@@ -3533,18 +3476,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.string.title_insert_contact:
-                                onInsertContact(name, email);
-                                return true;
-
-                            case R.string.title_edit_contact:
-                                onPickContact(name, email);
-                                return true;
-
-                            default:
-                                return false;
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_insert_contact) {
+                            onInsertContact(name, email);
+                            return true;
+                        } else if (itemId == R.string.title_edit_contact) {
+                            onPickContact(name, email);
+                            return true;
                         }
+                        return false;
                     }
                 });
 
@@ -4129,119 +4069,118 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
-                        case R.id.menu_button_junk:
-                            onMenuButton(message, "junk", target.isChecked());
-                            return true;
-                        case R.id.menu_button_trash:
-                            onMenuButton(message, "trash", target.isChecked());
-                            return true;
-                        case R.id.menu_button_archive:
-                            onMenuButton(message, "archive", target.isChecked());
-                            return true;
-                        case R.id.menu_button_move:
-                            onMenuButton(message, "move", target.isChecked());
-                            return true;
-                        case R.id.menu_button_copy:
-                            onMenuButton(message, "copy", target.isChecked());
-                            return true;
-                        case R.id.menu_button_keywords:
-                            onMenuButton(message, "keywords", target.isChecked());
-                            return true;
-                        case R.id.menu_button_notes:
-                            onMenuButton(message, "notes", target.isChecked());
-                            return true;
-                        case R.id.menu_button_seen:
-                            onMenuButton(message, "seen", target.isChecked());
-                            return true;
-                        case R.id.menu_button_search:
-                            onMenuButton(message, "search", target.isChecked());
-                            bindAddresses(message);
-                            return true;
-                        case R.id.menu_button_event:
-                            onMenuButton(message, "event", target.isChecked());
-                            return true;
-                        case R.id.menu_button_share:
-                            onMenuButton(message, "share", target.isChecked());
-                            return true;
-                        case R.id.menu_button_print:
-                            onMenuButton(message, "print", target.isChecked());
-                            return true;
-                        case R.id.menu_button_unsubscribe:
-                            onMenuButton(message, "unsubscribe", target.isChecked());
-                            return true;
-                        case R.id.menu_button_rule:
-                            onMenuButton(message, "rule", target.isChecked());
-                            return true;
-                        case R.id.menu_unseen:
-                            onMenuUnseen(message);
-                            return true;
-                        case R.id.menu_snooze:
-                            onMenuSnooze(message);
-                            return true;
-                        case R.id.menu_hide:
-                            onMenuHide(message);
-                            return true;
-                        case R.id.menu_flag_color:
-                            onMenuColoredStar(message);
-                            return true;
-                        case R.id.menu_set_importance_low:
-                            onMenuSetImportance(message, EntityMessage.PRIORITIY_LOW);
-                            return true;
-                        case R.id.menu_set_importance_normal:
-                            onMenuSetImportance(message, EntityMessage.PRIORITIY_NORMAL);
-                            return true;
-                        case R.id.menu_set_importance_high:
-                            onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
-                            return true;
-                        case R.id.menu_move_to:
-                            onActionMove(message, false);
-                            return true;
-                        case R.id.menu_copy_to:
-                            onActionMove(message, true);
-                            return true;
-                        case R.id.menu_delete:
-                            onMenuDelete(message);
-                            return true;
-                        case R.id.menu_resync:
-                            onMenuResync(message);
-                            return true;
-                        case R.id.menu_edit_notes:
-                            onMenuNotes(message);
-                            return true;
-                        case R.id.menu_search_in_text:
-                            onMenuSearch(message);
-                            return true;
-                        case R.id.menu_create_rule:
-                            onMenuCreateRule(message);
-                            return true;
-                        case R.id.menu_manage_keywords:
-                            onMenuManageKeywords(message);
-                            return true;
-                        case R.id.menu_share:
-                            onMenuShare(message, false);
-                            return true;
-                        case R.id.menu_event:
-                            if (ActivityBilling.isPro(context))
-                                onMenuShare(message, true);
-                            else
-                                context.startActivity(new Intent(context, ActivityBilling.class));
-                            return true;
-                        case R.id.menu_print:
-                            onMenuPrint(message);
-                            return true;
-                        case R.id.menu_show_headers:
-                            onMenuShowHeaders(message);
-                            return true;
-                        case R.id.menu_raw_save:
-                            onMenuRawSave(message);
-                            return true;
-                        case R.id.menu_raw_send:
-                            onMenuRawSend(message);
-                            return true;
-                        default:
-                            return false;
+                    int itemId = target.getItemId();
+                    if (itemId == R.id.menu_button_junk) {
+                        onMenuButton(message, "junk", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_trash) {
+                        onMenuButton(message, "trash", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_archive) {
+                        onMenuButton(message, "archive", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_move) {
+                        onMenuButton(message, "move", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_copy) {
+                        onMenuButton(message, "copy", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_keywords) {
+                        onMenuButton(message, "keywords", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_notes) {
+                        onMenuButton(message, "notes", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_seen) {
+                        onMenuButton(message, "seen", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_search) {
+                        onMenuButton(message, "search", target.isChecked());
+                        bindAddresses(message);
+                        return true;
+                    } else if (itemId == R.id.menu_button_event) {
+                        onMenuButton(message, "event", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_share) {
+                        onMenuButton(message, "share", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_print) {
+                        onMenuButton(message, "print", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_unsubscribe) {
+                        onMenuButton(message, "unsubscribe", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_button_rule) {
+                        onMenuButton(message, "rule", target.isChecked());
+                        return true;
+                    } else if (itemId == R.id.menu_unseen) {
+                        onMenuUnseen(message);
+                        return true;
+                    } else if (itemId == R.id.menu_snooze) {
+                        onMenuSnooze(message);
+                        return true;
+                    } else if (itemId == R.id.menu_hide) {
+                        onMenuHide(message);
+                        return true;
+                    } else if (itemId == R.id.menu_flag_color) {
+                        onMenuColoredStar(message);
+                        return true;
+                    } else if (itemId == R.id.menu_set_importance_low) {
+                        onMenuSetImportance(message, EntityMessage.PRIORITIY_LOW);
+                        return true;
+                    } else if (itemId == R.id.menu_set_importance_normal) {
+                        onMenuSetImportance(message, EntityMessage.PRIORITIY_NORMAL);
+                        return true;
+                    } else if (itemId == R.id.menu_set_importance_high) {
+                        onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
+                        return true;
+                    } else if (itemId == R.id.menu_move_to) {
+                        onActionMove(message, false);
+                        return true;
+                    } else if (itemId == R.id.menu_copy_to) {
+                        onActionMove(message, true);
+                        return true;
+                    } else if (itemId == R.id.menu_delete) {
+                        onMenuDelete(message);
+                        return true;
+                    } else if (itemId == R.id.menu_resync) {
+                        onMenuResync(message);
+                        return true;
+                    } else if (itemId == R.id.menu_edit_notes) {
+                        onMenuNotes(message);
+                        return true;
+                    } else if (itemId == R.id.menu_search_in_text) {
+                        onMenuSearch(message);
+                        return true;
+                    } else if (itemId == R.id.menu_create_rule) {
+                        onMenuCreateRule(message);
+                        return true;
+                    } else if (itemId == R.id.menu_manage_keywords) {
+                        onMenuManageKeywords(message);
+                        return true;
+                    } else if (itemId == R.id.menu_share) {
+                        onMenuShare(message, false);
+                        return true;
+                    } else if (itemId == R.id.menu_event) {
+                        if (ActivityBilling.isPro(context))
+                            onMenuShare(message, true);
+                        else
+                            context.startActivity(new Intent(context, ActivityBilling.class));
+                        return true;
+                    } else if (itemId == R.id.menu_print) {
+                        onMenuPrint(message);
+                        return true;
+                    } else if (itemId == R.id.menu_show_headers) {
+                        onMenuShowHeaders(message);
+                        return true;
+                    } else if (itemId == R.id.menu_raw_save) {
+                        onMenuRawSave(message);
+                        return true;
+                    } else if (itemId == R.id.menu_raw_send) {
+                        onMenuRawSend(message);
+                        return true;
                     }
+                    return false;
                 }
             });
             popupMenu.show();
@@ -5171,30 +5110,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (message == null)
                     return false;
 
-                boolean expanded = properties.getValue("expanded", message.id);
-
-                switch (action) {
-                    case R.id.ibExpander:
-                        onToggleMessage(message);
-                        return true;
-                    case R.id.ibAvatar:
-                        onViewContact(message);
-                        return true;
-                    case R.id.ibFlagged:
-                        onToggleFlag(message);
-                        return true;
-                    case R.id.ibAuth:
-                        onShowAuth(message);
-                        return true;
-                    case R.id.ibSnoozed:
-                        onShowSnoozed(message);
-                        return true;
-                    case R.id.ibHelp:
-                        onHelp(message);
-                        return true;
-                    default:
-                        return super.performAccessibilityAction(host, action, args);
+                if (action == R.id.ibExpander) {
+                    onToggleMessage(message);
+                    return true;
+                } else if (action == R.id.ibAvatar) {
+                    onViewContact(message);
+                    return true;
+                } else if (action == R.id.ibFlagged) {
+                    onToggleFlag(message);
+                    return true;
+                } else if (action == R.id.ibAuth) {
+                    onShowAuth(message);
+                    return true;
+                } else if (action == R.id.ibSnoozed) {
+                    onShowSnoozed(message);
+                    return true;
+                } else if (action == R.id.ibHelp) {
+                    onHelp(message);
+                    return true;
                 }
+                return super.performAccessibilityAction(host, action, args);
             }
 
             private String populateContentDescription(TupleMessageEx message) {

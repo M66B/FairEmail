@@ -172,33 +172,31 @@ public class FragmentSetup extends FragmentBase {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        switch (item.getItemId()) {
-                            case R.string.title_setup_gmail:
-                                if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
-                                    lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
-                                else
-                                    ToastEx.makeText(getContext(), R.string.title_setup_gmail_support, Toast.LENGTH_LONG).show();
-                                return true;
-                            case R.string.title_setup_activesync:
-                                Helper.viewFAQ(getContext(), 133);
-                                return true;
-                            case R.string.title_setup_outlook:
-                            case R.string.title_setup_other:
-                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
-                                return true;
-                            case R.string.title_setup_pop3:
-                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
-                                return true;
-                            default:
-                                if (item.getIntent() == null)
-                                    return false;
-                                else {
-                                    if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
-                                        lbm.sendBroadcast(item.getIntent());
-                                    else
-                                        ToastEx.makeText(getContext(), R.string.title_setup_oauth_permission, Toast.LENGTH_LONG).show();
-                                    return true;
-                                }
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_setup_gmail) {
+                            if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
+                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
+                            else
+                                ToastEx.makeText(getContext(), R.string.title_setup_gmail_support, Toast.LENGTH_LONG).show();
+                            return true;
+                        } else if (itemId == R.string.title_setup_activesync) {
+                            Helper.viewFAQ(getContext(), 133);
+                            return true;
+                        } else if (itemId == R.string.title_setup_outlook || itemId == R.string.title_setup_other) {
+                            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
+                            return true;
+                        } else if (itemId == R.string.title_setup_pop3) {
+                            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
+                            return true;
+                        }
+                        if (item.getIntent() == null)
+                            return false;
+                        else {
+                            if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
+                                lbm.sendBroadcast(item.getIntent());
+                            else
+                                ToastEx.makeText(getContext(), R.string.title_setup_oauth_permission, Toast.LENGTH_LONG).show();
+                            return true;
                         }
                     }
                 });

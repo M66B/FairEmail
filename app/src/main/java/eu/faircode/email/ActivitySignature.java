@@ -116,19 +116,18 @@ public class ActivitySignature extends ActivityBase {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_insert_image:
-                        insertImage();
-                        return true;
-                    case R.id.action_delete:
-                        delete();
-                        return true;
-                    case R.id.action_save:
-                        save();
-                        return true;
-                    default:
-                        return false;
+                int itemId = item.getItemId();
+                if (itemId == R.id.action_insert_image) {
+                    insertImage();
+                    return true;
+                } else if (itemId == R.id.action_delete) {
+                    delete();
+                    return true;
+                } else if (itemId == R.id.action_save) {
+                    save();
+                    return true;
                 }
+                return false;
             }
         });
 
@@ -160,19 +159,16 @@ public class ActivitySignature extends ActivityBase {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_signature, menu);
         return true;
-
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_edit_html:
-                item.setChecked(!item.isChecked());
-                html(item.isChecked());
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_edit_html) {
+            item.setChecked(!item.isChecked());
+            html(item.isChecked());
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

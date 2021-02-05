@@ -148,16 +148,15 @@ public class FragmentContacts extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_help:
-                onMenuHelp();
-                return true;
-            case R.id.menu_delete:
-                new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_help) {
+            onMenuHelp();
+            return true;
+        } else if (itemId == R.id.menu_delete) {
+            new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuHelp() {

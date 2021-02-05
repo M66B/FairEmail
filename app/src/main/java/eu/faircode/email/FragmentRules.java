@@ -259,22 +259,21 @@ public class FragmentRules extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_export:
-                onMenuExport();
-                return true;
-            case R.id.menu_import:
-                onMenuImport();
-                return true;
-            case R.id.menu_delete_all:
-                onMenuDelete(true);
-                return true;
-            case R.id.menu_delete_junk:
-                onMenuDelete(false);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_export) {
+            onMenuExport();
+            return true;
+        } else if (itemId == R.id.menu_import) {
+            onMenuImport();
+            return true;
+        } else if (itemId == R.id.menu_delete_all) {
+            onMenuDelete(true);
+            return true;
+        } else if (itemId == R.id.menu_delete_junk) {
+            onMenuDelete(false);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuExport() {

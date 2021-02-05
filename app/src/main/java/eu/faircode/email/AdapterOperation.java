@@ -208,13 +208,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.string.title_delete:
-                            onActionDelete();
-                            return true;
-                        default:
-                            return false;
+                    if (item.getItemId() == R.string.title_delete) {
+                        onActionDelete();
+                        return true;
                     }
+                    return false;
                 }
 
                 private void onActionDelete() {

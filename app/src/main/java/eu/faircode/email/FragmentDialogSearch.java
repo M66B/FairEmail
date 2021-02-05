@@ -373,20 +373,16 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 dialog.dismiss();
 
                 BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
-                switch (v.getId()) {
-                    case R.id.ibAttachment:
-                        criteria.with_attachments = true;
-                        break;
-                    case R.id.ibInvite:
-                        criteria.with_attachments = true;
-                        criteria.with_types = new String[]{"text/calendar"};
-                        break;
-                    case R.id.ibUnseen:
-                        criteria.with_unseen = true;
-                        break;
-                    case R.id.ibFlagged:
-                        criteria.with_flagged = true;
-                        break;
+                int id = v.getId();
+                if (id == R.id.ibAttachment) {
+                    criteria.with_attachments = true;
+                } else if (id == R.id.ibInvite) {
+                    criteria.with_attachments = true;
+                    criteria.with_types = new String[]{"text/calendar"};
+                } else if (id == R.id.ibUnseen) {
+                    criteria.with_unseen = true;
+                } else if (id == R.id.ibFlagged) {
+                    criteria.with_flagged = true;
                 }
 
                 FragmentMessages.search(

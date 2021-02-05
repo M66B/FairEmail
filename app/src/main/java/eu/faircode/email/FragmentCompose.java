@@ -443,18 +443,15 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View view) {
                 int request;
-                switch (view.getId()) {
-                    case R.id.ivToAdd:
-                        request = REQUEST_CONTACT_TO;
-                        break;
-                    case R.id.ivCcAdd:
-                        request = REQUEST_CONTACT_CC;
-                        break;
-                    case R.id.ivBccAdd:
-                        request = REQUEST_CONTACT_BCC;
-                        break;
-                    default:
-                        return;
+                int id = view.getId();
+                if (id == R.id.ivToAdd) {
+                    request = REQUEST_CONTACT_TO;
+                } else if (id == R.id.ivCcAdd) {
+                    request = REQUEST_CONTACT_CC;
+                } else if (id == R.id.ivBccAdd) {
+                    request = REQUEST_CONTACT_BCC;
+                } else {
+                    return;
                 }
 
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
@@ -703,25 +700,23 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
-                switch (action) {
-                    case R.id.menu_record_audio:
-                        onActionRecordAudio();
-                        return true;
-                    case R.id.menu_take_photo:
-                        onActionImage(true);
-                        return true;
-                    case R.id.menu_image:
-                        onActionImage(false);
-                        return true;
-                    case R.id.menu_attachment:
-                        onActionAttachment();
-                        return true;
-                    case R.id.menu_link:
-                        onActionLink();
-                        return true;
-                    default:
-                        return onActionStyle(action, media_bar.findViewById(action));
+                if (action == R.id.menu_record_audio) {
+                    onActionRecordAudio();
+                    return true;
+                } else if (action == R.id.menu_take_photo) {
+                    onActionImage(true);
+                    return true;
+                } else if (action == R.id.menu_image) {
+                    onActionImage(false);
+                    return true;
+                } else if (action == R.id.menu_attachment) {
+                    onActionAttachment();
+                    return true;
+                } else if (action == R.id.menu_link) {
+                    onActionLink();
+                    return true;
                 }
+                return onActionStyle(action, media_bar.findViewById(action));
             }
         });
 
@@ -731,19 +726,15 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 final int action = item.getItemId();
-                switch (action) {
-                    case R.id.action_delete:
-                        onActionDiscard();
-                        break;
-                    case R.id.action_send:
-                        onAction(R.id.action_check, "check");
-                        break;
-                    case R.id.action_save:
-                        saved = true;
-                        onAction(action, "save");
-                        break;
-                    default:
-                        onAction(action, "navigation");
+                if (action == R.id.action_delete) {
+                    onActionDiscard();
+                } else if (action == R.id.action_send) {
+                    onAction(R.id.action_check, "check");
+                } else if (action == R.id.action_save) {
+                    saved = true;
+                    onAction(action, "save");
+                } else {
+                    onAction(action, "navigation");
                 }
                 return true;
             }
@@ -1043,22 +1034,18 @@ public class FragmentCompose extends FragmentBase {
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.string.title_edit_plain_text:
-                        convertRef(true);
-                        return true;
-
-                    case R.string.title_edit_formatted_text:
-                        convertRef(false);
-                        return true;
-
-                    case R.string.title_delete:
-                        deleteRef();
-                        return true;
-
-                    default:
-                        return false;
+                int itemId = item.getItemId();
+                if (itemId == R.string.title_edit_plain_text) {
+                    convertRef(true);
+                    return true;
+                } else if (itemId == R.string.title_edit_formatted_text) {
+                    convertRef(false);
+                    return true;
+                } else if (itemId == R.string.title_delete) {
+                    deleteRef();
+                    return true;
                 }
+                return false;
             }
 
             private void convertRef(boolean plain) {
@@ -1388,43 +1375,42 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_encrypt:
-                onMenuEncrypt();
-                return true;
-            case R.id.menu_zoom:
-                onMenuZoom();
-                return true;
-            case R.id.menu_save_drafts:
-                onMenuSaveDrafts();
-                return true;
-            case R.id.menu_send_dialog:
-                onMenuSendDialog();
-                return true;
-            case R.id.menu_image_dialog:
-                onMenuImageDialog();
-                return true;
-            case R.id.menu_media:
-                onMenuMediaBar();
-                return true;
-            case R.id.menu_compact:
-                onMenuCompact();
-                return true;
-            case R.id.menu_contact_group:
-                onMenuContactGroup();
-                return true;
-            case R.id.menu_answer:
-                onMenuAnswer();
-                return true;
-            case R.id.menu_clear:
-                StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
-                return true;
-            case R.id.menu_legend:
-                onMenuLegend();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_encrypt) {
+            onMenuEncrypt();
+            return true;
+        } else if (itemId == R.id.menu_zoom) {
+            onMenuZoom();
+            return true;
+        } else if (itemId == R.id.menu_save_drafts) {
+            onMenuSaveDrafts();
+            return true;
+        } else if (itemId == R.id.menu_send_dialog) {
+            onMenuSendDialog();
+            return true;
+        } else if (itemId == R.id.menu_image_dialog) {
+            onMenuImageDialog();
+            return true;
+        } else if (itemId == R.id.menu_media) {
+            onMenuMediaBar();
+            return true;
+        } else if (itemId == R.id.menu_compact) {
+            onMenuCompact();
+            return true;
+        } else if (itemId == R.id.menu_contact_group) {
+            onMenuContactGroup();
+            return true;
+        } else if (itemId == R.id.menu_answer) {
+            onMenuAnswer();
+            return true;
+        } else if (itemId == R.id.menu_clear) {
+            StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
+            return true;
+        } else if (itemId == R.id.menu_legend) {
+            onMenuLegend();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuAddresses() {
@@ -2967,23 +2953,20 @@ public class FragmentCompose extends FragmentBase {
                                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                                     @Override
                                     public boolean onMenuItemClick(MenuItem item) {
-                                        switch (item.getItemId()) {
-                                            case R.string.title_send_dialog:
-                                                FragmentDialogSend fragment = new FragmentDialogSend();
-                                                fragment.setArguments(args);
-                                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
-                                                fragment.show(getParentFragmentManager(), "compose:send");
-                                                return true;
-
-                                            case R.string.title_advanced_manage_certificates:
-                                                startActivity(
-                                                        new Intent(getContext(), ActivitySetup.class)
-                                                                .putExtra("tab", "encryption"));
-                                                return true;
-
-                                            default:
-                                                return false;
+                                        int itemId = item.getItemId();
+                                        if (itemId == R.string.title_send_dialog) {
+                                            FragmentDialogSend fragment = new FragmentDialogSend();
+                                            fragment.setArguments(args);
+                                            fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
+                                            fragment.show(getParentFragmentManager(), "compose:send");
+                                            return true;
+                                        } else if (itemId == R.string.title_advanced_manage_certificates) {
+                                            startActivity(
+                                                    new Intent(getContext(), ActivitySetup.class)
+                                                            .putExtra("tab", "encryption"));
+                                            return true;
                                         }
+                                        return false;
                                     }
                                 });
 
@@ -5055,22 +5038,20 @@ public class FragmentCompose extends FragmentBase {
         }
 
         private String getActionName(int id) {
-            switch (id) {
-                case R.id.action_delete:
-                    return "delete";
-                case R.id.action_undo:
-                    return "undo";
-                case R.id.action_redo:
-                    return "redo";
-                case R.id.action_save:
-                    return "save";
-                case R.id.action_check:
-                    return "check";
-                case R.id.action_send:
-                    return "send";
-                default:
-                    return Integer.toString(id);
+            if (id == R.id.action_delete) {
+                return "delete";
+            } else if (id == R.id.action_undo) {
+                return "undo";
+            } else if (id == R.id.action_redo) {
+                return "redo";
+            } else if (id == R.id.action_save) {
+                return "save";
+            } else if (id == R.id.action_check) {
+                return "check";
+            } else if (id == R.id.action_send) {
+                return "send";
             }
+            return Integer.toString(id);
         }
 
         private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {

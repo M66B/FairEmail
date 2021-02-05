@@ -797,33 +797,27 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 ActionData data = (ActionData) bottom_navigation.getTag();
-                switch (menuItem.getItemId()) {
-                    case R.id.action_delete:
-                        if (data.delete)
-                            onActionDelete();
-                        else
-                            onActionMove(EntityFolder.TRASH);
-                        return true;
-
-                    case R.id.action_snooze:
-                        onActionSnooze();
-                        return true;
-
-                    case R.id.action_archive:
-                        onActionMove(EntityFolder.ARCHIVE);
-                        return true;
-
-                    case R.id.action_prev:
-                        navigate(prev, true);
-                        return true;
-
-                    case R.id.action_next:
-                        navigate(next, false);
-                        return true;
-
-                    default:
-                        return false;
+                int itemId = menuItem.getItemId();
+                if (itemId == R.id.action_delete) {
+                    if (data.delete)
+                        onActionDelete();
+                    else
+                        onActionMove(EntityFolder.TRASH);
+                    return true;
+                } else if (itemId == R.id.action_snooze) {
+                    onActionSnooze();
+                    return true;
+                } else if (itemId == R.id.action_archive) {
+                    onActionMove(EntityFolder.ARCHIVE);
+                    return true;
+                } else if (itemId == R.id.action_prev) {
+                    navigate(prev, true);
+                    return true;
+                } else if (itemId == R.id.action_next) {
+                    navigate(next, false);
+                    return true;
                 }
+                return false;
             }
 
             private void onActionMove(String folderType) {
@@ -2176,41 +2170,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
-                                switch (target.getItemId()) {
-                                    case R.string.title_seen:
-                                        onActionSeenSelection(true, message.id);
-                                        return true;
-                                    case R.string.title_unseen:
-                                        onActionSeenSelection(false, message.id);
-                                        return true;
-                                    case R.string.title_flag:
-                                        onActionFlagSelection(true, null, message.id);
-                                        return true;
-                                    case R.string.title_unflag:
-                                        onActionFlagSelection(false, null, message.id);
-                                        return true;
-                                    case R.string.title_snooze:
-                                        onMenuSnooze();
-                                        return true;
-                                    case R.string.title_hide:
-                                    case R.string.title_unhide:
-                                        onActionHide(message);
-                                        return true;
-                                    case R.string.title_flag_color:
-                                        onMenuColor();
-                                        return true;
-                                    case R.string.title_move:
-                                        onSwipeMove(message);
-                                        return true;
-                                    case R.string.title_report_spam:
-                                        onSwipeJunk(message);
-                                        return true;
-                                    case R.string.title_delete_permanently:
-                                        onSwipeDelete(message);
-                                        return true;
-                                    default:
-                                        return false;
+                                int itemId = target.getItemId();
+                                if (itemId == R.string.title_seen) {
+                                    onActionSeenSelection(true, message.id);
+                                    return true;
+                                } else if (itemId == R.string.title_unseen) {
+                                    onActionSeenSelection(false, message.id);
+                                    return true;
+                                } else if (itemId == R.string.title_flag) {
+                                    onActionFlagSelection(true, null, message.id);
+                                    return true;
+                                } else if (itemId == R.string.title_unflag) {
+                                    onActionFlagSelection(false, null, message.id);
+                                    return true;
+                                } else if (itemId == R.string.title_snooze) {
+                                    onMenuSnooze();
+                                    return true;
+                                } else if (itemId == R.string.title_hide || itemId == R.string.title_unhide) {
+                                    onActionHide(message);
+                                    return true;
+                                } else if (itemId == R.string.title_flag_color) {
+                                    onMenuColor();
+                                    return true;
+                                } else if (itemId == R.string.title_move) {
+                                    onSwipeMove(message);
+                                    return true;
+                                } else if (itemId == R.string.title_report_spam) {
+                                    onSwipeJunk(message);
+                                    return true;
+                                } else if (itemId == R.string.title_delete_permanently) {
+                                    onSwipeDelete(message);
+                                    return true;
                                 }
+                                return false;
                             }
 
                             private void onMenuSnooze() {
@@ -2467,37 +2459,36 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return true;
                         }
 
-                        switch (target.getItemId()) {
-                            case R.id.menu_reply_to_sender:
-                                onMenuReply(message, "reply", selected);
-                                return true;
-                            case R.id.menu_reply_to_all:
-                                onMenuReply(message, "reply_all", selected);
-                                return true;
-                            case R.id.menu_reply_list:
-                                onMenuReply(message, "list", selected);
-                                return true;
-                            case R.id.menu_reply_receipt:
-                                onMenuDsn(message, EntityMessage.DSN_RECEIPT);
-                                return true;
-                            case R.id.menu_reply_hard_bounce:
-                                onMenuDsn(message, EntityMessage.DSN_HARD_BOUNCE);
-                                return true;
-                            case R.id.menu_forward:
-                                onMenuReply(message, "forward");
-                                return true;
-                            case R.id.menu_editasnew:
-                                onMenuReply(message, "editasnew");
-                                return true;
-                            case R.id.menu_new_message:
-                                onMenuNew(message, to);
-                                return true;
-                            case R.id.menu_reply_answer:
-                                onMenuAnswer(message);
-                                return true;
-                            default:
-                                return false;
+                        int itemId = target.getItemId();
+                        if (itemId == R.id.menu_reply_to_sender) {
+                            onMenuReply(message, "reply", selected);
+                            return true;
+                        } else if (itemId == R.id.menu_reply_to_all) {
+                            onMenuReply(message, "reply_all", selected);
+                            return true;
+                        } else if (itemId == R.id.menu_reply_list) {
+                            onMenuReply(message, "list", selected);
+                            return true;
+                        } else if (itemId == R.id.menu_reply_receipt) {
+                            onMenuDsn(message, EntityMessage.DSN_RECEIPT);
+                            return true;
+                        } else if (itemId == R.id.menu_reply_hard_bounce) {
+                            onMenuDsn(message, EntityMessage.DSN_HARD_BOUNCE);
+                            return true;
+                        } else if (itemId == R.id.menu_forward) {
+                            onMenuReply(message, "forward");
+                            return true;
+                        } else if (itemId == R.id.menu_editasnew) {
+                            onMenuReply(message, "editasnew");
+                            return true;
+                        } else if (itemId == R.id.menu_new_message) {
+                            onMenuNew(message, to);
+                            return true;
+                        } else if (itemId == R.id.menu_reply_answer) {
+                            onMenuAnswer(message);
+                            return true;
                         }
+                        return false;
                     }
                 });
                 popupMenu.show();
@@ -2864,65 +2855,64 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
-                        switch (target.getItemId()) {
-                            case R.string.title_seen:
-                                onActionSeenSelection(true, null);
-                                return true;
-                            case R.string.title_unseen:
-                                onActionSeenSelection(false, null);
-                                return true;
-                            case R.string.title_snooze:
-                                onActionSnoozeSelection();
-                                return true;
-                            case R.string.title_hide:
-                                onHideSelection(true);
-                                return true;
-                            case R.string.title_unhide:
-                                onHideSelection(false);
-                                return true;
-                            case R.string.title_flag:
-                                onActionFlagSelection(true, null, null);
-                                return true;
-                            case R.string.title_unflag:
-                                onActionFlagSelection(false, null, null);
-                                return true;
-                            case R.string.title_flag_color:
-                                onActionFlagColorSelection();
-                                return true;
-                            case R.string.title_importance_low:
-                                onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW);
-                                return true;
-                            case R.string.title_importance_normal:
-                                onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL);
-                                return true;
-                            case R.string.title_importance_high:
-                                onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH);
-                                return true;
-                            case R.string.title_folder_inbox:
-                                onActionMoveSelection(EntityFolder.INBOX);
-                                return true;
-                            case R.string.title_archive:
-                                onActionMoveSelection(EntityFolder.ARCHIVE);
-                                return true;
-                            case R.string.title_delete:
-                                onActionDeleteSelection();
-                                return true;
-                            case R.string.title_trash:
-                                onActionMoveSelection(EntityFolder.TRASH);
-                                return true;
-                            case R.string.title_spam:
-                                onActionJunkSelection();
-                                return true;
-                            case R.string.title_move_to_account:
-                                long account = target.getIntent().getLongExtra("account", -1);
-                                onActionMoveSelectionAccount(account, false, result.folders);
-                                return true;
-                            case R.string.title_copy_to:
-                                onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
-                                return true;
-                            default:
-                                return false;
+                        int itemId = target.getItemId();
+                        if (itemId == R.string.title_seen) {
+                            onActionSeenSelection(true, null);
+                            return true;
+                        } else if (itemId == R.string.title_unseen) {
+                            onActionSeenSelection(false, null);
+                            return true;
+                        } else if (itemId == R.string.title_snooze) {
+                            onActionSnoozeSelection();
+                            return true;
+                        } else if (itemId == R.string.title_hide) {
+                            onHideSelection(true);
+                            return true;
+                        } else if (itemId == R.string.title_unhide) {
+                            onHideSelection(false);
+                            return true;
+                        } else if (itemId == R.string.title_flag) {
+                            onActionFlagSelection(true, null, null);
+                            return true;
+                        } else if (itemId == R.string.title_unflag) {
+                            onActionFlagSelection(false, null, null);
+                            return true;
+                        } else if (itemId == R.string.title_flag_color) {
+                            onActionFlagColorSelection();
+                            return true;
+                        } else if (itemId == R.string.title_importance_low) {
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW);
+                            return true;
+                        } else if (itemId == R.string.title_importance_normal) {
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL);
+                            return true;
+                        } else if (itemId == R.string.title_importance_high) {
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH);
+                            return true;
+                        } else if (itemId == R.string.title_folder_inbox) {
+                            onActionMoveSelection(EntityFolder.INBOX);
+                            return true;
+                        } else if (itemId == R.string.title_archive) {
+                            onActionMoveSelection(EntityFolder.ARCHIVE);
+                            return true;
+                        } else if (itemId == R.string.title_delete) {
+                            onActionDeleteSelection();
+                            return true;
+                        } else if (itemId == R.string.title_trash) {
+                            onActionMoveSelection(EntityFolder.TRASH);
+                            return true;
+                        } else if (itemId == R.string.title_spam) {
+                            onActionJunkSelection();
+                            return true;
+                        } else if (itemId == R.string.title_move_to_account) {
+                            long account = target.getIntent().getLongExtra("account", -1);
+                            onActionMoveSelectionAccount(account, false, result.folders);
+                            return true;
+                        } else if (itemId == R.string.title_copy_to) {
+                            onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
+                            return true;
                         }
+                        return false;
                     }
                 });
 
@@ -4128,129 +4118,99 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_search:
-                onMenuSearch();
-                return true;
-
-            case R.id.menu_folders:
-                // Obsolete
-                onMenuFolders(primary);
-                return true;
-
-            case R.id.menu_empty_trash:
-                onMenuEmpty(EntityFolder.TRASH);
-                return true;
-
-            case R.id.menu_empty_spam:
-                onMenuEmpty(EntityFolder.JUNK);
-                return true;
-
-            case R.id.menu_sort_on_time:
-                item.setChecked(true);
-                onMenuSort("time");
-                return true;
-
-            case R.id.menu_sort_on_unread:
-                item.setChecked(true);
-                onMenuSort("unread");
-                return true;
-
-            case R.id.menu_sort_on_starred:
-                item.setChecked(true);
-                onMenuSort("starred");
-                return true;
-
-            case R.id.menu_sort_on_priority:
-                item.setChecked(true);
-                onMenuSort("priority");
-                return true;
-
-            case R.id.menu_sort_on_sender:
-                item.setChecked(true);
-                onMenuSort("sender");
-                return true;
-
-            case R.id.menu_sort_on_subject:
-                item.setChecked(true);
-                onMenuSort("subject");
-                return true;
-
-            case R.id.menu_sort_on_size:
-                item.setChecked(true);
-                onMenuSort("size");
-                return true;
-
-            case R.id.menu_sort_on_attachments:
-                item.setChecked(true);
-                onMenuSort("attachments");
-                return true;
-
-            case R.id.menu_sort_on_snoozed:
-                item.setChecked(true);
-                onMenuSort("snoozed");
-                return true;
-
-            case R.id.menu_ascending:
-                onMenuAscending(!item.isChecked());
-                return true;
-
-            case R.id.menu_filter_seen:
-                onMenuFilter("filter_seen", !item.isChecked());
-                return true;
-
-            case R.id.menu_filter_unflagged:
-                onMenuFilter("filter_unflagged", !item.isChecked());
-                return true;
-
-            case R.id.menu_filter_unknown:
-                onMenuFilter("filter_unknown", !item.isChecked());
-                return true;
-
-            case R.id.menu_filter_snoozed:
-                onMenuFilter("filter_snoozed", !item.isChecked());
-                return true;
-
-            case R.id.menu_filter_duplicates:
-                onMenuFilterDuplicates(!item.isChecked());
-                return true;
-
-            case R.id.menu_zoom:
-                onMenuZoom();
-                return true;
-
-            case R.id.menu_compact:
-                onMenuCompact();
-                return true;
-
-            case R.id.menu_theme:
-                onMenuTheme();
-                return true;
-
-            case R.id.menu_select_language:
-                onMenuSelectLanguage();
-                return true;
-
-            case R.id.menu_select_all:
-            case R.id.menu_select_found:
-                onMenuSelectAll();
-                return true;
-
-            case R.id.menu_mark_all_read:
-                onMenuMarkAllRead();
-                return true;
-
-            case R.id.menu_force_sync:
-                onMenuForceSync();
-                return true;
-
-            case R.id.menu_force_send:
-                onSwipeRefresh();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_search) {
+            onMenuSearch();
+            return true;
+        } else if (itemId == R.id.menu_folders) {// Obsolete
+            onMenuFolders(primary);
+            return true;
+        } else if (itemId == R.id.menu_empty_trash) {
+            onMenuEmpty(EntityFolder.TRASH);
+            return true;
+        } else if (itemId == R.id.menu_empty_spam) {
+            onMenuEmpty(EntityFolder.JUNK);
+            return true;
+        } else if (itemId == R.id.menu_sort_on_time) {
+            item.setChecked(true);
+            onMenuSort("time");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_unread) {
+            item.setChecked(true);
+            onMenuSort("unread");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_starred) {
+            item.setChecked(true);
+            onMenuSort("starred");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_priority) {
+            item.setChecked(true);
+            onMenuSort("priority");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_sender) {
+            item.setChecked(true);
+            onMenuSort("sender");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_subject) {
+            item.setChecked(true);
+            onMenuSort("subject");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_size) {
+            item.setChecked(true);
+            onMenuSort("size");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_attachments) {
+            item.setChecked(true);
+            onMenuSort("attachments");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_snoozed) {
+            item.setChecked(true);
+            onMenuSort("snoozed");
+            return true;
+        } else if (itemId == R.id.menu_ascending) {
+            onMenuAscending(!item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_seen) {
+            onMenuFilter("filter_seen", !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_unflagged) {
+            onMenuFilter("filter_unflagged", !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_unknown) {
+            onMenuFilter("filter_unknown", !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_snoozed) {
+            onMenuFilter("filter_snoozed", !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_duplicates) {
+            onMenuFilterDuplicates(!item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_zoom) {
+            onMenuZoom();
+            return true;
+        } else if (itemId == R.id.menu_compact) {
+            onMenuCompact();
+            return true;
+        } else if (itemId == R.id.menu_theme) {
+            onMenuTheme();
+            return true;
+        } else if (itemId == R.id.menu_select_language) {
+            onMenuSelectLanguage();
+            return true;
+        } else if (itemId == R.id.menu_select_all || itemId == R.id.menu_select_found) {
+            onMenuSelectAll();
+            return true;
+        } else if (itemId == R.id.menu_mark_all_read) {
+            onMenuMarkAllRead();
+            return true;
+        } else if (itemId == R.id.menu_force_sync) {
+            onMenuForceSync();
+            return true;
+        } else if (itemId == R.id.menu_force_send) {
+            onSwipeRefresh();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void onMenuSearch() {

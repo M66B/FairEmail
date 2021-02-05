@@ -137,22 +137,18 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.string.title_compose:
-                            onActionCompose();
-                            return true;
-
-                        case R.string.title_answer_hide:
-                            onActionHide(!item.isChecked());
-                            return true;
-
-                        case R.string.title_copy:
-                            onActionCopy();
-                            return true;
-
-                        default:
-                            return false;
+                    int itemId = item.getItemId();
+                    if (itemId == R.string.title_compose) {
+                        onActionCompose();
+                        return true;
+                    } else if (itemId == R.string.title_answer_hide) {
+                        onActionHide(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_copy) {
+                        onActionCopy();
+                        return true;
                     }
+                    return false;
                 }
 
                 private void onActionCompose() {
