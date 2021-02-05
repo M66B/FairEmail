@@ -366,10 +366,6 @@ public class FragmentFolders extends FragmentBase {
                 boolean force = false;
                 boolean outbox = false;
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean enabled = prefs.getBoolean("enabled", true);
-                int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
-
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
