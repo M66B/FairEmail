@@ -79,6 +79,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.security.SecureRandom;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.KeySpec;
@@ -1151,6 +1152,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     // DecoderException: unable to decode base64 string: invalid characters encountered in base64 data
                     boolean expected =
                             (ex instanceof IllegalArgumentException ||
+                                    ex instanceof CertificateException ||
                                     ex instanceof DecoderException ||
                                     ex instanceof SecurityException);
                     Log.unexpectedError(getSupportFragmentManager(), ex, !expected);
