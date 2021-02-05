@@ -652,12 +652,18 @@ class Core {
                             Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
                             iexisting.setFlag(Flags.Flag.DELETED, true);
                             purged = true;
-                        } catch (MessageRemovedException ignored) {
+                        } catch (MessagingException ignored) {
                             Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
                         }
                 }
+
                 if (purged)
-                    ifolder.expunge();
+                    try {
+                        ifolder.expunge();
+                    } catch (MessagingException ex) {
+                        // NO EXPUNGE failed.
+                        Log.e(ex);
+                    }
             }
         }
 
@@ -1336,7 +1342,7 @@ class Core {
                 }
 
             if (deleted)
-                ifolder.expunge();
+                ifolder.expunge(); // NO EXPUNGE failed.
 
             db.message().deleteMessage(message.id);
         } finally {
