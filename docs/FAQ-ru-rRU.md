@@ -1,22 +1,22 @@
-# Поддержка FairEmail
+# Техподдержка FairEmail
 
-Если у вас есть вопросы, сначала ознакомьтесь со списком часто задаваемых вопросов ниже. Внизу вы можете выяснить, как задавать другие вопросы, запрашивать новые возможности и сообщать об ошибках.
+Если возник вопрос, пожалуйста, сначала ниже посмотрите список частых вопросов. Внизу объясняется, как задавать прочие вопросы, запрашивать новые функции и сообщать о багах.
 
-## Индекс
+## Оглавление
 
 * [Авторизация аккаунтов](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Как мне...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Узнайте, как...](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [Известные проблемы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Запланированные возможности](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Часто запрашиваемые возможности](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Часто задаваемые вопросы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Получить поддержка](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Будущие функции](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Часто запрашиваемые функции](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Частые вопросы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Получить техподдержку](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Авторизация аккаунта
+## Авторизация аккаунтов
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Как правило, мастер быстрой настройки сам определяет верную конфигурацию.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Для этого вам нужны адреса IMAP и SMTP-серверов и номера портов, следует использовать SSL/TLS или STARTTLS и ваше имя пользователя (в большинстве, но не всегда, ваш адрес электронной почты) и пароль.
+Если мастер быстрой настройки не сделает этого, вам нужно будет вручную настроить аккаунт (чтобы получать эл. почту) и задать личные данные (чтобы отправлять эл. почту). Для этого нужно задать адреса серверов IMAP и SMTP и номера портов, выбрать между использованием SSL/TLS или STARTTLS, а также ввести имя пользователя (как правило, хотя не всегда, это адрес эл. почты) и пароль.
 
 Поиска *IMAP* и название провайдера в большинстве случаев достаточно для поиска необходимой документации.
 
