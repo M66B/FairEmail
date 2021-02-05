@@ -467,9 +467,9 @@ If you use the Play store or GitHub version of FairEmail, you can use the quick 
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
-**Important**: sometimes Google issues this alert:
+**Важно**: иногда Google выводит это предупреждение:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Пожалуйста, войдите с помощью своего веб браузера: https://support.google.com/mail/accounts/answer/78754 (Неудача)*
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 

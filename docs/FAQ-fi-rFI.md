@@ -14,9 +14,9 @@ Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysyty
 
 ## Tilien valtuutus
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Useimmissa tapauksissa pika-asennus pystyy automaattisesti tunnistamaan oikeat asetukset.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Tätä varten tarvitset IMAP- ja SMTP-palvelimien osoitteet ja porttinumerot, tiedon käytetäänkö SSL/TLS- tai STARTTLS-salausta ja käyttäjätunnuksesi (useimmiten sähköpostiosoitteesi, mutta ei aina) ja salasanasi.
+Jos pika-asennus epäonnistuu, sinun on määritettävä tili manuaalisesti (sähköpostin vastaanottamiseksi) ja identiteetti (sähköpostin lähettämiseksi). Tätä varten tarvitset IMAP- ja SMTP-palvelimien osoitteet ja porttinumerot, tiedon käytetäänkö SSL/TLS- tai STARTTLS-salausta ja käyttäjätunnuksesi (useimmiten sähköpostiosoitteesi, mutta ei aina) ja salasanasi.
 
 Hakemalla *IMAP* ja palveluntarjoajan nimi riittää useimmiten oikean dokumentaation löytämiseen.
 
@@ -43,7 +43,7 @@ Aiheeseen liittyvät kysymykset:
 
 ## Kuinka ...?
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
+* Vaihda tilin nimi: Asetukset, napauta Manuaalinen asennus ja lisää vaihtoehtoja, napauta Tilejä, napauta tiliä
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
 * Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.

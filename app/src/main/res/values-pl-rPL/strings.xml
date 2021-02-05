@@ -938,6 +938,7 @@
     <string name="title_attachment_keywords">załączony, załącznik, załączniki, w zestawie, w załączonym</string>
     <string name="title_attachment_reminder">Czy zamierzałeś dodać załącznik?</string>
     <string name="title_plain_reminder">Całe formatowanie zostanie utracone</string>
+    <string name="title_dsn_reminder">\"Twarde odbicia\" szkodzą reputacji e-mail odbiorcy!</string>
     <string name="title_size_reminder">Wiadomość (%1$s) większa niż limit serwera (%2$s)</string>
     <string name="title_attachments_missing">Nie wszystkie załączniki zostały pobrane</string>
     <string name="title_dialog_hint">To okno dialogowe można ponownie włączyć za pomocą menu z trzema kropkami na górnym pasku akcji</string>

@@ -771,7 +771,7 @@
     <string name="title_reply_to_all">Allen antworten</string>
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
-    <string name="title_reply_hard_bounce">Unzustellbarkeitsnachricht (Hard Bounce) senden</string>
+    <string name="title_reply_hard_bounce">\'Adresse unbekannt\' antworten</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
     <string name="title_move_undo">Wird nach »%1$s« verschoben (%2$d)</string>
     <string name="title_open_with">Öffnen mit</string>

@@ -3,6 +3,7 @@
     <string name="app_search">FairEmail-haku</string>
     <string name="app_changelog">Muutosloki</string>
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
+    <string name="app_limitations">Esimerkiksi viestit muotoillaan oletusarvoisesti uudelleen turvattomien elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen on vahvistettava turvallisuuden vuoksi. Molemmat voidaan halutessaan poistaa käytöstä.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
@@ -115,12 +116,20 @@
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
     <string name="title_setup_quick">Pika-asennus</string>
+    <string name="title_setup_quick_accounts">Lisää tilejä</string>
     <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_wizard">Asetusvelho</string>
+    <string name="title_setup_wizard_multiple">Asetusvelhoa voidaan käyttää moneen kertaan useamman tilin asettamiseksi</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
+    <string name="title_setup_manual">Manuaalinen asettaminen ja lisää asetuksia</string>
+    <string name="title_setup_account_remark">Vastaanota sähköpostia</string>
+    <string name="title_setup_identity_remark">Lähetä sähköpostia</string>
+    <string name="title_setup_account_identity_hint">Voit määrittää nimen, värin ja pyyhkäisytoiminnot tilin asetuksissa ja allekirjoituksen identiteettiasetuksissa</string>
+    <string name="title_setup_accounts">Tilit</string>
+    <string name="title_setup_identities">Identiteetit</string>
     <string name="title_setup_oauth_permission">Sähköpostipalveluntarjoaja on hyväksynyt OAuthin vain virallisille sovellusversioille</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_pop3">POP3-tili</string>
@@ -138,16 +147,19 @@
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Yritä määrittää tili manuaalisesti käyttäen sähköpostin tarjoajan antamia asetuksia</string>
     <string name="title_setup_no_auth_hint">Tarkista sähköpostiosoitteesi ja salasanasi ja varmista, että ulkopuolinen yhteys (IMAP/SMTP) on käytössä tilillesi</string>
     <string name="title_setup_app_password_hint">Tämä palveluntarjoaja vaatii sovellussalasanan tilin salasanan sijaan, ole hyvä ja tarkista palveluntarjoajan ohjeet</string>
     <string name="title_setup_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
+    <string name="title_setup_quick_success">Tili on onnistuneesti lisätty</string>
     <string name="title_setup_manage">Muokkaa</string>
     <string name="title_setup_grant">Myönnä</string>
     <string name="title_setup_grant_again">Myönnä vaaditut oikeudet</string>
     <string name="title_setup_identity_what">Mikä on identiteetti?</string>
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
+    <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
     <string name="title_setup_doze_remark">Sähköpostien vastaanottoon luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen käytöstä vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
@@ -155,6 +167,7 @@
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
     <string name="title_setup_advanced_options">Näytä lisäasetukset</string>
+    <string name="title_setup_inbox">Siirry saapuneisiin</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_to_do">Tehtävänä</string>
     <string name="title_setup_done">Valmis</string>
@@ -202,6 +215,7 @@
     <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
         Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
     </string>
+    <string name="title_advanced_section_main">Alku</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>
     <string name="title_advanced_section_connection">Yhteys</string>
@@ -211,6 +225,7 @@
     <string name="title_advanced_section_encryption">Salaus</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
+    <string name="title_advanced_default">Kaikilla asetuksilla on yleisesti käytetyt oletusarvot</string>
     <string name="title_advanced_receive">Vastaanota viestit kaikille tileille</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_always">Vastaanota aina viestit näille tileille</string>
@@ -582,6 +597,7 @@
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_drafts">Ei luonnokset-kansiota</string>
     <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
+    <string name="title_no_composable">Sähköpostien lähettäminen edellyttää identiteetin määrittämistä ja luonnokset-kansion valintaa tilin asetuksissa</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
@@ -753,6 +769,7 @@
     <string name="title_reply_to_all">Vastaa kaikille</string>
     <string name="title_reply_list">Vastaa listalle</string>
     <string name="title_reply_receipt">Lähetä vastaanottokuittaus</string>
+    <string name="title_reply_hard_bounce">Lähetä hard bounce</string>
     <string name="title_reply_template">Vastaa viestipohjalla</string>
     <string name="title_move_undo">Siirretään kansioon %1$s (%2$d)</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
@@ -788,6 +805,7 @@
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
+    <string name="title_ask_show_html_dark">Käytä tummaa teemaa</string>
     <string name="title_ask_show_html_remark">Alkuperäisen viestin näyttäminen tummalla taustalla ei ole mahdollista, koska tummat tekstit ja kuvat eivät erotu</string>
     <string name="title_ask_show_html_images">Näytä aina kuvat alkuperäisiä viestejä näytettäessä</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
@@ -885,6 +903,7 @@
     <string name="title_key_missing">Ei avaimia sähköpostiosoitteille %1$s</string>
     <string name="title_send_reminder_remark">Muistutukset voidaan ottaa uudelleen käyttöön lähetysasetuksissa</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
+    <string name="title_send_dsn">Tilanneraportti</string>
     <string name="title_send_receipt">Pyydä kuittausta</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
@@ -896,6 +915,7 @@
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
     <string name="title_attachment_reminder">Oliko tarkoituksenasi lisätä liite?</string>
     <string name="title_plain_reminder">Kaikki muotoilut menetetään</string>
+    <string name="title_dsn_reminder">Hard bounce vahingoittaa alkuperäisen sähköpostin lähettäjän mainetta!</string>
     <string name="title_size_reminder">Viesti (%1$s) on suurempi kuin palvelimen raja (%2$s)</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
     <string name="title_dialog_hint">Tämä valintaikkuna voidaan ottaa uudelleen käyttöön yläreunan toimintopalkin kolmen pisteen valikosta</string>
