@@ -184,6 +184,7 @@ public class EntityAttachment {
                     "*/*".equals(type) ||
                     type.startsWith("unknown/") ||
                     type.endsWith("/unknown") ||
+                    "application/base64".equals(type) ||
                     "application/octet-stream".equals(type) ||
                     "application/zip".equals(type))
                 return gtype;
