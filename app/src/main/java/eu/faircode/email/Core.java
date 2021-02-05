@@ -1744,9 +1744,9 @@ class Core {
         if (sync_shared_folders) {
             // https://tools.ietf.org/html/rfc2342
             Folder[] namespaces = istore.getSharedNamespaces();
-            Log.i("Namespaces=" + namespaces.length);
+            EntityLog.log(context, "Namespaces=" + namespaces.length);
             for (Folder namespace : namespaces) {
-                Log.i("Namespace=" + namespace.getFullName());
+                EntityLog.log(context, "Namespace=" + namespace.getFullName());
                 if (namespace.getSeparator() == separator) {
                     try {
                         ifolders.addAll(Arrays.asList(namespace.list("*")));
