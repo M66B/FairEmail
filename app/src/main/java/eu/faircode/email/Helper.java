@@ -1156,8 +1156,7 @@ public class Helper {
         String extension = Helper.getExtension(filename);
         if (extension != null) {
             extension = extension.toLowerCase(Locale.ROOT);
-            type = MimeTypeMap.getSingleton()
-                    .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
         }
 
         if (TextUtils.isEmpty(type))
