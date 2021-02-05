@@ -141,6 +141,7 @@ public class EntityAttachment {
     String getMimeType() {
         // Try to guess a better content type
         // For example, sometimes PDF files are sent as application/octet-stream
+
         // https://android.googlesource.com/platform/libcore/+/refs/tags/android-9.0.0_r49/luni/src/main/java/libcore/net/MimeUtils.java
         // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
 
@@ -150,6 +151,10 @@ public class EntityAttachment {
         String extension = Helper.getExtension(name);
         if (extension == null)
             return type;
+
+        String gtype = Helper.guessMimeType(name);
+        if (!TextUtils.isEmpty(type) && !type.equals(gtype))
+            Log.w("Mime type=" + type + " extension=" + extension + " guessed=" + gtype);
 
         extension = extension.toLowerCase(Locale.ROOT);
 
@@ -178,7 +183,6 @@ public class EntityAttachment {
             return "application/vnd.ms-powerpoint";
 
         // Guess types
-        String gtype = Helper.guessMimeType(name);
         if (gtype != null) {
             if (TextUtils.isEmpty(type) ||
                     "*/*".equals(type) ||
