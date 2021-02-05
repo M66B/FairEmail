@@ -805,6 +805,15 @@ public interface DaoMessage {
             "  AND m.msgid = message.msgid)")
     int deleteOrphans(long folder);
 
+    @Query("SELECT * FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid IS NULL" +
+            " AND NOT EXISTS" +
+            "  (SELECT * FROM operation" +
+            "  WHERE operation.message = message.id" +
+            "  AND operation.name = '" + EntityOperation.EXISTS + "')")
+    List<EntityMessage> getSentOrphans(long folder);
+
     @Query("SELECT id FROM message" +
             " WHERE folder = :folder" +
             " AND received < :before" +
