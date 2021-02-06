@@ -970,14 +970,18 @@ class Core {
             db.message().setMessageUid(message.id, null);
 
             // Some providers do not list the new message yet
-            Long found = findUid(ifolder, message.msgid, true);
-            if (found != null)
-                if (newuid == null)
-                    newuid = found;
-                else if (!newuid.equals(found)) {
-                    Log.w(folder.name + " Added=" + newuid + " found=" + found);
-                    newuid = Math.max(newuid, found);
-                }
+            try {
+                Long found = findUid(ifolder, message.msgid, true);
+                if (found != null)
+                    if (newuid == null)
+                        newuid = found;
+                    else if (!newuid.equals(found)) {
+                        Log.w(folder.name + " Added=" + newuid + " found=" + found);
+                        newuid = Math.max(newuid, found);
+                    }
+            } catch (MessagingException ex) {
+                Log.w(ex);
+            }
 
             if (newuid != null && (message.uid == null || newuid > message.uid))
                 try {
