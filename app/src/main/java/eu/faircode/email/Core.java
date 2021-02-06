@@ -1118,44 +1118,48 @@ class Core {
                 Log.i(target.name + " moved message fetch=" + fetch);
                 itarget.open(READ_WRITE);
 
+                boolean sync = false;
                 for (EntityMessage message : map.values())
-                    if (!TextUtils.isEmpty(message.msgid))
-                        try {
-                            Long uid = findUid(itarget, message.msgid, false);
-                            if (uid != null) {
-                                if (draft) {
-                                    Message icopy = itarget.getMessageByUID(uid);
-                                    if (icopy == null) {
-                                        Log.w(target.name + " Gone uid=" + uid);
-                                        continue;
-                                    }
+                    try {
+                        if (TextUtils.isEmpty(message.msgid))
+                            throw new IllegalArgumentException("move: msgid missing");
 
-                                    // Mark read
-                                    if (seen && !icopy.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
-                                        icopy.setFlag(Flags.Flag.SEEN, true);
+                        Long uid = findUid(itarget, message.msgid, false);
+                        if (uid == null)
+                            throw new IllegalArgumentException("move: uid not found");
 
-                                    // Remove star
-                                    if (unflag && icopy.isSet(Flags.Flag.FLAGGED) && flags.contains(Flags.Flag.FLAGGED))
-                                        icopy.setFlag(Flags.Flag.FLAGGED, false);
+                        if (draft) {
+                            Message icopy = itarget.getMessageByUID(uid);
+                            if (icopy != null)
+                                throw new IllegalArgumentException("move: gone uid=" + uid);
 
-                                    // Set drafts flag
-                                    if (flags.contains(Flags.Flag.DRAFT))
-                                        icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
-                                }
+                            // Mark read
+                            if (seen && !icopy.isSet(Flags.Flag.SEEN) && flags.contains(Flags.Flag.SEEN))
+                                icopy.setFlag(Flags.Flag.SEEN, true);
 
-                                if (fetch)
-                                    try {
-                                        Log.i(target.name + " Fetching uid=" + uid);
-                                        JSONArray fargs = new JSONArray();
-                                        fargs.put(uid);
-                                        onFetch(context, fargs, target, istore, itarget, state);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                    }
-                            }
-                        } catch (Throwable ex) {
-                            Log.w(ex);
+                            // Remove star
+                            if (unflag && icopy.isSet(Flags.Flag.FLAGGED) && flags.contains(Flags.Flag.FLAGGED))
+                                icopy.setFlag(Flags.Flag.FLAGGED, false);
+
+                            // Set drafts flag
+                            if (flags.contains(Flags.Flag.DRAFT))
+                                icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
                         }
+
+                        if (fetch) {
+                            Log.i(target.name + " Fetching uid=" + uid);
+                            JSONArray fargs = new JSONArray();
+                            fargs.put(uid);
+                            onFetch(context, fargs, target, istore, itarget, state);
+                        }
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        if (fetch)
+                            sync = true;
+                    }
+
+                if (sync)
+                    EntityOperation.sync(context, target.id, false);
             } catch (Throwable ex) {
                 Log.w(ex);
             } finally {
