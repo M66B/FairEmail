@@ -2378,6 +2378,13 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 
 	} catch (CommandFailedException cfx) {
 	    // unsupported charset or search criterion
+		eu.faircode.email.Log.e(cfx);
+		Response r = cfx.getResponse();
+		if (r != null && r.isNO()) {
+			String rest = r.getRest();
+			if (rest != null && rest.contains("[UNAVAILABLE]")) // Yandex
+				throw new MessagingException(cfx.getMessage(), cfx);
+		}
 	    return super.search(term);
 	} catch (SearchException sex) {
 	    // too complex for IMAP
