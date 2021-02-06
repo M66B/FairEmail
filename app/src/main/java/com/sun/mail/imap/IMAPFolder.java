@@ -2380,7 +2380,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    // unsupported charset or search criterion
 		eu.faircode.email.Log.e(cfx);
 		if (term instanceof MessageIDTerm)
-			throw new MessagingException(cfx.getMessage(), cfx);
+			return new Message[0];
 	    return super.search(term);
 	} catch (SearchException sex) {
 	    // too complex for IMAP
