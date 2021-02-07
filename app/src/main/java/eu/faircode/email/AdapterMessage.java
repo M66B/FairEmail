@@ -6469,7 +6469,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 DB db = DB.getInstance(context);
                                 EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
 
-                                if (inbox == null)
+                                if (inbox == null || !inbox.selectable)
                                     throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
 
                                 return inbox;

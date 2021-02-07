@@ -718,8 +718,15 @@ public class FragmentAccount extends FragmentBase {
 
                     EntityFolder.guessTypes(result.folders, iservice.getStore().getDefaultFolder().getSeparator());
 
-                    if (!inbox)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
+                    if (!inbox) {
+                        EntityFolder in = new EntityFolder();
+                        in.name = EntityFolder.INBOX;
+                        in.type = EntityFolder.INBOX;
+                        in.setProperties();
+                        in.selectable = false;
+                        result.folders.add(in);
+                        //throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
+                    }
 
                     if (result.folders.size() > 0)
                         Collections.sort(result.folders, result.folders.get(0).getComparator(null));
