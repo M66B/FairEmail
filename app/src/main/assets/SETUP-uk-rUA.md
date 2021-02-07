@@ -1,41 +1,41 @@
-# Setup help
+# Довідка з налаштування
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Налаштування FairEmail досить просте. Вам потрібно буде додати принаймні один обліковий запис для отримання електронної пошти та принаймні одну особу, якщо ви хочете надіслати електронну пошту. The quick setup will add an account and an identity in one go for most providers.
 
-## Requirements
+## Вимоги
 
-An internet connection is required to set up accounts and identities.
+Для налаштування облікових записів та ідентифікаційних даних потрібне з’єднання з Інтернетом.
 
-## Quick setup
+## Швидке налаштування
 
-Just enter your name, email address and password and tap *Go*.
+Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-This will work for most major email providers.
+This will work for most email providers.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
-## Set up account - to receive email
+## Налаштування облікового запису - для отримання електронної пошти
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Виберіть постачальника зі списку, введіть ім’я користувача, яке в основному є вашою адресою електронної пошти, і введіть пароль. Натисніть * Перевірити *, щоб дозволити FairEmail підключитися до сервера електронної пошти та отримати список системних папок. Переглянувши вибір системної папки, ви можете додати обліковий запис, натиснувши * Зберегти *.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Введіть ім'я домену, наприклад * gmail.com *, і торкніться * Отримати налаштування *. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Докладніше про це див. [ тут ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Встановити ідентифікатор - для надсилання електронного листа
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Введіть ім’я, яке потрібно відобразити в адресі електронної пошти, яку ви надсилаєте, і виберіть пов’язаний обліковий запис. Торкніться * Зберегти *, щоб додати особу.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Якщо обліковий запис було налаштовано вручну, вам, ймовірно, також потрібно налаштувати ідентифікатор вручну. Введіть ім'я домену, наприклад * gmail.com *, і торкніться * Отримати налаштування *. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Див. [ це поширене запитання ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) про використання псевдонімів.
 
-## Grant permissions - to access contact information
+## Надати дозволи - для доступу до контактної інформації
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
 
-## Setup battery optimizations - to continuously receive emails
+## Налаштування оптимізації батареї - для постійного отримання електронних листів
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+В останніх версіях Android Android переводить програми в режим сну, коли екран на якийсь час вимкнено, щоб зменшити споживання батареї. Якщо ви хочете отримувати нові електронні листи без затримок, слід відключити оптимізацію батареї для FairEmail. Tap *Manage* and follow the instructions.
 
-## Questions or problems
+## Запитання чи Проблеми
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Якщо у вас є питання чи проблема, [ див. Тут ](https://github.com/M66B/FairEmail/blob/master/FAQ.md) за допомогою.

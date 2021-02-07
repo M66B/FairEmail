@@ -1,41 +1,41 @@
-# Setup help
+# Axuda da configuración
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Configurar FairEmail é sinxelo. Precisará polo menos unha conta para recibir correo e polo menos unha identidade se quere enviar correo. The quick setup will add an account and an identity in one go for most providers.
 
-## Requirements
+## Requisitos
 
-An internet connection is required to set up accounts and identities.
+Requírese unha conexión a internet para configurar as contas e identidades.
 
-## Quick setup
+## Configuración rápida
 
-Just enter your name, email address and password and tap *Go*.
+Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-This will work for most major email providers.
+This will work for most email providers.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
-## Set up account - to receive email
+## Crear unha conta - para recibir correo
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Seleccione un provedor da lista, escriba o nome de usuario, que moitas veces será o seu enderezo de correo, e logo escriba o seu contrasinal. Toque en *Comprobar* para que FairEmail conecte ao servidor de correo e colla a lista de cartafoles de sistema. Despois de revisar a selección de cartafoles de sistema, pode engadir a conta tocando *Gardar*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Escriba o nome do dominio, por exemplo *gmail.com* e toque en *Obter configuración*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Para máis información, vexa [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Crear unha identidade - para enviar correo
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Escriba o nome que quere que apareza no remitente dos correos que envíe e seleccione a conta relacionada. Toque *Gardar* para engadir a identidade.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Se a conta foi configurada manualmente, é probable que teña que configurar tamén a identidade de xeito manual. Escriba o nome do dominio, por exemplo *gmail.com* e toque en *Obter configuración*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Vexa [esta pregunta frecuente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) sobre o uso de alcumes.
 
-## Grant permissions - to access contact information
+## Conceder permisos - para acceder á información dos contactos
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
 
-## Setup battery optimizations - to continuously receive emails
+## Configuración de optimizacións da batería - para recibir correos de maneira continua
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Nas versións recentes de Android, Android pon a durmir ás aplicacións cando a pantalla leva apagada un tempo para reducir o consumo de batería. Se quere recibir as mensaxes sen retardos, pode desactivar as optimizacións da batería para FairEmail. Tap *Manage* and follow the instructions.
 
-## Questions or problems
+## Preguntas ou problemas
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Se ten algunha dúbida ou problema, [vaia aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md) para atopar axuda.

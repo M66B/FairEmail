@@ -926,6 +926,7 @@
     <string name="title_attachment_keywords">вкладені, вкладення, вкладення, включене</string>
     <string name="title_attachment_reminder">Ви мали намір додати вкладення?</string>
     <string name="title_plain_reminder">Все форматування буде втрачено</string>
+    <string name="title_dsn_reminder">Постійні, або жорсткі, відмови від повідомлень про стан доставлення шкодять репутації оригінальному відправнику електронної пошти!</string>
     <string name="title_size_reminder">Розмір повідомлення (%1$s) більше за ліміт встановлений сервером (%2$s)</string>
     <string name="title_attachments_missing">Не всі вкладення завантажено</string>
     <string name="title_dialog_hint">Це діалогове вікно може бути знову ввімкнено через меню трьох крапок в верхній панелі дій</string>

@@ -1,41 +1,41 @@
-# Aiuto impostazione
+# Aiuto configurazione
 
-La configurazione di FairEmail è abbastanza semplice. Dovrai aggiungere almeno un account per ricevere email e almeno un'identità se vuoi inviare email. La configurazione rapida aggiungerà un account e un'identità in un solo colpo per la maggior parte dei principali provider.
+Configurare FairEmail è abbastanza semplice. Dovrai aggiungere almeno un profilo per ricevere le email e almeno un'identità se vuoi inviare le email. The quick setup will add an account and an identity in one go for most providers.
 
 ## Requisiti
 
-È necessaria una connessione internet per configurare account e identità.
+Una connessione internet è necessaria per configurare profili e identità.
 
 ## Configurazione rapida
 
-Inserisci il tuo nome, indirizzo email e password e tocca *Vai*.
+Basta selezionare il provider appropriato o *Altro provider* e inserire il tuo nome, indirizzo email e password e cliccare *Controlla*.
 
-Questo funzionerà per la maggior parte dei principali provider di posta elettronica.
+Questo funzionerà per gran parte dei provider di email.
 
-Se la configurazione rapida non funziona, dovrai impostare un account e un'identità in un altro modo, vedere sotto per le istruzioni.
+Se la configurazione rapida non funziona, dovrai impostare un account e un'identità manualmente, vedi qui sotto per le istruzioni.
 
-## Imposta account - per ricevere email
+## Configura il profilo - per ricevere le email
 
-Per aggiungere un account, tocca *Gestisci account* e tocca il pulsante arancione *aggiungi* in basso. Seleziona un provider dalla lista, inserisci il nome utente, che di solito corrisponde al tuo indirizzo email e inserisci la password. Tocca *Controlla* per consentire a FairEmail di connettersi al server email e recuperare una lista di cartelle di sistema. Dopo aver esaminato la selezione della cartella di sistema è possibile aggiungere l'account toccando *Salva*.
+Per aggiungere un account, clicca *Configurazione manuale e più opzioni*, clicca *Account* e clicca il pulsante 'plus' in basso e seleziona IMAP (o POP3). Seleziona un provider dall'elenco, inserisci il nome utente, solitamente il tuo indirizzo email, e inserisci la tua password. Tocca *Controlla* per far connettere FairEmail al server email e recuperare un elenco delle cartelle di sistema. Dopo aver revisionato la selezione delle cartelle del sistema, puoi aggiungere il tuo profilo toccando *Salva*.
 
-Se il tuo provider non è nella lista dei provider, seleziona *Custom*. Inserisci il nome del dominio, ad esempio *gmail.com* e tocca *Ottieni impostazioni*. Se il tuo provider supporta [l'auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail riempirà il nome host e il numero di porta, altrimenti controlla le istruzioni di installazione del tuo provider per il corretto nome host IMAP, il numero di porta e il protocollo (SSL/TLS o STARTTLS). Per ulteriori informazioni, si prega di vedere [qui](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Inserisci il nome del dominio, ad esempio *gmail.com* e tocca *Ottieni impostazioni*. Se il tuo provider supporta [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail compilerà l'host name e il numero di porta, altrimenti controlla le istruzioni di configurazione del tuo provider per il giusto host name IMAP, il numero di porta e il protocollo di crittografia (SSL/TLS o STARTTLS). Per altro a riguardo, sei pregato di vedere [qui](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Imposta identità - per inviare email
+## Configura l'identità - per inviare email
 
-Analogamente, per aggiungere un'identità, tocca *Gestisci identità* e tocca il pulsante arancione *aggiungi* in basso. Inserisci il nome che vuoi appaia nell'indirizzo del mittente e seleziona un account collegato. Tocca *Salva* per aggiungere l'identità.
+Allo stesso modo, per aggiungere un'identità, clicca *Configurazione manuale e più opzioni*, clicca *Identità* e clicca il pulsante 'plus' in basso. Inserisci il nome che vuoi compaia nell'indirizzo del mittente delle email che invii e seleziona un profilo collegato. Tocca *Salva* per aggiungere l'identità.
 
-Se l'account è stato configurato manualmente, è probabile che sia necessario configurare l'identità anche manualmente. Inserisci il nome del dominio, ad esempio *gmail.com* e tocca *Ottieni impostazioni*. Se il tuo provider supporta [l'auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail riempirà il nome host e il numero di porta, altrimenti controlla le istruzioni di installazione del tuo provider per il nome host SMTP corretto, il numero di porta e il protocollo (SSL/TLS o STARTTLS).
+Se il profilo è stato configurato manualmente, potresti dover configurare manualmente anche l'identità. Inserisci il nome del dominio, ad esempio *gmail.com* e tocca *Ottieni impostazioni*. Se il tuo provider supporta [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail compilerà l'host name e il numero di porta, altrimenti controlla le istruzioni di configurazione del tuo provider per il giusto host name SMTP, il numero di porta e il protocollo di crittografia (SSL/TLS o STARTTLS).
 
 Vedi [questa FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) sull'utilizzo degli alias.
 
-## Concedi permessi - per accedere alle informazioni di contatto
+## Concedi i permessi - per accedere alle informazioni di contatto
 
-Se vuoi cercare indirizzi email, visualizzare le foto dei contatto, ecc, dovrai concedere il permesso di lettura dei contatti a FairEmail. Basta toccare *Concedi permessi* e selezionare *Consenti*.
+Se si desidera cercare gli indirizzi email, avere le foto di contatto mostrate, ecc, è necessario concedere l'autorizzazione per leggere le informazioni di contatto a FairEmail. Basta cliccare*Concedi permessi* e selezionare *Consenti*.
 
-## Imposta ottimizzazioni batteria - per ricevere e-mail senza soluzione di continuità
+## Configura le ottimizzazioni della batteria - per ricevere continuamente le email
 
-Nelle versioni recenti di Android, Android metterà le app in standby quando lo schermo è spento per un certo tempo per ridurre l'uso della batteria. Se vuoi ricevere nuove email senza ritardi, dovresti disabilitare le ottimizzazioni della batteria per FairEmail. Tocca *Disabilita le ottimizzazioni della batteria* e segui le istruzioni.
+Sulle versioni Android recenti, Android metterà in standby le app quando lo schermo è spento per un po' di tempo per ridurre l'uso della batteria. Se vuoi ricevere le nuove email senza ritardo, dovresti disabilitare le ottimizzazioni della batteria per FairEmail. Clicca *Gestisci* e segui le istruzioni.
 
 ## Domande o problemi
 
-Se hai una domanda o un problema, per favore [vedi qui](https://github.com/M66B/FairEmail/blob/master/FAQ.md) per aiuto.
+Se hai una domanda o un problema, sei pregato di [vedere qui](https://github.com/M66B/FairEmail/blob/master/FAQ.md) per aiuto.

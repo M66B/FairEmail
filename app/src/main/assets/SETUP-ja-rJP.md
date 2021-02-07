@@ -1,6 +1,6 @@
 # セットアップヘルプ
 
-FairEmailのセットアップは非常に簡単です。 メールを受信するためにはIDを、送信する場合はアカウントをそれぞれ少なくとも1つ設定する必要があります。 クイックセットアップでは、ほとんどの主要プロバイダーでアカウントとIDが一度に追加できます。
+FairEmailのセットアップは非常に簡単です。 メールを受信するためにはIDを、送信する場合はアカウントをそれぞれ少なくとも1つ設定する必要があります。 The quick setup will add an account and an identity in one go for most providers.
 
 ## 必要な条件
 
@@ -8,33 +8,33 @@ FairEmailのセットアップは非常に簡単です。 メールを受信す�
 
 ## クイックセットアップ
 
-名前、メールアドレス、パスワードを入力して、*確認*ボタンを押すだけです。
+Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-ほとんどの主要なメールプロバイダーで機能します。
+This will work for most email providers.
 
-クイックセットアップが機能しない場合は、別の方法でアカウントとIDをセットアップする必要があります。手順については以下をご覧ください。
+If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
 ## アカウントの設定 - メールを受信するために
 
-アカウントを追加するには*アカウントの管理*をタップし、下部にあるオレンジ色の*追加*をタップします。 リストからプロバイダーを選択し、ユーザー名(ほとんどはメールアドレス)、パスワードを入力します。 *確認*をタップしてFairEmailがメールサーバーに接続し、システムフォルダーのリストを取得できるようにします。 システムフォルダーの選択を確認後、*保存*をタップしてアカウントを追加できます。
+To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). リストからプロバイダーを選択し、ユーザー名(ほとんどはメールアドレス)、パスワードを入力します。 *確認*をタップしてFairEmailがメールサーバーに接続し、システムフォルダーのリストを取得できるようにします。 システムフォルダーの選択を確認後、*保存*をタップしてアカウントを追加できます。
 
-プロバイダーがリストにない場合は、*カスタム*を選択します。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力します。 それ以外の場合は、プロバイダーのセットアップ手順に従って正しいIMAPホスト名・ポート番号・プロトコル(SSL/TLS or STARTTLS)が入力されているか確認してください。 詳細は [こちら](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)
+If your provider is not in the list of providers (there are thousands of providers), select *Custom*. *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). 詳細は [こちら](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)
 
 ## IDの設定 - メールを送信するために
 
-同様に、IDを追加するには*IDの管理*をタップし、下部のオレンジ色の*追加*をタップします。 送信するメールのアドレスから表示する名前を入力し、リンクされたアカウントを選択します。 *保存*をタップしてIDを追加します。
+Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. 送信するメールのアドレスから表示する名前を入力し、リンクされたアカウントを選択します。 *保存*をタップしてIDを追加します。
 
-アカウントを手動で設定した場合、おそらくIDも手動で設定する必要があります。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力します。 それ以外の場合は、プロバイダーのセットアップ手順に従って正しいSMTPホスト名・ポート番号・プロトコル(SSL/TLS or STARTTLS)が入力されているか確認してください。
+アカウントを手動で設定した場合、おそらくIDも手動で設定する必要があります。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
 
 エイリアスの使用については [FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) を確認してください。
 
 ## 権限の許可 - 連絡先情報にアクセスするために
 
-メールアドレスを検索したり、連絡先の写真を表示したりする場合はFairEmailに連絡先の読み取り許可をする必要があります。 *権限の許可*をタップして、*許可*を選択します。
+If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
 
 ## 電池の最適化の設定 - 継続的にメールを受信するために
 
-最近のAndroidバージョンでは、電池の消費を抑えるために画面オフ後しばらくするとアプリをスリープ状態にします。 新着メールを遅延なく受信するには、FairEmailの電池の最適化を無効にする必要があります。 *電池の最適化を無効にする*をタップし、指示に従います。
+最近のAndroidバージョンでは、電池の消費を抑えるために画面オフ後しばらくするとアプリをスリープ状態にします。 新着メールを遅延なく受信するには、FairEmailの電池の最適化を無効にする必要があります。 Tap *Manage* and follow the instructions.
 
 ## 質問または問題
 
