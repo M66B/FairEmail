@@ -2378,8 +2378,8 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 
 	} catch (CommandFailedException cfx) {
 	    // unsupported charset or search criterion
-		eu.faircode.email.Log.e(cfx);
-		if (term instanceof MessageIDTerm)
+		eu.faircode.email.Log.e(new MessagingException(term.getClass().getName(), cfx));
+		if (term instanceof MessageIDTerm) // Yandex: NO [UNAVAILABLE] SEARCH Backend error. sc=...
 			return new Message[0];
 	    return super.search(term);
 	} catch (SearchException sex) {
