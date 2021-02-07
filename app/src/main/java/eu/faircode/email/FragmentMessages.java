@@ -2421,14 +2421,29 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean experiments = prefs.getBoolean("experiments", false);
 
+                boolean canBounce = false;
+                if (message.return_path != null && message.return_path.length == 1) {
+                    canBounce = true;
+                    List<Address> addresses = new ArrayList<>();
+                    if (message.to != null)
+                        addresses.addAll(Arrays.asList(message.to));
+                    if (message.cc != null)
+                        addresses.addAll(Arrays.asList(message.cc));
+                    if (message.bcc != null)
+                        addresses.addAll(Arrays.asList(message.bcc));
+                    for (Address address : addresses)
+                        if (MessageHelper.equalEmail(address, message.return_path[0])) {
+                            canBounce = false;
+                            break;
+                        }
+                }
+
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
                 popupMenu.inflate(R.menu.popup_reply);
                 popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                 popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
                 popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
-                popupMenu.getMenu().findItem(R.id.menu_reply_hard_bounce)
-                        .setVisible(experiments && (BuildConfig.DEBUG ||
-                                (message.return_path != null && message.return_path.length > 0)));
+                popupMenu.getMenu().findItem(R.id.menu_reply_hard_bounce).setVisible(experiments && canBounce);
                 popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
                 popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
 

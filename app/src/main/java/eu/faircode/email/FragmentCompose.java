@@ -3612,8 +3612,6 @@ public class FragmentCompose extends FragmentBase {
                                 } else if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn)) {
                                     if (ref.return_path != null)
                                         data.draft.to = ref.return_path;
-                                    else if (BuildConfig.DEBUG)
-                                        data.draft.to = ref.from;
                                 }
                             } else {
                                 // Prevent replying to self
