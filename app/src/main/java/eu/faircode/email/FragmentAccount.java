@@ -57,7 +57,6 @@ import androidx.lifecycle.Lifecycle;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -676,8 +675,8 @@ public class FragmentAccount extends FragmentBase {
                             certificate, fingerprint);
 
                     result.idle = iservice.hasCapability("IDLE");
+                    result.utf8 = iservice.hasCapability("UTF8=ACCEPT");
 
-                    boolean inbox = false;
                     for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                         // Check folder attributes
                         String fullName = ifolder.getFullName();
@@ -700,33 +699,12 @@ public class FragmentAccount extends FragmentBase {
                                 folder = new EntityFolder(fullName, type);
                             result.folders.add(folder);
 
-                            if (EntityFolder.INBOX.equals(type)) {
-                                inbox = true;
-
-                                result.utf8 = (Boolean) ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
-                                    @Override
-                                    public Object doCommand(IMAPProtocol protocol) {
-                                        return protocol.supportsUtf8();
-                                    }
-                                });
-                            }
-
                             Log.i(folder.name + " id=" + folder.id +
                                     " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
                         }
                     }
 
                     EntityFolder.guessTypes(result.folders, iservice.getStore().getDefaultFolder().getSeparator());
-
-                    if (!inbox) {
-                        EntityFolder in = new EntityFolder();
-                        in.name = EntityFolder.INBOX;
-                        in.type = EntityFolder.INBOX;
-                        in.setProperties();
-                        in.selectable = false;
-                        result.folders.add(in);
-                        //throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
-                    }
 
                     if (result.folders.size() > 0)
                         Collections.sort(result.folders, result.folders.get(0).getComparator(null));

@@ -1651,7 +1651,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean archive = (move && (hasArchive && !inArchive && !inSent && !inTrash && !inJunk));
                     boolean trash = (move || outbox || debug ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
-                    boolean junk = (move && hasJunk);
+                    boolean junk = (move && hasJunk && hasInbox);
                     boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk));
                     boolean keywords = (!message.folderReadOnly && message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
@@ -6473,7 +6473,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 DB db = DB.getInstance(context);
                                 EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
 
-                                if (inbox == null || !inbox.selectable)
+                                if (inbox == null)
                                     throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
 
                                 return inbox;

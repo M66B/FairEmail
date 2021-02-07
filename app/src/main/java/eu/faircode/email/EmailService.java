@@ -672,23 +672,6 @@ public class EmailService implements AutoCloseable {
 
         EntityFolder.guessTypes(folders, getStore().getDefaultFolder().getSeparator());
 
-        boolean inbox = false;
-        for (EntityFolder folder : folders)
-            if (EntityFolder.INBOX.equals(folder.type)) {
-                inbox = true;
-                break;
-            }
-
-        if (!inbox) {
-            EntityFolder in = new EntityFolder();
-            in.name = EntityFolder.INBOX;
-            in.type = EntityFolder.INBOX;
-            in.setProperties();
-            in.selectable = false;
-            folders.add(in);
-            //throw new IllegalArgumentException(context.getString(R.string.title_setup_no_inbox));
-        }
-
         return folders;
     }
 

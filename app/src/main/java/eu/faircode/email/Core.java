@@ -1915,8 +1915,6 @@ class Core {
         Log.i("Delete local count=" + local.size());
         for (String name : local.keySet()) {
             EntityFolder folder = local.get(name);
-            if (EntityFolder.INBOX.equals(name) && !folder.selectable)
-                continue;
             List<EntityFolder> childs = parentFolders.get(name);
             if (EntityFolder.USER.equals(folder.type) ||
                     childs == null || childs.size() == 0) {
