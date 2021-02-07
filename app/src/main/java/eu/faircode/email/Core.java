@@ -1155,7 +1155,10 @@ class Core {
                             onFetch(context, fargs, target, istore, itarget, state);
                         }
                     } catch (Throwable ex) {
-                        Log.w(ex);
+                        if (ex instanceof IllegalArgumentException)
+                            Log.i(ex);
+                        else
+                            Log.e(ex);
                         if (fetch)
                             sync = true;
                     }
