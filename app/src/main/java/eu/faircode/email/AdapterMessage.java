@@ -3026,7 +3026,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
                             .putExtra("found", viewType == ViewType.SEARCH);
 
-                    boolean doubletap = prefs.getBoolean("doubletap", false);
+                    boolean doubletap = prefs.getBoolean("doubletap", true);
 
                     if (!doubletap ||
                             message.folderReadOnly ||

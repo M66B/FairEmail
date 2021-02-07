@@ -447,7 +447,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
         swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
 
-        swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
+        swDoubleTap.setChecked(prefs.getBoolean("doubletap", true));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swVolumeNav.setChecked(prefs.getBoolean("volumenav", false));
         swReversed.setChecked(prefs.getBoolean("reversed", false));
