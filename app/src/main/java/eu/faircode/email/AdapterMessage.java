@@ -1623,17 +1623,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean gmail = args.getBoolean("gmail");
 
+                    boolean hasInbox = false;
                     boolean hasArchive = false;
                     boolean hasTrash = false;
                     boolean hasJunk = false;
                     if (folders != null)
                         for (EntityFolder folder : folders)
-                            if (EntityFolder.ARCHIVE.equals(folder.type))
-                                hasArchive = true;
-                            else if (EntityFolder.TRASH.equals(folder.type))
-                                hasTrash = true;
-                            else if (EntityFolder.JUNK.equals(folder.type))
-                                hasJunk = true;
+                            if (folder.selectable)
+                                if (EntityFolder.INBOX.equals(folder.type))
+                                    hasInbox = true;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
+                                else if (EntityFolder.TRASH.equals(folder.type))
+                                    hasTrash = true;
+                                else if (EntityFolder.JUNK.equals(folder.type))
+                                    hasJunk = true;
 
                     boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                     boolean inSent = EntityFolder.SENT.equals(message.folderType);
@@ -1648,7 +1652,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean trash = (move || outbox || debug ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
                     boolean junk = (move && hasJunk);
-                    boolean inbox = (move && (inArchive || inTrash || inJunk));
+                    boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk));
                     boolean keywords = (!message.folderReadOnly && message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
                     boolean labels = (gmail && move && !inTrash && !inJunk && !outbox);

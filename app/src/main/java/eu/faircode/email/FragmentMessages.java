@@ -2752,13 +2752,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 for (EntityAccount account : accounts.values()) {
-                    boolean hasArchive = (account.protocol == EntityAccount.TYPE_IMAP &&
-                            db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE) != null);
-                    boolean hasTrash = (account.protocol == EntityAccount.TYPE_IMAP &&
-                            db.folder().getFolderByType(account.id, EntityFolder.TRASH) != null);
-                    boolean hasJunk = (account.protocol == EntityAccount.TYPE_IMAP &&
-                            db.folder().getFolderByType(account.id, EntityFolder.JUNK) != null);
+                    boolean hasInbox = false;
+                    boolean hasArchive = false;
+                    boolean hasTrash = false;
+                    boolean hasJunk = false;
 
+                    if (account.protocol == EntityAccount.TYPE_IMAP) {
+                        EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                        EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
+                        EntityFolder trash = db.folder().getFolderByType(account.id, EntityFolder.TRASH);
+                        EntityFolder junk = db.folder().getFolderByType(account.id, EntityFolder.JUNK);
+
+                        hasInbox = (inbox != null && inbox.selectable);
+                        hasArchive = (archive != null && archive.selectable);
+                        hasTrash = (trash != null && trash.selectable);
+                        hasJunk = (junk != null && junk.selectable);
+                    }
+
+                    result.hasInbox = (result.hasInbox == null ? hasInbox : result.hasInbox && hasInbox);
                     result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
                     result.hasTrash = (result.hasTrash == null ? hasTrash : result.hasTrash && hasTrash);
                     result.hasJunk = (result.hasJunk == null ? hasJunk : result.hasJunk && hasJunk);
@@ -2773,6 +2784,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.isJunk == null) result.isJunk = false;
                 if (result.isDrafts == null) result.isDrafts = false;
 
+                if (result.hasInbox == null) result.hasInbox = false;
                 if (result.hasArchive == null) result.hasArchive = false;
                 if (result.hasTrash == null) result.hasTrash = false;
                 if (result.hasJunk == null) result.hasJunk = false;
@@ -2823,7 +2835,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 importance.add(Menu.NONE, R.string.title_importance_low, 3, R.string.title_importance_low)
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
-                if (!result.isInbox) // not is inbox
+                if (result.hasInbox && !result.isInbox) // not is inbox
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_inbox, order++, R.string.title_folder_inbox);
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive
@@ -7631,6 +7643,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean flagged;
         boolean unflagged;
         Integer importance;
+        Boolean hasInbox;
         Boolean hasArchive;
         Boolean hasTrash;
         Boolean hasJunk;
