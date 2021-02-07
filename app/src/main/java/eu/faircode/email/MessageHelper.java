@@ -2489,14 +2489,14 @@ public class MessageHelper {
                     // From the body structure:
                     // 1. disposition filename
                     // 2. content type name
-                    filename = part.getFileName();
+                    filename = part.getFileName(); // IMAPBodyPart/BODYSTRUCTURE
                     if (filename != null) {
                         // https://tools.ietf.org/html/rfc2231
                         // http://kb.mozillazine.org/Attachments_renamed
                         // https://blog.nodemailer.com/2017/01/27/the-mess-that-is-attachment-filenames/
                         int q1 = filename.indexOf('\'');
                         int q2 = filename.indexOf('\'', q1 + 1);
-                        if (q1 >= 0 && q2 > 0 && false) {
+                        if (q1 >= 0 && q2 > 0) {
                             try {
                                 String charset = filename.substring(0, q1);
                                 String language = filename.substring(q1 + 1, q2);
