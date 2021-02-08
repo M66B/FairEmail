@@ -931,9 +931,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Text size
             if (textSize != 0) {
-                tvKeywords.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
-                tvFolder.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
-                tvLabels.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
+                // 14, 18, 22 sp
+                //tvKeywords.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
+                //tvFolder.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
+                //tvLabels.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvNotes.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
             }

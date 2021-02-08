@@ -190,7 +190,7 @@
         android:gravity="center_vertical"
         android:minHeight="24dp"
         android:text="tag1, tag2, tag3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
         app:layout_constraintTop_toBottomOf="@id/tvSubject" />
