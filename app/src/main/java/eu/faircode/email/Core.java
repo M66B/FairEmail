@@ -2257,8 +2257,8 @@ class Core {
                             if (attachment.subsequence == null)
                                 parts.downloadAttachment(context, attachment);
 
-                        if (message.received > account.created)
-                            updateContactInfo(context, folder, message);
+
+                        updateContactInfo(context, account, folder, message);
                     } catch (Throwable ex) {
                         db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                     }
@@ -3031,8 +3031,7 @@ class Core {
             }
 
             try {
-                if (message.received > account.created)
-                    updateContactInfo(context, folder, message);
+                updateContactInfo(context, account, folder, message);
 
                 // Download small messages inline
                 if (download && !message.ui_hide) {
@@ -3193,7 +3192,7 @@ class Core {
                 }
 
             if (process) {
-                updateContactInfo(context, folder, message);
+                updateContactInfo(context, account, folder, message);
                 MessageClassifier.classify(message, folder, null, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
@@ -3335,7 +3334,11 @@ class Core {
         }
     }
 
-    private static void updateContactInfo(Context context, final EntityFolder folder, final EntityMessage message) {
+    private static void updateContactInfo(
+            Context context, EntityAccount account, final EntityFolder folder, final EntityMessage message) {
+        if (message.received < account.created)
+            return;
+
         if (EntityFolder.DRAFTS.equals(folder.type) ||
                 EntityFolder.ARCHIVE.equals(folder.type) ||
                 EntityFolder.TRASH.equals(folder.type) ||
