@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, 2019 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2013, 2021 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0, which is available at
@@ -322,12 +322,20 @@ public class WriteTimeoutSocket extends Socket {
      * @return	the FileDescriptor object
      */
     public FileDescriptor getFileDescriptor$() {
-	try {
-	    Method m = Socket.class.getDeclaredMethod("getFileDescriptor$");
-	    return (FileDescriptor)m.invoke(socket);
-	} catch (Exception ex) {
-	    return null;
-	}
+        //The loop handles issues with non-public classes between
+        //java.net.Socket and the actual socket type held in this object.
+        //Must inspect java.net.Socket to ensure compatiblity with old behavior.
+        for (Class<?> k = socket.getClass(); k != Object.class; k = k.getSuperclass()) {
+            try {
+                Method m = k.getDeclaredMethod("getFileDescriptor$");
+                if (FileDescriptor.class.isAssignableFrom(m.getReturnType())) {
+                        //Skip setAccessible so non-public methods fail to invoke.
+                    return (FileDescriptor) m.invoke(socket);
+                }
+            } catch (Exception ignore) {
+            }
+        }
+        return null;
     }
 }
 
