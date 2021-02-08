@@ -1104,8 +1104,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(View.GONE);
                 ivThread.setVisibility(View.GONE);
             } else {
-                tvCount.setVisibility(threading ? View.VISIBLE : View.GONE);
-                ivThread.setVisibility(View.VISIBLE);
+                tvCount.setVisibility(threading && message.visible > 1 ? View.VISIBLE : View.GONE);
+                ivThread.setVisibility(selected || message.visible > 1 ? View.VISIBLE : View.GONE);
 
                 if (threading_unread)
                     tvCount.setText(context.getString(R.string.title_of,
