@@ -3336,13 +3336,19 @@ class Core {
     }
 
     private static void updateContactInfo(Context context, final EntityFolder folder, final EntityMessage message) {
-        DB db = DB.getInstance(context);
-
         if (EntityFolder.DRAFTS.equals(folder.type) ||
                 EntityFolder.ARCHIVE.equals(folder.type) ||
                 EntityFolder.TRASH.equals(folder.type) ||
                 EntityFolder.JUNK.equals(folder.type))
             return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+        boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        if (!suggest_sent && !suggest_received)
+            return;
+
+        DB db = DB.getInstance(context);
 
         int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
 
@@ -3363,10 +3369,6 @@ class Core {
                 }
             }
         }
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-        boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
         if (type == EntityContact.TYPE_TO && !suggest_sent)
             return;
