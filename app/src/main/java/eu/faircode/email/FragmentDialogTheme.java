@@ -3,7 +3,7 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +25,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private RadioGroup rgThemeOptions;
     private SwitchCompat swBlack;
     private TextView tvSystem;
+    private TextView tvMore;
 
     private void eval() {
         int checkedId = rgTheme.getCheckedRadioButtonId();
@@ -50,23 +51,15 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
-        itten = dview.findViewById(R.id.itten);
         rgTheme = dview.findViewById(R.id.rgTheme);
         swReverse = dview.findViewById(R.id.swReverse);
         rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
         swBlack = dview.findViewById(R.id.swBlack);
         tvSystem = dview.findViewById(R.id.tvSystem);
+        tvMore = dview.findViewById(R.id.tvMore);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String theme = prefs.getString("theme", "blue_orange_system");
-
-        itten.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://en.wikipedia.org/wiki/Johannes_Itten");
-                Helper.view(getContext(), uri, false);
-            }
-        });
 
         rgTheme.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -168,6 +161,14 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 rgTheme.check(R.id.rbThemeBlackAndWhite);
                 break;
         }
+
+        tvMore.setPaintFlags(tvMore.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 164);
+            }
+        });
 
         return new AlertDialog.Builder(getContext())
                 .setView(dview)
