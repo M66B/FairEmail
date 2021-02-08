@@ -1,6 +1,6 @@
 # Довідка з налаштування
 
-Налаштування FairEmail досить просте. Вам потрібно буде додати принаймні один обліковий запис для отримання електронної пошти та принаймні одну особу, якщо ви хочете надіслати електронну пошту. The quick setup will add an account and an identity in one go for most providers.
+Налаштування FairEmail досить просте. Вам потрібно буде додати принаймні один обліковий запис для отримання електронної пошти та принаймні одну особу, якщо ви хочете надіслати електронну пошту. Швидке налаштування, за один хід, додасть обліковий запис та особисті данні для більшості основних постачальників.
 
 ## Вимоги
 
@@ -8,17 +8,17 @@
 
 ## Швидке налаштування
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Просто виберіть відповідного постачальника або *Інші постачальники* і введіть ім'я, адресу електронної пошти та пароль і натисніть *Перевірити*.
 
-This will work for most email providers.
+Це буде працювати для більшості основних постачальників послуг з електронної пошти.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Якщо швидке налаштування не допомагає, Вам потрібно буде налаштувати обліковий запис та особисті данні іншим способом, див. подальші інструкції.
 
 ## Налаштування облікового запису - для отримання електронної пошти
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Виберіть постачальника зі списку, введіть ім’я користувача, яке в основному є вашою адресою електронної пошти, і введіть пароль. Натисніть * Перевірити *, щоб дозволити FairEmail підключитися до сервера електронної пошти та отримати список системних папок. Переглянувши вибір системної папки, ви можете додати обліковий запис, натиснувши * Зберегти *.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Введіть ім'я домену, наприклад * gmail.com *, і торкніться * Отримати налаштування *. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Докладніше про це див. [ тут ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Якщо вашого постачальника немає в списку провайдерів (існують тисячі постачальників), виберіть *Користувача*. Введіть ім'я домену, наприклад * gmail.com *, і торкніться * Отримати налаштування *. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Докладніше про це див. [ тут ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Встановити ідентифікатор - для надсилання електронного листа
 

@@ -1,6 +1,6 @@
-# Setup help
+# تثبيت ، تحميل ، تنزيل ، إعداد
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most providers.
+انشاء البريد المرضي سهل للغاية. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most providers.
 
 ## Requirements
 
