@@ -20,12 +20,16 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -255,6 +259,22 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         checkAuthentication();
+
+        int colorPrimaryDark = Helper.resolveColor(this, R.attr.colorPrimaryDark);
+        int colorActionForeground = Helper.resolveColor(this, R.attr.colorActionForeground);
+
+        Drawable d = getDrawable(R.drawable.baseline_mail_24);
+        Bitmap bm = Bitmap.createBitmap(
+                d.getIntrinsicWidth(),
+                d.getIntrinsicHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bm);
+        d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        d.setTint(colorActionForeground);
+        d.draw(canvas);
+
+        ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(null, bm, colorPrimaryDark);
+        setTaskDescription(td);
 
         boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
         if (navbar_colorize) {
