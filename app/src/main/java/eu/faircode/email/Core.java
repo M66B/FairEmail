@@ -704,7 +704,7 @@ class Core {
         db.message().setMessageUiSeen(folder.id, seen);
     }
 
-    private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
+    private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         // Star/unstar message
         DB db = DB.getInstance(context);
 
@@ -723,6 +723,8 @@ class Core {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
+        if (imessage instanceof GmailMessage)
+            ((GmailMessage) imessage).setLabels(new String[]{"\\Starred"}, flagged);
 
         db.message().setMessageFlagged(message.id, flagged);
     }
