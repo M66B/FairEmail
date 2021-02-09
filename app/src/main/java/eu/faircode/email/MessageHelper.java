@@ -2368,8 +2368,13 @@ public class MessageHelper {
                         parts.attachments.add(apart);
 
                         return parts;
-                    } else
-                        Log.e(ct + " parts=" + multipart.getCount());
+                    } else {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(ct);
+                        for (int i = 0; i < multipart.getCount(); i++)
+                            sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
+                        Log.e(sb.toString());
+                    }
                 } else
                     Log.e(ct.toString());
             } else if (part.isMimeType("multipart/encrypted")) {
@@ -2381,8 +2386,13 @@ public class MessageHelper {
                         // Ignore header
                         getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
                         return parts;
-                    } else
-                        Log.e(ct + " parts=" + multipart.getCount());
+                    } else {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(ct);
+                        for (int i = 0; i < multipart.getCount(); i++)
+                            sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
+                        Log.e(sb.toString());
+                    }
                 } else
                     Log.e(ct.toString());
             } else if (part.isMimeType("application/pkcs7-mime") ||
