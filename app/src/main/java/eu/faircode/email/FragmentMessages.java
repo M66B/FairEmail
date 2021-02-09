@@ -7363,10 +7363,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Document document = JsoupEx.parse(file);
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
-                // Prevent multiple pages for Microsoft Office
-                Element section = document.select(".WordSection1").first();
-                if (section == null)
-                    section = document.body();
+                // @page WordSection1 {size:612.0pt 792.0pt; margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+                // div.WordSection1 {page:WordSection1;}
+                // <body><div class=WordSection1>
+
+                for (Element element : document.body().select("div[class]")) {
+                    String clazz = element.attr("class");
+                    if (clazz.startsWith("WordSection"))
+                        element.removeClass(clazz);
+                }
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean print_html_header = prefs.getBoolean("print_html_header", true);
@@ -7431,7 +7436,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     header.appendElement("hr").appendElement("br");
 
-                    section.prependChild(header);
+                    document.body().prependChild(header);
 
                     boolean hasAttachments = false;
                     Element footer = document.createElement("p");
@@ -7450,10 +7455,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
 
                     if (hasAttachments)
-                        section.appendChild(footer);
+                        document.body().appendChild(footer);
                 }
 
-                return new String[]{message.subject, section.html()};
+                return new String[]{message.subject, document.body().html()};
             }
 
             @Override
