@@ -3423,6 +3423,9 @@ Advanced: the IMAP delete flag in combination with the EXPUNGE command is not su
 because both email servers and not all people can handle this, risking unexpected loss of messages.
 A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
+From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages.
+Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+
 <br />
 
 <a name="faq161"></a>

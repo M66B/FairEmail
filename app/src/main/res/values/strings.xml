@@ -521,6 +521,7 @@
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
+    <string name="title_advanced_expunge" translatable="false">EXPUNGE (debug only)</string>
     <string name="title_advanced_auth_plain" translatable="false">PLAIN (debug only)</string>
     <string name="title_advanced_auth_login" translatable="false">LOGIN (debug only)</string>
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM (debug only)</string>

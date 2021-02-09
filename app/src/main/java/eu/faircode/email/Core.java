@@ -614,7 +614,7 @@ class Core {
         if (TextUtils.isEmpty(message.msgid))
             throw new IllegalArgumentException("Message without msgid for " + op.name);
 
-        Long uid = findUid(ifolder, message.msgid, false);
+        Long uid = findUid(context, ifolder, message.msgid, false);
         if (uid == null)
             throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
 
@@ -623,7 +623,7 @@ class Core {
         message.uid = uid;
     }
 
-    private static Long findUid(IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException {
+    private static Long findUid(Context context, IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException {
         String name = ifolder.getFullName();
         Log.i(name + " searching for msgid=" + msgid);
 
@@ -657,7 +657,9 @@ class Core {
                         }
                 }
 
-                if (purged)
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+                if (purged && perform_expunge)
                     try {
                         ifolder.expunge();
                     } catch (MessagingException ex) {
@@ -833,7 +835,11 @@ class Core {
                     if (imessage == null)
                         throw new MessageRemovedException();
                     imessage.setFlag(Flags.Flag.DELETED, true);
-                    ifolder.expunge();
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+                    if (perform_expunge)
+                        ifolder.expunge();
                 } catch (MessagingException ex) {
                     Log.w(ex);
                 }
@@ -971,7 +977,7 @@ class Core {
 
             // Some providers do not list the new message yet
             try {
-                Long found = findUid(ifolder, message.msgid, true);
+                Long found = findUid(context, ifolder, message.msgid, true);
                 if (found != null)
                     if (newuid == null)
                         newuid = found;
@@ -1102,7 +1108,11 @@ class Core {
             try {
                 for (Message imessage : map.keySet())
                     imessage.setFlag(Flags.Flag.DELETED, true);
-                ifolder.expunge();
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+                if (perform_expunge)
+                    ifolder.expunge();
             } catch (MessageRemovedException ex) {
                 Log.w(ex);
             }
@@ -1126,7 +1136,7 @@ class Core {
                         if (TextUtils.isEmpty(message.msgid))
                             throw new IllegalArgumentException("move: msgid missing");
 
-                        Long uid = findUid(itarget, message.msgid, false);
+                        Long uid = findUid(context, itarget, message.msgid, false);
                         if (uid == null)
                             throw new IllegalArgumentException("move: uid not found");
 
@@ -1354,8 +1364,12 @@ class Core {
                     Log.w(ex);
                 }
 
-            if (deleted)
-                ifolder.expunge(); // NO EXPUNGE failed.
+            if (deleted) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+                if (perform_expunge)
+                    ifolder.expunge(); // NO EXPUNGE failed.
+            }
 
             db.message().deleteMessage(message.id);
         } finally {
@@ -1958,7 +1972,10 @@ class Core {
             });
             Log.i(folder.name + " purge deleted");
 
-            ifolder.expunge();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            if (perform_expunge)
+                ifolder.expunge();
             Log.i(folder.name + " purge expunged");
         } catch (Throwable ex) {
             Log.e(ex);
@@ -2301,6 +2318,7 @@ class Core {
             boolean sync_flagged = prefs.getBoolean("sync_flagged", false);
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
+            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
                     " force=" + force +
@@ -2437,7 +2455,7 @@ class Core {
                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                 }
 
-            if (expunge > 0)
+            if (expunge > 0 && perform_expunge)
                 try {
                     Log.i(folder.name + " expunging=" + expunge);
                     ifolder.expunge();

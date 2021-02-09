@@ -493,6 +493,18 @@
             app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swExpunge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_expunge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAuthPlain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -501,7 +513,7 @@
             android:text="@string/title_advanced_auth_plain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+            app:layout_constraintTop_toBottomOf="@id/swExpunge"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -627,6 +639,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
+            app:constraint_referenced_ids="swExpunge,swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
