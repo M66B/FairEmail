@@ -5698,10 +5698,9 @@ public class FragmentCompose extends FragmentBase {
             spPriority.setTag(1);
             spPriority.setSelection(1);
             tvSendAt.setText(null);
+            cbArchive.setEnabled(false);
             cbNotAgain.setChecked(!send_dialog);
             cbNotAgain.setVisibility(send_dialog ? View.VISIBLE : View.GONE);
-            cbArchive.setVisibility(View.GONE);
-
             tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
             Helper.setViewsEnabled(dview, false);
@@ -6026,7 +6025,7 @@ public class FragmentCompose extends FragmentBase {
                                 protected void onExecuted(Bundle args, Boolean data) {
                                     archive = data;
                                     cbArchive.setChecked(send_archive && archive);
-                                    cbArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
+                                    cbArchive.setEnabled(archive);
                                 }
 
                                 @Override
@@ -6035,7 +6034,7 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             }.execute(FragmentDialogSend.this, args, "send:archive");
                         } else
-                            cbArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
+                            cbArchive.setEnabled(archive);
 
                     Helper.setViewsEnabled(dview, true);
                 }
