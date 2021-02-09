@@ -7420,6 +7420,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         header.appendChild(span);
                     }
 
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.isAttachment()) {
+                            Element span = document.createElement("span");
+                            Element strong = document.createElement("strong");
+                            strong.text(context.getString(R.string.title_attachment));
+                            span.appendChild(strong);
+                            if (!TextUtils.isEmpty(attachment.name))
+                                span.appendText(" " + attachment.name);
+                            if (attachment.size != null)
+                                span.appendText(" " + Helper.humanReadableByteCount(attachment.size));
+                            span.appendElement("br");
+                            header.appendChild(span);
+                        }
+
                     if (!TextUtils.isEmpty(message.subject)) {
                         Element span = document.createElement("span");
                         span.appendText(message.subject);
@@ -7437,25 +7451,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     header.appendElement("hr").appendElement("br");
 
                     document.body().prependChild(header);
-
-                    boolean hasAttachments = false;
-                    Element footer = document.createElement("p");
-                    footer.appendElement("br").appendElement("hr");
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.isAttachment()) {
-                            hasAttachments = true;
-                            Element strong = document.createElement("strong");
-                            strong.text(context.getString(R.string.title_attachment));
-                            footer.appendChild(strong);
-                            if (!TextUtils.isEmpty(attachment.name))
-                                footer.appendText(" " + attachment.name);
-                            if (attachment.size != null)
-                                footer.appendText(" " + Helper.humanReadableByteCount(attachment.size));
-                            footer.appendElement("br");
-                        }
-
-                    if (hasAttachments)
-                        document.body().appendChild(footer);
                 }
 
                 return new String[]{message.subject, document.body().html()};
