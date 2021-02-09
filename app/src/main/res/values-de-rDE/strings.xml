@@ -541,7 +541,7 @@
     <string name="title_identity_max_size">Maximale Nachrichtengröße (MB)</string>
     <string name="title_identity_receipt">Empfangs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
-    <string name="title_identity_self_hint">Verhindert es ebenfalls, dass man sich selbst antwortet</string>
+    <string name="title_identity_self_hint">Verhindert ebenfalls, dass Sie sich selbst antworten</string>
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Empfohlen</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
