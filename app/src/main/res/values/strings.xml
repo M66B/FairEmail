@@ -640,6 +640,7 @@
     <string name="title_identity_max_size">Maximum message size (MB)</string>
     <string name="title_identity_receipt">Request delivery/read receipt by default</string>
     <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>
+    <string name="title_identity_self_hint">Also prevents you from replying to yourself</string>
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Recommended</string>
     <string name="title_account_linked">Linked account</string>
