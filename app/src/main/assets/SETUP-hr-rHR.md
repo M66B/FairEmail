@@ -1,6 +1,6 @@
 # Pomoć pri postavljanju
 
-Postavljanje FairEmail-a prilično je jednostavno. Trebate dodati barem jedan račun da biste primili e-poštu i barem jedan identitet ako želite slati e-poštu. The quick setup will add an account and an identity in one go for most providers.
+Postavljanje FairEmail-a prilično je jednostavno. Trebate dodati barem jedan račun da biste primili e-poštu i barem jedan identitet ako želite slati e-poštu. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Zahtjevi
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). S popisa odaberite provajdera, unesite korisničko ime, koje je uglavnom vaša adresa e-pošte i unesite svoju lozinku. Dodirnite *Provjeri* da biste se omogućili da se FairEmail poveže s poslužiteljem e-pošte i preuzme popis sistemskih mapa. Nakon pregleda izbora mape sustava možete dodati račun dodirom na *Spremi*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Unesite ime domene, primjerice *gmail.com* i dodirnite *Dohvati postavke*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Više o ovome pogledajte [ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Unesite ime domene, primjerice *gmail.com* i dodirnite *Dohvati postavke*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Više o ovome pogledajte [ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Postavljanje identiteta - za slanje e-pošte
 

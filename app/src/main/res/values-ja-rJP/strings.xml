@@ -104,12 +104,16 @@
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
     <string name="title_setup_quick">クイックセットアップ</string>
+    <string name="title_setup_quick_accounts">アカウントを設定</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
+    <string name="title_setup_account_remark">メールを受信</string>
+    <string name="title_setup_identity_remark">メールを送信</string>
+    <string name="title_setup_accounts">アカウント</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_pop3">POP3 アカウント</string>

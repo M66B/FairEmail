@@ -209,6 +209,7 @@
     <string name="title_setup_theme_system">wie System</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_system_hint">Dadurch wird automatisch auf ein helles/dunkles Design im Tag-/Nachtmodus umgeschaltet, wenn es von Android unterstützt wird</string>
+    <string name="title_setup_theme_more_colors">Ich möchte mehr Farben</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
@@ -540,6 +541,7 @@
     <string name="title_identity_max_size">Maximale Nachrichtengröße (MB)</string>
     <string name="title_identity_receipt">Empfangs-/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
+    <string name="title_identity_self_hint">Verhindert es ebenfalls, dass man sich selbst antwortet</string>
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Empfohlen</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
@@ -771,7 +773,7 @@
     <string name="title_reply_to_all">Allen antworten</string>
     <string name="title_reply_list">An Liste antworten</string>
     <string name="title_reply_receipt">Lesebestätigung senden</string>
-    <string name="title_reply_hard_bounce">\'Adresse unbekannt\' antworten</string>
+    <string name="title_reply_hard_bounce">Unzustellbarkeitsnachricht senden</string>
     <string name="title_reply_template">Mit Vorlage antworten</string>
     <string name="title_move_undo">Wird nach »%1$s« verschoben (%2$d)</string>
     <string name="title_open_with">Öffnen mit</string>
@@ -917,7 +919,7 @@
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei</string>
     <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
     <string name="title_plain_reminder">Alle Formatierungen gehen verloren</string>
-    <string name="title_dsn_reminder">Unzustellbarkeitsnachrichten (Hard Bounces) schaden dem E-Mail-Ruf des ursprünglichen Absenders!</string>
+    <string name="title_dsn_reminder">Unzustellbarkeitsnachrichten schaden dem E-Mail-Ruf des ursprünglichen Absenders!</string>
     <string name="title_size_reminder">Nachricht (%1$s) größer als Serverbegrenzung (%2$s)</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
     <string name="title_dialog_hint">Dieser Dialog kann über das Drei-Punkte-Menü (⋮) in der oberen Aktionsleiste wieder aktiviert werden</string>

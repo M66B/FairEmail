@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Volg systeem</string>
     <string name="title_setup_theme_black_background">Zwarte achtergrond</string>
     <string name="title_setup_theme_system_hint">Systeemthema volgen zal automatisch overschakelen naar lichte/donker bij dag/nacht, indien ondersteund door Android</string>
+    <string name="title_setup_theme_more_colors">Ik wil meer kleuren</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
@@ -539,6 +540,7 @@
     <string name="title_identity_max_size">Maximale berichtgrootte (MB)</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
+    <string name="title_identity_self_hint">Voorkomt ook dat u aan uzelf antwoordt</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_recommended">Aanbevolen</string>
     <string name="title_account_linked">Gekoppeld account</string>

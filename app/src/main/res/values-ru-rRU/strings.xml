@@ -230,6 +230,7 @@
     <string name="title_setup_theme_system">Системная</string>
     <string name="title_setup_theme_black_background">Чёрный фон</string>
     <string name="title_setup_theme_system_hint">Системная тема автоматически переключится на светлую или тёмную в зависимости от времени суток, если поддерживается Android</string>
+    <string name="title_setup_theme_more_colors">Я хочу больше цветов</string>
     <string name="title_setup_advanced">Дополнительные настройки</string>
     <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
@@ -561,6 +562,7 @@
     <string name="title_identity_max_size">Максимальный размер сообщения (МБ)</string>
     <string name="title_identity_receipt">Запрашивать уведомление о доставке/прочтении по умолчанию</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \"invalid greeting\", \"requires valid address\" или аналогичной, попробуйте изменить этот параметр</string>
+    <string name="title_identity_self_hint">Также предотвращает ответ себе</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_recommended">Рекомендуется</string>
     <string name="title_account_linked">Связанная учётная запись</string>

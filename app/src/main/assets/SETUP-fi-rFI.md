@@ -1,6 +1,6 @@
 # Asetusohje
 
-FairEmailin käyttöönotto on melko yksinkertaista. Tarvitset ainakin yhden tilin vastaanottaaksesi sähköpostia ja ainakin yhden tilin lähettääksesi sähköpostia. The quick setup will add an account and an identity in one go for most providers.
+FairEmailin käyttöönotto on melko yksinkertaista. Tarvitset ainakin yhden tilin vastaanottaaksesi sähköpostia ja ainakin yhden tilin lähettääksesi sähköpostia. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Vaatimukset
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Valitse palveluntarjoaja listalta, anna käyttäjätunnus, joka useimmiten on sähköpostiosoite, ja anna salasana. Napauta *Tarkista* antaaksesi FairEmailin yhdistää sähköpostipalvelimeen ja hakea listan järjestelmän kansioista. Järjestelmän kansiovalintojen tarkistuksen jälkeen voit lisätä tilin napauttamalla *Tallenna*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Lisää verkkotunnus, esimerkiksi *gmail.com* ja napauta *Hae asetukset*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Katso [täältä](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) lisätietoja.
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Lisää verkkotunnus, esimerkiksi *gmail.com* ja napauta *Hae asetukset*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Katso [täältä](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) lisätietoja.
 
 ## Aseta identiteetti - viestien lähettämiseksi
 

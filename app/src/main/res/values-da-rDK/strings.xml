@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Følg system</string>
     <string name="title_setup_theme_black_background">Sort baggrund</string>
     <string name="title_setup_theme_system_hint">Følg system skifter automatisk til lyst/mørkt dag/nat, hvis understøttet af Android</string>
+    <string name="title_setup_theme_more_colors">Flere farver ænskes</string>
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>

@@ -219,6 +219,7 @@
     <string name="title_setup_theme_system">Setare sistem</string>
     <string name="title_setup_theme_black_background">Fundal negru</string>
     <string name="title_setup_theme_system_hint">Dacă este suportată de Android, setare sistem, va schimba automat la deschis/întunecat în timpul zilei/nopții</string>
+    <string name="title_setup_theme_more_colors">Vreau mai multe culori</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
@@ -550,6 +551,7 @@
     <string name="title_identity_max_size">Dimensiunea maximă a mesajului (MB)</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
+    <string name="title_identity_self_hint">De asemenea, previne raspunsul către tine însuți</string>
     <string name="title_optional">Opțional</string>
     <string name="title_recommended">Recomandat</string>
     <string name="title_account_linked">Cont asociat</string>

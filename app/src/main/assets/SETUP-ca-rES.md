@@ -1,6 +1,6 @@
 # Posada en marxa i ajuda
 
-Configurar FairEmail és força senzill. Haureu d’afegir almenys un compte per rebre correu electrònic i almenys una identitat si voleu enviar-lo. The quick setup will add an account and an identity in one go for most providers.
+Configurar FairEmail és força senzill. Haureu d’afegir almenys un compte per rebre correu electrònic i almenys una identitat si voleu enviar-lo. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Requeriments
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Seleccioneu un proveïdor de la llista, introduïu el nom d’usuari, que és principalment la vostra adreça de correu electrònic i introduïu la vostra contrasenya. Premeu *Comproveu* per deixar que FairEmail es connecti al servidor de correu electrònic i obtingui una llista de carpetes del sistema. Després de revisar la selecció de la carpeta del sistema, podeu afegir el compte si premeu *Desa*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Introduïu el nom de domini, per exemple *gmail.com* i toqueu *Obteniu la configuració*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Per obtenir més informació sobre això, consulteu [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Introduïu el nom de domini, per exemple *gmail.com* i toqueu *Obteniu la configuració*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Per obtenir més informació sobre això, consulteu [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Configura una identitat - per enviar correu electrònic
 

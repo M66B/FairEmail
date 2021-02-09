@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Igual que el sistema</string>
     <string name="title_setup_theme_black_background">Fondo negro</string>
     <string name="title_setup_theme_system_hint">Igual que el tema del sistema cambiará automáticamente a luz/oscuro en el día y la noche, si es compatible con Android</string>
+    <string name="title_setup_theme_more_colors">Quiero más colores</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
@@ -539,6 +540,7 @@
     <string name="title_identity_max_size">Tamaño máximo del mensaje (MB)</string>
     <string name="title_identity_receipt">Solicitar acuse de recibo/lectura por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
+    <string name="title_identity_self_hint">También previene de responderse a sí mismo</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Cuenta vinculada</string>

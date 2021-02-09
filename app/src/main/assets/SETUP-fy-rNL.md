@@ -1,6 +1,6 @@
 # Help mei opset
 
-FairEmail ynstelle is frij simpel. Jo moatte teminsten ien akkount tafoegje om e-post te ûntfangen en op syn minst ien identiteit as jo e-post wolle stjoere. The quick setup will add an account and an identity in one go for most providers.
+FairEmail ynstelle is frij simpel. Jo moatte teminsten ien akkount tafoegje om e-post te ûntfangen en op syn minst ien identiteit as jo e-post wolle stjoere. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Fereasken
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Selektearje in provider út de list, fier de brûkersnamme yn, dat is meast jo e-postadres en fier jo wachtwurd yn. Tapje *Kontrolearje* om FairEmail ferbining te litten meitsje mei de e-tsjinner en in list mei systeemmappen op te heljen. Nei it kontrolearjen fan de seleksje fan systeemmap kinne jo it akkount tafoegje troch op *Bewarje * te tikjen.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Fier de domeinnamme yn, bygelyks *gmail.com* en tapje *Ynstellings krije*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Sjoch [hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) foar mear oer dit.
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Fier de domeinnamme yn, bygelyks *gmail.com* en tapje *Ynstellings krije*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Sjoch [hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) foar mear oer dit.
 
 ## Identiteit ynstelle - om e-post te ferstjoeren
 

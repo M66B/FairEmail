@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Suivre le mode système</string>
     <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_system_hint">Ceci basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
+    <string name="title_setup_theme_more_colors">Je veux plus de couleurs</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -539,6 +540,7 @@
     <string name="title_identity_max_size">Taille maximale du message (Mo)</string>
     <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas d’erreur « invalid greeting », « requires valid address » ou similaire, réessayez en modifiant ce paramètre</string>
+    <string name="title_identity_self_hint">Vous empêche également de répondre à vous-même</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_recommended">Recommandé</string>
     <string name="title_account_linked">Compte associé</string>

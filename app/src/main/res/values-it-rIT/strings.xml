@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Segui il sistema</string>
     <string name="title_setup_theme_black_background">Sfondo nero</string>
     <string name="title_setup_theme_system_hint">I temi di sistema passeranno automaticamente a chiaro/scuro a seconda sia giorno o notte, se supportato da Android</string>
+    <string name="title_setup_theme_more_colors">Voglio più colori</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_setup_options">Opzioni</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
@@ -771,6 +772,7 @@
     <string name="title_reply_to_all">Rispondi a tutti</string>
     <string name="title_reply_list">Rispondi alla lista</string>
     <string name="title_reply_receipt">Invia conferma di lettura</string>
+    <string name="title_reply_hard_bounce">Invia un rifiuto permanente</string>
     <string name="title_reply_template">Rispondi con modello</string>
     <string name="title_move_undo">Spostamento verso %1$s (%2$d)</string>
     <string name="title_open_with">Apri con</string>
@@ -916,6 +918,7 @@
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
     <string name="title_attachment_reminder">Intende aggiungere un allegato?</string>
     <string name="title_plain_reminder">Tutta la formattazione verrà persa</string>
+    <string name="title_dsn_reminder">I rifiuti permanenti danneggiano la reputazione del mittente originale!</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_dialog_hint">Questa finestra di dialogo può essere riattivata tramite il menu a tre puntini nella barra di azione superiore</string>

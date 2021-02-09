@@ -1,6 +1,6 @@
 # Hjälp med installation
 
-Att ställa in FairEmail är ganska enkelt. Du måste lägga till minst ett konto för att få e-post och minst en identitet om du vill skicka e-post. The quick setup will add an account and an identity in one go for most providers.
+Att ställa in FairEmail är ganska enkelt. Du måste lägga till minst ett konto för att få e-post och minst en identitet om du vill skicka e-post. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Krav
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Välj en leverantör från listan, ange användarnamnet, vilket är mestadels din e-postadress och ange ditt lösenord. Tryck på *Kontrollera* för att låta FairEmail ansluta till e-postservern och hämta en lista över systemmappar. Efter att ha granskat valet av systemmapp kan du lägga till kontot genom att trycka på *Spara*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). För mer information om detta, vänligen se [här](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). För mer information om detta, vänligen se [här](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Ställ in identitet - för att skicka e-post
 

@@ -1133,53 +1133,53 @@ Bemærk, at identiteter skal aktiveres for at kunne matches, samt at andre konto
 
 Matchning udføres kun én gang efter modtagelse af en besked, så ændring af opsætningen ændrer ikke eksisterende beskeder. Lokale beskeder kan dog ryddes via langt tryk på en mappe i mappelisten og dernæst synke beskederne igen.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
+I identitetsindstillingerne er det muligt at opsætte et [regex](https://en.wikipedia.org/wiki/Regular_expression) for at få en e-mailadresses matchende **brugernavn** (delen før @-tegnet).
 
-Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
+Bemærk, at domænenavnet (tekst/tegn efter @) altid skal være identisk med identitetens domænenavn.
 
-If you like to match a catch-all email address, this regex is mostly okay:
+Ønskes en fang-alle e-mailadresse matchet, er dette regex for det meste OK:
 
 ```
 .*
 ```
 
-If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
+Ønskes matchning af e-mailadresserne til specielle formål, abc@eksemepel.dk og xyx@eksemepel.dk, tillige med fallback e-mailadressen hoved@eksemepel.dk, kan noget ala dette gøres:
 
 * Identity: abc@eksempel.dk; regex: **(?i)abc**
 * Identity: xyz@eksempel.dk; regex: **(?i)xyz**
 * Identity: hoved@eskempel.dk; regex: **^(?i)((?!abc|xyz).)\*$**
 
-Matched identities can be used to color code messages. The identity color takes precedence over the folder and account color. Setting identity colors is a pro feature.
+Matchede identiteter kan bruges til beskedfarvekodning. Identitetsfarven har forrang over mappe- og kontofarver. Brug af identitetsfarver er en Pro-funktion.
 
 <br />
 
 <a name="faq35"></a>
-**(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
+**(35) Hvorfor skal man være forsigtig med at få vist billeder, vedhæftninger, originalbeskeder og åbne links?**
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message, but will also leak your IP address. See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
+Visning af fjernlagrede billeder (tjek også [denne FAQ](#user-content-faq27)) og åbning af links fortæller muligvis ikke kun afsenderen, at beskeden er kigget, men lækker også den associerede IP-adresse. Tjek også dette spørgsmål: [Hvorfor et e-mail link er farligere end et websøgningslink.](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
-Opening attachments or viewing an original message might load remote content and execute scripts, that might not only cause privacy sensitive information to leak, but can also be a security risk.
+Åbning af vedhæftninger eller kigning af en original besked kan muligvis indlæse eksternt indhold og eksekvere scripts, hvilket, udover et muligt læk af fortrolige informationer, kan udgøre en sikkerhedsrisiko.
 
-Note that your contacts could unknowingly send malicious messages if they got infected with malware.
+Bemærk, at kontakter, uden deres vidende, kan sende ondsindede beskeder, i tilfælde af malware-infektion.
 
-FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
+FairEmail genformaterer beskeder, hvilket ændre deres udseende ift. originalen, men afslører samtidig også phishing-links.
 
-Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
+Bemærk, at genformaterede beskeder ofte er mere læsbare end originalerne, da margerne er fjernet, og skrifttypefarver og -størrelser er standardiserede.
 
-The Gmail app shows images by default by downloading the images through a Google proxy server. Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), this is even less secure because Google is involved too without providing much benefit.
+Gmail-appen viser som standard billeder ved at downloade disse via en Google-proxyserver. Da billederne downloades fra kildeserveren [i realtid](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/), er dette endnu mindre sikkert, da dette også, uden nogen umiddelbar fordel, involverer Google.
 
-You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
+Billeder og originale beskeder kan som standard vises for betroede afsendere fra gang til gang ved at markere *Spørg ikke igen om...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
+Ønskes standard apps for *Åbn med* nulstillet, så tjek [hér](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Hvordan krypteres indstillingsfiler?**
 
-Short version: AES 256 bit
+Kort version: AES 256 bit
 
-Long version:
+Lang version:
 
 * 256 bit nøglen genereres med *PBKDF2WithHmacSHA1* vha. en 128 bit, sikker tilfældigt salt samt 65.536 iterationer
 * Cipher'en er *AES/CBC/PKCS5Padding*
@@ -1187,26 +1187,26 @@ Long version:
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Hvordan lagres adgangskoderr?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+Alle understøttede Android-versioner [krypterer alle brugerdata](https://source.android.com/security/encryption), dvs., at brugernavne, adgangskoder, beskeder mv., opbevaes krypteret.
 
-If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+Er enheden sikret med en PIN-kode, mønster eller adgangskode, kan konto- og identitetsadgangskoder gøres. synlige. Er dette et problem, fordi enheden deles med andre, så overvej at benytte [brugerprofiler](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) Hvordan reduceres FairEmails batteriforbrug?**
 
-Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
+Som standard viser nyere Android-versioner *app-forbrug* som en procentdel på Android-batteriindstillingssiden. **Forvirrende nok er *app-forbrug* ikke det samme som *batteriforbrug* og er ikke engang direkte relateret til hertil!** App-forbruget (under brug) vil være meget højt, da FairEmail bruger en forgrundstjeneste, der af Android betragtes som konstant app-forbrug. Dette betyder dog ikke, at FairEmail konstant forbruger strøm. Det reelle stømforbrug kan ses ved at gå til denne skærm:
 
-*Android settings*, *Battery*, three-dots menu *Battery usage*, three-dots menu *Show full device usage*
+*Android-indstillinger*, *Batteri*, trepriksmenu *Batteriforbrug*, trepriksmenu *Vis fuld enhedsforbrug*
 
-As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*. If this isn't the case, please turn on *Auto optimize* in the receive settings. If this doesn't help, please [ask for support](https://contact.faircode.eu/?product=fairemailsupport).
+Som en tommelfingerregel skal strømforbruget være under eller i hvert fald ikke meget højere end for *Mobilnetværks-standby*. Er dette ikke tilfældet, så aktivér *Automatisk optimering* i modtagelsesindstillingerne. Hjælper dette ikke, så [anmod om support](https://contact.faircode.eu/?product=fairemailsupport).
 
-It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
+Det er uundgåeligt, at beskedsynkning vil forbruge strøm, da dette kræver adgang til både netværk og beskeddatabase.
 
-If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is setup similarly. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
+Sammenlignes strømforbruget for FairEmail med en anden e-mailklient, skal dens opsætning modsvare FairMails. For example comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage. Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes. In these cases you might want to synchronize periodically, for example each hour, instead of continuously. Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always because connecting to the server and comparing the local and remote messages are expensive operations.
 
@@ -2899,35 +2899,37 @@ Message classification is a pro feature, except for the spam folder.
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
+Da hvert tema kræver en lys, mørk og sort variant, er det ikke muligt at tilføje et prædefineret tema for hver farvekombination (bogstaveligt talt millioner).
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+Derudover er et tema mere end blot et par farver. F.eks. bruger temaer med gul fremhævningsfarve en mørkere linkfarve af kontrasthensyn.
+
+Temafarverne er baseret på farvecirklen fra [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 ## Get support
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail understøttes kun på smartphones, tablets og ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Kun seneste Play Butik- og GitHub-versioner understøttes. F-Droid build understøttes kun, hvis versionsnummeret er det samme som versionsnummeret for den seneste GitHub-udgivelse. Dette betyder også, at nedgradering er uunderstøttet.
 
-There is no support on things that are not directly related to FairEmail.
+Der er ingen support for ting, som ikke er direkte relateret til FairEmail.
 
-There is no support on building and developing things by yourself.
+Der er ingen support til egenbyggede og -udviklede ting.
 
-Requested features should:
+Anmodede funktioner skal:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er primært for at muliggøre vedligeholdelse og support fremadrettet.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Ved spørgsmål, funktionalitetsønsker eller fejlindrapportering, benyt venligst [denne formular](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Ophavsrettigheder &copy; 2018-2021 Marcel Bokhorst.

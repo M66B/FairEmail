@@ -1,6 +1,6 @@
 # Opsætningshjælp
 
-At opsætte FairEmail er ret enkelt. Du skal tilføje mindst én konto for at modtage e-mail og mindst én identitet for at sende e-mail. Den hurtigopsætning tilføjer på én gang en konto og identitet for de fleste udbydere.
+At opsætte FairEmail er ret enkelt. Du skal tilføje mindst én konto for at modtage e-mail og mindst én identitet for at sende e-mail. Hurtigopsætningen tilføjer på én gang en konto og identitet for de fleste større udbydere.
 
 ## Forudsætninger
 
@@ -18,7 +18,7 @@ Fungerer hurtigopsætningen ikke, så skal en konto og identitet opsættes manue
 
 For kontotilføjelse trykkes på *Manuel opsætning og flere muligheder*, *Konti*, 'plus'-knappen nederst, og valg af IMAP (eller POP3). Vælg en udbyder på listen, angiv brugernavnet, som for det meste er din e-mail, og angiv dit adgangskode. Tryk *Tjek* for at lade FairEmail forbinde til e-mailserveren og hente en liste over systemmapper. Efter gennemgang af systemmappeudvalget kan du tilføje kontoen ved at trykke på*Gem*.
 
-Findes udbyderen (af hvilke der er tusindvis) ikke udbyderlisten, så vælg *Tilpasset*. Angiv domænenavnet, f.eks. *gmail.com*, og tryk på *Hent indstillinger*. Understøtter udbyderen [auto-discovery](https://tools.ietf.org/html/rfc6186), auto-udfylder FairEmail værtsnavn og portnummer, ellers tjek udbyderens opsætningsvejledning vedr. korrekt IMAP-værtsnavn, portnummer og protokol (SSL/TLS eller STARTTLS). For mere om dette, se [hér](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Er udbyderen (af hvilke der er tusindvis) ikke på udbyderlisten, så vælg *Tilpasset*. Angiv domænenavnet, f.eks. *gmail.com*, og tryk på *Hent indstillinger*. Understøtter udbyderen [auto-discovery](https://tools.ietf.org/html/rfc6186), auto-udfylder FairEmail værtsnavn og portnummer, ellers tjek udbyderens opsætningsvejledning vedr. korrekt IMAP-værtsnavn, portnummer og protokol (SSL/TLS eller STARTTLS). For mere om dette, se [hér](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Opsæt identitet - for at sende e-mail
 

@@ -196,6 +196,7 @@
     <string name="title_setup_theme_system">跟随系统</string>
     <string name="title_setup_theme_black_background">黑色背景</string>
     <string name="title_setup_theme_system_hint">如果安卓系统支持，跟随系统主题将在白天/夜间自动切换到亮/暗色主题</string>
+    <string name="title_setup_theme_more_colors">我想要更多颜色</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
@@ -527,6 +528,7 @@
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
+    <string name="title_identity_self_hint">还防止自己回复自己</string>
     <string name="title_optional">可选</string>
     <string name="title_recommended">推荐</string>
     <string name="title_account_linked">已绑定的账户</string>
@@ -759,7 +761,7 @@
     <string name="title_reply_to_all">回复全部</string>
     <string name="title_reply_list">回复列表</string>
     <string name="title_reply_receipt">发送已读回执</string>
-    <string name="title_reply_hard_bounce">发送硬退信通知</string>
+    <string name="title_reply_hard_bounce">发送 \"硬退信\" 通知</string>
     <string name="title_reply_template">使用模板回复</string>
     <string name="title_move_undo">正移动到 %1$s(%2$d)</string>
     <string name="title_open_with">打开方式</string>

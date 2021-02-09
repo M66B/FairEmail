@@ -1,6 +1,6 @@
 # Axuda da configuración
 
-Configurar FairEmail é sinxelo. Precisará polo menos unha conta para recibir correo e polo menos unha identidade se quere enviar correo. The quick setup will add an account and an identity in one go for most providers.
+Configurar FairEmail é sinxelo. Precisará polo menos unha conta para recibir correo e polo menos unha identidade se quere enviar correo. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Requisitos
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Seleccione un provedor da lista, escriba o nome de usuario, que moitas veces será o seu enderezo de correo, e logo escriba o seu contrasinal. Toque en *Comprobar* para que FairEmail conecte ao servidor de correo e colla a lista de cartafoles de sistema. Despois de revisar a selección de cartafoles de sistema, pode engadir a conta tocando *Gardar*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Escriba o nome do dominio, por exemplo *gmail.com* e toque en *Obter configuración*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Para máis información, vexa [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Escriba o nome do dominio, por exemplo *gmail.com* e toque en *Obter configuración*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Para máis información, vexa [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Crear unha identidade - para enviar correo
 

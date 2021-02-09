@@ -1,6 +1,6 @@
 # Bantuan Instalasi
 
-Menyiapkan FairEmail cukup simpel. Anda harus menambahkan setidaknya satu akun untuk menerima email dan setidaknya satu identitas jika Anda ingin mengirim email. The quick setup will add an account and an identity in one go for most providers.
+Menyiapkan FairEmail cukup simpel. Anda harus menambahkan setidaknya satu akun untuk menerima email dan setidaknya satu identitas jika Anda ingin mengirim email. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Persyaratan
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Pilih penyedia dari daftar, masukkan nama pengguna, yang sebagian besar merupakan alamat email Anda dan masukkan kata sandi Anda. Ketuk *Cek* untuk mengizinkan aplikasi FairEmail terhubung ke server email dan mengambil daftar folder sistem. Setelah meninjau pemilihan folder sistem, Anda bisa menambahkan akun tersebut dengan mengetuk *Simpan*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Masukkan nama domain, misalnya *gmail.com* dan ketuk *Dapatkan Pengaturan*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Untuk lebih lanjut tentang ini, silakan lihat [di sini](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Masukkan nama domain, misalnya *gmail.com* dan ketuk *Dapatkan Pengaturan*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Untuk lebih lanjut tentang ini, silakan lihat [di sini](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Siapkan identitas - untuk mengirim email
 

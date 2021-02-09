@@ -1,6 +1,6 @@
 # Помоћ подешавања
 
-Подешавање FairEmail апликације је крајње једноставно. Морате да додате бар један налог да примате поруке и бар један идентитет ако желите да их шаљете. The quick setup will add an account and an identity in one go for most providers.
+Подешавање FairEmail апликације је крајње једноставно. Морате да додате бар један налог да примате поруке и бар један идентитет ако желите да их шаљете. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Захтеви
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Одаберите провајдера са листе, унесите корисничко име, што је обично Ваша е-мејл адреса и унесите лозинку. Кликните *Провери* да пустите FairEmail да проба да се повеже на е-мејл сервер и дохвати листу системских фасцикли. После одабира системских фасцикли, можете додати налог кликом на *Сачувај*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Унесите име домена, нпр. *gmail.com* и кликните *Дохвати поставке*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). За више о овоме, погледајте [овде](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Унесите име домена, нпр. *gmail.com* и кликните *Дохвати поставке*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). За више о овоме, погледајте [овде](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Подесите идентитет - да шаљете поруке
 

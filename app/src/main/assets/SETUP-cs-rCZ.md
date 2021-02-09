@@ -1,6 +1,6 @@
 # Nápověda k nastavení
 
-Nastavení FairEmailu je poměrně jednoduché. Potřebujete přidat alespoň jeden účet, abyste mohli e-mailové zprávy přijímat, a alespoň jednu identitu, pokud chcete e-maily odesílat. The quick setup will add an account and an identity in one go for most providers.
+Nastavení FairEmailu je poměrně jednoduché. Potřebujete přidat alespoň jeden účet, abyste mohli e-mailové zprávy přijímat, a alespoň jednu identitu, pokud chcete e-maily odesílat. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Požadavky
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Zvolte poskytovatele ze seznamu, zadejte uživatelské jméno, což je obvykle vaše e-mailová adresa, a zadejte své heslo. Stiskněte *Ověřit* a nechte FairEmail připojit se k e-mailovému serveru a načíst seznam systémových složek. Po kontrole vybraných systémových složek můžete účet přidat stisknutím *Uložit*.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Zadejte název domény, například *gmail.com* a stiskněte *Získat nastavení*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Pro více informací se prosím podívejte [sem](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Zadejte název domény, například *gmail.com* a stiskněte *Získat nastavení*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Pro více informací se prosím podívejte [sem](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Nastavení identity - pro odesílání e-mailů
 

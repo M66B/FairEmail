@@ -1,6 +1,6 @@
 # Einrichtungshilfe
 
-Es ist ziemlich einfach FairEmail einzurichten. Sie müssen mindestens ein Konto hinzufügen um E-Mails zu empfangen, und mindestens eine Identität um E-Mails zu senden. Die Schnelleinrichtung (Assistent) richtet in einem Vorgang ein Konto und eine Identität für die meisten großen E-Mail-Anbieter ein.
+Es ist ziemlich einfach FairEmail einzurichten. Sie müssen mindestens ein Konto hinzufügen um E-Mails zu empfangen, und mindestens eine Identität um E-Mails zu senden. Die Schnelleinrichtung wird ein Konto und eine Identität in einem Schritt für die meisten großen Anbieter hinzufügen.
 
 ## Anforderungen
 
@@ -18,7 +18,7 @@ Wenn die Schnelleinrichtung nicht funktioniert, müssen Sie Konto und Identität
 
 Um ein Konto hinzuzufügen, tippen Sie auf *Manuelle Einrichtung und weitere Optionen*, Tippen Sie auf *Konten* und tippen Sie unten auf 'plus' und wählen Sie IMAP (oder POP3). Wählen Sie einen Anbieter aus der Liste, geben Sie den Benutzernamen ein, der meistens Ihre E-Mail-Adresse ist, und geben Sie Ihr Passwort ein. Tippen Sie auf *Prüfen* um FairEmail mit dem E-Mail-Server zu verbinden und eine Liste von Systemordnern zu laden. Nach der Überprüfung der Systemordnerauswahl können Sie das Konto hinzufügen, indem Sie auf *Speichern* klicken.
 
-Wenn Ihr Provider nicht in der Liste der Anbieter ist (es gibt Tausende von Anbietern), wählen Sie *Benutzerdefiniert*. Geben Sie den Domain-Namen ein, zum Beispiel *gmail.com* und tippen Sie auf *Einstellungen abrufen*. Wenn Ihr Anbieter [Auto-discovery](https://tools.ietf.org/html/rfc6186) (automatische Konfiguration) unterstützt, wird FairEmail den Hostnamen und die Portnummer ausfüllen, so dass Sie die richtigen Angaben Ihres Providers für IMAP-Hostnamen, Port-Nummer und Protokoll (SSL/TLS oder STARTTLS) nur noch überprüfen müssen. Weitere Informationen dazu finden Sie [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Wenn Ihr Anbieter nicht in der Liste der Anbieter ist, wählen Sie *Benutzerdefiniert*. Geben Sie den Domain-Namen ein, zum Beispiel *gmail.com* und tippen Sie auf *Einstellungen abrufen*. Wenn Ihr Anbieter [Auto-discovery](https://tools.ietf.org/html/rfc6186) (automatische Konfiguration) unterstützt, wird FairEmail den Hostnamen und die Portnummer ausfüllen, so dass Sie die richtigen Angaben Ihres Providers für IMAP-Hostnamen, Port-Nummer und Protokoll (SSL/TLS oder STARTTLS) nur noch überprüfen müssen. Weitere Informationen dazu finden Sie [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Identität einrichten – um E-Mail zu senden
 

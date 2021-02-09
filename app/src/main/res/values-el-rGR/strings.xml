@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Σύμφωνα με το σύστημα</string>
     <string name="title_setup_theme_black_background">Μαύρο φόντο</string>
     <string name="title_setup_theme_system_hint">Με την επιλογή αυτή θα εναλλάσσονται αυτόματα το φωτεινό και σκοτεινό θέμα ανάλογα με τη λειτουργία ημέρας/νύχτας, εφόσον η δυνατότητα αυτή υποστηρίζεται από το Andoid</string>
+    <string name="title_setup_theme_more_colors">Θέλω περισσότερα χρώματα</string>
     <string name="title_setup_advanced">Για προχωρημένους</string>
     <string name="title_setup_options">Επιλογές</string>
     <string name="title_setup_defaults">Επαναφορά προεπιλογών</string>
@@ -537,6 +538,7 @@
     <string name="title_identity_max_size">Μέγιστο μέγεθος αρχείου (MB)</string>
     <string name="title_identity_receipt">Αίτημα αποδεικτικού παράδοσης/ανάγνωσης από προεπιλογή</string>
     <string name="title_identity_use_ip_hint">Σε περιπτώσεις σφαλμάτων όπως: \"\'invalid greeting\'\", \"requires valid address\", ή άλλου παρόμοιου, δοκιμάστε να αλλάξετε αυτή τη ρύθμιση</string>
+    <string name="title_identity_self_hint">Σας αποτρέπει, επίσης, από το να απαντάτε στον εαυτό σας</string>
     <string name="title_optional">Προαιρετικό</string>
     <string name="title_recommended">Προτείνεται</string>
     <string name="title_account_linked">Συνδεδεμένος λογαριασμός</string>

@@ -45,8 +45,8 @@ Questions liées:
 
 * Modifier le nom du compte : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur compte
 * Changer la cible de balayage vers la gauche/droite : Paramètres, comportement de la page d'onglet, définir les actions de balayage
-* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
+* Changer le mot de passe : Paramètres > Configuration manuelle et plus d'options > Comptes, appuyez sur le compte, changez le mot de passe
+* Définir une signature : Paramètres > Configuration manuelle et plus d'options > Identités, appuyez sur l'identité, modifiez la signature.
 * Ajouter des adresses CC et CCI : appuyez sur l'icône des personnes à l'extrémité de l'objet
 * Allez au message suivant/précédent dans l'archive/suppression : dans les paramètres de comportement, désactivez *Fermez automatiquement les conversations* et sélectionnez *Allez à la conversation suivante/précédente* pour *Lors de la fermeture d'une conversation*
 * Ajouter un dossier à la boîte de réception unifiée : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans la boîte de réception unifiée*
@@ -57,7 +57,7 @@ Questions liées:
 * Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers > Modifier les propriétés > Menu à trois points > Supprimer
 * Annuler l'envoi : Dans la boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
 * Stocker les messages envoyés dans la boîte de réception : veuillez [voir ceci dans FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom
+* Changer les dossiers système : Paramètres > Configuration manuelle et plus d'options > Comptes, appuyez sur le compte, les menus se trouvent en bas
 * Exporter/importer les paramètres : Paramètres, navigation/menu hamburger
 
 ## Problèmes connus
@@ -143,7 +143,7 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 * [(20) Puis-je obtenir un remboursement ?](#user-content-faq20)
 * [(21) Comment activer le voyant de notification ?](#user-content-faq21)
 * [(22) Qu'est-ce que l'erreur de compte/dossier ... signifie ?](#user-content-faq22)
-* [(23) Pourquoi est-ce que je reçois une alerte ... ? ?](#user-content-faq23)
+* [(23) Pourquoi est-ce que je reçois une alerte ? ?](#user-content-faq23)
 * [(24) Qu'est-ce que parcourir les messages sur le serveur ?](#user-content-faq24)
 * [(25) Pourquoi ne puis-je pas sélectionner/ouvrir/enregistrer une image, une pièce jointe ou un fichier ?](#user-content-faq25)
 * [(26) Puis-je aider à traduire FairEmail dans ma propre langue ?](#user-content-faq26)
@@ -959,7 +959,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Pourquoi est-ce que je reçois une alerte ?**
 
 *General*
 
@@ -2899,34 +2899,36 @@ Message classification is a pro feature, except for the spam folder.
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
+Puisque chaque thème nécessite une variante claire, sombre et noire, il n'est pas possible d'ajouter un thème prédéfini pour chaque combinaison de couleurs (littéralement des millions).
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+De plus, un thème est plus que quelques couleurs. Par exemple, les thèmes avec une nuance jaune utilisent une couleur de lien plus foncée pour obtenir un contraste suffisant.
+
+Les couleurs de thème sont basées sur le cercle de couleurs de [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 ## Obtenir de l'aide
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail est pris en charge uniquement sur les smartphones, tablettes et ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Seules la dernière version du PlayStore et la dernière version de GitHub sont prises en charge. La version F-Droid n'est prise en charge que si son numéro de version est le même que la dernière version de GitHub. Cela signifie également que la rétrogradation de versions n'est pas prise en charge.
 
-There is no support on things that are not directly related to FairEmail.
+Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
 
-There is no support on building and developing things by yourself.
+Il n'y a aucun soutien pour construire et développer les choses par vous-même.
 
-Requested features should:
+Les fonctionnalités demandées doivent :
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Les fonctionnalités qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de garder la maintenance et le soutien réalisables à long terme .
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
 
-GitHub issues are disabled due to frequent misusage.
+Les tickets GitHub sont désactivés en raison d'un usage abusif fréquent.
 
 <br />
 

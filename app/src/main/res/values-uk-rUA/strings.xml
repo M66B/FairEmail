@@ -218,6 +218,7 @@
     <string name="title_setup_theme_system">Як в системі</string>
     <string name="title_setup_theme_black_background">Чорний фон</string>
     <string name="title_setup_theme_system_hint">Автоматичне перемкнення на світлу або темну тему вдень або вночі, якщо це підтримується в Android</string>
+    <string name="title_setup_theme_more_colors">Я хочу більше кольорів</string>
     <string name="title_setup_advanced">Додатково</string>
     <string name="title_setup_options">Параметри</string>
     <string name="title_setup_defaults">Відновити типові</string>

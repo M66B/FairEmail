@@ -1,6 +1,6 @@
 # 設定說明
 
-設定FairEmail相當簡單。 你需要新增至少一個帳號來接收電子郵件，如果想要寄電子郵件則需要新增至少一個身分。 The quick setup will add an account and an identity in one go for most providers.
+設定FairEmail相當簡單。 你需要新增至少一個帳號來接收電子郵件，如果想要寄電子郵件則需要新增至少一個身分。 The quick setup will add an account and an identity in one go for most major providers.
 
 ## 需求
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). 從列表中選擇一個提供商，輸入用戶名（主要是您的電子郵件地址）並輸入密碼。 點擊*檢查*，以使FairEmail連接到電子郵件服務器並獲取系統文件夾列表。 查看系統文件夾選擇後，您可以通過點擊*保存*添加帳戶。
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## 設置顯示名稱 - 寄送電子郵件
 

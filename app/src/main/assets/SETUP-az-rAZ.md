@@ -1,6 +1,6 @@
 # Quraşdırma üzrə Kömək
 
-FairEmail-i quraşdırma olduqca sadədir. E-poçt almaq üçün ən azı bir hesab və e-poçt göndərmək istəsəniz ən azı bir kimlik əlavə etməyiniz lazımdır. The quick setup will add an account and an identity in one go for most providers.
+FairEmail-i quraşdırma olduqca sadədir. E-poçt almaq üçün ən azı bir hesab və e-poçt göndərmək istəsəniz ən azı bir kimlik əlavə etməyiniz lazımdır. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Tələblər
 
@@ -18,7 +18,7 @@ If the quick setup doesn't work, you'll need to set up an account and an identit
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Siyahıdan bir təchizatçı seçin, əsasən e-poçt ünvanınız olan olan istifadəçi adınızı və şifrənizi daxil edin. FairEmail ilə e-poçt serveri arasında bağlantı qurulması və sistem qovluqlarının bir siyahısının alınması üçün *Yoxla* düyməsinə toxunun. Sistem qovluq seçiminə nəzər saldıqdan sonra *Saxla* düyməsinə toxunaraq hesab əlavə edə bilərsiniz.
 
-If your provider is not in the list of providers (there are thousands of providers), select *Custom*. Domen adını daxil edin, məsələn *gmail.com* və *Tənzimləmələri al* düyməsinə toxunun. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Daha ətraflı, zəhmət olmasa [bura](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) baxın.
+If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Domen adını daxil edin, məsələn *gmail.com* və *Tənzimləmələri al* düyməsinə toxunun. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Daha ətraflı, zəhmət olmasa [bura](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) baxın.
 
 ## Kimlik quraşdırma - e-poçt göndərmə
 

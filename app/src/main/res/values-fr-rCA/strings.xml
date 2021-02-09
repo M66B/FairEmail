@@ -208,6 +208,7 @@
     <string name="title_setup_theme_system">Suivre le thème du système</string>
     <string name="title_setup_theme_black_background">Fond noir</string>
     <string name="title_setup_theme_system_hint">Suivre le thème du système basculera automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
+    <string name="title_setup_theme_more_colors">Je veux plus de couleurs</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -539,6 +540,7 @@
     <string name="title_identity_max_size">Taille maximale du message (Mo)</string>
     <string name="title_identity_receipt">Demander une confirmation de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas d’erreur « invalid greeting », « requires valid adress » ou similaire, essayez de modifier ce paramètre</string>
+    <string name="title_identity_self_hint">Vous empêche également de répondre à vous-même</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_recommended">Recommandé</string>
     <string name="title_account_linked">Compte associé</string>
@@ -771,7 +773,7 @@
     <string name="title_reply_to_all">Répondre à tous</string>
     <string name="title_reply_list">Répondre à la liste</string>
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
-    <string name="title_reply_hard_bounce">Envoyer un rebond permanent (dur)</string>
+    <string name="title_reply_hard_bounce">Envoyer un avis de non-livraison définitive</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec</string>
@@ -917,7 +919,7 @@
     <string name="title_attachment_keywords">joint,jointe,joints,jointes,ci-joint,ci-jointe,ci-joints,ci-jointes,attaché,attachés,attachée,attachées,lettre de motivation,cv</string>
     <string name="title_attachment_reminder">Aviez-vous l’intention d’ajouter une pièce jointe?</string>
     <string name="title_plain_reminder">Tout le formatage sera supprimé</string>
-    <string name="title_dsn_reminder">Les refus permanents nuisent à la réputation de l\'adresse courriel de l\'expéditeur initial !</string>
+    <string name="title_dsn_reminder">Les avis de non-livraison définitive nuisent à la réputation de l\'adresse courriel de l\'expéditeur initial!</string>
     <string name="title_size_reminder">Message (%1$s) plus grand que la limite du serveur (%2$s)</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
     <string name="title_dialog_hint">Cette boîte de dialogue peut être réactivée via le menu à trois points de la barre d’action supérieure</string>

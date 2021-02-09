@@ -229,6 +229,7 @@
     <string name="title_setup_theme_system">Zgodnie z systemem</string>
     <string name="title_setup_theme_black_background">Czarne tło</string>
     <string name="title_setup_theme_system_hint">Zgodnie z motywem systemu automatycznie przełączy się na jasny/ciemny w dzień/noc, jeśli jest wspierane przez Androida</string>
+    <string name="title_setup_theme_more_colors">Chcę więcej kolorów</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>

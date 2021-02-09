@@ -14,9 +14,9 @@ Sorununuz olması halinde, öncelikle aşağıda yer alan sıkça sorulan sorula
 
 ## Hesap Yetkilendirme
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Çoğu durumda hızlı kurulum sihirbazı doğru konfigürasyonu otomatik olarak tanımlayacaktır.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Bunun için gerek SSL/TLS veya STARTTLS kullanılan; IMAP ve SMTP sunucu adresi, bağlantı noktası numaraları ve kullanıcı adı (genellikle e-posta adresiniz) ve şifreniz gerekmektedir.
+Hızlı kurulum sihirbazının çalışmadığı durumlarda, manuel olarak bir kimlik oluşturmanız ( e-posta gönderebilmek için) ve hesap kurmanız (e-posta alabilmek için) gerecektir. Bunun için gerek SSL/TLS veya STARTTLS kullanılan; IMAP ve SMTP sunucu adresi, bağlantı noktası numaraları ve kullanıcı adı (genellikle e-posta adresiniz) ve şifreniz gerekmektedir.
 
 *IMAP* ve sağlayıcının adını aramak, çoğunlukla doğru belgeyi bulmak için yeterlidir.
 
@@ -43,17 +43,17 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 
 ## Nasıl yapılır ...?
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
+* Hesap adını değiştir: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokunun, Hesaplar'a dokunun, hesaba dokunun
+* Sağa/sola kaydırma hareketlerini değiştirme: Ayarlar, Sayfa Davranışına dokun, Kaydırma hareketlerini ayarla
+* Şifre değiştir: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokun, Hesaplar'a dokun, hesaba dokun, şifre değiştir
+* Bir imza belirleyin: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokun, Kimlikler'e dokun, İmzayı düzenle.
 * CC ve BCC adresleri ekleme: başlık kısmının sonundaki kişi ikonuna tıklayın
 * Arşiv/silinenlerdeki bir önceki/sonraki mesaja gitme: davranış ayarlarında *konuşmaları otomatik silmeyi* devre dışı bırakıp *bir görüşmeyi kapatırken* *bir sonraki/önceki konuşmaya giti* seçin
 * Birleşik gelen kutusuna klasör ekleme: klasör listesindeki klasöre basılı tutun ve *Birleşik gelen postayı göster*i işaretleyin
 * Dolaşım menüsüne dosya ekleme: klasör listesindeki klasöre basılı tutun ve *Navigasyon menüsünde göster*i işaretleyin
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Daha fazla mesaj yükleme: klasör listesindeki klasöre basılı tutun ve *Daha fazla mesajı getir*i işaretleyin
 * Çöp kutusuna göndermeden bir mesajı silme: mesaj metninin hemen üstündeki üç noktaya tıklayıp *Sil*e veya hesap ayarlarında çöp kutusu seçeneğini kaldır seçeneğine tıklayınız
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Bir hesabı/kimliği silin: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokun, Hesaplar/Kimlikler dokun, üç noktaya dokun, Silin
 * Dosya silme: dosya listesindeki dosyaya uzun süre basılı tutun, özellikleri düzenle, üç noktaya tıklayın, silin
 * Gönderilen mesajı iptal etme: mesaja tıklayın, geri al ikonuna tıklayın
 * Gönderilen mesajları gelen kutusunda saklama: lütfen [SSS'ı inceleyin](#user-content-faq142)
@@ -2898,6 +2898,8 @@ Message classification is a pro feature, except for the spam folder.
 **(164) Can you add customizable themes?**
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+
+Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
 Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
