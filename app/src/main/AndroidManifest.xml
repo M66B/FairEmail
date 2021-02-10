@@ -211,6 +211,7 @@
             android:name=".ActivityCompose"
             android:exported="true"
             android:launchMode="singleTask"
+            android:taskAffinity="eu.faircode.email.compose"
             android:parentActivityName=".ActivityView">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
