@@ -31,6 +31,8 @@ import androidx.preference.PreferenceManager;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -386,7 +388,7 @@ public class MessageClassifier {
         long start = new Date().getTime();
 
         File file = getFile(context);
-        try (JsonWriter writer = new JsonWriter(new FileWriter(file))) {
+        try (JsonWriter writer = new JsonWriter(new BufferedWriter(new FileWriter(file)))) {
             writer.beginObject();
 
             writer.name("version").value(2);
@@ -467,7 +469,7 @@ public class MessageClassifier {
         long start = new Date().getTime();
         File file = getFile(context);
         if (file.exists())
-            try (JsonReader reader = new JsonReader(new FileReader(file))) {
+            try (JsonReader reader = new JsonReader(new BufferedReader(new FileReader(file)))) {
                 reader.beginObject();
                 while (reader.hasNext())
                     switch (reader.nextName()) {
