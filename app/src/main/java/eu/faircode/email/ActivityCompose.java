@@ -60,22 +60,18 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            Intent intent = getIntent();
-            if (intent != null && isShared(intent.getAction())) {
-                finishAffinity();
-                return;
+            if (!isShared(getIntent().getAction())) {
+                Intent parent = getParentActivityIntent();
+                if (parent != null)
+                    if (shouldUpRecreateTask(parent))
+                        TaskStackBuilder.create(this)
+                                .addNextIntentWithParentStack(parent)
+                                .startActivities();
+                    else {
+                        parent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(parent);
+                    }
             }
-
-            Intent parent = getParentActivityIntent();
-            if (parent != null)
-                if (shouldUpRecreateTask(parent))
-                    TaskStackBuilder.create(this)
-                            .addNextIntentWithParentStack(parent)
-                            .startActivities();
-                else {
-                    parent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(parent);
-                }
 
             finishAndRemoveTask();
         }
@@ -85,8 +81,6 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         Bundle args;
         String action = intent.getAction();
         if (isShared(action)) {
-            Helper.excludeFromRecents(this);
-
             args = new Bundle();
             args.putString("action", "new");
             args.putLong("account", -1);
