@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -392,7 +393,8 @@ public class FragmentRules extends FragmentBase {
                 long fid = args.getLong("folder");
                 Uri uri = args.getParcelable("uri");
 
-                if (!"content".equals(uri.getScheme())) {
+                if (!"content".equals(uri.getScheme()) &&
+                        !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                     Log.w("Import uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
