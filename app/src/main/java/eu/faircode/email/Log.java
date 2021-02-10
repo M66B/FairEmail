@@ -1305,8 +1305,8 @@ public class Log {
             attachLogcat(context, draft.id, 6);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 attachNotificationInfo(context, draft.id, 7);
-            if (MessageClassifier.isEnabled(context))
-                attachClassifierData(context, draft.id, 8);
+            //if (MessageClassifier.isEnabled(context))
+            //    attachClassifierData(context, draft.id, 8);
 
             EntityOperation.queue(context, draft, EntityOperation.ADD);
 
