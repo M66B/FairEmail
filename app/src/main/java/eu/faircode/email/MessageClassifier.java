@@ -23,16 +23,17 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.JsonReader;
+import android.util.JsonWriter;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +41,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -379,36 +379,233 @@ public class MessageClassifier {
         }
     }
 
-    static synchronized void save(@NonNull Context context) throws JSONException, IOException {
+    static synchronized void save(@NonNull Context context) throws IOException {
         if (!dirty)
             return;
 
+        long start = new Date().getTime();
+
         File file = getFile(context);
-        Helper.writeText(file, toJson().toString(2));
+        try (JsonWriter writer = new JsonWriter(new FileWriter(file))) {
+            writer.beginObject();
+
+            writer.name("version").value(2);
+
+            writer.name("messages");
+            writer.beginArray();
+            for (Long account : classMessages.keySet())
+                for (String clazz : classMessages.get(account).keySet()) {
+                    writer.beginObject();
+                    writer.name("account").value(account);
+                    writer.name("class").value(clazz);
+                    writer.name("count").value(classMessages.get(account).get(clazz));
+                    writer.endObject();
+                }
+            writer.endArray();
+
+            writer.name("words");
+            writer.beginArray();
+            for (Long account : wordClassFrequency.keySet())
+                for (String word : wordClassFrequency.get(account).keySet()) {
+                    Map<String, Frequency> classFrequency = wordClassFrequency.get(account).get(word);
+                    for (String clazz : classFrequency.keySet()) {
+                        Frequency f = classFrequency.get(clazz);
+                        writer.beginObject();
+
+                        writer.name("account").value(account);
+                        writer.name("word").value(word);
+                        writer.name("class").value(clazz);
+                        writer.name("count").value(f.count);
+                        writer.name("dup").value(f.duplicates);
+
+                        writer.name("before");
+                        writer.beginObject();
+                        for (String key : f.before.keySet())
+                            writer.name(key).value(f.before.get(key));
+                        writer.endObject();
+
+                        writer.name("after");
+                        writer.beginObject();
+                        for (String key : f.after.keySet())
+                            writer.name(key).value(f.after.get(key));
+                        writer.endObject();
+
+                        writer.endObject();
+                    }
+                }
+            writer.endArray();
+
+            writer.name("classified");
+            writer.beginArray();
+            for (Long account : accountMsgIds.keySet()) {
+                writer.beginObject();
+                writer.name("account").value(account);
+                writer.name("messages");
+                writer.beginArray();
+                for (String msgid : accountMsgIds.get(account))
+                    writer.value(msgid);
+                writer.endArray();
+                writer.endObject();
+            }
+            writer.endArray();
+
+            writer.endObject();
+        }
 
         dirty = false;
-        Log.i("Classifier data saved");
+
+        long elapsed = new Date().getTime() - start;
+        Log.i("Classifier data saved elapsed=" + elapsed);
     }
 
-    private static synchronized void load(@NonNull Context context) throws IOException, JSONException {
+    private static synchronized void load(@NonNull Context context) {
         if (loaded || dirty)
             return;
 
-        wordClassFrequency.clear();
+        clear(context);
 
+        long start = new Date().getTime();
         File file = getFile(context);
-        if (file.exists()) {
-            String json = Helper.readText(file);
-            try {
-                fromJson(new JSONObject(json));
-            } catch (JSONException ex) {
+        if (file.exists())
+            try (JsonReader reader = new JsonReader(new FileReader(file))) {
+                reader.beginObject();
+                while (reader.hasNext())
+                    switch (reader.nextName()) {
+                        case "version":
+                            reader.nextInt();
+                            break;
+
+                        case "messages":
+                            reader.beginArray();
+                            while (reader.hasNext()) {
+                                Long account = null;
+                                String clazz = null;
+                                Integer count = null;
+
+                                reader.beginObject();
+                                while (reader.hasNext())
+                                    switch (reader.nextName()) {
+                                        case "account":
+                                            account = reader.nextLong();
+                                            break;
+                                        case "class":
+                                            clazz = reader.nextString();
+                                            break;
+                                        case "count":
+                                            count = reader.nextInt();
+                                            break;
+                                    }
+                                reader.endObject();
+
+                                if (account == null || clazz == null || count == null)
+                                    continue;
+
+                                if (!classMessages.containsKey(account))
+                                    classMessages.put(account, new HashMap<>());
+                                classMessages.get(account).put(clazz, count);
+                            }
+                            reader.endArray();
+                            break;
+
+                        case "words":
+                            reader.beginArray();
+                            while (reader.hasNext()) {
+                                Long account = null;
+                                String word = null;
+                                String clazz = null;
+                                Frequency f = new Frequency();
+
+                                reader.beginObject();
+                                while (reader.hasNext())
+                                    switch (reader.nextName()) {
+                                        case "account":
+                                            account = reader.nextLong();
+                                            break;
+                                        case "word":
+                                            word = reader.nextString();
+                                            break;
+                                        case "class":
+                                            clazz = reader.nextString();
+                                            break;
+                                        case "count":
+                                            f.count = reader.nextInt();
+                                            break;
+                                        case "dup":
+                                            f.duplicates = reader.nextInt();
+                                            break;
+                                        case "before":
+                                            reader.beginObject();
+                                            while (reader.hasNext())
+                                                f.before.put(reader.nextName(), reader.nextInt());
+                                            reader.endObject();
+                                            break;
+                                        case "after":
+                                            reader.beginObject();
+                                            while (reader.hasNext())
+                                                f.after.put(reader.nextName(), reader.nextInt());
+                                            reader.endObject();
+                                            break;
+                                    }
+                                reader.endObject();
+
+                                if (account == null || word == null || clazz == null)
+                                    continue;
+
+                                if (!wordClassFrequency.containsKey(account))
+                                    wordClassFrequency.put(account, new HashMap<>());
+
+                                Map<String, Frequency> classFrequency = wordClassFrequency.get(account).get(word);
+                                if (classFrequency == null) {
+                                    classFrequency = new HashMap<>();
+                                    wordClassFrequency.get(account).put(word, classFrequency);
+                                }
+
+                                classFrequency.put(clazz, f);
+                            }
+                            reader.endArray();
+                            break;
+
+                        case "classified":
+                            reader.beginArray();
+                            while (reader.hasNext()) {
+                                Long account = null;
+                                List<String> msgids = new ArrayList<>();
+
+                                reader.beginObject();
+                                while (reader.hasNext())
+                                    switch (reader.nextName()) {
+                                        case "account":
+                                            account = reader.nextLong();
+                                            break;
+                                        case "messages":
+                                            reader.beginArray();
+                                            while (reader.hasNext())
+                                                msgids.add(reader.nextString());
+                                            reader.endArray();
+                                            break;
+                                    }
+                                reader.endObject();
+
+                                if (account == null)
+                                    continue;
+
+                                accountMsgIds.put(account, msgids);
+                            }
+                            reader.endArray();
+                            break;
+                    }
+                reader.endObject();
+            } catch (Throwable ex) {
                 Log.e(ex);
                 file.delete();
+                clear(context);
             }
-        }
 
         loaded = true;
-        Log.i("Classifier data loaded");
+        dirty = false;
+
+        long elapsed = new Date().getTime() - start;
+        Log.i("Classifier data loaded elapsed=" + elapsed);
     }
 
     static synchronized void cleanup(@NonNull Context context) {
@@ -438,6 +635,7 @@ public class MessageClassifier {
 
     static synchronized void clear(@NonNull Context context) {
         accountMsgIds.clear();
+        classMessages.clear();
         wordClassFrequency.clear();
         dirty = true;
         Log.i("Classifier data cleared");
@@ -450,136 +648,6 @@ public class MessageClassifier {
 
     static File getFile(@NonNull Context context) {
         return new File(context.getFilesDir(), "classifier.json");
-    }
-
-    @NonNull
-    static JSONObject toJson() throws JSONException {
-        JSONArray jmessages = new JSONArray();
-        for (Long account : classMessages.keySet())
-            for (String clazz : classMessages.get(account).keySet()) {
-                JSONObject jmessage = new JSONObject();
-                jmessage.put("account", account);
-                jmessage.put("class", clazz);
-                jmessage.put("count", classMessages.get(account).get(clazz));
-                jmessages.put(jmessage);
-            }
-
-        JSONArray jwords = new JSONArray();
-        for (Long account : wordClassFrequency.keySet())
-            for (String word : wordClassFrequency.get(account).keySet()) {
-                Map<String, Frequency> classFrequency = wordClassFrequency.get(account).get(word);
-                for (String clazz : classFrequency.keySet()) {
-                    Frequency f = classFrequency.get(clazz);
-                    JSONObject jword = new JSONObject();
-                    jword.put("account", account);
-                    jword.put("word", word);
-                    jword.put("class", clazz);
-                    jword.put("count", f.count);
-                    jword.put("dup", f.duplicates);
-                    jword.put("before", from(f.before));
-                    jword.put("after", from(f.after));
-                    jwords.put(jword);
-                }
-            }
-
-        JSONArray jclassified = new JSONArray();
-        for (Long account : accountMsgIds.keySet()) {
-            JSONObject jaccount = new JSONObject();
-            jaccount.put("account", account);
-            jaccount.put("messages", from(accountMsgIds.get(account)));
-            jclassified.put(jaccount);
-        }
-
-        JSONObject jroot = new JSONObject();
-        jroot.put("version", 2);
-        jroot.put("messages", jmessages);
-        jroot.put("words", jwords);
-        jroot.put("classified", jclassified);
-
-        return jroot;
-    }
-
-    @NonNull
-    private static JSONArray from(@NonNull List<String> list) throws JSONException {
-        JSONArray jlist = new JSONArray();
-        for (String item : list)
-            jlist.put(item);
-        return jlist;
-    }
-
-    @NonNull
-    private static JSONObject from(@NonNull Map<String, Integer> map) throws JSONException {
-        JSONObject jmap = new JSONObject();
-        for (String key : map.keySet())
-            jmap.put(key, map.get(key));
-        return jmap;
-    }
-
-    static void fromJson(@NonNull JSONObject jroot) throws JSONException {
-        int version = jroot.optInt("version");
-        if (version < 2)
-            return;
-
-        JSONArray jmessages = jroot.getJSONArray("messages");
-        for (int m = 0; m < jmessages.length(); m++) {
-            JSONObject jmessage = (JSONObject) jmessages.get(m);
-            long account = jmessage.getLong("account");
-            if (!classMessages.containsKey(account))
-                classMessages.put(account, new HashMap<>());
-            String clazz = jmessage.getString("class");
-            int count = jmessage.getInt("count");
-            classMessages.get(account).put(clazz, count);
-        }
-
-        JSONArray jwords = jroot.getJSONArray("words");
-        for (int w = 0; w < jwords.length(); w++) {
-            JSONObject jword = (JSONObject) jwords.get(w);
-            long account = jword.getLong("account");
-            if (!wordClassFrequency.containsKey(account))
-                wordClassFrequency.put(account, new HashMap<>());
-            if (jword.has("word")) {
-                String word = jword.getString("word");
-                Map<String, Frequency> classFrequency = wordClassFrequency.get(account).get(word);
-                if (classFrequency == null) {
-                    classFrequency = new HashMap<>();
-                    wordClassFrequency.get(account).put(word, classFrequency);
-                }
-                Frequency f = new Frequency();
-                f.count = jword.getInt("count");
-                f.duplicates = jword.optInt("dup");
-                if (jword.has("before"))
-                    f.before = from(jword.getJSONObject("before"));
-                if (jword.has("after"))
-                    f.after = from(jword.getJSONObject("after"));
-                classFrequency.put(jword.getString("class"), f);
-            } else
-                Log.w("No words account=" + account);
-        }
-
-        JSONArray jclassified = jroot.getJSONArray("classified");
-        for (int a = 0; a < jclassified.length(); a++) {
-            JSONObject jaccount = jclassified.getJSONObject(a);
-            long account = jaccount.getLong("account");
-            List<String> ids = accountMsgIds.get(account);
-            if (ids == null) {
-                ids = new ArrayList<>();
-                accountMsgIds.put(account, ids);
-            }
-            JSONArray jids = jaccount.getJSONArray("messages");
-            for (int h = 0; h < jids.length(); h++)
-                ids.add(jids.getString(h));
-        }
-    }
-
-    @NonNull
-    private static Map<String, Integer> from(@NonNull JSONObject jmap) throws JSONException {
-        Map<String, Integer> result = new HashMap<>(jmap.length());
-        Iterator<String> iterator = jmap.keys();
-        while (iterator.hasNext()) {
-            String key = iterator.next();
-            result.put(key, jmap.getInt(key));
-        }
-        return result;
     }
 
     private static class State {
