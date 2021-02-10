@@ -865,7 +865,7 @@
                 tvUser,etUser,tvPassword,tilPassword,tvCaseSensitiveHint,btnCertificate,tvCertificate,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
-                cbSynchronize,cbPrimary,cbSelf,
+                cbSynchronize,cbPrimary,cbSelf,tvSelfHint,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
                 cbUnicode,tvUnicodeHint,tvMaxSize,etMaxSize" />
