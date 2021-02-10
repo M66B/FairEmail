@@ -630,7 +630,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 jexport.put("accounts", jaccounts);
                 jexport.put("answers", janswers);
                 jexport.put("certificates", jcertificates);
-                jexport.put("classifier", MessageClassifier.toJson());
                 jexport.put("settings", jsettings);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -954,9 +953,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             }
                         }
                     }
-
-                    if (jimport.has("classifier"))
-                        MessageClassifier.fromJson(jimport.getJSONObject("classifier"));
 
                     // Settings
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
