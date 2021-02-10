@@ -29,6 +29,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteFullException;
@@ -1105,7 +1107,7 @@ public class Log {
             return true;
 
         while (ex != null) {
-            for (StackTraceElement ste :stack)
+            for (StackTraceElement ste : stack)
                 if (ste.getClassName().startsWith(BuildConfig.APPLICATION_ID))
                     return true;
             ex = ex.getCause();
@@ -1474,6 +1476,22 @@ public class Log {
         if (reporting) {
             String uuid = prefs.getString("uuid", null);
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
+        }
+
+        sb.append("\r\n");
+
+        try {
+            PackageInfo pi = context.getPackageManager()
+                    .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
+            for (int i = 0; i < pi.requestedPermissions.length; i++)
+                if (pi.requestedPermissions[i] != null &&
+                        pi.requestedPermissions[i].startsWith("android.permission.")) {
+                    boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
+                    sb.append(pi.requestedPermissions[i].replace("android.permission.", ""))
+                            .append('=').append(granted).append("\r\n");
+                }
+        } catch (Throwable ex) {
+            sb.append(ex.toString()).append("\r\n");
         }
 
         sb.append("\r\n");
