@@ -1028,7 +1028,7 @@ class Core {
         if (folder.id.equals(target.id))
             throw new IllegalArgumentException("self");
         if (!target.selectable)
-            throw new IllegalArgumentException("not selectable");
+            throw new IllegalArgumentException("not selectable type=" + target.type);
 
         // De-classify
         for (EntityMessage message : messages)
