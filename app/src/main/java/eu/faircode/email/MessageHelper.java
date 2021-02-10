@@ -2399,16 +2399,25 @@ public class MessageHelper {
                     part.isMimeType("application/x-pkcs7-mime")) {
                 ContentType ct = new ContentType(part.getContentType());
                 String smimeType = ct.getParameter("smime-type");
-                if ("enveloped-data".equalsIgnoreCase(smimeType) ||
-                        "smime.p7m".equalsIgnoreCase(ct.getParameter("name"))) {
+                if ("enveloped-data".equalsIgnoreCase(smimeType)) {
                     getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
                     return parts;
-                } else if ("signed-data".equalsIgnoreCase(smimeType) ||
-                        "smime.p7s".equalsIgnoreCase(ct.getParameter("name"))) {
+                } else if ("signed-data".equalsIgnoreCase(smimeType)) {
                     getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                     return parts;
-                } else
+                } else {
+                    if (TextUtils.isEmpty(smimeType)) {
+                        String name = ct.getParameter("name");
+                        if ("smime.p7m".equalsIgnoreCase(name)) {
+                            getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
+                            return parts;
+                        } else if ("smime.p7s".equalsIgnoreCase(name)) {
+                            getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                            return parts;
+                        }
+                    }
                     Log.e(ct.toString());
+                }
             }
         } catch (ParseException ex) {
             Log.w(ex);
