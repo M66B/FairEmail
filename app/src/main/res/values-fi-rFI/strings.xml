@@ -207,6 +207,7 @@
     <string name="title_setup_theme_system">Noudata järjestelmän teemaa</string>
     <string name="title_setup_theme_black_background">Musta tausta</string>
     <string name="title_setup_theme_system_hint">Järjestelmän teeman noudattaminen vaihtaa automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee tätä</string>
+    <string name="title_setup_theme_more_colors">Haluan lisää värejä</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
@@ -537,6 +538,7 @@
     <string name="title_identity_max_size">Viestin suurin mahdollinen koko (MB)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Jos saat virheilmoituksen \'invalid greeting\', \'requires valid address\' tai vastaava, yritä muuttaa tätä asetusta</string>
+    <string name="title_identity_self_hint">Estää myös vastaamasta itsellesi</string>
     <string name="title_optional">Valinnainen</string>
     <string name="title_recommended">Suositeltu</string>
     <string name="title_account_linked">Linkitetty tili</string>
