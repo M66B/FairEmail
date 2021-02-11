@@ -1126,6 +1126,8 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager).
 This requires contact/account permissions and internet connectivity.
 
+In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
+
 The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
