@@ -21,6 +21,8 @@
             android:id="@+id/tvDefault"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/twotone_support_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_advanced_default"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
