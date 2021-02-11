@@ -303,7 +303,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     private static final List<String> FACEBOOK_QUERY = Collections.unmodifiableList(Arrays.asList(
-            "ref", "n_m", "lloc"
+            "medium", "ref", "n_m"
     ));
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
