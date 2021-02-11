@@ -2457,12 +2457,9 @@ class Core {
             int expunge = 0;
             for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++)
                 try {
-                    if (imessages[i].isSet(Flags.Flag.DELETED)) {
-                        if (perform_expunge)
-                            expunge++;
-                        else
-                            uids.remove(ifolder.getUID(imessages[i]));
-                    } else
+                    if (perform_expunge && imessages[i].isSet(Flags.Flag.DELETED))
+                        expunge++;
+                    else
                         uids.remove(ifolder.getUID(imessages[i]));
                 } catch (MessageRemovedException ex) {
                     Log.w(folder.name, ex);
