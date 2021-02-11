@@ -1285,7 +1285,7 @@
     <string name="title_pro_activated">Όλες οι δυνατότητες pro έχουν ενεργοποιηθεί</string>
     <string name="title_pro_valid">Ενεργοποιημένες όλες οι δυνατότητες pro</string>
     <string name="title_pro_invalid">Μη έγκυρη απάντηση</string>
-    <string name="title_pro_support">Το FairEmail χρειάζεται τη βοήθειά σας. Πατήστε για να αγοράσετε τις δυνατότητες pro, ώστε να διατηρήσετε ζωντανό το πρότζεκτ.</string>
+    <string name="title_pro_support">Το FairEmail χρειάζεται τη βοήθειά σας. Πατήστε για να αγοράσετε τις λειτουργίες Pro, ώστε η εφαρμογή να συνεχίσει να εξελίσσεται, ή απενεργοποιείστε αυτό το μήνυμα.</string>
     <string name="title_boundary_error">Σφάλμα κατά τη λήψη μηνυμάτων από το διακομιστή</string>
     <string name="title_boundary_retry">Δοκιμάστε ξανά</string>
     <string name="title_unexpected_error">Μη αναμενόμενο σφάλμα</string>
@@ -1427,6 +1427,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Προεπιλεγμένο</item>

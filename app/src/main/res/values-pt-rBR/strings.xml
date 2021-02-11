@@ -1184,7 +1184,6 @@
     <string name="title_pro_activated">Todos os recursos Pro estão ativados</string>
     <string name="title_pro_valid">Todos os recursos Pro ativados</string>
     <string name="title_pro_invalid">Resposta inválida</string>
-    <string name="title_pro_support">O FairEmail precisa da sua ajuda. Toque para comprar os recursos Pro para manter o projeto em andamento.</string>
     <string name="title_boundary_error">Erro ao baixar mensagens do servidor de e-mails</string>
     <string name="title_boundary_retry">Desculpe, tente denovo</string>
     <string name="title_unexpected_error">Erro inesperado</string>
@@ -1326,6 +1325,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Padrão</item>

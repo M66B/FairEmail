@@ -1285,7 +1285,6 @@
     <string name="title_pro_activated">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_valid">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_invalid">Virheellinen vastaus</string>
-    <string name="title_pro_support">FairEmail tarvitsee apuasi. Napauttamalla voit ostaa pro-ominaisuudet pitääksesi projektin käynnissä.</string>
     <string name="title_boundary_error">Virhe ladattaessa viestejä sähköpostipalvelimelta</string>
     <string name="title_boundary_retry">Yritä uudelleen</string>
     <string name="title_unexpected_error">Odottamaton virhe</string>
@@ -1427,6 +1426,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Oletus</item>

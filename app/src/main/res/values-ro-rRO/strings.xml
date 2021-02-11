@@ -1298,7 +1298,7 @@
     <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
     <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
     <string name="title_pro_invalid">Răspunsul nu este valid</string>
-    <string name="title_pro_support">FairEmail are nevoie de ajutorul dumneavoastră. Atingeți pentru a achiziționa caracteristici pro și a putea dezvolta proiectul în continuare.</string>
+    <string name="title_pro_support">FairEmail are nevoie de ajutorul dvs. Atingeți pentru a cumpăra caracteristici Pro pentru a menține proiectul pornit sau pentru a opri acest mesaj.</string>
     <string name="title_boundary_error">Eroare la descărcarea mesajelor de pe serverul de mail</string>
     <string name="title_boundary_retry">Reîncearcă</string>
     <string name="title_unexpected_error">Eroare neașteptată</string>
@@ -1441,6 +1441,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Implicită</item>

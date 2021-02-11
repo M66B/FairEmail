@@ -990,7 +990,6 @@
     <string name="title_pro_activated">تمام ویژگی‌های نسخه حرفه‌ای فعال شدند</string>
     <string name="title_pro_valid">تمام ویژگی‌های نسخه حرفه‌ای فعال شده است</string>
     <string name="title_pro_invalid">پاسخ نامعتبر</string>
-    <string name="title_pro_support">FairEmail به کمک شما نیاز دارد. برای خرید ویژگی‌های حرفه‌ای ضربه بزنید و آینده و پیشرفت پروژه را تضمین کنید.</string>
     <string name="title_boundary_error">خطا هنگام بارگیری پیام‌ها از سرور ایمیل</string>
     <string name="title_boundary_retry">دوباره تلاش کن</string>
     <string name="title_unexpected_error">خطای غیر منتظره</string>
@@ -1122,6 +1121,7 @@
         <item>٢</item>
         <item>۳</item>
         <item>۴</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>پیش‌فرض</item>

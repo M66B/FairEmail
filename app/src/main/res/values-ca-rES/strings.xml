@@ -1063,7 +1063,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_pro_activated">Totes les característiques Pro estan activades</string>
     <string name="title_pro_valid">Totes les característiques Pro estan activades</string>
     <string name="title_pro_invalid">Resposta no vàlida</string>
-    <string name="title_pro_support">FairEmail necessita el teu ajut. Prem per comprar característiques Pro per mantenir el projecte en marxa.</string>
     <string name="title_boundary_retry">Prova de nou</string>
     <string name="title_unexpected_error">S\'ha produït un error inesperat</string>
     <string name="title_log">Registres</string>
@@ -1186,6 +1185,7 @@ La creació i l\'ús de regles és una característica professional.    </string
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Per defecte</item>

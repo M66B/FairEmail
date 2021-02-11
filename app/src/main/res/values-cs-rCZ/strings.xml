@@ -1296,7 +1296,6 @@
     <string name="title_pro_activated">Všechny Pro funkce jsou aktivní</string>
     <string name="title_pro_valid">Všechny Pro funkce aktivovány</string>
     <string name="title_pro_invalid">Neplatná odpověď</string>
-    <string name="title_pro_support">FairEmail potřebuje vaši pomoc. Stiskněte pro zakoupení Pro funkcí a zajistěte pokračování projektu.</string>
     <string name="title_boundary_error">Chyba při stahování zpráv z e-mailového serveru</string>
     <string name="title_boundary_retry">Zkusit znovu</string>
     <string name="title_unexpected_error">Neočekávaná chyba</string>
@@ -1440,6 +1439,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Výchozí</item>

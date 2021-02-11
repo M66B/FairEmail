@@ -944,6 +944,8 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
+In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
+
 The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
@@ -959,7 +961,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <br />
 
 <a name="faq23"></a>
-**(23) Pourquoi est-ce que je reçois une alerte ?**
+**(23) Why do I get alert ... ?**
 
 *General*
 
@@ -2744,6 +2746,14 @@ Note that archived messages can be deleted only by moving them to the trash fold
 
 Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
 
+Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command
+
+```
+STORE <message number> -FLAGS (\Flagged)
+```
+
+On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.
+
 <br />
 
 <a name="faq154"></a>
@@ -2830,6 +2840,8 @@ Permanent deletion means that messages will *irreversibly* be lost, and to preve
 
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
+From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+
 <br />
 
 <a name="faq161"></a>
@@ -2899,36 +2911,36 @@ Message classification is a pro feature, except for the spam folder.
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Puisque chaque thème nécessite une variante claire, sombre et noire, il n'est pas possible d'ajouter un thème prédéfini pour chaque combinaison de couleurs (littéralement des millions).
+Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
-De plus, un thème est plus que quelques couleurs. Par exemple, les thèmes avec une nuance jaune utilisent une couleur de lien plus foncée pour obtenir un contraste suffisant.
+Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
-Les couleurs de thème sont basées sur le cercle de couleurs de [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 ## Obtenir de l'aide
 
-FairEmail est pris en charge uniquement sur les smartphones, tablettes et ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Seules la dernière version du PlayStore et la dernière version de GitHub sont prises en charge. La version F-Droid n'est prise en charge que si son numéro de version est le même que la dernière version de GitHub. Cela signifie également que la rétrogradation de versions n'est pas prise en charge.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Il n'y a aucun soutien pour construire et développer les choses par vous-même.
+There is no support on building and developing things by yourself.
 
-Les fonctionnalités demandées doivent :
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Les fonctionnalités qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également de garder la maintenance et le soutien réalisables à long terme .
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Si vous avez une question, si vous voulez demander une fonctionnalité ou signaler un bogue, veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
 
-Les tickets GitHub sont désactivés en raison d'un usage abusif fréquent.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 

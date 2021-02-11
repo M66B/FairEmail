@@ -1287,7 +1287,7 @@
     <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
     <string name="title_pro_invalid">Réponse non valide</string>
-    <string name="title_pro_support">FairEmail a besoin de votre aide. Appuyez pour acheter des fonctionnalités Pro pour continuer à faire avancer le projet.</string>
+    <string name="title_pro_support">FairEmail a besoin de votre aide. Tapez pour acheter des fonctionnalités Pro pour faire avancer le projet ou pour désactiver ce message.</string>
     <string name="title_boundary_error">Erreur lors du téléchargement des messages depuis le serveur de messagerie</string>
     <string name="title_boundary_retry">Veuillez réessayer</string>
     <string name="title_unexpected_error">Erreur inattendue</string>
@@ -1429,6 +1429,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Par défaut</item>

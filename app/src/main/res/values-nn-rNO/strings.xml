@@ -1242,7 +1242,6 @@
     <string name="title_pro_activated">Alle pro-funksjoner er aktivert</string>
     <string name="title_pro_valid">Alle pro-funksjoner aktivert</string>
     <string name="title_pro_invalid">Ugyldig respons</string>
-    <string name="title_pro_support">FairEmail trenger din hjelp. Trykk for å kjøpe Pro-funksjoner for å holde prosjektet i gang.</string>
     <string name="title_boundary_error">Feil ved nedlasting av meldinger fra e-posttjeneren</string>
     <string name="title_boundary_retry">Prøv igjen</string>
     <string name="title_unexpected_error">Uventet feil</string>
@@ -1384,6 +1383,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Standard</item>

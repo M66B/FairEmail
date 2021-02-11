@@ -1224,7 +1224,6 @@
     <string name="title_pro_activated">所有專業功能均已激活</string>
     <string name="title_pro_valid">所有專業功能已激活</string>
     <string name="title_pro_invalid">無效的回應</string>
-    <string name="title_pro_support">FairEmail需要您的幫助。 點按即可購買專業功能，以使項目繼續進行。</string>
     <string name="title_boundary_error">從郵件服務器下載消息時出錯</string>
     <string name="title_boundary_retry">再試一次</string>
     <string name="title_unexpected_error">意外的錯誤</string>
@@ -1365,6 +1364,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>預設</item>

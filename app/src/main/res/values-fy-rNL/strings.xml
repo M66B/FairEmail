@@ -1238,7 +1238,6 @@
     <string name="title_pro_activated">Alle pro-funksjes binne aktivearre</string>
     <string name="title_pro_valid">Alle pro-funksjes aktivearre</string>
     <string name="title_pro_invalid">Unjildich antwurd</string>
-    <string name="title_pro_support">FairEmail hat jo help nedich. Tikje om pro-funksjes te keapjen om it projekt troch te gean.</string>
     <string name="title_boundary_error">Flater by it downloaden fan berjochten fan \'e mailserver</string>
     <string name="title_boundary_retry">Besykje opnij</string>
     <string name="title_unexpected_error">Net ferwachte flater</string>
@@ -1380,6 +1379,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Standert</item>

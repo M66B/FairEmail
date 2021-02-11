@@ -116,12 +116,16 @@
     <string name="title_setup">Ayarlar</string>
     <string name="title_setup_help">Yardım</string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
+    <string name="title_setup_quick_accounts">Hesap ekle</string>
     <string name="title_setup_quick_support">Bazı sağlayıcılar hesap eklemeyi zorlaştırır. Lütfen bunun için FairEmail\'i suçlamayın, bunun yerine destek isteyin.</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
     <string name="title_setup_quick_imap">İleti almak için IMAP sunucusu</string>
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_wizard">Yardımcı</string>
     <string name="title_setup_wizard_new">Yeni bir e-posta adresi istiyorum</string>
+    <string name="title_setup_account_remark">E-posta al</string>
+    <string name="title_setup_identity_remark">E-posta gönder</string>
+    <string name="title_setup_accounts">Hesaplar</string>
     <string name="title_setup_oauth_permission">E-posta sağlayıcısı OAuth\'u yalnızca resmi uygulama sürümleri için onayladı</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
@@ -1211,7 +1215,6 @@
     <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_invalid">Geçersiz yanıt</string>
-    <string name="title_pro_support">FairEmail\'in yardımınıza ihtiyacı var. Pro özellikleri satın alarak projeyi devam ettirmek için dokunun.</string>
     <string name="title_boundary_error">Posta sunucusundan mesajlar indirilirken hata oluştu</string>
     <string name="title_boundary_retry">Tekrar deneyiniz</string>
     <string name="title_unexpected_error">Beklenmedik hata</string>
@@ -1348,6 +1351,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Varsayılan</item>

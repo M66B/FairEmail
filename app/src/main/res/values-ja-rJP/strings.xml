@@ -1238,7 +1238,6 @@
     <string name="title_pro_activated">全てのプロ機能がアクティブになりました</string>
     <string name="title_pro_valid">全てのプロ機能が有効化されました</string>
     <string name="title_pro_invalid">無効な応答</string>
-    <string name="title_pro_support">FairEmailにはあなたの助けが必要です。タップしてプロ機能を購入しプロジェクトを応援して下さい！</string>
     <string name="title_boundary_error">メールサーバーからのメッセージのダウンロードエラー</string>
     <string name="title_boundary_retry">再試行</string>
     <string name="title_unexpected_error">予期しないエラー</string>
@@ -1379,6 +1378,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>デフォルト</item>

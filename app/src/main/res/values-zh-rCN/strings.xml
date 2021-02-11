@@ -1274,7 +1274,7 @@
     <string name="title_pro_activated">全部专业版功能已激活</string>
     <string name="title_pro_valid">全部专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>
-    <string name="title_pro_support">FairEmail需要您的帮助，点击购买专业版以保持项目的进展</string>
+    <string name="title_pro_support">FairEmail 需要您的帮助。点击购买专业版功能以保持项目继续或关闭此消息。</string>
     <string name="title_boundary_error">从电子邮件服务器下载消息时出错</string>
     <string name="title_boundary_retry">请重试</string>
     <string name="title_unexpected_error">未知错误</string>
@@ -1415,6 +1415,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>默认</item>

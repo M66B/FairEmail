@@ -864,7 +864,6 @@
     <string name="title_pro_activated">Све премијум функционалности су активиране</string>
     <string name="title_pro_valid">Све премијум функционалности активиране</string>
     <string name="title_pro_invalid">Неисправан одговор</string>
-    <string name="title_pro_support">FairEmail-у је потребна Ваша помоћ. Кликните да купите премијум функције да би пројекат живео.</string>
     <string name="title_boundary_retry">Покушај поново</string>
     <string name="title_unexpected_error">Неочекивана грешка</string>
     <string name="title_log">Дневник</string>
@@ -986,6 +985,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Подразумевана</item>

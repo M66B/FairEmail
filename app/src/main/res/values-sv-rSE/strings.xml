@@ -1255,7 +1255,6 @@
     <string name="title_pro_activated">Alla pro-funktioner aktiverades</string>
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>
     <string name="title_pro_invalid">Ogiltigt svar</string>
-    <string name="title_pro_support">FairEmail behöver din hjälp. Tryck för att köpa pro-funktioner för att hålla projektet igång.</string>
     <string name="title_boundary_error">Fel vid nedladdning av meddelanden från e-postservern</string>
     <string name="title_boundary_retry">Försök igen</string>
     <string name="title_unexpected_error">Oväntat fel</string>
@@ -1397,6 +1396,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Standard</item>

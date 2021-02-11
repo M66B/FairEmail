@@ -3,13 +3,13 @@
     <string name="app_search">Поиск по FairEmail</string>
     <string name="app_changelog">Что нового</string>
     <string name="app_welcome">FairEmail — это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
-    <string name="app_limitations">Например, сообщения по умолчанию переформатируются для удаления небезопасных элементов и улучшения читаемости, а открытие ссылок нуждается в подтверждении в целях безопасности. Обе функции, при желании, могут быть отключены.</string>
-    <string name="app_crash">FairEmail не поддерживается на этом устройстве, так как ошибки в Android вызывают сбои</string>
+    <string name="app_limitations">Например, по умолчанию сообщения переформатируются, так чтобы удалять небезопасные элементы и улучшать читаемость, а открытие ссылок нужно в целях безопасности подтверждать. Обе функции можно отключить.</string>
+    <string name="app_crash">Это устройство не поддерживает FairEmail, так как ошибки Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
     <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
-    <string name="channel_notification">Почта</string>
+    <string name="channel_notification">Эл. почта</string>
     <string name="channel_update">Обновления</string>
     <string name="channel_warning">Предупреждения</string>
     <string name="channel_error">Ошибки</string>
@@ -1309,7 +1309,7 @@
     <string name="title_pro_activated">Все функции Pro активированы</string>
     <string name="title_pro_valid">Все функции Pro активированы</string>
     <string name="title_pro_invalid">Неверный ответ</string>
-    <string name="title_pro_support">FairEmail нуждается в вашей помощи. Нажмите, чтобы купить функции Pro и поддержать развитие проекта.</string>
+    <string name="title_pro_support">FairEmail нужна ваша помощь. Нажмите, чтобы купить профессиональный функционал и поддержать проект, либо отключите это напоминание.</string>
     <string name="title_boundary_error">Ошибка при загрузке сообщений с почтового сервера</string>
     <string name="title_boundary_retry">Повторить</string>
     <string name="title_unexpected_error">Непредвиденная ошибка</string>
@@ -1453,6 +1453,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>По умолчанию</item>

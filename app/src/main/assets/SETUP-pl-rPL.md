@@ -1,6 +1,6 @@
 # Pomoc instalacyjna
 
-Konfiguracja FairEmail jest całkiem prosta. Musisz dodać co najmniej jedno konto, aby otrzymywać wiadomości email i przynajmniej jedną tożsamość, jeśli chcesz wysłać wiadomości e-mail. The quick setup will add an account and an identity in one go for most major providers.
+Konfiguracja FairEmail jest całkiem prosta. Musisz dodać co najmniej jedno konto, aby otrzymywać wiadomości email i przynajmniej jedną tożsamość, jeśli chcesz wysłać wiadomości e-mail. Szybka konfiguracja doda konto i tożsamość w jednym kroku dla większości głównych dostawców.
 
 ## Wymagania
 
@@ -18,7 +18,7 @@ Jeśli szybka konfiguracja nie zadziała, musisz ręcznie skonfigurować konto i
 
 Aby dodać konto, dotknij *Konfiguracja ręczna i więcej opcji*, dotknij *Konta*, dotknij przycisku 'plus' u dołu i wybierz IMAP (lub POP3). Wybierz dostawcę z listy, wprowadź nazwę użytkownika, która jest najczęściej Twoim adresem e-mail i wprowadź hasło. Naciśnij *Sprawdź*, aby FairEmail mógł połączyć się z serwerem e-mail i pobrać listę folderów systemowych. Po zapoznaniu się z wyborem folderu systemowego możesz dodać konto, naciskając *Zapisz*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Wprowadź nazwę domeny, na przykład *gmail.com* i naciśnij *Pobierz ustawienia*. Jeśli Twój dostawca wspiera [automatyczne wykrywanie](https://tools.ietf.org/html/rfc6186), FairEmail wypełni nazwę hosta i numer portu, w przeciwnym razie sprawdź instrukcje konfiguracji swojego dostawcy dotyczące prawidłowej nazwy hosta IMAP, numeru portu i protokołu szyfrowania (SSL/TLS lub STARTTLS). Więcej informacji na ten temat można znaleźć [tutaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Jeśli Twojego dostawcy nie ma na liście dostawców, jest tysiące dostawców, wybierz opcję *Niestandardowy*. Wprowadź nazwę domeny, na przykład *gmail.com* i naciśnij *Pobierz ustawienia*. Jeśli Twój dostawca wspiera [automatyczne wykrywanie](https://tools.ietf.org/html/rfc6186), FairEmail wypełni nazwę hosta i numer portu, w przeciwnym razie sprawdź instrukcje konfiguracji swojego dostawcy dotyczące prawidłowej nazwy hosta IMAP, numeru portu i protokołu szyfrowania (SSL/TLS lub STARTTLS). Więcej informacji na ten temat można znaleźć [tutaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Konfiguracja tożsamości - aby wysyłać wiadomości e-mail
 

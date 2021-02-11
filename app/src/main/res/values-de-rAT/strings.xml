@@ -1285,7 +1285,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
     <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>
     <string name="title_pro_invalid">Ungültige Antwort</string>
-    <string name="title_pro_support">FairEmail benötigt Ihre Unterstützung. Erwerben Sie die Pro-Funktionen, um das Projekt am Laufen zu halten.</string>
+    <string name="title_pro_support">FairEmail ist auf Ihre Hilfe angewiesen. Tippen Sie auf Kaufen, um Pro-Funktionen zu erwerben, damit das Projekt fortgeführt werden kann, oder deaktivieren Sie diese Meldung.</string>
     <string name="title_boundary_error">Fehler beim Herunterladen der Nachrichten vom E-Mail-Server</string>
     <string name="title_boundary_retry">Erneut versuchen</string>
     <string name="title_unexpected_error">Unerwarteter Fehler</string>
@@ -1427,6 +1427,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Standard</item>

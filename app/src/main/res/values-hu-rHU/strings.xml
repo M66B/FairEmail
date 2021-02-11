@@ -1248,7 +1248,6 @@
     <string name="title_pro_activated">Minden pro szolgáltatás aktiválva van</string>
     <string name="title_pro_valid">Minden pro szolgáltatás aktiválva</string>
     <string name="title_pro_invalid">Érvénytelen válasz</string>
-    <string name="title_pro_support">A FairEmail-nek szüksége van a segítségére. Koppintson a pro szolgáltatások megvásárlásához, hogy a projekt fennmaradhasson.</string>
     <string name="title_boundary_error">Hiba az üzenetek levélszerverről való letöltése során</string>
     <string name="title_boundary_retry">Próbálja újra</string>
     <string name="title_unexpected_error">Váratlan hiba</string>
@@ -1390,6 +1389,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Alapértelmezett</item>

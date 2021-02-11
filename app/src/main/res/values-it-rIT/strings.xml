@@ -1286,7 +1286,6 @@
     <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>
     <string name="title_pro_valid">Tutte le funzionalità attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>
-    <string name="title_pro_support">FairEmail ha bisogno del tuo aiuto. Tocca per comprare funzionalità aggiuntive e sostenere lo sviluppo.</string>
     <string name="title_boundary_error">Errore nel download dei messaggi dal server di posta elettronica</string>
     <string name="title_boundary_retry">Prova di nuovo</string>
     <string name="title_unexpected_error">Errore imprevisto</string>
@@ -1428,6 +1427,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Predefinito</item>

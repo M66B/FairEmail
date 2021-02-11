@@ -561,6 +561,7 @@
     <string name="title_identity_max_size">Maksymalny rozmiar wiadomości (MB)</string>
     <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>
+    <string name="title_identity_self_hint">Zapobiega również odpowiadaniu sobie</string>
     <string name="title_optional">Opcjonalnie</string>
     <string name="title_recommended">Zalecane</string>
     <string name="title_account_linked">Połączone konto</string>
@@ -1306,7 +1307,7 @@
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
     <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
     <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>
-    <string name="title_pro_support">FairEmail potrzebuje Twojej pomocy. Dotknij, aby zakupić funkcje pro i utrzymać projekt.</string>
+    <string name="title_pro_support">FairEmail potrzebuje Twojej pomocy. Dotknij, aby kupić funkcje pro, aby kontynuować projekt, lub wyłącz tę wiadomość.</string>
     <string name="title_boundary_error">Błąd pobierania wiadomości z serwera pocztowego</string>
     <string name="title_boundary_retry">Spróbuj ponownie</string>
     <string name="title_unexpected_error">Nieoczekiwany błąd</string>
@@ -1450,6 +1451,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Domyślna</item>

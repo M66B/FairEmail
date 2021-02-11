@@ -1286,7 +1286,7 @@
     <string name="title_pro_activated">Alle Pro-funktioner er aktiveret</string>
     <string name="title_pro_valid">Alle Pro-funktioner er aktiveret</string>
     <string name="title_pro_invalid">Ugyldigt svar</string>
-    <string name="title_pro_support">FairEmail behøver din støtte. Tryk hér for at købe Pro-funktioner og holde projektet kørende.</string>
+    <string name="title_pro_support">FairEmail behøver din hjælp. Tryk for at købe Pro-funktioner for at holde projektet i gang, eller deaktivér denne meddelelse.</string>
     <string name="title_boundary_error">Fejl under download af beskeder fra mailserveren</string>
     <string name="title_boundary_retry">Forsøg igen</string>
     <string name="title_unexpected_error">Uventet fejl</string>
@@ -1428,6 +1428,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Standard</item>

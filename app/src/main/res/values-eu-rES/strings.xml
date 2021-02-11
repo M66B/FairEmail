@@ -1127,7 +1127,6 @@
     <string name="title_pro_activated">Ordainpeko ezaugarri guztiak aktibatuta</string>
     <string name="title_pro_valid">Ordainpeko ezaugarri guztiak aktibatuta</string>
     <string name="title_pro_invalid">Erantzun baliogabea</string>
-    <string name="title_pro_support">FairEmail proiektuak zure laguntza behar du. Sakatu ordainpeko ezaugarriak erosi eta proiektua babesteko.</string>
     <string name="title_boundary_error">Errorea mezu elektronikoak posta-zerbitzaritik deskargatzean</string>
     <string name="title_boundary_retry">Saiatu berriro</string>
     <string name="title_unexpected_error">Ustekabeko errorea</string>
@@ -1268,6 +1267,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Lehenetsia</item>

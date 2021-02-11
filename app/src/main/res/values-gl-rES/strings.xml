@@ -1261,7 +1261,6 @@
     <string name="title_pro_activated">Todas as características Pro están activadas</string>
     <string name="title_pro_valid">Todas as características Pro activadas</string>
     <string name="title_pro_invalid">Resposta inválida</string>
-    <string name="title_pro_support">FairEmail precisa da súa axuda. Toque para mercar as características pro e facer que o proxecto continúe.</string>
     <string name="title_boundary_error">Erro ao baixar as mensaxes do servidor</string>
     <string name="title_boundary_retry">Tentar de novo</string>
     <string name="title_unexpected_error">Erro imprevisto</string>
@@ -1403,6 +1402,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Predefinido</item>

@@ -1019,7 +1019,6 @@
     <string name="title_pro_activated">Vse značilnosti Pro so aktivirane.</string>
     <string name="title_pro_valid">Vse značilnosti Pro so aktivirane.</string>
     <string name="title_pro_invalid">Neveljaven odziv.</string>
-    <string name="title_pro_support">FairEmail potrebuje vašo pomoč.  Dotaknite se za nakup značilnosti Pro, da ohranite projekt pri življenju.</string>
     <string name="title_boundary_error">Napaka pri prejemanju sporočil s poštnega strežnika.</string>
     <string name="title_boundary_retry">Poizkusi znova</string>
     <string name="title_unexpected_error">Nepričakovana napaka</string>
@@ -1152,6 +1151,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Privzeta</item>

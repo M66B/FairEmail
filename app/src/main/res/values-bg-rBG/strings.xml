@@ -1077,7 +1077,6 @@
     <string name="title_pro_activated">Всички pro функции са активирани</string>
     <string name="title_pro_valid">Активирай всички pro функции</string>
     <string name="title_pro_invalid">Невалиден отговор</string>
-    <string name="title_pro_support">FairEmail се нуждае от вашата помощ. Докоснете, за да закупите професионалните функции, за да продължи проекта да се развива.</string>
     <string name="title_boundary_error">Грешка при изтеглянето на съобщения от пощенския сървър</string>
     <string name="title_boundary_retry">Опитайте отново</string>
     <string name="title_unexpected_error">Неочаквана грешка</string>
@@ -1209,6 +1208,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>По подразбиране</item>

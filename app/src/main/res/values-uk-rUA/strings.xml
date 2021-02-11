@@ -549,6 +549,7 @@
     <string name="title_identity_max_size">Максимальний розмір повідомлення (МБ)</string>
     <string name="title_identity_receipt">Запитати про доставку/прочитання повідомлення за замовчуванням</string>
     <string name="title_identity_use_ip_hint">У разі отримання \'невірне привітання\', \'вимагає дійсної адреси\' або аналогічної помилки, спробуйте змінити це налаштування</string>
+    <string name="title_identity_self_hint">Також запобігає Вам відповідати самому собі</string>
     <string name="title_optional">За бажанням</string>
     <string name="title_recommended">Рекомендовано</string>
     <string name="title_account_linked">Пов\'язані облікові записи</string>
@@ -1295,7 +1296,7 @@
     <string name="title_pro_activated">Всі Pro-функції активовано</string>
     <string name="title_pro_valid">Всі Pro-функції активовані</string>
     <string name="title_pro_invalid">Відповідь з помилкою</string>
-    <string name="title_pro_support">FairEmail потребує вашої допомоги. Натисніть, щоб придбати професійні функції й підтримати проект у майбутньому.</string>
+    <string name="title_pro_support">FairEmail потребує вашої допомоги. Натисніть, щоб придбати Pro-функції, та допомогти розвивати цей проект та вимкнути це повідомлення.</string>
     <string name="title_boundary_error">Помилка завантаження повідомлень із сервера пошти</string>
     <string name="title_boundary_retry">Спробуйте знову</string>
     <string name="title_unexpected_error">Непередбачувана помилка</string>
@@ -1433,6 +1434,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>За замовчанням</item>
