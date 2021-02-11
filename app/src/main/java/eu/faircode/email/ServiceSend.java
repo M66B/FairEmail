@@ -198,6 +198,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     NotificationCompat.Builder getNotificationService() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean alert_once = prefs.getBoolean("alert_once", true);
+
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
                         .setSmallIcon(R.drawable.baseline_send_white_24)
@@ -205,7 +208,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         .setContentIntent(getPendingIntent(this))
                         .setAutoCancel(false)
                         .setShowWhen(true)
-                        .setOnlyAlertOnce(true)
+                        .setOnlyAlertOnce(alert_once)
                         .setDefaults(0) // disable sound on pre Android 8
                         .setLocalOnly(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
