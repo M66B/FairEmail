@@ -188,6 +188,8 @@ public class EntityMessage implements Serializable {
     public Boolean answered = false;
     @NonNull
     public Boolean flagged = false;
+    @NonNull
+    public Boolean deleted = false;
     public String flags; // system flags
     public String[] keywords; // user flags
     public String[] labels; // Gmail
@@ -203,6 +205,8 @@ public class EntityMessage implements Serializable {
     public Boolean ui_answered = false;
     @NonNull
     public Boolean ui_flagged = false;
+    @NonNull
+    public Boolean ui_deleted = false;
     @NonNull
     public Boolean ui_hide = false;
     @NonNull
@@ -529,12 +533,14 @@ public class EntityMessage implements Serializable {
                     this.seen.equals(other.seen) &&
                     this.answered.equals(other.answered) &&
                     this.flagged.equals(other.flagged) &&
+                    this.deleted.equals(other.deleted) &&
                     Objects.equals(this.flags, other.flags) &&
                     Helper.equal(this.keywords, other.keywords) &&
                     this.notifying.equals(other.notifying) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
                     this.ui_flagged.equals(other.ui_flagged) &&
+                    this.ui_deleted.equals(other.ui_deleted) &&
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&

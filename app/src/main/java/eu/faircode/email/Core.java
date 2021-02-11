@@ -1252,8 +1252,6 @@ class Core {
                 throw new MessageRemovedException(folder.name + " fetch not found uid=" + uid);
             if (imessage.isExpunged())
                 throw new MessageRemovedException(folder.name + " fetch expunged uid=" + uid);
-            if (imessage.isSet(Flags.Flag.DELETED))
-                throw new MessageRemovedException(folder.name + " fetch deleted uid=" + uid);
 
             SyncStats stats = new SyncStats();
             boolean download = db.folder().getFolderDownload(folder.id);
@@ -1322,6 +1320,8 @@ class Core {
     private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
         // Delete message
         DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
 
         if (folder.local) {
             Log.i(folder.name + " local delete");
@@ -1366,14 +1366,11 @@ class Core {
                     Log.w(ex);
                 }
 
-            if (deleted) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-                if (perform_expunge)
+            if (perform_expunge) {
+                if (deleted)
                     ifolder.expunge(); // NO EXPUNGE failed.
+                db.message().deleteMessage(message.id);
             }
-
-            db.message().deleteMessage(message.id);
         } finally {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
@@ -2445,9 +2442,12 @@ class Core {
             int expunge = 0;
             for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++)
                 try {
-                    if (imessages[i].isSet(Flags.Flag.DELETED))
-                        expunge++;
-                    else
+                    if (imessages[i].isSet(Flags.Flag.DELETED)) {
+                        if (perform_expunge)
+                            expunge++;
+                        else
+                            uids.remove(ifolder.getUID(imessages[i]));
+                    } else
                         uids.remove(ifolder.getUID(imessages[i]));
                 } catch (MessageRemovedException ex) {
                     Log.w(folder.name, ex);
@@ -2457,7 +2457,7 @@ class Core {
                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                 }
 
-            if (expunge > 0 && perform_expunge)
+            if (expunge > 0)
                 try {
                     Log.i(folder.name + " expunging=" + expunge);
                     ifolder.expunge();
@@ -2754,6 +2754,11 @@ class Core {
             IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage,
             boolean browsed, boolean download,
             List<EntityRule> rules, State state, SyncStats stats) throws MessagingException, IOException {
+        DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_known = prefs.getBoolean("notify_known", false);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+        boolean pro = ActivityBilling.isPro(context);
 
         long uid = ifolder.getUID(imessage);
         if (uid < 0) {
@@ -2765,26 +2770,27 @@ class Core {
             Log.i(folder.name + " expunged uid=" + uid);
             throw new MessageRemovedException("Expunged");
         }
-        if (imessage.isSet(Flags.Flag.DELETED)) {
+        if (perform_expunge && imessage.isSet(Flags.Flag.DELETED)) {
             Log.i(folder.name + " deleted uid=" + uid);
-            throw new MessageRemovedException("Flagged deleted");
+            try {
+                ifolder.expunge();
+            } catch (MessagingException ex) {
+                Log.w(ex);
+            }
+            throw new MessageRemovedException("Deleted");
         }
 
         MessageHelper helper = new MessageHelper(imessage, context);
         boolean seen = helper.getSeen();
         boolean answered = helper.getAnswered();
         boolean flagged = helper.getFlagged();
+        boolean deleted = helper.getDeleted();
         String flags = helper.getFlags();
         String[] keywords = helper.getKeywords();
         String[] labels = helper.getLabels();
         boolean update = false;
         boolean process = false;
         boolean syncSimilar = false;
-
-        DB db = DB.getInstance(context);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean notify_known = prefs.getBoolean("notify_known", false);
-        boolean pro = ActivityBilling.isPro(context);
 
         // Find message by uid (fast, no headers required)
         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
@@ -2907,12 +2913,14 @@ class Core {
             message.seen = seen;
             message.answered = answered;
             message.flagged = flagged;
+            message.deleted = deleted;
             message.flags = flags;
             message.keywords = keywords;
             message.labels = labels;
             message.ui_seen = seen;
             message.ui_answered = answered;
             message.ui_flagged = flagged;
+            message.ui_deleted = deleted;
             message.ui_hide = false;
             message.ui_found = false;
             message.ui_ignored = seen;
@@ -3136,6 +3144,15 @@ class Core {
                 if (!flagged)
                     message.color = null;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                syncSimilar = true;
+            }
+
+            if ((!message.deleted.equals(deleted) || !message.ui_deleted.equals(deleted)) &&
+                    db.operation().getOperationCount(folder.id, message.id, EntityOperation.DELETE) == 0) {
+                update = true;
+                message.deleted = deleted;
+                message.ui_deleted = deleted;
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " deleted=" + deleted);
                 syncSimilar = true;
             }
 

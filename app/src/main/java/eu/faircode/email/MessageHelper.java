@@ -869,6 +869,10 @@ public class MessageHelper {
         return imessage.isSet(Flags.Flag.FLAGGED);
     }
 
+    boolean getDeleted() throws MessagingException {
+        return imessage.isSet(Flags.Flag.DELETED);
+    }
+
     String getFlags() throws MessagingException {
         if (!BuildConfig.DEBUG)
             return null;

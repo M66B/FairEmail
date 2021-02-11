@@ -475,6 +475,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("perform_expunge", checked).apply();
+                ServiceSynchronize.reload(getContext(), null, true, "perform_expunge");
             }
         });
 

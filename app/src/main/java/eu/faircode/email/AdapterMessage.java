@@ -944,7 +944,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             view.setAlpha(
                     (EntityFolder.OUTBOX.equals(message.folderType)
                             ? message.identitySynchronize == null || !message.identitySynchronize
-                            : message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
+                            : message.accountProtocol == EntityAccount.TYPE_IMAP && (message.uid == null || message.ui_deleted))
                             ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate
@@ -5521,6 +5521,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 // seen
                 // answered
                 // flagged
+                // deleted
                 if (debug && !Objects.equals(prev.flags, next.flags)) {
                     same = false;
                     log("flags changed", next.id);
@@ -5546,6 +5547,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!prev.ui_flagged.equals(next.ui_flagged)) {
                     same = false;
                     log("ui_flagged changed", next.id);
+                }
+                if (!prev.ui_deleted.equals(next.ui_deleted)) {
+                    same = false;
+                    log("ui_deleted changed", next.id);
                 }
                 if (!prev.ui_hide.equals(next.ui_hide)) {
                     same = false;

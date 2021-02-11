@@ -646,6 +646,9 @@ public interface DaoMessage {
             " AND (NOT (ui_flagged IS :ui_flagged) OR NOT (color IS :color))")
     int setMessageUiFlagged(long id, boolean ui_flagged, Integer color);
 
+    @Query("UPDATE message SET ui_deleted = :ui_deleted WHERE id = :id AND NOT (ui_deleted IS :ui_deleted)")
+    int setMessageUiDeleted(long id, boolean ui_deleted);
+
     @Query("UPDATE message SET ui_answered = :ui_answered WHERE id = :id AND NOT (ui_answered IS :ui_answered)")
     int setMessageUiAnswered(long id, boolean ui_answered);
 
