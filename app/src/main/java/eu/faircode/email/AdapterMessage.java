@@ -302,6 +302,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "kclickid" // https://support.freespee.com/hc/en-us/articles/202577831-Kenshoo-integration
     ));
 
+    private static final List<String> FACEBOOK_QUERY = Collections.unmodifiableList(Arrays.asList(
+            "ref", "n_m", "lloc"
+    ));
+
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
             "$MDNSent".toLowerCase(Locale.ROOT), // https://tools.ietf.org/html/rfc3503
@@ -6382,13 +6386,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             builder = url.buildUpon();
 
             builder.clearQuery();
-            for (String key : url.getQueryParameterNames())
+            for (String key : url.getQueryParameterNames()) {
                 // https://en.wikipedia.org/wiki/UTM_parameters
                 // https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/EloquaAsynchronousTrackingScripts/EloquaTrackingParameters.htm
-                if (key.toLowerCase(Locale.ROOT).startsWith("utm_") ||
-                        key.toLowerCase(Locale.ROOT).startsWith("elq") ||
-                        PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)) ||
-                        ("snr".equals(key) && "store.steampowered.com".equals(uri.getHost())))
+                String lkey = key.toLowerCase(Locale.ROOT);
+                if (PARANOID_QUERY.contains(lkey) ||
+                        lkey.startsWith("utm_") || lkey.startsWith("elq") ||
+                        ("www.facebook.com".equalsIgnoreCase(uri.getHost()) && FACEBOOK_QUERY.contains(lkey)) ||
+                        ("store.steampowered.com".equalsIgnoreCase(uri.getHost()) && "snr".equals(lkey)))
                     changed = true;
                 else if (!TextUtils.isEmpty(key))
                     for (String value : url.getQueryParameters(key)) {
@@ -6403,6 +6408,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                         builder.appendQueryParameter(key, value);
                     }
+            }
 
             return (changed ? builder.build() : null);
         }
