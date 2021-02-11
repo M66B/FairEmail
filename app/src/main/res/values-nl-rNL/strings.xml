@@ -497,7 +497,7 @@
     <string name="title_advanced_language_detection_hint">Ondersteuning van taaldetectie is afhankelijk van de fabrikant van het apparaat</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autoseen_hint">Berichten automatisch markeren als gelezen bij uitvouwen, kan worden uitgeschakeld in de individuele accountinstellingen</string>
-    <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
+    <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of verwijderd</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_bcc_hint">Het adres wordt niet weergegeven, maar wordt bij het verzenden toegevoegd</string>
     <string name="title_advanced_display_harmful_hint">Het uitschakelen van deze optie kan schadelijk zijn voor uw privacy</string>
@@ -646,9 +646,9 @@
     <string name="title_insert_contact">Contact toevoegen</string>
     <string name="title_edit_contact">Contact bewerken</string>
     <string name="title_create_sub_folder">Maak submap</string>
-    <string name="title_empty_trash_ask">Alle weggegooide berichten definitief verwijderen?</string>
+    <string name="title_empty_trash_ask">Alle berichten in de prullenbak definitief verwijderen?</string>
     <string name="title_empty_spam_ask">Alle spam berichten definitief verwijderen?</string>
-    <string name="title_empty_trash_all_ask">Alle weggegooide berichten van alle accounts definitief verwijderen?</string>
+    <string name="title_empty_trash_all_ask">Alle berichten in de prullenbakken van alle accounts definitief verwijderen?</string>
     <string name="title_empty_spam_all_ask">Alle spam berichten van alle accounts permanent verwijderen?</string>
     <string name="title_empty_all">Dit zal alle berichten van zowel het apparaat als de server verwijderen</string>
     <string name="title_delete_operation_title">Bewerkingen verwijderen</string>
@@ -923,7 +923,7 @@
     <string name="title_size_reminder">Bericht (%1$s) groter dan de serverlimiet (%2$s)</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
     <string name="title_dialog_hint">Dit dialoogvenster kan opnieuw worden ingeschakeld via het 3-puntenmenu in de bovenste actiebalk</string>
-    <string name="title_draft_deleted">Concept weggegooid</string>
+    <string name="title_draft_deleted">Concept verwijderd</string>
     <string name="title_draft_saved">Concept opgeslagen</string>
     <string name="title_ask_send_via">Verstuur bericht naar %1$s via %2$s?</string>
     <string name="title_queued">Bericht wordt verzonden</string>
@@ -1286,7 +1286,7 @@
     <string name="title_pro_activated">Alle pro-functies zijn geactiveerd</string>
     <string name="title_pro_valid">Alle pro-functies geactiveerd</string>
     <string name="title_pro_invalid">Ongeldige reactie</string>
-    <string name="title_pro_support">FairEmail heeft uw hulp nodig. Tik hier om pro functies te kopen om het project gaande te houden.</string>
+    <string name="title_pro_support">FairEmail heeft uw hulp nodig. Tik om pro functies te kopen om het project draaiend te houden of om dit bericht uit te schakelen.</string>
     <string name="title_boundary_error">Fout bij het downloaden van berichten van de e-mailserver</string>
     <string name="title_boundary_retry">Probeer opnieuw</string>
     <string name="title_unexpected_error">Onverwachte fout</string>
@@ -1428,6 +1428,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>Standaard</item>

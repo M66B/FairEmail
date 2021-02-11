@@ -113,6 +113,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPreview;
     private SwitchCompat swPreviewItalic;
     private Spinner spPreviewLines;
+    private TextView tvPreviewLinesHint;
 
     private SwitchCompat swAddresses;
     private EditText etMessageZoom;
@@ -216,6 +217,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreview = view.findViewById(R.id.swPreview);
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
+        tvPreviewLinesHint = view.findViewById(R.id.tvPreviewLinesHint);
         swAddresses = view.findViewById(R.id.swAddresses);
         etMessageZoom = view.findViewById(R.id.etMessageZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
@@ -660,6 +662,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 prefs.edit().putBoolean("preview_italic", checked).apply();
             }
         });
+
+        tvPreviewLinesHint.setText(getString(R.string.title_advanced_preview_lines_hint, NF.format(HtmlHelper.PREVIEW_SIZE)));
 
         spPreviewLines.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
