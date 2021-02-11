@@ -1330,7 +1330,7 @@ class Core {
         }
 
         try {
-            boolean deleted = false;
+            boolean found = false;
 
             if (message.uid != null) {
                 Message iexisting = ifolder.getMessageByUID(message.uid);
@@ -1339,14 +1339,17 @@ class Core {
                 else
                     try {
                         Log.i(folder.name + " deleting uid=" + message.uid);
-                        iexisting.setFlag(Flags.Flag.DELETED, true);
-                        deleted = true;
+                        if (perform_expunge)
+                            iexisting.setFlag(Flags.Flag.DELETED, true);
+                        else
+                            iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
+                        found = true;
                     } catch (MessageRemovedException ignored) {
                         Log.w(folder.name + " existing gone uid=" + message.uid);
                     }
             }
 
-            if (!TextUtils.isEmpty(message.msgid) && !deleted)
+            if (!found && !TextUtils.isEmpty(message.msgid))
                 try {
                     Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
                     if (imessages == null)
@@ -1356,8 +1359,11 @@ class Core {
                             long muid = ifolder.getUID(iexisting);
                             Log.i(folder.name + " deleting uid=" + muid);
                             try {
-                                iexisting.setFlag(Flags.Flag.DELETED, true);
-                                deleted = true;
+                                if (perform_expunge)
+                                    iexisting.setFlag(Flags.Flag.DELETED, true);
+                                else
+                                    iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
+                                found = true;
                             } catch (MessageRemovedException ignored) {
                                 Log.w(folder.name + " existing gone uid=" + muid);
                             }
@@ -1367,10 +1373,14 @@ class Core {
                 }
 
             if (perform_expunge) {
-                if (deleted)
+                if (found)
                     ifolder.expunge(); // NO EXPUNGE failed.
                 db.message().deleteMessage(message.id);
+            } else {
+                if (found)
+                    db.message().setMessageDeleted(message.id, message.ui_deleted);
             }
+
         } finally {
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);

@@ -346,8 +346,10 @@ public class EntityOperation {
                 boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
                 if (perform_expunge)
                     db.message().setMessageUiHide(message.id, true);
-                else
-                    db.message().setMessageUiDeleted(message.id, true);
+                else {
+                    message.ui_deleted = !message.ui_deleted;
+                    db.message().setMessageUiDeleted(message.id, message.ui_deleted);
+                }
 /*
                 if (message.hash != null) {
                     List<EntityMessage> sames = db.message().getMessagesByHash(message.account, message.hash);

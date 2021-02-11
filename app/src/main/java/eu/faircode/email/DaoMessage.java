@@ -628,6 +628,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET flagged = :flagged WHERE id = :id AND NOT (flagged IS :flagged)")
     int setMessageFlagged(long id, boolean flagged);
 
+    @Query("UPDATE message SET deleted = :deleted WHERE id = :id AND NOT (deleted IS :deleted)")
+    int setMessageDeleted(long id, boolean deleted);
+
     @Query("UPDATE message SET answered = :answered WHERE id = :id AND NOT (answered IS :answered)")
     int setMessageAnswered(long id, boolean answered);
 
