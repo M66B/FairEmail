@@ -23,6 +23,9 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputConnectionWrapper;
 
 public class EditTextPlain extends FixedEditText {
     public EditTextPlain(Context context) {
@@ -47,6 +50,20 @@ public class EditTextPlain extends FixedEditText {
         super.setEnabled(true);
         super.onAttachedToWindow();
         super.setEnabled(enabled);
+    }
+
+    @Override
+    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+        InputConnection ic = super.onCreateInputConnection(editorInfo);
+        if (ic == null)
+            return null;
+
+        return new InputConnectionWrapper(ic, true) {
+            @Override
+            public boolean commitText(CharSequence text, int newCursorPosition) {
+                return super.commitText(text.toString(), newCursorPosition);
+            }
+        };
     }
 
     @Override
