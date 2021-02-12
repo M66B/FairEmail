@@ -2381,6 +2381,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         new SimpleTask<ReplyData>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                fabReply.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                fabReply.setEnabled(true);
+            }
+
+            @Override
             protected ReplyData onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
@@ -2620,6 +2630,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("account", account);
 
         new SimpleTask<Boolean>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                fabCompose.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                fabCompose.setEnabled(true);
+            }
+
             @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
