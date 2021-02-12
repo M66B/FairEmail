@@ -3727,17 +3727,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             properties.setValue(full ? "full_asked" : "images_asked", message.id, true);
 
                             SharedPreferences.Editor editor = prefs.edit();
-                            for (Address sender : message.from) {
-                                String from = ((InternetAddress) sender).getAddress();
-                                if (TextUtils.isEmpty(from))
-                                    continue;
-                                int at = from.indexOf('@');
-                                String domain = (at < 0 ? from : from.substring(at));
-                                editor.putBoolean(from + (full ? ".show_full" : ".show_images"),
-                                        cbNotAgain.isChecked());
-                                editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
-                                        cbNotAgain.isChecked() && cbNotAgainDomain.isChecked());
-                            }
+                            if (message.from != null)
+                                for (Address sender : message.from) {
+                                    String from = ((InternetAddress) sender).getAddress();
+                                    if (TextUtils.isEmpty(from))
+                                        continue;
+                                    int at = from.indexOf('@');
+                                    String domain = (at < 0 ? from : from.substring(at));
+                                    editor.putBoolean(from + (full ? ".show_full" : ".show_images"),
+                                            cbNotAgain.isChecked());
+                                    editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
+                                            cbNotAgain.isChecked() && cbNotAgainDomain.isChecked());
+                                }
                             editor.apply();
 
                             if (full)
