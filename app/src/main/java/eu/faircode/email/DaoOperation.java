@@ -43,6 +43,7 @@ public interface DaoOperation {
             " WHEN operation.name = '" + EntityOperation.MOVE + "' THEN 5" +
             " WHEN operation.name = '" + EntityOperation.PURGE + "' THEN 6" +
             " WHEN operation.name = '" + EntityOperation.DELETE + "' THEN 7" +
+            " WHEN operation.name = '" + EntityOperation.EXPUNGE + "' THEN 8" +
             " ELSE 0" +
             " END";
 

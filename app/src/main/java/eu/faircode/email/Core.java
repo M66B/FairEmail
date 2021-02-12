@@ -409,6 +409,10 @@ class Core {
                                     onPurgeFolder(context, jargs, folder, (IMAPFolder) ifolder);
                                     break;
 
+                                case EntityOperation.EXPUNGE:
+                                    onExpungeFolder(context, jargs, folder, (IMAPFolder) ifolder);
+                                    break;
+
                                 case EntityOperation.RULE:
                                     onRule(context, jargs, message);
                                     break;
@@ -1997,6 +2001,11 @@ class Core {
         } finally {
             EntityOperation.sync(context, folder.id, false);
         }
+    }
+
+    private static void onExpungeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
+        Log.i(folder.name + " expunge");
+        ifolder.expunge();
     }
 
     private static void onPurgeFolder(Context context, EntityFolder folder) {

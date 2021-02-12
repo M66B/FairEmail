@@ -100,6 +100,7 @@ public class EntityOperation {
     static final String EXISTS = "exists";
     static final String RULE = "rule";
     static final String PURGE = "purge";
+    static final String EXPUNGE = "expunge";
 
     private static final int MAX_FETCH = 100; // operations
 
