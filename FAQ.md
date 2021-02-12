@@ -1,7 +1,11 @@
 # FairEmail support
 
 If you have a question, please check the frequently asked questions below first.
-At the bottom, you can find out how to ask other questions, request features, and report bugs.
+[At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support),
+you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die häufig gestellten Fragen unten.
+[Unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
@@ -3560,7 +3564,7 @@ Requested features should:
 Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 
