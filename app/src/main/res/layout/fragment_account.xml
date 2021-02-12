@@ -268,6 +268,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="password"
                 android:inputType="textPassword"
+                android:maxLength="20000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </com.google.android.material.textfield.TextInputLayout>
 
