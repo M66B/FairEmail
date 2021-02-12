@@ -1647,6 +1647,8 @@ public class FragmentCompose extends FragmentBase {
                                 Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                                     @Override
                                     public Drawable getDrawable(String source) {
+                                        if (source != null && source.startsWith("cid:"))
+                                            source = null;
                                         return ImageHelper.decodeImage(getContext(), working, source, true, zoom, 1.0f, etBody);
                                     }
                                 }, null, getContext());

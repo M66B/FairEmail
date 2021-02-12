@@ -197,6 +197,8 @@ public class ActivitySignature extends ActivityBase {
             etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
+                    if (source != null && source.startsWith("cid:"))
+                        source = null;
                     return ImageHelper.decodeImage(ActivitySignature.this, -1, source, true, 0, 1.0f, etText);
                 }
             }, null, this));
