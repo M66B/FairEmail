@@ -720,8 +720,12 @@ public class Helper {
             }
             intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.title_issue_subject, version));
             return intent;
-        } else
-            return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
+        } else {
+            if (Helper.hasValidFingerprint(context))
+                return new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_URI));
+            else
+                return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
+        }
     }
 
     static Intent getIntentRate(Context context) {
