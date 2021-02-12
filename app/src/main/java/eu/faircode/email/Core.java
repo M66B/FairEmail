@@ -203,7 +203,8 @@ class Core {
                                 !EntityOperation.FETCH.equals(op.name) &&
                                 !EntityOperation.SYNC.equals(op.name) &&
                                 !EntityOperation.SUBSCRIBE.equals(op.name) &&
-                                !EntityOperation.PURGE.equals(op.name))
+                                !EntityOperation.PURGE.equals(op.name) &&
+                                !EntityOperation.EXPUNGE.equals(op.name))
                             throw new MessageRemovedException();
 
                         // Process similar operations

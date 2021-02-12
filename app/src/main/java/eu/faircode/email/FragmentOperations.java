@@ -198,6 +198,7 @@ public class FragmentOperations extends FragmentBase {
                                         if (delete) {
                                             addAll(ops, db.operation().getOperations(EntityOperation.DELETE));
                                             addAll(ops, db.operation().getOperations(EntityOperation.PURGE));
+                                            addAll(ops, db.operation().getOperations(EntityOperation.EXPUNGE));
                                         }
 
                                         for (EntityOperation op : ops) {

@@ -52,6 +52,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -474,6 +475,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
             boolean debug = prefs.getBoolean("debug", false);
 
             int order = 1;
@@ -502,6 +504,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, order++, R.string.title_delete_local);
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, order++, R.string.title_delete_browsed);
+                    if (!perform_expunge || BuildConfig.DEBUG)
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_expunge, order++, R.string.title_advanced_expunge);
                 }
 
                 if (EntityFolder.TRASH.equals(folder.type))
@@ -614,6 +618,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_delete_browsed) {
                         OnActionDeleteLocal(true);
+                        return true;
+                    } else if (itemId == R.string.title_advanced_expunge) {
+                        onActionExpunge();
                         return true;
                     } else if (itemId == R.string.title_empty_trash) {
                         onActionEmpty(EntityFolder.TRASH);
@@ -787,6 +794,36 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ask.setArguments(aargs);
                     ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_DELETE_LOCAL);
                     ask.show(parentFragment.getParentFragmentManager(), "folder:delete_local");
+                }
+
+                private void onActionExpunge() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            EntityFolder folder = db.folder().getFolder(id);
+                            if (folder == null)
+                                return null;
+
+                            EntityOperation.queue(context, folder, EntityOperation.EXPUNGE);
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "folder:expunge");
                 }
 
                 private void onActionEmpty(String type) {
