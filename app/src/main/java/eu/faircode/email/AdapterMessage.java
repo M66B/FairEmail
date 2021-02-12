@@ -302,8 +302,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             "kclickid" // https://support.freespee.com/hc/en-us/articles/202577831-Kenshoo-integration
     ));
 
-    private static final List<String> FACEBOOK_QUERY = Collections.unmodifiableList(Arrays.asList(
-            "medium", "ref", "n_m"
+    // https://github.com/snarfed/granary/blob/master/granary/facebook.py#L1789
+
+    private static final List<String> FACEBOOK_WHITELIST_PATH = Collections.unmodifiableList(Arrays.asList(
+            "/nd/", "/n/", "/story.php"
+    ));
+
+    private static final List<String> FACEBOOK_WHITELIST_QUERY = Collections.unmodifiableList(Arrays.asList(
+            "story_fbid", "fbid", "id", "comment_id"
     ));
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
@@ -6387,14 +6393,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             builder = url.buildUpon();
 
             builder.clearQuery();
+            String host = uri.getHost();
+            String path = uri.getPath();
+            if (host != null)
+                host = host.toLowerCase(Locale.ROOT);
+            if (path != null)
+                path = path.toLowerCase(Locale.ROOT);
+            boolean first = "www.facebook.com".equals(host);
             for (String key : url.getQueryParameterNames()) {
                 // https://en.wikipedia.org/wiki/UTM_parameters
                 // https://docs.oracle.com/en/cloud/saas/marketing/eloqua-user/Help/EloquaAsynchronousTrackingScripts/EloquaTrackingParameters.htm
                 String lkey = key.toLowerCase(Locale.ROOT);
                 if (PARANOID_QUERY.contains(lkey) ||
-                        lkey.startsWith("utm_") || lkey.startsWith("elq") ||
-                        ("www.facebook.com".equalsIgnoreCase(uri.getHost()) && FACEBOOK_QUERY.contains(lkey)) ||
-                        ("store.steampowered.com".equalsIgnoreCase(uri.getHost()) && "snr".equals(lkey)))
+                        lkey.startsWith("utm_") ||
+                        lkey.startsWith("elq") ||
+                        ((host != null && host.endsWith("facebook.com")) &&
+                                !first &&
+                                FACEBOOK_WHITELIST_PATH.contains(path) &&
+                                !FACEBOOK_WHITELIST_QUERY.contains(lkey)) ||
+                        ("store.steampowered.com".equals(host) &&
+                                "snr".equals(lkey)))
                     changed = true;
                 else if (!TextUtils.isEmpty(key))
                     for (String value : url.getQueryParameters(key)) {
@@ -6409,6 +6427,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                         builder.appendQueryParameter(key, value);
                     }
+                first = false;
             }
 
             return (changed ? builder.build() : null);
