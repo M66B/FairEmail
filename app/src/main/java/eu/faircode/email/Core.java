@@ -515,16 +515,21 @@ class Core {
                             // Move: NO read only
                             // Move: NO COPY failed
                             // Move: NO [SERVERBUG] Internal error occurred. Refer to server log for more information.
+                            // Move: NO STORE: mtd: internal error: Cannot set message attributes.<404, ebox: no such entity: LiteMessage 29215 does not exist>
+                            // Move: NO mailbox selected READ-ONLY
+                            // Move: NO System Error (Failure)
                             // Add: BAD Data length exceeds limit
                             // Add: NO [LIMIT] APPEND Command exceeds the maximum allowed size
                             // Add: NO APPEND failed: Unknown flag: SEEN
                             // Add: BAD mtd: internal error: APPEND Message too long. 12345678
+                            // Add: NO [OVERQUOTA] Not enough disk quota (n.nnn + n.nnn + n.nnn secs).
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
                             // Flags: NO mailbox selected READ-ONLY
                             // Keyword: NO STORE completed
                             // Search: BAD command syntax error
+                            // Search (sync): BAD Could not parse command
 
                             String msg = "Unrecoverable operation=" + op.name + " tries=" + op.tries + " created=" + new Date(op.created);
 
