@@ -33,17 +33,30 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FragmentDialogSync extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        String name = getArguments().getString("name");
+        Bundle args = getArguments();
+        long fid = args.getLong("folder");
+        String name = args.getString("name");
+        String type = args.getString("type");
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_sync, null);
         final TextView tvFolder = view.findViewById(R.id.tvFolder);
         final EditText etMonths = view.findViewById(R.id.etMonths);
 
-        tvFolder.setText(name);
+        if (fid < 0) {
+            if (TextUtils.isEmpty(type))
+                tvFolder.setText(R.string.title_folder_unified);
+            else
+                tvFolder.setText(EntityFolder.localizeType(getContext(), type));
+        } else
+            tvFolder.setText(name);
+
         etMonths.setText(null);
 
         return new AlertDialog.Builder(getContext())
@@ -67,26 +80,35 @@ public class FragmentDialogSync extends FragmentDialogBase {
                         new SimpleTask<Void>() {
                             @Override
                             protected Void onExecute(Context context, Bundle args) {
-                                int months = args.getInt("months", -1);
                                 long fid = args.getLong("folder");
+                                String type = args.getString("type");
+                                int months = args.getInt("months", -1);
 
                                 DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
 
-                                    EntityFolder folder = db.folder().getFolder(fid);
-                                    if (folder == null || !folder.selectable)
-                                        return null;
-
-                                    if (months == 0) {
-                                        db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
-                                        db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
-                                    } else if (months > 0) {
-                                        db.folder().setFolderInitialize(folder.id, months * 30);
-                                        db.folder().setFolderKeep(folder.id, Math.max(folder.keep_days, months * 30));
+                                    List<EntityFolder> folders;
+                                    if (fid < 0)
+                                        folders = db.folder().getFoldersUnified(type, false);
+                                    else {
+                                        EntityFolder folder = db.folder().getFolder(fid);
+                                        if (folder == null || !folder.selectable)
+                                            return null;
+                                        folders = Arrays.asList(folder);
                                     }
 
-                                    EntityOperation.sync(context, folder.id, true);
+                                    for (EntityFolder folder : folders) {
+                                        if (months == 0) {
+                                            db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
+                                            db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
+                                        } else if (months > 0) {
+                                            db.folder().setFolderInitialize(folder.id, months * 30);
+                                            db.folder().setFolderKeep(folder.id, Math.max(folder.keep_days, months * 30));
+                                        }
+
+                                        EntityOperation.sync(context, folder.id, true);
+                                    }
 
                                     db.setTransactionSuccessful();
                                 } finally {

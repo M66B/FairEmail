@@ -4149,6 +4149,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
 
+        menu.findItem(R.id.menu_sync_more).setVisible(folder);
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
         menu.findItem(R.id.menu_force_send).setVisible(outbox);
 
@@ -4249,6 +4250,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_mark_all_read) {
             onMenuMarkAllRead();
+            return true;
+        } else if (itemId == R.id.menu_sync_more) {
+            onMenuSyncMore();
             return true;
         } else if (itemId == R.id.menu_force_sync) {
             onMenuForceSync();
@@ -4510,6 +4514,40 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentMessages.this, args, "message:read");
+    }
+
+    private void onMenuSyncMore() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+        args.putString("type", type);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long fid = args.getLong("folder");
+                if (fid < 0)
+                    return null;
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder != null)
+                    args.putString("name", folder.getDisplayName(context));
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                FragmentDialogSync sync = new FragmentDialogSync();
+                sync.setArguments(args);
+                sync.show(getParentFragmentManager(), "folder:months");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "folder:months");
     }
 
     private void onMenuForceSync() {

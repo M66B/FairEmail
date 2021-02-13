@@ -139,6 +139,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_sync_more"
+        android:title="@string/title_synchronize_more"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_force_sync"
         android:title="@string/title_force_sync"
         app:showAsAction="never" />
