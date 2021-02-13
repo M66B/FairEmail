@@ -251,7 +251,7 @@ public class ViewModelMessages extends ViewModel {
     }
 
     void observePrevNext(Context context, LifecycleOwner owner, final long id, final IPrevNext intf) {
-        Log.d("Observe prev/next model=" + last);
+        Log.i("Observe prev/next model=" + last);
 
         final Model model = models.get(last);
         if (model == null) {
@@ -262,7 +262,7 @@ public class ViewModelMessages extends ViewModel {
             return;
         }
 
-        Log.d("Observe previous/next id=" + id);
+        Log.i("Observe previous/next id=" + id);
         model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
             private boolean fallback = false;
 
@@ -293,7 +293,7 @@ public class ViewModelMessages extends ViewModel {
                     }
                 }
 
-                Log.w("Observe previous/next gone id=" + id);
+                Log.w("Observe previous/next gone id=" + id + " fallback=" + fallback);
 
                 if (fallback)
                     return;
