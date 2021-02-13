@@ -944,112 +944,112 @@ SMTP-servere kan [af forskellige årsager](https://en.wikipedia.org/wiki/List_of
 
 Godkendelsen af Gmail-kontiopsætninger vha. hurtigguiden skal periodisk opfriskes via [Android-kontohåndteringen](https://developer.android.com/reference/android/accounts/AccountManager). Dette kræver kontakt-/kontotilladelser samt Internetforbindelse.
 
-In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
+I tilfælde af fejl er det muligt igen at godkende/gendanne en Gmail-konto via Gmail-guiden til hurtigopsætning.
 
-The error *... Godkendelse mislykkedes... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+Fejlen *... Godkendelse mislykkedes... Konto ikke fundet ...* betyder, at en tidligere godkendt Gmail-konto er fjernet fra enheden.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Fejlene *... Godkendelse mislykkedes... Ingen token ...* betyder, at Androids kontohåndtering ikke kunne opfriske godkendelsen af en Gmail-konto.
 
-Fejlen *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+Fejlen *... Godkendelse mislykkedes ... netværksfejl ...* betyder, at Androids kontohåndtering ikke kunne opfriske godkendelsen af en Gmail-konto grundet Internetforbindelsesproblemer
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+Fejlen *... Godkendelse mislykkedes... Ugyldige akkreditiver ...* kan skyldes et skift af kontoadgangskoden eller ophævelse af de krævede konto-/kontakttilladelser. Er kontoadgangskoden skiftet, så godkend igen Google-kontoen via Androids kontoindstillinger. Såfremt tilladelserne er tilbagekaldt, kan hurtigopsætningsguiden til Gmail startes for at gentildele de nødvendige tilladelser (uden at skulle genopsætte kontoen).
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+Fejlen *... ServiceDisabled ...* kan skyldes indrullering i [Avanceret Beskyttelsesprogram](https://landing.google.com/advancedprotection/): "*For at læse e-mails, skal Gmail benyttes. Google-kontoen vil ikke kunne benyttes med apps og tjenester, som kræver adgang til følsomme data såsom e-mails*". Tjek yderligere info [hér](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+Hvis i tvivl, kan der anmodes om [support](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Hvorfor ses advarslen ... ?**
 
-*General*
+*Generelt*
 
-Alerts are warning messages sent by email servers.
+Avarsler er advarselsmeddelelser sendt af e-mailservere.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*For mange samtidige forbindelser* eller *Maksimalt antal forbindelser overskredet*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Denne advarsel udsendes ved for mange samtidige mappeforbindelser til den samme e-mailkonto.
 
-Possible causes are:
+Mulige årsager:
 
 * Flere e-mailklienter er forbundet til den samme konto
 * Samme e-mailklient er forbundet flere gange til den samme konto
 * Tidligere forbindelser blev brat afsluttet, f.eks. ved en pludselig mistet Internetforbindelse
 
-First try to wait some time to see if the problem resolves itself, else:
+Prøv først at vente lidt for at se, om problemet løser sig selv, ellers:
 
 * Skift enten til periodisk tjek for beskeder i modtagelsesindstillingerne, hvilket resulterer i, at mapper åbnes én ad gangen
 * Eller indstil nogle mapper til polling i stedet for at synkronisation (langt tryk på mappen i mappelisten, redigér egenskaber)
 
-An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
+En nem måde at opsætte periodisk tjek for beskeder for alle mapper undtagen indbakken er at bruge *Anvend for alle . .* i trepriksmenuen på mappelisten og at markere de to nederste afkrydsningsfelter.
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*. See [here](https://support.google.com/mail/answer/7126229) for details.
+Det maksimale antal samtidige mappeforbindelser til Gmail udgør 15, så der kan synkes maks. 15 mapper samtidigt for *alle* anvendte enheder. Gmail-*brugermapper* er derfor som standard opsat til polling fremfor altid at synke. Om nødvendigt eller ønsket, kan dette ændres vha. langt tryk på en mappe i mappelisten og vælge *Redigér egenskaber*. Tjek oplysningerne [hér](https://support.google.com/mail/answer/7126229).
 
-When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
+Ved brug af en Dovecot-server, skal indstillingen [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections) muligvis ændres.
 
-Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+Bemærk, at det vil tage e-mailserver et stykke tid at opdage brudte forbindelser, hvilket betyder, at kun halvdelen af mappeforbindelserne reelt er tilgængelige. For Gmail vil det kun være 7 forbindelser.
 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) Hvad betyder gennemse beskeder på serveren?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+Gennemse beskeder på serveren henter beskeder fra e-mailserveren i realtid, når slutningen på listen over synkede beskeder nås, selv hvis mappen er opsat til ikke at synke. Funktionen kan deaktiveres via Avancerede kontoindstillinger.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Hvorfor kan der ikke vælges/åbnes/gemmes et billede, vedhæftning eller fil?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Når et menupunkt til at vælge/åbne/gemme en fil er deaktiveret (nedtonet), eller meddelelsen *Lageradgangs-framework ikke tilgængeligt* ses, så er [lageradgangs-framework'en](https://developer.android.com/guide/topics/providers/document-provider), en standard Android-komponent, sandsynligvis ikke til stede. Dette kan skyldes, at den ikke er indeholdt i en tilpasset (og debloated) ROM.
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail anmoder ikke om lagerpladstilladelser, så denne framework kræves for valg af filer og mapper. Ingen app, undtagen måske filhåndteringer målrettet Android 4.4 KitKat eller senere, bør anmode om lagerpladstilladelser, da dette giver adgang til *alle* filer.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+Framework for lagerpladsadgang leveres af pakken *com.android.documentsui*, der vises som *Fil-*app i bl.a. OxygenOS Android-versionen.
 
-You can enable the storage access framework (again) with this adb command:
+Lageradgangs-framework'en kan (gen-)aktiveres med denne adb-kommando:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Alternativt kan *Fil-*appen muligvis genaktiveres vha. Androids app-indstillinger.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Kan man hjælpe med at oversætte FairEmail til sit sprog?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Ja, man kam oversætte FairEmail-teksterne til sit sprog [via Crowdin](https://crowdin.com/project/open-source-email). Tilmelding er gratis.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Ønsker man sit navn/alias inkluderet på listen over bidragsydere i appens *Om*-afsnit, så [kontakt mig](https://contact.faircode.eu/?product=fairemailsupport) venligst.
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Hvordan skelnes mellem indlejrede og eksterne billeder?**
 
-External image:
+Eksternt billede:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Eksternt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Indlejret billede:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Indlejret billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Ødelagt billede:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Ødelagt billede](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Bemærk, at download af eksterne billeder fra en fjernserver kan bruges til at registrere, at en besked er kigget, hvilket sandsynligvis ikke ønskes, såfremt beskeden er spam eller ondsindet.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Hvordan håndteres statusbjælkenotifikationer?**
 
-In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+I opsætningen findes knappen *Håndtér notifikationer* til at gå direkte til Android-notifikationsindstillingerne for FairEmail.
 
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
 
