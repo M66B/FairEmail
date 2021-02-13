@@ -274,15 +274,18 @@ public class ViewModelMessages extends ViewModel {
                     TupleMessageEx item = messages.get(pos);
                     if (item != null && id == item.id) {
                         fallback = true;
+                        Log.i("Observe previous/next found id=" + id + " pos=" + pos);
 
                         if (pos - 1 >= 0) {
                             TupleMessageEx next = messages.get(pos - 1);
+                            Log.i("Observe previous/next found id=" + id + " next=" + (next == null ? null : next.id));
                             intf.onNext(true, next == null ? null : next.id);
                         } else
                             intf.onNext(false, null);
 
                         if (pos + 1 < messages.size()) {
                             TupleMessageEx prev = messages.get(pos + 1);
+                            Log.i("Observe previous/next found id=" + id + " prev=" + (prev == null ? null : prev.id));
                             intf.onPrevious(true, prev == null ? null : prev.id);
                         } else
                             intf.onPrevious(false, null);
