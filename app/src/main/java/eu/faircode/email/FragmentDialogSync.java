@@ -93,22 +93,23 @@ public class FragmentDialogSync extends FragmentDialogBase {
                                         folders = db.folder().getFoldersUnified(type, false);
                                     else {
                                         EntityFolder folder = db.folder().getFolder(fid);
-                                        if (folder == null || !folder.selectable)
+                                        if (folder == null)
                                             return null;
                                         folders = Arrays.asList(folder);
                                     }
 
-                                    for (EntityFolder folder : folders) {
-                                        if (months == 0) {
-                                            db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
-                                            db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
-                                        } else if (months > 0) {
-                                            db.folder().setFolderInitialize(folder.id, months * 30);
-                                            db.folder().setFolderKeep(folder.id, Math.max(folder.keep_days, months * 30));
-                                        }
+                                    for (EntityFolder folder : folders)
+                                        if (folder.selectable) {
+                                            if (months == 0) {
+                                                db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
+                                                db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
+                                            } else if (months > 0) {
+                                                db.folder().setFolderInitialize(folder.id, months * 30);
+                                                db.folder().setFolderKeep(folder.id, Math.max(folder.keep_days, months * 30));
+                                            }
 
-                                        EntityOperation.sync(context, folder.id, true);
-                                    }
+                                            EntityOperation.sync(context, folder.id, true);
+                                        }
 
                                     db.setTransactionSuccessful();
                                 } finally {
