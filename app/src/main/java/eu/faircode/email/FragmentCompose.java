@@ -4913,8 +4913,11 @@ public class FragmentCompose extends FragmentBase {
                                         archive != null && !archive.id.equals(threaded.folder) &&
                                         !EntityFolder.isOutgoing(source.type) &&
                                         !EntityFolder.TRASH.equals(source.type) &&
-                                        !EntityFolder.JUNK.equals(source.type))
-                                    EntityOperation.queue(context, threaded, EntityOperation.MOVE, archive.id, repliedto);
+                                        !EntityFolder.JUNK.equals(source.type)) {
+                                    if (repliedto)
+                                        EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                                    EntityOperation.queue(context, threaded, EntityOperation.MOVE, archive.id);
+                                }
                             }
                         }
                     }
