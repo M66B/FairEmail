@@ -19,12 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -48,16 +46,13 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.pm.ShortcutInfoCompat;
@@ -74,14 +69,14 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static android.app.Activity.RESULT_OK;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Fragment parentFragment;
@@ -662,12 +657,79 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionSync(boolean childs) {
                     Bundle args = new Bundle();
                     args.putLong("folder", folder.id);
-                    args.putInt("months", -1);
                     args.putBoolean("childs", childs);
 
-                    Intent data = new Intent();
-                    data.putExtra("args", args);
-                    parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long fid = args.getLong("folder");
+                            boolean childs = args.getBoolean("childs");
+
+                            if (!ConnectionHelper.getNetworkState(context).isSuitable())
+                                throw new IllegalStateException(context.getString(R.string.title_no_internet));
+
+                            boolean now = true;
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+
+                                EntityFolder folder = db.folder().getFolder(fid);
+                                if (folder == null)
+                                    return null;
+
+                                if (folder.selectable)
+                                    EntityOperation.sync(context, folder.id, true);
+
+                                if (childs) {
+                                    List<EntityFolder> folders = db.folder().getChildFolders(folder.id);
+                                    if (folders != null)
+                                        for (EntityFolder child : folders)
+                                            if (child.selectable)
+                                                EntityOperation.sync(context, child.id, true);
+                                }
+
+                                if (folder.account != null) {
+                                    EntityAccount account = db.account().getAccount(folder.account);
+                                    if (account != null && !"connected".equals(account.state))
+                                        now = false;
+                                }
+
+                                db.setTransactionSuccessful();
+
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            ServiceSynchronize.eval(context, "refresh/folder");
+
+                            if (!now)
+                                throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            if (ex instanceof IllegalStateException) {
+                                Snackbar snackbar = Snackbar.make(parentFragment.getView(), ex.getMessage(), Snackbar.LENGTH_LONG)
+                                        .setGestureInsetBottomIgnored(true);
+                                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        context.startActivity(
+                                                new Intent(context, ActivitySetup.class)
+                                                        .putExtra("tab", "connection"));
+                                    }
+                                });
+                                snackbar.show();
+                            } else if (ex instanceof IllegalArgumentException)
+                                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                                        .setGestureInsetBottomIgnored(true).show();
+                            else
+                                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "folder:sync");
                 }
 
                 private void onActionEnable(boolean enabled) {
@@ -717,8 +779,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     FragmentDialogSync sync = new FragmentDialogSync();
                     sync.setArguments(args);
-                    sync.setTargetFragment(parentFragment, FragmentFolders.REQUEST_SYNC);
-                    sync.show(parentFragment.getParentFragmentManager(), "folder:sync");
+                    sync.show(parentFragment.getParentFragmentManager(), "folder:months");
                 }
 
                 private void onActionProperty(int property, boolean enabled) {
@@ -1271,40 +1332,5 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     interface IFolderSelectedListener {
         void onFolderSelected(TupleFolderEx folder);
-    }
-
-    public static class FragmentDialogSync extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            String name = getArguments().getString("name");
-
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_sync, null);
-            final TextView tvFolder = view.findViewById(R.id.tvFolder);
-            final EditText etMonths = view.findViewById(R.id.etMonths);
-
-            tvFolder.setText(name);
-            etMonths.setText(null);
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(view)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String months = etMonths.getText().toString();
-                            if (TextUtils.isEmpty(months))
-                                getArguments().putInt("months", 0);
-                            else
-                                try {
-                                    getArguments().putInt("months", Integer.parseInt(months));
-                                } catch (NumberFormatException ex) {
-                                    Log.e(ex);
-                                }
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
     }
 }

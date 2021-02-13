@@ -91,10 +91,9 @@ public class FragmentFolders extends FragmentBase {
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
-    static final int REQUEST_SYNC = 1;
-    static final int REQUEST_DELETE_LOCAL = 2;
-    static final int REQUEST_EMPTY_FOLDER = 3;
-    static final int REQUEST_DELETE_FOLDER = 4;
+    static final int REQUEST_DELETE_LOCAL = 1;
+    static final int REQUEST_EMPTY_FOLDER = 2;
+    static final int REQUEST_DELETE_FOLDER = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -596,10 +595,6 @@ public class FragmentFolders extends FragmentBase {
 
         try {
             switch (requestCode) {
-                case REQUEST_SYNC:
-                    if (resultCode == RESULT_OK && data != null)
-                        onSync(data.getBundleExtra("args"));
-                    break;
                 case REQUEST_DELETE_LOCAL:
                     if (resultCode == RESULT_OK && data != null)
                         onDeleteLocal(data.getBundleExtra("args"));
@@ -616,90 +611,6 @@ public class FragmentFolders extends FragmentBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
-    }
-
-    private void onSync(Bundle args) {
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                int months = args.getInt("months", -1);
-                long fid = args.getLong("folder");
-                boolean childs = args.getBoolean("childs");
-
-                if (months < 0 && !ConnectionHelper.getNetworkState(context).isSuitable())
-                    throw new IllegalStateException(context.getString(R.string.title_no_internet));
-
-                boolean now = true;
-
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityFolder folder = db.folder().getFolder(fid);
-                    if (folder == null)
-                        return null;
-
-                    if (folder.selectable) {
-                        if (months == 0) {
-                            db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
-                            db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
-                        } else if (months > 0) {
-                            db.folder().setFolderInitialize(folder.id, months * 30);
-                            db.folder().setFolderKeep(folder.id, Math.max(folder.keep_days, months * 30));
-                        }
-
-                        EntityOperation.sync(context, folder.id, true);
-                    }
-
-                    if (childs) {
-                        List<EntityFolder> folders = db.folder().getChildFolders(folder.id);
-                        if (folders != null)
-                            for (EntityFolder child : folders)
-                                if (child.selectable)
-                                    EntityOperation.sync(context, child.id, true);
-                    }
-
-                    if (folder.account != null) {
-                        EntityAccount account = db.account().getAccount(folder.account);
-                        if (account != null && !"connected".equals(account.state))
-                            now = false;
-                    }
-
-                    db.setTransactionSuccessful();
-
-                } finally {
-                    db.endTransaction();
-                }
-
-                ServiceSynchronize.eval(context, "refresh/folder");
-
-                if (!now)
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalStateException) {
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true);
-                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            startActivity(
-                                    new Intent(getContext(), ActivitySetup.class)
-                                            .putExtra("tab", "connection"));
-                        }
-                    });
-                    snackbar.show();
-                } else if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
-                else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "folder:sync");
     }
 
     private void onDeleteLocal(Bundle args) {
