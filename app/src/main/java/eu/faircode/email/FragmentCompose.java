@@ -5004,10 +5004,10 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
-                        address_error != null || mx_error != null || recipients > RECIPIENTS_WARNING || remind_dsn || remind_size ||
+                        address_error != null || mx_error != null || remind_to || recipients > RECIPIENTS_WARNING || remind_dsn || remind_size ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
-                                (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
+                                (remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -5684,7 +5684,7 @@ public class FragmentCompose extends FragmentBase {
                     Helper.humanReadableByteCount(max_size)));
             tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
 
-            tvRemindTo.setVisibility(send_reminders && remind_to ? View.VISIBLE : View.GONE);
+            tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
             tvRemindPgp.setVisibility(send_reminders && remind_pgp ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
@@ -5707,7 +5707,7 @@ public class FragmentCompose extends FragmentBase {
 
             Helper.setViewsEnabled(dview, false);
 
-            boolean reminder = (remind_to || remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
+            boolean reminder = (remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
             swSendReminders.setChecked(send_reminders);
             swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
             tvSendRemindersHint.setVisibility(View.GONE);
@@ -5715,7 +5715,6 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                     prefs.edit().putBoolean("send_reminders", checked).apply();
-                    tvRemindTo.setVisibility(checked && remind_to ? View.VISIBLE : View.GONE);
                     tvRemindExtra.setVisibility(checked && remind_extra ? View.VISIBLE : View.GONE);
                     tvRemindPgp.setVisibility(checked && remind_pgp ? View.VISIBLE : View.GONE);
                     tvRemindSubject.setVisibility(checked && remind_subject ? View.VISIBLE : View.GONE);
