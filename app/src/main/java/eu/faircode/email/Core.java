@@ -3714,13 +3714,11 @@ class Core {
 
             if (!(message.ui_seen || message.ui_ignored || message.ui_hide)) {
                 // This assumes the messages are properly ordered
-                groupMessages.get(group).add(message);
-
-                for (int i = groupMessages.get(group).size() - 1; i >= MAX_NOTIFICATION_COUNT; i--) {
-                    TupleMessageEx overflow = groupMessages.get(group).remove(i);
-                    Log.i("Notify overflow=" + overflow.id);
-                    if (!overflow.ui_ignored)
-                        db.message().setMessageUiIgnored(overflow.id, true);
+                if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
+                    groupMessages.get(group).add(message);
+                else {
+                    if (!message.ui_ignored)
+                        db.message().setMessageUiIgnored(message.id, true);
                 }
             }
         }
