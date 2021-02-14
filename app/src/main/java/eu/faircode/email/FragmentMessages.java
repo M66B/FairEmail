@@ -923,7 +923,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         getContext(),
                         getViewLifecycleOwner(),
                         getParentFragmentManager(),
-                        fabCompose, -1L);
+                        fabCompose, account);
                 return true;
             }
         });
