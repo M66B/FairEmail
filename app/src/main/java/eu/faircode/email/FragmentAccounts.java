@@ -178,10 +178,11 @@ public class FragmentAccounts extends FragmentBase {
         fabCompose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActivityCompose.class)
-                        .putExtra("action", "new")
-                        .putExtra("account", -1L)
-                );
+                FragmentDialogIdentity.onCompose(
+                        getContext(),
+                        getViewLifecycleOwner(),
+                        getParentFragmentManager(),
+                        fabCompose, -1L);
             }
         });
 

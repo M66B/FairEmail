@@ -89,7 +89,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -909,7 +908,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabCompose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onCompose();
+                FragmentDialogIdentity.onCompose(
+                        getContext(),
+                        getViewLifecycleOwner(),
+                        getParentFragmentManager(),
+                        fabCompose, account);
             }
         });
 
@@ -2623,52 +2626,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "message:answer");
-    }
-
-    private void onCompose() {
-        Bundle args = new Bundle();
-        args.putLong("account", account);
-
-        new SimpleTask<Boolean>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                fabCompose.setEnabled(false);
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                fabCompose.setEnabled(true);
-            }
-
-            @Override
-            protected Boolean onExecute(Context context, Bundle args) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean identities_asked = prefs.getBoolean("identities_asked", false);
-                if (identities_asked)
-                    return false;
-
-                DB db = DB.getInstance(context);
-                List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
-                return (identities != null && identities.size() > 1);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Boolean ask) {
-                if (ask) {
-                    FragmentDialogIdentity fragment = new FragmentDialogIdentity();
-                    fragment.setArguments(args);
-                    fragment.show(getParentFragmentManager(), "messages:identities");
-                } else
-                    startActivity(new Intent(getContext(), ActivityCompose.class)
-                            .putExtra("action", "new")
-                            .putExtra("account", account));
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "message:compose");
     }
 
     private void onMore() {
@@ -7924,106 +7881,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             EntityAccount account = adapter.getItem(which);
                             getArguments().putLong("account", account.id);
                             sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogIdentity extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_identity, null);
-            final Spinner spIdentity = dview.findViewById(R.id.spIdentity);
-            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-            final Button btnFix = dview.findViewById(R.id.btnFix);
-            final Group grpIdentities = dview.findViewById(R.id.grpIdentities);
-            final Group grpNoIdentities = dview.findViewById(R.id.grpNoIdentities);
-            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
-
-            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    prefs.edit().putBoolean("identities_asked", isChecked).apply();
-                }
-            });
-
-            btnFix.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(getContext(), ActivitySetup.class));
-                    getActivity().finish();
-                    dismiss();
-                }
-            });
-
-            grpIdentities.setVisibility(View.GONE);
-            grpNoIdentities.setVisibility(View.GONE);
-
-            new SimpleTask<List<TupleIdentityEx>>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-                    pbWait.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onPostExecute(Bundle args) {
-                    pbWait.setVisibility(View.GONE);
-                }
-
-                @Override
-                protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-                    return db.identity().getComposableIdentities(null);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
-                    AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), identities);
-                    spIdentity.setAdapter(iadapter);
-
-                    Integer fallback = null;
-                    long account = getArguments().getLong("account");
-                    for (int pos = 0; pos < identities.size(); pos++) {
-                        EntityIdentity identity = identities.get(pos);
-                        if (identity.account.equals(account)) {
-                            if (identity.primary) {
-                                fallback = null;
-                                spIdentity.setSelection(pos);
-                                break;
-                            }
-                            if (fallback == null)
-                                fallback = pos;
-                        }
-                    }
-                    if (fallback != null)
-                        spIdentity.setSelection(fallback);
-
-                    grpIdentities.setVisibility(identities.size() > 0 ? View.VISIBLE : View.GONE);
-                    grpNoIdentities.setVisibility(identities.size() > 0 ? View.GONE : View.VISIBLE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(this, new Bundle(), "identity:select");
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getSelectedItem();
-                            if (identity != null)
-                                startActivity(new Intent(getContext(), ActivityCompose.class)
-                                        .putExtra("action", "new")
-                                        .putExtra("account", identity.account)
-                                        .putExtra("identity", identity.id)
-                                );
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
