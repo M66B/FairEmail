@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,6 +53,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_identity, null);
         final Spinner spIdentity = dview.findViewById(R.id.spIdentity);
+        final TextView tvPrimaryHint = dview.findViewById(R.id.tvPrimaryHint);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         final Button btnFix = dview.findViewById(R.id.btnFix);
         final Group grpIdentities = dview.findViewById(R.id.grpIdentities);
@@ -76,6 +78,14 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
+            }
+        });
+
+        tvPrimaryHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActivitySetup.class)
+                        .putExtra("manual", true));
             }
         });
 
