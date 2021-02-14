@@ -2067,7 +2067,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                 onActionFlagSelection(!message.ui_flagged, null, message.id);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
-                onActionSnooze(message);
+                if (ActivityBilling.isPro(getContext()))
+                    onActionSnooze(message);
+                else {
+                    adapter.notifyItemChanged(pos);
+                    startActivity(new Intent(getContext(), ActivityBilling.class));
+                }
             else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                 onActionHide(message);
             else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
