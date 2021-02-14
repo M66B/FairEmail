@@ -135,7 +135,8 @@ import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 import static javax.mail.Folder.READ_WRITE;
 
 class Core {
-    private static final int MAX_NOTIFICATION_COUNT = 25; // per group
+    private static final int MAX_NOTIFICATION_DISPLAY = 25; // per group
+    private static final int MAX_NOTIFICATION_COUNT = 100; // per group
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
@@ -3728,7 +3729,8 @@ class Core {
             List<Long> add = new ArrayList<>();
             List<Long> update = new ArrayList<>();
             List<Long> remove = new ArrayList<>(groupNotifying.get(group));
-            for (TupleMessageEx message : groupMessages.get(group)) {
+            for (int m = 0; m < groupMessages.get(group).size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
+                TupleMessageEx message = groupMessages.get(group).get(m);
                 long id = (message.content ? message.id : -message.id);
                 if (remove.contains(id)) {
                     remove.remove(id);
@@ -3864,7 +3866,8 @@ class Core {
         // Get contact info
         Map<Long, Address[]> messageFrom = new HashMap<>();
         Map<Long, ContactInfo[]> messageInfo = new HashMap<>();
-        for (TupleMessageEx message : messages) {
+        for (int m = 0; m < messages.size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
+            TupleMessageEx message = messages.get(m);
             ContactInfo[] info = ContactInfo.get(context, message.account, message.folderType, message.from);
 
             Address[] modified = (message.from == null
@@ -3998,7 +4001,8 @@ class Core {
             return notifications;
 
         // Message notifications
-        for (TupleMessageEx message : messages) {
+        for (int m = 0; m < messages.size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
+            TupleMessageEx message = messages.get(m);
             ContactInfo[] info = messageInfo.get(message.id);
 
             // Build arguments
