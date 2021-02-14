@@ -4898,26 +4898,12 @@ public class FragmentCompose extends FragmentBase {
                         });
 
                         if (extras.getBoolean("archive")) {
-                            boolean threading = prefs.getBoolean("threading", true);
                             EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
-                            List<EntityMessage> messages = db.message().getMessagesByThread(
-                                    draft.account, draft.thread, null, null);
-                            for (EntityMessage threaded : messages) {
-                                EntityFolder source = db.folder().getFolder(threaded.folder);
-                                boolean repliedto =
-                                        (!TextUtils.isEmpty(draft.inreplyto) &&
-                                                draft.inreplyto.equals(threaded.msgid));
-                                if ((threaded.ui_seen || repliedto) &&
-                                        (threading || repliedto) &&
-                                        source != null && !source.read_only &&
-                                        archive != null && !archive.id.equals(threaded.folder) &&
-                                        !EntityFolder.isOutgoing(source.type) &&
-                                        !EntityFolder.TRASH.equals(source.type) &&
-                                        !EntityFolder.JUNK.equals(source.type)) {
-                                    if (repliedto)
-                                        EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
-                                    EntityOperation.queue(context, threaded, EntityOperation.MOVE, archive.id);
-                                }
+                            if (archive != null) {
+                                List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
+                                if (messages != null)
+                                    for (EntityMessage message : messages)
+                                        EntityOperation.queue(context, message, EntityOperation.MOVE, archive.id);
                             }
                         }
                     }
@@ -5926,8 +5912,6 @@ public class FragmentCompose extends FragmentBase {
 
             DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
-                private Boolean archive = null;
-
                 @Override
                 public void onChanged(TupleMessageEx draft) {
                     if (draft == null) {
@@ -5979,70 +5963,74 @@ public class FragmentCompose extends FragmentBase {
 
                     grpDsn.setVisibility(dsn ? View.GONE : View.VISIBLE);
 
-                    if (!TextUtils.isEmpty(draft.inreplyto))
-                        if (archive == null) {
-                            Bundle args = new Bundle();
-                            args.putLong("account", draft.account);
-                            args.putString("inreplyto", draft.inreplyto);
-
-                            new SimpleTask<Boolean>() {
-                                @Override
-                                protected void onPreExecute(Bundle args) {
-                                    archive = false;
-                                }
-
-                                @Override
-                                protected @NonNull
-                                Boolean onExecute(Context context, Bundle args) {
-                                    long account = args.getLong("account");
-                                    String inreplyto = args.getString("inreplyto");
-
-                                    if (TextUtils.isEmpty(inreplyto))
-                                        return false;
-
-                                    List<EntityMessage> messages = db.message().getMessagesByMsgId(account, inreplyto);
-                                    if (messages == null)
-                                        return false;
-
-                                    boolean canArchive = false;
-                                    for (EntityMessage message : messages) {
-                                        EntityFolder folder = db.folder().getFolder(message.folder);
-                                        if (folder == null)
-                                            continue;
-                                        if (EntityFolder.INBOX.equals(folder.type) ||
-                                                EntityFolder.USER.equals(folder.type)) {
-                                            canArchive = true;
-                                            break;
-                                        }
-                                    }
-
-                                    if (!canArchive)
-                                        return false;
-
-                                    DB db = DB.getInstance(context);
-                                    EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
-
-                                    return (archive != null);
-                                }
-
-                                @Override
-                                protected void onExecuted(Bundle args, Boolean data) {
-                                    archive = data;
-                                    cbArchive.setChecked(send_archive && archive);
-                                    cbArchive.setEnabled(archive);
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    // Ignored
-                                }
-                            }.execute(FragmentDialogSend.this, args, "send:archive");
-                        } else
-                            cbArchive.setEnabled(archive);
-
                     Helper.setViewsEnabled(dview, true);
                 }
             });
+
+            Bundle aargs = new Bundle();
+            aargs.putLong("id", id);
+
+            new SimpleTask<Boolean>() {
+                @Override
+                protected @NonNull
+                Boolean onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage draft = db.message().getMessage(id);
+                    if (draft == null) {
+                        args.putString("reason", "Draft gone");
+                        return false;
+                    }
+
+                    if (TextUtils.isEmpty(draft.inreplyto)) {
+                        args.putString("reason", "No in-reply-to");
+                        return false;
+                    }
+
+                    EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
+                    if (archive == null) {
+                        args.putString("reason", "No archive");
+                        return false;
+                    }
+
+                    List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
+                    if (messages == null || messages.size() == 0) {
+                        args.putString("reason", "In-reply-to gone");
+                        return false;
+                    }
+
+                    for (EntityMessage message : messages) {
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            continue;
+                        if (EntityFolder.INBOX.equals(folder.type) || EntityFolder.USER.equals(folder.type))
+                            return true;
+                    }
+
+                    args.putString("reason", "Not in inbox or unread");
+                    return false;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Boolean data) {
+                    if (!data) {
+                        String reason = args.getString("reason");
+                        if (BuildConfig.DEBUG)
+                            cbArchive.setText(reason);
+                        else
+                            Log.i("Auto archive reason=" + reason);
+                    }
+                    if (send_archive && data)
+                        cbArchive.setChecked(true);
+                    cbArchive.setEnabled(data);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    // Ignored
+                }
+            }.execute(FragmentDialogSend.this, aargs, "send:archive");
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                     .setView(dview)
