@@ -919,40 +919,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabCompose.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Bundle args = new Bundle();
-                args.putLong("account", account);
-
-                new SimpleTask<EntityFolder>() {
-                    @Override
-                    protected EntityFolder onExecute(Context context, Bundle args) {
-                        long account = args.getLong("account");
-
-                        DB db = DB.getInstance(context);
-                        if (account < 0)
-                            return db.folder().getPrimaryDrafts();
-                        else
-                            return db.folder().getFolderByType(account, EntityFolder.DRAFTS);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, EntityFolder drafts) {
-                        if (drafts == null)
-                            return;
-
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(
-                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                        .putExtra("account", drafts.account)
-                                        .putExtra("folder", drafts.id)
-                                        .putExtra("type", drafts.type));
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:drafts");
-
+                FragmentDialogIdentity.onDrafts(
+                        getContext(),
+                        getViewLifecycleOwner(),
+                        getParentFragmentManager(),
+                        fabCompose, -1L);
                 return true;
             }
         });

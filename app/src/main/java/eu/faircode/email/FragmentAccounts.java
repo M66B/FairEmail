@@ -42,7 +42,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -189,33 +188,11 @@ public class FragmentAccounts extends FragmentBase {
         fabCompose.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Bundle args = new Bundle();
-
-                new SimpleTask<EntityFolder>() {
-                    @Override
-                    protected EntityFolder onExecute(Context context, Bundle args) {
-                        return DB.getInstance(context).folder().getPrimaryDrafts();
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, EntityFolder drafts) {
-                        if (drafts == null)
-                            return;
-
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(
-                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                        .putExtra("account", drafts.account)
-                                        .putExtra("folder", drafts.id)
-                                        .putExtra("type", drafts.type));
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentAccounts.this, args, "account:drafts");
-
+                FragmentDialogIdentity.onDrafts(
+                        getContext(),
+                        getViewLifecycleOwner(),
+                        getParentFragmentManager(),
+                        fabCompose, -1L);
                 return true;
             }
         });

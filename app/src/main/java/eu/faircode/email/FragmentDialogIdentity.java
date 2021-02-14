@@ -38,6 +38,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -187,5 +188,51 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 Log.unexpectedError(manager, ex);
             }
         }.execute(context, owner, args, "identity:compose");
+    }
+
+    static void onDrafts(Context context, LifecycleOwner owner, FragmentManager manager, FloatingActionButton fabCompose, long account) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        new SimpleTask<EntityFolder>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                fabCompose.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                fabCompose.setEnabled(true);
+            }
+
+            @Override
+            protected EntityFolder onExecute(Context context, Bundle args) {
+                long account = args.getLong("account");
+
+                DB db = DB.getInstance(context);
+                if (account < 0)
+                    return db.folder().getPrimaryDrafts();
+                else
+                    return db.folder().getFolderByType(account, EntityFolder.DRAFTS);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityFolder drafts) {
+                if (drafts == null)
+                    return;
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("account", drafts.account)
+                                .putExtra("folder", drafts.id)
+                                .putExtra("type", drafts.type));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(manager, ex);
+            }
+        }.execute(context, owner, args, "view:drafts");
     }
 }
