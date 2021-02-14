@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -56,6 +57,27 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
         final Group grpIdentities = dview.findViewById(R.id.grpIdentities);
         final Group grpNoIdentities = dview.findViewById(R.id.grpNoIdentities);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+
+        spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Object tag = spIdentity.getTag();
+                if (tag != null && !tag.equals(position)) {
+                    TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getAdapter().getItem(position);
+                    startActivity(new Intent(getContext(), ActivityCompose.class)
+                            .putExtra("action", "new")
+                            .putExtra("account", identity.account)
+                            .putExtra("identity", identity.id)
+                    );
+                    dismiss();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
 
         cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -99,22 +121,27 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), identities);
                 spIdentity.setAdapter(iadapter);
 
-                Integer fallback = null;
+                Integer selected = null;
                 long account = getArguments().getLong("account");
                 for (int pos = 0; pos < identities.size(); pos++) {
                     EntityIdentity identity = identities.get(pos);
                     if (identity.account.equals(account)) {
                         if (identity.primary) {
-                            fallback = null;
-                            spIdentity.setSelection(pos);
+                            selected = pos;
                             break;
                         }
-                        if (fallback == null)
-                            fallback = pos;
+                        if (selected == null)
+                            selected = pos;
                     }
                 }
-                if (fallback != null)
-                    spIdentity.setSelection(fallback);
+
+                if (selected == null && identities.size() > 0)
+                    selected = 0;
+
+                if (selected != null) {
+                    spIdentity.setTag(selected);
+                    spIdentity.setSelection(selected);
+                }
 
                 grpIdentities.setVisibility(identities.size() > 0 ? View.VISIBLE : View.GONE);
                 grpNoIdentities.setVisibility(identities.size() > 0 ? View.GONE : View.VISIBLE);
