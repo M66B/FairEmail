@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -108,7 +109,8 @@ public class FragmentPop extends FragmentBase {
     private boolean saving = false;
 
     private static final int REQUEST_COLOR = 1;
-    private static final int REQUEST_DELETE = 2;
+    private static final int REQUEST_SAVE = 2;
+    private static final int REQUEST_DELETE = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -238,7 +240,20 @@ public class FragmentPop extends FragmentBase {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSave();
+                onSave(false);
+            }
+        });
+
+        addKeyPressedListener(new ActivityBase.IKeyPressedListener() {
+            @Override
+            public boolean onKeyPressed(KeyEvent event) {
+                return false;
+            }
+
+            @Override
+            public boolean onBackPressed() {
+                onSave(true);
+                return true;
             }
         });
 
@@ -253,7 +268,7 @@ public class FragmentPop extends FragmentBase {
         return view;
     }
 
-    private void onSave() {
+    private void onSave(boolean should) {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
@@ -289,6 +304,8 @@ public class FragmentPop extends FragmentBase {
 
         args.putLong("left", ((EntityFolder) spLeft.getSelectedItem()).id);
         args.putLong("right", ((EntityFolder) spRight.getSelectedItem()).id);
+
+        args.putBoolean("should", should);
 
         new SimpleTask<Boolean>() {
             @Override
@@ -337,32 +354,86 @@ public class FragmentPop extends FragmentBase {
                 long right = args.getLong("right");
 
                 boolean pro = ActivityBilling.isPro(context);
+                boolean should = args.getBoolean("should");
 
                 if (host.contains(":")) {
                     Uri h = Uri.parse(host);
                     host = h.getHost();
                 }
 
-                if (TextUtils.isEmpty(host))
+                if (TextUtils.isEmpty(host) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (encryption == EmailService.ENCRYPTION_SSL ? "995" : "110");
-                if (TextUtils.isEmpty(user))
+                if (TextUtils.isEmpty(user) && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
-                if (synchronize && TextUtils.isEmpty(password) && !insecure)
+                if (synchronize && TextUtils.isEmpty(password) && !insecure && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                 if (TextUtils.isEmpty(interval))
                     interval = Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL);
+                Integer max_messages = (TextUtils.isEmpty(max) ? null : Integer.parseInt(max));
+                int poll_interval = Math.max(1, Integer.parseInt(interval));
 
                 if (TextUtils.isEmpty(name))
                     name = user;
                 if (color == Color.TRANSPARENT || !pro)
                     color = null;
+                if (!pro)
+                    notify = false;
 
                 long now = new Date().getTime();
 
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(id);
+
+                if (should) {
+                    if (account == null)
+                        return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
+
+                    if (!Objects.equals(account.host, host))
+                        return true;
+                    if (!Objects.equals(account.encryption, encryption))
+                        return true;
+                    if (!Objects.equals(account.insecure, insecure))
+                        return true;
+                    if (!Objects.equals(account.port, Integer.parseInt(port)))
+                        return true;
+                    if (!Objects.equals(account.user, user))
+                        return true;
+                    if (!Objects.equals(account.password, password))
+                        return true;
+                    if (!Objects.equals(account.name, name))
+                        return true;
+                    if (!Objects.equals(account.color, color))
+                        return true;
+                    if (!Objects.equals(account.synchronize, synchronize))
+                        return true;
+                    if (!Objects.equals(account.ondemand, ondemand))
+                        return true;
+                    if (!Objects.equals(account.primary, account.synchronize && primary))
+                        return true;
+                    if (!Objects.equals(account.notify, notify))
+                        return true;
+                    if (!Objects.equals(account.auto_seen, auto_seen))
+                        return true;
+                    if (!Objects.equals(account.leave_on_server, leave_server))
+                        return true;
+                    if (!Objects.equals(account.leave_deleted, leave_deleted))
+                        return true;
+                    if (!Objects.equals(account.leave_on_device, leave_device))
+                        return true;
+                    if (!Objects.equals(account.max_messages, max_messages))
+                        return true;
+                    if (!Objects.equals(account.poll_interval, poll_interval))
+                        return true;
+
+                    if (!Objects.equals(account.swipe_left, left))
+                        return true;
+                    if (!Objects.equals(account.swipe_right, right))
+                        return true;
+
+                    return false;
+                }
 
                 boolean check = (synchronize && (account == null ||
                         !account.synchronize ||
@@ -427,8 +498,8 @@ public class FragmentPop extends FragmentBase {
                     account.leave_on_server = leave_server;
                     account.leave_deleted = leave_deleted;
                     account.leave_on_device = leave_device;
-                    account.max_messages = (TextUtils.isEmpty(max) ? null : Integer.parseInt(max));
-                    account.poll_interval = Math.max(1, Integer.parseInt(interval));
+                    account.max_messages = max_messages;
+                    account.poll_interval = poll_interval;
 
                     account.swipe_left = left;
                     account.swipe_right = right;
@@ -542,23 +613,33 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean dirty) {
-                Context context = getContext();
-                if (context != null)
-                    WidgetUnified.updateData(context); // Update color stripe
+                if (dirty) {
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", getString(R.string.title_ask_save));
 
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    getParentFragmentManager().popBackStack();
+                    FragmentDialogAsk fragment = new FragmentDialogAsk();
+                    fragment.setArguments(aargs);
+                    fragment.setTargetFragment(FragmentPop.this, REQUEST_SAVE);
+                    fragment.show(getParentFragmentManager(), "account:save");
+                } else {
+                    Context context = getContext();
+                    if (context != null)
+                        WidgetUnified.updateData(context); // Update color stripe
 
-                    if (cbIdentity.isChecked()) {
-                        Bundle aargs = new Bundle();
-                        aargs.putLong("account", args.getLong("account"));
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        getParentFragmentManager().popBackStack();
 
-                        FragmentIdentity fragment = new FragmentIdentity();
-                        fragment.setArguments(aargs);
-                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.leave_to_left);
-                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
-                        fragmentTransaction.commit();
+                        if (cbIdentity.isChecked()) {
+                            Bundle aargs = new Bundle();
+                            aargs.putLong("account", args.getLong("account"));
+
+                            FragmentIdentity fragment = new FragmentIdentity();
+                            fragment.setArguments(aargs);
+                            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                            fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.leave_to_left);
+                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
+                            fragmentTransaction.commit();
+                        }
                     }
                 }
             }
@@ -746,6 +827,18 @@ public class FragmentPop extends FragmentBase {
                         } else
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
+                    break;
+                case REQUEST_SAVE:
+                    if (resultCode == RESULT_OK) {
+                        getMainHandler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                scroll.smoothScrollTo(0, btnSave.getBottom());
+                            }
+                        });
+                        onSave(false);
+                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        getParentFragmentManager().popBackStack();
                     break;
                 case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
