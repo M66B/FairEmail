@@ -295,6 +295,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
+* [(165) Is Android Auto supported?](#user-content-faq165)
 
 [I have another question.](#user-content-support)
 
@@ -3541,6 +3542,23 @@ Moreover, a theme is more than just a few colors.
 For example themes with a yellow accent color use a darker link color for enough contrast.
 
 The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+
+<br />
+
+<a name="faq165"></a>
+**(165) Is Android Auto supported?**
+
+Yes, Android Auto is supported, but only with the GitHub version,
+please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+
+For notification (messaging) support you'll need to enable the following notification options:
+
+* *Use Android 'messaging style' notification format*
+* Notification actions: *Direct reply* and (mark as) *Read*
+
+You can enable other notification actions too, if you like, but they are not supported by Android Auto.
+
+The developers guide is [here](https://developer.android.com/training/cars/messaging).
 
 <br />
 
