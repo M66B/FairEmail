@@ -214,6 +214,8 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean ui_ignored = false;
     @NonNull
+    public Boolean ui_silent = false;
+    @NonNull
     public Boolean ui_browsed = false;
     public Long ui_busy;
     public Long ui_snoozed;

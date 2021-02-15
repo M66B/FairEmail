@@ -661,6 +661,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id AND NOT (ui_ignored IS :ui_ignored)")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
+    @Query("UPDATE message SET ui_silent = :ui_silent WHERE id = :id AND NOT (ui_silent IS :ui_silent)")
+    int setMessageUiSilent(long id, boolean ui_silent);
+
     @Query("UPDATE message SET ui_busy = :busy WHERE id = :id AND NOT (ui_busy IS :busy)")
     int setMessageUiBusy(long id, Long busy);
 

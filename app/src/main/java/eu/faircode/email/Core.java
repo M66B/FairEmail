@@ -135,7 +135,7 @@ import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 import static javax.mail.Folder.READ_WRITE;
 
 class Core {
-    private static final int MAX_NOTIFICATION_DISPLAY = 25; // per group
+    private static final int MAX_NOTIFICATION_DISPLAY = 7; // per group
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
@@ -3729,8 +3729,13 @@ class Core {
             List<Long> add = new ArrayList<>();
             List<Long> update = new ArrayList<>();
             List<Long> remove = new ArrayList<>(groupNotifying.get(group));
-            for (int m = 0; m < groupMessages.get(group).size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
+            for (int m = 0; m < groupMessages.get(group).size(); m++) {
                 TupleMessageEx message = groupMessages.get(group).get(m);
+                if (m >= MAX_NOTIFICATION_DISPLAY) {
+                    db.message().setMessageUiSilent(message.id, true);
+                    continue;
+                }
+
                 long id = (message.content ? message.id : -message.id);
                 if (remove.contains(id)) {
                     remove.remove(id);
@@ -4067,6 +4072,11 @@ class Core {
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
+
+            if (message.ui_silent) {
+                mbuilder.setSilent(true);
+                Log.i("Notify silent=" + message.id);
+            }
 
             if (notify_messaging) {
                 // https://developer.android.com/training/cars/messaging
