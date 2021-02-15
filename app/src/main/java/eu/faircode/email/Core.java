@@ -3703,9 +3703,9 @@ class Core {
             if (!message.folderUnified)
                 group = -message.folder;
             if (!data.groupNotifying.containsKey(group))
-                data.groupNotifying.put(group, new ArrayList<Long>());
+                data.groupNotifying.put(group, new ArrayList<>());
             if (!groupMessages.containsKey(group))
-                groupMessages.put(group, new ArrayList<TupleMessageEx>());
+                groupMessages.put(group, new ArrayList<>());
 
             if (message.notifying != 0) {
                 long id = message.id * message.notifying;
@@ -3716,11 +3716,11 @@ class Core {
                 }
             }
 
-            if (!message.ui_seen && !message.ui_ignored && !message.ui_hide) {
-                // This assumes the messages are properly ordered
+            if (!(message.ui_seen || message.ui_ignored || message.ui_hide)) {
                 Integer current = newMessages.get(group);
                 newMessages.put(group, current == null ? 1 : current + 1);
 
+                // This assumes the messages are properly ordered
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
                 else
@@ -3736,7 +3736,9 @@ class Core {
             for (int m = 0; m < groupMessages.get(group).size(); m++) {
                 TupleMessageEx message = groupMessages.get(group).get(m);
                 if (m >= MAX_NOTIFICATION_DISPLAY) {
-                    db.message().setMessageUiSilent(message.id, true);
+                    // This is to prevent notification sounds when shifting messages up
+                    if (!message.ui_silent)
+                        db.message().setMessageUiSilent(message.id, true);
                     continue;
                 }
 
@@ -3779,8 +3781,12 @@ class Core {
                     notify_summary, current - prev,
                     redacted);
 
-            Log.i("Notify group=" + group + " count=" + notifications.size() +
-                    " added=" + add.size() + " removed=" + remove.size());
+            Log.i("Notify group=" + group +
+                    " new=" + prev + "/" + current +
+                    " count=" + notifications.size() +
+                    " add=" + add.size() +
+                    " update=" + update.size() +
+                    " remove=" + remove.size());
 
             if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;
@@ -3805,7 +3811,7 @@ class Core {
 
             for (NotificationCompat.Builder builder : notifications) {
                 long id = builder.getExtras().getLong("id", 0);
-                if ((id == 0 && prev != current) || add.contains(id)) {
+                if ((id == 0 && !prev.equals(current)) || add.contains(id)) {
                     // https://developer.android.com/training/wearables/notifications/creating
                     if (id == 0) {
                         if (!notify_summary)
