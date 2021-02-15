@@ -1,6 +1,8 @@
 # Suporte do FairEmail
 
-Se você tiver alguma pergunta, verifique primeiro as perguntas mais frequentes abaixo. No final, você pode descobrir como fazer outras perguntas, solicitar recursos e relatar erros.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
@@ -16,13 +18,13 @@ Se você tiver alguma pergunta, verifique primeiro as perguntas mais frequentes 
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Para isso, você precisará dos endereços de servidor IMAP e SMTP e dos números de porta, selecionar se deve utilizar SSL/TLS ou STARTTLS e por fim, seu nome de usuário (normalmente, mas não sempre, seu e-mail) e sua senha.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Procurar por *IMAP* junto com o nome do provedor geralmente é suficiente para encontrar a documentação correta.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Em alguns casos, você precisará permitir acesso externo à sua conta e/ou usar uma senha especial (aplicativo), como nos casos em que a autenticação de dois fatores estiver ativada.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Para autorizar:
+For authorizing:
 
 * Gmail / G Suite, veja a [pergunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, veja a [pergunta 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Para autorizar:
 * Apple iCloud, veja a [pergunta 148](#user-content-faq148)
 * Free.fr, veja a [pergunta 157](#user-content-faq157)
 
-Por favor, veja [aqui](#user-content-faq22) as mensagens de erro mais comuns e suas soluções.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Perguntas relacionadas:
+Related questions:
 
 * [OAuth é suportado?](#user-content-faq111)
 * [Por que o ActiveSync não é suportado?](#user-content-faq133)
@@ -113,11 +115,11 @@ Perguntas relacionadas:
 * ~~Suporte a S/MIME~~
 * ~~Busca por configurações~~
 
-Tudo que está nessa lista está em ordem aleatória e *pode* ser adicionado em um futuro próximo.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Funcionalidades solicitadas frequentemente
 
-O design é baseado em várias discussões e, se quiser, você pode discutir sobre isso também [nesse fórum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). O objetivo do design é ser minimalista (sem menus e botões desnecessários, etc) e sem distrações (sem cores bonitas, animações, etc). Todas as coisas exibidas devem ser úteis de uma forma ou outra e devem ser cuidadosamente posicionadas para fácil uso. Fontes, tamanhos, cores etc devem ser de design simples sempre que possível.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Perguntas Frequentes (FAQ)
 
@@ -284,12 +286,12 @@ O design é baseado em várias discussões e, se quiser, você pode discutir sob
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[Eu tenho outra pergunta.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Quais permissões são necessárias e por quê?**
+**(1) Which permissions are needed and why?**
 
-As seguintes permissões do Android são necessárias:
+The following Android permissions are needed:
 
 * *acesso completo à rede* (INTERNET): para enviar e receber e-mails
 * *ver conexões de rede* (ACCESS_NETWORK_STATE): para monitorar mudanças de conectividade com a internet
@@ -304,9 +306,9 @@ As seguintes permissões do Android são necessárias:
 * Android 5.1 Lollipop e anteriores: *usar contas no dispositivo* (USE_CREDENTIALS): para selecionar uma conta quando estiver usando a configuração rápida do Gmail (não é solicitada nas versões posteriores do Android)
 * Android 5.1 Lollipop e anteriores: *Ler perfil* (READ_PROFILE): para ler seu nome quando estiver a configurção rápida do Gmail (não é solicitada nas versões posteriores do Android)
 
-[Permissões opcionais](https://developer.android.com/training/permissions/requesting) são concedidas automaticamente apenas no Android 6 Marshmallow e posteriores. Nas versões anteriores do Android você será solicitado a conceder as permissões opcionais ao instalar o FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-As seguintes permissões são necessárias para mostrar a contagem de mensagens não lidas como um ícone (veja também [esse FAQ](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -325,38 +327,38 @@ As seguintes permissões são necessárias para mostrar a contagem de mensagens 
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-O FairEmail manterá uma lista de endereços dos quais você recebe mensagens e para os quais você envia e utilizará essa lista como sugestão de contatos quando a permissão para ler seus contatos não for concedida ao FairEmail. Isso significa que você pode utilizar o FairEmail mesmo sem o provedor de contatos do Android (livro de endereços). Observe que você ainda pode escolher contatos sem conceder a permissão para ler seus contatos. Apenas a sugestão de contatos não irá funcionar sem a concessão dessa permissão.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Porque a notificação é mostrada de forma permanente?**
+**(2) Why is there a permanent notification shown?**
 
-Uma notificação de baixa prioridade com o número de contas monitoradas e o número de operações pendentes (veja a próxima pergunta) é exibida na barra de status de forma permanente para evitar que o Android encerre o serviço que possibilita o contínuo recebimento de e-mails. Isso [ já era necessário](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)) antes, mas com a introdução do [Modo Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) no Android 6 Marshmallow isso se tornou mais necessário do que nunca. O Modo Doze irá fechar todos os aplicativos depois de algum tempo que a tela estiver desligada, a menos que o aplicativo inicie em primeiro plano, o que requer a exibição de uma notificação na barra de status.
+A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-A maioria, se não todos, os outros aplicativos de e-mail não mostram uma notificação, com o "efeito colateral" de que novas mensagens muitas vezes não são relatadas ou são relatadas tardiamente e mensagens acabam não sendo enviadas ou são enviadas tardiamente.
+Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-O Android mostra os ícones de alta prioridade primeiro na barra de status e irá esconder o ícone do FairEmail se não houver mais espaço para mostrar ícones. Na prática, isso significa que a notificação do FairEmail não ocupa espaço na barra de status, a não ser que exista espaço sobrando.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-A notificação na barra de status pode ser desabilitada através das configurações de notificação do FairEmail:
+The status bar notification can be disabled via the notification settings of FairEmail:
 
 * Android 8 Oreo e posterior: toque no botão *Canal de Recebimento* e desabilite o canal através das configurações do Android (isso não desativará notificações de novas mensagens)
 * Android 7 Nougat e anterior: toque em *Usar o serviço em segundo plano para sincronizar mensagens*, mas lembre-se de ler o comentário abaixo da configuração
 
-Você pode alternar para a sincronização periódica de mensagens nas configurações de recebimento para remover a notificação, mas esteja ciente de que isso pode usar mais bateria. Veja [aqui](#user-content-faq39) para mais detalhes sobre o uso de bateria.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Ore pode exibir também uma notificação na barra de status com a mensagem * Aplicativos estão sendo executados em segundo plano*. Por favor, veja [aqui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) sobre como desativar essa notificação.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Algumas pessoas sugeriram o uso do [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) ao invés de um serviço do Android com uma notificação na barra de status, mas isso requer que os provedores de mensagens enviem mensagens FCM ou a existência de um servidor central onde todas as mensagens são coletadas enviando mensagens FCM. A primeira opção não irá acontecer e a última terias implicações significativas em termos de privacidade.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-Se você chegou aqui após clicar na notificação, saiba que o próximo clique abrirá a caixa de entrada unificada.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
 <a name="faq3"></a>
-**(3) O que são operações e por que elas estão pendentes?**
+**(3) What are operations and why are they pending?**
 
-A notificação de baixa prioridade na barra de status mostra o número de operações pendentes, que podem ser:
+The low priority status bar notification shows the number of pending operations, which can be:
 
 * *a adicionar*: adicionar mensagens a uma pasta remota
 * *a mover*: mover mensagens para outra pasta remota
@@ -378,17 +380,18 @@ A notificação de baixa prioridade na barra de status mostra o número de opera
 * *a enviar*: enviando mensagens
 * *a checar*: checando se a mensagens existe
 * *regra*: executando uma regra no texto do corpo
+* *expunge*: permanently delete messages
 
-Operações são processadas somente quando há uma conexão com o servidor de e-mail ou quando é feita a sincronização manual. Veja também [esse FAQ](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Como posso usar um certificado de seguranã inválido / senha em branco / conexão de texto simples?**
+**(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*... Não confiável ... não está no certificado ...*
+*... Untrusted ... not in certificate ...*
 <br />
-*... Certificado de segurança inválido (Não foi possível verificar a identidade do servidor) ...*
+*... Invalid security certificate (Can't verify identity of server) ...*
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

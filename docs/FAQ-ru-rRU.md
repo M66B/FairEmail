@@ -1,6 +1,8 @@
 # Техподдержка FairEmail
 
-Если возник вопрос, пожалуйста, сначала ниже посмотрите список частых вопросов. Внизу объясняется, как задавать прочие вопросы, запрашивать новые функции и сообщать о багах.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Оглавление
 
@@ -14,15 +16,15 @@
 
 ## Авторизация аккаунтов
 
-Как правило, мастер быстрой настройки сам определяет верную конфигурацию.
+In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-Если мастер быстрой настройки не сделает этого, вам нужно будет вручную настроить аккаунт (чтобы получать эл. почту) и задать личные данные (чтобы отправлять эл. почту). Для этого нужно задать адреса серверов IMAP и SMTP и номера портов, выбрать между использованием SSL/TLS или STARTTLS, а также ввести имя пользователя (как правило, хотя не всегда, это адрес эл. почты) и пароль.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Поиска *IMAP* и название провайдера в большинстве случаев достаточно для поиска необходимой документации.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-В некоторых случаях вам нужно разрешить внешний доступ к вашей учетной записи и/или использовать специальный (app) пароль, в частности, когда включена двухэтапная аутентификация.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Для авторизации:
+For authorizing:
 
 * Gmail / G набор, см. [вопрос 6](#user-content-faq6)
 * Outlook / жизнь / Hotmail, см. [вопрос 14](#user-content-faq14)
@@ -32,9 +34,9 @@
 * Apple iCloud, см. [вопрос 148](#user-content-faq148)
 * Free.fr, см. [вопрос 157](#user-content-faq157)
 
-Пожалуйста, посмотрите [здесь](#user-content-faq22) о частых сообщениях об ошибках и их решениях.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Связанные вопросы:
+Related questions:
 
 * [Поддерживается ли OAuth?](#user-content-faq111)
 * [Почему ActiveSync не поддерживается?](#user-content-faq133)
@@ -113,11 +115,11 @@
 * ~~Поддержка S/MIME~~
 * ~~Поиск настроек~~
 
-Что угодно из этого списка в случайном порядке *может быть* добавлено в ближайшем будущем.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Часто запрашиваемые возможности
 
-Дизайн основан на долгих обсуждениях, и, если хотите, вы тоже можете обсудить его [на этом форуме](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Цель дизайна – быть минималистичным (без лишних меню, кнопок и т.п.) и не отвлекающим (без причудливых цветов, анимаций и т.п.). Все отображаемые элементы должны быть полезны тем или иным способом и должны быть разумно размещены для удобного использования. Шрифты, размеры, цвета и т.п. должны по возможности следовать материальному дизайну.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Часто задаваемые вопросы
 
@@ -284,12 +286,12 @@
 * [(163) Что такое классификация сообщений?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[У меня есть еще один вопрос.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-** (1) Какие разрешения необходимы и почему? **
+**(1) Which permissions are needed and why?**
 
-Требуются следующие разрешения Android:
+The following Android permissions are needed:
 
 * * иметь полный доступ к сети * (ИНТЕРНЕТ): для отправки и получения электронной почты
 * * просмотр сетевых подключений * (ACCESS_NETWORK_STATE): для отслеживания изменений подключения к Интернету
@@ -304,9 +306,9 @@
 * Android 5.1 Lollipop и более ранние версии: * использовать учетные записи на устройстве * (USE_CREDENTIALS): для выбора учетной записи при использовании быстрой настройки Gmail (не требуется в более поздних версиях Android)
 * Android 5.1 Lollipop и ниже: *Используют учетные записи устройства* (READ_PROFILE): чтобы узнать ваше имя во время быстрой настройки Gmail (не требуется в более поздних версиях Android)
 
-[Необязательные разрешения](https://developer.android.com/training/permissions/requesting) поддерживаются только на Android 6 Marshmallow и более поздних версиях. На более ранних версиях Android вас попросят предоставить дополнительные разрешения для установки FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-Следующий список разрешений требуется для отображения числа непрочитанных сообщений в качестве значка на иконке приложений (см. также [данный FAQ](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -325,38 +327,38 @@
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail будет хранить список адресов, от которых вы получаете сообщения и которым их отправляете, и будет использовать этот список, чтобы подсказывать вам адреса при отправке сообщений, если FairEmail не будет предоставлено ни одного разрешения к списку контактов. Это значит что вы можете использовать FairEmail, не используя список контактов Android (адресная книжка). Обратите внимание что вы все еще можете выбирать адреса, не давая FairEmail разрешения на это, только предлагаемые адреса не будут работать без этого разрешения.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Почему у меня отображается не пропадающее уведомление?**
+**(2) Why is there a permanent notification shown?**
 
-Низкоприоритетное не пропадающее уведомление в строке состояния с количеством отслеживаемых учетных записей и ожидающих операций (см. следующий вопрос) показывается для того, чтобы предотвратить автоматическое завершение работы службы, необходимой для непрерывного получения писем. Это было [необходимо и ранее](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), но с введением в Android 6 Marshmallow [спящего режима](https://developer.android.com/training/monitoring-device-state/doze-standby) это стало более, чем необходимо. Спящий режим останавливает все приложения спустя некоторое время после затухания экрана, за исключением случаев, когда приложение запускает службу для отправки уведомлений.
+A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-Большинство, если не все, другие почтовые приложения не присылают уведомления с "побочным эффектом" при котором уведомления о новых сообщения или приходят слишком поздно или не приходят вовсе, и так же происходит с уведомлениями об отправленных сообщениях.
+Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-В строке состояния Android, в первую очередь, отображает уведомления с высоким приоритетом и скрывает уведомление от FairEmail, если для него не остается достаточно места. По сути, это означает что уведомление от FairEmail занимает место в строке состояния только, если есть свободное место.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-Уведомление в строке состояния можно отключить с помощью настроек уведомлений от FairEmail:
+The status bar notification can be disabled via the notification settings of FairEmail:
 
 * Android 8 Oreo и более поздние версии: нажмите кнопку *Получить канал* и отключите его через настройки уведомлений Android (уведомления о новых сообщениях не отключатся)
 * Android 7 Nougat и более ранние версии: включите настройку *Использовать фоновый сервис для синхронизации сообщений*, но не забудьте прочитать предупреждение под ней
 
-Вы можете переключиться на периодическую синхронизацию сообщений в настройках их получения, чтобы избавиться от уведомления в строке состояния, но имейте в виду, что это может увеличить расход батареи. Загляните [сюда](#user-content-faq39) чтобы узнать больше о расходе батареи.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-На Android 8 Oreo также может появиться уведомление в строке состояния с текстом*Приложения запущены в фоновом режиме*. Пожалуйста, загляните [сюда](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) чтобы узнать как отключить это уведомление.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Некоторые люди советуют использовать [Службу Облачных Сообщений Firebase](https://firebase.google.com/docs/cloud-messaging/) (FMC) вместо Android службы уведомлений в строке состояния, но для этого провайдеру электронной почты потребуется отправлять сообщения FMC или на центральный сервер, где собираются все сообщения для отправки FMC. Первое никогда не произойдет, а второе будет иметь значительные последствия для конфиденциальности.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-Если вы попали сюда, нажав на уведомление, вам стоит знать, что следующий щелчок откроет единый почтовый ящик.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
 <a name="faq3"></a>
-**(3) Что такое операции и почему они ожидают?**
+**(3) What are operations and why are they pending?**
 
-Низкоприоритетное уведомление в строке состояния показывает число ожидающих операций, которыми могут быть:
+The low priority status bar notification shows the number of pending operations, which can be:
 
 * *add - добавить*: добавить сообщение в удаленную папку
 * *move - переместить*: переместить сообщение в другую удалённую папку
@@ -378,8 +380,9 @@ FairEmail будет хранить список адресов, от котор
 * *send - отправить*: отправить сообщение
 * *exists - существует*: проверить существует ли сообщение
 * *rule - правило*: использовать правило на основной текст сообщения
+* *expunge*: permanently delete messages
 
-Операции производятся только, когда есть соединение с сервером почты или во время ручной синхронизации. Смотрите так же [данный FAQ](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
@@ -467,9 +470,9 @@ If you use the Play store or GitHub version of FairEmail, you can use the quick 
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
-**Важно**: иногда Google выводит это предупреждение:
+**Important**: sometimes Google issues this alert:
 
-*[ALERT] Пожалуйста, войдите с помощью своего веб браузера: https://support.google.com/mail/accounts/answer/78754 (Неудача)*
+*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

@@ -1,6 +1,8 @@
 # Υποστήριξη του FairEmail
 
-Αν έχετε κάποια απορία, παρακαλώ, συμβουλευτείτε πρώτα την παρακάτω λίστα με τις συχνές ερωτήσεις. Στο κάτω μέρος, μπορείτε να βρείτε πώς μπορείτε να θέτετε άλλες ερωτήσεις, να ζητάτε καινούργιες δυνατότητες και να αναφέρετε προβλήματα.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Ευρετήριο
 
@@ -16,13 +18,13 @@
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Για τον σκοπό αυτό, θα χρειαστεί να ορίσετε τις διευθύνσεις εξυπηρετητή IMAP και SMTP και τους εκάστοτε αριθμούς θυρών, εάν θα χρησιμοποιηθεί SSL/TLS ή STARTTLS, καθώς και το όνομα χρήστη (συνήθως, αλλά όχι πάντα, η διεύθυνση ηλ. ταχυδρομείου) και τον προσωπικό κωδικό σας.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Η αναζήτηση για το *IMAP* και το όνομα του παρόχου, τις περισσότερες φορές, είναι αρκετό για να βρείτε τις σωστές οδηγίες.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Σε μερικές περιπτώσεις, θα πρέπει να ενεργοποιήσετε την εξωτερική πρόσβαση στο λογαριασμό σας ή/και να χρησιμοποιήσετε ένα ειδικό κωδικό (εφαρμογή), π. χ όταν είναι ενεργοποιημένος ο έλεγχος ταυτότητας 2 παραγόντων.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Για εξουσιοδότηση:
+For authorizing:
 
 * Gmail / G Suite, δείτε [ ερώτηση 6](#user-content-faq6)
 * Outlook / Live / Hotmail, δείτε [ ερώτηση 14](#user-content-faq14)
@@ -32,9 +34,9 @@ If the quick setup wizard fails, you'll need to manually set up an account (to r
 * Apple iCloud, δείτε [ερώτηση 148](#user-content-faq148)
 * Free.fr, δείτε [ερώτηση 157](#user-content-faq157)
 
-Παρακαλώ δείτε [εδώ](#user-content-faq22) για συχνά μηνύματα λάθους και λύσεις.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Σχετικές ερωτήσεις:
+Related questions:
 
 * [Υποστήριξη OAuth;](#user-content-faq111)
 * [Γιατί δεν υποστηρίζεται το ActiveSync;](#user-content-faq133)
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

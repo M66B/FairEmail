@@ -1,6 +1,8 @@
 # Bantuan FairEmail
 
-Jika Anda memiliki pertanyaan, silakan periksa pertanyaan yang sering diajukan di bawah ini terlebih dahulu. Di bagian bawah, Anda dapat mengetahui cara mengajukan pertanyaan lain, meminta fitur, dan melaporkan bug.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Panduan
 
@@ -16,13 +18,13 @@ Jika Anda memiliki pertanyaan, silakan periksa pertanyaan yang sering diajukan d
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Untuk itu, Anda membutuhkan alamat server IMAP dan SMTP dan nomor port, gunakan SSL/TLS atau STARTTLS dan nama pengguna Anda (umumnya, tapi terkadang tidak perlu, alamat surel Anda) dan kata sandi Anda.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Mencari *IMAP* dan nama provider selalu cukup untuk menemukan dokumentasi yang cocok.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Dalam beberapa kasus, Anda perlu mengaktifkan akses eksternal ke akun Anda dan/atau gunakan (aplikasi) kata sandi spesial, misalnya ketika otentikasi dua faktor diaktifkan.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Untuk memberikan izin:
+For authorizing:
 
 * Gmail / G suite, lihat [pertanyaan 6](#user-content-faq6)
 * Outlook / Live / Hotmail, lihat [pertanyaan 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Untuk memberikan izin:
 * Apple iCloud, lihat [pertanyaan 148](#user-content-faq148)
 * Free.fr, lihat [pertanyaan 157](#user-content-faq157)
 
-Sila lihat [disini](#user-content-faq22) untuk pesan eror yang biasa ditemukan dan solusinya.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Pertanyaan terkait:
+Related questions:
 
 * [Apakah OAuth didukung?](#user-content-faq111)
 * [Mengapa ActiveSync tidak didukung?](#user-content-faq133)
@@ -113,11 +115,11 @@ Pertanyaan terkait:
 * ~~Dukungan S/MIME~~
 * ~~Pencarian untuk pengaturan~~
 
-Apapun yang ada dalam daftar ini disusun secara acak dan *mungkin* akan ditambahkan pada waktu yang akan datang.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Fitur yang sering diajukan
 
-Desain ini bersadarkan dari banyak diskusi dan anda dapat mendiskusikannya [di forum ini](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) jika anda menginginkannya. Tujuan dari desain ini adalah minimalis (tidak ada menu, tombol, dll. yang tidak diperlukan) dan tidak mengganggu (tidak ada warna atau animasi yang mencolok, dsb.). Hal-hal yang ditampilkan disini harus berguna sebagaimanapun dan harus ditempatkan secara tepat untuk penggunaan yang mudah. Font, ukuran, warna dan lainnya harus menggunakan desain material bila memungkinkan.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
@@ -284,12 +286,12 @@ Desain ini bersadarkan dari banyak diskusi dan anda dapat mendiskusikannya [di f
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[Saya memiliki pertanyaan lain.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Izin apa yang diperlukan dan mengapa?**
+**(1) Which permissions are needed and why?**
 
-Dibawah ini adalah izin Android yang diperlukan:
+The following Android permissions are needed:
 
 * *memiliki akses internet penuh* (INTERNET): untuk mengirimkan dan menerima pesan
 * *tampilkan koneksi network* (ACCESS_NETWORK_STATE): untuk memonitor perubahan konektivitas internet
@@ -304,9 +306,9 @@ Dibawah ini adalah izin Android yang diperlukan:
 * Android 5.1 Lollipop dan sebelumnya: *gunakan akun di perangkat* (USE_CREDENTIALS): untuk memilih akun saat menggunakan pengaturan cepat Gmail (tidak dapat digunakan dalam versi Android yang lebih lama)
 * Android 5.1 Lollipop dan sebelumnya: *membaca profil* (READ_PROFILE): untuk membaca nama saat menggunakan saat menggunakan pengaturan cepat Gmail (tidak dapat digunakan dalam versi Android yang lebih lama)
 
-[Izin opsional](https://developer.android.com/training/permissions/requesting) hanya terdapat di Android 6 Marshmallow dan sebelumnya. Pada versi Android terbaru, anda akan diminta untuk memberikan izin opsinal untuk menginstal FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-Izin dibawah ini diperlukan untuk menampilkan perhitungan pesan yang belum dibaca sebagai lencana (lihat juga [FAQ ini](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -325,38 +327,38 @@ Izin dibawah ini diperlukan untuk menampilkan perhitungan pesan yang belum dibac
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail akan menyimpan daftar alamat dari pesan yang anda terima dan pesan yang anda kirim, serta akan menggunakan daftar ini untuk penyaranan kontak ketika tidak ada perizinan kontak yang diberikan untuk FairEmail. Artinya, anda dapat menggunakan FairEmail tanpa adanya penyedia kontak Android (buku alamat). Perhatikan bahwa anda masih tetap dapat memilih kontak tanpa anda memberikan izin kontak ke FairEmail, hanya memberikan saran kontak tidak bekerja tanpa mengizinkan kontak.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
 <a name="faq2"></a>
-**(2) mengapa terdapat notifikasi yang permanen yang terlihat?**
+**(2) Why is there a permanent notification shown?**
 
-Bilah status notifkasi permanen yang berprioritas rendah dengan jumlah akun yang sedang dalam pantauan dan jumlah operasi yang tertunda (lihat pertanyaan selanjutnya) ditampilkan untuk mengindari Android mematikan layanan yang mengerjakan penerimaan surel yang terus menerus. Hal ini [telah menjadi penting](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), namun dengan adanya pengenalan dari [mode doze](https://developer.android.com/training/monitoring-device-state/doze-standby) dalam Android 6 Marshmallow hal in menjadi lebih penting dibandingkan sebelumnya. Mode doze akan menghentikan seluruh aplikasi ketika layar sedang dalam keadaan mati beberapa saat, kecuali ketika aplikasi telah menjalankan layanan latar depan, yang membutuhkan tampilan bilah status notifikasi.
+A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-Kebanyakan, namun tidak semua, aplikasi surel lainnya tidak menampilkan notifikasi dengan "efek samping" yaitu pesan baru akan sering tidak atau terlambat diberitahukan dan pesan tersebut tidak atau terlambat dikirimkan.
+Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-Android menampilkan ikon bilah status notifikasi dengan prioritas tinggi terlebih dahulu dan akan menyembunyikan ikon notifikasi FairEmail jika tidak ada tempat untuk menampilkan ikon lagi. Secara praktis, hal ini berarti bilah status notifikasi tidak mengambil tempat di bilah status kecuali memang ada tempat tersedia.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-Bilah status notifikasi dapat dinonaktifkan lewat pengaturan notifikasi FairEmail:
+The status bar notification can be disabled via the notification settings of FairEmail:
 
 * Android 8 Oreo sampai yang terbaru: tekan tombol *Penerimaan channel* dan matikan channel tersebut lewat pengaturan Android (hal ini tidak akan menonaktifkan notifikasi pesan baru)
 * Android 7 Nougat dan sebelumnya: aktifkan *Gunakan layanan latar untuk mensingkroniasikan pesan*, namun harap membaca catatan dibawah pengaturan
 
-Anda dapat mengubah ke singkronisasi pesan secara perodik dalam pengaturan penerimaan untuk menghapus notifikasi, namun waspadalah bahwa hal ini dapat menggunakan daya baterai yang lebih banyak. Lihat [di sini](#user-content-faq39) untuk rincian lebih anjut tentang penggunaan baterai.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Oreo mungkin akan juga menampilkan bilah status notifikasi dengan tulisan *Aplikasi berjalan di background*. Sila lihat [di sini](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) tentang bagaimana cara anda untuk mematikan notifikasi ini.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Beberapa orang memberikan saran untuk menggunakan [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) dibandingkan layanan Android dengan bilah status notifikasi, namun hal ini membutuhkan surel penyedia untuk mengirimkan pesan FCM atau server pusat di mana seluruh pesan dikumpulkan untuk mengirim pesan FCM. Hal yang pertama tidak akan terjadi dan hal yang kedua akan berdampak ke impikasi privasi yang signifikan.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-Jika anda datang ke sini dengan menekan notifikasi, anda harus tahu bahwa jika anda tekan berikutnya akan membuka kotak masuk terpadu.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
 <a name="faq3"></a>
-**(3) Apa itu operasi dan mengapa mereka tertunda?**
+**(3) What are operations and why are they pending?**
 
-Bilah status notifikasi prioritas rendah menampilkan sejumlah operasi yang tertunda, yaitu:
+The low priority status bar notification shows the number of pending operations, which can be:
 
 * *tambah*: menambahkan pesan ke folder remot
 * *pindah*: memindahkan pesan ke folder remot lainnya
@@ -378,13 +380,14 @@ Bilah status notifikasi prioritas rendah menampilkan sejumlah operasi yang tertu
 * *kirim*: mengirim pesan
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
-Operasi diproses hanya ketika ada koneksi ke servel surel atau tersingkronisasi secara manual. Lihat juga [FAQ ini](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Bagaimana cara saya menggunakan sertifikat keamanan yang tidak valid / kata sandi kosong / koneksi teks kosong?**
+**(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
 *... Untrusted ... not in certificate ...*
 <br />
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

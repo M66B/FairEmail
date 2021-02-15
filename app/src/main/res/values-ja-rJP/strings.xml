@@ -3,6 +3,7 @@
     <string name="app_search">検索</string>
     <string name="app_changelog">変更履歴</string>
     <string name="app_welcome">FairEmailはプライバシーとセキュリティに焦点を当てたオープンソースのメールアプリです。その為一部の機能は以前とは異なる動作をする場合があります</string>
+    <string name="app_limitations">例えば、メッセージは、安全でない要素を削除し、可読性を向上させるためにデフォルトで再フォーマットされ、リンクを開く際は安全のために確認が必要です。 どちらも必要に応じて無効にできます。</string>
     <string name="app_crash">Androidのバグによりクラッシュが発生する為、このデバイスではFairEmailはサポートされていません</string>
     <string name="app_exit">もう一度押すと終了します</string>
     <string name="app_cake">空き容量が足りません</string>
@@ -110,10 +111,14 @@
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
+    <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます。</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
+    <string name="title_setup_manual">手動でのセットアップとその他のオプション</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
+    <string name="title_setup_account_identity_hint">アカウント設定で名前、色、スワイプ操作を設定でき、またID設定で署名を設定することができます。</string>
     <string name="title_setup_accounts">アカウント</string>
+    <string name="title_setup_identities">ID</string>
     <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_pop3">POP3 アカウント</string>
@@ -131,16 +136,19 @@
     <string name="title_setup_select_account">アカウントの選択</string>
     <string name="title_setup_instructions">セットアップ手順</string>
     <string name="title_setup_no_settings">\'%1$s\'ドメインの設定が見つかりません</string>
+    <string name="title_setup_no_settings_hint">メールプロバイダが提供する設定を使用して、手動でアカウントを設定してみてください</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードを再確認しアカウントで外部アクセス(IMAP/SMTP)が有効になっている事を確認して下さい</string>
     <string name="title_setup_app_password_hint">このプロバイダーにはアカウントのパスワードで無くアプリのパスワードが必要です。プロバイダーの指示を確認して下さい</string>
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
     <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
+    <string name="title_setup_quick_success">アカウントが追加されました</string>
     <string name="title_setup_manage">管理する</string>
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与する</string>
     <string name="title_setup_identity_what">IDとは？</string>
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
+    <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
     <string name="title_setup_doze_remark">確実にメールを受け取るために必要です</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、バッテリーの最適化をオフにするとバッテリー使用量が少なくなります。</string>
     <string name="title_setup_doze_instructions">次のダイアログで上部の\"全てのアプリ\"を選び、FairEmailを選択し\"最適化しない\"を選んで完了します</string>
@@ -148,6 +156,7 @@
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
     <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
+    <string name="title_setup_inbox">受信トレイに移動</string>
     <string name="title_setup_go">移動</string>
     <string name="title_setup_to_do">タスク</string>
     <string name="title_setup_done">完了</string>
@@ -187,11 +196,16 @@
     <string name="title_setup_theme_system">システム設定に従う</string>
     <string name="title_setup_theme_black_background">ブラック背景</string>
     <string name="title_setup_theme_system_hint">Androidでサポートされている場合、システムテーマは昼/夜に自動的に切り替わります</string>
+    <string name="title_setup_theme_more_colors">もっと色が欲しい場合</string>
     <string name="title_setup_advanced">詳細</string>
     <string name="title_setup_options">オプション</string>
     <string name="title_setup_defaults">既定に戻します</string>
     <string name="title_setup_reset_questions">質問をリセット</string>
     <string name="title_advanced_hint_title">高度なオプション</string>
+    <string name="title_advanced_hint_message">        高度なオプションに移動しています。
+        全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
+    </string>
+    <string name="title_advanced_section_main">スタート</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
     <string name="title_advanced_section_connection">接続</string>
@@ -201,6 +215,7 @@
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
+    <string name="title_advanced_default">すべてのオプションは、一般的に標準値が設定されています</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>
@@ -276,6 +291,9 @@
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>
     <string name="title_advanced_circular">丸いアイコンで表示</string>
+    <string name="title_advanced_color_saturation">彩度: %1$s %%</string>
+    <string name="title_advanced_color_value">明るさ: %1$s %%</string>
+    <string name="title_advanced_color_threshold">閾値の文字色: %1$s %%</string>
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
@@ -379,6 +397,7 @@
     <string name="title_advanced_tracking">トラッキング画像の認識と無効化を試みます</string>
     <string name="title_advanced_hide_timezone">タイムゾーンデータ無しでメッセージを送信</string>
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
+    <string name="title_advanced_incognito_keyboard">シークレットキーボードを使用 (Android 8+)</string>
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
@@ -402,9 +421,14 @@
     </string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_shortcuts">頻繁に使用される連絡先をAndroid共有メニューに表示</string>
+    <string name="title_advanced_conversation_actions">アクションを提案 (Android 10以上)</string>
+    <string name="title_advanced_conversation_actions_replies">返信テキストを提案 (Android 10以上)</string>
+    <string name="title_advanced_language_detection">メッセージテキストの言語を検出する</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類</string>
+    <string name="title_advanced_class_min_chance">最小クラス確率: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">最小クラス差: %1$s %%</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
@@ -452,6 +476,7 @@
     <string name="title_advanced_gravatars_hint">プライバシーリスクが有るかもしれません</string>
     <string name="title_advanced_name_email_hint">無効にすると利用可能な場合にのみ名前が表示されます</string>
     <string name="title_advanced_preview_hint">メッセージテキストがダウンロードされた場合にのみ使用可能</string>
+    <string name="title_advanced_preview_lines_hint">合計 %s 文字</string>
     <string name="title_advanced_preview_issue">行数が複数の場合、一部のAndroidバージョンバグの為スクロールが遅くなる可能性が有ります</string>
     <string name="title_advanced_overview_mode_hint">これは非常に小さいフォントになることがあります</string>
     <string name="title_advanced_placeholders_hint">これは再フォーマットされたメッセージにのみ適用されます</string>
@@ -503,6 +528,7 @@
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">常に配信確認・開封確認メッセージを要求</string>
     <string name="title_identity_use_ip_hint">\"無効な挨拶\" \"有効なアドレスが必要\"などのエラーが発生した場合は、この設定を変更してみてください</string>
+    <string name="title_identity_self_hint">自分自身に返信できないようにする</string>
     <string name="title_optional">オプション</string>
     <string name="title_recommended">おすすめ</string>
     <string name="title_account_linked">リンクされたアカウント</string>
@@ -563,6 +589,7 @@
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_drafts">下書きフォルダがありません</string>
     <string name="title_no_junk_folder">このアカウントではスパムフォルダが選択されていません</string>
+    <string name="title_no_composable">メールを送信するには、IDを設定し、アカウント設定で下書きフォルダを選択する必要があります</string>
     <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーはUTF-8をサポートしていません</string>
@@ -590,6 +617,8 @@
     <string name="title_advanced_expand_read">エキスパンド時にメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>
     <string name="title_synchronize_subfolders">サブフォルダ</string>
+    <string name="title_synchronize_more">さらにメッセージを取得</string>
+    <string name="title_synchronize_more_hint">これにより、古いメッセージが1度だけダウンロードされ、日常的に使用されるバッテリー使用量が増えることはありません</string>
     <string name="title_synchronize_enabled">同期</string>
     <string name="title_synchronize_batch_enable">同期を有効化</string>
     <string name="title_synchronize_batch_disable">同期を無効化</string>
@@ -633,6 +662,8 @@
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
     <string name="title_download_folder">メッセージテキストと添付ファイルを自動的にダウンロードする</string>
     <string name="title_notify_folder">新しいメッセージで通知する</string>
+    <string name="title_auto_classify_source">このフォルダに新しいメッセージを分類</string>
+    <string name="title_auto_classify_target">このフォルダへ分類されたメッセージを自動的に移動</string>
     <string name="title_sync_days">メッセージの同期(日毎)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増えます</string>
     <string name="title_keep_days">メッセージを保持する(日毎)</string>
@@ -688,6 +719,7 @@
     <string name="title_forward">転送</string>
     <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
+    <string name="title_edit_notes">ローカルノートを編集</string>
     <string name="title_create_rule">ルール &#8230; を作成します</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>
@@ -729,6 +761,7 @@
     <string name="title_reply_to_all">全員に返信</string>
     <string name="title_reply_list">リストに返信</string>
     <string name="title_reply_receipt">開封確認メッセージを送信</string>
+    <string name="title_reply_hard_bounce">ハードバウンスを送信</string>
     <string name="title_reply_template">テンプレートで返信</string>
     <string name="title_move_undo">%1$s に移動中 (%2$d)</string>
     <string name="title_open_with">開く</string>
@@ -764,6 +797,7 @@
     <string name="title_ask_delete_rule">ルールを完全に削除しますか？</string>
     <string name="title_ask_discard">下書きを破棄しますか？</string>
     <string name="title_ask_show_html">元のメッセージを表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
+    <string name="title_ask_show_html_dark">ダークテーマを使用</string>
     <string name="title_ask_show_html_remark">ダーク背景で元のメッセージを表示する事は出来ません。これは目で見にくい暗いテキストや画像が見えなくなる可能性がある為です</string>
     <string name="title_ask_show_html_images">元のメッセージを表示する時に常に画像を表示する</string>
     <string name="title_ask_show_image">画像表示するとプライバシーの機密情報が漏洩する可能性が有ります</string>
@@ -860,6 +894,7 @@
     <string name="title_key_missing">%1$s のキーがありません</string>
     <string name="title_send_reminder_remark">リマインダーは送信設定で再び有効にできます</string>
     <string name="title_send_plain_text">プレーンテキストのみ</string>
+    <string name="title_send_dsn">ステータスレポート</string>
     <string name="title_send_receipt">開封確認メッセージを要求する</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは開封確認メッセージの要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>
@@ -871,6 +906,7 @@
     <string name="title_attachment_keywords">添付,添付ファイル,付属</string>
     <string name="title_attachment_reminder">添付ファイルを追加しますか？</string>
     <string name="title_plain_reminder">すべての書式が失われます</string>
+    <string name="title_dsn_reminder">ハードバウンスは、送信元の電子メールの評価を損ないます!</string>
     <string name="title_size_reminder">メッセージ(%1$s) がサーバーの制限 (%2$s) を超えています</string>
     <string name="title_attachments_missing">全ての添付ファイルがダウンロードされる訳では有りません</string>
     <string name="title_dialog_hint">このダイアログは上部アクションバーの3点メニューから再度有効に出来ます</string>
@@ -1238,6 +1274,7 @@
     <string name="title_pro_activated">全てのプロ機能がアクティブになりました</string>
     <string name="title_pro_valid">全てのプロ機能が有効化されました</string>
     <string name="title_pro_invalid">無効な応答</string>
+    <string name="title_pro_support">FairEmail はあなたの助けを必要としています。タップしてプロジェクトの維持のためにプロ機能を購入するか、このメッセージをオフにしてください。</string>
     <string name="title_boundary_error">メールサーバーからのメッセージのダウンロードエラー</string>
     <string name="title_boundary_retry">再試行</string>
     <string name="title_unexpected_error">予期しないエラー</string>

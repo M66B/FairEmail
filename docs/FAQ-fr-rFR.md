@@ -1,6 +1,8 @@
 # Assistance FairEmail
 
-Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des questions fréquemment posées. En bas de cette page, vous trouverez comment poser d'autres questions, suggérer des fonctionnalités et signaler des bugs.
+Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des questions fréquemment posées. [En bas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Sommaire
 
@@ -14,15 +16,15 @@ Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des qu
 
 ## Autorisation des comptes
 
-En temps normal, l'assistant de configuration rapide sera capable d'identifier automatiquement la bonne configuration.
+Dans la plupart des cas, l'assistant de configuration rapide sera capable d'identifier automatiquement la bonne configuration.
 
-Si l'assistant de configuration rapide échoue, vous devrez configurer manuellement un compte (pour recevoir des e-mails) et une identité (pour envoyer des e-mails). Pour ce faire, vous aurez besoin des adresses du serveur IMAP et SMTP, des numéros de port, de savoir si SSL/TLS ou STARTTLS doivent être utilisés, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
+Si l'assistant de configuration rapide échoue, vous devrez configurer manuellement un compte (pour recevoir des e-mails) et une identité (pour envoyer des e-mails). Pour ce faire, vous aurez besoin de l'adresse des serveurs IMAP et SMTP et des numéros de port selon l'utilisation de SSL/TLS ou STARTTLS, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
 
 Faire une recherche avec *IMAP* et le nom du fournisseur est généralement suffisant pour trouver la documentation appropriée.
 
-Dans certains cas, vous aurez besoin d'activer l'accès externe à votre compte ou d'utiliser un mot de passe spécial (mots de passe d'application). Par exemple lorsque l'authentification à deux facteurs est activée.
+Dans certains cas, vous aurez besoin d'activer l'accès externe à votre compte et/ou d'utiliser un mot de passe spécial (mot de passe d'application), par exemple lorsque l'authentification à deux facteurs est activée.
 
-Pour l'autorisation de :
+Pour l'autorisation :
 
 * Gmail / G suite, voir [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, voir [question 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Pour l'autorisation de :
 * Apple iCloud, voir [question 148](#user-content-faq148)
 * Free.fr, voir [question 157](#user-content-faq157)
 
-Vous trouverez [ici](#user-content-faq22) les messages d'erreur fréquents et leurs solutions.
+Veuillez voir [ici](#user-content-faq22) les messages d'erreur fréquents et les solutions.
 
-Questions liées:
+Questions liées :
 
 * [OAuth est-il pris en charge ?](#user-content-faq111)
 * [Pourquoi ActiveSync n'est-il pas pris en charge ?](#user-content-faq133)
@@ -113,11 +115,11 @@ Questions liées:
 * ~~support S/MIME ~~
 * ~~Rechercher des paramètres~~
 
-Le contenu de cette liste est rangé aléatoirement et *peut être* ajouté dans un avenir proche.
+Tout ce qui se trouve dans cette liste est dans un ordre aléatoire et *pourrait* être ajouté dans un avenir proche.
 
 ## Fonctionnalités fréquemment demandées
 
-La conception est basée sur de nombreuses discussions et si vous le souhaitez, vous pouvez en discuter [dans ce forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) également. Le but de la conception est d'être minimaliste (pas de menus inutiles, boutons, etc) et non distrayant (pas de couleurs fantaisie, animations, etc). Toutes les informations affichées devraient être utiles d'une manière ou d'une autre et devraient être soigneusement positionnées pour une utilisation facile. Les polices, tailles, couleurs, etc doivent être dans le style "Material Design" autant que possible.
+La conception est basée sur de nombreuses discussions et si vous le souhaitez, vous pouvez également en discuter [dans ce forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Le but de la conception est d'être minimaliste (pas de menus inutiles, boutons, etc.) et non distrayant (pas de couleurs fantaisie, animations, etc.). Toutes les informations affichées devraient être utiles d'une manière ou d'une autre et devraient être soigneusement positionnées pour une utilisation facile. Les polices, tailles, couleurs, etc. devraient être Material Design autant que possible.
 
 ## Questions fréquemment posées (FAQ)
 
@@ -287,9 +289,9 @@ La conception est basée sur de nombreuses discussions et si vous le souhaitez, 
 [J’ai une autre question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Quelles autorisations Android sont nécessaires et pourquoi ?**
+**(1) Quelles autorisations sont nécessaires et pourquoi ?**
 
-Les autorisations Android suivantes sont nécessaires:
+Les autorisations Android suivantes sont nécessaires :
 
 * *bénéficier d'un accès complet au réseau* (INTERNET) : pour envoyer et recevoir des e-mails
 * *afficher les connexions réseau* (ACCESS_NETWORK_STATE): pour surveiller les changements de connectivité à internet
@@ -306,7 +308,7 @@ Les autorisations Android suivantes sont nécessaires:
 
 [Les autorisations facultatives](https://developer.android.com/training/permissions/requesting) ne sont prises en charge que sur Android 6 Marshmallow et ultérieur. Sur les versions antérieures d'Android, il vous sera demandé d'accorder les autorisations facultatives à l'installation de FairEmail.
 
-Les autorisations suivantes sont nécessaires pour afficher le nombre de messages non lus comme un badge (voir aussi [cette question](#user-content-faq106)) :
+Les autorisations suivantes sont nécessaires pour afficher le nombre de messages non lus dans un badge (voir aussi [cette question](#user-content-faq106)) :
 
 * *cOM.sec.android.provider.badge.permission.READ*
 * *com.sec.android provider.badge.permission.WRITE*
@@ -325,29 +327,29 @@ Les autorisations suivantes sont nécessaires pour afficher le nombre de message
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail tiendra une liste des adresses venant des messages que vous recevez et envoyez, et utilisera cette liste pour faire des suggestions de contacts lorsqu'aucune autorisation d'accès aux contacts n'est accordée à FairEmail. Cela signifie que vous pouvez utiliser FairEmail sans le fournisseur de contacts d'Android (carnet d'adresses). Notez que vous pouvez toujours choisir des contacts sans accorder les autorisations de contact à FairEmail, seul la suggestion de contacts ne fonctionneront pas sans les autorisations.
+FairEmail tiendra une liste des adresses venant des messages que vous recevez et envoyez, et utilisera cette liste pour faire des suggestions de contacts lorsqu'aucune autorisation d'accès aux contacts n'est accordée à FairEmail. Ceci signifie que vous pouvez utiliser FairEmail sans le fournisseur de contacts d'Android (carnet d'adresses). Notez que vous pouvez toujours choisir des contacts sans accorder les autorisations de contact à FairEmail, seule la suggestion de contacts ne fonctionnera pas sans les autorisations.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Pourquoi y a-t-il une notification permanente ?**
+**(2) Pourquoi y a-t-il une notification permanente affichée ?**
 
-Une notification de la barre d'état, permanente, de faible priorité, avec le nombre de comptes surveillés et le nombre d'opérations en attente (voir la question suivante) est montrée pour empêcher Android de tuer le service qui prend en charge la réception continue d'e-mail. Ceci était auparavant [déjà nécessaire](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), mais avec l'introduction du [mode Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) dans Android 6 Marshmallow, c'est plus que jamais nécessaire. Le mode Doze arrêtera toutes les applications lorsque l'écran est éteint pendant un certain temps, sauf si l'application a démarré un service de premier plan, ce qui nécessite l'affichage d'une notification dans la barre d'état.
+Une notification dans la barre d'état, permanente, de faible priorité, avec le nombre de comptes surveillés et le nombre d'opérations en attente (voir la question suivante) est affichée pour empêcher Android de tuer le service qui prend en charge la réception continue d'e-mail. Ceci était [déjà nécessaire](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), mais avec l'introduction du [mode veille](https://developer.android.com/training/monitoring-device-state/doze-standby) dans Android 6 Marshmallow, c'est plus que jamais nécessaire. Le mode veille arrêtera toutes les applications lorsque l'écran est éteint depuis un certain temps sauf si l'application a démarré un service de premier plan ce qui nécessite l'affichage d'une notification dans la barre d'état.
 
-La plupart, sinon la totalité, des autres applications de messagerie électronique n'affichent pas de notification avec pour "effet secondaire" que les nouveaux messages ne sont souvent pas signalés ou le sont avec retard et que les messages ne sont pas envoyés ou le sont avec retard.
+La plupart, sinon la totalité, des autres applications de messagerie électronique n'affichent pas de notification, avec comme "effet secondaire" que les nouveaux messages ne sont souvent pas signalés ou le sont avec retard et que les messages ne sont pas envoyés ou le sont avec retard.
 
-Android affiche en priorité les icônes des notifications de la barre d'état de haute priorité et masquera l'icône de notification de FairEmail s'il n'y a plus d'espace pour afficher les icônes. En pratique, cela signifie que la notification ne prend pas de place dans la barre d'état, à moins qu'il n'y ait de la place disponible.
+Android affiche d'abord les icônes des notifications de haute priorité dans la barre d'état et masquera l'icône de notification de FairEmail s'il n'y a plus d'espace pour afficher les icônes. En pratique, ceci signifie que la notification ne prend pas de place dans la barre d'état, à moins qu'il y ait de la place disponible.
 
-La notification de la barre d'état peut être désactivée via les paramètres de notification de FairEmail:
+La notification dans la barre d'état peut être désactivée via les paramètres de notification de FairEmail :
 
 * Android 8 Oreo et supérieur : appuyez sur le bouton *Canal de réception* et désactivez le canal via les paramètres Android (cela ne désactivera pas les notifications de nouveaux messages)
 * Android 7 Nougat et inférieur : activez *Utiliser le service d'arrière-plan pour synchroniser les messages*, mais veillez à lire la remarque en dessous du paramètre
 
-Vous pouvez changer pour une synchronisation périodique des messages dans les paramètres de réception de FairEmail, pour supprimer la notification, mais sachez que cela peut augmenter la consommation de la batterie. Voir [ici](#user-content-faq39) pour plus de détails sur l'utilisation de la batterie.
+Vous pouvez changer pour une synchronisation périodique des messages dans les paramètres de réception de FairEmail pour supprimer la notification mais sachez que cela peut augmenter l'utilisation de la batterie. Voir [ici](#user-content-faq39) pour plus de détails sur l'utilisation de la batterie.
 
 Android 8 Oreo pourrait également afficher une notification dans la barre d'état avec le texte *Les applications sont en cours d'exécution en arrière-plan*. Veuillez voir [ici](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) pour savoir comment désactiver cette notification.
 
-Certaines personnes ont suggéré d'utiliser [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) au lieu d'un service Android avec une notification dans la barre d'état, mais cela nécessite que les fournisseurs de messagerie envoient des messages FCM, ou un serveur central où tous les messages sont collectés puis qui renvoie des messages FCM. Le premier cas ne se produira pas et le second aurait des implications significatives sur la vie privée.
+Certaines personnes ont suggéré d'utiliser [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) au lieu d'un service Android avec une notification dans la barre d'état, mais cela nécessite que les fournisseurs de messagerie envoient des messages FCM, ou bien un serveur central où tous les messages sont collectés puis qui renvoie des messages FCM. Le premier cas ne se produira pas et le second aurait des implications significatives sur la vie privée.
 
 Si vous êtes arrivé·e ici en cliquant sur la notification, vous devez savoir que le prochain clic ouvrira la boîte de réception unifiée.
 
@@ -356,7 +358,7 @@ Si vous êtes arrivé·e ici en cliquant sur la notification, vous devez savoir 
 <a name="faq3"></a>
 **(3) Que sont les opérations et pourquoi sont-elles en attente ?**
 
-La notification de la barre d'état de faible priorité montre le nombre d'opérations en attente, ce qui peut être :
+La notification de faible priorité dans la barre d'état montre le nombre d'opérations en attente, ce qui peut être :
 
 * *ajouter* : ajouter un message au dossier distant
 * *déplacer* : déplacer le message vers un autre dossier distant
@@ -378,23 +380,24 @@ La notification de la barre d'état de faible priorité montre le nombre d'opér
 * *envoyer* : envoyer un message
 * *existe* : vérifiez si le message existe
 * *règle* : exécute la règle sur le corps du texte
+* *expunge*: permanently delete messages
 
-Les opérations ne sont effectuées que lorsqu'il y a une connexion au serveur de messagerie ou lors de la synchronisation manuelle. Voir aussi [cette question](#user-content-faq16).
+Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de messagerie ou lors d'une synchronisation manuelle. Voir aussi [cette question](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en texte clair ?**
+**(4) Comment puis-je utiliser un certificat de sécurité non valide / un mot de passe vide / une connexion en clair ?**
 
 *... Non fiable ... pas dans le certificat ...*
 <br />
 *... Certificat de sécurité invalide (impossible de vérifier l'identité du serveur) ...*
 
-Cela peut être dû à l'utilisation d'un nom de serveur incorrect, il faut donc d'abord vérifier le nom du serveur dans les paramètres avancés du compte/identité (Paramètres > "Gérer" dans configurer les comptes). Voir la documentation de votre fournisseur de messagerie concernant le nom du serveur.
+Ceci peut être dû à l'utilisation d'un nom de serveur incorrect, donc vérifiez d'abord le nom du serveur dans les paramètres avancés de l'identité/du compte (tapez sur Configuration manuelle et Plus d'options). Veuillez consulter la documentation de votre fournisseur de messagerie concernant le nom du serveur.
 
-Vous pouvez essayer de résoudre ce problème en contactant votre fournisseur de messagerie ou en obtenant un certificat de sécurité valide, car les certificats de sécurité non valides ne sont pas sécurisés et exposent aux attaques d'intermédiaires. Si l'argent est un problème, vous pouvez obtenir des certificats de sécurité gratuits auprès de [Let’s Encrypt](https://letsencrypt.org).
+You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
-Sinon, vous pouvez accepter l'empreinte digitale des certificats de serveur non valides comme ceci :
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Assurez-vous que vous utilisez une connexion internet fiable (pas de réseaux Wi-Fi publics, etc)
 1. Aller à l'écran de configuration rapide via le menu de navigation (Faites glisser depuis le côté gauche vers l'intérieur)
@@ -453,7 +456,7 @@ In the display section of the settings you can enable or disable for example:
 
 Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
-Certaines personnes demandent :
+Some people ask:
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
@@ -461,9 +464,9 @@ Certaines personnes demandent :
 <br />
 
 <a name="faq6"></a>
-**(6) Comment puis-je me connecter à Gmail / G suite ?**
+**(6) How can I login to Gmail / G suite?**
 
-Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour paramétrer facilement un compte Gmail et une identité. L'assistant de configuration rapide de Gmail n'est pas disponible pour les versions tierces, comme la version F-Droid, car Google n'a approuve l'utilisation d'OAuth que pour les versions officielles.
+If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
 If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
@@ -505,18 +508,18 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 *General*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. Ceci peut être évité en utilisant l'assistant de configuration rapide de Gmail ou un mot de passe spécifique d'application.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour le dépannage.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Pourquoi les messages envoyés n'apparaissent-ils pas (directement) dans le dossier « Envoyés » ? **
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Les messages envoyés sont normalement déplacés de la boîte d'envoi vers le dossier Envoyés dès que votre fournisseur ajoute les messages envoyés au dossier Envoyés. Ceci nécessite qu'un dossier Envoyés soit sélectionné dans les paramètres du compte et que le dossier Envoyés soit configuré pour être synchronisé.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Certains fournisseurs ne gardent pas de trace des messages envoyés ou le serveur SMTP utilisé peut ne pas être lié au fournisseur. Dans ce cas, FairEmail ajoutera automatiquement les messages envoyés au dossier Envoyés lors de la synchronisation du dossier Envoyés qui se produira après l'envoi d'un message. Notez que cela entraînera un trafic Internet supplémentaire.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

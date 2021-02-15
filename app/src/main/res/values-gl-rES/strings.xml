@@ -827,7 +827,6 @@
     <string name="title_send_now">Enviar agora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar ás &#8230;</string>
-    <string name="title_send_archive">Arquivar mensaxes lidas</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridade</string>
     <string name="title_no_server">Non se atopa un servidor en \'%1$s\'</string>

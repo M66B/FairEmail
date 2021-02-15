@@ -510,7 +510,7 @@
     <string name="title_advanced_gravatars_hint">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, jeśli są dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
-    <string name="title_advanced_preview_lines_hint" comment="title_advanced_preview_lines_hint&#10;Remark for number of preview lines selection&#10;">Maksymalnie %s znaków</string>
+    <string name="title_advanced_preview_lines_hint">Maksymalnie %s znaków</string>
     <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jedna</string>
     <string name="title_advanced_overview_mode_hint">Może to skutkować bardzo małymi czcionkami</string>
     <string name="title_advanced_placeholders_hint">Dotyczy to tylko przeformatowanych wiadomości</string>
@@ -623,6 +623,7 @@
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_drafts">Brak folderu szkiców</string>
     <string name="title_no_junk_folder">Dla tego konta nie wybrano folderu spam</string>
+    <string name="title_default_composable">Domyślny adres e-mail jest określony przez podstawową tożsamość konta głównego</string>
     <string name="title_no_composable">Wysyłanie wiadomości e-mail wymaga skonfigurowania tożsamości i wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
@@ -873,7 +874,7 @@
     <string name="title_send_now">Wyślij teraz</string>
     <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
-    <string name="title_send_archive">Archiwizuj odczytane wiadomości</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiwizuj wysłaną odpowiedź</string>
     <string name="title_send_encryption">Szyfrowanie</string>
     <string name="title_send_priority">Priorytet</string>
     <string name="title_no_server">Nie znaleziono serwera na \'%1$s\'</string>

@@ -1,6 +1,6 @@
 # セットアップヘルプ
 
-FairEmailのセットアップは非常に簡単です。 メールを受信するためにはIDを、送信する場合はアカウントをそれぞれ少なくとも1つ設定する必要があります。 The quick setup will add an account and an identity in one go for most major providers.
+FairEmailのセットアップは非常に簡単です。 メールを受信するためにはIDを、送信する場合はアカウントをそれぞれ少なくとも1つ設定する必要があります。 クイックセットアップでは、ほとんどの主要プロバイダのアカウントとIDが一度に追加されます。
 
 ## 必要な条件
 
@@ -8,11 +8,11 @@ FairEmailのセットアップは非常に簡単です。 メールを受信す�
 
 ## クイックセットアップ
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+該当するプロバイダを選択するか、 *他のプロバイダ* を選択し、名前、メールアドレス、パスワードを入力し、 ** をタップします。
 
-This will work for most email providers.
+これはほとんどのメールプロバイダーで機能します。
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+クイックセットアップが機能しない場合は、アカウントとIDを手動で設定する必要があります。手順については以下を参照してください。
 
 ## アカウントの設定 - メールを受信するために
 

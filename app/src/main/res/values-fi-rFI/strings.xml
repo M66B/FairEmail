@@ -849,7 +849,6 @@
     <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
-    <string name="title_send_archive">Arkistoi luetut viestit</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>

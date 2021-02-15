@@ -1,6 +1,8 @@
 # FairEmail podpora
 
-Máte-li dotaz, podívejte se prosím nejprve na často kladené dotazy. Ve spodní části se dozvíte, jak pokládat další dotazy, žádat o nové funkce a hlásit chyby.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Obsah
 
@@ -16,13 +18,13 @@ Máte-li dotaz, podívejte se prosím nejprve na často kladené dotazy. Ve spod
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). K tomu budete potřebovat adresy serverů IMAP a SMTP a čísla portů, typu použitého protokolu SSL/TLS či STARTTLS a své uživatelské jméno (většinou, ale ne vždy, je shodné s e-mailovou adresou) a heslo.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Hledáním *IMAP* a jména poskytovatele je většinou dostatečné k nalezení správné dokumentace.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-V některých případech je potřeba pro přihlášení povolit externí přístup k vašemu účtu a/nebo použít speciální (aplikační) heslo, například když je povoleno dvoufaktorové ověřování k vašemu účtu.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Pro autorizaci:
+For authorizing:
 
 * Gmail / G suite, viz [otázka č. 6](#user-content-faq6)
 * Outlook / Live / Hotmail, viz [otázka č. 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Pro autorizaci:
 * Apple iCloud, viz [otázka č. 148](#user-content-faq148)
 * Free.fr, viz [otázka č. 157 ](#user-content-faq157)
 
-Pro obvyklá chybová hlášení a jejich řešení se prosím podívejte [sem](#user-content-faq22).
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Související dotazy:
+Related questions:
 
 * [Je podporován OAuth?](#user-content-faq111)
 * [Proč není ActiveSync podporován?](#user-content-faq133)
@@ -113,11 +115,11 @@ Související dotazy:
 * ~~S/MIME podpora~~
 * ~~Vyhledávání pro nastavení~~
 
-Cokoli na tomto seznamu je v náhodném pořadí a *může* být přidáno v blízké budoucnosti.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Často požadované funkce
 
-Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze zapojit i vy [na tomto fóru](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Cílem designu je být minimalistický (žádné zbytečné nabídky, tlačítka, apod.) a nerozptylující (žádné úžasné barvy, animace, apod.). Všechny zobrazené prvky by měly být nějakým způsobem užitečné a měly by být umisťovány s citem pro snadné používání. Písma, velikosti, barvy, apod. by měly odpovídat material designu, kdykoli je to možné.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Často kladené dotazy
 
@@ -284,10 +286,10 @@ Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze za
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[Mám jiný dotaz.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Jaká oprávnění jsou potřebná a proč?**
+**(1) Which permissions are needed and why?**
 
 The following Android permissions are needed:
 
@@ -330,7 +332,7 @@ FairEmail will keep a list of addresses you receive messages from and send messa
 <br />
 
 <a name="faq2"></a>
-**(2) Proč je zobrazeno permanentní oznámení?**
+**(2) Why is there a permanent notification shown?**
 
 A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
@@ -354,7 +356,7 @@ If you came here by clicking on the notification, you should know that the next 
 <br />
 
 <a name="faq3"></a>
-**(3) Co jsou operace a proč probíhají?**
+**(3) What are operations and why are they pending?**
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
@@ -378,13 +380,14 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. Viz také [tento nejčastější dotaz](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Jak mohu použít neplatný bezpečnostní certifikát / prázdné heslo / prosté textové připojení?**
+**(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
 *... Untrusted ... not in certificate ...*
 <br />
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

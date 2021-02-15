@@ -1,6 +1,8 @@
 # FairEmail Support
 
-Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. Längst ner kan du ta reda på hur du ställer andra frågor, begär funktioner och rapporterar buggar.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
@@ -16,13 +18,13 @@ Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna för
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). För detta behöver du IMAP- och SMTP-server adresser och portnummer, om SSL/TLS eller STARTTLS ska användas och ditt användarnamn (vanligast, men inte alltid, din e-postadress) och ditt lösenord.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Söker efter *IMAP* och namnet på leverantören är oftast tillräckligt för att hitta rätt dokumentation.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-I vissa fall måste du aktivera extern åtkomst till ditt konto och/eller använda ett speciellt (app) lösenord, till exempel när tvåfaktorsautentisering är aktiverad.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-För auktorisering:
+For authorizing:
 
 * Gmail / G suite, se [fråga 6](#user-content-faq6)
 * Outlook / Live / Hotmail, se [fråga 14](#user-content-faq14)
@@ -32,9 +34,9 @@ För auktorisering:
 * Apple iCloud, se [fråga 148](#user-content-faq148)
 * Free.fr, se [fråga 157](#user-content-faq157)
 
-Se [här](#user-content-faq22) för vanliga felmeddelanden och lösningar.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Relaterade frågor:
+Related questions:
 
 * [Stöds OAuth?](#user-content-faq111)
 * [Varför stöds inte ActiveSync?](#user-content-faq133)
@@ -113,11 +115,11 @@ Relaterade frågor:
 * ~~Stöd för S/MIME~~
 * ~~Sök efter inställningar~~
 
-Allt på denna lista är i slumpmässig ordning och *kan* läggas till inom en snar framtid.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Tidigare begärda funktioner
 
-Designen bygger på många diskussioner och om du vill kan du diskutera det [i detta forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) också. Målet med designen är att vara minimalistisk (inga onödiga menyer, knappar, etc) och icke distraherande (inga snygga färger, animationer, etc). Allt som visas ska vara användbara på ett eller annat sätt och bör vara noggrant placerade för enkel användning. Typsnitt, storlekar, färger etc bör vara material design när det är möjligt.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Vanliga frågor
 
@@ -284,12 +286,12 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[Jag har en annan fråga.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Vilka behörigheter behövs och varför?**
+**(1) Which permissions are needed and why?**
 
-Följande Android-behörigheter behövs:
+The following Android permissions are needed:
 
 * *har full nätverksåtkomst* (INTERNET): för att skicka och ta emot e-post
 * *visa nätverksanslutningar* (ACCESS_NETWORK_STATE): för att övervaka ändringar av internetanslutningar
@@ -304,9 +306,9 @@ Följande Android-behörigheter behövs:
 * Android 5. Lollipop och tidigare: *använda konton på enheten* (USE_CREDENTIALS): för att välja ett konto när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
 * Android 5. Lollipop och tidigare: *Läs profil* (READ_PROFILE): för att läsa ditt namn när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
 
-[Valfria behörigheter](https://developer.android.com/training/permissions/requesting) stöds endast på Android 6 Marshmallow och senare. På tidigare Android-versioner kommer du att bli ombedd att bevilja de valfria behörigheterna vid installation av FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-Följande behörigheter behövs för att visa antalet olästa meddelanden som ett märke (se även [denna FAQ](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -325,38 +327,38 @@ Följande behörigheter behövs för att visa antalet olästa meddelanden som et
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail kommer att skapa en lista över adresser som du tar emot meddelanden från och skickar meddelanden till och kommer att använda denna lista för kontaktförslag när inga kontaktbehörigheter beviljas till FairEmail. Detta innebär att du kan använda FairEmail utan tillgång till Android-kontakter (adressbok). Observera att du fortfarande kan välja kontakter utan att ge FairEmail tillåtelse att läsa kontakter, endast föreslå kontakter fungerar inte utan behörigheter för kontakter.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Varför visas en permanent avisering?**
+**(2) Why is there a permanent notification shown?**
 
-En avisering med låg prioritet permanent statusfält med antalet konton som övervakas och antalet pågående åtgärder (se nästa fråga) visas för att förhindra Android från att döda tjänsten som tar hand om kontinuerligt mottagande e-post. Detta var [redan nödvändigt](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), men med införandet av [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) i Android 6 Marshmallow är detta mer än någonsin nödvändigt. Doze mode kommer att stoppa alla appar när skärmen är avstängd under en tid, om inte appen startade en förgrundstjänst, vilket kräver att en statusfältsnotis visas.
+A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-De flesta, om inte alla, andra e-postappar visar inte en avisering med "sidoeffekter" att nya meddelanden ofta inte eller är sena att rapporteras och att meddelanden inte eller är sena att skickas.
+Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-Android visar ikoner med hög prioritet statusfältet meddelanden först och kommer att dölja ikonen för FairEmail's aviseringar om det inte finns något utrymme att visa ikoner längre. I praktiken innebär detta att aviseringen i statusfältet inte tar plats i statusfältet, om det inte finns utrymme tillgängligt.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-Aviseringen i statusfältet kan inaktiveras via inställningarna för FairEmail:
+The status bar notification can be disabled via the notification settings of FairEmail:
 
 * Android 8 Oreo och senare: tryck på *Receive channel* -knappen och inaktivera kanalen via Android-inställningarna (detta kommer inte att inaktivera nya meddelanden)
 * Android 7 Nougat och tidigare: aktiverat *Använd bakgrundstjänst för att synkronisera meddelanden*, men se till att läsa anmärkningen under inställningen
 
-Du kan växla till periodisk synkronisering av meddelanden i mottagarinställningarna för att ta bort meddelandet, men var medveten om att detta kan använda mer batteridrift. Se [här](#user-content-faq39) för mer information om batterianvändning.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Oreo kan också visa ett meddelande i statusfältet med texten *Apps körs i bakgrunden*. Se [här](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) om hur du kan inaktivera detta meddelande.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Vissa har föreslagit att använda [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) istället för en Android-tjänst med en statusfältsnotis, men detta skulle kräva att e-postleverantörer skickar FCM-meddelanden eller en central server där alla meddelanden samlas in för att skicka FCM-meddelanden. Den första kommer inte att hända och den sista skulle få betydande konsekvenser för integriteten.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-Om du kom hit genom att klicka på aviseringen, bör du veta att nästa klick kommer att öppna den enhetliga inkorgen.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
 <a name="faq3"></a>
-**(3) Vad är åtgärder och varför väntar de?**
+**(3) What are operations and why are they pending?**
 
-Meddelandet med låg prioritet visar antalet pågående åtgärder, som kan vara:
+The low priority status bar notification shows the number of pending operations, which can be:
 
 * *lägg till*: lägg till meddelande i fjärrmapp
 * *flytta*: flytta meddelande till en annan fjärrmapp
@@ -378,17 +380,18 @@ Meddelandet med låg prioritet visar antalet pågående åtgärder, som kan vara
 * *skicka*: skicka meddelande
 * *existerar*: kontrollera om meddelandet finns
 * *regel*: exekvera regel på text
+* *expunge*: permanently delete messages
 
-Åtgärder behandlas endast när det finns en anslutning till e-postservern eller vid manuell synkronisering. Se även [denna FAQ](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Hur kan jag använda ett ogiltigt säkerhetsintyg / tomt lösenord / plain text-anslutning?**
+**(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*... Obetrodd ... inte i certifikat ...*
+*... Untrusted ... not in certificate ...*
 <br />
-*... Ogiltigt säkerhetscertifikat (Kan inte verifiera serverns identitet) ...*
+*... Invalid security certificate (Can't verify identity of server) ...*
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

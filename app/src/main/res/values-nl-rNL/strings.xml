@@ -489,7 +489,7 @@
     <string name="title_advanced_gravatars_hint">Er is mogelijk een privacyrisico</string>
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
-    <string name="title_advanced_preview_lines_hint" comment="title_advanced_preview_lines_hint&#10;Remark for number of preview lines selection&#10;">Maximaal %s tekens in totaal</string>
+    <string name="title_advanced_preview_lines_hint">Maximaal %s tekens in totaal</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
     <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw geformatteerde berichten</string>
@@ -602,6 +602,7 @@
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_drafts">Geen map voor concepten</string>
     <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
+    <string name="title_default_composable">Het standaard e-mailadres wordt bepaald door de primaire identiteit van het primaire account</string>
     <string name="title_no_composable">E-mails versturen vereist dat een identiteit wordt geconfigureerd, en een conceptmap wordt geselecteerd in de accountinstellingen</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
-    <string name="title_send_archive">Archiveer gelezen berichten</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiveer beantwoord bericht</string>
     <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>

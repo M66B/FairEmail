@@ -1,6 +1,8 @@
 # FairEmail 支援
 
-如果你有疑問，請先查閱以下被頻繁問起的問題。 在這底下，你可以找到關於如何提問，請求功能以及反饋bugs的地方。
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## 目錄
 
@@ -16,9 +18,9 @@
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). 為此，您需要使用IMAP和SMTP服務器地址和端口號，而無論使用SSL / TLS還是STARTTLS 以及您的用戶名（大多數但並非總是您的電子郵件地址）和密碼。
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-用IMAP 以及供應商名稱進行搜尋，通常可以找到正確的文件
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
@@ -34,7 +36,7 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-相關問題
+Related questions:
 
 * [Is OAuth supported?](#user-content-faq111)
 * [Why is ActiveSync not supported?](#user-content-faq133)
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

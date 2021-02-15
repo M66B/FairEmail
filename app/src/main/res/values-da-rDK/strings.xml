@@ -489,7 +489,7 @@
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
-    <string name="title_advanced_preview_lines_hint" comment="title_advanced_preview_lines_hint&#10;Remark for number of preview lines selection&#10;">Maks. %s tegn i alt</string>
+    <string name="title_advanced_preview_lines_hint">Maks. %s tegn i alt</string>
     <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
     <string name="title_advanced_overview_mode_hint">Dette kan resultere i meget små skrifttyper</string>
     <string name="title_advanced_placeholders_hint">Dette gælder kun omformaterede beskeder</string>
@@ -602,6 +602,7 @@
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_drafts">Ingen Kladde-mappe</string>
     <string name="title_no_junk_folder">Der er ikke valgt nogen spammappe til denne konto</string>
+    <string name="title_default_composable">Standard-e-mailadressen bestemmes af den primære kontos primære identitet</string>
     <string name="title_no_composable">Afsendelse af e-mails kræver, at en identitet opsættes samt valg af en Kladde-mappe under kontoindstillingerne</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
     <string name="title_no_idle">Denne udbyder understøtter ikke push-beskeder. Dette vil forsinke modtagelsen af nye beskeder samt forøge strømforbruget.</string>
@@ -852,6 +853,7 @@
     <string name="title_send_now">Send nu</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Arkivér besvarede beskeder</string>
     <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server fundet på \'%1$s\'</string>

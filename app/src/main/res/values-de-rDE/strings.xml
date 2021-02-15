@@ -490,7 +490,7 @@
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
-    <string name="title_advanced_preview_lines_hint" comment="title_advanced_preview_lines_hint&#10;Remark for number of preview lines selection&#10;">Maximal %s Zeichen</string>
+    <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Dies kann zu sehr kleinen Schriften führen</string>
     <string name="title_advanced_placeholders_hint">Das gilt nur für umformatierte Nachrichten</string>
@@ -603,6 +603,7 @@
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
+    <string name="title_default_composable">Die Standard-E-Mail-Adresse wird durch die primäre Identität des Hauptkontos bestimmt</string>
     <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe”</string>
     <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Sofort</string>
     <string name="title_send_via">Senden über</string>
     <string name="title_send_at">Später senden &#8230;</string>
-    <string name="title_send_archive">Gelesene Nachrichten archivieren</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Beantwortete Nachricht archivieren</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
     <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>

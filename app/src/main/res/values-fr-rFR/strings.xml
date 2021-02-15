@@ -489,7 +489,7 @@
     <string name="title_advanced_gravatars_hint">Ceci pourrait présenter un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
-    <string name="title_advanced_preview_lines_hint" comment="title_advanced_preview_lines_hint&#10;Remark for number of preview lines selection&#10;">Maximum %s caractères au total</string>
+    <string name="title_advanced_preview_lines_hint">Maximum %s caractères au total</string>
     <string name="title_advanced_preview_issue">Le défilement peut être lent lorsqu’il y a plus d’une ligne en raison d’un bogue dans certaines versions d’Android</string>
     <string name="title_advanced_overview_mode_hint">Ceci peut afficher de très petites polices de caractères</string>
     <string name="title_advanced_placeholders_hint">Ceci s\'applique uniquement aux messages reformatés</string>
@@ -602,6 +602,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier spam sélectionné pour ce compte</string>
+    <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée par l\'identité principale du compte principal</string>
     <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Ceci retardera la réception des nouveaux messages et entraînera une utilisation accrue de la batterie.</string>
@@ -852,7 +853,7 @@
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer via</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
-    <string name="title_send_archive">Archiver les messages lus</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiver un message répondu</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>

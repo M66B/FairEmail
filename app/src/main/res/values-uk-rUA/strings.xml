@@ -498,6 +498,7 @@
     <string name="title_advanced_gravatars_hint">Там може бути ризик приватності</string>
     <string name="title_advanced_name_email_hint">При вимкненні будуть показанні лише імена, якщо вони будуть доступні</string>
     <string name="title_advanced_preview_hint">Доступно тільки коли повідомлення буде завантажено</string>
+    <string name="title_advanced_preview_lines_hint">Максимум: %s символів</string>
     <string name="title_advanced_preview_issue">Прокручування може бути повільним через помилку у деяких версіях Android, коли кількість рядків більше одного</string>
     <string name="title_advanced_overview_mode_hint">Це може призвести до дуже малих шрифтів</string>
     <string name="title_advanced_placeholders_hint">Це стосується лише для переформатованих повідомлень</string>
@@ -610,6 +611,7 @@
     <string name="title_no_inbox">Вхідної теки не знайдено</string>
     <string name="title_no_drafts">Немає теки для чернеток</string>
     <string name="title_no_junk_folder">Не вибрано теку для спаму у цього облікового запису</string>
+    <string name="title_default_composable">Адреса електронної пошти за замовчуванням визначається з особистих даних основного облікового запису</string>
     <string name="title_no_composable">Для надсилання електронної пошти потрібна конфігурація системи, а також тека для чернеток, яку слід вибрати в налаштуваннях облікового запису</string>
     <string name="title_no_standard">Цей постачальник використовує власний протокол електронної пошти і тому неможливо використовувати сторонні e-mail клієнти</string>
     <string name="title_no_idle">Цей постачальник не підтримує push повідомлення. Це сповільнить приймання нових повідомлень і збільшить використання акумулятора.</string>
@@ -860,7 +862,7 @@
     <string name="title_send_now">Надіслати зараз</string>
     <string name="title_send_via">Надіслати через</string>
     <string name="title_send_at">Надіслати о &#8230;</string>
-    <string name="title_send_archive">Архівувати прочитані повідомлення</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Архівувати повідомлення з відповіддю</string>
     <string name="title_send_encryption">Шифрування</string>
     <string name="title_send_priority">Пріоритет</string>
     <string name="title_no_server">Сервер не знайдено на \'%1$s\'</string>

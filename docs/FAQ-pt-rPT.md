@@ -1,6 +1,8 @@
 # Suporte FairEmail
 
-Se tiver alguma dúvida, verifique primeiro as perguntas mais frequentes abaixo. No final, poderá encontrar como fazer outras perguntas, solicitar novos recursos e reportar erros.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
@@ -16,13 +18,13 @@ Se tiver alguma dúvida, verifique primeiro as perguntas mais frequentes abaixo.
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Para isso precisará dos endereços de servidor IMAP e SMTP e dos números das portas, quer sejam SSL/TLS ou STARTTLS e do seu nome de usuário (na maioria das vezes o seu endereço de email) e a sua palavra-passe.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Procurar por *IMAP* e o nome do fornecedor é geralmente suficiente para encontrar a documentação correcta.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Nalguns casos, terá de permitir o acesso externo à sua conta e/ou usar uma palavra-passe especial (app) quando, por exemplo, a autenticação de dois factores está activada.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Para autorização:
+For authorizing:
 
 * Gmail / G suite, ver [questão 6](#user-content-faq6)
 * Outlook / Live / Hotmail, ver [questão 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Para autorização:
 * Apple iCloud, ver [questão 148](#user-content-faq148)
 * Free.fr, ver [questão 157](#user-content-faq157)
 
-Veja [aqui](#user-content-faq22) como obter solução para mensagens de erro comuns.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Questões relacionadas:
+Related questions:
 
 * [O OAuth é suportado?](#user-content-faq111)
 * [Porque é que o ActiveSync não é suportado?](#user-content-faq133)
@@ -113,11 +115,11 @@ Questões relacionadas:
 * ~~Suporte S/MIME~~
 * ~~Procurar configurações~~
 
-Qualquer coisa nesta lista está ordenado aleatoriamente e *poderá* ser adicionado num futuro próximo.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Funcionalidades solicitadas com frequência
 
-O design está baseado em muitas discussões e, se desejar, poderá também discuti-lo [neste fórum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). O objectivo do design é ser minimalista (não são necessários menus, botões, etc.) e sem distracções (sem cores berrantes, animações, etc.). Todas as coisas exibidas devem ser úteis de alguma forma se devem ser posicionadas cuidadosamente para uma utilização facilitada. Fontes, tamanhos, cores, etc. devem ser de design material sempre que possível.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Perguntas Mais Frequentes
 
@@ -284,12 +286,12 @@ O design está baseado em muitas discussões e, se desejar, poderá também disc
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[Tenho outra pergunta.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Quais são as permissões necessárias e por quê?**
+**(1) Which permissions are needed and why?**
 
-As seguintes permissões do Android são necessárias:
+The following Android permissions are needed:
 
 * *ter total acesso à rede* (INTERNET): para enviar e receber um e-mail
 * *visualizar as conexões de rede* (ACCESS_NETWORK_STATE): para monitorizar as mudanças de conectividade de Internet
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

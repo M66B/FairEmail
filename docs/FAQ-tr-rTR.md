@@ -1,6 +1,8 @@
 # FairEmail Destek
 
-Sorununuz olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. Alt bölümde diğer sorularınızı nasıl sorabileceğinizi, özellikleri nasıl talep edebileceğinizi ve hataları nasıl rapor edebileceğinizi bulabilirsiniz.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Dizin
 
@@ -14,15 +16,15 @@ Sorununuz olması halinde, öncelikle aşağıda yer alan sıkça sorulan sorula
 
 ## Hesap Yetkilendirme
 
-Çoğu durumda hızlı kurulum sihirbazı doğru konfigürasyonu otomatik olarak tanımlayacaktır.
+In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-Hızlı kurulum sihirbazının çalışmadığı durumlarda, manuel olarak bir kimlik oluşturmanız ( e-posta gönderebilmek için) ve hesap kurmanız (e-posta alabilmek için) gerecektir. Bunun için gerek SSL/TLS veya STARTTLS kullanılan; IMAP ve SMTP sunucu adresi, bağlantı noktası numaraları ve kullanıcı adı (genellikle e-posta adresiniz) ve şifreniz gerekmektedir.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-*IMAP* ve sağlayıcının adını aramak, çoğunlukla doğru belgeyi bulmak için yeterlidir.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Bazı durumlarda, örneğin iki faktörlü kimlik doğrulama etkinse, hesabınıza üçüncü parti erişimine izin vermek ve/veya özel (uygulama) şifre kullanmanız gerecektir.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Yetkilendirmek için:
+For authorizing:
 
 * Gmail / G Suite, [6. soru](#user-content-faq6)ya bakınız
 * Outlook / Live / Hotmail, [14. soru](#user-content-faq14)ya bakınız
@@ -32,9 +34,9 @@ Yetkilendirmek için:
 * Apple iCloud, [148. soru](#user-content-faq148)ya bakınız
 * Free.fr, [157. soru](#user-content-faq157)ya bakınız
 
-Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-faq22) kontrol ediniz.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-İlgili sorular:
+Related questions:
 
 * [OAuth destekleniyor mu?](#user-content-faq111)
 * [ActiveSync neden desteklenmiyor?](#user-content-faq133)
@@ -284,12 +286,12 @@ The design is based on many discussions and if you like you can discuss about it
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[Farklı bir sorum var.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
-Aşağıdaki Android izinleri gereklidir:
+The following Android permissions are needed:
 
 * *have full network access* (INTERNET): to send and receive email
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

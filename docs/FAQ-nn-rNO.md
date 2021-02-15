@@ -1,6 +1,8 @@
 # FairEmail brukerstøtte
 
-Hvis du har spørsmål eller problemer, vennligst se om du finner svar blant de ofte stilte spørsmålene nedenfor først. Nederst på siden finner du ut hvordan du stiller andre spørsmål, ber om nye funksjoner eller rapporterer feil.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Innholdsfortegnelse
 
@@ -16,13 +18,13 @@ Hvis du har spørsmål eller problemer, vennligst se om du finner svar blant de 
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For dette trenger du IMAP- og SMTP-tjeneradresser og portnumre (enten SSL/TLS eller STARTTLS skal brukes) og brukernavnet ditt (vanligvis e-postadressen din) og passordet ditt.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Vanligvis holder det å søke på Internett etter *IMAP* etterfulgt av navnet på e-postleverandøren din for å finne nødvendig informasjon.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-I noen tilfeller må du aktivere ekstern tilgang til kontoen din og/eller bruke et spesielt (app)-passord, for eksempel når tofaktorautentisering er aktivert.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-For autorisering:
+For authorizing:
 
 * Gmail / G-suite, se [spørsmål 6](#user-content-faq6)
 * Outlook / Live / Hotmail, se [spørsmål 14](#user-content-faq14)
@@ -32,9 +34,9 @@ For autorisering:
 * Apple iCloud, se [spørsmål 148](#user-content-faq148)
 * Free.fr, se [spørsmål 157](#user-content-faq157)
 
-Se [her](#user-content-faq22) for typiske feilmeldinger og løsninger.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Relaterte spørsmål:
+Related questions:
 
 * [Støttes OAuth?](#user-content-faq111)
 * [Hvorfor støttes ikke ActiveSync?](#user-content-faq133)
@@ -113,11 +115,11 @@ Relaterte spørsmål:
 * ~~S/MIME-støtte~~
 * ~Søk i Innstillinger~~
 
-Alt på denne listen er i tilfeldig rekkefølge, og *kan* legges til i nær fremtid.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Ofte etterspurte funksjoner
 
-Utformingen er basert på mange diskusjoner, og hvis du vil kan du bli med i diskusjonen [i dette forumet](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Målet med utformingen er å være minimalistisk (ingen unødvendige menyer, knapper osv.) og ikke være distraherende (ingen fancy farger, animasjoner osv.) Alle synlige objekter skal ha en nyttig funksjon og bør være nøye plassert for enkel bruk. Skrifttyper, -størrelser, -farger osv. bør om mulig samsvare med Material-designspråket.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Ofte stilte spørsmål
 
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

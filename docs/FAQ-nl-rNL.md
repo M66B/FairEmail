@@ -1,6 +1,8 @@
 # FairEmail support
 
-Heb je een vraag? Bekijk dan eerst de veelgestelde vragen! Staat jouw vraag er niet tussen? Scroll dan naar beneden om contact op te nemen. Je kan ook nieuwe functies voorstellen of bugs melden.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
@@ -16,13 +18,13 @@ Heb je een vraag? Bekijk dan eerst de veelgestelde vragen! Staat jouw vraag er n
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Hiervoor heb je de IMAP- en SMTP-serveradressen en poortnummers nodig, en moet je weten of SSL / TLS of STARTTLS moet worden gebruikt. en uw gebruikersnaam (meestal, maar niet altijd, uw e-mailadres) en uw wachtwoord. die je gebruikte bij je andere e-mail programma.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Zoeken naar * IMAP * en de naam van de provider, is meestal voldoende, om de juiste documentatie te vinden.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-In sommige gevallen moet u externe toegang tot uw account inschakelen en / of een speciaal (app) wachtwoord gebruiken, bijvoorbeeld wanneer tweefactorauthenticatie is ingeschakeld.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Voor autorisatie:
+For authorizing:
 
 * Gmail / G suite, zie [ vraag 6 ](#user-content-faq6)
 * Outlook / Live / Hotmail, zie [ vraag 14 ](#user-content-faq14)
@@ -32,9 +34,9 @@ Voor autorisatie:
 * Apple iCloud, zie [ vraag 148 ](#user-content-faq148)
 * Free.fr, zie [ vraag 157 ](#user-content-faq157)
 
-Kijk [ hier ](#user-content-faq22) voor veelvoorkomende foutmeldingen en oplossingen.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Gerelateerde vragen:
+Related questions:
 
 * [Wordt OAuth ondersteund?](#user-content-faq111)
 * [Waarom wordt ActiveSync niet ondersteund?](#user-content-faq133)
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

@@ -1,6 +1,8 @@
 # Soporte de FairEmail
 
-Se ten algunha pregunta, por favor mire primeiro na lista de preguntas frecuentes que está abaixo. Ao fondo poderá ver como facer outras preguntas, pedir novas características e reportar erros.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
@@ -16,13 +18,13 @@ Se ten algunha pregunta, por favor mire primeiro na lista de preguntas frecuente
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Para iso, precisará coñecer os enderezos e os números de porto dos servidores IMAP e SMTP, se hai que usar SSL/TLS ou STARTTLS, ou seu nome de usuario (a maioría das veces é o seu enderezo de correo, pero non sempre) e o seu contrasinal.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Soe chegar facer unha procura de *IMAP* e o nome do provedor para atopar a documentación axeitada.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Nalgúns casos será preciso habilitar o acceso externo á súa conta e/ou usar un contrasinal especial (da aplicación), por exemplo cando a autenticación de dos factores está activa.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Para autorizar:
+For authorizing:
 
 * Gmail / G suite, vexa a [pregunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, vexa a [pregunta 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Para autorizar:
 * Apple iCloud, vexa a [pregunta 148](#user-content-faq148)
 * Free.fr, vexa a [pregunta 157](#user-content-faq157)
 
-Lea [aquí](#user-content-faq22) para mensaxes de erro comúns e solucións.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Preguntas relacionadas:
+Related questions:
 
 * [Está OAuth soportado?](#user-content-faq111)
 * [Por que non está ActiveSync soportado?](#user-content-faq133)
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

@@ -1,6 +1,8 @@
 # پشتیبانی FairEmail
 
-اگر پرسشی دارید، خواهشمند است ابتدا پرسش‌های متداول زیر را بررسی کنید. در زیر، شما می‌توانید بفهمید چگونه پرسش‌های دیگر را بپرسید، ویژگی‌ها را درخواست کنید، و اشکال‌ها را گزارش کنید.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## فهرست
 
@@ -34,7 +36,7 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-پرسش‌های مرتبط:
+Related questions:
 
 * [آیا OAuth پشتیبانی می‌شود؟](#user-content-faq111)
 * [چرا ActiveSync پشتیبانی نمی‌شود؟](#user-content-faq133)
@@ -284,7 +286,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 
-[من یک سوال دیگر دارم.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

@@ -1,6 +1,8 @@
 # Supporto FairEmail
 
-Se hai una domanda, controlla prima le domande frequenti qui sotto. In fondo puoi trovare come porre altre domande, richiedere funzionalità e segnalare errori.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Indice
 
@@ -14,15 +16,15 @@ Se hai una domanda, controlla prima le domande frequenti qui sotto. In fondo puo
 
 ## Autorizzare account
 
-Nella maggior parte dei casi, la configurazione rapida guidata sarà in grado di identificare la configurazione corretta.
+In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-Se la configurazione rapida fallisce, dovrai configurare manualmente un account (per ricevere email) e un'identità (per inviare email). Per farlo avrai bisogno degli indirizzi dei server IMAP e SMTP e dei numeri delle porte, di sapere se SSL/TLS o STARTTLS devono essere usati e conoscere il tuo nome utente (solitamente, ma non sempre, il tuo indirizzo email) e la password.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Cercare *IMAP* e il nome del fornitore di solito è sufficiente per trovare la documentazione giusta.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-In alcuni casi, dovrai abilitare l'accesso esterno al tuo account e/o utilizzare una password speciale (app), per esempio quando l'autenticazione a due fattori è attiva.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Per autorizzare:
+For authorizing:
 
 * Gmail / G suite, vedi la [domanda 6](#user-content-faq6)
 * Outlook / Live / Hotmail, vedi la [domanda 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Per autorizzare:
 * Apple iCloud, vedi la [domanda 148](#user-content-faq148)
 * Free.fr, vedi la [domanda 157](#user-content-faq157)
 
-Si prega di vedere [qui](#user-content-faq22) per messaggi di errore e soluzioni comuni.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Domande correlate:
+Related questions:
 
 * [OAuth è supportato?](#user-content-faq111)
 * [Perché ActiveSync non è supportato?](#user-content-faq133)
@@ -113,11 +115,11 @@ Domande correlate:
 * ~~Supporto S/MIME~~
 * ~~Cerca impostazioni~~
 
-Qualsiasi cosa su questa lista è in ordine casuale e *potrebbe* essere aggiunto nel vicino futuro.
+Anything on this list is in random order and *might* be added in the near future.
 
 ## Funzionalità richieste di frequente
 
-Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in questo forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). L'obiettivo del design è quello di essere minimalista (senza menu inutili, pulsanti, ecc.) e di non distrarre (senza colori fantasiosi, animazioni, ecc). Tutte le cose visualizzate devono essere utili in un modo o nell'altro e devono essere posizionate con attenzione per un facile utilizzo. Caratteri, dimensioni, colori, ecc devono essere in material design quando possibile.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 ## Domande frequenti
 
@@ -284,12 +286,12 @@ Il design è basato su molte discussioni e se vuoi puoi discuterne anche tu [in 
 * [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
 * [(164) Puoi aggiungere temi personalizzabili?](#user-content-faq164)
 
-[Ho un'altra domanda.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Quali permessi sono necessari e perché?**
+**(1) Which permissions are needed and why?**
 
-I permessi di Android seguenti sono necessari:
+The following Android permissions are needed:
 
 * *avere accesso completo alla rete* (INTERNET): per inviare e ricevere le email
 * *visualizza le connessioni di rete* (ACCESS_NETWORK_STATE): per monitorare le modifiche alla connettività di internet
@@ -304,9 +306,9 @@ I permessi di Android seguenti sono necessari:
 * Android 5.1 e precedenti: *usa profili sul dispositivo* (USE_CREDENTIALS): per selezionare un profilo quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
 * Android 5.1 Lollipop e precedenti: *Leggi profilo* (READ_PROFILE): per leggere il tuo nome quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
 
-[I permessi opzionali](https://developer.android.com/training/permissions/requesting) sono supportati solo su Android 6 Marshmallow e successive. Sulle versioni precedenti di Android ti sarà chiesto di garantire i permessi opzionali per l'installazione di FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-I permessi seguenti sono necessari per mostrare il conteggio dei messaggi non letti come un distintivo (vedi anche [questa FAQ](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -325,38 +327,38 @@ I permessi seguenti sono necessari per mostrare il conteggio dei messaggi non le
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail manterrà un elenco di indirizzi da cui ricevi e invii messaggi e userà questa lista per i suggerimenti di contatto quando non viene concesso alcun permesso di contatti a FairEmail. Ciò significa che puoi usare FairEmail senza il fornitore di contatti di Android (rubrica indirizzi). Nota che puoi ancora selezionare i contatti senza concedere i permessi dei contatti a FairEmail, solo suggerendo contatti non funzionerà senza i permessi dei contatti.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Perché è mostrata una notifica permanente?**
+**(2) Why is there a permanent notification shown?**
 
-Una notifica della barra dello stato permanente a bassa priorità con il numero di profili monitorati e il numero di operazioni in attesa (vedi prossima domanda) è mostrata per prevenire che Android termini il servizio che si occupa della ricezione continua delle email. Questo era [già necessario](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), ma con l'introduzione della [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow questo è necessario più che mai. La modalità Doze interromperà tutte le app quando lo schermo è spento per un po' di tempo, a meno che l'app non abbia avviato un servizio in primo piano, che richiede la visualizzazione di una notifica della barra di stato.
+A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-La maggior parte, se non tutte, le altre app d'email non mostrano una notifica, con "effetto collaterale" che i nuovi messaggi sono spesso non segnalati o segnalati tardi e che i messaggi non sono inviati o inviati tardi.
+Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-Android mostra prima le icone delle notifiche della barra di stato di alta priorità e nasconderà l'icona della notifica di FairEmail se non c'è più spazio per mostrare le icone. In pratica ciò significa che la notifica della barra di stato non prende spazio nella barra di stato, a meno che non ci sia spazio disponibile.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-La notifica della barra di stato può essere disabilitata tramite le impostazioni di notifica di FairEmail:
+The status bar notification can be disabled via the notification settings of FairEmail:
 
 * Android 8 Oreo e successive: tocca il pulsante *Ricevi canale* e disabilita il canale tramite le impostazioni di Android (questo non disabiliterà le notifiche dei messaggi)
 * Android 7 Nougat e precedenti: abilitato l'*Uso del servizio in background per sincronizzare i messaggi*, ma assicurati di leggere l'osservazione sotto l'impostazione
 
-Puoi passare alla sincronizzazione dei messaggi periodicamente nelle impostazioni di ricezione per rimuovere la notifica, ma sii consapevole che ciò potrebbe usare maggiore energia della batteria. Vedi [qui](#user-content-faq39) per ulteriori dettagli sull'uso della batteria.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Oreo potrebbe anche mostrare una notifica della barra di stato con il testo *Le app sono in esecuzione in background*. Sei pregato di vedere [qui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) su come puoi disabilitare questa notifica.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Alcune persone hanno suggerito di usare [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) invece di un servizio Android con una notifica della barra dello stato, ma questo richiederebbe ai fornitori dell'email di inviare messaggi FCM ad o ad un server centrale dove sono raccolti tutti i messaggi di inviare messaggi FCM. La prima non si verificherà è l'ultima avrà significative implicazioni sulla privacy.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-Se sei venuto/a qui cliccando sulla notifica, dovresti sapere che il prossimo clic aprirà la casella di posta unificata.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
 <a name="faq3"></a>
-**(3) Cosa sono le operazioni e perché sono in sospeso?**
+**(3) What are operations and why are they pending?**
 
-La notifica della barra dello stato a bassa priorità mostra il numero di operazioni in sospeso, che possono essere:
+The low priority status bar notification shows the number of pending operations, which can be:
 
 * *add*: aggiungi messaggio alla cartella remota
 * *move*: sposta messaggio ad un'altra cartella remota
@@ -378,23 +380,24 @@ La notifica della barra dello stato a bassa priorità mostra il numero di operaz
 * *send*: invia messaggio
 * *exists*: controlla se il messaggio esiste
 * *rule*: esegui regola sul corpo del testo
+* *expunge*: permanently delete messages
 
-Le operazioni sono elaborate solo quando esiste una connessione al server email o quando sincronizza manualmente. Vedi anche [questa FAQ](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Come posso usare un certificato di sicurezza non / password vuota / connessione di testo semplice?**
+**(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*... Non affidabile ... non nel certificato ...*
+*... Untrusted ... not in certificate ...*
 <br />
-*... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...*
+*... Invalid security certificate (Can't verify identity of server) ...*
 
-Questo può essere causato dall'uso di un nome host errato, quindi controllare prima il nome host nelle impostazioni avanzate di identità/account (clicca Impostazione Manuale ed altre opzioni). Per favore consulta la documentazione del provider di posta elettronica sul nome host corretto.
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
 
-Dovresti provare a risolvere ciò contattando il tuo provider o ottenendo un certificato di sicurezza valido perché i certificati di sicurezza non validi non sono sicuri e consente gli [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il denaro è un ostacolo, puoi ottenere dei certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
+You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
-In alternativa, puoi accettare la fingerprint dei certificati server non validi in questo modo:
+Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Assicurati di star usando una connessione internet affidabile (nessuna rete Wi-Fi pubblica, etc)
 1. Vai alla schermata di configurazione tramite il menu di navigazione (scorri verso l'interno dal lato sinistro)
@@ -402,27 +405,27 @@ In alternativa, puoi accettare la fingerprint dei certificati server non validi 
 1. Seleziona/salva il profilo e l'identità
 1. Seleziona la casella sotto al messaggio di errore e salva di nuovo
 
-Questo "fisserà" il certificato del server per prevenire man-in-the-middle attacks.
+This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-Nota che le versioni Android vecchie potrebbero non riconoscere le autorità di certificazione più nuove come Let's Encrypt, facendo si che le connessioni vengano considerate come non sicure, vedi anche [qui](https://developer.android.com/training/articles/security-ssl).
+Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor per il percorso di certificazione non trovato*
+*Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor per il percorso di certificazione non trovato ...* significa che il gestore di fiducia di Android predefinito non è stato capace di verificare la certificate chain del server.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
 
-Dovresti correggere o la configurazione del server o accettare l'impronta digitale mostrata sotto il messaggio d'errore.
+You should either fix the server configuration or accept the fingerprint shown below the error message.
 
-Nota che questo problema può essere causato anche dal server che non invia certificati intermedi.
+Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Password vuota*
+*Empty password*
 
-Il tuo nome utente è facilmente indovinabile, pertanto non è sicuro.
+Your username is likely easily guessed, so this is insecure.
 
 *Plain text connection*
 
-Il tuo nome utente e la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che non è **molto sicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto semplice su una connessione non crittografata.
+Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
 
-Se vuoi ancora usare un certificato di sicurezza non valido, una password vuota o una "plain text connection" dovrai abilitare le connessioni non sicure nelle impostazioni del profilo e/o d'identità. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
@@ -465,7 +468,7 @@ Some people ask:
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. Per usare una password dovrai configurar un profilo e un'identità tramite la configurazione manuale invece che tramite la procedura guidata rapida.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
 **Important**: sometimes Google issues this alert:
 
@@ -861,15 +864,15 @@ There are general errors and errors specific to Gmail accounts (see below).
 **General errors**
 
 <a name="authfailed"></a>
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+L'errore *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-L'errore *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
+The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
-L'errore *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
 The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

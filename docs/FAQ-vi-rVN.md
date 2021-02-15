@@ -1,6 +1,8 @@
 # Hỗ trợ FairEmail
 
-Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp bên dưới trước. Ở dưới cùng, bạn có thể tìm hiểu cách đặt các câu hỏi khác, yêu cầu tính năng và báo cáo lỗi.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Mục lục
 
@@ -16,13 +18,13 @@ Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Đối với điều này, bạn sẽ cần địa chỉ máy chủ IMAP và SMTP và số cổng, cho dù nên sử dụng SSL / TLS hay STARTTLS và tên người dùng của bạn (hầu hết, nhưng không phải lúc nào, địa chỉ email của bạn) và mật khẩu của bạn.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Tìm kiếm * IMAP * và tên của nhà cung cấp hầu hết là đủ để tìm tài liệu phù hợp.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Trong một số trường hợp, bạn cần bật quyền truy cập bên ngoài vào tài khoản của mình và / hoặc sử dụng mật khẩu (ứng dụng) đặc biệt, ví dụ khi xác thực hai yếu tố được bật.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Để ủy quyền:
+For authorizing:
 
 * Gmail / G suite, xem [ câu hỏi 6 ](#user-content-faq6)
 * Outlook / Live / Hotmail, xem [ câu hỏi 14 ](#user-content-faq14)
@@ -32,9 +34,9 @@ Trong một số trường hợp, bạn cần bật quyền truy cập bên ngo�
 * Icloud của Apple, xem [ câu hỏi 148 ](#user-content-faq148)
 * Free.fr, xem [ câu hỏi 157 ](#user-content-faq157)
 
-Vui lòng xem [ tại đây ](#user-content-faq22) để biết các thông báo lỗi phổ biến và giải pháp.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Câu hỏi liên quan:
+Related questions:
 
 * [OAuth có được hỗ trợ không?](#user-content-faq111)
 * [Tại sao ActiveSync không được hỗ trợ?](#user-content-faq133)
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

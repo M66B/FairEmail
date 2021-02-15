@@ -850,7 +850,6 @@
     <string name="title_send_now">Invia ora</string>
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_at">Invia alle &#8230;</string>
-    <string name="title_send_archive">Archivia i messaggi letti</string>
     <string name="title_send_encryption">Crittografia</string>
     <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>

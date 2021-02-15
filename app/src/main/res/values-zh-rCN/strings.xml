@@ -477,7 +477,7 @@
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
-    <string name="title_advanced_preview_lines_hint" comment="title_advanced_preview_lines_hint&#10;Remark for number of preview lines selection&#10;">最多共 %s 个字符</string>
+    <string name="title_advanced_preview_lines_hint">总共最多 %s 个字符</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
     <string name="title_advanced_overview_mode_hint">这可能会产生非常小的字体</string>
     <string name="title_advanced_placeholders_hint">这仅适用于重建格式的消息</string>
@@ -529,7 +529,7 @@
     <string name="title_identity_max_size">最大消息大小 (MB)</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
-    <string name="title_identity_self_hint">还防止自己回复自己</string>
+    <string name="title_identity_self_hint">也能防止您回复自己</string>
     <string name="title_optional">可选</string>
     <string name="title_recommended">推荐</string>
     <string name="title_account_linked">已绑定的账户</string>
@@ -590,6 +590,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
+    <string name="title_default_composable">默认电子邮件地址由主帐户的主身份确定</string>
     <string name="title_no_composable">发送邮件需要配置一个身份，并在帐户设置中选择一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
@@ -840,7 +841,7 @@
     <string name="title_send_now">立即发送</string>
     <string name="title_send_via">发送方式</string>
     <string name="title_send_at">发送于 &#8230;</string>
-    <string name="title_send_archive">存档已读消息</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">存档回复消息</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">优先级</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
@@ -908,7 +909,7 @@
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_plain_reminder">所有文本格式都将丢失</string>
-    <string name="title_dsn_reminder">硬退信损害原始发件人的电子邮件声誉!</string>
+    <string name="title_dsn_reminder">\"硬退信\" 会损害原发件人的邮件声誉！</string>
     <string name="title_size_reminder">消息 (%1$s) 超出服务器限制 (%2$s)</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>
@@ -1275,7 +1276,7 @@
     <string name="title_pro_activated">全部专业版功能已激活</string>
     <string name="title_pro_valid">全部专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>
-    <string name="title_pro_support">FairEmail 需要您的帮助。点击购买专业版功能以保持项目继续或关闭此消息。</string>
+    <string name="title_pro_support">FairEmail 需要您的支持，请点击购买专业版功能以维持项目发展并关闭此横幅</string>
     <string name="title_boundary_error">从电子邮件服务器下载消息时出错</string>
     <string name="title_boundary_retry">请重试</string>
     <string name="title_unexpected_error">未知错误</string>

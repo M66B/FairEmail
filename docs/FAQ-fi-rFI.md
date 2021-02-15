@@ -1,6 +1,8 @@
 # FairEmail-tuki
 
-Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysytyt kysymykset. Alimmaisena kerrotaan, kuinka kysyä muita kysymyksiä, pyytää ominaisuuksia, ja raportoida ohjelmistovirheitä.
+If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Sisältö
 
@@ -14,15 +16,15 @@ Jos sinulla on kysymyksiä, ole hyvä ja tarkista ensin alla olevat usein kysyty
 
 ## Tilien valtuutus
 
-Useimmissa tapauksissa pika-asennus pystyy automaattisesti tunnistamaan oikeat asetukset.
+In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-Jos pika-asennus epäonnistuu, sinun on määritettävä tili manuaalisesti (sähköpostin vastaanottamiseksi) ja identiteetti (sähköpostin lähettämiseksi). Tätä varten tarvitset IMAP- ja SMTP-palvelimien osoitteet ja porttinumerot, tiedon käytetäänkö SSL/TLS- tai STARTTLS-salausta ja käyttäjätunnuksesi (useimmiten sähköpostiosoitteesi, mutta ei aina) ja salasanasi.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Hakemalla *IMAP* ja palveluntarjoajan nimi riittää useimmiten oikean dokumentaation löytämiseen.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-Joissakin tapauksissa sinun on otettava käyttöön ulkoinen pääsy tilillesi ja/tai käytettävä erityistä (sovelluksen) salasanaa, kuten silloin, kun kaksivaiheinen tunnistautuminen on käytössä.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Valtuutukseen:
+For authorizing:
 
 * Gmail / G Suite, katso [kysymys 6](#user-content-faq6)
 * Outlook / Live / Hotmail, katso [kysymys 14](#user-content-faq14)
@@ -32,9 +34,9 @@ Valtuutukseen:
 * Apple iCloud, katso [kysymys 148](#user-content-faq148)
 * Free.fr, katso [kysymys 157](#user-content-faq157)
 
-Katso [täältä](#user-content-faq22) tavalliset virheviestit ja ratkaisut.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Aiheeseen liittyvät kysymykset:
+Related questions:
 
 * [Onko OAuth tuettu?](#user-content-faq111)
 * [Miksi ActiveSync ei ole tuettu?](#user-content-faq133)
@@ -304,7 +306,7 @@ The following Android permissions are needed:
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. Aikaisemmissa Android-versioissa sinua pyydetään myöntämään valinnaiset käyttöoikeudet FairEmailin asentamisen yhteydessä.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
@@ -343,9 +345,9 @@ The status bar notification can be disabled via the notification settings of Fai
 * Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. Katso täältä [](#user-content-faq39) lisätietoja akun käytöstä.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Oreo saattaa myös näyttää tilapalkin ilmoituksessa tekstin *Sovellukset ovat käynnissä taustalla*. Katso [täältä](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) miten voit poistaa tämän ilmoituksen.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
@@ -378,6 +380,7 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: send message
 * *exists*: check if message exists
 * *rule*: execute rule on body text
+* *expunge*: permanently delete messages
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
@@ -2938,7 +2941,7 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, please use [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 
