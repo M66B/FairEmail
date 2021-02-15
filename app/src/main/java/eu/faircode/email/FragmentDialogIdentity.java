@@ -60,6 +60,9 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
         final Group grpNoIdentities = dview.findViewById(R.id.grpNoIdentities);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean identities_primary_hint = prefs.getBoolean("identities_primary_hint", false);
+
         spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -81,18 +84,20 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             }
         });
 
+        tvPrimaryHint.setVisibility(identities_primary_hint ? View.GONE : View.VISIBLE);
         tvPrimaryHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActivitySetup.class)
+                prefs.edit().putBoolean("identities_primary_hint", true).apply();
+                startActivity(new Intent(v.getContext(), ActivitySetup.class)
                         .putExtra("manual", true));
+                tvPrimaryHint.setVisibility(View.GONE);
             }
         });
 
         cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 prefs.edit().putBoolean("identities_asked", isChecked).apply();
             }
         });
