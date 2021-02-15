@@ -32,6 +32,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.OperationCanceledException;
 import android.os.SystemClock;
+import android.service.notification.StatusBarNotification;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Pair;
@@ -3634,7 +3635,7 @@ class Core {
         }
     }
 
-    static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<Long, List<Long>> groupNotifying, boolean foreground) {
+    static void notifyMessages(Context context, List<TupleMessageEx> messages, NotificationData data, boolean foreground) {
         if (messages == null)
             messages = new ArrayList<>();
 
@@ -3663,8 +3664,10 @@ class Core {
                 " biometrics=" + biometrics + "/" + biometric_notify +
                 " summary=" + notify_summary);
 
+        Map<Long, Integer> newMessages = new HashMap<>();
+
         Map<Long, List<TupleMessageEx>> groupMessages = new HashMap<>();
-        for (long group : groupNotifying.keySet())
+        for (long group : data.groupNotifying.keySet())
             groupMessages.put(group, new ArrayList<>());
 
         // Current
@@ -3699,28 +3702,29 @@ class Core {
             long group = (pro && message.accountNotify ? message.account : 0);
             if (!message.folderUnified)
                 group = -message.folder;
-            if (!groupNotifying.containsKey(group))
-                groupNotifying.put(group, new ArrayList<Long>());
+            if (!data.groupNotifying.containsKey(group))
+                data.groupNotifying.put(group, new ArrayList<Long>());
             if (!groupMessages.containsKey(group))
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
 
             if (message.notifying != 0) {
                 long id = message.id * message.notifying;
-                if (!groupNotifying.get(group).contains(id) &&
-                        !groupNotifying.get(group).contains(-id)) {
+                if (!data.groupNotifying.get(group).contains(id) &&
+                        !data.groupNotifying.get(group).contains(-id)) {
                     Log.i("Notify database=" + id);
-                    groupNotifying.get(group).add(id);
+                    data.groupNotifying.get(group).add(id);
                 }
             }
 
-            if (!(message.ui_seen || message.ui_ignored || message.ui_hide)) {
+            if (!message.ui_seen && !message.ui_ignored && !message.ui_hide) {
                 // This assumes the messages are properly ordered
+                Integer current = newMessages.get(group);
+                newMessages.put(group, current == null ? 1 : current + 1);
+
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
-                else {
-                    if (!message.ui_ignored)
-                        db.message().setMessageUiIgnored(message.id, true);
-                }
+                else
+                    db.message().setMessageUiIgnored(message.id, true);
             }
         }
 
@@ -3728,7 +3732,7 @@ class Core {
         for (long group : groupMessages.keySet()) {
             List<Long> add = new ArrayList<>();
             List<Long> update = new ArrayList<>();
-            List<Long> remove = new ArrayList<>(groupNotifying.get(group));
+            List<Long> remove = new ArrayList<>(data.groupNotifying.get(group));
             for (int m = 0; m < groupMessages.get(group).size(); m++) {
                 TupleMessageEx message = groupMessages.get(group).get(m);
                 if (m >= MAX_NOTIFICATION_DISPLAY) {
@@ -3755,11 +3759,16 @@ class Core {
                 }
             }
 
-            int new_messages = add.size() - update.size();
+            Integer prev = data.newMessages.get(group);
+            if (prev == null)
+                prev = 0;
+            Integer current = newMessages.get(group);
+            if (current == null)
+                current = 0;
+            data.newMessages.put(group, current);
 
-            if (notify_summary
-                    ? remove.size() + new_messages == 0
-                    : remove.size() + add.size() == 0) {
+            if (prev.equals(current) &&
+                    remove.size() + add.size() == 0) {
                 Log.i("Notify unchanged");
                 continue;
             }
@@ -3767,7 +3776,7 @@ class Core {
             // Build notifications
             List<NotificationCompat.Builder> notifications = getNotificationUnseen(context,
                     group, groupMessages.get(group),
-                    notify_summary, new_messages,
+                    notify_summary, current - prev,
                     redacted);
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
@@ -3784,19 +3793,19 @@ class Core {
                 Log.i("Notify cancel tag=" + tag + " id=" + id);
                 nm.cancel(tag, 1);
 
-                groupNotifying.get(group).remove(id);
+                data.groupNotifying.get(group).remove(id);
                 db.message().setMessageNotifying(Math.abs(id), 0);
             }
 
             for (Long id : add) {
-                groupNotifying.get(group).add(id);
-                groupNotifying.get(group).remove(-id);
+                data.groupNotifying.get(group).add(id);
+                data.groupNotifying.get(group).remove(-id);
                 db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
             }
 
             for (NotificationCompat.Builder builder : notifications) {
                 long id = builder.getExtras().getLong("id", 0);
-                if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
+                if ((id == 0 && prev != current) || add.contains(id)) {
                     // https://developer.android.com/training/wearables/notifications/creating
                     if (id == 0) {
                         if (!notify_summary)
@@ -3939,7 +3948,7 @@ class Core {
                             .setAllowSystemGeneratedContextualActions(false);
 
             if (notify_summary) {
-                builder.setOnlyAlertOnce(new_messages == 0);
+                builder.setOnlyAlertOnce(new_messages <= 0);
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                     if (new_messages > 0)
@@ -4742,6 +4751,46 @@ class Core {
                     " content=" + Helper.humanReadableByteCount(content) +
                     " attachments=" + Helper.humanReadableByteCount(attachments) +
                     " total=" + total + " ms";
+        }
+    }
+
+    static class NotificationData {
+        private Map<Long, Integer> newMessages = new HashMap<>();
+        private Map<Long, List<Long>> groupNotifying = new HashMap<>();
+
+        NotificationData(Context context) {
+            // Get existing notifications
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                try {
+                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    for (StatusBarNotification sbn : nm.getActiveNotifications()) {
+                        String tag = sbn.getTag();
+                        if (tag != null && tag.startsWith("unseen.")) {
+                            String[] p = tag.split(("\\."));
+                            long group = Long.parseLong(p[1]);
+                            long id = sbn.getNotification().extras.getLong("id", 0);
+
+                            if (!groupNotifying.containsKey(group))
+                                groupNotifying.put(group, new ArrayList<>());
+
+                            if (id > 0) {
+                                Log.i("Notify restore " + tag + " id=" + id);
+                                groupNotifying.get(group).add(id);
+                            }
+                        }
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                /*
+                    java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke virtual method 'java.util.List android.content.pm.ParceledListSlice.getList()' on a null object reference
+                            at android.app.ActivityThread.handleCreateService(ActivityThread.java:2944)
+                            at android.app.ActivityThread.access$1900(ActivityThread.java:154)
+                            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1474)
+                            at android.os.Handler.dispatchMessage(Handler.java:102)
+                            at android.os.Looper.loop(Looper.java:234)
+                            at android.app.ActivityThread.main(ActivityThread.java:5526)
+                */
+                }
         }
     }
 }

@@ -36,7 +36,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.OperationCanceledException;
 import android.os.PowerManager;
-import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -582,40 +581,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
 
-        Map<Long, List<Long>> groupNotifying = new HashMap<>();
-
-        // Get existing notifications
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            try {
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                for (StatusBarNotification sbn : nm.getActiveNotifications()) {
-                    String tag = sbn.getTag();
-                    if (tag != null && tag.startsWith("unseen.")) {
-                        String[] p = tag.split(("\\."));
-                        long group = Long.parseLong(p[1]);
-                        long id = sbn.getNotification().extras.getLong("id", 0);
-
-                        if (!groupNotifying.containsKey(group))
-                            groupNotifying.put(group, new ArrayList<>());
-
-                        if (id > 0) {
-                            Log.i("Notify restore " + tag + " id=" + id);
-                            groupNotifying.get(group).add(id);
-                        }
-                    }
-                }
-            } catch (Throwable ex) {
-                Log.w(ex);
-                /*
-                    java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke virtual method 'java.util.List android.content.pm.ParceledListSlice.getList()' on a null object reference
-                            at android.app.ActivityThread.handleCreateService(ActivityThread.java:2944)
-                            at android.app.ActivityThread.access$1900(ActivityThread.java:154)
-                            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1474)
-                            at android.os.Handler.dispatchMessage(Handler.java:102)
-                            at android.os.Looper.loop(Looper.java:234)
-                            at android.app.ActivityThread.main(ActivityThread.java:5526)
-                */
-            }
+        Core.NotificationData notificationData = new Core.NotificationData(this);
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
             private ExecutorService executor =
@@ -627,7 +593,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         try {
-                            Core.notifyMessages(ServiceSynchronize.this, messages, groupNotifying, foreground);
+                            Core.notifyMessages(ServiceSynchronize.this, messages, notificationData, foreground);
                         } catch (SecurityException ex) {
                             Log.w(ex);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
