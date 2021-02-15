@@ -166,6 +166,11 @@ public interface DaoFolder {
 
     @Query("SELECT * FROM folder" +
             " WHERE folder.account = :account" +
+            " AND type <> '" + EntityFolder.USER + "'")
+    LiveData<List<EntityFolder>> liveSystemFolders(long account);
+
+    @Query("SELECT * FROM folder" +
+            " WHERE folder.account = :account" +
             " AND folder.selectable" +
             " AND folder.synchronize")
     List<EntityFolder> getSynchronizingFolders(long account);

@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +36,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -42,10 +45,31 @@ public class FragmentReview extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review_account, null);
-        TextView tvLeft = dview.findViewById(R.id.tvLeft);
-        TextView tvRight = dview.findViewById(R.id.tvRight);
-        Button btnAccount = dview.findViewById(R.id.btnAccount);
+        final Context context = getContext();
+
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_review_account, null);
+        final TextView tvInbox = dview.findViewById(R.id.tvInbox);
+        final TextView tvDrafts = dview.findViewById(R.id.tvDrafts);
+        final TextView tvSent = dview.findViewById(R.id.tvSent);
+        final TextView tvTrash = dview.findViewById(R.id.tvTrash);
+        final TextView tvJunk = dview.findViewById(R.id.tvJunk);
+        final TextView tvArchive = dview.findViewById(R.id.tvArchive);
+        final TextView tvLeft = dview.findViewById(R.id.tvLeft);
+        final TextView tvRight = dview.findViewById(R.id.tvRight);
+        final Button btnAccount = dview.findViewById(R.id.btnAccount);
+
+        final Drawable check = context.getDrawable(R.drawable.twotone_check_24);
+        final Drawable close = context.getDrawable(R.drawable.twotone_close_24);
+
+        check.setBounds(0, 0, check.getIntrinsicWidth(), check.getIntrinsicHeight());
+        close.setBounds(0, 0, close.getIntrinsicWidth(), close.getIntrinsicHeight());
+
+        tvInbox.setCompoundDrawablesRelative(null, null, null, null);
+        tvDrafts.setCompoundDrawablesRelative(null, null, null, null);
+        tvSent.setCompoundDrawablesRelative(null, null, null, null);
+        tvTrash.setCompoundDrawablesRelative(null, null, null, null);
+        tvJunk.setCompoundDrawablesRelative(null, null, null, null);
+        tvArchive.setCompoundDrawablesRelative(null, null, null, null);
 
         tvLeft.setText("");
         tvRight.setText("");
@@ -56,7 +80,7 @@ public class FragmentReview extends FragmentDialogBase {
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                                 .putExtra("id", account)
@@ -65,7 +89,7 @@ public class FragmentReview extends FragmentDialogBase {
             }
         });
 
-        DB db = DB.getInstance(getContext());
+        DB db = DB.getInstance(context);
         db.account().liveAccountSwipes(account).observe(this, new Observer<List<TupleAccountSwipes>>() {
             @Override
             public void onChanged(List<TupleAccountSwipes> swipes) {
@@ -81,7 +105,43 @@ public class FragmentReview extends FragmentDialogBase {
             }
         });
 
-        return new AlertDialog.Builder(getContext())
+        db.folder().liveSystemFolders(account).observe(this, new Observer<List<EntityFolder>>() {
+            @Override
+            public void onChanged(List<EntityFolder> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                List<String> types = new ArrayList<>();
+                for (EntityFolder folder : folders)
+                    if (!folder.local)
+                        types.add(folder.type);
+
+                tvInbox.setCompoundDrawablesRelative(
+                        types.contains(EntityFolder.INBOX) ? check : close, null, null, null);
+                tvDrafts.setCompoundDrawablesRelative(
+                        types.contains(EntityFolder.DRAFTS) ? check : close, null, null, null);
+                tvSent.setCompoundDrawablesRelative(
+                        types.contains(EntityFolder.SENT) ? check : close, null, null, null);
+                tvTrash.setCompoundDrawablesRelative(
+                        types.contains(EntityFolder.TRASH) ? check : close, null, null, null);
+                tvJunk.setCompoundDrawablesRelative(
+                        types.contains(EntityFolder.JUNK) ? check : close, null, null, null);
+                tvArchive.setCompoundDrawablesRelative(
+                        types.contains(EntityFolder.ARCHIVE) ? check : close, null, null, null);
+
+                int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+                int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+
+                tvInbox.setTextColor(types.contains(EntityFolder.INBOX) ? textColorPrimary : colorWarning);
+                tvDrafts.setTextColor(types.contains(EntityFolder.DRAFTS) ? textColorPrimary : colorWarning);
+                tvSent.setTextColor(types.contains(EntityFolder.SENT) ? textColorPrimary : colorWarning);
+                tvTrash.setTextColor(types.contains(EntityFolder.TRASH) ? textColorPrimary : colorWarning);
+                tvJunk.setTextColor(types.contains(EntityFolder.JUNK) ? textColorPrimary : colorWarning);
+                tvArchive.setTextColor(types.contains(EntityFolder.ARCHIVE) ? textColorPrimary : colorWarning);
+            }
+        });
+
+        return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
