@@ -684,7 +684,7 @@ If you need to reset the sign key, just save the identity or long press the iden
 The selected sign key is visible in the list of identities.
 If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
-In the privacy settings you can select the default encryption method (PGP or S/MIME),
+In the encryption settings you can select the default encryption method (PGP or S/MIME),
 enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*,
 but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
@@ -739,7 +739,7 @@ Common errors:
 Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
 
 Private keys are stored by Android and can be imported via the Android advanced security settings.
-There is a shortcut (button) for this in the privacy settings.
+There is a shortcut (button) for this in the encryption settings.
 Android will ask you to set a PIN, pattern, or password if you didn't before.
 If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
@@ -755,7 +755,7 @@ You might need to enable the send options in the three dots menu again to be abl
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the privacy settings (PEM or DER format).
+Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
 
 FairEmail verifies both the signature and the complete certificate chain.
 
