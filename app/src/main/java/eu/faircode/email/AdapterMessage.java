@@ -1560,6 +1560,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
             pbBody.setVisibility(View.GONE);
+
+            clearCalendar();
+            grpCalendar.setVisibility(View.GONE);
+            grpCalendarResponse.setVisibility(View.GONE);
+
             grpAction.setVisibility(View.GONE);
             clearActions();
             ibTrashBottom.setVisibility(View.GONE);
