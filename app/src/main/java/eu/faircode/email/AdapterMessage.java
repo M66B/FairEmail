@@ -1606,7 +1606,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             // Setup actions
-            setupTools(message, scroll, true);
+            if (attachments_alt)
+                setupTools(message, scroll, true);
+            else {
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
+
+                new SimpleTask<List<EntityAttachment>>() {
+                    @Override
+                    protected List<EntityAttachment> onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        return db.attachment().getAttachments(id);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<EntityAttachment> attachments) {
+                        if (attachments == null)
+                            attachments = new ArrayList<>();
+
+                        bindAttachments(message, attachments, false);
+                        setupTools(message, scroll, true);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    }
+                }.execute(context, owner, args, "message:attachments");
+            }
         }
 
         private void setupTools(final TupleMessageEx message, final boolean scroll, final boolean bind) {
