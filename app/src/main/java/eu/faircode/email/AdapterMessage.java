@@ -237,6 +237,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean date;
     private boolean cards;
+    private boolean shadow;
     private boolean threading;
     private boolean threading_unread;
     private boolean indentation;
@@ -268,7 +269,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean collapse_quotes;
     private boolean authentication;
     private boolean language_detection;
-    private boolean experiments;
     private List<String> languages;
     private static boolean debug;
 
@@ -513,7 +513,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         ViewHolder(final View itemView, long viewType) {
             super(itemView);
 
-            if (experiments && cards) {
+            if (cards && shadow) {
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
                 lparam.bottomMargin = dp1;
                 itemView.setLayoutParams(lparam);
@@ -1402,7 +1402,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindSeen(TupleMessageEx message) {
-            if (experiments && cards)
+            if (cards && shadow)
                 itemView.setBackground(message.unseen > 0 ? drawableSeparator : null);
 
             if (textSize != 0) {
@@ -5347,6 +5347,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.cards = prefs.getBoolean("cards", true);
+        this.shadow = prefs.getBoolean("experiments", false);
         this.threading = prefs.getBoolean("threading", true);
         this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
         this.indentation = prefs.getBoolean("indentation", false);
@@ -5386,8 +5387,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
         this.language_detection = prefs.getBoolean("language_detection", false);
-
-        this.experiments = prefs.getBoolean("experiments", false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             languages = new ArrayList<>();
