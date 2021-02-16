@@ -43,10 +43,10 @@ public class ServiceExternal extends Service {
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
     private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
 
-    // adb shell am startservice -a eu.faircode.email.POLL --es account Gmail
-    // adb shell am startservice -a eu.faircode.email.ENABLE --es account Gmail
-    // adb shell am startservice -a eu.faircode.email.DISABLE --es account Gmail
-    // adb shell am startservice -a eu.faircode.email.DISCONNECT
+    // adb shell am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
+    // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
+    // adb shell am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
+    // adb shell am start-foreground-service -a eu.faircode.email.DISCONNECT
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "external");
