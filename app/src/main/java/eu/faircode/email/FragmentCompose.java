@@ -4979,24 +4979,25 @@ public class FragmentCompose extends FragmentBase {
                 boolean force_dialog = extras.getBoolean("force_dialog", false);
                 String address_error = args.getString("address_error");
                 String mx_error = args.getString("mx_error");
+                boolean remind_dsn = args.getBoolean("remind_dsn", false);
+                boolean remind_size = args.getBoolean("remind_size", false);
+                boolean remind_pgp = args.getBoolean("remind_pgp", false);
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
-                boolean remind_pgp = args.getBoolean("remind_pgp", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
-                boolean remind_dsn = args.getBoolean("remind_dsn", false);
-                boolean remind_size = args.getBoolean("remind_size", false);
                 boolean formatted = args.getBoolean("formatted", false);
 
                 int recipients = (draft.to == null ? 0 : draft.to.length) +
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
-                        address_error != null || mx_error != null || remind_to || recipients > RECIPIENTS_WARNING || remind_dsn || remind_size ||
+                        address_error != null || mx_error != null || remind_dsn || remind_size || remind_pgp || remind_to ||
+                        recipients > RECIPIENTS_WARNING ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
-                                (remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment))) {
+                                (remind_extra || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -5615,9 +5616,9 @@ public class FragmentCompose extends FragmentBase {
             String mx_error = args.getString("mx_error");
             final boolean remind_dsn = args.getBoolean("remind_dsn", false);
             final boolean remind_size = args.getBoolean("remind_size", false);
+            final boolean remind_pgp = args.getBoolean("remind_pgp", false);
             final boolean remind_to = args.getBoolean("remind_to", false);
             final boolean remind_extra = args.getBoolean("remind_extra", false);
-            final boolean remind_pgp = args.getBoolean("remind_pgp", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -5639,9 +5640,9 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
             final TextView tvRemindDsn = dview.findViewById(R.id.tvRemindDsn);
             final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
+            final TextView tvRemindPgp = dview.findViewById(R.id.tvRemindPgp);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
-            final TextView tvRemindPgp = dview.findViewById(R.id.tvRemindPgp);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
@@ -5673,9 +5674,10 @@ public class FragmentCompose extends FragmentBase {
                     Helper.humanReadableByteCount(max_size)));
             tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
 
+            tvRemindPgp.setVisibility(remind_pgp ? View.VISIBLE : View.GONE);
+
             tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
-            tvRemindPgp.setVisibility(send_reminders && remind_pgp ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);
@@ -5696,7 +5698,7 @@ public class FragmentCompose extends FragmentBase {
 
             Helper.setViewsEnabled(dview, false);
 
-            boolean reminder = (remind_extra || remind_pgp || remind_subject || remind_text || remind_attachment);
+            boolean reminder = (remind_extra || remind_subject || remind_text || remind_attachment);
             swSendReminders.setChecked(send_reminders);
             swSendReminders.setVisibility(send_reminders && reminder ? View.VISIBLE : View.GONE);
             tvSendRemindersHint.setVisibility(View.GONE);
@@ -5705,7 +5707,6 @@ public class FragmentCompose extends FragmentBase {
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                     prefs.edit().putBoolean("send_reminders", checked).apply();
                     tvRemindExtra.setVisibility(checked && remind_extra ? View.VISIBLE : View.GONE);
-                    tvRemindPgp.setVisibility(checked && remind_pgp ? View.VISIBLE : View.GONE);
                     tvRemindSubject.setVisibility(checked && remind_subject ? View.VISIBLE : View.GONE);
                     tvRemindText.setVisibility(checked && remind_text ? View.VISIBLE : View.GONE);
                     tvRemindAttachment.setVisibility(checked && remind_attachment ? View.VISIBLE : View.GONE);

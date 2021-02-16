@@ -57,6 +57,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvRemindDsn" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvRemindPgp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_pgp_reminder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorError"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindSize" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +78,7 @@
             android:textColor="?attr/colorError"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindSize" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindPgp" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindExtra"
@@ -80,17 +92,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvRemindTo" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvRemindPgp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_pgp_reminder"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?attr/colorWarning"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
-
-        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindSubject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +100,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindPgp" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindText"
