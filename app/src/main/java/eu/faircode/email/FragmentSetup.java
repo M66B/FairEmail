@@ -98,9 +98,12 @@ public class FragmentSetup extends FragmentBase {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
 
-        FragmentActivity activity = getActivity();
-        if (activity != null)
-            manual = activity.getIntent().getBooleanExtra("manual", false);
+        if (savedInstanceState == null) {
+            FragmentActivity activity = getActivity();
+            if (activity != null)
+                manual = activity.getIntent().getBooleanExtra("manual", false);
+        } else
+            manual = savedInstanceState.getBoolean("fair:manual");
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
@@ -237,8 +240,6 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        if (savedInstanceState != null)
-            manual = savedInstanceState.getBoolean("fair:manual");
         ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
         grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
 
