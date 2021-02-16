@@ -875,7 +875,7 @@
     <string name="title_send_now">Отправить сейчас</string>
     <string name="title_send_via">Отправить через</string>
     <string name="title_send_at">Отправить в&#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Архивировать ответное сообщение</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Архивировать исходное сообщение</string>
     <string name="title_send_encryption">Шифрование</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Сервер не найден на \"%1$s\"</string>

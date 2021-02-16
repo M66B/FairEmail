@@ -489,6 +489,7 @@
     <string name="title_advanced_gravatars_hint">Potrebbe esserci un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
+    <string name="title_advanced_preview_lines_hint">Massimo %s caratteri in totale</string>
     <string name="title_advanced_preview_issue">Lo scorrimento può essere lento a causa di un bug in alcune versioni di Android quando il numero di righe è più di uno</string>
     <string name="title_advanced_overview_mode_hint">Questo può portare a caratteri molto piccoli</string>
     <string name="title_advanced_placeholders_hint">Questo vale solo per i messaggi riformattati</string>
@@ -540,6 +541,7 @@
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
     <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura in modo predefinito</string>
     <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>
+    <string name="title_identity_self_hint">Ti impedisce anche di rispondere a te stesso</string>
     <string name="title_optional">Facoltativo</string>
     <string name="title_recommended">Consigliati</string>
     <string name="title_account_linked">Account collegato</string>
@@ -600,6 +602,7 @@
     <string name="title_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_no_drafts">Nessuna cartella bozze</string>
     <string name="title_no_junk_folder">Non c\'è nessuna cartella spam selezionata per questo account</string>
+    <string name="title_default_composable">L\'indirizzo di posta elettronica predefinito è determinato dall\'identità primaria dell\'account primario</string>
     <string name="title_no_composable">L\'invio di e-mail richiede la configurazione di un\'identità e la selezione di una cartella delle bozze nelle impostazioni dell\'account</string>
     <string name="title_no_standard">Questo fornitore utilizza un protocollo di posta elettronica proprietario e quindi non è possibile utilizzare client di terze parti</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
@@ -850,6 +853,7 @@
     <string name="title_send_now">Invia ora</string>
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_at">Invia alle &#8230;</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archivia il messaggio con risposta</string>
     <string name="title_send_encryption">Crittografia</string>
     <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>
@@ -1285,6 +1289,7 @@
     <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>
     <string name="title_pro_valid">Tutte le funzionalità attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>
+    <string name="title_pro_support">FairEmail ha bisogno del tuo aiuto. Tocca per acquistare funzionalità pro per mantenere il progetto in corso o disattivare questo messaggio.</string>
     <string name="title_boundary_error">Errore nel download dei messaggi dal server di posta elettronica</string>
     <string name="title_boundary_retry">Prova di nuovo</string>
     <string name="title_unexpected_error">Errore imprevisto</string>

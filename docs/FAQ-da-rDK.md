@@ -338,27 +338,27 @@ En lavprioritets, permanent statusbjælkenotifikation med det kontoantal, som mo
 
 De fleste, hvis ikke alle, andre e-mail-apps viser ingen notifikation med "bivirkningen" af ingen/for sene adviseringer om nye beskeder, og at beskeder ikke/for sent afsendes.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android viser ikoner for højprioritets statusnotifikationer først og skjuler FairEmails notifikationsikon, hvis der ikke er plads til at vise yderligere ikoner. Statusbjælkenotifikationen vil derfor kun fremgå på statusbjælken, såfremt der er ledig plads.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Statusnjælkenotifikationen kan deaktiveres via FairEmails notifikationsindstillinger:
 
 * Android 8 Oreo og senere: Tryk på *Modtagekanal*-knappen og deaktivér kanalen via Android-indstillingerne (dette deaktiverer ikke notifikationer for nye besked)
 * Android 7 Nougat og tidligere: Aktivér *Benyt baggrundstjenester til synkronisering af beskeder*, men husk at læse bemærkningen under indstillingen
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+For at fjerne notifikationen kan der skiftes til periodisk beskedsynkning i modtagelsesindstillingerne, men bemærk, at dette muligvis forbruger mere strøm. Tjek [hér](#user-content-faq39) for mere info vedr. strømforbrug.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo viser muligvis også en statusbjælkenotifikation med teksten *Apps kører i baggrunden*. Tjek [hér](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/), hvordan denne notifikation deaktiveres.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. Førstnævnte kommer ikke til at ske, og sidstnævnte ville have betydelige fortrolighedskonsekvenser.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Er dette sted nået via et tryk på notifikationen, vil næste tryk åbne den fælles indbakke.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Hvad er operationer, og hvorfor afventer de?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Lavprioritets statusbjælkenotifikationen viser antallet af afventende operationer, som kan være:
 
 * *tilføj*: Føj besked til fjernmappe
 * *flyt*: Flyt besked til en anden fjernmappe
@@ -380,22 +380,22 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: Send besked
 * *findes*: Tjek om besked findes
 * *regel*: Eksekvér regel på brødtekst
-* *expunge*: permanently delete messages
+* *expunge*: Slet beskeder permanent
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Operationer behandles kun, såfremt der er forbindelse til e-mailserveren, eller ved manuel synk. Tjek også [denne FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Hvordan kan et ugyldigt sikkerhedscertifikat/tom adgangskode/simpel tekstforbindelse benyttes?**
 
-*... Untrusted ... not in certificate ...*
+*... Ikke-betroet ... ikke i certifikatet ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Ugyldigt sikkerhedscertifikat (kan ikke bekræfte serveridentet)...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
+Dette kan skyldes brug af et forkert værtsnavn, så dobbelttjek først værtsnavnet i de avancerede identitets-/kontoindstillinger (tryk Manuel opsætning, flere valg). Tjek dokumentationen fra e-mailleverandøren for korrekt værtsnavn.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Dette bør forsøges løst ved at kontakte udbyderen eller ved at få et gyldigt sikkerhedscertifikat, da ugyldige sikkerhedscertifikater er usikre og tillader [mand-i-midten-angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Er penge en hindring, kan et gratis sikkerhedscertifikater erhverves fra [Let's Encrypt](https://letsencrypt.org).
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
@@ -405,19 +405,19 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 1. Tjek/gem kontoen og identiteten
 1. Markér afkrydsningsfeltet under fejlmeddelelsen og gem igen
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Dette vil "fiksere" servercertifikatet for at forhindre mand-i-midten angreb.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Bemærk, at ældre Android-versioner muligvis ikke genkender nyere certificeringsmyndigheder såsom Let’s Encrypt, og forbindelser derfor kan blive betragtet som usikre. Tjek også [hér](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+*Tillidsanker til certificeringssti ikke fundet*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found...* betyder, at Androids standard tillidshåndtering ikke kunne bekræfte servercertifikatkæden.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Enten bør serveropsætningen rettes eller fingeraftrykket vist neden for fejlmeddelelsen accepteres.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Bemærk, at dette problem kan skyldes af, at serveren ikke sender alle mellemliggende certifikater.
 
-*Empty password*
+*Kryptere adgangskode*
 
 Your username is likely easily guessed, so this is insecure.
 

@@ -853,7 +853,7 @@
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer avec</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiver un message répondu</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiver un message avec réponse</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>

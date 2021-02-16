@@ -487,6 +487,7 @@
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
+    <string name="title_advanced_preview_lines_hint">Enintään %s merkkiä</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
     <string name="title_advanced_overview_mode_hint">Tämä voi aiheuttaa hyvin pieniä kirjasimia</string>
     <string name="title_advanced_placeholders_hint">Tämä koskee vain uudelleenmuotoiltuja viestejä</string>
@@ -599,6 +600,7 @@
     <string name="title_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_no_drafts">Ei luonnokset-kansiota</string>
     <string name="title_no_junk_folder">Tälle tilille ei ole valittu roskapostikansiota</string>
+    <string name="title_default_composable">Ensisijaisen tilin ensisijainen identiteetti määrittää oletussähköpostiosoitteen</string>
     <string name="title_no_composable">Sähköpostien lähettäminen edellyttää identiteetin määrittämistä ja luonnokset-kansion valintaa tilin asetuksissa</string>
     <string name="title_no_standard">Tämä palveluntarjoaja käyttää omaa sähköpostiprotokollaansa ja siksi kolmansien osapuolten sähköpostiohjelmien käyttö ei ole mahdollista</string>
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
@@ -849,6 +851,7 @@
     <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Arkistoi vastattu viesti</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
@@ -1284,6 +1287,7 @@
     <string name="title_pro_activated">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_valid">Kaikki pro-ominaisuudet on aktivoitu</string>
     <string name="title_pro_invalid">Virheellinen vastaus</string>
+    <string name="title_pro_support">FairEmail tarvitsee apuasi. Napauta ostaaksesi pro-ominaisuudet, jotta projekti jatkuu ja saat poistettua tämän viestin.</string>
     <string name="title_boundary_error">Virhe ladattaessa viestejä sähköpostipalvelimelta</string>
     <string name="title_boundary_retry">Yritä uudelleen</string>
     <string name="title_unexpected_error">Odottamaton virhe</string>
