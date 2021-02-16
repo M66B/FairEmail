@@ -1612,36 +1612,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             // Setup actions
-            if (attachments_alt)
-                setupTools(message, scroll, true);
-            else {
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
-
-                new SimpleTask<List<EntityAttachment>>() {
-                    @Override
-                    protected List<EntityAttachment> onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-
-                        DB db = DB.getInstance(context);
-                        return db.attachment().getAttachments(id);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, List<EntityAttachment> attachments) {
-                        if (attachments == null)
-                            attachments = new ArrayList<>();
-
-                        bindAttachments(message, attachments, false);
-                        setupTools(message, scroll, true);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                    }
-                }.execute(context, owner, args, "message:attachments");
-            }
+            setupTools(message, scroll, true);
         }
 
         private void setupTools(final TupleMessageEx message, final boolean scroll, final boolean bind) {
@@ -1649,20 +1620,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             sargs.putLong("id", message.id);
             sargs.putLong("account", message.account);
 
-            new SimpleTask<List<EntityFolder>>() {
+            new SimpleTask<ToolData>() {
                 @Override
-                protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                protected ToolData onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
                     long aid = args.getLong("account");
+
+                    ToolData data = new ToolData();
 
                     DB db = DB.getInstance(context);
                     EntityAccount account = db.account().getAccount(aid);
-                    args.putBoolean("gmail", account != null && account.isGmail());
+                    data.isGmail = (account != null && account.isGmail());
+                    data.folders = db.folder().getSystemFolders(aid);
+                    data.attachments = db.attachment().getAttachments(id);
 
-                    return db.folder().getSystemFolders(aid);
+                    return data;
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, List<EntityFolder> folders) {
+                protected void onExecuted(Bundle args, ToolData data) {
                     long id = args.getLong("id");
                     TupleMessageEx amessage = getMessage();
                     if (amessage == null || !amessage.id.equals(id))
@@ -1672,14 +1648,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!show_expanded)
                         return;
 
-                    boolean gmail = args.getBoolean("gmail");
+                    if (!attachments_alt && bind)
+                        bindAttachments(message, data.attachments, false);
 
                     boolean hasInbox = false;
                     boolean hasArchive = false;
                     boolean hasTrash = false;
                     boolean hasJunk = false;
-                    if (folders != null)
-                        for (EntityFolder folder : folders)
+                    if (data.folders != null)
+                        for (EntityFolder folder : data.folders)
                             if (folder.selectable)
                                 if (EntityFolder.INBOX.equals(folder.type))
                                     hasInbox = true;
@@ -1706,7 +1683,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk));
                     boolean keywords = (!message.folderReadOnly && message.uid != null &&
                             message.accountProtocol == EntityAccount.TYPE_IMAP);
-                    boolean labels = (gmail && move && !inTrash && !inJunk && !outbox);
+                    boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (!(message.folderReadOnly || message.uid == null) ||
                             message.accountProtocol == EntityAccount.TYPE_POP);
 
@@ -5286,6 +5263,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return TextUtils.join(", ", result);
             }
         };
+
+        private class ToolData {
+            private boolean isGmail;
+            private List<EntityFolder> folders;
+            private List<EntityAttachment> attachments;
+        }
     }
 
     AdapterMessage(Fragment parentFragment,
