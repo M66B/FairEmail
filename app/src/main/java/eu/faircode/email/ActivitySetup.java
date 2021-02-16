@@ -1076,6 +1076,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 else {
                     boolean expected =
                             (ex instanceof IllegalArgumentException ||
+                                    ex instanceof IOException ||
                                     ex instanceof FileNotFoundException ||
                                     ex instanceof JSONException ||
                                     ex instanceof SecurityException);
