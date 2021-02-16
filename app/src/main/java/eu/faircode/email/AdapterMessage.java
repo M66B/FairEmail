@@ -1509,7 +1509,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             bindAddresses(message);
             bindHeaders(message, false);
-            bindAttachments(message, properties.getAttachments(message.id));
+            bindAttachments(message, properties.getAttachments(message.id), false);
 
             // Actions
             vSeparator.setVisibility(View.VISIBLE);
@@ -1596,7 +1596,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             (inlineImages > lastInlineImages && (show_images || inline)))
                         bindBody(message, false);
 
-                    bindAttachments(message, attachments);
+                    bindAttachments(message, attachments, true);
                 }
             });
 
@@ -2339,7 +2339,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean signed_data = args.getBoolean("signed_data");
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
 
-                    if (result instanceof Spanned) {
+                    if (show_full) {
+                        ((WebViewEx) wvBody).setOnPageFinished(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    cowner.start(); // Show attachments
+                                    bindConversationActions(message, args.getParcelable("actions"));
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+                            }
+                        });
+
+                        if (result == null)
+                            ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
+                        else
+                            ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", StandardCharsets.UTF_8.name(), null);
+                    } else {
                         tvBody.post(new Runnable() {
                             @Override
                             public void run() {
@@ -2348,111 +2365,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     tvBody.setTextIsSelectable(false);
                                     tvBody.setTextIsSelectable(true);
                                     tvBody.setMovementMethod(new TouchHandler(message));
+
+                                    cowner.start(); // Show attachments
+                                    bindConversationActions(message, args.getParcelable("actions"));
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 }
                             }
                         });
-                    } else if (result instanceof String)
-                        ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", StandardCharsets.UTF_8.name(), null);
-                    else if (result == null) {
-                        if (show_full)
-                            ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
-                        else
-                            tvBody.setText(null);
-                    } else
-                        throw new IllegalStateException("Result=" + result);
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        boolean has = false;
-                        ConversationActions cactions = args.getParcelable("actions");
-                        if (cactions != null) {
-                            List<ConversationAction> actions = cactions.getConversationActions();
-                            for (final ConversationAction action : actions) {
-                                final CharSequence text;
-                                final CharSequence title;
-                                final String type = action.getType();
-                                final RemoteAction raction = action.getAction();
-
-                                switch (type) {
-                                    case ConversationAction.TYPE_TEXT_REPLY:
-                                        text = action.getTextReply();
-                                        title = context.getString(R.string.title_conversation_action_reply, text);
-                                        break;
-                                    case "copy":
-                                        Bundle extras = action.getExtras().getParcelable("entities-extras");
-                                        if (extras == null)
-                                            continue;
-                                        text = extras.getString("text");
-                                        title = context.getString(R.string.title_conversation_action_copy, text);
-                                        break;
-                                    default:
-                                        if (raction == null) {
-                                            Log.w("Unknown action type=" + type);
-                                            continue;
-                                        }
-                                        text = null;
-                                        title = raction.getTitle();
-                                        if (TextUtils.isEmpty(title)) {
-                                            Log.e("Empty action type=" + type);
-                                            continue;
-                                        }
-                                }
-
-                                Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
-                                button.setId(View.generateViewId());
-                                button.setText(title);
-                                button.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        try {
-                                            switch (type) {
-                                                case ConversationAction.TYPE_TEXT_REPLY:
-                                                    onReply();
-                                                    break;
-                                                case "copy":
-                                                    onCopy();
-                                                    break;
-                                                default:
-                                                    raction.getActionIntent().send();
-                                            }
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                        }
-                                    }
-
-                                    private void onReply() {
-                                        Intent reply = new Intent(context, ActivityCompose.class)
-                                                .putExtra("action", "reply")
-                                                .putExtra("reference", message.id)
-                                                .putExtra("text", action.getTextReply());
-                                        context.startActivity(reply);
-                                    }
-
-                                    private void onCopy() {
-                                        ClipboardManager clipboard =
-                                                (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                                        if (clipboard != null) {
-                                            ClipData clip = ClipData.newPlainText(title, text);
-                                            clipboard.setPrimaryClip(clip);
-                                            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-                                        }
-                                    }
-                                });
-
-                                ((ConstraintLayout) flow.getParent()).addView(button);
-                                flow.addView(button);
-                                has = true;
-                            }
-                            grpAction.setVisibility(has ? View.VISIBLE : View.GONE);
-                        }
                     }
 
                     if (scroll)
                         properties.scrollTo(getAdapterPosition(), 0);
-
-                    // Show attachments
-                    cowner.start();
 
                     boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
                     if (auto_decrypt &&
@@ -2493,7 +2417,93 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.setCount(false).execute(context, owner, args, "message:body");
         }
 
-        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
+        private void bindConversationActions(TupleMessageEx message, ConversationActions cactions) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                boolean has = false;
+                if (cactions != null) {
+                    List<ConversationAction> actions = cactions.getConversationActions();
+                    for (final ConversationAction action : actions) {
+                        final CharSequence text;
+                        final CharSequence title;
+                        final String type = action.getType();
+                        final RemoteAction raction = action.getAction();
+
+                        switch (type) {
+                            case ConversationAction.TYPE_TEXT_REPLY:
+                                text = action.getTextReply();
+                                title = context.getString(R.string.title_conversation_action_reply, text);
+                                break;
+                            case "copy":
+                                Bundle extras = action.getExtras().getParcelable("entities-extras");
+                                if (extras == null)
+                                    continue;
+                                text = extras.getString("text");
+                                title = context.getString(R.string.title_conversation_action_copy, text);
+                                break;
+                            default:
+                                if (raction == null) {
+                                    Log.w("Unknown action type=" + type);
+                                    continue;
+                                }
+                                text = null;
+                                title = raction.getTitle();
+                                if (TextUtils.isEmpty(title)) {
+                                    Log.e("Empty action type=" + type);
+                                    continue;
+                                }
+                        }
+
+                        Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
+                        button.setId(View.generateViewId());
+                        button.setText(title);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                try {
+                                    switch (type) {
+                                        case ConversationAction.TYPE_TEXT_REPLY:
+                                            onReply();
+                                            break;
+                                        case "copy":
+                                            onCopy();
+                                            break;
+                                        default:
+                                            raction.getActionIntent().send();
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+                            }
+
+                            private void onReply() {
+                                Intent reply = new Intent(context, ActivityCompose.class)
+                                        .putExtra("action", "reply")
+                                        .putExtra("reference", message.id)
+                                        .putExtra("text", action.getTextReply());
+                                context.startActivity(reply);
+                            }
+
+                            private void onCopy() {
+                                ClipboardManager clipboard =
+                                        (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                                if (clipboard != null) {
+                                    ClipData clip = ClipData.newPlainText(title, text);
+                                    clipboard.setPrimaryClip(clip);
+                                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
+                        ((ConstraintLayout) flow.getParent()).addView(button);
+                        flow.addView(button);
+                        has = true;
+                    }
+                    grpAction.setVisibility(has ? View.VISIBLE : View.GONE);
+                }
+            }
+        }
+
+        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments, boolean bind_images) {
             if (attachments == null)
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
@@ -2554,14 +2564,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     DB.getInstance(context).attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                            bindAttachments(message, attachments);
+                            bindAttachments(message, attachments, true);
                         }
                     });
                 }
             });
 
             List<EntityAttachment> images = new ArrayList<>();
-            if (thumbnails)
+            if (thumbnails && bind_images)
                 for (EntityAttachment attachment : attachments)
                     if (attachment.isAttachment() && attachment.isImage())
                         images.add(attachment);
