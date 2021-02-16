@@ -6219,6 +6219,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         List<EntityAttachment> remotes = parts.getAttachments();
                                         for (int index = 0; index < remotes.size(); index++) {
                                             EntityAttachment remote = remotes.get(index);
+                                            if (remote.encryption != null)
+                                                continue;
                                             remote.message = message.id;
                                             remote.sequence = index + 1;
                                             remote.id = db.attachment().insertAttachment(remote);
