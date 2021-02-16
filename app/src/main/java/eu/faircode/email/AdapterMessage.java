@@ -2537,7 +2537,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments, boolean bind_images) {
+        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments, boolean bind_extras) {
             if (attachments == null)
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
@@ -2551,7 +2551,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int download = 0;
             boolean save = (attachments.size() > 1);
             boolean downloading = false;
-            boolean calendar = false;
+            EntityAttachment calendar = null;
 
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
@@ -2569,18 +2569,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (show_inline || !inline || !attachment.available)
                     a.add(attachment);
 
-                if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
-                    calendar = true;
-                    bindCalendar(message, attachment);
-                }
+                if (attachment.available &&
+                        "text/calendar".equals(attachment.getMimeType()))
+                    calendar = attachment;
             }
             adapterAttachment.set(a);
 
-            if (!calendar) {
-                clearCalendar();
-                grpCalendar.setVisibility(View.GONE);
-                grpCalendarResponse.setVisibility(View.GONE);
-            }
+            if (calendar != null && bind_extras)
+                bindCalendar(message, calendar);
 
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
@@ -2605,7 +2601,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             List<EntityAttachment> images = new ArrayList<>();
-            if (thumbnails && bind_images)
+            if (thumbnails && bind_extras)
                 for (EntityAttachment attachment : attachments)
                     if (attachment.isAttachment() && attachment.isImage())
                         images.add(attachment);
