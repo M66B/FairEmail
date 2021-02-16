@@ -4710,9 +4710,8 @@ public class FragmentCompose extends FragmentBase {
                             //        identity != null && identity.sender_extra)
                             //    args.putBoolean("remind_extra", true);
 
-                            if (pgpService != null && pgpService.isBound() &&
-                                    (draft.ui_encrypt == null ||
-                                            EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
+                            if (draft.ui_encrypt == null ||
+                                    EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt)) {
                                 List<Address> recipients = new ArrayList<>();
                                 if (draft.to != null)
                                     recipients.addAll(Arrays.asList(draft.to));
@@ -4722,28 +4721,40 @@ public class FragmentCompose extends FragmentBase {
                                     recipients.addAll(Arrays.asList(draft.bcc));
 
                                 if (recipients.size() > 0) {
-                                    String[] userIds = new String[recipients.size()];
-                                    for (int i = 0; i < recipients.size(); i++) {
-                                        InternetAddress recipient = (InternetAddress) recipients.get(i);
-                                        userIds[i] = recipient.getAddress().toLowerCase();
+                                    if (pgpService != null && pgpService.isBound()) {
+                                        String[] userIds = new String[recipients.size()];
+                                        for (int i = 0; i < recipients.size(); i++) {
+                                            InternetAddress recipient = (InternetAddress) recipients.get(i);
+                                            userIds[i] = recipient.getAddress().toLowerCase();
+                                        }
+
+                                        Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
+                                        intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, userIds);
+
+                                        try {
+                                            OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                                            Intent result = api.executeApi(intent, (InputStream) null, (OutputStream) null);
+                                            int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                                            if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
+                                                long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
+                                                args.putBoolean("remind_pgp", keyIds.length > 0);
+                                            }
+                                        } catch (Throwable ex) {
+                                            Log.w(ex);
+                                        }
                                     }
 
-                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
-                                    intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, userIds);
-
-                                    try {
-                                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                                        Intent result = api.executeApi(intent, (InputStream) null, (OutputStream) null);
-                                        int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-                                        if (resultCode == OpenPgpApi.RESULT_CODE_SUCCESS) {
-                                            long[] keyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
-                                            args.putBoolean("remind_pgp", keyIds.length > 0);
+                                    for (Address address : recipients) {
+                                        String email = ((InternetAddress) address).getAddress();
+                                        List<EntityCertificate> certs = db.certificate().getCertificateByEmail(email);
+                                        if (certs != null && certs.size() > 0) {
+                                            args.putBoolean("remind_smime", true);
+                                            break;
                                         }
-                                    } catch (Throwable ex) {
-                                        Log.w(ex);
                                     }
                                 }
                             }
+
 
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
@@ -4982,6 +4993,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_dsn = args.getBoolean("remind_dsn", false);
                 boolean remind_size = args.getBoolean("remind_size", false);
                 boolean remind_pgp = args.getBoolean("remind_pgp", false);
+                boolean remind_smime = args.getBoolean("remind_smime", false);
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
@@ -4993,7 +5005,7 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
-                        address_error != null || mx_error != null || remind_dsn || remind_size || remind_pgp || remind_to ||
+                        address_error != null || mx_error != null || remind_dsn || remind_size || remind_pgp || remind_smime || remind_to ||
                         recipients > RECIPIENTS_WARNING ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
@@ -5617,6 +5629,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_dsn = args.getBoolean("remind_dsn", false);
             final boolean remind_size = args.getBoolean("remind_size", false);
             final boolean remind_pgp = args.getBoolean("remind_pgp", false);
+            final boolean remind_smime = args.getBoolean("remind_smime", false);
             final boolean remind_to = args.getBoolean("remind_to", false);
             final boolean remind_extra = args.getBoolean("remind_extra", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
@@ -5641,6 +5654,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindDsn = dview.findViewById(R.id.tvRemindDsn);
             final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
             final TextView tvRemindPgp = dview.findViewById(R.id.tvRemindPgp);
+            final TextView tvRemindSmime = dview.findViewById(R.id.tvRemindSmime);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
@@ -5675,6 +5689,7 @@ public class FragmentCompose extends FragmentBase {
             tvRemindSize.setVisibility(remind_size ? View.VISIBLE : View.GONE);
 
             tvRemindPgp.setVisibility(remind_pgp ? View.VISIBLE : View.GONE);
+            tvRemindSmime.setVisibility(remind_smime ? View.VISIBLE : View.GONE);
 
             tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
