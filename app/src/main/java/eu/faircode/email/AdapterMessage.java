@@ -211,6 +211,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private SharedPreferences prefs;
     private boolean accessibility;
 
+    private int dp1;
+    private int dp12;
+    private int dp60;
+
     private boolean suitable;
     private boolean unmetered;
 
@@ -230,11 +234,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean pin;
     private boolean contacts;
     private float textSize;
-    private int dp60;
 
     private boolean date;
+    private boolean cards;
     private boolean threading;
     private boolean threading_unread;
+    private boolean indentation;
     private boolean avatars;
     private boolean color_stripe;
     private boolean name_email;
@@ -507,6 +512,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         ViewHolder(final View itemView, long viewType) {
             super(itemView);
+
+            if (experiments && cards) {
+                ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
+                lparam.bottomMargin = dp1;
+                itemView.setLayoutParams(lparam);
+            }
 
             card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
@@ -1391,7 +1402,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindSeen(TupleMessageEx message) {
-            if (experiments)
+            if (experiments && cards)
                 itemView.setBackground(message.unseen > 0 ? drawableSeparator : null);
 
             if (textSize != 0) {
@@ -5291,6 +5302,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.inflater = LayoutInflater.from(context);
         this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        this.dp1 = Helper.dp2pixels(context, 1);
+        this.dp12 = Helper.dp2pixels(context, 12);
+        this.dp60 = Helper.dp2pixels(context, 60);
+
         AccessibilityManager am = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
         this.accessibility = (am != null && am.isEnabled());
 
@@ -5323,7 +5338,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.pin = ShortcutManagerCompat.isRequestPinShortcutSupported(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.textSize = Helper.getTextSize(context, zoom);
-        this.dp60 = Helper.dp2pixels(context, 60);
 
         boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         boolean avatars = prefs.getBoolean("avatars", true);
@@ -5332,8 +5346,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         boolean generated = prefs.getBoolean("generated_icons", true);
 
         this.date = prefs.getBoolean("date", true);
+        this.cards = prefs.getBoolean("cards", true);
         this.threading = prefs.getBoolean("threading", true);
         this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
+        this.indentation = prefs.getBoolean("indentation", false);
+
         this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.name_email = prefs.getBoolean("name_email", false);
@@ -5991,9 +6008,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         message.resolveKeywordColors(context);
 
-        if (viewType == ViewType.THREAD) {
+        if (viewType == ViewType.THREAD && cards && threading && indentation) {
             boolean outgoing = holder.isOutgoing(message);
-            holder.card.setOutgoing(outgoing);
+            ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            lparam.setMarginStart(outgoing ? dp12 : 0);
+            lparam.setMarginEnd(outgoing ? 0 : dp12);
+            holder.itemView.setLayoutParams(lparam);
         }
 
         if (filter_duplicates && message.duplicate) {

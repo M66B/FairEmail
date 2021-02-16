@@ -32,9 +32,7 @@ import androidx.preference.PreferenceManager;
 
 public class ViewCardOptional extends CardView {
     private boolean cards;
-    private boolean indentation;
     private boolean compact;
-    private boolean threading;
     private int margin;
     private int ident;
     private Integer color = null;
@@ -57,12 +55,9 @@ public class ViewCardOptional extends CardView {
     private void init(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         cards = prefs.getBoolean("cards", true);
-        indentation = prefs.getBoolean("indentation", false);
         compact = prefs.getBoolean("compact", false);
-        threading = prefs.getBoolean("threading", true);
 
         margin = Helper.dp2pixels(context, compact ? 3 : 6);
-        ident = Helper.dp2pixels(context, 12 + (compact ? 3 : 6));
 
         setRadius(cards ? margin : 0);
         setCardElevation(0);
@@ -92,15 +87,6 @@ public class ViewCardOptional extends CardView {
                 color = Helper.resolveColor(getContext(), R.attr.colorCardBackground);
 
             super.setCardBackgroundColor(color);
-        }
-    }
-
-    public void setOutgoing(boolean outgoing) {
-        if (cards && threading && indentation) {
-            ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            lparam.setMarginStart(outgoing ? ident : margin);
-            lparam.setMarginEnd(outgoing ? margin : ident);
-            setLayoutParams(lparam);
         }
     }
 }
