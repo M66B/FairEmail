@@ -46,6 +46,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -223,6 +224,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorSeparator;
     private int colorError;
     private int colorControlNormal;
+    private Drawable drawableSeparator;
 
     private boolean hasWebView;
     private boolean pin;
@@ -261,6 +263,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean collapse_quotes;
     private boolean authentication;
     private boolean language_detection;
+    private boolean experiments;
     private List<String> languages;
     private static boolean debug;
 
@@ -1388,6 +1391,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindSeen(TupleMessageEx message) {
+            if (experiments)
+                itemView.setBackground(message.unseen > 0 ? drawableSeparator : null);
+
             if (textSize != 0) {
                 float fz_sender = (font_size_sender == null ? textSize : font_size_sender) * (message.unseen > 0 ? 1.1f : 1f);
                 float fz_subject = (font_size_subject == null ? textSize : font_size_subject) * 0.9f;
@@ -5328,6 +5334,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorError = Helper.resolveColor(context, R.attr.colorError);
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
 
+        this.drawableSeparator = new ColorDrawable(colorSeparator);
+
         this.hasWebView = Helper.hasWebView(context);
         this.pin = ShortcutManagerCompat.isRequestPinShortcutSupported(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
@@ -5378,6 +5386,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
         this.language_detection = prefs.getBoolean("language_detection", false);
+
+        this.experiments = prefs.getBoolean("experiments", false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             languages = new ArrayList<>();
