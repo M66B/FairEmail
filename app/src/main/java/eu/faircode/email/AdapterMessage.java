@@ -2384,8 +2384,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             @Override
                             public void run() {
                                 try {
-                                    cowner.start(); // Show attachments
                                     bindConversationActions(message, args.getParcelable("actions"));
+                                    cowner.start(); // Show attachments
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 }
@@ -2406,8 +2406,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     tvBody.setTextIsSelectable(true);
                                     tvBody.setMovementMethod(new TouchHandler(message));
 
-                                    cowner.start(); // Show attachments
                                     bindConversationActions(message, args.getParcelable("actions"));
+                                    cowner.start(); // Show attachments
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                 }
