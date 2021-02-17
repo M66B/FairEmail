@@ -69,6 +69,7 @@ public class FragmentSetup extends FragmentBase {
     private Button btnAccount;
 
     private Button btnIdentity;
+    private TextView tvExchangeSupport;
     private TextView tvIdentityWhat;
     private TextView tvNoComposable;
 
@@ -123,6 +124,7 @@ public class FragmentSetup extends FragmentBase {
         btnAccount = view.findViewById(R.id.btnAccount);
 
         btnIdentity = view.findViewById(R.id.btnIdentity);
+        tvExchangeSupport = view.findViewById(R.id.tvExchangeSupport);
         tvIdentityWhat = view.findViewById(R.id.tvIdentityWhat);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
 
@@ -256,6 +258,14 @@ public class FragmentSetup extends FragmentBase {
             public void onClick(View view) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_VIEW_IDENTITIES));
+            }
+        });
+
+        tvExchangeSupport.setPaintFlags(tvExchangeSupport.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvExchangeSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 8);
             }
         });
 
