@@ -511,12 +511,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         ViewHolder(final View itemView, long viewType) {
             super(itemView);
 
-            if (cards && shadow_unread) {
-                ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
-                lparam.bottomMargin = dp1;
-                itemView.setLayoutParams(lparam);
-            }
-
             card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
             header = itemView.findViewById(R.id.inHeader);
@@ -1401,12 +1395,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindSeen(TupleMessageEx message) {
             if (cards && shadow_unread) {
-                int color = (message.unseen > 0
+                boolean shadow = (message.unseen > 0);
+                int color = (shadow
                         ? ColorUtils.setAlphaComponent(colorAccent, 127)
                         : Color.TRANSPARENT);
-                if (!Objects.equals(itemView.getTag(), color)) {
-                    itemView.setTag(color);
+                if (!Objects.equals(itemView.getTag(), shadow)) {
+                    itemView.setTag(shadow);
+
                     itemView.setBackgroundColor(color);
+
+                    ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
+                    lparam.topMargin = (shadow ? dp1 : 0);
+                    lparam.bottomMargin = (shadow ? dp1 : 0);
+                    itemView.setLayoutParams(lparam);
                 }
             }
 
