@@ -602,6 +602,7 @@
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_drafts">No hay carpeta de borradores</string>
     <string name="title_no_junk_folder">No hay ninguna carpeta de spam seleccionada para esta cuenta</string>
+    <string name="title_default_composable">La dirección de correo electrónico por defecto está determinada por la identidad principal de la cuenta principal</string>
     <string name="title_no_composable">El envío de correos electrónicos requiere que se configure una identidad y que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
@@ -852,6 +853,7 @@
     <string name="title_send_now">Enviar ahora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar a &#8230;</string>
+    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archivar mensaje respondido</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridad</string>
     <string name="title_no_server">No se encontró ningún servidor en \'%1$s\'</string>
