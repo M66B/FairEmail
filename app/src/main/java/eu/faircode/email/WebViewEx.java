@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Pair;
@@ -28,6 +29,7 @@ import android.view.InputDevice;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.DownloadListener;
+import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -98,6 +100,11 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         setWebViewClient(new WebViewClient() {
             @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                Log.i("Started url=" + url);
+            }
+
+            @Override
             public void onPageFinished(WebView view, String url) {
                 Log.i("Finished url=" + url);
             }
@@ -107,6 +114,14 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 Log.i("Commit url=" + url);
                 if (onPageFinished != null)
                     ApplicationEx.getMainHandler().post(onPageFinished);
+            }
+
+            @Override
+            public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
+                Log.i("Render process gone");
+                if (onPageFinished != null)
+                    ApplicationEx.getMainHandler().post(onPageFinished);
+                return super.onRenderProcessGone(view, detail);
             }
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

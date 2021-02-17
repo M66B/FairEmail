@@ -2451,6 +2451,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindConversationActions(TupleMessageEx message, ConversationActions cactions) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 boolean has = false;
+                clearActions();
                 if (cactions != null) {
                     List<ConversationAction> actions = cactions.getConversationActions();
                     for (final ConversationAction action : actions) {
