@@ -893,7 +893,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
         swLandscape.setChecked(prefs.getBoolean("landscape", true));
         swLandscape.setEnabled(normal);
-        swLandscape3.setChecked(prefs.getBoolean("landscape3", false));
+        swLandscape3.setChecked(prefs.getBoolean("landscape3", true));
         swLandscape3.setEnabled(normal);
 
         swThreading.setChecked(prefs.getBoolean("threading", true));
