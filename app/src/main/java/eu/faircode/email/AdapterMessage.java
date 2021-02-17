@@ -1401,7 +1401,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindSeen(TupleMessageEx message) {
             if (cards && shadow_unread) {
-                int color = (message.unseen > 0 ? colorSeparator : Color.TRANSPARENT);
+                int color = (message.unseen > 0
+                        ? ColorUtils.setAlphaComponent(colorAccent, 127)
+                        : Color.TRANSPARENT);
                 if (!Objects.equals(itemView.getTag(), color)) {
                     itemView.setTag(color);
                     itemView.setBackgroundColor(color);
