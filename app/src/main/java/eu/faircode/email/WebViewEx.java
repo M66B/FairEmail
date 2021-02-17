@@ -106,7 +106,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             public void onPageCommitVisible(WebView view, String url) {
                 Log.i("Commit url=" + url);
                 if (onPageFinished != null)
-                    onPageFinished.run();
+                    ApplicationEx.getMainHandler().post(onPageFinished);
             }
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
