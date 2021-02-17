@@ -985,6 +985,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void checkIntent() {
         Intent intent = getIntent();
+        Log.i("View intent=" + intent +
+                " " + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
 
         // Refresh from widget
         if (intent.getBooleanExtra("refresh", false)) {
@@ -995,7 +997,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         String action = intent.getAction();
-        Log.i("View intent=" + intent + " " + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
         if (action != null) {
             intent.setAction(null);
             setIntent(intent);
