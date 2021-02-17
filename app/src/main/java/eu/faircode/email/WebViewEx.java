@@ -44,7 +44,7 @@ import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
     private IWebView intf;
-    private Runnable onPageFinished;
+    private Runnable onPageLoaded;
 
     public WebViewEx(Context context) {
         super(context);
@@ -112,15 +112,15 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             @Override
             public void onPageCommitVisible(WebView view, String url) {
                 Log.i("Commit url=" + url);
-                if (onPageFinished != null)
-                    ApplicationEx.getMainHandler().post(onPageFinished);
+                if (onPageLoaded != null)
+                    ApplicationEx.getMainHandler().post(onPageLoaded);
             }
 
             @Override
             public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
                 Log.i("Render process gone");
-                if (onPageFinished != null)
-                    ApplicationEx.getMainHandler().post(onPageFinished);
+                if (onPageLoaded != null)
+                    ApplicationEx.getMainHandler().post(onPageLoaded);
                 return super.onRenderProcessGone(view, detail);
             }
 
@@ -146,8 +146,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             });
     }
 
-    void setOnPageFinished(Runnable runnable) {
-        onPageFinished = runnable;
+    void setOnPageLoaded(Runnable runnable) {
+        onPageLoaded = runnable;
     }
 
     void setImages(boolean show_images, boolean inline) {

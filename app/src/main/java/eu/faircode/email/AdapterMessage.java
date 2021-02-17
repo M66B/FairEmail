@@ -2371,7 +2371,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
 
                     if (show_full) {
-                        ((WebViewEx) wvBody).setOnPageFinished(new Runnable() {
+                        ((WebViewEx) wvBody).setOnPageLoaded(new Runnable() {
                             @Override
                             public void run() {
                                 try {
