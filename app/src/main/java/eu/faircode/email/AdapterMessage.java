@@ -235,7 +235,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean date;
     private boolean cards;
-    private boolean shadow;
+    private boolean shadow_unread;
     private boolean threading;
     private boolean threading_unread;
     private boolean indentation;
@@ -511,7 +511,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         ViewHolder(final View itemView, long viewType) {
             super(itemView);
 
-            if (cards && shadow) {
+            if (cards && shadow_unread) {
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
                 lparam.bottomMargin = dp1;
                 itemView.setLayoutParams(lparam);
@@ -1400,7 +1400,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindSeen(TupleMessageEx message) {
-            if (cards && shadow) {
+            if (cards && shadow_unread) {
                 int color = (message.unseen > 0 ? colorSeparator : Color.TRANSPARENT);
                 if (!Objects.equals(itemView.getTag(), color)) {
                     itemView.setTag(color);
@@ -5348,7 +5348,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.cards = prefs.getBoolean("cards", true);
-        this.shadow = prefs.getBoolean("experiments", false);
+        this.shadow_unread = prefs.getBoolean("shadow_unread", false);
         this.threading = prefs.getBoolean("threading", true);
         this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
         this.indentation = prefs.getBoolean("indentation", false);
