@@ -111,16 +111,20 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
             @Override
             public void onPageCommitVisible(WebView view, String url) {
-                Log.i("Commit url=" + url);
-                if (onPageLoaded != null)
+                Log.i("Commit url=" + url + " runnable=" + (onPageLoaded != null));
+                if (onPageLoaded != null) {
                     ApplicationEx.getMainHandler().post(onPageLoaded);
+                    onPageLoaded = null;
+                }
             }
 
             @Override
             public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
-                Log.i("Render process gone");
-                if (onPageLoaded != null)
+                Log.e("Render process gone");
+                if (onPageLoaded != null) {
                     ApplicationEx.getMainHandler().post(onPageLoaded);
+                    onPageLoaded = null;
+                }
                 return super.onRenderProcessGone(view, detail);
             }
 
@@ -147,7 +151,23 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     void setOnPageLoaded(Runnable runnable) {
+        Log.i("Set on page finished");
         onPageLoaded = runnable;
+
+        ApplicationEx.getMainHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (onPageLoaded != null) {
+                        Log.e("Page loaded fallback");
+                        onPageLoaded.run();
+                        onPageLoaded = null;
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        }, 2500L);
     }
 
     void setImages(boolean show_images, boolean inline) {
