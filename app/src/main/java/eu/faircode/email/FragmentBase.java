@@ -353,8 +353,10 @@ public class FragmentBase extends Fragment {
                     View custom = actionbar.getCustomView();
                     TextView tvTitle = custom.findViewById(R.id.title);
                     TextView tvSubtitle = custom.findViewById(R.id.subtitle);
-                    tvTitle.setText(title == null ? getString(R.string.app_name) : title);
-                    tvSubtitle.setText(subtitle);
+                    if (tvTitle != null)
+                        tvTitle.setText(title == null ? getString(R.string.app_name) : title);
+                    if (tvSubtitle != null)
+                        tvSubtitle.setText(subtitle);
                 }
         }
     }
