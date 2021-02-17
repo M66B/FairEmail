@@ -410,7 +410,8 @@ public class ApplicationEx extends Application
         } else if (version < 1477) {
             if (!BuildConfig.DEBUG)
                 editor.remove("experiments");
-        }
+        } else if (version == 1492)
+            editor.putBoolean("experiments", !BuildConfig.PLAY_STORE_RELEASE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
