@@ -1425,8 +1425,8 @@ public class Log {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        sb.append(String.format("Memory class: %d MB/%s\r\n",
-                am.getMemoryClass(), Helper.humanReadableByteCount(mi.totalMem)));
+        sb.append(String.format("Memory class: %d/%d MB/%s\r\n",
+                am.getMemoryClass(), am.getLargeMemoryClass(), Helper.humanReadableByteCount(mi.totalMem)));
 
         sb.append(String.format("Storage space: %s/%s App: %s\r\n",
                 Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
