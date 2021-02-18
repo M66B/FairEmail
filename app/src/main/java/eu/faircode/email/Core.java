@@ -941,6 +941,8 @@ class Core {
             // Cross account move
             if (!file.exists())
                 throw new IllegalArgumentException("raw message file not found");
+            if (TextUtils.isEmpty(message.msgid))
+                throw new IllegalArgumentException("Message-ID missing");
 
             Log.i(folder.name + " reading " + file);
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
@@ -1015,6 +1017,10 @@ class Core {
                     Log.e(ex);
                 }
         } else {
+            Long found = findUid(context, ifolder, message.msgid, false);
+            if (found == null)
+                throw new IllegalArgumentException("Added message not found");
+
             // Mark source read
             if (autoread)
                 EntityOperation.queue(context, message, EntityOperation.SEEN, true);
