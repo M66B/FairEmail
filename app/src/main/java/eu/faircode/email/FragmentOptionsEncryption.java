@@ -403,7 +403,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             public void onError(Exception ex) {
                 if ("bindService() returned false!".equals(ex.getMessage()))
-                    tvOpenPgpStatus.setText(ex.getMessage());
+                    tvOpenPgpStatus.setText("No OpenPGP providers");
                 else
                     tvOpenPgpStatus.setText(ex.toString());
             }
