@@ -350,7 +350,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                    Log.e(ex);
                                 }
                             }.execute(getContext(), getViewLifecycleOwner(), getArguments(), "search:raw");
                         else
