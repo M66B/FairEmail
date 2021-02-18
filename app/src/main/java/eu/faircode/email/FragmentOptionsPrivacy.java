@@ -268,7 +268,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        grpSafeBrowsing.setEnabled(WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE));
+        grpSafeBrowsing.setEnabled(WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE));
 
         ibDisconnectBlacklist.setOnClickListener(new View.OnClickListener() {
             @Override

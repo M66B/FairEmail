@@ -75,11 +75,11 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        if (WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
+        if (WebViewEx.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE))
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
 
         if (html_dark &&
-                WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK))
+                WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
             WebSettingsCompat.setForceDark(settings,
                     Helper.isDarkTheme(context) ? FORCE_DARK_ON : FORCE_DARK_OFF);
     }
@@ -307,6 +307,25 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         }
 
         return false;
+    }
+
+    public static boolean isFeatureSupported(String feature) {
+        try {
+            return WebViewFeature.isFeatureSupported(feature);
+        } catch (Throwable ex) {
+            /*
+                java.lang.ExceptionInInitializerError
+                  at androidx.webkit.internal.WebViewGlueCommunicator.getFactory(SourceFile:1)
+                  at androidx.webkit.internal.WebViewFeatureInternal$LAZY_HOLDER.<clinit>(SourceFile:2)
+                  at androidx.webkit.internal.WebViewFeatureInternal.isSupportedByWebView(SourceFile:1)
+                  at androidx.webkit.internal.WebViewFeatureInternal.isSupported(SourceFile:13)
+                  at androidx.webkit.internal.WebViewFeatureInternal.isSupported(SourceFile:11)
+                  at androidx.webkit.internal.WebViewFeatureInternal.isSupported(SourceFile:4)
+                  at androidx.webkit.WebViewFeature.isFeatureSupported(SourceFile:1)
+             */
+            Log.w(ex);
+            return false;
+        }
     }
 
     interface IWebView {

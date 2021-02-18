@@ -3742,7 +3742,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
                 boolean isDark = Helper.isDarkTheme(context);
-                boolean canDark = WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK);
+                boolean canDark = WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK);
 
                 tvDark.setVisibility(isDark && !canDark ? View.VISIBLE : View.GONE);
                 cbDark.setVisibility(isDark && canDark ? View.VISIBLE : View.GONE);
