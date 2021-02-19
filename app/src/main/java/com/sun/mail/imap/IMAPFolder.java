@@ -4033,6 +4033,12 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
      * @return	the IMAPMessage object
      */
     protected IMAPMessage getMessageBySeqNumber(int seqnum) {
+		if (seqnum < 1) {
+			// rfc3501 2.3.1.2: "A relative position from 1 to the number of messages in the mailbox."
+			// Some servers return sequence number zero when there are no messages (found)
+			eu.faircode.email.Log.w("Sequence=" + seqnum);
+			return null;
+		}
 	if (seqnum > messageCache.size()) {
 	    // Microsoft Exchange will sometimes return message
 	    // numbers that it has not yet notified the client
