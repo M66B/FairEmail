@@ -885,6 +885,11 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	    return;
 	}
 	InputStream is = getMimeStream();
+	String encoding = getEncoding();
+	if (encoding != null) {
+		eu.faircode.email.Log.e("Decoding raw=" + encoding);
+		is = MimeUtility.decode(is, encoding);
+	}
 	try {
 	    // write out the bytes
 	    byte[] bytes = new byte[16*1024];
