@@ -252,7 +252,7 @@ dependencies {
     def lifecycle_version = "2.3.0"
     def lifecycle_extensions_version = "2.2.0"
     def sqlite_version = "2.1.0"
-    def room_version = "2.3.0-beta01"
+    def room_version = "2.3.0-beta02"
     def paging_version = "2.1.2" // 3.0.0-alpha11
     def preference_version = "1.1.1"
     def work_version = "2.5.0"
