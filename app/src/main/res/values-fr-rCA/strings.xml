@@ -751,6 +751,8 @@
     <string name="title_download_all">Télécharger tout</string>
     <string name="title_save_all">Enregistrer tout</string>
     <string name="title_save_eml">Enregistrer le message original dans un fichier</string>
+    <string name="title_buttons">Sélectionner les boutons</string>
+    <string name="title_configure_buttons">Configurer les boutons&#8230;</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>
     <string name="title_copy_to">Copier vers&#8230;</string>

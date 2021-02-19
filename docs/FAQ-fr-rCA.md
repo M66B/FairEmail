@@ -418,7 +418,7 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*Mot de passe vide*
 
 Your username is likely easily guessed, so this is insecure.
 
@@ -431,14 +431,14 @@ If you still want to use an invalid security certificate, an empty password or a
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+Comment personnaliser l'affichage des messages
 
-In the three dot overflow menu you can enable or disable or select:
+Dans le menu à trois points, vous pouvez activer ou désactiver ou sélectionner :
 
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-In the display section of the settings you can enable or disable for example:
+Dans la section "Affichage" vous pouvez activer ou désactiver par exemple :
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
 * *Style tabulaire*: afficher une liste linéaire au lieu de cartes
@@ -455,9 +455,9 @@ In the display section of the settings you can enable or disable for example:
 * *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
 * *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Attention, les messages ne peuvent être prévisualisés que lorsque le texte du message a été téléchargé. Par défaut, les messages textes les plus volumineux ne sont pas téléchargés sur les réseaux limités (généralement mobiles). Ceci peut être changé dans la section "Connexion" des paramètres.
 
-Some people ask:
+Certaines personnes demandent :
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
@@ -465,51 +465,51 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité. L'assistant de configuration rapide de Gmail n'est pas disponible pour les versions tierces, comme la version F-Droid, parce que Google n'a approuve l'utilisation d'OAuth que pour les versions officielles.
 
-If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+If you don't want to use an on-device Gmail account, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. Pour utiliser un mot de passe, vous devrez configurer manuellement un compte et une identité au lieu de l’assistant de configuration rapide.
 
-**Important**: sometimes Google issues this alert:
+**Important**: parfois Google publie cette alerte :
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Veuillez vous connecter via votre navigateur web : https://support.google.com/mail/accounts/answer/78754 (Echec)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Cette vérification de sécurité de Google est plus souvent déclenchée lorsque l'option *applications moins sécurisées* est activée. Elle l'est moins avec un mot de passe d'application et elle est presque jamais déclenchée lorsque vous utilisez un compte sur l'appareil (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Veuillez consulter [cette FAQ](#user-content-faq111) pour savoir pourquoi seuls les comptes sur l'appareil peuvent être utilisés.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Notez qu'un mot de passe spécifique à l'application est nécessaire lorsque l'authentification à deux facteurs est activée.
 
 <br />
 
-*Enable "Less secure apps"*
+*Mot de passe spécifique à l'application*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Voir [ici](https://support.google.com/accounts/answer/185833) sur la façon de générer un mot de passe spécifique à l'application.
 
 <br />
 
-*General*
+*Autoriser les "Applications moins sécurisées"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. Ceci peut être évité en utilisant l'assistant de configuration rapide de Gmail ou un mot de passe spécifique d'application.
+**Important **: l'utilisation de cette méthode n'est pas recommandée car elle est moins fiable.
+
+**Important **: Les comptes Gsuite autorisés avec un nom d'utilisateur/mot de passe cesseront de fonctionner [dans un avenir proche](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Voir [ici](https://support.google.com/accounts/answer/6010255) comment autoriser les "applications moins sécurisées" ou aller [directement au paramètre en question](https://www.google.com/settings/security/lesssecureapps).
+
+Si vous utilisez plusieurs comptes Gmail, assurez-vous de modifier le paramètre "Autoriser les applications moins sécurisées" du ou des comptes concernés.
+
+Sachez que vous devez quitter l'écran de paramétrage des "applications moins sécurisées" en utilisant la flèche de retour arrière pour que le paramètre soit appliqué.
+
+Si vous utilisez cette méthode, vous devriez utiliser un [mot de passe robuste](https://en.wikipedia.org/wiki/Password_strength) pour votre compte Gmail, ce qui est de toute façon une bonne idée. Notez que l'utilisation du protocole [standard](https://tools.ietf.org/html/rfc3501) IMAP n'est en soi pas moins sécurisée.
+
+Lorsque les "applications moins sécurisées" ne sont pas activées, vous obtiendrez l'erreur *L'authentification a échoué - identifiants non valides* pour les comptes (IMAP) et *nom d'utilisateur et mot de passe non acceptés* pour les identités (SMTP).
+
+<br />
+
+*Général*
+
+Il se peut que vous obteniez l'alerte "*S'il vous plaît connectez-vous via votre navigateur web*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. Ceci peut être évité en utilisant l'assistant de configuration rapide de Gmail ou un mot de passe spécifique d'application.
 
 Voir [ici](https://support.google.com/mail/answer/7126229) pour les instructions de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour le dépannage.
 
@@ -548,7 +548,7 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Qu'est-ce que les identités / Comment ajouter un alias ?**
 
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
@@ -565,14 +565,14 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Que signifie "UIDPLUS n'est pas pris en charge" ?~~**
 
 ~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Pourquoi POP n'est pas pris en charge ?~~**
 
 ~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
@@ -587,7 +587,7 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Comment fonctionne le chiffrement/déchiffrement ?**
 
 Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
@@ -704,7 +704,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Comment fonctionne la recherche sur l'appareil /sur le serveur ?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -751,7 +751,7 @@ Searching on the device is a free feature, using the search index and searching 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Comment puis-je configurer un compte Outlook / Live / Hotmail ?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
@@ -764,7 +764,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Pourquoi le texte du message continue-t-il de se charger indéfiniment ?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
@@ -779,7 +779,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Pourquoi les messages ne sont-ils pas synchronisés ?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -804,7 +804,7 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Pourquoi la synchronisation manuelle ne fonctionne pas ?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -813,34 +813,34 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Pourquoi l'aperçu du message ne s'affiche pas toujours ?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Pourquoi les fonctionnalités pro sont-elles si chères ?**
 
-The right question is "*why are there so many taxes and fees?*":
+La bonne question est "*pourquoi y a-t-il autant de taxes et de frais ?*":
 
 * TVA : 25 % (selon votre pays)
 * Frais Google : 30 %
 * Impôt sur le revenu: 50 %
 * <sub>Frais Paypal : 5-10 % en fonction du pays/montant</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Ainsi, ce qui reste pour le développeur n'est qu'une fraction de ce que vous payez.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
+Notez que seules quelques commodités et fonctionnalités avancées doivent être achetées, ce qui signifie qu'en gros, FairEmail est gratuit à utiliser.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
+Notez également que la plupart des applications gratuites ne dureront probablement pas dans le temps, alors que FairEmail est correctement maintenue et prise en charge, et que les applications gratuites peuvent avoir des intérêts, comme envoyer des informations confidentielles sur Internet.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Je travaille sur FairEmail presque tous les jours depuis plus de deux ans, je pense donc que le prix est plus que raisonnable. For this reason there won't be discounts either.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Puis-je obtenir un remboursement ?**
 
 If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
@@ -1080,9 +1080,9 @@ See [this FAQ](#user-content-faq21) if your device has a notification light.
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) Comment puis-je recevoir des notifications de nouveaux messages pour les autres dossiers?**
 
-Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
+Appuyez longuement sur un dossier, sélectionnez *Modifier les propriétés*, et activez soit *Afficher dans la boîte de réception unifiée* ou *Notifier les nouveaux messages* (disponible sur Android 7 Nougat et versions suivantes seulement) et appuyez sur *Enregistrer*.
 
 <br />
 

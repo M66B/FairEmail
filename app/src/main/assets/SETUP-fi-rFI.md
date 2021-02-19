@@ -10,7 +10,7 @@ Verkkoyhteys tarvitaan tilien ja identiteettien asettamiseksi.
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-This will work for most email providers.
+Tämä toimii useimmille sähköpostipalveluntarjoajille.
 
 If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 

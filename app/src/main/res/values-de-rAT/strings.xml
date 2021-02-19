@@ -158,6 +158,7 @@
     <string name="title_setup_manage">Verwalten</string>
     <string name="title_setup_grant">Zulassen</string>
     <string name="title_setup_grant_again">Benötigte Rechte erteilen</string>
+    <string name="title_setup_exchange_support">Wird Microsoft Exchange unterstützt?</string>
     <string name="title_setup_identity_what">Was ist eine Identität?</string>
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
@@ -750,6 +751,8 @@
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
     <string name="title_save_eml">Rohdaten speichern</string>
+    <string name="title_buttons">Buttons auswählen</string>
+    <string name="title_configure_buttons">Schaltflächen &#8230; konfigurieren</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>
