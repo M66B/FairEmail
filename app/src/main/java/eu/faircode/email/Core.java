@@ -1903,7 +1903,9 @@ class Core {
                         folder.inferiors = inferiors;
                         folder.setSpecials(account);
                         folder.id = db.folder().insertFolder(folder);
-                        Log.i(folder.name + " added type=" + folder.type);
+                        Log.i(folder.name + " added type=" + folder.type + " sync=" + folder.synchronize);
+                        if (folder.synchronize)
+                            EntityOperation.sync(context, folder.id, false);
                     } else {
                         Log.i(folder.name + " exists type=" + folder.type);
 
