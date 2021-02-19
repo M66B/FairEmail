@@ -2342,8 +2342,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!show_expanded)
                         return;
 
+                    boolean show_full = args.getBoolean("show_full");
                     boolean has_images = args.getBoolean("has_images");
-                    boolean show_full = properties.getValue("full", message.id);
                     boolean always_images = prefs.getBoolean("html_always_images", false);
 
                     // Show images
