@@ -157,6 +157,7 @@
     <string name="title_setup_manage">Gérer</string>
     <string name="title_setup_grant">Autoriser</string>
     <string name="title_setup_grant_again">Accorder les autorisations requises</string>
+    <string name="title_setup_exchange_support">Microsoft Exchange est-il pris en charge ?</string>
     <string name="title_setup_identity_what">Qu\'est-ce qu\'une identité?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
@@ -290,6 +291,7 @@
     <string name="title_advanced_startup">Afficher sur l’écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
     <string name="title_advanced_cards_beige">Utiliser un arrière-plan beige pour le style carte</string>
+    <string name="title_advanced_cards_shadow">Utiliser une ombre autour des messages non lus pour le style carte</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_threading_unread">Afficher le nombre de messages non lus dans les conversations</string>
@@ -716,7 +718,6 @@
     <string name="title_duplicate_in">Message en double dans %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr: %1$s</string>
-    <string name="title_buttons">Boutons</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
     <string name="title_toggle_seen">Marquer lu/non lu</string>
@@ -853,7 +854,7 @@
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer avec</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiver un message avec réponse</string>
+    <string name="title_send_auto_archive">Archiver un message avec réponse</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>
@@ -916,6 +917,7 @@
     <string name="title_extra_missing">Nom d’utilisateur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_pgp_reminder">Clés PGP disponibles</string>
+    <string name="title_smime_reminder">Clés S/MIME disponibles</string>
     <string name="title_subject_reminder">L’objet est vide</string>
     <string name="title_text_reminder">Le message est vide</string>
     <string name="title_attachment_keywords">joint,jointe,joints,jointes,ci-joint,ci-jointe,ci-joints,ci-jointes,attaché,attachés,attachée,attachées,lettre de motivation,cv</string>

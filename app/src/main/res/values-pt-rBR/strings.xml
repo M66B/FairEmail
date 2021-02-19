@@ -640,7 +640,6 @@
     <string name="title_duplicate_in">Duplicar mensagem em %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Enc: %1$s</string>
-    <string name="title_buttons">Botões</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como não lida</string>
     <string name="title_toggle_seen">Alternar status da leitura</string>

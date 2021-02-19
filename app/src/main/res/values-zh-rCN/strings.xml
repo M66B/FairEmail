@@ -145,6 +145,7 @@
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
     <string name="title_setup_grant_again">授予所需权限</string>
+    <string name="title_setup_exchange_support">是否支持 Microsoft Exchange？</string>
     <string name="title_setup_identity_what">什么是身份？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
@@ -278,6 +279,7 @@
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
     <string name="title_advanced_cards_beige">开启卡片样式 (上面的选项) 时，使用米色背景</string>
+    <string name="title_advanced_cards_shadow">使用卡片样式时对未读信件使用阴影</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
@@ -704,7 +706,6 @@
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
-    <string name="title_buttons">按钮</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_toggle_seen">切换已读状态</string>
@@ -841,7 +842,7 @@
     <string name="title_send_now">立即发送</string>
     <string name="title_send_via">发送方式</string>
     <string name="title_send_at">发送于 &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">存档回复消息</string>
+    <string name="title_send_auto_archive">存档回复消息</string>
     <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">优先级</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
@@ -904,6 +905,7 @@
     <string name="title_extra_missing">缺少用户名</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_pgp_reminder">PGP 密钥可用</string>
+    <string name="title_smime_reminder">有 S/MIME 密钥可用</string>
     <string name="title_subject_reminder">主题为空</string>
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>

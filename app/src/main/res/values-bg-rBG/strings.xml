@@ -567,7 +567,6 @@
     <string name="title_duplicate_in">Дублиращо съобщение в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Бутони</string>
     <string name="title_seen">Отбелязвам като прочетено</string>
     <string name="title_unseen">Отбелязвам като непрочетено</string>
     <string name="title_hide">Скриване</string>

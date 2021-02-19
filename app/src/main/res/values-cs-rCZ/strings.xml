@@ -179,6 +179,7 @@
     <string name="title_setup_manage">Spravovat</string>
     <string name="title_setup_grant">Udělit</string>
     <string name="title_setup_grant_again">Udělit požadovaná oprávnění</string>
+    <string name="title_setup_exchange_support">Je podporován Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Co je to identita?</string>
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
@@ -230,6 +231,7 @@
     <string name="title_setup_theme_system">Podle systému</string>
     <string name="title_setup_theme_black_background">Černé pozadí</string>
     <string name="title_setup_theme_system_hint">Podporuje-li to Android, motiv „podle systému“ se ve dne/noci automaticky přepne na světlé/tmavé zobrazení</string>
+    <string name="title_setup_theme_more_colors">Chci více barev</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
@@ -311,6 +313,7 @@
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet</string>
+    <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
@@ -505,6 +508,7 @@
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, budou-li k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
+    <string name="title_advanced_preview_lines_hint">Maximálně %s znaků celkem</string>
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
     <string name="title_advanced_overview_mode_hint">Může mít za následek velmi malé písmo</string>
     <string name="title_advanced_placeholders_hint">Platí pouze pro přeformátované zprávy</string>
@@ -616,6 +620,7 @@
     <string name="title_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_no_drafts">Žádná složka konceptů</string>
     <string name="title_no_junk_folder">Pro tento účet není zvolena žádná složka pro nevyžádanou poštu</string>
+    <string name="title_default_composable">Výchozí e-mailová adresa je určena výchozí identitou hlavního účtu</string>
     <string name="title_no_composable">Odesílání e-mailů vyžaduje nastavenou identitu a zvolit složku pro koncepty v nastavení účtu</string>
     <string name="title_no_standard">Tento poskytovatel používá proprietární e-mailový protokol, a proto není možné použít e-mailové klienty třetích stran</string>
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
@@ -727,7 +732,6 @@
     <string name="title_duplicate_in">Duplikát zprávy v %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Tlačítka</string>
     <string name="title_seen">Označit přečtené</string>
     <string name="title_unseen">Označit nepřečtené</string>
     <string name="title_toggle_seen">Označit ne/přečteno</string>
@@ -786,6 +790,7 @@
     <string name="title_reply_to_all">Odpovědět všem</string>
     <string name="title_reply_list">Odpovědět seznamu</string>
     <string name="title_reply_receipt">Odeslat potvrzení o přečtení</string>
+    <string name="title_reply_hard_bounce">Odeslat oznámení o nedoručitelnosti</string>
     <string name="title_reply_template">Odpovědět šablonou</string>
     <string name="title_move_undo">Přesouvání do %1$s (%2$d)</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
@@ -863,6 +868,7 @@
     <string name="title_send_now">Odeslat nyní</string>
     <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
+    <string name="title_send_auto_archive">Archivovat odpovězené zprávy</string>
     <string name="title_send_encryption">Šifrování</string>
     <string name="title_send_priority">Priorita</string>
     <string name="title_no_server">Nenalezen žádný server na „%1$s“</string>
@@ -918,17 +924,20 @@
     <string name="title_key_missing">Není klíč pro %1$s</string>
     <string name="title_send_reminder_remark">Připomenutí lze znovu zapnout v nastavení odesílání</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
+    <string name="title_send_dsn">Hlášení o stavu</string>
     <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_extra_missing">Chybí uživatelské jméno</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_pgp_reminder">PGP klíče k dispozici</string>
+    <string name="title_smime_reminder">S/MIME klíče k dispozici</string>
     <string name="title_subject_reminder">Chybí předmět</string>
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_plain_reminder">Veškeré formátování bude ztraceno</string>
+    <string name="title_dsn_reminder">Oznámení o nedoručitelnosti (hard bounce) poškozují e-mailovou reputaci původního odesílatele!</string>
     <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>

@@ -503,7 +503,6 @@
     <string name="title_duplicate_in">پیام را در %1$s تکثیر کن</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
     <string name="title_subject_forward">هدایت: %1$s</string>
-    <string name="title_buttons">دکمه‌‌ها</string>
     <string name="title_seen">علامت زدن به عنوان خوانده شده</string>
     <string name="title_unseen">علامت زدن به عنوان خوانده نشده</string>
     <string name="title_hide">پنهان کردن</string>

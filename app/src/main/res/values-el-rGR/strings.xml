@@ -157,6 +157,7 @@
     <string name="title_setup_manage">Διαχείριση</string>
     <string name="title_setup_grant">Παραχώρηση δικαιώματος</string>
     <string name="title_setup_grant_again">Παραχώρηση απαιτούμενων δικαιωμάτων</string>
+    <string name="title_setup_exchange_support">Υποστηρίζεται το Microsoft Exchange;</string>
     <string name="title_setup_identity_what">Τι είναι μια ταυτότητα;</string>
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
@@ -290,6 +291,7 @@
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
     <string name="title_advanced_cards_beige">Χρήση μπεζ φόντου όταν χρησιμοποιείται το στιλ κάρτας</string>
+    <string name="title_advanced_cards_shadow">Σκίαση μη αναγνωσμένων μηνυμάτων κατά τη χρήση στιλ κάρτας</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
     <string name="title_advanced_threading">Ομαδοποίηση συζητήσεων σε νήματα</string>
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
@@ -714,7 +716,6 @@
     <string name="title_duplicate_in">Διπλότυπο μήνυμα σε %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Κουμπιά</string>
     <string name="title_seen">Σήμανση ως αναγνωσμένο</string>
     <string name="title_unseen">Σήμανση ως μη αναγνωσμένο</string>
     <string name="title_toggle_seen">(Μη) αναγνωσμένο</string>
@@ -851,7 +852,7 @@
     <string name="title_send_now">Αποστολή τώρα</string>
     <string name="title_send_via">Αποστολή μέσω</string>
     <string name="title_send_at">Αποστολή στις &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Αρχειοθέτηση απαντημένου μηνύματος</string>
+    <string name="title_send_auto_archive">Αρχειοθέτηση απαντημένου μηνύματος</string>
     <string name="title_send_encryption">Κρυπτογράφηση</string>
     <string name="title_send_priority">Προτεραιότητα</string>
     <string name="title_no_server">Δε βρέθηκε διακομιστής στο \'%1$s\'</string>
@@ -914,6 +915,7 @@
     <string name="title_extra_missing">Λείπει όνομα χρήστη</string>
     <string name="title_to_missing">Λείπει παραλήπτης</string>
     <string name="title_pgp_reminder">Κλειδιά PGP διαθέσιμα</string>
+    <string name="title_smime_reminder">Κλειδιά S/MIME διαθέσιμα</string>
     <string name="title_subject_reminder">Το θέμα είναι κενό</string>
     <string name="title_text_reminder">Το μήνυμα είναι κενό</string>
     <string name="title_attachment_keywords">συνημμένο, συνημμένα, επισυνάπτω, επισυνάπτεται, επισυνάπονται, έγγραφο, έγγραφα, αρχείο, αρχεία, έντυπο, έντυπα, δικαιολογητικό, δικαιολογητικά, πιστοποιητικό, πιστοποιητικά, βιογραφικό, συνοδευτική επιστολή</string>

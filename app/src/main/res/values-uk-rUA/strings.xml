@@ -725,7 +725,6 @@
     <string name="title_duplicate_in">Дублювати повідомлення в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Кнопки</string>
     <string name="title_seen">Позначити як прочитане</string>
     <string name="title_unseen">Позначити як непрочитане</string>
     <string name="title_toggle_seen">Перемкнути статус прочитано</string>
@@ -862,7 +861,7 @@
     <string name="title_send_now">Надіслати зараз</string>
     <string name="title_send_via">Надіслати через</string>
     <string name="title_send_at">Надіслати о &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Архівувати повідомлення з відповіддю</string>
+    <string name="title_send_auto_archive">Архівувати повідомлення з відповіддю</string>
     <string name="title_send_encryption">Шифрування</string>
     <string name="title_send_priority">Пріоритет</string>
     <string name="title_no_server">Сервер не знайдено на \'%1$s\'</string>

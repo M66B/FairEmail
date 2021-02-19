@@ -692,7 +692,6 @@
     <string name="title_duplicate_in">Mesajı %1$s klasörüne kopyala</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
-    <string name="title_buttons">Düğmeler</string>
     <string name="title_seen">Okundu olarak işaretle</string>
     <string name="title_unseen">Okunmadı olarak işaretle</string>
     <string name="title_toggle_seen">Okumayı aç/kapat</string>

@@ -654,7 +654,6 @@
     <string name="title_duplicate_in">Pesan duplikat dalam %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Tombol</string>
     <string name="title_seen">Tandai sudah dibaca</string>
     <string name="title_unseen">Tandai belum dibaca</string>
     <string name="title_toggle_seen">Alihkan ke mode baca</string>

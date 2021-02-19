@@ -179,6 +179,7 @@
     <string name="title_setup_manage">Редактировать</string>
     <string name="title_setup_grant">Предоставить</string>
     <string name="title_setup_grant_again">Предоставить необходимые разрешения</string>
+    <string name="title_setup_exchange_support">Поддерживается ли Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Что такое идентификатор?</string>
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
@@ -311,7 +312,8 @@
     <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
-    <string name="title_advanced_cards_beige">Использовать бежевый фон при использовании карточного стиля</string>
+    <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля</string>
+    <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
@@ -738,7 +740,6 @@
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Кнопки</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
     <string name="title_toggle_seen">Прочитано/непрочитано</string>
@@ -875,7 +876,7 @@
     <string name="title_send_now">Отправить сейчас</string>
     <string name="title_send_via">Отправить через</string>
     <string name="title_send_at">Отправить в&#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Архивировать исходное сообщение</string>
+    <string name="title_send_auto_archive">Архивировать исходное сообщение</string>
     <string name="title_send_encryption">Шифрование</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Сервер не найден на \"%1$s\"</string>
@@ -937,7 +938,8 @@
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_extra_missing">Отсутствует имя пользователя</string>
     <string name="title_to_missing">Отсутствует получатель</string>
-    <string name="title_pgp_reminder">Доступные PGP-ключи</string>
+    <string name="title_pgp_reminder">Доступные ключи PGP</string>
+    <string name="title_smime_reminder">Доступные ключи S/MIME</string>
     <string name="title_subject_reminder">Тема пустая</string>
     <string name="title_text_reminder">Сообщение пустое</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included,вложение,вложения,вложении,приложено</string>

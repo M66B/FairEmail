@@ -157,6 +157,7 @@
     <string name="title_setup_manage">Administrar</string>
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_grant_again">Otorgar permisos requeridos</string>
+    <string name="title_setup_exchange_support">¿Es compatible con Microsoft Exchange?</string>
     <string name="title_setup_identity_what">¿Qué es una identidad?</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
@@ -290,6 +291,7 @@
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
     <string name="title_advanced_cards_beige">Usar fondo beige al usar el estilo de tarjeta</string>
+    <string name="title_advanced_cards_shadow">Usar sombra para mensajes no leídos al usar estilo de tarjeta</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
@@ -716,7 +718,6 @@
     <string name="title_duplicate_in">Mensaje duplicado en %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Botones</string>
     <string name="title_seen">Marcar como leído</string>
     <string name="title_unseen">Marcar como no leído</string>
     <string name="title_toggle_seen">Cambiar leído</string>
@@ -853,7 +854,7 @@
     <string name="title_send_now">Enviar ahora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar a &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archivar mensaje respondido</string>
+    <string name="title_send_auto_archive">Archivar mensaje respondido</string>
     <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridad</string>
     <string name="title_no_server">No se encontró ningún servidor en \'%1$s\'</string>
@@ -916,6 +917,7 @@
     <string name="title_extra_missing">Falta el nombre de usuario</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_pgp_reminder">Claves PGP disponibles</string>
+    <string name="title_smime_reminder">Claves S/MIME disponibles</string>
     <string name="title_subject_reminder">El asunto está vacío</string>
     <string name="title_text_reminder">El mensaje está vacío</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>

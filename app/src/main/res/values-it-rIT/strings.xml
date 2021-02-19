@@ -716,7 +716,6 @@
     <string name="title_duplicate_in">Duplica messaggio in %1$s</string>
     <string name="title_subject_reply">R: %1$s</string>
     <string name="title_subject_forward">I: %1$s</string>
-    <string name="title_buttons">Pulsanti</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
     <string name="title_toggle_seen">Attiva/disattiva lettura</string>
@@ -853,7 +852,7 @@
     <string name="title_send_now">Invia ora</string>
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_at">Invia alle &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archivia il messaggio con risposta</string>
+    <string name="title_send_auto_archive">Archivia il messaggio con risposta</string>
     <string name="title_send_encryption">Crittografia</string>
     <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>

@@ -168,6 +168,7 @@
     <string name="title_setup_manage">Gestionează</string>
     <string name="title_setup_grant">Acordă</string>
     <string name="title_setup_grant_again">Acordați permisiunile necesare</string>
+    <string name="title_setup_exchange_support">Este Microsoft Exchange suportat?</string>
     <string name="title_setup_identity_what">Ce este o identitate?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
@@ -301,6 +302,7 @@
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
     <string name="title_advanced_cards_beige">Folosește fundalul bej când folosești stilul carduri</string>
+    <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
@@ -727,7 +729,6 @@
     <string name="title_duplicate_in">Mesaj duplicat în %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
-    <string name="title_buttons">Butoane</string>
     <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
     <string name="title_toggle_seen">Comutare citire</string>
@@ -864,7 +865,7 @@
     <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_at">Trimite la &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Arhivează mesajul citit</string>
+    <string name="title_send_auto_archive">Arhivează mesajul citit</string>
     <string name="title_send_encryption">Criptare</string>
     <string name="title_send_priority">Prioritate</string>
     <string name="title_no_server">Nu există un server la \'%1$s\'</string>
@@ -927,6 +928,7 @@
     <string name="title_extra_missing">Lipsește numele de utilizator</string>
     <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_pgp_reminder">Chei PGP disponibile</string>
+    <string name="title_smime_reminder">Chei S/MIME disponibile</string>
     <string name="title_subject_reminder">Subiectul este gol</string>
     <string name="title_text_reminder">Mesajul este gol</string>
     <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>

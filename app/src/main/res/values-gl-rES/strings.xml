@@ -692,7 +692,6 @@
     <string name="title_duplicate_in">Mensaxe duplicada en %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Botóns</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como non lida</string>
     <string name="title_toggle_seen">Trocar lido/non lido</string>

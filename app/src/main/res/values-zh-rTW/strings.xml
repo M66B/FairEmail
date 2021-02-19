@@ -663,7 +663,6 @@
     <string name="title_duplicate_in">消息重複 %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">正向： %1$s</string>
-    <string name="title_buttons">按鈕</string>
     <string name="title_seen">標記為已讀</string>
     <string name="title_unseen">標記為未讀</string>
     <string name="title_toggle_seen">切換閱讀</string>

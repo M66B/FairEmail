@@ -702,7 +702,6 @@
     <string name="title_duplicate_in">%1$sのメッセージが重複しています</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">ボタン</string>
     <string name="title_seen">既読にする</string>
     <string name="title_unseen">未読にします</string>
     <string name="title_toggle_seen">読み取りの切り替え</string>

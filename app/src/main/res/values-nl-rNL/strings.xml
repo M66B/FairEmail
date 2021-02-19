@@ -157,6 +157,7 @@
     <string name="title_setup_manage">Beheer</string>
     <string name="title_setup_grant">Verlenen</string>
     <string name="title_setup_grant_again">Verleen de vereiste machtigingen</string>
+    <string name="title_setup_exchange_support">Wordt Microsoft Exchange ondersteund?</string>
     <string name="title_setup_identity_what">Wat is een identiteit?</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
@@ -289,7 +290,8 @@
     <string name="title_advanced_landscape3">Navigatiemenu standaard in liggende modus weergeven</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
-    <string name="title_advanced_cards_beige">Gebruik beige achtergrond bij gebruik van kaart-stijl</string>
+    <string name="title_advanced_cards_beige">Gebruik beige achtergrond bij gebruik van kaartstijl</string>
+    <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
@@ -716,7 +718,6 @@
     <string name="title_duplicate_in">Dubbel bericht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_buttons">Knoppen</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
     <string name="title_toggle_seen">Lezen schakelen</string>
@@ -750,6 +751,8 @@
     <string name="title_download_all">Alles downloaden</string>
     <string name="title_save_all">Alles opslaan</string>
     <string name="title_save_eml">Ruw bericht opslaan</string>
+    <string name="title_buttons">Selecteer knoppen</string>
+    <string name="title_configure_buttons">Configureer knoppen &#8230;</string>
     <string name="title_trash">Prullenbak</string>
     <string name="title_copy">Kopieer &#8230;</string>
     <string name="title_copy_to">Kopieer naar &#8230;</string>
@@ -853,7 +856,7 @@
     <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
-    <string name="title_send_auto_archive" comment="title_send_auto_archive&#10;Title for checkbox to move replied to message to the archive folder on sending the reply.&#10;">Archiveer beantwoord bericht</string>
+    <string name="title_send_auto_archive">Archiveer beantwoord bericht</string>
     <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>
@@ -916,6 +919,7 @@
     <string name="title_extra_missing">Gebruikersnaam ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_pgp_reminder">PGP-sleutels beschikbaar</string>
+    <string name="title_smime_reminder">S/MIME-sleutels beschikbaar</string>
     <string name="title_subject_reminder">Onderwerp is leeg</string>
     <string name="title_text_reminder">Bericht is leeg</string>
     <string name="title_attachment_keywords">bijlage,bijlagen</string>

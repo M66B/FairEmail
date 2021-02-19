@@ -688,7 +688,6 @@
     <string name="title_duplicate_in">Duplicerade meddelande i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
-    <string name="title_buttons">Knappar</string>
     <string name="title_seen">Märk som läst</string>
     <string name="title_unseen">Märk som oläst</string>
     <string name="title_toggle_seen">Växla lästa</string>

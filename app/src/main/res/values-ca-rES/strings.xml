@@ -5,13 +5,17 @@
     <string name="app_welcome">FairEmail és una aplicació de correu electrònic de codi obert centrada en la privadesa i la seguretat. Per aquesta raó, algunes funcions poden funcionar de manera diferent a la que estàs acostumat.</string>
     <string name="app_crash">FairMail no és compatible en aquest dispositiu perquè els errors a Android causen bloqueigs</string>
     <string name="app_exit">Premeu «Enrere» novament per sortir</string>
+    <string name="app_cake">Espai d’emmagatzematge insuficient</string>
     <string name="channel_service">Rebre</string>
     <string name="channel_send">Enviar</string>
+    <string name="channel_notification">Correu electrònic</string>
     <string name="channel_update">Actualitzacions</string>
     <string name="channel_warning">Advertències</string>
     <string name="channel_error">Errors</string>
     <string name="channel_alert">Alertes de servidor</string>
     <string name="channel_group_contacts">Contactes</string>
+    <string name="channel_send_description">Enviant missatges</string>
+    <string name="channel_notification_description">Nova notificació de missatge</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversa</item>
         <item quantity="other">Conversa</item>
@@ -66,6 +70,7 @@
     <string name="title_block_domain">Bloquejar el domini complet del remitent</string>
     <string name="title_block_sender_hint">Si bloqueges un remitent, es crearà una regla per traslladar automàticament els missatges futurs a la carpeta de correu brossa.
 La creació i l\'ús de regles és una característica professional.    </string>
+    <string name="title_junk_filter">Utilitza el filtre local d\'SPAM</string>
     <string name="title_notification_sending">Enviant missatge</string>
     <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_idle">Inactiu</string>
@@ -91,7 +96,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="menu_rate">Puntua l\'aplicació</string>
     <string name="title_welcome">Benvingut/da</string>
     <string name="title_eula">Contracte de Llicència d’usuari final</string>
-    <string name="title_agree">D’acordo https://accounts.crowdin.com/password/reset https://accounts.crowdin.com/password/reset</string>
+    <string name="title_contributors">Contribuïdors</string>
+    <string name="title_agree">D’acord</string>
     <string name="title_disagree">No hi estic d\'acord</string>
     <string name="title_version">Versió %1$s</string>
     <string name="title_list_accounts">Comptes</string>
@@ -102,11 +108,17 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup">Preferències</string>
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuració ràpida</string>
+    <string name="title_setup_quick_accounts">Afegir comptes</string>
     <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
     <string name="title_setup_wizard">Assistent</string>
+    <string name="title_setup_account_remark">Rebre correu electrònic</string>
+    <string name="title_setup_identity_remark">Enviar un correu electrònic</string>
+    <string name="title_setup_accounts">Comptes</string>
+    <string name="title_setup_identities">Identitats</string>
     <string name="title_setup_other">Altres proveïdors</string>
+    <string name="title_setup_pop3">Compte POP3</string>
     <string name="title_setup_gmail_support">Com que Android comprova les firmes dels aplicatius, es podran autoritzar comptes de Google des des les versions oficials</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
     <string name="title_setup_gmail_permissions">Google sol·licitarà permisos per llegir, compondre, enviar i suprimir tot el vostre correu electrònic. FairEmail mai suprimirà els vostres missatges sense el vostre consentiment explícit.</string>
@@ -119,22 +131,26 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_no_settings">No s\'ha trobat cap configuració pel domini \'%1$s\'</string>
     <string name="title_setup_no_auth_hint">Comproveu la vostra adreça de correu electrònic i la contrasenya i assegureu-vos que l’accés extern (IMAP/SMTP) estigui habilitat per al vostre compte</string>
     <string name="title_setup_app_password_hint">Aquest proveïdor necessita una contrasenya de l’aplicació en lloc de la contrasenya del compte, consulteu les instruccions del proveïdor</string>
+    <string name="title_setup_no_inbox">No s\'ha trobat la bustia</string>
     <string name="title_setup_manage">Gestiona</string>
     <string name="title_setup_grant">Permet</string>
     <string name="title_setup_grant_again">Concedeix els permisos requerits</string>
     <string name="title_setup_identity_what">Què és una identitat?</string>
     <string name="title_setup_permissions">Concedeix permisos</string>
     <string name="title_setup_permissions_remark">Per accedir informació de contacte (opcional)</string>
+    <string name="title_setup_doze">Inhabilita les optimitzacions de bateria</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
     <string name="title_setup_doze_battery">Ús de bateria elevat?</string>
     <string name="title_setup_doze_stopped">S\'ha aturat la sincronització?</string>
     <string name="title_setup_data">L\'estalvi de dades està activat</string>
     <string name="title_setup_advanced_options">Mostra les opcions avançades</string>
+    <string name="title_setup_inbox">Vés a la Safata d\'Entrada</string>
     <string name="title_setup_go">Vés-hi</string>
     <string name="title_setup_to_do">Per fer</string>
     <string name="title_setup_done">Fet</string>
     <string name="title_setup_still">Encara queda per fer</string>
     <string name="title_setup_error">Error</string>
+    <string name="title_setup_configuring">Configurant compte &#8230;</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
     <string name="title_setup_import_do">Els comptes importats s’afegiran sense sobreescriure els ja existents</string>
@@ -161,16 +177,20 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup_theme_red_green">Vermell/verd</string>
     <string name="title_setup_theme_grey">Gris</string>
     <string name="title_setup_theme_black">Negre</string>
+    <string name="title_setup_theme_black_and_white">Negre i blanc</string>
     <string name="title_setup_theme_reverse">Intercanvia colors</string>
+    <string name="title_setup_theme_light">Clar</string>
     <string name="title_setup_theme_dark">Fosc</string>
     <string name="title_setup_theme_system">Segueix el sistema</string>
     <string name="title_setup_theme_black_background">Fons negre</string>
     <string name="title_setup_theme_system_hint">Això canviarà automàticament a un tema clar/fosc en mode dia/nit, si és compatible amb Android</string>
+    <string name="title_setup_theme_more_colors">Vull més colors</string>
     <string name="title_setup_advanced">Avançat</string>
     <string name="title_setup_options">Opcions</string>
     <string name="title_setup_defaults">Restaura els valors per defecte</string>
     <string name="title_setup_reset_questions">Restableix les preguntes</string>
     <string name="title_advanced_hint_title">Més opcions avançades</string>
+    <string name="title_advanced_section_main">Començar</string>
     <string name="title_advanced_section_synchronize">Rebre</string>
     <string name="title_advanced_section_send">Enviar</string>
     <string name="title_advanced_section_connection">Connexió</string>
@@ -201,6 +221,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_suggest_sent">Suggeriu adreces trobades als missatges enviats</string>
     <string name="title_advanced_suggest_received">Suggeriu adreces trobades als missatges rebuts</string>
     <string name="title_advanced_suggest_frequently">Ordena les adreces suggerides en funció de la freqüència d’ús</string>
+    <string name="title_advanced_compose_font">Tipus de lletra per defecte</string>
     <string name="title_advanced_prefix_once">El prefix de l\'assumpte només una vegada a la resposta o al reenviament</string>
     <string name="title_advanced_extended_reply">Utilitza resposta estesa/capçalera de reenviament</string>
     <string name="title_advanced_quote_reply">Text amb resposta a la cita</string>
@@ -221,6 +242,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_roaming">Baixeu missatges i fitxers adjunts en itinerància</string>
     <string name="title_advanced_rlah">Itinerant com a casa</string>
     <string name="title_advanced_timeout">Temps d\'espera de la connexió (segons)</string>
+    <string name="title_advanced_prefer_ip4">Prefereix IPv4 per sobre de IPv6</string>
     <string name="title_advanced_ssl_harden">Connexions SSL \"endurides\"</string>
     <string name="title_advanced_manage_connectivity">Gestiona la connectivitat</string>
     <string name="title_advanced_caption_general">General</string>
@@ -247,6 +269,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>
     <string name="title_advanced_circular">Mostra icones rodones</string>
+    <string name="title_advanced_color_saturation">Saturació: %1$s %%</string>
+    <string name="title_advanced_color_value">Brillantor %1$s %%</string>
     <string name="title_advanced_name_email">Mostra els noms i les adreces de correu</string>
     <string name="title_advanced_replace_name">Preferiu el nom de contacte que el nom enviat</string>
     <string name="title_advanced_distinguish_contacts">Subratlla l’emissor quan el remitent es coneix com a contacte “a” local</string>
@@ -357,6 +381,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_shortcuts">Mostra els contactes més freqüents al menú de compartició d\'Android</string>
     <string name="title_advanced_fts">Construint índex de cerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d missatges indexats (%3$s)</string>
+    <string name="title_advanced_language">Idioma</string>
+    <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
     <string name="title_advanced_optimize">Optimitzar automàticament</string>
     <string name="title_advanced_experiments">Prova característiques experimentals</string>
@@ -421,6 +447,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_cleanup_attachments_hint">Si es neteja manualment, s\'eliminen els fitxers adjunts dels missatges que ja no es sincronitzen</string>
     <string name="title_advanced_cleanup_hint">S\'eliminaran tots els fitxers temporals</string>
     <string name="title_advanced_never_favorite">Mai preferit</string>
+    <string name="title_advanced_edit_name">Edita el nom</string>
     <string name="title_advanced_swipe_actions">Estableix accions de lliscament</string>
     <string name="title_advanced_swipe_actions_hint">D’aquesta manera, establireu l’acció lliscant cap a l’esquerra i la dreta per a tots els comptes IMAP</string>
     <string name="title_select">Selecciona &#8230;</string>
@@ -453,6 +480,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_provider">Proveïdor</string>
     <string name="title_custom">Personalitzat</string>
     <string name="title_host">Nom del servidor</string>
+    <string name="title_encryption">Xifratge</string>
+    <string name="title_encryption_none">Cap</string>
     <string name="title_allow_insecure">Permet connexions no segures</string>
     <string name="title_insecure_remark">Les connexions insegures només s’han de permetre en xarxes de confiança i mai en xarxes públiques</string>
     <string name="title_port">Número de port</string>
@@ -503,6 +532,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_expand_read">Marca els missatges llegits en expandir-se</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
+    <string name="title_synchronize_subfolders">Subcarpetes</string>
     <string name="title_synchronize_enabled">Sincronitza</string>
     <string name="title_delete_local">Esborra els missatges locals</string>
     <string name="title_delete_browsed">Suprimeix els missatges cercats/navegats</string>
@@ -565,13 +595,13 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_folder_user_only">Només carpetes d\'usuari</string>
     <string name="title_folder_primary">Carpetes del compte primari</string>
     <string name="title_folders_unified">Carpetes unificades de la safata d\'entrada</string>
+    <string name="title_folder_local_drafts">Esborranys locals</string>
     <string name="title_no_folders">No carpetes</string>
     <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_filters_active">S\'han activat un o més filtres</string>
     <string name="title_duplicate_in">Missatge duplicat a %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
-    <string name="title_buttons">Botons</string>
     <string name="title_seen">Marca com a llegit</string>
     <string name="title_unseen">Marca com a no llegit</string>
     <string name="title_hide">Amaga</string>
@@ -611,6 +641,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_spam">Correu brossa</string>
     <string name="title_move">Mou</string>
     <string name="title_copy_btn">Copia</string>
+    <string name="title_keywords_btn">Paraules en clau</string>
     <string name="title_unsubscribe">Cancel·lar la subscripció</string>
     <string name="title_message_rule">Crea una regla</string>
     <string name="title_no_junk">No es correu brossa</string>
@@ -660,6 +691,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_ask_delete_rule">Esborrar regla per sempre?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
     <string name="title_ask_show_html">Si es mostra el missatge original es pot filtrar informació sensible a la privadesa</string>
+    <string name="title_ask_show_html_dark">Utilitza un tema fosc</string>
     <string name="title_ask_show_html_remark">No es pot mostrar el missatge original amb un fons fosc perquè pot provocar imatges i textos foscos invisibles</string>
     <string name="title_ask_show_html_images">Mostrar sempre les imatges al mostrar els missatges originals</string>
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>
@@ -707,6 +739,11 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_style_size_medium">Mitjà</string>
     <string name="title_style_size_large">Gran</string>
     <string name="title_style_color">Color &#8230;</string>
+    <string name="title_style_align">Alineació</string>
+    <string name="title_style_align_start">Comença</string>
+    <string name="title_style_align_center">Centre</string>
+    <string name="title_style_align_end">Fi</string>
+    <string name="title_style_list">Llistat</string>
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Per defecte</string>
     <string name="title_style_clear">Esborra el format</string>
@@ -755,6 +792,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_queued">Enviant missatge</string>
     <string name="title_queued_at">El missatge s\'enviarà al voltant de %1$s</string>
     <string name="title_sign">Signar</string>
+    <string name="title_verify">Verifica</string>
     <string name="title_encrypt">Xifra</string>
     <string name="title_decrypt">Desxifra</string>
     <string name="title_resync">Resincronitza</string>
@@ -892,6 +930,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_rule_tts_prefix">Missatge nou</string>
     <string name="title_rule_tts_from">De</string>
     <string name="title_rule_tts_subject">Assumpte</string>
+    <string name="title_rule_tts_content">Text</string>
     <string name="title_legend_section_synchronize">Sincronitza</string>
     <string name="title_legend_section_folders">Carpetes</string>
     <string name="title_legend_section_messages">Missatges</string>
@@ -1021,6 +1060,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_add">Afegir</string>
     <string name="title_browse">Obre amb</string>
     <string name="title_info">Informació</string>
+    <string name="title_download">Descarrega</string>
     <string name="title_report">Informa</string>
     <string name="title_fix">Repara</string>
     <string name="title_enable">Habilita</string>
@@ -1068,6 +1108,10 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_log">Registres</string>
     <string name="title_auto_scroll">Desplaçament automàtic</string>
     <string name="title_log_clear">Netejar</string>
+    <string name="title_rules_export">Exporta regles</string>
+    <string name="title_rules_import">Importa regles</string>
+    <string name="title_rules_delete_all">Esborra totes les regles</string>
+    <string name="title_rules_delete_junk">Esborra totes les regles d\'SPAM</string>
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>
     <string name="title_crash_info_remark">Per favor descriu què estaves fent quan l\'aplicació va fallar:</string>
@@ -1102,6 +1146,10 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_accessibility_expand">Expandeix</string>
     <string name="title_accessibility_view_contact">Mostra el contacte</string>
     <string name="title_accessibility_show_authentication_result">Mostra el resultat de l\'autenticació</string>
+    <string name="title_accessibility_view_help">Mostra l\'ajuda</string>
+    <string name="title_accessibility_selected">Seleccionat</string>
+    <string name="title_accessibility_scroll_down">Desplaça avall</string>
+    <string name="title_accessibility_scroll_up">Desplaça cap amunt</string>
     <string name="title_accessibility_edit">Editar</string>
     <string name="title_accessibility_show_addresses">Mostra adreces</string>
     <string name="title_accessibility_hide_addresses">Amaga les adreces</string>
@@ -1200,11 +1248,28 @@ La creació i l\'ús de regles és una característica professional.    </string
         <item>Només signar S/MIME</item>
         <item>Signar i xifrar S/MIME</item>
     </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
+        <item>Desactivat</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>
         <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursiva</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
     </string-array>
 </resources>
