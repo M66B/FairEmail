@@ -1100,6 +1100,38 @@ public class Log {
                 return false;
         }
 
+        if (ex instanceof SecurityException &&
+                ex.getMessage() != null &&
+                ex.getMessage().contains("com.opera.browser"))
+            /*
+                java.lang.SecurityException: Permission Denial: starting Intent { act=android.intent.action.VIEW dat=https://tracking.dpd.de/... cmp=com.opera.browser/.leanplum.LeanplumCatchActivity (has extras) } from ProcessRecord{3d9efb1 6332:eu.faircode.email/u0a54} (pid=6332, uid=10054) not exported from uid 10113
+                  at android.os.Parcel.readException(Parcel.java:1951)
+                  at android.os.Parcel.readException(Parcel.java:1897)
+                  at android.app.IActivityManager$Stub$Proxy.startActivity(IActivityManager.java:4430)
+                  at android.app.Instrumentation.execStartActivity(Instrumentation.java:1610)
+                  at android.app.ContextImpl.startActivity(ContextImpl.java:862)
+                  at android.app.ContextImpl.startActivity(ContextImpl.java:839)
+                  at android.view.textclassifier.TextClassification.lambda$-android_view_textclassifier_TextClassification_5020(TextClassification.java:166)
+                  at android.view.textclassifier.-$Lambda$mxr44OLodDKdoE5ddAZvMdsFssQ.$m$0(Unknown Source:8)
+                  at android.view.textclassifier.-$Lambda$mxr44OLodDKdoE5ddAZvMdsFssQ.onClick(Unknown Source:0)
+                  at org.chromium.content.browser.selection.SelectionPopupControllerImpl.m(chromium-SystemWebViewGoogle.aab-stable-432415203:17)
+                  at y5.onActionItemClicked(chromium-SystemWebViewGoogle.aab-stable-432415203:20)
+                  at Bn.onActionItemClicked(chromium-SystemWebViewGoogle.aab-stable-432415203:1)
+                  at com.android.internal.policy.DecorView$ActionModeCallback2Wrapper.onActionItemClicked(DecorView.java:2472)
+                  at com.android.internal.view.FloatingActionMode$3.onMenuItemSelected(FloatingActionMode.java:101)
+                  at com.android.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:761)
+                  at com.android.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:167)
+                  at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:908)
+                  at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:898)
+                  at com.android.internal.view.FloatingActionMode.lambda$-com_android_internal_view_FloatingActionMode_5176(FloatingActionMode.java:129)
+                  at com.android.internal.view.-$Lambda$IoKM3AcgDw3Ok5aFi0zlym2p3IA.$m$0(Unknown Source:4)
+                  at com.android.internal.view.-$Lambda$IoKM3AcgDw3Ok5aFi0zlym2p3IA.onMenuItemClick(Unknown Source:0)
+                  at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup$2.onClick(FloatingToolbar.java:423)
+                  at android.view.View.performClick(View.java:6320)
+                  at android.view.View$PerformClick.run(View.java:25087)
+             */
+            return false;
+
         if (isDead(ex))
             return false;
 
