@@ -950,8 +950,11 @@ class Core {
             // Check message ID to check raw message file content
             MessageHelper helper = new MessageHelper(imessage, context);
             String msgid = helper.getMessageID();
-            if (TextUtils.isEmpty(message.msgid) || !Objects.equals(message.msgid, msgid))
-                throw new IllegalArgumentException("Inconsistent msgid=" + message.msgid + "/" + msgid);
+            if (TextUtils.isEmpty(message.msgid) || !Objects.equals(message.msgid, msgid)) {
+                String msg = "Inconsistent msgid=" + message.msgid + "/" + msgid;
+                Log.e(msg);
+                throw new IllegalArgumentException(msg);
+            }
         }
 
         db.message().setMessageRaw(message.id, true);
@@ -1022,8 +1025,11 @@ class Core {
                 }
         } else {
             Long found = findUid(context, ifolder, message.msgid, false);
-            if (found == null)
-                throw new IllegalArgumentException("Added message not found");
+            if (found == null) {
+                String msg = "Added message not found msgid" + message.msgid;
+                Log.e(msg);
+                throw new IllegalArgumentException(msg);
+            }
 
             // Mark source read
             if (autoread)
