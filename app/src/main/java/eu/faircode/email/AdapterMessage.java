@@ -4040,8 +4040,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_headers = properties.getValue("headers", message.id);
             boolean full = properties.getValue("full", message.id);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
