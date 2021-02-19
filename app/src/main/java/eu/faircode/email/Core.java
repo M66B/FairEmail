@@ -2570,8 +2570,50 @@ class Core {
                                         FetchResponse fr = (FetchResponse) response;
                                         UID uid = fr.getItem(UID.class);
                                         FLAGS flags = fr.getItem(FLAGS.class);
-                                        if (uid != null && (flags == null || !flags.contains(Flags.Flag.DELETED)))
-                                            uids.remove(uid.uid);
+                                        if (uid == null || flags == null)
+                                            continue;
+                                        if (perform_expunge && flags.contains(Flags.Flag.DELETED))
+                                            continue;
+
+                                        uids.remove(uid.uid);
+
+                                        if (force) {
+                                            EntityMessage message = db.message().getMessageByUid(folder.id, uid.uid);
+                                            if (message != null) {
+                                                boolean update = false;
+                                                boolean seen = flags.contains(Flags.Flag.SEEN);
+                                                boolean answered = flags.contains(Flags.Flag.ANSWERED);
+                                                boolean flagged = flags.contains(Flags.Flag.FLAGGED);
+                                                boolean deleted = flags.contains(Flags.Flag.DELETED);
+                                                if (message.seen != seen) {
+                                                    update = true;
+                                                    message.seen = seen;
+                                                    message.ui_seen = seen;
+                                                    Log.i("UID fetch seen=" + seen);
+                                                }
+                                                if (message.answered != answered) {
+                                                    update = true;
+                                                    message.answered = answered;
+                                                    message.ui_answered = answered;
+                                                    Log.i("UID fetch answered=" + answered);
+                                                }
+                                                if (message.flagged != flagged) {
+                                                    update = true;
+                                                    message.flagged = flagged;
+                                                    message.ui_flagged = flagged;
+                                                    Log.i("UID fetch flagged=" + flagged);
+                                                }
+                                                if (message.deleted != deleted) {
+                                                    update = true;
+                                                    message.deleted = deleted;
+                                                    message.ui_deleted = deleted;
+                                                    Log.i("UID fetch deleted=" + deleted);
+                                                }
+
+                                                if (update)
+                                                    db.message().updateMessage(message);
+                                            }
+                                        }
                                     }
                             } else {
                                 for (Response response : responses)
