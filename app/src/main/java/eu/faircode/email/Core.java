@@ -499,7 +499,7 @@ class Core {
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
                             // Sync: BAD Could not parse command
                             // Seen: NO mailbox selected READ-ONLY
-                            // Fetch: BAD Error in IMAP command FETCH: Invalid messageset
+                            // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n.nnn secs).
                             // Fetch: NO all of the requested messages have been expunged
                             // Fetch: BAD parse error: invalid message sequence number:
                             // Fetch: NO The specified message set is invalid.
