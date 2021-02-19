@@ -125,12 +125,17 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         btnCa = view.findViewById(R.id.btnCa);
         tvKeySize = view.findViewById(R.id.tvKeySize);
 
-        Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
-        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0); // package whitelisted
-        if (ris != null)
-            for (ResolveInfo ri : ris)
-                if (ri.serviceInfo != null)
-                    openPgpProvider.add(ri.serviceInfo.packageName);
+        try {
+            openPgpProvider.clear();
+            Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
+            List<ResolveInfo> ris = pm.queryIntentServices(intent, 0); // package whitelisted
+            if (ris != null)
+                for (ResolveInfo ri : ris)
+                    if (ri.serviceInfo != null)
+                        openPgpProvider.add(ri.serviceInfo.packageName);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -390,24 +395,31 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     }
 
     private void testOpenPgp(String pkg) {
-        if (pgpService != null && pgpService.isBound())
-            pgpService.unbindFromService();
+        Log.i("Testing OpenPGP pkg=" + pkg);
+        try {
+            if (pgpService != null && pgpService.isBound())
+                pgpService.unbindFromService();
 
-        tvOpenPgpStatus.setText("PGP binding to " + pkg);
-        pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
-            @Override
-            public void onBound(IOpenPgpService2 service) {
-                tvOpenPgpStatus.setText("PGP bound to " + pkg);
-            }
+            tvOpenPgpStatus.setText("PGP binding to " + pkg);
+            pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
+                @Override
+                public void onBound(IOpenPgpService2 service) {
+                    tvOpenPgpStatus.setText("PGP bound to " + pkg);
+                }
 
-            @Override
-            public void onError(Exception ex) {
-                if ("bindService() returned false!".equals(ex.getMessage()))
-                    tvOpenPgpStatus.setText("No OpenPGP providers");
-                else
-                    tvOpenPgpStatus.setText(ex.toString());
-            }
-        });
-        pgpService.bindToService();
+                @Override
+                public void onError(Exception ex) {
+                    if ("bindService() returned false!".equals(ex.getMessage()))
+                        tvOpenPgpStatus.setText("No OpenPGP providers");
+                    else {
+                        Log.e(ex);
+                        tvOpenPgpStatus.setText(ex.toString());
+                    }
+                }
+            });
+            pgpService.bindToService();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 }
