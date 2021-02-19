@@ -941,13 +941,17 @@ class Core {
             // Cross account move
             if (!file.exists())
                 throw new IllegalArgumentException("raw message file not found");
-            if (TextUtils.isEmpty(message.msgid))
-                throw new IllegalArgumentException("Message-ID missing");
 
             Log.i(folder.name + " reading " + file);
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessage(isession, is);
             }
+
+            // Check message ID to check raw message file content
+            MessageHelper helper = new MessageHelper(imessage, context);
+            String msgid = helper.getMessageID();
+            if (TextUtils.isEmpty(message.msgid) || !Objects.equals(message.msgid, msgid))
+                throw new IllegalArgumentException("Inconsistent msgid=" + message.msgid + "/" + msgid);
         }
 
         db.message().setMessageRaw(message.id, true);
