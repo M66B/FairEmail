@@ -4041,38 +4041,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean full = properties.getValue("full", message.id);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean button_junk = prefs.getBoolean("button_junk", true);
-            boolean button_trash = prefs.getBoolean("button_trash", true);
-            boolean button_archive = prefs.getBoolean("button_archive", true);
-            boolean button_move = prefs.getBoolean("button_move", true);
-            boolean button_copy = prefs.getBoolean("button_copy", false);
-            boolean button_keywords = prefs.getBoolean("button_keywords", false);
-            boolean button_notes = prefs.getBoolean("button_notes", false);
-            boolean button_seen = prefs.getBoolean("button_seen", false);
-            boolean button_search = prefs.getBoolean("button_search", false);
-            boolean button_event = prefs.getBoolean("button_event", false);
-            boolean button_share = prefs.getBoolean("button_share", false);
-            boolean button_print = prefs.getBoolean("button_print", false);
-            boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
-            boolean button_rule = prefs.getBoolean("button_rule", false);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
-
-            popupMenu.getMenu().findItem(R.id.menu_button_junk).setChecked(button_junk);
-            popupMenu.getMenu().findItem(R.id.menu_button_trash).setChecked(button_trash);
-            popupMenu.getMenu().findItem(R.id.menu_button_archive).setChecked(button_archive);
-            popupMenu.getMenu().findItem(R.id.menu_button_move).setChecked(button_move);
-            popupMenu.getMenu().findItem(R.id.menu_button_copy).setChecked(button_copy);
-            popupMenu.getMenu().findItem(R.id.menu_button_keywords).setChecked(button_keywords);
-            popupMenu.getMenu().findItem(R.id.menu_button_notes).setChecked(button_notes);
-            popupMenu.getMenu().findItem(R.id.menu_button_seen).setChecked(button_seen);
-            popupMenu.getMenu().findItem(R.id.menu_button_search).setChecked(button_search);
-            popupMenu.getMenu().findItem(R.id.menu_button_event).setChecked(button_event);
-            popupMenu.getMenu().findItem(R.id.menu_button_share).setChecked(button_share);
-            popupMenu.getMenu().findItem(R.id.menu_button_print).setChecked(button_print);
-            popupMenu.getMenu().findItem(R.id.menu_button_unsubscribe).setChecked(button_unsubscribe);
-            popupMenu.getMenu().findItem(R.id.menu_button_rule).setChecked(button_rule);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
@@ -4126,48 +4097,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     int itemId = target.getItemId();
-                    if (itemId == R.id.menu_button_junk) {
-                        onMenuButton(message, "junk", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_trash) {
-                        onMenuButton(message, "trash", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_archive) {
-                        onMenuButton(message, "archive", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_move) {
-                        onMenuButton(message, "move", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_copy) {
-                        onMenuButton(message, "copy", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_keywords) {
-                        onMenuButton(message, "keywords", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_notes) {
-                        onMenuButton(message, "notes", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_seen) {
-                        onMenuButton(message, "seen", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_search) {
-                        onMenuButton(message, "search", target.isChecked());
-                        bindAddresses(message);
-                        return true;
-                    } else if (itemId == R.id.menu_button_event) {
-                        onMenuButton(message, "event", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_share) {
-                        onMenuButton(message, "share", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_print) {
-                        onMenuButton(message, "print", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_unsubscribe) {
-                        onMenuButton(message, "unsubscribe", target.isChecked());
-                        return true;
-                    } else if (itemId == R.id.menu_button_rule) {
-                        onMenuButton(message, "rule", target.isChecked());
+                    if (itemId == R.id.menu_button) {
+                        FragmentDialogButtons buttons = new FragmentDialogButtons();
+                        buttons.setTargetFragment(parentFragment, FragmentMessages.REQUEST_BUTTONS);
+                        buttons.show(parentFragment.getParentFragmentManager(), "dialog:buttons");
                         return true;
                     } else if (itemId == R.id.menu_unseen) {
                         onMenuUnseen(message);
@@ -4432,12 +4365,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             else
                 Helper.reportNoViewer(context, uri);
-        }
-
-        private void onMenuButton(final TupleMessageEx message, String button, boolean isChecked) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().putBoolean("button_" + button, !isChecked).apply();
-            setupTools(message, false, false);
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
@@ -7020,6 +6947,78 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            sendResult(Activity.RESULT_OK);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogButtons extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_buttons, null);
+            final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
+            final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
+            final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
+            final CheckBox cbMove = dview.findViewById(R.id.cbMove);
+            final CheckBox cbCopy = dview.findViewById(R.id.cbCopy);
+            final CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
+            final CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
+            final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
+            final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
+            final CheckBox cbEvent = dview.findViewById(R.id.cbEvent);
+            final CheckBox cbShare = dview.findViewById(R.id.cbShare);
+            final CheckBox cbPrint = dview.findViewById(R.id.cbPrint);
+            final CheckBox cbUnsubscribe = dview.findViewById(R.id.cbUnsubscribe);
+            final CheckBox cbRule = dview.findViewById(R.id.cbRule);
+
+            cbJunk.setChecked(prefs.getBoolean("button_junk", true));
+            cbTrash.setChecked(prefs.getBoolean("button_trash", true));
+            cbArchive.setChecked(prefs.getBoolean("button_archive", true));
+            cbMove.setChecked(prefs.getBoolean("button_move", true));
+            cbCopy.setChecked(prefs.getBoolean("button_copy", false));
+            cbKeywords.setChecked(prefs.getBoolean("button_keywords", false));
+            cbNotes.setChecked(prefs.getBoolean("button_notes", false));
+            cbSeen.setChecked(prefs.getBoolean("button_seen", false));
+            cbSearch.setChecked(prefs.getBoolean("button_search", false));
+            cbEvent.setChecked(prefs.getBoolean("button_event", false));
+            cbShare.setChecked(prefs.getBoolean("button_share", false));
+            cbPrint.setChecked(prefs.getBoolean("button_print", false));
+            cbUnsubscribe.setChecked(prefs.getBoolean("button_unsubscribe", true));
+            cbRule.setChecked(prefs.getBoolean("button_rule", false));
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putBoolean("button_junk", cbJunk.isChecked());
+                            editor.putBoolean("button_trash", cbTrash.isChecked());
+                            editor.putBoolean("button_archive", cbArchive.isChecked());
+                            editor.putBoolean("button_move", cbMove.isChecked());
+                            editor.putBoolean("button_copy", cbCopy.isChecked());
+                            editor.putBoolean("button_keywords", cbKeywords.isChecked());
+                            editor.putBoolean("button_notes", cbNotes.isChecked());
+                            editor.putBoolean("button_seen", cbSeen.isChecked());
+                            editor.putBoolean("button_search", cbSearch.isChecked());
+                            editor.putBoolean("button_event", cbEvent.isChecked());
+                            editor.putBoolean("button_share", cbShare.isChecked());
+                            editor.putBoolean("button_print", cbPrint.isChecked());
+                            editor.putBoolean("button_unsubscribe", cbUnsubscribe.isChecked());
+                            editor.putBoolean("button_rule", cbRule.isChecked());
+                            editor.apply();
                             sendResult(Activity.RESULT_OK);
                         }
                     })

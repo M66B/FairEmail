@@ -2,66 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_button"
-        android:title="@string/title_buttons">
-        <menu>
-            <item
-                android:id="@+id/menu_button_junk"
-                android:checkable="true"
-                android:title="@string/title_spam" />
-            <item
-                android:id="@+id/menu_button_trash"
-                android:checkable="true"
-                android:title="@string/title_trash" />
-            <item
-                android:id="@+id/menu_button_archive"
-                android:checkable="true"
-                android:title="@string/title_archive" />
-            <item
-                android:id="@+id/menu_button_move"
-                android:checkable="true"
-                android:title="@string/title_move" />
-            <item
-                android:id="@+id/menu_button_copy"
-                android:checkable="true"
-                android:title="@string/title_copy_btn" />
-            <item
-                android:id="@+id/menu_button_keywords"
-                android:checkable="true"
-                android:title="@string/title_keywords_btn" />
-            <item
-                android:id="@+id/menu_button_notes"
-                android:checkable="true"
-                android:title="@string/title_edit_notes" />
-            <item
-                android:id="@+id/menu_button_seen"
-                android:checkable="true"
-                android:title="@string/title_toggle_seen" />
-            <item
-                android:id="@+id/menu_button_search"
-                android:checkable="true"
-                android:title="@string/title_search" />
-            <item
-                android:id="@+id/menu_button_event"
-                android:checkable="true"
-                android:title="@string/title_event" />
-            <item
-                android:id="@+id/menu_button_share"
-                android:checkable="true"
-                android:title="@string/title_share" />
-            <item
-                android:id="@+id/menu_button_print"
-                android:checkable="true"
-                android:title="@string/title_print" />
-            <item
-                android:id="@+id/menu_button_unsubscribe"
-                android:checkable="true"
-                android:title="@string/title_unsubscribe" />
-            <item
-                android:id="@+id/menu_button_rule"
-                android:checkable="true"
-                android:title="@string/title_message_rule" />
-        </menu>
-    </item>
+        android:title="@string/title_configure_buttons" />
 
     <item
         android:id="@+id/menu_unseen"
