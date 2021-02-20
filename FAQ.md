@@ -62,7 +62,7 @@ Related questions:
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
 * Undo send: Outbox, tap message, tap undo icon button
 * Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
