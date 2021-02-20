@@ -2078,7 +2078,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     return false;
 
                                 Uri uri = Uri.parse(url);
-                                return ViewHolder.this.onOpenLink(uri, null);
+                                return ViewHolder.this.onOpenLink(uri, null, false);
                             }
                         });
                 webView.setImages(show_images, inline);
@@ -3901,7 +3901,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionUnsubscribe(TupleMessageEx message) {
             Uri uri = Uri.parse(message.unsubscribe);
-            onOpenLink(uri, context.getString(R.string.title_legend_show_unsubscribe));
+            onOpenLink(uri, context.getString(R.string.title_legend_show_unsubscribe), true);
         }
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
@@ -4203,7 +4203,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
                             Uri uri = Uri.parse(a.getSource());
                             if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-                                if (onOpenLink(uri, null))
+                                if (onOpenLink(uri, null, false))
                                     return true;
                         }
                     }
@@ -4222,7 +4222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (url.equals(title))
                             title = null;
 
-                        if (onOpenLink(uri, title))
+                        if (onOpenLink(uri, title, false))
                             return true;
                     }
 
@@ -4246,7 +4246,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private boolean onOpenLink(final Uri uri, String title) {
+        private boolean onOpenLink(final Uri uri, String title, boolean always_confirm) {
             Log.i("Opening uri=" + uri + " title=" + title);
 
             if ("eu.faircode.email".equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
@@ -4274,7 +4274,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean confirm_link =
                         !"https".equals(uri.getScheme()) || TextUtils.isEmpty(uri.getHost()) ||
                                 prefs.getBoolean(uri.getHost() + ".confirm_link", true);
-                if (confirm_links && confirm_link) {
+                if (always_confirm || (confirm_links && confirm_link)) {
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
                     args.putString("title", title);
@@ -4328,7 +4328,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.execute(context, owner, args, "view:cid");
 
             else if ("http".equals(scheme) || "https".equals(scheme))
-                onOpenLink(uri, null);
+                onOpenLink(uri, null, false);
 
             else if ("data".equals(scheme))
                 new SimpleTask<File>() {
