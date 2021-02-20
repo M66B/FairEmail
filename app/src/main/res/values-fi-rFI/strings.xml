@@ -242,7 +242,6 @@
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
     <string name="title_advanced_sync_shared_folders">Synkronoi jaettujen kansioiden lista</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
-    <string name="title_advanced_sync_subscribed">Synkronoi tilatut kansiot automaattisesti</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_tune_keep_alive">Säädä ylläpitokyselyn aikaväli automaattisesti</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>

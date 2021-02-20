@@ -212,7 +212,6 @@
     <string name="title_advanced_sync_folders">同步資料夾清單</string>
     <string name="title_advanced_sync_shared_folders">同步分享的資料夾清單</string>
     <string name="title_advanced_subscriptions">管理資料夾訂閱</string>
-    <string name="title_advanced_sync_subscribed">自動同步訂閱的資料夾</string>
     <string name="title_advanced_check_mx">在同步訊息時檢查發送者的email地址。</string>
     <string name="title_advanced_tune_keep_alive">自動調整保持活躍的間隔</string>
     <string name="title_advanced_keyboard">預設顯示鍵盤</string>

@@ -252,7 +252,6 @@
     <string name="title_advanced_sync_folders">Синхронізувати список тек</string>
     <string name="title_advanced_sync_shared_folders">Синхронізувати спільний список тек</string>
     <string name="title_advanced_subscriptions">Керувати підписками тек</string>
-    <string name="title_advanced_sync_subscribed">Автоматично синхронізувати теки із підпискою</string>
     <string name="title_advanced_check_mx">Перевіряти адреси електронної пошти відправника при синхронізації повідомлень</string>
     <string name="title_advanced_tune_keep_alive">Автоматично налаштовувати інтервал активності</string>
     <string name="title_advanced_keyboard">Показувати клавіатуру за замовчуванням</string>

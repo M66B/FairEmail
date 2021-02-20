@@ -230,7 +230,6 @@
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
-    <string name="title_advanced_sync_subscribed">Abone olunan klasörleri otomatik olarak senkronize edin</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>

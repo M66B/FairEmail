@@ -242,7 +242,6 @@
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi di cartelle condovise</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
-    <string name="title_advanced_sync_subscribed">Sincronizza automaticamente le cartelle sottoscritte</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi e-mail mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>

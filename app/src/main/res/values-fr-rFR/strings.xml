@@ -243,7 +243,6 @@
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>
     <string name="title_advanced_subscriptions">Gérer les abonnements aux dossiers</string>
-    <string name="title_advanced_sync_subscribed">Synchroniser automatiquement les dossiers abonnés</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse e-mail de l\'expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>

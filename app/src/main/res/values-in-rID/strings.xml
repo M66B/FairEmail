@@ -208,7 +208,6 @@
     <string name="title_advanced_sync_folders">Sinkronkan daftar folder</string>
     <string name="title_advanced_sync_shared_folders">Sinkronkan daftar folder bersama</string>
     <string name="title_advanced_subscriptions">Kelola folder langganan</string>
-    <string name="title_advanced_sync_subscribed">Sinkronisasi folder langganan secara otomatis</string>
     <string name="title_advanced_check_mx">Periksa alamat email pengirim di sinkronisasi pesan</string>
     <string name="title_advanced_tune_keep_alive">Secara otomatis mengatur interval tetap-hidup</string>
     <string name="title_advanced_keyboard">Tampilkan keyboard secara bawaan</string>

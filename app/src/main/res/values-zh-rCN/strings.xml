@@ -231,7 +231,6 @@
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
-    <string name="title_advanced_sync_subscribed">自动同步订阅的文件夹</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>

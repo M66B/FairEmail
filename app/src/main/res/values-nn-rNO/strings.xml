@@ -221,7 +221,6 @@
     <string name="title_advanced_sync_folders">Synkroniser mappeliste</string>
     <string name="title_advanced_sync_shared_folders">Synkroniser delte mappelister</string>
     <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
-    <string name="title_advanced_sync_subscribed">Synkroniser abonnerte mapper automatisk</string>
     <string name="title_advanced_check_mx">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
     <string name="title_advanced_tune_keep_alive">Juster automatisk hold i live intervallet</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>

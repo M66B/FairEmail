@@ -225,7 +225,6 @@
     <string name="title_advanced_sync_folders">Sincronizar lista de cartafoles</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar lista de cartafoles compartidos</string>
     <string name="title_advanced_subscriptions">Xestionar subscricións a cartafoles</string>
-    <string name="title_advanced_sync_subscribed">Sincronizar automaticamente os cartafoles subscritos</string>
     <string name="title_advanced_check_mx">Verificar o enderezo de email dos remitentes ao sincronizar as mensaxes</string>
     <string name="title_advanced_tune_keep_alive">Axustar automaticamente o intervalo de comprobación de conexión</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>

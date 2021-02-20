@@ -230,7 +230,6 @@
     <string name="title_advanced_sync_folders">フォルダーリストの同期</string>
     <string name="title_advanced_sync_shared_folders">共有フォルダリストを同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
-    <string name="title_advanced_sync_subscribed">購読したフォルダを自動的に同期する</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整します</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>

@@ -220,7 +220,6 @@
     <string name="title_advanced_sync_folders">Maplist syngronisearje</string>
     <string name="title_advanced_sync_shared_folders">Syngronisearje dielde maplisten</string>
     <string name="title_advanced_subscriptions">Mapabonneminten beheare</string>
-    <string name="title_advanced_sync_subscribed">Syngroniseare mappen automatysk syngronisearje</string>
     <string name="title_advanced_check_mx">Kontrolearje e-postadressen fan stjoerder op syngronisearjen fan berjochten</string>
     <string name="title_advanced_tune_keep_alive">Tune it ynterval foar libbenhâlden automatysk</string>
     <string name="title_advanced_keyboard">Sjoch toetseboerd mei standert</string>

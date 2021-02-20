@@ -243,7 +243,6 @@
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_sync_shared_folders">Lijst met gedeelde mappen synchroniseren</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
-    <string name="title_advanced_sync_subscribed">Geabonneerde mappen automatisch synchroniseren</string>
     <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
@@ -720,7 +719,7 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
-    <string name="title_toggle_seen">Lezen schakelen</string>
+    <string name="title_toggle_seen">Lezen omschakelen</string>
     <string name="title_hide">Verbergen</string>
     <string name="title_unhide">Tonen</string>
     <string name="title_flag">Ster toevoegen</string>

@@ -265,7 +265,6 @@
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovat seznamy sdílených složek</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
-    <string name="title_advanced_sync_subscribed">Automaticky synchronizovat odebírané složky</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>

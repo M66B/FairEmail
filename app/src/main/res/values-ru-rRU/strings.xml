@@ -265,7 +265,6 @@
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_sync_shared_folders">Синхронизировать списки общих папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
-    <string name="title_advanced_sync_subscribed">Автоматически синхронизировать подписанные папки</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_tune_keep_alive">Автоматически настраивать интервал keep-alive</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>

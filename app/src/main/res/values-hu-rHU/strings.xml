@@ -232,7 +232,6 @@
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
-    <string name="title_advanced_sync_subscribed">Feliratkozott mappák automatikus szinkronizálása</string>
     <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>

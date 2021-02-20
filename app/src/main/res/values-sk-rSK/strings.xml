@@ -260,7 +260,6 @@
     <string name="title_advanced_sync_folders">Synchronizovať zoznam priečinkov</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovať zoznam spoločných priečinkov</string>
     <string name="title_advanced_subscriptions">Spravovať odoberanie priečinkov</string>
-    <string name="title_advanced_sync_subscribed">Automaticky synchronizovať odoberané priečinky</string>
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
     <string name="title_advanced_keyboard">Predvolene zobrazovať klávesnicu</string>
