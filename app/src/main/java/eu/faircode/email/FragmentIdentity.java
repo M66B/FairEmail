@@ -390,7 +390,7 @@ public class FragmentIdentity extends FragmentBase {
             public void onCheckedChanged(RadioGroup group, int id) {
                 if (id == R.id.radio_starttls)
                     etPort.setHint("587");
-                if (id == R.id.radio_none)
+                else if (id == R.id.radio_none)
                     etPort.setHint("25");
                 else
                     etPort.setHint("465");
