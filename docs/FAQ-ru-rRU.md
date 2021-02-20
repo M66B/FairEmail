@@ -1,6 +1,6 @@
 # Техподдержка FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Если у вас есть вопросы, пожалуйста проверьте сначала часто задаваемые вопросы. [Снизу](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), вы можете найти как задать другие вопросы, предложить идеи и сообщить об ошибках.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -16,15 +16,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## Авторизация аккаунтов
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+В большинстве случаев, быстрая настройка сможет автоматически определить правильную конфигурацию.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Если мастер быстрой настройки не справится, вам нужно будет вручную настроить аккаунт (чтобы получать эл. почту) и задать личные данные (чтобы отправлять эл. почту). Для этого нужно задать адреса серверов IMAP и SMTP и номера портов, выбрать между использованием SSL/TLS или STARTTLS, а также ввести имя пользователя (как правило, хотя не всегда, это адрес эл. почты) и пароль.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Поиска *IMAP* и название провайдера в большинстве случаев достаточно для поиска необходимой документации.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+В некоторых случаях вам нужно разрешить внешний доступ к вашей учетной записи и/или использовать специальный (app) пароль, в частности, когда включена двухэтапная аутентификация.
 
-For authorizing:
+Для авторизации:
 
 * Gmail / G набор, см. [вопрос 6](#user-content-faq6)
 * Outlook / жизнь / Hotmail, см. [вопрос 14](#user-content-faq14)
@@ -34,9 +34,9 @@ For authorizing:
 * Apple iCloud, см. [вопрос 148](#user-content-faq148)
 * Free.fr, см. [вопрос 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Пожалуйста, посмотрите [здесь](#user-content-faq22) о частых сообщениях об ошибках и их решениях.
 
-Related questions:
+Связанные вопросы:
 
 * [Поддерживается ли OAuth?](#user-content-faq111)
 * [Почему ActiveSync не поддерживается?](#user-content-faq133)
@@ -45,22 +45,22 @@ Related questions:
 
 ## Узнайте, как...
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
+* Изменить имя аккаунта: Настройки, нажмите Ручная настройка и больше опций, нажмите "Учётные записи", нажмите "Учётные записи"
+* Изменить действия свайпа влево/вправо: настройки, поведение вкладки, действие свайпа
+* Изменить пароль: настройки, нажмите ручную настройку и больше опций, нажмите "Учётные записи", нажмите "Учётные записи", смените пароль
+* Установка подписи: Настройки, нажмите ручную настройку и больше опций, нажмите «Идентификация», нажмите «Идентификация», «Изменить подпись».
 * Добавить адреса CC и BCC: нажмите на иконку человека в конце темы
 * Перейти к следующему/предыдущему сообщению при архивации/удалении: в настройках поведения отключите *Автоматически закрывать диалоги* и выберите *Перейти к следующему/предыдущему диалогу* для *При закрытии диалога*
 * Добавить папку в единый почтовый ящик: долгое нажатие на папку в списке и галочка *Показать в едином почтовом ящике*
 * Добавьте папку в навигационное меню: долгое нажатие на папку в списке и установите флажок *Показать в меню навигации*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Загрузить больше сообщений: долгое нажатие на папку в списке, выберите *Синхронизировать ещё сообщения*
 * Удаление сообщение, минуя корзину: в меню "3 точки" над текстом сообщения *Удалить* или уберите папку "Корзина" в настройках учётной записи
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Удалить аккаунт/идентификатор: настройки, нажмите ручную настройку и больше опций, нажмите "Учётные записи/Идентификации", меню "Три точки", Удалить
 * Удалить папку: долгое нажатие на папке в списке, Изменить свойства, меню трех точек, Удалить
 * Отменить отправку: Исходящие, нажмите на сообщение, нажмите иконку отменить
 * Сохранять отправленные сообщения в папке "Входящие": пожалуйста [смотрите этот FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation/hamburger menu
+* Изменить системные папки: Настройки, нажмите ручную настройку и больше опций, нажмите "Аккаунты", нажмите "Аккаунты" внизу
+* Настройки экспорта/импорта: Настройки, навигация/hamburger меню
 
 ## Известные проблемы
 
@@ -115,11 +115,11 @@ Related questions:
 * ~~Поддержка S/MIME~~
 * ~~Поиск настроек~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Все что в этом списке в случайном порядке и *может быть добавлено* в ближайшем будущем.
 
 ## Часто запрашиваемые возможности
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Дизайн основан на многих обсуждениях, и если вы хотите обсудить его [на этом форуме](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) тоже. Цель дизайна – быть минималистичной (без лишних меню, кнопок и тд) и неотвлекающей (без причудливых цветов, анимаций и тд). Все отображаемые вещи должны быть полезны тем или иным способом и должны быть тщательно размещены для легкого использования. Шрифты, размеры, цвета и тп, должны быть продуктовыми по возможности материалами.
 
 ## Часто задаваемые вопросы
 
@@ -282,17 +282,17 @@ The design is based on many discussions and if you like you can discuss about it
 * [(159) Что такое списки защиты от отслеживания Disconnects? ](#user-content-faq159)
 * [(160) Можете ли вы добавить возможность перманентно удалять сообщения без подтверждения?](#user-content-faq160)
 * [(161) Можете ли вы добавить возможность изменять первичный и акцентный цвета?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
+* [(162) Поддерживается ли IMAP NOTIFY?](#user-content-faq162)
 * [(163) Что такое классификация сообщений?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(164) Можете ли вы добавить настраиваемые темы?](#user-content-faq164)
+* [(165) Поддерживает ли Android Auto?](#user-content-faq165)
 
-[I have another question.](#user-content-support)
+[У меня есть еще один вопрос.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Какие разрешения необходимы и почему?**
 
-The following Android permissions are needed:
+Требуются следующие разрешения Android:
 
 * * иметь полный доступ к сети * (ИНТЕРНЕТ): для отправки и получения электронной почты
 * * просмотр сетевых подключений * (ACCESS_NETWORK_STATE): для отслеживания изменений подключения к Интернету
@@ -307,9 +307,9 @@ The following Android permissions are needed:
 * Android 5.1 Lollipop и более ранние версии: * использовать учетные записи на устройстве * (USE_CREDENTIALS): для выбора учетной записи при использовании быстрой настройки Gmail (не требуется в более поздних версиях Android)
 * Android 5.1 Lollipop и ниже: *Используют учетные записи устройства* (READ_PROFILE): чтобы узнать ваше имя во время быстрой настройки Gmail (не требуется в более поздних версиях Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Необязательные разрешения](https://developer.android.com/training/permissions/requesting) поддерживаются только на Android 6 Marshmallow и позднее. В предыдущих версиях Android вам будет предложено предоставить дополнительные разрешения на установку FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Следующие разрешения необходимы для отображения количества непрочитанных сообщений как значка (см. также [этот FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
