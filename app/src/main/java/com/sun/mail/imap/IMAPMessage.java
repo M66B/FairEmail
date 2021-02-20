@@ -573,6 +573,26 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	// If we haven't cached the type yet ..
 	if (type == null) {
 	    loadBODYSTRUCTURE();
+
+		// Some servers report incorrectly text/plain in some situations
+		if ("text".equalsIgnoreCase(bs.type) &&
+				"plain".equalsIgnoreCase(bs.subtype))
+			try {
+				String[] c = getHeader("Content-type");
+				if (c != null && c.length == 1) {
+					ContentType ct = new ContentType(c[0]);
+					if (!bs.type.equalsIgnoreCase(ct.getPrimaryType()) ||
+							!bs.subtype.equalsIgnoreCase(ct.getSubType())) {
+						eu.faircode.email.Log.e("Inconsistent" +
+								" bs=" + bs.type + "/" + bs.subtype + "/" + bs.cParams + " header=" + ct);
+						type = ct.toString();
+						return type;
+					}
+				}
+			} catch (MessagingException ex) {
+				eu.faircode.email.Log.e(ex);
+			}
+
 	    // generate content-type from BODYSTRUCTURE
 	    ContentType ct = new ContentType(bs.type, bs.subtype, bs.cParams);
 	    type = ct.toString();
