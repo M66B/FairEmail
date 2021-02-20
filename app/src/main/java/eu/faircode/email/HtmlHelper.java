@@ -1792,6 +1792,18 @@ public class HtmlHelper {
 
         SpannableStringBuilder ssb = fromDocument(context, d, null, null);
 
+        for (StyleSpan span : ssb.getSpans(0, ssb.length(), StyleSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            if (span.getStyle() == Typeface.ITALIC) {
+                ssb.insert(end, "*");
+                ssb.insert(start, "*");
+            } else if (span.getStyle() == Typeface.BOLD) {
+                ssb.insert(end, "**");
+                ssb.insert(start, "**");
+            }
+        }
+
         for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
             String url = span.getURL();
             if (TextUtils.isEmpty(url))
