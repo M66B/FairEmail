@@ -512,6 +512,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 message.msgid = EntityMessage.generateMessageId(from.substring(at + 1));
         }
 
+        // Set sent time
+        message.sent = new Date().getTime();
+        db.message().setMessageSent(message.id, message.sent);
+
         // Create message
         Properties props = MessageHelper.getSessionProperties();
         // https://javaee.github.io/javamail/docs/api/javax/mail/internet/package-summary.html
