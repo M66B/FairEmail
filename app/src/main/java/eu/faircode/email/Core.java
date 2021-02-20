@@ -1891,11 +1891,8 @@ class Core {
                     if (folder == null) {
                         EntityFolder parent = null;
                         int sep = fullName.lastIndexOf(account.separator);
-                        if (sep > 0) {
+                        if (sep > 0)
                             parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
-                            if (parent != null && !EntityFolder.USER.equals(parent.type))
-                                parent = null;
-                        }
 
                         folder = new EntityFolder();
                         folder.account = account.id;
@@ -1907,7 +1904,7 @@ class Core {
                         folder.setProperties();
                         folder.setSpecials(account);
 
-                        if (parent != null) {
+                        if (parent != null && EntityFolder.USER.equals(parent.type)) {
                             folder.synchronize = parent.synchronize;
                             folder.poll = parent.poll;
                             folder.poll_factor = parent.poll_factor;
