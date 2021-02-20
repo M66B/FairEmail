@@ -93,7 +93,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             tvItem.setTextColor(menu.getCount() == null ? textColorSecondary : colorUnread);
             tvItem.setTypeface(menu.getCount() == null ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
-            tvItemExtra.setVisibility(View.GONE);
+            tvItemExtra.setText(menu.getSubtitle());
+            tvItemExtra.setVisibility(menu.getSubtitle() == null ? View.GONE : View.VISIBLE);
 
             ivExternal.setVisibility(menu.isExternal() ? View.VISIBLE : View.GONE);
             ivWarning.setVisibility(menu.hasWarning() ? View.VISIBLE : View.GONE);

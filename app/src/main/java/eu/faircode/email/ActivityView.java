@@ -555,7 +555,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     checkUpdate(true);
                 }
             }
-        }).setSeparated());
+        }).setSeparated().setSubtitle(BuildConfig.VERSION_NAME));
 
         extra.add(new NavMenuItem(R.drawable.twotone_monetization_on_24, R.string.menu_pro, new Runnable() {
             @Override

@@ -22,6 +22,7 @@ package eu.faircode.email;
 public class NavMenuItem {
     private int icon;
     private int title;
+    private String subtitle = null;
     private Integer count = null;
     private boolean external = false;
     private boolean warning = false;
@@ -40,6 +41,11 @@ public class NavMenuItem {
         this.title = title;
         this.click = click;
         this.longClick = longClick;
+    }
+
+    NavMenuItem setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+        return this;
     }
 
     void setCount(Integer count) {
@@ -68,6 +74,10 @@ public class NavMenuItem {
 
     int getTitle() {
         return this.title;
+    }
+
+    String getSubtitle() {
+        return this.subtitle;
     }
 
     Integer getCount() {
