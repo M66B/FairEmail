@@ -1686,7 +1686,6 @@ class Core {
         boolean sync_folders = (prefs.getBoolean("sync_folders", true) || force);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
         boolean subscriptions = prefs.getBoolean("subscriptions", false);
-        boolean sync_subscribed = prefs.getBoolean("sync_subscribed", false);
 
         // Get folder names
         boolean drafts = false;
@@ -1890,18 +1889,36 @@ class Core {
 
                     folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
+                        EntityFolder parent = null;
+                        int sep = fullName.lastIndexOf(account.separator);
+                        if (sep > 0) {
+                            parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
+                            if (parent != null && !EntityFolder.USER.equals(parent.type))
+                                parent = null;
+                        }
+
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
-                        folder.synchronize = (subscribed && subscriptions && sync_subscribed);
                         folder.subscribed = subscribed;
-                        folder.poll = true;
-                        folder.sync_days = EntityFolder.DEFAULT_SYNC;
-                        folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         folder.selectable = selectable;
                         folder.inferiors = inferiors;
+                        folder.setProperties();
                         folder.setSpecials(account);
+
+                        if (parent != null) {
+                            folder.synchronize = parent.synchronize;
+                            folder.poll = parent.poll;
+                            folder.poll_factor = parent.poll_factor;
+                            folder.download = parent.download;
+                            folder.auto_classify_source = parent.auto_classify_source;
+                            folder.auto_classify_target = parent.auto_classify_target;
+                            folder.unified = parent.unified;
+                            folder.navigation = parent.navigation;
+                            folder.notify = parent.notify;
+                        }
+
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type + " sync=" + folder.synchronize);
                         if (folder.synchronize)
