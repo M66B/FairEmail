@@ -83,7 +83,7 @@ class ImageHelper {
             Helper.getBackgroundExecutor(0, "image_n");
 
     private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
-    private static final int MAX_REDIRECTS = 10;
+    private static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
     private static final int MAX_PROBE = 64 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
 
