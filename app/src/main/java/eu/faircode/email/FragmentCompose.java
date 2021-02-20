@@ -2320,8 +2320,11 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
                 // Create files
-                File input = new File(context.getCacheDir(), "pgp_input." + draft.id);
-                File output = new File(context.getCacheDir(), "pgp_output." + draft.id);
+                File tmp = new File(context.getFilesDir(), "encryption");
+                if (!tmp.exists())
+                    tmp.mkdir();
+                File input = new File(tmp, draft.id + ".pgp_input");
+                File output = new File(tmp, draft.id + ".pgp_output");
 
                 // Serializing messages is NOT reproducible
                 if ((EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) &&
@@ -2652,6 +2655,10 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean check_certificate = prefs.getBoolean("check_certificate", true);
 
+                File tmp = new File(context.getFilesDir(), "encryption");
+                if (!tmp.exists())
+                    tmp.mkdir();
+
                 DB db = DB.getInstance(context);
 
                 // Get data
@@ -2777,7 +2784,7 @@ public class FragmentCompose extends FragmentBase {
                         .build(contentSigner, chain[0]);
                 cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
 
-                File sinput = new File(context.getCacheDir(), "smime_sign." + draft.id);
+                File sinput = new File(tmp, draft.id + ".smime_sign");
                 try (FileOutputStream fos = new FileOutputStream(sinput)) {
                     bpContent.writeTo(fos);
                 }
@@ -2895,7 +2902,7 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
 
-                File einput = new File(context.getCacheDir(), "smime_encrypt." + draft.id);
+                File einput = new File(tmp, draft.id + ".smime_encrypt");
                 try (FileOutputStream fos = new FileOutputStream(einput)) {
                     imessage.writeTo(fos);
                 }
