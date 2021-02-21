@@ -1796,12 +1796,19 @@ public class HtmlHelper {
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
             if (span.getStyle() == Typeface.ITALIC) {
+                ssb.insert(end, "/");
+                ssb.insert(start, "/");
+            } else if (span.getStyle() == Typeface.BOLD) {
                 ssb.insert(end, "*");
                 ssb.insert(start, "*");
-            } else if (span.getStyle() == Typeface.BOLD) {
-                ssb.insert(end, "**");
-                ssb.insert(start, "**");
             }
+        }
+
+        for (UnderlineSpan span : ssb.getSpans(0, ssb.length(), UnderlineSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            ssb.insert(end, "_");
+            ssb.insert(start, "_");
         }
 
         for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
