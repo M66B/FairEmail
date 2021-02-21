@@ -159,7 +159,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             public void run() {
                 try {
                     if (onPageLoaded != null) {
-                        Log.e("Page loaded fallback");
+                        Log.w("Page loaded fallback");
                         onPageLoaded.run();
                         onPageLoaded = null;
                     }
@@ -167,7 +167,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                     Log.e(ex);
                 }
             }
-        }, 2500L);
+        }, 1500L);
     }
 
     void setImages(boolean show_images, boolean inline) {
