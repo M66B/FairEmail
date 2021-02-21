@@ -292,11 +292,13 @@
 
         <activity
             android:name=".ActivityBilling"
+            android:exported="false"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask" />
 
         <activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
+            android:exported="true"
             tools:node="replace">
             <intent-filter android:autoVerify="false">
                 <action android:name="android.intent.action.VIEW" />
@@ -321,16 +323,21 @@
 
         <service
             android:name=".ServiceSynchronize"
+            android:exported="false"
             android:foregroundServiceType="dataSync" />
 
         <service
             android:name=".ServiceSend"
+            android:exported="false"
             android:foregroundServiceType="dataSync" />
 
-        <service android:name=".ServiceUI" />
+        <service
+            android:name=".ServiceUI"
+            android:exported="false" />
 
         <service
             android:name=".ServiceExternal"
+            android:exported="true"
             android:foregroundServiceType="dataSync">
 
             <intent-filter>
@@ -343,6 +350,7 @@
 
         <service
             android:name=".ServiceTileSynchronize"
+            android:exported="true"
             android:icon="@drawable/twotone_sync_disabled_24"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -354,6 +362,7 @@
 
         <service
             android:name=".ServiceTileUnseen"
+            android:exported="true"
             android:icon="@drawable/twotone_mail_outline_24"
             android:label="@string/tile_unseen"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -381,6 +390,7 @@
 
         <receiver
             android:name=".Widget"
+            android:exported="true"
             android:label="@string/title_widget_title_count">
 
             <meta-data
@@ -394,6 +404,7 @@
 
         <receiver
             android:name=".WidgetUnified"
+            android:exported="true"
             android:label="@string/title_widget_title_list">
 
             <meta-data
@@ -407,9 +418,12 @@
 
         <service
             android:name="WidgetUnifiedService"
+            android:exported="true"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name=".ReceiverAutoStart">
+        <receiver
+            android:name=".ReceiverAutoStart"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
