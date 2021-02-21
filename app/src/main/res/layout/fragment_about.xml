@@ -13,6 +13,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
+        android:lines="1"
         android:text="Version 1.234"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
@@ -21,25 +22,42 @@
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvRelease"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:text="Dinosaur"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="italic"
+        app:layout_constraintEnd_toStartOf="@+id/ibUpdate"
         app:layout_constraintStart_toEndOf="@id/tvVersion"
         app:layout_constraintTop_toTopOf="@id/tvVersion" />
 
     <eu.faircode.email.FixedTextView
         android:id="@+id/tvCopyright"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
         android:text="@string/app_copyright"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/ibUpdate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvVersion" />
+
+    <ImageButton
+        android:id="@+id/ibUpdate"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_more"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCopyright"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvVersion"
+        app:srcCompat="@drawable/twotone_cached_24" />
 
     <eu.faircode.email.ScrollViewEx
         android:layout_width="match_parent"

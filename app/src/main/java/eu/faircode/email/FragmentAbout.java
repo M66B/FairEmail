@@ -31,6 +31,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,11 +52,25 @@ public class FragmentAbout extends FragmentBase {
 
         TextView tvVersion = view.findViewById(R.id.tvVersion);
         TextView tvRelease = view.findViewById(R.id.tvRelease);
+        ImageButton ibUpdate = view.findViewById(R.id.ibUpdate);
         TextView tvGplV3 = view.findViewById(R.id.tvGplV3);
         LinearLayout llContributors = view.findViewById(R.id.llContributors);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
         tvRelease.setText(BuildConfig.RELEASE_NAME);
+
+        ibUpdate.setVisibility(
+                Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG
+                        ? View.VISIBLE : View.GONE);
+        ibUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (BuildConfig.PLAY_STORE_RELEASE)
+                    Helper.view(v.getContext(), Helper.getIntentRate(v.getContext()));
+                else
+                    onMenuChangelog();
+            }
+        });
 
         tvGplV3.setPaintFlags(tvGplV3.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvGplV3.setOnClickListener(new View.OnClickListener() {
