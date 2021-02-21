@@ -247,6 +247,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setExternal(true));
 
+        menus.add(new NavMenuItem(R.drawable.twotone_feedback_24, R.string.menu_issue, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuIssue();
+            }
+        }).setExternal(true));
+
         menus.add(new NavMenuItem(R.drawable.twotone_account_box_24, R.string.menu_privacy, new Runnable() {
             @Override
             public void run() {
@@ -486,6 +494,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
 
         }.execute(this, new Bundle(), "debug:info");
+    }
+
+    private void onMenuIssue() {
+        startActivity(Helper.getIntentIssue(this));
     }
 
     private void onMenuPrivacy() {
