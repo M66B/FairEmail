@@ -55,7 +55,7 @@ Related questions:
 * Menambahkan folder di menu navigasi: tekan lama folder di daftar folder dan centang *Tampilkan di menu navigasi*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Menghapus pesan, meloncati tong sampah: dalam menu tiga titik di atas *Hapus* pesan teks atau alternatif lainnya, hapus pilihan folder sampah di pengaturan akun
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Menghapus folder: tekan lama folder di daftar folder, Ubah atribut, menu tiga titik, Hapus
 * Batalkan pesan: Kotak keluar, klik pesan, klik tombol ikon batalkan
 * Menyimpan pesan terkirim di kotak masuk: mohon [baca FAQ berikut](#user-content-faq142)

@@ -55,7 +55,7 @@ Related questions:
 * Lisää yhdistettyyn saapuneet-kansioon kansio: paina kansiota kansiolistassa pitkään ja valitse *Näytä yhdistetyssä saapuneet-kansiossa*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Poista viesti, ohita roskakori: 3-pisteen valikossa juuri viestin tekstin yläpuolella *Poista* tai vaihtoehtoisesti, poista roskapostin kansio tilin asetuksista
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Poista kansio: paina kansiota pitkään kansioluettelossa, Muokkaa ominaisuuksia, kolme pistettä valikossa
 * Kumoa lähetetty: Lähtevä, napauta viestiä, napauta kumoa kuvaketta
 * Tallenna lähetetyt viestit saapuneet -kansioon: [katso tämä FAQ](#user-content-faq142)

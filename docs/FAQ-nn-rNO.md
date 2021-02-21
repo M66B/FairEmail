@@ -55,7 +55,7 @@ Related questions:
 * Legge til en mappe i navigasjonsmenyen: trykk lenge på mappen i listen og merk av for *Vis i navigasjonsmenyen*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Slette en melding uten å legge den i papirkurven: trykk på ikonet med tre horisontale prikker rett over meldingsteksten og trykk *Slett*. Alternativt kan du oppheve valg av papirkurv-mappen i kontoinnstillingene.
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Slette en mappe: trykk lenge på mappen i mappelisten, trykk Rediger egenskaper, deretter ikonet med tre prikker øverst til høyre, trykk Slett.
 * Angre sending: Gå til Utboks, trykk på meldingen og deretter på angre-ikonet.
 * Lagre sendte meldinger i innboksen: vennligst sjekk [OSS-siden](#user-content-faq142).

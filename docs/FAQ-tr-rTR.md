@@ -55,7 +55,7 @@ Related questions:
 * Dolaşım menüsüne dosya ekleme: klasör listesindeki klasöre basılı tutun ve *Navigasyon menüsünde göster*i işaretleyin
 * Daha fazla mesaj yükleme: klasör listesindeki klasöre basılı tutun ve *Daha fazla mesajı getir*i işaretleyin
 * Çöp kutusuna göndermeden bir mesajı silme: mesaj metninin hemen üstündeki üç noktaya tıklayıp *Sil*e veya hesap ayarlarında çöp kutusu seçeneğini kaldır seçeneğine tıklayınız
-* Bir hesabı/kimliği silin: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokun, Hesaplar/Kimlikler dokun, üç noktaya dokun, Silin
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Dosya silme: dosya listesindeki dosyaya uzun süre basılı tutun, özellikleri düzenle, üç noktaya tıklayın, silin
 * Gönderilen mesajı iptal etme: mesaja tıklayın, geri al ikonuna tıklayın
 * Gönderilen mesajları gelen kutusunda saklama: lütfen [SSS'ı inceleyin](#user-content-faq142)

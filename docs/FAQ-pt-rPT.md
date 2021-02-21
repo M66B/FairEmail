@@ -55,7 +55,7 @@ Related questions:
 * Adicionar ficheiro ao menu de navegação: mantenha pressionada a pasta na lista de pastas e marque *Mostrar no menu de navegação*
 * Carregar mais mensagens: mantenha pressionada a pasta na lista de pasta, seleccione *Procurar mais mensagens*
 * Apagar uma mensagem, ignorando o lixo: no menu de 3 pontos logo acima do texto da mensagem *Apagar* ou como alternativa, desconsiderar a pasta de lixo nas configurações de conta
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Apagar uma pasta: mantenha pressionada a pasta na lista de pastas, Editar propriedades, menu de 3 pontos, Apagar
 * Cancelar envio: Caixa de saída, seleccione mensagem, seleccione botão de ícone cancelar
 * Armazenar mensagens enviadas na caixa de entrada: por favor [verifique esta FAQ](#user-content-faq142)

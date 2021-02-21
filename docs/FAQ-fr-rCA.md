@@ -55,7 +55,7 @@ Questions liées :
 * Ajouter un dossier au menu de navigation : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans le menu de navigation*
 * Charger plus de messages : appuyez longuement sur un dossier dans la liste de dossiers, sélectionnez *Récupérer plus de messages*
 * Supprimez un message, sautez la corbeille : dans le menu à 3 points juste au-dessus du texte du message *Supprimer* ou désélectionnez le dossier corbeille dans les paramètres du compte
-* Supprimer un compte: Paramètres > cliquer sur "gérer" dans Configurer les comptes > sélectionner le compte > menu à trois points > supprimer
+* Supprimer un compte/une identité : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes/Identités, appuyez sur le compte/l'identité, menu à trois points, Supprimer
 * Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers > Modifier les propriétés > Menu à trois points > Supprimer
 * Annuler l'envoi : Dans la boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
 * Stocker les messages envoyés dans la boîte de réception : veuillez [voir ceci dans FAQ](#user-content-faq142)

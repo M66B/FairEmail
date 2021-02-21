@@ -55,7 +55,7 @@ Related questions:
 * Aggiungere una cartella al menu di navigazione: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nel menu di navigazione*
 * Caricare più messaggi: premi a lungo su una cartella nell'elenco delle cartelle, seleziona *Sincronizza più messaggi*
 * Eliminare un messaggio, evitando il cestino: nel menu a 3 punti appena sopra il testo del messaggio *Elimina* o, in alternativa, deseleziona la cartella cestino nelle impostazioni dell'account
-* Eliminare un account/identità: Impostazioni, clicca impostazioni manuali ed altre opzioni, clicca su account/identità, menu a tre punti, Elimina
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Eliminare una cartella: premi a lungo la cartella nell'elenco delle cartelle, Modifica le proprietà, menu a tre punti, Elimina
 * Annullare l'invio: posta In uscita, tocca il messaggio, tocca l'icona Annulla
 * Conservare i messaggi inviati nella posta in arrivo: [vedi queste domande frequenti](#user-content-faq142)

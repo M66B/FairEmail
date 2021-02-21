@@ -55,7 +55,7 @@ Related questions:
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * 刪除郵件，跳過垃圾箱：在郵件文字上方的三點菜單中，*刪除*或在帳戶設置中取消選擇垃圾箱文件夾
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * 刪除文件夾：長按文件夾列表中的文件夾，編輯屬性，三點菜單，刪除 撤消發送：發件箱，點擊消息，點擊撤消圖標按鈕
 * 撤消發送：發件箱，點擊消息，點擊撤消圖標按鈕
 * 將已發送的郵件存儲在收件箱中：請[參閱此常見問題解答](#user-content-faq142)

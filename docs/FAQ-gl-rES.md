@@ -55,7 +55,7 @@ Related questions:
 * Engadir un cartafol ao menú de navegación: toque durante un tempo o cartafol na lista de cartafoles e marque *Mostrar no menú de navegación*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Borrar unha mensaxe se pasar polo cartafol de Lixo: no menú de 3 puntos xusto enriba do texto da mensaxe *Borrar* ou tamén desactivando o cartafol de Lixo na configuración da conta
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Borrar un cartafol: toque durante un tempo o cartafol na lista de cartafoles, Editar propiedades, menú de 3 puntos, Borrar
 * Desfacer envío: Caixa de saída, toque na mensaxe, toque na icona de desfacer
 * Gardar as mensaxes enviadas na caixa de entrada: [vexa estas preguntas frecuentes](#user-content-faq142)

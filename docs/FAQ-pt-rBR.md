@@ -55,7 +55,7 @@ Related questions:
 * Adicionar uma pasta ao menu de navegação: toque e segure a pasta na lista de pastas e marque *Mostrar no menu de navegação*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Deletar uma mensagem, sem enviar à lixeira: nos três pontos logo acima do texto da mensagem selecione, *Deletar* ou alternativamente, desmarque a lixeira nas configurações da conta
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Apagar uma pasta: toque e segure a pasta na lista de pastas, Editar propriedades, três pontos, Deletar
 * Desfazer envio: Caixa de saída, toque na mensagem, toque no botão com ícone de desfazer
 * Armazenas mensagens enviadas na caixa de entrada: por favor [veja esse FAQ](#user-content-faq142)

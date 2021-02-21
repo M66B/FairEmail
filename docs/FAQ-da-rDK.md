@@ -55,7 +55,7 @@ Relaterede spørgsmål:
 * Føje en mappe til navigeringsmenuen: Langt tryk på mappen i mappelisten og afkryds *Vis i navigeringsmenu*
 * Indlæs flere beskeder: Langt tryk på en mappe på mappelisten, vælg *Hent flere beskeder*
 * Overspring papirkurv ved beskedsletning: I 3-priksmenuen lige over beskedteksten *Slet*, eller fravælg alternativt papirkurvsmappen i kontoindstillingerne
-* Slet konto/identitet: Indstillinger, trin /, tryk på Håndtér, Konto/identitet, trepriksmenuen, Slet
+* Slet konto/identitet: Indstillinger, Manuel opsætning og flere muligheder, Konti/identitet, trepriksmenu, Slet
 * Slet en mappe: Langt tryk på mappen på mappelisten, Redigér egenskaber, trepriksmenuen, Slet
 * Fortryd send: Udbakke, tryk på beskeden, tryk på Fortryd-ikonknappen
 * Gemme sendte beskeder i indbakken: [Se denne FAQ](#user-content-faq142)

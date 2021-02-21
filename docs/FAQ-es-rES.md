@@ -55,7 +55,7 @@ Related questions:
 * Añadir una carpeta al menú de navegación: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en el menú de navegación*
 * Cargar más mensajes: mantenga presionado una carpeta en la lista de carpetas, seleccione *Obtener más mensajes*
 * Eliminar un mensaje, omitiendo la papelera: en el menú de 3 puntos justo encima del texto del mensaje *Eliminar* o, alternativamente, desmarque la carpeta de la papelera en la configuración de la cuenta
-* Eliminar una cuenta/identidad: Configuración, toque configuración manual y más opciones, toque Cuentas/Identidades, menú de tres puntos, Eliminar
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Eliminar una carpeta: mantenga pulsada la carpeta de la lista de carpetas, Editar propiedades, menú de tres puntos, Eliminar
 * Deshacer enviar: Bandeja de salida, toque mensaje, toque el icono deshacer
 * Guardar mensajes enviados en la bandeja de entrada: por favor [vea estas Preguntas Frecuentes](#user-content-faq142)

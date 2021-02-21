@@ -55,7 +55,7 @@ Related questions:
 * Lägg till en mapp i navigeringsmenyn: långtryck på mappen i mapplistan och kryssa i *Visa i navigeringsmenyn*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Ta bort ett meddelande, hoppa över papperskorgen: i 3-punkter menyn precis ovanför meddelandetexten *Ta bort* eller alternativt, avmarkera papperskorgen i kontoinställningarna
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Ta bort en mapp: Tryck länge på mappen i mapplistan, Redigera egenskaper, tre punkter menyn, Ta bort
 * Ångra skicka: Utkorg, tryck på meddelande, tryck på ångra knappen
 * Lagra skickade meddelanden i inkorgen: vänligen [se denna FAQ](#user-content-faq142)

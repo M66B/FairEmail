@@ -55,7 +55,7 @@ Related questions:
 * Додайте папку в меню навігації: натисніть і утримуйте папку у списку папок і поставте галочку * Показати в меню навігації *
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Видаліть повідомлення, пропустивши кошик: у меню з трьома крапками безпосередньо над текстом повідомлення * Видалити * або скасуйте вибір папки кошика в налаштуваннях облікового запису
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Видалення папки: тривале натискання папки зі списку папок, редагування властивостей, меню з трьома крапками, видалення
 * Скасувати надсилання: Вихідні, торкніться повідомлення, торкніться кнопки скасувати піктограму
 * Зберігайте надіслані повідомлення у папці "Вхідні": [ див. Цей FAQ ](#user-content-faq142)

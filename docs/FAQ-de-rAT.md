@@ -55,7 +55,7 @@ Related questions:
 * Einen Ordner zum Navigationsmenü hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Navigationsmenü anzeigen* ankreuzen
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Eine Nachricht löschen und den den Papierkorb überspringen: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder den Papierkorb in den Kontoeinstellungen deaktivieren
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Ein Konto/Identität löschen: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Konten/Identitäten” ➜ Konto/Identität auswählen ➜ „⁝” Drei-Punkte-Menü ➜ „Löschen”
 * Ordner löschen: lange auf den Ordner in der Ordnerliste drücken, Eigenschaften, Drei-Punkte-Menü, Löschen
 * Absenden rückgängig machen: Postausgang, Nachricht antippen, Symbol rückgängig tippen
 * Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)

@@ -55,7 +55,7 @@ Related questions:
 * Dodanie folderu do menu nawigacji: naciśnij długo folder na liście folderów i zaznacz * Pokaż w menu nawigacji *
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Usuwanie wiadomości, pomijając kosz: w menu z trzema kropkami tuż nad tekstem wiadomości * Usuń * lub alternatywnie usuń zaznaczenie folderu Kosz w ustawieniach konta
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Usunięcie folderu: długo naciśnij folder na liście folderów, Edytuj właściwości, menu trzech kropek, Usuń
 * Cofnięcie wysyłania: Wysłanie, dotknij wiadomości, dotknij przycisku cofnij
 * Przechowywanie wysyłanych wiadomości w skrzynce odbiorczej: [zobacz to FAQ](#user-content-faq142)
