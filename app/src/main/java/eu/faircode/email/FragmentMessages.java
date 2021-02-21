@@ -166,6 +166,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -198,6 +200,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
@@ -354,6 +359,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private static final long REVIEW_ASK_DELAY = 14 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
+
+    private static final int PRINT_IMAGE_TIMEOUT = 10 * 1000; // milliseconds
 
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
             "time", "unread", "starred", "priority"
@@ -7348,6 +7355,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putBoolean("print_html_images", print_html_images);
 
         new SimpleTask<String[]>() {
+            private final ExecutorService executor = Helper.getBackgroundExecutor(0, "print");
+
             @Override
             protected String[] onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
@@ -7369,6 +7378,47 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 Document document = JsoupEx.parse(file);
                 HtmlHelper.embedInlineImages(context, id, document, true);
+
+                // onPageFinished will not be called if not all images can be loaded
+                List<Future<Void>> futures = new ArrayList<>();
+                for (final Element img : document.select("img")) {
+                    final String src = img.attr("src");
+                    if (src.startsWith("http") || src.startsWith("https"))
+                        futures.add(executor.submit(new Callable<Void>() {
+                            @Override
+                            public Void call() throws Exception {
+                                try {
+                                    URL url = new URL(src);
+                                    Log.i("Checking url=" + url);
+
+                                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                                    connection.setRequestMethod("GET");
+                                    connection.setReadTimeout(PRINT_IMAGE_TIMEOUT);
+                                    connection.setConnectTimeout(PRINT_IMAGE_TIMEOUT);
+                                    connection.setInstanceFollowRedirects(true);
+                                    connection.connect();
+
+                                    try {
+                                        connection.getInputStream();
+                                    } finally {
+                                        connection.disconnect();
+                                    }
+                                } catch (Throwable ex) {
+                                    img.attr("src", "");
+                                    Log.w(ex);
+                                }
+
+                                return null;
+                            }
+                        }));
+                }
+
+                for (Future<Void> future : futures)
+                    try {
+                        future.get();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
 
                 // @page WordSection1 {size:612.0pt 792.0pt; margin:70.85pt 70.85pt 70.85pt 70.85pt;}
                 // div.WordSection1 {page:WordSection1;}
