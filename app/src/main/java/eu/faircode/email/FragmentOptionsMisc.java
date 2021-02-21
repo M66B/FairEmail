@@ -140,7 +140,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_QUESTIONS = new String[]{
             "first", "app_support", "notify_archive", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "crash_reports_asked", "review_asked", "review_later", "why",
-            "reply_hint", "html_always_images", "open_full_confirmed", "print_html_confirmed", "reformatted_hint",
+            "reply_hint", "html_always_images", "open_full_confirmed",
+            "print_html_confirmed", "print_html_header", "print_html_images",
+            "reformatted_hint",
             "selected_folders", "move_1_confirmed", "move_n_confirmed",
             "last_search_senders", "last_search_recipients", "last_search_subject", "last_search_keywords", "last_search_message", "last_search",
             "identities_asked", "identities_primary_hint",

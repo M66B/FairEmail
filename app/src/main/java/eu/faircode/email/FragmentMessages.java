@@ -7340,11 +7340,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onPrint(Bundle args) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean print_html_header = prefs.getBoolean("print_html_header", true);
+        boolean print_html_images = prefs.getBoolean("print_html_images", true);
+
+        args.putBoolean("print_html_header", print_html_header);
+        args.putBoolean("print_html_images", print_html_images);
+
         new SimpleTask<String[]>() {
             @Override
             protected String[] onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
                 boolean headers = args.getBoolean("headers");
+                boolean print_html_header = args.getBoolean("print_html_header");
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
@@ -7372,8 +7380,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         element.removeClass(clazz);
                 }
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean print_html_header = prefs.getBoolean("print_html_header", true);
                 if (print_html_header) {
                     Element header = document.createElement("p");
 
@@ -7469,12 +7475,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 final Context context = activity.getOriginalContext();
+                boolean print_html_images = args.getBoolean("print_html_images");
 
                 // https://developer.android.com/training/printing/html-docs.html
                 printWebView = new WebView(context);
 
                 WebSettings settings = printWebView.getSettings();
-                settings.setLoadsImagesAutomatically(true);
+                settings.setLoadsImagesAutomatically(print_html_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
                 settings.setAllowFileAccess(false);
 
