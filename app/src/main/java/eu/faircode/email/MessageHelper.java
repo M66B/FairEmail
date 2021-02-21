@@ -2645,32 +2645,9 @@ public class MessageHelper {
 
         try {
             if (imessage instanceof IMAPMessage) {
-                if (structure) {
-                    String contentType = imessage.getContentType(); // force loadBODYSTRUCTURE
-
-                    // Workaround protocol parameter missing
-                    // Happens with Yandex and possibly other providers
-                    boolean load = false;
-                    try {
-                        ContentType ct = new ContentType(contentType);
-                        if (ct.match("multipart/signed") || ct.match("multipart/encrypted")) {
-                            String protocol = ct.getParameter("protocol");
-                            if (protocol == null)
-                                load = true;
-                        } else if (ct.match("application/pkcs7-mime") || ct.match("application/x-pkcs7-mime")) {
-                            String smimeType = ct.getParameter("smime-type");
-                            if (smimeType == null)
-                                load = true;
-                        }
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-
-                    if (load) {
-                        Log.w("Protocol missing content-type=" + contentType);
-                        throw new MessagingException("Failed to load IMAP envelope");
-                    }
-                } else {
+                if (structure)
+                    imessage.getContentType(); // force loadBODYSTRUCTURE
+                else {
                     if (headers)
                         imessage.getAllHeaders(); // force loadHeaders
                     else

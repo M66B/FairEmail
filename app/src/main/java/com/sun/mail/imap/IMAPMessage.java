@@ -574,15 +574,23 @@ public class IMAPMessage extends MimeMessage implements ReadableMime {
 	if (type == null) {
 	    loadBODYSTRUCTURE();
 
-		// Some servers report incorrectly text/plain in some situations
-		if ("text".equalsIgnoreCase(bs.type) &&
-				"plain".equalsIgnoreCase(bs.subtype))
+		// Some servers, like Yandex, report an incorrect/incomplete BODYSTRUCTURE
+		if (("text".equalsIgnoreCase(bs.type) &&
+				"plain".equalsIgnoreCase(bs.subtype)) ||
+				("multipart".equalsIgnoreCase(bs.type) &&
+						("signed".equalsIgnoreCase(bs.subtype) || "encrypted".equalsIgnoreCase(bs.subtype)) &&
+						(bs.cParams == null || bs.cParams.get("protocol") == null)) ||
+				("application".equalsIgnoreCase(bs.type) &&
+						("pkcs7-mime".equalsIgnoreCase(bs.subtype) || "x-pkcs7-mime".equalsIgnoreCase(bs.subtype)) &&
+						(bs.cParams == null || bs.cParams.get("smime-type") == null)))
 			try {
-				String[] c = getHeader("Content-type");
+				String[] c = getHeader("Content-type"); // Fetches header
 				if (c != null && c.length == 1) {
 					ContentType ct = new ContentType(c[0]);
-					if (!bs.type.equalsIgnoreCase(ct.getPrimaryType()) ||
-							!bs.subtype.equalsIgnoreCase(ct.getSubType())) {
+					if (!("text".equalsIgnoreCase(bs.type) &&
+							"plain".equalsIgnoreCase(bs.subtype)) ||
+							!(bs.type.equalsIgnoreCase(ct.getPrimaryType()) &&
+									bs.subtype.equalsIgnoreCase(ct.getSubType()))) {
 						eu.faircode.email.Log.e("Inconsistent" +
 								" bs=" + bs.type + "/" + bs.subtype + "/" + bs.cParams + " header=" + ct);
 						type = ct.toString();
