@@ -725,6 +725,7 @@
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
     <string name="title_sign_key">Sign key: %1$s</string>
+    <string name="title_created_at">Created: %1$s</string>
     <string name="title_last_connected">Last connected: %1$s</string>
     <string name="title_backoff_until">Waiting after failure until: %1$s</string>
     <string name="title_storage_quota">Server storage usage: %1$s/%2$s</string>

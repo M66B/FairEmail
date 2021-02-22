@@ -196,6 +196,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET `primary` = 0 WHERE NOT (`primary` IS 0)")
     void resetPrimary();
 
+    @Query("UPDATE account SET `created` = 0 WHERE id = :id")
+    void resetCreated(long id);
+
     @Query("UPDATE account SET tbd = 1 WHERE id = :id AND NOT (tbd IS 1)")
     int setAccountTbd(long id);
 

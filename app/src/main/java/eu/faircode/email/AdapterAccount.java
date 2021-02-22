@@ -43,6 +43,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -75,6 +76,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     private int colorUnread;
     private int textColorSecondary;
+    private boolean debug;
 
     private List<TupleAccountEx> items = new ArrayList<>();
 
@@ -93,6 +95,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private TextView tvUser;
         private ImageView ivState;
         private TextView tvHost;
+        private TextView tvCreated;
         private TextView tvLast;
         private TextView tvUsage;
         private TextView tvBackoff;
@@ -121,6 +124,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvUser = itemView.findViewById(R.id.tvUser);
             ivState = itemView.findViewById(R.id.ivState);
             tvHost = itemView.findViewById(R.id.tvHost);
+            tvCreated = itemView.findViewById(R.id.tvCreated);
             tvLast = itemView.findViewById(R.id.tvLast);
             tvUsage = itemView.findViewById(R.id.tvUsage);
             tvBackoff = itemView.findViewById(R.id.tvBackoff);
@@ -196,6 +200,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
 
             tvHost.setText(String.format("%s:%d", account.host, account.port));
+            tvCreated.setVisibility(debug ? View.VISIBLE : View.GONE);
+            tvCreated.setText(context.getString(R.string.title_created_at,
+                    account.created == null ? null : DTF.format(account.created)));
             tvLast.setText(context.getString(R.string.title_last_connected,
                     (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
                             (BuildConfig.DEBUG ?
@@ -325,6 +332,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (account.protocol == EntityAccount.TYPE_IMAP && settings)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
 
+            if (debug)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 5, R.string.title_reset);
+
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
@@ -340,6 +350,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         return true;
                     } else if (itemId == R.string.title_copy) {
                         onActionCopy();
+                        return true;
+                    } else if (itemId == R.string.title_reset) {
+                        onActionReset();
                         return true;
                     }
                     return false;
@@ -433,6 +446,33 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                     .putExtra("protocol", account.protocol)
                                     .putExtra("copy", true));
                 }
+
+                private void onActionReset() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected void onPostExecute(Bundle args) {
+                            ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.account().resetCreated(id);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "account:reset");
+                }
             });
 
             popupMenu.show();
@@ -454,6 +494,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.debug = prefs.getBoolean("debug", false);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
 
