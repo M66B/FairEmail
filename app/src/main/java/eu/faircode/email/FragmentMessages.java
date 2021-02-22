@@ -7394,7 +7394,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         img.attr("src", "file:" + out.getAbsolutePath());
 
                         if (print_html_images) {
-                            if (out.exists())
+                            if (out.exists() && out.length() > 0)
                                 continue;
                         } else {
                             out.delete();
