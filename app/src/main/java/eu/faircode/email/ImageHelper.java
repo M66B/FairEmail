@@ -82,7 +82,7 @@ class ImageHelper {
     private static final ExecutorService executor_n =
             Helper.getBackgroundExecutor(0, "image_n");
 
-    private static final int DOWNLOAD_TIMEOUT = 15 * 1000; // milliseconds
+    static final int DOWNLOAD_TIMEOUT = 15; // seconds
     private static final int MAX_REDIRECTS = 5; // https://www.freesoft.org/CIE/RFC/1945/46.htm
     private static final int MAX_PROBE = 64 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
@@ -601,6 +601,9 @@ class ImageHelper {
         Resources res = context.getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int timeout = prefs.getInt("timeout", ImageHelper.DOWNLOAD_TIMEOUT) * 1000;
+
         Bitmap bm;
         HttpURLConnection urlConnection = null;
         try {
@@ -616,8 +619,8 @@ class ImageHelper {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setDoOutput(false);
-                urlConnection.setReadTimeout(DOWNLOAD_TIMEOUT);
-                urlConnection.setConnectTimeout(DOWNLOAD_TIMEOUT);
+                urlConnection.setReadTimeout(timeout);
+                urlConnection.setConnectTimeout(timeout);
                 urlConnection.setInstanceFollowRedirects(true);
                 if (BuildConfig.DEBUG)
                     urlConnection.setRequestProperty("User-Agent", ua);

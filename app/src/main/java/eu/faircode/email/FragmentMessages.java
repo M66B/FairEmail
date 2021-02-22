@@ -361,8 +361,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final long REVIEW_ASK_DELAY = 14 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
 
-    private static final int PRINT_IMAGE_TIMEOUT = 15 * 1000; // milliseconds
-
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
             "time", "unread", "starred", "priority"
     ));
@@ -7365,6 +7363,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 boolean print_html_header = args.getBoolean("print_html_header");
                 boolean print_html_images = args.getBoolean("print_html_images");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                int timeout = prefs.getInt("timeout", ImageHelper.DOWNLOAD_TIMEOUT) * 1000;
+
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
                 if (message == null || !message.content)
@@ -7409,8 +7410,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                                     connection.setRequestMethod("GET");
-                                    connection.setReadTimeout(PRINT_IMAGE_TIMEOUT);
-                                    connection.setConnectTimeout(PRINT_IMAGE_TIMEOUT);
+                                    connection.setReadTimeout(timeout);
+                                    connection.setConnectTimeout(timeout);
                                     connection.setInstanceFollowRedirects(true);
                                     connection.connect();
 
