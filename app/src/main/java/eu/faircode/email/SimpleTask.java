@@ -51,7 +51,6 @@ import java.util.concurrent.Future;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean log = true;
     private boolean count = true;
-    private int executing = 0;
 
     private String name;
     private Future<?> future;
@@ -127,12 +126,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         // prevent garbage collection
         synchronized (tasks) {
             tasks.add(this);
-            if (count)
-                executing++;
         }
 
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-        lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", executing));
+        updateTaskCount(context);
 
         try {
             onPreExecute(args);
@@ -260,13 +256,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         future = null;
         synchronized (tasks) {
             tasks.remove(this);
-            if (count)
-                executing--;
         }
 
+        updateTaskCount(context);
+    }
+
+    private void updateTaskCount(Context context) {
+        int executing = getCount();
+        Log.i("Remaining tasks=" + executing + "/" + tasks.size());
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
         lbm.sendBroadcast(new Intent(ACTION_TASK_COUNT).putExtra("count", executing));
-        Log.i("Remaining tasks=" + tasks.size());
     }
 
     protected void onPreExecute(Bundle args) {
@@ -283,6 +282,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     static int getCount() {
-        return tasks.size();
+        int executing = 0;
+        synchronized (tasks) {
+            for (SimpleTask task : tasks)
+                if (task.count)
+                    executing++;
+        }
+        return executing;
     }
 }
