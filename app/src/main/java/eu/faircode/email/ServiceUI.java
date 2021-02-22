@@ -63,6 +63,7 @@ public class ServiceUI extends IntentService {
     static final int PI_WAKEUP = 12;
     static final int PI_SYNC = 13;
     static final int PI_BANNER = 14;
+    static final int PI_EXISTS = 15;
 
     static final int HIDE_BANNER = 3; // weeks
 
@@ -168,6 +169,10 @@ public class ServiceUI extends IntentService {
                 case "sync":
                     boolean reschedule = intent.getBooleanExtra("reschedule", false);
                     onSync(id, reschedule);
+                    break;
+
+                case "exists":
+                    onExists(id);
                     break;
 
                 case "daily":
@@ -552,6 +557,25 @@ public class ServiceUI extends IntentService {
             long[] schedule = ServiceSynchronize.getSchedule(this);
             boolean poll = (schedule == null || (now >= schedule[0] && now < schedule[1]));
             schedule(this, poll, null);
+        }
+    }
+
+    private void onExists(long id) {
+        DB db = DB.getInstance(this);
+
+        try {
+            db.beginTransaction();
+
+            // Message could have been deleted in the meantime
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            EntityOperation.queue(this, message, EntityOperation.EXISTS, true);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
         }
     }
 

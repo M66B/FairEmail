@@ -78,7 +78,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final int PI_SEND = 1;
     private static final int RETRY_MAX = 3;
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
-    private static final long EXISTS_DELAY = 20 * 1000L; // milliseconds
 
     @Override
     public void onCreate() {
@@ -706,13 +705,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         // Check sent message
         if (sid != null) {
-            try {
-                // Some email servers are slow with adding sent messages
-                Thread.sleep(EXISTS_DELAY);
-            } catch (InterruptedException ex) {
-                Log.e(ex);
-            }
-
             try {
                 db.beginTransaction();
 

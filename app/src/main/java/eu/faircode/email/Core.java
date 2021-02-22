@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -39,6 +40,7 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.Person;
 import androidx.core.app.RemoteInput;
@@ -152,6 +154,7 @@ class Core {
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
     private static final int MAX_PREVIEW = 5000; // characters
+    private static final long EXISTS_RETRY_DELAY = 20 * 1000L; // milliseconds
 
     static void processOperations(
             Context context,
@@ -397,7 +400,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.EXISTS:
-                                    onExists(context, jargs, folder, message, op, (IMAPFolder) ifolder);
+                                    onExists(context, jargs, account, folder, message, op, (IMAPFolder) ifolder);
                                     break;
 
                                 case EntityOperation.SYNC:
@@ -1634,13 +1637,16 @@ class Core {
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
     }
 
-    private static void onExists(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
+    private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
+        boolean retry = jargs.optBoolean(0);
+
         if (message.uid != null)
             return;
 
         if (message.msgid == null)
             throw new IllegalArgumentException("exists without msgid");
 
+        // Search for message
         Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
         if (imessages == null || imessages.length == 0)
             try {
@@ -1653,6 +1659,24 @@ class Core {
                 Log.e(ex);
                 // Seznam: Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
             }
+
+        // Some email servers are slow with adding sent messages
+        if (retry)
+            Log.w(folder.name + " EXISTS retry" +
+                    " found=" + (imessages == null ? null : imessages.length) +
+                    " host=" + account.host);
+        else if (imessages == null || imessages.length == 0) {
+            long next = new Date().getTime() + EXISTS_RETRY_DELAY;
+
+            Intent intent = new Intent(context, ServiceUI.class);
+            intent.setAction("exists:" + message.id);
+            PendingIntent piExists = PendingIntent.getService(
+                    context, ServiceUI.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piExists);
+            return;
+        }
 
         if (imessages != null && imessages.length == 1) {
             String msgid;
@@ -1671,7 +1695,7 @@ class Core {
             }
         } else {
             if (imessages != null && imessages.length > 1)
-                Log.e(folder.name + " EXISTS messages=" + imessages.length);
+                Log.e(folder.name + " EXISTS messages=" + imessages.length + " retry=" + retry);
             EntityLog.log(context, folder.name + " EXISTS messages=" + imessages.length);
             EntityOperation.queue(context, message, EntityOperation.ADD);
         }
