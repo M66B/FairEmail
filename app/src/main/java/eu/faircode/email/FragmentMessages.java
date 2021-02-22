@@ -150,6 +150,7 @@ import org.bouncycastle.util.Store;
 import org.json.JSONException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.openintents.openpgp.AutocryptPeerUpdate;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
@@ -360,7 +361,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final long REVIEW_ASK_DELAY = 14 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
 
-    private static final int PRINT_IMAGE_TIMEOUT = 10 * 1000; // milliseconds
+    private static final int PRINT_IMAGE_TIMEOUT = 15 * 1000; // milliseconds
 
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
             "time", "unread", "starred", "priority"
@@ -7362,6 +7363,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
                 boolean headers = args.getBoolean("headers");
                 boolean print_html_header = args.getBoolean("print_html_header");
+                boolean print_html_images = args.getBoolean("print_html_images");
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
@@ -7380,16 +7382,30 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 HtmlHelper.embedInlineImages(context, id, document, true);
 
                 // onPageFinished will not be called if not all images can be loaded
+                File dir = new File(context.getCacheDir(), "images");
                 List<Future<Void>> futures = new ArrayList<>();
-                for (final Element img : document.select("img")) {
-                    final String src = img.attr("src");
-                    if (src.startsWith("http") || src.startsWith("https"))
+                Elements imgs = document.select("img");
+                for (int i = 0; i < imgs.size(); i++) {
+                    Element img = imgs.get(i);
+                    String src = img.attr("src");
+                    if (src.startsWith("http:") || src.startsWith("https:")) {
+                        final File out = new File(dir, id + "." + i + ".print");
+                        img.attr("src", "file:" + out.getAbsolutePath());
+
+                        if (print_html_images) {
+                            if (out.exists())
+                                continue;
+                        } else {
+                            out.delete();
+                            continue;
+                        }
+
                         futures.add(executor.submit(new Callable<Void>() {
                             @Override
                             public Void call() throws Exception {
-                                try {
+                                try (OutputStream os = new FileOutputStream(out)) {
                                     URL url = new URL(src);
-                                    Log.i("Checking url=" + url);
+                                    Log.i("Caching url=" + url);
 
                                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                                     connection.setRequestMethod("GET");
@@ -7399,18 +7415,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     connection.connect();
 
                                     try {
-                                        connection.getInputStream();
+                                        Helper.copy(connection.getInputStream(), os);
                                     } finally {
                                         connection.disconnect();
                                     }
                                 } catch (Throwable ex) {
-                                    img.attr("src", "");
                                     Log.w(ex);
                                 }
 
                                 return null;
                             }
                         }));
+                    } else
+                        img.removeAttr("src");
                 }
 
                 for (Future<Void> future : futures)
@@ -7533,7 +7550,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 WebSettings settings = printWebView.getSettings();
                 settings.setLoadsImagesAutomatically(print_html_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-                settings.setAllowFileAccess(false);
+                settings.setAllowFileAccess(true);
 
                 printWebView.setWebViewClient(new WebViewClient() {
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
