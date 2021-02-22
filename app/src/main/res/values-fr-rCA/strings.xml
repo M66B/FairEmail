@@ -741,6 +741,7 @@
     <string name="title_print">Imprimer</string>
     <string name="title_print_header">Imprimer l\'en-tête</string>
     <string name="title_print_images">Imprimer les images</string>
+    <string name="title_print_images_remark">Le téléchargement des images peut prendre un certain temps</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_raw_save">Enregistrer le message original</string>
     <string name="title_raw_send">Envoyer comme pièce-jointe</string>

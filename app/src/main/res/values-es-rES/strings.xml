@@ -740,6 +740,8 @@
     <string name="title_pin">Añadir acceso directo</string>
     <string name="title_print">Imprimir</string>
     <string name="title_print_header">Imprimir encabezado</string>
+    <string name="title_print_images">Imprimir imágenes</string>
+    <string name="title_print_images_remark">La descarga de imágenes puede tardar algún tiempo</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_raw_save">Guardar mensaje raw</string>
     <string name="title_raw_send">Enviar como adjunto</string>

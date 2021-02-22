@@ -145,7 +145,7 @@
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
     <string name="title_setup_grant_again">授予所需权限</string>
-    <string name="title_setup_exchange_support">是否支持 Microsoft Exchange？</string>
+    <string name="title_setup_exchange_support">是否支持 Microsoft Exchange?</string>
     <string name="title_setup_identity_what">什么是身份？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
@@ -278,7 +278,7 @@
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
     <string name="title_advanced_cards_beige">开启卡片样式 (上面的选项) 时，使用米色背景</string>
-    <string name="title_advanced_cards_shadow">使用卡片样式时对未读信件使用阴影</string>
+    <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
@@ -728,7 +728,8 @@
     <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
     <string name="title_print_header">打印邮件头</string>
-    <string name="title_print_images">打印图像</string>
+    <string name="title_print_images">打印图片</string>
+    <string name="title_print_images_remark">下载图片可能需要一些时间</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
@@ -907,7 +908,7 @@
     <string name="title_extra_missing">缺少用户名</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_pgp_reminder">PGP 密钥可用</string>
-    <string name="title_smime_reminder">有 S/MIME 密钥可用</string>
+    <string name="title_smime_reminder">S/MIME 密钥可用</string>
     <string name="title_subject_reminder">主题为空</string>
     <string name="title_text_reminder">消息为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>

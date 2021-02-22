@@ -741,6 +741,7 @@
     <string name="title_print">Stampa</string>
     <string name="title_print_header">Stampa l\'intestazione</string>
     <string name="title_print_images">Mostra le immagini</string>
+    <string name="title_print_images_remark">Scarica le immagini (ciò può richiedere diversi minuti)</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
