@@ -5071,7 +5071,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "messages:expand");
+        }.setLog(false).execute(this, args, "messages:expand");
     }
 
     private void handleAutoClose() {

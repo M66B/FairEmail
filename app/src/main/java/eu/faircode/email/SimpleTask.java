@@ -64,6 +64,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public SimpleTask<T> setLog(boolean log) {
         this.log = log;
+        if (!log)
+            this.count = false;
         return this;
     }
 
