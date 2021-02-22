@@ -167,7 +167,8 @@
     <string name="title_setup_manage">Керування</string>
     <string name="title_setup_grant">Надати</string>
     <string name="title_setup_grant_again">Надати необхідні дозволи</string>
-    <string name="title_setup_identity_what">Що таке ідентичність?</string>
+    <string name="title_setup_exchange_support">Чи підтримується Microsoft Exchange?</string>
+    <string name="title_setup_identity_what">Що таке особисті данні?</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
@@ -299,6 +300,7 @@
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
     <string name="title_advanced_cards_beige">Використовувати бежевий фон при використанні стилю картки</string>
+    <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
     <string name="title_advanced_threading">Пов\'язанні розмови</string>
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
@@ -581,10 +583,10 @@
     <string name="title_client_certificate">Сертифікат клієнта</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Використовувати локальну IP-адресу замість імені хоста</string>
-    <string name="title_ehlo">Ідентифікація HELO/EHLO від користувача</string>
+    <string name="title_ehlo">Перепризначення HELO/EHLO</string>
     <string name="title_primary">Основна</string>
     <string name="title_primary_account">Основний (обліковий запис за замовчуванням)</string>
-    <string name="title_primary_identity">Основна (ідентифікація за замовчуванням)</string>
+    <string name="title_primary_identity">Основна (особисті данні за замовчуванням)</string>
     <string name="title_self_identity">Видалити адресу електронної пошти під час відповіді</string>
     <string name="title_leave_on_server">Залишати повідомлення на сервері</string>
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
@@ -757,6 +759,8 @@
     <string name="title_download_all">Звантажити все</string>
     <string name="title_save_all">Зберегти все</string>
     <string name="title_save_eml">Зберігти файл raw повідомлення</string>
+    <string name="title_buttons">Виберіть кнопки</string>
+    <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_trash">Кошик</string>
     <string name="title_copy">Копіювати &#8230;</string>
     <string name="title_copy_to">Копіювати до &#8230;</string>
@@ -923,6 +927,7 @@
     <string name="title_extra_missing">Не вказано ім\'я користувача</string>
     <string name="title_to_missing">Відсутній отримувач</string>
     <string name="title_pgp_reminder">Доступні PGP ключі</string>
+    <string name="title_smime_reminder">Доступні S/MIME ключі</string>
     <string name="title_subject_reminder">Тема не вказана</string>
     <string name="title_text_reminder">Порожнє повідомлення</string>
     <string name="title_attachment_keywords">вкладені, вкладення, вкладення, включене</string>
@@ -1083,7 +1088,7 @@
     <string name="title_rule_name_missing">Не вказано назву правила</string>
     <string name="title_rule_condition_missing">Відсутня умова</string>
     <string name="title_rule_folder_missing">Тека відсутня</string>
-    <string name="title_rule_identity_missing">Немає ідентифікації</string>
+    <string name="title_rule_identity_missing">Немає особистих даних</string>
     <string name="title_rule_answer_missing">Шаблон відсутній</string>
     <string name="title_rule_keyword_missing">Відсутнє ключове слово</string>
     <string name="title_rule_automation_hint">Це надішле intent \'%1$s\' з доповненнями \'%2$s</string>

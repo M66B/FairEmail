@@ -761,6 +761,8 @@
     <string name="title_pin">Dodaj skrót</string>
     <string name="title_print">Drukuj</string>
     <string name="title_print_header">Wydrukuj nagłówek</string>
+    <string name="title_print_images">Drukuj obrazy</string>
+    <string name="title_print_images_remark">Pobieranie obrazów może zająć trochę czasu</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
     <string name="title_raw_send">Wyślij jako załącznik</string>

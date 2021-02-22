@@ -55,7 +55,7 @@ Related questions:
 * Додайте папку в меню навігації: натисніть і утримуйте папку у списку папок і поставте галочку * Показати в меню навігації *
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Видаліть повідомлення, пропустивши кошик: у меню з трьома крапками безпосередньо над текстом повідомлення * Видалити * або скасуйте вибір папки кошика в налаштуваннях облікового запису
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
+* Видалення облікового запису/особистих даних: Налаштування, виберіть Налаштування вручну та додаткові параметри, торкніться облікові записи/особисті дані, торкніться облікового запису/особистих даних, меню три крапки, видалити
 * Видалення папки: тривале натискання папки зі списку папок, редагування властивостей, меню з трьома крапками, видалення
 * Скасувати надсилання: Вихідні, торкніться повідомлення, торкніться кнопки скасувати піктограму
 * Зберігайте надіслані повідомлення у папці "Вхідні": [ див. Цей FAQ ](#user-content-faq142)
@@ -285,7 +285,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(165) Чи підтримується Android авто?](#user-content-faq165)
 
 [I have another question.](#user-content-support)
 
@@ -2277,6 +2277,8 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
+First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
+
 Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
 
 * Make sure you have an active, working internet connection
@@ -2938,8 +2940,8 @@ Yes, Android Auto is supported, but only with the GitHub version, please [see he
 
 For notification (messaging) support you'll need to enable the following notification options:
 
-* *Use Android 'messaging style' notification format*
-* Notification actions: *Direct reply* and (mark as) *Read*
+* *Використовувати для сповіщень стиль Android*
+* Дії з сповіщеннями: *Пряма відповідь* та (позначити як) *Прочитане*
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 

@@ -728,6 +728,7 @@
     <string name="title_pin">添加快捷方式</string>
     <string name="title_print">打印</string>
     <string name="title_print_header">打印邮件头</string>
+    <string name="title_print_images">打印图像</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>

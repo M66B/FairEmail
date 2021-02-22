@@ -762,6 +762,8 @@
     <string name="title_pin">Добавить ярлык</string>
     <string name="title_print">Печать</string>
     <string name="title_print_header">Печать заголовка</string>
+    <string name="title_print_images">Печать изображений</string>
+    <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
     <string name="title_show_headers">Показать заголовки</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
     <string name="title_raw_send">Отправить как вложение</string>

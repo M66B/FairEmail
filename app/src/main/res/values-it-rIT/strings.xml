@@ -157,6 +157,7 @@
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_grant_again">Concedi le autorizzazioni richieste</string>
+    <string name="title_setup_exchange_support">Microsoft Exchange è supportato?</string>
     <string name="title_setup_identity_what">Che cos\'è un\'identità?</string>
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
@@ -289,6 +290,7 @@
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_cards">Utilizza lo stile della carta al posto dello stile tabulare</string>
     <string name="title_advanced_cards_beige">Usa uno sfondo beige quando si usa lo stile carta</string>
+    <string name="title_advanced_cards_shadow">Utilizza un\'ombreggiatura per i messaggi non letti quando si usa lo stile carta</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
@@ -738,6 +740,7 @@
     <string name="title_pin">Aggiungi collegamento</string>
     <string name="title_print">Stampa</string>
     <string name="title_print_header">Stampa l\'intestazione</string>
+    <string name="title_print_images">Mostra le immagini</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_raw_save">Salva messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
@@ -748,6 +751,8 @@
     <string name="title_download_all">Scarica tutti</string>
     <string name="title_save_all">Salva tutto</string>
     <string name="title_save_eml">Salva il file del messaggio grezzo</string>
+    <string name="title_buttons">Seleziona pulsanti</string>
+    <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
     <string name="title_copy_to">Copia in &#8230;</string>
@@ -914,6 +919,7 @@
     <string name="title_extra_missing">Nome utente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_pgp_reminder">Chiavi PGP disponibili</string>
+    <string name="title_smime_reminder">Chiavi S/MIME disponibili</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Il messaggio è vuoto</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>

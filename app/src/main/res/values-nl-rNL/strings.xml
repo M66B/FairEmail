@@ -740,6 +740,8 @@
     <string name="title_pin">Snelkoppeling toevoegen</string>
     <string name="title_print">Afdrukken</string>
     <string name="title_print_header">Kop afdrukken</string>
+    <string name="title_print_images">Afbeeldingen afdrukken</string>
+    <string name="title_print_images_remark">Afbeeldingen downloaden kan enige tijd duren</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>

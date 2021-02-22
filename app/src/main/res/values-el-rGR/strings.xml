@@ -738,6 +738,7 @@
     <string name="title_pin">Προσθήκη συντόμευσης</string>
     <string name="title_print">Εκτύπωση</string>
     <string name="title_print_header">Εκτύπωσε κεφαλίδα</string>
+    <string name="title_print_images">Εκτύπωση εικόνων</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
     <string name="title_raw_send">Αποστολή ως συνημμένο</string>
