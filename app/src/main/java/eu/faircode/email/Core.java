@@ -1890,7 +1890,7 @@ class Core {
                     folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         EntityFolder parent = null;
-                        int sep = fullName.lastIndexOf(account.separator);
+                        int sep = fullName.lastIndexOf(separator);
                         if (sep > 0)
                             parent = db.folder().getFolderByName(account.id, fullName.substring(0, sep));
 
