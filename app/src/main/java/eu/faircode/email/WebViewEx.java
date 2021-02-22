@@ -46,6 +46,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     private IWebView intf;
     private Runnable onPageLoaded;
 
+    private static final long PAGE_LOADED_FALLBACK_DELAY = 1500L; // milliseconds
+
     public WebViewEx(Context context) {
         super(context);
 
@@ -159,7 +161,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             public void run() {
                 try {
                     if (onPageLoaded != null) {
-                        Log.w("Page loaded fallback");
+                        Log.i("Page loaded fallback");
                         onPageLoaded.run();
                         onPageLoaded = null;
                     }
@@ -167,7 +169,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                     Log.e(ex);
                 }
             }
-        }, 1500L);
+        }, PAGE_LOADED_FALLBACK_DELAY);
     }
 
     void setImages(boolean show_images, boolean inline) {
