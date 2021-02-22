@@ -980,6 +980,57 @@ public class Log {
              */
         }
 
+        if (ex instanceof IndexOutOfBoundsException) {
+            for (StackTraceElement ste : stack)
+                if ("android.graphics.Paint".equals(ste.getClassName()) &&
+                        "getTextRunCursor".equals(ste.getMethodName()))
+                    return false;
+            /*
+                Android 6.0.1
+                java.lang.IndexOutOfBoundsException
+                  at android.graphics.Paint.getTextRunCursor(Paint.java:2160)
+                  at android.graphics.Paint.getTextRunCursor(Paint.java:2112)
+                  at android.widget.Editor.getNextCursorOffset(Editor.java:924)
+                  at android.widget.Editor.access$4700(Editor.java:126)
+                  at android.widget.Editor$SelectionEndHandleView.positionAndAdjustForCrossingHandles(Editor.java:4708)
+                  at android.widget.Editor$SelectionEndHandleView.updatePosition(Editor.java:4692)
+                  at android.widget.Editor$HandleView.onTouchEvent(Editor.java:4012)
+                  at android.widget.Editor$SelectionEndHandleView.onTouchEvent(Editor.java:4726)
+                  at android.view.View.dispatchTouchEvent(View.java:9377)
+                  at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:2554)
+                  at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2255)
+                  at android.widget.PopupWindow$PopupDecorView.dispatchTouchEvent(PopupWindow.java:2015)
+                  at android.view.View.dispatchPointerEvent(View.java:9597)
+                  at android.view.ViewRootImpl$ViewPostImeInputStage.processPointerEvent(ViewRootImpl.java:4234)
+                  at android.view.ViewRootImpl$ViewPostImeInputStage.onProcess(ViewRootImpl.java:4100)
+                  at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3646)
+                  at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:3699)
+                  at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:3665)
+                  at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:3791)
+                  at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:3673)
+                  at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:3848)
+                  at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3646)
+                  at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:3699)
+                  at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:3665)
+                  at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:3673)
+                  at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:3646)
+                  at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:5926)
+                  at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:5900)
+                  at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:5861)
+                  at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:6029)
+                  at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:185)
+                  at android.view.InputEventReceiver.nativeConsumeBatchedInputEvents(Native Method)
+                  at android.view.InputEventReceiver.consumeBatchedInputEvents(InputEventReceiver.java:176)
+                  at android.view.ViewRootImpl.doConsumeBatchedInput(ViewRootImpl.java:6000)
+                  at android.view.ViewRootImpl$ConsumeBatchedInputRunnable.run(ViewRootImpl.java:6052)
+                  at android.view.Choreographer$CallbackRecord.run(Choreographer.java:858)
+                  at android.view.Choreographer.doCallbacks(Choreographer.java:670)
+                  at android.view.Choreographer.doFrame(Choreographer.java:600)
+                  at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:844)
+                  at android.os.Handler.handleCallback(Handler.java:739)
+             */
+        }
+
         if (ex instanceof IllegalArgumentException &&
                 stack.length > 0 &&
                 "android.text.method.WordIterator".equals(stack[0].getClassName()) &&
