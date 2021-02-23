@@ -1663,7 +1663,7 @@ class Core {
 
         // Some email servers are slow with adding sent messages
         if (retry)
-            Log.w(folder.name + " EXISTS retry" +
+            Log.e(folder.name + " EXISTS retry" +
                     " found=" + (imessages == null ? null : imessages.length) +
                     " host=" + account.host);
         else if (imessages == null || imessages.length == 0) {
