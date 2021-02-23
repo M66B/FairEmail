@@ -2591,12 +2591,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     properties.setValue("inline", message.id, isChecked);
                     cowner.restart();
-                    DB.getInstance(context).attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
-                        @Override
-                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                            bindAttachments(message, attachments, true);
-                        }
-                    });
+                    bindAttachments(message, properties.getAttachments(message.id), true);
                 }
             });
 
