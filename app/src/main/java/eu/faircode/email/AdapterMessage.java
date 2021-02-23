@@ -2378,7 +2378,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             @Override
                             public void run() {
                                 try {
-                                    bindConversationActions(message, args.getParcelable("actions"));
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                        bindConversationActions(message, args.getParcelable("actions"));
+
                                     cowner.start(); // Show attachments
                                 } catch (Throwable ex) {
                                     Log.e(ex);
@@ -2400,7 +2402,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     tvBody.setTextIsSelectable(true);
                                     tvBody.setMovementMethod(new TouchHandler(message));
 
-                                    bindConversationActions(message, args.getParcelable("actions"));
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                                        bindConversationActions(message, args.getParcelable("actions"));
+
                                     cowner.start(); // Show attachments
                                 } catch (Throwable ex) {
                                     Log.e(ex);
@@ -2451,89 +2455,88 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.setCount(false).execute(context, owner, args, "message:body");
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.Q)
         private void bindConversationActions(TupleMessageEx message, ConversationActions cactions) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                boolean has = false;
-                if (cactions != null) {
-                    List<ConversationAction> actions = cactions.getConversationActions();
-                    for (final ConversationAction action : actions) {
-                        final CharSequence text;
-                        final CharSequence title;
-                        final String type = action.getType();
-                        final RemoteAction raction = action.getAction();
+            boolean has = false;
+            if (cactions != null) {
+                List<ConversationAction> actions = cactions.getConversationActions();
+                for (final ConversationAction action : actions) {
+                    final CharSequence text;
+                    final CharSequence title;
+                    final String type = action.getType();
+                    final RemoteAction raction = action.getAction();
 
-                        switch (type) {
-                            case ConversationAction.TYPE_TEXT_REPLY:
-                                text = action.getTextReply();
-                                title = context.getString(R.string.title_conversation_action_reply, text);
-                                break;
-                            case "copy":
-                                Bundle extras = action.getExtras().getParcelable("entities-extras");
-                                if (extras == null)
-                                    continue;
-                                text = extras.getString("text");
-                                title = context.getString(R.string.title_conversation_action_copy, text);
-                                break;
-                            default:
-                                if (raction == null) {
-                                    Log.w("Unknown action type=" + type);
-                                    continue;
+                    switch (type) {
+                        case ConversationAction.TYPE_TEXT_REPLY:
+                            text = action.getTextReply();
+                            title = context.getString(R.string.title_conversation_action_reply, text);
+                            break;
+                        case "copy":
+                            Bundle extras = action.getExtras().getParcelable("entities-extras");
+                            if (extras == null)
+                                continue;
+                            text = extras.getString("text");
+                            title = context.getString(R.string.title_conversation_action_copy, text);
+                            break;
+                        default:
+                            if (raction == null) {
+                                Log.w("Unknown action type=" + type);
+                                continue;
+                            }
+                            text = null;
+                            title = raction.getTitle();
+                            if (TextUtils.isEmpty(title)) {
+                                Log.e("Empty action type=" + type);
+                                continue;
+                            }
+                    }
+
+                    Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
+                    button.setId(View.generateViewId());
+                    button.setText(title);
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                switch (type) {
+                                    case ConversationAction.TYPE_TEXT_REPLY:
+                                        onReply();
+                                        break;
+                                    case "copy":
+                                        onCopy();
+                                        break;
+                                    default:
+                                        raction.getActionIntent().send();
                                 }
-                                text = null;
-                                title = raction.getTitle();
-                                if (TextUtils.isEmpty(title)) {
-                                    Log.e("Empty action type=" + type);
-                                    continue;
-                                }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                         }
 
-                        Button button = new Button(context, null, android.R.attr.buttonStyleSmall);
-                        button.setId(View.generateViewId());
-                        button.setText(title);
-                        button.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                try {
-                                    switch (type) {
-                                        case ConversationAction.TYPE_TEXT_REPLY:
-                                            onReply();
-                                            break;
-                                        case "copy":
-                                            onCopy();
-                                            break;
-                                        default:
-                                            raction.getActionIntent().send();
-                                    }
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                }
-                            }
+                        private void onReply() {
+                            Intent reply = new Intent(context, ActivityCompose.class)
+                                    .putExtra("action", "reply")
+                                    .putExtra("reference", message.id)
+                                    .putExtra("text", action.getTextReply());
+                            context.startActivity(reply);
+                        }
 
-                            private void onReply() {
-                                Intent reply = new Intent(context, ActivityCompose.class)
-                                        .putExtra("action", "reply")
-                                        .putExtra("reference", message.id)
-                                        .putExtra("text", action.getTextReply());
-                                context.startActivity(reply);
+                        private void onCopy() {
+                            ClipboardManager clipboard =
+                                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                            if (clipboard != null) {
+                                ClipData clip = ClipData.newPlainText(title, text);
+                                clipboard.setPrimaryClip(clip);
+                                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                             }
+                        }
+                    });
 
-                            private void onCopy() {
-                                ClipboardManager clipboard =
-                                        (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                                if (clipboard != null) {
-                                    ClipData clip = ClipData.newPlainText(title, text);
-                                    clipboard.setPrimaryClip(clip);
-                                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-
-                        ((ConstraintLayout) flow.getParent()).addView(button);
-                        flow.addView(button);
-                        has = true;
-                    }
-                    grpAction.setVisibility(has ? View.VISIBLE : View.GONE);
+                    ((ConstraintLayout) flow.getParent()).addView(button);
+                    flow.addView(button);
+                    has = true;
                 }
+                grpAction.setVisibility(has ? View.VISIBLE : View.GONE);
             }
         }
 
