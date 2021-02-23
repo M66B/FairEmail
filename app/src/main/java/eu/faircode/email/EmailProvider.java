@@ -593,16 +593,16 @@ public class EmailProvider {
 
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             List<Server> smtps = new ArrayList<>();
-            // SSL
-            smtps.add(new Server(domain, "smtp", 465));
-            smtps.add(new Server(domain, "mail", 465));
-            smtps.add(new Server(domain, "mx", 465));
-            smtps.add(new Server(domain, null, 465));
             // STARTTLS
             smtps.add(new Server(domain, "smtp", 587));
             smtps.add(new Server(domain, "mail", 587));
             smtps.add(new Server(domain, "mx", 587));
             smtps.add(new Server(domain, null, 587));
+            // SSL
+            smtps.add(new Server(domain, "smtp", 465));
+            smtps.add(new Server(domain, "mail", 465));
+            smtps.add(new Server(domain, "mx", 465));
+            smtps.add(new Server(domain, null, 465));
 
             for (Server server : smtps)
                 if (server.reachable.get()) {
