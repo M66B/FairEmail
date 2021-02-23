@@ -238,7 +238,7 @@ class Core {
                                 case EntityOperation.MOVE:
                                     if (group &&
                                             message.uid != null &&
-                                            EntityOperation.MOVE.equals(next.name) &&
+                                            op.name.equals(next.name) &&
                                             account.protocol == EntityAccount.TYPE_IMAP) {
                                         JSONArray jnext = new JSONArray(next.args);
                                         // Same target
