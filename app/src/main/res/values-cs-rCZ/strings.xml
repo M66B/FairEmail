@@ -384,7 +384,7 @@
     <string name="title_advanced_collapse_multiple">Při pohybu \"zpět\" sbalit zprávy v konverzaci s vícero zprávami</string>
     <string name="title_advanced_autoclose">Zavírat konverzace automaticky</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
-    <string name="title_advanced_undo">Vrátit zpět časový limit</string>
+    <string name="title_advanced_undo">Časový limit vrácení zpět</string>
     <string name="title_advanced_quick_filter">Zobrazit neobtěžující ikony pro rychlé filtrování</string>
     <string name="title_advanced_quick_scroll">Zobrazit neobtěžující ikony pro rychlý posun nahoru/dolů</string>
     <string name="title_advanced_autoread">Při přesunu označit zprávy jako přečtené automaticky</string>
@@ -762,6 +762,7 @@
     <string name="title_print">Tisk</string>
     <string name="title_print_header">Vytisknout hlavičku</string>
     <string name="title_print_images">Tisknout obrázky</string>
+    <string name="title_print_images_remark">Stažení obrázků může chvíli trvat</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
     <string name="title_raw_send">Odeslat jako přílohu</string>

@@ -1,6 +1,6 @@
 # Ayuda de la configuración
 
-Configurar FairEmail es bastante sencillo. Deberá añadir al menos una cuenta para recibir correo electrónico y al menos una identidad si quiere enviarlo. The quick setup will add an account and an identity in one go for most major providers.
+Configurar FairEmail es bastante sencillo. Deberá añadir al menos una cuenta para recibir correo electrónico y al menos una identidad si quiere enviarlo. La configuración rápida añadirá una cuenta y una identidad en un solo paso para la mayoría de los proveedores principales.
 
 ## Requisitos
 
@@ -18,7 +18,7 @@ Si la configuración rápida no funciona, necesitará configurar una cuenta y un
 
 Para añadir una cuenta, toque *Configuración manual y más opciones*, toque *Cuentas* y toque el botón 'más' en la parte inferior y seleccione IMAP (o POP3). Seleccione un proveedor de la lista, introduzca su nombre de usuario (que es por lo general su dirección de correo) e introduzca su contraseña. Pulse *Comprobar* para permitir que FairEmail se conecte al servidor de correo y obtenga una lista de carpetas de sistema. Luego de revisar la selección de carpetas de sistema puede añadir la cuenta pulsando *Guardar*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Introduzca el nombre de dominio, por ejemplo *gmail.com* y pulse *Obtener configuración*. Si su proveedor soporta [auto-descubrimiento](https://tools.ietf.org/html/rfc6186), FairEmail completará el nombre de host y el número de puerto. En caso contrario compruebe el nombre de host IMAP, número de puerto, y protocolo (SSL/TLS o STARTTLS) en las instrucciones de configuración de su proveedor. Para más información, por favor vea [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Si su proveedor no está en la lista de proveedores, hay miles de proveedores, selecciona *Personalizado*. Introduzca el nombre de dominio, por ejemplo *gmail.com* y seleccione *Obtener configuración*. Si su proveedor soporta [auto-descubrimiento](https://tools.ietf.org/html/rfc6186), FairEmail completará el nombre de host y el número de puerto, de lo contrario compruebe el nombre de host IMAP, número de puerto, y protocolo (SSL/TLS o STARTTLS) en las instrucciones de configuración de su proveedor. Para más información, por favor vea [aquí](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Configurar identidad - para enviar correo
 
@@ -34,7 +34,7 @@ Si desea buscar direcciones de correo electrónico, que se muestren fotos de con
 
 ## Configurar optimizaciones de batería - para recibir correo continuamente
 
-En versiones recientes de Android, éste pondrá aplicaciones a dormir cuando la pantalla esté apagada durante algún tiempo para reducir el uso de batería. Si desea recibir nuevos correos sin retrasos, debería desactivar las optimizaciones de batería para FairEmail. Tap *Manage* and follow the instructions.
+En versiones recientes de Android, éste pondrá aplicaciones a dormir cuando la pantalla esté apagada durante algún tiempo para reducir el uso de batería. Si desea recibir nuevos correos sin retrasos, debería desactivar las optimizaciones de batería para FairEmail. Seleccione *Administrar* y sigua las instrucciones.
 
 ## Preguntas o problemas
 

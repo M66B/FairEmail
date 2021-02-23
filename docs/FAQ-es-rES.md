@@ -1,6 +1,6 @@
-# j*******5@gmail.com
+# Soporte de FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Si tienes alguna pregunta, por favor comprueba primero las preguntas frecuentes. [En la parte inferior](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), puedes averiguar cómo hacer otras preguntas, solicitar características, y reportar errores.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
