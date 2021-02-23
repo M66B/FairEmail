@@ -113,6 +113,7 @@ public abstract class DB extends RoomDatabase {
 
     private static final String DB_NAME = "fairemail";
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
+    private static final int DB_CACHE_SIZE = -5000; // https://www.sqlite.org/pragma.html#pragma_cache_size
 
     private static final String[] DB_TABLES = new String[]{
             "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "log"};
@@ -124,7 +125,7 @@ public abstract class DB extends RoomDatabase {
             File dbfile = configuration.context.getDatabasePath(DB_NAME);
             if (dbfile.exists()) {
                 try (SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile.getPath(), null, SQLiteDatabase.OPEN_READWRITE)) {
-                    Log.i("DB checkpoint=" + DB_CHECKPOINT);
+                    Log.i("Set PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT);
                     try (Cursor cursor = db.rawQuery("PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT + ";", null)) {
                         cursor.moveToNext(); // required
                     }
@@ -280,12 +281,25 @@ public abstract class DB extends RoomDatabase {
                                 " version=" + db.getVersion() +
                                 " WAL=" + db.isWriteAheadLoggingEnabled());
 
-                        try (Cursor cursor = db.query("PRAGMA journal_mode;")) {
-                            Log.i("journal_mode=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
-                        }
+                        // https://www.sqlite.org/pragma.html
+                        for (String pragma : new String[]{
+                                "journal_mode", "journal_size_limit",
+                                "wal_checkpoint", "wal_autocheckpoint",
+                                "page_count", "page_size",
+                                "default_cache_size", "cache_size"})
+                            try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
+                                Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
+                            }
 
-                        try (Cursor cursor = db.query("PRAGMA wal_autocheckpoint;")) {
-                            Log.i("wal_autocheckpoint=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                        if (BuildConfig.DEBUG) {
+                            Log.i("Set PRAGMA cache_size=" + DB_CACHE_SIZE);
+                            try (Cursor cursor = db.query("PRAGMA cache_size=" + DB_CACHE_SIZE + ";", null)) {
+                                cursor.moveToNext(); // required
+                            }
+
+                            try (Cursor cursor = db.query("PRAGMA cache_size;")) {
+                                Log.i("Get PRAGMA cache_size=" + (cursor.moveToNext() ? cursor.getInt(0) : "?"));
+                            }
                         }
 
                         if (BuildConfig.DEBUG && false) {
