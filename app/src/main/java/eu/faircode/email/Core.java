@@ -1368,7 +1368,7 @@ class Core {
         }
 
         try {
-            boolean found = false;
+            boolean deleted = false;
 
             if (message.uid != null) {
                 Message iexisting = ifolder.getMessageByUID(message.uid);
@@ -1381,13 +1381,13 @@ class Core {
                             iexisting.setFlag(Flags.Flag.DELETED, true);
                         else
                             iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-                        found = true;
+                        deleted = true;
                     } catch (MessageRemovedException ignored) {
                         Log.w(folder.name + " existing gone uid=" + message.uid);
                     }
             }
 
-            if (!found && !TextUtils.isEmpty(message.msgid))
+            if (!deleted && !TextUtils.isEmpty(message.msgid))
                 try {
                     Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
                     if (imessages == null)
@@ -1401,7 +1401,7 @@ class Core {
                                     iexisting.setFlag(Flags.Flag.DELETED, true);
                                 else
                                     iexisting.setFlag(Flags.Flag.DELETED, message.ui_deleted);
-                                found = true;
+                                deleted = true;
                             } catch (MessageRemovedException ignored) {
                                 Log.w(folder.name + " existing gone uid=" + muid);
                             }
@@ -1411,11 +1411,11 @@ class Core {
                 }
 
             if (perform_expunge) {
-                if (found)
+                if (deleted)
                     ifolder.expunge(); // NO EXPUNGE failed.
                 db.message().deleteMessage(message.id);
             } else {
-                if (found)
+                if (deleted)
                     db.message().setMessageDeleted(message.id, message.ui_deleted);
             }
 
