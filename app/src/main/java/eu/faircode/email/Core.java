@@ -3840,8 +3840,10 @@ class Core {
                 TupleMessageEx message = groupMessages.get(group).get(m);
                 if (m >= MAX_NOTIFICATION_DISPLAY) {
                     // This is to prevent notification sounds when shifting messages up
-                    if (!message.ui_silent)
+                    if (!message.ui_silent) {
+                        Log.i("Notify silence=" + message.id);
                         db.message().setMessageUiSilent(message.id, true);
+                    }
                     continue;
                 }
 
