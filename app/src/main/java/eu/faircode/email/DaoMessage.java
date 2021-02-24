@@ -481,7 +481,7 @@ public interface DaoMessage {
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     @Transaction
-    @Query("SELECT account.id AS account, COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
+    @Query("SELECT account.id AS account, COUNT(message.id) AS unseen, SUM(NOT ui_ignored) AS notifying" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -494,7 +494,7 @@ public interface DaoMessage {
             " ORDER BY account.id")
     LiveData<List<TupleMessageStats>> liveWidgetUnseen(Long account);
 
-    @Query("SELECT :account AS account, COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
+    @Query("SELECT :account AS account, COUNT(message.id) AS unseen, SUM(NOT ui_ignored) AS notifying" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
