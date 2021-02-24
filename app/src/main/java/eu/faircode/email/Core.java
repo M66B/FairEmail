@@ -138,7 +138,7 @@ import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 import static javax.mail.Folder.READ_WRITE;
 
 class Core {
-    private static final int MAX_NOTIFICATION_DISPLAY = 7; // per group
+    private static final int MAX_NOTIFICATION_DISPLAY = 10; // per group
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
