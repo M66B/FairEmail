@@ -549,7 +549,7 @@
     <string name="title_advanced_cleanup_attachments_hint">Při ručním čištění odebere přílohy ze zpráv, které již nejsou synchronizovány</string>
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>
-    <string name="title_advanced_edit_name">Upravit pojmenování</string>
+    <string name="title_advanced_edit_name">Upravit jméno</string>
     <string name="title_advanced_swipe_actions">Nastavit akce tažení prstem</string>
     <string name="title_advanced_swipe_actions_hint">Nastaví akce tažení doleva a doprava pro všechny IMAP účty</string>
     <string name="title_select">Vybrat &#8230;</string>
@@ -1105,7 +1105,7 @@
     <string name="title_rule_identity_missing">Chybí identita</string>
     <string name="title_rule_answer_missing">Chybí šablona</string>
     <string name="title_rule_keyword_missing">Chybí klíčové slovo</string>
-    <string name="title_rule_automation_hint">Bude odeslán záměr „%1$s“ s dodatky „%2$s“</string>
+    <string name="title_rule_automation_hint">Bude odesláno volání (intent) „%1$s“ s doplňujícími informacemi (extras) „%2$s“</string>
     <string name="title_rule_execute">Provést nyní</string>
     <string name="title_rule_applied">Ovlivněné zprávy: %1$d</string>
     <string name="title_rule_check">Zkontrolovat</string>
