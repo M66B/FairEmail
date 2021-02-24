@@ -481,28 +481,30 @@ public interface DaoMessage {
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     @Transaction
-    @Query("SELECT account.id AS account, COUNT(message.id) AS unseen, SUM(NOT ui_ignored) AS notifying" +
+    @Query("SELECT account.id AS account," +
+            " COUNT(message.id) AS unseen," +
+            " SUM(CASE WHEN account.created IS NULL OR message.received > account.created OR message.sent > account.created THEN NOT ui_ignored ELSE 0 END) AS notifying" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
             " AND folder.notify" +
-            " AND (account.created IS NULL OR message.received > account.created OR message.sent > account.created)" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)" +
             " GROUP BY account.id" +
             " ORDER BY account.id")
     LiveData<List<TupleMessageStats>> liveWidgetUnseen(Long account);
 
-    @Query("SELECT :account AS account, COUNT(message.id) AS unseen, SUM(NOT ui_ignored) AS notifying" +
+    @Query("SELECT :account AS account," +
+            " COUNT(message.id) AS unseen," +
+            " SUM(CASE WHEN account.created IS NULL OR message.received > account.created OR message.sent > account.created THEN NOT ui_ignored ELSE 0 END) AS notifying" +
             " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
             " AND folder.notify" +
-            " AND (account.created IS NULL OR message.received > account.created OR message.sent > account.created)" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)")
     TupleMessageStats getWidgetUnseen(Long account);
