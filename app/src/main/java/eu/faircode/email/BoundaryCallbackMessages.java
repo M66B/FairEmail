@@ -201,7 +201,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", false);
         boolean pro = ActivityBilling.isPro(context);
-        if (fts && pro && criteria.isQueryOnly()) {
+        if (fts && pro && criteria.fts && criteria.query != null) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
                 state.ids = FtsDbHelper.match(sdb, account, folder, criteria);
@@ -641,6 +641,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     static class SearchCriteria implements Serializable {
         String query;
+        boolean fts = false;
         boolean in_senders = true;
         boolean in_recipients = true;
         boolean in_subject = true;
@@ -661,26 +662,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         SearchCriteria(String query) {
             this.query = query;
-        }
-
-        boolean isQueryOnly() {
-            return (!TextUtils.isEmpty(query) &&
-                    in_senders &&
-                    in_recipients &&
-                    in_subject &&
-                    in_keywords &&
-                    in_message &&
-                    isWithout());
-        }
-
-        boolean isWithout() {
-            return !(with_unseen ||
-                    with_flagged ||
-                    with_hidden ||
-                    with_encrypted ||
-                    with_attachments ||
-                    with_types != null ||
-                    with_size != null);
         }
 
         boolean isExpression() {
@@ -890,6 +871,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         @Override
         public String toString() {
             return query +
+                    " fts=" + fts +
                     " senders=" + in_senders +
                     " recipients=" + in_recipients +
                     " subject=" + in_subject +
