@@ -283,10 +283,10 @@ public abstract class DB extends RoomDatabase {
 
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : new String[]{
-                                "journal_mode", "journal_size_limit",
+                                "synchronous", "journal_mode",
                                 "wal_checkpoint", "wal_autocheckpoint",
                                 "page_count", "page_size",
-                                "default_cache_size", "cache_size"})
+                                "cache_size"})
                             try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
                                 Log.i("Get PRAGMA " + pragma + "=" + (cursor.moveToNext() ? cursor.getString(0) : "?"));
                             }
