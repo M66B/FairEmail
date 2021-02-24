@@ -859,7 +859,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.with_hidden == other.with_hidden &&
                         this.with_encrypted == other.with_encrypted &&
                         this.with_attachments == other.with_attachments &&
-                        Objects.equals(this.with_types, other.with_types) &&
+                        Arrays.equals(this.with_types, other.with_types) &&
                         Objects.equals(this.with_size, other.with_size) &&
                         Objects.equals(this.after, other.after) &&
                         Objects.equals(this.before, other.before));
