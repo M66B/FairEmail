@@ -236,12 +236,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def annotation_version = "1.1.0-beta01"
-    def core_version = "1.5.0-alpha05"
+    def core_version = "1.5.0-beta02"
     def appcompat_version = "1.3.0-beta01"
     def activity_version = "1.2.0"
     def fragment_version = "1.3.0"
     def webkit_version = "1.4.0"
-    def recyclerview_version = "1.2.0-beta01"
+    def recyclerview_version = "1.2.0-beta02"
     def coordinatorlayout_version = "1.1.0"
     def constraintlayout_version = "2.0.2"
     def material_version = "1.3.0"
@@ -257,7 +257,7 @@ dependencies {
     def preference_version = "1.1.1"
     def work_version = "2.5.0"
     def exif_version = "1.3.2"
-    def biometric_version = "1.2.0-alpha02"
+    def biometric_version = "1.2.0-alpha03"
     def billingclient_version = "3.0.2"
     def javamail_version = "1.6.5"
     def jsoup_version = "1.13.1"
