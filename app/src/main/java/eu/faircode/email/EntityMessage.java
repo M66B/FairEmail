@@ -368,8 +368,12 @@ public class EntityMessage implements Serializable {
                 p.appendText(subject);
                 p.appendElement("br");
             }
-        } else
-            p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
+        } else {
+            DB db = DB.getInstance(context);
+            List<TupleIdentityEx> identities = db.identity().getComposableIdentities(account);
+            boolean self = replySelf(identities, account);
+            p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(self ? to : from) + ":");
+        }
 
         if (separate) {
             Element div = document.createElement("div");
