@@ -1662,15 +1662,11 @@ class Core {
             }
 
         // Some email servers are slow with adding sent messages
-        if (retry) {
-            String msg = folder.name + " EXISTS retry" +
+        if (retry)
+            Log.w(folder.name + " EXISTS retry" +
                     " found=" + (imessages == null ? null : imessages.length) +
-                    " host=" + account.host;
-            if (BuildConfig.PLAY_STORE_RELEASE)
-                Log.w(msg);
-            else
-                Log.e(msg);
-        } else if (imessages == null || imessages.length == 0) {
+                    " host=" + account.host);
+        else if (imessages == null || imessages.length == 0) {
             long next = new Date().getTime() + EXISTS_RETRY_DELAY;
 
             Intent intent = new Intent(context, ServiceUI.class);
