@@ -1060,6 +1060,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Line 2
             tvSubject.setText(message.subject);
 
+            // Workaround layout bug
+            tvSubject.requestLayout();
+            tvSubject.invalidate();
+
             if (keywords_header) {
                 SpannableStringBuilder keywords = getKeywords(message);
                 tvKeywords.setVisibility(keywords.length() > 0 ? View.VISIBLE : View.GONE);
