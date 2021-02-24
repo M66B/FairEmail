@@ -135,7 +135,7 @@ public class ServiceAuthenticator extends Authenticator {
             ErrorHolder holder = new ErrorHolder();
             Semaphore semaphore = new Semaphore(0);
 
-            Log.i("OAuth refresh");
+            Log.i("OAuth refresh id=" + id);
             AuthorizationService authService = new AuthorizationService(context);
             authState.performActionWithFreshTokens(
                     authService,
@@ -150,12 +150,12 @@ public class ServiceAuthenticator extends Authenticator {
                     });
 
             semaphore.acquire();
-            Log.i("OAuth refreshed");
+            Log.i("OAuth refreshed id=" + id);
 
             if (holder.error != null)
                 throw holder.error;
         } catch (Exception ex) {
-            throw new MessagingException("OAuth refresh", ex);
+            throw new MessagingException("OAuth refresh id=" + id, ex);
         }
     }
 
