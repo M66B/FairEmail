@@ -488,6 +488,7 @@ public interface DaoMessage {
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
             " AND folder.notify" +
+            " AND (account.created IS NULL OR message.received > account.created OR message.sent > account.created)" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)" +
             " GROUP BY account.id" +
@@ -501,6 +502,7 @@ public interface DaoMessage {
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
             " AND folder.notify" +
+            " AND (account.created IS NULL OR message.received > account.created OR message.sent > account.created)" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)")
     TupleMessageStats getWidgetUnseen(Long account);
