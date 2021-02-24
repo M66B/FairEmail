@@ -993,7 +993,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if ("secure".equals(key) ||
                                 "shortcuts".equals(key) ||
                                 "language".equals(key) ||
-                                "query_threads".equals(key))
+                                "query_threads".equals(key) ||
+                                "wal".equals(key))
                             continue;
 
                         if (key != null && key.startsWith("widget."))

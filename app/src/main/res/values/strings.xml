@@ -531,6 +531,7 @@
     <string name="title_advanced_updates">Check for GitHub updates</string>
     <string name="title_advanced_experiments">Try experimental features</string>
     <string name="title_advanced_query_threads">Limit parallel database access</string>
+    <string name="title_advanced_wal">WAL (debug only)</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_debug">Debug mode</string>

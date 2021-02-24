@@ -98,6 +98,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swQueries;
+    private SwitchCompat swWal;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
     private Button btnReset;
@@ -133,7 +134,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "language", "watchdog", "updates",
-            "experiments", "query_threads", "crash_reports", "cleanup_attachments",
+            "experiments", "wal", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "perform_expunge", "auth_plain", "auth_login", "auth_ntlm", "auth_sasl"
     };
 
@@ -193,6 +194,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swQueries = view.findViewById(R.id.swQueries);
+        swWal = view.findViewById(R.id.swWal);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
         btnReset = view.findViewById(R.id.btnReset);
@@ -401,6 +403,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     prefs.edit().putInt("query_threads", 2).commit(); // apply won't work here
                 else
                     prefs.edit().remove("query_threads").commit(); // apply won't work here
+            }
+        });
+
+        swWal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("wal", checked).commit(); // apply won't work here
             }
         });
 
@@ -852,6 +861,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         ? View.GONE : View.VISIBLE);
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
+        swWal.setChecked(prefs.getBoolean("wal", true));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));

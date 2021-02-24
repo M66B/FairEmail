@@ -339,6 +339,17 @@
             app:layout_constraintTop_toBottomOf="@id/tvQueriesHint" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swWal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_wal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCrashReports"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -346,7 +357,7 @@
             android:text="@string/title_advanced_crash_reports"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
+            app:layout_constraintTop_toBottomOf="@id/swWal"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

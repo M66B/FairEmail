@@ -196,6 +196,7 @@ public class ApplicationEx extends Application
             case "shortcuts": // misc
             case "language": // misc
             case "query_threads": // misc
+            case "wal": // misc
                 // Should be excluded for import
                 restart();
                 break;
