@@ -913,8 +913,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     UpdateInfo info = new UpdateInfo();
                     info.tag_name = jroot.getString("tag_name");
                     info.html_url = jroot.getString("html_url");
-                    if (TextUtils.isEmpty(info.html_url))
-                        info.html_url = BuildConfig.GITHUB_LATEST_URI;
+                    //if (TextUtils.isEmpty(info.html_url))
+                    info.html_url = BuildConfig.GITHUB_LATEST_URI;
 
                     // Check if new release
                     JSONArray jassets = jroot.getJSONArray("assets");
