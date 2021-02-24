@@ -145,7 +145,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "sync_folders",
             "sync_shared_folders",
             "prefer_ip4", "standalone_vpn", "tcp_keep_alive", "ssl_harden", // force reconnect
-            "badge", "unseen_ignored", // force update badge/widget
             "experiments", "debug", "protocol", // force reconnect
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl" // force reconnect
     ));
@@ -2406,6 +2405,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             start(context,
                     new Intent(context, ServiceSynchronize.class)
                             .setAction("watchdog"));
+    }
+
+    static void restart(Context context) {
+        context.stopService(new Intent(context, ServiceSynchronize.class));
+        eval(context, "restart");
     }
 
     private static void start(Context context, Intent intent) {
