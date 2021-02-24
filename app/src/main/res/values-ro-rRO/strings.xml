@@ -751,6 +751,8 @@
     <string name="title_pin">Adaugă scurtătură</string>
     <string name="title_print">Tipărire</string>
     <string name="title_print_header">Tipărire antet</string>
+    <string name="title_print_images">Imprimare imagini</string>
+    <string name="title_print_images_remark">Descărcarea imaginilor ar putea dura ceva timp</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>
