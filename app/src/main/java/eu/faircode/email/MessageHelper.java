@@ -2384,7 +2384,7 @@ public class MessageHelper {
             } else if (part.isMimeType("multipart/encrypted")) {
                 ContentType ct = new ContentType(part.getContentType());
                 String protocol = ct.getParameter("protocol");
-                if ("application/pgp-encrypted".equals(protocol)) {
+                if ("application/pgp-encrypted".equals(protocol) || protocol == null) {
                     Multipart multipart = (Multipart) part.getContent();
                     if (multipart.getCount() == 2) {
                         // Ignore header
