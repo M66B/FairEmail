@@ -876,7 +876,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private void onWatchdog(Intent intent) {
         EntityLog.log(this, "Watchdog");
         schedule(this, false);
-        updateNetworkState(null, "watchdog");
+
+        if (lastNetworkState == null || !lastNetworkState.isSuitable())
+            updateNetworkState(null, "watchdog");
     }
 
     private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
