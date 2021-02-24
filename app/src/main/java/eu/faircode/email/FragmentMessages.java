@@ -2420,15 +2420,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 boolean canBounce = false;
                 if (message.return_path != null && message.return_path.length == 1) {
                     canBounce = true;
-                    List<Address> addresses = new ArrayList<>();
-                    if (message.to != null)
-                        addresses.addAll(Arrays.asList(message.to));
-                    if (message.cc != null)
-                        addresses.addAll(Arrays.asList(message.cc));
-                    if (message.bcc != null)
-                        addresses.addAll(Arrays.asList(message.bcc));
-                    for (Address address : addresses)
-                        if (MessageHelper.equalEmail(address, message.return_path[0])) {
+                    for (EntityIdentity identity : data.identities)
+                        if (identity.similarAddress(message.return_path[0])) {
                             canBounce = false;
                             break;
                         }
