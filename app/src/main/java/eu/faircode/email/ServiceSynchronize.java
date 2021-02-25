@@ -868,7 +868,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         schedule(this, true);
 
         Bundle command = new Bundle();
-        command.putString("name", "eval");
+        command.putString("name", "reload"); // eval will not work if manual sync running
         command.putBoolean("sync", true);
         liveAccountNetworkState.post(command);
     }
