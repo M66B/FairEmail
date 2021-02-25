@@ -1986,6 +1986,7 @@ When navigation to a conversation one message will be expanded if:
 
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
+* There is exactly one starred (favorite) message in the conversation (from version 1.1508)
 
 There is one exception: the message was not downloaded yet
 and the message is too large to download automatically on a metered (mobile) connection.

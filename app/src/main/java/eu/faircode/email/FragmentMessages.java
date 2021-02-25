@@ -4776,8 +4776,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             int count = 0;
             int unseen = 0;
+            int flagged = 0;
             TupleMessageEx single = null;
             TupleMessageEx see = null;
+            TupleMessageEx flag = null;
             for (TupleMessageEx message : messages) {
                 if (message == null)
                     continue;
@@ -4786,10 +4788,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         !EntityFolder.DRAFTS.equals(message.folderType) &&
                         !EntityFolder.TRASH.equals(message.folderType)) {
                     count++;
+
                     single = message;
                     if (!message.ui_seen) {
                         unseen++;
                         see = message;
+                    }
+
+                    if (message.ui_flagged) {
+                        flagged++;
+                        flag = message;
                     }
                 }
 
@@ -4808,6 +4816,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     expand = single;
                 else if (unseen == 1)
                     expand = see;
+                else if (unseen == 0 && flagged == 1)
+                    expand = flag;
                 else if (messages.size() == 1)
                     expand = messages.get(0);
                 else if (messages.size() > 0) {
