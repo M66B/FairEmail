@@ -1331,13 +1331,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 public void run() {
                                     try {
                                         Log.i(folder.name + " start idle");
-                                        while (state.isRunning() && state.isRecoverable()) {
+                                        while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
                                             Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
                                             state.activity();
                                         }
-                                        if (BuildConfig.DEBUG)
-                                            EntityLog.log(ServiceSynchronize.this, folder.name + " end IDLE");
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
