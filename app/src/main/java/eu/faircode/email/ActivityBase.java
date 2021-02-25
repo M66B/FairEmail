@@ -311,7 +311,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         visible = true;
 
         boolean contacts = hasPermission(Manifest.permission.READ_CONTACTS);
-        if (!this.getClass().equals(ActivitySetup.class) && this.contacts != contacts) {
+        if (this.contacts != contacts &&
+                !this.getClass().equals(ActivitySetup.class) &&
+                !this.getClass().equals(ActivityCompose.class)) {
             Log.i("Contacts permission=" + contacts);
             finish();
             startActivity(getIntent());

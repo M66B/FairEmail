@@ -271,6 +271,9 @@ public class FragmentCompose extends FragmentBase {
 
     private Uri photoURI = null;
 
+    private int pickRequest;
+    private Uri pickUri;
+
     private OpenPgpServiceConnection pgpService;
     private String[] pgpUserIds;
     private long[] pgpKeyIds;
@@ -297,6 +300,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_LINK = 12;
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
+    private static final int REQUEST_PERMISSION = 15;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -454,6 +458,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 }
 
+                // https://developer.android.com/guide/topics/providers/contacts-provider#Intents
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
                 startActivityForResult(Helper.getChooser(getContext(), pick), request);
             }
@@ -1149,6 +1154,9 @@ public class FragmentCompose extends FragmentBase {
         outState.putBoolean("fair:show_images", show_images);
         outState.putParcelable("fair:photo", photoURI);
 
+        outState.putInt("fair:pickRequest", pickRequest);
+        outState.putParcelable("fair:pickUri", pickUri);
+
         super.onSaveInstanceState(outState);
     }
 
@@ -1205,6 +1213,9 @@ public class FragmentCompose extends FragmentBase {
             working = savedInstanceState.getLong("fair:working");
             show_images = savedInstanceState.getBoolean("fair:show_images");
             photoURI = savedInstanceState.getParcelable("fair:photo");
+
+            pickRequest = savedInstanceState.getInt("fair:pickRequest");
+            pickUri = savedInstanceState.getParcelable("fair:pickUri");
 
             Bundle args = new Bundle();
             args.putString("action", working < 0 ? "new" : "edit");
@@ -2051,6 +2062,10 @@ public class FragmentCompose extends FragmentBase {
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
                         null, null, null)) {
+                    // https://developer.android.com/guide/topics/providers/content-provider-basics#DisplayResults
+                    if (cursor != null && cursor.getCount() == 0)
+                        throw new SecurityException("Could not retrieve selected contact");
+
                     if (cursor != null && cursor.moveToFirst()) {
                         int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
                         int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
@@ -2108,9 +2123,24 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof SecurityException) {
+                    pickRequest = requestCode;
+                    pickUri = uri;
+                    String permission = Manifest.permission.READ_CONTACTS;
+                    requestPermissions(new String[]{permission}, REQUEST_PERMISSION);
+                } else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:picked");
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        for (int i = 0; i < permissions.length; i++)
+            if (Manifest.permission.READ_CONTACTS.equals(permissions[i]))
+                if (pickUri != null &&
+                        grantResults[i] == PackageManager.PERMISSION_GRANTED)
+                    onPickContact(pickRequest, new Intent().setData(pickUri));
     }
 
     private void onAddImage(boolean photo) {
