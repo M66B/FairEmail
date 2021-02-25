@@ -243,6 +243,7 @@
     <string name="title_advanced_sync_folders">Sincronizar lista de carpetas</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de carpetas compartidas</string>
     <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
+    <string name="title_advanced_check_reply_domain">Comprobar direcciones de respuesta al sincronizar mensajes</string>
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automáticamente el intervalo de keep-alive</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_sync_kept_hint">Esto transferirá datos adicionales y consumirá energía adicional de batería, especialmente si hay muchos mensajes almacenados en el dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Esto sólo se aplica a los mensajes recibidos recientemente y puede romper los grupos existentes</string>
     <string name="title_advanced_sync_folders_hint">Desactivar esto reducirá el uso de datos y batería, pero también desactivará la actualización de la lista de carpetas</string>
+    <string name="title_advanced_check_reply_hint">Esto comprobará si el nombre de dominio del remitente y la dirección de respuesta son los mismos</string>
     <string name="title_advanced_lookup_mx_hint">Esto comprobará si existen registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Esto ralentizará la sincronización de mensajes</string>
     <string name="title_advanced_suggest_local_hint">Además de los contactos proporcionados por Android, los datos de contactos se almacenarán para nuevos mensajes enviados o recibidos sólo cuando esté activado.</string>
