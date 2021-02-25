@@ -377,6 +377,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                     if (lp != null)
                         sb.append(lp).append("\r\n\r\n");
                 }
+
+                sb.append("Airplane mode=")
+                        .append(ConnectionHelper.airplaneMode(context)).append("\r\n\r\n");
             } catch (Throwable ex) {
                 Log.e(ex);
             }

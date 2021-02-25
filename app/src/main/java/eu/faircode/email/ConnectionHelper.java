@@ -423,7 +423,7 @@ public class ConnectionHelper {
     }
 
     static boolean airplaneMode(Context context) {
-        return Settings.System.getInt(context.getContentResolver(),
+        return Settings.Global.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
     }
 }
