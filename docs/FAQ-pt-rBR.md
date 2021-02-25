@@ -258,7 +258,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(135) Porque mensagens e rascunhos apagados são exibidos em conversas?](#user-content-faq135)
 * [(136) Como posso excluir uma conta/identidade/pasta?](#user-content-faq136)
 * [(137) Como posso redefinir o 'Não perguntar novamente'?](#user-content-faq137)
-* [(138) É possível adicionar o gerenciamento/sincronização de calendário/contatos?](#user-content-faq138)
+* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
 * [(139) Como posso resolver o erro 'Usuário está autenticado mas não conectado'?](#user-content-faq139)
 * [(140) Porque a mensagem contém caracteres estranhos?](#user-content-faq140)
 * [(141) Como posso corrigir o erro 'Uma pasta de rascunhos é necessária para enviar mensagens'?](#user-content-faq141)
@@ -649,6 +649,7 @@ Common errors:
 
 * *No key*: there is no PGP key available for one of the listed email addresses
 * *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
 
 *S/MIME*
 
@@ -1999,6 +2000,8 @@ Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](http
 
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
+If the domain name of the sender and the domain name of the reply address differ, always a warning flag will be shown because this is most often the case with phishing messages.
+
 If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
 
 <br />
@@ -2534,9 +2537,9 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <br />
 
 <a name="faq138"></a>
-**(138) Can you add calendar/contact management/synchronizing?**
+**(138) Can you add calendar/contact/tasks/notes management?**
 
-Calendar and contact management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+Calendar, contact, task and note management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
 
 Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
