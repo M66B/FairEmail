@@ -252,6 +252,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (account > 0 && !current.accountState.id.equals(account))
                             continue;
 
+                        boolean sync = current.command.getBoolean("sync", false);
+                        boolean force = current.command.getBoolean("force", false);
+
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
                             if (current.canRun()) {
@@ -266,12 +269,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         " state=" + current.accountState.state +
                                         " active=" + current.networkState.getActive());
                                 event = true;
-                                start(current, current.accountState.isEnabled(current.enabled), false);
+                                start(current, current.accountState.isEnabled(current.enabled) || sync, force);
                             }
                         } else {
                             boolean reload = false;
-                            boolean sync = current.command.getBoolean("sync", false);
-                            boolean force = current.command.getBoolean("force", false);
                             switch (current.command.getString("name")) {
                                 case "reload":
                                     reload = true;
