@@ -1708,9 +1708,12 @@ class Core {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean sync_folders = (prefs.getBoolean("sync_folders", true) || force);
+        boolean sync_folders = prefs.getBoolean("sync_folders", true);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
-        boolean subscriptions = prefs.getBoolean("subscriptions", false);
+        Log.i(account.name + " sync folders=" + sync_folders + " shared=" + sync_shared_folders + " force=" + force);
+
+        if (force)
+            sync_folders = true;
 
         // Get folder names
         boolean drafts = false;
@@ -1777,7 +1780,7 @@ class Core {
                     }
                 } else {
                     local.put(folder.name, folder);
-                    if (folder.synchronize && folder.initialize != 0)
+                    if (folder.selectable && folder.synchronize && folder.initialize != 0)
                         sync_folders = true;
                 }
             }
@@ -1929,7 +1932,7 @@ class Core {
                         folder.setProperties();
                         folder.setSpecials(account);
 
-                        if (parent != null && EntityFolder.USER.equals(parent.type)) {
+                        if (selectable && parent != null && EntityFolder.USER.equals(parent.type)) {
                             folder.synchronize = parent.synchronize;
                             folder.poll = parent.poll;
                             folder.poll_factor = parent.poll_factor;
