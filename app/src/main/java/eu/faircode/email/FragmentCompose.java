@@ -2062,6 +2062,7 @@ public class FragmentCompose extends FragmentBase {
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
                         null, null, null)) {
+                    // https://issuetracker.google.com/issues/118400813
                     // https://developer.android.com/guide/topics/providers/content-provider-basics#DisplayResults
                     if (cursor != null && cursor.getCount() == 0)
                         throw new SecurityException("Could not retrieve selected contact");
