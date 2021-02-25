@@ -51,8 +51,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
-
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -333,11 +331,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("badge", checked).apply();
-                try {
-                    ShortcutBadger.removeCount(compoundButton.getContext());
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
                 ServiceSynchronize.restart(compoundButton.getContext());
             }
         });
