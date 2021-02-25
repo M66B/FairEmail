@@ -3081,17 +3081,20 @@ class Core {
             if (message.avatar == null && notify_known && pro)
                 message.ui_ignored = true;
 
-            // For contact forms
-            boolean self = false;
-            if (identity != null && message.from != null)
-                for (Address from : message.from)
-                    if (identity.sameAddress(from) || identity.similarAddress(from)) {
-                        self = true;
-                        break;
-                    }
-            if (!self) {
-                String warning = message.checkReplyDomain(context);
-                message.reply_domain = (warning == null);
+            boolean check_reply_domain = prefs.getBoolean("check_reply_domain", true);
+            if (check_reply_domain) {
+                // For contact forms
+                boolean self = false;
+                if (identity != null && message.from != null)
+                    for (Address from : message.from)
+                        if (identity.sameAddress(from) || identity.similarAddress(from)) {
+                            self = true;
+                            break;
+                        }
+                if (!self) {
+                    String warning = message.checkReplyDomain(context);
+                    message.reply_domain = (warning == null);
+                }
             }
 
             boolean check_mx = prefs.getBoolean("check_mx", false);

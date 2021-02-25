@@ -300,6 +300,7 @@
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
+    <string name="title_advanced_check_reply_domain">Check reply address on synchronizing messages</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
     <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
 
@@ -558,6 +559,7 @@
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_gmail_thread_hint">This only applies to newly received messages and can break existing groups</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
+    <string name="title_advanced_check_reply_hint">This will check if the domain name of the sender and the reply address are the same</string>
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
