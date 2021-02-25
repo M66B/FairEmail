@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1854,6 +1855,28 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_silent` INTEGER NOT NULL DEFAULT 0");
                     }
                 });
+    }
+
+    public void checkpoint(Context context) {
+        if (!BuildConfig.DEBUG)
+            return;
+
+        // https://www.sqlite.org/pragma.html#pragma_wal_checkpoint
+        long start = new Date().getTime();
+        StringBuilder sb = new StringBuilder();
+        SupportSQLiteDatabase db = getInstance(context).getOpenHelper().getWritableDatabase();
+        try (Cursor cursor = db.query("PRAGMA wal_checkpoint(PASSIVE);")) {
+            if (cursor.moveToNext()) {
+                for (int i = 0; i < cursor.getColumnCount(); i++) {
+                    if (i > 0)
+                        sb.append(",");
+                    sb.append(cursor.getInt(i));
+                }
+            }
+        }
+
+        long elapse = new Date().getTime() - start;
+        Log.i("PRAGMA wal_checkpoint=" + sb + " elapse=" + elapse);
     }
 
     @Override
