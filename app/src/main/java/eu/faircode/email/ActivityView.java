@@ -1094,9 +1094,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             String search = (csearch == null ? null : csearch.toString());
             if (!TextUtils.isEmpty(search)) {
                 searching = true;
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                boolean fts = prefs.getBoolean("fts", false);
+
+                BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+                criteria.query = search;
+                criteria.fts = fts;
+
                 FragmentMessages.search(
                         ActivityView.this, ActivityView.this, getSupportFragmentManager(),
-                        -1, -1, false, new BoundaryCallbackMessages.SearchCriteria(search));
+                        -1, -1, false, criteria);
             }
 
             intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);

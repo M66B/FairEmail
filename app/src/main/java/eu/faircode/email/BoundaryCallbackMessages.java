@@ -657,24 +657,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Long after = null;
         Long before = null;
 
-        SearchCriteria() {
-        }
-
-        SearchCriteria(String query) {
-            this.query = query;
-        }
-
-        boolean isExpression() {
-            if (this.query == null)
-                return false;
-
-            for (String w : this.query.trim().split("\\s+"))
-                if (w.length() > 1 && "+-?".indexOf(w.charAt(0)) >= 0)
-                    return true;
-
-            return false;
-        }
-
         SearchTerm getTerms(boolean utf8, Flags flags, String[] keywords) {
             List<SearchTerm> or = new ArrayList<>();
             List<SearchTerm> and = new ArrayList<>();
