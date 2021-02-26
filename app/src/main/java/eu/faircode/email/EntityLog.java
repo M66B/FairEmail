@@ -46,7 +46,7 @@ public class EntityLog {
 
     private static final long LOG_CLEANUP_INTERVAL = 3600 * 1000L; // milliseconds
     private static final long LOG_KEEP_DURATION = 24 * 3600 * 1000L; // milliseconds
-    private static final int LOG_DELETE_BATCH_SIZE = 100;
+    private static final int LOG_DELETE_BATCH_SIZE = 50;
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
