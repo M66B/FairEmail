@@ -300,7 +300,7 @@ The following Android permissions are needed:
 * *usługa pierwszoplanowa* (FOREGROUND_SERVICE): aby uruchomić usługę pierwszoplanową na Android 9 Pie i później, zobacz również następne pytanie
 * *zapobiegaj uśpieniu* (WAKE_LOCK): aby urządzenie było wybudzone podczas synchronizacji wiadomości
 * *płatności w aplikacji* (BILLING): aby zezwolić na zakupy w aplikacji
-* Opcjonalne: *przeczytaj swoje kontakty* (READ_CONTACTS): aby automatycznie uzupełniać adresy i pokazać zdjęcia
+* Opcjonalnie: *Dostęp do kontaktów* (READ_CONTACTS): aby automatycznie uzupełniać adresy, wyświetlać zdjęcia kontaktów i [wybierać kontakty](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Opcjonalnie: *przeczytaj zawartość karty SD* (READ_EXTERNAL_STORAGE): aby akceptować pliki z innych, przestarzałych aplikacji, zobacz również [to FAQ](#user-content-faq49)
 * Opcjonalnie: *użyj czytnika linii* (USE_FINGERPRINT) i użyj *sprzętu biometrycznego* (USE_BIOMETRIC): aby użyć uwierzytelniania biometrycznego
 * Opcjonalnie: *znajdź konta na urządzeniu* (GET_ACCOUNTS): aby wybrać konto podczas używania szybkiej konfiguracji Gmail
@@ -1633,6 +1633,7 @@ When navigation to a conversation one message will be expanded if:
 
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
+* W rozmowie istnieje dokładnie jedna wiadomość oznaczona gwiazdką (ulubiona) (od wersji 1.1508)
 
 There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
 
@@ -2145,17 +2146,17 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
-Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+Zauważ, że Nova Launcher wymaga Tesla Unread, który [nie jest już wspierany](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
-Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
+Zwróć uwagę, że ustawienie powiadomienia *Pokaż ikonę programu w launcherze z liczbą nowych wiadomości* musi być włączone (domyślnie włączone).
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Liczone będą tylko *nowe* nieprzeczytane wiadomości w folderach ustawionych na wyświetlanie powiadomień o nowych wiadomościach, więc wiadomości oznaczone jako nieprzeczytane ponownie i wiadomości w folderach, dla których ustawiono niewidoczne powiadomienia o nowych wiadomościach, nie będą liczone.
 
-This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
+W zależności od tego, co chcesz, ustawienia powiadomień *Pozwól, aby liczba nowych wiadomości odpowiadała liczbie powiadomień *, musi być włączona lub wyłączona.
 
-Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
+Ta funkcja zależy od obsługi Twojego launchera. FairEmail jedynie 'rozgłasza' liczbę nieprzeczytanych wiadomości za pomocą biblioteki ShortcutBadger. Jeśli to nie działa, nie może to zostać naprawione przez zmiany w FairEmail.
 
-Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+Niektóre launchery wyświetlają '1' dla [powiadomienia monitorującego](#user-content-faq2), pomimo wyraźnej prośby FairEmail o nie pokazywanie plakietki dla tego powiadomienia. Może to być spowodowane błędem w aplikacji launchera lub w Twojej wersji Androida. Proszę dokładnie sprawdzić, czy kropka powiadomienia jest wyłączona dla kanału powiadamiania o odbiorze (usłudze). Możesz przejść do odpowiednich ustawień kanału powiadomień poprzez ustawienia powiadomień FairEmail. To może nie być oczywiste, ale możesz dotknąć nazwy kanału, aby uzyskać więcej ustawień.
 
 FairEmail does send a new message count intent as well:
 

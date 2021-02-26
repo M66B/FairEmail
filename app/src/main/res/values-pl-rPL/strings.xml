@@ -199,6 +199,7 @@
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
+    <string name="title_setup_export_do">Hasło służy do szyfrowania ustawień i jest wymagane do ponownego zaimportowania ustawień</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_chars">Hasło zawiera znaki kontrolne lub znaki spacji</string>

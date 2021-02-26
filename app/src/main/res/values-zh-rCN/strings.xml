@@ -166,6 +166,7 @@
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
+    <string name="title_setup_export_do">密码用于加密设置，并且需要密码才能再次导入设置</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>

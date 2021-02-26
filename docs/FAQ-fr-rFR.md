@@ -300,7 +300,7 @@ Les autorisations Android suivantes sont nécessaires :
 * *exécuter un service de premier plan* (FOREGROUND_SERVICE) : pour exécuter un service de premier plan sur Android 9 Pie et ultérieur. Voir aussi la question suivante
 * *empêcher le téléphone de passer en mode veille* (WAKE_LOCK): pour garder l'appareil éveillé lors de la synchronisation des messages
 * *Service de facturation Google Play* (BILLING): pour permettre les achats dans l'application
-* Facultatif : *voir les contacts* (READ_CONTACTS): pour compléter automatiquement les adresses et afficher les photos de profil
+* Optionnel : *lire vos contacts* (READ_CONTACTS) : pour compléter automatiquement les adresses, pour afficher les photos de contact et [pour choisir les contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Facultatif : *lire le contenu de votre carte SD* (READ_EXTERNAL_STORAGE): pour accepter des fichiers provenant d'autres applications obsolètes, voir aussi [cette question](#user-content-faq49)
 * Facultatif : *utiliser le matériel d'empreintes digitales* (USE_FINGERPRINT) et *utiliser les composants biométriques* (USE_BIOMETRIC): pour utiliser l'authentification biométrique
 * Facultatif : *rechercher des comptes sur l'appareil* (GET_ACCOUNTS): pour sélectionner un compte lors de la configuration rapide de Gmail
@@ -1633,6 +1633,7 @@ When navigation to a conversation one message will be expanded if:
 
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
+* Il y a exactement un message favori (étoile) dans la conversation (à partir de la version 1.1508)
 
 There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
 
@@ -2145,17 +2146,17 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
-Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+Notez que Nova Launcher nécessite Tesla Unread qui n'est [plus supporté](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
-Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
+Notez que le paramètre de notification *Afficher l'icône du lanceur avec le nombre de nouveaux messages* doit être activé (activé par défaut).
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Seuls les *nouveaux* messages non lus dans les dossiers paramétrés pour afficher les nouvelles notifications de message, seront comptabilisés, ainsi les messages marqués comme non lus à nouveau et les messages dans les dossiers paramétrés pour ne pas afficher de notification de nouveau message, ne seront pas comptabilisés.
 
-This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
+Selon ce que vous voulez, le paramètre de notification *Faire correspondre le nombre de nouveaux messages et le nombre de notifications* doit être activé ou désactivé.
 
-Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
+Cette fonctionnalité dépend de sa prise en charge par votre lanceur. FairEmail ne fait que « diffuser » le nombre de messages non lus en utilisant la bibliothèque ShortcutBadger. Si ça ne fonctionne pas, ceci ne peut pas être corrigé par des changements dans FairEmail.
 
-Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+Certains lanceurs affichent « 1 » pour [la notification de surveillance](#user-content-faq2), malgré la demande explicite de FairEmail de ne pas afficher de badge pour cette notification. Ceci peut être provoqué par un bug dans l'application du lanceur ou dans votre version Android. Veuillez vérifier si le réglage de notification est désactivé pour le canal de notification de réception (service). Vous pouvez aller dans les paramètres appropriés du canal de notification via les paramètres de notification de FairEmail. Ceci peut ne pas être évident mais vous pouvez appuyer sur le nom du canal pour plus de paramètres.
 
 FairEmail does send a new message count intent as well:
 

@@ -300,7 +300,7 @@ The following Android permissions are needed:
 * *servis latar depan* (FOREGROUND_SERVICE): untuk menjalankan servis latar depan pada Android 9 Pie dan sebelumnya, lihat juga pertanyaan selanjutnya
 * *mencegah perangkat untuk tidur* (WAKE_LOCK): untuk membuat perangkat tetap terbangun saat mensingkronisasi pesan
 * *penagihan dalam aplikasi* (BILLING): untuk mengizinkan pembelian di dalam aplikasi
-* Opsional: *membaca kontak anda* (READ_CONTACTS): untuk mengisi alamat secara otomatis dan menampilkan foto
+* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Opsional: *membaca isi dari kartu SD anda* (READ_EXTERNAL_STORAGE): untuk meneruma berkas dari yang lain, aplikasi yang telah kadauwarsa, lihat juga [FAQ ini](#user-content-faq49)
 * Opsional: *gunakan perangkat sidik jari* (USE_FINGERPRINT) dan gunakan *perangkat biometrik* (USE_BIOMETRIC): untuk menggunakan autentikasi biometrik
 * Opsional: *cari akun di perangkat* (GET_ACCOUNTS): untuk memilih akun ketika menggunakan pengaturan cepat Gmail
@@ -1633,6 +1633,7 @@ When navigation to a conversation one message will be expanded if:
 
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
+* There is exactly one starred (favorite) message in the conversation (from version 1.1508)
 
 There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
 
@@ -2145,6 +2146,8 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
+Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+
 Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
@@ -2154,8 +2157,6 @@ Depending on what you want, the notification settings *Let the number of new mes
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
 Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
-
-Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
 FairEmail does send a new message count intent as well:
 
