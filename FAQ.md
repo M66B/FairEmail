@@ -310,7 +310,7 @@ The following Android permissions are needed:
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
 * *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
+* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
