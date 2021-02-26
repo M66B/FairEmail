@@ -104,6 +104,10 @@ public class EntityIdentity {
     @NonNull
     public Boolean plain_only = false; // obsolete
     @NonNull
+    public Boolean sign_default = false;
+    @NonNull
+    public Boolean encrypt_default = false;
+    @NonNull
     public Integer encrypt = 0; // Default method 0=PGP 1=S/MIME
     @NonNull
     public Boolean delivery_receipt = false; // obsolete

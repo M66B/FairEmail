@@ -3559,12 +3559,12 @@ public class FragmentCompose extends FragmentBase {
                     if (plain_only)
                         data.draft.plain_only = true;
 
-                    if (encrypt_default)
+                    if (encrypt_default || selected.encrypt_default)
                         if (selected.encrypt == 0)
                             data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
                         else
                             data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-                    else if (sign_default)
+                    else if (sign_default || selected.sign_default)
                         if (selected.encrypt == 0)
                             data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
                         else
@@ -4176,6 +4176,7 @@ public class FragmentCompose extends FragmentBase {
             if (data.draft.identity != null)
                 for (int pos = 0; pos < data.identities.size(); pos++) {
                     if (data.identities.get(pos).id.equals(data.draft.identity)) {
+                        spIdentity.setTag(pos);
                         spIdentity.setSelection(pos);
                         break;
                     }
@@ -5356,7 +5357,10 @@ public class FragmentCompose extends FragmentBase {
 
             setBodyPadding();
 
-            updateEncryption();
+            if (!Objects.equals(spIdentity.getTag(), position)) {
+                spIdentity.setTag(position);
+                updateEncryption(identity);
+            }
         }
 
         @Override
@@ -5369,11 +5373,10 @@ public class FragmentCompose extends FragmentBase {
 
             setBodyPadding();
 
-            updateEncryption();
+            updateEncryption(null);
         }
 
-        private void updateEncryption() {
-            EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+        private void updateEncryption(EntityIdentity identity) {
             if (identity == null)
                 return;
 
@@ -5388,35 +5391,37 @@ public class FragmentCompose extends FragmentBase {
                     long iid = args.getLong("identity");
 
                     DB db = DB.getInstance(context);
-                    EntityMessage draft = db.message().getMessage(id);
-                    if (draft == null ||
-                            draft.ui_encrypt == null || EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))
-                        return null;
 
-                    if (draft.identity != null && draft.identity.equals(iid))
-                        return draft.ui_encrypt;
+                    EntityMessage draft = db.message().getMessage(id);
+                    if (draft == null)
+                        return null;
 
                     EntityIdentity identity = db.identity().getIdentity(iid);
                     if (identity == null)
-                        return null;
+                        return draft.ui_encrypt;
 
-                    int encrypt = draft.ui_encrypt;
+                    if (identity.encrypt_default)
+                        draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                    else if (identity.sign_default)
+                        draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                    else
+                        draft.ui_encrypt = null;
+
                     if (identity.encrypt == 0) {
                         if (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt))
-                            encrypt = EntityMessage.PGP_SIGNONLY;
+                            draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
                         else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt))
-                            encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                            draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
                     } else {
                         if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt))
-                            encrypt = EntityMessage.SMIME_SIGNONLY;
+                            draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
                         else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt))
-                            encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                            draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
                     }
 
-                    if (draft.ui_encrypt != encrypt)
-                        db.message().setMessageUiEncrypt(draft.id, encrypt);
+                    db.message().setMessageUiEncrypt(draft.id, draft.ui_encrypt);
 
-                    return encrypt;
+                    return draft.ui_encrypt;
                 }
 
                 @Override
