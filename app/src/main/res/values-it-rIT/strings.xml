@@ -243,6 +243,7 @@
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi di cartelle condovise</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
+    <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta durante la sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi e-mail mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Questo vale solo per i nuovi messaggi ricevuti e può rompere i gruppi esistenti</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
+    <string name="title_advanced_check_reply_hint">Questo controllerà se il nome di dominio del mittente e l\'indirizzo di risposta sono gli stessi</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
