@@ -223,6 +223,7 @@
 
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
+    <string name="title_setup_export_do">The password is used to encrypt the settings and is required to import the settings again</string>
     <string name="title_setup_import_do">Imported accounts will be added without overwriting any existing ones</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">Password contains control or whitespace characters</string>
