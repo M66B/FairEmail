@@ -77,6 +77,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Button btnSound;
 
     private SwitchCompat swBadge;
+    private ImageButton ibBadge;
     private SwitchCompat swUnseenIgnored;
     private SwitchCompat swNotifyBackgroundOnly;
     private SwitchCompat swNotifyKnownOnly;
@@ -147,6 +148,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         btnSound = view.findViewById(R.id.btnSound);
 
         swBadge = view.findViewById(R.id.swBadge);
+        ibBadge = view.findViewById(R.id.ibBadge);
         swUnseenIgnored = view.findViewById(R.id.swUnseenIgnored);
         swNotifyBackgroundOnly = view.findViewById(R.id.swNotifyBackgroundOnly);
         swNotifyKnownOnly = view.findViewById(R.id.swNotifyKnownOnly);
@@ -332,6 +334,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("badge", checked).apply();
                 ServiceSynchronize.restart(compoundButton.getContext());
+            }
+        });
+
+        ibBadge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 106);
             }
         });
 
