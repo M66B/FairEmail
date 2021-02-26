@@ -2332,7 +2332,7 @@ public class MessageHelper {
                         }
                     }
                 } else
-                    throw new IllegalArgumentException("Multipart=" + (content == null ? null : content.getClass().getName()));
+                    throw new MessagingException("Multipart=" + (content == null ? null : content.getClass().getName()));
             }
 
             if (part.isMimeType("multipart/signed")) {
@@ -2448,7 +2448,7 @@ public class MessageHelper {
                 if (content instanceof Multipart)
                     multipart = (Multipart) part.getContent();
                 else
-                    throw new IllegalArgumentException("Multipart=" + (content == null ? null : content.getClass().getName()));
+                    throw new MessagingException("Multipart=" + (content == null ? null : content.getClass().getName()));
 
                 boolean other = false;
                 List<Part> plain = new ArrayList<>();
