@@ -3408,7 +3408,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String query = ((InternetAddress) addresses[0]).getAddress();
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_SEARCH)
+                            new Intent(ActivityView.ACTION_SEARCH_ADDRESS)
                                     .putExtra("account", -1L)
                                     .putExtra("folder", -1L)
                                     .putExtra("query", query));
