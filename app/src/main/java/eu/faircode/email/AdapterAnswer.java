@@ -57,7 +57,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private List<EntityAnswer> items = new ArrayList<>();
+    private String search = null;
+    private List<EntityAnswer> all = new ArrayList<>();
+    private List<EntityAnswer> selected = new ArrayList<>();
 
     private boolean composable = false;
 
@@ -105,7 +107,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityAnswer answer = items.get(pos);
+            EntityAnswer answer = selected.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -119,7 +121,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            final EntityAnswer answer = items.get(pos);
+            final EntityAnswer answer = selected.get(pos);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
@@ -235,9 +237,25 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     public void set(@NonNull List<EntityAnswer> answers) {
         Log.i("Set answers=" + answers.size());
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, answers), false);
+        all = answers;
 
-        items = answers;
+        List<EntityAnswer> items;
+        if (TextUtils.isEmpty(search))
+            items = all;
+        else {
+            items = new ArrayList<>();
+            String query = search.toLowerCase().trim();
+            for (EntityAnswer answer : answers) {
+                if (answer.name.toLowerCase().contains(query) ||
+                        (answer.group != null && answer.group.toLowerCase().contains(query)) ||
+                        answer.text.toLowerCase().contains(query))
+                    items.add(answer);
+            }
+        }
+
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(selected, items), false);
+
+        selected = items;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
@@ -261,6 +279,11 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             }
         });
         diff.dispatchUpdatesTo(this);
+    }
+
+    public void search(String query) {
+        search = query;
+        set(all);
     }
 
     private static class DiffCallback extends DiffUtil.Callback {
@@ -299,12 +322,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).id;
+        return selected.get(position).id;
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return selected.size();
     }
 
     @Override
@@ -315,7 +338,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        EntityAnswer answer = items.get(position);
+        EntityAnswer answer = selected.get(position);
         holder.powner.recreate(answer == null ? null : answer.id);
 
         holder.unwire();
