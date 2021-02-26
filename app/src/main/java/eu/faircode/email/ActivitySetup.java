@@ -1308,9 +1308,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             final boolean export = getArguments().getBoolean("export");
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
+            TextView tvCaption = dview.findViewById(R.id.tvCaption);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             etPassword2 = dview.findViewById(R.id.tilPassword2);
             TextView tvImportHint = dview.findViewById(R.id.tvImportHint);
+
+            tvCaption.setText(export ? R.string.title_setup_export : R.string.title_setup_import);
 
             if (savedInstanceState != null) {
                 etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
