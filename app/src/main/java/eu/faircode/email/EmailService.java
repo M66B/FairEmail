@@ -577,8 +577,10 @@ public class EmailService implements AutoCloseable {
                             if (!line.endsWith("ignoring socket timeout"))
                                 if (log)
                                     EntityLog.log(context, user + " " + line);
-                                else
-                                    android.util.Log.i("javamail", user + " " + line);
+                                else {
+                                    if (BuildConfig.DEBUG)
+                                        Log.i("javamail", user + " " + line);
+                                }
                             bos.reset();
                         } else
                             bos.write(b);

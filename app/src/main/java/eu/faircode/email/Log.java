@@ -123,24 +123,48 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import io.requery.android.database.CursorWindowAllocationException;
 
 public class Log {
-    private static boolean debug = false;
+    private static int level = android.util.Log.INFO;
     private static final int MAX_CRASH_REPORTS = 5;
     private static final String TAG = "fairemail";
 
-    public static void setDebug(boolean value) {
-        debug = value;
+    public static void setLevel(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean debug = prefs.getBoolean("debug", false);
+        if (debug)
+            level = android.util.Log.DEBUG;
+        else
+            level = prefs.getInt("log_level", getDefaultLogLevel());
+        android.util.Log.d(TAG, "Log level=" + level);
+    }
+
+    public static int getDefaultLogLevel() {
+        return (BuildConfig.DEBUG ? android.util.Log.INFO : android.util.Log.WARN);
     }
 
     public static int d(String msg) {
-        if (debug)
+        if (level <= android.util.Log.DEBUG)
             return android.util.Log.d(TAG, msg);
         else
             return 0;
     }
 
+    public static int d(String tag, String msg) {
+        if (level <= android.util.Log.DEBUG)
+            return android.util.Log.d(tag, msg);
+        else
+            return 0;
+    }
+
     public static int i(String msg) {
-        if (BuildConfig.BETA_RELEASE)
+        if (level <= android.util.Log.INFO)
             return android.util.Log.i(TAG, msg);
+        else
+            return 0;
+    }
+
+    public static int i(String tag, String msg) {
+        if (level <= android.util.Log.INFO)
+            return android.util.Log.i(tag, msg);
         else
             return 0;
     }
@@ -262,9 +286,7 @@ public class Log {
     }
 
     static void setup(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        debug = prefs.getBoolean("debug", false);
-
+        setLevel(context);
         setupBugsnag(context);
     }
 

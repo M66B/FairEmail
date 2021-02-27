@@ -200,6 +200,10 @@ public class ApplicationEx extends Application
                 // Should be excluded for import
                 restart();
                 break;
+            case "debug":
+            case "log_level":
+                Log.setLevel(this);
+                break;
         }
     }
 
