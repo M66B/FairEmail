@@ -357,12 +357,14 @@ public abstract class DB extends RoomDatabase {
         int threads = prefs.getInt("query_threads", 4); // AndroidX default thread count: 4
         boolean wal = prefs.getBoolean("wal", true);
         Log.i("DB query threads=" + threads + " wal=" + wal);
-        ExecutorService executor = Helper.getBackgroundExecutor(threads, "query");
+        ExecutorService executorQuery = Helper.getBackgroundExecutor(threads, "query");
+        ExecutorService executorTransaction = Helper.getBackgroundExecutor(0, "transaction");
 
         return Room
                 .databaseBuilder(context, DB.class, DB_NAME)
                 .openHelperFactory(new RequerySQLiteOpenHelperFactory())
-                .setQueryExecutor(executor)
+                .setQueryExecutor(executorQuery)
+                .setTransactionExecutor(executorTransaction)
                 .setJournalMode(wal ? JournalMode.WRITE_AHEAD_LOGGING : JournalMode.TRUNCATE) // using the latest sqlite
                 .addCallback(new Callback() {
                     @Override
