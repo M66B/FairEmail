@@ -270,6 +270,8 @@ public class Log {
 
     private static void setupBugsnag(final Context context) {
         try {
+            Log.i("Configuring Bugsnag");
+
             // https://docs.bugsnag.com/platforms/android/sdk/
             com.bugsnag.android.Configuration config =
                     new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");

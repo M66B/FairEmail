@@ -302,6 +302,7 @@ public abstract class DB extends RoomDatabase {
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
+            Log.i("Creating database instance");
             Context acontext = context.getApplicationContext();
 
             sInstance = migrate(acontext, getBuilder(acontext)).build();

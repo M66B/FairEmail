@@ -78,7 +78,7 @@ public class ApplicationEx extends Application
         super.onCreate();
 
         long start = new Date().getTime();
-        EntityLog.log(this, "App create" +
+        Log.i("App create" +
                 " version=" + BuildConfig.VERSION_NAME +
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
