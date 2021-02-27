@@ -276,16 +276,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
             }
 
-            int unseen = folder.unseen + (folder.collapsed ? folder.childs_unseen : 0);
+            int cunseen = (folder.collapsed ? folder.childs_unseen : 0);
+            int unseen = folder.unseen + cunseen;
             if (unseen > 0)
                 tvName.setText(context.getString(R.string.title_name_count,
                         folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref),
-                        NF.format(unseen)));
+                        (cunseen > 0 ? "▾" : "") + NF.format(unseen)));
             else
                 tvName.setText(folder.getDisplayName(context, folder.parent_ref));
 
-            tvName.setTypeface(folder.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
+            tvName.setTypeface(unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            tvName.setTextColor(unseen > 0 ? colorUnread : textColorSecondary);
 
             if (listener == null && folder.selectable) {
                 StringBuilder sb = new StringBuilder();
@@ -1228,8 +1229,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             List<TupleFolderEx> childs = null;
             if (parent.child_refs != null) {
                 childs = getHierarchical(parent.child_refs, indentation + 1);
-                for (TupleFolderEx child : childs)
-                    parent.childs_unseen += child.unseen + child.childs_unseen;
+                for (TupleFolderEx child : childs) {
+                    parent.childs_unseen += child.unseen;
+                    if (child.collapsed)
+                        parent.childs_unseen += child.childs_unseen;
+                }
             }
 
             if (!subscribed_only ||
