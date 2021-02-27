@@ -252,7 +252,7 @@ public abstract class DB extends RoomDatabase {
         }
     }
 
-    static void checkEmergencybackup(Context context) {
+    private static void checkEmergencyBackup(Context context) {
         try {
             File dbfile = context.getDatabasePath(DB_NAME);
             if (dbfile.exists()) {
@@ -310,7 +310,7 @@ public abstract class DB extends RoomDatabase {
             sInstance.getQueryExecutor().execute(new Runnable() {
                 @Override
                 public void run() {
-                    checkEmergencybackup(acontext);
+                    checkEmergencyBackup(acontext);
                 }
             });
 
