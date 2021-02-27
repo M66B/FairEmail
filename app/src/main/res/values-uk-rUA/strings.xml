@@ -188,6 +188,7 @@
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
+    <string name="title_setup_export_do">Пароль використовується для шифрування налаштувань і він потрібен для повторного імпорту налаштувань</string>
     <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
@@ -253,6 +254,7 @@
     <string name="title_advanced_sync_folders">Синхронізувати список тек</string>
     <string name="title_advanced_sync_shared_folders">Синхронізувати спільний список тек</string>
     <string name="title_advanced_subscriptions">Керувати підписками тек</string>
+    <string name="title_advanced_check_reply_domain">Перевіряти адреси електронної пошти для відповіді при синхронізації повідомлень</string>
     <string name="title_advanced_check_mx">Перевіряти адреси електронної пошти відправника при синхронізації повідомлень</string>
     <string name="title_advanced_tune_keep_alive">Автоматично налаштовувати інтервал активності</string>
     <string name="title_advanced_keyboard">Показувати клавіатуру за замовчуванням</string>
@@ -476,6 +478,7 @@
     <string name="title_advanced_sync_kept_hint">Це призведе до передачі додаткових даних та більшого споживання заряду акумулятора, особливо якщо багато повідомлень зберігаються на пристрої</string>
     <string name="title_advanced_gmail_thread_hint">Це відноситься тільки до нових повідомлень і може не стосуватися існуючих груп</string>
     <string name="title_advanced_sync_folders_hint">Вимкнення цього призведе до зменшення споживання даних та використання акумулятора, але також вимкне оновлення списку тек</string>
+    <string name="title_advanced_check_reply_hint">Це перевірить, чи доменне ім\'я відправника та адреса для відповіді співпадають</string>
     <string name="title_advanced_lookup_mx_hint">Це перевірить, чи існують записи DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Це призведе до уповільнення синхронізації повідомлень</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
@@ -749,6 +752,8 @@
     <string name="title_pin">Додати ярлик</string>
     <string name="title_print">Друк</string>
     <string name="title_print_header">Друкувати заголовок</string>
+    <string name="title_print_images">Друкувати зображення</string>
+    <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
     <string name="title_show_headers">Відображати заголовки</string>
     <string name="title_raw_save">Зберігти raw повідомлення</string>
     <string name="title_raw_send">Надіслати як вкладення</string>

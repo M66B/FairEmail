@@ -200,6 +200,7 @@
     <string name="title_setup_configuring">Настройка учётной записи&#8230;</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
+    <string name="title_setup_export_do">Пароль используется для шифрования настроек и потребуется при их импортировании</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль содержит управляющие символы или пробелы</string>

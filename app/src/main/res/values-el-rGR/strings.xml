@@ -178,6 +178,7 @@
     <string name="title_setup_configuring">Ρύθμιση λογαριασμού &#8230;</string>
     <string name="title_setup_export">Εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_import">Εισαγωγή ρυθμίσεων</string>
+    <string name="title_setup_export_do">Ο κωδικός πρόσβασης χρησιμοποιείται για την κρυπτογράφηση των ρυθμίσεων και απαιτείται για την εκ νέου εισαγωγή των ρυθμίσεων</string>
     <string name="title_setup_import_do">Οι εισαγόμενοι λογαριασμοί θα προστεθούν χωρίς να αντικατασταθεί κάποιος από τους ήδη υπάρχοντες</string>
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
     <string name="title_setup_password_chars">Ο κωδικός πρόσβασης περιέχει χαρακτήρες ελέγχου ή διαστήματα</string>
