@@ -35,9 +35,6 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -326,33 +323,7 @@ public class WorkerCleanup extends Worker {
                 EntityLog.log(context, "Analyze=" + (new Date().getTime() - analyze) + " ms");
             }
 
-            Log.i("Creating emergency backup");
-            try {
-                JSONArray jaccounts = new JSONArray();
-                List<EntityAccount> accounts = db.account().getAccounts();
-                for (EntityAccount account : accounts) {
-                    JSONObject jaccount = account.toJSON();
-
-                    JSONArray jfolders = new JSONArray();
-                    List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
-                    for (EntityFolder folder : folders)
-                        jfolders.put(folder.toJSON());
-                    jaccount.put("folders", jfolders);
-
-                    JSONArray jidentities = new JSONArray();
-                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                    for (EntityIdentity identity : identities)
-                        jidentities.put(identity.toJSON());
-                    jaccount.put("identities", jidentities);
-
-                    jaccounts.put(jaccount);
-                }
-
-                File emergency = new File(context.getFilesDir(), "emergency.json");
-                Helper.writeText(emergency, jaccounts.toString(2));
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+            DB.createEmergencyBackup(context);
 
             if (manual) {
                 // https://www.sqlite.org/lang_vacuum.html
