@@ -450,6 +450,7 @@
     <string name="title_advanced_query_threads">Begræns parallel databaseadgang</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
     <string name="title_advanced_protocol">Protokollogning</string>
+    <string name="title_advanced_log_info" comment="title_advanced_log_info&#10;Title for option to enable extra (debug) logging">Udvidet logning</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_cleanup_attachments">Slet gamle beskeders vedhæftninger</string>
     <string name="title_advanced_cleanup">Oprydning</string>

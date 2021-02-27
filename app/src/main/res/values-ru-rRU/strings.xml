@@ -475,6 +475,7 @@
     <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_protocol">Журнал протокола</string>
+    <string name="title_advanced_log_info" comment="title_advanced_log_info&#10;Title for option to enable extra (debug) logging">Расширенный журнал</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_cleanup_attachments">Удалять вложения старых сообщений</string>
     <string name="title_advanced_cleanup">Очистка</string>

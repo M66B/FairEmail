@@ -2001,7 +2001,7 @@ Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](http
 
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
-If the domain name of the sender and the domain name of the reply address differ, always a warning flag will be shown because this is most often the case with phishing messages.
+Si le nom de domaine de l'expéditeur et le nom de domaine de l'adresse de réponse diffèrent, le drapeau d'avertissement sera également affiché car c'est le cas le plus fréquent avec les messages d'hameçonnage. Si vous le souhaitez, ceci peut être désactivé dans les paramètres de réception (à partir de la version 1.1506).
 
 If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
 
