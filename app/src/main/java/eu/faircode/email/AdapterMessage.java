@@ -220,6 +220,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorAccent;
     private int textColorPrimary;
     private int textColorSecondary;
+    private int textColorLink;
     private int colorUnread;
     private int colorRead;
     private int colorSubject;
@@ -1772,6 +1773,39 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.setLog(false).execute(context, owner, sargs, "message:tools");
         }
 
+        Spanned formatAddresses(Address[] addresses, boolean full) {
+            SpannableStringBuilder ssb = new SpannableStringBuilder();
+
+            if (addresses == null || addresses.length == 0)
+                return ssb;
+
+            for (int i = 0; i < addresses.length; i++) {
+                if (addresses[i] instanceof InternetAddress) {
+                    InternetAddress address = (InternetAddress) addresses[i];
+                    String email = address.getAddress();
+                    String personal = address.getPersonal();
+
+                    if (TextUtils.isEmpty(personal)) {
+                        int start = ssb.length();
+                        ssb.append(email);
+                        ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
+                    } else {
+                        if (full) {
+                            ssb.append(personal).append(" <");
+                            int start = ssb.length();
+                            ssb.append(email);
+                            ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
+                            ssb.append(">");
+                        } else
+                            ssb.append(personal);
+                    }
+                } else
+                    ssb.append(addresses[i].toString());
+            }
+
+            return ssb;
+        }
+
         private void bindAddresses(TupleMessageEx message) {
             boolean show_addresses = properties.getValue("addresses", message.id);
             boolean full = (show_addresses || name_email);
@@ -1780,12 +1814,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int tos = (message.to == null ? 0 : message.to.length);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
 
-            String submitter = MessageHelper.formatAddresses(message.submitter);
-            String from = MessageHelper.formatAddresses(message.senders);
-            String to = MessageHelper.formatAddresses(message.to, full, false);
-            String replyto = MessageHelper.formatAddresses(message.reply);
-            String cc = MessageHelper.formatAddresses(message.cc, full, false);
-            String bcc = MessageHelper.formatAddresses(message.bcc, full, false);
+            Spanned submitter = formatAddresses(message.submitter, full);
+            Spanned from = formatAddresses(message.senders, full);
+            Spanned to = formatAddresses(message.to, full);
+            Spanned replyto = formatAddresses(message.reply, full);
+            Spanned cc = formatAddresses(message.cc, full);
+            Spanned bcc = formatAddresses(message.bcc, full);
 
             grpAddresses.setVisibility(View.VISIBLE);
 
@@ -1808,9 +1842,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubmitter.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
             tvSubmitter.setText(submitter);
 
+            InternetAddress deliveredto = new InternetAddress();
+            deliveredto.setAddress(message.deliveredto);
             tvDeliveredToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
             tvDeliveredTo.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
-            tvDeliveredTo.setText(message.deliveredto);
+            tvDeliveredTo.setText(formatAddresses(new Address[]{deliveredto}, full));
 
             tvFromExTitle.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
@@ -1850,7 +1886,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
-            tvIdentity.setText(via == null ? null : MessageHelper.formatAddresses(new Address[]{via}));
+            tvIdentity.setText(via == null ? null : formatAddresses(new Address[]{via}, full));
 
             tvSentTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSent.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
@@ -5252,6 +5288,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         boolean highlight_subject = prefs.getBoolean("highlight_subject", false);
