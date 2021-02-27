@@ -664,6 +664,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swExpunge,swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
+            app:constraint_referenced_ids="swWal,swExpunge,swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
