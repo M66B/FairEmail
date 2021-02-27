@@ -1868,7 +1868,7 @@ public class HtmlHelper {
     }
 
     static Spanned highlightHeaders(Context context, String headers) {
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int colorAccent = Helper.resolveColor(context, android.R.attr.textColorLink);
         SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
         int index = 0;
         for (String line : headers.split("\n")) {
