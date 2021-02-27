@@ -226,6 +226,56 @@ public abstract class DB extends RoomDatabase {
 
             sInstance = migrate(acontext, getBuilder(acontext)).build();
 
+            sInstance.getQueryExecutor().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        File dbfile = acontext.getDatabasePath(DB_NAME);
+                        if (dbfile.exists()) {
+                            Log.i("No emergency restore /dbfile");
+                            return;
+                        }
+
+                        File emergency = new File(acontext.getFilesDir(), "emergency.json");
+                        if (!emergency.exists()) {
+                            Log.i("No emergency restore /backup");
+                            return;
+                        }
+
+                        if (sInstance.account().getAccounts().size() > 0) {
+                            Log.i("No emergency restore /accounts");
+                            return;
+                        }
+
+                        Log.e("Emergency restore");
+
+                        String json = Helper.readText(emergency);
+                        JSONArray jaccounts = new JSONArray(json);
+                        for (int a = 0; a < jaccounts.length(); a++) {
+                            JSONObject jaccount = jaccounts.getJSONObject(a);
+                            EntityAccount account = EntityAccount.fromJSON(jaccount);
+                            account.id = sInstance.account().insertAccount(account);
+
+                            JSONArray jfolders = jaccount.getJSONArray("folders");
+                            for (int f = 0; f < jfolders.length(); f++) {
+                                EntityFolder folder = EntityFolder.fromJSON(jfolders.getJSONObject(f));
+                                folder.account = account.id;
+                                sInstance.folder().insertFolder(folder);
+                            }
+
+                            JSONArray jidentities = jaccount.getJSONArray("identities");
+                            for (int i = 0; i < jidentities.length(); i++) {
+                                EntityIdentity identity = EntityIdentity.fromJSON(jidentities.getJSONObject(i));
+                                identity.account = account.id;
+                                sInstance.identity().insertIdentity(identity);
+                            }
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+
             try {
                 Log.i("Disabling view invalidation");
 
