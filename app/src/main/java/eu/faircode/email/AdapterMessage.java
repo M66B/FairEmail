@@ -1850,7 +1850,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             deliveredto.setAddress(message.deliveredto);
             tvDeliveredToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
             tvDeliveredTo.setVisibility(show_addresses && !TextUtils.isEmpty(message.deliveredto) ? View.VISIBLE : View.GONE);
-            tvDeliveredTo.setText(formatAddresses(new Address[]{deliveredto}, full));
+            tvDeliveredTo.setText(formatAddresses(new Address[]{deliveredto}, true));
 
             tvFromExTitle.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
@@ -1890,7 +1890,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
-            tvIdentity.setText(via == null ? null : formatAddresses(new Address[]{via}, full));
+            tvIdentity.setText(via == null ? null : formatAddresses(new Address[]{via}, true));
 
             tvSentTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSent.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
