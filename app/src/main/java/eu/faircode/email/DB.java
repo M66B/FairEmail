@@ -243,7 +243,7 @@ public abstract class DB extends RoomDatabase {
                         }
 
                         if (sInstance.account().getAccounts().size() > 0) {
-                            Log.i("No emergency restore /accounts");
+                            Log.e("No emergency restore /accounts");
                             return;
                         }
 
