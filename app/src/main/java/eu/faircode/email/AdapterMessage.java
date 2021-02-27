@@ -1773,7 +1773,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.setLog(false).execute(context, owner, sargs, "message:tools");
         }
 
-        Spanned formatAddresses(Address[] addresses, boolean full) {
+        private Spanned formatAddresses(Address[] addresses, boolean full) {
             SpannableStringBuilder ssb = new SpannableStringBuilder();
 
             if (addresses == null || addresses.length == 0)
@@ -1786,15 +1786,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String personal = address.getPersonal();
 
                     if (TextUtils.isEmpty(personal)) {
-                        int start = ssb.length();
-                        ssb.append(email);
-                        ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
-                    } else {
-                        if (full) {
-                            ssb.append(personal).append(" <");
+                        if (email != null) {
                             int start = ssb.length();
                             ssb.append(email);
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
+                        }
+                    } else {
+                        if (full) {
+                            ssb.append(personal).append(" <");
+                            if (email != null) {
+                                int start = ssb.length();
+                                ssb.append(email);
+                                ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
+                            }
                             ssb.append(">");
                         } else
                             ssb.append(personal);
