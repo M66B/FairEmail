@@ -1818,10 +1818,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int tos = (message.to == null ? 0 : message.to.length);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
 
-            Spanned submitter = formatAddresses(message.submitter, full);
-            Spanned from = formatAddresses(message.senders, full);
+            Spanned submitter = formatAddresses(message.submitter, true);
+            Spanned from = formatAddresses(message.senders, true);
             Spanned to = formatAddresses(message.to, full);
-            Spanned replyto = formatAddresses(message.reply, full);
+            Spanned replyto = formatAddresses(message.reply, true);
             Spanned cc = formatAddresses(message.cc, full);
             Spanned bcc = formatAddresses(message.bcc, full);
 
