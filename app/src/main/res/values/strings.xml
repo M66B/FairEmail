@@ -536,8 +536,8 @@
     <string name="title_advanced_wal">WAL (debug only)</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_protocol">Protocol logging</string>
+    <string name="title_advanced_log_info">Extra logging</string>
     <string name="title_advanced_debug">Debug mode</string>
-    <string name="title_advanced_log_level" translatable="false">Log info (debug only)</string>
     <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
     <string name="title_advanced_cleanup">Cleanup</string>
     <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>

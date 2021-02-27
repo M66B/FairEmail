@@ -483,6 +483,17 @@
             app:layout_constraintTop_toBottomOf="@id/swProtocol" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swLogInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_log_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProtocolHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDebug"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -490,7 +501,7 @@
             android:text="@string/title_advanced_debug"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvProtocolHint"
+            app:layout_constraintTop_toBottomOf="@id/swLogInfo"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
@@ -507,17 +518,6 @@
             app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swInfo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_log_level"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swExpunge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -526,7 +526,7 @@
             android:text="@string/title_advanced_expunge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swInfo"
+            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -664,6 +664,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swInfo,swExpunge,swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
+            app:constraint_referenced_ids="swExpunge,swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

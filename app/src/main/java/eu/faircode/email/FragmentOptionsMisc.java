@@ -109,8 +109,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnMore;
 
     private SwitchCompat swProtocol;
+    private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
-    private SwitchCompat swInfo;
     private SwitchCompat swExpunge;
     private SwitchCompat swAuthPlain;
     private SwitchCompat swAuthLogin;
@@ -206,8 +206,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnMore = view.findViewById(R.id.btnMore);
 
         swProtocol = view.findViewById(R.id.swProtocol);
+        swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
-        swInfo = view.findViewById(R.id.swInfo);
         swExpunge = view.findViewById(R.id.swExpunge);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
         swAuthLogin = view.findViewById(R.id.swAuthLogin);
@@ -469,18 +469,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swLogInfo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putInt("log_level", checked ? android.util.Log.INFO : android.util.Log.WARN).apply();
+            }
+        });
+
         swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
                 grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-            }
-        });
-
-        swInfo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putInt("log_level", checked ? android.util.Log.INFO : android.util.Log.WARN).apply();
             }
         });
 
@@ -875,8 +875,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
+        swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
-        swInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
