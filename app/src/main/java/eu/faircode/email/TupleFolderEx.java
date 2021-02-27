@@ -57,6 +57,8 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     public TupleFolderEx parent_ref;
     @Ignore
     public List<TupleFolderEx> child_refs;
+    @Ignore
+    public int childs_unseen = 0;
 
     @Override
     public boolean equals(Object obj) {

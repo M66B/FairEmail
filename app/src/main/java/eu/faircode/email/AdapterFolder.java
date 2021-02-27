@@ -276,10 +276,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
             }
 
-            if (folder.unseen > 0)
+            int unseen = folder.unseen + (folder.collapsed ? folder.childs_unseen : 0);
+            if (unseen > 0)
                 tvName.setText(context.getString(R.string.title_name_count,
                         folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref),
-                        NF.format(folder.unseen)));
+                        NF.format(unseen)));
             else
                 tvName.setText(folder.getDisplayName(context, folder.parent_ref));
 
@@ -1225,8 +1226,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 continue;
 
             List<TupleFolderEx> childs = null;
-            if (parent.child_refs != null)
+            if (parent.child_refs != null) {
                 childs = getHierarchical(parent.child_refs, indentation + 1);
+                for (TupleFolderEx child : childs)
+                    parent.childs_unseen += child.unseen + child.childs_unseen;
+            }
 
             if (!subscribed_only ||
                     parent.accountProtocol != EntityAccount.TYPE_IMAP ||
