@@ -95,13 +95,13 @@ Java_eu_faircode_email_EmailService_jni_1socket_1keep_1alive(
     socklen_t optlen = sizeof(optval);
 
     if (getsockopt(fd, SOL_TCP, TCP_KEEPCNT, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Default TCP_KEEPCNT=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Default TCP_KEEPCNT=%d", optval);
     if (getsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Default TCP_KEEPINTVL=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Default TCP_KEEPINTVL=%d", optval);
     if (getsockopt(fd, SOL_TCP, TCP_KEEPIDLE, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Default TCP_KEEPIDLE=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Default TCP_KEEPIDLE=%d", optval);
     if (getsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Default SO_KEEPALIVE=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Default SO_KEEPALIVE=%d", optval);
 
     int res;
     int on = 1;
@@ -109,34 +109,34 @@ Java_eu_faircode_email_EmailService_jni_1socket_1keep_1alive(
     int tcp_keepalive_intvl = 75;
     int tcp_keepalive_time = seconds; // default 7200
 
-    log_android(ANDROID_LOG_INFO, "Set TCP_KEEPCNT=%d", tcp_keepalive_probes);
+    log_android(ANDROID_LOG_DEBUG, "Set TCP_KEEPCNT=%d", tcp_keepalive_probes);
     res = setsockopt(fd, SOL_TCP, TCP_KEEPCNT, &tcp_keepalive_probes, sizeof(tcp_keepalive_probes));
     if (res < 0)
         return errno;
 
-    log_android(ANDROID_LOG_INFO, "Set TCP_KEEPINTVL=%d", tcp_keepalive_intvl);
+    log_android(ANDROID_LOG_DEBUG, "Set TCP_KEEPINTVL=%d", tcp_keepalive_intvl);
     res = setsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &tcp_keepalive_intvl, sizeof(tcp_keepalive_intvl));
     if (res < 0)
         return errno;
 
-    log_android(ANDROID_LOG_INFO, "Set TCP_KEEPIDLE=%d", tcp_keepalive_time);
+    log_android(ANDROID_LOG_DEBUG, "Set TCP_KEEPIDLE=%d", tcp_keepalive_time);
     res = setsockopt(fd, SOL_TCP, TCP_KEEPIDLE, &tcp_keepalive_time, sizeof(tcp_keepalive_time));
     if (res < 0)
         return errno;
 
-    log_android(ANDROID_LOG_INFO, "Set SO_KEEPALIVE=%d", on);
+    log_android(ANDROID_LOG_DEBUG, "Set SO_KEEPALIVE=%d", on);
     res = setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &on, sizeof(on));
     if (res < 0)
         return errno;
 
     if (getsockopt(fd, SOL_TCP, TCP_KEEPCNT, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Check TCP_KEEPCNT=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Check TCP_KEEPCNT=%d", optval);
     if (getsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Check TCP_KEEPINTVL=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Check TCP_KEEPINTVL=%d", optval);
     if (getsockopt(fd, SOL_TCP, TCP_KEEPIDLE, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Check TCP_KEEPIDLE=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Check TCP_KEEPIDLE=%d", optval);
     if (getsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &optval, &optlen) == 0)
-        log_android(ANDROID_LOG_INFO, "Check SO_KEEPALIVE=%d", optval);
+        log_android(ANDROID_LOG_DEBUG, "Check SO_KEEPALIVE=%d", optval);
 
     return res;
 }

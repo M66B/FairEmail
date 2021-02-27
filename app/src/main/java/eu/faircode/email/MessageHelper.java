@@ -1208,7 +1208,7 @@ public class MessageHelper {
             return header;
 
         if (CharsetHelper.isUTF8(header)) {
-            Log.w("Converting " + name + " to UTF-8");
+            Log.i("Converting " + name + " to UTF-8");
             return new String(header.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         } else {
             Log.i("Converting " + name + " to ISO8859-1");

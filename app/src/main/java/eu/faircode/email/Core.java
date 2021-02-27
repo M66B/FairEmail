@@ -2895,16 +2895,16 @@ class Core {
 
         long uid = ifolder.getUID(imessage);
         if (uid < 0) {
-            Log.i(folder.name + " invalid uid=" + uid);
+            Log.w(folder.name + " invalid uid=" + uid);
             throw new MessageRemovedException("uid");
         }
 
         if (imessage.isExpunged()) {
-            Log.i(folder.name + " expunged uid=" + uid);
+            Log.w(folder.name + " expunged uid=" + uid);
             throw new MessageRemovedException("Expunged");
         }
         if (perform_expunge && imessage.isSet(Flags.Flag.DELETED)) {
-            Log.i(folder.name + " deleted uid=" + uid);
+            Log.w(folder.name + " deleted uid=" + uid);
             try {
                 ifolder.expunge();
             } catch (MessagingException ex) {
