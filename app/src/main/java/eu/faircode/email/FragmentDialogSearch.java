@@ -72,6 +72,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
         boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
         boolean last_search_message = prefs.getBoolean("last_search_message", true);
+        boolean last_search_notes = prefs.getBoolean("last_search_notes", true);
         String last_search = prefs.getString("last_search", null);
 
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_search, null);
@@ -90,6 +91,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbSubject = dview.findViewById(R.id.cbSubject);
         final CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
         final CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
+        final CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
         final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
         final CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
@@ -173,6 +175,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 cbSubject.setEnabled(!isChecked);
                 cbKeywords.setEnabled(!isChecked);
                 cbMessage.setEnabled(!isChecked);
+                cbNotes.setEnabled(!isChecked);
                 cbUnseen.setEnabled(!isChecked);
                 cbFlagged.setEnabled(!isChecked);
                 cbHidden.setEnabled(!isChecked);
@@ -217,6 +220,13 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        cbNotes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_notes", isChecked).apply();
+            }
+        });
+
         spMessageSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -256,6 +266,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSubject.setChecked(last_search_subject);
         cbKeywords.setChecked(last_search_keywords);
         cbMessage.setChecked(last_search_message);
+        cbNotes.setChecked(last_search_notes);
         tvAfter.setText(null);
         tvBefore.setText(null);
 
@@ -289,6 +300,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.in_subject = cbSubject.isChecked();
                             criteria.in_keywords = cbKeywords.isChecked();
                             criteria.in_message = cbMessage.isChecked();
+                            criteria.in_notes = cbNotes.isChecked();
                             criteria.with_unseen = cbUnseen.isChecked();
                             criteria.with_flagged = cbFlagged.isChecked();
                             criteria.with_hidden = cbHidden.isChecked();

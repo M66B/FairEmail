@@ -1121,6 +1121,7 @@
     <string name="title_search_in_subject">In subject</string>
     <string name="title_search_in_keywords">In keywords (if supported)</string>
     <string name="title_search_in_message">In message text</string>
+    <string name="title_search_in_notes">In local notes</string>
     <string name="title_search_with">Limit search to</string>
     <string name="title_search_with_unseen">Unread</string>
     <string name="title_search_with_flagged">Starred</string>
