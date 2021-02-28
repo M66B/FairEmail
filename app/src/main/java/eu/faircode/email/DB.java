@@ -279,6 +279,7 @@ public abstract class DB extends RoomDatabase {
             for (int a = 0; a < jaccounts.length(); a++) {
                 JSONObject jaccount = jaccounts.getJSONObject(a);
                 EntityAccount account = EntityAccount.fromJSON(jaccount);
+                account.created = new Date().getTime();
                 account.id = db.account().insertAccount(account);
 
                 JSONArray jfolders = jaccount.getJSONArray("folders");

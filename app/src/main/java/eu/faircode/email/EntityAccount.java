@@ -137,7 +137,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long quota_usage;
     public Long quota_limit;
 
-    public Long created;
+    public Long created = 0L;
     public Boolean tbd;
     public Long thread;
     public String state;
