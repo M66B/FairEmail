@@ -304,52 +304,6 @@
             app:layout_constraintTop_toBottomOf="@id/swExperiments" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swQueries"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_query_threads"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
-            app:switchPadding="12dp" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvQueriesHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_queries_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swQueries" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvQueriesRemark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_english_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQueriesHint" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swWal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_wal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCrashReports"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -357,7 +311,7 @@
             android:text="@string/title_advanced_crash_reports"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swWal"
+            app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
@@ -518,6 +472,52 @@
             app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swQueries"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_query_threads"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvQueriesHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_queries_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swQueries" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvQueriesRemark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_english_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQueriesHint" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swWal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_wal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQueriesRemark"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swExpunge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -526,7 +526,7 @@
             android:text="@string/title_advanced_expunge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDebugHint"
+            app:layout_constraintTop_toBottomOf="@id/swWal"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -664,6 +664,11 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swWal,swExpunge,swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
+            app:constraint_referenced_ids="
+            swQueries,tvQueriesHint,tvQueriesRemark,swWal,
+            swExpunge,
+            swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,
+            tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,
+            tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

@@ -97,8 +97,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swUpdates;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
-    private SwitchCompat swQueries;
-    private SwitchCompat swWal;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
     private Button btnReset;
@@ -111,6 +109,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swProtocol;
     private SwitchCompat swLogInfo;
     private SwitchCompat swDebug;
+    private SwitchCompat swQueries;
+    private SwitchCompat swWal;
     private SwitchCompat swExpunge;
     private SwitchCompat swAuthPlain;
     private SwitchCompat swAuthLogin;
@@ -194,8 +194,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUpdates = view.findViewById(R.id.swUpdates);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
-        swQueries = view.findViewById(R.id.swQueries);
-        swWal = view.findViewById(R.id.swWal);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
         btnReset = view.findViewById(R.id.btnReset);
@@ -208,6 +206,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol = view.findViewById(R.id.swProtocol);
         swLogInfo = view.findViewById(R.id.swLogInfo);
         swDebug = view.findViewById(R.id.swDebug);
+        swQueries = view.findViewById(R.id.swQueries);
+        swWal = view.findViewById(R.id.swWal);
         swExpunge = view.findViewById(R.id.swExpunge);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
         swAuthLogin = view.findViewById(R.id.swAuthLogin);
@@ -398,23 +398,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swQueries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked)
-                    prefs.edit().putInt("query_threads", 2).commit(); // apply won't work here
-                else
-                    prefs.edit().remove("query_threads").commit(); // apply won't work here
-            }
-        });
-
-        swWal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("wal", checked).commit(); // apply won't work here
-            }
-        });
-
         swCrashReports.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -481,6 +464,23 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
                 grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        swQueries.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked)
+                    prefs.edit().putInt("query_threads", 2).commit(); // apply won't work here
+                else
+                    prefs.edit().remove("query_threads").commit(); // apply won't work here
+            }
+        });
+
+        swWal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("wal", checked).commit(); // apply won't work here
             }
         });
 
@@ -868,8 +868,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext())
                         ? View.GONE : View.VISIBLE);
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
-        swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
-        swWal.setChecked(prefs.getBoolean("wal", true));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
         swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
@@ -877,6 +875,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swProtocol.setChecked(prefs.getBoolean("protocol", false));
         swLogInfo.setChecked(prefs.getInt("log_level", Log.getDefaultLogLevel()) <= android.util.Log.INFO);
         swDebug.setChecked(prefs.getBoolean("debug", false));
+        swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
+        swWal.setChecked(prefs.getBoolean("wal", true));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
