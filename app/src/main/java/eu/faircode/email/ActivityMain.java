@@ -59,7 +59,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             long start = new Date().getTime();
             Log.i("Main boot");
 
-            final SimpleTask boot = new SimpleTask<Boolean>() {
+            final SimpleTask<Boolean> boot = new SimpleTask<Boolean>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
                     getMainHandler().postDelayed(new Runnable() {
