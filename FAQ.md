@@ -1019,13 +1019,14 @@ FairEmail does not hide errors like similar apps often do, so it is easier to di
 
 FairEmail will automatically try to connect again after a delay.
 This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+Please see [this FAQ](#user-content-faq123) for more information about this.
 
 There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
 <a name="authfailed"></a>
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect.
 Some providers expect as username just *username* and others your full email address *username@example.com*.
 When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well.
 Some password managers are known to do this incorrectly too.
@@ -1034,6 +1035,10 @@ Some providers require using an app password instead of the account password, so
 Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first.
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to login from certain networks / IP addresses only.
+
+If needed, you can change a password in the account settings:
+navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account.
+Changing the account password will in most cases automatically change the password of related identities too.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password.
 Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
