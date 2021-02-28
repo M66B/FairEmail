@@ -203,6 +203,7 @@
     <string name="title_setup_grant_again">Grant required permissions</string>
     <string name="title_setup_exchange_support">Is Microsoft Exchange supported?</string>
     <string name="title_setup_identity_what">What is an identity?</string>
+    <string name="title_setup_free">Is this app free to use?</string>
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To access contact information (optional)</string>
     <string name="title_setup_doze">Disable battery optimizations</string>

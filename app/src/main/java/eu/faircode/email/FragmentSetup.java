@@ -71,6 +71,7 @@ public class FragmentSetup extends FragmentBase {
     private Button btnIdentity;
     private TextView tvExchangeSupport;
     private TextView tvIdentityWhat;
+    private TextView tvFree;
     private TextView tvNoComposable;
 
     private TextView tvPermissionsDone;
@@ -126,6 +127,7 @@ public class FragmentSetup extends FragmentBase {
         btnIdentity = view.findViewById(R.id.btnIdentity);
         tvExchangeSupport = view.findViewById(R.id.tvExchangeSupport);
         tvIdentityWhat = view.findViewById(R.id.tvIdentityWhat);
+        tvFree = view.findViewById(R.id.tvFree);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
 
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
@@ -274,6 +276,14 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 9);
+            }
+        });
+
+        tvFree.setPaintFlags(tvFree.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvFree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 19);
             }
         });
 
