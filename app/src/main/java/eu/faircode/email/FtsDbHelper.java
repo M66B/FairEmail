@@ -35,13 +35,16 @@ import io.requery.android.database.sqlite.SQLiteOpenHelper;
 
 // https://www.sqlite.org/fts5.html
 public class FtsDbHelper extends SQLiteOpenHelper {
+    private Context context;
+
     private static FtsDbHelper instance = null;
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "fts.db";
 
     private FtsDbHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context.getApplicationContext(), DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context.getApplicationContext();
     }
 
     static SQLiteDatabase getInstance(Context context) {
@@ -62,6 +65,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
                 ", `subject`" +
                 ", `keyword`" +
                 ", `text`" +
+                ", `notes`" +
                 ", tokenize = \"unicode61 remove_diacritics 2\")");
         // https://www.sqlite.org/fts5.html#unicode61_tokenizer
     }
@@ -71,6 +75,8 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         Log.i("FTS upgrade from " + oldVersion + " to " + newVersion);
         db.execSQL("DROP TABLE `message`");
         onCreate(db);
+
+        DB.getInstance(context).message().resetFts();
     }
 
     static void insert(SQLiteDatabase db, EntityMessage message, String text) {
@@ -96,6 +102,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
         cv.put("subject", message.subject == null ? "" : message.subject);
         cv.put("keyword", TextUtils.join(", ", message.keywords));
         cv.put("text", text);
+        cv.put("notes", message.notes);
         db.insert("message", SQLiteDatabase.CONFLICT_FAIL, cv);
     }
 
