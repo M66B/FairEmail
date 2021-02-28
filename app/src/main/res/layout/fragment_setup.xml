@@ -301,7 +301,7 @@
             android:id="@+id/tvFree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="18dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
             android:drawableTint="?android:attr/textColorLink"
