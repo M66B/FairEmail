@@ -823,7 +823,13 @@ The preview of the message text cannot be shown if the message body has not been
 <a name="faq19"></a>
 **(19) Pourquoi les fonctionnalités pro sont-elles si chères ?**
 
-First of all, only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use. Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of all pro features.
+First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+
+Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+
+Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
+
+Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
 The right question is "*why are there so many taxes and fees?*":
 
@@ -836,12 +842,12 @@ So, what is left for the developer is just a fraction of what you pay.
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet. There are no privacy violating ads in the app either.
 
-Je travaille sur FairEmail presque tous les jours depuis plus de deux ans, je pense donc que le prix est plus que raisonnable. For this reason there won't be discounts either.
+I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Puis-je obtenir un remboursement ?**
+**(20) Can I get a refund?**
 
 If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 

@@ -18,7 +18,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Đối với điều này, bạn sẽ cần địa chỉ máy chủ IMAP và SMTP và số cổng, cho dù nên sử dụng SSL / TLS hay STARTTLS và tên người dùng của bạn (hầu hết, nhưng không phải lúc nào, địa chỉ email của bạn) và mật khẩu của bạn.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
@@ -823,7 +823,13 @@ The preview of the message text cannot be shown if the message body has not been
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
-First of all, only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use. Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of all pro features.
+First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+
+Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+
+Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
+
+Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
 The right question is "*why are there so many taxes and fees?*":
 

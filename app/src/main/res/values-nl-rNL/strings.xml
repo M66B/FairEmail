@@ -312,6 +312,7 @@
     <string name="title_advanced_color_threshold">Drempel letterkleur: %1$s %%</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_replace_name">Geef de voorkeur aan een contactnaam boven een verzonden naam</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Alleen contactnamen weergeven</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_show_recipients">Geadresseerden in berichtkop tonen</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
@@ -982,6 +983,7 @@
     <string name="title_search_in_subject">In onderwerp</string>
     <string name="title_search_in_keywords">In sleutelwoorden (indien ondersteund)</string>
     <string name="title_search_in_message">In bericht tekst</string>
+    <string name="title_search_in_notes">In lokale notities</string>
     <string name="title_search_with">Zoekopdracht beperken tot</string>
     <string name="title_search_with_unseen">Ongelezen</string>
     <string name="title_search_with_flagged">Met ster</string>

@@ -823,7 +823,13 @@ The preview of the message text cannot be shown if the message body has not been
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
-First of all, only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use. Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of all pro features.
+First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+
+Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+
+Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
+
+Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
 The right question is "*why are there so many taxes and fees?*":
 

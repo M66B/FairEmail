@@ -312,6 +312,7 @@
     <string name="title_advanced_color_threshold">Seuil de couleur de lettre : %1$s %%</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_replace_name">Préférer un nom de contact à un nom d\'envoi</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Afficher uniquement le nom des contacts</string>
     <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
     <string name="title_advanced_show_recipients">Afficher les destinataires dans l\'en-tête du message</string>
     <string name="title_advanced_font_size_sender">Taille de police du champ « Expéditeur »</string>
@@ -982,6 +983,7 @@
     <string name="title_search_in_subject">Dans l\'objet</string>
     <string name="title_search_in_keywords">Dans les mots-clés (si pris en charge)</string>
     <string name="title_search_in_message">Dans le texte du message</string>
+    <string name="title_search_in_notes">Dans les notes locales</string>
     <string name="title_search_with">Limiter la recherche à</string>
     <string name="title_search_with_unseen">Non lus</string>
     <string name="title_search_with_flagged">Suivis</string>

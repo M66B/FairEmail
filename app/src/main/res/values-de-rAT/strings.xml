@@ -313,6 +313,7 @@
     <string name="title_advanced_color_threshold">Schwellenwert Schriftfarbe: %1$s %%</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_replace_name">Einen Kontaktnamen gegenüber einem gesendeten Namen bevorzugen</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Nur Kontaktnamen anzeigen</string>
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
@@ -980,6 +981,7 @@
     <string name="title_search_in_subject">Im Betreff</string>
     <string name="title_search_in_keywords">In Schlagwörtern (wenn unterstützt)</string>
     <string name="title_search_in_message">Im Nachrichtentext</string>
+    <string name="title_search_in_notes">In lokale Notizen</string>
     <string name="title_search_with">Suche beschränken auf</string>
     <string name="title_search_with_unseen">Ungelesen</string>
     <string name="title_search_with_flagged">Markiert</string>

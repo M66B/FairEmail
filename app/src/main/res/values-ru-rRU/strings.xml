@@ -181,6 +181,7 @@
     <string name="title_setup_grant_again">Предоставить необходимые разрешения</string>
     <string name="title_setup_exchange_support">Поддерживается ли Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Что такое идентификатор?</string>
+    <string name="title_setup_free">Это бесплатное приложение?</string>
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
@@ -333,6 +334,7 @@
     <string name="title_advanced_color_threshold">Порог яркости отображения букв: %1$s %%</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_replace_name">Предпочитать имя контакта вместо имени отправителя</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Показывать только имена контактов</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"Кому\"</string>
     <string name="title_advanced_show_recipients">Показывать получателей в заголовке сообщения</string>
     <string name="title_advanced_font_size_sender">Размера текста поля \"Отправитель\"</string>
@@ -1003,6 +1005,7 @@
     <string name="title_search_in_subject">В теме</string>
     <string name="title_search_in_keywords">В ключевых словах (если возможно)</string>
     <string name="title_search_in_message">В тексте сообщения</string>
+    <string name="title_search_in_notes">В локальных заметках</string>
     <string name="title_search_with">Ограничение поиска</string>
     <string name="title_search_with_unseen">Не прочитано</string>
     <string name="title_search_with_flagged">Избранное</string>
