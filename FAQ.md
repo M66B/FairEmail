@@ -1036,9 +1036,12 @@ Sometimes it is necessary to enable external access (IMAP/SMTP) on the website o
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to login from certain networks / IP addresses only.
 
-If needed, you can change a password in the account settings:
+If needed, you can update a password in the account settings:
 navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account.
 Changing the account password will in most cases automatically change the password of related identities too.
+If the account was authorized with OAuth via the quick setup wizard instead of with a password,
+you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again.
+Note that this requires a recent version of the app.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password.
 Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
