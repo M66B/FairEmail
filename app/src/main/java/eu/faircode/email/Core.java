@@ -2870,7 +2870,7 @@ class Core {
             }
 
             db.folder().setFolderLastSync(folder.id, new Date().getTime());
-            db.folder().setFolderError(folder.id, null);
+            //db.folder().setFolderError(folder.id, null);
 
             stats.total = (SystemClock.elapsedRealtime() - search);
 
