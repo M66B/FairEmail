@@ -861,6 +861,13 @@ public class Helper {
         view.setLayoutParams(lparam);
     }
 
+    static boolean isNight(Context context) {
+        // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme#configuration_changes
+        int uiMode = context.getResources().getConfiguration().uiMode;
+        Log.i("UI mode=" + uiMode);
+        return ((uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES);
+    }
+
     static boolean isDarkTheme(Context context) {
         TypedValue tv = new TypedValue();
         context.getTheme().resolveAttribute(R.attr.themeName, tv, true);

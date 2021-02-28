@@ -100,10 +100,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (!this.getClass().equals(ActivityMain.class)) {
             String theme = prefs.getString("theme", "blue_orange_system");
 
-            // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme#configuration_changes
-            int uiMode = getResources().getConfiguration().uiMode;
-            boolean night = ((uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES);
-            EntityLog.log(this, "Activity theme=" + theme + " UI mode=" + uiMode + " night=" + night);
+            boolean night = Helper.isNight(this);
+            EntityLog.log(this, "Activity theme=" + theme + " night=" + night);
 
             switch (theme) {
                 // Light

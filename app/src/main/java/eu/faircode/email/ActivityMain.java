@@ -181,7 +181,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             else
                 prefs.edit().putBoolean("compact", true).apply();
 
-            setTheme(R.style.AppThemeBlueOrangeLight);
+            if (Helper.isNight(this))
+                setTheme(R.style.AppThemeBlueOrangeDark);
+            else
+                setTheme(R.style.AppThemeBlueOrangeLight);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
