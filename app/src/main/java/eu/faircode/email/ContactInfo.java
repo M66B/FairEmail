@@ -691,7 +691,7 @@ public class ContactInfo {
         return null;
     }
 
-    static Address[] fillIn(Address[] addresses, boolean prefer_contact) {
+    static Address[] fillIn(Address[] addresses, boolean prefer_contact, boolean only_contact) {
         if (addresses == null)
             return null;
 
@@ -699,7 +699,7 @@ public class ContactInfo {
         for (int i = 0; i < addresses.length; i++) {
             InternetAddress address = (InternetAddress) addresses[i];
             String email = address.getAddress();
-            String personal = address.getPersonal();
+            String personal = (only_contact ? null : address.getPersonal());
             if (!TextUtils.isEmpty(email)) {
                 Lookup lookup = emailLookup.get(email.toLowerCase(Locale.ROOT));
                 if (lookup != null &&

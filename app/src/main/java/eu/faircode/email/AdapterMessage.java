@@ -244,6 +244,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean color_stripe;
     private boolean name_email;
     private boolean prefer_contact;
+    private boolean only_contact;
     private boolean distinguish_contacts;
     private boolean show_recipients;
     private Float font_size_sender;
@@ -935,9 +936,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean reverse = (outgoing && (viewType != ViewType.THREAD || !threading));
             Address[] addresses = (reverse ? message.to : message.from);
             Address[] senders = ContactInfo.fillIn(
-                    reverse && !show_recipients ? message.to : message.senders, prefer_contact);
+                    reverse && !show_recipients ? message.to : message.senders, prefer_contact, only_contact);
             Address[] recipients = ContactInfo.fillIn(
-                    reverse && !show_recipients ? message.from : message.recipients, prefer_contact);
+                    reverse && !show_recipients ? message.from : message.recipients, prefer_contact, only_contact);
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
@@ -5328,6 +5329,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.name_email = prefs.getBoolean("name_email", false);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
+        this.only_contact = prefs.getBoolean("only_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.show_recipients = prefs.getBoolean("show_recipients", false);
 
