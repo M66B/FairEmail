@@ -471,7 +471,6 @@
     <string name="title_advanced_english_hint">Hal ini akan mengulang aplikasi kembali</string>
     <string name="title_advanced_experiments_hint">Daftar fitur eksperimental yang sedang berjalan</string>
     <string name="title_advanced_protocol_hint">Hal ini akan menurunkan penggunaan baterai dan ruang penyimpanan secara signifikan!</string>
-    <string name="title_advanced_debug_hint">Aktifkan aktifitas ekstra dan menampilkan informasi debug yang buruk di berbagai tempat</string>
     <string name="title_advanced_cleanup_attachments_hint">Saat membersihkan secara manual, ini menghapus lampiran dari pesan yang tidak lagi disinkronkan</string>
     <string name="title_advanced_cleanup_hint">Hal ini akan menghapus berkas sementara</string>
     <string name="title_advanced_never_favorite">Tidak akan masuk favorit</string>

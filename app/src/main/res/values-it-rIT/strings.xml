@@ -526,7 +526,6 @@
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_protocol_hint">Questo aumenterà significativamente l\'utilizzo della batteria e dello spazio di archiviazione!</string>
-    <string name="title_advanced_debug_hint">Abilita la registrazione extra e mostra informazioni di debug brutte in vari luoghi</string>
     <string name="title_advanced_cleanup_attachments_hint">Questo rimuoverà gli allegati dai messaggi che non sono più sincronizzati durante la pulizia manuale</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>

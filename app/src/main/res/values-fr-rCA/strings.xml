@@ -453,7 +453,7 @@
     <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
     <string name="title_advanced_protocol">Journalisation du protocole</string>
-    <string name="title_advanced_log_info" comment="title_advanced_log_info&#10;Title for option to enable extra (debug) logging">Journalisation supplémentaire</string>
+    <string name="title_advanced_log_info">Journaux de débogage</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
@@ -527,7 +527,7 @@
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
     <string name="title_advanced_protocol_hint">Ceci augmentera considérablement l\'utilisation de la pile et de l\'espace de stockage!</string>
-    <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher d\'affreuses informations de débogage en différents endroits</string>
+    <string name="title_advanced_debug_hint">Ceci affichera des informations de débogage moches à différents endroits</string>
     <string name="title_advanced_cleanup_attachments_hint">Lors du nettoyage manuel, ceci supprimera les pièces jointes des messages qui ne sont plus synchronisés</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Ne jamais mettre en favori</string>

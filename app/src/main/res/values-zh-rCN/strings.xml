@@ -514,7 +514,6 @@
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_protocol_hint">这将大幅增加电池和存储空间用量！</string>
-    <string name="title_advanced_debug_hint">启用额外的日志记录并在不同位置显示晦涩的调试信息</string>
     <string name="title_advanced_cleanup_attachments_hint">手动清理时，这将从不再同步的消息中移除附件</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>

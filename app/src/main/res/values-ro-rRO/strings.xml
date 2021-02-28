@@ -534,7 +534,6 @@
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
     <string name="title_advanced_protocol_hint">Acest lucru va crește semnificativ utilizarea bateriei și a spațiului de stocare!</string>
-    <string name="title_advanced_debug_hint">Activează jurnalul suplimentar și arată informații de depanare urâte în diferite locuri</string>
     <string name="title_advanced_cleanup_attachments_hint">Când se curăță manual, se vor elimina atașamentele din mesajele care nu mai sunt sincronizate</string>
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
     <string name="title_advanced_never_favorite">Niciodată favorit</string>

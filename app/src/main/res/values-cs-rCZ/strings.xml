@@ -475,7 +475,6 @@
     <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_protocol">Protokolovat protokoly</string>
-    <string name="title_advanced_log_info" comment="title_advanced_log_info&#10;Title for option to enable extra (debug) logging">Rozšířené protokolování</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
     <string name="title_advanced_cleanup">Úklid</string>
@@ -549,7 +548,6 @@
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
     <string name="title_advanced_protocol_hint">Výrazně zvýší spotřebu baterie a potřebu úložného prostoru!</string>
-    <string name="title_advanced_debug_hint">Povolit rozšířené protokolování a zobrazit nevzhledné ladící informace na různých místech</string>
     <string name="title_advanced_cleanup_attachments_hint">Při ručním čištění odebere přílohy ze zpráv, které již nejsou synchronizovány</string>
     <string name="title_advanced_cleanup_hint">Smaže dočasné soubory</string>
     <string name="title_advanced_never_favorite">Nikdy oblíbený</string>

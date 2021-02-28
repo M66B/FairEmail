@@ -475,7 +475,7 @@
     <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_protocol">Журнал протокола</string>
-    <string name="title_advanced_log_info" comment="title_advanced_log_info&#10;Title for option to enable extra (debug) logging">Расширенный журнал</string>
+    <string name="title_advanced_log_info">Журнал отладки</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_cleanup_attachments">Удалять вложения старых сообщений</string>
     <string name="title_advanced_cleanup">Очистка</string>
@@ -549,7 +549,7 @@
     <string name="title_advanced_english_hint">Произойдёт перезапуск приложения</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
     <string name="title_advanced_protocol_hint">Значительно увеличится использование батареи и занимаемое место в хранилище!</string>
-    <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
+    <string name="title_advanced_debug_hint">Отображение отладочной информации в различных местах</string>
     <string name="title_advanced_cleanup_attachments_hint">При ручной очистке будут удалены вложения сообщений, которые больше не синхронизируются</string>
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>
     <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>

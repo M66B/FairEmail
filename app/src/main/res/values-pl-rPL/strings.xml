@@ -547,7 +547,6 @@
     <string name="title_advanced_english_hint">To uruchomi aplikację ponownie</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
     <string name="title_advanced_protocol_hint">Zwiększy to zużycie baterii i miejsca na dysku!</string>
-    <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_advanced_cleanup_attachments_hint">Podczas ręcznego czyszczenia spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
     <string name="title_advanced_never_favorite">Nigdy ulubiony</string>

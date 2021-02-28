@@ -504,7 +504,6 @@
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_advanced_experiments_hint">Güncel deneysel özelliklerin listesi</string>
     <string name="title_advanced_protocol_hint">Bu, pil ve depolama alanı kullanımını önemli ölçüde artıracaktır!</string>
-    <string name="title_advanced_debug_hint">Ekstra günlük kaydını etkinleştirin ve çeşitli yerlerde çirkin hata ayıklama bilgileri gösterin</string>
     <string name="title_advanced_cleanup_attachments_hint">El ile temizlerken, artık senkronize edilmeyen iletilerden ekler kaldırılır.</string>
     <string name="title_advanced_cleanup_hint">Bu bütün geçici dosyaları silecek</string>
     <string name="title_advanced_never_favorite">Asla sık kullanılan değil</string>
