@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,11 +31,9 @@ public class SwipeListener implements View.OnTouchListener {
     private final GestureDetector gestureDetector;
 
     SwipeListener(final Context context, final ISwipeListener listener) {
-        final int width = Math.min(
-                context.getResources().getDisplayMetrics().widthPixels,
-                context.getResources().getDisplayMetrics().heightPixels);
-        final int MOVE_THRESHOLD = width / 3;
-        final int SPEED_THRESHOLD = width / 2;
+        final DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        final int MOVE_THRESHOLD = Math.round(dm.xdpi);
+        final int SPEED_THRESHOLD = Math.round(dm.xdpi * 1.5f);
 
         gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
             @Override
