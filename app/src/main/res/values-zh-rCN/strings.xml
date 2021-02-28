@@ -147,6 +147,7 @@
     <string name="title_setup_grant_again">授予所需权限</string>
     <string name="title_setup_exchange_support">是否支持 Microsoft Exchange?</string>
     <string name="title_setup_identity_what">什么是身份？</string>
+    <string name="title_setup_free">此应用是否可免费使用？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_doze">禁用电池优化</string>
@@ -441,6 +442,7 @@
     <string name="title_advanced_query_threads">限制并行数据库访问</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_protocol">协议日志记录</string>
+    <string name="title_advanced_log_info">调试日志</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
@@ -514,6 +516,7 @@
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_protocol_hint">这将大幅增加电池和存储空间用量！</string>
+    <string name="title_advanced_debug_hint">这会在多处显示难看的调试信息</string>
     <string name="title_advanced_cleanup_attachments_hint">手动清理时，这将从不再同步的消息中移除附件</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>

@@ -823,6 +823,8 @@ The preview of the message text cannot be shown if the message body has not been
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
+First of all, only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use. Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of all pro features.
+
 The right question is "*why are there so many taxes and fees?*":
 
 * Moms: 25 % (afhængigt af land)
@@ -832,9 +834,7 @@ The right question is "*why are there so many taxes and fees?*":
 
 So, what is left for the developer is just a fraction of what you pay.
 
-Note that only some convenience and advanced features need to be purchased which means that FairEmail is basically free to use.
-
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet.
+Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet. There are no privacy violating ads in the app either.
 
 I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
 
@@ -865,14 +865,16 @@ Setting a light color before Android 8 is not supported and on Android 8 and lat
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently. Please see [this FAQ](#user-content-faq123) for more information about this.
 
 There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
 <a name="authfailed"></a>
-The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+
+If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
@@ -880,7 +882,7 @@ The message *... +OK ...* likely means that a POP3 port (usually port number 995
 
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
-Fejlen *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
 
 The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
@@ -2001,7 +2003,7 @@ Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](http
 
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
-Er domænenavnene for afsender og svaradresse forskellige, vises advarselsflaget også, da dette oftest vil indikere phishing-beskeder. Om ønsket, kan dette deaktiveres i modtagelsesindstillingerne (fra v1.1506).
+If the domain name of the sender and the domain name of the reply address differ, the warning flag will be shown too because this is most often the case with phishing messages. If desired, this can be disabled in the receive settings (from version 1.1506).
 
 If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
 
@@ -2146,17 +2148,17 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
-Bemærk, at Nova Launcher kræver Tesla Unread, hvilket [ikke længere understøttes](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
-Bemærk, at notifikationsindstillingen *Vis launcher-ikon med antallet af nye beskeder* skal være aktiveret (standard aktiveret).
+Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
 
-Kun *nye* ulæste beskeder i mapper sat til at vise nye beskednotifikationer vil blive talt, mens beskeder markeret som ulæste igen og beskeder i mapper sat til ikke at vise ny besked-notifikation ikke tælles.
+Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Afhængigt ønske, vil notifikationsindstillingen *Lad antallet af nye beskeder matcher antallet af notifikationer* skulle aktiveres eller deaktiveres.
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
 
-Denne funktion afhænger af understøttelsen af din launcher. FairEmail 'udsendelser' blot antallet af ulæste beskeder vha. ShortcutBadger-biblioteket. Fungerer det ikke, kan dette ikke løses ved ændringer i FairEmail.
+This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Visse lanchere viser '1'' for [moniteringsnotifikationen](#user-content-faq2) trods FairEmails eksplicitte anmodning om íkke at vise et badge til denne notifikation. Dette kan skyldes en fejl i launcher-appen eller i Android-versionen. Dobbelttjek, at notifikationsprikken er deaktiveret for notifikationsmodtagelseskanalen (tjenesten). Man kan gå til de rigtige notifikationskanalindstillinger via FairEmails notifikationsindstillinger. Det er måske ikke indlysende, men der kan trykkes på kanalnavnet for yderligere indstillinger.
+Some launchers display '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a badge for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
 
 FairEmail does send a new message count intent as well:
 
