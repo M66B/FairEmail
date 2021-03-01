@@ -6717,7 +6717,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         notes = null;
 
                                     DB db = DB.getInstance(context);
-                                    db.message().setMessageNotes(id, notes);
+                                    try {
+                                        db.beginTransaction();
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message == null)
+                                            return null;
+
+                                        db.message().setMessageNotes(message.id, notes);
+
+                                        if (TextUtils.isEmpty(message.hash))
+                                            return null;
+
+                                        List<EntityMessage> messages = db.message().getMessagesByHash(message.account, message.hash);
+                                        if (messages == null)
+                                            return null;
+
+                                        for (EntityMessage m : messages)
+                                            db.message().setMessageNotes(m.id, notes);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
 
                                     return null;
                                 }
