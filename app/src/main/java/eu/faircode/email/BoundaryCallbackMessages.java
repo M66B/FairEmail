@@ -150,7 +150,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                if (state.end != null && !state.end.equals(end)) {
+                if (end != null && state.end != null && !state.end.equals(end)) {
                     Log.i("Boundary end=" + state.end + "/" + end);
                     return;
                 }
