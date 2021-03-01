@@ -33,6 +33,7 @@ import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
+import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
@@ -154,7 +155,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     return;
                 }
 
-                Log.i("Boundary run end=" + state.end + "/" + end + " memory=" + Log.getFreeMemMb());
+                Log.i("Boundary run end=" + state.end + "/" + end);
 
                 int found = 0;
                 try {
@@ -307,7 +308,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             }
         }
 
-        Log.i("Boundary device done memory=" + Log.getFreeMemMb());
+        Log.i("Boundary device done");
         return found;
     }
 
@@ -525,8 +526,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     Log.e(browsable.name + " boundary server", ex);
                     db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                 } finally {
-                    isub[j] = null;
-                    // ((IMAPMessage) isub[j]).invalidateHeaders();
+                    ((IMAPMessage) isub[j]).invalidateHeaders();
                 }
         }
 
@@ -535,7 +535,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             close(state, false);
         }
 
-        Log.i("Boundary server done memory=" + Log.getFreeMemMb());
+        Log.i("Boundary server done");
         return found;
     }
 
