@@ -88,7 +88,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IBoundaryCallbackMessages intf;
 
     private State state;
-    private ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
+    private final ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
     private static final int SEARCH_LIMIT_SERVER = 250;
@@ -118,13 +118,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     @Override
     public void onZeroItemsLoaded() {
         Log.i("Boundary zero loaded");
-        queue_load(state);
+        queue_load(state, null);
     }
 
     @Override
     public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
-        Log.i("Boundary at end");
-        queue_load(state);
+        Long id = (itemAtEnd == null ? null : itemAtEnd.id); // fall-safe
+
+        if (state.end != null && state.end.equals(id)) {
+            Log.i("Boundary at same end=" + id);
+            return;
+        }
+
+        Log.i("Boundary at end=" + id);
+        queue_load(state, id);
     }
 
     void retry() {
@@ -134,14 +141,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 close(state, true);
             }
         });
-        queue_load(state);
+        queue_load(state, null);
     }
 
-    private void queue_load(final State state) {
+    private void queue_load(final State state, Long end) {
+        state.end = end;
+
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                Log.i("Boundary run");
+                if (state.end != null && !state.end.equals(end)) {
+                    Log.i("Boundary end=" + state.end + "/" + end);
+                    return;
+                }
+
+                Log.i("Boundary run end=" + state.end + "/" + end);
 
                 int found = 0;
                 try {
@@ -597,11 +611,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             state.reset();
     }
 
-    private class State {
+    private static class State {
         boolean destroyed = false;
         boolean error = false;
         int index = 0;
         int offset = 0;
+        Long end = null;
         List<Long> ids = null;
         List<TupleMatch> matches = null;
 
@@ -615,6 +630,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             error = false;
             index = 0;
             offset = 0;
+            end = null;
             ids = null;
             matches = null;
             iservice = null;
