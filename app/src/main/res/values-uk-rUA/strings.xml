@@ -169,6 +169,7 @@
     <string name="title_setup_grant_again">Надати необхідні дозволи</string>
     <string name="title_setup_exchange_support">Чи підтримується Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Що таке особисті данні?</string>
+    <string name="title_setup_free">Цей додаток може використовуватися безкоштовно?</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
@@ -321,6 +322,7 @@
     <string name="title_advanced_color_threshold">Поріг для кольору літери: %1$s %%</string>
     <string name="title_advanced_name_email">Показати імена та адреси електронної пошти</string>
     <string name="title_advanced_replace_name">Віддавати перевагу імені контакту над надісланим іменем</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Показувати тільки імена контактів</string>
     <string name="title_advanced_distinguish_contacts">Підкреслювати відправника в полі \'to\', коли відправник відомий як місцевий контакт</string>
     <string name="title_advanced_show_recipients">Показувати отримувачів в заголовку повідомлення</string>
     <string name="title_advanced_font_size_sender">Розмір тексту в полі відправник</string>
@@ -463,6 +465,7 @@
     <string name="title_advanced_query_threads">Обмежити паралельний доступ до бази даних</string>
     <string name="title_advanced_crash_reports">Надіслати звіт про помилки</string>
     <string name="title_advanced_protocol">Журналювання протоколів</string>
+    <string name="title_advanced_log_info">Журнал налагодження</string>
     <string name="title_advanced_debug">Режим зневадження</string>
     <string name="title_advanced_cleanup_attachments">Видалити вкладення для старих повідомлень</string>
     <string name="title_advanced_cleanup">Очищення</string>
@@ -535,6 +538,7 @@
     <string name="title_advanced_english_hint">Буде перезапущено додаток</string>
     <string name="title_advanced_experiments_hint">Список експериментальних функцій</string>
     <string name="title_advanced_protocol_hint">Це істотно збільшить використання акумулятора та простору для зберігання!</string>
+    <string name="title_advanced_debug_hint">В різних місцях може показати інформацію для налагодження в недуже приємному вигляді</string>
     <string name="title_advanced_cleanup_attachments_hint">При очищенні вручну будуть видалені вкладення з повідомлень, які більше не синхронізуються</string>
     <string name="title_advanced_cleanup_hint">Це призведе до видалення всіх тимчасових файлів</string>
     <string name="title_advanced_never_favorite">Ніколи не додавати до улюбленого</string>
@@ -988,6 +992,7 @@
     <string name="title_search_in_subject">У темі</string>
     <string name="title_search_in_keywords">У ключових словах (якщо підтримується)</string>
     <string name="title_search_in_message">У тексті повідомлення</string>
+    <string name="title_search_in_notes">У локальних нотатках</string>
     <string name="title_search_with">Обмежити пошук, тільки</string>
     <string name="title_search_with_unseen">Непрочитані</string>
     <string name="title_search_with_flagged">Обрані</string>

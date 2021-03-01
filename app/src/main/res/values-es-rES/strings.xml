@@ -159,6 +159,7 @@
     <string name="title_setup_grant_again">Otorgar permisos requeridos</string>
     <string name="title_setup_exchange_support">¿Es compatible con Microsoft Exchange?</string>
     <string name="title_setup_identity_what">¿Qué es una identidad?</string>
+    <string name="title_setup_free">¿Esta aplicación es gratuita?</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
     <string name="title_setup_doze">Desactivar las optimizaciones de la batería</string>
@@ -311,6 +312,7 @@
     <string name="title_advanced_color_threshold">Umbral de color de letras: %1$s %%</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_replace_name">Preferir un nombre de contacto sobre un nombre enviado</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Mostrar sólo nombres de contactos</string>
     <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_show_recipients">Mostrar destinatarios en el encabezado del mensaje</string>
     <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
@@ -453,6 +455,7 @@
     <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_protocol">Registro de protocolos</string>
+    <string name="title_advanced_log_info">Registro de depuración</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
     <string name="title_advanced_cleanup">Limpieza</string>
@@ -526,6 +529,7 @@
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_experiments_hint">Lista de características experimentales actuales</string>
     <string name="title_advanced_protocol_hint">¡Esto aumentará significativamente el uso de la batería y el espacio de almacenamiento!</string>
+    <string name="title_advanced_debug_hint">Esto mostrará desagradable información de depuración en varios lugares</string>
     <string name="title_advanced_cleanup_attachments_hint">Esto eliminará los archivos adjuntos de los mensajes que ya no están sincronizados al limpiar manualmente</string>
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
@@ -979,6 +983,7 @@
     <string name="title_search_in_subject">En asunto</string>
     <string name="title_search_in_keywords">En palabras clave (si es compatible)</string>
     <string name="title_search_in_message">En texto del mensaje</string>
+    <string name="title_search_in_notes">En notas locales</string>
     <string name="title_search_with">Limitar búsqueda a</string>
     <string name="title_search_with_unseen">No leído</string>
     <string name="title_search_with_flagged">Destacado</string>
