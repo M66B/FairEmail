@@ -2846,7 +2846,7 @@ class Core {
                             Log.e(folder.name, ex);
                         } finally {
                             // Free memory
-                            ((IMAPMessage) isub[j]).invalidateHeaders();
+                            isub[j] = null;
                         }
                 }
             }
