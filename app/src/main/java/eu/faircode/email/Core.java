@@ -2809,6 +2809,7 @@ class Core {
                     int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
 
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
+                    Arrays.fill(imessages, from, i + 1, null);
                     // Fetch on demand
 
                     int free = Log.getFreeMemMb();
@@ -2846,7 +2847,8 @@ class Core {
                             Log.e(folder.name, ex);
                         } finally {
                             // Free memory
-                            ((IMAPMessage) isub[j]).invalidateHeaders();
+                            isub[j] = null;
+                            //((IMAPMessage) isub[j]).invalidateHeaders();
                         }
                 }
             }
