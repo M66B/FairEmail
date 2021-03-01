@@ -572,6 +572,7 @@ public class EmailProvider {
             List<Server> imaps = new ArrayList<>();
             // SSL
             imaps.add(new Server(domain, "imap", 993));
+            imaps.add(new Server(domain, "imaps", 993));
             imaps.add(new Server(domain, "mail", 993));
             imaps.add(new Server(domain, "mx", 993));
             imaps.add(new Server(domain, null, 993));
@@ -600,6 +601,7 @@ public class EmailProvider {
             smtps.add(new Server(domain, null, 587));
             // SSL
             smtps.add(new Server(domain, "smtp", 465));
+            smtps.add(new Server(domain, "smtps", 465));
             smtps.add(new Server(domain, "mail", 465));
             smtps.add(new Server(domain, "mx", 465));
             smtps.add(new Server(domain, null, 465));
