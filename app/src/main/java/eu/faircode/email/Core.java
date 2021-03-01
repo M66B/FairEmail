@@ -3872,13 +3872,11 @@ class Core {
                 }
             }
 
-            Integer prev = data.newMessages.get(group);
-            if (prev == null)
-                prev = 0;
+            Integer prev = prefs.getInt("new_messages." + group, 0);
             Integer current = newMessages.get(group);
             if (current == null)
                 current = 0;
-            data.newMessages.put(group, current);
+            prefs.edit().putInt("new_messages." + group, current).apply();
 
             if (prev.equals(current) &&
                     remove.size() + add.size() == 0) {
@@ -4872,7 +4870,6 @@ class Core {
     }
 
     static class NotificationData {
-        private Map<Long, Integer> newMessages = new HashMap<>();
         private Map<Long, List<Long>> groupNotifying = new HashMap<>();
 
         NotificationData(Context context) {
