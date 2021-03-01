@@ -158,6 +158,7 @@
     <string name="title_setup_grant_again">Myönnä vaaditut oikeudet</string>
     <string name="title_setup_exchange_support">Onko Microsoft Exchange tuettu?</string>
     <string name="title_setup_identity_what">Mikä on identiteetti?</string>
+    <string name="title_setup_free">Onko tämän sovelluksen käyttäminen ilmaista?</string>
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>

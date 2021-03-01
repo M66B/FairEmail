@@ -180,6 +180,7 @@
     <string name="title_setup_grant_again">Udziel wymaganych uprawnień</string>
     <string name="title_setup_exchange_support">Czy Microsoft Exchange jest wspierany?</string>
     <string name="title_setup_identity_what">Czym jest tożsamość?</string>
+    <string name="title_setup_free">Czy ta aplikacja jest darmowa?</string>
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
@@ -332,6 +333,7 @@
     <string name="title_advanced_color_threshold">Próg koloru czcionki: %1$s %%</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
     <string name="title_advanced_replace_name">Preferuj nazwę kontaktu nad nazwą wysłaną</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Wyświetlaj tylko nazwy kontaktów</string>
     <string name="title_advanced_distinguish_contacts">Podkreśl nadawcę, gdy znany jest jako lokalny kontakt „do”</string>
     <string name="title_advanced_show_recipients">Pokaż odbiorców w nagłówku wiadomości</string>
     <string name="title_advanced_font_size_sender">Rozmiar tekstu nadawcy</string>
@@ -474,6 +476,7 @@
     <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
+    <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
@@ -547,6 +550,7 @@
     <string name="title_advanced_english_hint">To uruchomi aplikację ponownie</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
     <string name="title_advanced_protocol_hint">Zwiększy to zużycie baterii i miejsca na dysku!</string>
+    <string name="title_advanced_debug_hint">To pokaże brzydkie informacje o debugowaniu w różnych miejscach</string>
     <string name="title_advanced_cleanup_attachments_hint">Podczas ręcznego czyszczenia spowoduje to usunięcie załączników z wiadomości, które nie są już synchronizowane</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
     <string name="title_advanced_never_favorite">Nigdy ulubiony</string>
@@ -1000,6 +1004,7 @@
     <string name="title_search_in_subject">W temacie</string>
     <string name="title_search_in_keywords">W słowach kluczowych (jeśli obsługiwane)</string>
     <string name="title_search_in_message">W tekście wiadomości</string>
+    <string name="title_search_in_notes">W notatkach lokalnych</string>
     <string name="title_search_with">Ogranicz wyszukiwanie do</string>
     <string name="title_search_with_unseen">Nieprzeczytane</string>
     <string name="title_search_with_flagged">Oznaczone</string>

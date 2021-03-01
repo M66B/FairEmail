@@ -300,6 +300,7 @@
     <string name="title_advanced_color_threshold">字母颜色阈值：%1$s %%</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送名称</string>
+    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">仅显示联系人姓名</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
@@ -970,6 +971,7 @@
     <string name="title_search_in_subject">主题</string>
     <string name="title_search_in_keywords">关键词 (如果支持)</string>
     <string name="title_search_in_message">消息文本</string>
+    <string name="title_search_in_notes">在本地笔记中</string>
     <string name="title_search_with">限定以下搜索</string>
     <string name="title_search_with_unseen">未读邮件</string>
     <string name="title_search_with_flagged">星标邮件</string>

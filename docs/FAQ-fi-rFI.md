@@ -69,7 +69,7 @@ Related questions:
 * ~~A [vika AndroidX:ssa](https://issuetracker.google.com/issues/78495471) aiheuttaa joskus FairEmailin kaatumisen pitkään painamalla tai pyyhkäisemällä. Google on korjannut tämän.~~
 * ~~A [vika AndroidX ROOM:ssa](https://issuetracker.google.com/issues/138441698) aiheuttaa joskus kaatumisen "*... Exception while computing database live data ... Riviä ...* " ei voitu lukea. workaround lisättiin ~~
 * A [vika AndroidX ROOM:ssa](https://issuetracker.google.com/issues/119872129) aiheuttaa joskus kaatumisen "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [vika Androidissa](https://issuetracker.google.com/issues/62427912) aiheuttaa joskus kaatumisen "*... Aktiviteettitietuetta ei löydy ...*" FairEmailin päivityksen jälkeen. Uudelleenasennus ([lähde](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) saattaa korjata ongelman.
+* [Vika Androidissa](https://issuetracker.google.com/issues/62427912) aiheuttaa joskus kaatumisen "*... Aktiviteettitietuetta ei löydy ...*" FairEmailin päivityksen jälkeen. Uudelleenasennus ([lähde](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) saattaa korjata ongelman.
 * A [vika Androidissa](https://issuetracker.google.com/issues/37018931) aiheuttaa joskus kaatumisen "*... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
@@ -145,10 +145,10 @@ The design is based on many discussions and if you like you can discuss about it
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
+* [(23) Miksi saan hälytyksen .. ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
+* [(26) Voinko auttaa FairEmail:in kääntämisessä omalle kielelleni?](#user-content-faq26)
 * [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
 * [(28) How can I manage status bar notifications?](#user-content-faq28)
 * [(29) How can I get new message notifications for other folders?](#user-content-faq29)
@@ -223,11 +223,11 @@ The design is based on many discussions and if you like you can discuss about it
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq158)
+* [(103) Kuinka nauhoitan ääntä?](#user-content-faq158)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
+* [(107) Kuinka käytän värillisiä tähtiä?](#user-content-faq107)
 * [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
@@ -275,7 +275,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(152) How can I insert a contact group?](#user-content-faq152)
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
+* [(155) Mikä winmail.dat-tiedosto on?](#user-content-faq155)
 * [(156) How can I set up an Office 365 account?](#user-content-faq156)
 * [(157) How can I set up an Free.fr account?](#user-content-faq157)
 * [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
@@ -285,7 +285,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(165) Tuetaanko Android Autoa?](#user-content-faq165)
 
 [I have another question.](#user-content-support)
 
@@ -418,7 +418,7 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*Tyhjä salasana*
 
 Your username is likely easily guessed, so this is insecure.
 
@@ -669,7 +669,7 @@ Public keys are stored by FairEmail and can be imported when verifying a signatu
 
 FairEmail verifies both the signature and the complete certificate chain.
 
-Common errors:
+Yleiset virheet:
 
 * *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
 * *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
