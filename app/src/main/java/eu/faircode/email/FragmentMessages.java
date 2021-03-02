@@ -6921,45 +6921,51 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "decrypt:s/mime");
     }
 
-    private static void checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) throws IOException, MessagingException {
+    private static void checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) {
         DB db = DB.getInstance(context);
         for (EntityAttachment remote : remotes)
-            if ("message/rfc822".equals(remote.getMimeType())) {
-                Properties props = MessageHelper.getSessionProperties();
-                Session isession = Session.getInstance(props, null);
+            if ("message/rfc822".equals(remote.getMimeType()))
+                try {
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
 
-                MimeMessage pep;
-                try (InputStream fis = new FileInputStream(remote.getFile(context))) {
-                    pep = new MimeMessage(isession, fis);
-                }
-
-                String[] xpep = pep.getHeader("X-pEp-Wrapped-Message-Info");
-                if (xpep != null && xpep.length > 0 && "INNER".equals(xpep[0])) {
-                    MessageHelper phelper = new MessageHelper(pep, context);
-                    String spep = phelper.getSubject();
-                    if (!TextUtils.isEmpty(spep))
-                        db.message().setMessageSubject(message.id, spep);
-
-                    String shtml = phelper.getMessageParts().getHtml(context);
-                    if (!TextUtils.isEmpty(shtml)) {
-                        String html = Helper.readText(message.getFile(context));
-
-                        if (!TextUtils.isEmpty(html)) {
-                            EntityAttachment a = new EntityAttachment();
-                            a.message = message.id;
-                            a.sequence = remotes.size();
-                            a.type = "text/html";
-                            a.disposition = Part.INLINE;
-                            a.id = db.attachment().insertAttachment(a);
-
-                            Helper.writeText(a.getFile(context), html);
-                            db.attachment().setDownloaded(a.id, (long) html.length());
-                        }
-
-                        Helper.writeText(message.getFile(context), shtml);
+                    MimeMessage imessage;
+                    try (InputStream fis = new FileInputStream(remote.getFile(context))) {
+                        imessage = new MimeMessage(isession, fis);
                     }
+
+                    String[] xpep = imessage.getHeader("X-pEp-Wrapped-Message-Info");
+                    if (xpep != null && xpep.length > 0 &&
+                            "INNER".equalsIgnoreCase(xpep[0])) {
+                        MessageHelper helper = new MessageHelper(imessage, context);
+
+                        String subject = helper.getSubject();
+                        if (!TextUtils.isEmpty(subject))
+                            db.message().setMessageSubject(message.id, subject);
+
+                        String html = helper.getMessageParts().getHtml(context);
+                        if (!TextUtils.isEmpty(html)) {
+                            String orig_html = Helper.readText(message.getFile(context));
+                            if (!TextUtils.isEmpty(orig_html)) {
+                                EntityAttachment attachment = new EntityAttachment();
+                                attachment.message = message.id;
+                                attachment.sequence = remotes.size();
+                                attachment.type = "text/html";
+                                attachment.disposition = Part.INLINE;
+                                attachment.id = db.attachment().insertAttachment(attachment);
+
+                                Helper.writeText(attachment.getFile(context), orig_html);
+                                db.attachment().setDownloaded(attachment.id, (long) orig_html.length());
+                            }
+
+                            Helper.writeText(message.getFile(context), html);
+                        }
+                    }
+
+                    break;
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            }
     }
 
     private void onDelete(long id) {
