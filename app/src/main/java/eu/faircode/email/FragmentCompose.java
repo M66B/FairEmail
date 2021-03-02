@@ -793,6 +793,7 @@ public class FragmentCompose extends FragmentBase {
 
         final DB db = DB.getInstance(getContext());
 
+        final boolean suggest_names = prefs.getBoolean("suggest_names", true);
         final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         final boolean suggest_received = prefs.getBoolean("suggest_received", false);
         final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
@@ -870,7 +871,7 @@ public class FragmentCompose extends FragmentBase {
                     String name = cursor.getString(colName);
                     String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
                     StringBuilder sb = new StringBuilder();
-                    if (name == null)
+                    if (name == null || !suggest_names)
                         sb.append(email);
                     else {
                         sb.append("\"").append(name).append("\" ");
@@ -2052,6 +2053,9 @@ public class FragmentCompose extends FragmentBase {
                 int requestCode = args.getInt("requestCode");
                 Uri uri = args.getParcelable("uri");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean suggest_names = prefs.getBoolean("suggest_names", true);
+
                 EntityMessage draft = null;
                 DB db = DB.getInstance(context);
 
@@ -2092,7 +2096,7 @@ public class FragmentCompose extends FragmentBase {
                             if (address != null)
                                 list.addAll(Arrays.asList(address));
 
-                            list.add(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
+                            list.add(new InternetAddress(email, suggest_names ? name : null, StandardCharsets.UTF_8.name()));
 
                             if (requestCode == REQUEST_CONTACT_TO)
                                 draft.to = list.toArray(new Address[0]);

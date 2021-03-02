@@ -308,6 +308,7 @@
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
     <string name="title_advanced_keyboard_no_fullscreen">Prevent fullscreen keyboard</string>
+    <string name="title_advanced_suggest_names">Use names and email addresses</string>
     <string name="title_advanced_suggest_local">Suggest locally stored contacts</string>
     <string name="title_advanced_suggest_sent">Suggest addresses found in sent messages</string>
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
@@ -567,6 +568,7 @@
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
+    <string name="title_advanced_suggest_names_hint">If disabled, only email addresses will be used</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>

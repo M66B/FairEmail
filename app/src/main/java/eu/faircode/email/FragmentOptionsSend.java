@@ -44,6 +44,7 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swKeyboard;
     private SwitchCompat swKeyboardNoFullscreen;
+    private SwitchCompat swSuggestNames;
     private SwitchCompat swSuggestSent;
     private SwitchCompat swSuggestReceived;
     private SwitchCompat swSuggestFrequently;
@@ -74,7 +75,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swLookupMx;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "keyboard_no_fullscreen", "suggest_sent", "suggested_received", "suggest_frequently",
+            "keyboard", "keyboard_no_fullscreen",
+            "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
             "send_reminders", "send_delayed",
             "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
@@ -95,6 +97,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swKeyboard = view.findViewById(R.id.swKeyboard);
         swKeyboardNoFullscreen = view.findViewById(R.id.swKeyboardNoFullscreen);
+        swSuggestNames = view.findViewById(R.id.swSuggestNames);
         swSuggestSent = view.findViewById(R.id.swSuggestSent);
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
@@ -141,6 +144,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("keyboard_no_fullscreen", checked).apply();
+            }
+        });
+
+        swSuggestNames.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("suggest_names", checked).apply();
             }
         });
 
@@ -410,6 +420,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
         swKeyboardNoFullscreen.setChecked(prefs.getBoolean("keyboard_no_fullscreen", false));
+        swSuggestNames.setChecked(prefs.getBoolean("suggest_names", true));
         swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
