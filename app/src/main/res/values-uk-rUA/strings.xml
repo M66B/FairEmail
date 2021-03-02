@@ -322,7 +322,7 @@
     <string name="title_advanced_color_threshold">Поріг для кольору літери: %1$s %%</string>
     <string name="title_advanced_name_email">Показати імена та адреси електронної пошти</string>
     <string name="title_advanced_replace_name">Віддавати перевагу імені контакту над надісланим іменем</string>
-    <string name="title_advanced_only_name" comment="title_advanced_only_name&#10;Title for option to show names from the Android address book only">Показувати тільки імена контактів</string>
+    <string name="title_advanced_only_name">Показувати тільки імена контактів</string>
     <string name="title_advanced_distinguish_contacts">Підкреслювати відправника в полі \'to\', коли відправник відомий як місцевий контакт</string>
     <string name="title_advanced_show_recipients">Показувати отримувачів в заголовку повідомлення</string>
     <string name="title_advanced_font_size_sender">Розмір тексту в полі відправник</string>
