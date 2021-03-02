@@ -3035,9 +3035,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) ||
                                     (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
                                             !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt));
-                    if (lock)
+                    if (lock) {
                         properties.lock(message.id);
-                    else
+                        properties.setExpanded(message, false, false);
+                        properties.setHeight(message.id, null);
+                    } else
                         onActionDecrypt(message, false);
                 } else if (id == R.id.ibVerify) {
                     onActionDecrypt(message, false);
