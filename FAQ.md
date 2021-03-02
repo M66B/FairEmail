@@ -819,8 +819,11 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 *pretty Easy privacy*
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and hardly anyone uses this.
-Nevertheless, FairEmail can properly decode incoming p≡p messages since version 1.1519.
+There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people use it.
+
+However, FairEmail can send and receive PGP encrypted messages, which is compatible with p≡p.
+Also, FairEmail understands incoming p≡p messages since version 1.1519,
+so the encrypted subject will be shown and the embedded message text will be shown more nicely.
 
 <br />
 
