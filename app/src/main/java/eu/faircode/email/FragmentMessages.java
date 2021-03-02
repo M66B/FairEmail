@@ -208,6 +208,7 @@ import java.util.concurrent.Future;
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -6244,6 +6245,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             }
                                         }
 
+                                        checkPep(message, remotes, context);
+
                                         db.message().setMessageEncrypt(message.id, parts.getEncryption());
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
@@ -6875,6 +6878,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Log.i("s/mime attachment=" + remote);
                     }
 
+                    checkPep(message, remotes, context);
+
                     db.message().setMessageEncrypt(message.id, parts.getEncryption());
                     db.message().setMessageStored(message.id, new Date().getTime());
                     db.message().setMessageFts(message.id, false);
@@ -6914,6 +6919,47 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return trace;
             }
         }.execute(this, args, "decrypt:s/mime");
+    }
+
+    private static void checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) throws IOException, MessagingException {
+        DB db = DB.getInstance(context);
+        for (EntityAttachment remote : remotes)
+            if ("message/rfc822".equals(remote.getMimeType())) {
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
+
+                MimeMessage pep;
+                try (InputStream fis = new FileInputStream(remote.getFile(context))) {
+                    pep = new MimeMessage(isession, fis);
+                }
+
+                String[] xpep = pep.getHeader("X-pEp-Wrapped-Message-Info");
+                if (xpep != null && xpep.length > 0 && "INNER".equals(xpep[0])) {
+                    MessageHelper phelper = new MessageHelper(pep, context);
+                    String spep = phelper.getSubject();
+                    if (!TextUtils.isEmpty(spep))
+                        db.message().setMessageSubject(message.id, spep);
+
+                    String shtml = phelper.getMessageParts().getHtml(context);
+                    if (!TextUtils.isEmpty(shtml)) {
+                        String html = Helper.readText(message.getFile(context));
+
+                        if (!TextUtils.isEmpty(html)) {
+                            EntityAttachment a = new EntityAttachment();
+                            a.message = message.id;
+                            a.sequence = remotes.size();
+                            a.type = "text/html";
+                            a.disposition = Part.INLINE;
+                            a.id = db.attachment().insertAttachment(a);
+
+                            Helper.writeText(a.getFile(context), html);
+                            db.attachment().setDownloaded(a.id, (long) html.length());
+                        }
+
+                        Helper.writeText(message.getFile(context), shtml);
+                    }
+                }
+            }
     }
 
     private void onDelete(long id) {

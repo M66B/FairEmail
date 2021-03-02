@@ -819,9 +819,8 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 *pretty Easy privacy*
 
-pretty Easy privacy (p≡p) is not supported
-because there is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for this
-and because hardly anyone uses this.
+There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and hardly anyone uses this.
+Nevertheless, FairEmail can properly decode incoming p≡p messages since version 1.1519.
 
 <br />
 
