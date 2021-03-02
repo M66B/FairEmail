@@ -2497,7 +2497,7 @@ class Core {
             try {
                 imessages = ifolder.search(searchTerm);
             } catch (MessagingException ex) {
-                Log.w(ex.getMessage());
+                Log.w(ex);
                 // Fallback to date only search
                 // BAD Could not parse command
                 imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
