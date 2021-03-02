@@ -6248,6 +6248,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
+                                        if (BuildConfig.DEBUG && false) {
+                                            File raw = message.getRawFile(context);
+                                            Helper.copy(plain, raw);
+                                            db.message().setMessageRaw(message.id, true);
+                                        }
+
                                         db.setTransactionSuccessful();
                                     } catch (SQLiteConstraintException ex) {
                                         // Message removed
