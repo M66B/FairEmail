@@ -1781,6 +1781,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return ssb;
 
             for (int i = 0; i < addresses.length; i++) {
+                if (i > 0)
+                    ssb.append(", ");
+
                 if (addresses[i] instanceof InternetAddress) {
                     InternetAddress address = (InternetAddress) addresses[i];
                     String email = address.getAddress();
