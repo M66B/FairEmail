@@ -2421,7 +2421,7 @@ public class FragmentCompose extends FragmentBase {
                                     ContentType ct = new ContentType(type);
                                     ct.setParameter("protected-headers", "v1");
                                     setHeader("Content-Type", ct.toString());
-                                    String subject = draft.subject == null ? "" : draft.subject;
+                                    String subject = (draft.subject == null ? "" : draft.subject);
                                     try {
                                         setHeader("Subject", MimeUtility.encodeWord(subject));
                                     } catch (UnsupportedEncodingException ex) {
