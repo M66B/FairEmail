@@ -208,7 +208,6 @@ import java.util.concurrent.Future;
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -6959,33 +6958,32 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     String[] xpep = imessage.getHeader("X-pEp-Wrapped-Message-Info");
-                    if (xpep != null && xpep.length > 0 &&
-                            "INNER".equalsIgnoreCase(xpep[0])) {
-                        MessageHelper helper = new MessageHelper(imessage, context);
+                    if (xpep == null || xpep.length == 0 && !"INNER".equalsIgnoreCase(xpep[0]))
+                        continue;
 
-                        String subject = helper.getSubject();
+                    MessageHelper helper = new MessageHelper(imessage, context);
+                    String subject = helper.getSubject();
+                    String html = helper.getMessageParts().getHtml(context);
+
+                    if (!TextUtils.isEmpty(html)) {
+                        Document document = JsoupEx.parse(message.getFile(context));
+                        document.body().prepend(html);
+
+                        Helper.writeText(message.getFile(context), document.body().html());
+                    }
+
+                    try {
+                        db.beginTransaction();
+
                         if (!TextUtils.isEmpty(subject))
                             db.message().setMessageSubject(message.id, subject);
 
-                        String html = helper.getMessageParts().getHtml(context);
-                        if (!TextUtils.isEmpty(html)) {
-                            String orig_html = Helper.readText(message.getFile(context));
-                            if (!TextUtils.isEmpty(orig_html)) {
-                                EntityAttachment attachment = new EntityAttachment();
-                                attachment.message = message.id;
-                                attachment.sequence = remotes.size();
-                                attachment.type = "text/html";
-                                attachment.disposition = Part.INLINE;
-                                attachment.id = db.attachment().insertAttachment(attachment);
+                        // Prevent showing the embedded message
+                        db.attachment().setType(remote.id, "application/octet-stream");
 
-                                Helper.writeText(attachment.getFile(context), orig_html);
-                                db.attachment().setDownloaded(attachment.id, (long) orig_html.length());
-                            }
-
-                            Helper.writeText(message.getFile(context), html);
-
-                            db.attachment().setType(remote.id, "application/octet-stream");
-                        }
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
 
                     break;
