@@ -588,6 +588,7 @@
     <string name="title_advanced_beige_hint">Light themes only</string>
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
     <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
+    <string name="title_advanced_split_hint">This will split the screen into parts</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
     <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
