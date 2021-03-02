@@ -6965,13 +6965,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     String subject = helper.getSubject();
                     String html = helper.getMessageParts().getHtml(context);
 
-                    if (!TextUtils.isEmpty(html)) {
-                        Document document = JsoupEx.parse(message.getFile(context));
-                        document.body().prependElement("hr");
-                        document.body().prepend(html);
-
-                        Helper.writeText(message.getFile(context), document.body().html());
-                    }
+                    if (!TextUtils.isEmpty(html))
+                        Helper.writeText(message.getFile(context), html);
 
                     try {
                         db.beginTransaction();
