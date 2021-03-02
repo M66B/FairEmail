@@ -99,6 +99,12 @@ public interface DaoAttachment {
     void setError(long id, String error);
 
     @Query("UPDATE attachment" +
+            " SET type = :type" +
+            " WHERE id = :id" +
+            " AND NOT (type IS :type)")
+    void setType(long id, String type);
+
+    @Query("UPDATE attachment" +
             " SET disposition = :disposition" +
             " WHERE id = :id" +
             " AND NOT (disposition IS :disposition)")

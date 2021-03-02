@@ -6983,6 +6983,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             }
 
                             Helper.writeText(message.getFile(context), html);
+
+                            db.attachment().setType(remote.id, "application/octet-stream");
                         }
                     }
 
