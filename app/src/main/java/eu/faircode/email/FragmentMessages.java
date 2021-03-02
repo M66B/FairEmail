@@ -6967,6 +6967,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     if (!TextUtils.isEmpty(html)) {
                         Document document = JsoupEx.parse(message.getFile(context));
+                        document.body().prependElement("hr");
                         document.body().prepend(html);
 
                         Helper.writeText(message.getFile(context), document.body().html());
