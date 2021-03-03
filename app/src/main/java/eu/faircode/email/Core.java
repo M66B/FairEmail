@@ -1030,7 +1030,7 @@ class Core {
         } else {
             Long found = findUid(context, ifolder, message.msgid, false);
             if (found == null) {
-                String msg = "Added message not found msgid" + message.msgid;
+                String msg = "Added message not found msgid=" + message.msgid;
                 Log.e(msg);
                 throw new IllegalArgumentException(msg);
             }
