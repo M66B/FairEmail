@@ -102,8 +102,14 @@ public class FragmentSetup extends FragmentBase {
 
         if (savedInstanceState == null) {
             FragmentActivity activity = getActivity();
-            if (activity != null)
-                manual = activity.getIntent().getBooleanExtra("manual", false);
+            if (activity != null) {
+                Intent intent = activity.getIntent();
+                if (intent.hasExtra("manual")) {
+                    manual = intent.getBooleanExtra("manual", false);
+                    intent.removeExtra("manual");
+                    activity.setIntent(intent);
+                }
+            }
         } else
             manual = savedInstanceState.getBoolean("fair:manual");
 
