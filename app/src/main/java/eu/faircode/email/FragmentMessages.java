@@ -6263,7 +6263,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
-                                        if (BuildConfig.DEBUG && false) {
+                                        if (BuildConfig.DEBUG) {
                                             File raw = message.getRawFile(context);
                                             Helper.copy(plain, raw);
                                             db.message().setMessageRaw(message.id, true);
