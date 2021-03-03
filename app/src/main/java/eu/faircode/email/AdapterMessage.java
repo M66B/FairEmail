@@ -4041,6 +4041,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onActionDelete(TupleMessageEx message) {
             Bundle aargs = new Bundle();
             aargs.putString("question", context.getString(R.string.title_ask_delete));
+            aargs.putString("remark", message.getRemark());
             aargs.putLong("id", message.id);
             aargs.putBoolean("warning", true);
 
@@ -4559,6 +4560,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuDelete(final TupleMessageEx message) {
             Bundle aargs = new Bundle();
             aargs.putString("question", context.getString(R.string.title_ask_delete));
+            aargs.putString("remark", message.getRemark());
             aargs.putLong("id", message.id);
             aargs.putBoolean("warning", true);
 

@@ -2267,6 +2267,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         private void onSwipeDelete(@NonNull TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putString("question", getString(R.string.title_ask_delete));
+            args.putString("remark", message.getRemark());
             args.putLong("id", message.id);
             args.putBoolean("warning", true);
 
