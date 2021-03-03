@@ -106,7 +106,6 @@
             android:contentDescription="@string/title_legend_expander"
             android:paddingVertical="12dp"
             android:paddingEnd="0dp"
-            android:tint="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/tvManual"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
