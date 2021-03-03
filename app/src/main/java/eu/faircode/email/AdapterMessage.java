@@ -1782,7 +1782,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             for (int i = 0; i < addresses.length; i++) {
                 if (i > 0)
-                    ssb.append(", ");
+                    ssb.append("; ");
 
                 if (addresses[i] instanceof InternetAddress) {
                     InternetAddress address = (InternetAddress) addresses[i];
