@@ -111,7 +111,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuickNew"
-            app:srcCompat="@drawable/expander" />
+            app:srcCompat="@drawable/settings" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManual"
