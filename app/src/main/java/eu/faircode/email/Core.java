@@ -525,6 +525,7 @@ class Core {
                             // Move: NO mailbox selected READ-ONLY
                             // Move: NO System Error (Failure)
                             // Move: NO APPEND processing failed.
+                            // Copy: NO Client tried to access nonexistent namespace. (Mailbox name should probably be prefixed with: INBOX.) (n.nnn + n.nnn secs).
                             // Add: BAD Data length exceeds limit
                             // Add: NO [LIMIT] APPEND Command exceeds the maximum allowed size
                             // Add: NO APPEND failed: Unknown flag: SEEN
