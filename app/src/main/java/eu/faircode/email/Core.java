@@ -326,7 +326,9 @@ class Core {
                                     break;
 
                                 case EntityOperation.SYNC:
+                                    Runtime.getRuntime().gc();
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
+                                    Runtime.getRuntime().gc();
                                     break;
 
                                 case EntityOperation.PURGE:
@@ -404,7 +406,9 @@ class Core {
                                     break;
 
                                 case EntityOperation.SYNC:
+                                    Runtime.getRuntime().gc();
                                     onSynchronizeMessages(context, jargs, account, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    Runtime.getRuntime().gc();
                                     break;
 
                                 case EntityOperation.SUBSCRIBE:
