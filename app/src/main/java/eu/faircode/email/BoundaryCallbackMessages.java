@@ -47,7 +47,9 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 
@@ -154,7 +156,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     return;
                 }
 
-                Log.i("Boundary run end=" + state.end + "/" + end + " memory=" + Log.getFreeMemMb());
+                int free = Log.getFreeMemMb();
+                Map<String, String> crumb = new HashMap<>();
+                crumb.put("free", Integer.toString(free));
+                Log.breadcrumb("Boundary run", crumb);
+
+                Log.i("Boundary run end=" + state.end + "/" + end + " free=" + free);
 
                 int found = 0;
                 try {
@@ -194,6 +201,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         });
                 } finally {
+                    crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+                    Log.breadcrumb("Boundary done", crumb);
+
                     if (intf != null) {
                         final int f = found;
                         ApplicationEx.getMainHandler().post(new Runnable() {
