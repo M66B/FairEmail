@@ -632,6 +632,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvStorageUsage" />
 
         <Button
+            android:id="@+id/btnGC"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_gc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFingerprint" />
+
+        <Button
             android:id="@+id/btnCharsets"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -639,7 +649,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_charsets"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFingerprint" />
+            app:layout_constraintTop_toBottomOf="@id/btnGC" />
 
         <Button
             android:id="@+id/btnCiphers"
@@ -670,6 +680,7 @@
             swExpunge,
             swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,
             tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,
-            tvFingerprint,btnCharsets,btnCiphers,btnFiles" />
+            tvFingerprint,
+            btnGC,btnCharsets,btnCiphers,btnFiles" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

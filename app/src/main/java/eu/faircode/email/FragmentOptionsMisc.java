@@ -121,6 +121,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvMemoryUsage;
     private TextView tvStorageUsage;
     private TextView tvFingerprint;
+    private Button btnGC;
     private Button btnCharsets;
     private Button btnCiphers;
     private Button btnFiles;
@@ -218,6 +219,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvMemoryUsage = view.findViewById(R.id.tvMemoryUsage);
         tvStorageUsage = view.findViewById(R.id.tvStorageUsage);
         tvFingerprint = view.findViewById(R.id.tvFingerprint);
+        btnGC = view.findViewById(R.id.btnGC);
         btnCharsets = view.findViewById(R.id.btnCharsets);
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
@@ -524,6 +526,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auth_sasl", checked).apply();
+            }
+        });
+
+        btnGC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Runtime.getRuntime().gc();
             }
         });
 

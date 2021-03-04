@@ -550,6 +550,7 @@
     <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s/%2$s Total: %3$s</string>
     <string name="title_advanced_memory_usage" translatable="false">Memory usage: %1$s/%2$s Native: %3$s</string>
     <string name="title_advanced_storage_usage" translatable="false">Storage space: %1$s/%2$s App: %3$s</string>
+    <string name="title_advanced_gc" translatable="false">GC</string>
     <string name="title_advanced_charsets" translatable="false">Charsets</string>
     <string name="title_advanced_ciphers" translatable="false">Ciphers</string>
     <string name="title_advanced_files" translatable="false">Files &gt;%1$s</string>
