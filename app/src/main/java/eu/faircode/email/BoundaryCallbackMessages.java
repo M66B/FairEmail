@@ -156,6 +156,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     return;
                 }
 
+                Runtime.getRuntime().gc();
+
                 int free = Log.getFreeMemMb();
                 Map<String, String> crumb = new HashMap<>();
                 crumb.put("free", Integer.toString(free));
@@ -201,6 +203,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         });
                 } finally {
+                    Runtime.getRuntime().gc();
+
                     crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                     Log.breadcrumb("Boundary done", crumb);
 
@@ -647,6 +651,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             iservice = null;
             ifolder = null;
             imessages = null;
+
+            Runtime.getRuntime().gc();
         }
     }
 
