@@ -267,16 +267,16 @@ dependencies {
     def openpgp_version = "12.0"
     def requery_version = "3.34.1"
     def badge_version = "1.1.22"
-    def bugsnag_version = "5.5.0"
+    def bugsnag_version = "5.7.1"
     def biweekly_version = "0.6.6"
     def relinker_version = "1.4.1"
-    def markwon_version = "4.6.1"
+    def markwon_version = "4.6.2"
     def bouncycastle_version = "1.68"
     def colorpicker_version = "0.0.15"
     def overscroll_version = "1.1.0"
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
-    def apache_poi = "3.17"
+    def apache_poi = "3.17" // Do not update
 
     // https://developer.android.com/jetpack/androidx/releases/
     implementation "androidx.annotation:annotation-experimental:$annotation_version"
