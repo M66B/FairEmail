@@ -1907,6 +1907,9 @@ class Core {
             selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
             inferiors = inferiors && ((ifolder.getType() & IMAPFolder.HOLDS_FOLDERS) != 0);
 
+            if (EntityFolder.INBOX.equals(type))
+                selectable = true;
+
             Log.i(account.name + ":" + fullName + " type=" + type +
                     " subscribed=" + subscribed +
                     " selectable=" + selectable +
