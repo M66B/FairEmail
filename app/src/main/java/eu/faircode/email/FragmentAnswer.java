@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -41,11 +40,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
@@ -224,16 +221,51 @@ public class FragmentAnswer extends FragmentBase {
     }
 
     @Override
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
+        menu.findItem(R.id.menu_placeholder_firstname).setVisible(BuildConfig.DEBUG);
+        menu.findItem(R.id.menu_placeholder_lastname).setVisible(BuildConfig.DEBUG);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_help) {
-            onMenuHelp();
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_placeholder_name) {
+            onMenuPlaceholder("$name$");
+            return true;
+        } else if (itemId == R.id.menu_placeholder_email) {
+            onMenuPlaceholder("$email$");
+            return true;
+        } else if (itemId == R.id.menu_placeholder_firstname) {
+            onMenuPlaceholder("$firstname$");
+            return true;
+        } else if (itemId == R.id.menu_placeholder_lastname) {
+            onMenuPlaceholder("$lastname$");
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void onMenuHelp() {
-        new FragmentInfo().show(getParentFragmentManager(), "answer:info");
+    private void onMenuPlaceholder(String name) {
+        int start = etText.getSelectionStart();
+        int end = etText.getSelectionEnd();
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        if (start >= 0 && start < end)
+            etText.getText().replace(start, end, name);
+        else {
+            if (start < 0) {
+                start = etText.length() - 1;
+                if (start < 0)
+                    start = 0;
+            }
+
+            etText.getText().insert(start, name);
+        }
     }
 
     private void onInsertImage() {
@@ -469,29 +501,5 @@ public class FragmentAnswer extends FragmentBase {
             return true;
         } else
             return StyleHelper.apply(action, getViewLifecycleOwner(), view.findViewById(action), etText);
-    }
-
-    public static class FragmentInfo extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            Spanned spanned = HtmlHelper.fromHtml("<p>" +
-                    getString(R.string.title_answer_template_name) +
-                    "<br>" +
-                    getString(R.string.title_answer_template_email) +
-                    "</p>", getContext());
-
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
-            TextView tvMessage = dview.findViewById(R.id.tvMessage);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-            tvMessage.setText(spanned);
-            cbNotAgain.setVisibility(View.GONE);
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
     }
 }

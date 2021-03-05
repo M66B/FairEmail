@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/menu_help"
-        android:icon="@drawable/twotone_help_24"
-        android:title=""
-        app:showAsAction="always" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/title_answer_placeholder">
+        <menu>
+            <item
+                android:id="@+id/menu_placeholder_name"
+                android:title="@string/title_answer_placeholder_name" />
+            <item
+                android:id="@+id/menu_placeholder_email"
+                android:title="@string/title_answer_placeholder_email" />
+            <item
+                android:id="@+id/menu_placeholder_firstname"
+                android:title="@string/title_answer_placeholder_firstname" />
+            <item
+                android:id="@+id/menu_placeholder_lastname"
+                android:title="@string/title_answer_placeholder_lastname" />
+        </menu>
+    </item>
 </menu>

@@ -1194,8 +1194,11 @@
     <string name="title_answer_favorite">Favorite</string>
     <string name="title_answer_hide">Hide from menus</string>
     <string name="title_answer_text">Template text</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_placeholder">Placeholder</string>
+    <string name="title_answer_placeholder_name">Sender\'s full name</string>
+    <string name="title_answer_placeholder_email">Sender\'s email address</string>
+    <string name="title_answer_placeholder_firstname">Sender\'s first name</string>
+    <string name="title_answer_placeholder_lastname">Sender\'s last name</string>
 
     <string name="title_rule_noop">No action</string>
     <string name="title_rule_seen">Mark read</string>
