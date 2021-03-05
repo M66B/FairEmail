@@ -185,15 +185,16 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
                 if (savedInstanceState == null) {
-                    etName.setText(answer == null ? null : answer.name);
+                    etName.setText(answer == null ? getArguments().getString("subject") : answer.name);
                     etGroup.setText(answer == null ? null : answer.group);
                     cbStandard.setChecked(answer == null ? false : answer.standard);
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
                     cbHide.setChecked(answer == null ? false : answer.hide);
-                    if (answer == null)
+                    String html = (answer == null ? getArguments().getString("html") : answer.text);
+                    if (html == null)
                         etText.setText(null);
                     else
-                        etText.setText(HtmlHelper.fromHtml(answer.text, new Html.ImageGetter() {
+                        etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
                                 if (source != null && source.startsWith("cid:"))

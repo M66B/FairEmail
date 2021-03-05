@@ -1328,7 +1328,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setEnabled(
                 state == State.LOADED && hasPermission(Manifest.permission.READ_CONTACTS));
-        menu.findItem(R.id.menu_answer).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
@@ -1412,8 +1413,11 @@ public class FragmentCompose extends FragmentBase {
         } else if (itemId == R.id.menu_contact_group) {
             onMenuContactGroup();
             return true;
-        } else if (itemId == R.id.menu_answer) {
-            onMenuAnswer();
+        } else if (itemId == R.id.menu_answer_insert) {
+            onMenuAnswerInsert();
+            return true;
+        } else if (itemId == R.id.menu_answer_create) {
+            onMenuAnswerCreate();
             return true;
         } else if (itemId == R.id.menu_clear) {
             StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
@@ -1595,7 +1599,7 @@ public class FragmentCompose extends FragmentBase {
         fragment.show(getParentFragmentManager(), "compose:groups");
     }
 
-    private void onMenuAnswer() {
+    private void onMenuAnswerInsert() {
         new SimpleTask<List<EntityAnswer>>() {
             @Override
             protected List<EntityAnswer> onExecute(Context context, Bundle args) {
@@ -1702,6 +1706,18 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "compose:answer");
+    }
+
+    private void onMenuAnswerCreate() {
+        Bundle args = new Bundle();
+        args.putString("subject", etSubject.getText().toString());
+        args.putString("html", HtmlHelper.toHtml(etBody.getText(), getContext()));
+
+        FragmentAnswer fragment = new FragmentAnswer();
+        fragment.setArguments(args);
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose:answer");
+        fragmentTransaction.commit();
     }
 
     private boolean onActionStyle(int action, View anchor) {

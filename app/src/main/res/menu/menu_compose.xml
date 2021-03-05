@@ -55,8 +55,15 @@
     </item>
 
     <item
-        android:id="@+id/menu_answer"
+        android:id="@+id/menu_answer_insert"
         android:title="@string/title_insert_template"
+        app:showAsAction="never">
+        <menu />
+    </item>
+
+    <item
+        android:id="@+id/menu_answer_create"
+        android:title="@string/title_create_template"
         app:showAsAction="never">
         <menu />
     </item>
