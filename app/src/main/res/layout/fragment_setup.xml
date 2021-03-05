@@ -104,13 +104,13 @@
             android:layout_marginTop="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_legend_expander"
-            android:paddingVertical="12dp"
             android:paddingEnd="0dp"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toStartOf="@+id/tvManual"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuickNew"
-            app:srcCompat="@drawable/settings" />
+            app:srcCompat="@drawable/dropdown" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvManual"
