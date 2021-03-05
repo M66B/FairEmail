@@ -1012,8 +1012,6 @@
     <string name="title_answer_favorite">お気に入り</string>
     <string name="title_answer_hide">メニューに表示しません</string>
     <string name="title_answer_text">テンプレートテキスト</string>
-    <string name="title_answer_template_name">$name$ は送信者のフルネームに置き換えられます</string>
-    <string name="title_answer_template_email">$email$ は送信者のメールアドレスに置き換えられます</string>
     <string name="title_rule_noop">何もしない</string>
     <string name="title_rule_seen">既読</string>
     <string name="title_rule_unseen">未読</string>

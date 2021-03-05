@@ -982,8 +982,6 @@
     <string name="title_answer_favorite">Favoritt</string>
     <string name="title_answer_hide">Skjul i menyer</string>
     <string name="title_answer_text">Maltekst</string>
-    <string name="title_answer_template_name">$name$ vil bli erstattet med avsenderens fulle navn</string>
-    <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
     <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Merk som lest</string>
     <string name="title_rule_unseen">Merk som ulest</string>

@@ -24,7 +24,7 @@ Searching for *IMAP* and the name of the provider is mostly sufficient to find t
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-For authorizing:
+Để ủy quyền:
 
 * Gmail / G suite, xem [ câu hỏi 6 ](#user-content-faq6)
 * Outlook / Live / Hotmail, xem [ câu hỏi 14 ](#user-content-faq14)
@@ -36,7 +36,7 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Related questions:
+Câu hỏi liên quan:
 
 * [OAuth có được hỗ trợ không?](#user-content-faq111)
 * [Tại sao ActiveSync không được hỗ trợ?](#user-content-faq133)
@@ -82,7 +82,7 @@ Related questions:
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 
-## Planned features
+## Các tính năng được lên kế hoạch
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -123,26 +123,26 @@ The design is based on many discussions and if you like you can discuss about it
 
 ## Những câu hỏi thường gặp
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
+* [(1) Những quyền nào là cần thiết và tại sao?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
 * [(3) What are operations and why are they pending?](#user-content-faq3)
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
+* [(6) Tôi có thể đăng nhập vào Gmail / G suite như thế nào?](#user-content-faq6)
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
+* [~~(11) Tại sao POP không được hỗ trợ?~~](#user-content-faq11)
+* [~~(10) 'UIDPLUS không được hỗ trợ' nghĩa là gì?~~](#user-content-faq10)
+* [(12) Việc mã hoá/giải mã hoạt động như thế nào?](#user-content-faq12)
+* [(13) Tìm kiếm trên thiết bị/máy chủ hoạt động như thế nào?](#user-content-faq13)
+* [(14) Tôi có thể thiết lập một tài khoản Outlook / Live / Hotmail như thế nào?](#user-content-faq14)
 * [(15) Why does the message text keep loading?](#user-content-faq15)
 * [(16) Why are messages not being synchronized?](#user-content-faq16)
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
 * [(18) Why is the message preview not always shown?](#user-content-faq18)
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
+* [(20) Tôi có thể được hoàn tiền không?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
 * [(23) Why do I get alert .. ?](#user-content-faq23)
@@ -710,7 +710,9 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 *pretty Easy privacy*
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and hardly anyone uses this. Nevertheless, FairEmail can properly decode incoming p≡p messages since version 1.1519.
+There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people are using it.
+
+However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p. Also, FairEmail understands incoming p≡p messages since version 1.1519, so the encrypted subject will be shown and the embedded message text will be shown more nicely.
 
 <br />
 
@@ -1620,15 +1622,17 @@ The price of the few pro features is too low, lower than the price of most simil
 <a name="faq67"></a>
 **(67) How can I snooze conversations?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the timelapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71).
+It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
 
 You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
 
 You can tap on the small snooze icon to see until when a conversation is snoozed.
 
 By selecting a zero snooze duration you can cancel snoozing.
+
+Third party apps do not have access to the Gmail snoozed messages folder.
 
 <br />
 

@@ -937,8 +937,6 @@
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Ocultar dos menus</string>
     <string name="title_answer_text">Texto do modelo</string>
-    <string name="title_answer_template_name">$name$ será substituído pelo nome completo do remetente</string>
-    <string name="title_answer_template_email">$email$ será substituído pelo endereço de e-mail do remetente</string>
     <string name="title_rule_noop">Nenhuma ação</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como não lida</string>

@@ -1035,8 +1035,6 @@
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Agachar nos menús</string>
     <string name="title_answer_text">Texto do patrón</string>
-    <string name="title_answer_template_name">$name$ trocarase polo nome completo do remitente</string>
-    <string name="title_answer_template_email">$email$ trocarase pola dirección de email do remitente</string>
     <string name="title_rule_noop">Sen acción</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como non lida</string>

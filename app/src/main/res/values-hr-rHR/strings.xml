@@ -745,8 +745,6 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Sakriti iz izbornika</string>
     <string name="title_answer_text">Tekst predloška</string>
-    <string name="title_answer_template_name">$name$ bit će zamijenjeno punim imenom pošiljatelja</string>
-    <string name="title_answer_template_email">$email$ bit će zamijenjen adresom pošiljatelja e-pošte</string>
     <string name="title_rule_noop">Bez akcije</string>
     <string name="title_rule_seen">Označi pročitano</string>
     <string name="title_rule_unseen">Označi nepročitano</string>

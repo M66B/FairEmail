@@ -876,8 +876,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_answer_favorite">Preferit</string>
     <string name="title_answer_hide">Amaga dels menús</string>
     <string name="title_answer_text">Text de la plantilla</string>
-    <string name="title_answer_template_name">$name$ serà substituït pel nom complet del remitent</string>
-    <string name="title_answer_template_email">$email$ serà substituït pel l\'adreça de correu electrònic del remitent</string>
     <string name="title_rule_noop">Cap acció</string>
     <string name="title_rule_seen">Marca com a llegit</string>
     <string name="title_rule_unseen">Marca com a no llegit</string>

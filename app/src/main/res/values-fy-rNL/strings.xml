@@ -978,8 +978,6 @@
     <string name="title_answer_favorite">Favoryt</string>
     <string name="title_answer_hide">Ferbergje foar menu\'s</string>
     <string name="title_answer_text">Sjabloantekst</string>
-    <string name="title_answer_template_name">$name$ wurdt ferfongen troch de folsleine namme fan de stjoerder</string>
-    <string name="title_answer_template_email">$email$ sil wurde ferfongen troch it e-postadres fan de ôfstjoerder</string>
     <string name="title_rule_noop">Gjin aksje</string>
     <string name="title_rule_seen">Mark lêzen</string>
     <string name="title_rule_unseen">Markearje as net lêzen</string>

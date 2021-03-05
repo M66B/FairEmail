@@ -514,6 +514,7 @@
     <string name="title_advanced_beige_hint">Tylko jasne motywy</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_navbar_colorize_hint">Czy to zadziała zależy od wersji i wariantu Androida</string>
+    <string name="title_advanced_split_hint">Spowoduje to podzielenie ekranu na części</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_highlight_hint">Do podświetlenia zostanie użyty akcent kolorystyczny motywu</string>
     <string name="title_advanced_gravatars_hint">Może istnieć ryzyko naruszenia prywatności</string>
@@ -931,6 +932,7 @@
     <string name="title_media_toolbar">Pasek mediów</string>
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
+    <string name="title_create_template">Utwórz szablon</string>
     <string name="title_edit_plain_text">Edytuj jako zwykły tekst</string>
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>
@@ -1065,8 +1067,11 @@
     <string name="title_answer_favorite">Ulubione</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>
-    <string name="title_answer_template_name">$name$ zostanie zastąpiony przez pełną nazwę nadawcy</string>
-    <string name="title_answer_template_email">$email$ zostanie zastąpiony przez adres nadawcy wiadomości</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Symbol zastępczy</string>
+    <string name="title_answer_placeholder_name">Pełna nazwa nadawcy</string>
+    <string name="title_answer_placeholder_email">Adres e-mail nadawcy</string>
+    <string name="title_answer_placeholder_firstname">Imię nadawcy</string>
+    <string name="title_answer_placeholder_lastname">Nazwisko nadawcy</string>
     <string name="title_rule_noop">Brak akcji</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>

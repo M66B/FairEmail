@@ -1034,8 +1034,6 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Skjul fra menuer</string>
     <string name="title_answer_text">Skabelontekst</string>
-    <string name="title_answer_template_name">$name$ bliver erstattet med afsenders fulde navn</string>
-    <string name="title_answer_template_email">$email$ bliver erstattet med afsenders e-mailadresse</string>
     <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Markér som læst</string>
     <string name="title_rule_unseen">Markér som ulæst</string>

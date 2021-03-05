@@ -48,7 +48,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * 更改帳戶名稱：設置＞點擊 "手動設置和更多選項"＞點擊 "帳戶(Account)"＞點擊 "帳戶(account)"
 * 變更 左/右 滑動動作：點選設定＞行為＞設置滑動動作
 * 更改密碼：設置＞點擊手動設置和更多選項＞點擊“帳戶(Account)”＞點擊“帳戶(account)”＞更改密碼
-* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
+* 設置簽名：設置>點擊"手動設置和更多選項">點擊"身份">點擊"身份">"編輯簽名"。
 * 新增副本和密件副本郵件地址：輕觸主旨後方的人像圖標
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
@@ -66,7 +66,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 * ~~ [Android 5.1和6中的錯誤](https://issuetracker.google.com/issues/37054851)導致app在顯示時間格式時偶爾會出錯。 將Android切換為*使用24小時格式*可能會暫時解決此問題。 解決方法已添加。~~
 * ~~ [Google雲端的bug](https://issuetracker.google.com/issues/126362828)  造成檔案無法順利輸出到Google 雲端。 Google已修正這個問題~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
+* ~~ [AndroidX的bug](https://issuetracker.google.com/issues/78495471)造成當你進行長按或滑動操作時，可能會導致 FairEmail 崩潰。 Google 已修正此錯誤~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
@@ -79,14 +79,14 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. 目前已知在Pebble 2， Fitbit Charge 3， Mi band 3，以及 小米 Amazfit BIP wearables上都能順利進行訊息預覽。 參見 [這個常見問題](#user-content-faq126)。
 * A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). 此問題受限於Android系統本身的問題而無法解決。
 * 自動偵測語言功能已 [不再運作](https://issuetracker.google.com/issues/173337263) ，若您使用的是 Pixel 裝置，版本(升級到？) Android 11
 
 ## 計畫中的功能
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
-* ~~Copy message~~
+* ~~複製訊息~~
 * ~~Colored stars~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
@@ -94,7 +94,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* 搜尋建議
+* ~~搜尋建議~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
@@ -103,23 +103,23 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
+* ~~顯示GIF~~
+* ~~主題~~ (將新增眾所期待的灰色和黑色背景)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
+* ~~作為附件發送~~
 * ~~Widget for selected account~~
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~支援S/MIME~~
+* ~~搜尋設置功能~~
 
-Anything on this list is in random order and *might* be added in the near future.
+此列表中的功能以隨機順序進行排序並 *可能* 在不遠的未來被新增。
 
 ## 經常請求的功能
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+這些設計都是基於許多的討論而產生的。你可以在 [論壇](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) 中一起參與討論。 設計的核心概念是精簡化，亦即沒有多餘的按鈕或花俏的設計或動畫。 所有的功能應該都要是有實用性的，並且應放在合適的位置以方便使用。 字型、字元大小、顏色等等都應該要經過好好的設計。
 
 ## 常見問題
 
@@ -133,7 +133,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
 * [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
+* [~~(10) '不支援UIDPLUS not supported'代表甚麼意思?~~](#user-content-faq10)
 * [(12) How does encryption/decryption work?](#user-content-faq12)
 * [(13) 在 裝置/伺服器 搜尋是如何運作的?](#user-content-faq13)
 * [(14) 我如何建立 Outlook / Live / Hotmail 帳號?](#user-content-faq14)
@@ -145,10 +145,10 @@ The design is based on many discussions and if you like you can discuss about it
 * [(20) 我可以退款嗎?](#user-content-faq20)
 * [(21) 如何啟用訊息通知LED燈?](#user-content-faq21)
 * [(22) 帳號/資料夾 錯誤代表什麼意思?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
+* [(23) 為甚麼我會收到警告? ?](#user-content-faq23)
+* [(24) 甚麼是伺服器上的瀏覽器訊息?](#user-content-faq24)
+* [（25）為什麼我不能選擇/檢視/儲存相片，附件或文件？](#user-content-faq25)
+* [(26) 我能幫忙翻譯 FairEmail 嗎?](#user-content-faq26)
 * [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
 * [(28) How can I manage status bar notifications?](#user-content-faq28)
 * [(29) 我如何接收其他資料夾的訊息通知？](#user-content-faq29)
@@ -181,25 +181,25 @@ The design is based on many discussions and if you like you can discuss about it
 * [(57) Can I use HTML in signatures?](#user-content-faq57)
 * [(58) What does an open/closed email icon mean?](#user-content-faq58)
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you known ...?](#user-content-faq60)
+* [(60) 你知不知道 ...?](#user-content-faq60)
 * [(61) Why are some messages shown dimmed?](#user-content-faq61)
 * [(62) Which authentication methods are supported?](#user-content-faq62)
 * [(63) How are images resized for displaying on screens?](#user-content-faq63)
 * [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
 * [(65) Why are some attachments shown dimmed?](#user-content-faq65)
 * [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
+* [(67) 如何延後提醒通知?](#user-content-faq67)
+* [~~(68) 為甚麼 Adobe Acrobat reader 無法開啟 PDF檔 / Microsoft apps 無法打開附件?~~](#user-content-faq68)
 * [(69) Can you add auto scroll up on new message?](#user-content-faq69)
 * [(70) When will messages be auto expanded?](#user-content-faq70)
 * [(71) How do I use filter rules?](#user-content-faq71)
 * [(72) What are primary accounts/identities?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
+* [(75) 你可以製作給 iOS, Windows, Linux等系統用的版本嗎?](#user-content-faq75)
+* [(76) '刪除本機訊息' 是在幹嘛的?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
+* [(78) 如何使用時間表功能?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
@@ -208,18 +208,18 @@ The design is based on many discussions and if you like you can discuss about it
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo, AOL or Sky account?](#user-content-faq88)
+* [(88) 我要怎麼連結 Yahoo, AOL or Sky 帳戶?](#user-content-faq88)
 * [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
+* [(90) 為甚麼有些文字會被顯示成連結?](#user-content-faq90)
 * [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
 * [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
+* [(93) 你能讓資料儲存在外接硬體上嗎 (例如sdcard)?](#user-content-faq93)
+* [(94) 標題的紅/橘色條紋代表甚麼?](#user-content-faq94)
+* [(95) 為甚麼在我選擇檔案或圖片的時候有些app沒有顯示出來?](#user-content-faq95)
+* [(96) IMAP 跟SMTP 的設定在哪裡?](#user-content-faq96)
+* [(97) '清空'是幹嘛用的 ?](#user-content-faq97)
 * [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
+* [(99) 你能新增更多的文字編輯選項或markdown編輯器嗎?](#user-content-faq99)
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
 * [(102) How can I enable auto rotation of images?](#user-content-faq102)
@@ -264,39 +264,39 @@ The design is based on many discussions and if you like you can discuss about it
 * [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
 * [(142) How can I store sent messages in the inbox?](#user-content-faq142)
 * [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
+* [(144) 語音筆記該怎麼錄製?](#user-content-faq144)
 * [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
 * [(146) How can I fix incorrect message times?](#user-content-faq146)
 * [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
+* [(148) Apple iCloud 帳號要怎麼設置?](#user-content-faq148)
 * [(149) How does the unread message count widget work?](#user-content-faq149)
 * [(150) Can you add cancelling calendar invites?](#user-content-faq150)
 * [(151) Can you add backup/restore of messages?](#user-content-faq151)
 * [(152) How can I insert a contact group?](#user-content-faq152)
 * [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
 * [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
+* [(155) winmail.dat 在幹嘛的?](#user-content-faq155)
+* [(156) Office 365 帳號要怎麼設置?](#user-content-faq156)
+* [(157) Free.fr 帳號要怎麼設置?](#user-content-faq157)
+* [(158) 有推薦的相機/錄影設備嗎?](#user-content-faq158)
 * [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
 * [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(162) 是否支援 IMAP NOTIFY?](#user-content-faq162)
+* [(163) 甚麼是訊息分類?](#user-content-faq163)
+* [(164) 你能新增客製化主題功能嗎?](#user-content-faq164)
+* [(165) 是否支援Android Auto?](#user-content-faq165)
 
-[I have another question.](#user-content-support)
+[我有其他問題](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) 我得允許哪些權限? 我為甚麼要允許?**
 
-The following Android permissions are needed:
+你需允許下列 Android權限
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
+* *網路連線* (網際網路): 用以收發郵件
+* *檢視連線狀況* (ACCESS_NETWORK_STATE): 用以檢測網路是否改變
+* *開機時自動啟動* (RECEIVE_BOOT_COMPLETED): 檢測是否開機
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
 * *in-app billing* (BILLING): to allow in-app purchases
@@ -309,7 +309,7 @@ The following Android permissions are needed:
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+需要以下權限才能將未讀郵件的數量顯示為標誌 (參見 [常見問題](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -390,9 +390,9 @@ Operations are processed only when there is a connection to the email server or 
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*... Untrusted ... not in certificate ...*
+*... 不信任的... 未獲認證的...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... 無效的安全憑證(無法認證伺服器身分) ...*
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
 
@@ -418,9 +418,9 @@ You should either fix the server configuration or accept the fingerprint shown b
 
 Note that this problem can be caused by the server not sending all intermediate certificates too.
 
-*Empty password*
+*未輸入密碼*
 
-Your username is likely easily guessed, so this is insecure.
+使用者名稱太容易猜到了，這樣很不安全喔。
 
 *Plain text connection*
 
@@ -435,8 +435,8 @@ If you still want to use an invalid security certificate, an empty password or a
 
 In the three dot overflow menu you can enable or disable or select:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* * 字元大小 <0>: 有三種大小可以選擇</li>
+* *compact view*: for more condensed message items and a smaller message text font</ul>
 
 In the display section of the settings you can enable or disable for example:
 
@@ -457,7 +457,7 @@ In the display section of the settings you can enable or disable for example:
 
 Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
-Some people ask:
+有的人會問:
 
 * to show the subject bold, but bold is already being used to highlight unread messages
 * to move the star to the left, but it is much easier to operate the star on the right side
@@ -465,9 +465,9 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) 我要怎麼登入Gmail / G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+如果你用 Play 商店或 GitHub 版本的 FairEmail, 那麼快速設定精靈可以幫你設定 Gmail 帳號跟身分。 The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
@@ -483,9 +483,9 @@ Note that an app specific password is required when two factor authentication is
 
 <br />
 
-*App specific password*
+*App專用密碼*
 
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+[這裡](https://support.google.com/accounts/answer/185833) 告訴你如何產生app專用密碼。
 
 <br />
 
@@ -710,7 +710,9 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 *pretty Easy privacy*
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and hardly anyone uses this. Nevertheless, FairEmail can properly decode incoming p≡p messages since version 1.1519.
+There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people are using it.
+
+However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p. Also, FairEmail understands incoming p≡p messages since version 1.1519, so the encrypted subject will be shown and the embedded message text will be shown more nicely.
 
 <br />
 
@@ -1620,15 +1622,17 @@ The price of the few pro features is too low, lower than the price of most simil
 <a name="faq67"></a>
 **(67) How can I snooze conversations?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the timelapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71).
+It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
 
 You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
 
 You can tap on the small snooze icon to see until when a conversation is snoozed.
 
 By selecting a zero snooze duration you can cancel snoozing.
+
+Third party apps do not have access to the Gmail snoozed messages folder.
 
 <br />
 

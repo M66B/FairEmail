@@ -801,8 +801,6 @@
     <string name="title_answer_favorite">Priljubljeno</string>
     <string name="title_answer_hide">Skrij v menijih</string>
     <string name="title_answer_text">Besedilo predloge</string>
-    <string name="title_answer_template_name">$name$ bo zamenjalo polno ime pošiljatelja.</string>
-    <string name="title_answer_template_email">$email$ bo zamenjal e-poštni naslov pošiljatelja.</string>
     <string name="title_rule_noop">Brez dejanja</string>
     <string name="title_rule_seen">Označi kot prebrano</string>
     <string name="title_rule_unseen">Označi kot neprebrano</string>

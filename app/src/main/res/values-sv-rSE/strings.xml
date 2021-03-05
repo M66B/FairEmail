@@ -993,8 +993,6 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Dölj från menyer</string>
     <string name="title_answer_text">Malltext</string>
-    <string name="title_answer_template_name">$name$ kommer att ersättas av avsändarens fullständiga namn</string>
-    <string name="title_answer_template_email">$email$ kommer att ersättas av avsändarens e-postadress</string>
     <string name="title_rule_noop">Ingen åtgärd</string>
     <string name="title_rule_seen">Markera som läst</string>
     <string name="title_rule_unseen">Markera som oläst</string>

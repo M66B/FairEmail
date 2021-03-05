@@ -1,6 +1,6 @@
 # Asetusohje
 
-FairEmailin käyttöönotto on melko yksinkertaista. Tarvitset ainakin yhden tilin vastaanottaaksesi sähköpostia ja ainakin yhden tilin lähettääksesi sähköpostia. The quick setup will add an account and an identity in one go for most major providers.
+FairEmailin käyttöönotto on melko yksinkertaista. Tarvitset ainakin yhden tilin vastaanottaaksesi sähköpostia ja ainakin yhden tilin lähettääksesi sähköpostia. Pika-asennus lisää samalla sekä tilin että identiteetin. Se toimii useimmilla tunnetuilla palveluntarjoajilla.
 
 ## Vaatimukset
 

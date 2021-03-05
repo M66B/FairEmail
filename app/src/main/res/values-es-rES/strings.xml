@@ -343,7 +343,7 @@
     <string name="title_advanced_text_align">Usar alineación de texto</string>
     <string name="title_advanced_text_separators">Usar líneas separadoras</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
-    <string name="title_advanced_image_placeholders">Mostrar lugar reservados de imágenes</string>
+    <string name="title_advanced_image_placeholders">Mostrar marcadores de posición de imagen</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
@@ -911,6 +911,7 @@
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
+    <string name="title_create_template">Crear plantilla</string>
     <string name="title_edit_plain_text">Editar como texto plano</string>
     <string name="title_edit_formatted_text">Editar como texto con formato</string>
     <string name="title_select_certificate">Seleccionar clave pública</string>
@@ -1045,8 +1046,11 @@
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_hide">Ocultar de menús</string>
     <string name="title_answer_text">Texto de plantilla</string>
-    <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
-    <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Marcador de posición</string>
+    <string name="title_answer_placeholder_name">Nombre completo del remitente</string>
+    <string name="title_answer_placeholder_email">Dirección de correo del remitente</string>
+    <string name="title_answer_placeholder_firstname">Nombre del remitente</string>
+    <string name="title_answer_placeholder_lastname">Apellido del remitente</string>
     <string name="title_rule_noop">Ninguna acción</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
@@ -1171,8 +1175,8 @@
     <string name="title_legend_view">Ver contenido</string>
     <string name="title_legend_hide">Ocultar contenido</string>
     <string name="title_legend_download">Descargar contenido</string>
-    <string name="title_legend_external_image">Lugar reservado de imagen externa</string>
-    <string name="title_legend_embedded_image">Lugar reservado de imagen incrustada</string>
+    <string name="title_legend_external_image">Marcador de posición de imagen externa</string>
+    <string name="title_legend_embedded_image">Marcador de posición de imagen incrustada</string>
     <string name="title_legend_tracking_pixel">Imagen de rastreo</string>
     <string name="title_legend_broken_image">Imagen rota</string>
     <string name="title_legend_pick">Seleccionar contacto</string>

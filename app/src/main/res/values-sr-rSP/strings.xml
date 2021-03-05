@@ -659,8 +659,6 @@
     <string name="title_answer_favorite">Омиљено</string>
     <string name="title_answer_hide">Сакриј из менија</string>
     <string name="title_answer_text">Текст шаблона</string>
-    <string name="title_answer_template_name">$name$ ће бити замењено пуним именом пошиљаоца</string>
-    <string name="title_answer_template_email">$email$ ће бити замењено адресом пошиљаоца</string>
     <string name="title_rule_noop">Нема радње</string>
     <string name="title_rule_seen">Означи као прочитано</string>
     <string name="title_rule_unseen">Означи као непрочитано</string>

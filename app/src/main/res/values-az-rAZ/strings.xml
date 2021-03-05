@@ -322,8 +322,6 @@
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>
     <string name="title_answer_text">Şablon mətni</string>
-    <string name="title_answer_template_name">$name$ göndərənin tam adıyla əvəz ediləcək</string>
-    <string name="title_answer_template_email">$email$ göndərənin e-poçt ünvanı ilə əvəz ediləcək</string>
     <string name="title_rule_name">Ad</string>
     <string name="title_rule_order">Sifariş</string>
     <string name="title_rule_enabled">Fəallaşdırıldı</string>

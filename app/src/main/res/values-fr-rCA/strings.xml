@@ -159,7 +159,7 @@
     <string name="title_setup_grant_again">Accorder les autorisations requises</string>
     <string name="title_setup_exchange_support">Microsoft Exchange est-il pris en charge ?</string>
     <string name="title_setup_identity_what">Qu\'est-ce qu\'une identité?</string>
-    <string name="title_setup_free">L\'utilisation de cette application est-elle gratuite ?</string>
+    <string name="title_setup_free">L\'utilisation de cette application est-elle gratuite?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
     <string name="title_setup_doze">Désactiver les optimisations de la pile</string>
@@ -911,6 +911,7 @@
     <string name="title_media_toolbar">Barre d’outils média</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
+    <string name="title_create_template">Créer un modèle</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_select_certificate">Sélectionner la clé publique</string>
@@ -1045,8 +1046,11 @@
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_hide">Masquer du menu « Répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>
-    <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>
-    <string name="title_answer_template_email">$email$ sera remplacé par l’adresse courriel de l’expéditeur</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Place réservée</string>
+    <string name="title_answer_placeholder_name">Nom complet de l\'expéditeur</string>
+    <string name="title_answer_placeholder_email">Adresse courriel de l’expéditeur</string>
+    <string name="title_answer_placeholder_firstname">Prénom de l\'expéditeur</string>
+    <string name="title_answer_placeholder_lastname">Nom de l\'expéditeur</string>
     <string name="title_rule_noop">Aucune action</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>

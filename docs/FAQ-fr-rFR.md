@@ -593,51 +593,51 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*General*
+*Général*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Veuillez [voir ici](https://en.wikipedia.org/wiki/Public-key_cryptography) le fonctionnement du chiffrement par des clé publique/privée.
 
-Encryption in short:
+Chiffrement en bref :
 
 * Les messages **sortants** sont chiffrés avec la **clé publique** du destinataire
 * Les messages **entrants** sont déchiffrés avec la **clé privée** du destinataire
 
-Signing in short:
+Signature en bref :
 
 * Les messages **sortants** sont signés avec la **clé privée** de l'expéditeur
 * Les messages **entrants** sont vérifiés avec la **clé publique** de l'expéditeur
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Pour signer/chiffrer un message, il suffit de sélectionner la méthode appropriée dans la boîte de dialogue d'envoi. Vous pouvez toujours ouvrir la boîte de dialogue d'envoi en utilisant le menu déroulant symbolisé par trois points dans le cas où vous aviez sélectionné *Ne plus afficher* avant.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Pour vérifier une signature ou déchiffrer un message reçu, ouvrez le message et appuyez sur l'icône du geste ou du cadenas juste en dessous de la barre d'action du message.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+La première fois que vous envoyez un message signé/chiffré, il se peut que l'on vous demande une clé de signature. FairEmail stockera automatiquement la clé de signature sélectionnée dans l'identité utilisée pour la prochaine fois. Si vous avez besoin de réinitialiser la clé de signature, enregistrez simplement l'identité ou appuyez longuement sur l'identité dans la liste des identités et sélectionnez *réinitialiser la clé de signature*. La clé de signature sélectionnée est visible dans la liste des identités. Si vous avez besoin de sélectionner une clé cas par cas, vous pouvez créer plusieurs identités pour le même compte avec la même adresse e-mail.
 
-In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
+Dans les paramètres de chiffrement, vous pouvez sélectionner la méthode de cryptage par défaut (PGP ou S/MIME), activer *Signer par défaut*, *Chiffrer par défaut* et *Déchiffrer automatiquement les messages*, mais sachez que le décryptage automatique n'est pas possible si l'interaction de l'utilisateur est requise, comme la sélection d'une clé ou la lecture d'un jeton de sécurité.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+Les textes/pièces jointes de message à chiffrer et les textes/pièces jointes du message déchiffré sont stockés localement seulement et ne seront jamais ajoutés au serveur distant. Si vous voulez annuler le déchiffrement, vous pouvez utiliser l'option *resynchroniser* dans le menu à trois points de la barre d'action des messages.
 
 <br />
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Vous devez d'abord installer et configurer [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/). FairEmail a été testé avec OpenKeychain version 5.4. Les versions ultérieures seront probablement compatibles, mais les versions antérieures pourraient ne pas l'être.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Important**: l'application OpenKeychain est connue pour planter (silencieusement) lorsque l'application qui l'appel (FairEmail) n'est pas encore autorisée et obtient une clé publique existante. Vous pouvez contourner cela en essayant d'envoyer un message signé/chiffré à un expéditeur avec une clé publique inconnue.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
+**Important**: si l'application OpenKeychain ne peut plus trouver de clé, vous devrez peut-être réinitialiser une clé précédemment sélectionnée. Cela peut être fait en appuyant longuement sur une identité dans la liste des identités (Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Identités).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Important**: pour permettre aux applications comme FairEmail de se connecter de manière fiable au service OpenKeychain pour chiffrer/déchiffrer les messages, il peut être nécessaire de désactiver les optimisations de batterie pour l'application OpenKeychain.
 
-**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+**Important**: il est dit que l'application OpenKeychain aurait besoin d'une autorisation d'acces aux contacts pour fonctionner correctement.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Important**: sur certaines versions d'Android / appareils, il est nécessaire d'activer *Afficher les fenêtres pop-up lors de l'exécution en arrière-plan* dans les autorisations supplémentaires des paramètres de l'application Android de l'application OpenKeychain. Sans cette autorisation, le brouillon sera enregistré, mais la popup OpenKeychain pour confirmer/sélectionner pourrait ne pas apparaître.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail enverra l'en-tête [Autocrypt](https://autocrypt.org/) pour être utilisé par d'autres clients de messagerie, mais uniquement pour les messages signés et chiffrés parce que trop de serveurs de messagerie ont des problèmes avec l'en-tête Autocrypt qui est souvent longue. Notez que le moyen le plus sûr de démarrer un échange de messages chiffrés est d'envoyer d'abord des messages signés. Les en-têtes Autocrypt reçues seront envoyées à l'application OpenKeychain pour être stockées lors de la vérification d'une signature ou du déchiffrement d'un message.
 
-Although this shouldn't be necessary for most email clients, you can attach your public key to a message and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
+Bien que cela ne devrait pas être nécessaire pour la plupart des clients de messagerie, vous pouvez joindre votre clé publique à un message et si vous utilisez *.key* comme extension, le type mime sera correctement *application/pgp-keys*.
 
-All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
+Toute la gestion des clés est déléguée à l'application porte-clés OpenKey pour des raisons de sécurité. Cela signifie également que FairEmail ne stocke pas les clés PGP.
 
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
@@ -710,24 +710,26 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 *pretty Easy privacy*
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and hardly anyone uses this. Nevertheless, FairEmail can properly decode incoming p≡p messages since version 1.1519.
+Il n'y a pour le moment [aucune norme approuvée](https://tools.ietf.org/id/draft-birk-pep-00.html) pour Pretty Easy Privacy (p≡p) et peu de gens l'utilisent.
+
+Cependant, FairEmail peut envoyer et recevoir des messages chiffrés par PGP, qui sont compatibles avec p≡p. De plus, FairEmail comprend les messages entrants de p≡p depuis la version 1. 519, ainsi le sujet chiffré sera affiché et le texte du message intégré sera mieux affiché.
 
 <br />
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+S/MIME sign/encrypt est une fonctionnalité de la version pro, mais toutes les autres opérations PGP et S/MIME sont libres accessibles.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Comment fonctionne la recherche sur l'appareil / le serveur ?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Vous pouvez commencer par rechercher des messages sur l'expéditeur (de), le destinataire (à, cc, cci), le sujet, mots clés ou le texte du message en utilisant la loupe dans la barre d'action d'un dossier. Vous pouvez également rechercher depuis n'importe quelle application en sélectionnant *Chercher un courrier électronique* dans le menu contextuel copier/coller.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+La recherche dans la boîte de réception unifiée recherche dans tous les dossiers de tous les comptes, la recherche dans la liste de dossiers va chercher dans le compte associé seulement et la recherche dans un dossier ne sera effectuée que dans ce dossier.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Les messages seront d'abord recherchés sur l'appareil. Il y aura un bouton en bas avec une icône "rechercher à nouveau" pour continuer la recherche sur le serveur. Vous pouvez choisir le dossier dans lequel vous souhaitez continuer la recherche.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+Le protocole IMAP ne supporte pas la recherche dans plusieurs dossiers en même temps. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
 
 Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 
@@ -1620,15 +1622,17 @@ The price of the few pro features is too low, lower than the price of most simil
 <a name="faq67"></a>
 **(67) How can I snooze conversations?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the timelapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71).
+It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
 
 You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
 
 You can tap on the small snooze icon to see until when a conversation is snoozed.
 
 By selecting a zero snooze duration you can cancel snoozing.
+
+Third party apps do not have access to the Gmail snoozed messages folder.
 
 <br />
 

@@ -515,7 +515,7 @@
     <string name="title_advanced_beige_hint">Только светлые темы</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если используется сортировка по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
-    <string name="title_advanced_split_hint">Это разделит экран на части</string>
+    <string name="title_advanced_split_hint">Экран будет разделён на части</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_highlight_hint">Для подсветки будет использован цвет акцента темы</string>
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
@@ -933,6 +933,7 @@
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
+    <string name="title_create_template">Создать шаблон</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>
@@ -1067,8 +1068,11 @@
     <string name="title_answer_favorite">Избранное</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
-    <string name="title_answer_template_name">Шаблон $name$ будет заменён на полное имя отправителя.</string>
-    <string name="title_answer_template_email">Шаблон $email$ будет заменён на адрес электронной почты отправителя.</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Заполнение</string>
+    <string name="title_answer_placeholder_name">Полное имя отправителя</string>
+    <string name="title_answer_placeholder_email">Электронная почта отправителя</string>
+    <string name="title_answer_placeholder_firstname">Имя отправителя</string>
+    <string name="title_answer_placeholder_lastname">Фамилия отправителя</string>
     <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>

@@ -493,6 +493,7 @@
     <string name="title_advanced_beige_hint">Alleen lichte thema\'s</string>
     <string name="title_advanced_date_hint">Berichten worden alleen op datum gegroepeerd als ze op tijd zijn gesorteerd</string>
     <string name="title_advanced_navbar_colorize_hint">Of dit werkt hangt af van de Android-versie en -variant</string>
+    <string name="title_advanced_split_hint">Dit zal het scherm opsplitsen in delen</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_highlight_hint">De accentkleur van het thema wordt gebruikt voor markering</string>
     <string name="title_advanced_gravatars_hint">Er is mogelijk een privacyrisico</string>
@@ -910,6 +911,7 @@
     <string name="title_media_toolbar">Media werkbalk</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
+    <string name="title_create_template">Maak sjabloon</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>
@@ -1044,8 +1046,11 @@
     <string name="title_answer_favorite">Favoriet</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>
-    <string name="title_answer_template_name">$name$ zal worden vervangen door de volledige naam van de afzender</string>
-    <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Plaatshouder</string>
+    <string name="title_answer_placeholder_name">Volledige naam afzender</string>
+    <string name="title_answer_placeholder_email">E-mailadres afzender</string>
+    <string name="title_answer_placeholder_firstname">Voornaam afzender</string>
+    <string name="title_answer_placeholder_lastname">Achternaam afzender</string>
     <string name="title_rule_noop">Geen actie</string>
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>

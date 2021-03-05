@@ -238,7 +238,7 @@
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
-    <string name="title_advanced_suggest_names">用户名和电子邮件地址</string>
+    <string name="title_advanced_suggest_names">使用名称和电子邮件地址</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
@@ -481,6 +481,7 @@
     <string name="title_advanced_beige_hint">仅限浅色主题</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
+    <string name="title_advanced_split_hint">这将把屏幕分割成几部分</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
@@ -898,6 +899,7 @@
     <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
+    <string name="title_create_template">创建模板</string>
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
     <string name="title_edit_formatted_text">编辑为重新格式化的文本</string>
     <string name="title_select_certificate">选择公钥</string>
@@ -1032,8 +1034,11 @@
     <string name="title_answer_favorite">收藏</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
-    <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>
-    <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">占位符</string>
+    <string name="title_answer_placeholder_name">发件人全名</string>
+    <string name="title_answer_placeholder_email">发件人电子邮件地址</string>
+    <string name="title_answer_placeholder_firstname">发件人名字</string>
+    <string name="title_answer_placeholder_lastname">发件人姓氏</string>
     <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标记为已读</string>
     <string name="title_rule_unseen">标记为未读</string>

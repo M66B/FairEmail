@@ -410,7 +410,6 @@
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_filter_duplicates">Duplicados</string>
-    <string name="title_answer_template_email">$email$ será substituído pelo endereço de correio eletrónico do remetente</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

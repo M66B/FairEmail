@@ -877,8 +877,6 @@
     <string name="title_answer_favorite">Gogokoa</string>
     <string name="title_answer_hide">Ezkutatu menuetan</string>
     <string name="title_answer_text">Txantiloi-testua</string>
-    <string name="title_answer_template_name">$name$ igorlearen izen osoarekin ordeztuko da</string>
-    <string name="title_answer_template_email">$email$ igorlearen e-mail helbidearekin ordeztuko da</string>
     <string name="title_rule_noop">Ekintzarik ez</string>
     <string name="title_rule_seen">Markatu irakurria</string>
     <string name="title_rule_unseen">Markatu irakurri gabeko gisa</string>

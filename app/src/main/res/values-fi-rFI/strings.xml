@@ -178,6 +178,7 @@
     <string name="title_setup_configuring">Määritetään tiliä &#8230;</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
+    <string name="title_setup_export_do">Salasanaa käytetään asetusten salaukseen, ja sitä tarvitaan asetusten tuomiseen uudelleen</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
@@ -243,10 +244,12 @@
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
     <string name="title_advanced_sync_shared_folders">Synkronoi jaettujen kansioiden lista</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
+    <string name="title_advanced_check_reply_domain">Tarkista vastaussähköpostiosoite viestejä synkronoitaessa</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
     <string name="title_advanced_tune_keep_alive">Säädä ylläpitokyselyn aikaväli automaattisesti</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
     <string name="title_advanced_keyboard_no_fullscreen">Estä koko näytön näppäimistö</string>
+    <string name="title_advanced_suggest_names">Käytä nimiä ja sähköpostiosoitteita</string>
     <string name="title_advanced_suggest_local">Ehdota paikallisesti tallennettuja yhteystietoja</string>
     <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
@@ -309,6 +312,7 @@
     <string name="title_advanced_color_threshold">Kirjasimen värin kynnysarvo: %1$s %%</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_replace_name">Käytä ensisijaisesti yhteystiedon nimeä lähettäjän nimen sijaan</string>
+    <string name="title_advanced_only_name">Näytä vain yhteystietojen nimet</string>
     <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_show_recipients">Näytä vastaanottajat viestin tunnistetiedoissa</string>
     <string name="title_advanced_font_size_sender">Lähettäjä-tekstin koko</string>
@@ -450,7 +454,8 @@
     <string name="title_advanced_query_threads">Rajoita rinnakkaisia tietokantayhteyksiä</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_protocol">Protokollan kirjaaminen lokiin</string>
-    <string name="title_advanced_debug">Debug-tila</string>
+    <string name="title_advanced_log_info">Vianetsintätietojen kirjaaminen</string>
+    <string name="title_advanced_debug">Vianetsintätila</string>
     <string name="title_advanced_cleanup_attachments">Poista vanhojen viestien liitteet</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
@@ -466,8 +471,10 @@
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_gmail_thread_hint">Tämä koskee vain uusia vastaanotettuja viestejä ja voi rikkoa olemassa olevia ryhmiä</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
+    <string name="title_advanced_check_reply_hint">Tämä tarkistaa, onko lähetys- ja vastaussähköpostiosoitteen verkkotunnus identtinen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
+    <string name="title_advanced_suggest_names_hint">Jos poistettu käytöstä, yhteystietoja valittaessa käytetään vain sähköpostiosoitteita</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
@@ -484,6 +491,7 @@
     <string name="title_advanced_beige_hint">Ainoastaan vaaleat teemat</string>
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
+    <string name="title_advanced_split_hint">Tämä jakaa näytön osiin</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
@@ -522,6 +530,7 @@
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
     <string name="title_advanced_protocol_hint">Tämä lisää merkittävästi akun ja tallennustilan käyttöä!</string>
+    <string name="title_advanced_debug_hint">Tämä näyttää rumia vianetsintätietoja eri paikoissa</string>
     <string name="title_advanced_cleanup_attachments_hint">Manuaalisesti siivottaessa tämä poistaa liitteet viesteistä, joita ei enää synkronoida</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
@@ -975,6 +984,7 @@
     <string name="title_search_in_subject">Aiheesta</string>
     <string name="title_search_in_keywords">Avainsanoista (jos on tuettu)</string>
     <string name="title_search_in_message">Viestin tekstistä</string>
+    <string name="title_search_in_notes">Paikallisista muistiinpanoista</string>
     <string name="title_search_with">Rajoita hakua</string>
     <string name="title_search_with_unseen">Lukematon</string>
     <string name="title_search_with_flagged">Tähdellinen</string>
@@ -1033,8 +1043,6 @@
     <string name="title_answer_favorite">Suosikki</string>
     <string name="title_answer_hide">Piilota valikoista</string>
     <string name="title_answer_text">Viestipohjan teksti</string>
-    <string name="title_answer_template_name">$name$ korvataan lähettäjän koko nimellä</string>
-    <string name="title_answer_template_email">$email$ korvataan lähettäjän sähköpostiosoitteella</string>
     <string name="title_rule_noop">Ei toimintoa</string>
     <string name="title_rule_seen">Merkitse luetuksi</string>
     <string name="title_rule_unseen">Merkitse lukemattomaksi</string>

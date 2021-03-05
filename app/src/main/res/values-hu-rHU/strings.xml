@@ -987,8 +987,6 @@
     <string name="title_answer_favorite">Kedvenc</string>
     <string name="title_answer_hide">Elrejtés a menüben</string>
     <string name="title_answer_text">Sablon szövege</string>
-    <string name="title_answer_template_name">$name$ behelyettesíti a feladó teljes nevét</string>
-    <string name="title_answer_template_email">$email$ behelyettesíti a feladó email címét</string>
     <string name="title_rule_noop">Nincs művelet</string>
     <string name="title_rule_seen">Megjelölés olvasottként</string>
     <string name="title_rule_unseen">Megjelölés olvasatlanként</string>

@@ -1,42 +1,42 @@
 # Supporto FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Se hai delle domande, controlla prima le seguenti domande frequenti. [In fondo](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) puoi scoprire come porre altre domande, richiedere funzionalità e segnalare bug.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Indice
 
-* [Autorizzare account](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Autorizzazione account](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
 * [Come fare per ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Problemi noti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Problemi ricorrenti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Funzionalità pianificate](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Funzionalità richieste di frequente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Domande frequenti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Ricevi supporto](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Richiedi supporto](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Autorizzare account
+## Autorizzazione account
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Nella maggior parte dei casi, la procedura guidata per la configurazione rapida sarà in grado di identificare automaticamente la configurazione corretta.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Se la procedura guidata di configurazione rapida fallisce, è necessario configurare manualmente un account (per ricevere email) e un'identità (per inviare email). Per fare questo, avrai bisogno degli indirizzi del server IMAP e SMTP e dei numeri di porta (a seconda dell'utilizzo di SSL/TLS oppure STARTTLS), del tuo nome utente (in genere, ma non sempre, il tuo indirizzo e-mail) e della tua password.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Cercare *IMAP* e il nome del fornitore di solito è sufficiente per trovare la documentazione giusta.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+In alcuni casi dovrai abilitare l'accesso esterno al tuo account e/o utilizzare una password speciale (app), ad esempio quando l'autenticazione a due fattori è attiva.
 
-For authorizing:
+Per autorizzare:
 
-* Gmail / G suite, vedi la [domanda 6](#user-content-faq6)
-* Outlook / Live / Hotmail, vedi la [domanda 14](#user-content-faq14)
-* Office 365, vedi [la domanda 14](#user-content-faq156)
-* Microsoft Exchange, vedi [la domanda 8](#user-content-faq8)
-* Yahoo, AOL e Sky, vedi la [domanda 88](#user-content-faq88)
-* Apple iCloud, vedi la [domanda 148](#user-content-faq148)
-* Free.fr, vedi la [domanda 157](#user-content-faq157)
+* Gmail / G suite, si veda la [domanda 6](#user-content-faq6)
+* Outlook / Live / Hotmail, si veda la [domanda 14](#user-content-faq14)
+* Office 365, si veda la [domanda 14](#user-content-faq156)
+* Microsoft Exchange, si veda la [domanda 8](#user-content-faq8)
+* Yahoo, AOL e Sky, si veda la [domanda 88](#user-content-faq88)
+* Apple iCloud, si veda la [domanda 148](#user-content-faq148)
+* Free.fr, si veda la [domanda 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Si prega di vedere [qui](#user-content-faq22) per frequenti messaggi di errore e soluzioni.
 
-Related questions:
+Domande correlate:
 
 * [OAuth è supportato?](#user-content-faq111)
 * [Perché ActiveSync non è supportato?](#user-content-faq133)
@@ -45,37 +45,37 @@ Related questions:
 
 ## Come fare per ...?
 
-* Cambia il nome dell'account: Impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Account, clicca Account
-* Cambiare l'azione di scorrimento a sinistra/destra: Impostazioni, Comportamento della pagina relativo ai tab, Imposta azioni di scorrimento
-* Cambia password: impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Account, clicca account, cambia password
-* Imposta una firma: Impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Identità, clicca identità, modifica firma.
-* Aggiungere indirizzi CC e CCN: tocca l'icona persone alla fine dell'oggetto dell'email
-* Andare al messaggio successivo/precedente all'archiviazione/eliminazione: nelle impostazioni di comportamento disattiva *Chiudi automaticamente le conversazioni* e seleziona *Vai alla conversazione precedente/successiva* sotto *Alla chiusura di una conversazione*
-* Aggiungere una cartella nella casella di posta unificata: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nella casella di posta unificata*
-* Aggiungere una cartella al menu di navigazione: premi a lungo la cartella nell'elenco delle cartelle e spunta *Mostra nel menu di navigazione*
-* Caricare più messaggi: premi a lungo su una cartella nell'elenco delle cartelle, seleziona *Sincronizza più messaggi*
-* Eliminare un messaggio, evitando il cestino: nel menu a 3 punti appena sopra il testo del messaggio *Elimina* o, in alternativa, deseleziona la cartella cestino nelle impostazioni dell'account
-* Eliminare un account/identità: Impostazioni, clicca impostazioni manuali ed altre opzioni, clicca su account/identità, menu a tre punti, Elimina
-* Eliminare una cartella: premi a lungo la cartella nell'elenco delle cartelle, Modifica le proprietà, menu a tre punti, Elimina
-* Annullare l'invio: posta In uscita, tocca il messaggio, tocca l'icona Annulla
-* Conservare i messaggi inviati nella posta in arrivo: [vedi queste domande frequenti](#user-content-faq142)
-* Cambia sistema cartelle: impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Account, clicca account in basso
-* Impostazioni di esportazione/importazione: Impostazioni, menu di navigazione/menu hamburger
+* Cambiare il nome dell'account: Impostazioni, Configurazione manuale ed altre opzioni, Account, cliccare l'account desiderato
+* Cambiare l'azione di scorrimento a sinistra/destra: Impostazioni, Impostazioni pagina, Imposta azioni di scorrimento
+* Cambiare password: Impostazioni, Configurazione manuale ed altre opzioni, Account, cliccare l'account desiderato, Cambia password
+* Impostare una firma: Impostazioni, Configurazione manuale ed altre opzioni, Identità, cliccare l'identità desiderata, Modifica firma.
+* Aggiungere indirizzi CC e CCN: cliccare l'icona delle persone alla fine dell'oggetto dell'email
+* Andare al messaggio successivo/precedente nell'archivio/cestino: nelle impostazioni di comportamento disattivare *Chiudi automaticamente le conversazioni* e selezionare *Vai alla conversazione precedente/successiva* sotto *Alla chiusura di una conversazione*
+* Aggiungere una cartella nella casella di posta unificata: nell'elenco delle cartelle, tenere premuta la cartella desiderata e spuntare *Mostra nella casella di posta unificata*
+* Aggiungere una cartella al menu di navigazione: nell'elenco delle cartelle, tenere premuta la cartella desiderata e spuntare *Mostra nel menu di navigazione*
+* Caricare più messaggi: nell'elenco delle cartelle, tenere premuta la cartella desiderata e selezionare *Carica più messaggi*
+* Eliminare permanentemente un messaggio, evitando il cestino: nel menu a tre puntini appena sopra il testo del messaggio, cliccare *Elimina* o, in alternativa, deselezionare la cartella cestino nelle impostazioni dell'account.
+* Eliminare account/identità: Impostazioni, Impostazioni manuali ed altre opzioni, cliccare sull'account/identità, aprire il menu a tre puntini, Elimina
+* Eliminare una cartella: nell'elenco delle cartelle, tenere premuta la cartella desiderata, Modifica proprietà, aprire il menu a tre puntini, Elimina.
+* Annullare l'invio: posta in uscita, cliccare il messaggio, Annulla
+* Conservare i messaggi inviati nella posta in arrivo: [si vedano queste domande frequenti](#user-content-faq142).
+* Cambiare il sistema delle cartelle: Impostazioni, Configurazione manuale ed altre opzioni, Account, cliccare l'account desiderato, in fondo.
+* Impostazioni di esportazione/importazione: Impostazioni, menu di navigazione/menu hamburger.
 
-## Problemi noti
+## Problemi ricorrenti
 
-* ~~Un [errore in Android 5.1 e 6](https://issuetracker.google.com/issues/37054851) causa la visualizzazione di un formato sbagliato delle ore. Attivando/disattivando l'impostazione di Android *Usa il formato 24 ore* potrebbe risolvere temporaneamente il problema. È stato aggiunto un espediente.~~
-* ~~Un [errore in Google Drive](https://issuetracker.google.com/issues/126362828) fa sì che i file esportati su Google Drive siano vuoti. Google lo ha corretto.~~
-* ~~Un [errore in AndroidX](https://issuetracker.google.com/issues/78495471) provoca un crash occasionale di FairEmail durante la pressione a lungo o lo scorrimento. Google lo ha corretto.~~
-* ~~Un [errore in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causa a volte un crash con "*... Eccezione durante il calcolo dei dati live del database ... Impossibile leggere la riga ...*". È stato aggiunto un espediente.~~
-* Un [errore in Android](https://issuetracker.google.com/issues/119872129) causa un crash di FairEmail con "*... Notifica errata postata ...*" su alcuni dispositivi dopo l'aggiornamento di FairEmail e toccando su una notifica.
-* Un [errore in Android](https://issuetracker.google.com/issues/62427912) a volte provoca un crash con "*... ActivityRecord non trovato per ...*" dopo l'aggiornamento FairEmail. La reinstallazione ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) potrebbe risolvere il problema.
-* Un [errore in Android](https://issuetracker.google.com/issues/37018931) a volte provoca un crash con *... InputChannel non è inizializzato ...* su alcuni dispositivi.
-* ~~Un [errore in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) a volte provoca un crash con *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* Un errore in Nova Launcher su Android 5.x causa il crash di FairEmail con un *java.lang.StackOverflowError* quando Nova Launcher ha accesso al servizio di accessibilità.
+* ~~Un [bug di Android 5.1 e 6](https://issuetracker.google.com/issues/37054851) causa l'errata visualizzazione del formato orario. Attivare/disattivare l'impostazione di Android *Usa il formato 24 ore* potrebbe risolvere temporaneamente il problema. È stato aggiunto un espediente.~~
+* ~~Un [bug di Google Drive](https://issuetracker.google.com/issues/126362828) fa sì che i file esportati su Google Drive siano vuoti. Google lo ha corretto.~~
+* ~~Un [bug di AndroidX](https://issuetracker.google.com/issues/78495471) provoca un crash occasionale di FairEmail durante la pressione a lungo o lo scorrimento. Google lo ha corretto.~~
+* ~~Un [bug di AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causa a volte un crash con "*... Eccezione durante il calcolo dei dati live del database ... Impossibile leggere la riga ...*". È stato aggiunto un espediente.~~
+* Un [bug di Android](https://issuetracker.google.com/issues/119872129) causa un crash di FairEmail con "*... Notifica errata postata ...*" su alcuni dispositivi dopo l'aggiornamento di FairEmail e toccando su una notifica.
+* Un [bug di Android](https://issuetracker.google.com/issues/62427912) a volte provoca un crash con "*... ActivityRecord non trovato per ...*" dopo l'aggiornamento FairEmail. La reinstallazione ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) potrebbe risolvere il problema.
+* Un [bug di Android](https://issuetracker.google.com/issues/37018931) a volte provoca un crash con *... InputChannel non è inizializzato ...* su alcuni dispositivi.
+* ~~Un [bug di LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) a volte provoca un crash con *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Un bug di Nova Launcher su Android 5.x causa il crash di FairEmail con un *java.lang.StackOverflowError* quando Nova Launcher ha accesso al servizio di accessibilità.
 * ~~Il selettore di cartelle a volte non mostra cartelle per motivi ancora sconosciuti. Sembra essere risolto.~~
-* ~~Un [errore in AndroidX](https://issuetracker.google.com/issues/64729576) rende difficile toccare lo scroller rapido. È stato aggiunto un espediente.~~
-* ~~La crittografia con YubiKey risulta in un ciclo infinito. Ciò sembra essere causato da un [errore in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* ~~Un [bug di AndroidX](https://issuetracker.google.com/issues/64729576) rende difficile toccare lo scroller rapido. È stato aggiunto un espediente.~~
+* ~~La crittografia con YubiKey risulta in un ciclo infinito. Ciò sembra essere causato da un [bug di OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Lo scorrimento verso una posizione collegata internamente nei messaggi originali non funziona. Ciò non può essere risolto perché la vista originale dei messaggi è contenuta in una vista a scorrimento.
 * Un'anteprima di un testo di un messaggio non (sempre) appare negli orologi Samsung perché [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) sembra venga ignorato. I testi di anteprima del messaggio sono noti per essere visualizzati correttamente sugli indossabili Pebble 2, Fitbit Charge 3, Mi band 3 e Xiaomi Amazfit BIP. Vedi anche [queste domande frequenti](#user-content-faq126).
 * Un [errore in Android](https://issuetracker.google.com/issues/37068143) a volte provoca un crash con *... Spostamento non valido: ... L'intervallo valido è ... quando il testo è selezionato e tocca all'esterno del testo selezionato. Questo bug è stato risolto in Android 6.0.1.</li>
@@ -115,11 +115,11 @@ Related questions:
 * ~~Supporto S/MIME~~
 * ~~Cerca impostazioni~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Le funzionalità summenzionate sono in ordine casuale e *potrebbero* essere aggiunte in un futuro prossimo.
 
 ## Funzionalità richieste di frequente
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Il design è stato a lungo oggetto di discussione e, se si desidera, se ne può parlare [in questo forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). L'obiettivo del design è quello di essere minimalista (senza inutili menu, pulsanti ecc.) e di non distrarre (sneza colori stravaganti, animazioni ecc.). Tutte le cose visualizzate devono, in qualche modo, essere utili e devono essere posizionate con attenzione per un facile utilizzo. Caratteri, dimensioni, colori, ecc. devono essere Material Design quando possibile.
 
 ## Domande frequenti
 
@@ -285,31 +285,31 @@ The design is based on many discussions and if you like you can discuss about it
 * [(162) IMAP NOTIFY è supportato?](#user-content-faq162)
 * [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
 * [(164) Puoi aggiungere temi personalizzabili?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(165) Android Auto è supportato?](#user-content-faq165)
 
-[I have another question.](#user-content-support)
+[Ho un'altra domanda.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Quali autorizzazioni sono necessarie e perché?**
 
-The following Android permissions are needed:
+Sono necessarie le seguenti autorizzazioni Android:
 
 * *avere accesso completo alla rete* (INTERNET): per inviare e ricevere le email
-* *visualizza le connessioni di rete* (ACCESS_NETWORK_STATE): per monitorare le modifiche alla connettività di internet
-* *esegui all'avvio* (RECEIVE_BOOT_COMPLETED): per avviare il monitoraggio all'avvio del dispositivo
+* *visualizzare le connessioni di rete* (ACCESS_NETWORK_STATE): per monitorare le modifiche alla connettività di internet
+* *eseguire all'avvio* (RECEIVE_BOOT_COMPLETED): per avviare il monitoraggio all'avvio del dispositivo
 * *servizio in primo piano* (FOREGROUND_SERVICE): per eseguire un servizio in primo piano su Android 9 Pie e successive, vedi anche la prossima domanda
 * *prevenire che il dispositivo vada in riposo* (WAKE_LOCK): per mantenere attivo il dispositivo durante la sincronizzazione dei messaggi
 * *fatturazione in-app* (BILLING): per consentire gli acquisti in-app
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Opzionale: *leggi i tuoi contatti* (READ_CONTACTS): per completare gli indirizzi automaticamente, per visualizzare le foto dei contatti e [per selezionare i contatti](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Opzionale: *leggere i contenuti della tua scheda SD* (READ_EXTERNAL_STORAGE): per accettare i file da altre app obsolete, vedi anche [questa FAQ](#user-content-faq49)
 * Opzionale: *usa l'hardware delle impronte digitali* (USE_FINGERPRINT) e usa *l'hardware biometrico* (USE_BIOMETRIC): per usare l'autenticazione biometrica
 * Opzionale: *trova profili sul dispositivo* (GET_ACCOUNTS): per selezionare un profilo quando si utilizza la configurazione rapida di Gmail
 * Android 5.1 e precedenti: *usa profili sul dispositivo* (USE_CREDENTIALS): per selezionare un profilo quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
 * Android 5.1 Lollipop e precedenti: *Leggi profilo* (READ_PROFILE): per leggere il tuo nome quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Autorizzazioni opzionali](https://developer.android.com/training/permissions/requesting) sono supportate soltanto da Android 6 Marshmallow e versioni successive. Con versioni precedenti di Android, verrà chiesto di concedere le autorizzazioni facoltative per l'installazione di FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Le seguenti autorizzazioni sono necessarie per mostrare il numero di messaggi non letti come distintivo (vedi anche [questa FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -328,38 +328,38 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail salverà un elenco di indirizzi da cui si ricevono e a cui si inviano messaggi e userà questa lista per suggerire dei contatti se non viene concesso alcun permesso a FairEmail di accedere ai contatti. Ciò significa che è possibile utilizzare FairEmail senza il provider di contatti Android (rubrica indirizzi). Si noti che è ancora possibile scegliere i contatti senza concedere a FairEmail i permessi di accesso ai contatti, il solo suggerimento di contatti non funzionerà senza i permessi di accesso ai contatti.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Perché viene mostrata una notifica permanente?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Una notifica a bassa priorità, permanente nella barra di stato, con il numero di account monitorati e il numero di operazioni in sospeso (si veda la domanda successiva) viene mostrata per impedire ad Android di interrompere il il servizio che si occupa della ricezione continua di e-mail. Ciò era [già necessario](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)) in precedenza ma, con l'introduzione della [funzione Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) di Android 6 Marshmallow, è diventato indispensabile. La funzione Doze interrompe tutte le app nel momento in cui lo schermo è bloccato, a meno che l'app non avvii un servizio in primo piano, il quale richiede la visualizzazione di una notifica nella barra di stato.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+La maggior parte delle app di posta elettronica, se non tutte, non mostra una notifica, col conseguente "effetto collaterale" per cui i nuovi messaggi sono spesso non segnalati o segnalati tardi, e che i messaggi non sono inviati o sono inviati in ritardo.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android mostra per prime le icone delle notifiche ad alta priorità nella barra di stato e nasconde le icone delle notifiche di FairEmail se non c'è più spazio per mostrarne altre. In pratica ciò significa che la notifica non non occupa spazio nella barra di stato a meno che non ci sia spazio disponibile.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+La notifica nella barra di stato può essere disabilitata tramite le impostazioni di notifica di FairEmail:
 
-* Android 8 Oreo e successive: tocca il pulsante *Ricevi canale* e disabilita il canale tramite le impostazioni di Android (questo non disabiliterà le notifiche dei messaggi)
-* Android 7 Nougat e precedenti: abilitato l'*Uso del servizio in background per sincronizzare i messaggi*, ma assicurati di leggere l'osservazione sotto l'impostazione
+* Android 8 Oreo e versioni successive: cliccare *Ricevi canale* e disabilitare il canale tramite le impostazioni di Android (questo non disabiliterà le notifiche dei messaggi)
+* Android 7 Nougat e versioni precedenti: abilitare l'*Uso del servizio in background per sincronizzare i messaggi*, ma assicurarsi di leggere nell'impostazione
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+È possibile passare alla sincronizzazione periodica dei messaggi nelle impostazioni di ricezione per rimuovere la notifica, ma questo potrebbe aumentare l'utilizzo dell'energia della batteria. Cliccare [qui](#user-content-faq39) per maggiori dettagli sull'utilizzo della batteria.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo potrebbe anche mostrare una notifica nella barra di stato con il testo *Le app sono in esecuzione in background*. Si prega di vedere [qui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) come disabilitare questa notifica.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Alcuni utenti hanno suggerito di usare [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) invece di un servizio Android con una notifica nella barra di stato, ma questo costringerebbe gli emittenti a inviare messaggi FCM ad un server centrale in cui sono raccolti tutti i messaggi FCM. The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Se si è arrivati qui cliccando sulla notifica, il prossimo click aprirà la casella di posta unificata.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Quali sono le operazioni e perché sono in sospeso?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+La notifica a bassa priorità nella barra di stato mostra il numero di operazioni in sospeso, che possono essere:
 
 * *add*: aggiungi messaggio alla cartella remota
 * *move*: sposta messaggio ad un'altra cartella remota
@@ -381,22 +381,22 @@ The low priority status bar notification shows the number of pending operations,
 * *send*: invia messaggio
 * *exists*: controlla se il messaggio esiste
 * *rule*: esegui regola sul corpo del testo
-* *expunge*: permanently delete messages
+* *expunge*: elimina permanentemente i messaggi
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Le operazioni vengono elaborate solo quando si è connessi al server di posta elettronica o quando vi è una sincronizzazione manuale. Si veda anche [questa FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Come posso usare un certificato di sicurezza non valido / password vuota / connessione di testo semplice?**
 
-*... Untrusted ... not in certificate ...*
+*... Non attendibile ... non nel certificato ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
+Questo può essere causato dall'uso di un nome host errato, per cui controllare il nome host nelle impostazioni avanzate di identità/account (Configurazione manuale e più opzioni). Si consulta la documentazione del provider di posta elettronica sul nome host giusto.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+È possibile risolvere questo problema contattando il proprio provider oppure ottenendo un certificato di sicurezza valido poiché i certificati di sicurezza non validi sono insicuri e consentono [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il prezzo di questi rappresenta un ostacolo, è possibile ottenere certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
@@ -469,7 +469,7 @@ Some people ask:
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Se non desideri utilizzare o non puoi utilizzare un account Google sul dispositivo, ad esempio sui dispositivi Huawei recenti, puoi abilitare l'accesso per "app meno sicure" ed usare la password del tuo account (non consigliato), oppure abilitare due fattori di autenticazione ed usare una password specifica per l'app. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
 **Important**: sometimes Google issues this alert:
 
@@ -710,7 +710,9 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 *pretty Easy privacy*
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and hardly anyone uses this. Nevertheless, FairEmail can properly decode incoming p≡p messages since version 1.1519.
+There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people are using it.
+
+However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p. Also, FairEmail understands incoming p≡p messages since version 1.1519, so the encrypted subject will be shown and the embedded message text will be shown more nicely.
 
 <br />
 
@@ -1620,15 +1622,17 @@ The price of the few pro features is too low, lower than the price of most simil
 <a name="faq67"></a>
 **(67) How can I snooze conversations?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the timelapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71).
+It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
 
 You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
 
 You can tap on the small snooze icon to see until when a conversation is snoozed.
 
 By selecting a zero snooze duration you can cancel snoozing.
+
+Third party apps do not have access to the Gmail snoozed messages folder.
 
 <br />
 

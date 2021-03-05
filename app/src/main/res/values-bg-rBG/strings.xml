@@ -847,8 +847,6 @@
     <string name="title_answer_favorite">Любими</string>
     <string name="title_answer_hide">Скриване в менюто</string>
     <string name="title_answer_text">Шаблон текст</string>
-    <string name="title_answer_template_name">$name$ ще бъде заменено от пълното име на подателя</string>
-    <string name="title_answer_template_email">$email$ ще бъде заменен от имейл адреса на подателя</string>
     <string name="title_rule_noop">Без действие</string>
     <string name="title_rule_seen">Маркирай прочетено</string>
     <string name="title_rule_unseen">Маркирай непрочетено</string>

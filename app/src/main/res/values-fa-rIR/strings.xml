@@ -765,8 +765,6 @@
     <string name="title_answer_favorite">مورد پسند</string>
     <string name="title_answer_hide">پنهان کردن از فهرست‌ها</string>
     <string name="title_answer_text">متن الگو</string>
-    <string name="title_answer_template_name">$name$ با نام کامل فرستنده جایگزین خواهد شد</string>
-    <string name="title_answer_template_email">$email$ با نشانی ایمیل فرستنده جایگزین خواهد شد</string>
     <string name="title_rule_noop">بدون کنش</string>
     <string name="title_rule_seen">علامت‌گذاری به‌عنوان خوانده شده</string>
     <string name="title_rule_unseen">علامت‌گذاری به‌عنوان خوانده نشده</string>

@@ -911,6 +911,7 @@
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
+    <string name="title_create_template">Vorlage erstellen</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
@@ -1043,8 +1044,11 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Aus Menüs ausblenden</string>
     <string name="title_answer_text">Vorlagentext</string>
-    <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
-    <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Platzhalter</string>
+    <string name="title_answer_placeholder_name">Name des Absenders</string>
+    <string name="title_answer_placeholder_email">E-Mail-Adresse des Absenders</string>
+    <string name="title_answer_placeholder_firstname">Vorname des Absenders</string>
+    <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>
     <string name="title_rule_noop">Keine Aktion</string>
     <string name="title_rule_seen">Gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>

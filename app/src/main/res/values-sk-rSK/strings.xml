@@ -1020,8 +1020,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_answer_favorite">Obľúbená</string>
     <string name="title_answer_hide">Skryť z ponuky</string>
     <string name="title_answer_text">Text šablóny</string>
-    <string name="title_answer_template_name">$name$ bude nahradené zobrazeným menom odosielateľa</string>
-    <string name="title_answer_template_email">$email$ bude nahradené emailovou adresou odosielateľa</string>
     <string name="title_rule_noop">Žiadna akcia</string>
     <string name="title_rule_seen">Označiť ako prečítané</string>
     <string name="title_rule_unseen">Označiť ako neprečítané</string>

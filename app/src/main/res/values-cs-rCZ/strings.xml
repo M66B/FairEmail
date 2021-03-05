@@ -272,6 +272,7 @@
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabránit zobrazení klávesnice na celou obrazovku</string>
+    <string name="title_advanced_suggest_names">Použít jména a e-mailové adresy</string>
     <string name="title_advanced_suggest_local">Navrhovat lokálně uložené kontakty</string>
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
@@ -497,6 +498,7 @@
     <string name="title_advanced_check_reply_hint">Ověří, zda je název domény odesílatele totožný s adresou pro odpověď</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
+    <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_send_reminders_hint">Zobrazit upozornění, je-li text zprávy či předmět prázdný nebo může-li chybět příloha</string>
@@ -513,6 +515,7 @@
     <string name="title_advanced_beige_hint">Pouze světlé motivy</string>
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
+    <string name="title_advanced_split_hint">Toto rozdělí obrazovku na části</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_highlight_hint">Pro zvýrazňování bude použita sekundární barva motivu</string>
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
@@ -1063,8 +1066,6 @@
     <string name="title_answer_favorite">Oblíbená</string>
     <string name="title_answer_hide">Skrýt z nabídek</string>
     <string name="title_answer_text">Text šablony</string>
-    <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>
-    <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
     <string name="title_rule_noop">Žádná akce</string>
     <string name="title_rule_seen">Označit přečtené</string>
     <string name="title_rule_unseen">Označit nepřečtené</string>

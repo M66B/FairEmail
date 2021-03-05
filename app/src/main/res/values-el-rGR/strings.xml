@@ -491,6 +491,7 @@
     <string name="title_advanced_beige_hint">Φωτεινά θέματα μόνο</string>
     <string name="title_advanced_date_hint">Τα μηνύματα ομαδοποιούνται μόνον κατά ημερομηνία όταν ταξινομούνται σε χρονολογική σειρά</string>
     <string name="title_advanced_navbar_colorize_hint">Το αν αυτό λειτουργεί ή όχι, εξαρτάται από την έκδοση και εκδοχή του Android</string>
+    <string name="title_advanced_split_hint">Θα χωρίσει την οθόνη σε μέρη</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
     <string name="title_advanced_highlight_hint">Το χρώμα επισήμανσης του θέματος θα χρησιμοποιηθεί για έμφαση</string>
     <string name="title_advanced_gravatars_hint">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
@@ -908,6 +909,7 @@
     <string name="title_media_toolbar">Γραμμή εργαλείων πολυμέσων</string>
     <string name="title_insert_contact_group">Εισαγωγή ομάδας επαφών</string>
     <string name="title_insert_template">Εισαγωγή προτύπου</string>
+    <string name="title_create_template">Δημιουργία προτύπου</string>
     <string name="title_edit_plain_text">Επεξεργασία ως απλό κείμενο</string>
     <string name="title_edit_formatted_text">Επεξεργασία ως αναμορφοποιημένο κείμενο</string>
     <string name="title_select_certificate">Επιλογή δημοσίου κλειδιού</string>
@@ -1042,8 +1044,11 @@
     <string name="title_answer_favorite">Αγαπημένα</string>
     <string name="title_answer_hide">Απόκρυψη από τα μενού</string>
     <string name="title_answer_text">Κείμενο προτύπου</string>
-    <string name="title_answer_template_name">$name$ θα αντικατασταθεί από το πλήρες όνομα του αποστολέα</string>
-    <string name="title_answer_template_email">$email$ θα αντικατασταθεί από τη διεύθυνση ηλ. ταχυδρομείου του αποστολέα</string>
+    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Κρατημένη θέση</string>
+    <string name="title_answer_placeholder_name">Πλήρες όνομα αποστολέα</string>
+    <string name="title_answer_placeholder_email">Διεύθυνση ηλ. ταχυδρομείου αποστολέα</string>
+    <string name="title_answer_placeholder_firstname">Όνομα αποστολέα</string>
+    <string name="title_answer_placeholder_lastname">Επίθετο αποστολέα</string>
     <string name="title_rule_noop">Καμία ενέργεια</string>
     <string name="title_rule_seen">Σήμανση ως αναγνωσμένο</string>
     <string name="title_rule_unseen">Σήμανση ως μη αναγνωσμένο</string>

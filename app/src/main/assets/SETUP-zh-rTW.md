@@ -1,6 +1,6 @@
 # 設定說明
 
-設定FairEmail相當簡單。 你需要新增至少一個帳號來接收電子郵件，如果想要寄電子郵件則需要新增至少一個身分。 The quick setup will add an account and an identity in one go for most major providers.
+設定FairEmail相當簡單。 你需要新增至少一個帳號來接收電子郵件，如果想要寄電子郵件則需要新增至少一個身分。 這個快速設定將會新增一個適用於大部分電子郵件服務商的帳戶和身分。
 
 ## 需求
 
@@ -12,7 +12,7 @@ Just select the appropriate provider or *Other provider* and enter your name, em
 
 這適用於大部分的電子郵件服務商。
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+如果快速設定失敗，那麼你就得手動設定帳戶和身分，請看以下說明。
 
 ## 設定帳戶以接收電子郵件
 

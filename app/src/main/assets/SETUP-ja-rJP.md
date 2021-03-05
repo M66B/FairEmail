@@ -30,7 +30,7 @@ Similarly, to add an identity, tap *Manual setup and more options*, tap *Identit
 
 ## 権限の許可 - 連絡先情報にアクセスするために
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+メールアドレスを検索したり、連絡先の写真を表示する場合はFairEmailに連絡先の読み取りを許可をする必要があります。 Just tap *Grant* and select *Allow*.
 
 ## 電池の最適化の設定 - 継続的にメールを受信するために
 

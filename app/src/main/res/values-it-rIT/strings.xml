@@ -159,6 +159,7 @@
     <string name="title_setup_grant_again">Concedi le autorizzazioni richieste</string>
     <string name="title_setup_exchange_support">Microsoft Exchange è supportato?</string>
     <string name="title_setup_identity_what">Che cos\'è un\'identità?</string>
+    <string name="title_setup_free">Questa app è gratuita da usare?</string>
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
@@ -249,6 +250,7 @@
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo keepalive</string>
     <string name="title_advanced_keyboard">Mostra tastiera in modo predefinito</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
+    <string name="title_advanced_suggest_names">Usa nomi ed indirizzi email</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
@@ -311,6 +313,7 @@
     <string name="title_advanced_color_threshold">Soglia colore lettera: %1$s %%</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_replace_name">Preferisci un nome di contatto a un nome inviato</string>
+    <string name="title_advanced_only_name">Mostra solo il nome dei contatti</string>
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando il mittente è conosciuto come contatto locale \'a\"</string>
     <string name="title_advanced_show_recipients">Mostra i destinatari nell\'intestazione del messaggio</string>
     <string name="title_advanced_font_size_sender">Dimensione caratteri mittente</string>
@@ -453,6 +456,7 @@
     <string name="title_advanced_query_threads">Limita l\'accesso alla banca dati parallela</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
     <string name="title_advanced_protocol">Registrazione del protocollo</string>
+    <string name="title_advanced_log_info">Registrazione di debug</string>
     <string name="title_advanced_debug">Modalità debug</string>
     <string name="title_advanced_cleanup_attachments">Elimina allegati dei vecchi messaggi</string>
     <string name="title_advanced_cleanup">Pulizia</string>
@@ -472,6 +476,7 @@
     <string name="title_advanced_check_reply_hint">Questo controllerà se il nome di dominio del mittente e l\'indirizzo di risposta sono gli stessi</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
+    <string name="title_advanced_suggest_names_hint">Se disabilitato, verranno utilizzati solo gli indirizzi email quando si selezionano i contatti</string>
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo del messaggio o l\'oggetto è vuoto o quando un allegato potrebbe mancare</string>
@@ -488,6 +493,7 @@
     <string name="title_advanced_beige_hint">Solo temi chiari</string>
     <string name="title_advanced_date_hint">I messaggi sono raggruppati per data solo se sono ordinati cronologicamente</string>
     <string name="title_advanced_navbar_colorize_hint">Se funziona dipende dalla versione e variante di Android</string>
+    <string name="title_advanced_split_hint">Questo dividerà lo schermo in parti</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_highlight_hint">Il colore principale del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_gravatars_hint">Potrebbe esserci un rischio per la privacy</string>
@@ -526,6 +532,7 @@
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_protocol_hint">Questo aumenterà significativamente l\'utilizzo della batteria e dello spazio di archiviazione!</string>
+    <string name="title_advanced_debug_hint">Questo mostrerà brutte informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_attachments_hint">Questo rimuoverà gli allegati dai messaggi che non sono più sincronizzati durante la pulizia manuale</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
@@ -979,6 +986,7 @@
     <string name="title_search_in_subject">Nel soggetto</string>
     <string name="title_search_in_keywords">In parole chiave (se supportato)</string>
     <string name="title_search_in_message">Nel testo del messaggio</string>
+    <string name="title_search_in_notes">Nelle note locali</string>
     <string name="title_search_with">Limita la ricerca a</string>
     <string name="title_search_with_unseen">Non letto</string>
     <string name="title_search_with_flagged">Preferiti</string>
@@ -1037,8 +1045,6 @@
     <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
-    <string name="title_answer_template_name">$name$ verrà sostituito con il nome completo del mittente</string>
-    <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
     <string name="title_rule_noop">Nessuna azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>

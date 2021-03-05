@@ -170,6 +170,7 @@
     <string name="title_setup_grant_again">Acordați permisiunile necesare</string>
     <string name="title_setup_exchange_support">Este Microsoft Exchange suportat?</string>
     <string name="title_setup_identity_what">Ce este o identitate?</string>
+    <string name="title_setup_free">Este această aplicație gratuită?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
@@ -189,6 +190,7 @@
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
+    <string name="title_setup_export_do">Parola este folosită pentru a cripta setările și este necesară pentru a importa din nou setările</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
@@ -254,10 +256,12 @@
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
+    <string name="title_advanced_check_reply_domain">Verifică adresa de răspuns la sincronizarea mesajelor</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
     <string name="title_advanced_keyboard_no_fullscreen">Dezactivare tastatură pe tot ecranul</string>
+    <string name="title_advanced_suggest_names">Utilizează nume și adrese de e-mail</string>
     <string name="title_advanced_suggest_local">Sugerează contacte stocate local</string>
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
@@ -320,6 +324,7 @@
     <string name="title_advanced_color_threshold">Limită culoare literă: %1$s %%</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_replace_name">Preferă nume contact în loc de nume trimis</string>
+    <string name="title_advanced_only_name">Afişează doar numele persoanelor de contact</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_show_recipients">Arată destinatarii în antetul mesajului</string>
     <string name="title_advanced_font_size_sender">Mărime text expeditor</string>
@@ -462,6 +467,7 @@
     <string name="title_advanced_query_threads">Limitează accesul paralel la baza de date</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_protocol">Jurnalizare protocol</string>
+    <string name="title_advanced_log_info">Jurnal depanare</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
     <string name="title_advanced_cleanup">Curățare</string>
@@ -478,8 +484,10 @@
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_gmail_thread_hint">Acest lucru se aplică doar la mesajele noi primite și poate strica grupurile existente</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
+    <string name="title_advanced_check_reply_hint">Acest lucru va verifica dacă numele de domeniu al expeditorului și adresa de răspuns sunt aceleași</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
+    <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
@@ -496,6 +504,7 @@
     <string name="title_advanced_beige_hint">Doar temele luminoase</string>
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_navbar_colorize_hint">Depinde de versiunea de Android și de variantă dacă va funcționa</string>
+    <string name="title_advanced_split_hint">Aceasta va împărţi ecranul în mai multe părți</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_highlight_hint">Culoarea de accent a temei va fi folosită pentru evidențiere</string>
     <string name="title_advanced_gravatars_hint">S-ar putea să existe un risc de confidențialitate</string>
@@ -534,6 +543,7 @@
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
     <string name="title_advanced_protocol_hint">Acest lucru va crește semnificativ utilizarea bateriei și a spațiului de stocare!</string>
+    <string name="title_advanced_debug_hint">Acest lucru va arăta informații de depanare în diferite locuri</string>
     <string name="title_advanced_cleanup_attachments_hint">Când se curăță manual, se vor elimina atașamentele din mesajele care nu mai sunt sincronizate</string>
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
     <string name="title_advanced_never_favorite">Niciodată favorit</string>
@@ -912,6 +922,7 @@
     <string name="title_media_toolbar">Bară atașare</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
+    <string name="title_create_template">Creează șablon</string>
     <string name="title_edit_plain_text">Editați ca text simplu</string>
     <string name="title_edit_formatted_text">Editați ca text reformatat</string>
     <string name="title_select_certificate">Selectare cheie publică</string>
@@ -987,6 +998,7 @@
     <string name="title_search_in_subject">În subiect</string>
     <string name="title_search_in_keywords">În cuvinte-cheie (dacă sunt acceptate)</string>
     <string name="title_search_in_message">În textul mesajului</string>
+    <string name="title_search_in_notes">În notele locale</string>
     <string name="title_search_with">Limitează căutarea la</string>
     <string name="title_search_with_unseen">Necitit</string>
     <string name="title_search_with_flagged">Marcat</string>
@@ -1045,8 +1057,6 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
-    <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
-    <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>

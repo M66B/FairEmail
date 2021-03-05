@@ -982,8 +982,6 @@
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_hide">Menülerden gizle</string>
     <string name="title_answer_text">Kalıp metni</string>
-    <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
-    <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
     <string name="title_rule_noop">Eylem yok</string>
     <string name="title_rule_seen">Okundu olarak işaretle</string>
     <string name="title_rule_unseen">Okunmadı olarak işaretle</string>

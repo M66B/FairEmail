@@ -238,6 +238,7 @@
     <string name="title_advanced_tune_keep_alive">Tự động điều chỉnh khoảng thời gian giữ sống</string>
     <string name="title_advanced_keyboard">Hiển thị bàn phím theo mặc định</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ngăn chặn bàn phím toàn màn hình</string>
+    <string name="title_advanced_suggest_names">Sử dụng tên và địa chỉ email</string>
     <string name="title_advanced_suggest_local">Suggest locally stored contacts</string>
     <string name="title_advanced_suggest_sent">Suggest addresses found in sent messages</string>
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
@@ -281,6 +282,9 @@
     <string name="title_advanced_highlight_color">Đánh dấu màu sắc</string>
     <string name="title_advanced_flags">Hiển thị sao</string>
     <string name="title_advanced_flags_background">Hiển thị nền có màu thay vì sao có màu</string>
+    <string name="title_advanced_preview">Hiển thị xem trước thư</string>
+    <string name="title_advanced_preview_italic">Hiển thị xem trước thư bằng chữ nghiêng</string>
+    <string name="title_advanced_preview_lines">Số dòng xem trước</string>
     <string name="title_advanced_text_font">Dùng phông chữ</string>
     <string name="title_advanced_text_align">Dùng căn chỉnh văn bản</string>
     <string name="title_advanced_text_separators">Dùng đường thẳng chia tách</string>
