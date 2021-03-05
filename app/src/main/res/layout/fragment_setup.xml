@@ -104,11 +104,8 @@
             android:layout_marginTop="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_legend_expander"
-            android:paddingEnd="0dp"
             android:scaleType="fitCenter"
-            app:layout_constraintEnd_toStartOf="@+id/tvManual"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvManual"
             app:layout_constraintTop_toBottomOf="@id/tvQuickNew"
             app:srcCompat="@drawable/dropdown" />
 
@@ -118,13 +115,13 @@
             android:layout_height="0dp"
             android:layout_marginEnd="12dp"
             android:gravity="center"
+            android:paddingStart="36dp"
             android:text="@string/title_setup_manual"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintBottom_toBottomOf="@id/ibManual"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@id/ibManual"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/ibManual" />
 
         <androidx.constraintlayout.widget.Guideline
