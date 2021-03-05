@@ -976,7 +976,7 @@ class Core {
                         " size=" + Helper.humanReadableByteCount(size) +
                         "/" + Helper.humanReadableByteCount(account.max_size) +
                         " host=" + account.host;
-                Log.e(msg);
+                Log.w(msg);
                 throw new IllegalArgumentException(msg);
             }
         }
