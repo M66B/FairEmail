@@ -1532,7 +1532,7 @@ public class MessageHelper {
             } else
                 formatted.add(addresses[i].toString());
         }
-        return TextUtils.join(", ", formatted);
+        return TextUtils.join(compose ? ", " : "; ", formatted);
     }
 
     static String punyCode(String email) {
