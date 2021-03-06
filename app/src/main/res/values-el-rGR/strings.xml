@@ -125,7 +125,6 @@
     <string name="title_setup_wizard">Οδηγός</string>
     <string name="title_setup_wizard_multiple">Ο οδηγός μπορεί να χρησιμοποιηθεί πολλές φορές για τη ρύθμιση πολλαπλών λογαριασμών</string>
     <string name="title_setup_wizard_new">Χρειάζομαι μια νέα διεύθυνση ηλ. ταχυδρομείου</string>
-    <string name="title_setup_manual">Χειροκίνητη ρύθμιση και περισσότερες επιλογές λογαριασμού</string>
     <string name="title_setup_account_remark">Λήψη μηνυμάτων</string>
     <string name="title_setup_identity_remark">Αποστολή μηνυμάτων</string>
     <string name="title_setup_account_identity_hint">Μπορείτε να ρυθμίσετε το όνομα, το χρώμα και τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού, και να ρυθμίσετε μία υπογραφή στις ρυθμίσεις ταυτότητας</string>

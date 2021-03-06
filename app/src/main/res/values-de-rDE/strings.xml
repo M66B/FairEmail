@@ -126,7 +126,6 @@
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_wizard_multiple">Der Assistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
-    <string name="title_setup_manual">Manuelle Einrichtung und weitere Kontooptionen</string>
     <string name="title_setup_account_remark">E-Mail empfangen</string>
     <string name="title_setup_identity_remark">E-Mail senden</string>
     <string name="title_setup_account_identity_hint">Sie können Namen, Farbe und Wischen in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
