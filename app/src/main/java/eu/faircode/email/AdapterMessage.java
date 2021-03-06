@@ -6716,11 +6716,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final long id = getArguments().getLong("id");
             final String notes = getArguments().getString("notes");
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_notes, null);
+            final Context context = getContext();
+            final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_notes, null);
             final EditText etNotes = view.findViewById(R.id.etNotes);
             etNotes.setText(notes);
+            etNotes.selectAll();
 
-            return new AlertDialog.Builder(getContext())
+            etNotes.requestFocus();
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
+            return new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
