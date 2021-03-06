@@ -782,6 +782,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeen.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
                 ibNotes.setOnClickListener(this);
+                ibNotes.setOnLongClickListener(this);
                 ibLabels.setOnClickListener(this);
                 ibKeywords.setOnClickListener(this);
                 ibCopy.setOnClickListener(this);
@@ -893,6 +894,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSeen.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
                 ibNotes.setOnClickListener(null);
+                ibNotes.setOnLongClickListener(null);
                 ibLabels.setOnClickListener(null);
                 ibKeywords.setOnClickListener(null);
                 ibCopy.setOnClickListener(null);
@@ -3212,6 +3214,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (id == R.id.ibFlagged) {
                 onMenuColoredStar(message);
                 return true;
+            } else if (id == R.id.ibNotes) {
+                onActionCopyNote(message);
+                return true;
             } else if (id == R.id.ibFull) {
                 onActionOpenFull(message);
                 return true;
@@ -3701,6 +3706,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             lbm.sendBroadcast(
                     new Intent(FragmentBase.ACTION_STORE_ATTACHMENTS)
                             .putExtra("id", message.id));
+        }
+
+        private void onActionCopyNote(TupleMessageEx message) {
+            ClipboardManager clipboard =
+                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboard != null && !TextUtils.isEmpty(message.notes)) {
+                ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), message.notes);
+                clipboard.setPrimaryClip(clip);
+                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+            }
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
