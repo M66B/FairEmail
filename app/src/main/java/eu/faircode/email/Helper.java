@@ -550,9 +550,13 @@ public class Helper {
         // Build intent
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndTypeAndNormalize(uri, type);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION |
-                Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        if (!("message/rfc822".equals(type) ||
+                "message/delivery-status".equals(type) ||
+                "message/disposition-notification".equals(type) ||
+                "text/rfc822-headers".equals(type)))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         if (!TextUtils.isEmpty(name))
             intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(name));
