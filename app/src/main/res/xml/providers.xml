@@ -185,7 +185,7 @@
     <provider
         name="orange.fr"
         domain="orange\\.fr,wanadoo\\.fr"
-        link="https://assistance.orange.fr/mobile-tablette/tous-les-mobiles-et-tablettes/installer-et-utiliser/utiliser-internet-mail-et-cloud/mail/l-application-mail-orange/parametrer-et-configurer/mail-configurer-les-serveurs-sortants-et-entrants-des-principaux-comptes-mails_47992-48856">
+        link="https://assistance.orange.fr/ordinateurs-peripheriques/installer-et-utiliser/l-utilisation-du-mail-et-du-cloud/les-logiciels-de-messagerie/thunderbird/thunderbird-pc-creer-un-compte-de-messagerie_65963-66803">
         <imap
             host="imap.orange.fr"
             port="993"
