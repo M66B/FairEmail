@@ -2529,7 +2529,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMenuNew(TupleMessageEx message, Address[] to) {
         Intent reply = new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "new")
-                .putExtra("to", MessageHelper.formatAddresses(to, true, true));
+                .putExtra("to", MessageHelper.formatAddressesCompose(to));
         startActivity(reply);
     }
 
