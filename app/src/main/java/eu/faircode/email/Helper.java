@@ -1667,6 +1667,15 @@ public class Helper {
 
     // Miscellaneous
 
+    static void gc() {
+        Runtime.getRuntime().gc();
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     static <T> List<List<T>> chunkList(List<T> list, int size) {
         List<List<T>> result = new ArrayList<>(list.size() / size);
         for (int i = 0; i < list.size(); i += size)
