@@ -5329,15 +5329,19 @@ public class FragmentCompose extends FragmentBase {
                 getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
-                        target.requestFocus();
+                        try {
+                            target.requestFocus();
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean keyboard = prefs.getBoolean("keyboard", true);
-                        if (keyboard) {
-                            InputMethodManager imm =
-                                    (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                            if (imm != null)
-                                imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean keyboard = prefs.getBoolean("keyboard", true);
+                            if (keyboard) {
+                                InputMethodManager imm =
+                                        (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                                if (imm != null)
+                                    imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
                         }
                     }
                 });
