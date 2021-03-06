@@ -6844,11 +6844,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final long id = getArguments().getLong("id");
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_keyword_add, null);
+            final Context context = getContext();
+            final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_add, null);
             final EditText etKeyword = view.findViewById(R.id.etKeyword);
             etKeyword.setText(null);
 
-            return new AlertDialog.Builder(getContext())
+            etKeyword.requestFocus();
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
+            return new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
