@@ -240,7 +240,6 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        tvManual.setPaintFlags(tvManual.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
