@@ -104,7 +104,7 @@
             android:layout_marginTop="12dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_legend_expander"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="@+id/tvManual"
             app:layout_constraintTop_toBottomOf="@id/tvQuickNew"
             app:srcCompat="@drawable/dropdown" />
