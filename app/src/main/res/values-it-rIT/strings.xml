@@ -125,7 +125,6 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">L\'assistente può essere usato più volte per impostare più account</string>
     <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
-    <string name="title_setup_manual">Configurazione manuale ed altre opzioni</string>
     <string name="title_setup_account_remark">Ricevi e-mail</string>
     <string name="title_setup_identity_remark">Invia e-mail</string>
     <string name="title_setup_account_identity_hint">È possibile configurare il nome, il colore e lo scorrimento delle azioni nelle impostazioni dell\'account e configurare una firma nelle impostazioni dell\'identità</string>
@@ -220,7 +219,6 @@
     <string name="title_advanced_hint_message">        Stai navigando verso le opzioni più avanzate.
         Tutte le opzioni hanno valori standard comunemente usati che possono ma non hanno bisogno di essere cambiati se si ha una preferenza diversa.
     </string>
-    <string name="title_advanced_section_main">Inizio</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
     <string name="title_advanced_section_connection">Connessione</string>
@@ -911,6 +909,7 @@
     <string name="title_media_toolbar">Barra strumenti media</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
+    <string name="title_create_template">Crea un modello</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>
@@ -1045,6 +1044,11 @@
     <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
+    <string name="title_answer_placeholder">Segnaposto</string>
+    <string name="title_answer_placeholder_name">Nome completo del mittente</string>
+    <string name="title_answer_placeholder_email">Indirizzo e-mail del mittente</string>
+    <string name="title_answer_placeholder_firstname">Nome del mittente</string>
+    <string name="title_answer_placeholder_lastname">Cognome del mittente</string>
     <string name="title_rule_noop">Nessuna azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>

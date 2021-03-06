@@ -113,7 +113,6 @@
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
-    <string name="title_setup_manual">手动设置及更多选项</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
     <string name="title_setup_account_identity_hint">你可以在帐户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
@@ -208,7 +207,6 @@
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项
         所有选项默认均使用可更改的常用标准值
     </string>
-    <string name="title_advanced_section_main">开始</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>
     <string name="title_advanced_section_connection">连接</string>
@@ -1034,7 +1032,7 @@
     <string name="title_answer_favorite">收藏</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
-    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">占位符</string>
+    <string name="title_answer_placeholder">占位符</string>
     <string name="title_answer_placeholder_name">发件人全名</string>
     <string name="title_answer_placeholder_email">发件人电子邮件地址</string>
     <string name="title_answer_placeholder_firstname">发件人名字</string>

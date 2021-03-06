@@ -135,7 +135,6 @@
     <string name="title_setup_wizard">Майстер встановлення</string>
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
     <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
-    <string name="title_setup_manual">Налаштування вручну та додаткові параметри</string>
     <string name="title_setup_account_remark">Отримання email</string>
     <string name="title_setup_identity_remark">Надсилання email</string>
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір і свайп дії в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях ідентифікації</string>
@@ -230,7 +229,6 @@
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.
         Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
-    <string name="title_advanced_section_main">Початок</string>
     <string name="title_advanced_section_synchronize">Отримання</string>
     <string name="title_advanced_section_send">Надсилання</string>
     <string name="title_advanced_section_connection">Підключення</string>
@@ -1054,7 +1052,7 @@
     <string name="title_answer_favorite">Обране</string>
     <string name="title_answer_hide">Не показувати в меню</string>
     <string name="title_answer_text">Текст шаблону</string>
-    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Поле для заповнення</string>
+    <string name="title_answer_placeholder">Поле для заповнення</string>
     <string name="title_answer_placeholder_name">Повне ім\'я відправника</string>
     <string name="title_answer_placeholder_email">Адреса електронної пошти відправника</string>
     <string name="title_answer_placeholder_firstname">Ім\'я відправника</string>

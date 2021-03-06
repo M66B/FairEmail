@@ -136,7 +136,6 @@
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
-    <string name="title_setup_manual">Configurare manuală și mai multe opțiuni</string>
     <string name="title_setup_account_remark">Primire e-mail</string>
     <string name="title_setup_identity_remark">Trimitere e-mail</string>
     <string name="title_setup_account_identity_hint">Puteți configura numele, culoarea și acțiunile de glisare în setările contului și puteți configura o semnătură în setările de identitate</string>
@@ -231,7 +230,6 @@
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
-    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -1057,6 +1055,11 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
+    <string name="title_answer_placeholder">Substituent</string>
+    <string name="title_answer_placeholder_name">Numele complet al expeditorului</string>
+    <string name="title_answer_placeholder_email">Adresa de e-mail a expeditorului</string>
+    <string name="title_answer_placeholder_firstname">Prenumele expeditorului</string>
+    <string name="title_answer_placeholder_lastname">Numele de familie al expeditorului</string>
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>

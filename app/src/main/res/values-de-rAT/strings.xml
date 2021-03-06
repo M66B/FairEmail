@@ -126,7 +126,7 @@
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_wizard_multiple">Der Assistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
-    <string name="title_setup_manual">Manuelle Einrichtung und weitere Optionen</string>
+    <string name="title_setup_manual">Manuelle Einrichtung und weitere Kontooptionen</string>
     <string name="title_setup_account_remark">E-Mail empfangen</string>
     <string name="title_setup_identity_remark">E-Mail senden</string>
     <string name="title_setup_account_identity_hint">Sie können Namen, Farbe und Wischen in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
@@ -1044,8 +1044,8 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Aus Menüs ausblenden</string>
     <string name="title_answer_text">Vorlagentext</string>
-    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Platzhalter</string>
-    <string name="title_answer_placeholder_name">Name des Absenders</string>
+    <string name="title_answer_placeholder">Platzhalter</string>
+    <string name="title_answer_placeholder_name">Vollständiger Name des Absenders</string>
     <string name="title_answer_placeholder_email">E-Mail-Adresse des Absenders</string>
     <string name="title_answer_placeholder_firstname">Vorname des Absenders</string>
     <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>

@@ -147,7 +147,7 @@
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
-    <string name="title_setup_manual">Ручная настройка и другие функции</string>
+    <string name="title_setup_manual">Ручная настройка и другие опции учетной записи</string>
     <string name="title_setup_account_remark">Получение электронной почты</string>
     <string name="title_setup_identity_remark">Отправка электронной почты</string>
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
@@ -242,7 +242,7 @@
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.
     </string>
-    <string name="title_advanced_section_main">Начать</string>
+    <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
     <string name="title_advanced_section_send">Отправка</string>
     <string name="title_advanced_section_connection">Соединение</string>
@@ -1068,7 +1068,7 @@
     <string name="title_answer_favorite">Избранное</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
-    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Заполнение</string>
+    <string name="title_answer_placeholder">Заполнение</string>
     <string name="title_answer_placeholder_name">Полное имя отправителя</string>
     <string name="title_answer_placeholder_email">Электронная почта отправителя</string>
     <string name="title_answer_placeholder_firstname">Имя отправителя</string>

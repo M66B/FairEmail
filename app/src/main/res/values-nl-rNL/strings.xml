@@ -125,7 +125,7 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">De wizard kan meerdere keren gebruikt worden om meerdere accounts in te stellen</string>
     <string name="title_setup_wizard_new">Ik heb een nieuw e-mailadres nodig</string>
-    <string name="title_setup_manual">Handmatig instellen en meer opties</string>
+    <string name="title_setup_manual">Handmatig instellen en meer account opties</string>
     <string name="title_setup_account_remark">E-mail ontvangen</string>
     <string name="title_setup_identity_remark">E-mail verzenden</string>
     <string name="title_setup_account_identity_hint">U kunt de naam, kleur en veegacties configureren in de accountinstellingen en een handtekening configureren in de identiteitsinstellingen</string>
@@ -220,7 +220,7 @@
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.
         Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
-    <string name="title_advanced_section_main">Start</string>
+    <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
     <string name="title_advanced_section_send">Verzenden</string>
     <string name="title_advanced_section_connection">Verbinding</string>
@@ -1046,7 +1046,7 @@
     <string name="title_answer_favorite">Favoriet</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>
-    <string name="title_answer_placeholder" comment="title_answer_placeholder&#10;Placeholder  which will be replaced by an actual value">Plaatshouder</string>
+    <string name="title_answer_placeholder">Plaatshouder</string>
     <string name="title_answer_placeholder_name">Volledige naam afzender</string>
     <string name="title_answer_placeholder_email">E-mailadres afzender</string>
     <string name="title_answer_placeholder_firstname">Voornaam afzender</string>
