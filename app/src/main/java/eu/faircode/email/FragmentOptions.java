@@ -252,7 +252,7 @@ public class FragmentOptions extends FragmentBase {
                         views = new View[TAB_PAGES.length];
                         LayoutInflater inflater = LayoutInflater.from(searchView.getContext());
                         for (int tab = 0; tab < TAB_PAGES.length; tab++) {
-                            titles[tab] = (String) adapter.getPageTitle(tab);
+                            titles[tab] = adapter.getPageTitle(tab).toString();
                             views[tab] = inflater.inflate(TAB_PAGES[tab], null);
                         }
                     }
