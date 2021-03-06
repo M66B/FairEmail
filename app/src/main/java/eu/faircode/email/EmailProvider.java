@@ -229,6 +229,7 @@ public class EmailProvider {
                 for (String d : provider.domain)
                     if (domain.toLowerCase(Locale.ROOT).matches(d)) {
                         Log.i("Provider from domain=" + domain + " (" + d + ")");
+                        provider.log(context);
                         return provider;
                     }
 
@@ -270,6 +271,7 @@ public class EmailProvider {
             if (provider.imap.host.equals(autoconfig.imap.host) ||
                     provider.smtp.host.equals(autoconfig.smtp.host)) {
                 Log.i("Replacing auto config by profile=" + provider.name);
+                provider.log(context);
                 return provider;
             }
 
@@ -312,24 +314,24 @@ public class EmailProvider {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
         try {
             URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email);
-            return getISPDB(domain, url);
+            return getISPDB(context, domain, url);
         } catch (Throwable ex) {
             Log.w(ex);
         }
 
         try {
             URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email);
-            return getISPDB(domain, url);
+            return getISPDB(context, domain, url);
         } catch (Throwable ex) {
             Log.w(ex);
         }
 
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
-        return getISPDB(domain, url);
+        return getISPDB(context, domain, url);
     }
 
     @NonNull
-    private static EmailProvider getISPDB(String domain, URL url) throws IOException, XmlPullParserException {
+    private static EmailProvider getISPDB(Context context, String domain, URL url) throws IOException, XmlPullParserException {
         EmailProvider provider = new EmailProvider(domain);
 
         HttpURLConnection request = null;
@@ -499,10 +501,8 @@ public class EmailProvider {
                 eventType = xml.next();
             }
 
-            Log.i("imap=" + provider.imap.host + ":" + provider.imap.port + ":" + provider.imap.starttls);
-            Log.i("smtp=" + provider.smtp.host + ":" + provider.smtp.port + ":" + provider.smtp.starttls);
-
             provider.validate();
+            provider.log(context);
 
             return provider;
         } finally {
@@ -557,6 +557,7 @@ public class EmailProvider {
             }
 
         provider.validate();
+        provider.log(context);
 
         return provider;
     }
@@ -571,16 +572,16 @@ public class EmailProvider {
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             List<Server> imaps = new ArrayList<>();
             // SSL
-            imaps.add(new Server(domain, "imap", 993));
-            imaps.add(new Server(domain, "imaps", 993));
-            imaps.add(new Server(domain, "mail", 993));
-            imaps.add(new Server(domain, "mx", 993));
-            imaps.add(new Server(domain, null, 993));
+            imaps.add(new Server(context, domain, "imap", 993));
+            imaps.add(new Server(context, domain, "imaps", 993));
+            imaps.add(new Server(context, domain, "mail", 993));
+            imaps.add(new Server(context, domain, "mx", 993));
+            imaps.add(new Server(context, domain, null, 993));
             // STARTTLS
-            imaps.add(new Server(domain, "imap", 143));
-            imaps.add(new Server(domain, "mail", 143));
-            imaps.add(new Server(domain, "mx", 143));
-            imaps.add(new Server(domain, null, 143));
+            imaps.add(new Server(context, domain, "imap", 143));
+            imaps.add(new Server(context, domain, "mail", 143));
+            imaps.add(new Server(context, domain, "mx", 143));
+            imaps.add(new Server(context, domain, null, 143));
 
             for (Server server : imaps)
                 if (server.reachable.get()) {
@@ -595,16 +596,16 @@ public class EmailProvider {
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             List<Server> smtps = new ArrayList<>();
             // STARTTLS
-            smtps.add(new Server(domain, "smtp", 587));
-            smtps.add(new Server(domain, "mail", 587));
-            smtps.add(new Server(domain, "mx", 587));
-            smtps.add(new Server(domain, null, 587));
+            smtps.add(new Server(context, domain, "smtp", 587));
+            smtps.add(new Server(context, domain, "mail", 587));
+            smtps.add(new Server(context, domain, "mx", 587));
+            smtps.add(new Server(context, domain, null, 587));
             // SSL
-            smtps.add(new Server(domain, "smtp", 465));
-            smtps.add(new Server(domain, "smtps", 465));
-            smtps.add(new Server(domain, "mail", 465));
-            smtps.add(new Server(domain, "mx", 465));
-            smtps.add(new Server(domain, null, 465));
+            smtps.add(new Server(context, domain, "smtp", 465));
+            smtps.add(new Server(context, domain, "smtps", 465));
+            smtps.add(new Server(context, domain, "mail", 465));
+            smtps.add(new Server(context, domain, "mx", 465));
+            smtps.add(new Server(context, domain, null, 465));
 
             for (Server server : smtps)
                 if (server.reachable.get()) {
@@ -632,6 +633,7 @@ public class EmailProvider {
             provider.smtp.starttls = (smtp.port == 587);
         }
 
+        provider.log(context);
         return provider;
     }
 
@@ -642,6 +644,11 @@ public class EmailProvider {
             provider.documentation.append("<br><br>");
 
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
+    }
+
+    private void log(Context context) {
+        EntityLog.log(context, "imap=" + imap.host + ":" + imap.port + ":" + imap.starttls);
+        EntityLog.log(context, "smtp=" + smtp.host + ":" + smtp.port + ":" + smtp.starttls);
     }
 
     @NonNull
@@ -660,7 +667,7 @@ public class EmailProvider {
         private Server() {
         }
 
-        private Server(String domain, String prefix, int port) {
+        private Server(Context context, String domain, String prefix, int port) {
             this.host = (prefix == null ? "" : prefix + ".") + domain;
             this.port = port;
 
@@ -674,7 +681,7 @@ public class EmailProvider {
                             try (Socket socket = new Socket()) {
                                 Log.i("Connecting to " + address);
                                 socket.connect(address, SCAN_TIMEOUT);
-                                Log.i("Reachable " + address);
+                                EntityLog.log(context, "Reachable " + address);
                                 return true;
                             } catch (Throwable ex) {
                                 Log.i("Unreachable " + address + ": " + Log.formatThrowable(ex));
