@@ -225,6 +225,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }).setSeparated());
 
+        menus.add(new NavMenuItem(R.drawable.twotone_list_alt_24, R.string.title_log, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuLog();
+            }
+        }));
+
         menus.add(new NavMenuItem(R.drawable.twotone_help_24, R.string.menu_legend, new Runnable() {
             @Override
             public void run() {
@@ -455,6 +463,15 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("order");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuLog() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            getSupportFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
         fragmentTransaction.commit();
     }
 
