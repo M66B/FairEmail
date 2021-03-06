@@ -1236,6 +1236,14 @@ public class MessageHelper {
             if (TextUtils.isEmpty(email) && TextUtils.isEmpty(personal))
                 continue;
 
+            if (personal != null && personal.equals(email))
+                try {
+                    iaddress.setPersonal(null);
+                    personal = null;
+                } catch (UnsupportedEncodingException ex) {
+                    Log.w(ex);
+                }
+
             email = decodeMime(email);
             if (!Helper.isSingleScript(email))
                 email = punyCode(email);
