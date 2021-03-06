@@ -6717,8 +6717,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final String notes = getArguments().getString("notes");
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_notes, null);
-            final EditText etNote = view.findViewById(R.id.etNote);
-            etNote.setText(notes);
+            final EditText etNotes = view.findViewById(R.id.etNotes);
+            etNotes.setText(notes);
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)
@@ -6727,7 +6727,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public void onClick(DialogInterface dialog, int which) {
                             Bundle args = new Bundle();
                             args.putLong("id", id);
-                            args.putString("notes", etNote.getText().toString());
+                            args.putString("notes", etNotes.getText().toString());
 
                             new SimpleTask<Void>() {
                                 @Override
