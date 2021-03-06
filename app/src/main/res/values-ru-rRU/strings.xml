@@ -147,7 +147,7 @@
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
-    <string name="title_setup_manual">Ручная настройка и другие опции учетной записи</string>
+    <string name="title_setup_manual">Ручная настройка и другие параметры учётной записи</string>
     <string name="title_setup_account_remark">Получение электронной почты</string>
     <string name="title_setup_identity_remark">Отправка электронной почты</string>
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>

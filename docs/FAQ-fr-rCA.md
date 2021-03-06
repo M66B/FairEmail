@@ -955,7 +955,7 @@ Si vous utilisez un [VPN](https://en.wikipedia.org/wiki/Virtual_private_network)
 
 **Erreur d'envoi**
 
-Les serveurs SMTP peuvent rejeter les messages pour [une variété de raisons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+Les serveurs SMTP peuvent rejeter les messages pour [une variété de raisons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Les messages trop volumineux et le déclenchement du filtre de spam d'un serveur de messagerie sont les raisons les plus courantes.
 
 * The attachment size limit for Gmail [is 25 MB](https://support.google.com/mail/answer/6584)
 * The attachment size limit for Outlook and Office 365 [is 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -968,26 +968,26 @@ Les serveurs SMTP peuvent rejeter les messages pour [une variété de raisons](h
 * *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgong message as harmful.
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
 
-If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
+Si vous voulez utiliser le serveur SMTP Gmail pour contourner un filtre de spam sortant trop strict ou pour améliorer la livraison des messages :
 
 * Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
 * Change the identity settings like this (Settings, tap Manual setup and more options, tap Identities, tap identity):
 
-&emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
+&emsp;&emsp;Nom d'utilisateur : *votre adresse Gmail*<br /> &emsp;&emsp;Mot de passe : *[un mot de passe de l'application](#user-content-faq6)*<br /> &emsp;&emsp;Hôte : *smtp.gmail.com*<br /> &emsp;&emsp;Port : *465*<br /> &emsp;&emsp;Chiffrement : *SSL/TLS*<br /> &emsp;&emsp;Répondre à l'adresse : *votre adresse e-mail* (paramètres d'identité avancés)<br />
 
 <br />
 
-**Gmail errors**
+**Erreurs Gmail**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+L'autorisation de la configuration des comptes Gmail avec l'assistant rapide doit être périodiquement actualisée via le [gestionnaire de comptes Android](https://developer.android.com/reference/android/accounts/AccountManager). Cela nécessite des autorisations de contact/compte et une connexion internet.
 
-In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
+En cas d'erreur, il est possible d'autoriser/restaurer un compte Gmail à nouveau via l'assistant de configuration rapide de Gmail.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+L'erreur *... Authentication failed ... Compte introuvable ...* signifie qu'un compte Gmail précédemment autorisé a été supprimé de l'appareil.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+Les erreurs *... Échec de l'authentification ... Aucun jeton ...* signifie que le gestionnaire de comptes Android n'a pas réussi à actualiser l'autorisation d'un compte Gmail.
 
-The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+The error *... Échec de l'authentification... erreur de réseau...* signifie que le gestionnaire de compte Android n'a pas pu actualiser l'autorisation d'un compte Gmail en raison de problèmes de connexion internet
 
 The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 

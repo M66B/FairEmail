@@ -125,6 +125,7 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">L\'assistente può essere usato più volte per impostare più account</string>
     <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
+    <string name="title_setup_manual">Configurazione manuale e più opzioni account</string>
     <string name="title_setup_account_remark">Ricevi e-mail</string>
     <string name="title_setup_identity_remark">Invia e-mail</string>
     <string name="title_setup_account_identity_hint">È possibile configurare il nome, il colore e lo scorrimento delle azioni nelle impostazioni dell\'account e configurare una firma nelle impostazioni dell\'identità</string>
@@ -219,6 +220,7 @@
     <string name="title_advanced_hint_message">        Stai navigando verso le opzioni più avanzate.
         Tutte le opzioni hanno valori standard comunemente usati che possono ma non hanno bisogno di essere cambiati se si ha una preferenza diversa.
     </string>
+    <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricevi</string>
     <string name="title_advanced_section_send">Invia</string>
     <string name="title_advanced_section_connection">Connessione</string>

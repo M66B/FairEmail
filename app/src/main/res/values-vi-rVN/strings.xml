@@ -291,7 +291,7 @@
     <string name="title_advanced_only_name">Chỉ hiển thị tên danh bạ</string>
     <string name="title_advanced_subject_italic">Hiển thị chủ đề bằng chữ nghiêng</string>
     <string name="title_advanced_subject_elipsed">Rút ngắn chủ đề nếu cần</string>
-    <string name="title_advanced_highlight_color">Đánh dấu màu sắc</string>
+    <string name="title_advanced_highlight_color">Màu sắc đánh dấu</string>
     <string name="title_advanced_flags">Hiển thị sao</string>
     <string name="title_advanced_flags_background">Hiển thị nền có màu thay vì sao có màu</string>
     <string name="title_advanced_preview">Hiển thị xem trước thư</string>
@@ -406,6 +406,15 @@
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
     <string name="title_advanced_metered_hint">Các kết nối có giới hạn nói chung là kết nối di động hoặc điểm phát sóng Wi-Fi trả phí</string>
     <string name="title_advanced_metered_warning">Tắt tuỳ chọn này sẽ tắt nhận và gửi thư khi dùng kết nối internet di động</string>
+    <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra các vấn đề kết nối ở một số thiết bị</string>
+    <string name="title_advanced_beige_hint">Chỉ dành cho các chủ đề sáng</string>
+    <string name="title_advanced_date_hint">Thư chỉ được nhóm theo ngày khi chúng được sắp xếp theo thời gian</string>
+    <string name="title_advanced_navbar_colorize_hint">Cái này hoạt động hay không còn tuỳ vào phiên bản và biến thể Android</string>
+    <string name="title_advanced_split_hint">Cái này sẽ tách màn hình thành các phần</string>
+    <string name="title_advanced_threading_hint">Nhóm các thư liên quan đến nhau</string>
+    <string name="title_advanced_gravatars_hint">Có thể có rủi ro về sự riêng tư</string>
+    <string name="title_advanced_name_email_hint">Khi được tắt, chỉ có tên sẽ được hiện khi có</string>
     <string name="title_advanced_notify_no_grouping">Phiên bản Android này không hỗ trợ gộp nhóm thông báo</string>
     <string name="title_advanced_notify_no_channels">Phiên bản Android này không hỗ trợ kênh thông báo</string>
     <string name="title_advanced_queries_hint">Việc bật cái này sẽ làm giảm hiệu năng, tuy nhiên cần phải bật trên một số thiết bị</string>
