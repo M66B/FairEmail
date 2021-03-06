@@ -1257,7 +1257,23 @@ public class MessageHelper {
     }
 
     Address[] getReturnPath() throws MessagingException {
-        return getAddressHeader("Return-Path");
+        Address[] addresses = getAddressHeader("Return-Path");
+        if (addresses == null)
+            return null;
+
+        List<Address> result = new ArrayList<>();
+        for (int i = 0; i < addresses.length; i++) {
+            boolean duplicate = false;
+            for (int j = 0; j < i; j++)
+                if (addresses[i].equals(addresses[j])) {
+                    duplicate = true;
+                    break;
+                }
+            if (!duplicate)
+                result.add(addresses[i]);
+        }
+
+        return result.toArray(new Address[0]);
     }
 
     Address[] getSender() throws MessagingException {
