@@ -350,6 +350,8 @@ public class EmailProvider {
             XmlPullParser xml = factory.newPullParser();
             xml.setInput(new InputStreamReader(request.getInputStream()));
 
+            EntityLog.log(context, "Parsing " + url);
+
             boolean imap = false;
             boolean smtp = false;
             String href = null;
@@ -526,6 +528,7 @@ public class EmailProvider {
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = false;
+                EntityLog.log(context, "_imaps._tcp." + domain + "=" + provider.imap);
             } catch (UnknownHostException ignored) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imap._tcp." + domain, "srv");
@@ -534,6 +537,7 @@ public class EmailProvider {
                 provider.imap.host = records[0].name;
                 provider.imap.port = records[0].port;
                 provider.imap.starttls = (provider.imap.port == 143);
+                EntityLog.log(context, "_imap._tcp." + domain + "=" + provider.imap);
             }
         }
 
@@ -546,6 +550,7 @@ public class EmailProvider {
                 provider.smtp.host = records[0].name;
                 provider.smtp.port = records[0].port;
                 provider.smtp.starttls = (provider.smtp.port == 587);
+                EntityLog.log(context, "_submission._tcp." + domain + "=" + provider.smtp);
             } catch (UnknownHostException ignored) {
                 // https://tools.ietf.org/html/rfc8314
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv");
@@ -554,6 +559,7 @@ public class EmailProvider {
                 provider.smtp.host = records[0].name;
                 provider.smtp.port = records[0].port;
                 provider.smtp.starttls = false;
+                EntityLog.log(context, "_submissions._tcp." + domain + "=" + provider.smtp);
             }
 
         provider.validate();
