@@ -28,7 +28,9 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.RelativeSizeSpan;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -411,6 +413,17 @@ public class FragmentOptions extends FragmentBase {
 
         @Override
         public CharSequence getPageTitle(int position) {
+            CharSequence title = getTitle(position);
+            if (position == 0)
+                return title;
+
+            SpannableStringBuilder ssb = new SpannableStringBuilder(title);
+            ssb.setSpan(new RelativeSizeSpan(0.85f), 0, ssb.length(), 0);
+            return ssb;
+        }
+
+        @NotNull
+        private CharSequence getTitle(int position) {
             switch (position) {
                 case 0:
                     return getString(R.string.title_advanced_section_main);
