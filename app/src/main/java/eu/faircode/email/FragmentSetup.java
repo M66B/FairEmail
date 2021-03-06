@@ -34,6 +34,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -184,7 +186,10 @@ public class FragmentSetup extends FragmentBase {
 
                 //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_pop3, order++, R.string.title_setup_pop3);
+
+                SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
+                ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
