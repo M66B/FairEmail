@@ -1,6 +1,6 @@
 # Hỗ trợ FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp sau đây trước. [Ở dưới cùng](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), bạn có thể tìm ra cách hỏi các câu hỏi khác, yêu cầu tính năng, và báo cáo lỗi.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -117,7 +117,7 @@ Câu hỏi liên quan:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Frequently requested features
+## Các tính năng thường được yêu cầu
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
@@ -137,11 +137,11 @@ The design is based on many discussions and if you like you can discuss about it
 * [(12) Việc mã hoá/giải mã hoạt động như thế nào?](#user-content-faq12)
 * [(13) Tìm kiếm trên thiết bị/máy chủ hoạt động như thế nào?](#user-content-faq13)
 * [(14) Tôi có thể thiết lập một tài khoản Outlook / Live / Hotmail như thế nào?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
+* [(15) Tại sao văn bản thư cứ đang tải thế?](#user-content-faq15)
+* [(16) Tại sao thư không được đồng bộ hoá?](#user-content-faq16)
+* [~~(17) Tại sao đồng bộ hoá thủ công không được?~~](#user-content-faq17)
 * [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
+* [(19) Tại sao các tính năng pro lại đắt thế?](#user-content-faq19)
 * [(20) Tôi có thể được hoàn tiền không?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
@@ -196,14 +196,14 @@ The design is based on many discussions and if you like you can discuss about it
 * [(72) What are primary accounts/identities?](#user-content-faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
+* [(75) Bạn có thể tạo phiên bản cho iOS, Windows, Linux, v.v. không?](#user-content-faq75)
 * [(76) What does 'Clear local messages' do?](#user-content-faq76)
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
 * [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
+* [(82) Hình ảnh theo dõi là gì?](#user-content-faq82)
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)

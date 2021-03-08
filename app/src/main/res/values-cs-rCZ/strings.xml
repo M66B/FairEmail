@@ -147,6 +147,7 @@
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce lze použít vícekrát, pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
+    <string name="title_setup_manual">Ruční nastavení a možnosti účtu</string>
     <string name="title_setup_account_remark">Příjem e-mailů</string>
     <string name="title_setup_identity_remark">Odesílání e-mailů</string>
     <string name="title_setup_account_identity_hint">Jméno, barvu a akce přejetím nakonfigurujete v nastavení účtu, a podpis v nastavení identity</string>
@@ -241,6 +242,7 @@
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.
         Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
+    <string name="title_advanced_section_main">Hlavní</string>
     <string name="title_advanced_section_synchronize">Příjem</string>
     <string name="title_advanced_section_send">Odesílání</string>
     <string name="title_advanced_section_connection">Připojení</string>

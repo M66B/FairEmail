@@ -1,12 +1,12 @@
-# Setup help
+# Trợ giúp thiết lập
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Việc thiết lập FairEmail khá đơn giản. Bạn sẽ cần phải thêm ít nhất một tài khoản để nhận email và ít nhất một danh tính nếu bạn muốn gửi email. Thiết lập nhanh sẽ thêm một tài khoản và một danh tính trong một lần thiết lập cho đa số các nhà cung cấp lớn.
 
-## Requirements
+## Các yêu cầu
 
-An internet connection is required to set up accounts and identities.
+Yêu cầu kết nối internet để thiết lập các tài khoản và danh tính.
 
-## Quick setup
+## Thiết lập nhanh
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
@@ -36,6 +36,6 @@ If you want to lookup email addresses, have contact photos shown, etc, you'll ne
 
 On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
 
-## Questions or problems
+## Câu hỏi hoặc vấn đề
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Nếu bạn có câu hỏi hoặc vấn đề, hãy [xem chỗ này](https://github.com/M66B/FairEmail/blob/master/FAQ.md) để tìm trợ giúp.

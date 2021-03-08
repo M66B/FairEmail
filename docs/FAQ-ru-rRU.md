@@ -258,7 +258,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [(135) Почему в беседах отображаются удаленные сообщения и черновики?](#user-content-faq135)
 * [(136) Как я могу удалить учетную запись / личность / папку?](#user-content-faq136)
 * [(137) Как сбросить параметр «Больше не спрашивать»?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
+* [(138) Можно ли добавить управление календарём/контактами/задачами/заметками?](#user-content-faq138)
 * [(139) Как исправить ошибку «Пользователь аутентифицирован, но не подключен»?](#user-content-faq139)
 * [(140) Почему текст сообщения содержит странные символы?](#user-content-faq140)
 * [(141) Как исправить ошибку "Для отправки сообщений требуется папка с черновиками"?](#user-content-faq141)
@@ -300,8 +300,8 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * * служба переднего плана * (FOREGROUND_SERVICE): чтобы запустить службу переднего плана на Android 9 Pie и более поздних версиях, см. также следующий вопрос
 * * запретить переход устройства в спящий режим * (WAKE_LOCK): чтобы устройство не спало во время синхронизации сообщений.
 * * биллинг в приложении * (BILLING): для разрешения покупок в приложении
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Необязательно: * прочтите содержимое вашей SD-карты * (READ_EXTERNAL_STORAGE): чтобы принимать файлы из других устаревших приложений, см. Также [ этот FAQ ](# user-content-faq49)
+* Необязательно: *чтение ваших контактов* (READ_CONTACTS): для автозаполнения адресов, отображения фото и [выбора контактов](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Необязательно: *считывание содержимого вашей SD-карты* (READ_EXTERNAL_STORAGE): чтобы принимать файлы из других устаревших приложений, см. также [этот FAQ](#user-content-faq49)
 * Необязательно: * используйте оборудование для снятия отпечатков пальцев * (USE_FINGERPRINT) и используйте * биометрическое оборудование * (USE_BIOMETRIC): для использования биометрической аутентификации
 * Необязательно: * поиск учетных записей на устройстве * (GET_ACCOUNTS): для выбора учетной записи при использовании быстрой настройки Gmail
 * Android 5.1 Lollipop и более ранние версии: * использовать учетные записи на устройстве * (USE_CREDENTIALS): для выбора учетной записи при использовании быстрой настройки Gmail (не требуется в более поздних версиях Android)

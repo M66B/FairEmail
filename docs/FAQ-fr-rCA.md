@@ -2184,7 +2184,7 @@ Depending on what you want, the notification settings *Let the number of new mes
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a *badge* for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot (badge) is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
+Certains lanceurs affichent un point ou un « 1 » pour [la notification de surveillance](#user-content-faq2) malgré la demande explicite de FairEmail de ne pas afficher de *badge* pour cette notification. This could be caused by a bug in the launcher app or in your Android version. Veuillez vérifier si le "point" de notification (badge) est désactivé pour le canal de notification de réception (service). You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
 
 FairEmail does send a new message count intent as well:
 

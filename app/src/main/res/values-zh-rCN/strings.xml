@@ -113,6 +113,7 @@
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
+    <string name="title_setup_manual">手动设置和更多账户选项</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
     <string name="title_setup_account_identity_hint">你可以在帐户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
