@@ -2426,6 +2426,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             canBounce = false;
                             break;
                         }
+                    if (canBounce)
+                        for (Address recipient : recipients)
+                            if (MessageHelper.equalEmail(recipient, message.return_path[0])) {
+                                canBounce = false;
+                                break;
+                            }
                 }
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
