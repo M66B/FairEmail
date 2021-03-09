@@ -170,12 +170,13 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvTo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:text="recipients"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvToTitle"
             app:layout_constraintTop_toTopOf="@+id/tvToTitle" />
 
@@ -191,12 +192,13 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvVia"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:text="via"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvViaTitle"
             app:layout_constraintTop_toTopOf="@+id/tvViaTitle" />
 
