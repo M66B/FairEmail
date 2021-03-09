@@ -282,6 +282,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
 
+    private static final int MAX_SHOW_RECIPIENTS = 5;
     private static final int RECIPIENTS_WARNING = 10;
 
     private static final int MAX_QUOTE_LEVEL = 5;
@@ -6008,14 +6009,25 @@ public class FragmentCompose extends FragmentBase {
 
                     boolean dsn = (draft.dsn != null && !EntityMessage.DSN_NONE.equals(draft.dsn));
                     int to = (draft.to == null ? 0 : draft.to.length);
-                    int cc = (draft.cc == null ? 0 : draft.cc.length) + (draft.bcc == null ? 0 : draft.bcc.length);
-                    if (cc == 0)
-                        tvTo.setText(MessageHelper.formatAddressesShort(draft.to));
+                    int extra = (draft.cc == null ? 0 : draft.cc.length) + (draft.bcc == null ? 0 : draft.bcc.length);
+
+                    List<Address> t = new ArrayList<>();
+                    if (draft.to != null)
+                        if (to <= MAX_SHOW_RECIPIENTS)
+                            t.addAll(Arrays.asList(draft.to));
+                        else {
+                            t.addAll((Arrays.asList(Arrays.copyOf(draft.to, MAX_SHOW_RECIPIENTS))));
+                            extra += draft.to.length - MAX_SHOW_RECIPIENTS;
+                        }
+                    Address[] tos = t.toArray(new Address[0]);
+
+                    if (extra == 0)
+                        tvTo.setText(MessageHelper.formatAddressesShort(tos));
                     else
                         tvTo.setText(getString(R.string.title_name_plus,
-                                MessageHelper.formatAddressesShort(draft.to), cc));
+                                MessageHelper.formatAddressesShort(tos), extra));
                     tvTo.setTextColor(Helper.resolveColor(getContext(),
-                            to + cc > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
+                            to + extra > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
 
                     cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only && !dsn);
