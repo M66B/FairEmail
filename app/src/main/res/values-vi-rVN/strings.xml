@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Tìm kiếm FairEmail</string>
-    <string name="app_changelog">Thay đổi nhật ký</string>
+    <string name="app_changelog">Nhật ký thay đổi</string>
     <string name="app_welcome">FairEmail là một ứng dụng email mã nguồn mở tập trung vào sự riêng tư và bảo mật. Vì lý do này một số tính năng có thể hoạt động khác với những gì bạn quen.</string>
-    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
+    <string name="app_limitations">Ví dụ, các thư được định dạng lại theo mặc định để xoá các yếu tố không an toàn và để dễ đọc hơn, và việc mở các liên kết cần được xác nhận để cho an toàn. Cả hai có thể được tắt nếu muốn.</string>
     <string name="app_crash">FairEmail không được hỗ trợ trên thiết bị này vì lỗi ở Android gây ra crash</string>
     <string name="app_exit">\'Quay lại\' lần nữa để thoát</string>
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
@@ -63,14 +63,14 @@
     <string name="title_block">Chặn %1$s</string>
     <string name="title_block_sender">Chặn người gửi</string>
     <string name="title_block_domain">Chặn miền người gửi</string>
-    <string name="title_block_sender_hint">        Chặn người gửi sẽ tạo ra quy tắc để tự động chuyển các thư trong tương lai vào thư mục spam.
-        Tạo và sử dụng các quy tắc là một tính năng chuyên nghiệp.
+    <string name="title_block_sender_hint">        Việc chặn người gửi sẽ tạo quy tắc để tự động chuyển các thư trong tương lai vào thư mục thư rác.
+        Tạo và sử dụng các quy tắc là một tính năng pro.
     </string>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
-    <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
+    <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
     <string name="title_notification_sending">Đang gửi thư</string>
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
-    <string name="title_notification_idle">Idle</string>
+    <string name="title_notification_idle">Rảnh</string>
     <string name="title_notification_failed">\'%1$s\' thất bại</string>
     <string name="title_notification_alert">\'%1$s\' báo động của máy chủ</string>
     <string name="title_notification_sending_left">Lần thử còn lại: %1$d</string>
@@ -108,22 +108,22 @@
     <string name="title_setup_quick">Thiết lập nhanh</string>
     <string name="title_setup_quick_accounts">Thêm tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
-    <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
     <string name="title_setup_quick_smtp">Máy chủ SMTP để gửi thư</string>
     <string name="title_setup_wizard">Trình hướng dẫn</string>
-    <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
+    <string name="title_setup_wizard_multiple">Trình hướng dẫn có thể được sử dụng nhiều lần để thiết lập nhiều tài khoản</string>
     <string name="title_setup_wizard_new">Tôi cần một địa chỉ email mới</string>
     <string name="title_setup_manual">Thiết lập thủ công và các tùy chọn tài khoản</string>
-    <string name="title_setup_account_remark">Receive email</string>
-    <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
-    <string name="title_setup_accounts">Accounts</string>
-    <string name="title_setup_identities">Identities</string>
+    <string name="title_setup_account_remark">Nhận email</string>
+    <string name="title_setup_identity_remark">Gửi email</string>
+    <string name="title_setup_account_identity_hint">Bạn có thể thiết lập tên, màu sắc và các tuỳ chọn vuốt trong cài đặt tài khoản, và thiết lập một chữ ký trong cài đặt danh tính</string>
+    <string name="title_setup_accounts">Tài khoản</string>
+    <string name="title_setup_identities">Danh tính</string>
     <string name="title_setup_oauth_permission">Nhà cung cấp email đã chấp thuận OAuth chỉ với những phiên bản ứng dụng chính thức</string>
     <string name="title_setup_other">Nhà cung cấp khác</string>
     <string name="title_setup_pop3">Tài khoản POP3</string>
-    <string name="title_setup_gmail_support">Authorizing Google accounts will work in official versions only because Android checks the app signature</string>
+    <string name="title_setup_gmail_support">Việc uỷ quyền các tài khoản Gmail sẽ chỉ được trong các phiên bản chính thức vì Android kiểm tra chữ ký ứng dụng</string>
     <string name="title_setup_gmail_rationale">Hãy cấp quyền để chọn một tài khoản và đọc tên của bạn</string>
     <string name="title_setup_gmail_permissions">Google sẽ hỏi xin quyền đọc, soạn thư, gửi và vĩnh viễn xoá tất cả email của bạn. FairEmail sẽ không bao giờ xoá các thư của bạn mà không có sự đồng ý cụ thể của bạn.</string>
     <string name="title_setup_gmail_drafts">Nếu thư mục nháp không truy cập được bởi IMAP, điều này có thể được sửa ở cài đặt nhãn Gmail</string>
@@ -132,17 +132,17 @@
     <string name="title_setup_office_auth">Lỗi \'XÁC THỰC thất bại\' có thể gây ra bởi IMAP/SMTP bị vô hiệu hoá bởi quản trị viên hệ thống</string>
     <string name="title_setup_oauth_rationale">Cấp quyền truy cập vào tài khoản %1$s của bạn</string>
     <string name="title_setup_oauth_update">Uỷ quyền lại tài khoản đang tồn tại</string>
-    <string name="title_setup_oauth_updated">Account authorization was updated</string>
+    <string name="title_setup_oauth_updated">Uỷ quyền tài khoản đã được cập nhật</string>
     <string name="title_setup_oauth_authorize">Uỷ quyền</string>
     <string name="title_setup_select_account">Chọn tài khoản</string>
     <string name="title_setup_instructions">Hướng dẫn thiết lập</string>
     <string name="title_setup_no_settings">Không tìm thấy cài đặt nào cho miền \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Try to set up an account manually using the settings provided by your email provider</string>
-    <string name="title_setup_no_auth_hint">Please double check your email address and password and make sure external access (IMAP/SMTP) is enabled for your account</string>
+    <string name="title_setup_no_settings_hint">Hãy cố thiết lập một tài khoản thủ công dùng cài đặt được cung cấp bởi nhà cung cấp email của bạn</string>
+    <string name="title_setup_no_auth_hint">Hãy kiểm tra hai lần địa chỉ email và mật khẩu của bạn và chắc chắn rằng quyền truy cập ngoài (IMAP/SMTP) được bật cho tài khoản của bạn</string>
     <string name="title_setup_app_password_hint">Nhà cung cấp này yêu cầu mật khẩu ứng dụng thay vì mật khẩu tài khoản, hãy kiểm tra hướng dẫn của nhà cung cấp của bạn</string>
     <string name="title_setup_no_inbox">Không tìm thấy hộp thư đến</string>
     <string name="title_setup_advanced_protection">Khi đã tham gia vào chương trình bảo vệ nâng cao, không thể dùng ứng dụng email bên thứ ba. Đây là sự hạn chế bị áp đặt bởi Google.</string>
-    <string name="title_setup_quick_success">An account has successfully been added</string>
+    <string name="title_setup_quick_success">Một tài khoản đã được thêm thành công</string>
     <string name="title_setup_manage">Quản lý</string>
     <string name="title_setup_grant">Cho phép</string>
     <string name="title_setup_grant_again">Cho phép các quyền được yêu cầu</string>
@@ -158,7 +158,7 @@
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
-    <string name="title_setup_advanced_options">Hiển thị tùy chọn nâng cao</string>
+    <string name="title_setup_advanced_options">Hiện các tùy chọn nâng cao</string>
     <string name="title_setup_inbox">Đi đến hộp thư đến</string>
     <string name="title_setup_go">Bắt đầu</string>
     <string name="title_setup_to_do">Cần làm</string>
@@ -168,8 +168,8 @@
     <string name="title_setup_configuring">Đang thiết lập tài khoản &#8230;</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
-    <string name="title_setup_export_do">The password is used to encrypt the settings and is required to import the settings again</string>
-    <string name="title_setup_import_do">Những tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
+    <string name="title_setup_export_do">Mật khẩu này được sử dụng để mã hoá cài đặt và được yêu cầu để nhập cài đặt lại</string>
+    <string name="title_setup_import_do">Các tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
     <string name="title_setup_password">Mật khẩu</string>
     <string name="title_setup_password_chars">Password contains control or whitespace characters</string>
     <string name="title_setup_password_repeat">Nhập lại mật khẩu</string>
@@ -314,6 +314,7 @@
     <string name="title_advanced_text_align">Sử dụng căn chỉnh văn bản</string>
     <string name="title_advanced_text_separators">Sử dụng các đường thẳng chia tách</string>
     <string name="title_advanced_collapse_quotes">Thu gọn văn bản được trích dẫn</string>
+    <string name="title_advanced_image_placeholders">Hiện các chỗ giữ chỗ hình ảnh</string>
     <string name="title_advanced_seekbar">Hiện vị trí tương đối của cuộc hội thoại bằng một dấu chầm</string>
     <string name="title_advanced_actionbar">Hiện thanh hành đông ở cuộc hội thoại</string>
     <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
@@ -335,6 +336,8 @@
     <string name="title_advanced_autoclose">Tự động đóng các cuộc hội thoại</string>
     <string name="title_advanced_onclose">Khi đóng cuộc hội thoại</string>
     <string name="title_advanced_undo">Thời gian chờ hoàn tác</string>
+    <string name="title_advanced_quick_filter">Hiện các biểu tượng bộ lọc nhanh không gây phiền</string>
+    <string name="title_advanced_quick_scroll">Hiện các biểu tượng cuộn lên/xuống nhanh không gây phiền</string>
     <string name="title_advanced_autoread">Tự động đánh dấu thư đã đọc khi di chuyển thư</string>
     <string name="title_advanced_star_snoozed">Tự động thêm sao khi đặt báo lại thư</string>
     <string name="title_advanced_autounstar">Tự động bỏ sao khỏi thư khi di chuyển thư</string>
@@ -348,8 +351,10 @@
     <string name="title_advanced_notifications_newest_first">Hiển thị thông báo mới nhất trước tiên</string>
     <string name="title_advanced_notifications_background">Dùng dịch vụ nền để đồng bộ thư</string>
     <string name="title_advanced_notifications_background_hint">Một dịch vụ nền có thể bị dừng bởi Android bất kỳ lúc nào, nhưng không yêu cầu thông báo trên tranh trạng thái</string>
+    <string name="title_advanced_badge">Hiện biểu tượng trên launcher có số thư mới</string>
     <string name="title_advanced_unseen_ignored">Để cho số thư mới bằng với số thông báo</string>
     <string name="title_advanced_notify_background">Hiển thị thông báo chỉ khi ở trong nền</string>
+    <string name="title_advanced_notify_known">Chỉ hiện thông báo cho các liên hệ</string>
     <string name="title_advanced_notify_summary">Chỉ hiển thị thông báo tóm tắt</string>
     <string name="title_advanced_notify_preview">Hiển thị xem trước thư trong thông báo</string>
     <string name="title_advanced_notify_preview_all">Xem trước tất cả văn bản</string>
@@ -393,6 +398,10 @@
     <string name="title_advanced_manage_certificates">Quản lý các mã khoá công khai</string>
     <string name="title_advanced_import_key">Nhập mã khoá riêng</string>
     <string name="title_advanced_manage_keys">Quản lý các mã khoá riêng</string>
+    <string name="title_advanced_ca">Các chứng chỉ CA đã cài đặt</string>
+    <string name="title_advanced_manage_keys_hint">        Cái này sẽ mở cài đặt bảo mật của Android.
+        Các mã khóa và chứng chỉ có thể nói chung được tìm thấy ở Nâng cao - Mã hóa và thông tin xác thực.
+    </string>
     <string name="title_advanced_external_search">Cho phép các ứng dụng khác tìm kiếm trong thư</string>
     <string name="title_advanced_shortcuts">Hiện các liên hệ hay sử dụng trong menu chia sẻ của Android</string>
     <string name="title_advanced_conversation_actions">Đề xuất các hành động (Android 10+)</string>
@@ -424,6 +433,7 @@
     <string name="title_advanced_sync_folders_hint">Việc tắt cái này sẽ làm giảm phần nào sử dụng dữ liệu và pin, nhưng cũng sẽ tắt việc cập nhật các thư mục</string>
     <string name="title_advanced_check_reply_hint">Cái này sẽ kiểm tra xem tên miền của người gửi và địa chỉ trả lời có như nhau không</string>
     <string name="title_advanced_lookup_mx_hint">Cái này sẽ kiểm tra xem các bản ghi DNS MX có tồn tại không</string>
+    <string name="title_advanced_sync_delay_hint">Cái này sẽ làm chậm việc đồng bộ hóa thư</string>
     <string name="title_advanced_suggest_names_hint">Nếu bị tắt, chỉ có các địa chỉ email sẽ được sử dụng khi chọn các liên hệ</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
@@ -432,6 +442,7 @@
     <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
     <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra các vấn đề kết nối ở một số thiết bị</string>
     <string name="title_advanced_timeout_hint">Thời gian chờ đọc/ghi sẽ được đặt thành gấp đôi thời gian chờ kết nối. Các giá trị cao hơn sẽ dẫn đến hao pin nhiều hơn.</string>
+    <string name="title_advanced_roaming_hint">Tiêu đề thư sẽ luôn được lấy khi chuyển vùng. Bạn có thể sử dụng cài đặt chuyển vùng của thiết bị để tắt internet trong khi chuyển vùng.</string>
     <string name="title_advanced_browse_hint">Lấy nhiều thư hơn khi cuộn xuống</string>
     <string name="title_advanced_layout_hint">Việc chuyển đến một bố cục nhỏ gọn hơn và thay đổi kích cỡ văn bản thư có thể được làm trong menu thanh hành động trong màn hình xem thư</string>
     <string name="title_advanced_startup_hint">Nhấn giữ bất kỳ thư mục nào trong danh sách thư mục để xoá nó khỏi danh sách các thư mục hợp nhất</string>
@@ -471,6 +482,7 @@
     <string name="title_advanced_english_hint">Cái này sẽ khởi động lại ứng dụng</string>
     <string name="title_advanced_experiments_hint">Danh sách các tính năng thử nghiệm hiện tại</string>
     <string name="title_advanced_protocol_hint">Cái này sẽ tăng đáng kể sử dụng pin và không gian bộ nhớ!</string>
+    <string name="title_advanced_debug_hint">Cái này sẽ hiện thông tin gỡ lỗi xấu xí ở nhiều nơi</string>
     <string name="title_advanced_cleanup_attachments_hint">Khi dọn dẹp thủ công, cái này sẽ xoá các tệp đính kèm khỏi các thư không còn được đồng bộ hoá nữa</string>
     <string name="title_advanced_cleanup_hint">Cái này sẽ xóa tất cả các tập tin tạm</string>
     <string name="title_advanced_never_favorite">Không bao giờ yêu thích</string>
@@ -496,7 +508,9 @@
     <string name="title_account_ondemand">Đồng bộ hoá thủ công</string>
     <string name="title_account_left">Vuốt trái</string>
     <string name="title_account_right">Vuốt phải</string>
+    <string name="title_account_gmail">Để việc đồng bộ hóa của tài khoản Gmail được đáng tin cậy, trình hướng dẫn thiết lập nhanh cho Gmail nên được sử dụng bất kỳ lúc nào có thể</string>
     <string name="title_domain">Tên miền</string>
+    <string name="title_autoconfig">Lấy cài đặt</string>
     <string name="title_provider">Nhà cung cấp</string>
     <string name="title_custom">Tuỳ chỉnh</string>
     <string name="title_host">Tên máy chủ</string>
@@ -632,6 +646,7 @@
     <string name="title_subject_forward">Chuyển tiếp: %1$s</string>
     <string name="title_seen">Đánh dấu đã đọc</string>
     <string name="title_unseen">Đánh dấu chưa đọc</string>
+    <string name="title_toggle_seen">Bật/tắt đã đọc</string>
     <string name="title_hide">Ẩn</string>
     <string name="title_unhide">Hiện</string>
     <string name="title_flag">Thêm sao</string>
@@ -688,12 +703,14 @@
     <string name="title_reply_to_sender">Trả lời người nhận</string>
     <string name="title_reply_to_all">Trả lời tất cả</string>
     <string name="title_reply_list">Trả lời danh sách</string>
+    <string name="title_reply_template">Trả lời bằng mẫu</string>
     <string name="title_move_undo">Đang di chuyển đến %1$s (%2$d)</string>
     <string name="title_open_with">Mở bằng</string>
     <string name="title_authentication_failed">%1$s xác thực thất bại</string>
     <string name="title_no_viewer">Không có ứng dụng xem %1$s</string>
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
+    <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>
     <string name="title_no_format">Thư được nhận ban đầu sẽ được bao gồm</string>
     <string name="title_no_image">Hình ảnh không thể được giải mã</string>
@@ -712,6 +729,11 @@
     <string name="title_ask_delete_answer">Xoá mẫu trả lời vĩnh viễn?</string>
     <string name="title_ask_delete_rule">Xóa quy tắc vĩnh viễn?</string>
     <string name="title_ask_discard">Bỏ thư nháp?</string>
+    <string name="title_ask_show_html">Việc hiện thư gốc có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
+    <string name="title_ask_show_html_dark">Sử dụng chủ đề tối</string>
+    <string name="title_ask_show_html_remark">Không thể hiển thị thư gốc trên nền tối vì các văn bản tối và hình ảnh có thể không nhìn thấy được</string>
+    <string name="title_ask_show_html_images">Luôn hiện các hình ảnh khi hiện các thư gốc</string>
+    <string name="title_ask_show_image">Việc hiện các hình ảnh có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
     <string name="title_ask_show_image_hint">Các hình ảnh được nhận ra là hình ảnh theo dõi sẽ không được hiện</string>
     <string name="title_ask_help">Giúp cải thiện FairEmail</string>
     <string name="title_ask_reporting">Gửi báo cáo lỗi?</string>
@@ -805,6 +827,28 @@
     <string name="title_from_missing">Thiếu người gửi</string>
     <string name="title_extra_missing">Thiếu tên người dùng</string>
     <string name="title_to_missing">Thiếu người nhận</string>
+    <string name="title_pgp_reminder">Có các mã khóa PGP</string>
+    <string name="title_smime_reminder">Có các mã khóa S/MIME</string>
+    <string name="title_subject_reminder">Chủ đề đang trống</string>
+    <string name="title_text_reminder">Thư đang trống</string>
+    <string name="title_plain_reminder">Tất cả định dạng sẽ bị mất</string>
+    <string name="title_size_reminder">Thư (%1$s) lớn hơn giới hạn máy chủ (%2$s)</string>
+    <string name="title_draft_deleted">Đã bỏ thư nháp</string>
+    <string name="title_draft_saved">Đã lưu thư nháp</string>
+    <string name="title_ask_send_via">Gửi thư đến %1$s qua %2$s?</string>
+    <string name="title_queued">Đang gửi thư</string>
+    <string name="title_queued_at">Thư sẽ được gửi vào lúc quanh %1$s</string>
+    <string name="title_sign">Ký</string>
+    <string name="title_verify">Xác minh</string>
+    <string name="title_encrypt">Mã hóa</string>
+    <string name="title_decrypt">Giải mã</string>
+    <string name="title_resync">Đồng bộ lại</string>
+    <string name="title_no_openpgp">Không tìm thấy OpenKeychain</string>
+    <string name="title_user_interaction">Đang chuyển sang OpenKeychain</string>
+    <string name="title_signed_data">Xác minh chữ ký để hiện văn bản thư</string>
+    <string name="title_not_encrypted">Thư không được ký hoặc mã hóa</string>
+    <string name="title_signature_none">Thư không được ký</string>
+    <string name="title_signature_valid">Chữ ký thư hợp lệ</string>
     <string name="title_signature_valid_from">Chữ ký thư hợp lệ: %1$s</string>
     <string name="title_signature_unconfirmed">Chữ ký thư hợp lệ nhưng không được xác nhận</string>
     <string name="title_signature_unconfirmed_from">Chữ ký thư hợp lệ nhưng không được xác nhận: %1$s</string>
@@ -851,6 +895,17 @@
     <string name="title_sort_on">Sắp xếp theo</string>
     <string name="title_sort_on_time">Thời gian</string>
     <string name="title_sort_on_unread">Chưa đọc</string>
+    <string name="title_sort_on_starred">Được gắn sao</string>
+    <string name="title_sort_on_priority">Mức ưu tiên</string>
+    <string name="title_sort_on_sender">Người gửi</string>
+    <string name="title_sort_on_subject">Chủ đề</string>
+    <string name="title_sort_on_size">Kích cỡ</string>
+    <string name="title_sort_on_attachments">Tệp đính kèm</string>
+    <string name="title_sort_on_hidden">Ẩn</string>
+    <string name="title_sort_ascending">Cũ nhất trước</string>
+    <string name="title_filter">Lọc ra</string>
+    <string name="title_filter_seen">Đã đọc</string>
+    <string name="title_filter_unflagged">Chưa gắn sao</string>
     <string name="title_filter_unknown">Người gửi không xác định</string>
     <string name="title_filter_hidden">Ẩn</string>
     <string name="title_filter_duplicates">Bản sao</string>
@@ -951,9 +1006,26 @@
     <string name="title_legend_download_off">Tải nội dung thư xuống khi có nhu cầu</string>
     <string name="title_legend_synchronize_on">Đồng bộ hóa đang bật</string>
     <string name="title_legend_synchronize_off">Đồng bộ hóa đang tắt</string>
+    <string name="title_legend_disconnected">Đã ngắt kết nối</string>
+    <string name="title_legend_connecting">Đang kết nối</string>
+    <string name="title_legend_connected">Đã kết nối</string>
+    <string name="title_legend_executing">Đang thực thi các hoạt động</string>
+    <string name="title_legend_synchronizing">Đang đồng bộ hóa</string>
+    <string name="title_legend_downloading">Đang tải xuống</string>
+    <string name="title_legend_closing">Đang đóng</string>
     <string name="title_legend_unified">Hộp thư đến hợp nhất / tài khoản chính</string>
+    <string name="title_legend_inbox">Hộp thư đến</string>
+    <string name="title_legend_drafts">Thư nháp</string>
+    <string name="title_legend_sent">Đã gửi</string>
+    <string name="title_legend_archive">Lưu trữ</string>
+    <string name="title_legend_trash">Thùng rác</string>
+    <string name="title_legend_junk">Thư rác</string>
+    <string name="title_legend_primary">Chính</string>
     <string name="title_legend_rule">Có các quy tắc</string>
+    <string name="title_legend_similar">Tìm kiếm các thư tương tự</string>
+    <string name="title_legend_notify">Thông báo khi có thư mới</string>
     <string name="title_legend_stop">Dừng việc xử lý các quy tắc</string>
+    <string name="title_legend_thread">Cuộc hội thoại</string>
     <string name="title_legend_zoom">Thay đổi kích cỡ văn bản</string>
     <string name="title_legend_draft">Có nháp</string>
     <string name="title_legend_priority">Ưu tiên cao</string>
@@ -966,6 +1038,15 @@
     <string name="title_legend_found">Đã thấy</string>
     <string name="title_legend_classified">Đã được phân loại tự động</string>
     <string name="title_legend_snoozed">Được đặt báo lại</string>
+    <string name="title_legend_browsed">Được duyệt hoặc tìm kiếm</string>
+    <string name="title_legend_answered">Đã được trả lời</string>
+    <string name="title_legend_forwarded">Đã được chuyển tiếp</string>
+    <string name="title_legend_plain_only">Chỉ là văn bản thường</string>
+    <string name="title_legend_auto_submitted">Đã được tự động gửi</string>
+    <string name="title_legend_attachment">Có tệp đính kèm</string>
+    <string name="title_legend_flagged">Là yêu thích</string>
+    <string name="title_legend_contacts">Quản lý các liên hệ</string>
+    <string name="title_legend_search">Tìm kiếm người gửi</string>
     <string name="title_legend_view">Xem nội dung</string>
     <string name="title_legend_hide">Ẩn nội dung</string>
     <string name="title_legend_download">Tải xuống nội dung</string>
@@ -1011,10 +1092,17 @@
     <string name="title_legend_p">Trước</string>
     <string name="title_legend_r">Trả lời</string>
     <string name="title_legend_s">Chọn/bỏ chọn</string>
+    <string name="title_hint_message_actions">Vuốt trái để đưa vào thùng rác; Vuốt phải để lưu trữ (nếu có); Các hành động vuốt có thể được thiết lập trong cài đặt tài khoản</string>
     <string name="title_hint_important">Quan trọng</string>
+    <string name="title_hint_sync">Việc tải xuống thư có thể mất một ít thời gian, tùy vào tốc độ của nhà cung cấp, kết nối internet, thiết bị và số lượng thư. Trong khi đang tải xuống thư, ứng dụng có thể sẽ phản hồi chậm hơn.</string>
+    <string name="title_hint_reformat">Theo mặc định, FairEmail định dạng lại các thư vì lý do riêng tư và bảo mật. Để xem thư gốc, hãy nhấn biểu tượng \'toàn màn hình\' trên văn bản thư.</string>
     <string name="title_hint_contact_actions">Nhấn giữ để xem các tuỳ chọn</string>
     <string name="title_open_link">Mở liên kết</string>
-    <string name="title_check_owner">Kiểm tra người sở hữu</string>
+    <string name="title_tracking_link">Trang web này có thể sẽ theo dõi bạn</string>
+    <string name="title_insecure_link">Liên kết này không bảo mật</string>
+    <string name="title_check_owner">Kiểm tra chủ sở hữu</string>
+    <string name="title_remark_owner">Thông tin sẽ được lấy từ <a href="https://ipinfo.io/">ipinfo.io</a></string>
+    <string name="title_ip_owner">Địa chỉ IP của chủ sở hữu</string>
     <string name="title_select_app">Chọn ứng dụng</string>
     <string name="title_updated">Có bản cập nhật lên phiên bản %1$s</string>
     <string name="title_issue">Bạn có câu hỏi hoặc vấn đề không?</string>
@@ -1033,6 +1121,8 @@
     <string name="title_enabled">Đã bật</string>
     <string name="title_executing">Đang thực thi</string>
     <string name="title_completed">Đã hoàn thành</string>
+    <string name="title_no_ask_again">Không hỏi cái này nữa</string>
+    <string name="title_no_ask_for_again">Không hỏi cái này nữa cho %1$s</string>
     <string name="title_no_body">Không tìm thấy văn bản thư nào</string>
     <string name="title_via">Qua: %1$s</string>
     <string name="title_1hour">1 tiếng</string>
@@ -1058,8 +1148,17 @@
     <string name="title_pro_list">Danh sách các tính năng pro</string>
     <string name="title_pro_purchase">Mua</string>
     <string name="title_pro_once">Chỉ một lần</string>
+    <string name="title_pro_price">Tại sao các tính năng pro lại đắt thế?</string>
+    <string name="title_pro_restore">Tôi có thể khôi phục việc mua như thế nào?</string>
+    <string name="title_pro_pending">Đang chờ mua</string>
+    <string name="title_pro_activated">Tất cả tính năng pro được kích hoạt</string>
+    <string name="title_pro_valid">Tất cả tính năng pro được kích hoạt</string>
+    <string name="title_pro_invalid">Phản hồi không hợp lệ</string>
+    <string name="title_pro_support">FairEmail cần sự giúp đỡ của bạn. Nhấn để mua các tính năng pro để giữ cho dự án được tiếp tục hoặc tắt thông báo này.</string>
     <string name="title_boundary_retry">Thử lại</string>
     <string name="title_unexpected_error">Lỗi không mong muốn</string>
+    <string name="title_auto_scroll">Tự động cuộn</string>
+    <string name="title_log_clear">Xóa</string>
     <string name="title_rules_search_hint">Tìm kiếm tên hoặc điều kiện</string>
     <string name="title_rules_export">Xuất các quy tắc</string>
     <string name="title_rules_import">Nhập các quy tắc</string>
@@ -1067,7 +1166,17 @@
     <string name="title_rules_delete_junk">Xoá tất cả quy tắc thư rác</string>
     <string name="title_rules_delete_all_confirm">Xoá tất cả quy tắc?</string>
     <string name="title_rules_delete_junk_confirm">Xoá tất cả quy tắc di chuyển thư vào thư mục thư rác?</string>
+    <string name="title_debug_info">Thông tin gỡ lỗi</string>
+    <string name="title_debug_info_remark">Hãy mô tả vấn đề và cho biết thời gian của vấn đề:</string>
+    <string name="title_crash_info_remark">Hãy mô tả điều bạn đang làm khi ứng dụng bị văng ra:</string>
+    <string name="title_unexpected_info_remark">Hãy mô tả điều bạn đang làm khi bạn gặp lỗi đó:</string>
+    <string name="title_widget_title_list">Danh sách thư</string>
+    <string name="title_widget_account">Tài khoản</string>
+    <string name="title_widget_account_all">Tất cả</string>
+    <string name="title_widget_folder">Thư mục</string>
     <string name="title_widget_folder_unified">Các thư mục trong hộp thư đến hợp nhất</string>
+    <string name="title_widget_font_size">Cỡ chữ</string>
+    <string name="title_widget_background">Màu nền</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d thư</item>
     </plurals>
@@ -1123,6 +1232,96 @@
         <item>Primary account folders</item>
         <item>Accounts</item>
     </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
+        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Không làm gì cả</item>
+        <item>Đi đến cuộc hội thoại trước</item>
+        <item>Đi đến cuộc hội thoại sau</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Nhỏ</item>
+        <item>Vừa</item>
+        <item>Lớn</item>
+        <item>Rất lớn</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>To</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Một phút</item>
+        <item>2 phút</item>
+        <item>5 phút</item>
+        <item>10 phút</item>
+        <item>20 phút</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>At the start</item>
+        <item>In the middle</item>
+        <item>At the end</item>
+        <item>Hiện không rút ngắn</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Thấp</item>
+        <item>Bình thường</item>
+        <item>Cao</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Mặc định</item>
+        <item>Nhỏ</item>
+        <item>Vừa</item>
+        <item>Lớn</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Trên văn bản</item>
+        <item>Dưới văn bản</item>
+        <item>Ở phía dưới</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Không có</item>
+        <item>PGP sign-only</item>
+        <item>PGP sign+encrypt</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Tắt</item>
+        <item>2,5 giây</item>
+        <item>5 giây</item>
+        <item>7.5 giây</item>
+        <item>10 giây</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Chữ viết ẩu</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Một khoảng cách</item>
+    </string-array>
 </resources>

@@ -1431,7 +1431,10 @@
         <item>512 КБ</item>
         <item>1 МБ</item>
         <item>2 МБ</item>
-        <item>∞</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
+        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Ничего не делать</item>

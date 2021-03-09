@@ -1617,6 +1617,9 @@
         <item>512 KB</item>
         <item>1 MB</item>
         <item>2 MB</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
         <item>∞</item>
     </string-array>
 
@@ -1629,6 +1632,9 @@
         <item>524288</item>
         <item>1048576</item>
         <item>2097152</item>
+        <item>4194304</item>
+        <item>8388608</item>
+        <item>16777216</item>
         <item>0</item>
     </integer-array>
 
