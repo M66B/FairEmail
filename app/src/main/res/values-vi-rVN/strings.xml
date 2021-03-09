@@ -430,6 +430,7 @@
     <string name="title_advanced_no_date_hint">Một số nhà cung cấp lưu trữ các thư có ngày không xác định, không hợp lệ hoặc trong tương lai là thư không có ngày</string>
     <string name="title_advanced_unseen_hint">Một số nhà cung cấp không hỗ trợ điều này đúng cách, điều đó có thể gây ra không đồng bộ hoá thư nào hoặc đồng bộ tất cả thư</string>
     <string name="title_advanced_deleted_unseen">Khi được tắt, các thư chưa đọc được giữ trên thiết bị vĩnh viễn</string>
+    <string name="title_advanced_gmail_thread_hint">Cái này chỉ áp dụng cho các thư mới nhận và có thể làm hỏng các nhóm đang tồn tại</string>
     <string name="title_advanced_sync_folders_hint">Việc tắt cái này sẽ làm giảm phần nào sử dụng dữ liệu và pin, nhưng cũng sẽ tắt việc cập nhật các thư mục</string>
     <string name="title_advanced_check_reply_hint">Cái này sẽ kiểm tra xem tên miền của người gửi và địa chỉ trả lời có như nhau không</string>
     <string name="title_advanced_lookup_mx_hint">Cái này sẽ kiểm tra xem các bản ghi DNS MX có tồn tại không</string>

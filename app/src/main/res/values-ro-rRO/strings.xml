@@ -136,6 +136,7 @@
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
+    <string name="title_setup_manual">Setări manuale și opțiuni cont</string>
     <string name="title_setup_account_remark">Primire e-mail</string>
     <string name="title_setup_identity_remark">Trimitere e-mail</string>
     <string name="title_setup_account_identity_hint">Puteți configura numele, culoarea și acțiunile de glisare în setările contului și puteți configura o semnătură în setările de identitate</string>
@@ -230,6 +231,7 @@
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.
         Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
+    <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
     <string name="title_advanced_section_connection">Conexiune</string>
@@ -1417,9 +1419,9 @@
         <item>512 Ko</item>
         <item>1 Mo</item>
         <item>2 Mo</item>
-        <item>4 MB</item>
-        <item>8 MB</item>
-        <item>16 MB</item>
+        <item>4 Mo</item>
+        <item>8 Mo</item>
+        <item>16 Mo</item>
         <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
     </string-array>
     <string-array name="onCloseNames">
