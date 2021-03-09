@@ -116,7 +116,7 @@ public class MessageHelper {
     private static File cacheDir = null;
 
     static final int SMALL_MESSAGE_SIZE = 192 * 1024; // bytes
-    static final int DEFAULT_DOWNLOAD_SIZE = 512 * 1024; // bytes
+    static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
 
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes

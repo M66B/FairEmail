@@ -418,6 +418,9 @@ public class ApplicationEx extends Application
         } else if (version < 1524) {
             if (BuildConfig.PLAY_STORE_RELEASE)
                 editor.remove("experiments");
+        } else if (version < 1525) {
+            if (!prefs.contains("download"))
+                editor.putInt("download", 512 * 1024);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
