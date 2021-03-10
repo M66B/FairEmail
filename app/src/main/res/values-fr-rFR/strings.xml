@@ -128,7 +128,7 @@
     <string name="title_setup_manual">Configuration manuelle et options des comptes</string>
     <string name="title_setup_account_remark">Recevoir des e-mails</string>
     <string name="title_setup_identity_remark">Envoyer des e-mails</string>
-    <string name="title_setup_account_identity_hint">Vous pouvez configurer le nom, la couleur et les actions de balayage dans les paramètres du compte et configurer une signature dans les paramètres d\'identité</string>
+    <string name="title_setup_account_identity_hint">Vous pouvez configurer le nom, la couleur et les actions de balayage dans les paramètres de compte et configurer une signature dans les paramètres d\'identité</string>
     <string name="title_setup_accounts">Comptes</string>
     <string name="title_setup_identities">Identités</string>
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions officielles de l\'application</string>

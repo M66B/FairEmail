@@ -1,4 +1,4 @@
-# Hỗ trợ FairEmail
+# Hỗ trợ của FairEmail
 
 Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp sau đây trước. [Ở dưới cùng](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), bạn có thể tìm ra cách hỏi các câu hỏi khác, yêu cầu tính năng, và báo cáo lỗi.
 
@@ -45,9 +45,9 @@ Câu hỏi liên quan:
 
 ## Làm thế nào để ...?
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
+* Đổi tên tài khoản: Cài đặt, nhấn Thiết lập thủ công và thêm tuỳ chọn, nhấn Tài khoản, nhấn tài khoản
+* Thay đổi mục tiêu vuốt trái/phải: Cài đặt, trang Hành vi, Đặt hành động vuốt
+* Thay đổi mật khẩu: Cài đặt, nhấn Thiết lập thủ công và thêm tuỳ chọn, nhấn Tài khoản, nhấn tài khoản, thay đổi mật khẩu
 * Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
@@ -94,16 +94,16 @@ Câu hỏi liên quan:
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* ~~Search suggestions~~
+* ~~Đề xuất tìm kiếm~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
+* ~~Các thư mục hợp nhất chung chung~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~Hiển thị GIF~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~Send as attachment~~
@@ -112,8 +112,8 @@ Câu hỏi liên quan:
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Hỗ trợ S/MIME~~
+* ~~Tìm kiếm cài đặt~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -217,7 +217,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
 * [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
 * [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
+* [(97) 'Dọn dẹp' là gì?](#user-content-faq97)
 * [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
 * [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
 * [(100) How can I synchronize Gmail categories?](#user-content-faq100)
@@ -231,9 +231,9 @@ The design is based on many discussions and if you like you can discuss about it
 * [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
+* [(111) OAuth có được hỗ trợ không?](#user-content-faq111)
+* [(112) Bạn khuyên dùng nhà cung cấp email nào?](#user-content-faq112)
+* [(113) Xác thực sinh trắc học hoạt động như thế nào?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)

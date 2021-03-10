@@ -396,11 +396,11 @@ Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de 
 
 Ceci peut être dû à l'utilisation d'un nom de serveur incorrect, donc vérifiez d'abord le nom du serveur dans les paramètres avancés de l'identité/du compte (tapez sur Configuration manuelle et Plus d'options). Veuillez consulter la documentation de votre fournisseur de messagerie concernant le nom du serveur.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Vous pouvez résoudre le problème en contactant votre hébergeur ou en obtenant un certificat valide. En effet, les certificats de sécurité non valide ne sont pas sécurisés et permettent des [Attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si vous souhaitez une alternative gratuite, vous pouvez obtenir un certificat gratuit depuis [Let’s Encrypt](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup and more options*, tap *Identities*, tap the identity, tap *Advanced*).
+L'option la plus rapide, mais également la moins sécurisée (non recommandée), est d'activer *Autoriser les connexions non sécurisées* dans le menu des identités avancé (menu de navigation, *Paramètres*, *Configuration manuelle et plus d'options*, *Identités*, Sélectionnez l'identité voulue, *Avancé*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Vous pouvez également accepter l'empreinte de certificats de sécurité invalide comme suit:
 
 1. Assurez-vous que vous utilisez une connexion internet fiable (pas de réseaux Wi-Fi publics, etc)
 1. Aller à l'écran de configuration rapide via le menu de navigation (Faites glisser depuis le côté gauche vers l'intérieur)
@@ -408,39 +408,39 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 1. Contrôlez/enregistrez le compte et l'identité
 1. Cochez la case en dessous du message d'erreur et enregistrez à nouveau
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Cela gardera le certificat du serveur pour éviter une attaque de l'homme du milieu.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Notez que d'anciennes versions d'Android pourraient ne pas reconnaître les plus récentes autorités de certification comme Let's Encrypt résultant d'un connexion classée comme non sécurisée, voir [plus d'information](https://developer.android.com/training/articles/security-ssl).
 
 *Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* signifie que le TrustManager par défaut d'Android n'a pas réussi à identifier le certificat du serveur.
 
-You should either fix the server configuration or accept the fingerprint shown below the error message.
+Vous devez soit corriger la configuration du serveur ou accepter l'empreinte affichée en-dessous du message d'erreur.
 
-Note that this problem can be caused by the server not sending all intermediate certificates too.
+Notez que ce problème peut être causé par un serveur qui n'enverrait pas l'ensemble des certificats intermédiaires.
 
-*Empty password*
+*Mot de passe vide*
 
-Your username is likely easily guessed, so this is insecure.
+Votre nom d'utilisateur est trop simple, il n'est pas sécurisé.
 
-*Plain text connection*
+*Connexion en clair*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Votre nom d'utilisateur, mot de passe et tous vos messages seront envoyés et reçus sans cryptage, ce qui est **dangereux** car une [attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est très simple avec ce genre de connexion non cryptée.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Si néanmoins vous souhaitez utiliser un certificat de sécurité non valide, un mot de passe vide ou une connexion en clair, vous devrez activer l'option "Autoriser les connexions non sécurisées" dans les paramètres de compte et/ou d'identité. STARTTLS devrait être choisi pour les connexions en clair. Si vous activez les connexions non sécurisées, vous devriez vous connecter uniquement via des réseaux privés dont vous avez confiance, mais jamais via des réseaux publiques, tel ceux offerts dans les hôtels, aéroports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Comment puis-je paramétrer la vue des messages ?**
 
-In the three dot overflow menu you can enable or disable or select:
+En cliquant sur les trois petits points en haut à droite, vous pouvez activer, désactiver ou sélectionner:
 
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-In the display section of the settings you can enable or disable for example:
+Dans l'onglet Affichage des paramètres, vous pouvez, par exemple, activer ou désactiver:
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
 * *Style tabulaire*: afficher une liste linéaire au lieu de cartes
@@ -457,9 +457,9 @@ In the display section of the settings you can enable or disable for example:
 * *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
 * *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Notez que l'aperçu du message ne peut être affiché que lorsque le texte de celui-ci a été téléchargé. Par défaut, les messages trop lourds ne sont pas téléchargés sur des connexions limités (réseaux cellulaires généralement). Vous pouvez changer ça dans l'onglet Connexion.
 
-Some people ask:
+Certaines personnes demandent:
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
@@ -467,9 +467,9 @@ Some people ask:
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Si vous utilisez la version Play store ou Github de FairEmail, vous pouvez utiliser l’Assistant pour facilement paramétrer votre compte Gmail et son identité. L'Assistant de configuration Gmail n'est pas disponible dans les autres versions, tel que celle de F-Droid car Google n'accepte l'utilisation de OAuth seulement sur les versions officielles.
 
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 

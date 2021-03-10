@@ -125,6 +125,7 @@
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_multiple">L\'assistente può essere usato più volte per impostare più account</string>
     <string name="title_setup_wizard_new">Ho bisogno di un nuovo indirizzo e-mail</string>
+    <string name="title_setup_manual">Configurazione manuale e opzioni account</string>
     <string name="title_setup_account_remark">Ricevi e-mail</string>
     <string name="title_setup_identity_remark">Invia e-mail</string>
     <string name="title_setup_account_identity_hint">È possibile configurare il nome, il colore e lo scorrimento delle azioni nelle impostazioni dell\'account e configurare una firma nelle impostazioni dell\'identità</string>

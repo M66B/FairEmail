@@ -26,7 +26,7 @@ Similarly, to add an identity, tap *Manual setup and more options*, tap *Identit
 
 If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Xem [câu hỏi thường gặp này](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) về việc sử dụng bí danh.
 
 ## Cấp quyền - để truy cập thông tin liện hệ
 
@@ -34,7 +34,7 @@ If you want to lookup email addresses, have contact photos shown, etc, you'll ne
 
 ## Thiết lập tối ưu hoá pin - để nhận email liên tục
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+Trên các phiên bản Android gần đây, Android sẽ cho các ứng dụng ngủ khi màn hình tắt được một thời gian để giảm sử dụng pin. Nếu bạn muốn nhận email mới mà không có độ trễ, bạn nên tắt tối ưu hoá pin cho FairEmail. Nhấn *Quản lý* và làm theo hướng dẫn.
 
 ## Câu hỏi hoặc vấn đề
 
