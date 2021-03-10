@@ -35,6 +35,11 @@ public class MimeMessageEx extends MimeMessage {
         this.msgid = msgid;
     }
 
+    MimeMessageEx(Session session, InputStream is, String msgid) throws MessagingException {
+        super(session, is);
+        this.msgid = msgid;
+    }
+
     MimeMessageEx(Session session, InputStream is, MimeMessage original) throws MessagingException {
         super(session, is);
         this.original = original;

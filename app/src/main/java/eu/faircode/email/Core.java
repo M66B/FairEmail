@@ -953,17 +953,9 @@ class Core {
 
             Log.i(folder.name + " reading " + file);
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                imessage = new MimeMessage(isession, is);
+                imessage = new MimeMessageEx(isession, is, message.msgid);
             }
-
-            // Check message ID to check raw message file content
-            MessageHelper helper = new MessageHelper(imessage, context);
-            String msgid = helper.getMessageID();
-            if (TextUtils.isEmpty(message.msgid) || !Objects.equals(message.msgid, msgid)) {
-                String msg = "Inconsistent msgid=" + message.msgid + "/" + msgid;
-                Log.e(msg);
-                throw new IllegalArgumentException(msg);
-            }
+            imessage.saveChanges();
         }
 
         db.message().setMessageRaw(message.id, true);
