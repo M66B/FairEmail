@@ -318,10 +318,25 @@ public class FragmentBase extends Fragment {
         Log.d("Detach " + this);
         super.onDetach();
 
-        InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        View focused = getActivity().getCurrentFocus();
-        if (focused != null)
-            im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        try {
+            InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            View focused = getActivity().getCurrentFocus();
+            if (focused != null)
+                im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                Caused by: java.lang.NullPointerException: Attempt to read from field 'com.android.internal.view.IInputMethodClient com.android.server.inputmethod.InputMethodManagerService$ClientState.client' on a null object reference
+                  at android.os.Parcel.createException(Parcel.java:2077)
+                  at android.os.Parcel.readException(Parcel.java:2039)
+                  at android.os.Parcel.readException(Parcel.java:1987)
+                  at com.android.internal.view.IInputMethodManager$Stub$Proxy.hideSoftInput(IInputMethodManager.java:615)
+                  at android.view.inputmethod.InputMethodManager.hideSoftInputFromWindow(InputMethodManager.java:1523)
+                  at android.view.inputmethod.InputMethodManager.hideSoftInputFromWindow(InputMethodManager.java:1485)
+                  at eu.faircode.email.FragmentBase.onDetach(SourceFile:5)
+                  at androidx.fragment.app.Fragment.performDetach(SourceFile:3)
+             */
+        }
     }
 
     @Override
