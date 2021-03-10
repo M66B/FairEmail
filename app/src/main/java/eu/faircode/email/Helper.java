@@ -1672,11 +1672,13 @@ public class Helper {
     // Miscellaneous
 
     static void gc() {
-        Runtime.getRuntime().gc();
-        try {
-            Thread.sleep(50);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if (BuildConfig.DEBUG) {
+            Runtime.getRuntime().gc();
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
