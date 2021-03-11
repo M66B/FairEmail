@@ -560,11 +560,9 @@ public class EmailService implements AutoCloseable {
 
     private void _connect(
             InetAddress address, int port, boolean require_id,
-            String _user, Authenticator authenticator,
+            String user, Authenticator authenticator,
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, authenticator);
-
-        String user = (TextUtils.isEmpty(_user) ? null : _user);
 
         isession.setDebug(debug || log);
         if (debug || log)
