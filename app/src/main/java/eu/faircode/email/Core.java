@@ -155,6 +155,8 @@ class Core {
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
     private static final int MAX_PREVIEW = 5000; // characters
     private static final long EXISTS_RETRY_DELAY = 20 * 1000L; // milliseconds
+    private static final int FIND_RETRY_COUNT = 3; // times
+    private static final long FIND_RETRY_DELAY = 5 * 1000L; // milliseconds
 
     static void processOperations(
             Context context,
@@ -1026,7 +1028,17 @@ class Core {
                 }
         } else {
             // Lookup added messages
-            Long found = findUid(context, ifolder, message.msgid, false);
+            int count = 0;
+            Long found = null;
+            while (found == null && count++ < FIND_RETRY_COUNT) {
+                found = findUid(context, ifolder, message.msgid, false);
+                if (found == null)
+                    try {
+                        Thread.sleep(FIND_RETRY_DELAY);
+                    } catch (InterruptedException ex) {
+                        Log.e(ex);
+                    }
+            }
 
             try {
                 db.beginTransaction();
