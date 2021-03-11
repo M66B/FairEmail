@@ -560,9 +560,11 @@ public class EmailService implements AutoCloseable {
 
     private void _connect(
             InetAddress address, int port, boolean require_id,
-            String user, Authenticator authenticator,
+            String _user, Authenticator authenticator,
             SSLSocketFactoryService factory) throws MessagingException {
         isession = Session.getInstance(properties, authenticator);
+
+        String user = (TextUtils.isEmpty(_user) ? null : _user);
 
         isession.setDebug(debug || log);
         if (debug || log)
@@ -592,9 +594,6 @@ public class EmailService implements AutoCloseable {
 
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
         isession.addProvider(new GmailSSLProvider());
-
-        if (TextUtils.isEmpty(user))
-            user = null;
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             iservice = isession.getStore(protocol);
