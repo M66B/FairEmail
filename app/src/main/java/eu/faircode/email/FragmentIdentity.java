@@ -721,7 +721,7 @@ public class FragmentIdentity extends FragmentBase {
                         port = "25";
                     else
                         port = "465";
-                if (TextUtils.isEmpty(user) && !should)
+                if (TextUtils.isEmpty(user) && !insecure && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && certificate == null && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));

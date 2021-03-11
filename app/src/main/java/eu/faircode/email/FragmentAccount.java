@@ -649,7 +649,7 @@ public class FragmentAccount extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (encryption == EmailService.ENCRYPTION_SSL ? "993" : "143");
-                if (TextUtils.isEmpty(user))
+                if (TextUtils.isEmpty(user) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (TextUtils.isEmpty(password) && !insecure && certificate == null)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
@@ -899,7 +899,7 @@ public class FragmentAccount extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (encryption == EmailService.ENCRYPTION_SSL ? "993" : "143");
-                if (TextUtils.isEmpty(user) && !should)
+                if (TextUtils.isEmpty(user) && !insecure && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && certificate == null && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));

@@ -593,6 +593,9 @@ public class EmailService implements AutoCloseable {
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
         isession.addProvider(new GmailSSLProvider());
 
+        if (TextUtils.isEmpty(user))
+            user = null;
+
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             iservice = isession.getStore(protocol);
             iservice.connect(address.getHostAddress(), port, user, null);

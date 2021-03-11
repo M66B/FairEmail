@@ -365,7 +365,7 @@ public class FragmentPop extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
                     port = (encryption == EmailService.ENCRYPTION_SSL ? "995" : "110");
-                if (TextUtils.isEmpty(user) && !should)
+                if (TextUtils.isEmpty(user) && !insecure && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (synchronize && TextUtils.isEmpty(password) && !insecure && !should)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
