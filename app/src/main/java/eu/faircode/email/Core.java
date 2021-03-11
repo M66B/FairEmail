@@ -1032,6 +1032,15 @@ class Core {
                 throw new IllegalArgumentException(msg);
             }
 
+            try {
+                Log.i(folder.name + " Fetching uid=" + found);
+                JSONArray fargs = new JSONArray();
+                fargs.put(found);
+                onFetch(context, fargs, folder, istore, ifolder, state);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
             // Mark source read
             if (autoread)
                 EntityOperation.queue(context, message, EntityOperation.SEEN, true);
