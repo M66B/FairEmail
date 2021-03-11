@@ -1025,28 +1025,39 @@ class Core {
                     Log.e(ex);
                 }
         } else {
+            // Lookup added messages
             Long found = findUid(context, ifolder, message.msgid, false);
-            if (found == null) {
-                String msg = "Added message not found msgid=" + message.msgid;
-                Log.e(msg);
-                throw new IllegalArgumentException(msg);
-            }
 
             try {
-                Log.i(folder.name + " Fetching uid=" + found);
-                JSONArray fargs = new JSONArray();
-                fargs.put(found);
-                onFetch(context, fargs, folder, istore, ifolder, state);
-            } catch (Throwable ex) {
-                Log.e(ex);
+                db.beginTransaction();
+
+                if (found == null) {
+                    db.message().setMessageError(message.id, "Message not found in target folder");
+                    db.message().setMessageUiHide(message.id, false);
+                } else {
+                    // Mark source read
+                    if (autoread)
+                        EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+
+                    // Delete source
+                    EntityOperation.queue(context, message, EntityOperation.DELETE);
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
             }
 
-            // Mark source read
-            if (autoread)
-                EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-
-            // Delete source
-            EntityOperation.queue(context, message, EntityOperation.DELETE);
+            // Fetch target
+            if (found != null)
+                try {
+                    Log.i(folder.name + " Fetching uid=" + found);
+                    JSONArray fargs = new JSONArray();
+                    fargs.put(found);
+                    onFetch(context, fargs, folder, istore, ifolder, state);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
         }
     }
 
