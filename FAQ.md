@@ -3202,7 +3202,7 @@ you can create a drafts folder by tapping on the '+' button in the folder list o
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders.
 So, if a folder is not visible, you might need to enable IMAP for the folder.
 
-Quick link for Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Quick link for Gmail (will work on a desktop computer only): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
