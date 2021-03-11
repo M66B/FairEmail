@@ -957,6 +957,7 @@ class Core {
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessageEx(isession, is, message.msgid);
             }
+            imessage.addHeader(MessageHelper.HEADER_CORRELATION_ID, message.msgid);
             imessage.saveChanges();
         }
 
@@ -976,12 +977,11 @@ class Core {
         }
 
         // Handle auto read
-        if (flags.contains(Flags.Flag.SEEN)) {
+        if (flags.contains(Flags.Flag.SEEN))
             if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
                 Log.i(folder.name + " autoread");
                 imessage.setFlag(Flags.Flag.SEEN, true);
             }
-        }
 
         // Handle draft
         if (flags.contains(Flags.Flag.DRAFT))
