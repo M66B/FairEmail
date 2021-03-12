@@ -1047,7 +1047,8 @@ class Core {
                 db.beginTransaction();
 
                 if (found == null) {
-                    db.message().setMessageError(message.id, "Message not found in target folder");
+                    db.message().setMessageError(message.id,
+                            "Message not found in target folder " + account.name + "/" + folder.name);
                     db.message().setMessageUiHide(message.id, false);
                 } else {
                     // Mark source read
