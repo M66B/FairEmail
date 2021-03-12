@@ -30,6 +30,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
 
+    <ImageButton
+        android:id="@+id/ibCloseHeaders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaders"
+        app:srcCompat="@drawable/twotone_cancel_24" />
+
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbHeaders"
         style="@style/Base.Widget.AppCompat.ProgressBar"
@@ -56,5 +66,5 @@
         android:id="@+id/grpHeaders"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorHeaders,tvHeaders" />
+        app:constraint_referenced_ids="vSeparatorHeaders,tvHeaders,ibCloseHeaders" />
 </androidx.constraintlayout.widget.ConstraintLayout>

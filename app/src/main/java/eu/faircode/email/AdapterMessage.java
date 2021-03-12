@@ -430,6 +430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvKeywordsEx;
 
         private TextView tvHeaders;
+        private ImageButton ibCloseHeaders;
         private ContentLoadingProgressBar pbHeaders;
         private TextView tvNoInternetHeaders;
 
@@ -636,6 +637,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywordsEx = vsBody.findViewById(R.id.tvKeywordsEx);
 
             tvHeaders = vsBody.findViewById(R.id.tvHeaders);
+            ibCloseHeaders = vsBody.findViewById(R.id.ibCloseHeaders);
             pbHeaders = vsBody.findViewById(R.id.pbHeaders);
             tvNoInternetHeaders = vsBody.findViewById(R.id.tvNoInternetHeaders);
 
@@ -764,6 +766,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPinContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
+                ibCloseHeaders.setOnClickListener(this);
+
                 ibSaveAttachments.setOnClickListener(this);
                 ibDownloadAttachments.setOnClickListener(this);
 
@@ -875,6 +879,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(null);
                 ibPinContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
+
+                ibCloseHeaders.setOnClickListener(null);
 
                 ibSaveAttachments.setOnClickListener(null);
                 ibDownloadAttachments.setOnClickListener(null);
@@ -3023,6 +3029,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 int id = view.getId();
                 if (id == R.id.ibExpanderAddress) {
                     onToggleAddresses(message);
+                } else if (id == R.id.ibCloseHeaders) {
+                    onMenuShowHeaders(message);
                 } else if (id == R.id.ibSaveAttachments) {
                     onSaveAttachments(message);
                 } else if (id == R.id.ibDownloadAttachments) {
