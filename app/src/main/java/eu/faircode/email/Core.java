@@ -957,7 +957,10 @@ class Core {
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessageEx(isession, is, message.msgid);
             }
+
+            imessage.removeHeader(MessageHelper.HEADER_CORRELATION_ID);
             imessage.addHeader(MessageHelper.HEADER_CORRELATION_ID, message.msgid);
+
             imessage.saveChanges();
         }
 
