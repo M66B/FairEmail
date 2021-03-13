@@ -103,6 +103,23 @@ public class WidgetUnified extends AppWidgetProvider {
         }
     }
 
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = prefs.edit();
+            for (int appWidgetId : appWidgetIds) {
+                String prefix = "widget." + appWidgetId + ".";
+                for (String key : prefs.getAll().keySet())
+                    if (key.startsWith(prefix))
+                        editor.remove(key);
+            }
+            editor.apply();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
     static int getFontSizeSp(int size) {
         switch (size) {
             case 1: // small
