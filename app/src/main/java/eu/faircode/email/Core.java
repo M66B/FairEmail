@@ -1032,7 +1032,7 @@ class Core {
         } else {
             // Lookup added messages
             int count = 0;
-            Long found = null;
+            Long found = newuid;
             while (found == null && count++ < FIND_RETRY_COUNT) {
                 found = findUid(context, ifolder, message.msgid, false);
                 if (found == null)
