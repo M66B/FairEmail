@@ -7516,8 +7516,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return null;
                             }
                         }));
-                    } else
-                        img.removeAttr("src");
+                    }
                 }
 
                 for (Future<Void> future : futures)
