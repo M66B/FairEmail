@@ -415,8 +415,11 @@ public class ContactInfo {
                     if (isRecoverable(ex, context))
                         Log.i(ex);
                     else {
-                        if (!(ex instanceof FileNotFoundException))
-                            Log.w(ex);
+                        if (ex instanceof FileNotFoundException ||
+                                ex instanceof CertPathValidatorException)
+                            Log.i(ex);
+                        else
+                            Log.e(ex);
                         try {
                             file.createNewFile();
                         } catch (IOException ex1) {
@@ -556,7 +559,8 @@ public class ContactInfo {
             try {
                 return future.get();
             } catch (Throwable ex) {
-                if (ex.getCause() instanceof FileNotFoundException)
+                if (ex.getCause() instanceof FileNotFoundException ||
+                        ex.getCause() instanceof CertPathValidatorException)
                     Log.i(ex);
                 else
                     Log.e(ex);
