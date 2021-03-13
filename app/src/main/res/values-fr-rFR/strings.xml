@@ -464,7 +464,7 @@
     <string name="title_advanced_app">Paramètres Android de l\'application</string>
     <string name="title_advanced_more">Plus d\'options</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
-    <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
+    <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la batterie en fonction des capacités et du comportement des serveurs de messagerie</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
     <string name="title_advanced_no_date_hint">Certains fournisseurs stockent les messages avec une date inconnue, non valide ou future comme étant des messages sans date</string>
@@ -693,8 +693,8 @@
     <string name="title_keep_days">Conserver les messages (jours)</string>
     <string name="title_keep_days_remark">Les anciens messages seront supprimés de l\'appareil, mais resteront sur le serveur</string>
     <string name="title_keep_all">Conserver tous les messages</string>
-    <string name="title_poll_system">Définir les dossiers système pour vérifier périodiquement s\'il y a de nouveaux messages</string>
-    <string name="title_poll_user">Définir les dossiers utilisateur pour vérifier périodiquement s\'il y a de nouveaux messages</string>
+    <string name="title_poll_system">Vérifier périodiquement s\'il y a de nouveaux messages dans les dossiers système</string>
+    <string name="title_poll_user">Vérifier périodiquement s\'il y a de nouveaux messages dans les dossiers utilisateur</string>
     <string name="title_auto_trash">Mettre automatiquement les anciens messages à la corbeille</string>
     <string name="title_auto_delete">Supprimer automatiquement et définitivement les anciens messages</string>
     <string name="title_auto_delete_hint">Les anciens messages sont ceux qui ne sont plus conservés sur l’appareil</string>

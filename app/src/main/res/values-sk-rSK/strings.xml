@@ -1326,6 +1326,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_pro_activated">Všetky pro vlastnosti sú aktivované</string>
     <string name="title_pro_valid">Všetky pro vlastnosti aktívne</string>
     <string name="title_pro_invalid">Neplatná odpoveď</string>
+    <string name="title_pro_support">FairEmail potrebuje vašu pomoc. Klepnite na kúpiť Pro funkcie aby ste sa zbavili tohoto upozornenia a umožnili FairEmail napredovať.</string>
     <string name="title_boundary_error">Chyba pri preberaní správ z poštového servera</string>
     <string name="title_boundary_retry">Skúsiť znovu</string>
     <string name="title_unexpected_error">Neočakávaná chyba</string>

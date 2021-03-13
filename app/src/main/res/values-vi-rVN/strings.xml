@@ -90,7 +90,7 @@
     <string name="menu_attribution">Sự ghi công</string>
     <string name="menu_privacy">Riêng tư</string>
     <string name="menu_about">Giới thiệu</string>
-    <string name="menu_pro">Tính năng Pro</string>
+    <string name="menu_pro">Các tính năng Pro</string>
     <string name="menu_rate">Đánh giá ứng dụng này</string>
     <string name="title_welcome">Chào mừng</string>
     <string name="title_eula">Thoả thuận cấp phép người dùng cuối</string>
@@ -566,6 +566,7 @@
     <string name="title_default_composable">Địa chỉ email mặc định được quyết định bởi danh tính chính của tài khoản chính</string>
     <string name="title_no_composable">Việc gửi email yêu cầu một danh tính được thiết lập, và một thư mục nháp được chọn trong cài đặt tài khoản</string>
     <string name="title_no_standard">Nhà cung cấp này sử dụng một giao thức email độc quyền và do đó không thể sử dụng các ứng dụng email khách của bên thứ ba</string>
+    <string name="title_no_idle">Nhà cung cấp này không hỗ trợ thông báo đẩy. Điều này sẽ trì hoãn việc nhận thư mới và tăng sử dụng pin.</string>
     <string name="title_no_utf8">Nhà cung cấp này không hỗ trợ UTF-8</string>
     <string name="title_no_sync">Lỗi đồng bộ hoá từ %1$s</string>
     <string name="title_reply_domain">Người gửi (%1$s) và tên miền trả lời (%2$s) khác nhau</string>
@@ -607,6 +608,7 @@
     <string name="title_empty_spam_all_ask">Xoá tất cả thư rác của tất cả tài khoản vĩnh viễn?</string>
     <string name="title_empty_all">Việc này sẽ xoá tất cả thư khỏi cả thiết bị và máy chủ</string>
     <string name="title_delete_operation_title">Xoá các hoạt động</string>
+    <string name="title_delete_operation_fetch">Lấy các hoạt động</string>
     <string name="title_delete_operation_move">Di chuyển các hoạt động</string>
     <string name="title_delete_operation_flag">Gắn cờ các hoạt động</string>
     <string name="title_delete_operation_delete">Xoá các hoạt động</string>
@@ -616,6 +618,7 @@
     <string name="title_hint_operations">Việc xoá các hoạt động có thể dẫn đến biến mất thư và các vấn đề đồng bộ hoá</string>
     <string name="title_folder_name">Tên thư mục</string>
     <string name="title_show_folders">Hiện các thư mục ẩn</string>
+    <string name="title_show_flagged">Hiện số thư gắn sao</string>
     <string name="title_apply_to_all">Áp dụng cho tất cả &#8230;</string>
     <string name="title_hide_folder">Ẩn thư mục</string>
     <string name="title_unified_folder">Hiện trong hộp thư đến hợp nhất</string>
@@ -729,6 +732,7 @@
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
     <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
+    <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>
     <string name="title_no_format">Thư được nhận ban đầu sẽ được bao gồm</string>
     <string name="title_no_image">Hình ảnh không thể được giải mã</string>
@@ -737,6 +741,7 @@
     <string name="title_truncated">Thư quá lớn để hiển thị hoàn toàn</string>
     <string name="title_insufficient_memory">Thư quá lớn để đưa vừa vào bộ nhớ có sẵn</string>
     <string name="title_show_full">Hiện thư đầy đủ</string>
+    <string name="title_accross_remark">Thư được di chuyển qua các tài khoản sẽ được tải xuống lại dẫn đến sử dụng thêm dữ liệu</string>
     <string name="title_raw_saved">Đã lưu thư thô</string>
     <string name="title_attachment_eml">Thư được đính kèm</string>
     <string name="title_attachment_saved">Đã lưu tệp đính kèm</string>
@@ -753,10 +758,15 @@
     <string name="title_ask_show_html_images">Luôn hiện các hình ảnh khi hiện các thư gốc</string>
     <string name="title_ask_show_image">Việc hiện các hình ảnh có thể gây rò rỉ thông tin riêng tư nhạy cảm</string>
     <string name="title_ask_show_image_hint">Các hình ảnh được nhận ra là hình ảnh theo dõi sẽ không được hiện</string>
+    <string name="title_ask_delete_local">Xoá các thư cục bộ? Thư vẫn sẽ còn trên máy chủ trên mạng.</string>
     <string name="title_ask_help">Giúp cải thiện FairEmail</string>
     <string name="title_ask_reporting">Gửi báo cáo lỗi?</string>
     <string name="title_reporting_why">Việc báo cáo lỗi sẽ giúp cải thiện FairEmail</string>
     <string name="title_ask_review">Hãy đánh giá FairEmail</string>
+    <string name="title_ask_review_rationale">        Bạn đã sử dụng FairEmail được một thời gian.
+        Tôi sẽ rất cảm kích nếu bạn có thể đánh giá FairEmail trên CH Play.
+    </string>
+    <string name="title_ask_once">Thông báo này sẽ chỉ hiện một lần, trừ khi bạn chọn \'Để sau\'</string>
     <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>
     <string name="title_download_message">Đang tải xuống &#8230;</string>
@@ -842,6 +852,7 @@
     <string name="title_key_missing">Không có mã khoá cho %1$s</string>
     <string name="title_send_reminder_remark">Các lời nhắc có thể được bật lại trong cài đặt gửi</string>
     <string name="title_send_plain_text">Chỉ văn bản thường</string>
+    <string name="title_send_dsn">Báo cáo trạng thái</string>
     <string name="title_from_missing">Thiếu người gửi</string>
     <string name="title_extra_missing">Thiếu tên người dùng</string>
     <string name="title_to_missing">Thiếu người nhận</string>
@@ -886,6 +897,7 @@
     <string name="title_signature_store">Lưu trữ</string>
     <string name="title_search">Tìm kiếm</string>
     <string name="title_search_for_hint">Nhập văn bản</string>
+    <string name="title_search_index_hint">Việc tìm kiếm qua mục lục tìm kiếm rất nhanh, nhưng sẽ chỉ tìm các từ toàn thể</string>
     <string name="title_search_text_hint">Việc tìm kiếm văn bản trong thư khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_size_hint">Việc tìm kiếm thư theo kích cỡ khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_more">Thêm tuỳ chọn</string>
@@ -1048,6 +1060,8 @@
     <string name="title_legend_rule">Có các quy tắc</string>
     <string name="title_legend_similar">Tìm kiếm các thư tương tự</string>
     <string name="title_legend_notify">Thông báo khi có thư mới</string>
+    <string name="title_legend_sync_keep">Số ngày để đồng bộ hoá / để giữ thư</string>
+    <string name="title_legend_download_fetch">Số thư được tải xuống / tiêu đề được lấy</string>
     <string name="title_legend_stop">Dừng việc xử lý các quy tắc</string>
     <string name="title_legend_thread">Cuộc hội thoại</string>
     <string name="title_legend_bookmark">Cuộc hội thoại được mở lần cuối</string>
@@ -1109,6 +1123,7 @@
     <string name="title_legend_download_state">Trạng thái tải xuống</string>
     <string name="title_legend_save">Lưu</string>
     <string name="title_legend_delete">Xoá</string>
+    <string name="title_legend_count">Số</string>
     <string name="title_legend_folder_type">Loại thư mục</string>
     <string name="title_legend_enter">Mở</string>
     <string name="title_legend_a">Lưu trữ</string>
@@ -1121,12 +1136,17 @@
     <string name="title_legend_s">Chọn/bỏ chọn</string>
     <string name="title_hint_folder_actions">Nhấn giữ một thư mục để xem các tuỳ chọn, như là thêm thư mục vào menu điều hướng để truy cập nhanh</string>
     <string name="title_hint_folder_sync">Để giới hạn sử dụng pin và mạng, không phải tất cả thư mục và thư sẽ được đồng bộ hoá theo mặc định</string>
+    <string name="title_hint_support">Nếu bạn có câu hỏi hoặc vấn đề, hãy sử dụng menu hỗ trợ để có trợ giúp</string>
     <string name="title_hint_message_actions">Vuốt trái để đưa vào thùng rác; Vuốt phải để lưu trữ (nếu có); Các hành động vuốt có thể được thiết lập trong cài đặt tài khoản</string>
+    <string name="title_hint_message_selection">Nhấn giữ một thư để bắt đầu chọn nhiều thư; Giữ và vuốt lên hoặc xuống để chọn thêm thư</string>
     <string name="title_hint_important">Quan trọng</string>
     <string name="title_hint_sync">Việc tải xuống thư có thể mất một ít thời gian, tùy vào tốc độ của nhà cung cấp, kết nối internet, thiết bị và số lượng thư. Trong khi đang tải xuống thư, ứng dụng có thể sẽ phản hồi chậm hơn.</string>
+    <string name="title_hint_sync_note">Theo mặc định, không phải tất cả thư sẽ được tải xuống để giới hạn sử dụng không gian bộ nhớ, pin và dữ liệu. Bạn có thể thay đổi điều này bằng cách nhấn giữ một thư mục trong danh sách thư mục và chọn \'Đồng bộ hoá thêm\'.</string>
+    <string name="title_hint_battery">Vì FairEmail theo mặc định luôn nhận thư, Android sẽ báo cáo FairEmail là luôn hoạt động. Do đó, FairEmail có thể trông như là luôn tiêu hao pin mặc dù không phải vậy.</string>
     <string name="title_hint_reformat">Theo mặc định, FairEmail định dạng lại các thư vì lý do riêng tư và bảo mật. Để xem thư gốc, hãy nhấn biểu tượng \'toàn màn hình\' trên văn bản thư.</string>
     <string name="title_hint_junk">Việc lọc thư rác nên được làm bởi máy chủ email và không thể làm một cách đáng tin cậy trên một thiết bị chạy bằng pin có khả năng giới hạn.</string>
     <string name="title_hint_contact_actions">Nhấn giữ để xem các tuỳ chọn</string>
+    <string name="title_hint_eml">Đây là tóm tắt của nội dung của một tập tin thư thô. Lưu thư thô bằng biểu tượng lưu trong thanh hành động để xem tất cả nội dung.</string>
     <string name="title_open_link">Mở liên kết</string>
     <string name="title_different_link">Tiêu đề và địa chỉ liên kết khác nhau</string>
     <string name="title_tracking_link">Trang web này có thể sẽ theo dõi bạn</string>
@@ -1183,6 +1203,13 @@
     <string name="title_pro_list">Danh sách tính năng pro</string>
     <string name="title_pro_purchase">Mua</string>
     <string name="title_pro_once">Chỉ một lần</string>
+    <string name="title_pro_info">        Việc phát triển FairEmail tốn hàng nghìn tiếng và, mặc dù thế, đa số tính năng đều miễn phí để sử dụng.
+        FairEmail coi trọng sự riêng tư của bạn và không hiện quảng cáo và không sử dụng việc theo dõi hoặc phân tích để kiếm tiền.
+        Để duy trì và hỗ trợ FairEmail trong dài hạn, một số tính năng tiện nghi và nâng cao không miễn phí để sử dụng.
+        FairEmail hiện một thông báo nhỏ để nhắc lại bạn về điều này, nó sẽ được xoá nếu bạn mua các tính năng pro.
+    </string>
+    <string name="title_pro_hide">Ẩn thông báo nhỏ trong %1$d tuần</string>
+    <string name="title_pro_hint">Việc mua các tính năng pro sẽ cho phép bạn sử dụng các tính năng pro hiện tại và tương lai và sẽ giữ cho ứng dụng này được duy trì và hỗ trợ.</string>
     <string name="title_pro_price">Tại sao các tính năng pro lại đắt thế?</string>
     <string name="title_pro_restore">Tôi có thể khôi phục việc mua như thế nào?</string>
     <string name="title_pro_pending">Đang chờ mua</string>
@@ -1190,6 +1217,7 @@
     <string name="title_pro_valid">Tất cả tính năng pro được kích hoạt</string>
     <string name="title_pro_invalid">Phản hồi không hợp lệ</string>
     <string name="title_pro_support">FairEmail cần sự giúp đỡ của bạn. Nhấn để mua các tính năng pro để giữ cho dự án được tiếp tục hoặc tắt thông báo này.</string>
+    <string name="title_boundary_error">Lỗi khi tải xuống thư từ máy chủ mail</string>
     <string name="title_boundary_retry">Thử lại</string>
     <string name="title_unexpected_error">Lỗi không mong muốn</string>
     <string name="title_auto_scroll">Tự động cuộn</string>
@@ -1205,6 +1233,7 @@
     <string name="title_debug_info_remark">Hãy mô tả vấn đề và cho biết thời gian của vấn đề:</string>
     <string name="title_crash_info_remark">Hãy mô tả điều bạn đang làm khi ứng dụng bị văng ra:</string>
     <string name="title_unexpected_info_remark">Hãy mô tả điều bạn đang làm khi bạn gặp lỗi đó:</string>
+    <string name="title_widget_title_count">Số thư mới</string>
     <string name="title_widget_title_list">Danh sách thư</string>
     <string name="title_widget_account">Tài khoản</string>
     <string name="title_widget_account_all">Tất cả</string>
@@ -1337,10 +1366,10 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Không có</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>PGP chỉ ký</item>
+        <item>PGP ký+mã hoá</item>
+        <item>S/MIME chỉ ký</item>
+        <item>S/MIME ký+mã hoá</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

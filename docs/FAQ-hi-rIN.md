@@ -1,22 +1,22 @@
-# FairEmail support
+# फेर इमेल सहयोग
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+अगर आपके पास सवाल हैं, तो पहले यह बार बार पूंछे जानेवाले प्रश्नों को देखिए। [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
-## Index
+## सूची
 
 * [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Kaise ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [जाने हुए समस्या](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
 * [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [सहयोग पाएं](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Authorizing accounts
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+ज्यादातर मामलों में, क्विक सेटअप विजार्ड सही विन्यास पहचान लेगी।
 
 If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
