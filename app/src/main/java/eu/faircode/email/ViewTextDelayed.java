@@ -28,8 +28,9 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 public class ViewTextDelayed extends AppCompatTextView {
     private int visibility = VISIBLE;
+    private boolean delaying = false;
 
-    private static final int VISIBILITY_DELAY = 500; // milliseconds
+    private static final int VISIBILITY_DELAY = 1500; // milliseconds
 
     public ViewTextDelayed(@NonNull Context context) {
         super(context);
@@ -47,15 +48,17 @@ public class ViewTextDelayed extends AppCompatTextView {
     public void setVisibility(int visibility) {
         this.visibility = visibility;
 
-        ApplicationEx.getMainHandler().removeCallbacks(delayedShow);
-        ApplicationEx.getMainHandler().removeCallbacks(delayedHide);
-
-        if (visibility == VISIBLE)
+        if (visibility == VISIBLE) {
+            if (delaying)
+                return;
+            delaying = true;
+            super.setVisibility(INVISIBLE);
             ApplicationEx.getMainHandler().postDelayed(delayedShow, VISIBILITY_DELAY);
-        else if (visibility == GONE)
-            ApplicationEx.getMainHandler().postDelayed(delayedHide, VISIBILITY_DELAY);
-        else
+        } else {
+            ApplicationEx.getMainHandler().removeCallbacks(delayedShow);
+            delaying = false;
             super.setVisibility(visibility);
+        }
     }
 
     @Override
@@ -66,16 +69,9 @@ public class ViewTextDelayed extends AppCompatTextView {
     private final Runnable delayedShow = new Runnable() {
         @Override
         public void run() {
+            delaying = false;
             if (visibility == VISIBLE)
                 ViewTextDelayed.super.setVisibility(VISIBLE);
-        }
-    };
-
-    private final Runnable delayedHide = new Runnable() {
-        @Override
-        public void run() {
-            if (visibility == GONE)
-                ViewTextDelayed.super.setVisibility(GONE);
         }
     };
 }

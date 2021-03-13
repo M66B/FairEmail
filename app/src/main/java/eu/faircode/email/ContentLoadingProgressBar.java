@@ -30,7 +30,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
     private int visibility = VISIBLE;
     private boolean delaying = false;
 
-    private static final int VISIBILITY_DELAY = 500; // milliseconds
+    private static final int VISIBILITY_DELAY = 1500; // milliseconds
 
     public ContentLoadingProgressBar(@NonNull Context context) {
         this(context, null);
