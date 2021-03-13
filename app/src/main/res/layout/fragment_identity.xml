@@ -443,6 +443,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPasswordStorage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_open_in_new_12"
+            android:drawablePadding="6dp"
+            android:drawableTint="?android:attr/textColorLink"
+            android:text="@string/title_password_storage"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaseSensitiveHint" />
+
         <Button
             android:id="@+id/btnCertificate"
             style="?android:attr/buttonStyleSmall"
@@ -452,7 +466,7 @@
             android:tag="disable"
             android:text="@string/title_client_certificate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaseSensitiveHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvPasswordStorage" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCertificate"
@@ -881,7 +895,8 @@
                 tvProvider,spProvider,
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
                 tvSmtp,tvHost,etHost,tvEncryption,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort,
-                tvUser,etUser,tvPassword,tilPassword,tvCaseSensitiveHint,btnCertificate,tvCertificate,
+                tvUser,etUser,tvPassword,tilPassword,tvCaseSensitiveHint,tvPasswordStorage,
+                btnCertificate,tvCertificate,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
                 cbSynchronize,cbPrimary,cbSelf,tvSelfHint,
