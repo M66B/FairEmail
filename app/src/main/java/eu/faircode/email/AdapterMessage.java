@@ -6151,6 +6151,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void refresh();
 
         void finish();
+
+        void clear(long id);
     }
 
     public static class FragmentDialogLink extends FragmentDialogBase {
