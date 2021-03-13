@@ -1939,12 +1939,19 @@ public class MessageHelper {
                                     }
 
                                     Charset detected = CharsetHelper.detect(result);
-                                    if (!(StandardCharsets.US_ASCII.equals(detected) &&
-                                            StandardCharsets.UTF_8.equals(c)))
-                                        if (BuildConfig.PLAY_STORE_RELEASE)
-                                            Log.w("Converting detected=" + detected + " meta=" + c);
-                                        else
-                                            Log.e("Converting detected=" + detected + " meta=" + c);
+                                    if (c.equals(detected))
+                                        break;
+
+                                    if (StandardCharsets.US_ASCII.equals(detected) &&
+                                            ("windows-1252".equals(c.name()) ||
+                                                    StandardCharsets.UTF_8.equals(c) ||
+                                                    StandardCharsets.ISO_8859_1.equals(c)))
+                                        break;
+
+                                    if (BuildConfig.PLAY_STORE_RELEASE)
+                                        Log.w("Converting detected=" + detected + " meta=" + c);
+                                    else
+                                        Log.e("Converting detected=" + detected + " meta=" + c);
 
                                     // Convert
                                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1), c);
