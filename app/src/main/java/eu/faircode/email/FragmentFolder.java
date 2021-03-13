@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -44,7 +43,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
-import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -281,8 +279,6 @@ public class FragmentFolder extends FragmentBase {
                     EntityAccount account = db.account().getAccount(folder.account);
                     if (account != null) {
                         args.putInt("interval", account.poll_interval);
-                        args.putBoolean("exempted", account.poll_exempted);
-                        args.putBoolean("ondemand", account.ondemand);
                     }
                 }
 
@@ -291,11 +287,7 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityFolder folder) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
                 int interval = args.getInt("interval", EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
-                boolean exempted = args.getBoolean("exempted", false);
-                boolean ondemand = args.getBoolean("ondemand", false);
 
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
@@ -323,15 +315,14 @@ public class FragmentFolder extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                boolean always = (!ondemand && (pollInterval == 0 || exempted));
                 boolean canAutoClassify = (imap && MessageClassifier.isEnabled(getContext()));
                 boolean pro = (ActivityBilling.isPro(getContext()) ||
                         (folder != null && EntityFolder.JUNK.equals(folder.type)));
 
                 etName.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
-                cbPoll.setEnabled(cbSynchronize.isChecked() && always);
-                etPoll.setEnabled(cbSynchronize.isChecked() && always);
-                tvPoll.setEnabled(cbSynchronize.isChecked() && always);
+                cbPoll.setEnabled(cbSynchronize.isChecked());
+                etPoll.setEnabled(cbSynchronize.isChecked());
+                tvPoll.setEnabled(cbSynchronize.isChecked());
                 grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
                 cbAutoClassifySource.setEnabled(cbDownload.isChecked());
                 cbAutoClassifyTarget.setEnabled(cbDownload.isChecked() && cbAutoClassifySource.isChecked());
