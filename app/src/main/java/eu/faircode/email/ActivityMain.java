@@ -54,7 +54,15 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         if (eula) {
-            super.onCreate(savedInstanceState);
+            try {
+                super.onCreate(savedInstanceState);
+            } catch (RuntimeException ex) {
+                Log.e(ex);
+                // https://issuetracker.google.com/issues/181805603
+                finish();
+                startActivity(getIntent());
+                return;
+            }
 
             long start = new Date().getTime();
             Log.i("Main boot");
