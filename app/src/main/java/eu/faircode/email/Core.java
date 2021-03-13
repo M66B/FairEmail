@@ -517,7 +517,8 @@ class Core {
                             // Fetch: NO Invalid message number (took 123 ms)
                             // Fetch: BAD Internal Server Error
                             // Fetch UID: NO Some messages could not be FETCHed (Failure)
-                            // fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
+                            // Fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
+                            // Fetch UID: NO Server Unavailable. 15
                             // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
