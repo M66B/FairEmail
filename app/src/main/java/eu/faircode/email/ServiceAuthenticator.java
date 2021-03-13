@@ -75,7 +75,7 @@ public class ServiceAuthenticator extends Authenticator {
             token = refreshToken(false);
         } catch (Throwable ex) {
             if (ex.getCause() instanceof InterruptedException)
-                Log.w(ex);
+                Log.i(ex);
             else
                 Log.e(ex);
         }

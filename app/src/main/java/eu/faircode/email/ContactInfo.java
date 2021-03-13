@@ -556,7 +556,10 @@ public class ContactInfo {
             try {
                 return future.get();
             } catch (Throwable ex) {
-                Log.w(ex);
+                if (ex.getCause() instanceof FileNotFoundException)
+                    Log.i(ex);
+                else
+                    Log.e(ex);
             }
 
         return null;
