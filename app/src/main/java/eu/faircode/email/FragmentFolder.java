@@ -66,6 +66,7 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbPoll;
     private EditText etPoll;
     private TextView tvPoll;
+    private TextView tvPollRemark;
     private CheckBox cbDownload;
     private CheckBox cbAutoClassifySource;
     private CheckBox cbAutoClassifyTarget;
@@ -129,6 +130,7 @@ public class FragmentFolder extends FragmentBase {
         cbPoll = view.findViewById(R.id.cbPoll);
         etPoll = view.findViewById(R.id.etPoll);
         tvPoll = view.findViewById(R.id.tvPoll);
+        tvPollRemark = view.findViewById(R.id.tvPollRemark);
         cbDownload = view.findViewById(R.id.cbDownload);
         cbAutoClassifySource = view.findViewById(R.id.cbAutoClassifySource);
         cbAutoClassifyTarget = view.findViewById(R.id.cbAutoClassifyTarget);
@@ -166,16 +168,20 @@ public class FragmentFolder extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
-                etPoll.setEnabled(isChecked);
-                tvPoll.setEnabled(isChecked);
-                grpPoll.setVisibility(imap && isChecked && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
+                tvPollRemark.setVisibility(imap && cbPoll.isEnabled() && !cbPoll.isChecked()
+                        ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked()
+                        ? View.VISIBLE : View.GONE);
             }
         });
 
         cbPoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                grpPoll.setVisibility(imap && cbPoll.isEnabled() && isChecked ? View.VISIBLE : View.GONE);
+                tvPollRemark.setVisibility(imap && cbPoll.isEnabled() && !cbPoll.isChecked()
+                        ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked()
+                        ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -321,9 +327,10 @@ public class FragmentFolder extends FragmentBase {
 
                 etName.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked());
-                etPoll.setEnabled(cbSynchronize.isChecked());
-                tvPoll.setEnabled(cbSynchronize.isChecked());
-                grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked() ? View.VISIBLE : View.GONE);
+                tvPollRemark.setVisibility(imap && cbPoll.isEnabled() && !cbPoll.isChecked()
+                        ? View.VISIBLE : View.GONE);
+                grpPoll.setVisibility(imap && cbPoll.isEnabled() && cbPoll.isChecked()
+                        ? View.VISIBLE : View.GONE);
                 cbAutoClassifySource.setEnabled(cbDownload.isChecked());
                 cbAutoClassifyTarget.setEnabled(cbDownload.isChecked() && cbAutoClassifySource.isChecked());
                 cbAutoClassifySource.setVisibility(canAutoClassify ? View.VISIBLE : View.GONE);
