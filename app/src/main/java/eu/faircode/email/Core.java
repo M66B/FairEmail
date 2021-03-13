@@ -1031,7 +1031,7 @@ class Core {
                     Log.e(ex);
                 }
         } else {
-            // Lookup added messages
+            // Lookup added message
             int count = 0;
             Long found = newuid;
             while (found == null && count++ < FIND_RETRY_COUNT) {
