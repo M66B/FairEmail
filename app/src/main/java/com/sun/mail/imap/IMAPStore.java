@@ -750,12 +750,7 @@ public class IMAPStore extends Store
 	    if (p.hasCapability("STARTTLS")) {
 		p.startTLS();
 		// if startTLS succeeds, refresh capabilities
-		boolean logindisabled = p.hasCapability("LOGINDISABLED");
 		p.capability();
-		if (logindisabled && !p.hasCapability("LOGINDISABLED")) {
-		    eu.faircode.email.Log.e("Preserving LOGINDISABLED");
-		    p.setCapability("LOGINDISABLED");
-		}
 	    } else if (requireStartTLS) {
 		logger.fine("STARTTLS required but not supported by server");
 		throw new ProtocolException(

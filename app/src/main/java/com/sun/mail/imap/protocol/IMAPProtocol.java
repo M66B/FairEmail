@@ -412,10 +412,6 @@ public class IMAPProtocol extends Protocol {
 	return capabilities.containsKey(c.toUpperCase(Locale.ENGLISH));
     }
 
-    public void setCapability(String c) {
-	    capabilities.put(c.toUpperCase(Locale.ENGLISH), c);
-    }
-
     /**
      * Return the map of capabilities returned by the server.
      *
