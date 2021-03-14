@@ -673,6 +673,7 @@
     <string name="title_navigation_folder">在导航菜单中显示</string>
     <string name="title_synchronize_folder">同步(接收邮件)</string>
     <string name="title_poll_folder">定期检查而非持续同步</string>
+    <string name="title_poll_folder_remark">大多数电子邮件服务器仅允许少数文件夹推送消息！</string>
     <string name="title_download_folder">自动下载邮件文本和附件</string>
     <string name="title_notify_folder">通知新邮件</string>
     <string name="title_auto_classify_source">对此文件夹中的新消息进行分类</string>
