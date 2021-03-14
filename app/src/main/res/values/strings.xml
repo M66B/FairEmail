@@ -534,6 +534,7 @@
     <string name="title_advanced_auth_sasl" translatable="false">SASL (debug only)</string>
     <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_updates">Check for GitHub updates</string>
+    <string name="title_advanced_check_weekly">Check weekly instead of daily</string>
     <string name="title_advanced_experiments">Try experimental features</string>
     <string name="title_advanced_query_threads">Limit parallel database access</string>
     <string name="title_advanced_wal">WAL (debug only)</string>

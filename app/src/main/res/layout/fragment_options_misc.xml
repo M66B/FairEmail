@@ -280,6 +280,17 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swWeekly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_check_weekly"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swUpdates"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swExperiments"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -287,7 +298,7 @@
             android:text="@string/title_advanced_experiments"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swUpdates"
+            app:layout_constraintTop_toBottomOf="@id/swWeekly"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
@@ -670,6 +681,12 @@
             android:text="@string/title_advanced_files"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnCiphers" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpUpdates"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="swUpdates,swWeekly" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpDebug"

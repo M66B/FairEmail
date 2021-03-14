@@ -95,6 +95,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibResetLanguage;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
+    private SwitchCompat swCheckWeekly;
     private SwitchCompat swExperiments;
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
@@ -126,6 +127,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnCiphers;
     private Button btnFiles;
 
+    private Group grpUpdates;
     private Group grpDebug;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -193,6 +195,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibResetLanguage = view.findViewById(R.id.ibResetLanguage);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
+        swCheckWeekly = view.findViewById(R.id.swWeekly);
         swExperiments = view.findViewById(R.id.swExperiments);
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
@@ -224,6 +227,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
 
+        grpUpdates = view.findViewById(R.id.grpUpdates);
         grpDebug = view.findViewById(R.id.grpDebug);
 
         setOptions();
@@ -401,10 +405,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("updates", checked).apply();
+                swCheckWeekly.setEnabled(checked);
                 if (!checked) {
                     NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel(Helper.NOTIFICATION_UPDATE);
                 }
+            }
+        });
+
+        swCheckWeekly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("weekly", checked).apply();
             }
         });
 
@@ -898,9 +910,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swUpdates.setVisibility(
-                Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext())
-                        ? View.GONE : View.VISIBLE);
+        swCheckWeekly.setChecked(prefs.getBoolean("weekly", false));
+        swCheckWeekly.setEnabled(swUpdates.isChecked());
+        grpUpdates.setVisibility(!BuildConfig.DEBUG &&
+                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
+                ? View.GONE : View.VISIBLE);
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));

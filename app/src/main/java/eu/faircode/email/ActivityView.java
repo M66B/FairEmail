@@ -139,7 +139,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
     private static final long EXIT_DELAY = 2500L; // milliseconds
-    static final long UPDATE_INTERVAL = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
+    static final long UPDATE_DAILY = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
+    static final long UPDATE_WEEKLY = 7 * 24 * 3600 * 1000L; // milliseconds
 
     @Override
     @SuppressLint("MissingSuperCall")
@@ -856,11 +857,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             return;
 
         long now = new Date().getTime();
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!always && !prefs.getBoolean("updates", true))
+        boolean updates = prefs.getBoolean("updates", true);
+        boolean weekly = prefs.getBoolean("weekly", false);
+        long last_update_check = prefs.getLong("last_update_check", 0);
+
+        if (!always && !updates)
             return;
-        if (!always && prefs.getLong("last_update_check", 0) + UPDATE_INTERVAL > now)
+        if (!always && last_update_check + (weekly ? UPDATE_WEEKLY : UPDATE_DAILY) > now)
             return;
+
         prefs.edit().putLong("last_update_check", now).apply();
 
         Bundle args = new Bundle();
