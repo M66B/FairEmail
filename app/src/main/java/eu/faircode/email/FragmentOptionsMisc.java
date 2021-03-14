@@ -350,7 +350,30 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     onNothingSelected(adapterView);
                 else {
                     String tag = languages.get(position - 1).first;
-                    prefs.edit().putString("language", tag).commit(); // apply won't work here
+                    if (tag.equals(spLanguage.getTag()))
+                        return;
+
+                    new AlertDialog.Builder(view.getContext())
+                            .setTitle(languages.get(position - 1).second)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    prefs.edit().putString("language", tag).commit(); // apply won't work here
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Do nothing
+                                }
+                            })
+                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialog) {
+                                    setOptions();
+                                }
+                            })
+                            .show();
                 }
             }
 
@@ -864,6 +887,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             if (lang.first.equals(language))
                 selected = pos + 1;
         }
+
+        spLanguage.setTag(language);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
