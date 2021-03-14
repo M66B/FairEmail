@@ -1422,7 +1422,7 @@
         <item>4 Mo</item>
         <item>8 Mo</item>
         <item>16 Mo</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Nicio acțiune</item>

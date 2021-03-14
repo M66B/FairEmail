@@ -452,7 +452,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

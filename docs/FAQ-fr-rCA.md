@@ -412,35 +412,43 @@ Cela gardera le certificat du serveur pour éviter une attaque de l'homme du mil
 
 Notez que d'anciennes versions d'Android pourraient ne pas reconnaître les plus récentes autorités de certification comme Let's Encrypt résultant d'un connexion classée comme non sécurisée, voir [plus d'information](https://developer.android.com/training/articles/security-ssl).
 
-*Trust anchor for certification path not found*
+<br />
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* signifie que le TrustManager par défaut d'Android n'a pas réussi à identifier le certificat du serveur.
+*Ancre de confiance pour le chemin de certification introuvable*
 
-Vous devez soit corriger la configuration du serveur ou accepter l'empreinte affichée en-dessous du message d'erreur.
+*... java.security.cert.CertPathValidatorException: Ancre de confiance pour le chemin de certification introuvable... * signifie que le gestionnaire de confiance Android par défaut n'a pas pu vérifier la chaîne de certificats du serveur.
 
-Notez que ce problème peut être causé par un serveur qui n'enverrait pas l'ensemble des certificats intermédiaires.
+Ceci peut être dû au fait que le certificat racine n'est pas installé sur votre appareil ou parce que des certificats intermédiaires sont manquants, par exemple parce que le serveur de messagerie ne les a pas envoyés.
+
+Vous pouvez résoudre le premier problème en téléchargeant et installant le certificat racine à partir du site web du fournisseur du certificat.
+
+Le deuxième problème doit être résolu en modifiant la configuration du serveur ou en important les certificats intermédiaires sur votre appareil.
+
+Vous pouvez également épingler le certificat, voir ci-dessus.
+
+<br />
 
 *Mot de passe vide*
 
-Votre nom d'utilisateur est trop simple, il n'est pas sécurisé.
+Votre nom d'utilisateur est probablement facile à deviner, donc ce n'est pas sécurisé.
 
 *Connexion en clair*
 
-Votre nom d'utilisateur, mot de passe et tous vos messages seront envoyés et reçus sans cryptage, ce qui est **dangereux** car une [attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est très simple avec ce genre de connexion non cryptée.
+Votre nom d'utilisateur et votre mot de passe ainsi que tous les messages seront envoyés et reçus non chiffrés, qui est **très peu sécurisé** car une [attaque man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) est très facile sur une connexion non chiffrée.
 
-Si néanmoins vous souhaitez utiliser un certificat de sécurité non valide, un mot de passe vide ou une connexion en clair, vous devrez activer l'option "Autoriser les connexions non sécurisées" dans les paramètres de compte et/ou d'identité. STARTTLS devrait être choisi pour les connexions en clair. Si vous activez les connexions non sécurisées, vous devriez vous connecter uniquement via des réseaux privés dont vous avez confiance, mais jamais via des réseaux publiques, tel ceux offerts dans les hôtels, aéroports, etc.
+Si vous voulez toujours utiliser un certificat de sécurité invalide, un mot de passe vide ou une connexion en clair, vous aurez besoin d'activer les connexions non sécurisées dans les paramètres du compte et/ou de l'identité. STARTTLS doit être sélectionné pour les connexions en clair. Si vous activez les connexions non sécurisées, vous devrez vous connecter via des réseaux privés et de confiance uniquement et jamais via des réseaux publics comme ceux offerts dans les hôtels, les aéroports, etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) Comment puis-je paramétrer la vue des messages ?**
+**(5) Comment puis-je personnaliser la vue des messages ?**
 
-En cliquant sur les trois petits points en haut à droite, vous pouvez activer, désactiver ou sélectionner:
+Dans le menu à trois points, vous pouvez activer ou désactiver ou sélectionner :
 
 * *taille de texte* : pour trois tailles de police différentes
 * *Vue compacte* : pour des éléments de message plus condensés et une police de texte de message plus petite
 
-Dans l'onglet Affichage des paramètres, vous pouvez, par exemple, activer ou désactiver:
+Dans l'onglet Affichage des paramètres, vous pouvez activer ou désactiver par exemple :
 
 * *Boîte de réception unifiée* : pour désactiver la boîte de réception unifiée et pour lister les dossiers sélectionnés pour la boîte de réception unifiée
 * *Style tabulaire*: afficher une liste linéaire au lieu de cartes
@@ -457,9 +465,9 @@ Dans l'onglet Affichage des paramètres, vous pouvez, par exemple, activer ou d�
 * *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
 * *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
 
-Notez que l'aperçu du message ne peut être affiché que lorsque le texte de celui-ci a été téléchargé. Par défaut, les messages trop lourds ne sont pas téléchargés sur des connexions limités (réseaux cellulaires généralement). Vous pouvez changer ça dans l'onglet Connexion.
+Notez que l'aperçu du message ne peut être affiché que lorsque le texte de celui-ci a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez changer ceci dans les paramètres de connexion.
 
-Certaines personnes demandent:
+Certaines personnes demandent :
 
 * d'afficher l'objet en gras, mais l'affichage en gras est déjà utilisé pour mettre en évidence les messages non lus
 * de déplacer l'étoile à gauche, mais il est beaucoup plus facile de manipuler l'étoile sur le côté droit
@@ -469,60 +477,60 @@ Certaines personnes demandent:
 <a name="faq6"></a>
 **(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-Si vous utilisez la version Play store ou Github de FairEmail, vous pouvez utiliser l’Assistant pour facilement paramétrer votre compte Gmail et son identité. L'Assistant de configuration Gmail n'est pas disponible dans les autres versions, tel que celle de F-Droid car Google n'accepte l'utilisation de OAuth seulement sur les versions officielles.
+Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
-Si vous ne souhaitez -ou voulez- pas sauvegarder un compte Google dans votre appareil, par exemple avec les nouveaux appareils Huawei, vous pouvez soit activer l'accès pour les "applications moins sécurisés" et utiliser votre mot de passe normal (non-recommander), ou vous pouvez activer la double authentification et utiliser un mot de passe d'application. Pour utiliser un mot de passe, vous devrez paramétrer un compte et une identité via le paramétrage manuel au lieu d’utiliser la fonction assistant.
+If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
-**Important**: parfois Google vous montre cette alerte:
+**Important**: sometimes Google issues this alert:
 
 *[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
-Cette vérification de Google est plus souvent activée avec les *applications moins sécurisées* activé, moins en utilisant le mot de passe normal, et très rarement en utilisant le compte sur l'appareil (OAuth).
+This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
-Regardez [cette FAQ](#user-content-faq111) pour comprendre pourquoi seulement les compte sur appareil peuvent être utilisés.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Notez que les mot de passe par application requièrent que la fonction double authentification soit activée.
-
-<br />
-
-*Mot de passe d'application*
-
-Voir [ici](https://support.google.com/accounts/answer/185833) pour générer un mot de passe d'application.
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
-*Activer "Applications moins sécurisées"*
+*App specific password*
 
-**Important**: utiliser cette méthode n'est pas recommandée car elle fonctionne moins bien.
-
-**Important**: les comptes Gsuite autorisés avec un identifiant/mot de passe arrêteront de fonctionner [bientôt](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-Voir [ici](https://support.google.com/accounts/answer/6010255) pour activer les "applications moins sécurisées" ou allez [directement aux réglages](https://www.google.com/settings/security/lesssecureapps).
-
-Si vous utilisez plusieurs comptes Gmail, assurez d'activer les "applications moins sécurisées" pour le(s) bon(s) compte(s).
-
-Faites attention à bien quitter l'onglet de réglage des "applications moins sécurisées" en utilisant la flèche retour pour enregistrer les modifications.
-
-Si vous utilisez cette méthode, vous devriez utiliser un [mot de passe fort](https://en.wikipedia.org/wiki/Password_strength) pour votre compte Gmail, ce que vous devriez faire dans tous les cas. Notez que utiliser le protocole IMAP [standard](https://tools.ietf.org/html/rfc3501) n'est, en soit, pas moins sécurisé.
-
-Lorsque les "applications moins sécurisées" n'est pas activé, vous aurez l'erreur *Authentication failed - invalid credentials* pour les comptes (IMAP) et *Username and Password not accepted* pour les identités (SMTP).
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 <br />
 
-*Généralité*
+*Enable "Less secure apps"*
 
-Vous pouvez faire face à l'alerte "*Please log in via your web browser*". Cela arrive lorsque Google considère le réseau à partir duquel vous connecté à internet comme non sécurisé (avec un VPN par exemple). Vous pouvez éviter le problème en utilisant l'assitant Gmail ou un mot de passe d'application.
+**Important**: using this method is not recommended because it is less reliable.
 
-Voir [ici](https://support.google.com/mail/answer/7126229) pour les explications de Google et [ici](https://support.google.com/mail/accounts/answer/78754) pour la résolution.
+**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+
+If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+
+Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
+
+When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+
+<br />
+
+*General*
+
+You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+
+See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Pourquoi les messages envoyés n'apparaissent pas (directement) dans le dossier Envoyés ?**
+**(7) Why are sent messages not appearing (directly) in the sent folder?**
 
-Les messages envoyés sont normalement déplacés de la boite d'envoie vers le dossier des éléments envoyés dès que votre hébergeur ajoute les message envoyés à ce dossier. Cela requiert la sélection d'un dossier "éléments envoyés" dans les réglages du compte, et d'activer la synchronisation de ce dossier.
+Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Certains hébergeurs ne gèrent pas les messages envoyés ou le serveur SMTP utilisé n'est pas peut-être pas relié à l'hébergeur. Dans ce cas, FairEmail ajoutera automatiquement les messages envoyés au dossier "éléments envoyés" lors de la synchronisation de ce dossier. Ce qui arrivera après l'envoi du message. Notez que cela augmentera l'usage de data.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -531,38 +539,38 @@ Certains hébergeurs ne gèrent pas les messages envoyés ou le serveur SMTP uti
 <br />
 
 <a name="faq8"></a>
-**(8) Puis-je utiliser un compte Microsoft Exchange ?**
+**(8) Can I use a Microsoft Exchange account?**
 
-Le protocole "Microsoft Exchange Web Services" [est en cours de suppression](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). Il y a donc peut d’intérêt à ajouter ce protocole aujourd'hui.
+The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
 
-Vous pouvez utiliser un compte Microsoft Exchange si il est accessible par IMAP, ce qui est généralement le cas. Voir [ici](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) pour plus d'informations.
+You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
-Notez que la description de FairEmail commence par la remarque que les protocoles non-standard, tel que Microsoft Exchange Web Services et Microsoft ActiveSync ne sont pas supportés.
+Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
 
-Referez-vous [ici](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) pour la documentation de Microsoft sur la configuration des clients emails. Il y a aussi une section sur les erreurs de connexions générales ainsi que leurs solutions.
+Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
 
-Certaines vielles version de Exchange ont un bug causant des messages vides et des pièce-jointes corrompues. Referez-vous à [cette FAQ](#user-content-faq110) pour la solution.
+Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
 
-Referez-vous à [cette FAQ](#user-content-faq133) pour le support d'ActiveSync.
+Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
-Referez-vous à [cette FAQ](#user-content-faq111) pour le support d'OAuth.
+Please see [this FAQ](#user-content-faq111) about OAuth support.
 
 <br />
 
 <a name="faq9"></a>
-**(9) Que sont les identités / comment ajouter un alias ?**
+**(9) What are identities / how do I add an alias?**
 
-Les identités représentent les adresses mails *depuis* lesquels vous envoyé un mail par un serveur mail (SMTP).
+Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
-Certains hébergeurs vous autorisent à posséder plusieurs alias. Vous pouvez les configurer en éditant le champs d'adresse mail d'une nouvelle identité avec l'adresse d'alias et en remplissant l'identifiant avec votre adresse mail principale.
+Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
 
-Notez que vous pouvez copier une identité en pressant longuement dessus.
+Note that you can copy an identity by long pressing it.
 
-Si vous hébergeur vous le permet, vous pouvez également activer *Autoriser la modification de l'adresse de l'expéditeur* dans les paramètres avancés d'une identité existante pour pouvoir changer l'identifiant lors de l'écriture de nouveaux messages.
+Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
 
-FairEmail mettra automatiquement à jour les mot de passe des identités reliés lorsque vous changez le mot de passe du compte de celle-ci ou d'une autre identité reliée.
+FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Voir [cette FAQ](#user-content-faq33) pour l'édition des identifiants des adresses mails.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
@@ -589,7 +597,7 @@ Voir [cette FAQ](#user-content-faq33) pour l'édition des identifiants des adres
 <br />
 
 <a name="faq12"></a>
-**(12) Comment fonctionne le chiffrement/déchiffrement ?**
+**(12) How does encryption/decryption work?**
 
 Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
@@ -969,7 +977,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
 * *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgong message as harmful.
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
-* *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: please [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* *451 4.7.0 Temporary server error. Please try again later. PRX4 ...* : veuillez [voir ici](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) ou [voir ici](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
@@ -986,7 +994,7 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Échec de l'authentification ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
 The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
@@ -2620,7 +2628,7 @@ You can fix this problem by manually selecting the drafts folder in the account 
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
-Quick link for Gmail: [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Quick link for Gmail (will work on a desktop computer only): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 

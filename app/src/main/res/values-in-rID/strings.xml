@@ -3,6 +3,7 @@
     <string name="app_search">Pencarian FairEmail</string>
     <string name="app_changelog">Daftar Log Pembaruan</string>
     <string name="app_welcome">FairEmail adalah aplikasi email sumber terbuka yang berfokus pada privasi dan keamanan. Karena alasan ini, beberapa fitur mungkin bekerja secara berbeda dari biasanya.</string>
+    <string name="app_limitations">Misalnya, pesan diformat ulang secara default untuk menghapus elemen yang tidak aman dan untuk meningkatkan keterbacaan, dan membuka tautan perlu dikonfirmasi demi keamanan. Keduanya dapat dinonaktifkan jika diinginkan.</string>
     <string name="app_crash">FairEmail tidak didukung pada perangkat ini karena ada beberapa kesalahan di Android menyebabkan crash/error</string>
     <string name="app_exit">Ketuk \"Kembali\" untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
@@ -63,6 +64,8 @@
     <string name="title_block_sender">Blokir Pengirim</string>
     <string name="title_block_domain">Blokir Domain Pengirim</string>
     <string name="title_block_sender_hint">Memblokir pengirim akan membuat aturan secara otomatis memindahkan setiap email terbaru dari pengirim ini ke folder spam. Untuk membuat dan menggunakan aturan ini adalah dengan beralih ke versi pro.</string>
+    <string name="title_junk_filter">Pakai penyaring spam lokal</string>
+    <string name="title_junk_filter_hint">Ini dapat meningkatkan penggunaan baterai dan salah menandai pesan sebagai spam</string>
     <string name="title_notification_sending">Mengirim pesan</string>
     <string name="title_notification_waiting">Menunggu koneksi yang sesuai</string>
     <string name="title_notification_idle">Siaga</string>
@@ -101,12 +104,20 @@
     <string name="title_setup">Pengaturan</string>
     <string name="title_setup_help">Bantuan</string>
     <string name="title_setup_quick">Pengaturan Cepat</string>
+    <string name="title_setup_quick_accounts">Tambahkan akun</string>
     <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
     <string name="title_setup_quick_hint">Pengaturan cepat akan mengambil informasi konfigurasi dari autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
     <string name="title_setup_quick_smtp">Server SMTP untuk mengirim pesan</string>
     <string name="title_setup_wizard">Pemandu</string>
+    <string name="title_setup_wizard_multiple">Panduan penginstalan dapat digunakan beberapa kali untuk mengatur banyak akun</string>
     <string name="title_setup_wizard_new">Saya perlu alamat email baru</string>
+    <string name="title_setup_manual">Pengaturan manual dan opsi akun</string>
+    <string name="title_setup_account_remark">Email penerima</string>
+    <string name="title_setup_identity_remark">Mengirim email</string>
+    <string name="title_setup_account_identity_hint">Anda dapat mengkonfigurasi nama, warna dan tindakan menggesek di pengaturan akun, dan mengkonfigurasi tanda tangan di pengaturan identitas</string>
+    <string name="title_setup_accounts">Akun</string>
+    <string name="title_setup_identities">Identitas</string>
     <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk versi aplikasi yang resmi saja</string>
     <string name="title_setup_other">Penyedia Lainnya</string>
     <string name="title_setup_pop3">Akun POP3</string>
@@ -124,16 +135,21 @@
     <string name="title_setup_select_account">Pilih Akun</string>
     <string name="title_setup_instructions">Instruksi Penyiapan</string>
     <string name="title_setup_no_settings">Tidak ada pengaturan yang ditemukan dalam domain \'%1$s\'</string>
+    <string name="title_setup_no_settings_hint">Coba buat akun secara manual menggunakan pengaturan yang disediakan oleh penyedia email Anda</string>
     <string name="title_setup_no_auth_hint">Harap periksa kembali alamat email dan kata sandi Anda dan pastikan akses eksternal (IMAP/SMTP) telah diaktifkan.</string>
     <string name="title_setup_app_password_hint">Penyedia email ini memerlukan kata sandi aplikasi, bukan kata sandi akun, silahkan periksa instruksi penyedia email Anda.</string>
     <string name="title_setup_no_inbox">Kotak masuk tidak ditemukan</string>
     <string name="title_setup_advanced_protection">Ketika terdaftar dalam program perlindungan lanjutan, tidak mungkin menggunakan aplikasi email pihak ketiga. Hal ini merupakan pembatasan yang diberlakukan oleh Google.</string>
+    <string name="title_setup_quick_success">Akun berhasil ditambahkan</string>
     <string name="title_setup_manage">Mengelola</string>
     <string name="title_setup_grant">Perizinan</string>
     <string name="title_setup_grant_again">Berikan izin yang diperlukan</string>
+    <string name="title_setup_exchange_support">Apakah Microsoft Exchange didukung?</string>
     <string name="title_setup_identity_what">Apa maksudnya identitas?</string>
+    <string name="title_setup_free">Apakah aplikasi ini gratis untuk digunakan?</string>
     <string name="title_setup_permissions">Berikan Izin</string>
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
+    <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
     <string name="title_setup_doze_remark">Untuk menerima email dengan handal</string>
     <string name="title_setup_doze_hint">Meskipun ini mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_instructions">Pada dialog berikutnya, pilih \"Semua aplikasi\" di bagian atas, pilih aplikasi ini dan pilih konfirmasi \"Jangan optimalkan\"</string>
@@ -141,6 +157,7 @@
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
     <string name="title_setup_data">Penghemat kuota diaktifkan</string>
     <string name="title_setup_advanced_options">Tampilkan opsi lanjutan</string>
+    <string name="title_setup_inbox">Buka kotak masuk</string>
     <string name="title_setup_go">Mulai</string>
     <string name="title_setup_to_do">Yang perlu dilakukan</string>
     <string name="title_setup_done">Selesai</string>
@@ -149,6 +166,7 @@
     <string name="title_setup_configuring">Mengonfigurasi akun &#8230;</string>
     <string name="title_setup_export">Ekspor Pengaturan</string>
     <string name="title_setup_import">Impor Pengaturan</string>
+    <string name="title_setup_export_do">Kata sandi digunakan untuk mengenkripsi pengaturan dan diperlukan untuk mengimpor pengaturan lagi</string>
     <string name="title_setup_import_do">Akun yang diimpor akan ditambahkan tanpa menimpa akun yang sudah ada</string>
     <string name="title_setup_password">Kata Sandi</string>
     <string name="title_setup_password_chars">Kata sandi mengandung karakter kontrol atau spasi</string>
@@ -180,11 +198,16 @@
     <string name="title_setup_theme_system">Ikuti setelan sistem</string>
     <string name="title_setup_theme_black_background">Latar belakang hitam</string>
     <string name="title_setup_theme_system_hint">Ini secara otomatis akan beralih ke tema terang/gelap pada siang/malam hari, jika didukung oleh Android.</string>
+    <string name="title_setup_theme_more_colors">Saya ingin lebih banyak warna</string>
     <string name="title_setup_advanced">Tingkat Lanjut</string>
     <string name="title_setup_options">Opsi</string>
     <string name="title_setup_defaults">Kembalikan pengaturan standar</string>
     <string name="title_setup_reset_questions">Atur ulang pertanyaan</string>
     <string name="title_advanced_hint_title">Opsi lebih lanjut</string>
+    <string name="title_advanced_hint_message">       Anda menavigasi ke opsi yang lebih canggih.
+        Semua opsi umumnya menggunakan nilai standar, yang tidak perlu Anda ubah kecuali jika Anda memiliki preferensi yang berbeda.
+    </string>
+    <string name="title_advanced_section_main">Utama</string>
     <string name="title_advanced_section_synchronize">Menerima</string>
     <string name="title_advanced_section_send">Kirim</string>
     <string name="title_advanced_section_connection">Koneksi</string>
@@ -194,6 +217,7 @@
     <string name="title_advanced_section_encryption">Enkripsi</string>
     <string name="title_advanced_section_notifications">Pemberitahuan</string>
     <string name="title_advanced_section_misc">Lainnya</string>
+    <string name="title_advanced_default">Semua opsi umumnya menggunakan nilai standar</string>
     <string name="title_advanced_receive">Terima pesan untuk semua akun</string>
     <string name="title_advanced_when">Kapan</string>
     <string name="title_advanced_always">Selalu terima pesan untuk akun ini</string>
@@ -208,10 +232,12 @@
     <string name="title_advanced_sync_folders">Sinkronkan daftar folder</string>
     <string name="title_advanced_sync_shared_folders">Sinkronkan daftar folder bersama</string>
     <string name="title_advanced_subscriptions">Kelola folder langganan</string>
+    <string name="title_advanced_check_reply_domain">Periksa alamat email balasan pada sinkronisasi pesan</string>
     <string name="title_advanced_check_mx">Periksa alamat email pengirim di sinkronisasi pesan</string>
     <string name="title_advanced_tune_keep_alive">Secara otomatis mengatur interval tetap-hidup</string>
     <string name="title_advanced_keyboard">Tampilkan keyboard secara bawaan</string>
     <string name="title_advanced_keyboard_no_fullscreen">Nonaktifkan keyboard layar penuh</string>
+    <string name="title_advanced_suggest_names">Pakai nama dan alamat email</string>
     <string name="title_advanced_suggest_local">Sarankan kontak yang disimpan secara lokal</string>
     <string name="title_advanced_suggest_sent">Sarankan alamat yang ditemukan dalam pesan terkirim</string>
     <string name="title_advanced_suggest_received">Sarankan alamat yang ditemukan dalam pesan yang diterima</string>
@@ -255,6 +281,7 @@
     <string name="title_advanced_startup">Tampilkan pada layar terkunci</string>
     <string name="title_advanced_cards">Pakai gaya kartu seperti gaya tabel</string>
     <string name="title_advanced_cards_beige">Gunakan latar belakang krem ketika menggunakan gaya kartu</string>
+    <string name="title_advanced_cards_shadow">Gunakan bayangan untuk pesan yang belum dibaca saat menggunakan gaya kartu</string>
     <string name="title_advanced_date_header">Kelompokkan sesuai tanggal</string>
     <string name="title_advanced_threading">Obrolan via email yang berlanjut</string>
     <string name="title_advanced_threading_unread">Tampilkan jumlah pesan yang belum dibaca dalam obrolan</string>
@@ -268,8 +295,12 @@
     <string name="title_advanced_generated_icons">Tampilkan ikon yang dibuat</string>
     <string name="title_advanced_identicons">Tampilkan ikon identitas</string>
     <string name="title_advanced_circular">Tampilan ikon bulat</string>
+    <string name="title_advanced_color_saturation">Kejenuhan: %1$s %%</string>
+    <string name="title_advanced_color_value">Kecerahan: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Ambang batas warna huruf: %1$s %%</string>
     <string name="title_advanced_name_email">Tampilkan nama dan alamat email</string>
     <string name="title_advanced_replace_name">Lebih suka nama kontak di atas nama yang dikirim</string>
+    <string name="title_advanced_only_name">Tampilkan nama kontak saja</string>
     <string name="title_advanced_distinguish_contacts">Garis bawahi pengirim ketika pengirim dikenal sebagai kontak lokal</string>
     <string name="title_advanced_show_recipients">Tampilkan penerima di header pesan</string>
     <string name="title_advanced_font_size_sender">Ukuran teks pengirim</string>
@@ -371,6 +402,7 @@
     <string name="title_advanced_tracking">Coba untuk mengenali dan nonaktifkan pelacakan gambar</string>
     <string name="title_advanced_hide_timezone">Kirim pesan tanpa data zona waktu</string>
     <string name="title_advanced_display_hidden">Tampilkan teks pesan tersembunyi</string>
+    <string name="title_advanced_incognito_keyboard">Gunakan Keyboard Incognito (Android 8+)</string>
     <string name="title_advanced_secure">Sembunyikan dari layar aplikasi terbaru dan cegah pengambilan tangkapan layar</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Batas waktu otentikasi sidik jari</string>
@@ -392,9 +424,14 @@
     <string name="title_advanced_manage_keys_hint">Ini akan membuka pengaturan keamanan Android. Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kredensial.</string>
     <string name="title_advanced_external_search">Izinkan aplikasi lain untuk menelusuri pengolah pesan FairMail</string>
     <string name="title_advanced_shortcuts">Tampilkan kontak yang sering digunakan di menu berbagi pada Android</string>
+    <string name="title_advanced_conversation_actions">Sarankan Tindakan (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sarankan teks balasan (Android 10+)</string>
+    <string name="title_advanced_language_detection">Deteksi bahasa teks pesan</string>
     <string name="title_advanced_fts">Membangun indeks pencarian</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d pesan terindeks (%3$s)</string>
     <string name="title_advanced_classification">Klasifikasikan pesan</string>
+    <string name="title_advanced_class_min_chance">Kelas probabilitas minimum: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Minimum perbedaan kelas: %1$s %%</string>
     <string name="title_advanced_language">Bahasa</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
@@ -404,6 +441,7 @@
     <string name="title_advanced_query_threads">Batasi akses database paralel</string>
     <string name="title_advanced_crash_reports">Kirim laporan kesalahan</string>
     <string name="title_advanced_protocol">Aktifitas Protokol</string>
+    <string name="title_advanced_log_info">Pencatatan debug</string>
     <string name="title_advanced_debug">Mode debug</string>
     <string name="title_advanced_cleanup_attachments">Buang lampiran pada pesan lama</string>
     <string name="title_advanced_cleanup">Membersihkan</string>
@@ -417,9 +455,12 @@
     <string name="title_advanced_unseen_hint">Beberapa penyedia email tidak mendukung ini dengan benar, yang bisa menyebabkan pesan tidak tersinkronisasi atau semua pesan tersinkronisasi</string>
     <string name="title_advanced_deleted_unseen">Ketika dinonaktifkan, pesan yang belum dibaca disimpan pada perangkat untuk selamanya</string>
     <string name="title_advanced_sync_kept_hint">Ini akan mentransfer data tambahan dan mengkonsumsi daya baterai ekstra, terutama jika banyak pesan disimpan pada perangkat</string>
+    <string name="title_advanced_gmail_thread_hint">Ini hanya berlaku untuk pesan yang baru diterima dan dapat memecahkan grup yang ada</string>
     <string name="title_advanced_sync_folders_hint">Menonaktifkan ini akan mengurangi penggunaan data dan sedikit baterai, tetapi juga akan menonaktifkan pembaruan daftar folder</string>
+    <string name="title_advanced_check_reply_hint">Ini akan memeriksa apakah nama domain dari alamat pengirim dan balasannya sama</string>
     <string name="title_advanced_lookup_mx_hint">Ini akan memeriksa apakah catatan DNS MX ada</string>
     <string name="title_advanced_sync_delay_hint">Ini akan memperlambat sinkronisasi pesan</string>
+    <string name="title_advanced_suggest_names_hint">Jika dinonaktifkan, hanya alamat email yang akan digunakan saat memilih kontak</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
     <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
@@ -436,15 +477,19 @@
     <string name="title_advanced_beige_hint">Hanya tema terang</string>
     <string name="title_advanced_date_hint">Pesan hanya dikelompokkan berdasarkan tanggal jika mereka diurutkan berdasarkan waktu</string>
     <string name="title_advanced_navbar_colorize_hint">Apakah karya ini tergantung pada versi Android dan variannya</string>
+    <string name="title_advanced_split_hint">Ini akan membagi layar menjadi beberapa bagian</string>
     <string name="title_advanced_threading_hint">Pesan grup terkait satu sama lain</string>
     <string name="title_advanced_highlight_hint">Warna aksen untuk tema ini akan digunakan untuk menyorot</string>
     <string name="title_advanced_gravatars_hint">Mungkin ada risiko privasi</string>
     <string name="title_advanced_name_email_hint">Ketika dinonaktifkan hanya akan menampilkan nama jika ada</string>
     <string name="title_advanced_preview_hint">Hanya tersedia jika teks pesan sudah diunduh</string>
+    <string name="title_advanced_preview_lines_hint">%s total karakter maksimum</string>
     <string name="title_advanced_preview_issue">Scrolling/menggulir bisa terasa lambat karena bug dalam beberapa versi Android ketika jumlah garis lebih dari satu</string>
     <string name="title_advanced_overview_mode_hint">Hal ini bisa membuat huruf yang sangat kecil</string>
+    <string name="title_advanced_placeholders_hint">Ini berlaku untuk pesan yang diformat ulang</string>
     <string name="title_advanced_inline_hint">Gambar inline akan menyisipkan gambar dalam pesan</string>
     <string name="title_advanced_parse_classes_hint">Ini akan lebih akurat menampilkan pesan, tapi mungkin dengan penundaan</string>
+    <string name="title_advanced_language_detection_hint">Dukungan deteksi bahasa tergantung pada perangkat</string>
     <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
     <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan terbaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun individu</string>
     <string name="title_advanced_autoclose_hint">Tutup percakapan secara otomatis ketika seluruh pesan terarsip, terkirim, atau terbuang</string>
@@ -1171,7 +1216,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Biarkan</item>

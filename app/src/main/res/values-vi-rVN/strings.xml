@@ -245,6 +245,7 @@
     <string name="title_advanced_suggest_received">Đề xuất các địa chỉ được tìm thấy trong các thư đã nhận</string>
     <string name="title_advanced_suggest_frequently">Sắp xếp các địa chỉ được đề xuất theo tần số sử dụng</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
+    <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
     <string name="title_advanced_separate_reply">Chèn một đường thẳng ngang trước tiêu đề trả lời/chuyển tiếp</string>
     <string name="title_advanced_extended_reply">Sử dụng tiêu đề trả lời/chuyển tiếp mở rộng</string>
     <string name="title_advanced_write_below">Viết dưới văn bản của người gửi</string>
@@ -316,8 +317,10 @@
     <string name="title_advanced_text_separators">Sử dụng đường thẳng chia tách</string>
     <string name="title_advanced_collapse_quotes">Thu gọn văn bản được trích dẫn</string>
     <string name="title_advanced_image_placeholders">Hiện các chỗ giữ chỗ hình ảnh</string>
+    <string name="title_advanced_images_inline">Tự động hiện hình ảnh tích hợp</string>
     <string name="title_advanced_seekbar">Hiện vị trí tương đối của cuộc hội thoại bằng một dấu chầm</string>
     <string name="title_advanced_actionbar">Hiện thanh hành đông ở cuộc hội thoại</string>
+    <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
     <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
     <string name="title_advanced_authentication">Hiện cảnh báo khi máy chủ nhận không thể xác thực thư</string>
     <string name="title_advanced_sync_on_launch">Đồng bộ hóa khi mở</string>
@@ -372,6 +375,7 @@
     <string name="title_advanced_notify_action_snooze">Báo lại</string>
     <string name="title_advanced_notify_remove">Xoá thông báo thư mới khi nhấn vào thông báo</string>
     <string name="title_advanced_notify_clear">Xoá các thông báo thư mới khi xem danh sách thư</string>
+    <string name="title_advanced_wearable_preview">Chỉ gửi thông báo có phần xem trước thư đến thiết bị đeo</string>
     <string name="title_advanced_biometrics_notify">Hiện nội dung thông báo khi sử dụng xác thực sinh trắc học</string>
     <string name="title_advanced_light">Sử dụng đèn thông báo</string>
     <string name="title_advanced_sound">Chọn âm thanh thông báo</string>
@@ -458,9 +462,11 @@
     <string name="title_advanced_gravatars_hint">Có thể có rủi ro về sự riêng tư</string>
     <string name="title_advanced_name_email_hint">Khi được tắt, chỉ có tên sẽ được hiện khi có</string>
     <string name="title_advanced_preview_hint">Chỉ có khi văn bản thư đã được tải xuống</string>
+    <string name="title_advanced_preview_lines_hint">Tổng cộng tối đa %s kí tự</string>
     <string name="title_advanced_preview_issue">Việc cuộn có thể chậm do một lỗi trong một số phiên bản Android khi số dòng nhiều hơn một</string>
     <string name="title_advanced_overview_mode_hint">Cái này có thể dẫn đến các phông chữ rất nhỏ</string>
     <string name="title_advanced_placeholders_hint">Cái này chỉ áp dụng cho các thư được định dạng lại</string>
+    <string name="title_advanced_inline_hint">Hình ảnh tích hợp là hình ảnh được bao gồm trong thư</string>
     <string name="title_advanced_parse_classes_hint">Cái này sẽ hiển thị thư chính xác hơn, nhưng có thể có độ trễ</string>
     <string name="title_advanced_language_detection_hint">Việc hỗ trợ dò tìm ngôn ngữ phụ thuộc vào nhà sản xuất thiết bị</string>
     <string name="title_advanced_autoexpand_hint">Tự động mở thư khi chỉ cỏ một thư hoặc một thư chưa đọc trong một cuộc hội thoại</string>
@@ -532,6 +538,7 @@
     <string name="title_port">Số cổng</string>
     <string name="title_user">Tên người dùng</string>
     <string name="title_password">Mật khẩu</string>
+    <string name="title_password_storage">Mật khẩu được lưu trữ như thế nào?</string>
     <string name="title_case_sensitive">Tên người dùng và mật khẩu thường phân biệt chữ hoa/chữ thường</string>
     <string name="title_client_certificate">Chứng chỉ khách</string>
     <string name="title_use_ip">Sử dụng địa chỉ IP thay vì tên máy chủ</string>
@@ -580,6 +587,8 @@
     <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
     <string name="title_service_auth">Máy chủ email nói: \'%1$s\'</string>
+    <string name="title_service_vpn">Điều này có thể được gây ra bởi VPN đang được sử dụng</string>
+    <string name="title_service_port">Hãy kiểm tra hai lần số của cổng</string>
     <string name="title_service_protocol">Hãy kiểm tra giao thức hai lần (SSL/TLS hoặc STARTTLS)</string>
     <string name="title_advanced_browse">Duyệt các thư trên máy chủ</string>
     <string name="title_advanced_expand_read">Đánh dấu thư là đã đọc khi mở rộng</string>
@@ -617,6 +626,7 @@
     <string name="title_no_operations">Không có hoạt động đang chờ</string>
     <string name="title_hint_operations">Việc xoá các hoạt động có thể dẫn đến biến mất thư và các vấn đề đồng bộ hoá</string>
     <string name="title_folder_name">Tên thư mục</string>
+    <string name="title_display_name">Tên hiển thị</string>
     <string name="title_show_folders">Hiện các thư mục ẩn</string>
     <string name="title_show_flagged">Hiện số thư gắn sao</string>
     <string name="title_apply_to_all">Áp dụng cho tất cả &#8230;</string>
@@ -625,6 +635,7 @@
     <string name="title_navigation_folder">Hiện trong menu điều hướng</string>
     <string name="title_synchronize_folder">Đồng bộ hoá (nhận thư)</string>
     <string name="title_poll_folder">Kiểm tra định kỳ thay vì đồng bộ hoá liên tục</string>
+    <string name="title_poll_folder_remark">Đa số máy chủ email chỉ cho phép thông báo đẩy cho một vài thư mục!</string>
     <string name="title_download_folder">Tự động tải xuống văn bản thư và tệp đính kèm</string>
     <string name="title_notify_folder">Thông báo khi có thư mới</string>
     <string name="title_auto_classify_source">Phân loại các thư mới trong thư mục này</string>
@@ -639,6 +650,9 @@
     <string name="title_auto_trash">Tự động di chuyển các thư cũ vào thùng rác</string>
     <string name="title_auto_delete">Tự động xoá các thư cũ vĩnh viễn</string>
     <string name="title_auto_delete_hint">Các thư cũ là các thư không còn được giữ trên thiết bị</string>
+    <string name="title_inbox_root_hint">        Một số nhà cung cấp yêu cầu tạo các thư mục mới dưới hộp thư đến.
+        Trong trường hợp này, bạn có thể nhấn giữ hộp thư đến trong danh sách thư mục và chọn \'Tạo thư mục con\'.
+    </string>
     <string name="title_folder_name_missing">Thiếu tên thư mục</string>
     <string name="title_folder_exists">Thư mục %1$s đã tồn tại</string>
     <string name="title_folder_delete">Vĩnh viễn xoá thư mục này và bất kỳ thư nào chứa trong đó?</string>
@@ -694,6 +708,7 @@
     <string name="title_manage_keywords">Quản lý các từ khóa</string>
     <string name="title_manage_labels">Quản lý các nhãn Gmail</string>
     <string name="title_add_keyword">Thêm từ khoá</string>
+    <string name="title_show_inline">Hiện tệp đính kèm tích hợp</string>
     <string name="title_download_all">Tải về tất cả</string>
     <string name="title_save_all">Lưu tất cả</string>
     <string name="title_save_eml">Lưu tập tin thư thô</string>
@@ -741,6 +756,7 @@
     <string name="title_truncated">Thư quá lớn để hiển thị hoàn toàn</string>
     <string name="title_insufficient_memory">Thư quá lớn để đưa vừa vào bộ nhớ có sẵn</string>
     <string name="title_show_full">Hiện thư đầy đủ</string>
+    <string name="title_unused_inline">Các hình ảnh tích hợp không được sử dụng sẽ bị xoá khi gửi</string>
     <string name="title_accross_remark">Thư được di chuyển qua các tài khoản sẽ được tải xuống lại dẫn đến sử dụng thêm dữ liệu</string>
     <string name="title_raw_saved">Đã lưu thư thô</string>
     <string name="title_attachment_eml">Thư được đính kèm</string>
@@ -879,6 +895,8 @@
     <string name="title_user_interaction">Đang chuyển sang OpenKeychain</string>
     <string name="title_signed_data">Xác minh chữ ký để hiện văn bản thư</string>
     <string name="title_not_encrypted">Thư không được ký hoặc mã hóa</string>
+    <string name="title_no_sign_key">Không có mã khoá ký được chọn</string>
+    <string name="title_reset_sign_key">Đặt lại mã khoá ký</string>
     <string name="title_signature_none">Thư không được ký</string>
     <string name="title_signature_valid">Chữ ký thư hợp lệ</string>
     <string name="title_signature_valid_from">Chữ ký thư hợp lệ: %1$s</string>
@@ -897,6 +915,9 @@
     <string name="title_signature_store">Lưu trữ</string>
     <string name="title_search">Tìm kiếm</string>
     <string name="title_search_for_hint">Nhập văn bản</string>
+    <string name="title_search_hint">        Ban đầu, việc tìm kiếm sẽ tìm các thư được lưu trữ trên thiết bị của bạn.
+        Để cũng tìm kiếm máy chủ, nhấn vào nút \'tìm kiếm lại\'.
+    </string>
     <string name="title_search_index_hint">Việc tìm kiếm qua mục lục tìm kiếm rất nhanh, nhưng sẽ chỉ tìm các từ toàn thể</string>
     <string name="title_search_text_hint">Việc tìm kiếm văn bản trong thư khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_size_hint">Việc tìm kiếm thư theo kích cỡ khi có nhiều thư có thể không được trên một số máy chủ</string>
@@ -975,6 +996,7 @@
     <string name="title_rule_seen">Đánh dấu đã đọc</string>
     <string name="title_rule_unseen">Đánh dấu chưa đọc</string>
     <string name="title_rule_hide">Ẩn</string>
+    <string name="title_rule_ignore">Bãi bỏ thông báo</string>
     <string name="title_rule_snooze">Báo lại</string>
     <string name="title_rule_flag">Thêm sao</string>
     <string name="title_rule_importance">Đặt tầm quan trọng</string>
@@ -1043,6 +1065,7 @@
     <string name="title_legend_synchronize_off">Đồng bộ hóa đang tắt</string>
     <string name="title_legend_synchronize_poll">Đồng bộ hoá định kỳ</string>
     <string name="title_legend_disconnected">Đã ngắt kết nối</string>
+    <string name="title_legend_backoff">Đang đợi sau khi thất bại</string>
     <string name="title_legend_connecting">Đang kết nối</string>
     <string name="title_legend_connected">Đã kết nối</string>
     <string name="title_legend_executing">Đang thực thi các hoạt động</string>
@@ -1144,12 +1167,16 @@
     <string name="title_hint_sync_note">Theo mặc định, không phải tất cả thư sẽ được tải xuống để giới hạn sử dụng không gian bộ nhớ, pin và dữ liệu. Bạn có thể thay đổi điều này bằng cách nhấn giữ một thư mục trong danh sách thư mục và chọn \'Đồng bộ hoá thêm\'.</string>
     <string name="title_hint_battery">Vì FairEmail theo mặc định luôn nhận thư, Android sẽ báo cáo FairEmail là luôn hoạt động. Do đó, FairEmail có thể trông như là luôn tiêu hao pin mặc dù không phải vậy.</string>
     <string name="title_hint_reformat">Theo mặc định, FairEmail định dạng lại các thư vì lý do riêng tư và bảo mật. Để xem thư gốc, hãy nhấn biểu tượng \'toàn màn hình\' trên văn bản thư.</string>
+    <string name="title_hint_design">Thiết kế này có chủ ý không gây xao lãng, nhưng vẫn rất hữu dụng. Có nhiều tuỳ chọn để tuỳ biến ngoại hình, nhưng hãy hiểu rằng không thể nào làm cho mọi người hoàn toàn vui cùng lúc.</string>
     <string name="title_hint_junk">Việc lọc thư rác nên được làm bởi máy chủ email và không thể làm một cách đáng tin cậy trên một thiết bị chạy bằng pin có khả năng giới hạn.</string>
     <string name="title_hint_contact_actions">Nhấn giữ để xem các tuỳ chọn</string>
     <string name="title_hint_eml">Đây là tóm tắt của nội dung của một tập tin thư thô. Lưu thư thô bằng biểu tượng lưu trong thanh hành động để xem tất cả nội dung.</string>
     <string name="title_open_link">Mở liên kết</string>
     <string name="title_different_link">Tiêu đề và địa chỉ liên kết khác nhau</string>
     <string name="title_tracking_link">Trang web này có thể sẽ theo dõi bạn</string>
+    <string name="title_link_http">Lưu lượng sẽ không được mã hoá</string>
+    <string name="title_link_https">Lưu lượng sẽ được mã hoá</string>
+    <string name="title_sanitize_link">Xoá các tham số theo dõi</string>
     <string name="title_insecure_link">Liên kết này không bảo mật</string>
     <string name="title_check_owner">Kiểm tra chủ sở hữu</string>
     <string name="title_remark_owner">Thông tin sẽ được lấy từ <a href="https://ipinfo.io/">ipinfo.io</a></string>
@@ -1315,7 +1342,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Không làm gì cả</item>

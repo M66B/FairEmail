@@ -567,6 +567,7 @@
     <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
+    <string name="title_password_storage">密码是如何存储的？</string>
     <string name="title_case_sensitive">用户名和密码通常是区分大小写的</string>
     <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">移动数据库</string>
@@ -1396,7 +1397,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>不进行任何操作</item>

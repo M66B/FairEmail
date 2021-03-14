@@ -577,6 +577,7 @@
     <string name="title_port">Αριθμός θύρας</string>
     <string name="title_user">Όνομα χρήστη</string>
     <string name="title_password">Κωδικός πρόσβασης</string>
+    <string name="title_password_storage">Πώς αποθηκεύονται οι κωδικοί πρόσβασης;</string>
     <string name="title_case_sensitive">Τα ονόματα χρηστών και οι κωδικοί πρόσβασης επηρεάζονται συνήθως από τις αλλαγές κεφαλαίων και μικρών γραμμάτων</string>
     <string name="title_client_certificate">Πιστοποιητικό πελάτη</string>
     <string name="title_realm">Realm</string>
@@ -682,6 +683,7 @@
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
     <string name="title_synchronize_folder">Συγχρονισμός (λήψη μηνυμάτων)</string>
     <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχής συγχρονισμός</string>
+    <string name="title_poll_folder_remark">Οι περισσότεροι διακομιστές ηλ. ταχυδρομείου επιτρέπουν μηνύματα ώθησης μόνον για έναν πολύ μικρό αριθμό φακέλων!</string>
     <string name="title_download_folder">Αυτόματο κατέβασμα των κειμένων των μηνυμάτων και των συνημμένων</string>
     <string name="title_notify_folder">Να ειδοποιούμαι για νέα μηνύματα</string>
     <string name="title_auto_classify_source">Ταξινόμηση νέων μηνυμάτων σε αυτόν το φάκελο</string>
@@ -1408,7 +1410,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Καμία ενέργεια</item>

@@ -579,6 +579,7 @@
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
     <string name="title_password">Wachtwoord</string>
+    <string name="title_password_storage">Hoe worden wachtwoorden bewaard?</string>
     <string name="title_case_sensitive">Gebruikersnamen en wachtwoorden zijn meestal hoofdlettergevoelig</string>
     <string name="title_client_certificate">Cliëntcertificaat</string>
     <string name="title_realm">Realm</string>
@@ -684,6 +685,7 @@
     <string name="title_navigation_folder">Toon in navigatiemenu</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
+    <string name="title_poll_folder_remark">De meeste e-mailservers staan push-berichten slechts voor een handvol mappen toe!</string>
     <string name="title_download_folder">Berichtteksten en bijlagen automatisch downloaden</string>
     <string name="title_notify_folder">Melding bij nieuwe berichten</string>
     <string name="title_auto_classify_source">Classificeer nieuwe berichten in deze map</string>
@@ -1409,7 +1411,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Doe niets</item>

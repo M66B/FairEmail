@@ -600,6 +600,7 @@
     <string name="title_port">Číslo portu</string>
     <string name="title_user">Uživatelské jméno</string>
     <string name="title_password">Heslo</string>
+    <string name="title_password_storage">Jak jsou hesla uložena?</string>
     <string name="title_case_sensitive">Uživatelská jména a hesla obvykle vyžadují rozlišit velká a malá písmena</string>
     <string name="title_client_certificate">Klientský certifikát</string>
     <string name="title_realm">Sféra</string>
@@ -1433,7 +1434,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Nedělat nic</item>

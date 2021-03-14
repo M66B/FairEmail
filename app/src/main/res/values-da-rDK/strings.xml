@@ -677,6 +677,7 @@
     <string name="title_navigation_folder">Vis i navigationsmenu</string>
     <string name="title_synchronize_folder">Synkronisér (modtag beskeder)</string>
     <string name="title_poll_folder">Tjek periodisk i stedet for kontinuerlig synkronisering</string>
+    <string name="title_poll_folder_remark">De fleste e-mailservere tillader kun push-beskeder for en håndfuld mapper!</string>
     <string name="title_download_folder">Auto-download beskedtekst og vedhæftninger</string>
     <string name="title_notify_folder">Notificér ved nye beskeder</string>
     <string name="title_auto_classify_source">\'Klassificér nye bskeder\' in denne mappe</string>
@@ -1397,7 +1398,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Gør intet</item>

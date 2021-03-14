@@ -579,6 +579,7 @@
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d’utilisateur</string>
     <string name="title_password">Mot de passe</string>
+    <string name="title_password_storage">Comment les mots de passe sont-ils stockés ?</string>
     <string name="title_case_sensitive">Les noms d\'utilisateur et les mots de passe sont généralement sensibles à la casse</string>
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
@@ -684,6 +685,7 @@
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
+    <string name="title_poll_folder_remark">La plupart des serveurs de messagerie autorisent les messages push pour un petit nombre de dossiers seulement !</string>
     <string name="title_download_folder">Télécharger automatiquement le texte des messages et les pièces jointes</string>
     <string name="title_notify_folder">Notifier les nouveaux messages</string>
     <string name="title_auto_classify_source">Classer les nouveaux messages de ce dossier</string>
@@ -1410,7 +1412,7 @@
         <item>4 Mo</item>
         <item>8 Mo</item>
         <item>16 Mo</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Ne rien faire</item>

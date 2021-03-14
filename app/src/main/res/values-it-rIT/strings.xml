@@ -579,6 +579,7 @@
     <string name="title_port">Numero porta</string>
     <string name="title_user">Nome utente</string>
     <string name="title_password">Password</string>
+    <string name="title_password_storage">Come vengono memorizzate le password?</string>
     <string name="title_case_sensitive">I nomi utente e le password sono solitamente maiuscole e minuscole</string>
     <string name="title_client_certificate">Certificato client</string>
     <string name="title_realm">Dominio</string>
@@ -1410,7 +1411,7 @@
         <item>4 MB</item>
         <item>8 MB</item>
         <item>16 MB</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Non fare nulla</item>

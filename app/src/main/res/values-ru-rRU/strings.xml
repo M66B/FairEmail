@@ -601,6 +601,7 @@
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
+    <string name="title_password_storage">Как хранятся пароли?</string>
     <string name="title_case_sensitive">Имена пользователей и пароли обычно чувствительны к регистру</string>
     <string name="title_client_certificate">Сертификат клиента</string>
     <string name="title_realm">Реалм</string>
@@ -706,6 +707,7 @@
     <string name="title_navigation_folder">Показывать в меню навигации</string>
     <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
+    <string name="title_poll_folder_remark">Большинство почтовых серверов позволяют отправлять сообщения только для некоторых папок!</string>
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
     <string name="title_auto_classify_source">Классифицировать новые сообщения в этой папке</string>
@@ -1434,7 +1436,7 @@
         <item>4 МБ</item>
         <item>8 МБ</item>
         <item>16 МБ</item>
-        <item comment="downloadNames&#10;∞ = infinite (size)">∞</item>
+        <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
         <item>Ничего не делать</item>
