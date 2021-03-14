@@ -225,6 +225,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_device(State state) {
         DB db = DB.getInstance(context);
 
+        Log.i("Boundary device" +
+                " index=" + state.index +
+                " matches=" + (state.matches == null ? null : state.matches.size()));
+
         int found = 0;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -316,12 +320,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 if (match.matched != null && match.matched) {
                     found++;
+                    Log.i("Boundary matched=" + match.id);
                     db.message().setMessageFound(match.id);
                 }
             }
         }
 
-        Log.i("Boundary device done memory=" + Log.getFreeMemMb());
+        Log.i("Boundary device done" +
+                " found=" + found + "/" + pageSize +
+                " destroyed=" + state.destroyed +
+                " memory=" + Log.getFreeMemMb());
         return found;
     }
 
