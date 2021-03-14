@@ -1,6 +1,6 @@
 # FairEmail - Support
 
-Bei Fragen, machen Sie sich zu erst mit dem Bereich "häufig gestellte Fragen" vertraut. [ Unten ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), Können Sie herausfinden, wie Sie andere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Bei Fragen, machen Sie sich zu erst mit dem Bereich "häufig gestellte Fragen" vertraut. [ Unten ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie andere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -12,15 +12,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Geplante Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Häufig angefragte Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Häufig gestellte Fragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Hilfe bekommen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Hilfe](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Konten autorisieren
 
 In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
 
-Sollte der Schnelleinrichtungs-Assistent fehlschlagen, müssen Sie Ihr Konto, für das Versenden und Empfangen von E-Mails, manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer, Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
+Sollte der Schnelleinrichtungs-Assistent fehlschlagen, müssen Sie Ihr Konto für das Versenden und Empfangen von E-Mails, manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+In den meisten Fällen ist eine Suche nach *IMAP* und dem Namen des Providers erfolgreich, um die richtige Anleitung zu finden.
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
@@ -34,9 +34,9 @@ For authorizing:
 * Apple iCloud: siehe [Frage 148](#user-content-faq148)
 * Free.fr: siehe [Frage 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+[Hier](#user-content-faq22) finden Sie häufige Fehlermeldungen und Lösungen.
 
-Related questions:
+Ähnliche Fragen:
 
 * [Wird OAuth unterstützt?](#user-content-faq111)
 * [Warum wird ActiveSync nicht unterstützt?](#user-content-faq133)
@@ -45,7 +45,7 @@ Related questions:
 
 ## Wie kann ich …?
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
+* Accountname ändern: Einstellungen > Manueller Setup > Mehr Optionen > Accounts > Account auswählen
 * Aktion für Links-/Rechtswischen ändern: Einstellungen -> Verhalten -> Wischgesten festlegen
 * Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.

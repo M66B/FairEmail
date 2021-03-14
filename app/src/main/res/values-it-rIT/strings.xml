@@ -685,6 +685,7 @@
     <string name="title_navigation_folder">Mostra nel menu di navigazione</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
     <string name="title_poll_folder">Controllare periodicamente anziché sincronizzare continuamente</string>
+    <string name="title_poll_folder_remark">La maggior parte dei server di posta elettronica consente di inviare messaggi solo per una manciata di cartelle!</string>
     <string name="title_download_folder">Scarica automaticamente messaggi di testo e allegati</string>
     <string name="title_notify_folder">Notifica nuovi messaggi</string>
     <string name="title_auto_classify_source">Classifica i nuovi messaggi in questa cartella</string>

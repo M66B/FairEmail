@@ -144,8 +144,8 @@
     <string name="title_setup_advanced_protection">Khi đã tham gia vào chương trình bảo vệ nâng cao, không thể dùng ứng dụng email bên thứ ba. Đây là sự hạn chế bị áp đặt bởi Google.</string>
     <string name="title_setup_quick_success">Một tài khoản đã được thêm thành công</string>
     <string name="title_setup_manage">Quản lý</string>
-    <string name="title_setup_grant">Cho phép</string>
-    <string name="title_setup_grant_again">Cho phép các quyền được yêu cầu</string>
+    <string name="title_setup_grant">Cấp</string>
+    <string name="title_setup_grant_again">Cấp các quyền được yêu cầu</string>
     <string name="title_setup_exchange_support">Microsoft Exchange có được hỗ trợ không?</string>
     <string name="title_setup_identity_what">Danh tính là gì?</string>
     <string name="title_setup_free">Ứng dụng này có miễn phí để sử dụng không?</string>

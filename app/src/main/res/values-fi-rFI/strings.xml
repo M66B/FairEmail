@@ -124,6 +124,7 @@
     <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_wizard_multiple">Asetusvelhoa voidaan käyttää moneen kertaan useamman tilin asettamiseksi</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
+    <string name="title_setup_manual">Manuaalinen asettaminen ja tiliasetukset</string>
     <string name="title_setup_account_remark">Vastaanota sähköpostia</string>
     <string name="title_setup_identity_remark">Lähetä sähköpostia</string>
     <string name="title_setup_account_identity_hint">Voit määrittää nimen, värin ja pyyhkäisytoiminnot tilin asetuksissa ja allekirjoituksen identiteettiasetuksissa</string>
@@ -218,6 +219,7 @@
     <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.
         Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
     </string>
+    <string name="title_advanced_section_main">Pääasiallinen</string>
     <string name="title_advanced_section_synchronize">Vastaanottaminen</string>
     <string name="title_advanced_section_send">Lähettäminen</string>
     <string name="title_advanced_section_connection">Yhteys</string>
@@ -544,7 +546,7 @@
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_unicode">Käytä Unicode-tiedonsiirtoa</string>
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
-    <string name="title_identity_max_size">Viestin suurin mahdollinen koko (MB)</string>
+    <string name="title_identity_max_size">Viestin suurin mahdollinen koko (Mt)</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Jos saat virheilmoituksen \'invalid greeting\', \'requires valid address\' tai vastaava, yritä muuttaa tätä asetusta</string>
     <string name="title_identity_self_hint">Estää myös vastaamasta itsellesi</string>
@@ -575,6 +577,7 @@
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
+    <string name="title_password_storage">Miten salasanat on tallennettu?</string>
     <string name="title_case_sensitive">Käyttäjätunnukset ja salasanat ovat yleensä merkkikokoriippuvaisia</string>
     <string name="title_client_certificate">Asiakasvarmenne</string>
     <string name="title_realm">Toimialue</string>
@@ -680,6 +683,7 @@
     <string name="title_navigation_folder">Näytä navigointivalikossa</string>
     <string name="title_synchronize_folder">Synkronoi (vastaanota viestejä)</string>
     <string name="title_poll_folder">Tarkista väliajoin jatkuvan synkronoinnin sijaan</string>
+    <string name="title_poll_folder_remark">Useimmat sähköpostipalvelimet sallivat push-viestit vain rajalliselle määrälle kansioita!</string>
     <string name="title_download_folder">Lataa viestien tekstit ja liitteet automaattisesti</string>
     <string name="title_notify_folder">Ilmoita uusista viesteistä</string>
     <string name="title_auto_classify_source">Luokittele uudet viestit tässä kansiossa</string>
@@ -907,6 +911,7 @@
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
+    <string name="title_create_template">Luo viestipohja</string>
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>
@@ -1041,6 +1046,11 @@
     <string name="title_answer_favorite">Suosikki</string>
     <string name="title_answer_hide">Piilota valikoista</string>
     <string name="title_answer_text">Viestipohjan teksti</string>
+    <string name="title_answer_placeholder">Paikkamerkki</string>
+    <string name="title_answer_placeholder_name">Lähettäjän koko nimi</string>
+    <string name="title_answer_placeholder_email">Lähettäjän sähköpostiosoite</string>
+    <string name="title_answer_placeholder_firstname">Lähettäjän etunimi</string>
+    <string name="title_answer_placeholder_lastname">Lähettäjän sukunimi</string>
     <string name="title_rule_noop">Ei toimintoa</string>
     <string name="title_rule_seen">Merkitse luetuksi</string>
     <string name="title_rule_unseen">Merkitse lukemattomaksi</string>
@@ -1397,9 +1407,9 @@
         <item>512 kt</item>
         <item>1 Mt</item>
         <item>2 Mt</item>
-        <item>4 MB</item>
-        <item>8 MB</item>
-        <item>16 MB</item>
+        <item>4 Mt</item>
+        <item>8 Mt</item>
+        <item>16 Mt</item>
         <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
@@ -1472,12 +1482,12 @@
         <item>0 B</item>
         <item>256 KB</item>
         <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
-        <item>5 MB</item>
-        <item>10 MB</item>
-        <item>20 MB</item>
-        <item>50 MB</item>
+        <item>1 Mt</item>
+        <item>2 Mt</item>
+        <item>5 Mt</item>
+        <item>10 Mt</item>
+        <item>20 Mt</item>
+        <item>50 Mt</item>
     </string-array>
     <string-array name="undoNames">
         <item>Pois päältä</item>
