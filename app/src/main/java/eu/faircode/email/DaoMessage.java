@@ -332,6 +332,7 @@ public interface DaoMessage {
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
+            " GROUP BY message.id" +
             " ORDER BY received DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
