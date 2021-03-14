@@ -126,6 +126,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
         Long id = (itemAtEnd == null ? null : itemAtEnd.id); // fall-safe
 
+        if (state.end != null && state.end.equals(id)) {
+            Log.i("Boundary at same end=" + id);
+            return;
+        }
+
         Log.i("Boundary at end=" + id);
         queue_load(state, id);
     }
