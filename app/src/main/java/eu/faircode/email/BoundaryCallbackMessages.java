@@ -297,21 +297,23 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (state.matches.size() == 0)
                 break;
 
+            String query = (criteria.query == null ? null : criteria.query.toLowerCase());
+
             for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
                 state.index = i + 1;
 
                 TupleMatch match = state.matches.get(i);
                 boolean matched = (match.matched != null && match.matched);
 
-                if (criteria.query != null) {
+                if (query != null) {
                     if (!matched && criteria.in_message)
                         try {
                             File file = EntityMessage.getFile(context, match.id);
                             if (file.exists()) {
                                 String html = Helper.readText(file);
-                                if (html.toLowerCase().contains(criteria.query)) {
+                                if (html.toLowerCase().contains(query)) {
                                     String text = HtmlHelper.getFullText(html);
-                                    if (text.toLowerCase().contains(criteria.query))
+                                    if (text != null && text.toLowerCase().contains(query))
                                         matched = true;
                                 }
                             }
