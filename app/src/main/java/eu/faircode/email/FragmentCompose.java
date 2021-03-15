@@ -5718,6 +5718,7 @@ public class FragmentCompose extends FragmentBase {
             final int send_delayed = prefs.getInt("send_delayed", 0);
             final boolean send_dialog = prefs.getBoolean("send_dialog", true);
             final boolean send_archive = prefs.getBoolean("send_archive", false);
+            final boolean name_email = prefs.getBoolean("name_email", false);
 
             final int[] encryptValues = getResources().getIntArray(R.array.encryptValues);
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
@@ -6024,10 +6025,10 @@ public class FragmentCompose extends FragmentBase {
                     Address[] tos = t.toArray(new Address[0]);
 
                     if (extra == 0)
-                        tvTo.setText(MessageHelper.formatAddressesShort(tos));
+                        tvTo.setText(MessageHelper.formatAddresses(tos, name_email, false));
                     else
                         tvTo.setText(getString(R.string.title_name_plus,
-                                MessageHelper.formatAddressesShort(tos), extra));
+                                MessageHelper.formatAddresses(tos, name_email, false), extra));
                     tvTo.setTextColor(Helper.resolveColor(context,
                             to + extra > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
