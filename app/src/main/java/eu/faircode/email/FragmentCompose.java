@@ -5711,7 +5711,9 @@ public class FragmentCompose extends FragmentBase {
             final long size = args.getLong("size", -1);
             final long max_size = args.getLong("max_size", -1);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final Context context = getContext();
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             final boolean send_reminders = prefs.getBoolean("send_reminders", true);
             final int send_delayed = prefs.getInt("send_delayed", 0);
             final boolean send_dialog = prefs.getBoolean("send_dialog", true);
@@ -5721,7 +5723,7 @@ public class FragmentCompose extends FragmentBase {
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
-            final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
+            final ViewGroup dview = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_send, null);
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
             final TextView tvRemindDsn = dview.findViewById(R.id.tvRemindDsn);
             final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
@@ -5998,7 +6000,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            DB db = DB.getInstance(getContext());
+            DB db = DB.getInstance(context);
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
                 @Override
                 public void onChanged(TupleMessageEx draft) {
@@ -6026,7 +6028,7 @@ public class FragmentCompose extends FragmentBase {
                     else
                         tvTo.setText(getString(R.string.title_name_plus,
                                 MessageHelper.formatAddressesShort(tos), extra));
-                    tvTo.setTextColor(Helper.resolveColor(getContext(),
+                    tvTo.setTextColor(Helper.resolveColor(context,
                             to + extra > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     tvVia.setText(draft.identityEmail);
 
@@ -6055,7 +6057,7 @@ public class FragmentCompose extends FragmentBase {
                                     break;
                                 }
                     } else {
-                        DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                        DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                         DateFormat D = new SimpleDateFormat("E");
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
@@ -6131,7 +6133,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             }.execute(FragmentDialogSend.this, aargs, "send:archive");
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setNegativeButton(android.R.string.cancel, null);
 
