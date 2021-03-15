@@ -1033,4 +1033,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Bahnhof AB"
+        link="https://www.bahnhof.se/support/category/bahnhofmejl/fragor-och-svar-om-din-bahnhofmejl/1546">
+        <imap
+            host="imap.privat.bahnhof.se"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mailout.privat.bahnhof.se"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
