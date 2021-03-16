@@ -2144,6 +2144,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private class MediatorState extends MediatorLiveData<List<TupleAccountNetworkState>> {
         private boolean running = true;
+        private Bundle lastCommand = null;
         private ConnectionHelper.NetworkState lastNetworkState = null;
         private List<TupleAccountState> lastAccountStates = null;
 
@@ -2159,12 +2160,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         private void post(ConnectionHelper.NetworkState networkState) {
             lastNetworkState = networkState;
-            post(null, lastNetworkState, lastAccountStates);
+            post(lastCommand, lastNetworkState, lastAccountStates);
         }
 
         private void post(List<TupleAccountState> accountStates) {
             lastAccountStates = accountStates;
-            post(null, lastNetworkState, lastAccountStates);
+            post(lastCommand, lastNetworkState, lastAccountStates);
         }
 
         private void postDestroy() {
@@ -2185,8 +2186,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             if (accountStates == null) {
                 EntityLog.log(ServiceSynchronize.this, "### no accounts");
+                lastCommand = command;
                 return;
             }
+
+            lastCommand = null;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean enabled = prefs.getBoolean("enabled", true);
