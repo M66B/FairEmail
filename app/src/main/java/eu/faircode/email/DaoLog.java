@@ -30,7 +30,8 @@ import java.util.List;
 public interface DaoLog {
     @Query("SELECT * FROM log" +
             " WHERE time > :from" +
-            " ORDER BY time DESC")
+            " ORDER BY time DESC" +
+            " LIMIT 2000")
     LiveData<List<EntityLog>> liveLogs(long from);
 
     @Query("SELECT * FROM log" +
