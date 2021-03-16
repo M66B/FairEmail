@@ -452,6 +452,7 @@
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_optimize">Optimizar automáticamente</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
+    <string name="title_advanced_check_weekly" comment="title_advanced_check_weekly&#10;Check for GitHub updates">Comprobar semanalmente en lugar de diariamente</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
@@ -579,6 +580,7 @@
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
     <string name="title_password">Contraseña</string>
+    <string name="title_password_storage">¿Cómo se almacenan las contraseñas?</string>
     <string name="title_case_sensitive">Los nombres de usuario y contraseñas por lo general distinguen mayúsculas y minúsculas</string>
     <string name="title_client_certificate">Certificado de cliente</string>
     <string name="title_realm">Dominio</string>
@@ -684,6 +686,7 @@
     <string name="title_navigation_folder">Mostrar en el menú de navegación</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
+    <string name="title_poll_folder_remark">¡La mayoría de los servidores de correo electrónico sólo permiten mensajes push para un puñado de carpetas!</string>
     <string name="title_download_folder">Descargar mensajes de texto y archivos adjuntos automáticamente</string>
     <string name="title_notify_folder">Notificar nuevos mensajes</string>
     <string name="title_auto_classify_source">Clasificar mensajes nuevos en esta carpeta</string>

@@ -420,6 +420,8 @@
 金鑰和證書通常可以在 “進階-加密和憑證” 內找到。    </string>
     <string name="title_advanced_external_search">允許其他應用程式搜尋訊息</string>
     <string name="title_advanced_shortcuts">在 Adnroid 分享選單中顯示常用的聯絡人</string>
+    <string name="title_advanced_conversation_actions">建議行動(Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">建議回覆文字(Android 10+)</string>
     <string name="title_advanced_language_detection">偵測訊息語言</string>
     <string name="title_advanced_fts">建立搜尋索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 訊息被索引 (%3$s)</string>
@@ -429,6 +431,7 @@
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
     <string name="title_advanced_optimize">自動最佳化</string>
     <string name="title_advanced_updates">檢查GitHub上的更新</string>
+    <string name="title_advanced_check_weekly" comment="title_advanced_check_weekly&#10;Check for GitHub updates">每周檢查而非每日檢查</string>
     <string name="title_advanced_experiments">嘗試實驗性功能</string>
     <string name="title_advanced_query_threads">限制資料庫平行存取</string>
     <string name="title_advanced_crash_reports">傳送錯誤報告</string>
@@ -550,6 +553,7 @@
     <string name="title_port">連結埠</string>
     <string name="title_user">使用者名稱</string>
     <string name="title_password">密碼</string>
+    <string name="title_password_storage">密碼是如何被儲存的？</string>
     <string name="title_case_sensitive">使用者名稱與密碼大小寫為不同字元</string>
     <string name="title_client_certificate">使用者證書</string>
     <string name="title_realm">領域</string>
@@ -875,6 +879,7 @@
     <string name="title_media_toolbar">媒體工具欄</string>
     <string name="title_insert_contact_group">插入聯繫人組</string>
     <string name="title_insert_template">插入模板</string>
+    <string name="title_create_template">建立範本</string>
     <string name="title_edit_plain_text">編輯為純文本</string>
     <string name="title_edit_formatted_text">編輯為重新格式化的文本</string>
     <string name="title_select_certificate">選擇公鑰</string>
@@ -1007,6 +1012,11 @@
     <string name="title_answer_favorite">喜愛</string>
     <string name="title_answer_hide">從菜單隱藏</string>
     <string name="title_answer_text">範本文字</string>
+    <string name="title_answer_placeholder">占位符</string>
+    <string name="title_answer_placeholder_name">發送者全名</string>
+    <string name="title_answer_placeholder_email">發送者電子郵件地址</string>
+    <string name="title_answer_placeholder_firstname">發送者名字</string>
+    <string name="title_answer_placeholder_lastname">發送者姓氏</string>
     <string name="title_rule_noop">沒有行動</string>
     <string name="title_rule_seen">標記為已讀</string>
     <string name="title_rule_unseen">標記為未讀</string>

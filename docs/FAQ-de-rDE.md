@@ -1,6 +1,6 @@
 # FairEmail - Support
 
-Bei Fragen, machen Sie sich zu erst mit dem Bereich "häufig gestellte Fragen" vertraut. [ Unten ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie andere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Unten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -20,11 +20,11 @@ In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die ri
 
 Sollte der Schnelleinrichtungs-Assistent fehlschlagen, müssen Sie Ihr Konto für das Versenden und Empfangen von E-Mails, manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
 
-In den meisten Fällen ist eine Suche nach *IMAP* und dem Namen des Providers erfolgreich, um die richtige Anleitung zu finden.
+Die Suche nach *IMAP* und dem Namen des E-Mail-Anbieters reichen meist aus, um die richtige Anleitung zu finden.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+In einigen Fällen müssen Sie den externen Zugriff auf Ihr Konto erlauben und/oder ein spezielles (App-)Passwort verwenden, wenn beispielsweise eine Zwei-Faktor-Authentifizierung aktiviert ist.
 
-For authorizing:
+Für die Anmeldung:
 
 * Gmail / G Suite: siehe [Frage 6](#user-content-faq6)
 * Outlook / Live / Hotmail: siehe [Frage 14](#user-content-faq14)
@@ -45,15 +45,15 @@ For authorizing:
 
 ## Wie kann ich …?
 
-* Accountname ändern: Einstellungen > Manueller Setup > Mehr Optionen > Accounts > Account auswählen
+* Kontonamen ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen
 * Aktion für Links-/Rechtswischen ändern: Einstellungen -> Verhalten -> Wischgesten festlegen
-* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
+* Das Passwort ändern: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Konten” ➜ Konto auswählen ➜ Passwort ändern
+* Signatur festlegen: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Identitäten” ➜ Identität auswählen ➜ "Signatur bearbeiten".
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
 * Zur nächsten/vorherigen Nachricht beim Archiviren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
 * Einen Ordner zum Sammeleingang hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Sammeleingang anzeigen* ankreuzen
 * Einen Ordner zum Navigationsmenü hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Navigationsmenü anzeigen* ankreuzen
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* Weitere Nachrichten laden: Lange auf den Ordner in der Ordnerliste drücken und *Weitere Nachrichten abrufen* auswählen
 * Eine Nachricht löschen und den den Papierkorb überspringen: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder den Papierkorb in den Kontoeinstellungen deaktivieren
 * Ein Konto/Identität löschen: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Konten/Identitäten” ➜ Konto/Identität auswählen ➜ „⁝” Drei-Punkte-Menü ➜ „Löschen”
 * Ordner löschen: lange auf den Ordner in der Ordnerliste drücken, Eigenschaften, Drei-Punkte-Menü, Löschen
@@ -115,11 +115,11 @@ For authorizing:
 * ~~S/MIME-Unterstützung~~
 * ~~Einstellungen durchsuchen~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Alles auf dieser Liste ist in zufälliger Reihenfolge und *könnte* in naher Zukunft hinzugefügt werden.
 
 ## Häufig angefragte Funktionen
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Knöpfe usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.), zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach zu verwenden zu können. Schriften, Größen, Farben usw. sollten nach Möglichkeit dem 'Material Design' von Android entsprechen.
 
 ## Häufig gestellte Fragen
 
@@ -258,7 +258,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(135) Warum werden gelöschte Nachrichten oder Entwürfe in Konversationen angezeigt?](#user-content-faq135)
 * [(136) Wie kann ich ein Konto/Identität/Ordner löschen?](#user-content-faq136)
 * [(137) Wie kann ich »Nicht erneut fragen« zurücksetzen?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
+* [(138) Können Kalender/Kontakte/Aufgaben/Notizverwaltung hinzugefügt werden?](#user-content-faq138)
 * [(139) Wie behebe ich »Benutzer ist angemeldet, aber nicht verbunden«?](#user-content-faq139)
 * [(140) Warum enthält der Nachrichtentext seltsame Zeichen?](#user-content-faq140)
 * [(141) Wie kann ich »Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden« beheben?](#user-content-faq141)
@@ -285,14 +285,14 @@ The design is based on many discussions and if you like you can discuss about it
 * [(162) Wird IMAP NOTIFY unterstützt?](#user-content-faq162)
 * [(163) Was ist Nachrichtenklassifizierung?](#user-content-faq163)
 * [(164) Können Sie anpassbare Designs hinzufügen?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(165) Wird Android Auto unterstützt?](#user-content-faq165)
 
-[I have another question.](#user-content-support)
+[Ich habe eine andere Frage.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Welche Berechtigungen werden benötigt und warum?**
 
-The following Android permissions are needed:
+Die folgenden Android Berechtigungen sind notwendig:
 
 * *Auf alle Netzwerke zugreifen * (INTERNET): E-Mails senden und empfangen
 * *Netzwerkverbindungen abrufen* (ACCESS_NETWORK_STATE): Um Änderungen bei der Internetverbindung zu überwachen
@@ -430,7 +430,7 @@ You can pin the certificate too, see above.
 
 *Empty password*
 
-Your username is likely easily guessed, so this is insecure.
+Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist das unsicher.
 
 *Plain text connection*
 
@@ -2990,26 +2990,26 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 
 ## Support erhalten
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail kann nur auf Smartphones, Tablets und ChromeOS genutzt werden.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Nur die neueste Version des Play Stores oder von GitHub werden unterstützt. Der F-Droid-Build wird nur unterstützt, wenn die Versionsnummer mit der Versionsnummer der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass ein Downgrade nicht unterstützt wird.
 
-There is no support on things that are not directly related to FairEmail.
+Für Funktionen, die nicht direkt mit FairEmail zusammenhängen, gibt es keine Unterstützung.
 
-There is no support on building and developing things by yourself.
+Es gibt keinem Support für eigene Builds und selbstentwickelte Funktionen.
 
-Requested features should:
+Angeforderte Funktionen sollten:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* für die meisten Menschen nützlich sein
+* die Nutzung von FairEmail nicht verkomplizieren
+* in die Philosophie von FairEmail passen (privatsphäre- und sicherheitsorientiert)
+* den gängigen Standards entsprechen (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Das soll auch langfristig die Wartung und Unterstützung ermöglichen.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, **benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+GitHub Issues sind wegen häufigen Missbrauchs deaktiviert.
 
 <br />
 

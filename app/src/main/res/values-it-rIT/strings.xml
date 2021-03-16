@@ -452,6 +452,7 @@
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_updates">Controlla gli aggiornamenti su GitHub</string>
+    <string name="title_advanced_check_weekly" comment="title_advanced_check_weekly&#10;Check for GitHub updates">Controlla settimanalmente invece che quotidianamente</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_query_threads">Limita l\'accesso alla banca dati parallela</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>

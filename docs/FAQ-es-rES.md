@@ -16,9 +16,9 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden ha�
 
 ## Autorizando cuentas
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+En la mayoría de los casos, el asistente de configuración rápida podrá identificar automáticamente la configuración correcta.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Si el asistente de configuración rápida falla, necesitará configurar manualmente una cuenta (para recibir correo electrónico) y una identidad (para enviar correo electrónico). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 

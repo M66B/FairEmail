@@ -1,6 +1,6 @@
 # Wsparcie FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+W razie jakichkolwiek pytań, sprawdź najpierw poniższy FAQ. [Poniżej](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) dowiesz się jak zadawać pytania innego typu, proponować nowe funkcje i zgłaszać blędy.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -16,9 +16,9 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## Autoryzacja kont
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+W większości przypadków, szybki kreator ustawień będzie w stanie automatycznie rozpoznać poprawną konfigurację.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Jeśli szybki kreator konfiguracji nie powiedzie się, musisz ręcznie skonfigurować konto (aby otrzymywać e-mail) i tożsamość (aby wysłać e-mail). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 

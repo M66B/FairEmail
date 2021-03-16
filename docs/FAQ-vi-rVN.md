@@ -34,7 +34,7 @@ In some cases, you'll need to enable external access to your account and/or to u
 * Icloud của Apple, xem [ câu hỏi 148 ](#user-content-faq148)
 * Free.fr, xem [ câu hỏi 157 ](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Hãy xem [chỗ này](#user-content-faq22) để tìm các thông báo lỗi phổ biến và giải pháp.
 
 Câu hỏi liên quan:
 
@@ -143,8 +143,8 @@ The design is based on many discussions and if you like you can discuss about it
 * [(18) Why is the message preview not always shown?](#user-content-faq18)
 * [(19) Tại sao các tính năng pro lại đắt thế?](#user-content-faq19)
 * [(20) Tôi có thể được hoàn tiền không?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
+* [(21) Tôi bật đèn thông báo như thế nào?](#user-content-faq21)
+* [(22) Lỗi tài khoản/thư mục ... có nghĩa là gì?](#user-content-faq22)
 * [(23) Why do I get alert .. ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
@@ -194,7 +194,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(70) When will messages be auto expanded?](#user-content-faq70)
 * [(71) How do I use filter rules?](#user-content-faq71)
 * [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
+* [(73) Việc di chuyển thư qua các tài khoản có an toàn/hiệu quả không?](#user-content-faq73)
 * [(74) Why do I see duplicate messages?](#user-content-faq74)
 * [(75) Bạn có thể tạo phiên bản cho iOS, Windows, Linux, v.v. không?](#user-content-faq75)
 * [(76) What does 'Clear local messages' do?](#user-content-faq76)
@@ -204,8 +204,8 @@ The design is based on many discussions and if you like you can discuss about it
 * [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
 * [(82) Hình ảnh theo dõi là gì?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
+* [(84) Các liên hệ cục bộ dùng để làm gì?](#user-content-faq84)
+* [(84) Tại sao một danh tính không có sẵn?](#user-content-faq85)
 * [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
 * [(88) How can I use a Yahoo, AOL or Sky account?](#user-content-faq88)
@@ -287,7 +287,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(164) Can you add customizable themes?](#user-content-faq164)
 * [(165) Is Android Auto supported?](#user-content-faq165)
 
-[I have another question.](#user-content-support)
+[Tôi có một câu hỏi khác.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**

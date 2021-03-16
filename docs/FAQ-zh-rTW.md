@@ -2984,11 +2984,11 @@ For notification (messaging) support you'll need to enable the following notific
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+開發者指引請看 [這裡](https://developer.android.com/training/cars/messaging).
 
 <br />
 
-## Get support
+## 取得支援
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 
@@ -2998,16 +2998,16 @@ There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Requested features should:
+請求新增的功能須有下列特質：
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* 對大部分人來說是好用的
+* 不會讓FairEmail變得複雜
+* 符合FairEmail重視隱私及安全性的原則
+* 與常見標準相容(如：IMAP、SMTP等等)
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+如果您有問題、想要要求新功能，或是回報bug，</strong>請使用[此格式](https://contact.faircode.eu/?product=fairemailsupport)</0>
 
 GitHub issues are disabled due to frequent misusage.
 

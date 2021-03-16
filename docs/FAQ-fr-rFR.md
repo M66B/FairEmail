@@ -477,9 +477,9 @@ Certaines personnes demandent :
 <a name="faq6"></a>
 **(6) Comment puis-je me connecter à Gmail / G suite ?**
 
-Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utiliser l'assistant de configuration rapide pour configurer facilement un compte Gmail et une identité. La mise en place rapide de Gmail n'est pas disponible pour les versions tierces, dont celles venant de F-Droid car Google approuve l'utilisation de l'OAuth uniquement sur les versions officielles.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Si vous ne voulez ou ne pouvez pas utiliser de compte Google sur votre appareil, par exemple sur les appareils Huawei récents, vous pouvez soit autoriser l'accès pour les "applications moins sécurisées" et utiliser le mot de passe de votre compte (non recommandé) ou activer la double authentification et utiliser le mot de passe d'application. Pour utiliser un mot de passe vous devez créer un compte et vous identifier via la configuration manuelle au lieu de l'assistant de configuration.
 
 **Important**: sometimes Google issues this alert:
 
