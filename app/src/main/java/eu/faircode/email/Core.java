@@ -1756,52 +1756,61 @@ class Core {
         List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
         for (EntityFolder folder : folders)
             if (folder.tbc != null) {
-                Log.i(folder.name + " creating");
-                Folder ifolder = istore.getFolder(folder.name);
-                if (!ifolder.exists()) {
-                    ifolder.create(Folder.HOLDS_MESSAGES);
-                    ifolder.setSubscribed(true);
+                try {
+                    Log.i(folder.name + " creating");
+                    Folder ifolder = istore.getFolder(folder.name);
+                    if (!ifolder.exists()) {
+                        ifolder.create(Folder.HOLDS_MESSAGES);
+                        ifolder.setSubscribed(true);
+                    }
+                    local.put(folder.name, folder);
+                } finally {
+                    db.folder().resetFolderTbc(folder.id);
+                    sync_folders = true;
                 }
-                db.folder().resetFolderTbc(folder.id);
-                local.put(folder.name, folder);
-                sync_folders = true;
 
             } else if (folder.rename != null) {
-                Log.i(folder.name + " rename into " + folder.rename);
-                Folder ifolder = istore.getFolder(folder.name);
-                if (ifolder.exists()) {
-                    // https://tools.ietf.org/html/rfc3501#section-6.3.9
-                    boolean subscribed = ifolder.isSubscribed();
-                    if (subscribed)
-                        ifolder.setSubscribed(false);
+                try {
+                    Log.i(folder.name + " rename into " + folder.rename);
+                    Folder ifolder = istore.getFolder(folder.name);
+                    if (ifolder.exists()) {
+                        // https://tools.ietf.org/html/rfc3501#section-6.3.9
+                        boolean subscribed = ifolder.isSubscribed();
+                        if (subscribed)
+                            ifolder.setSubscribed(false);
 
-                    Folder itarget = istore.getFolder(folder.rename);
-                    ifolder.renameTo(itarget);
+                        Folder itarget = istore.getFolder(folder.rename);
+                        ifolder.renameTo(itarget);
 
-                    if (subscribed && folder.selectable)
-                        try {
-                            itarget.open(READ_WRITE);
-                            itarget.setSubscribed(subscribed);
-                            itarget.close();
-                        } catch (MessagingException ex) {
-                            Log.w(ex);
-                        }
+                        if (subscribed && folder.selectable)
+                            try {
+                                itarget.open(READ_WRITE);
+                                itarget.setSubscribed(subscribed);
+                                itarget.close();
+                            } catch (MessagingException ex) {
+                                Log.w(ex);
+                            }
 
-                    db.folder().renameFolder(folder.account, folder.name, folder.rename);
-                    folder.name = folder.rename;
+                        db.folder().renameFolder(folder.account, folder.name, folder.rename);
+                        folder.name = folder.rename;
+                    }
+                } finally {
+                    db.folder().resetFolderRename(folder.id);
+                    sync_folders = true;
                 }
-                db.folder().resetFolderRename(folder.id);
-                sync_folders = true;
 
             } else if (folder.tbd != null && folder.tbd) {
-                Log.i(folder.name + " deleting");
-                Folder ifolder = istore.getFolder(folder.name);
-                if (ifolder.exists()) {
-                    ifolder.setSubscribed(false);
-                    ifolder.delete(false);
+                try {
+                    Log.i(folder.name + " deleting");
+                    Folder ifolder = istore.getFolder(folder.name);
+                    if (ifolder.exists()) {
+                        ifolder.setSubscribed(false);
+                        ifolder.delete(false);
+                    }
+                } finally {
+                    db.folder().deleteFolder(folder.id);
+                    sync_folders = true;
                 }
-                db.folder().deleteFolder(folder.id);
-                sync_folders = true;
 
             } else {
                 if (EntityFolder.DRAFTS.equals(folder.type))
