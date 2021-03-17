@@ -2030,7 +2030,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private final ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(@NonNull Network network) {
-            updateNetworkState(network, "available");
+            // Android O+: this will always immediately be followed by a call to onCapabilitiesChanged/onLinkPropertiesChanged
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                updateNetworkState(network, "available");
         }
 
         @Override
