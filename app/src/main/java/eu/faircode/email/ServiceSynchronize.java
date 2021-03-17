@@ -2046,6 +2046,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
 
         @Override
+        public void onBlockedStatusChanged(@NonNull Network network, boolean blocked) {
+            EntityLog.log(ServiceSynchronize.this, "Network " + network + " blocked=" + blocked);
+        }
+
+        @Override
         public void onLost(@NonNull Network network) {
             updateNetworkState(network, "lost");
         }
