@@ -539,6 +539,7 @@ class Core {
                             // Add: NO APPEND failed: Unknown flag: SEEN
                             // Add: BAD mtd: internal error: APPEND Message too long. 12345678
                             // Add: NO [OVERQUOTA] Not enough disk quota (n.nnn + n.nnn + n.nnn secs).
+                            // Add: NO [OVERQUOTA] Quota exceeded (mailbox for user is full) (n.nnn + n.nnn secs).
                             // Add: NO APPEND failed
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
