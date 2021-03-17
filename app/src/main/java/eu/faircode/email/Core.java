@@ -1807,8 +1807,9 @@ class Core {
                         ifolder.setSubscribed(false);
                         ifolder.delete(false);
                     }
-                } finally {
                     db.folder().deleteFolder(folder.id);
+                } finally {
+                    db.folder().resetFolderTbd(folder.id);
                     sync_folders = true;
                 }
 

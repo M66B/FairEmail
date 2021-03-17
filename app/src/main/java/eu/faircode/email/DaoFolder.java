@@ -336,6 +336,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET tbc = NULL WHERE id = :id AND tbc IS NOT NULL")
     int resetFolderTbc(long id);
 
+    @Query("UPDATE folder SET tbd = NULL WHERE id = :id AND tbd IS NOT NULL")
+    int resetFolderTbd(long id);
+
     @Query("UPDATE folder SET `rename` = NULL WHERE id = :id AND `rename` IS NOT NULL")
     int resetFolderRename(long id);
 
