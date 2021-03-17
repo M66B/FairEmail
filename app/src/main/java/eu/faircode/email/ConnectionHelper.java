@@ -210,6 +210,10 @@ public class ConnectionHelper {
     }
 
     private static Boolean isMetered(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
+        boolean require_validated = prefs.getBoolean("require_validated", false);
+
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null) {
             Log.i("isMetered: no connectivity manager");
@@ -248,10 +252,17 @@ public class ConnectionHelper {
 
         Log.i("isMetered: active caps=" + caps);
 
-        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-            Log.i("isMetered: no internet");
-            return null;
+        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+            if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                Log.i("isMetered: no internet");
+                return null;
+            }
+            if (require_validated &&
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                    !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
+                Log.i("isMetered: not validated");
+                return null;
+            }
         }
 
         if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
@@ -265,8 +276,6 @@ public class ConnectionHelper {
             return null;
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
         if (standalone_vpn ||
                 caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             // NET_CAPABILITY_NOT_METERED is unreliable on older Android versions
