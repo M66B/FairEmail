@@ -2,7 +2,7 @@
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Unten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Übersicht
 
@@ -12,7 +12,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Geplante Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Häufig angefragte Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Häufig gestellte Fragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Hilfe](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Hilfe erhalten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Konten autorisieren
 
@@ -46,21 +46,21 @@ Für die Anmeldung:
 ## Wie kann ich …?
 
 * Kontonamen ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen
-* Aktion für Links-/Rechtswischen ändern: Einstellungen -> Verhalten -> Wischgesten festlegen
-* Das Passwort ändern: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Konten” ➜ Konto auswählen ➜ Passwort ändern
-* Signatur festlegen: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Identitäten” ➜ Identität auswählen ➜ "Signatur bearbeiten".
+* Aktion für Links-/Rechtswischen ändern: Einstellungen → Verhalten → Wischgesten festlegen
+* Passwort ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen → Passwort ändern
+* Signatur festlegen: Einstellungen → Manuelle Einrichtung und weitere Optionen → Identitäten → Identität auswählen → Signatur bearbeiten.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
 * Zur nächsten/vorherigen Nachricht beim Archiviren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
 * Einen Ordner zum Sammeleingang hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Sammeleingang anzeigen* ankreuzen
 * Einen Ordner zum Navigationsmenü hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Navigationsmenü anzeigen* ankreuzen
-* Weitere Nachrichten laden: Lange auf den Ordner in der Ordnerliste drücken und *Weitere Nachrichten abrufen* auswählen
+* Weitere Nachrichten laden: lange auf den Ordner in der Ordnerliste drücken und *Weitere Nachrichten abrufen* auswählen
 * Eine Nachricht löschen und den den Papierkorb überspringen: im 3-Punkte-Menü direkt über dem Nachrichtentext *Löschen* oder den Papierkorb in den Kontoeinstellungen deaktivieren
-* Ein Konto/Identität löschen: „Einstellungen” ➜ „Manuelle Einrichtung” ➜ „Weitere Optionen” ➜ „Konten/Identitäten” ➜ Konto/Identität auswählen ➜ „⁝” Drei-Punkte-Menü ➜ „Löschen”
+* Konto/Identität löschen: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten/Identitäten → Konto/Identität auswählen → Drei-Punkte-Menü → Löschen
 * Ordner löschen: lange auf den Ordner in der Ordnerliste drücken, Eigenschaften, Drei-Punkte-Menü, Löschen
 * Absenden rückgängig machen: Postausgang, Nachricht antippen, Symbol rückgängig tippen
 * Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation/hamburger menu
+* Systemordner ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen → im unteren Bereich
+* Einstellungen exportieren/importieren: Einstellungen → Hamburgermenü → Einstellungen exportieren/importieren
 
 ## Bekannte Probleme
 
@@ -292,7 +292,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 <a name="faq1"></a>
 **(1) Welche Berechtigungen werden benötigt und warum?**
 
-Die folgenden Android Berechtigungen sind notwendig:
+Die folgenden Android-Berechtigungen sind notwendig:
 
 * *Auf alle Netzwerke zugreifen * (INTERNET): E-Mails senden und empfangen
 * *Netzwerkverbindungen abrufen* (ACCESS_NETWORK_STATE): Um Änderungen bei der Internetverbindung zu überwachen
@@ -307,9 +307,9 @@ Die folgenden Android Berechtigungen sind notwendig:
 * Android 5.1 Lollipop und vorher: *Benutzen Sie Konten auf dem Gerät* (USE_CREDENTIALS): Wählen Sie ein Konto bei der Verwendung der Google-Mail-Schnelleinstellung (nicht bei späteren Android-Versionen erforderlich)
 * Android 5.1 Lollipop und vorher: *Profil lesen* (READ_PROFILE): um Ihren Namen bei der Verwendung der Gmail-Schnelleinrichtung zu lesen (nicht bei späteren Android-Versionen erforderlich)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Optionale Berechtigungen](https://developer.android.com/training/permissions/requesting) werden nur auf Android 6 Marshmallow und später unterstützt. Bei früheren Android-Versionen werden Sie aufgefordert, die optionalen Berechtigungen bei der Installation von FairEmail zu erteilen.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Die folgenden Berechtigungen werden benötigt, um die Anzahl ungelesener Nachrichten auf dem App-Icon anzuzeigen (siehe auch [diese FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -328,20 +328,20 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail wird eine Liste der E-Mail-Adressen aufbewahren, von denen Sie Nachrichten erhalten und an die Sie Nachrichten gesendet haben und wird diese Liste für Kontaktvorschläge verwenden, wenn FairEmail keine Berechtigung für das Lesen der Kontakte erteilt wurde. Das bedeutet, dass Sie FairEmail ohne den Android-Kontaktanbieter (das Adressbuch) verwenden können. Beachten Sie, dass Sie immer noch Kontakte auswählen können, ohne FairEmail die Berechtigung auf Kontakte zu erteilen, nur vorgeschlagene Kontakte werden ohne Kontaktberechtigungen nicht funktionieren.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Warum wird eine permanente Benachrichtigung angezeigt?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Eine permanente Statusleiste mit niedriger Priorität mit der Anzahl der zu überwachenden Konten und der Anzahl der ausstehenden Operationen (siehe die nächste Frage) wird angezeigt, um zu verhindern, dass Android den Dienst beendet, der sich um den kontinuierlichen Empfang von E-Mails kümmert. Das war [immer notwendig](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), aber mit der Einführung des [Doze-Modus](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow ist das nun notwendiger denn je. Der Doze-Modus beendet alle Apps, wenn der Bildschirm für einige Zeit ausgeschaltet ist, es sei denn, die App hat einen Vordergrund-Dienst gestartet, was die Anzeige einer Statusleisten-Benachrichtigung erfordert.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Die meisten, wenn nicht gar alle anderen E-Mail-Apps zeigen keine Benachrichtigungen an, was zu den "Nebeneffekten" führt, dass es keinen oder nur einen verspäteten Hinweis auf neu eingegangene Nachrichten gibt oder ausgehende Nachrichten nicht oder nur verzögert versandt werden.
 
 Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Die Statusleisten-Benachrichtigung kann über die Benachrichtigungseinstellungen von FairEmail deaktiviert werden:
 
 * Android 8 Oreo und später: Tippen Sie auf *Kanal empfangen* und deaktivieren Sie den Kanal über die Android-Einstellungen (dies wird keine neuen Nachrichten deaktivieren)
 * Android 7 Nougat und vorher: aktiviert *Hintergrunddienst verwenden, um Nachrichten zu synchronisieren*, aber lesen Sie die Bemerkung unter der Einstellung
@@ -2973,9 +2973,9 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) Wird Android Auto unterstützt?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Ja, Android Auto wird unterstützt, aber nur mit der GitHub Version, bitte [sehen Sie hier](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) nach, warum.
 
 For notification (messaging) support you'll need to enable the following notification options:
 
@@ -2984,15 +2984,15 @@ For notification (messaging) support you'll need to enable the following notific
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+Die Anleitung für Entwickler ist [hier](https://developer.android.com/training/cars/messaging).
 
 <br />
 
-## Support erhalten
+## Hilfe erhalten
 
 FairEmail kann nur auf Smartphones, Tablets und ChromeOS genutzt werden.
 
-Nur die neueste Version des Play Stores oder von GitHub werden unterstützt. Der F-Droid-Build wird nur unterstützt, wenn die Versionsnummer mit der Versionsnummer der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass ein Downgrade nicht unterstützt wird.
+Nur die neuesten Versionen aus dem Play-Store oder von GitHub werden unterstützt. Der F-Droid-Build wird nur unterstützt, wenn die Versionsnummer mit der Versionsnummer der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass ein Downgrade nicht unterstützt wird.
 
 Für Funktionen, die nicht direkt mit FairEmail zusammenhängen, gibt es keine Unterstützung.
 
@@ -3013,4 +3013,4 @@ GitHub Issues sind wegen häufigen Missbrauchs deaktiviert.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Urheberrecht &copy; 2018-2021 Marcel Bokhorst.

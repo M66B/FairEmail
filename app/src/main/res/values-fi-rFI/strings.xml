@@ -348,7 +348,7 @@
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
-    <string name="title_advanced_parse_classes">Jäsennä tyyliohjeet</string>
+    <string name="title_advanced_parse_classes">Jäsennä tyylisäännöstöt</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_sync_on_launch">Synkronoi käynnistettäessä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
@@ -450,6 +450,7 @@
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
+    <string name="title_advanced_check_weekly" comment="title_advanced_check_weekly&#10;Check for GitHub updates">Tarkista viikoittain päivittäisen sijaan</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_query_threads">Rajoita rinnakkaisia tietokantayhteyksiä</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
