@@ -35,6 +35,8 @@ import android.webkit.CookieManager;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -98,7 +100,7 @@ public class ApplicationEx extends Application
 
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
-            public void uncaughtException(Thread thread, Throwable ex) {
+            public void uncaughtException(@NotNull Thread thread, @NotNull Throwable ex) {
                 if (!crash_reports && Log.isOwnFault(ex)) {
                     Log.e(ex);
 
@@ -436,7 +438,7 @@ public class ApplicationEx extends Application
         editor.apply();
     }
 
-    private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
+    private final BroadcastReceiver onScreenOff = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.i("Received " + intent);
