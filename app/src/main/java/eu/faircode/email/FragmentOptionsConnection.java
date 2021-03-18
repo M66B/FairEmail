@@ -51,6 +51,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -70,6 +71,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvNetworkMetered;
     private TextView tvNetworkRoaming;
     private TextView tvNetworkInfo;
+
+    private Group grpValidated;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "roaming", "rlah",
@@ -102,6 +105,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
         tvNetworkRoaming = view.findViewById(R.id.tvNetworkRoaming);
         tvNetworkInfo = view.findViewById(R.id.tvNetworkInfo);
+
+        grpValidated = view.findViewById(R.id.grpValidated);
 
         setOptions();
 
@@ -144,7 +149,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
-        swValidated.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
+        grpValidated.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
         swValidated.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

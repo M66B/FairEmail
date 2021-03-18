@@ -175,7 +175,7 @@
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvValidateHint"
+            android:id="@+id/tvValidatedHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
@@ -197,7 +197,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvValidateHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvValidatedHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvTimeoutHint"
@@ -340,5 +340,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNetworkRoaming" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpValidated"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="swValidated,tvValidatedHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
