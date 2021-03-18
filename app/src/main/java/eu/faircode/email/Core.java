@@ -3813,7 +3813,7 @@ class Core {
         boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
-        boolean biometric_notify = prefs.getBoolean("biometrics_notify", false);
+        boolean biometric_notify = prefs.getBoolean("biometrics_notify", true);
         boolean pro = ActivityBilling.isPro(context);
 
         boolean redacted = ((biometrics || !TextUtils.isEmpty(pin)) && !biometric_notify);

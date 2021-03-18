@@ -421,6 +421,9 @@ public class ApplicationEx extends Application
         } else if (version < 1525) {
             if (!prefs.contains("download"))
                 editor.putInt("download", 512 * 1024);
+        } else if (version < 1533) {
+            if (!prefs.contains("biometrics_notify"))
+                editor.putBoolean("biometrics_notify", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
