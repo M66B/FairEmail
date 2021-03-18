@@ -2022,7 +2022,7 @@ public class MessageHelper {
             return null;
         }
 
-        void downloadAttachment(Context context, EntityAttachment local, Long related) throws IOException, MessagingException {
+        void downloadAttachment(Context context, EntityAttachment local) throws IOException, MessagingException {
             List<EntityAttachment> remotes = getAttachments();
 
             // Some servers order attachments randomly
@@ -2084,13 +2084,13 @@ public class MessageHelper {
             if (index < 0)
                 throw new IllegalArgumentException("Attachment not found");
 
-            downloadAttachment(context, index, local, related);
+            downloadAttachment(context, index, local);
 
             if (Helper.isTnef(local.type, local.name))
                 decodeTNEF(context, local);
         }
 
-        void downloadAttachment(Context context, int index, EntityAttachment local, Long related) throws MessagingException, IOException {
+        void downloadAttachment(Context context, int index, EntityAttachment local) throws MessagingException, IOException {
             Log.i("downloading attachment id=" + local.id + " index=" + index + " " + local);
 
             DB db = DB.getInstance(context);
@@ -2101,8 +2101,6 @@ public class MessageHelper {
             // Download attachment
             File file = EntityAttachment.getFile(context, local.id, local.name);
             db.attachment().setProgress(local.id, 0);
-            if (related != null)
-                db.attachment().setProgress(related, 0);
 
             if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt) ||
                     EntityAttachment.SMIME_CONTENT.equals(apart.encrypt)) {
@@ -2143,10 +2141,7 @@ public class MessageHelper {
                                 long now = System.currentTimeMillis();
                                 if (now - lastprogress > ATTACHMENT_PROGRESS_UPDATE) {
                                     lastprogress = now;
-                                    int progress = (int) (size * 100 / total);
-                                    db.attachment().setProgress(local.id, progress);
-                                    if (related != null)
-                                        db.attachment().setProgress(related, progress);
+                                    db.attachment().setProgress(local.id, (int) (size * 100 / total));
                                 }
                             }
                         }
@@ -2154,11 +2149,6 @@ public class MessageHelper {
 
                     // Store attachment data
                     db.attachment().setDownloaded(local.id, size);
-                    if (related != null) {
-                        File rel = EntityAttachment.getFile(context, related, local.name);
-                        Helper.copy(file, rel);
-                        db.attachment().setDownloaded(related, size);
-                    }
 
                     Log.i("Downloaded attachment size=" + size);
                 } catch (FolderClosedIOException ex) {

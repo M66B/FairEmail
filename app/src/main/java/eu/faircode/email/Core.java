@@ -1646,7 +1646,6 @@ class Core {
         DB db = DB.getInstance(context);
 
         long id = jargs.getLong(0);
-        Long related = (jargs.length() > 1 ? jargs.getLong(1) : null);
 
         // Get attachment
         EntityAttachment attachment = db.attachment().getAttachment(id);
@@ -1669,7 +1668,7 @@ class Core {
         MessageHelper.MessageParts parts = helper.getMessageParts();
 
         // Download attachment
-        parts.downloadAttachment(context, attachment, related);
+        parts.downloadAttachment(context, attachment);
 
         if (attachment.size != null)
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
@@ -2415,7 +2414,7 @@ class Core {
 
                         for (EntityAttachment attachment : parts.getAttachments())
                             if (attachment.subsequence == null)
-                                parts.downloadAttachment(context, attachment, null);
+                                parts.downloadAttachment(context, attachment);
 
 
                         updateContactInfo(context, account, folder, message);
@@ -3753,7 +3752,7 @@ class Core {
                     if (state.getNetworkState().isUnmetered() ||
                             (attachment.size != null && attachment.size < maxSize))
                         try {
-                            parts.downloadAttachment(context, attachment, null);
+                            parts.downloadAttachment(context, attachment);
                             if (stats != null && attachment.size != null)
                                 stats.attachments += attachment.size;
                         } catch (Throwable ex) {
