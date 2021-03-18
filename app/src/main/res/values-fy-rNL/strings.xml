@@ -148,7 +148,6 @@
     <string name="title_setup_permissions_remark">Om tagong te krijen ta kontaktynformaasje (opsjoneel)</string>
     <string name="title_setup_doze_remark">Om e-post betrouber te ûntfangen</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil it útskeakeljen fan batterijoptimaasjes resultearje yn minder batterijgebrûk</string>
-    <string name="title_setup_doze_instructions">Selektearje yn it folgjende dialooch \"Alle apps\" boppe, selektearje dizze app en selektearje en befestigje \"Net optimalisearje\"</string>
     <string name="title_setup_doze_battery">Hege batterij gebrûk?</string>
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
     <string name="title_setup_data">Data saver is ynskeakele</string>

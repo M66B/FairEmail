@@ -102,7 +102,7 @@
     <string name="title_junk_filter">Использовать локальный фильтр спама</string>
     <string name="title_junk_filter_hint">Может увеличить расход заряда батареи и неправильно помечать сообщения как спам</string>
     <string name="title_notification_sending">Отправка сообщений</string>
-    <string name="title_notification_waiting">Ожидание подходящего соединения</string>
+    <string name="title_notification_waiting">Ожидание подходящего подключения</string>
     <string name="title_notification_idle">Низкий</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
     <string name="title_notification_alert">\"%1$s\" предупреждение сервера</string>
@@ -187,7 +187,7 @@
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжного получения электронной почты</string>
     <string name="title_setup_doze_hint">Хотя это звучит нелогично, отключение оптимизации батареи приведёт к меньшему потреблению заряда</string>
-    <string name="title_setup_doze_instructions">В следующем диалоговом окне выберите \"Все приложения\" вверху, выберите это приложение, выберите и подтвердите \"Не оптимизировать\"</string>
+    <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените «Не оптимизировать» на «Все приложения», выберите это приложение и для него выберите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
     <string name="title_setup_data">Сохранение данных включено</string>
@@ -245,7 +245,7 @@
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
     <string name="title_advanced_section_send">Отправка</string>
-    <string name="title_advanced_section_connection">Соединение</string>
+    <string name="title_advanced_section_connection">Подключение</string>
     <string name="title_advanced_section_display">Отображение</string>
     <string name="title_advanced_section_behavior">Поведение</string>
     <string name="title_advanced_section_privacy">Конфиденциальность</string>
@@ -300,9 +300,10 @@
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
     <string name="title_advanced_rlah">В роуминге как дома</string>
-    <string name="title_advanced_timeout">Время ожидания соединения (сек.)</string>
+    <string name="title_advanced_validated">Требовать проверенное подключение</string>
+    <string name="title_advanced_timeout">Время ожидания подключения (сек.)</string>
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>
-    <string name="title_advanced_ssl_harden">Усиленные SSL-соединения</string>
+    <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_list">Список</string>
@@ -474,7 +475,7 @@
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_updates">Проверять обновления на GitHub</string>
-    <string name="title_advanced_check_weekly" comment="title_advanced_check_weekly&#10;Check for GitHub updates">Еженедельная проверка вместо ежедневной</string>
+    <string name="title_advanced_check_weekly">Еженедельная проверка вместо ежедневной</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
     <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
@@ -506,9 +507,10 @@
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с соединением на некоторых устройствах</string>
-    <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания соединения. Ещё большие значения могут увеличить расход аккумулятора.</string>
-    <string name="title_advanced_ssl_harden_hint">Включение этой функции отключит слабые протоколы и алгоритмы SSL, что может привести к проблемам с соединением</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с подключением на некоторых устройствах</string>
+    <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
+    <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
+    <string name="title_advanced_ssl_harden_hint">Включение этой функции отключит слабые протоколы и алгоритмы SSL, что может привести к проблемам с подключением</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
@@ -597,7 +599,7 @@
     <string name="title_host">Имя хоста</string>
     <string name="title_encryption">Шифрование</string>
     <string name="title_encryption_none">Нет</string>
-    <string name="title_allow_insecure">Разрешить небезопасные соединения</string>
+    <string name="title_allow_insecure">Разрешить небезопасные подключения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
@@ -826,7 +828,7 @@
     <string name="title_no_camera">Нет подходящего приложения камеры</string>
     <string name="title_no_saf">Нет метода доступа к хранилищу</string>
     <string name="title_no_stream">Устаревшее приложение послало путь к файлу вместо файлового потока</string>
-    <string name="title_no_internet">Нет или нет подходящего интернет-соединения</string>
+    <string name="title_no_internet">Нет или нет подходящего интернет-подключения</string>
     <string name="title_no_connection">Подключение к одной или нескольким учётным записям&#8230;</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>

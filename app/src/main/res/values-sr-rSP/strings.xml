@@ -118,7 +118,6 @@
     <string name="title_setup_grant_again">Одобри захтеване дозволе</string>
     <string name="title_setup_permissions">Одобравање дозвола</string>
     <string name="title_setup_permissions_remark">Да приступите контактима (опционо)</string>
-    <string name="title_setup_doze_instructions">У следећем дијалогу, одаберите „Све апликације” на врху, одаберите ову апликацију и потврдите „Не оптимизуј”</string>
     <string name="title_setup_doze_battery">Потрошња батерије?</string>
     <string name="title_setup_doze_stopped">Синхро заустављен?</string>
     <string name="title_setup_data">Укључена је штедња података</string>

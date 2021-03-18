@@ -463,7 +463,7 @@ Dans l'onglet Affichage des paramètres, vous pouvez activer ou désactiver par 
 * *Afficher l'aperçu du message*: pour afficher 1-4 lignes du corps du message
 * *Afficher par défaut les détails de l'adresse*: pour développer par défaut la section d'adresses
 * *Afficher automatiquement le message original pour les contacts connus*: pour automatiquement afficher les messages originaux pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
-* *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire[cette FAQ](#user-content-faq35)
+* *Afficher automatiquement les images pour les contacts connus*: pour automatiquement afficher les images pour les contacts de votre appareil, merci de lire [cette FAQ](#user-content-faq35)
 
 Notez que l'aperçu du message ne peut être affiché que lorsque le texte de celui-ci a été téléchargé. Les textes de messages plus volumineux ne sont pas téléchargés par défaut sur les réseaux limités (généralement mobiles). Vous pouvez changer ceci dans les paramètres de connexion.
 
@@ -481,13 +481,13 @@ Si vous utilisez la version Play Store ou GitHub de FairEmail, vous pouvez utili
 
 Si vous ne voulez ou ne pouvez pas utiliser de compte Google sur votre appareil, par exemple sur les appareils Huawei récents, vous pouvez soit autoriser l'accès pour les "applications moins sécurisées" et utiliser le mot de passe de votre compte (non recommandé) ou activer la double authentification et utiliser le mot de passe d'application. Pour utiliser un mot de passe vous devez créer un compte et vous identifier via la configuration manuelle au lieu de l'assistant de configuration.
 
-**Important**: sometimes Google issues this alert:
+**Important**: Quelquefois Google envoie cette alerte:
 
 *[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Référez-vous [à cette FAQ](#user-content-faq111) pour voir comment les comptes sur appareils peuvent être utilisés.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
@@ -2393,7 +2393,7 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry two times after waiting 4 and 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+Si FairEmail ne peut pas se connecter à un serveur de messagerie pour synchroniser les messages par exemple si la connexion Internet est mauvaise ou si un pare-feu ou un VPN bloque la connexion, FairEmail réessaiera une fois après avoir attendu 8 secondes tout en gardant l'appareil éveillé (=utilise la pile). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 

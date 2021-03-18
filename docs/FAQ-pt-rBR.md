@@ -1,6 +1,6 @@
 # Suporte do FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Se você tem uma pergunta, verifique primeiro as perguntas mais frequentes. [No final da página](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), você pode descobrir como fazer outras perguntas, solicitar recursos, e relatar bugs.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -12,19 +12,19 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Funcionalidades planejadas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
 * [Funcionalidades solicitadas frequentemente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Perguntas Frequentes (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Suporte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Autorizando contas
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Na maior parte dos casos, a configuração rápida conseguirá identificar automaticamente a configuração correta.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Se ela falhar, você precisará definir manualmente uma conta (para receber e-mails) e uma identidade (para enviar e-mails). Para isso, você precisará dos endereços de servidor IMAP e SMTP e dos números de porta, selecionar se deve utilizar SSL/TLS ou STARTTLS e por fim, seu nome de usuário (normalmente, mas não sempre, seu e-mail) e sua senha.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Procurando por *IMAP* e o nome do provedor é, na sua maioria, suficiente para encontrar a documentação correta.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Em alguns casos, você precisará permitir acesso externo à sua conta e/ou usar uma senha especial (aplicativo), como nos casos em que a autenticação de dois fatores estiver ativada.
 
-For authorizing:
+Para autorização:
 
 * Gmail / G Suite, veja a [pergunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, veja a [pergunta 14](#user-content-faq14)
@@ -34,9 +34,9 @@ For authorizing:
 * Apple iCloud, veja a [pergunta 148](#user-content-faq148)
 * Free.fr, veja a [pergunta 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Por favor, veja [aqui](#user-content-faq22) as mensagens de erro mais comuns e suas soluções.
 
-Related questions:
+Perguntas relacionadas:
 
 * [OAuth é suportado?](#user-content-faq111)
 * [Por que o ActiveSync não é suportado?](#user-content-faq133)
@@ -2393,7 +2393,7 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry two times after waiting 4 and 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 

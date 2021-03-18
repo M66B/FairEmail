@@ -151,7 +151,6 @@
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
     <string name="title_setup_doze_remark">Att på ett tillförlitligt sätt ta emot e-post</string>
     <string name="title_setup_doze_hint">Även om detta kan låta motsägelsefullt, att stänga av batterioptimeringar kommer att resultera i mindre batterianvändning</string>
-    <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>

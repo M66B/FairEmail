@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="tile_synchronize">Synchronise</string>
-    <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimise\"</string>
     <string name="title_setup_theme_reverse">Reverse colours</string>
     <string name="title_advanced_sync_folders">Synchronise folder list</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronising messages</string>
