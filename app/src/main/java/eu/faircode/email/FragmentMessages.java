@@ -1397,14 +1397,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
         pgpService = null;
 
-        if (viewType == AdapterMessage.ViewType.THREAD) {
-            PagedList<TupleMessageEx> list = adapter.getCurrentList();
-            if (list != null)
-                for (TupleMessageEx message : list)
-                    if (message != null)
-                        iProperties.clear(message.id);
-        }
-
         super.onDestroyView();
     }
 
@@ -1841,37 +1833,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void finish() {
             FragmentMessages.this.finish();
-        }
-
-        @Override
-        public void clear(long id) {
-            for (String name : values.keySet())
-                if (!"selected".equals(name))
-                    values.get(name).remove(id);
-
-            for (int i = 0; i < sizes.size(); i++)
-                if (sizes.keyAt(i) == id) {
-                    sizes.removeAt(i);
-                    break;
-                }
-
-            for (int i = 0; i < heights.size(); i++)
-                if (heights.keyAt(i) == id) {
-                    heights.removeAt(i);
-                    break;
-                }
-
-            for (int i = 0; i < positions.size(); i++)
-                if (positions.keyAt(i) == id) {
-                    positions.removeAt(i);
-                    break;
-                }
-
-            for (int i = 0; i < attachments.size(); i++)
-                if (attachments.keyAt(i) == id) {
-                    attachments.removeAt(i);
-                    break;
-                }
         }
     };
 
