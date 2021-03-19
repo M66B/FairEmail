@@ -243,7 +243,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         ibIncognitoKeyboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(getContext(), Uri.parse("https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING"), true);
+                Helper.view(v.getContext(), Uri.parse("https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_PERSONALIZED_LEARNING"), true);
             }
         });
 
@@ -264,7 +264,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         ibSafeBrowsing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true);
+                Helper.view(v.getContext(), Uri.parse("https://developers.google.com/safe-browsing"), true);
             }
         });
 

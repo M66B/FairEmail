@@ -274,7 +274,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                 return false;
 
-            Helper.view(getContext(), uri, true);
+            Helper.view(view.getContext(), uri, true);
 
             return true;
         }

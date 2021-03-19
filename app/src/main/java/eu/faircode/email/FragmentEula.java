@@ -46,7 +46,7 @@ public class FragmentEula extends FragmentBase {
         tvGplV3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Helper.view(getContext(), Uri.parse(Helper.LICENSE_URI), true);
+                Helper.view(view.getContext(), Uri.parse(Helper.LICENSE_URI), true);
             }
         });
 

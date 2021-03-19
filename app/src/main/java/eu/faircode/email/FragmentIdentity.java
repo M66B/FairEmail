@@ -478,7 +478,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Helper.view(getContext(), Uri.parse(Helper.SUPPORT_URI), false);
+                Helper.view(view.getContext(), Uri.parse(Helper.SUPPORT_URI), false);
             }
         });
 

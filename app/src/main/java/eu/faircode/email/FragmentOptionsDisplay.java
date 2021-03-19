@@ -452,7 +452,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvGravatarsHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
+                Helper.view(v.getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
             }
         });
 
