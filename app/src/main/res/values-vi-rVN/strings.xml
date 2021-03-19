@@ -418,6 +418,7 @@
     <string name="title_advanced_language_system">Hệ thống</string>
     <string name="title_advanced_optimize">Tự động tối ưu hoá</string>
     <string name="title_advanced_updates">Kiểm tra cập nhật trên GitHub</string>
+    <string name="title_advanced_check_weekly">Kiểm tra hàng tuần thay vì hàng ngày</string>
     <string name="title_advanced_experiments">Thử các tính năng thử nghiệm</string>
     <string name="title_advanced_query_threads">Giới hạn truy cập cơ sở dữ liệu song song</string>
     <string name="title_advanced_crash_reports">Gửi báo cáo lỗi</string>
@@ -1357,7 +1358,7 @@
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
-        <item>To</item>
+        <item>Đến</item>
         <item>Cc</item>
         <item>Bcc</item>
     </string-array>

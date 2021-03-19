@@ -175,6 +175,7 @@
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання електронної пошти</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
+    <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
@@ -494,6 +495,7 @@
     <string name="title_advanced_metered_warning">Вимкнення цієї опції вимкне отримання та надсилання повідомлень через мобільні підключення до Інтернету</string>
     <string name="title_advanced_rlah_hint">Якщо без роумінгу в межах ЄС</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включення може викликати проблеми з підключенням на деяких пристроях</string>
+    <string name="title_advanced_validate_hint">Це може призвести до того що повідомленя можуть бути не синхронізованні, наприклад, при використанні VPN, а також в інших ситуаціях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде застосовано два рази часу підключення. Більш високі значення призведуть до збільшення використання заряду акумулятора.</string>
     <string name="title_advanced_ssl_harden_hint">Увімкнення цієї опції дозволить відключити слабкі SSL протоколи і шифри, що може призвести до проблем з підключенням</string>
     <string name="title_advanced_roaming_hint">Заголовки повідомлень завжди будуть отримуватися під час роумінгу. Ви можете використовувати налаштування роумінгу в Вашому пристрої для вимкнення Інтернету під час роумінгу.</string>

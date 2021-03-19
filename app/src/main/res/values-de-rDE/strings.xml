@@ -166,7 +166,7 @@
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
     <string name="title_setup_doze_remark">Um Nachrichten zuverlässig abzurufen</string>
     <string name="title_setup_doze_hint">Auch wenn es widersprüchlich klingt, wird das Ausschalten der Akkuoptimierung zu weniger Akkuverbrauch führen</string>
-    <string name="title_setup_doze_instructions">Im nächsten Android-Dialog ändern Sie „Nicht optimiert” in \"Alle Apps\", wählen diese App aus und wählen „Nicht optimieren”</string>
+    <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
