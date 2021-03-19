@@ -1058,4 +1058,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Tin.it"
+        link="https://assistenzatecnica.tim.it/at/portals/mini.portal?_nfpb=true&amp;_pageLabel=null&amp;nodeId=/AT_REPOSITORY/302010&amp;radice=help_virgilio">
+        <imap
+            host="imaps.tin.it"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="smtps.tin.it"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
