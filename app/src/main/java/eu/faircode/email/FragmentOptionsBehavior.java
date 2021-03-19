@@ -158,7 +158,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("conversation_actions", checked).apply();
-                swConversationActionsReplies.setEnabled(checked);
+                swConversationActionsReplies.setEnabled(checked && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
             }
         });
 
