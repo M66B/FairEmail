@@ -2144,6 +2144,8 @@ Similarly, the primary identity of an account is used when the identity is ambig
 
 There can be just one primary account and there can be just one primary identity per account.
 
+Note that ordering accounts via the navigation menu of the setup screen takes precedence over primary and secondary accounts.
+
 <br />
 
 <a name="faq73"></a>
