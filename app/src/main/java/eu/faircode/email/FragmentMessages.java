@@ -2647,11 +2647,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         continue;
 
-                    result.count++;
-
-                    if (message.raw != null && message.raw)
-                        result.raw++;
-
                     EntityAccount account = accounts.get(message.account);
                     if (account == null) {
                         account = db.account().getAccount(message.account);
@@ -3317,63 +3312,64 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         selectionTracker.clearSelection();
 
-        new SimpleTask<Integer>() {
+        new SimpleTask<Void>() {
             @Override
-            protected Integer onExecute(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
 
-                int count = 0;
                 DB db = DB.getInstance(context);
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
                     if (message == null)
                         continue;
 
-                    if (message.raw == null || !message.raw) {
-                        count++;
+                    if (message.raw == null || !message.raw)
                         EntityOperation.queue(context, message, EntityOperation.RAW);
-                    }
                 }
 
-                return count;
+                return null;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Integer count) {
+            protected void onExecuted(Bundle args, Void data) {
                 long[] ids = args.getLongArray("ids");
 
-                if (count == 0) {
-                    send(ids);
-                    return;
-                }
-
                 final Context context = getContext();
-
-                LayoutInflater inflator = LayoutInflater.from(context);
-                View dview = inflator.inflate(R.layout.dialog_forward, null);
-                TextView tvMessages = dview.findViewById(R.id.tvMessages);
-
-                tvMessages.setText(null);
-
-                final AlertDialog dialog = new AlertDialog.Builder(context)
-                        .setView(dview)
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
 
                 DB db = DB.getInstance(context);
                 final LiveData<Integer> ld = db.message().liveRaw(ids);
                 ld.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    private Integer last = null;
+
                     @Override
                     public void onChanged(Integer remaining) {
-                        if (remaining == null)
-                            return;
-
-                        tvMessages.setText(getResources().getQuantityString(R.plurals.title_moving_messages, remaining, remaining));
-
-                        if (remaining == 0) {
+                        if (remaining == null || remaining == 0) {
                             ld.removeObserver(this);
-                            dialog.dismiss();
-                            send(ids);
+
+                            try {
+                                ArrayList<Uri> uris = new ArrayList<>();
+                                for (long id : ids) {
+                                    File file = EntityMessage.getRawFile(context, id);
+                                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                                    uris.add(uri);
+                                }
+
+                                Intent send = new Intent(Intent.ACTION_SEND_MULTIPLE);
+                                send.setPackage(BuildConfig.APPLICATION_ID);
+                                send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+                                send.setType("message/rfc822");
+                                send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                                context.startActivity(send);
+                            } catch (Throwable ex) {
+                                // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        } else {
+                            if (!Objects.equals(last, remaining)) {
+                                last = remaining;
+                                ToastEx.makeText(context, getString(R.string.title_remaining, remaining), Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
                 });
@@ -3382,30 +3378,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-
-            private void send(long[] ids) {
-                try {
-                    final Context context = getContext();
-
-                    ArrayList<Uri> uris = new ArrayList<>();
-                    for (long id : ids) {
-                        File file = EntityMessage.getRawFile(context, id);
-                        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                        uris.add(uri);
-                    }
-
-                    Intent send = new Intent(Intent.ACTION_SEND_MULTIPLE);
-                    send.setPackage(BuildConfig.APPLICATION_ID);
-                    send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-                    send.setType("message/rfc822");
-                    send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                    context.startActivity(send);
-                } catch (Throwable ex) {
-                    // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
             }
         }.execute(this, args, "messages:forward");
     }
@@ -7916,8 +7888,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private class MoreResult {
-        int count;
-        int raw;
         boolean seen;
         boolean unseen;
         boolean visible;
