@@ -441,6 +441,10 @@ public class EntityMessage implements Serializable {
     }
 
     File getRawFile(Context context) {
+        return getRawFile(context, id);
+    }
+
+    static File getRawFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "raw");
         if (!dir.exists())
             dir.mkdir();

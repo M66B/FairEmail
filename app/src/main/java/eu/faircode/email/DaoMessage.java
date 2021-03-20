@@ -274,6 +274,11 @@ public interface DaoMessage {
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
     LiveData<TupleFtsStats> liveFts();
 
+    @Query("SELECT COUNT(*) FROM message" +
+            " WHERE id IN (:ids)" +
+            " AND raw IS NULL or NOT raw")
+    LiveData<Integer> liveRaw(long[] ids);
+
     @Query("SELECT *" +
             " FROM message" +
             " WHERE id = :id")
