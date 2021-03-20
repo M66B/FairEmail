@@ -4402,51 +4402,60 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuMarkAllRead() {
-        Bundle args = new Bundle();
-        args.putString("type", type);
-        args.putLong("folder", folder);
+        new AlertDialog.Builder(getContext())
+                .setTitle(R.string.title_mark_all_read)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle args = new Bundle();
+                        args.putString("type", type);
+                        args.putLong("folder", folder);
 
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                String type = args.getString("type");
-                long folder = args.getLong("folder");
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                String type = args.getString("type");
+                                long folder = args.getLong("folder");
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-                boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
-                boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
-                boolean language_detection = prefs.getBoolean("language_detection", false);
-                String filter_language = prefs.getString("filter_language", null);
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                                boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+                                boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
+                                boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+                                boolean language_detection = prefs.getBoolean("language_detection", false);
+                                String filter_language = prefs.getString("filter_language", null);
 
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
 
-                    List<Long> ids = db.message().getMessageUnseen(
-                            folder < 0 ? null : folder,
-                            folder < 0 ? type : null,
-                            filter_unflagged, filter_unknown, filter_snoozed,
-                            language_detection ? filter_language : null);
-                    for (long id : ids) {
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message != null)
-                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                                    List<Long> ids = db.message().getMessageUnseen(
+                                            folder < 0 ? null : folder,
+                                            folder < 0 ? type : null,
+                                            filter_unflagged, filter_unknown, filter_snoozed,
+                                            language_detection ? filter_language : null);
+                                    for (long id : ids) {
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null)
+                                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }.execute(FragmentMessages.this, args, "message:read");
                     }
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(FragmentMessages.this, args, "message:read");
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void onMenuSyncMore() {
