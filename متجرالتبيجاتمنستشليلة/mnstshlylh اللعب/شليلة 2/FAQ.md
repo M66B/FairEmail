@@ -1,6 +1,6 @@
-# FairEmail support
-
-If you have a question, please check the following frequently asked questions first.
+# دعم FairEmail
+#mnstshlylh-play 
+إذا كان لديك سؤال ، فالرجاء التحقق من الأسئلة المتداولة التالية أولاً.
 [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support),
 you can find out how to ask other questions, request features, and report bugs.
 
