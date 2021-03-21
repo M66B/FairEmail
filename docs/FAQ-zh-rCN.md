@@ -53,7 +53,7 @@ Related questions:
 * 归档/删除后转到下/上一条消息: 在行为设置中禁用 *自动关闭会话* 并且在 *关闭会话时* 中选择 *转到下/上一个会话*
 * 将文件夹添加到统一的收件箱中：长按文件夹列表中的文件夹，然后勾选 *在统一的收件箱中显示*
 * 将文件夹添加到导航菜单中：长按文件夹列表中的文件夹，然后勾选 *在导航菜单中显示*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
+* 加载更多消息：长按文件夹列表中的文件夹，选择 *同步更多消息*
 * 删除消息，跳过回收站：在刚刚在消息文本上方的 3 点菜单中 *删除* 或替代。 取消选择账户设置中的回收站文件夹
 * Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * 删除文件夹：长按文件夹列表中的文件夹，编辑属性，三点菜单，删除

@@ -277,6 +277,7 @@
     <string name="title_advanced_download">Üzenetek és mellékleteik automatikus letöltése mért kapcsolaton az alábbi méretig</string>
     <string name="title_advanced_roaming">Üzenetek és mellékleteik letöltése roaming kapcsolaton</string>
     <string name="title_advanced_rlah">Roaming mint otthon</string>
+    <string name="title_advanced_validated">Validált (ellenőrzött) kapcsolat szükségessé tétele</string>
     <string name="title_advanced_timeout">Kapcsolat időtúllépés (másodpercben)</string>
     <string name="title_advanced_prefer_ip4">IPv4 preferálása IPv6 fölött</string>
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
@@ -451,6 +452,7 @@
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
     <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_updates">GitHub-frissítések keresése</string>
+    <string name="title_advanced_check_weekly">Hetente keressen, ne naponta</string>
     <string name="title_advanced_experiments">Kísérleti funkciók kipróbálása</string>
     <string name="title_advanced_query_threads">Párhuzamos adatbázis hozzáférés korlátozása</string>
     <string name="title_advanced_crash_reports">Hibajelentések küldése</string>
@@ -577,6 +579,7 @@
     <string name="title_port">Port szám</string>
     <string name="title_user">Felhasználónév</string>
     <string name="title_password">Jelszó</string>
+    <string name="title_password_storage">Hogyan vannak tárolva a jelszavak?</string>
     <string name="title_case_sensitive">Felhasználónevek és jelszók általában kis- és nagybetű érzékenyek</string>
     <string name="title_client_certificate">Kliens tanúsítványa</string>
     <string name="title_realm">Tartomány</string>
@@ -681,6 +684,7 @@
     <string name="title_navigation_folder">Megjelenítés a navigációs menüben</string>
     <string name="title_synchronize_folder">Szinkronizálás (üzenetek fogadása)</string>
     <string name="title_poll_folder">Időszakos ellenőrzés a folyamatos szinkronizálás helyett</string>
+    <string name="title_poll_folder_remark">A legtöbb email szerver leküldéses üzeneteket csak néhány mappához engedélyez!</string>
     <string name="title_download_folder">Üzenetek szövegének és mellékleteinek automatikus letöltése</string>
     <string name="title_notify_folder">Értesítés új üzenet érkezésekor</string>
     <string name="title_auto_classify_source">E mappa üzeneteinek mappázása</string>

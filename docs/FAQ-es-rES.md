@@ -22,9 +22,9 @@ Si el asistente de configuración rápida falla, necesitará configurar manualme
 
 Buscar *IMAP* y el nombre del proveedor es generalmente suficiente para encontrar la documentación correcta.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+En algunos casos, necesitarás habilitar el acceso externo a tu cuenta y/o utilizar una contraseña especial (de aplicación), por ejemplo, cuando la autenticación de dos pasos esté habilitada.
 
-For authorizing:
+Para ayuda con autorización:
 
 * Gmail / G suite, ver [pregunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, ver [pregunta 14](#user-content-faq14)
@@ -34,9 +34,9 @@ For authorizing:
 * Apple iCloud, ver [pregunta 148](#user-content-faq148)
 * Free.fr, ver [pregunta 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Por favor vea [aquí](#user-content-faq22) para mensajes de error y soluciones comunes.
 
-Related questions:
+Preguntas relacionadas:
 
 * [¿Es compatible con OAuth?](#user-content-faq111)
 * [¿Por qué ActiveSync no es compatible?](#user-content-faq133)
@@ -55,7 +55,7 @@ Related questions:
 * Añadir una carpeta al menú de navegación: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en el menú de navegación*
 * Cargar más mensajes: mantenga presionado una carpeta en la lista de carpetas, seleccione *Obtener más mensajes*
 * Eliminar un mensaje, omitiendo la papelera: en el menú de 3 puntos justo encima del texto del mensaje *Eliminar* o, alternativamente, desmarque la carpeta de la papelera en la configuración de la cuenta
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
+* Eliminar una cuenta/identidad: Configuración, toque configuración manual y más opciones, toque Cuentas/Identidades, menú de tres puntos, Eliminar
 * Eliminar una carpeta: mantenga pulsada la carpeta de la lista de carpetas, Editar propiedades, menú de tres puntos, Eliminar
 * Deshacer enviar: Bandeja de salida, toque mensaje, toque el icono deshacer
 * Guardar mensajes enviados en la bandeja de entrada: por favor [vea estas Preguntas Frecuentes](#user-content-faq142)
@@ -115,11 +115,11 @@ Related questions:
 * ~~Soporte para S/MIMEe~~
 * ~~Buscar ajustes~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Cualquier cosa en esta lista está en orden aleatorio y *podría* ser añadida en un futuro próximo.
 
 ## Características solicitadas con frecuencia
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la discusión [en este foro](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). El objetivo del diseño es ser minimalista (sin menús innecesarios, botones, etc.) y libre de distracciones (colores brillantes, animaciones, etc.). Todas las cosas mostradas deben ser útiles de una u otra manera y deben posicionarse cuidadosamente para un uso fácil. Fuentes, tamaños, colores, etc. deben seguir el "material design" siempre que sea posible.
 
 ## Preguntas frecuentes
 
@@ -300,16 +300,16 @@ The following Android permissions are needed:
 * *servicio de primer plano* (FOREGROUND_SERVICE): para ejecutar un servicio de primer plano en Android 9 Pie y posterior, ver también la siguiente pregunta
 * *evitar que el dispositivo duerme* (WAKE_LOCK): para mantener el dispositivo despierto mientras sincroniza los mensajes
 * *facturación in-app* (BILLING): para permitir compras en la app
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Opcional: *leer sus contactos* (READ_CONTACTS): para autocompletar direcciones, mostrar fotos de contacto y [ seleccionar contactos](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Opcional: *lee el contenido de tu tarjeta SD* (READ_EXTERNAL_STORAGE): para aceptar archivos de otras aplicaciones desactualizadas, consulta también [este FAQ](#user-content-faq49)
 * Opcional: *usar hardware de huella dactilar* (USE_FINGERPRINT) y usar *hardware biométrico* (USE_BIOMETRIC): para usar autenticación biométrica
 * Opcional: *encontrar cuentas en el dispositivo* (GET_ACCOUNTS) para seleccionar una cuenta cuando se utiliza la configuración rápida de Gmail
 * Android 5. Lollipop y antes: *usar cuentas en el dispositivo* (USE_CREDENTIALS): para seleccionar una cuenta al usar la configuración rápida de Gmail (no solicitada en versiones posteriores de Android)
 * Android 5. Lollipop y antes: *usar cuentas en el dispositivo* (USE_CREDENTIALS): para seleccionar una cuenta al usar la configuración rápida de Gmail (no solicitada en versiones posteriores de Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Permisos opcionales](https://developer.android.com/training/permissions/requesting) son compatibles sólo en Android 6 Marshmallow y posteriores. En versiones anteriores de Android se le pedirá que conceda los permisos opcionales para instalar FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Los siguientes permisos son necesarios para mostrar el recuento de mensajes no leídos como una insignia (ver también [este FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -328,14 +328,14 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail mantendrá una lista de direcciones de las que recibe y a las que envía mensajes y utilizará esta lista para sugerencias de contactos cuando no se otorguen permisos de contactos a FairEmail. Esto significa que puede utilizar FairEmail sin el proveedor de contactos de Android (agenda). Tenga en cuenta que todavía puede elegir contactos sin conceder sus permisos a FairEmail, sólo que sugerir contactos no funcionará sin los permisos de contactos.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) ¿Por qué se muestra una notificación permanente?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Una notificación permanente de baja prioridad con el número de cuentas monitoreadas y el número de operaciones pendientes (ver la siguiente pregunta) se muestra para evitar que Android mate el servicio que se encarga de recibir correo electrónico continuamente. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
 Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 

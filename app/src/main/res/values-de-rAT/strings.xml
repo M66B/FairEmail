@@ -2,7 +2,7 @@
 <resources>
     <string name="app_search">FairEmail-Suche</string>
     <string name="app_changelog">Änderungsprotokoll</string>
-    <string name="app_welcome">FairEmail ist eine Open-Source-E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
+    <string name="app_welcome">FairEmail ist eine quelloffene E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
     <string name="app_limitations">Zum Beispiel werden Nachrichten standardmäßig neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu verbessern. Außerdem muss das Öffnen von Links zur Sicherheit bestätigt werden. Beides kann auf Wunsch deaktiviert werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">Zum Beenden erneut „Zurück“ drücken</string>
@@ -510,7 +510,7 @@
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>
-    <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einem Thema enthalten ist</string>
+    <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_autoseen_hint">Das automatische Markieren von Nachrichten bei ihrer Erweiterung als gelesen kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
     <string name="title_advanced_autoclose_hint">Unterhaltungen automatisch schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
@@ -766,6 +766,8 @@
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
     <string name="title_save_eml">Rohdaten speichern</string>
+    <string name="title_raw_remaining">Originalnachrichten zum Download: %1$d</string>
+    <string name="title_ask_raw">Um Nachrichten weiterzuleiten, müssen die Originalnachrichten vom Server heruntergeladen werden. Dies erfordert eine Internetverbindung.</string>
     <string name="title_buttons">Schaltflächen auswählen</string>
     <string name="title_configure_buttons">Schaltflächen &#8230; konfigurieren</string>
     <string name="title_trash">Löschen</string>

@@ -508,7 +508,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_metered_warning">Vypnutím zakážete prijímanie a odosielanie správ cez mobilný internet</string>
     <string name="title_advanced_rlah_hint">Predpokladá sa žiaden roaming v krajinách EU</string>
     <string name="title_advanced_tcp_keep_alive_hint">Zapnutie môže na niektorých zariadeniach spôsobovať problémy s pripojením</string>
-    <string name="title_advanced_validate_hint">Výsledkom môže byť prerušená synchronizácia správ, napríklad počas používania VPN, alebo aj v iných situáciách</string>
     <string name="title_advanced_timeout_hint">Časový limit čítania/zápisu bude nastavený na dvojnásobok limitu spojenia. Čím vyššia hodnota, tým vyšší nárok na využívanie batérie.</string>
     <string name="title_advanced_ssl_harden_hint">Povolením zakážete slabé metódy a protokoly SSL, čo môže viesť k problémom so spojením</string>
     <string name="title_advanced_roaming_hint">Hlavičky správ budú vždy preberané počas roamingu. Na zakázanie internetu v roamingu použite nastavenia zariadenia.</string>

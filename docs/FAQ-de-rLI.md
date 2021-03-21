@@ -2,7 +2,7 @@
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Unten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. (FAQ) [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Übersicht
 
@@ -14,11 +14,11 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig g
 * [Häufig gestellte Fragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Hilfe erhalten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Konten autorisieren
+## Konten einrichten
 
 In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
 
-Sollte der Schnelleinrichtungs-Assistent fehlschlagen, müssen Sie Ihr Konto für das Versenden und Empfangen von E-Mails, manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
+Sollte der Schnelleinrichtungs-Assistent fehlschlagen, müssen Sie Ihr Konto für das Versenden und Empfangen von E-Mails manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
 
 Die Suche nach *IMAP* und dem Namen des E-Mail-Anbieters reichen meist aus, um die richtige Anleitung zu finden.
 
@@ -339,27 +339,27 @@ Eine permanente Statusleiste mit niedriger Priorität mit der Anzahl der zu übe
 
 Die meisten, wenn nicht gar alle anderen E-Mail-Apps zeigen keine Benachrichtigungen an, was zu den "Nebeneffekten" führt, dass es keinen oder nur einen verspäteten Hinweis auf neu eingegangene Nachrichten gibt oder ausgehende Nachrichten nicht oder nur verzögert versandt werden.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android zeigt Symbole von Benachrichtigungen mit hoher Priorität in der Statusleiste zuerst an und blendet das Symbol der FairEmail-Benachrichtigung aus, wenn kein Platz mehr für die Anzeige von Symbolen vorhanden ist. In der Praxis bedeutet dies, dass die Statusleistenbenachrichtigung keinen Platz in der Statusleiste einnimmt, es sei denn, es ist Platz vorhanden.
 
 Die Statusleisten-Benachrichtigung kann über die Benachrichtigungseinstellungen von FairEmail deaktiviert werden:
 
 * Android 8 Oreo und später: Tippen Sie auf *Kanal empfangen* und deaktivieren Sie den Kanal über die Android-Einstellungen (dies wird keine neuen Nachrichten deaktivieren)
 * Android 7 Nougat und vorher: aktiviert *Hintergrunddienst verwenden, um Nachrichten zu synchronisieren*, aber lesen Sie die Bemerkung unter der Einstellung
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Sie können in den Empfangseinstellungen auf periodische Synchronisierung von Nachrichten umschalten, um die Benachrichtigung zu entfernen, aber beachten Sie, dass dies möglicherweise mehr Batteriestrom verbraucht. Siehe [hier](#user-content-faq39) für weitere Details zum Batterieverbrauch.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo zeigt möglicherweise auch eine Benachrichtigung in der Statusleiste mit dem Text *Apps werden im Hintergrund ausgeführt*. Bitte lesen Sie [hier](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) nach, wie Sie diese Benachrichtigung deaktivieren können.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Einige Leute haben vorgeschlagen, [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) anstelle eines Android-Dienstes mit einer Statusleistenbenachrichtigung zu verwenden, Dies würde jedoch E-Mail-Provider erfordern, die FCM-Nachrichten senden, oder einen zentralen Server, auf dem alle Nachrichten gesammelt werden, die FCM-Nachrichten senden. Ersteres wird nicht passieren und letzteres hätte erhebliche Auswirkungen auf die Privatsphäre.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Wenn Sie durch Klicken auf die Benachrichtigung hierhergekommen sind, sollten Sie wissen, dass der nächste Klick den vereinheitlichten Posteingang öffnet.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Was sind Operationen und warum stehen sie an?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Die Benachrichtigung in der Statusleiste mit niedriger Priorität zeigt die Anzahl der anstehenden Vorgänge an, die sein können:
 
 * *Hinzufügen*: Nachricht zum Remote-Ordner hinzufügen
 * *Verschieben*: Nachricht in einen anderen Remote-Ordner verschieben
@@ -381,89 +381,89 @@ The low priority status bar notification shows the number of pending operations,
 * *Senden*: Nachricht senden
 * *Existiert*: Prüfen, ob Nachricht existiert
 * *Regel*: Regel im Text ausführen
-* *expunge*: permanently delete messages
+* *expunge*: Nachrichten dauerhaft löschen
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Vorgänge werden nur verarbeitet, wenn eine Verbindung zum E-Mail-Server besteht oder wenn manuell synchronisiert wird. Siehe auch [diese FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Wie kann ich ein ungültiges Sicherheitszertifikat / leeres Passwort / Klartextverbindung verwenden?**
 
-*... Untrusted ... not in certificate ...*
+*... Nicht vertrauenswürdig ... nicht im Zertifikat ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Ungültiges Sicherheitszertifikat (Identität des Servers kann nicht verifiziert werden) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options). Please see the documentation of the email provider about the right host name.
+Dies kann durch die Verwendung eines falschen Hostnamens verursacht werden. Überprüfen Sie daher zunächst den Hostnamen in den erweiterten Identitäts-/Kontoeinstellungen (tippen Sie auf Manuelle Einrichtung und weitere Optionen). Bitte informieren Sie sich in der Dokumentation des E-Mail-Providers über den richtigen Hostnamen.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Sie sollten versuchen, dies zu beheben, indem Sie sich an Ihren Provider wenden oder ein gültiges Sicherheitszertifikat besorgen denn ungültige Sicherheitszertifikate sind unsicher und ermöglichen [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Wenn Geld ein Hindernis ist, können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) erhalten.
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup and more options*, tap *Identities*, tap the identity, tap *Advanced*).
+Die schnelle, aber unsichere Lösung (nicht empfohlen) ist, *Sichere Verbindungen* in den erweiterten Identitätseinstellungen zu aktivieren (Navigationsmenü, tippen Sie auf *Einstellungen*, tippen Sie auf *Manuelle Einstellungen und weitere Optionen*, tippen Sie auf *Identitäten*, tippen Sie auf die Identität, tippen Sie auf *Erweitert*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternativ können Sie den Fingerabdruck von ungültigen Serverzertifikaten auch so akzeptieren:
 
 1. Stellen Sie sicher, dass Sie eine vertrauenswürdige Internetverbindung verwenden (keine öffentlichen WLAN-Netzwerke, etc)
 1. Gehen Sie zu den Einstellungen über das Navigationsmenü (wischen Sie von der linken Seite nach innen)
-1. Tap Manual setup and more options, tap Accounts/Identities and tap the faulty account and identity
+1. Tippen Sie auf Manuelle Einrichtung und weitere Optionen, tippen Sie auf Konten/Identitäten und tippen Sie auf das fehlerhafte Konto und die Identität
 1. Prüfen/Speichern Sie Konto und Identität
 1. Markieren Sie das Kontrollkästchen unterhalb der Fehlermeldung und speichern Sie erneut
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Dadurch wird das Server-Zertifikat "gepinnt", um Man-in-the-Middle-Angriffe zu verhindern.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
-
-<br />
-
-*Trust anchor for certification path not found*
-
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
-
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
-
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
-
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
-
-You can pin the certificate too, see above.
+Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsstellen wie Let's Encrypt möglicherweise nicht erkennen, wodurch Verbindungen als unsicher eingestuft werden, siehe auch [hier](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
-*Empty password*
+*Vertrauensanker für Zertifizierungspfad nicht gefunden*
+
+*... java.security.cert.CertPathValidatorException: Vertrauensanker für Zertifizierungspfad nicht gefunden ...* bedeutet, dass der Standard-Android-Trust-Manager nicht in der Lage war, die Server-Zertifikatskette zu überprüfen.
+
+Das kann daran liegen, dass das Stammzertifikat nicht auf Ihrem Gerät installiert ist oder weil Zwischenzertifikate fehlen, z. B. weil der E-Mail-Server sie nicht gesendet hat.
+
+Das erste Problem können Sie beheben, indem Sie das Stammzertifikat von der Website des Zertifikatsanbieters herunterladen und installieren.
+
+Das zweite Problem sollte durch Änderung der Serverkonfiguration oder durch Importieren der Zwischenzertifikate auf Ihrem Gerät behoben werden.
+
+Sie können das Zertifikat auch anpinnen, siehe oben.
+
+<br />
+
+*Leeres Passwort*
 
 Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist das unsicher.
 
-*Plain text connection*
+*Klartextverbindung*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Ihr Benutzername und Passwort sowie alle Nachrichten werden unverschlüsselt gesendet und empfangen, was **sehr unsicher** ist denn ein [Man-in-the-Middle-Angriff](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ist bei einer unverschlüsselten Verbindung sehr einfach.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Wenn Sie dennoch ein ungültiges Sicherheitszertifikat, ein leeres Passwort oder eine Klartextverbindung verwenden möchten müssen Sie unsichere Verbindungen in den Konto- und/oder Identitätseinstellungen aktivieren. Für reine Textverbindungen sollte STARTTLS gewählt werden. Wenn Sie unsichere Verbindungen aktivieren, sollten Sie sich nur über private, vertrauenswürdige Netzwerke verbinden und niemals über öffentliche Netzwerke, wie sie in Hotels, Flughäfen usw. angeboten werden.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Wie kann ich die Nachrichtenansicht anpassen?**
 
-In the three dot overflow menu you can enable or disable or select:
+Im Drei-Punkte-Menü können Sie die folgenden Optionen aktivieren, deaktivieren oder auswählen:
 
 * *Textgröße*: für drei verschiedene Schriftgrößen
 * *kompakte Ansicht*: für eine mehr verdichtete Nachrichtendarstellung und eine kleinere Text-Schriftart
 
-In the display section of the settings you can enable or disable for example:
+Im Anzeigebereich der Einstellungen können Sie z. B. aktivieren oder deaktivieren:
 
 * *Einheitlicher Posteingang*: Schalten Sie diese Option aus, um stattdessen die Ordner separat aufzulisten, die für den einheitlichen Posteingang ausgewählt wurden
 * *Tabellenstil*: zum Anzeigen einer linearen Liste anstelle von Karten
 * *Nach Datum gruppieren*: Datumskopf über Nachrichten mit gleichem Datum anzeigen
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Konversationsüberlagerung*: um die Konversationsüberlagerung zu deaktivieren und stattdessen einzelne Nachrichten anzuzeigen
+* *Konversationsaktionsleiste*: zum Deaktivieren der unteren Navigationsleiste
 * *Hervorhebungsfarbe*: zum Auswählen einer Farbe für den Absender von ungelesenen Nachrichten
-* *Show contact photos*: to hide contact photos
+* *Kontaktfotos anzeigen*: zum Ausblenden von Kontaktfotos
 * *Namen und E-Mail-Adressen anzeigen*: um Namen anzuzeigen oder um Namen und E-Mail-Adressen anzuzeigen
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Betreff kursiv anzeigen*: um den Betreff der Nachricht als normalen Text anzuzeigen
+* *Sterne anzeigen*: zum Ausblenden von Sternen (Favoriten)
+* *Nachrichtenvorschau anzeigen*: um 1-4 Zeilen des Nachrichtentextes anzuzeigen
+* *Adressdetails standardmäßig anzeigen*: um den Adressbereich standardmäßig zu erweitern
+* *Automatisch Originalnachricht für bekannte Kontakte anzeigen*: um automatisch Originalnachrichten für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [diese FAQ](#user-content-faq35)
+* *Automatisch Bilder für bekannte Kontakte anzeigen*: um automatisch Bilder für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [diese FAQ](#user-content-faq35)
 
 Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
@@ -553,95 +553,95 @@ Some older Exchange server versions have a bug causing empty message and corrupt
 
 Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Bitte beachten Sie [diese FAQ](#user-content-faq111) zur OAuth-Unterstützung.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Was sind Identitäten / wie füge ich einen Alias hinzu?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Identitäten stellen E-Mail-Adressen dar, die Sie *von* über einen E-Mail (SMTP)-Server senden.
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Bei einigen Providern können Sie mehrere Aliasnamen haben. Sie können diese konfigurieren, indem Sie das E-Mail-Adressfeld einer zusätzlichen Identität auf die Alias-Adresse und das Feld für den Benutzernamen auf Ihre Haupt-E-Mail-Adresse setzen.
 
-Note that you can copy an identity by long pressing it.
+Beachten Sie, dass Sie eine Identität kopieren können, indem Sie sie lange drücken.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Alternativ können Sie *Bearbeiten der Absenderadresse zulassen* in den erweiterten Einstellungen einer bestehenden Identität aktivieren, um den Benutzernamen beim Verfassen einer neuen Nachricht zu bearbeiten, wenn Ihr Provider dies zulässt.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail aktualisiert automatisch die Passwörter der zugehörigen Identitäten, wenn Sie das Passwort des zugehörigen Kontos oder einer zugehörigen Identität aktualisieren.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Siehe [diese FAQ](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-Mail-Adressen.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Was bedeutet 'UIDPLUS nicht unterstützt'?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~Die Fehlermeldung *UIDPLUS nicht unterstützt* bedeutet, dass Ihr E-Mail-Anbieter die IMAP-Erweiterung [UIDPLUS](https://tools.ietf.org/html/rfc4315) nicht zur Verfügung stellt. Diese IMAP-Erweiterung ist erforderlich, um die Zwei-Wege-Synchronisation zu implementieren, die keine optionale Funktion ist. Wenn Ihr Provider diese Erweiterung also nicht aktivieren kann, können Sie FairEmail für diesen Provider nicht verwenden.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Warum wird POP nicht unterstützt?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~Abgesehen davon, dass jeder anständige E-Mail-Anbieter heutzutage [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) unterstützt,~~ ~~Die Verwendung von [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) führt zu unnötigem zusätzlichen Batterieverbrauch und verzögerten Benachrichtigungen über neue Nachrichten.~~ ~~Darüber hinaus ist POP für die Zwei-Wege-Synchronisation ungeeignet, und die meisten Leute lesen und schreiben Nachrichten heutzutage auf verschiedenen Geräten.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~Grundsätzlich unterstützt POP nur das Herunterladen und Löschen von Nachrichten aus dem Posteingang.~~ ~~Daher sind gängige Operationen wie das Setzen von Nachrichtenattributen (gelesen, mit Sternchen versehen, beantwortet usw.), das Hinzufügen (Sichern) und Verschieben von Nachrichten nicht möglich.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Siehe auch [was Google dazu schreibt](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~Zum Beispiel kann [Gmail](https://support.google.com/mail/answer/21289) Nachrichten von einem anderen POP-Konto importieren,~~ ~~Was als Workaround genutzt werden kann, wenn Ihr Provider IMAP nicht unterstützt.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~Zusammenfassung; Überlegen Sie, ob Sie zu IMAP wechseln wollen.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Wie funktioniert die Verschlüsselung/Entschlüsselung?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Die Kommunikation mit E-Mail-Servern ist immer verschlüsselt, es sei denn, Sie haben dies explizit ausgeschaltet. Diese Frage bezieht sich auf die optionale Ende-zu-Ende-Verschlüsselung mit PGP oder S/MIME. Absender und Empfänger sollten sich zunächst darauf einigen und signierte Nachrichten austauschen, um ihren öffentlichen Schlüssel zu übertragen, damit sie verschlüsselte Nachrichten senden können.
 
 <br />
 
-*General*
+*Allgemein*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Bitte sehen Sie [hier](https://en.wikipedia.org/wiki/Public-key_cryptography), wie die Verschlüsselung mit öffentlichen/privaten Schlüsseln funktioniert.
 
-Encryption in short:
+Verschlüsselung in Kurzform:
 
 * **Ausgehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Empfängers verschlüsselt
 * **Eingehende** Nachrichten werden mit dem **privaten Schlüssel** des Empfängers entschlüsselt
 
-Signing in short:
+Signieren in Kurzform:
 
 * **Ausgehende** Nachrichten sind mit dem **privaten Schlüssel** des Absenders signiert
 * **Eingehende** Nachrichten werden mit dem **öffentlichen Schlüssel** des Absenders überprüft
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Um eine Nachricht zu signieren/verschlüsseln, wählen Sie einfach die entsprechende Methode im Sendedialog. Sie können den Sendedialog jederzeit über das Drei-Punkte-Menü öffnen, falls Sie zuvor *Nicht mehr anzeigen* gewählt haben.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Um eine Signatur zu überprüfen oder eine empfangene Nachricht zu entschlüsseln, öffnen Sie die Nachricht und tippen Sie einfach auf die Geste oder das Vorhängeschloss-Symbol direkt unter der Aktionsleiste der Nachricht.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Wenn Sie zum ersten Mal eine signierte/verschlüsselte Nachricht senden, werden Sie möglicherweise nach einem Signierschlüssel gefragt. FairEmail speichert den gewählten Signierschlüssel automatisch in der verwendeten Identität für das nächste Mal. Wenn Sie den Signierungsschlüssel zurücksetzen müssen, speichern Sie einfach die Identität oder drücken Sie lange auf die Identität in der Liste der Identitäten und wählen Sie *Signierungsschlüssel zurücksetzen*. Der ausgewählte Signierungsschlüssel ist in der Liste der Identitäten sichtbar. Wenn Sie einen Schlüssel von Fall zu Fall auswählen müssen, können Sie mehrere Identitäten für dasselbe Konto mit derselben E-Mail-Adresse erstellen.
 
-In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
+In den Verschlüsselungseinstellungen können Sie die Standardverschlüsselungsmethode (PGP oder S/MIME) auswählen, *Standardmäßig unterschreiben*, *Standmäßig verschlüsseln* und *Nachrichten automatisch entschlüsseln* aktivieren, Beachten Sie jedoch, dass eine automatische Entschlüsselung nicht möglich ist, wenn eine Benutzerinteraktion erforderlich ist, wie z. B. die Auswahl eines Schlüssels oder das Lesen eines Sicherheitstokens.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+Der zu verschlüsselnde Nachrichtentext/die zu verschlüsselnden Anhänge und der entschlüsselte Nachrichtentext/die entschlüsselten Anhänge werden nur lokal gespeichert und werden niemals auf dem Remote-Server hinzugefügt. Wenn Sie die Entschlüsselung rückgängig machen wollen, können Sie den Menüpunkt *Resync* im Drei-Punkte-Menü der Nachrichtenaktionsleiste verwenden.
 
 <br />
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Sie müssen zuerst [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) installieren und konfigurieren. FairEmail wurde mit OpenKeychain Version 5.4 getestet. Spätere Versionen sind höchstwahrscheinlich kompatibel, aber frühere Versionen sind es möglicherweise nicht.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Wichtig**: die OpenKeychain-App ist dafür bekannt, (stillschweigend) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen bestehenden öffentlichen Schlüssel erhält. Sie können dieses Problem umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
+**Wichtig**: Wenn die OpenKeychain-App einen Schlüssel nicht (mehr) findet, müssen Sie eventuell einen zuvor ausgewählten Schlüssel zurücksetzen. Dies kann durch langes Drücken einer Identität in der Liste der Identitäten erfolgen (Einstellungen, tippen Sie auf Manuelle Einrichtung und weitere Optionen, tippen Sie auf Identitäten).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Wichtig**: damit sich Apps wie FairEmail zuverlässig mit dem OpenKeychain-Dienst verbinden können, um Nachrichten zu verschlüsseln/entschlüsseln, kann es notwendig sein, die Akku-Optimierungen für die OpenKeychain-App zu deaktivieren.
 
-**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+**Wichtig**: Die OpenKeychain-App benötigt vermutlich die Nutzung der Kontakte, um korrekt zu funktionieren.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Wichtig**: auf einigen Android-Versionen / Geräten ist es notwendig, *Popups anzeigen, während sie im Hintergrund laufen* zu aktivieren. in den zusätzlichen Berechtigungen der Android-App-Einstellungen der OpenKeychain-App. Ohne diese Berechtigung wird der Entwurf zwar gespeichert, aber das OpenKeychain-Popup zum Bestätigen/Auswählen erscheint möglicherweise nicht.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 

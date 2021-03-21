@@ -154,6 +154,7 @@
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
     <string name="title_setup_doze_remark">Để nhận email một cách đáng tin cậy</string>
     <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin sẽ gây ra sử dụng pin ít hơn</string>
+    <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
@@ -263,6 +264,7 @@
     <string name="title_advanced_download">Tự động tải xuống các thư và tệp đính kèm trong kết nối trả phí lớn nhất</string>
     <string name="title_advanced_roaming">Tải xuống các thư và tệp đính kèm khi đang chuyển vùng</string>
     <string name="title_advanced_rlah">Chuyển vùng như ở nhà</string>
+    <string name="title_advanced_validated">Yêu cầu kết nối đã xác minh (đã kiểm tra)</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>
     <string name="title_advanced_manage_connectivity">Quản lý sự kết nối</string>
@@ -293,6 +295,8 @@
     <string name="title_advanced_name_email">Hiện tên và địa chỉ email</string>
     <string name="title_advanced_replace_name">Ưu tiên tên danh bạ hơn tên được gửi</string>
     <string name="title_advanced_only_name">Chỉ hiển thị tên danh bạ</string>
+    <string name="title_advanced_distinguish_contacts">Gạch chân người gửi khi người gửi được biết đến là liên hệ \'đến\'</string>
+    <string name="title_advanced_show_recipients">Hiện người nhận ở tiêu đề thư</string>
     <string name="title_advanced_subject_top">Hiện chủ đề trên người gửi</string>
     <string name="title_advanced_subject_italic">Hiện chủ đề bằng chữ nghiêng</string>
     <string name="title_advanced_subject_elipsed">Rút ngắn chủ đề nếu cần</string>
@@ -416,6 +420,7 @@
     <string name="title_advanced_classification">Phân loại thư</string>
     <string name="title_advanced_language">Ngôn ngữ</string>
     <string name="title_advanced_language_system">Hệ thống</string>
+    <string name="title_advanced_watchdog">Kiểm tra định kỳ xem FairEmail vẫn hoạt động hay không</string>
     <string name="title_advanced_optimize">Tự động tối ưu hoá</string>
     <string name="title_advanced_updates">Kiểm tra cập nhật trên GitHub</string>
     <string name="title_advanced_check_weekly">Kiểm tra hàng tuần thay vì hàng ngày</string>

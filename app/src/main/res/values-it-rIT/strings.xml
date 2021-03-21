@@ -165,6 +165,7 @@
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per ricevere e-mail in modo affidabile</string>
     <string name="title_setup_doze_hint">Anche se questo può sembrare contraddittorio, spegnere le ottimizzazioni della batteria si tradurrà in un minore utilizzo della batteria</string>
+    <string name="title_setup_doze_instructions">Nella prossima finestra di dialogo Android, cambia «Non ottimizzato» in «Tutte le app», seleziona questa app e seleziona «Non ottimizzare»</string>
     <string name="title_setup_doze_battery">Consumo elevato della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_data">Risparmio dati attivato</string>
@@ -277,6 +278,7 @@
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
+    <string name="title_advanced_validated">Richiede una connessione convalidata (controllata)</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisci IPv4 a IPv6</string>
     <string name="title_advanced_ssl_harden">Connessioni SSL Harden</string>
