@@ -190,6 +190,7 @@ public class FragmentBase extends Fragment {
         crumb.put("name", this.getClass().getName());
         crumb.put("before", Integer.toString(before));
         crumb.put("after", Integer.toString(after));
+        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         for (String key : outState.keySet()) {
             Object value = outState.get(key);
             crumb.put(key, value == null ? "" : value.getClass().getName());
