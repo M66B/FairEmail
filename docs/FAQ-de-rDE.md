@@ -465,93 +465,93 @@ Im Anzeigebereich der Einstellungen können Sie z. B. aktivieren oder deaktivier
 * *Automatisch Originalnachricht für bekannte Kontakte anzeigen*: um automatisch Originalnachrichten für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [diese FAQ](#user-content-faq35)
 * *Automatisch Bilder für bekannte Kontakte anzeigen*: um automatisch Bilder für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [diese FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Beachten Sie, dass Nachrichten nur dann in der Vorschau angezeigt werden können, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden in gebührenpflichtigen (in der Regel mobilen) Netzen standardmäßig nicht heruntergeladen. Sie können dies in den Verbindungseinstellungen ändern.
 
-Some people ask:
+Manche Leute fragen:
 
 * wie man den Betreff fett anzeigen lassen kann, obwohl eine fette Schrift bereits verwendet wird, um ungelesene Nachrichten hervorzuheben
-* to move the star to the left, but it is much easier to operate the star on the right side
+* um den Stern nach links zu bewegen, aber es ist viel einfacher, den Stern auf der rechten Seite zu bedienen
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Wie kann ich mich bei Gmail / G-Suite anmelden?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Wenn Sie die Play Store- oder GitHub-Version von FairEmail verwenden, können Sie den Schnelleinrichtungsassistenten verwenden, um ein Gmail-Konto und eine Identität einfach einzurichten. Der Gmail-Schnelleinrichtungsassistent ist für Builds von Drittanbietern, wie dem F-Droid-Build, nicht verfügbar da Google die Verwendung von OAuth nur für offizielle Builds freigegeben hat.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Wenn Sie kein geräteinternes Google-Konto verwenden möchten oder können, z. B. auf neueren Huawei-Geräten, können Sie entweder den Zugriff für "weniger sichere Apps" aktivieren und Ihr Kontopasswort verwenden (nicht empfohlen) oder die Zwei-Faktor-Authentifizierung aktivieren und ein App-spezifisches Passwort verwenden. Um ein Kennwort zu verwenden, müssen Sie ein Konto und eine Identität über die manuelle Einrichtung einrichten, anstatt über den Schnelleinrichtungsassistenten.
 
-**Important**: sometimes Google issues this alert:
+**Wichtig**: Manchmal gibt Google diese Warnung aus:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Bitte loggen Sie sich über Ihren Webbrowser ein: https://support.google.com/mail/accounts/answer/78754 (Fehlfunktion)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Diese Google-Sicherheitsprüfung wird häufiger ausgelöst, wenn *wenig sichere Apps* aktiviert sind, weniger mit einem App-Passwort und kaum bei Verwendung eines On-Device-Kontos (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Bitte lesen Sie [diese FAQ](#user-content-faq111), warum nur geräteinterne Konten verwendet werden können.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Beachten Sie, dass ein App-spezifisches Passwort erforderlich ist, wenn die Zwei-Faktor-Authentifizierung aktiviert ist.
 
 <br />
 
-*Enable "Less secure apps"*
+*App-spezifisches Passwort*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Lesen Sie [hier](https://support.google.com/accounts/answer/185833), wie Sie ein App-spezifisches Passwort erzeugen können.
 
 <br />
 
-*General*
+*Aktivieren Sie "Weniger sichere Apps"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Wichtig**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Wichtig**: Gsuite-Konten, die mit einem Benutzernamen/Passwort autorisiert wurden, werden [in naher Zukunft nicht mehr funktionieren](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Siehe [hier](https://support.google.com/accounts/answer/6010255), wie Sie "weniger sichere Apps" aktivieren können oder gehen Sie [direkt zu der Einstellung](https://www.google.com/settings/security/lesssecureapps).
+
+Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einstellung "weniger sichere Apps" des/der richtigen Kontos/Konten ändern.
+
+Beachten Sie, dass Sie den Einstellungsbildschirm "Weniger sichere Apps" mit dem Zurück-Pfeil verlassen müssen, um die Einstellung zu übernehmen.
+
+Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwenden, was ohnehin eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501) IMAP-Protokolls an sich nicht weniger sicher ist.
+
+Wenn "weniger sichere Anwendungen" nicht aktiviert ist, erhalten Sie den Fehler *Authentifizierung fehlgeschlagen - ungültige Anmeldeinformationen* für Konten (IMAP) und *Benutzername und Passwort nicht akzeptiert* für Identitäten (SMTP).
+
+<br />
+
+*Allgemein*
+
+Sie erhalten möglicherweise die Meldung "*Bitte melden Sie sich über Ihren Webbrowser an*". Dies geschieht, wenn Google das Netzwerk, das Sie mit dem Internet verbindet (dies könnte ein VPN sein), als unsicher einstuft. Dies kann mit dem Gmail-Schnelleinrichtungsassistenten oder einem App-spezifischen Passwort verhindert werden.
+
+Siehe [hier](https://support.google.com/mail/answer/7126229) für die Anweisungen von Google und [hier](https://support.google.com/mail/accounts/answer/78754) für die Fehlerbehebung.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Warum erscheinen gesendete Nachrichten nicht (direkt) im Ordner "Gesendet"?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Gesendete Nachrichten werden normalerweise vom Postausgang in den Ordner "Gesendet" verschoben, sobald Ihr Provider gesendete Nachrichten in den Ordner "Gesendet" hinzufügt. Dazu muss in den Kontoeinstellungen ein Sendeordner ausgewählt und der Sendeordner auf Synchronisierung eingestellt sein.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Einige Provider führen keine Aufzeichnungen über gesendete Nachrichten oder der verwendete SMTP-Server ist möglicherweise nicht mit dem Provider verbunden. In diesen Fällen fügt FairEmail bei der Synchronisierung des Sendeordners, die nach dem Versenden einer Nachricht erfolgt, die gesendeten Nachrichten automatisch dem Sendeordner hinzu. Beachten Sie, dass dies zu zusätzlichem Internetverkehr führt.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Wenn dies nicht geschieht, kann es sein, dass Ihr Provider die gesendeten Nachrichten nicht nachverfolgt oder dass Sie einen SMTP-Server verwenden, der nicht mit dem Provider verbunden ist. ~~In diesen Fällen können Sie die erweiterte Identitätseinstellung *Gesendete Nachrichten speichern* aktivieren, damit FairEmail gesendete Nachrichten direkt nach dem Senden einer Nachricht dem Ordner "Gesendet" hinzufügt.~~ ~~Beachten Sie, dass das Aktivieren dieser Einstellung zu doppelten Nachrichten führen kann, wenn Ihr Provider gesendete Nachrichten ebenfalls zum Ordner "Gesendet" hinzufügt.~~ ~~Beachten Sie auch, dass das Aktivieren dieser Einstellung zu einer zusätzlichen Datennutzung führt, vor allem beim Senden von Nachrichten mit großen Anhängen.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Wenn gesendete Nachrichten im Postausgang bei einer Vollsynchronisation nicht im Ordner "Gesendet" gefunden werden, werden sie auch aus dem Postausgang in den Ordner "Gesendet" verschoben. ~~Eine vollständige Synchronisierung findet statt, wenn die Verbindung zum Server wiederhergestellt wird oder wenn die Synchronisierung periodisch oder manuell erfolgt. ~~Wahrscheinlich möchten Sie stattdessen die erweiterte Einstellung *Gesendete Nachrichten speichern* aktivieren, um Nachrichten früher in den Ordner "Gesendet" zu verschieben.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Kann ich ein Microsoft Exchange-Konto verwenden?**
 
-The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
+Das Microsoft Exchange Web Services-Protokoll [wird schrittweise abgebaut](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). Es macht also wenig Sinn, dieses Protokoll noch hinzuzufügen.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Sie können ein Microsoft Exchange-Konto verwenden, wenn es über IMAP erreichbar ist, was meistens der Fall ist. Siehe [hier](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) für weitere Informationen.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Beachten Sie, dass die Beschreibung von FairEmail mit der Bemerkung beginnt dass Nicht-Standard-Protokolle, wie Microsoft Exchange Web Services und Microsoft ActiveSync nicht unterstützt werden.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Bitte sehen Sie [hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) für die Microsoft-Dokumentation zur Konfiguration eines E-Mail-Clients. Außerdem gibt es einen Abschnitt über häufige Verbindungsfehler und Lösungen.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Einige ältere Exchange-Server-Versionen haben einen Fehler, der leere Nachrichten und beschädigte Anhänge verursacht. Bitte lesen Sie [diese FAQ](#user-content-faq110) für einen Workaround.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Bitte beachten Sie [diese FAQ](#user-content-faq133) zur ActiveSync-Unterstützung.
 
 Bitte beachten Sie [diese FAQ](#user-content-faq111) zur OAuth-Unterstützung.
 
