@@ -278,7 +278,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             try {
                                 db.beginTransaction();
 
-                                if (identity.primary)
+                                if (primary)
                                     db.identity().resetPrimary(account);
 
                                 db.identity().setIdentityPrimary(id, primary);
