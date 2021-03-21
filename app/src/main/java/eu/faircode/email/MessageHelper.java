@@ -2362,8 +2362,11 @@ public class MessageHelper {
                             break;
                         }
                     }
-                } else
-                    throw new MessagingException("Multipart=" + (content == null ? null : content.getClass().getName()));
+                } else {
+                    String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
+                    Log.e(msg);
+                    throw new MessagingException(msg);
+                }
             }
 
             if (part.isMimeType("multipart/signed")) {
@@ -2407,8 +2410,11 @@ public class MessageHelper {
                                 sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                             Log.e(sb.toString());
                         }
-                    } else
-                        throw new MessagingException("Multipart=" + (content == null ? null : content.getClass().getName()));
+                    } else {
+                        String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
+                        Log.e(msg);
+                        throw new MessagingException(msg);
+                    }
                 } else
                     Log.e(ct.toString());
             } else if (part.isMimeType("multipart/encrypted")) {
@@ -2429,8 +2435,11 @@ public class MessageHelper {
                                 sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                             Log.e(sb.toString());
                         }
-                    } else
-                        throw new MessagingException("Multipart=" + (content == null ? null : content.getClass().getName()));
+                    } else {
+                        String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
+                        Log.e(msg);
+                        throw new MessagingException(msg);
+                    }
                 } else
                     Log.e(ct.toString());
             } else if (part.isMimeType("application/pkcs7-mime") ||
@@ -2486,8 +2495,11 @@ public class MessageHelper {
                 Object content = part.getContent(); // Should always be Multipart
                 if (content instanceof Multipart)
                     multipart = (Multipart) part.getContent();
-                else
-                    throw new MessagingException("Multipart=" + (content == null ? null : content.getClass().getName()));
+                else {
+                    String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
+                    Log.e(msg);
+                    throw new MessagingException(msg);
+                }
 
                 boolean other = false;
                 List<Part> plain = new ArrayList<>();
