@@ -45,6 +45,7 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentDialogIdentity extends FragmentDialogBase {
@@ -133,6 +134,9 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
 
             @Override
             protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
+                if (identities == null)
+                    identities = new ArrayList<>();
+
                 AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), identities);
                 spIdentity.setAdapter(iadapter);
 

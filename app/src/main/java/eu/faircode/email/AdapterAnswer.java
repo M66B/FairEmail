@@ -219,7 +219,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             @Override
             protected Boolean onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
-                return (db.identity().getComposableIdentities(null).size() > 0);
+                List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+                return (identities != null && identities.size() > 0);
             }
 
             @Override

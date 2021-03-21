@@ -4386,22 +4386,24 @@ class Core {
                 }
             }
 
-            if (notify_reply && message.content &&
-                    db.identity().getComposableIdentities(message.account).size() > 0) {
-                Intent reply = new Intent(context, ActivityCompose.class)
-                        .putExtra("action", "reply")
-                        .putExtra("reference", message.id)
-                        .putExtra("group", group);
-                reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                PendingIntent piReply = PendingIntent.getActivity(context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
-                NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_reply_24,
-                        context.getString(R.string.title_advanced_notify_action_reply),
-                        piReply)
-                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
-                        .setShowsUserInterface(true)
-                        .setAllowGeneratedReplies(false);
-                mbuilder.addAction(actionReply.build());
+            if (notify_reply && message.content) {
+                List<TupleIdentityEx> identities = db.identity().getComposableIdentities(message.account);
+                if (identities != null && identities.size() > 0) {
+                    Intent reply = new Intent(context, ActivityCompose.class)
+                            .putExtra("action", "reply")
+                            .putExtra("reference", message.id)
+                            .putExtra("group", group);
+                    reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PendingIntent piReply = PendingIntent.getActivity(context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                    NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
+                            R.drawable.twotone_reply_24,
+                            context.getString(R.string.title_advanced_notify_action_reply),
+                            piReply)
+                            .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
+                            .setShowsUserInterface(true)
+                            .setAllowGeneratedReplies(false);
+                    mbuilder.addAction(actionReply.build());
+                }
             }
 
             if (notify_reply_direct &&
