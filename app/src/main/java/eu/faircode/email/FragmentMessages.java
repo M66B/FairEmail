@@ -355,6 +355,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_BOUNDARY_RETRY = 22;
     static final int REQUEST_PICK_CONTACT = 23;
     static final int REQUEST_BUTTONS = 24;
+    private static final int REQUEST_ASKED_RAW = 25;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -3307,6 +3308,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionRaw() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean raw_asked = prefs.getBoolean("raw_asked", false);
+
+        if (raw_asked) {
+            _onActionRaw();
+            return;
+        }
+
+        Bundle args = new Bundle();
+        args.putString("question", getString(R.string.title_ask_raw));
+        args.putString("notagain", "raw_asked");
+
+        FragmentDialogAsk ask = new FragmentDialogAsk();
+        ask.setArguments(args);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_ASKED_RAW);
+        ask.show(getParentFragmentManager(), "messages:raw");
+    }
+
+    private void _onActionRaw() {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
 
@@ -6042,6 +6062,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_BUTTONS:
                     adapter.notifyDataSetChanged();
+                    break;
+                case REQUEST_ASKED_RAW:
+                    _onActionRaw();
                     break;
             }
         } catch (Throwable ex) {
