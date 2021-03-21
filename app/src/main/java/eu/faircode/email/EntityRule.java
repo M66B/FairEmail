@@ -547,7 +547,7 @@ public class EntityRule {
 
         // Prevent loop
         List<EntityMessage> messages = db.message().getMessagesByThread(
-                message.account, message.thread, null, message.folder);
+                message.account, message.thread, null, null);
         for (EntityMessage threaded : messages) {
             EntityLog.log(context, "Answer loop check" +
                     " message=" + MessageHelper.formatAddresses(threaded.from) +
