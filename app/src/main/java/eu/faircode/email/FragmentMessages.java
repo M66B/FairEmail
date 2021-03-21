@@ -330,6 +330,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private static final int MAX_MORE = 100; // messages
+    private static final int MAX_SEND_RAW = 50; // messages
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
 
@@ -2772,6 +2773,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, final MoreResult result) {
+                long[] ids = args.getLongArray("ids");
+
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabMore);
 
                 int order = 0;
@@ -2819,7 +2822,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
 
-                if (result.accounts.size() > 0 /* IMAP */ && BuildConfig.DEBUG)
+                if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send);
 
                 for (EntityAccount account : result.accounts) {
@@ -3317,7 +3320,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         Bundle args = new Bundle();
-        args.putString("question", getString(R.string.title_ask_raw));
+        args.putString("question", getString(R.string.title_raw_send));
+        args.putString("remark", getString(R.string.title_ask_raw));
         args.putString("notagain", "raw_asked");
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
@@ -3333,6 +3337,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
+            private Toast toast = null;
+
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
@@ -3388,7 +3394,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         } else {
                             if (!Objects.equals(last, remaining)) {
                                 last = remaining;
-                                ToastEx.makeText(context, getString(R.string.title_remaining, remaining), Toast.LENGTH_LONG).show();
+
+                                String msg = getString(R.string.title_raw_remaining, remaining);
+                                if (toast != null)
+                                    toast.cancel();
+                                toast = ToastEx.makeText(context, msg, Toast.LENGTH_SHORT);
+                                toast.show();
                             }
                         }
                     }
@@ -6064,7 +6075,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     adapter.notifyDataSetChanged();
                     break;
                 case REQUEST_ASKED_RAW:
-                    _onActionRaw();
+                    if (resultCode == RESULT_OK)
+                        _onActionRaw();
                     break;
             }
         } catch (Throwable ex) {

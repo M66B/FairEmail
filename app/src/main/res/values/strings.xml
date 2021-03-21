@@ -885,7 +885,8 @@
     <string name="title_download_all">Download all</string>
     <string name="title_save_all">Save all</string>
     <string name="title_save_eml">Save raw message file</string>
-    <string name="title_remaining">Messages to download: %1$d</string>
+    <string name="title_raw_remaining">Raw messages to download: %1$d</string>
+    <string name="title_ask_raw">To forward messages, the raw (original) messages need to be downloaded from the server. This requires an internet connection.</string>
 
     <string name="title_buttons">Select buttons</string>
     <string name="title_configure_buttons">Configure buttons &#8230;</string>
@@ -964,7 +965,6 @@
     <string name="title_ask_help">Help improve FairEmail</string>
     <string name="title_ask_reporting">Send error reports?</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
-    <string name="title_ask_raw">To forward messages, the raw (original) message needs to be downloaded</string>
 
     <string name="title_ask_review">Please review FairEmail</string>
     <string name="title_ask_review_rationale">
