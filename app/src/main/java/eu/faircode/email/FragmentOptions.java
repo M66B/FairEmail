@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,6 +42,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -334,6 +336,24 @@ public class FragmentOptions extends FragmentBase {
             fragment.setTargetFragment(this, ActivitySetup.REQUEST_STILL);
             fragment.show(getParentFragmentManager(), "setup:still");
         }
+    }
+
+    static void reset(Context context, String[] options) {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.title_setup_defaults)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        for (String option : options)
+                            editor.remove(option);
+                        editor.apply();
+                        ToastEx.makeText(context, R.string.title_setup_done, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     public static class FragmentDialogStill extends FragmentDialogBase {
