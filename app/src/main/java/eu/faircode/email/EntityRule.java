@@ -542,11 +542,16 @@ public class EntityRule {
         }
 
         Address[] from = new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())};
+        EntityLog.log(context, "Answer loop check" +
+                " identity=" + MessageHelper.formatAddresses(from));
 
         // Prevent loop
         List<EntityMessage> messages = db.message().getMessagesByThread(
                 message.account, message.thread, null, message.folder);
-        for (EntityMessage threaded : messages)
+        for (EntityMessage threaded : messages) {
+            EntityLog.log(context, "Answer loop check" +
+                    " message=" + MessageHelper.formatAddresses(threaded.from) +
+                    " self=" + (threaded.id.equals(message.id)));
             if (!threaded.id.equals(message.id) &&
                     MessageHelper.equal(threaded.from, from)) {
                 EntityLog.log(context, "Answer loop" +
@@ -554,6 +559,7 @@ public class EntityRule {
                         " from=" + MessageHelper.formatAddresses(from));
                 return;
             }
+        }
 
         EntityMessage reply = new EntityMessage();
         reply.account = message.account;

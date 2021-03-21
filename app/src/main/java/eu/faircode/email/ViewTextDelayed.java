@@ -49,7 +49,7 @@ public class ViewTextDelayed extends AppCompatTextView {
         this.visibility = visibility;
 
         if (visibility == VISIBLE) {
-            if (delaying)
+            if (delaying || super.getVisibility() == VISIBLE)
                 return;
             delaying = true;
             super.setVisibility(INVISIBLE);
