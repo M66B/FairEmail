@@ -4321,7 +4321,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private boolean onOpenLink(final Uri uri, String title, boolean always_confirm) {
             Log.i("Opening uri=" + uri + " title=" + title);
 
-            if ("eu.faircode.email".equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
+            if ("email.faircode.eu".equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                 try {
                     if (ActivityBilling.activatePro(context, uri))
                         ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
