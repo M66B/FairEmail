@@ -52,21 +52,21 @@ Related questions:
 
 ## How to ...?
 
-* Change the account name: Settings, tap Manual setup and more options, tap Accounts, tap account
+* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup and more options, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup and more options, tap Identities, tap identity, Edit signature.
+* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
+* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Delete a message, skipping trash: in the 3-dots menu just above the message text *Delete* or alternatively, unselect the trash folder in the account settings
-* Delete an account/identity: Settings, tap Manual setup and more options, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
+* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, three-dots menu, Delete
 * Delete a folder: long press the folder in the folder list, Edit properties, three-dots menu, Delete
 * Undo send: Outbox, tap message, tap undo icon button
 * Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom
+* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation/hamburger menu
 
 ## Known problems
@@ -420,7 +420,7 @@ See also [this FAQ](#user-content-faq16).
 <br />
 *... Invalid security certificate (Can't verify identity of server) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup and more options).
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup).
 Please see the documentation of the email provider about the right host name.
 
 You should try to fix this by contacting your provider or by getting a valid security certificate
@@ -428,13 +428,13 @@ because invalid security certificates are insecure and allow [man-in-the-middle 
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
 The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings
-(navigation menu, tap *Settings*, tap *Manual setup and more options*, tap *Identities*, tap the identity, tap *Advanced*).
+(navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
 1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. Tap Manual setup and more options, tap Accounts/Identities and tap the faulty account and identity
+1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
 1. Check/save the account and identity
 1. Tick the checkbox below the error message and save again
 
@@ -723,7 +723,7 @@ FairEmail was tested with OpenKeychain version 5.4. Later versions will most lik
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
 **Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key.
-This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
+This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages,
 it might be necessary to disable battery optimizations for the OpenKeychain app.
@@ -1074,7 +1074,7 @@ Other possible causes are that the account is blocked or that logging in has bee
 for example by allowing to login from certain networks / IP addresses only.
 
 If needed, you can update a password in the account settings:
-navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account.
+navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account.
 Changing the account password will in most cases automatically change the password of related identities too.
 If the account was authorized with OAuth via the quick setup wizard instead of with a password,
 you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again.
@@ -1174,7 +1174,7 @@ Too large messages and triggering the spam filter of an email server are the mos
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
 * Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
-* Change the identity settings like this (Settings, tap Manual setup and more options, tap Identities, tap identity):
+* Change the identity settings like this (Settings, tap Manual setup, tap Identities, tap identity):
 
 &emsp;&emsp;Username: *your Gmail address*<br />
 &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br />
@@ -2724,7 +2724,7 @@ Empty messages and/or corrupt attachments are probably being caused by a bug in 
 Older Microsoft Exchange software is known to cause this problem.
 Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Settings > Manual setup and more options > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages.
 Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
@@ -3080,7 +3080,7 @@ that non-standard protocols, like Microsoft Exchange Web Services and Microsoft 
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -3116,8 +3116,8 @@ It is easy to read through the received messages before continuing to write the 
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Settings > Manual setup and more options > Accounts > tap account
-* Identity: Settings > Manual setup and more options > Identities > tap identity
+* Account: Settings > Manual setup > Accounts > tap account
+* Identity: Settings > Manual setup > Identities > tap identity
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -3195,7 +3195,7 @@ However, some email servers are not configured properly and do not send these at
 In this case FairEmail tries to identify the drafts folder by name,
 but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom).
 If there is no drafts folder at all,
 you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
@@ -3262,8 +3262,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced)
-* Long press the account in the account list (Settings, tap Manual setup and more options, tap Accounts) and select *Edit notification channel* to change the notification sound
+* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
+* Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
@@ -3291,7 +3291,7 @@ Sometimes the server received date/time is incorrect,
 mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
 In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
-This can be changed in the advanced account settings: Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced.
+This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages.
 To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
