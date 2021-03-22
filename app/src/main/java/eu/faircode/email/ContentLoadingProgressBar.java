@@ -53,7 +53,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
         this.visibility = visibility;
 
         if (visibility == VISIBLE) {
-            if (delaying)
+            if (delaying || super.getVisibility() == VISIBLE)
                 return;
             delaying = true;
             super.setVisibility(INVISIBLE);
