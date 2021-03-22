@@ -543,6 +543,13 @@ public class HtmlHelper {
                                     continue;
 
                                 Integer color = parseColor(value);
+
+                                if (color != null && !view && Helper.isDarkTheme(context)) {
+                                    float lum = (float) ColorUtils.calculateLuminance(color);
+                                    if (lum < 0.1f)
+                                        color = null;
+                                }
+
                                 if (color == null)
                                     element.removeAttr("color");
                                 else {
