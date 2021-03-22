@@ -28,6 +28,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 public class ViewTextDelayed extends AppCompatTextView {
     private int visibility = VISIBLE;
+    private boolean init = false;
     private boolean delaying = false;
 
     private static final int VISIBILITY_DELAY = 1500; // milliseconds
@@ -49,8 +50,9 @@ public class ViewTextDelayed extends AppCompatTextView {
         this.visibility = visibility;
 
         if (visibility == VISIBLE) {
-            if (delaying || super.getVisibility() == VISIBLE)
+            if (delaying || (init && super.getVisibility() == VISIBLE))
                 return;
+            init = true;
             delaying = true;
             super.setVisibility(INVISIBLE);
             ApplicationEx.getMainHandler().postDelayed(delayedShow, VISIBILITY_DELAY);
