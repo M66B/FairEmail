@@ -2034,7 +2034,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             if (EntityFolder.OUTBOX.equals(message.folderType)) {
-                FragmentMessages.onActionUndo(message, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
+                onActionUndoSend(message, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
                 return;
             }
 
@@ -3613,7 +3613,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(FragmentMessages.this, args, "messages:delete");
     }
 
-    static void onActionUndo(TupleMessageEx message, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
+    static void onActionUndoSend(TupleMessageEx message, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
         Bundle args = new Bundle();
         args.putLong("id", message.id);
 
@@ -3622,17 +3622,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected EntityMessage onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
+                DB db = DB.getInstance(context);
+
+                EntityOperation operation = db.operation().getOperation(message.id, EntityOperation.SEND);
+                if (operation != null)
+                    if ("executing".equals(operation.state)) {
+                        // Trigger update
+                        db.message().setMessageUiBusy(message.id, new Date().getTime());
+                        return null;
+                    } else
+                        db.operation().deleteOperation(operation.id);
+
                 EntityMessage message;
 
-                DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
                     message = db.message().getMessage(id);
                     if (message == null)
                         return null;
-                    if (message.account == null)
-                        throw new IllegalStateException("Account missing");
 
                     db.folder().setFolderError(message.folder, null);
                     if (message.identity != null)

@@ -482,6 +482,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private void onSend(EntityMessage message) throws MessagingException, IOException {
         DB db = DB.getInstance(this);
 
+        EntityOperation operation = db.operation().getOperation(message.id, EntityOperation.SEND);
+        if (operation == null)
+            throw new IllegalArgumentException("Send cancelled");
+
         // Mark attempt
         if (message.last_attempt == null) {
             message.last_attempt = new Date().getTime();

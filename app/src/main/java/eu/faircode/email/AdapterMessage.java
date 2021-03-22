@@ -3054,7 +3054,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibVerify) {
                     onActionDecrypt(message, false);
                 } else if (id == R.id.ibUndo) {
-                    FragmentMessages.onActionUndo(message, context, owner, parentFragment.getParentFragmentManager());
+                    FragmentMessages.onActionUndoSend(message, context, owner, parentFragment.getParentFragmentManager());
                 } else if (id == R.id.ibRule) {
                     onMenuCreateRule(message);
                 } else if (id == R.id.ibUnsubscribe) {
