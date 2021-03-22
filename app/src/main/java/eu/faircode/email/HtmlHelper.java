@@ -1010,95 +1010,8 @@ public class HtmlHelper {
         }
 
         // Autolink
-        if (view) {
-            // https://en.wikipedia.org/wiki/List_of_URI_schemes
-            // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
-            // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
-            // tel:<phonenumber>
-            final Pattern pattern = Pattern.compile(
-                    "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")|" +
-                            PatternsCompat.AUTOLINK_WEB_URL.pattern()
-                                    .replace("(?i:http|https|rtsp)://",
-                                            "(((?i:http|https)://)|((?i:xmpp):))") + "|" +
-                            "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)|" +
-                            "(?i:tel:" + Patterns.PHONE.pattern() + ")");
-
-            NodeTraversor.traverse(new NodeVisitor() {
-                private int links = 0;
-
-                @Override
-                public void head(Node node, int depth) {
-                    if (links < MAX_AUTO_LINK && node instanceof TextNode) {
-                        TextNode tnode = (TextNode) node;
-                        String text = tnode.getWholeText();
-
-                        Matcher matcher = pattern.matcher(text);
-                        if (matcher.find()) {
-                            Element span = document.createElement("span");
-
-                            int pos = 0;
-                            do {
-                                boolean linked = false;
-                                Node parent = tnode.parent();
-                                while (parent != null) {
-                                    if ("a".equals(parent.nodeName())) {
-                                        linked = true;
-                                        break;
-                                    }
-                                    parent = parent.parent();
-                                }
-
-                                String group = matcher.group();
-                                int start = matcher.start();
-                                int end = matcher.end();
-
-                                // Workarounds
-                                if (group.endsWith(".")) {
-                                    end--;
-                                    group = group.substring(0, group.length() - 1);
-                                }
-                                if (group.startsWith("(")) {
-                                    start++;
-                                    group = group.substring(1);
-                                }
-                                if (group.endsWith(")")) {
-                                    end--;
-                                    group = group.substring(0, group.length() - 1);
-                                }
-
-                                boolean email = group.contains("@") && !group.contains(":");
-                                Log.d("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
-                                        " linked=" + linked + " email=" + email + " count=" + links);
-
-                                if (linked)
-                                    span.appendText(text.substring(pos, end));
-                                else {
-                                    span.appendText(text.substring(pos, start));
-
-                                    Element a = document.createElement("a");
-                                    a.attr("href", (email ? "mailto:" : "") + group);
-                                    a.text(group);
-                                    span.appendChild(a);
-
-                                    links++;
-                                }
-
-                                pos = end;
-                            } while (links < MAX_AUTO_LINK && matcher.find());
-
-                            span.appendText(text.substring(pos));
-
-                            tnode.before(span);
-                            tnode.text("");
-                        }
-                    }
-                }
-
-                @Override
-                public void tail(Node node, int depth) {
-                }
-            }, document);
-        }
+        if (view)
+            autoLink(document);
 
         // Selective new lines
         for (Element div : document.select("div"))
@@ -1115,6 +1028,96 @@ public class HtmlHelper {
         }
 
         return document;
+    }
+
+    static void autoLink(Document document) {
+        // https://en.wikipedia.org/wiki/List_of_URI_schemes
+        // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
+        // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
+        // tel:<phonenumber>
+        final Pattern pattern = Pattern.compile(
+                "(((?i:mailto):)?" + PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + ")|" +
+                        PatternsCompat.AUTOLINK_WEB_URL.pattern()
+                                .replace("(?i:http|https|rtsp)://",
+                                        "(((?i:http|https)://)|((?i:xmpp):))") + "|" +
+                        "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)|" +
+                        "(?i:tel:" + Patterns.PHONE.pattern() + ")");
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            private int links = 0;
+
+            @Override
+            public void head(Node node, int depth) {
+                if (links < MAX_AUTO_LINK && node instanceof TextNode) {
+                    TextNode tnode = (TextNode) node;
+                    String text = tnode.getWholeText();
+
+                    Matcher matcher = pattern.matcher(text);
+                    if (matcher.find()) {
+                        Element span = document.createElement("span");
+
+                        int pos = 0;
+                        do {
+                            boolean linked = false;
+                            Node parent = tnode.parent();
+                            while (parent != null) {
+                                if ("a".equals(parent.nodeName())) {
+                                    linked = true;
+                                    break;
+                                }
+                                parent = parent.parent();
+                            }
+
+                            String group = matcher.group();
+                            int start = matcher.start();
+                            int end = matcher.end();
+
+                            // Workarounds
+                            if (group.endsWith(".")) {
+                                end--;
+                                group = group.substring(0, group.length() - 1);
+                            }
+                            if (group.startsWith("(")) {
+                                start++;
+                                group = group.substring(1);
+                            }
+                            if (group.endsWith(")")) {
+                                end--;
+                                group = group.substring(0, group.length() - 1);
+                            }
+
+                            boolean email = group.contains("@") && !group.contains(":");
+                            Log.d("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
+                                    " linked=" + linked + " email=" + email + " count=" + links);
+
+                            if (linked)
+                                span.appendText(text.substring(pos, end));
+                            else {
+                                span.appendText(text.substring(pos, start));
+
+                                Element a = document.createElement("a");
+                                a.attr("href", (email ? "mailto:" : "") + group);
+                                a.text(group);
+                                span.appendChild(a);
+
+                                links++;
+                            }
+
+                            pos = end;
+                        } while (links < MAX_AUTO_LINK && matcher.find());
+
+                        span.appendText(text.substring(pos));
+
+                        tnode.before(span);
+                        tnode.text("");
+                    }
+                }
+            }
+
+            @Override
+            public void tail(Node node, int depth) {
+            }
+        }, document);
     }
 
     static void normalizeNamespaces(Document parsed, boolean display_hidden) {

@@ -623,6 +623,8 @@ public class MessageHelper {
 
         // When sending message
         if (identity != null && send) {
+            HtmlHelper.autoLink(document);
+
             for (Element child : document.body().children())
                 if (!TextUtils.isEmpty(child.text()) &&
                         TextUtils.isEmpty(child.attr("fairemail"))) {
