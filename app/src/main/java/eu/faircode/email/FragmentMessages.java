@@ -7396,16 +7396,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     List<EntityMessage> messages = db.message().getMessagesByThread(
                             account, thread, threading ? null : id, null);
-                    for (EntityMessage threaded : messages)
-                        if (threaded.ui_unsnoozed && wakeup == null)
-                            db.message().setMessageUnsnoozed(threaded.id, false);
-                        else {
-                            db.message().setMessageSnoozed(threaded.id, wakeup);
-                            db.message().setMessageUiIgnored(threaded.id, true);
-                            if (!hide && flag_snoozed && threaded.folder.equals(message.folder))
-                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
-                            EntityMessage.snooze(context, threaded.id, wakeup);
-                        }
+                    for (EntityMessage threaded : messages) {
+                        db.message().setMessageUnsnoozed(threaded.id, false);
+                        db.message().setMessageSnoozed(threaded.id, wakeup);
+                        if (threaded.id.equals(id))
+                            EntityOperation.queue(context, threaded, EntityOperation.SEEN, true, false);
+                        else
+                            db.message().setMessageUiIgnored(message.id, true);
+                        if (!hide && flag_snoozed && threaded.folder.equals(message.folder))
+                            EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
+                        EntityMessage.snooze(context, threaded.id, wakeup);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -7462,17 +7463,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading ? null : id, message.folder);
-                        for (EntityMessage threaded : messages)
-                            if (threaded.ui_unsnoozed && wakeup == null)
-                                db.message().setMessageUnsnoozed(threaded.id, false);
-                            else {
-                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                message.account, message.thread, threading ? null : id, null);
+                        for (EntityMessage threaded : messages) {
+                            db.message().setMessageUnsnoozed(threaded.id, false);
+                            db.message().setMessageSnoozed(threaded.id, wakeup);
+                            if (threaded.id.equals(id))
+                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, true, false);
+                            else
                                 db.message().setMessageUiIgnored(message.id, true);
-                                if (flag_snoozed && threaded.folder.equals(message.folder))
-                                    EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
-                                EntityMessage.snooze(context, threaded.id, wakeup);
-                            }
+                            if (flag_snoozed && threaded.folder.equals(message.folder))
+                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
+                            EntityMessage.snooze(context, threaded.id, wakeup);
+                        }
                     }
 
                     db.setTransactionSuccessful();

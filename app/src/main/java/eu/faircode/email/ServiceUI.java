@@ -519,9 +519,12 @@ public class ServiceUI extends IntentService {
                         }
                     }
                 }
+
                 db.message().setMessageSnoozed(message.id, null);
-                db.message().setMessageUnsnoozed(message.id, true);
-                EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
+                if (!message.ui_ignored) {
+                    db.message().setMessageUnsnoozed(message.id, true);
+                    EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
+                }
             }
 
             db.setTransactionSuccessful();
