@@ -726,89 +726,89 @@ However, FairEmail can send and receive PGP encrypted messages, which are compat
 
 <br />
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+S/MIME Signieren/Verschlüsseln ist ein Pro-Feature, aber alle anderen PGP- und S/MIME-Operationen sind frei nutzbar.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Wie funktioniert die Suche auf dem Gerät/Server?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Sie können die Suche nach Nachrichten über Absender (Von), Empfänger (An, CC, BCC), Betreff, Schlüsselwörter oder Nachrichtentext starten, indem Sie die Lupe in der Aktionsleiste eines Ordners verwenden. Sie können auch von jeder App aus suchen, indem Sie *E-Mails suchen* im Kopieren/Einfügen-Popup-Menü auswählen.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Die Suche im vereinheitlichten Posteingang sucht in allen Ordnern aller Konten, die Suche in der Ordnerliste sucht nur in dem zugehörigen Konto und die Suche in einem Ordner sucht nur in diesem Ordner.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Es wird zuerst auf dem Gerät nach Nachrichten gesucht. Am unteren Rand befindet sich eine Aktionsschaltfläche mit einem Symbol für "Erneut suchen", um die Suche auf dem Server fortzusetzen. Sie können auswählen, in welchem Ordner Sie die Suche fortsetzen möchten.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+Das IMAP-Protokoll unterstützt nicht die gleichzeitige Suche in mehr als einem Ordner. Die Suche auf dem Server ist ein aufwendiger Vorgang, daher ist es nicht möglich, mehrere Ordner auszuwählen.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Die Suche nach lokalen Nachrichten erfolgt unabhängig von der Groß-/Kleinschreibung und auf Teiltexten. Der Nachrichtentext von lokalen Nachrichten wird nicht durchsucht, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Die Suche auf dem Server kann je nach Anbieter die Groß- und Kleinschreibung beachten und sich auf Teiltexte oder ganze Wörter beziehen.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Einige Server können die Suche im Nachrichtentext nicht bewältigen, wenn es eine große Anzahl von Nachrichten gibt. Für diesen Fall gibt es eine Option, um die Suche im Nachrichtentext zu deaktivieren.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+Für diesen Fall gibt es eine Option, um die Suche im Nachrichtentext zu deaktivieren. Es ist möglich, Gmail-Suchoperatoren zu verwenden, indem einem Suchbefehl *raw:* vorangestellt wird. Wenn Sie nur ein Gmail-Konto konfiguriert haben, können Sie eine Rohsuche direkt auf dem Server starten, indem Sie aus dem vereinheitlichten Posteingang suchen. Wenn Sie mehrere Gmail-Konten konfiguriert haben, müssen Sie zunächst zur Ordnerliste oder zum Archivordner (alle Nachrichten) des Gmail-Kontos navigieren, in dem Sie suchen möchten. Bitte [sehen Sie hier](https://support.google.com/mail/answer/7190) für die möglichen Suchoperatoren. Zum Beispiel:
 
 `
-raw:larger:10M`
+raw:größer:10M`
 
-Searching through a large number of messages on the device is not very fast because of two limitations:
+Das Durchsuchen einer großen Anzahl von Nachrichten auf dem Gerät ist aufgrund von zwei Einschränkungen nicht sehr schnell:
 
 * [sqlite](https://www.sqlite.org/), die Datenbank-Engine von Android hat ein Datensatzgrößenlimit und verhindert, dass Nachrichten in der Datenbank gespeichert werden
 * Android-Apps können nur mit limitiertem Arbeitsspeicher arbeiten, auch wenn das Gerät viel Speicher zur Verfügung hat
 
-This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
+Das bedeutet, dass die Suche nach einem Nachrichtentext erfordert, dass die Dateien, die die Nachrichtentexte enthalten, einzeln geöffnet werden müssen um zu prüfen, ob der gesuchte Text in der Datei enthalten ist, was ein relativ aufwendiger Prozess ist.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+In den *Sonstigen Einstellungen* können Sie *Suchindex aufbauen* aktivieren, um die Geschwindigkeit der Suche auf dem Gerät deutlich zu erhöhen, aber seien Sie sich bewusst, dass dies den Batterie- und Speicherplatzverbrauch erhöht. Der Suchindex basiert auf Wörtern, eine Suche nach Teiltexten ist also nicht möglich. Die Suche über den Suchindex ist standardmäßig UND, so dass die Suche nach *Apfel Orange* nach Apfel UND Orange sucht. Durch Kommas getrennte Wörter führen zu einer Suche nach ODER, so dass z. B. *Apfel, Orange* nach Apfel ODER Orange suchen wird. Beide können kombiniert werden, so dass die Suche nach *Apfel, Orange Banane* nach Apfel ODER (Orange UND Banane) sucht. Die Verwendung des Suchindex ist eine Pro-Funktion.
 
-From version 1.1315 it is possible to use search expressions like this:
+Ab Version 1.1315 ist es möglich, Suchausdrücke wie diesen zu verwenden:
 
 ```
 Apfel +Banane -Kirsche ?Nüsse
 ```
 
-This will result in searching like this:
+Dies führt zu einer Suche wie dieser:
 
 ```
 (»Apfel« UND »Banane« UND NICHT »Kirsche«) ODER »Nüsse«
 ```
 
-Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+Suchausdrücke können für die Suche auf dem Gerät über den Suchindex und für die Suche auf dem E-Mail-Server verwendet werden, aber aus Leistungsgründen nicht für die Suche auf dem Gerät ohne Suchindex.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Die Suche auf dem Gerät ist eine kostenlose Funktion, die Nutzung des Suchindex und die Suche auf dem Server ist eine Pro-Funktion.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Wie kann ich ein Outlook / Live / Hotmail-Konto einrichten?**
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
+Ein Outlook / Live / Hotmail-Konto kann über den Schnelleinrichtungsassistenten und die Auswahl von *Outlook* eingerichtet werden.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+Um ein Outlook-, Live- oder Hotmail-Konto mit aktivierter Zwei-Faktor-Authentifizierung zu verwenden, müssen Sie ein App-Kennwort erstellen. Siehe [hier](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) für die Details.
 
-See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+Siehe [hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) für die Anweisungen von Microsoft.
 
-For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
+Zum Einrichten eines Office 365-Kontos lesen Sie bitte [diese FAQ](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Warum wird der Meldungstext immer wieder geladen?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
+Der Nachrichtenkopf und der Nachrichtentext werden separat vom Server geholt. Der Nachrichtentext größerer Nachrichten wird bei gebührenpflichtigen Verbindungen nicht vorgeholt und wird bei Bedarf beim Erweitern einer Nachricht geholt. Der Nachrichtentext wird weiter geladen, wenn keine Verbindung zum Konto besteht, siehe auch die nächste Frage, oder wenn andere Operationen, wie das Synchronisieren von Nachrichten, ausgeführt werden.
 
-You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+Sie können die Konto- und Ordnerliste für den Konto- und Ordnerstatus überprüfen (siehe die Legende für die Bedeutung der Symbole) und die über das Hauptnavigationsmenü zugängliche Vorgangsliste für ausstehende Vorgänge (siehe [diese FAQ](#user-content-faq3) für die Bedeutung der Vorgänge).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+Wenn FairEmail wegen vorheriger Verbindungsprobleme (siehe [diese FAQ](#user-content-faq123)) die Synchronisation erzwingt, können Sie dies über das Drei-Punkte-Menü erzwingen.
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+In den Empfangseinstellungen können Sie die maximale Größe für das automatische Herunterladen von Nachrichten bei gebührenpflichtigen Verbindungen einstellen.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Mobile Verbindungen sind fast immer gebührenpflichtig und einige (kostenpflichtige) Wi-Fi-Hotspots sind es auch.
 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Warum werden die Nachrichten nicht synchronisiert?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Mögliche Ursachen für nicht synchronisierte (gesendete oder empfangene) Nachrichten sind:
 
 * Konto oder Ordner(e) sind nicht zum Synchronisieren gesetzt
 * Die Anzahl der Tage, für die die Nachricht synchronisiert werden soll, ist zu niedrig gesetzt
@@ -816,7 +816,7 @@ Possible causes of messages not being synchronized (sent or received) are:
 * Der E-Mail-Server ist vorübergehend nicht verfügbar
 * Android hat die Synchronisation gestoppt
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Überprüfen Sie also Ihre Konto- und Ordnereinstellungen und prüfen Sie, ob die Konten/Ordner verbunden sind (siehe Legende im Navigationsmenü für die Bedeutung der Symbole).
 
 If there are any error messages, please see [this FAQ](#user-content-faq22).
 
@@ -904,38 +904,38 @@ There are general errors and errors specific to Gmail accounts (see below).
 **General errors**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. Beim Passwort wird fast immer zwischen Groß- und Kleinschreibung unterschieden. Einige Anbieter verlangen die Verwendung eines App-Passworts anstelle des Kontopassworts, daher prüfen Sie bitte die Dokumentation des Anbieters. Manchmal ist es notwendig, den externen Zugriff (IMAP/SMTP) erst auf der Website des Providers zu aktivieren. Andere mögliche Ursachen sind, dass das Konto gesperrt ist oder dass die Anmeldung auf irgendeine Weise administrativ eingeschränkt wurde, z. B. indem die Anmeldung nur von bestimmten Netzwerken / IP-Adressen erlaubt ist.
 
-If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
+Bei Bedarf können Sie ein Passwort in den Kontoeinstellungen aktualisieren: Navigationsmenü (linkes Seitenmenü), tippen Sie auf *Einstellungen*, tippen Sie auf *Manuelle Einstellungen und weitere Optionen*, tippen Sie auf *Konten* und tippen Sie auf das Konto. Das Ändern des Kontopassworts ändert in den meisten Fällen automatisch auch das Passwort der zugehörigen Identitäten. Wenn das Konto mit OAuth über den Schnelleinrichtungsassistenten statt mit einem Passwort autorisiert wurde, können Sie den Schnelleinrichtungsassistenten erneut ausführen und *Vorhandenes Konto erneut autorisieren* ankreuzen, um das Konto erneut zu authentifizieren. Beachten Sie, dass dafür eine aktuelle Version der App erforderlich ist.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
+Der Fehler *... Zu viele schlechte Authentifizierungsversuche ...* bedeutet wahrscheinlich, dass Sie ein Yahoo-Kontopasswort anstelle eines App-Passworts verwenden. Bitte lesen Sie [diese FAQ](#user-content-faq88), wie Sie ein Yahoo-Konto einrichten können.
 
-The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
+Die Meldung *... +OK ...* bedeutet wahrscheinlich, dass ein POP3-Port (normalerweise Portnummer 995) für ein IMAP-Konto (normalerweise Portnummer 993) verwendet wird.
 
-The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
+Die Fehler *... ungültige Ansage ...*, *... erfordert gültige Adresse ...* und *... Parameter an HELO entspricht nicht der RFC-Syntax ...* kann wahrscheinlich durch Ändern der erweiterten Identitätseinstellung *Lokale IP-Adresse statt Hostname verwenden* gelöst werden.
 
-The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+Der Fehler *... Couldn't connect to host ...* bedeutet, dass es innerhalb einer angemessenen Zeit (standardmäßig 20 Sekunden) keine Antwort vom E-Mail-Server gab. Meistens deutet dies auf Probleme mit der Internetverbindung hin, möglicherweise verursacht durch ein VPN oder eine Firewall-App. Sie können versuchen, den Verbindungstimeout in den Verbindungseinstellungen von FairEmail zu erhöhen, für den Fall, dass der E-Mail-Server wirklich langsam ist.
 
-The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
+Der Fehler *... Verbindung verweigert ...* bedeutet, dass der E-Mail-Server oder etwas zwischen dem E-Mail-Server und der App, wie z. B. eine Firewall, die Verbindung aktiv abgelehnt hat.
 
-The error *... Network unreachable ...* means that the email server was not reachable via the current internet connection, for example because internet traffic is restricted to local traffic only.
+Der Fehler *... Netzwerk nicht erreichbar ...* bedeutet, dass der E-Mail-Server über die aktuelle Internetverbindung nicht erreichbar war, z. B. weil der Internetverkehr nur auf den lokalen Verkehr beschränkt ist.
 
-The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
+Der Fehler *... Host ist nicht aufgelöst ...*, *... Host konnte nicht aufgelöst werden ...* oder *... Dem Hostnamen ist keine Adresse zugeordnet ...* bedeutet, dass die Adresse des E-Mail-Servers nicht in eine IP-Adresse aufgelöst werden konnte. Dies kann durch ein VPN, eine Werbeblockierung oder einen nicht erreichbaren oder nicht richtig funktionierenden (lokalen) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System)-Server verursacht werden.
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+Der Fehler *... Software verursachte Verbindungsabbruch ...* bedeutet, dass der E-Mail-Server oder etwas zwischen FairEmail und dem E-Mail-Server eine bestehende Verbindung aktiv abgebrochen hat. Dies kann z. B. passieren, wenn die Verbindung abrupt unterbrochen wurde. Ein typisches Beispiel ist das Einschalten des Flugmodus.
 
-The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server or something between the email server and the app, for example a router or a firewall (app), actively terminated an existing connection.
+Die Fehler *... BYE Abmelden ...*, *... Verbindungsabbruch ...* bedeutet, dass der E-Mail-Server oder etwas zwischen dem E-Mail-Server und der App, zum Beispiel ein Router oder eine Firewall (App), eine bestehende Verbindung aktiv beendet hat.
 
-The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
+Der Fehler *... Connection closed by peer ...* kann durch einen nicht aktualisierten Exchange-Server verursacht werden, siehe [hier](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) für weitere Informationen.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+Die Fehler *... Lesefehler ...*, *... Schreibfehler ...*, *... Zeitüberschreitung beim Lesen … *, *... Broken pipe ...* bedeutet, dass der E-Mail-Server nicht mehr antwortet oder dass die Internetverbindung schlecht ist.
 
 <a name="connectiondropped"></a>
-The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
+Der Fehler *... Verbindung vom Server abgebrochen? ...* bedeutet, dass der E-Mail-Server die Verbindung unerwartet beendet hat. Dies kann passieren, wenn zu viele Verbindungen in zu kurzer Zeit aufgebaut wurden oder ein falsches Passwort zu oft verwendet wurde. Vergewissern Sie sich in diesem Fall, dass Ihr Passwort korrekt ist und deaktivieren Sie den Empfang in den Empfangseinstellungen für ca. 30 Minuten und versuchen Sie es erneut. Bei Bedarf lesen Sie in [dieser FAQ](#user-content-faq23) nach, wie Sie die Anzahl der Verbindungen reduzieren können.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+Der Fehler *... Unerwartetes Ende des zlib-Eingangsstroms ...* bedeutet, dass nicht alle Daten empfangen wurden, möglicherweise aufgrund einer schlechten oder unterbrochenen Verbindung.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+Der Fehler *... Verbindungsfehler ...* könnte auf [Zu viele gleichzeitige Verbindungen](#user-content-faq23) hinweisen.
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
@@ -1000,95 +1000,95 @@ The errors *... Authentication failed ... No token ...* means that the Android a
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+Der Fehler *... Authentifizierung fehlgeschlagen ... Ungültige Anmeldeinformationen ...* könnten durch die Änderung des Kontopassworts verursacht werden oder durch den Entzug der erforderlichen Konto-/Kontaktberechtigungen. Falls das Kontopasswort geändert wurde, müssen Sie das Google-Konto in den Android-Kontoeinstellungen erneut authentifizieren. Falls die Berechtigungen entzogen wurden, können Sie den Gmail-Schnelleinrichtungsassistenten starten, um die erforderlichen Berechtigungen wieder zu erteilen (Sie müssen das Konto nicht erneut einrichten).
 
-The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+Der Fehler *... ServiceDisabled ...* kann durch die Anmeldung beim [Erweiterten Schutzprogramm](https://landing.google.com/advancedprotection/) verursacht werden: "*Um Ihre E-Mails zu lesen, können (müssen) Sie Google Mail verwenden - Sie können Ihr Google-Konto mit einigen (allen) Apps & Diensten, die Zugriff auf sensible Daten wie Ihre E-Mails benötigen, nicht verwenden*", siehe [hier](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+Im Zweifelsfall können Sie nach [Support](#user-content-support) fragen.
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Warum erhalte ich Alarm ... ?**
 
-*General*
+*Allgemein*
 
-Alerts are warning messages sent by email servers.
+Alarme sind Warnmeldungen, die von E-Mail-Servern gesendet werden.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Zu viele gleichzeitige Verbindungen* oder *Maximale Anzahl von Verbindungen überschritten*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Diese Warnung wird gesendet, wenn es zu viele Ordnerverbindungen für dasselbe E-Mail-Konto zur gleichen Zeit gibt.
 
-Possible causes are:
+Mögliche Ursachen sind:
 
-* There are multiple email clients connected to the same account
-* The same email client is connected multiple times to the same account
-* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
+* Es sind mehrere E-Mail-Clients mit demselben Konto verbunden
+* Derselbe E-Mail-Client ist mehrfach mit demselben Konto verbunden
+* Frühere Verbindungen wurden abrupt beendet, z. B. durch plötzlichen Verlust der Internetverbindung
 
-First try to wait some time to see if the problem resolves itself, else:
+Versuchen Sie zunächst, einige Zeit zu warten, um zu sehen, ob sich das Problem von selbst löst. Ansonsten:
 
-* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
-* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
+* entweder in den Empfangseinstellungen auf periodische Überprüfung auf Nachrichten umschalten, was dazu führt, dass die Ordner nacheinander geöffnet werden
+* oder setzen Sie einige Ordner auf Abfrage statt auf Synchronisation (langes Drücken auf Ordner in der Ordnerliste, Eigenschaften bearbeiten)
 
-An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
+Eine einfache Möglichkeit, die periodische Prüfung auf Nachrichten für alle Ordner außer dem Posteingang zu konfigurieren ist, im Drei-Punkte-Menü der Ordnerliste *Auf alle anwenden ...* zu verwenden und die unteren beiden erweiterten Kontrollkästchen zu aktivieren.
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*. See [here](https://support.google.com/mail/answer/7126229) for details.
+Die maximale Anzahl der gleichzeitigen Ordnerverbindungen für Google Mail beträgt 15, Sie können also maximal 15 Ordner gleichzeitig auf *allen* Ihren Geräten synchronisieren. Aus diesem Grund sind Gmail *Benutzer*-Ordner standardmäßig auf Polling statt auf "Immer synchronisieren" eingestellt. Wenn nötig oder gewünscht, können Sie dies ändern, indem Sie einen Ordner in der Ordnerliste lange drücken und *Eigenschaften bearbeiten* wählen. Siehe [hier](https://support.google.com/mail/answer/7126229) für Details.
 
-When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
+Wenn Sie einen Dovecot-Server verwenden, möchten Sie möglicherweise die Einstellung [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections) ändern.
 
-Note that it will take the email server a while to discover broken connections, for example due to going out of range of a network, which means that effectively only half of the folder connections are available. For Gmail this would be just 7 connections.
+Beachten Sie, dass der E-Mail-Server eine Weile braucht, um unterbrochene Verbindungen zu erkennen, z. B. durch das Verlassen der Reichweite eines Netzwerks, was bedeutet, dass effektiv nur die Hälfte der Ordnerverbindungen verfügbar ist. Für Gmail wären dies nur 7 Verbindungen.
 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) Was heißt Nachrichten auf dem Server durchsuchen?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+Nachrichten auf dem Server durchsuchen holt die Nachrichten in Echtzeit vom E-Mail-Server wenn Sie das Ende der Liste der synchronisierten Nachrichten erreichen, auch wenn der Ordner auf nicht synchronisieren eingestellt ist. Sie können diese Funktion in den erweiterten Kontoeinstellungen deaktivieren.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Warum kann ich ein Bild, einen Anhang oder eine Datei nicht auswählen/öffnen/speichern?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Wenn ein Menüpunkt zum Auswählen/Öffnen/Speichern einer Datei deaktiviert (abgeblendet) ist oder wenn Sie die Meldung *Speicherzugriffsframework nicht verfügbar* erhalten, ist wahrscheinlich das [Speicherzugriffs-Framework](https://developer.android.com/guide/topics/providers/document-provider), eine Standard-Android-Komponente, nicht vorhanden. Dies kann daran liegen, dass Ihr benutzerdefiniertes ROM es nicht enthält oder dass es aktiv entfernt wurde (debloated).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail fragt keine Speicherberechtigungen ab, so dass dieses Framework für die Auswahl von Dateien und Ordnern erforderlich ist. Keine App, außer vielleicht Dateimanager, die auf Android 4.4 KitKat oder höher abzielt, sollte nach Speicherberechtigungen fragen, da dies den Zugriff auf *alle* Dateien erlauben würde.
 
-The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
+Das Framework für den Speicherzugriff wird durch das Paket *com.android.documentsui* bereitgestellt, das auf einigen Android-Versionen (vor allem OxygenOS) als *Files*-App sichtbar ist.
 
-You can enable the storage access framework (again) with this adb command:
+Mit diesem Adb-Befehl können Sie das Storage Access Framework (wieder) aktivieren:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Alternativ können Sie die App *Dateien* auch über die Einstellungen der Android-App wieder aktivieren.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Kann ich helfen, FairEmail in meine eigene Sprache zu übersetzen?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Ja, Sie können die Texte von FairEmail in Ihre eigene Sprache [auf Crowdin](https://crowdin.com/project/open-source-email) übersetzen. Die Registrierung ist kostenlos.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Wenn Sie möchten, dass Ihr Name oder Alias in die Liste der Mitwirkenden in *Über* der App aufgenommen wird, wenden Sie sich bitte [an mich](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Wie kann ich zwischen eingebetteten und externen Bildern unterscheiden?**
 
-External image:
+Externes Bild:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Eingebettetes Bild:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Eingebettetes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Defektes Bild:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Defektes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 

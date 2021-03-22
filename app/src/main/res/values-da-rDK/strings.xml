@@ -480,6 +480,7 @@
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering af dette kan på visse enheder forårsage forbindelsesproblemer</string>
+    <string name="title_advanced_validate_hint">Dette kan betyde, at beskeder i visse situationer ikke synkes, bl.a. ved brug af VPN</string>
     <string name="title_advanced_timeout_hint">Læse-/skrive-timeout indstilles til det dobbelte af forbindelses-timeout. Højere værdier vil resultere i øget batteriforbrug.</string>
     <string name="title_advanced_ssl_harden_hint">Aktivering af dette vil deaktivere svage SSL-protokoller og algoritmer, hvilket kan føre til forbindelsesproblemer</string>
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
@@ -756,6 +757,8 @@
     <string name="title_download_all">Download alle</string>
     <string name="title_save_all">Gem alt</string>
     <string name="title_save_eml">Gem besked i råformatsfil</string>
+    <string name="title_raw_remaining">Rå beskeder at downloade: %1$d</string>
+    <string name="title_ask_raw">Beskedvideresendelse kræver download af de rå (originelle) beskeder fra serveren, hvilket kræver Internetforbindelse.</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>

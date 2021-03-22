@@ -486,6 +486,7 @@
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos</string>
+    <string name="title_advanced_validate_hint">Esto puede ocasionar que no sincronicen los mensajes, por ejemplo cuando se utiliza una VPN, pero también en otras situaciones</string>
     <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
     <string name="title_advanced_ssl_harden_hint">Activar esto desactivará los protocolos SSL y cifrados débiles, lo que puede provocar problemas de conexión</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
@@ -756,7 +757,7 @@
     <string name="title_print_images">Imprimir imágenes</string>
     <string name="title_print_images_remark">La descarga de imágenes puede tardar algún tiempo</string>
     <string name="title_show_headers">Mostrar encabezados</string>
-    <string name="title_raw_save">Guardar mensaje raw</string>
+    <string name="title_raw_save">Guardar mensaje sin procesar</string>
     <string name="title_raw_send">Enviar como adjunto</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
     <string name="title_manage_labels">Administrar etiquetas de Gmail</string>
@@ -764,7 +765,9 @@
     <string name="title_show_inline">Mostrar adjuntos embebidos</string>
     <string name="title_download_all">Descargar todo</string>
     <string name="title_save_all">Guardar todo</string>
-    <string name="title_save_eml">Guardar archivo de mensajes raw</string>
+    <string name="title_save_eml">Guardar archivo de mensajes sin procesar</string>
+    <string name="title_raw_remaining">Mensajes sin procesar para descargar: %1$d</string>
+    <string name="title_ask_raw">Para reenviar mensajes, los mensajes sin procesar (originales) deben ser descargados desde el servidor. Esto requiere una conexión a Internet.</string>
     <string name="title_buttons">Seleccionar botones</string>
     <string name="title_configure_buttons">Configurar botones &#8230;</string>
     <string name="title_trash">Papelera</string>
@@ -817,7 +820,7 @@
     <string name="title_show_full">Mostrar mensaje completo</string>
     <string name="title_unused_inline">Las imágenes embebidas no usadas serán eliminadas al enviar</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
-    <string name="title_raw_saved">Mensaje raw guardado</string>
+    <string name="title_raw_saved">Mensaje sin procesar guardado</string>
     <string name="title_attachment_eml">Mensaje adjunto</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
@@ -1238,7 +1241,6 @@
     <string name="title_hint_design">El diseño intencionalmente no distrae, pero se mantiene altamente funcional. Hay muchas opciones para personalizar la apariencia, pero por favor entienda que es imposible hacer felices a todos al mismo tiempo.</string>
     <string name="title_hint_junk">El filtrado de spam debería ser hecho por el servidor de correo electrónico y no se puede hacer de forma confiable en un dispositivo alimentado con batería y de capacidades limitadas.</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
-    <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensaje crudo. Guarde el mensaje raw con el icono guardar en la barra de acción para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_different_link">El título y la dirección del enlace son diferentes</string>
     <string name="title_tracking_link">Este sitio web podría rastrearle</string>
