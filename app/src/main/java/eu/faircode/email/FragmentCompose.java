@@ -3061,6 +3061,8 @@ public class FragmentCompose extends FragmentBase {
                 int target = args.getInt("target");
                 long group = args.getLong("group");
 
+                EntityLog.log(context, "Selected group=" + group);
+
                 List<Address> selected = new ArrayList<>();
 
                 try (Cursor cursor = context.getContentResolver().query(
@@ -3083,7 +3085,10 @@ public class FragmentCompose extends FragmentBase {
                             if (contact != null && contact.moveToNext()) {
                                 String name = contact.getString(0);
                                 String email = contact.getString(1);
-                                selected.add(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
+                                Address address = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+                                EntityLog.log(context, "Selected group=" + group +
+                                        " address=" + MessageHelper.formatAddresses(new Address[]{address}));
+                                selected.add(address);
                             }
                         }
                     }
