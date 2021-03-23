@@ -6764,10 +6764,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                         db.message().setMessageNotes(message.id, notes);
 
-                                        if (TextUtils.isEmpty(message.hash))
+                                        if (TextUtils.isEmpty(message.msgid))
                                             return null;
 
-                                        List<EntityMessage> messages = db.message().getMessagesByHash(message.account, message.hash);
+                                        List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
                                         if (messages == null)
                                             return null;
 
