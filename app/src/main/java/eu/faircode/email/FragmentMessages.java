@@ -5170,7 +5170,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message.ui_unsnoozed)
                         db.message().setMessageUnsnoozed(message.id, false);
 
-                    if (!account.auto_seen && !message.ui_ignored) {
+                    if (!account.auto_seen && !message.ui_ignored && message.ui_snoozed == null) {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean notify_remove = prefs.getBoolean("notify_remove", true);
                         if (notify_remove)
