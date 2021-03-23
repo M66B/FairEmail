@@ -808,14 +808,14 @@
     <provider
         name="Alice.it"
         appPassword="true"
-        domain="alice\\.it"
-        link="https://assistenzatecnica.tim.it/at/portals/assistenzatecnica.portal">
+        domain="alice\\.it,tim\\.it"
+        link="https://assistenzatecnica.tim.it/at/portals/mini.portal?_nfpb=true&amp;_pageLabel=null&amp;nodeId=/AT_REPOSITORY/302010&amp;radice=help_virgilio">
         <imap
-            host="in.alice.it"
+            host="imap.tim.it"
             port="143"
             starttls="true" />
         <smtp
-            host="out.alice.it"
+            host="smtp.tim.it"
             port="587"
             starttls="true" />
     </provider>
@@ -1067,6 +1067,19 @@
             starttls="true" />
         <smtp
             host="smtps.tin.it"
+            port="587"
+            starttls="true" />
+    </provider>
+    <provider
+        name="Charter.net"
+        appPassword="true"
+        link="https://www.spectrum.net/support/internet/spectrum-email-server-settings/">
+        <imap
+            host="mobile.charter.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mobile.charter.net"
             port="587"
             starttls="true" />
     </provider>
