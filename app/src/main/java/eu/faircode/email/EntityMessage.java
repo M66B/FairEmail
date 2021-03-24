@@ -24,10 +24,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.AlarmManagerCompat;
 import androidx.preference.PreferenceManager;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -462,10 +462,7 @@ public class EntityMessage implements Serializable {
             am.cancel(pi);
         } else {
             Log.i("Set snooze id=" + id + " wakeup=" + new Date(wakeup));
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                am.set(AlarmManager.RTC_WAKEUP, wakeup, pi);
-            else
-                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, wakeup, pi);
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, wakeup, pi);
         }
     }
 
