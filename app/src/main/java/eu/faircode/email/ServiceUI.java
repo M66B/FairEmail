@@ -64,8 +64,10 @@ public class ServiceUI extends IntentService {
     static final int PI_SYNC = 13;
     static final int PI_BANNER = 14;
     static final int PI_EXISTS = 15;
+    static final int PI_PROTOCOL = 16;
 
     static final int HIDE_BANNER = 3; // weeks
+    static final int DISABLE_PROTOCOL = 30; // minutes
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -179,6 +181,11 @@ public class ServiceUI extends IntentService {
                 case "banner":
                     onBanner();
                     break;
+
+                case "protocol":
+                    onProtocol();
+                    return; // No eval
+
                 default:
                     throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
             }
@@ -587,6 +594,11 @@ public class ServiceUI extends IntentService {
         prefs.edit().remove("banner_hidden").apply();
     }
 
+    private void onProtocol() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().remove("protocol").apply();
+    }
+
     static void sync(Context context, Long account) {
         context.startService(new Intent(context, ServiceUI.class)
                 .setAction(account == null ? "sync" : "sync:" + account));
@@ -622,9 +634,9 @@ public class ServiceUI extends IntentService {
     }
 
     private static PendingIntent getBannerIntent(Context context) {
-        Intent banner = new Intent(context, ServiceUI.class);
-        banner.setAction("banner");
-        return PendingIntent.getService(context, ServiceUI.PI_BANNER, banner, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(context, ServiceUI.class);
+        intent.setAction("banner");
+        return PendingIntent.getService(context, ServiceUI.PI_BANNER, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     static void scheduleBanner(Context context, boolean set) {
@@ -642,6 +654,25 @@ public class ServiceUI extends IntentService {
             Log.i("Cancel banner alarm");
             am.cancel(getBannerIntent(context));
             prefs.edit().remove("banner_hidden").apply();
+        }
+    }
+
+    private static PendingIntent getProtocolIntent(Context context) {
+        Intent intent = new Intent(context, ServiceUI.class);
+        intent.setAction("protocol");
+        return PendingIntent.getService(context, ServiceUI.PI_PROTOCOL, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    static void scheduleProtocol(Context context, boolean set) {
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (set) {
+            long interval = DISABLE_PROTOCOL * 60 * 1000L;
+            long trigger = new Date().getTime() + interval;
+            Log.i("Set protocol alarm at " + new Date(trigger));
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC, trigger, getProtocolIntent(context));
+        } else {
+            Log.i("Cancel protocol alarm");
+            am.cancel(getProtocolIntent(context));
         }
     }
 
