@@ -753,8 +753,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     }
 
     static void start(Context context) {
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSend.class));
+        try {
+            ContextCompat.startForegroundService(context, new Intent(context, ServiceSend.class));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     static void schedule(Context context, long delay) {

@@ -2433,7 +2433,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (isBackgroundService(context))
             context.startService(intent);
         else
-            ContextCompat.startForegroundService(context, intent);
+            try {
+                ContextCompat.startForegroundService(context, intent);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
     }
 
     private static boolean isBackgroundService(Context context) {
