@@ -375,6 +375,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                             " purchased=" + isPurchased(purchase) +
                             " valid=" + isPurchaseValid(purchase) +
                             " time=" + new Date(time));
+                    Log.i("IAB json=" + purchase.getOriginalJson());
 
                     //if (new Date().getTime() - purchase.getPurchaseTime() > 3 * 60 * 1000L) {
                     //    consumePurchase(purchase);
