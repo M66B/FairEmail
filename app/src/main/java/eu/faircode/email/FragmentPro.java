@@ -188,7 +188,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             @Override
             public void onPurchasePending(String sku) {
                 if (ActivityBilling.getSkuPro().equals(sku)) {
-                    btnPurchase.setEnabled(false);
+                    btnPurchase.setEnabled(true);
                     tvPending.setVisibility(View.VISIBLE);
                 }
             }
