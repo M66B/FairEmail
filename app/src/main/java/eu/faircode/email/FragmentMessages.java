@@ -5493,6 +5493,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
 
                         ServiceSynchronize.eval(context, "move");
+
                         return null;
                     }
 

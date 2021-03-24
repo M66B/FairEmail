@@ -429,16 +429,16 @@ public class ActivityEML extends ActivityBase {
 
                                                 ifolder.appendMessages(new Message[]{imessage});
                                             }
-
-                                            EntityOperation.sync(context, inbox.id, true);
-                                            ServiceSynchronize.eval(context, "EML");
                                         }
+
+                                        EntityOperation.sync(context, inbox.id, true);
 
                                         return account.name + "/" + inbox.name;
                                     }
 
                                     @Override
                                     protected void onExecuted(Bundle args, String name) {
+                                        ServiceSynchronize.eval(ActivityEML.this, "EML");
                                         ToastEx.makeText(ActivityEML.this, name, Toast.LENGTH_LONG).show();
                                     }
 

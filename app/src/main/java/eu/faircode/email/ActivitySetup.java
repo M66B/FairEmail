@@ -1093,8 +1093,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
                 ServiceSynchronize.eval(ActivitySetup.this, "import");
+                ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
             }
 
             @Override
