@@ -858,6 +858,7 @@ public class IMAPStore extends Store
 	 * the mechanism and we have an authenticator for the mechanism,
 	 * and it hasn't been disabled, use it.
 	 */
+	boolean xoauth2 = false;
 	ProtocolException pex = null;
 	StringTokenizer st = new StringTokenizer(mechs);
 	while (st.hasMoreTokens()) {
@@ -902,6 +903,7 @@ public class IMAPStore extends Store
 				return;
 			}
 			else if (m.equals("XOAUTH2")) {
+				xoauth2 = true;
 				p.authoauth2(user, password);
 				return;
 			}
@@ -915,7 +917,7 @@ public class IMAPStore extends Store
 		}
 	}
 
-	if (!p.hasCapability("LOGINDISABLED"))
+	if (!p.hasCapability("LOGINDISABLED") && !xoauth2)
 		try {
 			eu.faircode.email.Log.i("Trying LOGIN");
 			p.login(user, password);
