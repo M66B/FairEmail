@@ -35,15 +35,27 @@
         app:layout_constraintTop_toTopOf="@id/tvVersion" />
 
     <eu.faircode.email.FixedTextView
+        android:id="@+id/tvUpdated"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="@string/app_updated"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/ibUpdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRelease" />
+
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvCopyright"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:text="@string/app_copyright"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/ibUpdate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvVersion" />
+        app:layout_constraintTop_toBottomOf="@id/tvUpdated" />
 
     <ImageButton
         android:id="@+id/ibUpdate"
@@ -54,7 +66,7 @@
         android:contentDescription="@string/title_more"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/tvCopyright"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUpdated"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvVersion"
         app:srcCompat="@drawable/twotone_cached_24" />

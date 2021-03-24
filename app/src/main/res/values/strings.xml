@@ -9,6 +9,7 @@
     <string name="app_crash">FairEmail is not supported on this device because bugs in Android cause crashes</string>
     <string name="app_exit">Go \'back\' again to exit</string>
     <string name="app_cake">Insufficient storage space left</string>
+    <string name="app_updated">Last update: %1$s</string>
 
     <string name="channel_service">Receive</string>
     <string name="channel_send">Send</string>

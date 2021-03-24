@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,6 +41,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.TextViewCompat;
 
+import java.text.DateFormat;
 import java.util.List;
 
 public class FragmentAbout extends FragmentBase {
@@ -52,12 +55,25 @@ public class FragmentAbout extends FragmentBase {
 
         TextView tvVersion = view.findViewById(R.id.tvVersion);
         TextView tvRelease = view.findViewById(R.id.tvRelease);
+        TextView tvUpdated = view.findViewById(R.id.tvUpdated);
         ImageButton ibUpdate = view.findViewById(R.id.ibUpdate);
         TextView tvGplV3 = view.findViewById(R.id.tvGplV3);
         LinearLayout llContributors = view.findViewById(R.id.llContributors);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
         tvRelease.setText(BuildConfig.RELEASE_NAME);
+
+        long last = 0;
+        try {
+            PackageManager pm = getContext().getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
+            last = pi.lastUpdateTime;
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        DateFormat DF = Helper.getDateTimeInstance(getContext(), DateFormat.SHORT, DateFormat.SHORT);
+        tvUpdated.setText(getString(R.string.app_updated, last == 0 ? "-" : DF.format(last)));
 
         ibUpdate.setVisibility(
                 Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG
