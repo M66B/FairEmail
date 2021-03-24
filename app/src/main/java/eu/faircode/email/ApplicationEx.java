@@ -29,6 +29,8 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.StrictMode;
+import android.os.strictmode.Violation;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
@@ -92,6 +94,34 @@ public class ApplicationEx extends Application
                     Log.d("Loop: " + msg);
             }
         });
+
+        if (BuildConfig.DEBUG &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            StrictMode.VmPolicy policy = new StrictMode.VmPolicy.Builder(StrictMode.getVmPolicy())
+                    .detectNonSdkApiUsage()
+                    .penaltyListener(getMainExecutor(), new StrictMode.OnVmViolationListener() {
+                        @Override
+                        public void onVmViolation(Violation v) {
+                            String message = v.getMessage();
+                            if (message != null &&
+                                    (message.contains("computeFitSystemWindows") ||
+                                            message.contains("makeOptionalFitsSystemWindows")))
+                                return;
+
+                            StackTraceElement[] stack = v.getStackTrace();
+                            for (StackTraceElement ste : stack) {
+                                String clazz = ste.getClassName();
+                                if (clazz != null &&
+                                        clazz.startsWith("com.android.webview.chromium"))
+                                    return;
+                            }
+
+                            Log.e(v);
+                        }
+                    })
+                    .build();
+            StrictMode.setVmPolicy(policy);
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
