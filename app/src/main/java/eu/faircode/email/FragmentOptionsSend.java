@@ -65,6 +65,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Button btnEditSignature;
     private SwitchCompat swDiscardDelete;
 
+    private SwitchCompat swAutoLink;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swFormatFlowed;
     private SwitchCompat swUsenetSignature;
@@ -80,7 +81,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
             "discard_delete",
-            "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
+            "auto_link", "plain_only", "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "lookup_mx"
     };
 
@@ -118,6 +119,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         btnEditSignature = view.findViewById(R.id.btnEditSignature);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
 
+        swAutoLink = view.findViewById(R.id.swAutoLink);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swFormatFlowed = view.findViewById(R.id.swFormatFlowed);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
@@ -319,6 +321,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swAutoLink.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_link", checked).apply();
+            }
+        });
+
         swPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -449,6 +458,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
 
+        swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));

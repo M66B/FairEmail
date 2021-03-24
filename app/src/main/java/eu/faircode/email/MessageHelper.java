@@ -617,13 +617,15 @@ public class MessageHelper {
         boolean format_flowed = prefs.getBoolean("format_flowed", false);
         boolean monospaced = prefs.getBoolean("monospaced", false);
         String compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
+        boolean auto_link = prefs.getBoolean("auto_link", false);
 
         // Build html body
         Document document = JsoupEx.parse(message.getFile(context));
 
         // When sending message
         if (identity != null && send) {
-            HtmlHelper.autoLink(document);
+            if (auto_link)
+                HtmlHelper.autoLink(document);
 
             for (Element child : document.body().children())
                 if (!TextUtils.isEmpty(child.text()) &&
