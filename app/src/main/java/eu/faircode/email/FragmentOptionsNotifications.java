@@ -229,7 +229,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("background_service", checked).apply();
-                ServiceSynchronize.eval(getContext(), "background=" + checked);
+                ServiceSynchronize.eval(compoundButton.getContext(), "background=" + checked);
             }
         });
 

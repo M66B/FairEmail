@@ -608,8 +608,6 @@ public class FragmentOAuth extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "OAuth");
-
                 return null;
             }
 
@@ -617,9 +615,14 @@ public class FragmentOAuth extends FragmentBase {
             protected void onExecuted(Bundle args, Void data) {
                 pbOAuth.setVisibility(View.GONE);
 
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "OAuth");
+
                 if (args.getLong("account") < 0) {
                     finish();
-                    ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
+                    if (context != null)
+                        ToastEx.makeText(context, R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
                 } else {
                     FragmentReview fragment = new FragmentReview();
                     fragment.setArguments(args);

@@ -4181,8 +4181,6 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            ServiceSynchronize.eval(context, "compose/draft");
-
             return data;
         }
 
@@ -4190,6 +4188,10 @@ public class FragmentCompose extends FragmentBase {
         protected void onExecuted(Bundle args, final DraftData data) {
             final String action = getArguments().getString("action");
             Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
+
+            Context context = getContext();
+            if (context != null)
+                ServiceSynchronize.eval(context, "compose/draft");
 
             working = data.draft.id;
             encrypt = data.draft.ui_encrypt;
@@ -4994,16 +4996,12 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            if (dirty)
-                ServiceSynchronize.eval(context, "compose/action");
+            args.putBoolean("dirty", dirty);
 
-            if (action == R.id.action_send)
-                if (draft.ui_snoozed == null)
-                    ServiceSend.start(context);
-                else {
-                    Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
-                    EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
-                }
+            if (action == R.id.action_send && draft.ui_snoozed != null) {
+                Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
+                EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
+            }
 
             return draft;
         }
@@ -5013,10 +5011,21 @@ public class FragmentCompose extends FragmentBase {
             if (draft == null)
                 return;
 
-            boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
+            boolean dirty = args.getBoolean("dirty");
+            boolean needsEncryption = args.getBoolean("needsEncryption");
             Log.i("Loaded action id=" + draft.id +
-                    " action=" + getActionName(action) + " encryption=" + needsEncryption);
+                    " action=" + getActionName(action) +
+                    " dirty=" + dirty +
+                    " encryption=" + needsEncryption);
+
+            Context context = getContext();
+            if (context != null) {
+                if (dirty)
+                    ServiceSynchronize.eval(context, "compose/action");
+                if (action == R.id.action_send && draft.ui_snoozed == null)
+                    ServiceSend.start(context);
+            }
 
             etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));

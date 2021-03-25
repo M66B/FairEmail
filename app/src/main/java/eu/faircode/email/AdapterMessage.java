@@ -3197,9 +3197,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     db.endTransaction();
                                 }
 
-                                ServiceSynchronize.eval(context, "doubletap");
-
                                 return null;
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, Void data) {
+                                ServiceSynchronize.eval(context, "doubletap");
                             }
 
                             @Override
@@ -3394,9 +3397,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, "flag");
-
                     return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ServiceSynchronize.eval(context, "flag");
                 }
 
                 @Override
@@ -3697,9 +3703,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, "attachment");
-
                     return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ServiceSynchronize.eval(context, "attachment");
                 }
 
                 @Override
@@ -4463,13 +4472,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, "seen");
-
                     return null;
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, Void ignored) {
+                    ServiceSynchronize.eval(context, "seen");
+
                     long id = args.getLong("id");
                     TupleMessageEx amessage = getMessage();
                     if (amessage == null || !amessage.id.equals(id))
@@ -4623,13 +4632,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, "resync");
-
                     return null;
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, Void data) {
+                    ServiceSynchronize.eval(context, "resync");
                     ToastEx.makeText(context, R.string.title_fetching_again, Toast.LENGTH_LONG).show();
                 }
 
@@ -4932,9 +4940,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             db.endTransaction();
                         }
 
-                        ServiceSynchronize.eval(context, "headers");
-
                         return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        ServiceSynchronize.eval(context, "headers");
                     }
 
                     @Override
@@ -5006,13 +5017,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, "raw");
-
                     return null;
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, Void data) {
+                    ServiceSynchronize.eval(context, "raw");
                     ToastEx.makeText(context, R.string.title_download_message, Toast.LENGTH_LONG).show();
                 }
 
@@ -6895,9 +6905,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             db.endTransaction();
                                         }
 
-                                        ServiceSynchronize.eval(context, "keyword=" + keyword);
-
                                         return null;
+                                    }
+
+                                    @Override
+                                    protected void onExecuted(Bundle args, Void data) {
+                                        ServiceSynchronize.eval(context, "keyword=" + keyword);
                                     }
 
                                     @Override

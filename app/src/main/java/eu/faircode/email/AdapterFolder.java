@@ -664,6 +664,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     new SimpleTask<Void>() {
                         @Override
+                        protected void onPostExecute(Bundle args) {
+                            ServiceSynchronize.eval(context, "refresh/folder");
+                        }
+
+                        @Override
                         protected Void onExecute(Context context, Bundle args) {
                             long fid = args.getLong("folder");
                             boolean childs = args.getBoolean("childs");
@@ -703,8 +708,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             } finally {
                                 db.endTransaction();
                             }
-
-                            ServiceSynchronize.eval(context, "refresh/folder");
 
                             if (!now)
                                 throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
@@ -836,9 +839,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             boolean subscribed = args.getBoolean("subscribed");
 
                             EntityOperation.subscribe(context, id, subscribed);
-                            ServiceSynchronize.eval(context, "subscribed=" + subscribed);
 
                             return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            ServiceSynchronize.eval(context, "subscribed");
                         }
 
                         @Override

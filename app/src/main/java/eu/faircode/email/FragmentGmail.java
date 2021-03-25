@@ -497,16 +497,19 @@ public class FragmentGmail extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "Gmail");
-
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "Gmail");
+
                 if (args.getLong("account") < 0) {
                     finish();
-                    ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
+                    if (context != null)
+                        ToastEx.makeText(context, R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
                 } else {
                     FragmentReview fragment = new FragmentReview();
                     fragment.setArguments(args);

@@ -1451,6 +1451,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putString("type", type);
 
         new SimpleTask<Void>() {
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Context context = getContext();
+                if (context != null) {
+                    boolean force = args.getBoolean("force");
+                    if (force)
+                        ServiceSynchronize.reload(context, null, true, "refresh");
+                    else
+                        ServiceSynchronize.eval(context, "refresh");
+                }
+            }
+
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
@@ -1502,10 +1515,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                if (force)
-                    ServiceSynchronize.reload(context, null, true, "refresh");
-                else
-                    ServiceSynchronize.eval(context, "refresh");
+                args.putBoolean("force", force);
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
@@ -2965,9 +2975,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "seen");
-
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "seen");
             }
 
             @Override
@@ -3104,9 +3119,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "flag");
-
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "flag");
             }
 
             @Override
@@ -3677,8 +3697,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "outbox/drafts");
-
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.cancel("send:" + id, 1);
 
@@ -3687,11 +3705,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null)
+                if (draft != null) {
+                    ServiceSynchronize.eval(context, "outbox/drafts");
                     context.startActivity(
                             new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "edit")
                                     .putExtra("id", draft.id));
+                }
             }
 
             @Override
@@ -5196,9 +5216,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "expand");
-
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "expand");
             }
 
             @Override
@@ -5395,13 +5420,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "move");
-
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "move");
+
                 if (viewType == AdapterMessage.ViewType.THREAD) {
                     PagedList<TupleMessageEx> messages = adapter.getCurrentList();
                     if (messages != null && result.size() > 0) {
@@ -5492,9 +5519,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             db.endTransaction();
                         }
 
-                        ServiceSynchronize.eval(context, "move");
-
                         return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        Context context = getContext();
+                        if (context != null)
+                            ServiceSynchronize.eval(context, "move");
                     }
 
                     @Override
@@ -7166,8 +7198,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "delete");
-
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.cancel("send:" + id, 1);
 
@@ -7176,6 +7206,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "delete");
+
                 if (viewType == AdapterMessage.ViewType.THREAD) {
                     PagedList<TupleMessageEx> messages = adapter.getCurrentList();
                     if (messages != null) {
@@ -7218,13 +7252,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "delete");
-
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "delete");
+
                 if (viewType == AdapterMessage.ViewType.THREAD) {
                     long[] ids = args.getLongArray("ids");
                     PagedList<TupleMessageEx> messages = adapter.getCurrentList();
@@ -7286,9 +7322,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "junk");
-
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "junk");
             }
 
             @Override
@@ -7357,9 +7398,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 });
 
-                ServiceSynchronize.eval(context, "flag");
-
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "flag");
             }
 
             @Override
@@ -7542,18 +7588,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                if (copy)
-                    ServiceSynchronize.eval(context, "copy");
-
                 return result;
             }
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                 boolean copy = args.getBoolean("copy");
-                if (copy)
-                    ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                else
+                if (copy) {
+                    Context context = getContext();
+                    if (context != null) {
+                        ServiceSynchronize.eval(context, "copy");
+                        ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                    }
+                } else
                     moveAsk(result, false, !autoclose && onclose == null);
             }
 
@@ -7866,9 +7913,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "purge");
-
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "purge");
             }
 
             @Override

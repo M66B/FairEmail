@@ -452,13 +452,15 @@ public class FragmentQuickSetup extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "quick setup");
-
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, EmailProvider result) {
+                Context context = getContext();
+                if (context != null)
+                    ServiceSynchronize.eval(context, "quick setup");
+
                 boolean check = args.getBoolean("check");
                 if (check) {
                     tvImap.setText(result == null ? null
