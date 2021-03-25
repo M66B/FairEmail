@@ -412,6 +412,20 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name=".WidgetSync"
+            android:exported="true"
+            android:label="@string/title_widget_title_sync">
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sync" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name="WidgetUnifiedService"
             android:exported="true"

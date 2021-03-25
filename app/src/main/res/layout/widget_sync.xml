@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/widget_background"
+    android:padding="6dp">
+
+    <ImageView
+        android:id="@+id/ivSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/title_widget_title_sync"
+        android:padding="3dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/twotone_sync_disabled_24"
+        android:tint="@color/colorWidgetForeground" />
+</RelativeLayout>

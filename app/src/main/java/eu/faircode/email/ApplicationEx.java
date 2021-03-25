@@ -197,6 +197,7 @@ public class ApplicationEx extends Application
                 ServiceSynchronize.reschedule(this);
                 WorkerCleanup.init(this);
                 WorkerWatchdog.init(this);
+                WidgetSync.update(this);
                 break;
             case "poll_interval":
             case "schedule":

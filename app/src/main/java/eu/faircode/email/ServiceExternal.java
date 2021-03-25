@@ -38,10 +38,12 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ServiceExternal extends Service {
-    private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
-    private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
-    private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
-    private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
+    static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
+    static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
+    static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
+    static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
+
+    static final int PI_WIDGET_ENABLE = 1;
 
     // adb shell am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
@@ -79,11 +81,7 @@ public class ServiceExternal extends Service {
                 return START_NOT_STICKY;
 
             final String action = intent.getAction();
-            boolean pro = ActivityBilling.isPro(this);
-            EntityLog.log(this, action + " pro=" + pro);
-
-            if (!pro)
-                return START_NOT_STICKY;
+            EntityLog.log(this, action);
 
             final Context context = getApplicationContext();
             executor.submit(new Runnable() {
