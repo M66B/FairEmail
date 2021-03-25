@@ -196,6 +196,7 @@ public class ApplicationEx extends Application
     public androidx.work.Configuration getWorkManagerConfiguration() {
         // https://developer.android.com/jetpack/androidx/releases/work#2.6.0-alpha01
         // https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration
+        Log.i("Init work manager");
         return new androidx.work.Configuration.Builder()
                 .setMinimumLoggingLevel(android.util.Log.INFO)
                 .build();
