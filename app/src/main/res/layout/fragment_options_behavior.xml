@@ -356,19 +356,6 @@
             app:layout_constraintTop_toBottomOf="@id/swExpandAll"
             app:switchPadding="12dp" />
 
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvAutoSeenHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_advanced_autoseen_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swExpandOne" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCollapseMultiple"
             android:layout_width="0dp"
@@ -377,8 +364,23 @@
             android:text="@string/title_advanced_collapse_multiple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAutoSeenHint"
+            app:layout_constraintTop_toBottomOf="@id/swExpandOne"
             app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAutoSeenHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:drawableEnd="@drawable/twotone_settings_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_advanced_autoseen_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCollapseMultiple" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoClose"
@@ -389,7 +391,7 @@
             android:text="@string/title_advanced_autoclose"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swCollapseMultiple"
+            app:layout_constraintTop_toBottomOf="@id/tvAutoSeenHint"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

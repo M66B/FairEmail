@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,6 +49,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
@@ -74,6 +77,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swExpandAll;
     private SwitchCompat swExpandOne;
     private SwitchCompat swAutoClose;
+    private TextView tvAutoSeenHint;
     private Spinner spOnClose;
     private Spinner spUndoTimeout;
     private SwitchCompat swCollapseMultiple;
@@ -124,6 +128,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swExpandAll = view.findViewById(R.id.swExpandAll);
         swExpandOne = view.findViewById(R.id.swExpandOne);
         swCollapseMultiple = view.findViewById(R.id.swCollapseMultiple);
+        tvAutoSeenHint = view.findViewById(R.id.tvAutoSeenHint);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         spOnClose = view.findViewById(R.id.spOnClose);
         spUndoTimeout = view.findViewById(R.id.spUndoTimeout);
@@ -307,6 +312,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("collapse_multiple", checked).apply();
+            }
+        });
+
+        tvAutoSeenHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_VIEW_ACCOUNTS));
             }
         });
 
