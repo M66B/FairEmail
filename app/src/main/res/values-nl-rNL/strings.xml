@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="app_cake">Onvoldoende opslagruimte over</string>
+    <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="channel_service">Ontvangen</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">E-mail</string>
@@ -266,6 +267,7 @@
     <string name="title_advanced_signature_location">Positie handtekening</string>
     <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
     <string name="title_advanced_signature_forward">Gebruik handtekening bij doorsturen</string>
+    <string name="title_advanced_auto_link">Automatisch koppelingen maken</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
     <string name="title_advanced_flow">\'format flowed\' voor platte tekst</string>
     <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
@@ -510,7 +512,7 @@
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
     <string name="title_advanced_language_detection_hint">Ondersteuning van taaldetectie is afhankelijk van de fabrikant van het apparaat</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
-    <string name="title_advanced_autoseen_hint">Berichten automatisch markeren als gelezen bij uitvouwen, kan worden uitgeschakeld in de individuele accountinstellingen</string>
+    <string name="title_advanced_autoseen_hint">Automatisch berichten markeren als gelezen bij uitvouwen kan worden uitgeschakeld in de geavanceerde accountinstellingen van elk account</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of verwijderd</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_bcc_hint">Het adres wordt niet weergegeven, maar wordt bij het verzenden toegevoegd</string>
@@ -1004,13 +1006,14 @@
     <string name="title_search_with_size">Berichtgrootte groter dan</string>
     <string name="title_search_with_before">Voor</string>
     <string name="title_search_with_after">Na</string>
-    <string name="title_search_flag_unseen">ongelezen</string>
-    <string name="title_search_flag_flagged">met ster</string>
-    <string name="title_search_flag_hidden">verborgen</string>
-    <string name="title_search_flag_encrypted">versleuteld</string>
-    <string name="title_search_flag_attachments">bijlagen</string>
-    <string name="title_search_flag_invite">uitnodiging</string>
-    <string name="title_search_flag_size">grootte &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ongelezen</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">met ster</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">verborgen</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">versleuteld</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">bijlagen</string>
+    <string name="title_search_flag_notes" comment="title_search_flag_notes&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">notities</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">uitnodiging</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">grootte &gt; %1$s</string>
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>

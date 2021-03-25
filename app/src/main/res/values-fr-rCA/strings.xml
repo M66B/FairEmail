@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail n\'est pas pris en charge sur cet appareil parce que des bogues dans Android provoquent des plantages</string>
     <string name="app_exit">Faites de nouveau « Retour » pour quitter</string>
     <string name="app_cake">Espace de stockage restant insuffisant</string>
+    <string name="app_updated">Dernière mise à jour : %1$s</string>
     <string name="channel_service">Réception</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Courriel</string>
@@ -266,6 +267,7 @@
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
     <string name="title_advanced_signature_reply">Utiliser la signature lors de la réponse</string>
     <string name="title_advanced_signature_forward">Utiliser la signature lors du transfert</string>
+    <string name="title_advanced_auto_link">Créer automatiquement des liens</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_flow">Utiliser \'format flowed\' pour le texte brut</string>
     <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
@@ -510,7 +512,7 @@
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
     <string name="title_advanced_language_detection_hint">La prise en charge de la détection de la langue dépend du fabricant de l\'appareil</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>
-    <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors de leur ouverture peut être désactivé dans les paramètres de chaque compte</string>
+    <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors de leur ouverture peut être désactivé dans les paramètres avancés de chaque compte</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_bcc_hint">L’adresse ne sera pas affichée mais sera ajoutée lors de l’envoi</string>
@@ -1004,13 +1006,13 @@
     <string name="title_search_with_size">Taille de message supérieure à</string>
     <string name="title_search_with_before">Avant</string>
     <string name="title_search_with_after">Après</string>
-    <string name="title_search_flag_unseen">non lus</string>
-    <string name="title_search_flag_flagged">suivis</string>
-    <string name="title_search_flag_hidden">masqués</string>
-    <string name="title_search_flag_encrypted">chiffrés</string>
-    <string name="title_search_flag_attachments">pièces jointes</string>
-    <string name="title_search_flag_invite">invitation</string>
-    <string name="title_search_flag_size">taille &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">non lus</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">suivis</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">masqués</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">chiffrés</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">pièces jointes</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitation</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">taille &gt; %1$s</string>
     <string name="title_search_device">Rechercher sur l’appareil</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>

@@ -480,7 +480,6 @@
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、おそらく遅延が有ります</string>
     <string name="title_advanced_language_detection_hint">言語検出のサポートはデバイスメーカーによって異なります</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが1つだけの場合、又は未読メッセージが1つだけの場合に自動的にメッセージを開きます</string>
-    <string name="title_advanced_autoseen_hint">開いたメッセージを自動的に既読にする機能は、個々のアカウント設定で無効に出来ます</string>
     <string name="title_advanced_autoclose_hint">全てのメッセージがアーカイブ、送信、又は破棄された時に自動的に会話を閉じます</string>
     <string name="title_advanced_sender_hint">殆どのプロバイダは変更された送信者アドレスを許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信時に追加されます</string>
@@ -960,13 +959,13 @@
     <string name="title_search_with_size">メッセージサイズより大きい</string>
     <string name="title_search_with_before">前へ</string>
     <string name="title_search_with_after">後で</string>
-    <string name="title_search_flag_unseen">未読</string>
-    <string name="title_search_flag_flagged">スター付き</string>
-    <string name="title_search_flag_hidden">非表示</string>
-    <string name="title_search_flag_encrypted">暗号化済み</string>
-    <string name="title_search_flag_attachments">添付ファイル</string>
-    <string name="title_search_flag_invite">招待</string>
-    <string name="title_search_flag_size">サイズ &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">未読</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">スター付き</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">非表示</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">暗号化済み</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">添付ファイル</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">招待</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">サイズ &gt; %1$s</string>
     <string name="title_search_device">デバイスで検索</string>
     <string name="title_search_server">サーバで検索</string>
     <string name="title_search_in">検索場所</string>

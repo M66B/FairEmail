@@ -390,7 +390,6 @@
     <string name="title_advanced_inline_hint">Вградените изображения са изображения, включени в съобщението</string>
     <string name="title_advanced_parse_classes_hint">Това ще показва по-точно съобщенията, но със закъснение</string>
     <string name="title_advanced_autoexpand_hint">Автоматично отваряне на съобщение, когато има само едно съобщение или само едно непрочетено съобщение в разговор</string>
-    <string name="title_advanced_autoseen_hint">Автоматичното маркиране на съобщенията, прочетени при разширяване, може да бъде деактивирано в настройките на отделните профили</string>
     <string name="title_advanced_autoclose_hint">Автоматично затваряй разговорите, когато всички съобщения са архивирани, изпратени или преместени в кошчето</string>
     <string name="title_advanced_sender_hint">Повечето доставчици не разрешават модифициране адреса на подателя</string>
     <string name="title_advanced_bcc_hint">Адресът няма да бъде показан, но ще бъде добавен при изпращане</string>
@@ -799,13 +798,13 @@
     <string name="title_search_with_size">Размер на съобщението по-голям от</string>
     <string name="title_search_with_before">Преди</string>
     <string name="title_search_with_after">След</string>
-    <string name="title_search_flag_unseen">непрочетени</string>
-    <string name="title_search_flag_flagged">със звезда</string>
-    <string name="title_search_flag_hidden">скрити</string>
-    <string name="title_search_flag_encrypted">шифровани</string>
-    <string name="title_search_flag_attachments">прикачени файлове</string>
-    <string name="title_search_flag_invite">покана</string>
-    <string name="title_search_flag_size">размер &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">непрочетени</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">със звезда</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">скрити</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">шифровани</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">прикачени файлове</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">покана</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">размер &gt; %1$s</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
     <string name="title_search_in">Търсене в</string>

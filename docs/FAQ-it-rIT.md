@@ -45,22 +45,22 @@ Domande correlate:
 
 ## Come fare per ...?
 
-* Cambiare il nome dell'account: Impostazioni, Configurazione manuale ed altre opzioni, Account, cliccare l'account desiderato
+* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
 * Cambiare l'azione di scorrimento a sinistra/destra: Impostazioni, Impostazioni pagina, Imposta azioni di scorrimento
-* Cambiare password: Impostazioni, Configurazione manuale ed altre opzioni, Account, cliccare l'account desiderato, Cambia password
-* Impostare una firma: Impostazioni, Configurazione manuale ed altre opzioni, Identità, cliccare l'identità desiderata, Modifica firma.
+* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
+* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
 * Aggiungere indirizzi CC e CCN: cliccare l'icona delle persone alla fine dell'oggetto dell'email
 * Andare al messaggio successivo/precedente nell'archivio/cestino: nelle impostazioni di comportamento disattivare *Chiudi automaticamente le conversazioni* e selezionare *Vai alla conversazione precedente/successiva* sotto *Alla chiusura di una conversazione*
 * Aggiungere una cartella nella casella di posta unificata: nell'elenco delle cartelle, tenere premuta la cartella desiderata e spuntare *Mostra nella casella di posta unificata*
 * Aggiungere una cartella al menu di navigazione: nell'elenco delle cartelle, tenere premuta la cartella desiderata e spuntare *Mostra nel menu di navigazione*
 * Caricare più messaggi: nell'elenco delle cartelle, tenere premuta la cartella desiderata e selezionare *Carica più messaggi*
-* Eliminare permanentemente un messaggio, evitando il cestino: nel menu a tre puntini appena sopra il testo del messaggio, cliccare *Elimina* o, in alternativa, deselezionare la cartella cestino nelle impostazioni dell'account.
-* Eliminare account/identità: Impostazioni, Impostazioni manuali ed altre opzioni, cliccare sull'account/identità, aprire il menu a tre puntini, Elimina
-* Eliminare una cartella: nell'elenco delle cartelle, tenere premuta la cartella desiderata, Modifica proprietà, aprire il menu a tre puntini, Elimina.
-* Annullare l'invio: posta in uscita, cliccare il messaggio, Annulla
+* Delete a message, skipping trash: long press the trash icon
+* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
+* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
+* Undo send: Outbox, swipe the message in the list left or right
 * Conservare i messaggi inviati nella posta in arrivo: [si vedano queste domande frequenti](#user-content-faq142).
-* Cambiare il sistema delle cartelle: Impostazioni, Configurazione manuale ed altre opzioni, Account, cliccare l'account desiderato, in fondo.
-* Impostazioni di esportazione/importazione: Impostazioni, menu di navigazione/menu hamburger.
+* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
+* Export/import settings: Settings, navigation (left side) menu
 
 ## Problemi ricorrenti
 
@@ -394,17 +394,17 @@ Le operazioni vengono elaborate solo quando si è connessi al server di posta el
 <br />
 *... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...*
 
-Questo può essere causato dall'uso di un nome host errato, per cui controllare il nome host nelle impostazioni avanzate di identità/account (Configurazione manuale e più opzioni). Si consulta la documentazione del provider di posta elettronica sul nome host giusto.
+This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Si consulta la documentazione del provider di posta elettronica sul nome host giusto.
 
 È possibile risolvere questo problema contattando il proprio provider oppure ottenendo un certificato di sicurezza valido poiché i certificati di sicurezza non validi sono insicuri e consentono [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il prezzo di questi rappresenta un ostacolo, è possibile ottenere certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup and more options*, tap *Identities*, tap the identity, tap *Advanced*).
+The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Assicurati di star usando una connessione internet affidabile (nessuna rete Wi-Fi pubblica, etc)
 1. Vai alla schermata di configurazione tramite il menu di navigazione (scorri verso l'interno dal lato sinistro)
-1. Clicca Configurazione manuale ed altre opzioni, clicca Account/Identità e clicca l'account/l'Identità difettoso
+1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
 1. Seleziona/salva il profilo e l'identità
 1. Seleziona la casella sotto al messaggio di errore e salva di nuovo
 
@@ -635,7 +635,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
@@ -906,7 +906,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 <a name="authfailed"></a>
 The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
+If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
@@ -982,7 +982,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
 * Verifica il tuo indirizzo email [qui](https://mail.google.com/mail/u/0/#settings/accounts) (dovrai usare un browser desktop)
-* Cambia le impostazioni dell'identità in questo modo (Impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Identità, clicca identità):
+* Change the identity settings like this (Settings, tap Manual setup, tap Identities, tap identity):
 
 &emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 
@@ -2244,7 +2244,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Settings > Manual setup and more options > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2529,7 +2529,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -2557,8 +2557,8 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Impostazioni > Configurazione manuale ed altre opzioni > Account > clicca account
-* Identità: Impostazioni > Configurazione manuale ed altre opzioni > Identità > clicca identità
+* Account: Settings > Manual setup > Accounts > tap account
+* Identity: Settings > Manual setup > Identities > tap identity
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -2624,7 +2624,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2678,8 +2678,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Abilita *Notifiche separate* nelle impostazioni avanzate del profilo (Impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Account, clicca Account, clicca Avanzate)
-* Premi a lungo l'account nell'elenco degli account (Impostazioni, clicca Configurazione manuale ed altre opzioni, clicca Account) e seleziona *Modifica canale di notifica* per modificare il suono di notifica
+* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
+* Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
@@ -2705,7 +2705,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

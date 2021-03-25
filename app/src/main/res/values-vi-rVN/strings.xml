@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail không được hỗ trợ trên thiết bị này vì lỗi ở Android gây ra crash</string>
     <string name="app_exit">\'Quay lại\' lần nữa để thoát</string>
     <string name="app_cake">Không đủ không gian bộ nhớ còn lại</string>
+    <string name="app_updated">Lần cập nhật cuối: %1$s</string>
     <string name="channel_service">Nhận</string>
     <string name="channel_send">Gửi</string>
     <string name="channel_notification">Email</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_signature_location">Vị trí chữ ký</string>
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
+    <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
     <string name="title_advanced_remove_signatures">Xoá các chữ ký đã nhận ra</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
@@ -475,7 +477,6 @@
     <string name="title_advanced_parse_classes_hint">Cái này sẽ hiển thị thư chính xác hơn, nhưng có thể có độ trễ</string>
     <string name="title_advanced_language_detection_hint">Việc hỗ trợ dò tìm ngôn ngữ phụ thuộc vào nhà sản xuất thiết bị</string>
     <string name="title_advanced_autoexpand_hint">Tự động mở thư khi chỉ cỏ một thư hoặc một thư chưa đọc trong một cuộc hội thoại</string>
-    <string name="title_advanced_autoseen_hint">Việc tự động đánh dấu thư đã đọc khi mở rộng có thể được tắt trong từng cài đặt tài khoản</string>
     <string name="title_advanced_autoclose_hint">Tự động đóng cuộc hội thoại khi tất cả thư được lưu trữ, gửi hoặc cho vào thùng rác</string>
     <string name="title_advanced_sender_hint">Đa số nhà cung cấp không cho phép các địa chỉ người gửi đã sửa đổi</string>
     <string name="title_advanced_bcc_hint">Địa chỉ sẽ không được hiện, nhưng sẽ được thêm khi gửi</string>
@@ -943,13 +944,13 @@
     <string name="title_search_with_size">Kích cỡ thư lớn hơn</string>
     <string name="title_search_with_before">Trước</string>
     <string name="title_search_with_after">Sau</string>
-    <string name="title_search_flag_unseen">chưa đọc</string>
-    <string name="title_search_flag_flagged">được gắn sao</string>
-    <string name="title_search_flag_hidden">ẩn</string>
-    <string name="title_search_flag_encrypted">đã mã hóa</string>
-    <string name="title_search_flag_attachments">tệp đính kèm</string>
-    <string name="title_search_flag_invite">lời mời</string>
-    <string name="title_search_flag_size">kích cỡ &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">chưa đọc</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">được gắn sao</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ẩn</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">đã mã hóa</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">tệp đính kèm</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">lời mời</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">kích cỡ &gt; %1$s</string>
     <string name="title_search_device">Tìm kiếm trên thiết bị</string>
     <string name="title_search_server">Tìm kiếm trên máy chủ</string>
     <string name="title_search_in">Tìm kiếm trong</string>
@@ -1085,6 +1086,7 @@
     <string name="title_legend_trash">Thùng rác</string>
     <string name="title_legend_junk">Thư rác</string>
     <string name="title_legend_primary">Chính</string>
+    <string name="title_legend_subscribed">Đăng ký</string>
     <string name="title_legend_rule">Có các quy tắc</string>
     <string name="title_legend_similar">Tìm kiếm các thư tương tự</string>
     <string name="title_legend_notify">Thông báo khi có thư mới</string>

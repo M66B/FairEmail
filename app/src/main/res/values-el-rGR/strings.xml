@@ -7,6 +7,7 @@
     <string name="app_crash">Το FairEmail δεν υποστηρίζεται σε αυτήν τη συσκευή επειδή κάποια σφάλματα στο Android το κάνουν να κολλάει</string>
     <string name="app_exit">\"Πίσω\" ξανά για έξοδο</string>
     <string name="app_cake">Ανεπαρκής χώρος αποθήκευσης</string>
+    <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="channel_service">Λήψη</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
@@ -266,6 +267,7 @@
     <string name="title_advanced_signature_location">Θέση της υπογραφής</string>
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
+    <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>
     <string name="title_advanced_receipt">Όταν ζητάτε αποδεικτικό</string>
@@ -508,7 +510,7 @@
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
     <string name="title_advanced_language_detection_hint">Η υποστήριξη αναγνώρισης γλώσσας εξαρτάται από τον κατασκευαστή της συσκευής</string>
     <string name="title_advanced_autoexpand_hint">Αυτόματο άνοιγμα του μηνύματος όταν υπάρχει μόνον ένα μήνυμα ή μόνον ένα μη αναγνωσμένο μήνυμα σε μία συζήτηση</string>
-    <string name="title_advanced_autoseen_hint">Η αυτόματη σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους, μπορεί να απενεργοποιηθεί στις επιμέρους ρυθμίσεις καθενός λογαριασμού</string>
+    <string name="title_advanced_autoseen_hint">Η αυτόματη σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους, μπορεί να απενεργοποιηθεί στις προχωρημένες ρυθμίσεις καθενός λογαριασμού</string>
     <string name="title_advanced_autoclose_hint">Αυτόματο κλείσιμο των συζητήσεων όταν όλα τα μηνύματα έχουν αρχειοθετηθεί, διαβαστεί ή διαγραφεί</string>
     <string name="title_advanced_sender_hint">Οι περισσότεροι πάροχοι δεν επιτρέπουν τροποποιημένες διευθύνσεις αποστολέων</string>
     <string name="title_advanced_bcc_hint">Η διεύθυνση δεν θα προβληθεί αλλά θα προστεθεί κατά την αποστολή</string>
@@ -1002,13 +1004,13 @@
     <string name="title_search_with_size">Μέγεθος μηνύματος μεγαλύτερο από</string>
     <string name="title_search_with_before">Πριν από</string>
     <string name="title_search_with_after">Μετά από</string>
-    <string name="title_search_flag_unseen">μη αναγνωσμένα</string>
-    <string name="title_search_flag_flagged">με αστέρι</string>
-    <string name="title_search_flag_hidden">κρυφά</string>
-    <string name="title_search_flag_encrypted">κρυπτογραφημένα</string>
-    <string name="title_search_flag_attachments">συνημμένα</string>
-    <string name="title_search_flag_invite">πρόσκληση</string>
-    <string name="title_search_flag_size">μέγεθος &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">μη αναγνωσμένα</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">με αστέρι</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">κρυφά</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">κρυπτογραφημένα</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">συνημμένα</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">πρόσκληση</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">μέγεθος &gt; %1$s</string>
     <string name="title_search_device">Αναζήτηση στη συσκευή</string>
     <string name="title_search_server">Αναζήτηση στο διακομιστή</string>
     <string name="title_search_in">Αναζήτηση σε</string>

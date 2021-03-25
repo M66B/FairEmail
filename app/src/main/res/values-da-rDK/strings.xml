@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail er ikke understøttet på denne enhed, da fejl i Android forårsager nedbrud</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
+    <string name="app_updated">Senest opdateret: %1$s</string>
     <string name="channel_service">Modtagelse</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">E-mail</string>
@@ -262,6 +263,7 @@
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
     <string name="title_advanced_signature_forward">Benyt signatur ved videresendelse</string>
+    <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>
     <string name="title_advanced_receipt">Når kvittering udbedes</string>
@@ -503,7 +505,6 @@
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
     <string name="title_advanced_language_detection_hint">Sprogdetekteringsunderstøttelse afhænger af enhedsproducenten</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
-    <string name="title_advanced_autoseen_hint">Automarkering af læste beskeder ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men tilføjes ved afsendelse</string>
@@ -990,13 +991,13 @@
     <string name="title_search_with_size">Beskedstørrelse over</string>
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Efter</string>
-    <string name="title_search_flag_unseen">ulæst</string>
-    <string name="title_search_flag_flagged">stjernemarkeret</string>
-    <string name="title_search_flag_hidden">skjult</string>
-    <string name="title_search_flag_encrypted">krypteret</string>
-    <string name="title_search_flag_attachments">vedhæftninger</string>
-    <string name="title_search_flag_invite">invitation</string>
-    <string name="title_search_flag_size">størrelse &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ulæst</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">stjernemarkeret</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skjult</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">krypteret</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">vedhæftninger</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitation</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">størrelse &gt; %1$s</string>
     <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>

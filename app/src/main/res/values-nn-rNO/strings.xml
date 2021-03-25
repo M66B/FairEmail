@@ -464,7 +464,6 @@
     <string name="title_advanced_parse_classes_hint">Dette vil mer nøyaktig vise meldinger, men muligens med en forsinkelse</string>
     <string name="title_advanced_language_detection_hint">Støtte for oppdagelse av språk avhenger av produsenten av enheten</string>
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
-    <string name="title_advanced_autoseen_hint">Automatisk merking av meldinger som lest ved utvidelse, kan deaktiveres i de enkelte kontoinnstillingene</string>
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men legges til ved sending</string>
@@ -932,13 +931,13 @@
     <string name="title_search_with_size">Meldingsstørrelse er større enn</string>
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Etter</string>
-    <string name="title_search_flag_unseen">ulest</string>
-    <string name="title_search_flag_flagged">stjernemerket</string>
-    <string name="title_search_flag_hidden">skjult</string>
-    <string name="title_search_flag_encrypted">kryptert</string>
-    <string name="title_search_flag_attachments">vedlegg</string>
-    <string name="title_search_flag_invite">invitasjon</string>
-    <string name="title_search_flag_size">størrelse &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ulest</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">stjernemerket</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skjult</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">kryptert</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">vedlegg</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitasjon</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">størrelse &gt; %1$s</string>
     <string name="title_search_device">Søk på enheten</string>
     <string name="title_search_server">Søk på server</string>
     <string name="title_search_in">Søk i</string>

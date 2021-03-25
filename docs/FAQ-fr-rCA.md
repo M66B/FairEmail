@@ -1,24 +1,24 @@
 # Assistance FairEmail
 
-Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des questions fréquemment posées. [En bas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+Veuillez consultez Faq si vous avez des interrogations. Pour toutes autres questions, demande ou signaler un problème vous trouverai ici.
 
-Si vous avez une question, veuillez d'abord consulter la Foire aux questions (FAQ) ci-dessous. [ En bas ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctions et signaler des erreurs.
+Allez voir les FAQ, la reponse que vous chercher s'y trouve peut-etre . [ En bas ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctions et signaler des erreurs.
 
 ## Index
 
 * [Autorisation des comptes](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
 * [Comment... ?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
 * [Problèmes connus](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Fonctionnalités prévues](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Fonctionnalités souvent demandées](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Fonction a venir, nous y travaillons](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Les fonctionnalités les plus demandés](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
 * [Foire aux questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Obtenir de l'aide](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Aidez-moi je suis mal pris](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
 ## Autorisation des comptes
 
-Dans la plupart des cas, l'assistant de configuration rapide sera capable d'identifier automatiquement la bonne configuration.
+Fiez vous a l'assistant de configuration, il est sur la coche.
 
-Si l'assistant de configuration rapide échoue, vous devrez configurer manuellement un compte (pour recevoir des e-mails) et une identité (pour envoyer des e-mails). Pour ce faire, vous aurez besoin de l'adresse des serveurs IMAP et SMTP et des numéros de port selon l'utilisation de SSL/TLS ou STARTTLS, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
+Si l'assistant est pas capable vous devrez l'aider. Pour ce faire, vous aurez besoin des adresses du serveur IMAP et SMTP, des numéros de port, de savoir si SSL/TLS ou STARTTLS doivent être utilisés, de votre nom d'utilisateur (habituellement votre adresse e-mail) et de votre mot de passe.
 
 Faire une recherche avec *IMAP* et le nom du fournisseur est généralement suffisant pour trouver la documentation appropriée.
 
@@ -29,38 +29,38 @@ Pour l'autorisation :
 * Gmail / G suite, voir [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, voir [question 14](#user-content-faq14)
 * Office365, voir [question 14](#user-content-faq156)
-* Microsoft Echange, voir [question 8](#user-content-faq8)
-* Yahoo, AOL et Sky, voir [question 88](#user-content-faq88)
-* Apple iCloud, voir [question 148](#user-content-faq148)
-* Free.fr, voir [question 157](#user-content-faq157)
+* Voir les reponse au sujet fe Microsoft exchange
+* Pour yahoo, AOL and sky que personnes n'utilise cliqué ici
+* Pour Icloud clique la
+* Free.fr , qui utilise ca, si c'est toi clique la
 
-Veuillez voir [ici](#user-content-faq22) les messages d'erreur fréquents et les solutions.
+Check les troubleshooting.
 
-Questions liées :
+En rapport avec:
 
-* [OAuth est-il pris en charge ?](#user-content-faq111)
-* [Pourquoi ActiveSync n'est-il pas pris en charge ?](#user-content-faq133)
+* [OAuth what is that](#user-content-faq111)
+* [Veux tu ben me dire pourquoi ActiveSync n'est pas supporter ](#user-content-faq133)
 
 <a name="howto">
 
 ## Comment... ?
 
-* Modifier le nom du compte : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur compte
+* Modifier le nom du compte : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur le compte
 * Changer la cible de balayage vers la gauche/droite : Paramètres, comportement de la page d'onglet, définir les actions de balayage
-* Changer le mot de passe : Paramètres > Configuration manuelle et plus d'options > Comptes, appuyez sur le compte, changez le mot de passe
-* Définir une signature : Paramètres > Configuration manuelle et plus d'options > Identités, appuyez sur l'identité, modifiez la signature.
+* Changer le mot de passe : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur le compte, changez le mot de passe
+* Définir une signature : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Identités, appuyez sur l'identité, modifiez la signature.
 * Ajouter des adresses CC et CCI : appuyez sur l'icône des personnes à l'extrémité de l'objet
 * Allez au message suivant/précédent dans l'archive/suppression : dans les paramètres de comportement, désactivez *Fermez automatiquement les conversations* et sélectionnez *Allez à la conversation suivante/précédente* pour *Lors de la fermeture d'une conversation*
 * Ajouter un dossier à la boîte de réception unifiée : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans la boîte de réception unifiée*
 * Ajouter un dossier au menu de navigation : appuyez longuement sur le dossier dans la liste des dossiers et cochez *Afficher dans le menu de navigation*
 * Charger plus de messages : appuyez longuement sur un dossier dans la liste de dossiers, sélectionnez *Récupérer plus de messages*
-* Supprimez un message, sautez la corbeille : dans le menu à 3 points juste au-dessus du texte du message *Supprimer* ou désélectionnez le dossier corbeille dans les paramètres du compte
-* Supprimer un compte/une identité : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes/Identités, appuyez sur le compte/l'identité, menu à trois points, Supprimer
-* Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers > Modifier les propriétés > Menu à trois points > Supprimer
-* Annuler l'envoi : Dans la boîte d'envoi, appuyez sur le message, appuyez sur l'icône d'annulation
+* Supprimer un message en ignorant la corbeille : appuyez longuement sur l'icône de la corbeille
+* Supprimer un compte/une identité : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes/Identités, appuyez sur le compte/l'identité, appuyez sur l'icône de la corbeille en haut à droite
+* Supprimer un dossier : appuyez longuement sur le dossier dans la liste de dossiers, appuyez sur Modifier les propriétés, appuyez sur l'icône de la corbeille en haut à droite
+* Annuler l'envoi : Boîte d'envoi, faites glisser le message dans la liste à gauche ou à droite
 * Stocker les messages envoyés dans la boîte de réception : veuillez [voir ceci dans FAQ](#user-content-faq142)
-* Changer les dossiers système : Paramètres > Configuration manuelle et plus d'options > Comptes, appuyez sur le compte, les menus se trouvent en bas
-* Exporter/importer les paramètres : Paramètres, navigation/menu hamburger
+* Changer les dossiers système : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur le compte, les options se trouvent en bas
+* Exporter/importer les paramètres : Paramètres, panneau de navigation (icône à trois traits)
 
 ## Problèmes connus
 
@@ -394,17 +394,17 @@ Les opérations ne sont traitées que lorsqu'il y a une connexion au serveur de 
 <br />
 *... Certificat de sécurité invalide (impossible de vérifier l'identité du serveur) ...*
 
-Ceci peut être dû à l'utilisation d'un nom de serveur incorrect, donc vérifiez d'abord le nom du serveur dans les paramètres avancés de l'identité/du compte (tapez sur Configuration manuelle et Plus d'options). Veuillez consulter la documentation de votre fournisseur de messagerie concernant le nom du serveur.
+Ceci peut être dû à l'utilisation d'un nom de serveur incorrect, il faut donc d'abord vérifier le nom du serveur dans les paramètres avancés du compte/de l'identité (Configuration manuelle et plus d'options). Veuillez consulter la documentation de votre fournisseur de messagerie concernant le nom du serveur.
 
 Vous pouvez résoudre le problème en contactant votre hébergeur ou en obtenant un certificat valide. En effet, les certificats de sécurité non valide ne sont pas sécurisés et permettent des [Attaque de l'homme du milieu](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si vous souhaitez une alternative gratuite, vous pouvez obtenir un certificat gratuit depuis [Let’s Encrypt](https://letsencrypt.org).
 
-L'option la plus rapide, mais également la moins sécurisée (non recommandée), est d'activer *Autoriser les connexions non sécurisées* dans le menu des identités avancé (menu de navigation, *Paramètres*, *Configuration manuelle et plus d'options*, *Identités*, Sélectionnez l'identité voulue, *Avancé*).
+L'option la plus rapide mais également la moins sécurisée (non recommandée), consiste à activer *les connexions non sécurisées* dans les paramètres avancés de l'identité (menu de navigation, *Paramètres*, *Configuration manuelle et plus d'options*, *Identités*, sélectionnez l'identité *Avancé*).
 
 Vous pouvez également accepter l'empreinte de certificats de sécurité invalide comme suit:
 
 1. Assurez-vous que vous utilisez une connexion internet fiable (pas de réseaux Wi-Fi publics, etc)
 1. Aller à l'écran de configuration rapide via le menu de navigation (Faites glisser depuis le côté gauche vers l'intérieur)
-1. Paramètres/"Gérer" dans Configurer les comptes/sélectionner le compte défectueux
+1. Appuyez sur Configuration manuelle, appuyez sur Comptes/Identités et appuyez sur le compte défectueux et l'identité
 1. Contrôlez/enregistrez le compte et l'identité
 1. Cochez la case en dessous du message d'erreur et enregistrez à nouveau
 
@@ -635,7 +635,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. Cela peut être fait en appuyant longuement sur une identité dans la liste des identités (Paramètres, appuyez sur Configuration manuelle, appuyez sur Identités).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
@@ -906,7 +906,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 <a name="authfailed"></a>
 The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
+Si nécessaire, vous pouvez mettre à jour un mot de passe dans les paramètres du compte : menu de navigation (menu latéral), appuyez sur *Paramètres*, appuyez sur *Configuration manuelle*, appuyez sur *Comptes* et appuyez sur le compte. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
@@ -982,7 +982,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
 * Verify your email address [here](https://mail.google.com/mail/u/0/#settings/accounts) (you'll need to use a desktop browser for this)
-* Change the identity settings like this (Settings, tap Manual setup and more options, tap Identities, tap identity):
+* Modifiez les paramètres d'identité comme ceci (Paramètres, appuyez sur Configuration manuelle, appuyez sur Identités, appuyez sur l'identité) :
 
 &emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 
@@ -2244,7 +2244,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Settings > Manual setup and more options > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Paramètres > Configuration manuelle > Comptes > appuyez sur compte > appuyez sur Avancé > Récupération partielle > décocher
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2529,7 +2529,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+Dans les paramètres du compte (Paramètres, appuyez sur Configuration manuelle, appuyez sur Comptes, appuyez sur le compte) vous pouvez activer *Laisser les messages supprimés sur le serveur*.
 
 *IMAP*
 
@@ -2557,8 +2557,8 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Settings > Manual setup and more options > Accounts > tap account
-* Identity: Settings > Manual setup and more options > Identities > tap identity
+* Compte : Paramètres > Configuration manuelle > Comptes > Appuyez sur compte
+* Identité : Paramètres > Configuration manuelle > Identités > appuyez sur l'identité
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -2624,7 +2624,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+Vous pouvez résoudre ce problème en sélectionnant manuellement le dossier brouillons dans les paramètres du compte (Paramètres, appuyez sur Configuration manuelle, appuyez sur Comptes, appuyez sur compte, en bas de l'écran). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2678,8 +2678,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced)
-* Long press the account in the account list (Settings, tap Manual setup and more options, tap Accounts) and select *Edit notification channel* to change the notification sound
+* Activer *Séparer les notifications* dans les paramètres de compte avancé (Paramètres, appui sur Configuration manuelle, appui sur Comptes, appui sur compte, appui sur Avancé)
+* Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
 Folder:
 
@@ -2705,7 +2705,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

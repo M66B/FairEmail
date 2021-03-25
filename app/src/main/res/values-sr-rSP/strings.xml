@@ -297,7 +297,6 @@
     <string name="title_advanced_preview_hint">Доступно само када се преузме текст поруке</string>
     <string name="title_advanced_inline_hint">Уметнуте слике су слике укључене у поруку</string>
     <string name="title_advanced_autoexpand_hint">Аутоматски отвори поруку када има само једна порука или само једна непрочитана порука у разговору</string>
-    <string name="title_advanced_autoseen_hint">Аутоматско означавање порука као прочитане на проширење се може искључити у индивидуалним поставкама налога</string>
     <string name="title_advanced_autoclose_hint">Аутоматски затвори разговор када су све поруке архивиране, послате или бачене у отпад</string>
     <string name="title_advanced_sender_hint">Већина провајдера не дозвољава промењене адресе пошиљаоца</string>
     <string name="title_advanced_display_hidden_hint">Ово може довести до дуплих или чудних текстова</string>
@@ -613,11 +612,11 @@
     <string name="title_search_with_flagged">Озвездано</string>
     <string name="title_search_with_before">Пре</string>
     <string name="title_search_with_after">После</string>
-    <string name="title_search_flag_unseen">непрочитано</string>
-    <string name="title_search_flag_flagged">озвездано</string>
-    <string name="title_search_flag_hidden">сакривено</string>
-    <string name="title_search_flag_encrypted">шифровано</string>
-    <string name="title_search_flag_attachments">прилози</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">непрочитано</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">озвездано</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">сакривено</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">шифровано</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">прилози</string>
     <string name="title_search_device">Претражи на уређају</string>
     <string name="title_search_server">Претражи на серверу</string>
     <string name="title_search_in">Претражи у</string>

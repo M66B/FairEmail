@@ -497,7 +497,6 @@
     <string name="title_advanced_parse_classes_hint">Esto fará máis precisa a mostra das mensaxes, pero posiblemente cun atraso</string>
     <string name="title_advanced_language_detection_hint">A detección da linguaxe depende do fabricante do dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente unha mensaxe cando é a única ou é a única mensaxe non lida nunha conversa</string>
-    <string name="title_advanced_autoseen_hint">A marca automática de mensaxes como lidas ao seren expandidas pódese desactivar nas configuracións individuais das contas</string>
     <string name="title_advanced_autoclose_hint">Pechar automaticamente as conversas cando todas as mensaxes foron arquivadas, enviadas ou botadas ao lixo</string>
     <string name="title_advanced_sender_hint">Moitos provedores non permiten modificar os enderezos dos remitentes</string>
     <string name="title_advanced_bcc_hint">O enderezo non vai ser mostrado, pero será engadido ao enviar</string>
@@ -983,13 +982,13 @@
     <string name="title_search_with_size">Tamaño de mensaxe máis grande ca</string>
     <string name="title_search_with_before">Antes</string>
     <string name="title_search_with_after">Despois</string>
-    <string name="title_search_flag_unseen">sen ler</string>
-    <string name="title_search_flag_flagged">destacadas</string>
-    <string name="title_search_flag_hidden">agochado</string>
-    <string name="title_search_flag_encrypted">cifrado</string>
-    <string name="title_search_flag_attachments">con anexos</string>
-    <string name="title_search_flag_invite">invitación</string>
-    <string name="title_search_flag_size">tamaño &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">sen ler</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">destacadas</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">agochado</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">cifrado</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">con anexos</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitación</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">tamaño &gt; %1$s</string>
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en servidor</string>
     <string name="title_search_in">Buscar en</string>

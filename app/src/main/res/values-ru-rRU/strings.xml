@@ -7,6 +7,7 @@
     <string name="app_crash">Это устройство не поддерживает FairEmail, так как ошибки Android вызывают сбои</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
+    <string name="app_updated">Последнее обновление: %1$s</string>
     <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Эл. почта</string>
@@ -288,6 +289,7 @@
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
     <string name="title_advanced_signature_forward">Использовать подпись при пересылке</string>
+    <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>
     <string name="title_advanced_receipt">При запросе уведомления</string>
@@ -499,7 +501,7 @@
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
     <string name="title_advanced_check_reply_hint">Проверяет, совпадает ли доменное имя отправителя и адреса для ответа</string>
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
-    <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
+    <string name="title_advanced_sync_delay_hint">Замедлится синхронизация сообщений</string>
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
@@ -532,7 +534,7 @@
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_language_detection_hint">Поддержка определения языка зависит от производителя устройства</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
-    <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках учётной записи</string>
+    <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках для каждой учётной записи</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
@@ -1026,13 +1028,13 @@
     <string name="title_search_with_size">Размер сообщения больше</string>
     <string name="title_search_with_before">Перед</string>
     <string name="title_search_with_after">После</string>
-    <string name="title_search_flag_unseen">не прочитано</string>
-    <string name="title_search_flag_flagged">избранное</string>
-    <string name="title_search_flag_hidden">скрыто</string>
-    <string name="title_search_flag_encrypted">зашифровано</string>
-    <string name="title_search_flag_attachments">вложения</string>
-    <string name="title_search_flag_invite">приглашение</string>
-    <string name="title_search_flag_size">размер &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">не прочитано</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">избранное</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">скрыто</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">зашифровано</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">вложения</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">приглашение</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">размер &gt; %1$s</string>
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>

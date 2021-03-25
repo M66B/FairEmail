@@ -45,22 +45,22 @@ Relaterede spørgsmål:
 
 ## Hvordan kan man...?
 
-* Skift kontonavn: Indstillinger, tryk på Manuel opsætning og flere valgmuligheder, tryk på Konti, tryk på konto
+* Skift af kontonavn: Tryk på Indstillinger > Manuel opsætning > Konti > konto
 * Skift venstre/højre strygehandling: Indstillinger, tryk på Adfærd, Opsæt strygehandlinger
-* Skift adgangskode: Indstillinger, tryk på Manuel opsætning og flere indstillinger, tryk på Konti, tryk på konto, skift adgangskode
-* Indstil en signatur: Indstillinger, tryk på Manuel opsætning og flere indstillinger, tryk på Identiteter, tryk på identitet, Rediger signatur.
+* Skift af adgangskode: Tryk på Indstillinger > Manuel opsætning > Konti > konto > skift adgangskode
+* Opsæt en signatur: Tryk på Indstillinger > Manuel opsætning > Identiteter > identitet > Redigér signatur.
 * Tilføj CC- og BCC-adresser: Tryk på folks ikon i slutningen af emnet
 * Gå til næste/foregående besked ved arkivering/sletning: Deaktivér *Luk automatisk samtaler* i adfærdsindstillingerne og vælg *Gå til næste/foregående samtale* for *Ved lukning af en samtale*
 * Føje en mappe til den fælles indbakke: Langt tryk på mappen i mappelisten og afkryds *Vis i fælles indbakke*
 * Føje en mappe til navigeringsmenuen: Langt tryk på mappen i mappelisten og afkryds *Vis i navigeringsmenu*
 * Indlæs flere beskeder: Langt tryk på en mappe på mappelisten, vælg *Hent flere beskeder*
-* Overspring papirkurv ved beskedsletning: I 3-priksmenuen lige over beskedteksten *Slet*, eller fravælg alternativt papirkurvsmappen i kontoindstillingerne
-* Slet konto/identitet: Indstillinger, Manuel opsætning og flere muligheder, Konti/identitet, trepriksmenu, Slet
-* Slet en mappe: Langt tryk på mappen på mappelisten, Redigér egenskaber, trepriksmenuen, Slet
-* Fortryd send: Udbakke, tryk på beskeden, tryk på Fortryd-ikonknappen
+* Slet en besked, overspring papirkurv: Langt tryk på papirkurv-ikonet
+* Slet konto/identitet: Tryk på Indstillinger > Manuel opsætning > Konti/identitet > konto/identitet > papirkurv-ikon øverst til højre
+* Slet en mappe: Langt tryk på mappen på mappelisten > Redigér egenskaber > papirkurv-ikon øverst til højre
+* Fortryd afsendelse: Udbakke, stryg beskeden på listen til venstre/højre
 * Gemme sendte beskeder i indbakken: [Se denne FAQ](#user-content-faq142)
-* Skift adgangskode: Indstillinger, tryk på Manuel opsætning og flere indstillinger, tryk på Konti, tryk på konto, skift adgangskode
-* Eksport-/importindstillinger: Indstillinger, navigering/hamburger-menu
+* Skift af systemmapper: Tryk på Indstillinger > Manuel opsætning > Konti > konto nederst
+* Eksport-/importindstillinger: Indstillinger &#062 (venstre) navigeringsmenu
 
 ## Kendte problemer
 
@@ -394,17 +394,17 @@ Operationer behandles kun, såfremt der er forbindelse til e-mailserveren, eller
 <br />
 *... Ugyldigt sikkerhedscertifikat (kan ikke bekræfte serveridentet)...*
 
-Dette kan skyldes brug af et forkert værtsnavn, så dobbelttjek først værtsnavnet i de avancerede identitets-/kontoindstillinger (tryk Manuel opsætning, flere valg). Tjek dokumentationen fra e-mailleverandøren for korrekt værtsnavn.
+Dette kan skyldes brug af forkert værtsnavn, så dobbelttjek først dette i de avancerede identitets-/kontoindstillinger (via Manuel opsætning). Tjek dokumentationen fra e-mailleverandøren for korrekt værtsnavn.
 
 Dette bør forsøges løst ved at kontakte udbyderen eller ved at få et gyldigt sikkerhedscertifikat, da ugyldige sikkerhedscertifikater er usikre og tillader [mand-i-midten-angreb](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Er penge en hindring, kan et gratis sikkerhedscertifikater erhverves fra [Let's Encrypt](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup and more options*, tap *Identities*, tap the identity, tap *Advanced*).
+Den hurtige, men usikre løsning (ikke anbefalet), er at aktivere *usikre forbindelser* i de avancerede identitetsindstillinger (navigeringsmenu > *Indstillinger* > *Manuel opsætning* > *Identiteter* > identiteten > *Avanceret*).
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
 1. Sørg for at benytt en betroet Internetforbindelse (ingen offentlige Wi-Fi netværk mv.)
 1. Gå til opsætningsskærmen via navigeringsmenuen (stryg fra venstre side indad)
-1. Tryk på Manuel opsætning, flere valg, Konti/Identiteter og dernæst den defekte konto og identitet
+1. Tryk på Manuel opsætning > Konti/Identiteter > den defekte konto og identitet
 1. Tjek/gem kontoen og identiteten
 1. Markér afkrydsningsfeltet under fejlmeddelelsen og gem igen
 
@@ -635,7 +635,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup and more options, tap Identities).
+**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. Dette kan gøres via at langt tryk på en identitet i identitetslisten (Indstillinger > Manuel opsætning > Identiteter).
 
 **Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
 
@@ -906,7 +906,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 <a name="authfailed"></a>
 The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
-If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup and more options*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
+Om nødvendigt, kan en adgangskode opdateres i kontoindstillingerne: Navigeringsmenu (venstre sidemenu) > *Indstillinger* > *Manuel opsætning* > *Konti* > relevant konto. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
@@ -982,7 +982,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 
 * Bekræft din e-mailadresse [hér](https://mail.google.com/mail/u/0/#settings/accounts) (en computerbrowser skal bruges til dette)
-* Skift til f.eks. disse identitetsindstillinger (Indstillinger, Manuel opsætning, flere valg, Identiteter, identitet):
+* Skift af identitetsindstillinger (Indstillinger > Manuel opsætning > Identiteter > identitet):
 
 &emsp;&emsp;Username: *your Gmail address*<br /> &emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Encryption: *SSL/TLS*<br /> &emsp;&emsp;Reply to address: *your email address* (advanced identity settings)<br />
 
@@ -2244,7 +2244,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Settings > Manual setup and more options > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Indstillinger > Manuel opsætning > Konti > konto > avanceret > Delvis hentning > afmarkér
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2529,7 +2529,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+I kontoindstillingerne (Settings > Manuel opsætning > Konti > konto) kan *Behold slettede beskeder på serveren* aktiveres.
 
 *IMAP*
 
@@ -2557,8 +2557,8 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
-* Account: Settings > Manual setup and more options > Accounts > tap account
-* Identity: Settings > Manual setup and more options > Identities > tap identity
+* Konto: Indstillinger > Manuel opsætning > Konti > konto
+* Identitet: Indstillinger > Manuel opsætning > Identiteter > identitet
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
@@ -2624,7 +2624,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+Dette problem kan løsee ved manuelt at vælge udkastmappen i kontoindstillingerne (Settings > Manuel opsætning > Konti > konto nederst). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2678,8 +2678,8 @@ Voice notes will automatically be attached.
 
 Account:
 
-* Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced)
-* Long press the account in the account list (Settings, tap Manual setup and more options, tap Accounts) and select *Edit notification channel* to change the notification sound
+* Aktivere *Separate notifikationer* i de avancerede kontoindstillinger (Indstillinger > Manuel opsætning > Konti > konto > Avanceret)
+* Langt tryk på kontoen på kontolisten (Indstillinger > Manuel opsætning > Konti), og vælg *Redigér notifikationskanal* for at ændre notifikationslyd
 
 Folder:
 
@@ -2705,7 +2705,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup and more options, tap Accounts, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. Dette kan ændres i de avancerede kontoindstillinger: Indstillinger > Manuel opsætning > Konti > konto > Avanceret.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 

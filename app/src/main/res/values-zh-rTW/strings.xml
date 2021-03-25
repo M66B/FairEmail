@@ -482,7 +482,6 @@
     <string name="title_advanced_parse_classes_hint">這將更準確地顯示消息，但可能會延遲</string>
     <string name="title_advanced_language_detection_hint">是否支援語言偵測隨裝置製造商決定</string>
     <string name="title_advanced_autoexpand_hint">對話中只有一條消息或一條未讀消息時自動打開消息</string>
-    <string name="title_advanced_autoseen_hint">可以在單個帳戶設置中禁用自動標記擴展後閱讀的郵件</string>
     <string name="title_advanced_autoclose_hint">當所有郵件都被存檔，發送或刪除時，自動關閉對話</string>
     <string name="title_advanced_sender_hint">大多數提供商不允許修改發送者地址</string>
     <string name="title_advanced_bcc_hint">地址不會顯示，但會在發送時添加</string>
@@ -962,13 +961,13 @@
     <string name="title_search_with_size">郵件大小大於</string>
     <string name="title_search_with_before">之前</string>
     <string name="title_search_with_after">之後</string>
-    <string name="title_search_flag_unseen">未讀</string>
-    <string name="title_search_flag_flagged">已加星標</string>
-    <string name="title_search_flag_hidden">隱藏</string>
-    <string name="title_search_flag_encrypted">已加密</string>
-    <string name="title_search_flag_attachments">附件</string>
-    <string name="title_search_flag_invite">邀請函</string>
-    <string name="title_search_flag_size">尺寸 &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">未讀</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">已加星標</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">隱藏</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">已加密</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">附件</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">邀請函</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">尺寸 &gt; %1$s</string>
     <string name="title_search_device">在裝置上搜尋</string>
     <string name="title_search_server">在伺服器上搜尋</string>
     <string name="title_search_in">搜尋</string>

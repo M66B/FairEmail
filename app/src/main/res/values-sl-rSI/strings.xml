@@ -376,7 +376,6 @@
     <string name="title_advanced_inline_hint">Slike v besedilu so vključene v sporočilo.</string>
     <string name="title_advanced_parse_classes_hint">To bo natančneje prikazalo sporočila, vendar morda z zakasnitvijo.</string>
     <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo.</string>
-    <string name="title_advanced_autoseen_hint">Samodejno označevanje sporočil kot prebranih ob razširitvi lahko onemogočite v nastavitvah za posamezni račun.</string>
     <string name="title_advanced_autoclose_hint">Samodejno zapri pogovore, ko so vsa sporočila arhivirana, poslana ali premaknjena v smeti.</string>
     <string name="title_advanced_sender_hint">Večina ponudnikov ne dovoli spreminjanja naslovov pošiljatelja.</string>
     <string name="title_advanced_bcc_hint">Naslov ne bo prikazan, ampak bo dodan ob pošiljanju.</string>
@@ -757,11 +756,11 @@
     <string name="title_search_with_attachments">S prilogami (samo na napravi)</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
-    <string name="title_search_flag_unseen">neprebrano</string>
-    <string name="title_search_flag_flagged">z zvezdico</string>
-    <string name="title_search_flag_hidden">skrito</string>
-    <string name="title_search_flag_encrypted">šifrirano</string>
-    <string name="title_search_flag_attachments">priloge</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">neprebrano</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">z zvezdico</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skrito</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">šifrirano</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">priloge</string>
     <string name="title_search_device">Išči na napravi</string>
     <string name="title_search_server">Išči na strežniku</string>
     <string name="title_search_in">Išči v</string>

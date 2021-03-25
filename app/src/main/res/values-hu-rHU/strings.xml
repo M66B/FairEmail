@@ -507,7 +507,6 @@
     <string name="title_advanced_parse_classes_hint">Ez pontosabban fogja megjeleníteni az üzeneteket, de egy kis késéssel</string>
     <string name="title_advanced_language_detection_hint">A nyelvi felismerés a készülék gyártójától függ</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
-    <string name="title_advanced_autoseen_hint">Az üzenetek olvasottként való megjelölése kibontáskor kikapcsolható a fiókoknkénti beállítások között</string>
     <string name="title_advanced_autoclose_hint">A beszélgetések automatikus bezárása minden üzenet archiválása, küldése vagy törlése esetén</string>
     <string name="title_advanced_sender_hint">A legtöbb szolgáltató nem engedélyezi a küldő email cím módosítását</string>
     <string name="title_advanced_bcc_hint">A cím nem lesz megjelenítve, de küldésnél hozzá lesz adva</string>
@@ -998,13 +997,13 @@
     <string name="title_search_with_size">Üzenetméret nagyobb, mint</string>
     <string name="title_search_with_before">Előtt</string>
     <string name="title_search_with_after">Után</string>
-    <string name="title_search_flag_unseen">olvasatlan</string>
-    <string name="title_search_flag_flagged">csillagozott</string>
-    <string name="title_search_flag_hidden">rejtett</string>
-    <string name="title_search_flag_encrypted">titkosított</string>
-    <string name="title_search_flag_attachments">csatolmányok</string>
-    <string name="title_search_flag_invite">meghívás</string>
-    <string name="title_search_flag_size">méret &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">olvasatlan</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">csillagozott</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">rejtett</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">titkosított</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">csatolmányok</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">meghívás</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">méret &gt; %1$s</string>
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
     <string name="title_search_in">Keresés a következőben</string>

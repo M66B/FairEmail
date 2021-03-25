@@ -462,7 +462,6 @@
     <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
     <string name="title_advanced_parse_classes_hint">Isto irá exibir mensagens com mais precisão, mas possivelmente com um atraso</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
-    <string name="title_advanced_autoseen_hint">A marcação automática de mensagens lidas na expansão pode ser desativada nas configurações individuais da conta</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_bcc_hint">O endereço não será mostrado, mas será adicionado no envio</string>
@@ -929,13 +928,13 @@
     <string name="title_search_with_size">Tamanho da mensagem maior que</string>
     <string name="title_search_with_before">Antes de</string>
     <string name="title_search_with_after">Após</string>
-    <string name="title_search_flag_unseen">não lido</string>
-    <string name="title_search_flag_flagged">marcado</string>
-    <string name="title_search_flag_hidden">oculto</string>
-    <string name="title_search_flag_encrypted">criptografado</string>
-    <string name="title_search_flag_attachments">anexos</string>
-    <string name="title_search_flag_invite">convite</string>
-    <string name="title_search_flag_size">tamanho &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">não lido</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">marcado</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">oculto</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">criptografado</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">anexos</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">convite</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">tamanho &gt; %1$s</string>
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_search_server">Pesquisar no servidor</string>
     <string name="title_search_in">Procurar em</string>

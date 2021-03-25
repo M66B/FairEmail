@@ -473,7 +473,6 @@
     <string name="title_advanced_parse_classes_hint">Detta kommer att visa meddelanden mer korrekt, men möjligen med en fördröjning</string>
     <string name="title_advanced_language_detection_hint">Stöd för språkdetektering beror på enhetstillverkaren</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
-    <string name="title_advanced_autoseen_hint">Automatisk markering av meddelanden som läses vid utökning kan inaktiveras i de enskilda kontoinställningarna</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_bcc_hint">Adressen kommer inte att visas, men kommer att läggas till vid sändning</string>
@@ -943,13 +942,13 @@
     <string name="title_search_with_size">Meddelandets storlek större än</string>
     <string name="title_search_with_before">Före</string>
     <string name="title_search_with_after">Efter</string>
-    <string name="title_search_flag_unseen">oläst</string>
-    <string name="title_search_flag_flagged">stjärnmärkt</string>
-    <string name="title_search_flag_hidden">dold</string>
-    <string name="title_search_flag_encrypted">krypterad</string>
-    <string name="title_search_flag_attachments">bilagor</string>
-    <string name="title_search_flag_invite">inbjudan</string>
-    <string name="title_search_flag_size">storlek &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">oläst</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">stjärnmärkt</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">dold</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">krypterad</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">bilagor</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">inbjudan</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">storlek &gt; %1$s</string>
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_in">Sök i</string>

@@ -376,7 +376,6 @@
     <string name="title_advanced_preview_issue">Pomicanje može biti sporo zbog pogreške u nekim verzijama Androida kada je broj linija veći od jedan</string>
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku ako postoji samo jedna poruka ili samo jedna nepročitana poruka u razgovoru</string>
-    <string name="title_advanced_autoseen_hint">Automatsko označavanje poruka pročitanih pri širenju može se onemogućiti u pojedinačnim postavkama računa</string>
     <string name="title_advanced_autoclose_hint">Automatski zatvori razgovore kada su sve poruke arhivirane, poslane ili stavljene u otpad</string>
     <string name="title_advanced_sender_hint">Većina pružatelja usluga ne dopušta modificirane adrese pošaljitelja</string>
     <string name="title_advanced_display_harmful_hint">Onemogućavanje ove opcije može biti štetno za vašu privatnost</string>

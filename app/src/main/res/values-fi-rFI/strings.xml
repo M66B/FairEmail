@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
+    <string name="app_updated">Päivitetty viimeksi: %1$s</string>
     <string name="channel_service">Vastaanottaminen</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Sähköposti</string>
@@ -164,6 +165,7 @@
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
     <string name="title_setup_doze_remark">Sähköpostien vastaanottoon luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen käytöstä vähentää akun käyttöä</string>
+    <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
@@ -264,6 +266,7 @@
     <string name="title_advanced_signature_location">Allekirjoituksen sijainti</string>
     <string name="title_advanced_signature_reply">Käytä allekirjoitusta vastatessa</string>
     <string name="title_advanced_signature_forward">Käytä allekirjoitusta edelleenlähetettäessä</string>
+    <string name="title_advanced_auto_link">Luo linkkejä automaattisesti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
     <string name="title_advanced_receipt">Pyydettäessä kuittausta</string>
@@ -276,6 +279,7 @@
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
+    <string name="title_advanced_validated">Vaadi vahvistettu (tarkistettu) yhteys</string>
     <string name="title_advanced_timeout">Yhteyden aikakatkaisu (sekuntia)</string>
     <string name="title_advanced_prefer_ip4">Käytä IPv4:ää ensisijaisesti IPv6:n sijaan</string>
     <string name="title_advanced_ssl_harden">Koveta SSL-yhteydet</string>
@@ -482,6 +486,7 @@
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa yhteysongelmia joissakin laitteissa</string>
+    <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä ja muissakin tilanteissa</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
     <string name="title_advanced_ssl_harden_hint">Tämän käyttöönotto kytkee heikot SSL-protokollat ja salakirjoitukset pois käytöstä, mikä voi aiheuttaa yhteysongelmia</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
@@ -505,7 +510,6 @@
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_language_detection_hint">Kielen tunnistuksen tuki riippuu laitteen valmistajasta</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
-    <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien asetuksissa</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_bcc_hint">Osoitetta ei näytetä, mutta se lisätään lähetettäessä</string>
@@ -738,7 +742,7 @@
     <string name="title_importance_low">Alhainen</string>
     <string name="title_importance_normal">Tavanomainen</string>
     <string name="title_importance_high">Korkea</string>
-    <string name="title_search_in_text">Haetaan tekstistä &#8230;</string>
+    <string name="title_search_in_text">Etsi tekstistä &#8230;</string>
     <string name="title_forward">Lähetä edelleen</string>
     <string name="title_new_message">Uusi viesti</string>
     <string name="title_editasnew">Muokkaa uutena</string>
@@ -761,6 +765,8 @@
     <string name="title_download_all">Lataa kaikki</string>
     <string name="title_save_all">Tallenna kaikki</string>
     <string name="title_save_eml">Tallenna raakaviestitiedosto</string>
+    <string name="title_raw_remaining">Raakaviestejä ladattavana: %1$d</string>
+    <string name="title_ask_raw">Viestien edelleenlähettämiseksi raakaviestit (alkuperäiset viestit) pitää ladata palvelimelta. Tämä edellyttää internetyhteyttä.</string>
     <string name="title_buttons">Valitse painikkeita</string>
     <string name="title_configure_buttons">Määritä painikkeet &#8230;</string>
     <string name="title_trash">Siirrä roskakoriin</string>
@@ -997,13 +1003,13 @@
     <string name="title_search_with_size">Viestin koko suurempi kuin</string>
     <string name="title_search_with_before">Ennen</string>
     <string name="title_search_with_after">Jälkeen</string>
-    <string name="title_search_flag_unseen">lukematon</string>
-    <string name="title_search_flag_flagged">tähdellinen</string>
-    <string name="title_search_flag_hidden">piilotettu</string>
-    <string name="title_search_flag_encrypted">salattu</string>
-    <string name="title_search_flag_attachments">liitteet</string>
-    <string name="title_search_flag_invite">kutsu</string>
-    <string name="title_search_flag_size">koko &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">lukematon</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">tähdellinen</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">piilotettu</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">salattu</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">liitteet</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">kutsu</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">koko &gt; %1$s</string>
     <string name="title_search_device">Hae laitteesta</string>
     <string name="title_search_server">Hae palvelimelta</string>
     <string name="title_search_in">Hae kohteesta</string>

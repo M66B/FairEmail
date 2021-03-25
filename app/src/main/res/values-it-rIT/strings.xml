@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
     <string name="app_exit">Premi di nuovo «indietro» per uscire</string>
     <string name="app_cake">Spazio di archiviazione insufficiente</string>
+    <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="channel_service">Ricevi</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">E-mail</string>
@@ -266,6 +267,7 @@
     <string name="title_advanced_signature_location">Posizione della firma</string>
     <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
     <string name="title_advanced_signature_forward">Usa la firma durante l\'inoltro</string>
+    <string name="title_advanced_auto_link">Crea automaticamente collegamenti</string>
     <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo normale</string>
     <string name="title_advanced_receipt">Quando si richiede una ricevuta</string>
@@ -486,6 +488,7 @@
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
     <string name="title_advanced_tcp_keep_alive_hint">Abilitare questo può causare problemi di connessione su alcuni dispositivi</string>
+    <string name="title_advanced_validate_hint">Questo può portare a non sincronizzare i messaggi, ad esempio quando si utilizza una VPN, ma anche in altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura verrà impostato sul doppio del timeout di connessione. Valori più alti comporteranno più utilizzo della batteria.</string>
     <string name="title_advanced_ssl_harden_hint">Abilitando questa opzione disabiliterai i protocolli SSL e i cifrari deboli, che possono causare problemi di connessione</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate quando in roaming. Puoi utilizzare le impostazioni di roaming del dispositivo per disabilitare internet durante il roaming.</string>
@@ -509,7 +512,6 @@
     <string name="title_advanced_parse_classes_hint">Questo mostrerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
     <string name="title_advanced_language_detection_hint">Il supporto per il rilevamento linguistico dipende dal produttore del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
-    <string name="title_advanced_autoseen_hint">La marcatura automatica dei messaggi letti all\'apertura può essere disabilitata nelle impostazioni dei singoli account</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma verrà aggiunto all\'invio</string>
@@ -765,6 +767,8 @@
     <string name="title_download_all">Scarica tutti</string>
     <string name="title_save_all">Salva tutto</string>
     <string name="title_save_eml">Salva il file del messaggio grezzo</string>
+    <string name="title_raw_remaining">Messaggi grezzi da scaricare: %1$d</string>
+    <string name="title_ask_raw">Per inoltrare i messaggi, i messaggi grezzi (originali) devono essere scaricati dal server. Ciò richiede una connessione Internet.</string>
     <string name="title_buttons">Seleziona pulsanti</string>
     <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
     <string name="title_trash">Cestino</string>
@@ -1001,13 +1005,13 @@
     <string name="title_search_with_size">Dimensione messaggio maggiore di</string>
     <string name="title_search_with_before">Prima</string>
     <string name="title_search_with_after">Dopo</string>
-    <string name="title_search_flag_unseen">non letto</string>
-    <string name="title_search_flag_flagged">preferiti</string>
-    <string name="title_search_flag_hidden">nascosto</string>
-    <string name="title_search_flag_encrypted">crittografato</string>
-    <string name="title_search_flag_attachments">allegati</string>
-    <string name="title_search_flag_invite">invito</string>
-    <string name="title_search_flag_size">dimensione &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">non letto</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">preferiti</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">nascosto</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">crittografato</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">allegati</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invito</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">dimensione &gt; %1$s</string>
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>

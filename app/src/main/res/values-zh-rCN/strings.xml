@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail不支持该设备，因为 android 中的bug会导致崩溃</string>
     <string name="app_exit">再按一次返回键退出</string>
     <string name="app_cake">剩余存储空间不足</string>
+    <string name="app_updated">上次更新: %1$s</string>
     <string name="channel_service">接收</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">电子邮件</string>
@@ -254,6 +255,7 @@
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
     <string name="title_advanced_signature_forward">转发时使用签名</string>
+    <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_flow">对纯文本采用”格式流动式“（format flowed）引用文本换行</string>
     <string name="title_advanced_receipt">请求回执时</string>
@@ -498,7 +500,7 @@
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
-    <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
+    <string name="title_advanced_autoseen_hint">在每个帐户的高级帐户设置中可以禁用展开时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
@@ -754,8 +756,8 @@
     <string name="title_download_all">全部下载</string>
     <string name="title_save_all">全部保存</string>
     <string name="title_save_eml">保存原始消息文件</string>
-    <string name="title_raw_remaining">要下载的原始消息： %1$d</string>
-    <string name="title_ask_raw">要转发消息，需要从服务器下载原始消息。这需要互联网连接。</string>
+    <string name="title_raw_remaining">要下载的原始消息: %1$d</string>
+    <string name="title_ask_raw">转发消息要先从服务器下载原始消息，这需要网络连接</string>
     <string name="title_buttons">选择按钮</string>
     <string name="title_configure_buttons">配置按钮 &#8230;</string>
     <string name="title_trash">回收站</string>
@@ -992,13 +994,13 @@
     <string name="title_search_with_size">消息大小大于</string>
     <string name="title_search_with_before">早于</string>
     <string name="title_search_with_after">晚于</string>
-    <string name="title_search_flag_unseen">未读</string>
-    <string name="title_search_flag_flagged">标星</string>
-    <string name="title_search_flag_hidden">隐藏</string>
-    <string name="title_search_flag_encrypted">加密</string>
-    <string name="title_search_flag_attachments">附件</string>
-    <string name="title_search_flag_invite">邀请</string>
-    <string name="title_search_flag_size">大小 &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">未读</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">标星</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">隐藏</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">加密</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">附件</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">邀请</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">大小 &gt; %1$s</string>
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>

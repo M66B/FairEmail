@@ -531,7 +531,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_parse_classes_hint">Toto zobrazí správy s vyššou presnosťou, no s určitým oneskorením</string>
     <string name="title_advanced_language_detection_hint">Podpora detekcie jazyka závisí od výrobcu zariadenia</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otvoriť správu ak konverzácia obsahuje len jednu</string>
-    <string name="title_advanced_autoseen_hint">Automatické označovanie správ za prečítané po rozbalení je možné vypnúť v nastaveniach účtu</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavrieť konverzáciu ak sú všetky správy archivované, odoslané či presunuté do koša</string>
     <string name="title_advanced_sender_hint">Väčšina poskytovateľov neumožňuje modifikovať adresu odosielateľa</string>
     <string name="title_advanced_bcc_hint">Adresy nebudú zobrazené, budú však pridané pri posielaní</string>
@@ -1019,13 +1018,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_with_size">Veľkosť správy väčšia než</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
-    <string name="title_search_flag_unseen">neprečítané</string>
-    <string name="title_search_flag_flagged">s hviezdičkou</string>
-    <string name="title_search_flag_hidden">skryté</string>
-    <string name="title_search_flag_encrypted">zašifrované</string>
-    <string name="title_search_flag_attachments">prílohy</string>
-    <string name="title_search_flag_invite">pozvanie</string>
-    <string name="title_search_flag_size">veľkosť &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">neprečítané</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">s hviezdičkou</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skryté</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">zašifrované</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">prílohy</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">pozvanie</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">veľkosť &gt; %1$s</string>
     <string name="title_search_device">Hľadať v zariadení</string>
     <string name="title_search_server">Hľadať na servery</string>
     <string name="title_search_in">Hľadať v</string>

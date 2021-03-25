@@ -490,7 +490,6 @@
     <string name="title_advanced_parse_classes_hint">Ini akan lebih akurat menampilkan pesan, tapi mungkin dengan penundaan</string>
     <string name="title_advanced_language_detection_hint">Dukungan deteksi bahasa tergantung pada perangkat</string>
     <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
-    <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan terbaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun individu</string>
     <string name="title_advanced_autoclose_hint">Tutup percakapan secara otomatis ketika seluruh pesan terarsip, terkirim, atau terbuang</string>
     <string name="title_advanced_sender_hint">Kebanyakan penyedia tidak mengizinkan untuk mengubah alamat pengirim</string>
     <string name="title_advanced_bcc_hint">Alamat tidak akan ditampilkan, namun akan ditambahkan ketika mengirim</string>
@@ -911,13 +910,13 @@
     <string name="title_search_with_size">Ukuran pesan lebih besar dari</string>
     <string name="title_search_with_before">Sebelum</string>
     <string name="title_search_with_after">Sesudah</string>
-    <string name="title_search_flag_unseen">belum dibaca</string>
-    <string name="title_search_flag_flagged">berbintang</string>
-    <string name="title_search_flag_hidden">tersembunyi</string>
-    <string name="title_search_flag_encrypted">dienkripsi</string>
-    <string name="title_search_flag_attachments">memiliki lampiran</string>
-    <string name="title_search_flag_invite">undangan</string>
-    <string name="title_search_flag_size">ukuran &gt; %1$s</string>
+    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">belum dibaca</string>
+    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">berbintang</string>
+    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">tersembunyi</string>
+    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">dienkripsi</string>
+    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">memiliki lampiran</string>
+    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">undangan</string>
+    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">ukuran &gt; %1$s</string>
     <string name="title_search_device">Penelusuran di perangkat</string>
     <string name="title_search_server">Penelusuran di server</string>
     <string name="title_search_in">Pencarian di</string>
