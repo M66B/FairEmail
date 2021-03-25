@@ -461,6 +461,9 @@ public class ApplicationEx extends Application
         } else if (version < 1535) {
             editor.remove("identities_asked");
             editor.remove("identities_primary_hint");
+        } else if (version < 1539) {
+            if (!prefs.contains("double_back"))
+                editor.putBoolean("double_back", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
