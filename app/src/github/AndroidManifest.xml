@@ -383,11 +383,6 @@
                 android:resource="@xml/fileprovider_paths" />
         </provider>
 
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            tools:node="remove" />
-
         <receiver
             android:name=".Widget"
             android:exported="true"

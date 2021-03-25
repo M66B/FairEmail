@@ -34,7 +34,6 @@ import android.os.strictmode.Violation;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
-import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import org.jetbrains.annotations.NotNull;
@@ -45,7 +44,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class ApplicationEx extends Application
-        implements androidx.work.Configuration.Provider, SharedPreferences.OnSharedPreferenceChangeListener {
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Thread.UncaughtExceptionHandler prev = null;
 
     @Override
@@ -189,17 +188,6 @@ public class ApplicationEx extends Application
 
         long end = new Date().getTime();
         Log.i("App created " + (end - start) + " ms");
-    }
-
-    @NonNull
-    @Override
-    public androidx.work.Configuration getWorkManagerConfiguration() {
-        // https://developer.android.com/jetpack/androidx/releases/work#2.6.0-alpha01
-        // https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration
-        Log.i("Init work manager");
-        return new androidx.work.Configuration.Builder()
-                .setMinimumLoggingLevel(android.util.Log.INFO)
-                .build();
     }
 
     @Override
