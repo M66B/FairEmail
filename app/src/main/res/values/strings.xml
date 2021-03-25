@@ -1151,6 +1151,7 @@
     <string name="title_search_flag_hidden">hidden</string>
     <string name="title_search_flag_encrypted">encrypted</string>
     <string name="title_search_flag_attachments">attachments</string>
+    <string name="title_search_flag_notes">notes</string>
     <string name="title_search_flag_invite">invitation</string>
     <string name="title_search_flag_size">size &gt; %1$s</string>
 

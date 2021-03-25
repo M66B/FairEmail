@@ -332,7 +332,8 @@ public interface DaoMessage {
             " AND (NOT :flagged OR ui_flagged)" +
             " AND (NOT :hidden OR NOT ui_snoozed IS NULL)" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
-            " AND (NOT :attachments OR attachments > 0)" +
+            " AND (NOT :with_attachments OR attachments > 0)" +
+            " AND (NOT :with_notes OR NOT `notes` IS NULL)" +
             " AND (:type_count = 0 OR attachment.type IN (:types))" +
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
@@ -343,7 +344,7 @@ public interface DaoMessage {
     List<TupleMatch> matchMessages(
             Long account, Long folder, String find,
             boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message, boolean notes,
-            boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean attachments,
+            boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean with_attachments, boolean with_notes,
             int type_count, String[] types,
             Integer size,
             Long after, Long before,
