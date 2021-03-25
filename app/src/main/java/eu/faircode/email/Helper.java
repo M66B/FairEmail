@@ -715,7 +715,7 @@ public class Helper {
                     (BuildConfig.DEBUG ? "d" : "") +
                     (ActivityBilling.isPro(context) ? "+" : "");
             Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setPackage(BuildConfig.APPLICATION_ID);
+            //intent.setPackage(BuildConfig.APPLICATION_ID);
             intent.setType("text/plain");
             try {
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Log.myAddress().getAddress()});
