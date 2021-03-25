@@ -678,11 +678,15 @@ public class ServiceUI extends IntentService {
 
     static void boot(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         long banner_hidden = prefs.getLong("banner_hidden", 0);
         if (banner_hidden > 0) {
             Log.i("Restore banner alarm at " + new Date(banner_hidden));
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             am.set(AlarmManager.RTC, banner_hidden, getBannerIntent(context));
         }
+
+        boolean protocol = prefs.getBoolean("protocol", false);
+        ServiceUI.scheduleProtocol(context, protocol);
     }
 }
