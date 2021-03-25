@@ -111,7 +111,8 @@ public class ApplicationEx extends Application
                             for (StackTraceElement ste : stack) {
                                 String clazz = ste.getClassName();
                                 if (clazz != null &&
-                                        clazz.startsWith("com.android.webview.chromium"))
+                                        (clazz.startsWith("com.android.webview.chromium") ||
+                                                clazz.startsWith("androidx.appcompat.widget")))
                                     return;
                             }
 
