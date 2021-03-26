@@ -40,10 +40,8 @@ public class ActivityWidgetSync extends ActivityBase {
     private int appWidgetId;
 
     private CheckBox cbSemiTransparent;
-    private Button btnColor;
+    private ViewButtonColor btnColor;
     private Button btnSave;
-
-    private int background = Color.TRANSPARENT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +52,6 @@ public class ActivityWidgetSync extends ActivityBase {
             finish();
             return;
         }
-
-        if (savedInstanceState != null)
-            background = savedInstanceState.getInt("fair:color");
 
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
@@ -74,7 +69,7 @@ public class ActivityWidgetSync extends ActivityBase {
         cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                btnColor.setEnabled(!isChecked);
+                btnColor.setColor(Color.TRANSPARENT);
             }
         });
 
@@ -94,13 +89,15 @@ public class ActivityWidgetSync extends ActivityBase {
                         .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                background = selectedColor;
+                                cbSemiTransparent.setChecked(false);
+                                btnColor.setColor(selectedColor);
                             }
                         })
                         .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                background = Color.TRANSPARENT;
+                                cbSemiTransparent.setChecked(false);
+                                btnColor.setColor(Color.TRANSPARENT);
                             }
                         })
                         .build()
@@ -114,7 +111,7 @@ public class ActivityWidgetSync extends ActivityBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetSync.this);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
-                editor.putInt("widget." + appWidgetId + ".background", background);
+                editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.apply();
 
                 WidgetSync.init(ActivityWidgetSync.this, appWidgetId);
@@ -124,14 +121,6 @@ public class ActivityWidgetSync extends ActivityBase {
             }
         });
 
-        btnColor.setEnabled(!cbSemiTransparent.isChecked());
-
         setResult(RESULT_CANCELED, resultValue);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt("fair:color", background);
-        super.onSaveInstanceState(outState);
     }
 }

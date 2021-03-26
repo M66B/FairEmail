@@ -57,14 +57,13 @@ public class ActivityWidgetUnified extends ActivityBase {
     private CheckBox cbUnseen;
     private CheckBox cbFlagged;
     private CheckBox cbSemiTransparent;
-    private Button btnColor;
+    private ViewButtonColor btnColor;
     private Spinner spFontSize;
     private Spinner spPadding;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
-    private int background = Color.TRANSPARENT;
     private ArrayAdapter<EntityAccount> adapterAccount;
     private ArrayAdapter<TupleFolderEx> adapterFolder;
     private ArrayAdapter<String> adapterFontSize;
@@ -79,9 +78,6 @@ public class ActivityWidgetUnified extends ActivityBase {
             finish();
             return;
         }
-
-        if (savedInstanceState != null)
-            background = savedInstanceState.getInt("fair:color");
 
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
@@ -107,7 +103,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                btnColor.setEnabled(!isChecked);
+                btnColor.setColor(Color.TRANSPARENT);
             }
         });
 
@@ -127,13 +123,15 @@ public class ActivityWidgetUnified extends ActivityBase {
                         .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                background = selectedColor;
+                                cbSemiTransparent.setChecked(false);
+                                btnColor.setColor(selectedColor);
                             }
                         })
                         .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                background = Color.TRANSPARENT;
+                                cbSemiTransparent.setChecked(false);
+                                btnColor.setColor(Color.TRANSPARENT);
                             }
                         })
                         .build()
@@ -164,7 +162,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
-                editor.putInt("widget." + appWidgetId + ".background", background);
+                editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".font", spFontSize.getSelectedItemPosition());
                 editor.putInt("widget." + appWidgetId + ".padding", spPadding.getSelectedItemPosition());
 
@@ -267,7 +265,6 @@ public class ActivityWidgetUnified extends ActivityBase {
         adapterPadding.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spPadding.setAdapter(adapterPadding);
 
-        btnColor.setEnabled(!cbSemiTransparent.isChecked());
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -303,11 +300,5 @@ public class ActivityWidgetUnified extends ActivityBase {
                 Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "widget:accounts");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt("fair:color", background);
-        super.onSaveInstanceState(outState);
     }
 }
