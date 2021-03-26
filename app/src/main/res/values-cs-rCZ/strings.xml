@@ -287,6 +287,7 @@
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
     <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
+    <string name="title_advanced_auto_link">Automaticky vytvářet odkazy</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">„Format flowed“ pro prostý text</string>
     <string name="title_advanced_receipt">Při požadování potvrzení</string>
@@ -529,6 +530,7 @@
     <string name="title_advanced_parse_classes_hint">Zprávy budou zobrazovány přesněji, ale s potencionálním zpožděním</string>
     <string name="title_advanced_language_detection_hint">Podpora detekce jazyka je závislá na výrobci zařízení</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
+    <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v pokročilém nastavení jednotlivých účtů</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavírat konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
     <string name="title_advanced_bcc_hint">Adresa nebude zobrazena, ale bude přidána při odesílání</string>
@@ -1020,13 +1022,14 @@
     <string name="title_search_with_size">Velikost zprávy větší než</string>
     <string name="title_search_with_before">Před</string>
     <string name="title_search_with_after">Po</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">nepřečteno</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">hvězdička</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skryto</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">šifrováno</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">přílohy</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">pozvánka</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">velikost &gt; %1$s</string>
+    <string name="title_search_flag_unseen">nepřečteno</string>
+    <string name="title_search_flag_flagged">hvězdička</string>
+    <string name="title_search_flag_hidden">skryto</string>
+    <string name="title_search_flag_encrypted">šifrováno</string>
+    <string name="title_search_flag_attachments">přílohy</string>
+    <string name="title_search_flag_notes">poznámky</string>
+    <string name="title_search_flag_invite">pozvánka</string>
+    <string name="title_search_flag_size">velikost &gt; %1$s</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_in">Hledat v</string>
@@ -1349,8 +1352,9 @@
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>
     <string name="title_unexpected_info_remark">Popište prosím, co jste dělali, když došlo k chybě:</string>
-    <string name="title_widget_title_count">Počet nových zpráv</string>
-    <string name="title_widget_title_list">Seznam zpráv</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Počet nových zpráv</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Seznam zpráv</string>
+    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Synch. zap/vyp</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všechny</string>
     <string name="title_widget_folder">Složka</string>

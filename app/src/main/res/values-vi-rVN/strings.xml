@@ -944,13 +944,13 @@
     <string name="title_search_with_size">Kích cỡ thư lớn hơn</string>
     <string name="title_search_with_before">Trước</string>
     <string name="title_search_with_after">Sau</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">chưa đọc</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">được gắn sao</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ẩn</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">đã mã hóa</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">tệp đính kèm</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">lời mời</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">kích cỡ &gt; %1$s</string>
+    <string name="title_search_flag_unseen">chưa đọc</string>
+    <string name="title_search_flag_flagged">được gắn sao</string>
+    <string name="title_search_flag_hidden">ẩn</string>
+    <string name="title_search_flag_encrypted">đã mã hóa</string>
+    <string name="title_search_flag_attachments">tệp đính kèm</string>
+    <string name="title_search_flag_invite">lời mời</string>
+    <string name="title_search_flag_size">kích cỡ &gt; %1$s</string>
     <string name="title_search_device">Tìm kiếm trên thiết bị</string>
     <string name="title_search_server">Tìm kiếm trên máy chủ</string>
     <string name="title_search_in">Tìm kiếm trong</string>
@@ -1267,8 +1267,8 @@
     <string name="title_debug_info_remark">Hãy mô tả vấn đề và cho biết thời gian của vấn đề:</string>
     <string name="title_crash_info_remark">Hãy mô tả điều bạn đang làm khi ứng dụng bị văng ra:</string>
     <string name="title_unexpected_info_remark">Hãy mô tả điều bạn đang làm khi bạn gặp lỗi đó:</string>
-    <string name="title_widget_title_count">Số thư mới</string>
-    <string name="title_widget_title_list">Danh sách thư</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Số thư mới</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Danh sách thư</string>
     <string name="title_widget_account">Tài khoản</string>
     <string name="title_widget_account_all">Tất cả</string>
     <string name="title_widget_folder">Thư mục</string>

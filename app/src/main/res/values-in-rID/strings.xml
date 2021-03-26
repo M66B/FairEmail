@@ -910,13 +910,13 @@
     <string name="title_search_with_size">Ukuran pesan lebih besar dari</string>
     <string name="title_search_with_before">Sebelum</string>
     <string name="title_search_with_after">Sesudah</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">belum dibaca</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">berbintang</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">tersembunyi</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">dienkripsi</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">memiliki lampiran</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">undangan</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">ukuran &gt; %1$s</string>
+    <string name="title_search_flag_unseen">belum dibaca</string>
+    <string name="title_search_flag_flagged">berbintang</string>
+    <string name="title_search_flag_hidden">tersembunyi</string>
+    <string name="title_search_flag_encrypted">dienkripsi</string>
+    <string name="title_search_flag_attachments">memiliki lampiran</string>
+    <string name="title_search_flag_invite">undangan</string>
+    <string name="title_search_flag_size">ukuran &gt; %1$s</string>
     <string name="title_search_device">Penelusuran di perangkat</string>
     <string name="title_search_server">Penelusuran di server</string>
     <string name="title_search_in">Pencarian di</string>
@@ -1142,7 +1142,7 @@
     <string name="title_pro_invalid">Respon tidak valid</string>
     <string name="title_auto_scroll">Gulir otomatis</string>
     <string name="title_log_clear">Bersihkan</string>
-    <string name="title_widget_title_list">Daftar pesan</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Daftar pesan</string>
     <string name="title_widget_account">Akun</string>
     <string name="title_widget_account_all">Semua</string>
     <string name="title_widget_folder">Folder</string>

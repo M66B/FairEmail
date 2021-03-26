@@ -81,7 +81,7 @@
     <string name="title_junk_filter">Χρήση τοπικού φίλτρου ανεπιθ. αλληλογραφίας</string>
     <string name="title_junk_filter_hint">Αυτό μπορεί να αυξήσει τη χρήση της μπαταρίας και να σημάνει εσφαλμένα μηνύματα ως spam</string>
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
-    <string name="title_notification_waiting">Αναμονή για την κατάλληλη σύνδεση</string>
+    <string name="title_notification_waiting">Αναμονή για κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>
     <string name="title_notification_failed">\'%1$s\' απέτυχε</string>
     <string name="title_notification_alert">\'%1$s\' ειδοποίηση διακομιστή</string>
@@ -1004,13 +1004,14 @@
     <string name="title_search_with_size">Μέγεθος μηνύματος μεγαλύτερο από</string>
     <string name="title_search_with_before">Πριν από</string>
     <string name="title_search_with_after">Μετά από</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">μη αναγνωσμένα</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">με αστέρι</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">κρυφά</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">κρυπτογραφημένα</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">συνημμένα</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">πρόσκληση</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">μέγεθος &gt; %1$s</string>
+    <string name="title_search_flag_unseen">μη αναγνωσμένα</string>
+    <string name="title_search_flag_flagged">με αστέρι</string>
+    <string name="title_search_flag_hidden">κρυφά</string>
+    <string name="title_search_flag_encrypted">κρυπτογραφημένα</string>
+    <string name="title_search_flag_attachments">συνημμένα</string>
+    <string name="title_search_flag_notes">σημειώσεις</string>
+    <string name="title_search_flag_invite">πρόσκληση</string>
+    <string name="title_search_flag_size">μέγεθος &gt; %1$s</string>
     <string name="title_search_device">Αναζήτηση στη συσκευή</string>
     <string name="title_search_server">Αναζήτηση στο διακομιστή</string>
     <string name="title_search_in">Αναζήτηση σε</string>
@@ -1333,8 +1334,9 @@
     <string name="title_debug_info_remark">Παρακαλούμε, περιγράψτε το πρόβλημα καθώς και τον χρόνο εμφάνισής του:</string>
     <string name="title_crash_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε τη στιγμή που η εφαρμογή σταμάτησε να λειτουργεί:</string>
     <string name="title_unexpected_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε όταν λάβατε το μήνυμα σφάλματος:</string>
-    <string name="title_widget_title_count">Αριθμός νέων μηνυμάτων</string>
-    <string name="title_widget_title_list">Λίστα μηνυμάτων</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Αριθμός νέων μηνυμάτων</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Λίστα μηνυμάτων</string>
+    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Συγχ. Εν./Ανεν.</string>
     <string name="title_widget_account">Λογαριασμός</string>
     <string name="title_widget_account_all">Όλοι</string>
     <string name="title_widget_folder">Φάκελος</string>

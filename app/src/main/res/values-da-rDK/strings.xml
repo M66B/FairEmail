@@ -505,6 +505,7 @@
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
     <string name="title_advanced_language_detection_hint">Sprogdetekteringsunderstøttelse afhænger af enhedsproducenten</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
+    <string name="title_advanced_autoseen_hint">Automarkering af beskeder som læst ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men tilføjes ved afsendelse</string>
@@ -991,13 +992,14 @@
     <string name="title_search_with_size">Beskedstørrelse over</string>
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Efter</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ulæst</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">stjernemarkeret</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skjult</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">krypteret</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">vedhæftninger</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitation</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">størrelse &gt; %1$s</string>
+    <string name="title_search_flag_unseen">ulæst</string>
+    <string name="title_search_flag_flagged">stjernemarkeret</string>
+    <string name="title_search_flag_hidden">skjult</string>
+    <string name="title_search_flag_encrypted">krypteret</string>
+    <string name="title_search_flag_attachments">vedhæftninger</string>
+    <string name="title_search_flag_notes">notater</string>
+    <string name="title_search_flag_invite">invitation</string>
+    <string name="title_search_flag_size">størrelse &gt; %1$s</string>
     <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>
@@ -1320,8 +1322,9 @@
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>
     <string name="title_unexpected_info_remark">Beskriv, hvad du foretog dig, da fejlen opstod:</string>
-    <string name="title_widget_title_count">Ny besked-tæller</string>
-    <string name="title_widget_title_list">Beskedliste</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Ny besked-tæller</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Beskedliste</string>
+    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Synk til/fra</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Mappe</string>

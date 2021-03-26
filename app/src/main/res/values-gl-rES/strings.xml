@@ -982,13 +982,13 @@
     <string name="title_search_with_size">Tamaño de mensaxe máis grande ca</string>
     <string name="title_search_with_before">Antes</string>
     <string name="title_search_with_after">Despois</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">sen ler</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">destacadas</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">agochado</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">cifrado</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">con anexos</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitación</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">tamaño &gt; %1$s</string>
+    <string name="title_search_flag_unseen">sen ler</string>
+    <string name="title_search_flag_flagged">destacadas</string>
+    <string name="title_search_flag_hidden">agochado</string>
+    <string name="title_search_flag_encrypted">cifrado</string>
+    <string name="title_search_flag_attachments">con anexos</string>
+    <string name="title_search_flag_invite">invitación</string>
+    <string name="title_search_flag_size">tamaño &gt; %1$s</string>
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en servidor</string>
     <string name="title_search_in">Buscar en</string>
@@ -1306,8 +1306,8 @@
     <string name="title_debug_info_remark">Por favor, describa o problema e indique o tempo do problema:</string>
     <string name="title_crash_info_remark">Por favor, describa que estaba a facer cando a aplicación se detivo:</string>
     <string name="title_unexpected_info_remark">Por favor, describa que estaba a facer cando apareceu o erro:</string>
-    <string name="title_widget_title_count">Número de novas mensaxes</string>
-    <string name="title_widget_title_list">Lista de mensaxes</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Número de novas mensaxes</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Lista de mensaxes</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todo</string>
     <string name="title_widget_folder">Cartafol</string>

@@ -997,13 +997,13 @@
     <string name="title_search_with_size">Üzenetméret nagyobb, mint</string>
     <string name="title_search_with_before">Előtt</string>
     <string name="title_search_with_after">Után</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">olvasatlan</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">csillagozott</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">rejtett</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">titkosított</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">csatolmányok</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">meghívás</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">méret &gt; %1$s</string>
+    <string name="title_search_flag_unseen">olvasatlan</string>
+    <string name="title_search_flag_flagged">csillagozott</string>
+    <string name="title_search_flag_hidden">rejtett</string>
+    <string name="title_search_flag_encrypted">titkosított</string>
+    <string name="title_search_flag_attachments">csatolmányok</string>
+    <string name="title_search_flag_invite">meghívás</string>
+    <string name="title_search_flag_size">méret &gt; %1$s</string>
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
     <string name="title_search_in">Keresés a következőben</string>
@@ -1325,8 +1325,8 @@
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>
     <string name="title_unexpected_info_remark">Kérem írja le, mit csinált amikor az alkalmazás összeomlott:</string>
-    <string name="title_widget_title_count">Új üzenetek számláló</string>
-    <string name="title_widget_title_list">Üzenet lista</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Új üzenetek számláló</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Üzenet lista</string>
     <string name="title_widget_account">Fiók</string>
     <string name="title_widget_account_all">Mind</string>
     <string name="title_widget_folder">Mappa</string>

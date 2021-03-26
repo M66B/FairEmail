@@ -512,6 +512,7 @@
     <string name="title_advanced_parse_classes_hint">Questo mostrerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
     <string name="title_advanced_language_detection_hint">Il supporto per il rilevamento linguistico dipende dal produttore del dispositivo</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
+    <string name="title_advanced_autoseen_hint">Contrassegnare automaticamente i messaggi come letti in espansione può essere disabilitato nelle impostazioni avanzate dell\'account di ogni account</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma verrà aggiunto all\'invio</string>
@@ -1005,13 +1006,14 @@
     <string name="title_search_with_size">Dimensione messaggio maggiore di</string>
     <string name="title_search_with_before">Prima</string>
     <string name="title_search_with_after">Dopo</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">non letto</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">preferiti</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">nascosto</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">crittografato</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">allegati</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invito</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">dimensione &gt; %1$s</string>
+    <string name="title_search_flag_unseen">non letto</string>
+    <string name="title_search_flag_flagged">preferiti</string>
+    <string name="title_search_flag_hidden">nascosto</string>
+    <string name="title_search_flag_encrypted">crittografato</string>
+    <string name="title_search_flag_attachments">allegati</string>
+    <string name="title_search_flag_notes">note</string>
+    <string name="title_search_flag_invite">invito</string>
+    <string name="title_search_flag_size">dimensione &gt; %1$s</string>
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
@@ -1334,8 +1336,8 @@
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
     <string name="title_unexpected_info_remark">Descrivi cosa stavi facendo quando l\'errore è successo:</string>
-    <string name="title_widget_title_count">Nuovo conteggio dei messaggi</string>
-    <string name="title_widget_title_list">Elenco messaggi</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Nuovo conteggio dei messaggi</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Elenco messaggi</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Tutti</string>
     <string name="title_widget_folder">Cartella</string>

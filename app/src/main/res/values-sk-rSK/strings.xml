@@ -1018,13 +1018,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_with_size">Veľkosť správy väčšia než</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">neprečítané</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">s hviezdičkou</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skryté</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">zašifrované</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">prílohy</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">pozvanie</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">veľkosť &gt; %1$s</string>
+    <string name="title_search_flag_unseen">neprečítané</string>
+    <string name="title_search_flag_flagged">s hviezdičkou</string>
+    <string name="title_search_flag_hidden">skryté</string>
+    <string name="title_search_flag_encrypted">zašifrované</string>
+    <string name="title_search_flag_attachments">prílohy</string>
+    <string name="title_search_flag_invite">pozvanie</string>
+    <string name="title_search_flag_size">veľkosť &gt; %1$s</string>
     <string name="title_search_device">Hľadať v zariadení</string>
     <string name="title_search_server">Hľadať na servery</string>
     <string name="title_search_in">Hľadať v</string>
@@ -1347,8 +1347,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_debug_info_remark">Prosím popíšte problém a uveďte čas výskytu:</string>
     <string name="title_crash_info_remark">Prosím vysvetlite, čo ste robili pred pádom aplikácie:</string>
     <string name="title_unexpected_info_remark">Prosím vysvetlite, čo ste robili pred zobrazením chyby:</string>
-    <string name="title_widget_title_count">Počet nových správ</string>
-    <string name="title_widget_title_list">Zoznam správ</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Počet nových správ</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Zoznam správ</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všetko</string>
     <string name="title_widget_folder">Priečinok</string>

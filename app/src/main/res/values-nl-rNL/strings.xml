@@ -1006,14 +1006,14 @@
     <string name="title_search_with_size">Berichtgrootte groter dan</string>
     <string name="title_search_with_before">Voor</string>
     <string name="title_search_with_after">Na</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ongelezen</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">met ster</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">verborgen</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">versleuteld</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">bijlagen</string>
-    <string name="title_search_flag_notes" comment="title_search_flag_notes&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">notities</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">uitnodiging</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">grootte &gt; %1$s</string>
+    <string name="title_search_flag_unseen">ongelezen</string>
+    <string name="title_search_flag_flagged">met ster</string>
+    <string name="title_search_flag_hidden">verborgen</string>
+    <string name="title_search_flag_encrypted">versleuteld</string>
+    <string name="title_search_flag_attachments">bijlagen</string>
+    <string name="title_search_flag_notes">notities</string>
+    <string name="title_search_flag_invite">uitnodiging</string>
+    <string name="title_search_flag_size">grootte &gt; %1$s</string>
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>
@@ -1335,8 +1335,9 @@
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
     <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
-    <string name="title_widget_title_count">Aantal nieuwe berichten</string>
-    <string name="title_widget_title_list">Berichtenlijst</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Aantal nieuwe berichten</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Berichtenlijst</string>
+    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Sync aan/uit</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>

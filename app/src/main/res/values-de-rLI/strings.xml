@@ -513,7 +513,7 @@
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_language_detection_hint">Die Unterstützung der Sprachenerkennung hängt vom Gerätehersteller ab</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
-    <string name="title_advanced_autoseen_hint">Das automatische Gelesen-Markieren von Nachrichten bei ihrer Erweiterung kann in den einzelnen Kontoeinstellungen deaktiviert werden</string>
+    <string name="title_advanced_autoseen_hint">Das automatische „Als gelesen kennzeichnen” von Nachrichten beim Erweitern kann in den erweiterten Kontoeinstellungen des jeweiligen Kontos deaktiviert werden</string>
     <string name="title_advanced_autoclose_hint">Unterhaltungen automatisch schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
@@ -1004,13 +1004,14 @@
     <string name="title_search_with_size">Nachrichtengröße größer als</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ungelesen</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">markiert</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ausgeblendet</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">verschlüsselt</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">Anhänge</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">Einladungen</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">Größe &gt; %1$s</string>
+    <string name="title_search_flag_unseen">ungelesen</string>
+    <string name="title_search_flag_flagged">markiert</string>
+    <string name="title_search_flag_hidden">ausgeblendet</string>
+    <string name="title_search_flag_encrypted">verschlüsselt</string>
+    <string name="title_search_flag_attachments">Anhänge</string>
+    <string name="title_search_flag_notes">notizen</string>
+    <string name="title_search_flag_invite">Einladungen</string>
+    <string name="title_search_flag_size">Größe &gt; %1$s</string>
     <string name="title_search_device">Gerät durchsuchen</string>
     <string name="title_search_server">Auf dem Server suchen</string>
     <string name="title_search_in">Suchen in</string>
@@ -1333,8 +1334,9 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
     <string name="title_unexpected_info_remark">Bitte beschreiben Sie, was Sie getan haben, als Sie den Fehler erhielten:</string>
-    <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
-    <string name="title_widget_title_list">Nachrichtenliste</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Anzahl neuer Nachrichten</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Nachrichtenliste</string>
+    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Sync ein/aus</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Ordner</string>

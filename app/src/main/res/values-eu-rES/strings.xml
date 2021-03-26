@@ -827,13 +827,13 @@
     <string name="title_search_with_size">Mezuaren neurria hau baino handiagoa</string>
     <string name="title_search_with_before">Aurretik</string>
     <string name="title_search_with_after">Ondoren</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">irakurri gabea</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">izarduna</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ezkutuan</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">zifratuta</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">eranskinak</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">gonbidapena</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">neurria &gt; %1$s</string>
+    <string name="title_search_flag_unseen">irakurri gabea</string>
+    <string name="title_search_flag_flagged">izarduna</string>
+    <string name="title_search_flag_hidden">ezkutuan</string>
+    <string name="title_search_flag_encrypted">zifratuta</string>
+    <string name="title_search_flag_attachments">eranskinak</string>
+    <string name="title_search_flag_invite">gonbidapena</string>
+    <string name="title_search_flag_size">neurria &gt; %1$s</string>
     <string name="title_search_device">Bilatu gailuan</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
     <string name="title_search_in">Bilatu hemen</string>
@@ -1138,8 +1138,8 @@
     <string name="title_debug_info_remark">Azaldu arazoa eta esan noiz gertatu den:</string>
     <string name="title_crash_info_remark">Zaldu zer egiten ari zinen aplikazioak kraskatu duenean:</string>
     <string name="title_unexpected_info_remark">Azaldu zer egiten ari zinen errorea jasotzean:</string>
-    <string name="title_widget_title_count">Mezu berrien kopurua</string>
-    <string name="title_widget_title_list">Mezuen zerrenda</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Mezu berrien kopurua</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Mezuen zerrenda</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>
     <string name="title_widget_folder">Karpeta</string>

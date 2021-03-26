@@ -959,13 +959,13 @@
     <string name="title_search_with_size">メッセージサイズより大きい</string>
     <string name="title_search_with_before">前へ</string>
     <string name="title_search_with_after">後で</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">未読</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">スター付き</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">非表示</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">暗号化済み</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">添付ファイル</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">招待</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">サイズ &gt; %1$s</string>
+    <string name="title_search_flag_unseen">未読</string>
+    <string name="title_search_flag_flagged">スター付き</string>
+    <string name="title_search_flag_hidden">非表示</string>
+    <string name="title_search_flag_encrypted">暗号化済み</string>
+    <string name="title_search_flag_attachments">添付ファイル</string>
+    <string name="title_search_flag_invite">招待</string>
+    <string name="title_search_flag_size">サイズ &gt; %1$s</string>
     <string name="title_search_device">デバイスで検索</string>
     <string name="title_search_server">サーバで検索</string>
     <string name="title_search_in">検索場所</string>
@@ -1283,8 +1283,8 @@
     <string name="title_debug_info_remark">問題を説明し問題の時刻を記述下さい(英語のみ):</string>
     <string name="title_crash_info_remark">アプリがクラッシュした時に何をしていたかを説明してください(英語のみ):</string>
     <string name="title_unexpected_info_remark">エラーが発生したときに何をしていたか説明してください:</string>
-    <string name="title_widget_title_count">新しいメッセージ数</string>
-    <string name="title_widget_title_list">メッセージリスト</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">新しいメッセージ数</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">メッセージリスト</string>
     <string name="title_widget_account">アカウント</string>
     <string name="title_widget_account_all">全て</string>
     <string name="title_widget_folder">フォルダー</string>

@@ -951,8 +951,8 @@
     <string name="title_debug_info">Informacije o otklanjanju pogrešaka</string>
     <string name="title_debug_info_remark">Opišite problem i navedite vrijeme problema:</string>
     <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
-    <string name="title_widget_title_count">Broj novih poruka</string>
-    <string name="title_widget_title_list">Popis poruka</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Broj novih poruka</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Popis poruka</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Sve</string>
     <string name="title_widget_folder">Mapa</string>

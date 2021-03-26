@@ -932,13 +932,13 @@
     <string name="title_search_with_encrypted">Şifrelenmiş (sadece cihazda)</string>
     <string name="title_search_with_before">Önce</string>
     <string name="title_search_with_after">Sonra</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">okunmamış</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">yıldızlı</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">gizli</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">şifrelenmiş</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ekler</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">davetiye</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">boyut &gt; %1$s</string>
+    <string name="title_search_flag_unseen">okunmamış</string>
+    <string name="title_search_flag_flagged">yıldızlı</string>
+    <string name="title_search_flag_hidden">gizli</string>
+    <string name="title_search_flag_encrypted">şifrelenmiş</string>
+    <string name="title_search_flag_attachments">ekler</string>
+    <string name="title_search_flag_invite">davetiye</string>
+    <string name="title_search_flag_size">boyut &gt; %1$s</string>
     <string name="title_search_device">Cihazda ara</string>
     <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_in">İçinde ara</string>
@@ -1220,8 +1220,8 @@
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
-    <string name="title_widget_title_count">Yeni mesaj sayısı</string>
-    <string name="title_widget_title_list">Mesaj listesi</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Yeni mesaj sayısı</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Mesaj listesi</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_folder">Klasör</string>

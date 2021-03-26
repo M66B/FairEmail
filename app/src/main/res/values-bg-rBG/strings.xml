@@ -798,13 +798,13 @@
     <string name="title_search_with_size">Размер на съобщението по-голям от</string>
     <string name="title_search_with_before">Преди</string>
     <string name="title_search_with_after">След</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">непрочетени</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">със звезда</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">скрити</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">шифровани</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">прикачени файлове</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">покана</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">размер &gt; %1$s</string>
+    <string name="title_search_flag_unseen">непрочетени</string>
+    <string name="title_search_flag_flagged">със звезда</string>
+    <string name="title_search_flag_hidden">скрити</string>
+    <string name="title_search_flag_encrypted">шифровани</string>
+    <string name="title_search_flag_attachments">прикачени файлове</string>
+    <string name="title_search_flag_invite">покана</string>
+    <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
     <string name="title_search_in">Търсене в</string>
@@ -1081,8 +1081,8 @@
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>
-    <string name="title_widget_title_count">Брой нови съобщения</string>
-    <string name="title_widget_title_list">Списък на съобщенията</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Брой нови съобщения</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Списък на съобщенията</string>
     <string name="title_widget_account">Профил</string>
     <string name="title_widget_account_all">Всички</string>
     <string name="title_widget_folder">Папка</string>

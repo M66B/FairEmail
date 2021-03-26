@@ -961,13 +961,13 @@
     <string name="title_search_with_size">郵件大小大於</string>
     <string name="title_search_with_before">之前</string>
     <string name="title_search_with_after">之後</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">未讀</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">已加星標</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">隱藏</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">已加密</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">附件</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">邀請函</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">尺寸 &gt; %1$s</string>
+    <string name="title_search_flag_unseen">未讀</string>
+    <string name="title_search_flag_flagged">已加星標</string>
+    <string name="title_search_flag_hidden">隱藏</string>
+    <string name="title_search_flag_encrypted">已加密</string>
+    <string name="title_search_flag_attachments">附件</string>
+    <string name="title_search_flag_invite">邀請函</string>
+    <string name="title_search_flag_size">尺寸 &gt; %1$s</string>
     <string name="title_search_device">在裝置上搜尋</string>
     <string name="title_search_server">在伺服器上搜尋</string>
     <string name="title_search_in">搜尋</string>
@@ -1289,8 +1289,8 @@
     <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
     <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>
     <string name="title_unexpected_info_remark">請描述出現錯誤時的操作：</string>
-    <string name="title_widget_title_count">新郵件數</string>
-    <string name="title_widget_title_list">留言清單</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">新郵件數</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">留言清單</string>
     <string name="title_widget_account">帳戶</string>
     <string name="title_widget_account_all">所有</string>
     <string name="title_widget_folder">資料夾</string>

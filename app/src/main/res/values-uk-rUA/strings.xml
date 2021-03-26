@@ -521,6 +521,7 @@
     <string name="title_advanced_parse_classes_hint">Можливо, це буде більш точно відображати повідомлення, але, можливо, з затримкою</string>
     <string name="title_advanced_language_detection_hint">Підтримка виявлення мови залежить від виробника пристрою</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
+    <string name="title_advanced_autoseen_hint">Автоматичне маркування повідомлень прочитаними при розкриванні, може бути відключено в розширених налаштуваннях кожного з облікових записів</string>
     <string name="title_advanced_autoclose_hint">Автоматично закривати розмови коли всі повідомлення архівовані, надіслані або видалені</string>
     <string name="title_advanced_sender_hint">Більшість провайдерів не дозволяють змінювати адреси відправника</string>
     <string name="title_advanced_bcc_hint">Адреса не буде показана, але буде додана при відправленні</string>
@@ -1014,13 +1015,14 @@
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
     <string name="title_search_with_before">До</string>
     <string name="title_search_with_after">Після</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">непрочитане</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">обране</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">приховане</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">зашифроване</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">вкладення</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">запрошення</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">розмір &gt; %1$s</string>
+    <string name="title_search_flag_unseen">непрочитане</string>
+    <string name="title_search_flag_flagged">обране</string>
+    <string name="title_search_flag_hidden">приховане</string>
+    <string name="title_search_flag_encrypted">зашифроване</string>
+    <string name="title_search_flag_attachments">вкладення</string>
+    <string name="title_search_flag_notes">нотатки</string>
+    <string name="title_search_flag_invite">запрошення</string>
+    <string name="title_search_flag_size">розмір &gt; %1$s</string>
     <string name="title_search_device">Пошук на пристрої</string>
     <string name="title_search_server">Пошук на сервері</string>
     <string name="title_search_in">Пошук у</string>
@@ -1343,8 +1345,9 @@
     <string name="title_debug_info_remark">Опишіть проблему й зазначте момент її виникнення:</string>
     <string name="title_crash_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>
     <string name="title_unexpected_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>
-    <string name="title_widget_title_count">Кількість нових повідомлень</string>
-    <string name="title_widget_title_list">Список повідомлень</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Кількість нових повідомлень</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Список повідомлень</string>
+    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Синхронізацію увімк/вимк</string>
     <string name="title_widget_account">Обліковий запис</string>
     <string name="title_widget_account_all">Усі</string>
     <string name="title_widget_folder">Тека</string>

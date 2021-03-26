@@ -827,13 +827,13 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_search_with_attachments">Amb adjunts (només al dispositiu)</string>
     <string name="title_search_with_before">Abans</string>
     <string name="title_search_with_after">Després</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">sense llegir</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">destacats</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ocult</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">xifrat</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">adjunts</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitació</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">mida &gt; %1$s</string>
+    <string name="title_search_flag_unseen">sense llegir</string>
+    <string name="title_search_flag_flagged">destacats</string>
+    <string name="title_search_flag_hidden">ocult</string>
+    <string name="title_search_flag_encrypted">xifrat</string>
+    <string name="title_search_flag_attachments">adjunts</string>
+    <string name="title_search_flag_invite">invitació</string>
+    <string name="title_search_flag_size">mida &gt; %1$s</string>
     <string name="title_search_device">Cerca al dispositiu</string>
     <string name="title_search_server">Cerca en el servidor remot</string>
     <string name="title_search_in">Cerca en</string>
@@ -1111,8 +1111,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>
     <string name="title_crash_info_remark">Per favor descriu què estaves fent quan l\'aplicació va fallar:</string>
-    <string name="title_widget_title_count">Nou recompte de missatges</string>
-    <string name="title_widget_title_list">Llista de missatges</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Nou recompte de missatges</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Llista de missatges</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tots</string>
     <string name="title_widget_folder">Carpeta</string>

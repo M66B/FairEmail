@@ -931,13 +931,13 @@
     <string name="title_search_with_size">Meldingsstørrelse er større enn</string>
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Etter</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">ulest</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">stjernemerket</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">skjult</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">kryptert</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">vedlegg</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">invitasjon</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">størrelse &gt; %1$s</string>
+    <string name="title_search_flag_unseen">ulest</string>
+    <string name="title_search_flag_flagged">stjernemerket</string>
+    <string name="title_search_flag_hidden">skjult</string>
+    <string name="title_search_flag_encrypted">kryptert</string>
+    <string name="title_search_flag_attachments">vedlegg</string>
+    <string name="title_search_flag_invite">invitasjon</string>
+    <string name="title_search_flag_size">størrelse &gt; %1$s</string>
     <string name="title_search_device">Søk på enheten</string>
     <string name="title_search_server">Søk på server</string>
     <string name="title_search_in">Søk i</string>
@@ -1252,8 +1252,8 @@
     <string name="title_debug_info_remark">Vennligst beskriv problemet og angi tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
     <string name="title_unexpected_info_remark">Vennligst beskriv hva du gjorde når du fikk feilen:</string>
-    <string name="title_widget_title_count">Ny melding teller</string>
-    <string name="title_widget_title_list">Meldingsliste</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Ny melding teller</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Meldingsliste</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Mappe</string>

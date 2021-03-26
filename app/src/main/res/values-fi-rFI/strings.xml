@@ -1003,13 +1003,13 @@
     <string name="title_search_with_size">Viestin koko suurempi kuin</string>
     <string name="title_search_with_before">Ennen</string>
     <string name="title_search_with_after">Jälkeen</string>
-    <string name="title_search_flag_unseen" comment="title_search_flag_unseen&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">lukematon</string>
-    <string name="title_search_flag_flagged" comment="title_search_flag_flagged&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">tähdellinen</string>
-    <string name="title_search_flag_hidden" comment="title_search_flag_hidden&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">piilotettu</string>
-    <string name="title_search_flag_encrypted" comment="title_search_flag_encrypted&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">salattu</string>
-    <string name="title_search_flag_attachments" comment="title_search_flag_attachments&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle&#10;">liitteet</string>
-    <string name="title_search_flag_invite" comment="title_search_flag_invite&#10;Calendar invitation (for appointment, meeting, etc)&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">kutsu</string>
-    <string name="title_search_flag_size" comment="title_search_flag_size&#10;Needs to be short&#10;Start with a lower case letter please&#10;This is a text for the search subtitle">koko &gt; %1$s</string>
+    <string name="title_search_flag_unseen">lukematon</string>
+    <string name="title_search_flag_flagged">tähdellinen</string>
+    <string name="title_search_flag_hidden">piilotettu</string>
+    <string name="title_search_flag_encrypted">salattu</string>
+    <string name="title_search_flag_attachments">liitteet</string>
+    <string name="title_search_flag_invite">kutsu</string>
+    <string name="title_search_flag_size">koko &gt; %1$s</string>
     <string name="title_search_device">Hae laitteesta</string>
     <string name="title_search_server">Hae palvelimelta</string>
     <string name="title_search_in">Hae kohteesta</string>
@@ -1332,8 +1332,8 @@
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>
     <string name="title_unexpected_info_remark">Kuvaile mitä olit tekemässä, kun sait virheen:</string>
-    <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
-    <string name="title_widget_title_list">Viestilista</string>
+    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Uusien viestien lukumäärä</string>
+    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Viestilista</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_folder">Kansio</string>
