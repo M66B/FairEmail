@@ -1619,16 +1619,27 @@ public class FragmentCompose extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
                 Menu main = popupMenu.getMenu();
 
+                List<String> groups = new ArrayList<>();
+                for (EntityAnswer answer : answers)
+                    if (answer.group != null && !groups.contains(answer.group))
+                        groups.add(answer.group);
+
+                Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+                Collections.sort(groups, collator);
+
                 int order = 0;
+
                 Map<String, SubMenu> map = new HashMap<>();
+                for (String group : groups)
+                    map.put(group, main.addSubMenu(Menu.NONE, order, order++, group));
+
                 for (EntityAnswer answer : answers) {
                     order++;
                     if (answer.group == null)
                         main.add(Menu.NONE, order, order++, answer.toString())
                                 .setIntent(new Intent().putExtra("id", answer.id));
                     else {
-                        if (!map.containsKey(answer.group))
-                            map.put(answer.group, main.addSubMenu(Menu.NONE, order, order++, answer.group));
                         SubMenu smenu = map.get(answer.group);
                         smenu.add(Menu.NONE, smenu.size(), smenu.size() + 1, answer.toString())
                                 .setIntent(new Intent().putExtra("id", answer.id));
