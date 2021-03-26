@@ -26,8 +26,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.widget.RemoteViews;
 
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
 public class WidgetSync extends AppWidgetProvider {
@@ -39,15 +41,49 @@ public class WidgetSync extends AppWidgetProvider {
         try {
             Intent intent = new Intent(enabled ? ServiceExternal.ACTION_DISABLE : ServiceExternal.ACTION_ENABLE);
             PendingIntent pi = PendingIntent.getService(context, ServiceExternal.PI_WIDGET_ENABLE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            for (int id : appWidgetIds) {
+            for (int appWidgetId : appWidgetIds) {
+                boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+                int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+
                 RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_sync);
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
                 views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
-                appWidgetManager.updateAppWidget(id, views);
+
+                if (!semi)
+                    views.setInt(R.id.widget, "setBackgroundColor", background);
+
+                if (!semi && background != Color.TRANSPARENT) {
+                    float lum = (float) ColorUtils.calculateLuminance(background);
+                    if (lum > 0.7f)
+                        views.setInt(R.id.ivSync, "setColorFilter", Color.BLACK);
+                }
+
+                appWidgetManager.updateAppWidget(appWidgetId, views);
             }
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = prefs.edit();
+            for (int appWidgetId : appWidgetIds) {
+                String prefix = "widget." + appWidgetId + ".";
+                for (String key : prefs.getAll().keySet())
+                    if (key.startsWith(prefix))
+                        editor.remove(key);
+            }
+            editor.apply();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    static void init(Context context, int appWidgetId) {
+        update(context);
     }
 
     static void update(Context context) {

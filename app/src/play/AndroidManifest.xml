@@ -177,6 +177,15 @@
         </activity>
 
         <activity
+            android:name=".ActivityWidgetSync"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".ActivityWidgetUnified"
             android:exported="true">
 
