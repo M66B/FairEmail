@@ -49,11 +49,14 @@ public class WidgetSync extends AppWidgetProvider {
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
                 views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
 
-                if (!semi)
+                if (background != Color.TRANSPARENT) {
+                    float lum = (float) ColorUtils.calculateLuminance(background);
+
+                    if (semi)
+                        background = ColorUtils.setAlphaComponent(background, 127);
+
                     views.setInt(R.id.widget, "setBackgroundColor", background);
 
-                if (!semi && background != Color.TRANSPARENT) {
-                    float lum = (float) ColorUtils.calculateLuminance(background);
                     if (lum > 0.7f)
                         views.setInt(R.id.ivSync, "setColorFilter", Color.BLACK);
                 }

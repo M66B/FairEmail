@@ -96,10 +96,7 @@ public class ActivityWidget extends ActivityBase {
         cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    btnColor.setColor(Color.TRANSPARENT);
-                    setBackground();
-                }
+                setBackground();
             }
         });
 
@@ -119,7 +116,6 @@ public class ActivityWidget extends ActivityBase {
                         .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(selectedColor);
                                 setBackground();
                             }
@@ -127,7 +123,6 @@ public class ActivityWidget extends ActivityBase {
                         .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(Color.TRANSPARENT);
                                 setBackground();
                             }
@@ -224,15 +219,19 @@ public class ActivityWidget extends ActivityBase {
     }
 
     private void setBackground() {
-        if (cbSemiTransparent.isChecked()) {
+        boolean semi = cbSemiTransparent.isChecked();
+        int background = btnColor.getColor();
+        if (background == Color.TRANSPARENT) {
             inOld.setBackgroundResource(R.drawable.widget_background);
             inNew.setBackgroundResource(R.drawable.widget_background);
         } else {
-            int background = btnColor.getColor();
-            inOld.setBackgroundColor(background);
-            inNew.setBackgroundColor(background);
             float lum = (float) ColorUtils.calculateLuminance(background);
             int color = (lum > 0.7 ? Color.BLACK : getResources().getColor(R.color.colorWidgetForeground));
+            if (semi)
+                background = ColorUtils.setAlphaComponent(background, 127);
+
+            inOld.setBackgroundColor(background);
+            inNew.setBackgroundColor(background);
 
             ((ImageView) inOld.findViewById(R.id.ivMessage)).setColorFilter(color);
             ((TextView) inOld.findViewById(R.id.tvCount)).setTextColor(color);

@@ -28,7 +28,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import androidx.preference.PreferenceManager;
 
@@ -66,14 +65,6 @@ public class ActivityWidgetSync extends ActivityBase {
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 
-        cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    btnColor.setColor(Color.TRANSPARENT);
-            }
-        });
-
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,14 +81,12 @@ public class ActivityWidgetSync extends ActivityBase {
                         .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                                cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(selectedColor);
                             }
                         })
                         .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(Color.TRANSPARENT);
                             }
                         })
