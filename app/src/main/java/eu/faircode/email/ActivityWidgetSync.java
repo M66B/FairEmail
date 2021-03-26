@@ -69,7 +69,8 @@ public class ActivityWidgetSync extends ActivityBase {
         cbSemiTransparent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                btnColor.setColor(Color.TRANSPARENT);
+                if (isChecked)
+                    btnColor.setColor(Color.TRANSPARENT);
             }
         });
 
