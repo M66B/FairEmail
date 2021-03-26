@@ -362,8 +362,8 @@ public class FragmentOptions extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            Group grp2 = dview.findViewById(R.id.grp2);
             Group grp3 = dview.findViewById(R.id.grp3);
-            Group grp4 = dview.findViewById(R.id.grp4);
 
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -376,8 +376,8 @@ public class FragmentOptions extends FragmentBase {
             boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
             Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
 
-            grp3.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
-            grp4.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
+            grp2.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
+            grp3.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
