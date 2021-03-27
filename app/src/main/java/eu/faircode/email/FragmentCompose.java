@@ -3680,6 +3680,9 @@ public class FragmentCompose extends FragmentBase {
                                 "list".equals(action) ||
                                 "dsn".equals(action) ||
                                 "participation".equals(action)) {
+                            // https://tools.ietf.org/html/rfc5322#section-3.6.4
+                            // The "References:" field will contain the contents of the parent's "References:" field (if any)
+                            // followed by the contents of the parent's "Message-ID:" field (if any).
                             data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;

@@ -197,8 +197,19 @@ public class MessageHelper {
         }
 
         // References
-        if (message.references != null)
-            imessage.addHeader("References", message.references);
+        if (message.references != null) {
+            // https://tools.ietf.org/html/rfc5322#section-2.1.1
+            // Each line of characters MUST be no more than 998 characters
+            String references = message.references;
+            int hlen = "References: ".length();
+            int sp = references.indexOf(' ');
+            while (references.length() > 998 - hlen && sp > 0) {
+                Log.i("Dropping reference=" + references.substring(0, sp));
+                references = references.substring(sp);
+                sp = references.indexOf(' ');
+            }
+            imessage.addHeader("References", references);
+        }
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
         imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
