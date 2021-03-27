@@ -4930,7 +4930,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             autoExpanded = false;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean expand_first = prefs.getBoolean("expand_first", true);
+            boolean expand_all = prefs.getBoolean("expand_all", false);
             long download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+
             if (download == 0)
                 download = Long.MAX_VALUE;
 
@@ -4984,7 +4987,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     expand = messages.get(0);
                 else if (messages.size() > 0) {
                     TupleMessageEx first = messages.get(adapter.getAscending() ? messages.size() - 1 : 0);
-                    if (first != null && EntityFolder.OUTBOX.equals(first.folderType))
+                    if (first != null &&
+                            ((expand_first && unseen == 0) || EntityFolder.OUTBOX.equals(first.folderType)))
                         expand = first;
                 }
 
@@ -4994,7 +4998,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             // Auto expand all seen messages
-            boolean expand_all = prefs.getBoolean("expand_all", false);
             if (expand_all)
                 for (TupleMessageEx message : messages)
                     if (message != null &&

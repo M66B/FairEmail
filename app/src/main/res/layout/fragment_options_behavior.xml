@@ -335,6 +335,18 @@
             app:layout_constraintTop_toBottomOf="@id/swAutoExpand" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swExpandFirst"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_expand_first"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAutoExpandHint"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swExpandAll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -342,7 +354,7 @@
             android:text="@string/title_advanced_expand_all"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAutoExpandHint"
+            app:layout_constraintTop_toBottomOf="@id/swExpandFirst"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
