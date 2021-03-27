@@ -873,6 +873,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_default) {
             FragmentOptions.reset(getContext(), RESET_OPTIONS);
+            setNavigationBarColor(Color.BLACK);
             return true;
         }
         return super.onOptionsItemSelected(item);
