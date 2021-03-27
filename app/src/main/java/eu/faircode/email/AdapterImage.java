@@ -134,12 +134,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 db.endTransaction();
                             }
 
-                            return null;
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Void data) {
                             ServiceSynchronize.eval(context, "attachment");
+
+                            return null;
                         }
 
                         @Override

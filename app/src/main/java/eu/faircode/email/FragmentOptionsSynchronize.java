@@ -506,14 +506,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                         DB db = DB.getInstance(context);
                         db.account().setAccountPollExempted(id, exempted);
 
-                        return null;
-                    }
+                        ServiceSynchronize.eval(context, "exempted");
 
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        Context context = getContext();
-                        if (context != null)
-                            ServiceSynchronize.eval(context, "exempted");
+                        return null;
                     }
 
                     @Override

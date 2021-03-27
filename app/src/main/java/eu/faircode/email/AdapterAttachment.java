@@ -309,12 +309,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         db.endTransaction();
                     }
 
-                    return null;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Void data) {
                     ServiceSynchronize.eval(context, "attachment");
+
+                    return null;
                 }
 
                 @Override

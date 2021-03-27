@@ -321,20 +321,6 @@ public class FragmentFolders extends FragmentBase {
         new SimpleTask<Void>() {
             @Override
             protected void onPostExecute(Bundle args) {
-                Context context = getContext();
-                if (context != null) {
-                    boolean force = args.getBoolean("force");
-                    boolean outbox = args.getBoolean("outbox");
-
-                    if (force)
-                        ServiceSynchronize.reload(context, null, true, "refresh");
-                    else
-                        ServiceSynchronize.eval(context, "refresh");
-
-                    if (outbox)
-                        ServiceSend.start(context);
-                }
-
                 swipeRefresh.setRefreshing(false);
             }
 
@@ -389,8 +375,13 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                args.putBoolean("force", force);
-                args.putBoolean("outbox", outbox);
+                if (force)
+                    ServiceSynchronize.reload(context, null, true, "refresh");
+                else
+                    ServiceSynchronize.eval(context, "refresh");
+
+                if (outbox)
+                    ServiceSend.start(context);
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
@@ -700,14 +691,9 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                return null;
-            }
+                ServiceSynchronize.eval(context, "purge");
 
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Context context = getContext();
-                if (context != null)
-                    ServiceSynchronize.eval(context, "purge");
+                return null;
             }
 
             @Override
