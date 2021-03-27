@@ -236,7 +236,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     }
 
     public void set(@NonNull List<EntityAnswer> answers) {
-        Log.i("Set answers=" + answers.size());
+        Log.i("Set answers=" + answers.size() + " search=" + search);
 
         all = answers;
 
@@ -283,6 +283,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     }
 
     public void search(String query) {
+        Log.i("Answers query=" + query);
         search = query;
         set(all);
     }
