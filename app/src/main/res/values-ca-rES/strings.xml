@@ -1111,8 +1111,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>
     <string name="title_crash_info_remark">Per favor descriu què estaves fent quan l\'aplicació va fallar:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Nou recompte de missatges</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Llista de missatges</string>
+    <string name="title_widget_title_count">Nou recompte de missatges</string>
+    <string name="title_widget_title_list">Llista de missatges</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tots</string>
     <string name="title_widget_folder">Carpeta</string>

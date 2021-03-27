@@ -1343,8 +1343,8 @@
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Contor mesaje noi</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Listă mesaje</string>
+    <string name="title_widget_title_count">Contor mesaje noi</string>
+    <string name="title_widget_title_list">Listă mesaje</string>
     <string name="title_widget_account">Cont</string>
     <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_folder">Dosar</string>

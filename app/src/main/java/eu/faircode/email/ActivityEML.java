@@ -432,13 +432,13 @@ public class ActivityEML extends ActivityBase {
                                         }
 
                                         EntityOperation.sync(context, inbox.id, true);
+                                        ServiceSynchronize.eval(context, "EML");
 
                                         return account.name + "/" + inbox.name;
                                     }
 
                                     @Override
                                     protected void onExecuted(Bundle args, String name) {
-                                        ServiceSynchronize.eval(ActivityEML.this, "EML");
                                         ToastEx.makeText(ActivityEML.this, name, Toast.LENGTH_LONG).show();
                                     }
 

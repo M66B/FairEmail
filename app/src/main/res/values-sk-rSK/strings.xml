@@ -1347,8 +1347,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_debug_info_remark">Prosím popíšte problém a uveďte čas výskytu:</string>
     <string name="title_crash_info_remark">Prosím vysvetlite, čo ste robili pred pádom aplikácie:</string>
     <string name="title_unexpected_info_remark">Prosím vysvetlite, čo ste robili pred zobrazením chyby:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Počet nových správ</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Zoznam správ</string>
+    <string name="title_widget_title_count">Počet nových správ</string>
+    <string name="title_widget_title_list">Zoznam správ</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všetko</string>
     <string name="title_widget_folder">Priečinok</string>

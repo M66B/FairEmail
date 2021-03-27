@@ -8,7 +8,7 @@
     <string name="app_cake">Espaço insuficiente</string>
     <string name="channel_service">Receber</string>
     <string name="channel_send">Enviar</string>
-    <string name="channel_notification">Email</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>

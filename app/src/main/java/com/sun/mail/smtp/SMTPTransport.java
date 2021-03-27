@@ -820,6 +820,7 @@ public class SMTPTransport extends Transport {
 	 * the mechanism and we have an authenticator for the mechanism,
 	 * and it hasn't been disabled, use it.
 	 */
+	MessagingException mex = null;
 	StringTokenizer st = new StringTokenizer(mechs);
 	while (st.hasMoreTokens()) {
 	    String m = st.nextToken();
@@ -855,7 +856,17 @@ public class SMTPTransport extends Transport {
 
 	    // only the first supported and enabled mechanism is used
 	    logger.log(Level.FINE, "Using mechanism {0}", m);
-	    return a.authenticate(host, authzid, user, passwd);
+	    try {
+		    return a.authenticate(host, authzid, user, passwd);
+	    } catch (MessagingException ex) {
+		    eu.faircode.email.Log.w(ex);
+		    mex = ex;
+	    }
+	}
+
+	if (mex != null) {
+	    closeConnection();
+	    throw mex;
 	}
 
 	// if no authentication mechanism found, fail
@@ -933,7 +944,7 @@ public class SMTPTransport extends Transport {
 				    (resp == 235 ? "succeeded" : "failed"));
 		resumeTracing();
 		if (resp != 235) {
-		    closeConnection();
+		    //closeConnection();
 		    if (thrown != null) {
 			if (thrown instanceof Error)
 			    throw (Error)thrown;

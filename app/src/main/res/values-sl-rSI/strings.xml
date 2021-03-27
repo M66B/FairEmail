@@ -1024,8 +1024,8 @@
     <string name="title_debug_info">Podatki o razhrošč.</string>
     <string name="title_debug_info_remark">Opišite težavo in označite čas težave:</string>
     <string name="title_crash_info_remark">Opišite, kaj ste počeli, ko se je program sesul:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Število novih sporočil</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Seznam sporočil</string>
+    <string name="title_widget_title_count">Število novih sporočil</string>
+    <string name="title_widget_title_list">Seznam sporočil</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Vsi</string>
     <string name="title_widget_folder">Mapa</string>

@@ -299,6 +299,8 @@
     <string name="title_advanced_only_name">Chỉ hiển thị tên danh bạ</string>
     <string name="title_advanced_distinguish_contacts">Gạch chân người gửi khi người gửi được biết đến là liên hệ \'đến\'</string>
     <string name="title_advanced_show_recipients">Hiện người nhận ở tiêu đề thư</string>
+    <string name="title_advanced_font_size_sender">Cỡ chữ người gửi</string>
+    <string name="title_advanced_font_size_subject">Cỡ chữ chủ đề</string>
     <string name="title_advanced_subject_top">Hiện chủ đề trên người gửi</string>
     <string name="title_advanced_subject_italic">Hiện chủ đề bằng chữ nghiêng</string>
     <string name="title_advanced_subject_elipsed">Rút ngắn chủ đề nếu cần</string>
@@ -477,6 +479,7 @@
     <string name="title_advanced_parse_classes_hint">Cái này sẽ hiển thị thư chính xác hơn, nhưng có thể có độ trễ</string>
     <string name="title_advanced_language_detection_hint">Việc hỗ trợ dò tìm ngôn ngữ phụ thuộc vào nhà sản xuất thiết bị</string>
     <string name="title_advanced_autoexpand_hint">Tự động mở thư khi chỉ cỏ một thư hoặc một thư chưa đọc trong một cuộc hội thoại</string>
+    <string name="title_advanced_autoseen_hint">Việc tự động đánh dấu thư là đã đọc khi mở rộng có thể được tắt trong cài đặt tài khoản nâng cao của mỗi tài khoản</string>
     <string name="title_advanced_autoclose_hint">Tự động đóng cuộc hội thoại khi tất cả thư được lưu trữ, gửi hoặc cho vào thùng rác</string>
     <string name="title_advanced_sender_hint">Đa số nhà cung cấp không cho phép các địa chỉ người gửi đã sửa đổi</string>
     <string name="title_advanced_bcc_hint">Địa chỉ sẽ không được hiện, nhưng sẽ được thêm khi gửi</string>
@@ -590,6 +593,8 @@
     <string name="title_identity_delete">Xóa danh tính này vĩnh viễn?</string>
     <string name="title_edit_html">Chỉnh sửa dưới dạng HTML</string>
     <string name="title_last_connected">Lần cuối kết nối: %1$s</string>
+    <string name="title_backoff_until">Đang đợi sau khi thất bại cho đến: %1$s</string>
+    <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
     <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
     <string name="title_service_auth">Máy chủ email nói: \'%1$s\'</string>
@@ -718,6 +723,7 @@
     <string name="title_download_all">Tải về tất cả</string>
     <string name="title_save_all">Lưu tất cả</string>
     <string name="title_save_eml">Lưu tập tin thư thô</string>
+    <string name="title_ask_raw">Để chuyển tiếp thư, thư thô (thư gốc) cần được tải xuống từ máy chủ. Điều này yêu cầu kết nối internet.</string>
     <string name="title_buttons">Chọn các nút</string>
     <string name="title_configure_buttons">Thiết lập các nút &#8230;</string>
     <string name="title_trash">Thùng rác</string>
@@ -949,6 +955,7 @@
     <string name="title_search_flag_hidden">ẩn</string>
     <string name="title_search_flag_encrypted">đã mã hóa</string>
     <string name="title_search_flag_attachments">tệp đính kèm</string>
+    <string name="title_search_flag_notes">ghi chú</string>
     <string name="title_search_flag_invite">lời mời</string>
     <string name="title_search_flag_size">kích cỡ &gt; %1$s</string>
     <string name="title_search_device">Tìm kiếm trên thiết bị</string>
@@ -1267,8 +1274,9 @@
     <string name="title_debug_info_remark">Hãy mô tả vấn đề và cho biết thời gian của vấn đề:</string>
     <string name="title_crash_info_remark">Hãy mô tả điều bạn đang làm khi ứng dụng bị văng ra:</string>
     <string name="title_unexpected_info_remark">Hãy mô tả điều bạn đang làm khi bạn gặp lỗi đó:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Số thư mới</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Danh sách thư</string>
+    <string name="title_widget_title_count">Số thư mới</string>
+    <string name="title_widget_title_list">Danh sách thư</string>
+    <string name="title_widget_title_sync">Bật/tắt đồng bộ</string>
     <string name="title_widget_account">Tài khoản</string>
     <string name="title_widget_account_all">Tất cả</string>
     <string name="title_widget_folder">Thư mục</string>

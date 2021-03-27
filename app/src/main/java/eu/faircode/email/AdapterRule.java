@@ -325,14 +325,14 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                     db.endTransaction();
                                 }
 
+                            if (applied > 0)
+                                ServiceSynchronize.eval(context, "rules/manual");
+
                             return applied;
                         }
 
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
-                            if (applied > 0)
-                                ServiceSynchronize.eval(context, "rules/manual");
-
                             Snackbar.make(
                                     parentFragment.getView(),
                                     context.getString(R.string.title_rule_applied, applied), Snackbar.LENGTH_LONG)
@@ -425,7 +425,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     public void set(int protocol, @NonNull List<TupleRuleEx> rules) {
         this.protocol = protocol;
-        Log.i("Set protocol=" + protocol + " rules=" + rules.size());
+        Log.i("Set protocol=" + protocol + " rules=" + rules.size() + " search=" + search);
 
         all = rules;
 
@@ -484,6 +484,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     }
 
     public void search(String query) {
+        Log.i("Rules query=" + query);
         search = query;
         set(protocol, all);
     }

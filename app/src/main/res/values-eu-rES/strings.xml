@@ -1138,8 +1138,8 @@
     <string name="title_debug_info_remark">Azaldu arazoa eta esan noiz gertatu den:</string>
     <string name="title_crash_info_remark">Zaldu zer egiten ari zinen aplikazioak kraskatu duenean:</string>
     <string name="title_unexpected_info_remark">Azaldu zer egiten ari zinen errorea jasotzean:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Mezu berrien kopurua</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Mezuen zerrenda</string>
+    <string name="title_widget_title_count">Mezu berrien kopurua</string>
+    <string name="title_widget_title_list">Mezuen zerrenda</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>
     <string name="title_widget_folder">Karpeta</string>

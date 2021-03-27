@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/title_widget_title_sync"
-        android:padding="3dp"
         android:scaleType="fitXY"
         android:src="@drawable/twotone_sync_disabled_24"
         android:tint="@color/colorWidgetForeground" />

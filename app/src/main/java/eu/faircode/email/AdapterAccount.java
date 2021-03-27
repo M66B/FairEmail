@@ -370,18 +370,24 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             boolean sync = args.getBoolean("sync");
 
                             DB db = DB.getInstance(context);
-                            if (!sync) {
-                                db.account().setAccountWarning(id, null);
-                                db.account().setAccountError(id, null);
+                            try {
+                                db.beginTransaction();
+
+                                if (!sync) {
+                                    db.account().setAccountWarning(id, null);
+                                    db.account().setAccountError(id, null);
+                                }
+
+                                db.account().setAccountSynchronize(id, sync);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
                             }
-                            db.account().setAccountSynchronize(id, sync);
+
+                            ServiceSynchronize.eval(context, "account sync=" + sync);
 
                             return sync;
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Boolean sync) {
-                            ServiceSynchronize.eval(context, "account sync=" + sync);
                         }
 
                         @Override

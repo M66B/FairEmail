@@ -251,6 +251,15 @@ public class EntityRule {
                     return false;
             }
 
+            // Date
+            JSONObject jdate = jcondition.optJSONObject("date");
+            if (jdate != null) {
+                long after = jdate.optLong("after", 0);
+                long before = jdate.optLong("before", 0);
+                if ((after != 0 && message.received < after) || (before != 0 && message.received > before))
+                    return false;
+            }
+
             // Schedule
             JSONObject jschedule = jcondition.optJSONObject("schedule");
             if (jschedule != null) {
@@ -274,6 +283,7 @@ public class EntityRule {
                     jsubject == null &&
                     !jcondition.optBoolean("attachments") &&
                     jheader == null &&
+                    jdate == null &&
                     jschedule == null)
                 return false;
         } catch (JSONException ex) {

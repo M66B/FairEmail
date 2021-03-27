@@ -2023,16 +2023,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
         } else if (pollInterval <= 60 && account.poll_exempted) {
             db.account().setAccountPollExempted(account.id, false);
-            ApplicationEx.getMainHandler().post(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        onEval(new Intent().putExtra("account", account.id));
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            });
+            ServiceSynchronize.eval(this, "Optimize=" + reason);
         }
     }
 
@@ -2441,13 +2432,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static void start(Context context, Intent intent) {
         if (isBackgroundService(context))
             context.startService(intent);
-        else {
+        else
             try {
                 ContextCompat.startForegroundService(context, intent);
             } catch (Throwable ex) {
                 Log.e(ex);
             }
-        }
     }
 
     private static boolean isBackgroundService(Context context) {

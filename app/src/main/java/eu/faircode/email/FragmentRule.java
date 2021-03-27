@@ -30,7 +30,6 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -66,6 +65,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -103,6 +103,11 @@ public class FragmentRule extends FragmentBase {
 
     private EditText etHeader;
     private CheckBox cbHeader;
+
+    private TextView tvDateAfter;
+    private TextView tvDateBefore;
+    private Button btnDateAfter;
+    private Button btnDateBefore;
 
     private Spinner spScheduleDayStart;
     private Spinner spScheduleDayEnd;
@@ -165,6 +170,8 @@ public class FragmentRule extends FragmentBase {
     private int protocol = -1;
     private long folder = -1;
 
+    private DateFormat DF;
+
     private final static int MAX_CHECK = 10;
 
     private static final int REQUEST_SENDER = 1;
@@ -176,6 +183,8 @@ public class FragmentRule extends FragmentBase {
     private static final int REQUEST_TO = 7;
     private final static int REQUEST_TTS_CHECK = 8;
     private final static int REQUEST_TTS_DATA = 9;
+    private final static int REQUEST_DATE_AFTER = 10;
+    private final static int REQUEST_DATE_BEFORE = 11;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -190,6 +199,8 @@ public class FragmentRule extends FragmentBase {
         account = args.getLong("account", -1);
         protocol = args.getInt("protocol", EntityAccount.TYPE_IMAP);
         folder = args.getLong("folder", -1);
+
+        DF = Helper.getDateTimeInstance(getContext(), DateFormat.SHORT, DateFormat.SHORT);
     }
 
     @Override
@@ -227,6 +238,11 @@ public class FragmentRule extends FragmentBase {
 
         etHeader = view.findViewById(R.id.etHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
+
+        tvDateAfter = view.findViewById(R.id.tvDateAfter);
+        tvDateBefore = view.findViewById(R.id.tvDateBefore);
+        btnDateAfter = view.findViewById(R.id.btnDateAfter);
+        btnDateBefore = view.findViewById(R.id.btnDateBefore);
 
         spScheduleDayStart = view.findViewById(R.id.spScheduleDayStart);
         spScheduleDayEnd = view.findViewById(R.id.spScheduleDayEnd);
@@ -306,6 +322,45 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 etMimeType.setEnabled(isChecked);
+            }
+        });
+
+        tvDateAfter.setText("-");
+        tvDateBefore.setText("-");
+
+        btnDateAfter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("title", getString(R.string.title_rule_date_after));
+                args.putBoolean("day", true);
+
+                Object time = tvDateAfter.getTag();
+                if (time != null)
+                    args.putLong("time", (long) time);
+
+                FragmentDialogDuration fragment = new FragmentDialogDuration();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentRule.this, REQUEST_DATE_AFTER);
+                fragment.show(getParentFragmentManager(), "date:after");
+            }
+        });
+
+        btnDateBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("title", getString(R.string.title_rule_date_before));
+                args.putBoolean("day", true);
+
+                Object time = tvDateBefore.getTag();
+                if (time != null)
+                    args.putLong("time", (long) time);
+
+                FragmentDialogDuration fragment = new FragmentDialogDuration();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentRule.this, REQUEST_DATE_BEFORE);
+                fragment.show(getParentFragmentManager(), "date:before");
             }
         });
 
@@ -678,6 +733,14 @@ public class FragmentRule extends FragmentBase {
                     break;
                 case REQUEST_TTS_DATA:
                     break;
+                case REQUEST_DATE_AFTER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDateAfter(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_DATE_BEFORE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDateBefore(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -748,6 +811,24 @@ public class FragmentRule extends FragmentBase {
         cbScheduleEnd.setChecked(true);
     }
 
+    private void onDateAfter(Bundle args) {
+        boolean reset = args.getBoolean("reset");
+        long time = args.getLong("time");
+        if (reset)
+            time = 0;
+        tvDateAfter.setTag(time);
+        tvDateAfter.setText(time == 0 ? "-" : DF.format(time));
+    }
+
+    private void onDateBefore(Bundle args) {
+        boolean reset = args.getBoolean("reset");
+        long time = args.getLong("time");
+        if (reset)
+            time = 0;
+        tvDateBefore.setTag(time);
+        tvDateBefore.setText(time == 0 ? "-" : DF.format(time));
+    }
+
     private void loadRule(final Bundle savedInstanceState) {
         Bundle rargs = new Bundle();
         rargs.putLong("id", copy < 0 ? id : copy);
@@ -788,6 +869,7 @@ public class FragmentRule extends FragmentBase {
                         JSONObject jrecipient = jcondition.optJSONObject("recipient");
                         JSONObject jsubject = jcondition.optJSONObject("subject");
                         JSONObject jheader = jcondition.optJSONObject("header");
+                        JSONObject jdate = jcondition.optJSONObject("date");
                         JSONObject jschedule = jcondition.optJSONObject("schedule");
 
                         etName.setText(rule == null ? args.getString("subject") : rule.name);
@@ -814,6 +896,15 @@ public class FragmentRule extends FragmentBase {
 
                         etHeader.setText(jheader == null ? null : jheader.getString("value"));
                         cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
+
+                        long after = (jdate != null && jdate.has("after") ? jdate.getLong("after") : 0);
+                        long before = (jdate != null && jdate.has("before") ? jdate.getLong("before") : 0);
+
+                        tvDateAfter.setTag(after);
+                        tvDateAfter.setText(after == 0 ? "-" : DF.format(after));
+
+                        tvDateBefore.setTag(before);
+                        tvDateBefore.setText(before == 0 ? "-" : DF.format(before));
 
                         int start = (jschedule != null && jschedule.has("start") ? jschedule.getInt("start") : 0);
                         int end = (jschedule != null && jschedule.has("end") ? jschedule.getInt("end") : 0);
@@ -1126,6 +1217,21 @@ public class FragmentRule extends FragmentBase {
             jcondition.put("header", jheader);
         }
 
+        Object hafter = tvDateAfter.getTag();
+        Object hbefore = tvDateBefore.getTag();
+
+        long after = (hafter == null ? 0 : (long) hafter);
+        long before = (hbefore == null ? 0 : (long) hbefore);
+
+        if (after != before) {
+            JSONObject jdate = new JSONObject();
+            if (after != 0)
+                jdate.put("after", after);
+            if (before != 0)
+                jdate.put("before", before);
+            jcondition.put("date", jdate);
+        }
+
         int dstart = spScheduleDayStart.getSelectedItemPosition();
         int dend = spScheduleDayEnd.getSelectedItemPosition();
         Object hstart = tvScheduleHourStart.getTag();
@@ -1264,7 +1370,7 @@ public class FragmentRule extends FragmentBase {
             return new TimePickerDialog(getContext(), this,
                     cal.get(Calendar.HOUR_OF_DAY),
                     cal.get(Calendar.MINUTE),
-                    DateFormat.is24HourFormat(getContext()));
+                    android.text.format.DateFormat.is24HourFormat(getContext()));
         }
 
         public void onTimeSet(TimePicker view, int hour, int minute) {
@@ -1341,14 +1447,14 @@ public class FragmentRule extends FragmentBase {
                                     db.endTransaction();
                                 }
 
+                            if (applied > 0)
+                                ServiceSynchronize.eval(context, "rules/manual");
+
                             return applied;
                         }
 
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
-                            if (applied > 0)
-                                ServiceSynchronize.eval(getContext(), "rules/manual");
-
                             dismiss();
                             ToastEx.makeText(getContext(), getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
                         }

@@ -116,14 +116,9 @@ public class FragmentDialogSync extends FragmentDialogBase {
                                     db.endTransaction();
                                 }
 
-                                return null;
-                            }
+                                ServiceSynchronize.eval(context, "folder:months");
 
-                            @Override
-                            protected void onExecuted(Bundle args, Void data) {
-                                Context context = getContext();
-                                if (context != null)
-                                    ServiceSynchronize.eval(context, "folder:months");
+                                return null;
                             }
 
                             @Override

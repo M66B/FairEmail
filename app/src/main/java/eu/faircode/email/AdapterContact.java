@@ -363,7 +363,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     }
 
     public void set(@NonNull List<TupleContactEx> contacts) {
-        Log.i("Set contacts=" + contacts.size());
+        Log.i("Set contacts=" + contacts.size() + " search=" + search);
 
         all = contacts;
 
@@ -408,6 +408,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     }
 
     public void search(String query) {
+        Log.i("Contacts query=" + query);
         search = query;
         set(all);
     }

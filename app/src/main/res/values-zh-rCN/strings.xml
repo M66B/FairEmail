@@ -353,6 +353,7 @@
     <string name="title_advanced_swipe_close">向下滑动关闭对话</string>
     <string name="title_advanced_swipe_move">向上滑动以移动对话</string>
     <string name="title_advanced_autoexpand">自动展开消息</string>
+    <string name="title_advanced_expand_first">自动展开已读会话的第一条消息</string>
     <string name="title_advanced_expand_all">自动展开所有已读消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
     <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
@@ -500,7 +501,7 @@
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
     <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
-    <string name="title_advanced_autoseen_hint">在每个帐户的高级帐户设置中可以禁用展开时自动标记消息为已读</string>
+    <string name="title_advanced_autoseen_hint">在每个帐户的高级帐户设置中可以禁用展开消息时自动将其标记为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
@@ -1075,6 +1076,9 @@
     <string name="title_rule_subject">主题包含</string>
     <string name="title_rule_attachments">含附件</string>
     <string name="title_rule_header">邮件头包含</string>
+    <string name="title_rule_date">日期范围</string>
+    <string name="title_rule_date_after">始于</string>
+    <string name="title_rule_date_before">止于</string>
     <string name="title_rule_time">时间间隔</string>
     <string name="title_rule_regex">正则表达式</string>
     <string name="title_rule_and">AND</string>
@@ -1323,9 +1327,9 @@
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
     <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">新消息计数</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">消息列表</string>
-    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">同步开/关</string>
+    <string name="title_widget_title_count">新消息计数</string>
+    <string name="title_widget_title_list">消息列表</string>
+    <string name="title_widget_title_sync">同步开/关</string>
     <string name="title_widget_account">账户</string>
     <string name="title_widget_account_all">全部</string>
     <string name="title_widget_folder">文件夹</string>

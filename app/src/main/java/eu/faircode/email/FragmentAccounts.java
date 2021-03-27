@@ -342,20 +342,6 @@ public class FragmentAccounts extends FragmentBase {
             @Override
             protected void onPostExecute(Bundle args) {
                 swipeRefresh.setRefreshing(false);
-
-                Context context = getContext();
-                if (context != null) {
-                    boolean force = args.getBoolean("force");
-                    boolean outbox = args.getBoolean("outbox");
-
-                    if (force)
-                        ServiceSynchronize.reload(context, null, true, "refresh");
-                    else
-                        ServiceSynchronize.eval(context, "refresh");
-
-                    if (outbox)
-                        ServiceSend.start(context);
-                }
             }
 
             @Override
@@ -397,8 +383,13 @@ public class FragmentAccounts extends FragmentBase {
                     db.endTransaction();
                 }
 
-                args.putBoolean("force", force);
-                args.putBoolean("outbox", outbox);
+                if (force)
+                    ServiceSynchronize.reload(context, null, true, "refresh");
+                else
+                    ServiceSynchronize.eval(context, "refresh");
+
+                if (outbox)
+                    ServiceSend.start(context);
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));

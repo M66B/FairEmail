@@ -631,23 +631,16 @@ public class FragmentFolder extends FragmentBase {
                     db.endTransaction();
                 }
 
-                args.putBoolean("reload", reload);
+                if (reload)
+                    ServiceSynchronize.reload(context, aid, false, "save folder");
+                else
+                    ServiceSynchronize.eval(context, "save folder");
 
                 return false;
             }
 
             @Override
             protected void onExecuted(Bundle args, Boolean dirty) {
-                Context context = getContext();
-                if (context != null) {
-                    long aid = args.getLong("account");
-                    boolean reload = args.getBoolean("reload");
-                    if (reload)
-                        ServiceSynchronize.reload(context, aid, false, "save folder");
-                    else
-                        ServiceSynchronize.eval(context, "save folder");
-                }
-
                 if (dirty) {
                     Bundle aargs = new Bundle();
                     aargs.putString("question", getString(R.string.title_ask_save));

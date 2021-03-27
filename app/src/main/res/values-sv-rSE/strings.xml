@@ -1265,8 +1265,8 @@
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
     <string name="title_unexpected_info_remark">Vänligen beskriv vad du gjorde när du fick felet:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Antal nya meddelanden</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Meddelandelista</string>
+    <string name="title_widget_title_count">Antal nya meddelanden</string>
+    <string name="title_widget_title_list">Meddelandelista</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alla</string>
     <string name="title_widget_folder">Mapp</string>

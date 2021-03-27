@@ -128,10 +128,9 @@ public class FragmentAnswers extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (savedInstanceState != null) {
+        if (savedInstanceState != null)
             searching = savedInstanceState.getString("fair:searching");
-            adapter.search(searching);
-        }
+        adapter.search(searching);
 
         DB db = DB.getInstance(getContext());
         db.answer().liveAnswers().observe(getViewLifecycleOwner(), new Observer<List<EntityAnswer>>() {
@@ -164,8 +163,10 @@ public class FragmentAnswers extends FragmentBase {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
-                searching = newText;
-                adapter.search(newText);
+                if (getView() != null) {
+                    searching = newText;
+                    adapter.search(newText);
+                }
                 return true;
             }
 

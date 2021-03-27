@@ -995,8 +995,8 @@
     <string name="title_debug_info">اطلاعات اشکال زدایی</string>
     <string name="title_debug_info_remark">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">شمار پیام جدید</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">لیست پیام‌ها</string>
+    <string name="title_widget_title_count">شمار پیام جدید</string>
+    <string name="title_widget_title_list">لیست پیام‌ها</string>
     <string name="title_widget_account">حساب</string>
     <string name="title_widget_account_all">همه</string>
     <string name="title_widget_folder">پوشه</string>

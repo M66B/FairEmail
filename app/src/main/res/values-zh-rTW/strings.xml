@@ -1289,8 +1289,8 @@
     <string name="title_debug_info_remark">請描述問題並指出問題發生的時間：</string>
     <string name="title_crash_info_remark">請描述應用程序崩潰時您在做什麼：</string>
     <string name="title_unexpected_info_remark">請描述出現錯誤時的操作：</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">新郵件數</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">留言清單</string>
+    <string name="title_widget_title_count">新郵件數</string>
+    <string name="title_widget_title_list">留言清單</string>
     <string name="title_widget_account">帳戶</string>
     <string name="title_widget_account_all">所有</string>
     <string name="title_widget_folder">資料夾</string>

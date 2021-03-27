@@ -100,9 +100,6 @@ public class Widget extends AppWidgetProvider {
 
                     views.setOnClickPendingIntent(R.id.widget, pi);
 
-                    if (!semi)
-                        views.setInt(R.id.widget, "setBackgroundColor", background);
-
                     if (layout == 1)
                         views.setImageViewResource(R.id.ivMessage, unseen == 0
                                 ? R.drawable.baseline_mail_outline_widget_24
@@ -119,8 +116,14 @@ public class Widget extends AppWidgetProvider {
                         views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
                     }
 
-                    if (!semi && background != Color.TRANSPARENT) {
+                    if (background != Color.TRANSPARENT) {
                         float lum = (float) ColorUtils.calculateLuminance(background);
+
+                        if (semi)
+                            background = ColorUtils.setAlphaComponent(background, 127);
+
+                        views.setInt(R.id.widget, "setBackgroundColor", background);
+
                         if (lum > 0.7f) {
                             views.setInt(R.id.ivMessage, "setColorFilter", Color.BLACK);
                             views.setTextColor(R.id.tvCount, Color.BLACK);

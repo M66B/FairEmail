@@ -1332,8 +1332,8 @@
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>
     <string name="title_unexpected_info_remark">Kuvaile mitä olit tekemässä, kun sait virheen:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Uusien viestien lukumäärä</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Viestilista</string>
+    <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
+    <string name="title_widget_title_list">Viestilista</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_folder">Kansio</string>

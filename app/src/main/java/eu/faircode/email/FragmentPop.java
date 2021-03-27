@@ -611,6 +611,8 @@ public class FragmentPop extends FragmentBase {
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, "POP3");
+
                 if (!synchronize) {
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel("receive:" + account.id, 1);
@@ -632,10 +634,8 @@ public class FragmentPop extends FragmentBase {
                     fragment.show(getParentFragmentManager(), "account:save");
                 } else {
                     Context context = getContext();
-                    if (context != null) {
-                        ServiceSynchronize.eval(context, "POP3");
+                    if (context != null)
                         WidgetUnified.updateData(context); // Update color stripe
-                    }
 
                     if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         getParentFragmentManager().popBackStack();
@@ -879,15 +879,13 @@ public class FragmentPop extends FragmentBase {
                 DB db = DB.getInstance(context);
                 db.account().setAccountTbd(id);
 
+                ServiceSynchronize.eval(context, "delete account");
+
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Context context = getContext();
-                if (context != null)
-                    ServiceSynchronize.eval(context, "delete account");
-
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getParentFragmentManager().popBackStack();
             }
