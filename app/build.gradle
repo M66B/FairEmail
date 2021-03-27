@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "eu.faircode.email"
         minSdkVersion 21
-        targetSdkVersion "S"
+        targetSdkVersion 30
         versionCode getVersionCode()
         versionName "1." + getVersionCode()
         archivesBaseName = "FairEmail-v$versionName"
