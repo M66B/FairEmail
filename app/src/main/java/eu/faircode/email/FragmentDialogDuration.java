@@ -44,7 +44,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogDuration extends FragmentDialogBase {
-    private Calendar cal = Calendar.getInstance();
+    private final Calendar cal = Calendar.getInstance();
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
@@ -55,7 +55,10 @@ public class FragmentDialogDuration extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        String title = getArguments().getString("title");
+        Bundle args = getArguments();
+        String title = args.getString("title");
+        boolean day = args.getBoolean("day");
+        long time = args.getLong("time", 0);
 
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
         final TextView tvDuration = dview.findViewById(R.id.tvDuration);
@@ -65,9 +68,16 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
-        if (savedInstanceState == null)
-            cal.setTimeInMillis((new Date().getTime() / (3600 * 1000L) + 1) * (3600 * 1000L));
-        else
+        if (savedInstanceState == null) {
+            if (time == 0) {
+                cal.setTimeInMillis(new Date().getTime());
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MILLISECOND, 0);
+                cal.set(Calendar.HOUR_OF_DAY, day ? 0 : cal.get(Calendar.HOUR_OF_DAY) + 1);
+            } else
+                cal.setTimeInMillis(time);
+        } else
             cal.setTimeInMillis(savedInstanceState.getLong("fair:time"));
         Log.i("Set init=" + new Date(cal.getTimeInMillis()));
 
@@ -107,6 +117,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Bundle args = getArguments();
+                        args.putBoolean("reset", true);
                         args.putLong("duration", 0);
                         args.putLong("time", new Date().getTime());
 

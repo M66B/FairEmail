@@ -408,12 +408,94 @@
                     app:layout_constraintTop_toBottomOf="@+id/etHeader" />
 
                 <View
-                    android:id="@+id/vSeparatorSchedule"
+                    android:id="@+id/vSeparatorDate"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAndHeader" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/title_rule_date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorDate" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvDateAfter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Jan 1, 2021"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnDateAfter"
+                    app:layout_constraintEnd_toStartOf="@id/btnDateAfter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btnDateAfter" />
+
+                <Button
+                    android:id="@+id/btnDateAfter"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_select"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvDateBefore"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Jan 1, 2021"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnDateBefore"
+                    app:layout_constraintEnd_toStartOf="@id/btnDateBefore"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btnDateBefore" />
+
+                <Button
+                    android:id="@+id/btnDateBefore"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_select"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnDateAfter" />
+
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_and"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnDateBefore" />
+
+                <View
+                    android:id="@+id/vSeparatorSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAndDate" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSchedule"
