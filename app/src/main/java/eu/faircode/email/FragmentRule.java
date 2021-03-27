@@ -332,7 +332,7 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putString("title", getString(R.string.title_rule_date_after));
+                args.putString("title", getString(R.string.title_rule_time_after));
                 args.putBoolean("day", true);
 
                 Object time = tvDateAfter.getTag();
@@ -350,7 +350,7 @@ public class FragmentRule extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putString("title", getString(R.string.title_rule_date_before));
+                args.putString("title", getString(R.string.title_rule_time_before));
                 args.putBoolean("day", true);
 
                 Object time = tvDateBefore.getTag();

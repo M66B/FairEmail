@@ -2068,7 +2068,8 @@ The following rule conditions are available:
 * Subject contains
 * Has attachments
 * Header contains
-* Day/time between
+* Absolute time between (since version 1.1540)
+* Relative time between
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
