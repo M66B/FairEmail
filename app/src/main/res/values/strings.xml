@@ -429,7 +429,7 @@
     <string name="title_advanced_swipe_close">Swipe down to close conversation</string>
     <string name="title_advanced_swipe_move">Swipe up to move conversation</string>
     <string name="title_advanced_autoexpand">Automatically expand messages</string>
-    <string name="title_advanced_expand_first">Automatically expand the first message when the conversation has been read</string>
+    <string name="title_advanced_expand_first">Automatically expand the first message when the conversation is read</string>
     <string name="title_advanced_expand_all">Automatically expand all read messages</string>
     <string name="title_advanced_expand_one">Expand only one message at a time</string>
     <string name="title_advanced_collapse_multiple">Collapse messages in a conversation with multiple messages on \'back\'</string>
