@@ -9,7 +9,7 @@
     <string name="app_cake">空き容量が足りません</string>
     <string name="channel_service">受信</string>
     <string name="channel_send">送信</string>
-    <string name="channel_notification">Eメール</string>
+    <string name="channel_notification">電子メール</string>
     <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">エラー</string>
@@ -1283,8 +1283,8 @@
     <string name="title_debug_info_remark">問題を説明し問題の時刻を記述下さい(英語のみ):</string>
     <string name="title_crash_info_remark">アプリがクラッシュした時に何をしていたかを説明してください(英語のみ):</string>
     <string name="title_unexpected_info_remark">エラーが発生したときに何をしていたか説明してください:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">新しいメッセージ数</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">メッセージリスト</string>
+    <string name="title_widget_title_count">新しいメッセージ数</string>
+    <string name="title_widget_title_list">メッセージリスト</string>
     <string name="title_widget_account">アカウント</string>
     <string name="title_widget_account_all">全て</string>
     <string name="title_widget_folder">フォルダー</string>

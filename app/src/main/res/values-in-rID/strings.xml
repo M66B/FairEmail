@@ -1142,7 +1142,7 @@
     <string name="title_pro_invalid">Respon tidak valid</string>
     <string name="title_auto_scroll">Gulir otomatis</string>
     <string name="title_log_clear">Bersihkan</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Daftar pesan</string>
+    <string name="title_widget_title_list">Daftar pesan</string>
     <string name="title_widget_account">Akun</string>
     <string name="title_widget_account_all">Semua</string>
     <string name="title_widget_folder">Folder</string>

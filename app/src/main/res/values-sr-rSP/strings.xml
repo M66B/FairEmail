@@ -868,8 +868,8 @@
     <string name="title_debug_info">Отклањање грешака</string>
     <string name="title_debug_info_remark">Опишите проблем и назначите време када се десио проблем:</string>
     <string name="title_crash_info_remark">Опишите шта сте радили када се апликација срушила:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Број нових порука</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Листа порука</string>
+    <string name="title_widget_title_count">Број нових порука</string>
+    <string name="title_widget_title_list">Листа порука</string>
     <string name="title_widget_account">Налог</string>
     <string name="title_widget_account_all">Све</string>
     <string name="title_widget_folder">Фасцикла</string>

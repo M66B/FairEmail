@@ -9,7 +9,7 @@
     <string name="app_cake">Espaço de armazenamento insuficiente</string>
     <string name="channel_service">﻿Receber</string>
     <string name="channel_send">Enviar</string>
-    <string name="channel_notification">Email</string>
+    <string name="channel_notification">E-mail</string>
     <string name="channel_update">Atualizações</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
@@ -1239,8 +1239,8 @@
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
     <string name="title_unexpected_info_remark">Por favor, descreva o que você estava fazendo quando recebeu o erro:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Nova contagem de mensagens</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Lista de mensagem</string>
+    <string name="title_widget_title_count">Nova contagem de mensagens</string>
+    <string name="title_widget_title_list">Lista de mensagem</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todos</string>
     <string name="title_widget_folder">Pasta</string>

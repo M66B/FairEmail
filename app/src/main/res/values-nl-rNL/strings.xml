@@ -1087,6 +1087,9 @@
     <string name="title_rule_subject">Onderwerp bevat</string>
     <string name="title_rule_attachments">Heeft bijlagen</string>
     <string name="title_rule_header">De kop bevat</string>
+    <string name="title_rule_date">Datumbereik</string>
+    <string name="title_rule_date_after">Datum na</string>
+    <string name="title_rule_date_before">Datum voor</string>
     <string name="title_rule_time">Tijd tussen</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
@@ -1335,9 +1338,9 @@
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
     <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Aantal nieuwe berichten</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Berichtenlijst</string>
-    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Sync aan/uit</string>
+    <string name="title_widget_title_count">Aantal nieuwe berichten</string>
+    <string name="title_widget_title_list">Berichtenlijst</string>
+    <string name="title_widget_title_sync">Sync aan/uit</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>

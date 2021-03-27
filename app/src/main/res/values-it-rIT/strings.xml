@@ -1336,8 +1336,9 @@
     <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
     <string name="title_unexpected_info_remark">Descrivi cosa stavi facendo quando l\'errore è successo:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Nuovo conteggio dei messaggi</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Elenco messaggi</string>
+    <string name="title_widget_title_count">Nuovo conteggio dei messaggi</string>
+    <string name="title_widget_title_list">Elenco messaggi</string>
+    <string name="title_widget_title_sync">Sincro sì/no</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Tutti</string>
     <string name="title_widget_folder">Cartella</string>

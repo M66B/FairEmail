@@ -1220,8 +1220,8 @@
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Yeni mesaj sayısı</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Mesaj listesi</string>
+    <string name="title_widget_title_count">Yeni mesaj sayısı</string>
+    <string name="title_widget_title_list">Mesaj listesi</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_folder">Klasör</string>

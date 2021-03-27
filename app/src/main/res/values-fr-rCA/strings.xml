@@ -365,6 +365,7 @@
     <string name="title_advanced_swipe_close">Balayer vers le bas pour fermer la conversation</string>
     <string name="title_advanced_swipe_move">Balayer vers le haut pour déplacer la conversation</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
+    <string name="title_advanced_expand_first">Développer automatiquement le premier message lorsque la conversation a été lue</string>
     <string name="title_advanced_expand_all">Développer automatiquement tous les messages lus</string>
     <string name="title_advanced_expand_one">Ne développer qu’un seul message à la fois</string>
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
@@ -1087,6 +1088,9 @@
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
+    <string name="title_rule_date">Période</string>
+    <string name="title_rule_date_after">Date postérieure à</string>
+    <string name="title_rule_date_before">Date antérieure à</string>
     <string name="title_rule_time">Heure comprise entre</string>
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
@@ -1336,9 +1340,9 @@
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
     <string name="title_unexpected_info_remark">Veuillez décrire ce que vous faisiez lorsque vous avez eu l\'erreur :</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Nombre de nouveaux messages</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Liste des messages</string>
-    <string name="title_widget_title_sync" comment="title_widget_title_sync&#10;Title for widget, needs to be as short as possible.&#10;">Synchro. oui/non</string>
+    <string name="title_widget_title_count">Nombre de nouveaux messages</string>
+    <string name="title_widget_title_list">Liste des messages</string>
+    <string name="title_widget_title_sync">Sync. oui/non</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tous</string>
     <string name="title_widget_folder">Dossier</string>

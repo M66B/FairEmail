@@ -1081,8 +1081,8 @@
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Брой нови съобщения</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Списък на съобщенията</string>
+    <string name="title_widget_title_count">Брой нови съобщения</string>
+    <string name="title_widget_title_list">Списък на съобщенията</string>
     <string name="title_widget_account">Профил</string>
     <string name="title_widget_account_all">Всички</string>
     <string name="title_widget_folder">Папка</string>

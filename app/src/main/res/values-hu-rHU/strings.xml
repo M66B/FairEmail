@@ -1325,8 +1325,8 @@
     <string name="title_debug_info_remark">Kérlek jellemezd a problémát és jelezd az idejét a problémának:</string>
     <string name="title_crash_info_remark">Kérlek magyarázd el mit csináltál amikor az alkalmazás összeomlott:</string>
     <string name="title_unexpected_info_remark">Kérem írja le, mit csinált amikor az alkalmazás összeomlott:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Új üzenetek számláló</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Üzenet lista</string>
+    <string name="title_widget_title_count">Új üzenetek számláló</string>
+    <string name="title_widget_title_list">Üzenet lista</string>
     <string name="title_widget_account">Fiók</string>
     <string name="title_widget_account_all">Mind</string>
     <string name="title_widget_folder">Mappa</string>

@@ -1252,8 +1252,8 @@
     <string name="title_debug_info_remark">Vennligst beskriv problemet og angi tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
     <string name="title_unexpected_info_remark">Vennligst beskriv hva du gjorde når du fikk feilen:</string>
-    <string name="title_widget_title_count" comment="title_widget_title_count&#10;Title for widget, needs to be as short as possible.">Ny melding teller</string>
-    <string name="title_widget_title_list" comment="title_widget_title_list&#10;Title for widget, needs to be as short as possible.">Meldingsliste</string>
+    <string name="title_widget_title_count">Ny melding teller</string>
+    <string name="title_widget_title_list">Meldingsliste</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Mappe</string>
