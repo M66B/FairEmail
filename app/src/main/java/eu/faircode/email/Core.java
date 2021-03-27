@@ -1707,7 +1707,7 @@ class Core {
 
             Intent intent = new Intent(context, ServiceUI.class);
             intent.setAction("exists:" + message.id);
-            PendingIntent piExists = PendingIntent.getService(
+            PendingIntent piExists = PendingIntentCompat.getService(
                     context, ServiceUI.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -4084,10 +4084,12 @@ class Core {
                 content = new Intent(context, ActivityView.class)
                         .setAction("unified" + (notify_remove ? ":" + group : ""));
             content.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent piContent = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, content, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent piContent = PendingIntentCompat.getActivity(
+                    context, ActivityView.REQUEST_UNIFIED, content, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
-            PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent piClear = PendingIntentCompat.getService(
+                    context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // Build title
             String title = context.getResources().getQuantityString(
@@ -4196,7 +4198,8 @@ class Core {
                 Intent thread = new Intent(context, ServiceUI.class);
                 thread.setAction("ignore:" + message.id);
                 thread.putExtra("view", true);
-                piContent = PendingIntent.getService(context, ServiceUI.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+                piContent = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
             } else {
                 Intent thread = new Intent(context, ActivityView.class);
                 thread.setAction("thread:" + message.id);
@@ -4205,11 +4208,13 @@ class Core {
                 thread.putExtra("folder", message.folder);
                 thread.putExtra("thread", message.thread);
                 thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
-                piContent = PendingIntent.getActivity(context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+                piContent = PendingIntentCompat.getActivity(
+                        context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
             }
 
             Intent ignore = new Intent(context, ServiceUI.class).setAction("ignore:" + message.id);
-            PendingIntent piIgnore = PendingIntent.getService(context, ServiceUI.PI_IGNORED, ignore, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent piIgnore = PendingIntentCompat.getService(
+                    context, ServiceUI.PI_IGNORED, ignore, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // Get channel name
             String channelName = EntityAccount.getNotificationChannelId(0);
@@ -4313,7 +4318,8 @@ class Core {
                 Intent trash = new Intent(context, ServiceUI.class)
                         .setAction("trash:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piTrash = PendingIntent.getService(context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piTrash = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_delete_24,
                         context.getString(R.string.title_advanced_notify_action_trash),
@@ -4332,7 +4338,8 @@ class Core {
                 Intent junk = new Intent(context, ServiceUI.class)
                         .setAction("junk:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piJunk = PendingIntent.getService(context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piJunk = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_report_problem_24,
                         context.getString(R.string.title_advanced_notify_action_junk),
@@ -4350,7 +4357,8 @@ class Core {
                 Intent archive = new Intent(context, ServiceUI.class)
                         .setAction("archive:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piArchive = PendingIntent.getService(context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piArchive = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_archive_24,
                         context.getString(R.string.title_advanced_notify_action_archive),
@@ -4372,7 +4380,8 @@ class Core {
                         Intent move = new Intent(context, ServiceUI.class)
                                 .setAction("move:" + message.id)
                                 .putExtra("group", group);
-                        PendingIntent piMove = PendingIntent.getService(context, ServiceUI.PI_MOVE, move, PendingIntent.FLAG_UPDATE_CURRENT);
+                        PendingIntent piMove = PendingIntentCompat.getService(
+                                context, ServiceUI.PI_MOVE, move, PendingIntent.FLAG_UPDATE_CURRENT);
                         NotificationCompat.Action.Builder actionMove = new NotificationCompat.Action.Builder(
                                 R.drawable.twotone_folder_24,
                                 folder.getDisplayName(context),
@@ -4394,7 +4403,8 @@ class Core {
                             .putExtra("reference", message.id)
                             .putExtra("group", group);
                     reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    PendingIntent piReply = PendingIntent.getActivity(context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                    PendingIntent piReply = PendingIntentCompat.getActivity(
+                            context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                     NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                             R.drawable.twotone_reply_24,
                             context.getString(R.string.title_advanced_notify_action_reply),
@@ -4414,7 +4424,8 @@ class Core {
                 Intent reply = new Intent(context, ServiceUI.class)
                         .setAction("reply:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piReply = PendingIntent.getService(context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piReply = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply_direct),
@@ -4433,7 +4444,8 @@ class Core {
                 Intent flag = new Intent(context, ServiceUI.class)
                         .setAction("flag:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piFlag = PendingIntent.getService(context, ServiceUI.PI_FLAG, flag, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piFlag = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_FLAG, flag, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionFlag = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_star_24,
                         context.getString(R.string.title_advanced_notify_action_flag),
@@ -4450,7 +4462,8 @@ class Core {
                 Intent seen = new Intent(context, ServiceUI.class)
                         .setAction("seen:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piSeen = PendingIntent.getService(context, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piSeen = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_visibility_24,
                         context.getString(R.string.title_advanced_notify_action_seen),
@@ -4467,7 +4480,8 @@ class Core {
                 Intent snooze = new Intent(context, ServiceUI.class)
                         .setAction("snooze:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piSnooze = PendingIntent.getService(context, ServiceUI.PI_SNOOZE, snooze, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent piSnooze = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_SNOOZE, snooze, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionSnooze = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_timelapse_24,
                         context.getString(R.string.title_advanced_notify_action_snooze),
@@ -4604,7 +4618,7 @@ class Core {
         Intent intent = new Intent(context, ActivityView.class);
         intent.setAction("error");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(
+        PendingIntent pi = PendingIntentCompat.getActivity(
                 context, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification

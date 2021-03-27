@@ -250,7 +250,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         Intent intent = new Intent(context, ActivityView.class);
         intent.setAction("outbox");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(context, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntentCompat.getActivity(
+                context, ActivityView.REQUEST_OUTBOX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {

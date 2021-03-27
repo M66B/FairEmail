@@ -55,7 +55,8 @@ public class WidgetUnified extends AppWidgetProvider {
             view.putExtra("type", type);
             view.putExtra("refresh", true);
             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent pi = PendingIntent.getActivity(context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pi = PendingIntentCompat.getActivity(
+                    context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
@@ -88,7 +89,7 @@ public class WidgetUnified extends AppWidgetProvider {
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent piItem = PendingIntent.getActivity(
-                    context, ActivityView.REQUEST_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+                    context, ActivityView.REQUEST_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntentCompat.FLAG_MUTABLE);
 
             views.setPendingIntentTemplate(R.id.lv, piItem);
 

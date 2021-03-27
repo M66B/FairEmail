@@ -608,7 +608,7 @@ public class ServiceUI extends IntentService {
         Intent intent = new Intent(context, ServiceUI.class);
         intent.setAction("sync");
         intent.putExtra("reschedule", true);
-        PendingIntent piSync = PendingIntent.getService(
+        PendingIntent piSync = PendingIntentCompat.getService(
                 context, ServiceUI.PI_SYNC, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -636,7 +636,8 @@ public class ServiceUI extends IntentService {
     private static PendingIntent getBannerIntent(Context context) {
         Intent intent = new Intent(context, ServiceUI.class);
         intent.setAction("banner");
-        return PendingIntent.getService(context, ServiceUI.PI_BANNER, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntentCompat.getService(
+                context, ServiceUI.PI_BANNER, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     static void scheduleBanner(Context context, boolean set) {
@@ -660,7 +661,8 @@ public class ServiceUI extends IntentService {
     private static PendingIntent getProtocolIntent(Context context) {
         Intent intent = new Intent(context, ServiceUI.class);
         intent.setAction("protocol");
-        return PendingIntent.getService(context, ServiceUI.PI_PROTOCOL, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntentCompat.getService(
+                context, ServiceUI.PI_PROTOCOL, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     static void scheduleProtocol(Context context, boolean set) {

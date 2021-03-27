@@ -968,7 +968,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 update.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                PendingIntent piUpdate = PendingIntent.getActivity(
+                PendingIntent piUpdate = PendingIntentCompat.getActivity(
                         ActivityView.this, REQUEST_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
                 builder.setContentIntent(piUpdate);
 

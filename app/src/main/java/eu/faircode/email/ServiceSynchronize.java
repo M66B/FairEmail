@@ -893,7 +893,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         Intent why = new Intent(this, ActivityView.class);
         why.setAction("why");
         why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent piWhy = PendingIntent.getActivity(this, ActivityView.REQUEST_WHY, why, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent piWhy = PendingIntentCompat.getActivity(
+                this, ActivityView.REQUEST_WHY, why, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         NotificationCompat.Builder builder =
@@ -929,7 +930,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         Intent alert = new Intent(this, ActivityView.class);
         alert.setAction("alert");
         alert.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent piAlert = PendingIntent.getActivity(this, ActivityView.REQUEST_ALERT, alert, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent piAlert = PendingIntentCompat.getActivity(
+                this, ActivityView.REQUEST_ALERT, alert, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         NotificationCompat.Builder builder =
