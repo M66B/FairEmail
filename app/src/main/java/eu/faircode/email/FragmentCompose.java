@@ -107,6 +107,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -5017,6 +5018,14 @@ public class FragmentCompose extends FragmentBase {
                 else {
                     Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
                     EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
+
+                    if (draft.ui_snoozed - 2 * ActivityCompose.UNDO_DELAY > new Date().getTime()) {
+                        Intent undo = new Intent(ActivityView.ACTION_SENT_UNDO);
+                        undo.putExtra("id", draft.id);
+
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(undo);
+                    }
                 }
 
             return draft;

@@ -1003,6 +1003,7 @@
     <string name="title_discard">Discard</string>
     <string name="title_save">Save</string>
     <string name="title_send">Send</string>
+    <string name="title_sending">Sending &#8230;</string>
     <string name="title_send_now">Send now</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Send at &#8230;</string>

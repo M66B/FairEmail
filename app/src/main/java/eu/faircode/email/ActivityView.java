@@ -136,6 +136,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
+    static final String ACTION_SENT_UNDO = BuildConfig.APPLICATION_ID + ".SENT_UNDO";
 
     private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
     private static final long EXIT_DELAY = 2500L; // milliseconds
@@ -156,7 +157,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
-        lbm.registerReceiver(creceiver, new IntentFilter(ACTION_NEW_MESSAGE));
+        IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_NEW_MESSAGE);
+        iff.addAction(ACTION_SENT_UNDO);
+        lbm.registerReceiver(creceiver, iff);
 
         if (savedInstanceState != null)
             searching = savedInstanceState.getBoolean("fair:searching");
@@ -741,18 +745,29 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return super.onOptionsItemSelected(item);
     }
 
-    public void undo(String title, final Bundle args, final SimpleTask<Void> move, final SimpleTask<Void> show) {
+    public void undo(String title, Runnable move, Runnable show) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int undo_timeout = prefs.getInt("undo_timeout", 5000);
 
-        if (undo_timeout == 0) {
-            move.execute(this, args, "undo:move");
-            return;
-        }
+        if (undo_timeout == 0)
+            try {
+                move.run();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        else
+            undo(undo_timeout, title, move, show);
+    }
 
+    public void undo(long undo_timeout, String title, final Runnable move, final Runnable show) {
         if (drawerLayout == null || drawerLayout.getChildCount() == 0) {
             Log.e("Undo: drawer missing");
-            show.execute(this, args, "undo:move");
+            if (show != null)
+                try {
+                    show.run();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             return;
         }
 
@@ -768,7 +783,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void run() {
                 Log.i("Undo timeout");
                 snackbar.dismiss();
-                move.execute(ActivityView.this, args, "undo:move");
+                if (move != null)
+                    try {
+                        move.run();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
             }
         };
 
@@ -778,7 +798,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.i("Undo cancel");
                 getMainHandler().removeCallbacks(timeout);
                 snackbar.dismiss();
-                show.execute(ActivityView.this, args, "undo:show");
+                if (show != null)
+                    try {
+                        show.run();
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
             }
         });
 
@@ -1273,7 +1298,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private BroadcastReceiver creceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            onNewMessage(intent);
+            String action = intent.getAction();
+            if (ACTION_NEW_MESSAGE.equals(action))
+                onNewMessage(intent);
+            else if (ACTION_SENT_UNDO.equals(action))
+                onSentUndo(intent);
         }
     };
 
@@ -1294,6 +1323,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             updatedFolders.add(folder);
         if (unified && !updatedFolders.contains(-1L))
             updatedFolders.add(-1L);
+    }
+
+    private void onSentUndo(Intent intent) {
+        undo(ActivityCompose.UNDO_DELAY, getString(R.string.title_sending), null, new Runnable() {
+            @Override
+            public void run() {
+                long id = intent.getLongExtra("id", -1);
+                ActivityCompose.undoSend(id, ActivityView.this, ActivityView.this, getSupportFragmentManager());
+            }
+        });
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {

@@ -2035,7 +2035,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             if (EntityFolder.OUTBOX.equals(message.folderType)) {
-                onActionUndoSend(message, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
+                ActivityCompose.undoSend(message.id, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
                 return;
             }
 
@@ -3622,94 +3622,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:delete");
-    }
-
-    static void onActionUndoSend(TupleMessageEx message, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
-        Bundle args = new Bundle();
-        args.putLong("id", message.id);
-
-        new SimpleTask<EntityMessage>() {
-            @Override
-            protected EntityMessage onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-
-                EntityOperation operation = db.operation().getOperation(message.id, EntityOperation.SEND);
-                if (operation != null)
-                    if ("executing".equals(operation.state)) {
-                        // Trigger update
-                        db.message().setMessageUiBusy(message.id, new Date().getTime());
-                        return null;
-                    } else
-                        db.operation().deleteOperation(operation.id);
-
-                EntityMessage message;
-
-                try {
-                    db.beginTransaction();
-
-                    message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
-
-                    db.folder().setFolderError(message.folder, null);
-                    if (message.identity != null)
-                        db.identity().setIdentityError(message.identity, null);
-
-                    File source = message.getFile(context);
-
-                    // Insert into drafts
-                    EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
-                    if (drafts == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
-
-                    message.id = null;
-                    message.folder = drafts.id;
-                    message.fts = false;
-                    message.ui_snoozed = null;
-                    message.error = null;
-                    message.id = db.message().insertMessage(message);
-
-                    File target = message.getFile(context);
-                    source.renameTo(target);
-
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                    for (EntityAttachment attachment : attachments)
-                        db.attachment().setMessage(attachment.id, message.id);
-
-                    EntityOperation.queue(context, message, EntityOperation.ADD);
-
-                    // Delete from outbox
-                    db.message().deleteMessage(id); // will delete operation too
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                ServiceSynchronize.eval(context, "outbox/drafts");
-
-                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.cancel("send:" + id, 1);
-
-                return message;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null)
-                    context.startActivity(
-                            new Intent(context, ActivityCompose.class)
-                                    .putExtra("action", "edit")
-                                    .putExtra("id", draft.id));
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(manager, ex, !(ex instanceof IllegalArgumentException));
-            }
-        }.execute(context, owner, args, "message:move:draft");
     }
 
     @Override
@@ -5481,72 +5393,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                SimpleTask<Void> move = new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (MessageTarget target : result) {
-                                EntityMessage message = db.message().getMessage(target.id);
-                                if (message == null || !message.ui_hide)
-                                    continue;
-
-                                Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
-                                db.message().setMessageUiBusy(target.id, null);
-                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        ServiceSynchronize.eval(context, "move");
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.e(ex);
-                    }
-                };
-
-                SimpleTask<Void> show = new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (MessageTarget target : result) {
-                                Log.i("Move undo id=" + target.id);
-                                db.message().setMessageUiBusy(target.id, null);
-                                db.message().setMessageUiHide(target.id, false);
-                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.e(ex);
-                    }
-                };
-
                 FragmentActivity activity = getActivity();
                 if (!(activity instanceof ActivityView)) {
                     Log.e("Undo: activity missing");
@@ -5554,7 +5400,81 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 String title = getString(R.string.title_move_undo, getDisplay(result, true), result.size());
-                ((ActivityView) activity).undo(title, args, move, show);
+                ((ActivityView) activity).undo(title,
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) {
+                                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+                                        DB db = DB.getInstance(context);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (MessageTarget target : result) {
+                                                EntityMessage message = db.message().getMessage(target.id);
+                                                if (message == null || !message.ui_hide)
+                                                    continue;
+
+                                                Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
+                                                db.message().setMessageUiBusy(target.id, null);
+                                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        ServiceSynchronize.eval(context, "move");
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }.execute(FragmentMessages.this, args, "undo:move");
+                            }
+                        },
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) {
+                                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+                                        DB db = DB.getInstance(context);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (MessageTarget target : result) {
+                                                Log.i("Move undo id=" + target.id);
+                                                db.message().setMessageUiBusy(target.id, null);
+                                                db.message().setMessageUiHide(target.id, false);
+                                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }.execute(FragmentMessages.this, args, "undo:show");
+                            }
+                        });
             }
 
             @Override
