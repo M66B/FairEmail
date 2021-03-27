@@ -79,12 +79,12 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
-        final ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
-        final ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
-        final ImageButton ibEvent = dview.findViewById(R.id.ibInvite);
-        final ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
-        final ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
         final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
+        final ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
+        final ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
+        final ImageButton ibInvite = dview.findViewById(R.id.ibInvite);
+        final ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
+        final ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
         final ImageButton ibMore = dview.findViewById(R.id.ibMore);
         final TextView tvMore = dview.findViewById(R.id.tvMore);
         final CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
@@ -389,17 +389,17 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
                 BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
                 int id = v.getId();
-                if (id == R.id.ibNotes)
-                    criteria.with_notes = true;
-                else if (id == R.id.ibAttachment)
-                    criteria.with_attachments = true;
+                if (id == R.id.ibFlagged)
+                    criteria.with_flagged = true;
+                else if (id == R.id.ibUnseen)
+                    criteria.with_unseen = true;
                 else if (id == R.id.ibInvite) {
                     criteria.with_attachments = true;
                     criteria.with_types = new String[]{"text/calendar"};
-                } else if (id == R.id.ibUnseen)
-                    criteria.with_unseen = true;
-                else if (id == R.id.ibFlagged)
-                    criteria.with_flagged = true;
+                } else if (id == R.id.ibAttachment)
+                    criteria.with_attachments = true;
+                else if (id == R.id.ibNotes)
+                    criteria.with_notes = true;
 
                 FragmentMessages.search(
                         context, getViewLifecycleOwner(), getParentFragmentManager(),
@@ -409,7 +409,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         ibNotes.setOnClickListener(onClick);
         ibAttachment.setOnClickListener(onClick);
-        ibEvent.setOnClickListener(onClick);
+        ibInvite.setOnClickListener(onClick);
         ibUnseen.setOnClickListener(onClick);
         ibFlagged.setOnClickListener(onClick);
 

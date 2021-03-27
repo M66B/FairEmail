@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fadeScrollbars="false"
@@ -13,82 +14,13 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaption"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/title_search"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/ibNotes"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search_flag_notes"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search_flag_notes"
-            app:layout_constraintEnd_toStartOf="@+id/ibAttachment"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/twotone_sticky_note_2_24" />
-
-        <ImageButton
-            android:id="@+id/ibAttachment"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search_flag_attachments"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search_flag_attachments"
-            app:layout_constraintEnd_toStartOf="@+id/ibInvite"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/twotone_attachment_24" />
-
-        <ImageButton
-            android:id="@+id/ibInvite"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search_flag_invite"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search_flag_invite"
-            app:layout_constraintEnd_toStartOf="@+id/ibUnseen"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/twotone_event_24" />
-
-        <ImageButton
-            android:id="@+id/ibUnseen"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search_flag_unseen"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search_flag_unseen"
-            app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/twotone_mail_24" />
-
-        <ImageButton
-            android:id="@+id/ibFlagged"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_search_flag_flagged"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
-            android:tooltipText="@string/title_search_flag_flagged"
-            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption"
-            app:srcCompat="@drawable/twotone_star_24" />
 
         <ImageButton
             android:id="@+id/ibInfo"
@@ -100,8 +32,82 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaption"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_info_24" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/ibFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:constraint_referenced_ids="ibFlagged,ibUnseen,ibInvite,ibAttachment,ibNotes"
+            app:flow_horizontalBias="0"
+            app:flow_horizontalGap="12dp"
+            app:flow_horizontalStyle="packed"
+            app:flow_wrapMode="chain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCaption" />
+
+        <ImageButton
+            android:id="@+id/ibFlagged"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_flag_flagged"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_flag_flagged"
+            app:srcCompat="@drawable/twotone_star_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibUnseen"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_flag_unseen"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_flag_unseen"
+            app:srcCompat="@drawable/twotone_mail_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibInvite"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_flag_invite"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_flag_invite"
+            app:srcCompat="@drawable/twotone_event_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibAttachment"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_flag_attachments"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_flag_attachments"
+            app:srcCompat="@drawable/twotone_attachment_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibNotes"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_search_flag_notes"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_search_flag_notes"
+            app:srcCompat="@drawable/twotone_sticky_note_2_24"
+            tools:ignore="MissingConstraints" />
 
         <eu.faircode.email.TextViewAutoCompleteClearable
             android:id="@+id/etQuery"
@@ -115,7 +121,7 @@
             android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ibInfo" />
+            app:layout_constraintTop_toBottomOf="@id/ibFlow" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvHint"
