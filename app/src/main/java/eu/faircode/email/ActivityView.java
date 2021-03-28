@@ -746,29 +746,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return super.onOptionsItemSelected(item);
     }
 
-    public void undo(String title, Runnable move, Runnable show) {
+    public void undo(String title, final Bundle args, final SimpleTask<Void> move, final SimpleTask<Void> show) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int undo_timeout = prefs.getInt("undo_timeout", 5000);
 
         if (undo_timeout == 0)
-            try {
-                move.run();
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+            move.execute(this, args, "undo:move");
         else
-            undo(undo_timeout, title, move, show);
+            undo(undo_timeout, title, args, move, show);
     }
 
-    public void undo(long undo_timeout, String title, final Runnable move, final Runnable show) {
+    public void undo(long undo_timeout, String title, final Bundle args, final SimpleTask move, final SimpleTask show) {
         if (drawerLayout == null || drawerLayout.getChildCount() == 0) {
             Log.e("Undo: drawer missing");
             if (show != null)
-                try {
-                    show.run();
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
+                show.execute(this, args, "undo:show");
             return;
         }
 
@@ -785,11 +777,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.i("Undo timeout");
                 snackbar.dismiss();
                 if (move != null)
-                    try {
-                        move.run();
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
+                    move.execute(ActivityView.this, args, "undo:move");
             }
         };
 
@@ -800,11 +788,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 getMainHandler().removeCallbacks(timeout);
                 snackbar.dismiss();
                 if (show != null)
-                    try {
-                        show.run();
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
+                    show.execute(ActivityView.this, args, "undo:show");
             }
         });
 
@@ -1327,6 +1311,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onUndoSend(Intent intent) {
+        long id = intent.getLongExtra("id", -1);
         int delayed = intent.getIntExtra("delayed", 0);
         long scheduled = intent.getLongExtra("scheduled", 0);
         long now = new Date().getTime();
@@ -1338,13 +1323,31 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (delayed * 1000L < UNDO_SEND_DELAY * 2 || scheduled - now < UNDO_SEND_DELAY * 2)
             return;
 
-        undo(UNDO_SEND_DELAY, getString(R.string.title_sending), null, new Runnable() {
+        SimpleTask<Long> task = new SimpleTask<Long>() {
             @Override
-            public void run() {
-                long id = intent.getLongExtra("id", -1);
-                ActivityCompose.undoSend(id, ActivityView.this, ActivityView.this, getSupportFragmentManager());
+            protected Long onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                return ActivityCompose.undoSend(id, context);
             }
-        });
+
+            @Override
+            protected void onExecuted(Bundle args, Long id) {
+                if (id == null)
+                    return;
+
+                startActivity(
+                        new Intent(ActivityView.this, ActivityCompose.class)
+                                .putExtra("action", "edit")
+                                .putExtra("id", id));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex, !(ex instanceof IllegalArgumentException));
+            }
+        };
+
+        undo(UNDO_SEND_DELAY, getString(R.string.title_sending), intent.getExtras(), null, task);
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {

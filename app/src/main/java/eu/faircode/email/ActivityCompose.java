@@ -211,85 +211,26 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 Intent.ACTION_SEND_MULTIPLE.equals(action));
     }
 
-    static void undoSend(long id, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
+    static void undoSend(final long id, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleTask<EntityMessage>() {
+        new SimpleTask<Long>() {
             @Override
-            protected EntityMessage onExecute(Context context, Bundle args) {
+            protected Long onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-
-                EntityOperation operation = db.operation().getOperation(id, EntityOperation.SEND);
-                if (operation != null)
-                    if ("executing".equals(operation.state)) {
-                        // Trigger update
-                        db.message().setMessageUiBusy(id, new Date().getTime());
-                        return null;
-                    } else
-                        db.operation().deleteOperation(operation.id);
-
-                EntityMessage message;
-
-                try {
-                    db.beginTransaction();
-
-                    message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
-
-                    db.folder().setFolderError(message.folder, null);
-                    if (message.identity != null)
-                        db.identity().setIdentityError(message.identity, null);
-
-                    File source = message.getFile(context);
-
-                    // Insert into drafts
-                    EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
-                    if (drafts == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
-
-                    message.id = null;
-                    message.folder = drafts.id;
-                    message.fts = false;
-                    message.ui_snoozed = null;
-                    message.error = null;
-                    message.id = db.message().insertMessage(message);
-
-                    File target = message.getFile(context);
-                    source.renameTo(target);
-
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                    for (EntityAttachment attachment : attachments)
-                        db.attachment().setMessage(attachment.id, message.id);
-
-                    EntityOperation.queue(context, message, EntityOperation.ADD);
-
-                    // Delete from outbox
-                    db.message().deleteMessage(id); // will delete operation too
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                ServiceSynchronize.eval(context, "outbox/drafts");
-
-                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.cancel("send:" + id, 1);
-
-                return message;
+                return undoSend(id, context);
             }
 
             @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null)
-                    context.startActivity(
-                            new Intent(context, ActivityCompose.class)
-                                    .putExtra("action", "edit")
-                                    .putExtra("id", draft.id));
+            protected void onExecuted(Bundle args, Long id) {
+                if (id == null)
+                    return;
+
+                context.startActivity(
+                        new Intent(context, ActivityCompose.class)
+                                .putExtra("action", "edit")
+                                .putExtra("id", id));
             }
 
             @Override
@@ -297,5 +238,69 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 Log.unexpectedError(manager, ex, !(ex instanceof IllegalArgumentException));
             }
         }.execute(context, owner, args, "undo:sent");
+    }
+
+    static Long undoSend(long id, Context context) {
+        DB db = DB.getInstance(context);
+
+        EntityOperation operation = db.operation().getOperation(id, EntityOperation.SEND);
+        if (operation != null)
+            if ("executing".equals(operation.state)) {
+                // Trigger update
+                db.message().setMessageUiBusy(id, new Date().getTime());
+                return null;
+            } else
+                db.operation().deleteOperation(operation.id);
+
+        EntityMessage message;
+
+        try {
+            db.beginTransaction();
+
+            message = db.message().getMessage(id);
+            if (message == null)
+                return null;
+
+            db.folder().setFolderError(message.folder, null);
+            if (message.identity != null)
+                db.identity().setIdentityError(message.identity, null);
+
+            File source = message.getFile(context);
+
+            // Insert into drafts
+            EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
+            if (drafts == null)
+                throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+
+            message.id = null;
+            message.folder = drafts.id;
+            message.fts = false;
+            message.ui_snoozed = null;
+            message.error = null;
+            message.id = db.message().insertMessage(message);
+
+            File target = message.getFile(context);
+            source.renameTo(target);
+
+            List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+            for (EntityAttachment attachment : attachments)
+                db.attachment().setMessage(attachment.id, message.id);
+
+            EntityOperation.queue(context, message, EntityOperation.ADD);
+
+            // Delete from outbox
+            db.message().deleteMessage(id); // will delete operation too
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        ServiceSynchronize.eval(context, "outbox/drafts");
+
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel("send:" + id, 1);
+
+        return message.id;
     }
 }

@@ -5399,82 +5399,74 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return;
                 }
 
+                SimpleTask<Void> move = new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            for (MessageTarget target : result) {
+                                EntityMessage message = db.message().getMessage(target.id);
+                                if (message == null || !message.ui_hide)
+                                    continue;
+
+                                Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
+                                db.message().setMessageUiBusy(target.id, null);
+                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        ServiceSynchronize.eval(context, "move");
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.e(ex);
+                    }
+                };
+
+                SimpleTask<Void> show = new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            for (MessageTarget target : result) {
+                                Log.i("Move undo id=" + target.id);
+                                db.message().setMessageUiBusy(target.id, null);
+                                db.message().setMessageUiHide(target.id, false);
+                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.e(ex);
+                    }
+                };
+
                 String title = getString(R.string.title_move_undo, getDisplay(result, true), result.size());
-                ((ActivityView) activity).undo(title,
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) {
-                                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (MessageTarget target : result) {
-                                                EntityMessage message = db.message().getMessage(target.id);
-                                                if (message == null || !message.ui_hide)
-                                                    continue;
-
-                                                Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
-                                                db.message().setMessageUiBusy(target.id, null);
-                                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        ServiceSynchronize.eval(context, "move");
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Log.e(ex);
-                                    }
-                                }.execute(FragmentMessages.this, args, "undo:move");
-                            }
-                        },
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) {
-                                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (MessageTarget target : result) {
-                                                Log.i("Move undo id=" + target.id);
-                                                db.message().setMessageUiBusy(target.id, null);
-                                                db.message().setMessageUiHide(target.id, false);
-                                                db.message().setMessageLastAttempt(target.id, new Date().getTime());
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Log.e(ex);
-                                    }
-                                }.execute(FragmentMessages.this, args, "undo:show");
-                            }
-                        });
+                ((ActivityView) activity).undo(title, args, move, show);
             }
 
             @Override
