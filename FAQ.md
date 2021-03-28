@@ -1528,8 +1528,8 @@ If you have at least once a day internet connectivity, it is sufficient to synch
 
 Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for.
 You could for example initially synchronize messages for a large number of days and after this has been completed
-reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
-After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
+reduce the number of days to synchronize messages, but leave the number of days to keep messages.
+After decreasing the number of days to keep messages, you might want to run the cleanup in the miscellaneous settings to remove old files.
 
 In the receive settings you can enable to always synchronize starred messages,
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
@@ -1586,7 +1586,7 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed.
 If the connection is unstable, this can result in extra data usage.
-In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question)
+In this case, it is a good idea to decrease the number of days to synchronize messages to a minimum (see the previous question)
 or to switch to periodically synchronizing of messages (receive settings).
 
 To reduce data usage, you could change these advanced receive settings:
@@ -1697,8 +1697,8 @@ when trying to decrypt a message with a public key. To fix this you'll need to i
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server.
 You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
 
-The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take.
-Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
+The speed of your device and internet connection and the number of days to synchronize messages determine how long synchronization will take.
+Note that you shouldn't set the number of days to synchronize messages to more than one day in most cases, see also [this FAQ](#user-content-faq39).
 
 <br />
 
@@ -2068,8 +2068,8 @@ The following rule conditions are available:
 * Subject contains
 * Has attachments
 * Header contains
-* Absolute time between (since version 1.1540)
-* Relative time between
+* Absolute time (received) between (since version 1.1540)
+* Relative time (received) between
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
@@ -2789,8 +2789,8 @@ Biometric authentication is a pro feature.
 The format of the settings files of most other email apps is not documented, so this is difficult.
 Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break.
 Also, settings are often incompatible.
-For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for
-and for the number of days to keep messages for, mainly to save on battery usage.
+For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages
+and for the number of days to keep messages, mainly to save on battery usage.
 Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
 <br />
