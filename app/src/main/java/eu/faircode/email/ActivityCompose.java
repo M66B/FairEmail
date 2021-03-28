@@ -42,7 +42,6 @@ import java.util.Map;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int PI_REPLY = 1;
-    static final long UNDO_DELAY = 5000; // milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

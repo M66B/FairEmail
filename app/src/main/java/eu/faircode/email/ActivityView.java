@@ -136,8 +136,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
-    static final String ACTION_SENT_UNDO = BuildConfig.APPLICATION_ID + ".SENT_UNDO";
+    static final String ACTION_UNDO_SEND = BuildConfig.APPLICATION_ID + ".UNDO_SEND";
 
+    private static final long UNDO_SEND_DELAY = 7000; // milliseconds
     private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
     private static final long EXIT_DELAY = 2500L; // milliseconds
     static final long UPDATE_DAILY = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
@@ -159,7 +160,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_NEW_MESSAGE);
-        iff.addAction(ACTION_SENT_UNDO);
+        iff.addAction(ACTION_UNDO_SEND);
         lbm.registerReceiver(creceiver, iff);
 
         if (savedInstanceState != null)
@@ -1301,8 +1302,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             String action = intent.getAction();
             if (ACTION_NEW_MESSAGE.equals(action))
                 onNewMessage(intent);
-            else if (ACTION_SENT_UNDO.equals(action))
-                onSentUndo(intent);
+            else if (ACTION_UNDO_SEND.equals(action))
+                onUndoSend(intent);
         }
     };
 
@@ -1325,8 +1326,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             updatedFolders.add(-1L);
     }
 
-    private void onSentUndo(Intent intent) {
-        undo(ActivityCompose.UNDO_DELAY, getString(R.string.title_sending), null, new Runnable() {
+    private void onUndoSend(Intent intent) {
+        int delayed = intent.getIntExtra("delayed", 0);
+        long scheduled = intent.getLongExtra("scheduled", 0);
+        long now = new Date().getTime();
+        Log.i("Undo send delay=" + UNDO_SEND_DELAY +
+                " delayed=" + delayed +
+                " scheduled=" + new Date(scheduled) +
+                " now=" + new Date(now));
+
+        if (delayed * 1000L < UNDO_SEND_DELAY * 2 || scheduled - now < UNDO_SEND_DELAY * 2)
+            return;
+
+        undo(UNDO_SEND_DELAY, getString(R.string.title_sending), null, new Runnable() {
             @Override
             public void run() {
                 long id = intent.getLongExtra("id", -1);

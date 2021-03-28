@@ -4446,8 +4446,13 @@ public class FragmentCompose extends FragmentBase {
             boolean dirty = false;
             EntityMessage draft;
 
-            DB db = DB.getInstance(context);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean discard_delete = prefs.getBoolean("discard_delete", false);
+            boolean write_below = prefs.getBoolean("write_below", false);
+            boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            int send_delayed = prefs.getInt("send_delayed", 0);
+
+            DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
 
@@ -4463,7 +4468,6 @@ public class FragmentCompose extends FragmentBase {
 
                 if (action == R.id.action_delete) {
                     dirty = true;
-                    boolean discard_delete = prefs.getBoolean("discard_delete", false);
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
                     if (empty || trash == null || discard_delete || (drafts != null && drafts.local))
@@ -4626,7 +4630,6 @@ public class FragmentCompose extends FragmentBase {
 
                         // Get saved body
                         Document d;
-                        boolean write_below = prefs.getBoolean("write_below", false);
                         if (extras != null && extras.containsKey("html")) {
                             // Save current revision
                             Document c = JsoupEx.parse(body);
@@ -4735,7 +4738,6 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
                         if ((dirty || encrypted) && !needsEncryption) {
-                            boolean save_drafts = prefs.getBoolean("save_drafts", true);
                             if (save_drafts)
                                 EntityOperation.queue(context, draft, EntityOperation.ADD);
                         }
@@ -4965,7 +4967,6 @@ public class FragmentCompose extends FragmentBase {
                             db.attachment().setMessage(attachment.id, draft.id);
 
                         // Delay sending message
-                        int send_delayed = prefs.getInt("send_delayed", 0);
                         if (draft.ui_snoozed == null && send_delayed != 0) {
                             if (extras.getBoolean("now"))
                                 draft.ui_snoozed = null;
@@ -5019,13 +5020,13 @@ public class FragmentCompose extends FragmentBase {
                     Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
                     EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
 
-                    if (draft.ui_snoozed - 2 * ActivityCompose.UNDO_DELAY > new Date().getTime()) {
-                        Intent undo = new Intent(ActivityView.ACTION_SENT_UNDO);
-                        undo.putExtra("id", draft.id);
+                    Intent undo = new Intent(ActivityView.ACTION_UNDO_SEND);
+                    undo.putExtra("id", draft.id);
+                    undo.putExtra("delayed", send_delayed);
+                    undo.putExtra("scheduled", draft.ui_snoozed);
 
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(undo);
-                    }
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(undo);
                 }
 
             return draft;
