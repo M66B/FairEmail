@@ -1912,8 +1912,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvReceived.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvReceived.setText(DTF.format(message.received));
 
-            tvStoredTitle.setVisibility(show_addresses && (debug || BuildConfig.DEBUG) ? View.VISIBLE : View.GONE);
-            tvStored.setVisibility(show_addresses && (debug || BuildConfig.DEBUG) ? View.VISIBLE : View.GONE);
+            tvStoredTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvStored.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvStored.setText(DTF.format(message.stored));
 
             if (!message.duplicate)
