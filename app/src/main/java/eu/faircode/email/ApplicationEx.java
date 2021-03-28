@@ -454,6 +454,19 @@ public class ApplicationEx extends Application
         } else if (version < 1539) {
             if (!prefs.contains("double_back"))
                 editor.putBoolean("double_back", true);
+        } else if (version < 1540) {
+            Map<String, ?> all = prefs.getAll();
+            for (String key : all.keySet())
+                if (key.startsWith("widget.") && key.endsWith(".semi")) {
+                    String[] k = key.split("\\.");
+                    if (k.length == 3)
+                        try {
+                            int appWidgetId = Integer.parseInt(k[1]);
+                            editor.remove("widget." + appWidgetId + ".background");
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
