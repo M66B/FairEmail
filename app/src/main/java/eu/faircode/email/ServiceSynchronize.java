@@ -114,7 +114,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private static final long BACKUP_DELAY = 30 * 1000L; // milliseconds
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
-    private static final long QUIT_DELAY = 5 * 1000L; // milliseconds
+    private static final int QUIT_DELAY = 5; // seconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
     static final int DEFAULT_POLL_INTERVAL = 0; // minutes
     private static final int OPTIMIZE_KEEP_ALIVE_INTERVAL = 12; // minutes
@@ -531,15 +531,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 MessageClassifier.save(ServiceSynchronize.this);
                             } else {
                                 // Yield update notifications/widgets
-                                try {
-                                    Thread.sleep(QUIT_DELAY);
-                                } catch (InterruptedException ex) {
-                                    Log.w(ex);
-                                }
+                                for (int i = 0; i < QUIT_DELAY; i++) {
+                                    try {
+                                        Thread.sleep(1000L);
+                                    } catch (InterruptedException ex) {
+                                        Log.w(ex);
+                                    }
 
-                                if (!eventId.equals(lastEventId)) {
-                                    EntityLog.log(ServiceSynchronize.this, "### quit cancelled eventId=" + eventId + "/" + lastEventId);
-                                    return;
+                                    if (!eventId.equals(lastEventId)) {
+                                        EntityLog.log(ServiceSynchronize.this, "### quit cancelled eventId=" + eventId + "/" + lastEventId);
+                                        return;
+                                    }
                                 }
 
                                 // Stop service
