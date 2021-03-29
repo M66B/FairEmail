@@ -152,6 +152,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int PI_ALARM = 1;
     static final int PI_BACKOFF = 2;
     static final int PI_KEEPALIVE = 3;
+    static final int PI_ENABLE = 4;
 
     @Override
     public void onCreate() {
@@ -792,6 +793,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (action != null)
             try {
                 switch (action.split(":")[0]) {
+                    case "enable":
+                        onEnable(intent);
+                        break;
+
                     case "eval":
                         onEval(intent);
                         break;
@@ -825,6 +830,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
 
         return START_STICKY;
+    }
+
+    private void onEnable(Intent intent) {
+        boolean enabled = intent.getBooleanExtra("enabled", true);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putBoolean("enabled", enabled).apply();
+        onEval(intent);
     }
 
     private void onEval(Intent intent) {

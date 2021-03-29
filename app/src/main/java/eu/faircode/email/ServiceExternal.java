@@ -38,10 +38,10 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ServiceExternal extends Service {
-    static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
-    static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
-    static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
-    static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
+    private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
+    private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
+    private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
+    private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
 
     static final int PI_WIDGET_ENABLE = 1;
 

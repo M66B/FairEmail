@@ -39,9 +39,12 @@ public class WidgetSync extends AppWidgetProvider {
         boolean enabled = prefs.getBoolean("enabled", true);
 
         try {
-            Intent intent = new Intent(enabled ? ServiceExternal.ACTION_DISABLE : ServiceExternal.ACTION_ENABLE);
-            PendingIntent pi = PendingIntentCompat.getService(
-                    context, ServiceExternal.PI_WIDGET_ENABLE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent intent = new Intent(context, ServiceSynchronize.class)
+                    .setAction("enable")
+                    .putExtra("enabled", !enabled);
+            PendingIntent pi = PendingIntentCompat.getForegroundService(
+                    context, ServiceSynchronize.PI_ENABLE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
             for (int appWidgetId : appWidgetIds) {
                 boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                 int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
