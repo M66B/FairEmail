@@ -136,7 +136,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
-    static final String ACTION_UNDO_SEND = BuildConfig.APPLICATION_ID + ".UNDO_SEND";
 
     private static final long UNDO_SEND_DELAY = 7000; // milliseconds
     private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
@@ -160,7 +159,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_NEW_MESSAGE);
-        iff.addAction(ACTION_UNDO_SEND);
         lbm.registerReceiver(creceiver, iff);
 
         if (savedInstanceState != null)
@@ -1291,8 +1289,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             String action = intent.getAction();
             if (ACTION_NEW_MESSAGE.equals(action))
                 onNewMessage(intent);
-            else if (ACTION_UNDO_SEND.equals(action))
-                onUndoSend(intent);
         }
     };
 
@@ -1313,46 +1309,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             updatedFolders.add(folder);
         if (unified && !updatedFolders.contains(-1L))
             updatedFolders.add(-1L);
-    }
-
-    private void onUndoSend(Intent intent) {
-        long id = intent.getLongExtra("id", -1);
-        int delayed = intent.getIntExtra("delayed", 0);
-        long scheduled = intent.getLongExtra("scheduled", 0);
-        long now = new Date().getTime();
-        Log.i("Undo send delay=" + UNDO_SEND_DELAY +
-                " delayed=" + delayed +
-                " scheduled=" + new Date(scheduled) +
-                " now=" + new Date(now));
-
-        if (delayed * 1000L < UNDO_SEND_DELAY * 2 || scheduled - now < UNDO_SEND_DELAY * 2)
-            return;
-
-        SimpleTask<Long> task = new SimpleTask<Long>() {
-            @Override
-            protected Long onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-                return ActivityCompose.undoSend(id, context);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Long id) {
-                if (id == null)
-                    return;
-
-                startActivity(
-                        new Intent(ActivityView.this, ActivityCompose.class)
-                                .putExtra("action", "edit")
-                                .putExtra("id", id));
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getSupportFragmentManager(), ex, !(ex instanceof IllegalArgumentException));
-            }
-        };
-
-        undo(UNDO_SEND_DELAY, getString(R.string.title_sending), intent.getExtras(), null, task);
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
