@@ -153,6 +153,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int PI_BACKOFF = 2;
     static final int PI_KEEPALIVE = 3;
     static final int PI_ENABLE = 4;
+    static final int PI_POLL = 5;
 
     @Override
     public void onCreate() {
@@ -814,6 +815,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         onState(intent);
                         break;
 
+                    case "poll":
+                        onPoll(intent);
+                        break;
+
                     case "alarm":
                         onAlarm(intent);
                         break;
@@ -876,6 +881,43 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onState(Intent intent) {
         foreground = intent.getBooleanExtra("foreground", false);
+    }
+
+    private void onPoll(Intent intent) {
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DB db = DB.getInstance(ServiceSynchronize.this);
+                    try {
+                        db.beginTransaction();
+
+                        List<EntityAccount> accounts = db.account().getPollAccounts(null);
+                        for (EntityAccount account : accounts) {
+                            List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                            if (folders.size() > 0)
+                                Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
+                            for (EntityFolder folder : folders)
+                                EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    long now = new Date().getTime();
+                    long[] schedule = ServiceSynchronize.getSchedule(ServiceSynchronize.this);
+                    boolean poll = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+                    schedule(ServiceSynchronize.this, poll, null);
+
+                    // Prevent service stop
+                    eval(ServiceSynchronize.this, "poll");
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void onAlarm(Intent intent) {
@@ -2308,7 +2350,35 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         }
 
-        ServiceUI.schedule(context, poll, at);
+        schedule(context, poll, at);
+    }
+
+    private static void schedule(Context context, boolean poll, Long at) {
+        Intent intent = new Intent(context, ServiceSynchronize.class);
+        intent.setAction("poll");
+        PendingIntent piSync = PendingIntentCompat.getForegroundService(
+                context, PI_POLL, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.cancel(piSync);
+
+        if (at == null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
+            if (poll && enabled && pollInterval > 0) {
+                long now = new Date().getTime();
+                long interval = pollInterval * 60 * 1000L;
+                long next = now + interval - now % interval + 30 * 1000L;
+                if (next < now + interval / 5)
+                    next += interval;
+
+                EntityLog.log(context, "Poll next=" + new Date(next));
+
+                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
+            }
+        } else
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync);
     }
 
     static long[] getSchedule(Context context) {

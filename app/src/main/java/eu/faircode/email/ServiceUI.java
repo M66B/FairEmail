@@ -61,7 +61,7 @@ public class ServiceUI extends IntentService {
     static final int PI_IGNORED = 10;
     static final int PI_THREAD = 11;
     static final int PI_WAKEUP = 12;
-    static final int PI_SYNC = 13;
+
     static final int PI_BANNER = 14;
     static final int PI_EXISTS = 15;
     static final int PI_PROTOCOL = 16;
@@ -169,8 +169,7 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "sync":
-                    boolean reschedule = intent.getBooleanExtra("reschedule", false);
-                    onSync(id, reschedule);
+                    onSync(id);
                     break;
 
                 case "exists":
@@ -543,7 +542,7 @@ public class ServiceUI extends IntentService {
             ServiceSend.start(this);
     }
 
-    private void onSync(long aid, boolean reschedule) {
+    private void onSync(long aid) {
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
@@ -560,13 +559,6 @@ public class ServiceUI extends IntentService {
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
-        }
-
-        if (reschedule) {
-            long now = new Date().getTime();
-            long[] schedule = ServiceSynchronize.getSchedule(this);
-            boolean poll = (schedule == null || (now >= schedule[0] && now < schedule[1]));
-            schedule(this, poll, null);
         }
     }
 
@@ -602,35 +594,6 @@ public class ServiceUI extends IntentService {
     static void sync(Context context, Long account) {
         context.startService(new Intent(context, ServiceUI.class)
                 .setAction(account == null ? "sync" : "sync:" + account));
-    }
-
-    static void schedule(Context context, boolean poll, Long at) {
-        Intent intent = new Intent(context, ServiceUI.class);
-        intent.setAction("sync");
-        intent.putExtra("reschedule", true);
-        PendingIntent piSync = PendingIntentCompat.getService(
-                context, ServiceUI.PI_SYNC, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.cancel(piSync);
-
-        if (at == null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
-            if (poll && enabled && pollInterval > 0) {
-                long now = new Date().getTime();
-                long interval = pollInterval * 60 * 1000L;
-                long next = now + interval - now % interval + 30 * 1000L;
-                if (next < now + interval / 5)
-                    next += interval;
-
-                EntityLog.log(context, "Poll next=" + new Date(next));
-
-                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
-            }
-        } else
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync);
     }
 
     private static PendingIntent getBannerIntent(Context context) {
