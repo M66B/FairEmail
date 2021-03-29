@@ -129,6 +129,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int FAST_FAIL_THRESHOLD = 75; // percent
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
+    private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -154,6 +155,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int PI_KEEPALIVE = 3;
     static final int PI_ENABLE = 4;
     static final int PI_POLL = 5;
+    static final int PI_WATCHDOG = 6;
 
     @Override
     public void onCreate() {
@@ -937,6 +939,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         if (lastNetworkState == null || !lastNetworkState.isSuitable())
             updateNetworkState(null, "watchdog");
+
+        ServiceSend.boot(this);
+
+        scheduleWatchdog(this);
     }
 
     private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
@@ -2470,6 +2476,28 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             Log.e("Schedule invalid start=" + new Date(start) + " end=" + new Date(end));
 
         return new long[]{start, end};
+    }
+
+    static void scheduleWatchdog(Context context) {
+        Intent intent = new Intent(context, ServiceSynchronize.class)
+                .setAction("watchdog");
+        PendingIntent pi;
+        if (isBackgroundService(context))
+            pi = PendingIntentCompat.getService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        else
+            pi = PendingIntentCompat.getForegroundService(context, PI_WATCHDOG, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean watchdog = prefs.getBoolean("watchdog", true);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        if (watchdog && enabled) {
+            long now = new Date().getTime();
+            long trigger = (now / WATCHDOG_INTERVAL) * WATCHDOG_INTERVAL + WATCHDOG_INTERVAL;
+            Log.i("Sync watchdog at " + new Date(trigger));
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // exact
+        } else
+            am.cancel(pi);
     }
 
     static void eval(Context context, String reason) {

@@ -35,6 +35,7 @@ import android.util.Printer;
 import android.webkit.CookieManager;
 
 import androidx.preference.PreferenceManager;
+import androidx.work.WorkManager;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -177,7 +178,9 @@ public class ApplicationEx extends Application
         ServiceSynchronize.watchdog(this);
         ServiceSend.watchdog(this);
 
-        WorkerWatchdog.init(this);
+        ServiceSynchronize.scheduleWatchdog(this);
+        WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
+
         WorkerCleanup.init(this);
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
@@ -192,7 +195,7 @@ public class ApplicationEx extends Application
             case "enabled":
                 ServiceSynchronize.reschedule(this);
                 WorkerCleanup.init(this);
-                WorkerWatchdog.init(this);
+                ServiceSynchronize.scheduleWatchdog(this);
                 WidgetSync.update(this);
                 break;
             case "poll_interval":
@@ -209,7 +212,7 @@ public class ApplicationEx extends Application
                 ServiceSynchronize.reschedule(this);
                 break;
             case "watchdog":
-                WorkerWatchdog.init(this);
+                ServiceSynchronize.scheduleWatchdog(this);
                 break;
             case "secure": // privacy
             case "shortcuts": // misc
