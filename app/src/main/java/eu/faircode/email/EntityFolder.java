@@ -182,6 +182,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("all", new TypeScore(EntityFolder.ARCHIVE, 100));
         put("archive", new TypeScore(EntityFolder.ARCHIVE, 100));
         put("archief", new TypeScore(EntityFolder.ARCHIVE, 100)); // Dutch
+        put("Архив", new TypeScore(EntityFolder.ARCHIVE, 100));
 
         put("draft", new TypeScore(EntityFolder.DRAFTS, 100));
         put("concept", new TypeScore(EntityFolder.DRAFTS, 100));
