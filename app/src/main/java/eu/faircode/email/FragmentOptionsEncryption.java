@@ -136,6 +136,9 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             Log.e(ex);
         }
 
+        if (BuildConfig.DEBUG)
+            openPgpProvider.add("eu.faircode.test");
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter.addAll(openPgpProvider);
@@ -390,17 +393,17 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             if (pgpService != null && pgpService.isBound())
                 pgpService.unbindFromService();
 
-            tvOpenPgpStatus.setText("PGP binding to " + pkg);
+            tvOpenPgpStatus.setText("Connecting to " + pkg);
             pgpService = new OpenPgpServiceConnection(getContext(), pkg, new OpenPgpServiceConnection.OnBound() {
                 @Override
                 public void onBound(IOpenPgpService2 service) {
-                    tvOpenPgpStatus.setText("PGP bound to " + pkg);
+                    tvOpenPgpStatus.setText("Connected to " + pkg);
                 }
 
                 @Override
                 public void onError(Exception ex) {
                     if ("bindService() returned false!".equals(ex.getMessage()))
-                        tvOpenPgpStatus.setText("No OpenPGP providers");
+                        tvOpenPgpStatus.setText("Not connected");
                     else {
                         Log.e(ex);
                         tvOpenPgpStatus.setText(ex.toString());
