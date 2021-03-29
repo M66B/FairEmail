@@ -748,9 +748,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int undo_timeout = prefs.getInt("undo_timeout", 5000);
 
-        if (undo_timeout == 0)
-            move.execute(this, args, "undo:move");
-        else
+        if (undo_timeout == 0) {
+            if (move != null)
+                move.execute(this, args, "undo:move");
+        } else
             undo(undo_timeout, title, args, move, show);
     }
 
