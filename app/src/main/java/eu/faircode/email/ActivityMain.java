@@ -115,7 +115,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         getMainHandler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                ServiceSynchronize.eval(ActivityMain.this, "main");
+                                ServiceSynchronize.watchdog(ActivityMain.this);
                                 ServiceSend.watchdog(ActivityMain.this);
                             }
                         }, SERVICE_START_DELAY);

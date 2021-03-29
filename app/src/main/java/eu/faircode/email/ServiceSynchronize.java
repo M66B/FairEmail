@@ -2502,12 +2502,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static void watchdog(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean enabled = prefs.getBoolean("enabled", true);
-        if (enabled)
-            start(context,
-                    new Intent(context, ServiceSynchronize.class)
-                            .setAction("watchdog"));
+        start(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("watchdog"));
     }
 
     static void restart(Context context) {

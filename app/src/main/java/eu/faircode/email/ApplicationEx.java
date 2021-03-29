@@ -174,15 +174,10 @@ public class ApplicationEx extends Application
 
         DisconnectBlacklist.init(this);
 
-        boolean watchdog = prefs.getBoolean("watchdog", true);
-        boolean enabled = prefs.getBoolean("enabled", true);
-        if (watchdog && enabled)
-            WorkerWatchdog.init(this);
-        else {
-            ServiceSynchronize.watchdog(this);
-            ServiceSend.watchdog(this);
-        }
+        ServiceSynchronize.watchdog(this);
+        ServiceSend.watchdog(this);
 
+        WorkerWatchdog.init(this);
         WorkerCleanup.init(this);
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
