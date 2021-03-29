@@ -2877,6 +2877,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 ev.setDateEnd(event.getDateEnd());
 
                             InternetAddress to = (InternetAddress) message.to[0];
+                            EntityIdentity identity = db.identity().getIdentity(message.identity);
+                            for (Address recipient: message.to) {
+                                if (identity.similarAddress(recipient)) {
+                                    to = (InternetAddress) recipient;
+                                    break;
+                                }
+                            }
                             Attendee attendee = new Attendee(to.getPersonal(), to.getAddress());
 
                             if (action == R.id.btnCalendarAccept) {
