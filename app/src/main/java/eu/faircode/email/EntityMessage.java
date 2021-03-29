@@ -463,7 +463,7 @@ public class EntityMessage implements Serializable {
             am.cancel(pi);
         } else {
             Log.i("Set snooze id=" + id + " wakeup=" + new Date(wakeup));
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, wakeup, pi);
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, wakeup, pi); // indirect exact
         }
     }
 

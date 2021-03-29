@@ -1793,7 +1793,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             long trigger = System.currentTimeMillis() + duration;
                             EntityLog.log(this, "### " + account.name + " keep alive" +
                                     " wait=" + account.poll_interval + " until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
+                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // inexact
 
                             try {
                                 wlAccount.release();
@@ -2001,7 +2001,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         try {
                             long trigger = System.currentTimeMillis() + backoff * 1000L;
                             EntityLog.log(this, "### " + account.name + " backoff until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
+                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // inexact
 
                             try {
                                 db.account().setAccountBackoff(account.id, trigger);
@@ -2344,7 +2344,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             Log.i("Schedule next=" + new Date(next));
             Log.i("Schedule poll=" + poll);
 
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi); // exact
 
             if (sync & poll) {
                 at = now + 30 * 1000L;
@@ -2377,10 +2377,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 EntityLog.log(context, "Poll next=" + new Date(next));
 
-                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
+                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync); // exact
             }
         } else
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync);
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync); // exact
     }
 
     static long[] getSchedule(Context context) {
