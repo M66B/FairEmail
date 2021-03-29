@@ -1011,7 +1011,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             intent.removeExtra("refresh");
             setIntent(intent);
 
-            ServiceUI.sync(this, null);
+            int version = intent.getIntExtra("version", 0);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
+            boolean sync_on_launch = prefs.getBoolean("sync_on_launch", false);
+            if (sync_on_launch || version < 1541)
+                ServiceUI.sync(this, null);
         }
 
         String action = intent.getAction();

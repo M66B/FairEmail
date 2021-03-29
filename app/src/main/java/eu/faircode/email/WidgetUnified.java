@@ -48,12 +48,14 @@ public class WidgetUnified extends AppWidgetProvider {
             int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
             int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
             int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
+            int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
             Intent view = new Intent(context, ActivityView.class);
             view.setAction("folder:" + folder);
             view.putExtra("account", account);
             view.putExtra("type", type);
             view.putExtra("refresh", true);
+            view.putExtra("version", version);
             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             PendingIntent pi = PendingIntentCompat.getActivity(
                     context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);

@@ -163,6 +163,7 @@ public class ActivityWidget extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".layout", rbNew.isChecked() ? 1 : 0);
+                editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
                 editor.apply();
 
                 Widget.init(ActivityWidget.this, appWidgetId);

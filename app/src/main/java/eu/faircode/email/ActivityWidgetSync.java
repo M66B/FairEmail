@@ -102,6 +102,7 @@ public class ActivityWidgetSync extends ActivityBase {
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
+                editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
                 editor.apply();
 
                 WidgetSync.init(ActivityWidgetSync.this, appWidgetId);

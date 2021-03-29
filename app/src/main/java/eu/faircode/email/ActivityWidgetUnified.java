@@ -155,6 +155,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".font", spFontSize.getSelectedItemPosition());
                 editor.putInt("widget." + appWidgetId + ".padding", spPadding.getSelectedItemPosition());
+                editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
 
                 editor.apply();
 

@@ -60,6 +60,7 @@ public class Widget extends AppWidgetProvider {
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                     int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
+                    int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
                     List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
                     if (folders == null)
@@ -72,6 +73,7 @@ public class Widget extends AppWidgetProvider {
                         view.putExtra("account", account);
                         view.putExtra("type", folders.get(0).type);
                         view.putExtra("refresh", true);
+                        view.putExtra("version", version);
                         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         pi = PendingIntentCompat.getActivity(
                                 context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -80,6 +82,7 @@ public class Widget extends AppWidgetProvider {
                             Intent view = new Intent(context, ActivityView.class);
                             view.setAction("unified");
                             view.putExtra("refresh", true);
+                            view.putExtra("version", version);
                             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             pi = PendingIntentCompat.getActivity(
                                     context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -87,6 +90,7 @@ public class Widget extends AppWidgetProvider {
                             Intent view = new Intent(context, ActivityView.class);
                             view.setAction("folders:" + account);
                             view.putExtra("refresh", true);
+                            view.putExtra("version", version);
                             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             pi = PendingIntentCompat.getActivity(
                                     context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
