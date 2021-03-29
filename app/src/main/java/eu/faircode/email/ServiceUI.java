@@ -19,17 +19,14 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
-import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.RemoteInput;
 import androidx.preference.PreferenceManager;
 
@@ -62,12 +59,7 @@ public class ServiceUI extends IntentService {
     static final int PI_THREAD = 11;
     static final int PI_WAKEUP = 12;
 
-    static final int PI_BANNER = 14;
     static final int PI_EXISTS = 15;
-    static final int PI_PROTOCOL = 16;
-
-    static final int HIDE_BANNER = 3; // weeks
-    static final int DISABLE_PROTOCOL = 30; // minutes
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -175,15 +167,6 @@ public class ServiceUI extends IntentService {
                 case "exists":
                     onExists(id);
                     break;
-
-                case "daily":
-                case "banner":
-                    onBanner();
-                    break;
-
-                case "protocol":
-                    onProtocol();
-                    return; // No eval
 
                 default:
                     throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
@@ -581,77 +564,8 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onBanner() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().remove("banner_hidden").apply();
-    }
-
-    private void onProtocol() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().remove("protocol").apply();
-    }
-
     static void sync(Context context, Long account) {
         context.startService(new Intent(context, ServiceUI.class)
                 .setAction(account == null ? "sync" : "sync:" + account));
-    }
-
-    private static PendingIntent getBannerIntent(Context context) {
-        Intent intent = new Intent(context, ServiceUI.class);
-        intent.setAction("banner");
-        return PendingIntentCompat.getService(
-                context, ServiceUI.PI_BANNER, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    static void scheduleBanner(Context context, boolean set) {
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (set) {
-            long now = new Date().getTime();
-            long interval = AlarmManager.INTERVAL_DAY * HIDE_BANNER * 7;
-            long due = interval - (now % interval);
-            long trigger = now + due;
-            Log.i("Set banner alarm at " + new Date(trigger) + " due=" + due);
-            am.set(AlarmManager.RTC, trigger, getBannerIntent(context));
-            prefs.edit().putLong("banner_hidden", trigger).apply();
-        } else {
-            Log.i("Cancel banner alarm");
-            am.cancel(getBannerIntent(context));
-            prefs.edit().remove("banner_hidden").apply();
-        }
-    }
-
-    private static PendingIntent getProtocolIntent(Context context) {
-        Intent intent = new Intent(context, ServiceUI.class);
-        intent.setAction("protocol");
-        return PendingIntentCompat.getService(
-                context, ServiceUI.PI_PROTOCOL, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    static void scheduleProtocol(Context context, boolean set) {
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        if (set) {
-            long interval = DISABLE_PROTOCOL * 60 * 1000L;
-            long trigger = new Date().getTime() + interval;
-            Log.i("Set protocol alarm at " + new Date(trigger));
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC, trigger, getProtocolIntent(context));
-        } else {
-            Log.i("Cancel protocol alarm");
-            am.cancel(getProtocolIntent(context));
-        }
-    }
-
-    static void boot(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        long banner_hidden = prefs.getLong("banner_hidden", 0);
-        if (banner_hidden > 0) {
-            Log.i("Restore banner alarm at " + new Date(banner_hidden));
-            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            am.set(AlarmManager.RTC, banner_hidden, getBannerIntent(context));
-        }
-
-        boolean protocol = prefs.getBoolean("protocol", false);
-        ServiceUI.scheduleProtocol(context, protocol);
     }
 }

@@ -35,7 +35,6 @@ public class ReceiverAutoStart extends BroadcastReceiver {
 
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
-            ServiceUI.boot(context);
         }
     }
 }

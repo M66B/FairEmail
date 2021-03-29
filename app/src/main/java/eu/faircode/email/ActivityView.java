@@ -383,6 +383,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
 
         checkFirst();
+        checkBanner();
         checkCrash();
 
         Shortcuts.update(this, this);
@@ -819,6 +820,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("first", true))
             new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
+    }
+
+    private void checkBanner() {
+        long now = new Date().getTime();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        long banner_hidden = prefs.getLong("banner_hidden", 0);
+        if (banner_hidden > 0 && now > banner_hidden)
+            prefs.edit().remove("banner_hidden").apply();
     }
 
     private void checkCrash() {
