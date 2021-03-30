@@ -821,7 +821,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         long trigger = System.currentTimeMillis() + delay;
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
-        AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // exact
+        AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
     }
 
     static void watchdog(Context context) {

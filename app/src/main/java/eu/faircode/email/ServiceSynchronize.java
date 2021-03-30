@@ -1899,7 +1899,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             long trigger = System.currentTimeMillis() + duration;
                             EntityLog.log(this, "### " + account.name + " keep alive" +
                                     " wait=" + account.poll_interval + " until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // inexact
+                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
                                 wlAccount.release();
@@ -2107,7 +2107,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         try {
                             long trigger = System.currentTimeMillis() + backoff * 1000L;
                             EntityLog.log(this, "### " + account.name + " backoff until=" + new Date(trigger));
-                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // inexact
+                            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi);
 
                             try {
                                 db.account().setAccountBackoff(account.id, trigger);
@@ -2450,7 +2450,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             Log.i("Schedule next=" + new Date(next));
             Log.i("Schedule poll=" + poll);
 
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi); // exact
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
 
             if (sync & poll) {
                 at = now + 30 * 1000L;
@@ -2483,10 +2483,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 EntityLog.log(context, "Poll next=" + new Date(next));
 
-                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync); // exact
+                AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piSync);
             }
         } else
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync); // exact
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, at, piSync);
     }
 
     static long[] getSchedule(Context context) {
@@ -2597,7 +2597,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (next < now + WATCHDOG_INTERVAL / 5)
                 next += WATCHDOG_INTERVAL;
             Log.i("Sync watchdog at " + new Date(next));
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi); // exact
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi);
         } else
             am.cancel(pi);
     }
