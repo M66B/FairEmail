@@ -153,11 +153,7 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "wakeup":
-                    // AlarmManager.RTC_WAKEUP
-                    // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
-                    // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
-                    // https://developer.android.com/reference/android/app/AlarmManager
-                    onWakeup(id);
+                    // ignore
                     break;
 
                 case "sync":
@@ -444,87 +440,6 @@ public class ServiceUI extends IntentService {
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(folder.type));
             startActivity(thread);
         }
-    }
-
-    private void onWakeup(long id) {
-        EntityFolder folder;
-
-        DB db = DB.getInstance(this);
-        try {
-            db.beginTransaction();
-
-            EntityMessage message = db.message().getMessage(id);
-            if (message == null)
-                return;
-
-            folder = db.folder().getFolder(message.folder);
-            if (folder == null)
-                return;
-
-            if (EntityFolder.OUTBOX.equals(folder.type)) {
-                Log.i("Delayed send id=" + message.id);
-                if (message.ui_snoozed != null) {
-                    db.message().setMessageSnoozed(message.id, null);
-                    EntityOperation.queue(this, message, EntityOperation.SEND);
-                }
-            } else {
-                if (folder.notify) {
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-
-                    // A new message ID is needed for a new (wearable) notification
-                    db.message().deleteMessage(id);
-
-                    message.id = null;
-                    message.fts = false;
-                    message.id = db.message().insertMessage(message);
-
-                    if (message.content) {
-                        File source = EntityMessage.getFile(this, id);
-                        File target = message.getFile(this);
-                        try {
-                            Helper.copy(source, target);
-                        } catch (IOException ex) {
-                            Log.e(ex);
-                            db.message().resetMessageContent(message.id);
-                        }
-                    }
-
-                    for (EntityAttachment attachment : attachments) {
-                        File source = attachment.getFile(this);
-
-                        attachment.id = null;
-                        attachment.message = message.id;
-                        attachment.progress = null;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-
-                        if (attachment.available) {
-                            File target = attachment.getFile(this);
-                            try {
-                                Helper.copy(source, target);
-                            } catch (IOException ex) {
-                                Log.e(ex);
-                                db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
-                            }
-                        }
-                    }
-                }
-
-                db.message().setMessageSnoozed(message.id, null);
-                if (!message.ui_ignored) {
-                    db.message().setMessageUnsnoozed(message.id, true);
-                    EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
-                }
-            }
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-
-        if (EntityFolder.OUTBOX.equals(folder.type))
-            ServiceSend.start(this);
-        else
-            ServiceSynchronize.eval(this, "unsnooze");
     }
 
     private void onSync(long aid) {

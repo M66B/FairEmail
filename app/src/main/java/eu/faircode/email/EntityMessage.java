@@ -452,10 +452,10 @@ public class EntityMessage implements Serializable {
     }
 
     static void snooze(Context context, long id, Long wakeup) {
-        Intent snoozed = new Intent(context, ServiceUI.class);
-        snoozed.setAction("wakeup:" + id);
-        PendingIntent pi = PendingIntentCompat.getService(
-                context, ServiceUI.PI_WAKEUP, snoozed, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent snoozed = new Intent(context, ServiceSynchronize.class);
+        snoozed.setAction("unsnooze:" + id);
+        PendingIntent pi = PendingIntentCompat.getForegroundService(
+                context, ServiceSynchronize.PI_UNSNOOZE, snoozed, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (wakeup == null || wakeup == Long.MAX_VALUE) {

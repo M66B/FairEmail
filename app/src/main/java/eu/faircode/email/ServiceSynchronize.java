@@ -56,6 +56,8 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -156,6 +158,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int PI_ENABLE = 4;
     static final int PI_POLL = 5;
     static final int PI_WATCHDOG = 6;
+    static final int PI_UNSNOOZE = 7;
 
     @Override
     public void onCreate() {
@@ -815,6 +818,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         onWakeup(intent);
                         break;
 
+                    case "unsnooze":
+                        onUnsnooze(intent);
+                        break;
+
                     case "state":
                         onState(intent);
                         break;
@@ -881,6 +888,99 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (!state.release())
                 EntityLog.log(this, "### waking up failed account=" + account);
         }
+    }
+
+    private void onUnsnooze(Intent intent) {
+        String action = intent.getAction();
+        long id = Long.parseLong(action.split(":")[1]);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    EntityFolder folder;
+
+                    DB db = DB.getInstance(ServiceSynchronize.this);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return;
+
+                        folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            return;
+
+                        if (EntityFolder.OUTBOX.equals(folder.type)) {
+                            Log.i("Delayed send id=" + message.id);
+                            if (message.ui_snoozed != null) {
+                                db.message().setMessageSnoozed(message.id, null);
+                                EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEND);
+                            }
+                        } else {
+                            if (folder.notify) {
+                                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+
+                                // A new message ID is needed for a new (wearable) notification
+                                db.message().deleteMessage(id);
+
+                                message.id = null;
+                                message.fts = false;
+                                message.id = db.message().insertMessage(message);
+
+                                if (message.content) {
+                                    File source = EntityMessage.getFile(ServiceSynchronize.this, id);
+                                    File target = message.getFile(ServiceSynchronize.this);
+                                    try {
+                                        Helper.copy(source, target);
+                                    } catch (IOException ex) {
+                                        Log.e(ex);
+                                        db.message().resetMessageContent(message.id);
+                                    }
+                                }
+
+                                for (EntityAttachment attachment : attachments) {
+                                    File source = attachment.getFile(ServiceSynchronize.this);
+
+                                    attachment.id = null;
+                                    attachment.message = message.id;
+                                    attachment.progress = null;
+                                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                                    if (attachment.available) {
+                                        File target = attachment.getFile(ServiceSynchronize.this);
+                                        try {
+                                            Helper.copy(source, target);
+                                        } catch (IOException ex) {
+                                            Log.e(ex);
+                                            db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
+                                        }
+                                    }
+                                }
+                            }
+
+                            db.message().setMessageSnoozed(message.id, null);
+                            if (!message.ui_ignored) {
+                                db.message().setMessageUnsnoozed(message.id, true);
+                                EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEEN, false, false);
+                            }
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    if (EntityFolder.OUTBOX.equals(folder.type))
+                        ServiceSend.start(ServiceSynchronize.this);
+                    else
+                        ServiceSynchronize.eval(ServiceSynchronize.this, "unsnooze");
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void onState(Intent intent) {
