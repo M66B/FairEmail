@@ -97,12 +97,12 @@
             android:id="@+id/grp2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="two,title2" />
+            app:constraint_referenced_ids="two,title2,tvPermissions" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grp3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="three,title3" />
+            app:constraint_referenced_ids="three,title3,tvDoze" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
