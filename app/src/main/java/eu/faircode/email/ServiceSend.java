@@ -75,9 +75,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
-    private static final int PI_SEND = 1;
     private static final int RETRY_MAX = 3;
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
+
+    static final int PI_SEND = 1;
+    static final int PI_EXISTS = 2;
 
     @Override
     public void onCreate() {
@@ -193,6 +195,24 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
+
+        Log.i("Send intent=" + intent);
+        Log.logExtras(intent);
+
+        if (intent == null)
+            return START_STICKY;
+
+        String action = intent.getAction();
+        if (action == null)
+            return START_STICKY;
+
+        String[] parts = action.split(":");
+        switch (parts[0]) {
+            case "exists":
+                onExists(intent);
+                break;
+        }
+
         return START_STICKY;
     }
 
@@ -725,6 +745,38 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
             ServiceSynchronize.eval(this, "orphan");
         }
+    }
+
+    private void onExists(Intent intent) {
+        String action = intent.getAction();
+        long id = Long.parseLong(action.split(":")[1]);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DB db = DB.getInstance(ServiceSend.this);
+
+                    try {
+                        db.beginTransaction();
+
+                        // Message could have been deleted in the meantime
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return;
+
+                        EntityOperation.queue(ServiceSend.this, message, EntityOperation.EXISTS, true);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     static void boot(final Context context) {

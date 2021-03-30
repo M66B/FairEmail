@@ -1705,10 +1705,10 @@ class Core {
         else if (imessages == null || imessages.length == 0) {
             long next = new Date().getTime() + EXISTS_RETRY_DELAY;
 
-            Intent intent = new Intent(context, ServiceUI.class);
+            Intent intent = new Intent(context, ServiceSend.class);
             intent.setAction("exists:" + message.id);
-            PendingIntent piExists = PendingIntentCompat.getService(
-                    context, ServiceUI.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent piExists = PendingIntentCompat.getForegroundService(
+                    context, ServiceSend.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, piExists); // inexact

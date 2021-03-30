@@ -57,9 +57,6 @@ public class ServiceUI extends IntentService {
     static final int PI_SNOOZE = 9;
     static final int PI_IGNORED = 10;
     static final int PI_THREAD = 11;
-    static final int PI_WAKEUP = 12;
-
-    static final int PI_EXISTS = 15;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -161,7 +158,7 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "exists":
-                    onExists(id);
+                    // ignore
                     break;
 
                 default:
@@ -455,25 +452,6 @@ public class ServiceUI extends IntentService {
                 for (EntityFolder folder : folders)
                     EntityOperation.sync(this, folder.id, false);
             }
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-    }
-
-    private void onExists(long id) {
-        DB db = DB.getInstance(this);
-
-        try {
-            db.beginTransaction();
-
-            // Message could have been deleted in the meantime
-            EntityMessage message = db.message().getMessage(id);
-            if (message == null)
-                return;
-
-            EntityOperation.queue(this, message, EntityOperation.EXISTS, true);
 
             db.setTransactionSuccessful();
         } finally {
