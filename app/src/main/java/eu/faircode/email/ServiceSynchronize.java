@@ -2477,7 +2477,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (poll && enabled && pollInterval > 0) {
                 long now = new Date().getTime();
                 long interval = pollInterval * 60 * 1000L;
-                long next = now + interval - now % interval + 30 * 1000L;
+                long next = now - now % interval + interval + 30 * 1000L;
                 if (next < now + interval / 5)
                     next += interval;
 
@@ -2593,9 +2593,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         boolean enabled = prefs.getBoolean("enabled", true);
         if (watchdog && enabled) {
             long now = new Date().getTime();
-            long trigger = (now / WATCHDOG_INTERVAL) * WATCHDOG_INTERVAL + WATCHDOG_INTERVAL;
-            Log.i("Sync watchdog at " + new Date(trigger));
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, trigger, pi); // exact
+            long next = now - now % WATCHDOG_INTERVAL + WATCHDOG_INTERVAL;
+            if (next < now + WATCHDOG_INTERVAL / 5)
+                next += WATCHDOG_INTERVAL;
+            Log.i("Sync watchdog at " + new Date(next));
+            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi); // exact
         } else
             am.cancel(pi);
     }
