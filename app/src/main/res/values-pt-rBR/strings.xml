@@ -1004,7 +1004,6 @@
     <string name="title_rule_subject">Assunto contém</string>
     <string name="title_rule_attachments">Possui anexos</string>
     <string name="title_rule_header">Cabeçalho contém</string>
-    <string name="title_rule_time">Tempo entre</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Ação</string>

@@ -888,6 +888,7 @@
     <string name="title_discard">Zahodit</string>
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
+    <string name="title_sending">Odesílání &#8230;</string>
     <string name="title_send_now">Odeslat nyní</string>
     <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
@@ -1103,7 +1104,8 @@
     <string name="title_rule_subject">Předmět obsahuje</string>
     <string name="title_rule_attachments">Má přílohy</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
-    <string name="title_rule_time">Čas mezi</string>
+    <string name="title_rule_time_after">Přijato po</string>
+    <string name="title_rule_time_before">Přijato před</string>
     <string name="title_rule_regex">Regulární výraz</string>
     <string name="title_rule_and">A</string>
     <string name="title_rule_action">Akce</string>

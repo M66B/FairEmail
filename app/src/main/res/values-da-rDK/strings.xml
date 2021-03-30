@@ -360,6 +360,7 @@
     <string name="title_advanced_swipe_close">Stryg nedad for at lukke samtale</string>
     <string name="title_advanced_swipe_move">Stryg opad for at flytte samtale</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
+    <string name="title_advanced_expand_first">Udvid automatisk den første besked, når konversationen læses</string>
     <string name="title_advanced_expand_all">Auto-udvid alle læste beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
@@ -1073,7 +1074,10 @@
     <string name="title_rule_subject">Emne indeholder</string>
     <string name="title_rule_attachments">Har vedhæftninger</string>
     <string name="title_rule_header">Overskrift indeholder</string>
-    <string name="title_rule_time">Tid mellem</string>
+    <string name="title_rule_time_abs">Absolut tid (modtaget) mellem</string>
+    <string name="title_rule_time_after">Modtaget efter</string>
+    <string name="title_rule_time_before">Modtaget før</string>
+    <string name="title_rule_time_rel">Absolut tid (modtaget) mellem</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OG</string>
     <string name="title_rule_action">Handling</string>

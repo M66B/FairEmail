@@ -375,6 +375,7 @@
     <string name="title_advanced_swipe_close">Проведіть униз, щоб закрити розмову</string>
     <string name="title_advanced_swipe_move">Проведіть пальцем угору, щоб перемістити розмову</string>
     <string name="title_advanced_autoexpand">Автоматично розгортати повідомлення</string>
+    <string name="title_advanced_expand_first">Автоматично розширювати перше повідомлення, коли розмова прочитана</string>
     <string name="title_advanced_expand_all">Автоматично розгортати всі прочитані повідомлення</string>
     <string name="title_advanced_expand_one">Розгортати лише одне повідомлення за один раз</string>
     <string name="title_advanced_collapse_multiple">Згорнути повідомлення в розмові з декількома повідомленнями при натисканні \'назад\'</string>
@@ -881,6 +882,7 @@
     <string name="title_discard">Відхилити</string>
     <string name="title_save">Зберегти</string>
     <string name="title_send">Надсилання</string>
+    <string name="title_sending">Надсилання &#8230;</string>
     <string name="title_send_now">Надіслати зараз</string>
     <string name="title_send_via">Надіслати через</string>
     <string name="title_send_at">Надіслати о &#8230;</string>
@@ -1096,7 +1098,6 @@
     <string name="title_rule_subject">Тема містить</string>
     <string name="title_rule_attachments">Є вкладення</string>
     <string name="title_rule_header">Заголовок містить</string>
-    <string name="title_rule_time">Час між</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
     <string name="title_rule_action">Дія</string>

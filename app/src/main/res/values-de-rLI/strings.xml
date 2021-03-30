@@ -366,7 +366,7 @@
     <string name="title_advanced_swipe_close">Zum Schließen der Unterhaltung nach unten wischen</string>
     <string name="title_advanced_swipe_move">Zum Verschieben der Unterhaltung nach oben wischen</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
-    <string name="title_advanced_expand_first">Automatisch die erste Nachricht erweitern, wenn die Unterhaltung gelesen wurde</string>
+    <string name="title_advanced_expand_first">Automatisch die erste Nachricht erweitern, wenn die Unterhaltung gelesen wird</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht erweitern</string>
     <string name="title_advanced_collapse_multiple">Nachrichten, in einer Unterhaltung mit mehreren Nachrichten, bei »Zurück« zusammenfassen</string>
@@ -873,6 +873,7 @@
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
+    <string name="title_sending">Wird gesendet &#8230;</string>
     <string name="title_send_now">Sofort</string>
     <string name="title_send_via">Senden über</string>
     <string name="title_send_at">Später senden &#8230;</string>
@@ -1086,10 +1087,10 @@
     <string name="title_rule_subject">Betreff enthält</string>
     <string name="title_rule_attachments">Anhang vorhanden</string>
     <string name="title_rule_header">Kopfzeile enthält</string>
-    <string name="title_rule_date">Datumsbereich</string>
-    <string name="title_rule_date_after">Datum ist nach</string>
-    <string name="title_rule_date_before">Datum ist vor</string>
-    <string name="title_rule_time">Zeit zwischen</string>
+    <string name="title_rule_time_abs">Absolute Zeit (empfangen) zwischen</string>
+    <string name="title_rule_time_after">Erhalten ab</string>
+    <string name="title_rule_time_before">Erhalten bis</string>
+    <string name="title_rule_time_rel">Relative Zeit (empfangen) zwischen</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>

@@ -1077,7 +1077,6 @@
     <string name="title_rule_subject">Tárgy tartalmazza</string>
     <string name="title_rule_attachments">Rendelkezik melléklettel</string>
     <string name="title_rule_header">Fejléc tartalmazza</string>
-    <string name="title_rule_time">Idő közötte</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">ÉS</string>
     <string name="title_rule_action">Művelet</string>

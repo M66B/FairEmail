@@ -386,7 +386,7 @@
     <string name="title_advanced_swipe_close">Przesuń palcem w dół, aby zamknąć rozmowę</string>
     <string name="title_advanced_swipe_move">Przesuń w górę, aby przenieść konwersację</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
-    <string name="title_advanced_expand_first">Automatycznie rozwiń pierwszą wiadomość, gdy konwersacja została przeczytana</string>
+    <string name="title_advanced_expand_first">Automatycznie rozwiń pierwszą wiadomość po przeczytaniu rozmowy</string>
     <string name="title_advanced_expand_all">Automatycznie rozwiń wszystkie przeczytane wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
     <string name="title_advanced_collapse_multiple">Zwiń wiadomości w rozmowie z wieloma wiadomościami przy \'wstecz\'</string>
@@ -894,6 +894,7 @@
     <string name="title_discard">Odrzuć</string>
     <string name="title_save">Zapisz</string>
     <string name="title_send">Wyślij</string>
+    <string name="title_sending">Wysyłanie&#8230;</string>
     <string name="title_send_now">Wyślij teraz</string>
     <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
@@ -1109,10 +1110,10 @@
     <string name="title_rule_subject">Tytuł zawiera</string>
     <string name="title_rule_attachments">Zawiera załącznik</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
-    <string name="title_rule_date">Zakres dat</string>
-    <string name="title_rule_date_after">Data po</string>
-    <string name="title_rule_date_before">Data przed</string>
-    <string name="title_rule_time">Czas pomiędzy</string>
+    <string name="title_rule_time_abs">Całkowity czas (otrzymany) między</string>
+    <string name="title_rule_time_after">Otrzymane po</string>
+    <string name="title_rule_time_before">Otrzymane przed</string>
+    <string name="title_rule_time_rel">Względny czas (otrzymany) między</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>

@@ -365,6 +365,7 @@
     <string name="title_advanced_swipe_close">Deslice hacia abajo para cerrar la conversación</string>
     <string name="title_advanced_swipe_move">Deslice hacia arriba para mover la conversación</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
+    <string name="title_advanced_expand_first">Expandir automáticamente el primer mensaje cuando se lea la conversación</string>
     <string name="title_advanced_expand_all">Expandir automáticamente todos los mensajes leídos</string>
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
     <string name="title_advanced_collapse_multiple">Colapsar mensajes en una conversación con varios mensajes al ir \'atrás\'</string>
@@ -872,6 +873,7 @@
     <string name="title_discard">Descartar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_sending">Enviando &#8230;</string>
     <string name="title_send_now">Enviar ahora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar a &#8230;</string>
@@ -1087,7 +1089,10 @@
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_attachments">Tiene adjuntos</string>
     <string name="title_rule_header">Encabezado contiene</string>
-    <string name="title_rule_time">Tiempo entre</string>
+    <string name="title_rule_time_abs">Tiempo absoluto (recibido) entre</string>
+    <string name="title_rule_time_after">Recibido después de</string>
+    <string name="title_rule_time_before">Recibido antes de</string>
+    <string name="title_rule_time_rel">Tiempo relativo (recibido) entre</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>

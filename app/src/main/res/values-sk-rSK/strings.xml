@@ -1098,7 +1098,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_subject">Predmet obsahuje</string>
     <string name="title_rule_attachments">Má prílohy</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
-    <string name="title_rule_time">Čas medzi</string>
     <string name="title_rule_regex">Regulárny výraz</string>
     <string name="title_rule_and">A</string>
     <string name="title_rule_action">Akcia</string>

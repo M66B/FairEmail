@@ -975,7 +975,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Recipient already specified* przeważnie oznacza, że adres jest używany zarówno jako adres DO, jak i DW
 * *554 5.7.1 ... not permitted to relay* means that the email server does not recognize the username/email address. Please double check the host name and username/email address in the identity settings.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
-* *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgong message as harmful.
+* *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgoing message as harmful.
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
 * *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: please [see here](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) or [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 
@@ -1266,7 +1266,7 @@ Most of the battery usage, not considering viewing messages, is due to synchroni
 
 If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages, but leave the number of days to keep messages. After decreasing the number of days to keep messages, you might want to run the cleanup in the miscellaneous settings to remove old files.
 
 In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
@@ -1303,7 +1303,7 @@ You can reduce the data usage basically in the same way as reducing battery usag
 
 It is inevitable that data will be used to synchronize messages.
 
-If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
+If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
 To reduce data usage, you could change these advanced receive settings:
 
@@ -1398,7 +1398,7 @@ You'll get the message *This key is not available. To use it, you must import it
 
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server. You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
 
-The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take. Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
+The speed of your device and internet connection and the number of days to synchronize messages determine how long synchronization will take. Note that you shouldn't set the number of days to synchronize messages to more than one day in most cases, see also [this FAQ](#user-content-faq39).
 
 <br />
 
@@ -1700,7 +1700,8 @@ The following rule conditions are available:
 * Subject contains
 * Has attachments
 * Header contains
-* Day/time between
+* Absolute time (received) between (since version 1.1540)
+* Relative time (received) between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
 
@@ -2290,7 +2291,7 @@ Biometric authentication is a pro feature.
 <a name="faq114"></a>
 **(114) Can you add an import for the settings of other email apps?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for and for the number of days to keep messages for, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
+The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
 <br />
 

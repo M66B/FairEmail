@@ -364,6 +364,7 @@
     <string name="title_advanced_swipe_close">Pyyhkäise alas sulkeaksesi keskustelun</string>
     <string name="title_advanced_swipe_move">Pyyhkäise ylös siirtääksesi keskustelun</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
+    <string name="title_advanced_expand_first">Laajenna ensimmäinen viesti automaattisesti, kun keskustelu on luettu</string>
     <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
@@ -510,6 +511,7 @@
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
     <string name="title_advanced_language_detection_hint">Kielen tunnistuksen tuki riippuu laitteen valmistajasta</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
+    <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien edistyneissä asetuksissa</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_bcc_hint">Osoitetta ei näytetä, mutta se lisätään lähetettäessä</string>
@@ -869,6 +871,7 @@
     <string name="title_discard">Hylkää</string>
     <string name="title_save">Tallenna</string>
     <string name="title_send">Lähetä</string>
+    <string name="title_sending">Lähetetään &#8230;</string>
     <string name="title_send_now">Lähetä heti</string>
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
@@ -1008,6 +1011,7 @@
     <string name="title_search_flag_hidden">piilotettu</string>
     <string name="title_search_flag_encrypted">salattu</string>
     <string name="title_search_flag_attachments">liitteet</string>
+    <string name="title_search_flag_notes">muistiinpanot</string>
     <string name="title_search_flag_invite">kutsu</string>
     <string name="title_search_flag_size">koko &gt; %1$s</string>
     <string name="title_search_device">Hae laitteesta</string>
@@ -1083,7 +1087,10 @@
     <string name="title_rule_subject">Aihe sisältää</string>
     <string name="title_rule_attachments">Sisältää liitteitä</string>
     <string name="title_rule_header">Tunnistetiedot sisältävät</string>
-    <string name="title_rule_time">Aika välillä</string>
+    <string name="title_rule_time_abs">Absoluuttinen aika (vastaanotettu) välillä</string>
+    <string name="title_rule_time_after">Vastaanotettu jälkeen</string>
+    <string name="title_rule_time_before">Vastaanotettu ennen</string>
+    <string name="title_rule_time_rel">Suhteellinen aika (vastaanotettu) välillä</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">JA</string>
     <string name="title_rule_action">Toiminto</string>
@@ -1334,6 +1341,7 @@
     <string name="title_unexpected_info_remark">Kuvaile mitä olit tekemässä, kun sait virheen:</string>
     <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
     <string name="title_widget_title_list">Viestilista</string>
+    <string name="title_widget_title_sync">Synkronointi päälle/pois</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_folder">Kansio</string>

@@ -1004,7 +1004,6 @@
     <string name="title_rule_subject">Konu içeriği</string>
     <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
-    <string name="title_rule_time">Aradaki zaman</string>
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
     <string name="title_rule_action">Eylem</string>

@@ -823,7 +823,6 @@
     <string name="title_rule_subject">Zadeva vsebuje</string>
     <string name="title_rule_attachments">Vsebuje priloge</string>
     <string name="title_rule_header">Glava vsebuje</string>
-    <string name="title_rule_time">Čas je med</string>
     <string name="title_rule_regex">Reg. izraz</string>
     <string name="title_rule_and">IN</string>
     <string name="title_rule_action">Dejanje</string>

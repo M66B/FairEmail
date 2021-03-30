@@ -1034,7 +1034,6 @@
     <string name="title_rule_subject">件名に含まれる</string>
     <string name="title_rule_attachments">添付ファイル有り</string>
     <string name="title_rule_header">ヘッダーが含まれています</string>
-    <string name="title_rule_time">時間間隔</string>
     <string name="title_rule_regex">正規表現</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">アクション</string>

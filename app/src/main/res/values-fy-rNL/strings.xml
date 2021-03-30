@@ -1002,7 +1002,6 @@
     <string name="title_rule_subject">Underwerp befettet</string>
     <string name="title_rule_attachments">Underwerp befettet</string>
     <string name="title_rule_header">Koptekst befettet</string>
-    <string name="title_rule_time">Tiid tusken</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Aksje</string>

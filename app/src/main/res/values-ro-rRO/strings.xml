@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
     <string name="app_cake">Spațiu de stocare insuficient rămas</string>
+    <string name="app_updated">Ultima actualizare: %1$s</string>
     <string name="channel_service">Primește</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">E-mail</string>
@@ -277,6 +278,7 @@
     <string name="title_advanced_signature_location">Poziție semnătură</string>
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
+    <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_flow">\'format fluent\' pentru text simplu</string>
     <string name="title_advanced_receipt">Când se cere o confirmare</string>
@@ -374,6 +376,7 @@
     <string name="title_advanced_swipe_close">Glisați în jos pentru a închide conversația</string>
     <string name="title_advanced_swipe_move">Glisați în sus pentru a muta conversația</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
+    <string name="title_advanced_expand_first">Extinde automat primul mesaj atunci când conversația este citită</string>
     <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
     <string name="title_advanced_collapse_multiple">La apăsarea \'înapoi\' restrânge mesajele dintr-o conversație cu mai multe mesaje</string>
@@ -521,6 +524,7 @@
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
     <string name="title_advanced_language_detection_hint">Detectarea limbii depinde de producătorul dispozitivului</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
+    <string name="title_advanced_autoseen_hint">Marcarea automată a mesajelor ca fiind citite la extindere poate fi dezactivată în setările avansate ale fiecărui cont</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_bcc_hint">Adresa nu va fi afișată, dar va fi adăugată la trimitere</string>
@@ -880,6 +884,7 @@
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
+    <string name="title_sending">Se trimite &#8230;</string>
     <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_at">Trimite la &#8230;</string>
@@ -1019,6 +1024,7 @@
     <string name="title_search_flag_hidden">ascuns</string>
     <string name="title_search_flag_encrypted">criptat</string>
     <string name="title_search_flag_attachments">atașamente</string>
+    <string name="title_search_flag_notes">notițe</string>
     <string name="title_search_flag_invite">invitație</string>
     <string name="title_search_flag_size">dimensiune &gt; %1$s</string>
     <string name="title_search_device">Căutare pe dispozitiv</string>
@@ -1094,7 +1100,10 @@
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_attachments">Are atașament</string>
     <string name="title_rule_header">Antetul conține</string>
-    <string name="title_rule_time">Interval de timp</string>
+    <string name="title_rule_time_abs">Timp absolut (primit) între</string>
+    <string name="title_rule_time_after">Primit după</string>
+    <string name="title_rule_time_before">Primit înainte</string>
+    <string name="title_rule_time_rel">Timp relativ (primit) între</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>
     <string name="title_rule_and">ȘI</string>
     <string name="title_rule_action">Acțiune</string>
@@ -1345,6 +1354,7 @@
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>
+    <string name="title_widget_title_sync">Sincronizare pornită/oprită</string>
     <string name="title_widget_account">Cont</string>
     <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_folder">Dosar</string>

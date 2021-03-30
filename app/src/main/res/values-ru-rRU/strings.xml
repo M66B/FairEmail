@@ -387,6 +387,7 @@
     <string name="title_advanced_swipe_close">Смахивание вниз, чтобы закрыть диалог</string>
     <string name="title_advanced_swipe_move">Смахивание вверх, чтобы переместить диалог</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
+    <string name="title_advanced_expand_first">Автоматически разворачивать первое сообщение при чтении диалога</string>
     <string name="title_advanced_expand_all">Автоматически разворачивать все прочитанные сообщения</string>
     <string name="title_advanced_expand_one">Разворачивать только одно сообщение за раз</string>
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
@@ -894,6 +895,7 @@
     <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
+    <string name="title_sending">Отправка&#8230;</string>
     <string name="title_send_now">Отправить сейчас</string>
     <string name="title_send_via">Отправить через</string>
     <string name="title_send_at">Отправить в&#8230;</string>
@@ -1109,7 +1111,10 @@
     <string name="title_rule_subject">\"Тема\" содержит</string>
     <string name="title_rule_attachments">Имеет вложения</string>
     <string name="title_rule_header">Заголовок содержит</string>
-    <string name="title_rule_time">Время между</string>
+    <string name="title_rule_time_abs">Абсолютное время (получения) между</string>
+    <string name="title_rule_time_after">Получено после</string>
+    <string name="title_rule_time_before">Получено до</string>
+    <string name="title_rule_time_rel">Относительное время (получения) между</string>
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>

@@ -767,7 +767,6 @@
     <string name="title_rule_subject">Predmet sadrži</string>
     <string name="title_rule_attachments">Ima priloge</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>
-    <string name="title_rule_time">Vrijeme između</string>
     <string name="title_rule_regex">Regularni izraz</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcija</string>

@@ -365,7 +365,7 @@
     <string name="title_advanced_swipe_close">Σύρετε προς τα κάτω για να κλείσετε μια συζήτηση</string>
     <string name="title_advanced_swipe_move">Σύρετε προς τα πάνω για να μετακινήσετε μια συζήτηση</string>
     <string name="title_advanced_autoexpand">Αυτόματη ανάπτυξη των μηνυμάτων</string>
-    <string name="title_advanced_expand_first">Αυτόματη επέκταση του πρώτου μηνύματος όταν η συνομιλία έχει διαβαστεί</string>
+    <string name="title_advanced_expand_first">Αυτόματη επέκταση του πρώτου μηνύματος, όταν η συνομιλία είναι αναγνωσμένη</string>
     <string name="title_advanced_expand_all">Αυτόματη ανάπτυξη όλων των αναγνωσμένων μηνυμάτων</string>
     <string name="title_advanced_expand_one">Ανάπτυξη μόνο ενός μηνύματος κάθε φορά</string>
     <string name="title_advanced_collapse_multiple">Σύμπτυξη των μηνυμάτων σε μια συζήτηση με πολλαπλά μηνύματα, πατώντας \"πίσω\"</string>
@@ -871,6 +871,7 @@
     <string name="title_discard">Απόρριψη</string>
     <string name="title_save">Αποθήκευση</string>
     <string name="title_send">Αποστολή</string>
+    <string name="title_sending">Αποστέλλεται &#8230;</string>
     <string name="title_send_now">Αποστολή τώρα</string>
     <string name="title_send_via">Αποστολή μέσω</string>
     <string name="title_send_at">Αποστολή στις &#8230;</string>
@@ -1086,10 +1087,10 @@
     <string name="title_rule_subject">Το θέμα περιέχει</string>
     <string name="title_rule_attachments">Έχει συνημμένα</string>
     <string name="title_rule_header">Η κεφαλίδα περιέχει</string>
-    <string name="title_rule_date">Χρονική περίοδος</string>
-    <string name="title_rule_date_after">Ημερομηνία μετά από</string>
-    <string name="title_rule_date_before">Ημερομηνία πριν από</string>
-    <string name="title_rule_time">Χρονικό διάστημα μεταξύ</string>
+    <string name="title_rule_time_abs">Απόλυτος χρόνος (λήψης) μεταξύ</string>
+    <string name="title_rule_time_after">Λήφθηκε μετά από</string>
+    <string name="title_rule_time_before">Λήφθηκε πριν από</string>
+    <string name="title_rule_time_rel">Σχετικός χρόνος (λήψης) μεταξύ</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">ΚΑΙ</string>
     <string name="title_rule_action">Ενέργεια</string>

@@ -365,7 +365,7 @@
     <string name="title_advanced_swipe_close">Balayer vers le bas pour fermer la conversation</string>
     <string name="title_advanced_swipe_move">Balayer vers le haut pour déplacer la conversation</string>
     <string name="title_advanced_autoexpand">Déplier automatiquement les messages</string>
-    <string name="title_advanced_expand_first">Développer automatiquement le premier message lorsque la conversation a été lue</string>
+    <string name="title_advanced_expand_first">Développer automatiquement le premier message lorsque la conversation est lue</string>
     <string name="title_advanced_expand_all">Déplier automatiquement tous les messages lus</string>
     <string name="title_advanced_expand_one">Ne déplier qu’un seul message à la fois</string>
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
@@ -873,6 +873,7 @@
     <string name="title_discard">Abandonner</string>
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
+    <string name="title_sending">Envoi en cours&#8230;</string>
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer via</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
@@ -1088,10 +1089,10 @@
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
-    <string name="title_rule_date">Période</string>
-    <string name="title_rule_date_after">Date postérieure à</string>
-    <string name="title_rule_date_before">Date antérieure à</string>
-    <string name="title_rule_time">Heure comprise entre</string>
+    <string name="title_rule_time_abs">Temps absolu (reçu) entre</string>
+    <string name="title_rule_time_after">Reçu après</string>
+    <string name="title_rule_time_before">Reçu avant</string>
+    <string name="title_rule_time_rel">Temps relatif (reçu) entre</string>
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
     <string name="title_rule_action">Action</string>

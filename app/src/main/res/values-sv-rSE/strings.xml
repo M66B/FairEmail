@@ -1017,7 +1017,6 @@
     <string name="title_rule_subject">Ämnet innehåller</string>
     <string name="title_rule_attachments">Har bilagor</string>
     <string name="title_rule_header">Sidhuvud innehåller</string>
-    <string name="title_rule_time">Tid mellan</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OCH</string>
     <string name="title_rule_action">Åtgärd</string>

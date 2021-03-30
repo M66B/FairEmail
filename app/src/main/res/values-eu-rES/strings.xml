@@ -899,7 +899,6 @@
     <string name="title_rule_subject">Mintzagaiak hau du</string>
     <string name="title_rule_attachments">Eranskinen bat du</string>
     <string name="title_rule_header">Goiburuak hau du</string>
-    <string name="title_rule_time">Ordua hauen artean</string>
     <string name="title_rule_regex">Adierazpen erregularra</string>
     <string name="title_rule_and">ETA</string>
     <string name="title_rule_action">Ekintza</string>

@@ -899,7 +899,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_rule_subject">L\'assumpte conté</string>
     <string name="title_rule_attachments">Té adjunts</string>
     <string name="title_rule_header">La capçalera conté</string>
-    <string name="title_rule_time">Temps entre</string>
     <string name="title_rule_regex">Expressió regular</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Acció</string>

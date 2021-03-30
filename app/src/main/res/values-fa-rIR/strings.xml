@@ -788,7 +788,6 @@
     <string name="title_rule_subject">محتوای موضوع</string>
     <string name="title_rule_attachments">پیوست دارد</string>
     <string name="title_rule_header">سرمتن دارای</string>
-    <string name="title_rule_time">زمان بین</string>
     <string name="title_rule_regex">عبارت منظم</string>
     <string name="title_rule_and">و</string>
     <string name="title_rule_action">کنش</string>

@@ -1006,7 +1006,6 @@
     <string name="title_rule_subject">Emne inneholder</string>
     <string name="title_rule_attachments">Har vedlegg</string>
     <string name="title_rule_header">Overskriften inneholder</string>
-    <string name="title_rule_time">Tid mellom kl</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OG</string>
     <string name="title_rule_action">Handling</string>

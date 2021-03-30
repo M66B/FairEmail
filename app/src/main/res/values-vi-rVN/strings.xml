@@ -269,6 +269,7 @@
     <string name="title_advanced_validated">Yêu cầu kết nối đã xác minh (đã kiểm tra)</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>
+    <string name="title_advanced_ssl_harden">Tăng bảo mật cho các kết nối SSL</string>
     <string name="title_advanced_manage_connectivity">Quản lý sự kết nối</string>
     <string name="title_advanced_caption_general">Cài đặt chung</string>
     <string name="title_advanced_caption_list">Danh sách</string>
@@ -282,6 +283,7 @@
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Dùng kiểu thẻ thay vì kiểu tab</string>
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi sử dụng kiểu thẻ</string>
+    <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
     <string name="title_advanced_threading_unread">Hiện số thư chưa đọc trong các cuộc hội thoại</string>
     <string name="title_advanced_highlight_unread">Đánh dấu các thư chưa đọc</string>
@@ -291,6 +293,7 @@
     <string name="title_advanced_gravatars">Hiện Gravatar</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>
+    <string name="title_advanced_identicons">Hiện biểu tượng danh tính</string>
     <string name="title_advanced_circular">Hiện biểu tượng tròn</string>
     <string name="title_advanced_color_saturation">Độ bão hoà: %1$s %%</string>
     <string name="title_advanced_color_value">Độ sáng: %1$s %%</string>
@@ -383,6 +386,7 @@
     <string name="title_advanced_notify_remove">Xoá thông báo thư mới khi nhấn vào thông báo</string>
     <string name="title_advanced_notify_clear">Xoá các thông báo thư mới khi xem danh sách thư</string>
     <string name="title_advanced_wearable_preview">Chỉ gửi thông báo có phần xem trước thư đến thiết bị đeo</string>
+    <string name="title_advanced_notify_messaging">Sử dụng định dạng thông báo \'kiểu tin nhắn\' của Android</string>
     <string name="title_advanced_biometrics_notify">Hiện nội dung thông báo khi sử dụng xác thực sinh trắc học</string>
     <string name="title_advanced_light">Sử dụng đèn thông báo</string>
     <string name="title_advanced_sound">Chọn âm thanh thông báo</string>
@@ -458,7 +462,9 @@
     <string name="title_advanced_metered_warning">Việc tắt tuỳ chọn này sẽ tắt việc nhận và gửi thư khi dùng kết nối internet di động</string>
     <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
     <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra các vấn đề kết nối ở một số thiết bị</string>
+    <string name="title_advanced_validate_hint">Cái này có thể dẫn đến không đồng bộ hoá thư, ví dụ khi sử dụng VPN, nhưng cũng trong các trường hợp khác</string>
     <string name="title_advanced_timeout_hint">Thời gian chờ đọc/ghi sẽ được đặt thành gấp đôi thời gian chờ kết nối. Các giá trị cao hơn sẽ dẫn đến hao pin nhiều hơn.</string>
+    <string name="title_advanced_ssl_harden_hint">Việc bật cái này sẽ tắt các giao thức và mã hoá SSL yếu, điều này có thể dẫn đến các vấn đề về kết nối</string>
     <string name="title_advanced_roaming_hint">Tiêu đề thư sẽ luôn được lấy khi chuyển vùng. Bạn có thể sử dụng cài đặt chuyển vùng của thiết bị để tắt internet trong khi chuyển vùng.</string>
     <string name="title_advanced_browse_hint">Lấy nhiều thư hơn khi cuộn xuống</string>
     <string name="title_advanced_layout_hint">Việc chuyển đến một bố cục nhỏ gọn hơn và thay đổi kích cỡ văn bản thư có thể được làm trong menu thanh hành động trong màn hình xem thư</string>
@@ -597,6 +603,7 @@
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
     <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
+    <string name="title_hint_alias">Nhấn giữ một danh tính để hiển thị các tuỳ chọn, như là sao chép để tạo danh tính kiểu bí danh</string>
     <string name="title_service_auth">Máy chủ email nói: \'%1$s\'</string>
     <string name="title_service_vpn">Điều này có thể được gây ra bởi VPN đang được sử dụng</string>
     <string name="title_service_port">Hãy kiểm tra hai lần số của cổng</string>
@@ -704,6 +711,7 @@
     <string name="title_search_in_text">Tìm kiếm trong văn bản &#8230;</string>
     <string name="title_forward">Chuyển tiếp</string>
     <string name="title_new_message">Thư mới</string>
+    <string name="title_editasnew">Chỉnh sửa như mới</string>
     <string name="title_edit_notes">Chỉnh sửa các bản ghi chú cục bộ</string>
     <string name="title_create_rule">Tạo quy tắc &#8230;</string>
     <string name="title_share">Chia sẻ</string>
@@ -723,6 +731,7 @@
     <string name="title_download_all">Tải về tất cả</string>
     <string name="title_save_all">Lưu tất cả</string>
     <string name="title_save_eml">Lưu tập tin thư thô</string>
+    <string name="title_raw_remaining">Thư thô sẽ tải xuống: %1$d</string>
     <string name="title_ask_raw">Để chuyển tiếp thư, thư thô (thư gốc) cần được tải xuống từ máy chủ. Điều này yêu cầu kết nối internet.</string>
     <string name="title_buttons">Chọn các nút</string>
     <string name="title_configure_buttons">Thiết lập các nút &#8230;</string>
@@ -820,6 +829,7 @@
     <string name="title_discard">Bỏ</string>
     <string name="title_save">Lưu</string>
     <string name="title_send">Gửi</string>
+    <string name="title_sending">Đang gửi &#8230;</string>
     <string name="title_send_now">Gửi ngay</string>
     <string name="title_send_via">Gửi bằng</string>
     <string name="title_send_at">Gửi vào &#8230;</string>
@@ -1031,7 +1041,10 @@
     <string name="title_rule_subject">Chủ đề chứa</string>
     <string name="title_rule_attachments">Có tệp đính kèm</string>
     <string name="title_rule_header">Tiêu đề chứa</string>
-    <string name="title_rule_time">Thời gian giữa</string>
+    <string name="title_rule_time_abs">Thời gian tuyệt đối (đã nhận) giữa</string>
+    <string name="title_rule_time_after">Đã nhận sau</string>
+    <string name="title_rule_time_before">Đã nhận trước</string>
+    <string name="title_rule_time_rel">Thời gian tương đối (đã nhận) giữa</string>
     <string name="title_rule_and">VÀ</string>
     <string name="title_rule_action">Hành động</string>
     <string name="title_rule_action_remark">Hành động này sẽ được áp dụng cho các thư mới đi đến thư mục %1$s</string>
@@ -1284,6 +1297,7 @@
     <string name="title_widget_unseen">Chỉ thư chưa đọc</string>
     <string name="title_widget_flagged">Chỉ thư gắn sao</string>
     <string name="title_widget_font_size">Cỡ chữ</string>
+    <string name="title_widget_padding">Kích cỡ lùi</string>
     <string name="title_widget_semi_transparent">Nền bán trong suốt</string>
     <string name="title_widget_background">Màu nền</string>
     <string name="title_accessibility_collapsed">Thu gọn</string>

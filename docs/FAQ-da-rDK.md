@@ -975,7 +975,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *503 5.5.0 Modtager allerede angivet* betyder typisk, at en adresse bruges som både TO- og CC-adresse
 * *554 5.7.1 ... ikke tilladt at videresende* betyder, at e-mailserveren ikke genkender brugernavnet/e-mailadressen. Dobbelttjek værtsnavn og brugernavn/e-mailadresse i identitetsindstillingerne.
 * *550 Spam besked afvist, da IP er listet af ...* betyder, at e-mailserveren har afvist at afsende en besked fra den aktuelle (offentlige) netværksadresse, fordi den tidligere har være misbrugt til spamafsendelse. Prøv at aktivere flytilstand i 10 minutter for at få tildelt en ny netværksadresse.
-* *550 Beklager, din e-mail kan ikke afsendes. Enten emnet, et link, eller en vedhæftet fil indeholder potentielt spam, eller phishing eller malware.* betyder, at e-mailudbyderen anser en udgående besked for skadelig.
+* *550 Beklager, din e-mail kan ikke afsendes. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgoing message as harmful.
 * *571 5.7.1 Besked indeholder spam eller virus eller afsender er blokeret ...* betyder, at e-mailserveren betragtede en udgående besked som spam. Dette betyder sandsynligvis, at e-mailserverens spamfiltre er for strikse. Kontakt e-mailudbyderen for support vedr. dette.
 * *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: Tjek [hér](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) eller [hér](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 
@@ -1266,7 +1266,7 @@ Most of the battery usage, not considering viewing messages, is due to synchroni
 
 If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
-Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. You could for example initially synchronize messages for a large number of days and after this has been completed reduce the number of days to synchronize messages for, but leave the number of days to keep messages for. After decreasing the number of days to keep messages for, you might want to run the cleanup in the miscellaneous settings to remove old files.
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for. Indledningsvis bør man f.eks. synke beskeder i et stort antal dage, og efter at dette er sket, reducere antallet af beskedsynkdage, men bevare antallet af dage, hvori beskeder beholdes. Efter reducering af det antal dage, hvori beskeder beholdes, ønsker man måske via Diverse indstillinger at køre en oprydning for at fjerne gamle filer.
 
 In the receive settings you can enable to always synchronize starred messages, which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
@@ -1303,7 +1303,7 @@ You can reduce the data usage basically in the same way as reducing battery usag
 
 It is inevitable that data will be used to synchronize messages.
 
-If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages for to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
+If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. I så tilfælde er det en god idé at reducere antallet af beskedsynkdage til et minimum (tjek foregående spørgsmål) eller at skifte til periodisk beskedsynk (modtagelsesindstillinger).
 
 To reduce data usage, you could change these advanced receive settings:
 
@@ -1398,7 +1398,7 @@ You'll get the message *This key is not available. To use it, you must import it
 
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server. You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
 
-The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take. Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
+Enhedens hastighed og Internetforbindelse samt antal beskedsynkdage bestemmer, hvor langt tid synkning tager. Bemærk, at antal beskedsynkdage i de fleste tilfælde ikke bør opsættes til mere end én dag. Tjek også [denne FAQ](#user-content-faq39).
 
 <br />
 
@@ -1700,7 +1700,8 @@ The following rule conditions are available:
 * Subject contains
 * Has attachments
 * Header contains
-* Day/time between
+* Absolut tid (modtaget) mellem (siden version 1.1540)
+* Relativ tid (modtaget) mellem
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
 
@@ -2290,7 +2291,7 @@ Biometric authentication is a pro feature.
 <a name="faq114"></a>
 **(114) Can you add an import for the settings of other email apps?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for and for the number of days to keep messages for, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
+The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. F.eks. har FairEmail, i modsætning til de fleste andre e-mail-apps, indstillinger for antallet af synkdage for beskeder samt for antallet af dage til at beholde beskeder, hovedsageligt for at spare strøm. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
 <br />
 

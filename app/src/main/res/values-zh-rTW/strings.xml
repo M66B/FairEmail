@@ -1041,7 +1041,6 @@
     <string name="title_rule_subject">主旨包含</string>
     <string name="title_rule_attachments">有附件</string>
     <string name="title_rule_header">標頭包含</string>
-    <string name="title_rule_time">間隔時間</string>
     <string name="title_rule_regex">正則表達式</string>
     <string name="title_rule_and">和</string>
     <string name="title_rule_action">行動</string>
@@ -1291,6 +1290,7 @@
     <string name="title_unexpected_info_remark">請描述出現錯誤時的操作：</string>
     <string name="title_widget_title_count">新郵件數</string>
     <string name="title_widget_title_list">留言清單</string>
+    <string name="title_widget_title_sync">同步處理開/關</string>
     <string name="title_widget_account">帳戶</string>
     <string name="title_widget_account_all">所有</string>
     <string name="title_widget_folder">資料夾</string>

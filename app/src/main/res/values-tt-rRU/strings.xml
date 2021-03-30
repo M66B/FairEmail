@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="channel_send">Җибәрү</string>
+    <string name="channel_notification">Эл. почта</string>
+    <string name="page_folders">Папкалар</string>
+    <string name="shortcut_refresh">Яңарту</string>
+    <string name="menu_exit">Чыгу</string>
+    <string name="menu_setup">Көйләүләр</string>
+    <string name="menu_privacy">Хосусыйлык</string>
+    <string name="menu_about">Хакында</string>
+    <string name="title_welcome">Рәхим итегез</string>
+    <string name="title_list_accounts">Хисап язмалар</string>
+    <string name="title_setup">Көйләүләр</string>
+    <string name="title_setup_help">Ярдәм</string>
+    <string name="title_setup_accounts">Хисап язмалар</string>
+    <string name="title_setup_go">Күчү</string>
+    <string name="title_setup_error">Хата</string>
+    <string name="title_setup_password">Пароль</string>
+    <string name="title_setup_theme_black">Кара</string>
+    <string name="title_setup_theme_light">Ачык</string>
+    <string name="title_setup_theme_dark">Караңгы</string>
+    <string name="title_advanced_section_send">Җибәрү</string>
+    <string name="title_advanced_section_privacy">Хосусыйлык</string>
+    <string name="title_advanced_section_encryption">Шифрлау</string>
+    <string name="title_advanced_section_notifications">Искәртүләр</string>
+    <string name="title_advanced_advanced">Киңәйтелгән</string>
+    <string name="title_advanced_caption_list">Исемлек</string>
+    <string name="title_advanced_notify_action_junk">Спам</string>
+    <string name="title_advanced_notify_action_move">Күчермәләү</string>
+    <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_language">Тел</string>
+    <string name="title_advanced_language_system">Система</string>
+    <string name="title_color">Төс</string>
+    <string name="title_encryption">Шифрлау</string>
+    <string name="title_password">Пароль</string>
+    <string name="title_months_all">Бөтенесе</string>
+    <string name="title_folder_junk">Спам</string>
+    <string name="title_folder_sent">Җибәрелгән</string>
+    <string name="title_share">Уртаклашу</string>
+    <string name="title_delete">Бетерү</string>
+    <string name="title_spam">Спам</string>
+    <string name="title_language_all">Бөтенесе</string>
+    <string name="title_legend_section_folders">Папкалар</string>
+    <string name="title_legend_avatar">Аватар</string>
+    <string name="title_legend_delete">Бетерү</string>
+    <string name="title_yes">Әйе</string>
+    <string name="title_no">Юк</string>
+    <string name="title_add">Өстәү</string>
+    <string name="title_1hour">1 сәгать</string>
+    <string name="title_log_clear">Баш тарту</string>
+    <string name="title_widget_account_all">Бөтенесе</string>
+    <string name="title_widget_folder">Папка</string>
+    <!-- Thunderbird -->
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
+        <item>∞</item>
+    </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="fontNameNames">
+        <item>Cursive</item>
+        <item>Serif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
+    </string-array>
+</resources>

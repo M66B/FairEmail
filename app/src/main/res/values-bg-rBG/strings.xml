@@ -869,7 +869,6 @@
     <string name="title_rule_subject">Темата съдържа</string>
     <string name="title_rule_attachments">Има прикачени файлове</string>
     <string name="title_rule_header">Заглавката съдържа</string>
-    <string name="title_rule_time">Времето между</string>
     <string name="title_rule_regex">Регулярен</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>

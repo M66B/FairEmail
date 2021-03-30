@@ -1057,7 +1057,6 @@
     <string name="title_rule_subject">O asunto contén</string>
     <string name="title_rule_attachments">Ten anexos</string>
     <string name="title_rule_header">A cabeceira contén</string>
-    <string name="title_rule_time">Tempo entre</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Acción</string>

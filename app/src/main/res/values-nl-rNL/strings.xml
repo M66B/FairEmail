@@ -365,6 +365,7 @@
     <string name="title_advanced_swipe_close">Veeg naar beneden om gesprek te sluiten</string>
     <string name="title_advanced_swipe_move">Veeg omhoog om gesprek te verplaatsen</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
+    <string name="title_advanced_expand_first">Automatisch het eerste bericht uitvouwen wanneer het gesprek is gelezen</string>
     <string name="title_advanced_expand_all">Automatisch alle gelezen berichten uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse_multiple">Vouw berichten in een gesprek met meerdere berichten bij \'terug\' samen</string>
@@ -872,6 +873,7 @@
     <string name="title_discard">Verwijderen</string>
     <string name="title_save">Bewaren</string>
     <string name="title_send">Verzenden</string>
+    <string name="title_sending">Verzenden &#8230;</string>
     <string name="title_send_now">Nu verzenden</string>
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
@@ -1087,10 +1089,10 @@
     <string name="title_rule_subject">Onderwerp bevat</string>
     <string name="title_rule_attachments">Heeft bijlagen</string>
     <string name="title_rule_header">De kop bevat</string>
-    <string name="title_rule_date">Datumbereik</string>
-    <string name="title_rule_date_after">Datum na</string>
-    <string name="title_rule_date_before">Datum voor</string>
-    <string name="title_rule_time">Tijd tussen</string>
+    <string name="title_rule_time_abs">Absolute tijd (ontvangen) tussen</string>
+    <string name="title_rule_time_after">Ontvangen na</string>
+    <string name="title_rule_time_before">Ontvangen voor</string>
+    <string name="title_rule_time_rel">Relatieve tijd (ontvangen) tussen</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>
