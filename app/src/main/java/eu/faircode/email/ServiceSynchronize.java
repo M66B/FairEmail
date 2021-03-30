@@ -562,7 +562,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 });
             }
 
-            private Runnable backup = new Runnable() {
+            private final Runnable backup = new Runnable() {
                 @Override
                 public void run() {
                     queue.submit(new Runnable() {
@@ -595,7 +595,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         Core.NotificationData notificationData = new Core.NotificationData(this);
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
-            private ExecutorService executor =
+            private final ExecutorService executor =
                     Helper.getBackgroundExecutor(1, "notify");
 
             @Override
