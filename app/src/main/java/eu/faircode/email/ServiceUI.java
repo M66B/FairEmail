@@ -523,6 +523,8 @@ public class ServiceUI extends IntentService {
 
         if (EntityFolder.OUTBOX.equals(folder.type))
             ServiceSend.start(this);
+        else
+            ServiceSynchronize.eval(this, "unsnooze");
     }
 
     private void onSync(long aid) {
