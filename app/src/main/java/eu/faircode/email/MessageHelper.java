@@ -2799,7 +2799,8 @@ public class MessageHelper {
             try {
                 InternetAddress address = new InternetAddress(email);
                 return address.getAddress();
-            } catch (AddressException ignored) {
+            } catch (AddressException ex) {
+                Log.e(ex);
             }
 
         return email;
