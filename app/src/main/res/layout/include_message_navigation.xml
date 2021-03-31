@@ -269,7 +269,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_undo"
-        app:srcCompat="@drawable/twotone_undo_24"
+        app:srcCompat="@drawable/twotone_cancel_schedule_send_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
