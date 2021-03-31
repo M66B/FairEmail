@@ -185,6 +185,7 @@
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
+    <string name="title_setup_doze_remark">Dla niezawodnego wysyłania i odbierania wiadomości e-mail</string>
     <string name="title_setup_doze_hint">Może to brzmieć sprzecznie, ale wyłączenie optymalizacji baterii spowoduje mniejsze zużycie baterii</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
@@ -871,6 +872,10 @@
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
+    <string name="title_reformatted">        To jest sformatowany widok wiadomości.
+         Możesz dotknąć &#x26F6; ikonę, aby wyświetlić oryginalną wiadomość i ukryć tę wiadomość.
+         Ponowne formatowanie wiadomości może zająć trochę czasu, w zależności od rozmiaru wiadomości i szybkości urządzenia.
+    </string>
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
     <string name="title_delivered_to">Dostarczone do:</string>

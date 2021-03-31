@@ -152,6 +152,7 @@
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
     <string name="title_setup_doze">禁用电池优化</string>
+    <string name="title_setup_doze_remark">可靠地发送和接收电子邮件</string>
     <string name="title_setup_doze_hint">虽然这听起来自相矛盾，但关闭电池优化将减少电池用量</string>
     <string name="title_setup_doze_instructions">请在下一页面中，将 \"未优化\" 切换为 \"所有应用\"，然后下拉找到本应用，并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">太耗电？</string>
@@ -838,6 +839,10 @@
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
+    <string name="title_reformatted">        这是重构格式后的消息视图
+        你可以点击 &#x26F6; 图标来查看原始消息并隐藏此消息
+        重构消息格式需要一些时间，取决于消息本身的大小和您设备的运行速度
+    </string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_delivered_to">发送给：</string>

@@ -186,6 +186,7 @@
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
+    <string name="title_setup_doze_remark">Для надёжного получения и отправки электронной почты</string>
     <string name="title_setup_doze_hint">Хотя это звучит нелогично, отключение оптимизации батареи приведёт к меньшему потреблению заряда</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените «Не оптимизировать» на «Все приложения», выберите это приложение и для него выберите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
@@ -872,6 +873,10 @@
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
+    <string name="title_reformatted">        Это переформатированное сообщение.
+        Можно нажать значок &#x26F6; для просмотра оригинального сообщения и скрытия этого уведомления.
+        Переформатирование сообщений занимает некоторое время в зависимости от размера сообщения и быстродействия устройства.
+    </string>
     <string name="title_compose">Создать</string>
     <string name="title_submitter">Отправлено:</string>
     <string name="title_delivered_to">Доставлено:</string>
