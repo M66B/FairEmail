@@ -235,6 +235,30 @@
                 app:srcCompat="@drawable/twotone_vertical_align_top_24" />
 
             <ImageButton
+                android:id="@+id/ibOutbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/title_folder_outbox"
+                android:padding="12dp"
+                android:tint="?attr/colorSeparator"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/twotone_schedule_send_24" />
+
+            <TextView
+                android:id="@+id/tvOutboxCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="3dp"
+                android:text="3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="@+id/ibOutbox"
+                app:layout_constraintTop_toTopOf="@+id/ibOutbox" />
+
+            <ImageButton
                 android:id="@+id/ibSeen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -324,6 +348,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="rvMessage" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpOutbox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="ibOutbox,tvOutboxCount" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.SwipeRefreshLayoutEx>
 

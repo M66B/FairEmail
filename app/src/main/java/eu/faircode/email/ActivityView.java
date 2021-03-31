@@ -130,6 +130,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_SEARCH_ADDRESS = BuildConfig.APPLICATION_ID + ".SEARCH_ADDRESS";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
+    static final String ACTION_VIEW_OUTBOX = BuildConfig.APPLICATION_ID + ".VIEW_OUTBOX";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWERS = BuildConfig.APPLICATION_ID + ".EDIT_ANSWERS";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
@@ -645,6 +646,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_SEARCH_ADDRESS);
         iff.addAction(ACTION_VIEW_THREAD);
+        iff.addAction(ACTION_VIEW_OUTBOX);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWERS);
         iff.addAction(ACTION_EDIT_ANSWER);
@@ -1334,6 +1336,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onSearchAddress(intent);
                 else if (ACTION_VIEW_THREAD.equals(action))
                     onViewThread(intent);
+                else if (ACTION_VIEW_OUTBOX.equals(action))
+                    onMenuOutbox();
                 else if (ACTION_EDIT_FOLDER.equals(action))
                     onEditFolder(intent);
                 else if (ACTION_EDIT_ANSWERS.equals(action))

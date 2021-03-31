@@ -248,6 +248,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private SeekBar sbThread;
     private ImageButton ibDown;
     private ImageButton ibUp;
+    private ImageButton ibOutbox;
+    private TextView tvOutboxCount;
     private ImageButton ibSeen;
     private ImageButton ibUnflagged;
     private ImageButton ibSnoozed;
@@ -258,6 +260,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Group grpHintSwipe;
     private Group grpHintSelect;
     private Group grpReady;
+    private Group grpOutbox;
     private FloatingActionButton fabReply;
     private FloatingActionButton fabCompose;
     private FloatingActionButton fabMore;
@@ -458,6 +461,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         sbThread = view.findViewById(R.id.sbThread);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
+        ibOutbox = view.findViewById(R.id.ibOutbox);
+        tvOutboxCount = view.findViewById(R.id.tvOutboxCount);
         ibSeen = view.findViewById(R.id.ibSeen);
         ibUnflagged = view.findViewById(R.id.ibUnflagged);
         ibSnoozed = view.findViewById(R.id.ibSnoozed);
@@ -469,6 +474,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
         grpReady = view.findViewById(R.id.grpReady);
+        grpOutbox = view.findViewById(R.id.grpOutbox);
 
         fabReply = view.findViewById(R.id.fabReply);
         fabCompose = view.findViewById(R.id.fabCompose);
@@ -768,6 +774,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 scrollToVisibleItem(llm, false);
+            }
+        });
+
+        ibOutbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
             }
         });
 
@@ -1126,6 +1140,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         bottom_navigation.setVisibility(actionbar && viewType == AdapterMessage.ViewType.THREAD ? View.INVISIBLE : View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+        grpOutbox.setVisibility(View.GONE);
 
         fabReply.hide();
 
@@ -3728,6 +3743,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         updateState(folders);
                     }
                 });
+                db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer pending) {
+                        if (pending != null && pending > 10)
+                            tvOutboxCount.setText("+");
+                        else
+                            tvOutboxCount.setText(pending == null || pending == 0 ? null : NF.format(pending));
+                        grpOutbox.setVisibility(pending == null || pending == 0 ? View.GONE : View.VISIBLE);
+                    }
+                });
                 break;
 
             case FOLDER:
@@ -3739,6 +3764,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             folders.add(folder);
 
                         updateState(folders);
+                    }
+                });
+                db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer pending) {
+                        if (pending != null && pending > 10)
+                            tvOutboxCount.setText("+");
+                        else
+                            tvOutboxCount.setText(pending == null || pending == 0 ? null : NF.format(pending));
+                        grpOutbox.setVisibility(pending == null || pending == 0 ? View.GONE : View.VISIBLE);
                     }
                 });
                 break;

@@ -245,6 +245,13 @@ public interface DaoMessage {
             boolean filter_archive,
             boolean ascending, boolean debug);
 
+    @Query("SELECT COUNT(*) FROM message" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " LEFT JOIN operation ON operation.message = message.id" +
+            " WHERE " + is_outbox +
+            " AND operation.id IS NULL")
+    LiveData<Integer>  liveOutboxPending();
+
     @Query("SELECT account.name AS accountName" +
             ", COUNT(message.id) AS count" +
             ", SUM(message.ui_seen) AS seen" +
