@@ -84,6 +84,7 @@ public class FragmentOptions extends FragmentBase {
     static String[] OPTIONS_RESTART = new String[]{
             "first", "app_support", "notify_archive", "message_swipe", "message_select", "folder_actions", "folder_sync",
             "subscriptions",
+            "send_pending",
             "portrait2", "landscape", "landscape3", "startup", "cards", "beige", "shadow_unread",
             "indentation", "date", "threading", "threading_unread",
             "highlight_unread", "highlight_color", "color_stripe",

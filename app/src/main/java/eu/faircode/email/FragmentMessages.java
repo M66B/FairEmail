@@ -3692,6 +3692,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean hints = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean send_pending = prefs.getBoolean("send_pending", true);
         grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) || !hints ? View.GONE : View.VISIBLE);
         grpHintSwipe.setVisibility(prefs.getBoolean("message_swipe", false) || !hints ? View.GONE : View.VISIBLE);
         grpHintSelect.setVisibility(prefs.getBoolean("message_select", false) || !hints ? View.GONE : View.VISIBLE);
@@ -3743,16 +3744,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         updateState(folders);
                     }
                 });
-                db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-                    @Override
-                    public void onChanged(Integer pending) {
-                        if (pending != null && pending > 10)
-                            tvOutboxCount.setText("+");
-                        else
-                            tvOutboxCount.setText(pending == null || pending == 0 ? null : NF.format(pending));
-                        grpOutbox.setVisibility(pending == null || pending == 0 ? View.GONE : View.VISIBLE);
-                    }
-                });
                 break;
 
             case FOLDER:
@@ -3764,16 +3755,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             folders.add(folder);
 
                         updateState(folders);
-                    }
-                });
-                db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-                    @Override
-                    public void onChanged(Integer pending) {
-                        if (pending != null && pending > 10)
-                            tvOutboxCount.setText("+");
-                        else
-                            tvOutboxCount.setText(pending == null || pending == 0 ? null : NF.format(pending));
-                        grpOutbox.setVisibility(pending == null || pending == 0 ? View.GONE : View.VISIBLE);
                     }
                 });
                 break;
@@ -3815,6 +3796,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 setSubtitle(criteria.getTitle(getContext()));
                 break;
         }
+
+        if (send_pending &&
+                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER))
+            db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                @Override
+                public void onChanged(Integer pending) {
+                    if (pending != null && pending > 10)
+                        tvOutboxCount.setText("+");
+                    else
+                        tvOutboxCount.setText(pending == null || pending == 0 ? null : NF.format(pending));
+                    grpOutbox.setVisibility(pending == null || pending == 0 ? View.GONE : View.VISIBLE);
+                }
+            });
 
         if (!checkReporting())
             if (!checkReview())

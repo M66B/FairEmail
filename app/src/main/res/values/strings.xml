@@ -334,6 +334,7 @@
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_lookup_mx">Check recipient email addresses before sending</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
+    <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
