@@ -1752,10 +1752,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibShare.setVisibility(tools && button_share && message.content ? View.VISIBLE : View.GONE);
                     ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
-                    ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
+                    ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
-                    ibNotes.setVisibility(tools && button_notes ? View.VISIBLE : View.GONE);
+                    ibNotes.setVisibility(tools && button_notes && !outbox ? View.VISIBLE : View.GONE);
                     ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
                     ibKeywords.setVisibility(tools && button_keywords && keywords ? View.VISIBLE : View.GONE);
                     ibCopy.setVisibility(tools && button_copy && move ? View.VISIBLE : View.GONE);
