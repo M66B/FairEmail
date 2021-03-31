@@ -3343,7 +3343,7 @@ public class FragmentCompose extends FragmentBase {
             if (resize > 0)
                 resizeAttachment(context, attachment, resize);
 
-            if (privacy)
+            if (privacy && resize == 0)
                 try {
                     ExifInterface exif = new ExifInterface(file.getAbsolutePath());
 
