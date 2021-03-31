@@ -3692,10 +3692,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         boolean hints = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean app_support = prefs.getBoolean("app_support", false);
+        boolean message_swipe = prefs.getBoolean("message_swipe", false);
+        boolean message_select = prefs.getBoolean("message_select", false);
         boolean send_pending = prefs.getBoolean("send_pending", true);
-        grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) || !hints ? View.GONE : View.VISIBLE);
-        grpHintSwipe.setVisibility(prefs.getBoolean("message_swipe", false) || !hints ? View.GONE : View.VISIBLE);
-        grpHintSelect.setVisibility(prefs.getBoolean("message_select", false) || !hints ? View.GONE : View.VISIBLE);
+
+        grpHintSupport.setVisibility(app_support || !hints ? View.GONE : View.VISIBLE);
+        grpHintSwipe.setVisibility(message_swipe || !hints ? View.GONE : View.VISIBLE);
+        grpHintSelect.setVisibility(message_select || !hints ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
