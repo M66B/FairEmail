@@ -149,7 +149,6 @@
     <string name="title_setup_identity_what">Vad är en identitet?</string>
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (valfritt)</string>
-    <string name="title_setup_doze_remark">Att på ett tillförlitligt sätt ta emot e-post</string>
     <string name="title_setup_doze_hint">Även om detta kan låta motsägelsefullt, att stänga av batterioptimeringar kommer att resultera i mindre batterianvändning</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
@@ -792,7 +791,6 @@
     <string name="title_third_party">Du använder en version av en tredje part</string>
     <string name="title_expand_warning">Utvidgningen av detta meddelande kommer att ladda ned %1$s</string>
     <string name="title_download_message">Hämtar &#8230;</string>
-    <string name="title_reformatted">Detta är den formaterade meddelandevyn. Du kan trycka på &#x26F6; ikonen för att visa det ursprungliga meddelandet och för att dölja detta meddelande.</string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Skickad av:</string>
     <string name="title_delivered_to">Levererad till:</string>

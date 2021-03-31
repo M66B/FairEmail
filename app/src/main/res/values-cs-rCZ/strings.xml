@@ -185,7 +185,6 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
-    <string name="title_setup_doze_remark">Pro spolehlivý příjem e-mailu</string>
     <string name="title_setup_doze_hint">Třebaže to může znít protichůdně, vypnutí optimalizace výdrže baterie povede k menší spotřebě baterie</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
@@ -866,7 +865,6 @@
     <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
-    <string name="title_reformatted">Toto je přeformátované zobrazení zprávy. Stisknutím ikony &#x26F6; lze zobrazit původní zprávu a skrýt toto oznámení.</string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_submitter">Odeslal:</string>
     <string name="title_delivered_to">Doručeno na:</string>

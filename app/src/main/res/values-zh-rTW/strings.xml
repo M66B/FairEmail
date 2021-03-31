@@ -150,7 +150,6 @@
     <string name="title_setup_permissions">取得權限</string>
     <string name="title_setup_permissions_remark">取用聯絡人資訊（可選）</string>
     <string name="title_setup_doze">停用電池最佳化</string>
-    <string name="title_setup_doze_remark">為了可靠地接收email</string>
     <string name="title_setup_doze_hint">雖然聽起來衝突，但關閉電池最佳化可以促成更少的電量消耗</string>
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
@@ -807,7 +806,6 @@
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展開此消息將下載 %1$s</string>
     <string name="title_download_message">正在下載 &#8230;</string>
-    <string name="title_reformatted">這是重新格式化的消息視圖。 您可以點擊 &#x26F6; 圖標以查看原始消息並隱藏此消息。</string>
     <string name="title_compose">撰寫</string>
     <string name="title_submitter">由... 發送：</string>
     <string name="title_delivered_to">送給：</string>

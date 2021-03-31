@@ -146,7 +146,6 @@
     <string name="title_setup_identity_what">Wat is in identiteit?</string>
     <string name="title_setup_permissions">Subsydzje tagongsrjochten</string>
     <string name="title_setup_permissions_remark">Om tagong te krijen ta kontaktynformaasje (opsjoneel)</string>
-    <string name="title_setup_doze_remark">Om e-post betrouber te ûntfangen</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil it útskeakeljen fan batterijoptimaasjes resultearje yn minder batterijgebrûk</string>
     <string name="title_setup_doze_battery">Hege batterij gebrûk?</string>
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
@@ -777,7 +776,6 @@
     <string name="title_third_party">Jo brûke in ferzje fan in tredde partij</string>
     <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil downloade %1$s</string>
     <string name="title_download_message">Ynladen &#8230;</string>
-    <string name="title_reformatted">Dit is de werfoarme berjochtenwerjefte. Jo kinne tikje op \'e &#x26F6; ikoan om it orizjinele berjocht te besjen en dit berjocht te ferbergjen.</string>
     <string name="title_compose">Gearstalle</string>
     <string name="title_submitter">Stjoerd troch:</string>
     <string name="title_delivered_to">Ôflevere by:</string>

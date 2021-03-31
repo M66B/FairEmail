@@ -153,7 +153,6 @@
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
-    <string name="title_setup_doze_remark">Để nhận email một cách đáng tin cậy</string>
     <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin sẽ gây ra sử dụng pin ít hơn</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
@@ -258,6 +257,8 @@
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
+    <string name="title_advanced_receipt">Khi yêu cầu xác nhận</string>
+    <string name="title_advanced_usenet_signature">Theo quy ước chữ ký của Usenet</string>
     <string name="title_advanced_remove_signatures">Xoá các chữ ký đã nhận ra</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_lookup_mx">Kiểm tra địa chỉ email người nhận trước khi gửi</string>
@@ -344,6 +345,7 @@
     <string name="title_advanced_swipe_close">Vuốt xuống để đóng cuộc hội thoại</string>
     <string name="title_advanced_swipe_move">Vuốt lên để di chuyển cuộc hội thoại</string>
     <string name="title_advanced_autoexpand">Tự động mở rộng thư</string>
+    <string name="title_advanced_expand_first">Tự động mở rộng thư đầu khi cuộc hội thoại được đọc</string>
     <string name="title_advanced_expand_all">Tự động mở rộng tất cả thư đã đọc</string>
     <string name="title_advanced_expand_one">Mở rộng chỉ một thư một lúc</string>
     <string name="title_advanced_collapse_multiple">Thu gọn các thư trong một cuộc hội thoại có nhiều thư khi \'quay lại\'</string>
@@ -526,6 +528,8 @@
     <string name="title_identity_unicode">Sử dụng vận chuyển Unicode</string>
     <string name="title_identity_unicode_remark">Đa số các máy chủ không hỗ trợ điều này</string>
     <string name="title_identity_max_size">Kích cỡ thư lớn nhất (MB)</string>
+    <string name="title_identity_receipt">Yêu cầu xác nhận đã gửi/đã đọc theo mặc định</string>
+    <string name="title_identity_use_ip_hint">Trong trường hợp \'invalid greeting\', \'requires valid adress\' hoặc lỗi tương tự, hãy thử thay đổi cài đặt này</string>
     <string name="title_identity_self_hint">Cũng sẽ ngăn bạn trả lời chính mình</string>
     <string name="title_optional">Không bắt buộc</string>
     <string name="title_recommended">Được đề nghị</string>
@@ -647,6 +651,7 @@
     <string name="title_display_name">Tên hiển thị</string>
     <string name="title_show_folders">Hiện các thư mục ẩn</string>
     <string name="title_show_flagged">Hiện số thư gắn sao</string>
+    <string name="title_subscribed_only">Chỉ có đã đăng ký</string>
     <string name="title_apply_to_all">Áp dụng cho tất cả &#8230;</string>
     <string name="title_hide_folder">Ẩn thư mục</string>
     <string name="title_unified_folder">Hiện trong hộp thư đến hợp nhất</string>
@@ -759,14 +764,18 @@
     <string name="title_reply_to_sender">Trả lời người nhận</string>
     <string name="title_reply_to_all">Trả lời tất cả</string>
     <string name="title_reply_list">Trả lời danh sách</string>
+    <string name="title_reply_receipt">Gửi xác nhận đã đọc</string>
     <string name="title_reply_template">Trả lời bằng mẫu</string>
     <string name="title_move_undo">Đang di chuyển đến %1$s (%2$d)</string>
     <string name="title_open_with">Mở bằng</string>
     <string name="title_authentication_failed">%1$s xác thực thất bại</string>
+    <string name="title_receipt_subject">Xác nhận đã đọc: %1$s</string>
+    <string name="title_receipt_text">Xác nhận đã đọc này chỉ biết rằng thư đã được hiển thị. Không có đảm bảo rằng người nhận đã đọc nội dung thư.</string>
     <string name="title_no_answers">Không có mẫu trả lời nào được định nghĩa</string>
     <string name="title_no_viewer">Không có ứng dụng xem %1$s</string>
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
+    <string name="title_no_stream">Một ứng dụng lỗi thời đã gửi một đường dẫn tệp thay vì một luồng truyền tệp</string>
     <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
     <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>
     <string name="title_no_folder">Thư mục không tồn tại</string>
@@ -807,7 +816,6 @@
     <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>
     <string name="title_download_message">Đang tải xuống &#8230;</string>
-    <string name="title_reformatted">Đây là thư được định dạng lại. Bạn cỏ thể nhấn vào biểu tượng &#x26F6; để xem thư gốc và để ẩn thông báo này.</string>
     <string name="title_compose">Soạn thư</string>
     <string name="title_submitter">Gửi bởi:</string>
     <string name="title_delivered_to">Gửi đến:</string>
@@ -891,6 +899,8 @@
     <string name="title_send_reminder_remark">Các lời nhắc có thể được bật lại trong cài đặt gửi</string>
     <string name="title_send_plain_text">Chỉ văn bản thường</string>
     <string name="title_send_dsn">Báo cáo trạng thái</string>
+    <string name="title_send_receipt">Yêu cầu xác nhận</string>
+    <string name="title_send_receipt_remark">Đa số nhà cung cấp và ứng dụng email khách bỏ qua các yêu cầu xác nhận</string>
     <string name="title_from_missing">Thiếu người gửi</string>
     <string name="title_extra_missing">Thiếu tên người dùng</string>
     <string name="title_to_missing">Thiếu người nhận</string>
@@ -1131,6 +1141,7 @@
     <string name="title_legend_answered">Đã được trả lời</string>
     <string name="title_legend_forwarded">Đã được chuyển tiếp</string>
     <string name="title_legend_plain_only">Chỉ là văn bản thường</string>
+    <string name="title_legend_receipt">Đã yêu cầu xác nhận</string>
     <string name="title_legend_auto_submitted">Đã được tự động gửi</string>
     <string name="title_legend_attachment">Có tệp đính kèm</string>
     <string name="title_legend_flagged">Là yêu thích</string>
@@ -1274,6 +1285,7 @@
     <string name="title_boundary_error">Lỗi khi tải xuống thư từ máy chủ mail</string>
     <string name="title_boundary_retry">Thử lại</string>
     <string name="title_unexpected_error">Lỗi không mong muốn</string>
+    <string name="title_log">Nhật ký</string>
     <string name="title_auto_scroll">Tự động cuộn</string>
     <string name="title_log_clear">Xóa</string>
     <string name="title_rules_search_hint">Tìm kiếm tên hoặc điều kiện</string>
@@ -1414,6 +1426,11 @@
         <item>Nhỏ</item>
         <item>Vừa</item>
         <item>Lớn</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Chỉ xác nhận đã đọc</item>
+        <item>Chỉ xác nhận đã gửi</item>
+        <item>Xác nhận đã đọc+đã gửi</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Trên văn bản</item>

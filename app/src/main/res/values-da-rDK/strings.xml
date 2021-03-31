@@ -162,7 +162,6 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
-    <string name="title_setup_doze_remark">For pålidelig modtagelse af e-mail</string>
     <string name="title_setup_doze_hint">Selv om dette kan lyde selvmodsigende, vil deaktivering af batterioptimering resultere i lavere batteriforbrug</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
@@ -840,7 +839,6 @@
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
-    <string name="title_reformatted">Dette er den omformaterede beskedvisning. Du kan trykke på &#x26F6;-ikonet for at se den oprindelige besked og skjule denne.</string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
     <string name="title_delivered_to">Leveret til:</string>

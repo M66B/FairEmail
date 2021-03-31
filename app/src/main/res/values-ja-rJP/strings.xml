@@ -148,7 +148,6 @@
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
     <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
-    <string name="title_setup_doze_remark">確実にメールを受け取るために必要です</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、バッテリーの最適化をオフにするとバッテリー使用量が少なくなります。</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
@@ -807,7 +806,6 @@
     <string name="title_third_party">サードパーティバージョンを使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
-    <string name="title_reformatted">これは再フォーマットされたメッセージビューです。 &#x26F6; アイコンをタップすると、元のメッセージを表示して、このメッセージを非表示にできます。</string>
     <string name="title_compose">作成する</string>
     <string name="title_submitter">送信者:</string>
     <string name="title_delivered_to">配信先:</string>

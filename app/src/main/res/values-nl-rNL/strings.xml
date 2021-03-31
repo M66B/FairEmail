@@ -164,7 +164,7 @@
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
-    <string name="title_setup_doze_remark">Om betrouwbaar e-mail te ontvangen</string>
+    <string name="title_setup_doze_remark">Om betrouwbaar e-mail te verzenden en ontvangen</string>
     <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van accuoptimalisaties resulteren in minder batterijverbruik</string>
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
@@ -851,7 +851,10 @@
     <string name="title_third_party">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
-    <string name="title_reformatted">Dit is de opnieuw opgemaakte berichtweergave. U kunt op het pictogram &#x26F6; klikken om het originele bericht te bekijken en dit bericht te verbergen.</string>
+    <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.
+        U kunt op het &#x26F6; pictogram tikken om het originele bericht te bekijken en dit bericht te verbergen.
+        Het opnieuw formatteren van berichten kost enige tijd, afhankelijk van de grootte van het bericht en de snelheid van uw apparaat.
+    </string>
     <string name="title_compose">Opstellen</string>
     <string name="title_submitter">Verstuurd door:</string>
     <string name="title_delivered_to">Afgeleverd aan:</string>

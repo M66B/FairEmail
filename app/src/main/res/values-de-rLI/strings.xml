@@ -165,7 +165,6 @@
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
-    <string name="title_setup_doze_remark">Um Nachrichten zuverlässig abzurufen</string>
     <string name="title_setup_doze_hint">Auch wenn es widersprüchlich klingt, wird das Ausschalten der Akkuoptimierung zu weniger Akkuverbrauch führen</string>
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
@@ -826,7 +825,7 @@
     <string name="title_raw_saved">Rohdaten gespeichert</string>
     <string name="title_attachment_eml">Angehängte Nachricht</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
-    <string name="title_attachments_saved">Anhang gespeichert</string>
+    <string name="title_attachments_saved">Anhänge gespeichert</string>
     <string name="title_attachments_incomplete">Einige Anhänge oder Bilder wurden nicht heruntergeladen und konnten nicht hinzugefügt werden</string>
     <string name="title_ask_save">Änderungen speichern?</string>
     <string name="title_ask_delete">Nachricht dauerhaft löschen?</string>
@@ -851,7 +850,6 @@
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">Das ist die umformatierte Nachrichtenansicht. Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Nachricht zu verstecken.</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>
@@ -1006,12 +1004,12 @@
     <string name="title_search_with_size">Nachrichtengröße größer als</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
-    <string name="title_search_flag_unseen">ungelesen</string>
+    <string name="title_search_flag_unseen">Ungelesen</string>
     <string name="title_search_flag_flagged">markiert</string>
-    <string name="title_search_flag_hidden">ausgeblendet</string>
-    <string name="title_search_flag_encrypted">verschlüsselt</string>
+    <string name="title_search_flag_hidden">Ausgeblendet</string>
+    <string name="title_search_flag_encrypted">Verschlüsselt</string>
     <string name="title_search_flag_attachments">Anhänge</string>
-    <string name="title_search_flag_notes">notizen</string>
+    <string name="title_search_flag_notes">Notizen</string>
     <string name="title_search_flag_invite">Einladungen</string>
     <string name="title_search_flag_size">Größe &gt; %1$s</string>
     <string name="title_search_device">Gerät durchsuchen</string>

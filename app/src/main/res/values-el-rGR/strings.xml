@@ -164,7 +164,6 @@
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
-    <string name="title_setup_doze_remark">Για λήψη μηνυμάτων χωρίς καθυστερήσεις</string>
     <string name="title_setup_doze_hint">Αν και μπορεί να ακούγεται αντιφατικό, η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας θα έχει ως αποτέλεσμα λιγότερη χρήση μπαταρίας</string>
     <string name="title_setup_doze_instructions">Στο επόμενο παράθυρο διαλόγου του Android αλλάζετε το \"Μη βελτιστοποιημένες\" σε \"Όλες οι εφαρμογές\", επιλέγετε αυτήν την εφαρμογή και επιλέγετε \"Να μην γίνεται βελτιστοποίηση\"</string>
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
@@ -849,7 +848,6 @@
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
-    <string name="title_reformatted">Αυτή είναι η αναμορφοποιημένη προβολή μηνύματος. Μπορείτε να πατήσετε πάνω στο εικονίδιο &#x26F6; για να δείτε το αρχικό μήνυμα και να αποκρύψετε το παρόν μήνυμα.</string>
     <string name="title_compose">Σύνταξη</string>
     <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_delivered_to">Παραδόθηκε σε:</string>

@@ -164,7 +164,6 @@
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
     <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
-    <string name="title_setup_doze_remark">Pour recevoir des e-mails de manière fiable</string>
     <string name="title_setup_doze_hint">Bien que cela puisse paraître contradictoire, désactiver les optimisations de la batterie réduira l\'utilisation de la batterie</string>
     <string name="title_setup_doze_instructions">Dans la prochaine fenêtre de dialogue Android, changez « Non optimisées » en « Toutes les applications », sélectionnez cette application et cochez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
@@ -851,7 +850,6 @@
     <string name="title_third_party">Vous utilisez une version tierce</string>
     <string name="title_expand_warning">Déplier ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
-    <string name="title_reformatted">Ceci est la vue de message reformaté. Vous pouvez appuyer sur l\'icône &#x26F6; pour afficher le message original et masquer ce message.</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
     <string name="title_delivered_to">Envoyé à :</string>

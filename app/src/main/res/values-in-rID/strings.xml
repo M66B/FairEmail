@@ -150,7 +150,6 @@
     <string name="title_setup_permissions">Berikan Izin</string>
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
-    <string name="title_setup_doze_remark">Untuk menerima email dengan handal</string>
     <string name="title_setup_doze_hint">Meskipun ini mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
@@ -799,7 +798,6 @@
     <string name="title_third_party">Anda menggunakan versi pihak ketiga</string>
     <string name="title_expand_warning">Memperluas pesan ini akan mengunduh %1$s</string>
     <string name="title_download_message">Mengunduh &#8230;</string>
-    <string name="title_reformatted">Ini adalah tampilan pesan yang diformat ulang. Anda dapat menekan &#x26F6; ikon untuk melihat pesan asli dan menyembunyikan pesan ini.</string>
     <string name="title_compose">Menyusun</string>
     <string name="title_submitter">Dikirim oleh:</string>
     <string name="title_delivered_to">Dikirim ke:</string>

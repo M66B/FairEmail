@@ -174,7 +174,6 @@
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
-    <string name="title_setup_doze_remark">Для надійного отримання електронної пошти</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
@@ -860,7 +859,6 @@
     <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення може завантажити %1$s</string>
     <string name="title_download_message">Завантаження &#8230;</string>
-    <string name="title_reformatted">Це переформатований вид повідомлення. Ви можете натиснути на значок &#x26F6; для перегляду оригінального повідомлення і приховати це повідомлення.</string>
     <string name="title_compose">Написати лист</string>
     <string name="title_submitter">Надіслав:</string>
     <string name="title_delivered_to">Доставлено:</string>

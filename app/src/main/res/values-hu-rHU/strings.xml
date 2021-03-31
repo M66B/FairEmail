@@ -163,7 +163,6 @@
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
     <string name="title_setup_doze">Akkumulátor-optimalizálás kikapcsolása</string>
-    <string name="title_setup_doze_remark">Emailek fogadása biztonságosan</string>
     <string name="title_setup_doze_hint">Lehet hogy ez érdekesnek hangozhat, de az akkumulátor optimalizációk kikapcsolása esetén kevesebb lesz az akkumulátor-használat</string>
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
@@ -841,7 +840,6 @@
     <string name="title_third_party">Egy harmadik fél verzióját használod</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
-    <string name="title_reformatted">Ez az újraformált üzenetmegtekintés. Az eredeti üzenet megtekintéséhez kattintson a &#x26F6; ikonra.</string>
     <string name="title_compose">Levélírás</string>
     <string name="title_submitter">Feladó:</string>
     <string name="title_delivered_to">Kézbesítve ide:</string>

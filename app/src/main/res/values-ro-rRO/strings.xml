@@ -175,7 +175,6 @@
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
-    <string name="title_setup_doze_remark">Pentru a primi e-mail la timp</string>
     <string name="title_setup_doze_hint">Deși acest lucru poate suna contradictoriu, dezactivarea optimizărilor bateriei va duce la o utilizare mai mică a bateriei</string>
     <string name="title_setup_doze_instructions">În următorul dialog Android schimbați opțiunea \"Nu se optimizează\" în \"Toate aplicațiile\", selectați această aplicație și selectați \"Nu se optimizează\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
@@ -862,7 +861,6 @@
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
-    <string name="title_reformatted">Aceasta este vizualizarea mesajelor reformatate. Puteți apăsa pe pictograma &#x26F6; pentru a vizualiza mesajul original și pentru a ascunde acest mesaj.</string>
     <string name="title_compose">Compune</string>
     <string name="title_submitter">Trimis de:</string>
     <string name="title_delivered_to">Livrare către:</string>

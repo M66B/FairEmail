@@ -160,7 +160,6 @@
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
-    <string name="title_setup_doze_remark">Para receber e-mails corretamente</string>
     <string name="title_setup_doze_hint">Embora isso possa parecer contraditório, desativar as otimizações de bateria resultará em menos uso de bateria</string>
     <string name="title_setup_doze_battery">Alto uso de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
@@ -776,7 +775,6 @@
     <string name="title_third_party">Você está usando uma versão de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensagem irá baixar %1$s</string>
     <string name="title_download_message">Baixando &#8230;</string>
-    <string name="title_reformatted">Esta é a visualização de mensagem reformatada. Você pode tocar no ícone &#x26F6; para ver a mensagem original e ocultar esta mensagem.</string>
     <string name="title_compose">Escrever</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
