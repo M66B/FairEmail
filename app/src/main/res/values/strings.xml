@@ -208,7 +208,7 @@
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To access contact information (optional)</string>
     <string name="title_setup_doze">Disable battery optimizations</string>
-    <string name="title_setup_doze_remark">To reliably receive email</string>
+    <string name="title_setup_doze_remark">To reliably send and receive email</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimizations will result in less battery usage</string>
     <string name="title_setup_doze_instructions">In the next Android dialog change "Not optimized" to "All apps", select this app and select "Don\'t optimize"</string>
     <string name="title_setup_doze_battery">High battery usage?</string>
@@ -980,7 +980,11 @@
 
     <string name="title_expand_warning">Expanding this message will download %1$s</string>
     <string name="title_download_message">Downloading &#8230;</string>
-    <string name="title_reformatted">This is the reformatted message view. You can tap on the &#x26F6; icon to view the original message and to hide this message.</string>
+    <string name="title_reformatted">
+        This is the reformatted message view.
+        You can tap on the &#x26F6; icon to view the original message and to hide this message.
+        Reformatting messages takes some time, depending on the size of the message and the speed of your device.
+    </string>
 
     <string name="title_compose">Compose</string>
     <string name="title_submitter">Sent by:</string>
