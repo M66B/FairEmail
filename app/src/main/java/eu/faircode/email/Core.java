@@ -2188,8 +2188,6 @@ class Core {
                 imessages = Arrays.copyOfRange(imessages,
                         imessages.length - account.max_messages, imessages.length);
 
-            db.folder().setFolderSyncState(folder.id, "downloading");
-
             boolean hasUidl = caps.containsKey("UIDL");
             if (hasUidl) {
                 FetchProfile ifetch = new FetchProfile();
