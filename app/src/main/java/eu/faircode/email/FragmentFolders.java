@@ -258,8 +258,11 @@ public class FragmentFolders extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
-        grpHintSync.setVisibility(prefs.getBoolean("folder_sync", false) ? View.GONE : View.VISIBLE);
+        boolean folder_actions = prefs.getBoolean("folder_actions", false);
+        boolean folder_sync = prefs.getBoolean("folder_sync", false);
+
+        grpHintActions.setVisibility(folder_actions ? View.GONE : View.VISIBLE);
+        grpHintSync.setVisibility(folder_sync ? View.GONE : View.VISIBLE);
 
         DB db = DB.getInstance(getContext());
 
