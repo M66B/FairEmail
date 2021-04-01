@@ -6066,7 +6066,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         _onActionRaw();
                     break;
                 case REQUEST_ALL_READ:
-                    if (requestCode == RESULT_OK)
+                    if (resultCode == RESULT_OK)
                         markAllRead();
                     break;
             }
