@@ -117,6 +117,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public String[] keywords;
 
     @NonNull
+    public Long selected_last = 0L;
+    @NonNull
+    public Integer selected_count = 0;
+
+    @NonNull
     public Integer initialize = DEFAULT_KEEP;
     public Boolean tbc; // to be created
     public Boolean tbd; // to be deleted

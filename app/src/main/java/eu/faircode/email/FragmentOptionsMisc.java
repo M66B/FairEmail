@@ -834,6 +834,21 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             if (key.endsWith(".show_full") || key.endsWith(".show_images") || key.endsWith(".confirm_link"))
                 editor.remove(key);
         editor.apply();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+                db.folder().resetSelectedCount();
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, new Bundle(), "reset:questions");
+
         ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 

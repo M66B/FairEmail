@@ -8,18 +8,6 @@
     android:focusableInTouchMode="true"
     android:padding="12dp">
 
-    <eu.faircode.email.FixedTextView
-        android:id="@+id/tvNoFolder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:text="@string/title_no_folders"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <AutoCompleteTextView
         android:id="@+id/etSearch"
         android:layout_width="0dp"
@@ -42,6 +30,68 @@
         app:layout_constraintTop_toTopOf="@+id/etSearch"
         app:srcCompat="@drawable/twotone_fast_forward_24" />
 
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvNoFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="@string/title_no_folders"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvFavorite1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="favorite1"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvFavorite2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNoFolder" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvFavorite2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="favorite2"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvFavorite3"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/tvFavorite1"
+        app:layout_constraintTop_toBottomOf="@id/tvNoFolder" />
+
+    <eu.faircode.email.FixedTextView
+        android:id="@+id/tvFavorite3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="favorite3"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:attr/textColorLink"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/tvFavorite2"
+        app:layout_constraintTop_toBottomOf="@id/tvNoFolder" />
+
     <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvFolder"
         android:layout_width="0dp"
@@ -58,7 +108,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFavorite1" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

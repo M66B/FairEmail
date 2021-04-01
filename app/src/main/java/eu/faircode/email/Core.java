@@ -1254,6 +1254,9 @@ class Core {
                     itarget.close();
             }
 
+        if (EntityFolder.USER.equals(target.type))
+            db.folder().increaseSelectedCount(target.id, new Date().getTime());
+
         // Delete junk contacts
         if (EntityFolder.JUNK.equals(target.type))
             for (EntityMessage message : map.values()) {

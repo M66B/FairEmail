@@ -3496,7 +3496,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             if (sourceFolder == null || sourceFolder.read_only)
                                 continue;
 
-                            result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder, copy));
+                            result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder).setCopy(copy));
                         }
                     }
 
@@ -7957,19 +7957,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         MessageTarget(Context context, EntityMessage message,
                       EntityAccount sourceAccount, EntityFolder sourceFolder,
                       EntityAccount targetAccount, EntityFolder targetFolder) {
-            this(context, message, sourceAccount, sourceFolder, targetAccount, targetFolder, false);
-        }
-
-        MessageTarget(Context context, EntityMessage message,
-                      EntityAccount sourceAccount, EntityFolder sourceFolder,
-                      EntityAccount targetAccount, EntityFolder targetFolder,
-                      boolean copy) {
             this.id = message.id;
             this.sourceAccount = new Account(sourceAccount);
             this.sourceFolder = new Folder(context, sourceFolder);
             this.targetAccount = new Account(targetAccount);
             this.targetFolder = new Folder(context, targetFolder);
+        }
+
+        MessageTarget setCopy(boolean copy) {
             this.copy = copy;
+            return this;
         }
 
         protected MessageTarget(Parcel in) {

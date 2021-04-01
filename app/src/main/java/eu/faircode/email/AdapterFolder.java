@@ -1340,6 +1340,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     interface IFolderSelectedListener {
-        void onFolderSelected(TupleFolderEx folder);
+        void onFolderSelected(@NonNull TupleFolderEx folder);
     }
 }
