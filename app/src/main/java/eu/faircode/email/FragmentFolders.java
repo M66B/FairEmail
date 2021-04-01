@@ -107,7 +107,7 @@ public class FragmentFolders extends FragmentBase {
         cards = prefs.getBoolean("cards", true);
         beige = prefs.getBoolean("beige", true);
         compact = prefs.getBoolean("compact_folders", false);
-        show_hidden = prefs.getBoolean("hidden_folders", false);
+        show_hidden = false; // prefs.getBoolean("hidden_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
 
         setTitle(R.string.page_folders);
