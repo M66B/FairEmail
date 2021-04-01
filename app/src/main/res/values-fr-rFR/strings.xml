@@ -880,7 +880,7 @@
     <string name="title_sending">Envoi en cours&#8230;</string>
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer via</string>
-    <string name="title_send_at">Envoyer à&#8230;</string>
+    <string name="title_send_at">Envoyer plus tard&#8230;</string>
     <string name="title_send_auto_archive">Archiver un message avec réponse</string>
     <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>

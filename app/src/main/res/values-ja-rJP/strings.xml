@@ -7,6 +7,7 @@
     <string name="app_crash">Androidのバグによりクラッシュが発生する為、このデバイスではFairEmailはサポートされていません</string>
     <string name="app_exit">もう一度押すと終了します</string>
     <string name="app_cake">空き容量が足りません</string>
+    <string name="app_updated">最終更新: %1$s</string>
     <string name="channel_service">受信</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">電子メール</string>
@@ -113,6 +114,7 @@
     <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます。</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
+    <string name="title_setup_manual">手動でのセットアップとアカウントのオプション</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
     <string name="title_setup_account_identity_hint">アカウント設定で名前、色、スワイプ操作を設定でき、またID設定で署名を設定することができます。</string>
@@ -144,11 +146,15 @@
     <string name="title_setup_manage">管理する</string>
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与する</string>
+    <string name="title_setup_exchange_support">Microsoft Exchange には対応していますか?</string>
     <string name="title_setup_identity_what">IDとは？</string>
+    <string name="title_setup_free">このアプリは無料で使用できますか？</string>
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
     <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
+    <string name="title_setup_doze_remark">確実にメールを送受信するために必要です</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、バッテリーの最適化をオフにするとバッテリー使用量が少なくなります。</string>
+    <string name="title_setup_doze_instructions">次のAndroidダイアログで「最適化されていないアプリ」を「すべてのアプリ」に変更し、このアプリを選択して「最適化しない」を選択します。</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
@@ -162,6 +168,7 @@
     <string name="title_setup_configuring">アカウントを設定しています &#8230;</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
+    <string name="title_setup_export_do">パスワードは設定を暗号化するために使用され、設定を再度インポートする際に必要になります</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字又は空白が含まれています</string>
@@ -202,6 +209,7 @@
     <string name="title_advanced_hint_message">        高度なオプションに移動しています。
         全てのオプションには一般的に使用される標準的な値が設定してあるため、必要がなければ設定の変更は不要です。
     </string>
+    <string name="title_advanced_section_main">メイン</string>
     <string name="title_advanced_section_synchronize">受信</string>
     <string name="title_advanced_section_send">送信</string>
     <string name="title_advanced_section_connection">接続</string>
@@ -226,10 +234,12 @@
     <string name="title_advanced_sync_folders">フォルダーリストの同期</string>
     <string name="title_advanced_sync_shared_folders">共有フォルダリストを同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
+    <string name="title_advanced_check_reply_domain">メッセージの同期時に返信アドレスを確認</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整します</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
+    <string name="title_advanced_suggest_names">名前とメールアドレスを使用</string>
     <string name="title_advanced_suggest_local">ローカルに保存された連絡先を提案</string>
     <string name="title_advanced_suggest_sent">送信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_received">受信したメッセージで見つかったアドレスを提案</string>
@@ -245,6 +255,7 @@
     <string name="title_advanced_signature_location">署名の場所</string>
     <string name="title_advanced_signature_reply">返信時に署名を使用する</string>
     <string name="title_advanced_signature_forward">転送時に署名を使用する</string>
+    <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
     <string name="title_advanced_receipt">要求する確認メッセージの種類</string>
@@ -253,10 +264,12 @@
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_lookup_mx">送信する前に受信者のメールアドレスを確認</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
+    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_metered">従量制課金接続を使用</string>
     <string name="title_advanced_download">従量制課金接続でメッセージと添付ファイルを自動的にダウンロードします</string>
     <string name="title_advanced_roaming">ローミング中にメッセージと添付ファイルをダウンロードします</string>
     <string name="title_advanced_rlah">EU内無制限ローミング(EUのみ)</string>
+    <string name="title_advanced_validated">検証済み(チェック済み)接続が必要です</string>
     <string name="title_advanced_timeout">接続タイムアウト(秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6よりIPv4を優先する</string>
     <string name="title_advanced_ssl_harden">SSL接続を有効</string>
@@ -273,6 +286,7 @@
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
     <string name="title_advanced_cards_beige">カードスタイルを使用するときはベージュの背景を使用する</string>
+    <string name="title_advanced_cards_shadow">カードスタイルを使用するときに未読メッセージにシャドウを使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示する</string>
@@ -291,6 +305,7 @@
     <string name="title_advanced_color_threshold">閾値の文字色: %1$s %%</string>
     <string name="title_advanced_name_email">名前とメールアドレスを表示</string>
     <string name="title_advanced_replace_name">送信名より連絡先名を優先する</string>
+    <string name="title_advanced_only_name">連絡先名のみ表示</string>
     <string name="title_advanced_distinguish_contacts">送信者がローカル(宛先)連絡先として知られている場合、送信者に下線を引く</string>
     <string name="title_advanced_show_recipients">メッセージヘッダーにキーワードを表示</string>
     <string name="title_advanced_font_size_sender">送信者のテキストサイズ</string>
@@ -339,6 +354,7 @@
     <string name="title_advanced_swipe_close">下にスワイプして会話を閉じる</string>
     <string name="title_advanced_swipe_move">上にスワイプして会話を移動</string>
     <string name="title_advanced_autoexpand">メッセージを自動的に展開</string>
+    <string name="title_advanced_expand_first">会話が読まれたときに最初のメッセージを自動的に展開</string>
     <string name="title_advanced_expand_all">全ての既読メッセージを自動的に展開</string>
     <string name="title_advanced_expand_one">一度に1つのメッセージのみを展開</string>
     <string name="title_advanced_collapse_multiple">複数のメッセージがある会話を\"戻る\"で折りたたむ</string>
@@ -429,10 +445,12 @@
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
     <string name="title_advanced_optimize">自動的に最適化</string>
     <string name="title_advanced_updates">GitHubのアップデートを確認する</string>
+    <string name="title_advanced_check_weekly">毎日ではなく毎週チェックする</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
     <string name="title_advanced_query_threads">並列データベースアクセスを制限</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
     <string name="title_advanced_protocol">プロトコルログの収集</string>
+    <string name="title_advanced_log_info">デバッグログ</string>
     <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
