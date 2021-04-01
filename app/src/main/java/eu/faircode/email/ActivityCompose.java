@@ -36,7 +36,6 @@ import androidx.lifecycle.LifecycleOwner;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -243,13 +242,12 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     static Long undoSend(long id, Context context) {
         DB db = DB.getInstance(context);
 
+        // Cancel send
         EntityOperation operation = db.operation().getOperation(id, EntityOperation.SEND);
         if (operation != null)
-            if ("executing".equals(operation.state)) {
-                // Trigger update
-                db.message().setMessageUiBusy(id, new Date().getTime());
+            if ("executing".equals(operation.state))
                 return null;
-            } else
+            else
                 db.operation().deleteOperation(operation.id);
 
         EntityMessage message;

@@ -7108,6 +7108,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
+
+                // Cancel send operation
+                EntityOperation operation = db.operation().getOperation(id, EntityOperation.SEND);
+                if (operation != null)
+                    if ("executing".equals(operation.state))
+                        return null;
+                    else
+                        db.operation().deleteOperation(operation.id);
+
                 try {
                     db.beginTransaction();
 
