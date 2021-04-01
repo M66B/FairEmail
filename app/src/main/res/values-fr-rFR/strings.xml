@@ -276,6 +276,7 @@
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail des destinataires avant l’envoi</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
+    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_metered">Utiliser les connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes sur les connexions limitées jusqu’à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>

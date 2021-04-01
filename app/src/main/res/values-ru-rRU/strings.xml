@@ -298,6 +298,7 @@
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_lookup_mx">Проверять адрес электронной почты получателя перед отправкой</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
+    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>

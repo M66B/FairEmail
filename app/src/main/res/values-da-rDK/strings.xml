@@ -162,6 +162,7 @@
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
+    <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt</string>
     <string name="title_setup_doze_hint">Selv om dette kan lyde selvmodsigende, vil deaktivering af batterioptimering resultere i lavere batteriforbrug</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
@@ -271,6 +272,7 @@
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_lookup_mx">Tjek modtager e-mail inden afsendelse</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
+    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_metered">Brug forbrugsbaserede forbindelser</string>
     <string name="title_advanced_download">Download automatisk beskeder og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
@@ -839,6 +841,10 @@
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
+    <string name="title_reformatted">        Dette er den reformaterede beskedvisning.
+        Tryk på &#x26F6;-ikonet for at se originalbeskeden og skjule denne besked.
+        Beskedomformatering tages lidt tid afhængigt af beskedstørrelsen og hastigheden på enheden.
+    </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
     <string name="title_delivered_to">Leveret til:</string>

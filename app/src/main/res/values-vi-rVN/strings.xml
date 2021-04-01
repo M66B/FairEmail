@@ -153,6 +153,7 @@
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
+    <string name="title_setup_doze_remark">Để gửi và nhận email một cách đáng tin cậy</string>
     <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin sẽ gây ra sử dụng pin ít hơn</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
@@ -257,12 +258,14 @@
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
+    <string name="title_advanced_flow">\'format flowed\' cho văn bản thường</string>
     <string name="title_advanced_receipt">Khi yêu cầu xác nhận</string>
     <string name="title_advanced_usenet_signature">Theo quy ước chữ ký của Usenet</string>
     <string name="title_advanced_remove_signatures">Xoá các chữ ký đã nhận ra</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_lookup_mx">Kiểm tra địa chỉ email người nhận trước khi gửi</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
+    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_metered">Sử dụng các kết nối trả phí</string>
     <string name="title_advanced_download">Tự động tải xuống các thư và tệp đính kèm trong kết nối trả phí lớn nhất</string>
     <string name="title_advanced_roaming">Tải xuống các thư và tệp đính kèm khi đang chuyển vùng</string>
@@ -514,7 +517,7 @@
     <string name="title_advanced_protocol_hint">Cái này sẽ tăng đáng kể sử dụng pin và không gian bộ nhớ!</string>
     <string name="title_advanced_debug_hint">Cái này sẽ hiện thông tin gỡ lỗi xấu xí ở nhiều nơi</string>
     <string name="title_advanced_cleanup_attachments_hint">Khi dọn dẹp thủ công, cái này sẽ xoá các tệp đính kèm khỏi các thư không còn được đồng bộ hoá nữa</string>
-    <string name="title_advanced_cleanup_hint">Cái này sẽ xóa tất cả các tập tin tạm</string>
+    <string name="title_advanced_cleanup_hint">Cái này sẽ xóa tất cả tệp tạm</string>
     <string name="title_advanced_never_favorite">Không bao giờ yêu thích</string>
     <string name="title_advanced_edit_name">Chỉnh sửa tên</string>
     <string name="title_advanced_swipe_actions">Đặt các hành động vuốt</string>
@@ -577,6 +580,7 @@
     <string name="title_date_remark">Các thay đổi sẽ chỉ áp dụng cho các thư mới</string>
     <string name="title_related_identity">Thêm danh tính có liên quan</string>
     <string name="title_check">Kiểm tra</string>
+    <string name="title_trust">Tin tưởng chứng chỉ máy chủ có mã xác minh %1$s</string>
     <string name="title_no_name">Thiếu tên</string>
     <string name="title_no_email">Thiếu địa chỉ email</string>
     <string name="title_email_invalid">Địa chỉ email không hợp lệ: \'%1$s\'</string>
@@ -602,6 +606,7 @@
     <string name="title_account_delete">Xóa tài khoản này vĩnh viễn?</string>
     <string name="title_identity_delete">Xóa danh tính này vĩnh viễn?</string>
     <string name="title_edit_html">Chỉnh sửa dưới dạng HTML</string>
+    <string name="title_sign_key">Mã ký: %1$s</string>
     <string name="title_last_connected">Lần cuối kết nối: %1$s</string>
     <string name="title_backoff_until">Đang đợi sau khi thất bại cho đến: %1$s</string>
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
@@ -816,6 +821,10 @@
     <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>
     <string name="title_download_message">Đang tải xuống &#8230;</string>
+    <string name="title_reformatted">        Đây là thư đã định dạng lại.
+        Bạn có thể nhấn vào biểu tượng &#x26F6; để xem thư gốc và để ẩn thông báo này.
+        Việc định dạng lại thư sẽ tốn một ít thời gian, tuỳ vào kích cỡ thư và tốc độ thiết bị của bạn.
+    </string>
     <string name="title_compose">Soạn thư</string>
     <string name="title_submitter">Gửi bởi:</string>
     <string name="title_delivered_to">Gửi đến:</string>
@@ -908,6 +917,7 @@
     <string name="title_smime_reminder">Có các mã khóa S/MIME</string>
     <string name="title_subject_reminder">Chủ đề đang trống</string>
     <string name="title_text_reminder">Thư đang trống</string>
+    <string name="title_attachment_keywords">đã đính kèm,tệp đính kèm,các tệp đính kèm,đã bao gồm</string>
     <string name="title_attachment_reminder">Bạn có ý định thêm tệp đính kèm không?</string>
     <string name="title_plain_reminder">Tất cả định dạng sẽ bị mất</string>
     <string name="title_size_reminder">Thư (%1$s) lớn hơn giới hạn máy chủ (%2$s)</string>
@@ -1195,6 +1205,7 @@
     <string name="title_legend_p">Trước</string>
     <string name="title_legend_r">Trả lời</string>
     <string name="title_legend_s">Chọn/bỏ chọn</string>
+    <string name="title_legend_t">Tập trung văn bản</string>
     <string name="title_hint_folder_actions">Nhấn giữ một thư mục để xem các tuỳ chọn, như là thêm thư mục vào menu điều hướng để truy cập nhanh</string>
     <string name="title_hint_folder_sync">Để giới hạn sử dụng pin và mạng, không phải tất cả thư mục và thư sẽ được đồng bộ hoá theo mặc định</string>
     <string name="title_hint_support">Nếu bạn có câu hỏi hoặc vấn đề, hãy sử dụng menu hỗ trợ để có trợ giúp</string>
@@ -1244,6 +1255,7 @@
     <string name="title_no_ask_again">Không hỏi cái này nữa</string>
     <string name="title_no_ask_for_again">Không hỏi cái này nữa cho %1$s</string>
     <string name="title_no_body">Không tìm thấy văn bản thư nào</string>
+    <string name="title_no_charset">Mã hoá không được hỗ trợ: %1$s</string>
     <string name="title_via">Qua: %1$s</string>
     <string name="title_1hour">1 tiếng</string>
     <string name="title_1day">1 ngày</string>
@@ -1463,7 +1475,7 @@
         <item>10 giây</item>
     </string-array>
     <string-array name="fontNameNames">
-        <item>Chữ viết ẩu</item>
+        <item>Chữ viết tay</item>
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Một khoảng cách</item>

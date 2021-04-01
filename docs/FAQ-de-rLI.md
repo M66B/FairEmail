@@ -978,6 +978,7 @@ SMTP-Server können Nachrichten aus [einer Reihe von Gründen](https://en.wikipe
 * *550 Es tut uns leid, aber wir können Ihre E-Mail nicht senden. Entweder der Betreff, ein Link oder ein Anhang enthält möglicherweise Spam, Phishing oder Malware.* bedeutet, dass der E-Mail-Anbieter eine ausgehende Nachricht als schädlich betrachtet.
 * *571 5.7.1 Nachricht enthält Spam oder einen Virus oder der Absender ist blockiert ...* bedeutet, dass der E-Mail-Server eine ausgehende Nachricht als Spam betrachtet. Dies bedeutet wahrscheinlich, dass die Spamfilter des E-Mail-Servers zu streng sind. Sie müssen den E-Mail-Anbieter kontaktieren, um Unterstützung zu erhalten.
 * *451 4.7.0 Temporärer Serverfehler. Bitte versuchen Sie es später erneut. PRX4 …*: bitte [siehe hier](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) oder [siehe hier](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* *571 5.7.1 Relay access denied*: please double check the username and email address in the advanced identity settings (via the manual setup).
 
 Wenn Sie den SMTP-Server von Gmaill verwenden wollen, um einen zu strengen Spam-Filter zu umgehen oder um die Zustellung von Nachrichten zu verbessern:
 

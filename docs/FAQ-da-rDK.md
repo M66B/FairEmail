@@ -978,6 +978,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 Beklager, din e-mail kan ikke afsendes. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgoing message as harmful.
 * *571 5.7.1 Besked indeholder spam eller virus eller afsender er blokeret ...* betyder, at e-mailserveren betragtede en udgående besked som spam. Dette betyder sandsynligvis, at e-mailserverens spamfiltre er for strikse. Kontakt e-mailudbyderen for support vedr. dette.
 * *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: Tjek [hér](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) eller [hér](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* *571 5.7.1 Videresendelsesadgang nægtet*: Dobbelttjek brugernavn og e-mailadresse i de avancerede identitetsindstillinger (via den manuelle opsætning).
 
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 

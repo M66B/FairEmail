@@ -174,6 +174,7 @@
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
+    <string name="title_setup_doze_remark">Для надійного отримання та надсилання електронної пошти</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
@@ -859,6 +860,10 @@
     <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення може завантажити %1$s</string>
     <string name="title_download_message">Завантаження &#8230;</string>
+    <string name="title_reformatted">        Це вид переформатованого повідомлення.
+        Ви можете натиснути на &#x26F6; значок, щоб переглянути оригінальне повідомлення та приховати це повідомлення.
+        Переформатування повідомлень займає деякий час, в залежності від розміру повідомлення і швидкості Вашого пристрою.
+    </string>
     <string name="title_compose">Написати лист</string>
     <string name="title_submitter">Надіслав:</string>
     <string name="title_delivered_to">Доставлено:</string>
@@ -1096,6 +1101,10 @@
     <string name="title_rule_subject">Тема містить</string>
     <string name="title_rule_attachments">Є вкладення</string>
     <string name="title_rule_header">Заголовок містить</string>
+    <string name="title_rule_time_abs">Абсолютний час (отримано) між</string>
+    <string name="title_rule_time_after">Отримано після</string>
+    <string name="title_rule_time_before">Отримано до</string>
+    <string name="title_rule_time_rel">Відносний час (отримано) між</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
     <string name="title_rule_action">Дія</string>

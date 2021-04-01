@@ -978,6 +978,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 We're sorry, but we can't send your email. Soit l'objet, un lien ou une pièce jointe contiennent potentiellement de l'indésirable, du hameçonnage ou un logiciel malveillant.* signifie que le fournisseur de messagerie considère qu'un message sortant est dangereux.
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
 * *451 4.7.0 Temporary server error. Please try again later. PRX4 ...* : veuillez [voir ici](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) ou [voir ici](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* *571 5.7.1 Relay access denied*: veuillez vérifier le nom d'utilisateur et l'adresse courriel dans les paramètres avancés d'identité (via la configuration manuelle).
 
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:
 

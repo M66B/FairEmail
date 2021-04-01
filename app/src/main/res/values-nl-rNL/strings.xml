@@ -276,6 +276,7 @@
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
+    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
