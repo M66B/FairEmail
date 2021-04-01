@@ -5822,16 +5822,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     Bundle args = new Bundle();
                     args.putLongArray("ids", ids);
+                    args.putString("type", type);
 
                     new SimpleTask<List<Long>>() {
                         @Override
                         protected List<Long> onExecute(Context context, Bundle args) throws Throwable {
                             long[] ids = args.getLongArray("ids");
+                            String type = args.getString("type");
 
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean filter_seen = prefs.getBoolean("filter_seen", false);
-                            boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-                            boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+                            boolean filter_seen = prefs.getBoolean(FragmentMessages.getFilter("seen", type), false);
+                            boolean filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter("unflagged", type), false);
+                            boolean filter_snoozed = prefs.getBoolean(FragmentMessages.getFilter("snoozed", type), true);
 
                             List<Long> removed = new ArrayList<>();
 

@@ -445,10 +445,10 @@ public class ViewModelMessages extends ViewModel {
             this.sort = prefs.getString("sort", "time");
             this.ascending = prefs.getBoolean(
                     viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
-            this.filter_seen = prefs.getBoolean("filter_seen", false);
-            this.filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-            this.filter_unknown = prefs.getBoolean("filter_unknown", false);
-            this.filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+            this.filter_seen = prefs.getBoolean(FragmentMessages.getFilter("seen", type), false);
+            this.filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter("unflagged", type), false);
+            this.filter_unknown = prefs.getBoolean(FragmentMessages.getFilter("unknown", type), false);
+            this.filter_snoozed = prefs.getBoolean(FragmentMessages.getFilter("snoozed", type), true);
 
             boolean language_detection = prefs.getBoolean("language_detection", false);
             String filter_language = prefs.getString("filter_language", null);

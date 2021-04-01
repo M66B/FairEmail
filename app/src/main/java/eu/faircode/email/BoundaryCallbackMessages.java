@@ -384,8 +384,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 db.folder().setFolderTotal(browsable.id, count < 0 ? null : count);
 
                 if (criteria == null) {
-                    boolean filter_seen = prefs.getBoolean("filter_seen", false);
-                    boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+                    boolean filter_seen = prefs.getBoolean(FragmentMessages.getFilter("seen", browsable.type), false);
+                    boolean filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter("unflagged", browsable.type), false);
                     EntityLog.log(context, "Boundary filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
 
                     List<SearchTerm> and = new ArrayList<>();

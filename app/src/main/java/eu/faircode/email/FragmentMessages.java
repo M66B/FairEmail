@@ -789,24 +789,27 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibSeen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean filter = prefs.getBoolean("filter_seen", true);
-                onMenuFilter("filter_seen", !filter);
+                String name = getFilter("seen", type);
+                boolean filter = prefs.getBoolean(name, true);
+                onMenuFilter(name, !filter);
             }
         });
 
         ibUnflagged.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean filter = prefs.getBoolean("filter_unflagged", true);
-                onMenuFilter("filter_unflagged", !filter);
+                String name = getFilter("unflagged", type);
+                boolean filter = prefs.getBoolean(name, true);
+                onMenuFilter(name, !filter);
             }
         });
 
         ibSnoozed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean filter = prefs.getBoolean("filter_snoozed", true);
-                onMenuFilter("filter_snoozed", !filter);
+                String name = getFilter("snoozed", type);
+                boolean filter = prefs.getBoolean(name, true);
+                onMenuFilter(name, !filter);
             }
         });
 
@@ -4069,10 +4072,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         String sort = prefs.getString("sort", "time");
         boolean ascending = prefs.getBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
-        boolean filter_seen = prefs.getBoolean("filter_seen", false);
-        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-        boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
-        boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+        boolean filter_seen = prefs.getBoolean(getFilter("seen", type), false);
+        boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
+        boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
+        boolean filter_snoozed = prefs.getBoolean(getFilter("snoozed", type), true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         boolean compact = prefs.getBoolean("compact", false);
@@ -4233,16 +4236,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             onMenuAscending(!item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_seen) {
-            onMenuFilter("filter_seen", !item.isChecked());
+            onMenuFilter(getFilter("seen", type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_unflagged) {
-            onMenuFilter("filter_unflagged", !item.isChecked());
+            onMenuFilter(getFilter("unflagged", type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_unknown) {
-            onMenuFilter("filter_unknown", !item.isChecked());
+            onMenuFilter(getFilter("unknown", type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_snoozed) {
-            onMenuFilter("filter_snoozed", !item.isChecked());
+            onMenuFilter(getFilter("snoozed", type), !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_duplicates) {
             onMenuFilterDuplicates(!item.isChecked());
@@ -4513,9 +4516,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long folder = args.getLong("folder");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-                boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
-                boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+                boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
+                boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
+                boolean filter_snoozed = prefs.getBoolean(getFilter("snoozed", type), true);
                 boolean language_detection = prefs.getBoolean("language_detection", false);
                 String filter_language = prefs.getString("filter_language", null);
 
@@ -4809,9 +4812,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean filter_seen = prefs.getBoolean("filter_seen", false);
-        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-        boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
+        boolean filter_seen = prefs.getBoolean(getFilter("seen", type), false);
+        boolean filter_unflagged = prefs.getBoolean(getFilter("unflagged", type), false);
+        boolean filter_unknown = prefs.getBoolean(getFilter("unknown", type), false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String filter_language = prefs.getString("filter_language", null);
         boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
@@ -5541,6 +5544,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Collections.sort(displays, collator);
 
         return TextUtils.join(", ", displays);
+    }
+
+    static String getFilter(String name, String type) {
+        return "filter_" + (EntityFolder.isOutgoing(type) ? "out_" : "") + name;
     }
 
     private void lockMessage(long id) throws IOException {
