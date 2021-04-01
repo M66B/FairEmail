@@ -1083,4 +1083,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Telia"
+        link="https://www.telia.se/privat/support/info/konfigurera-e-post-android">
+        <imap
+            host="mailin.telia.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mailout.telia.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
