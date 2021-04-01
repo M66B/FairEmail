@@ -360,6 +360,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final int REQUEST_PICK_CONTACT = 23;
     static final int REQUEST_BUTTONS = 24;
     private static final int REQUEST_ASKED_RAW = 25;
+    private static final int REQUEST_ALL_READ = 26;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -4482,60 +4483,70 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuMarkAllRead() {
-        new AlertDialog.Builder(getContext())
-                .setTitle(R.string.title_mark_all_read)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Bundle args = new Bundle();
-                        args.putString("type", type);
-                        args.putLong("folder", folder);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean all_read_asked = prefs.getBoolean("all_read_asked", false);
+        if (all_read_asked) {
+            markAllRead();
+            return;
+        }
 
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                String type = args.getString("type");
-                                long folder = args.getLong("folder");
+        Bundle args = new Bundle();
+        args.putString("question", getString(R.string.title_mark_all_read));
+        args.putString("notagain", "all_read_asked");
 
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                                boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-                                boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
-                                boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
-                                boolean language_detection = prefs.getBoolean("language_detection", false);
-                                String filter_language = prefs.getString("filter_language", null);
+        FragmentDialogAsk ask = new FragmentDialogAsk();
+        ask.setArguments(args);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_ALL_READ);
+        ask.show(getParentFragmentManager(), "messages:allread");
 
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
+    }
 
-                                    List<Long> ids = db.message().getMessageUnseen(
-                                            folder < 0 ? null : folder,
-                                            folder < 0 ? type : null,
-                                            filter_unflagged, filter_unknown, filter_snoozed,
-                                            language_detection ? filter_language : null);
-                                    for (long id : ids) {
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null)
-                                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                                    }
+    private void markAllRead() {
+        Bundle args = new Bundle();
+        args.putString("type", type);
+        args.putLong("folder", folder);
 
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                String type = args.getString("type");
+                long folder = args.getLong("folder");
 
-                                return null;
-                            }
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+                boolean filter_unknown = prefs.getBoolean("filter_unknown", false);
+                boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+                boolean language_detection = prefs.getBoolean("language_detection", false);
+                String filter_language = prefs.getString("filter_language", null);
 
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Log.unexpectedError(getParentFragmentManager(), ex);
-                            }
-                        }.execute(FragmentMessages.this, args, "message:read");
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    List<Long> ids = db.message().getMessageUnseen(
+                            folder < 0 ? null : folder,
+                            folder < 0 ? type : null,
+                            filter_unflagged, filter_unknown, filter_snoozed,
+                            language_detection ? filter_language : null);
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null)
+                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:allread");
     }
 
     private void onMenuSyncMore() {
@@ -6046,6 +6057,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_ASKED_RAW:
                     if (resultCode == RESULT_OK)
                         _onActionRaw();
+                    break;
+                case REQUEST_ALL_READ:
+                    if (requestCode == RESULT_OK)
+                        markAllRead();
                     break;
             }
         } catch (Throwable ex) {

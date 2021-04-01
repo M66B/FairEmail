@@ -151,7 +151,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "selected_folders", "move_1_confirmed", "move_n_confirmed",
             "last_search_senders", "last_search_recipients", "last_search_subject", "last_search_keywords", "last_search_message", "last_search",
             "identities_asked", "identities_primary_hint",
-            "raw_asked",
+            "raw_asked", "all_read_asked",
             "cc_bcc", "inline_image_hint", "compose_reference", "send_dialog",
             "setup_reminder", "setup_advanced"
     };
