@@ -275,6 +275,15 @@ public class EmailProvider {
                 return provider;
             }
 
+        // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
+        if (autoconfig.imap.host != null &&
+                autoconfig.imap.host.endsWith(".dreamhost.com"))
+            autoconfig.imap.host = "imap.dreamhost.com";
+
+        if (autoconfig.smtp.host != null &&
+                autoconfig.smtp.host.endsWith(".dreamhost.com"))
+            autoconfig.smtp.host = "smtp.dreamhost.com";
+
         // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
         if (autoconfig.imap.host != null &&
                 autoconfig.imap.host.endsWith(".awsapps.com"))
