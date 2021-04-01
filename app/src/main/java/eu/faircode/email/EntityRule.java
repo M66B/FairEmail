@@ -405,11 +405,15 @@ public class EntityRule {
                     throw new IllegalArgumentException("Identity not found");
 
                 long aid = jargs.optLong("answer", -1);
-                if (aid < 0)
-                    throw new IllegalArgumentException(context.getString(R.string.title_rule_answer_missing));
-                EntityAnswer answer = db.answer().getAnswer(aid);
-                if (answer == null)
-                    throw new IllegalArgumentException("Answer not found");
+                if (aid < 0) {
+                    String to = jargs.optString("to");
+                    if (TextUtils.isEmpty(to))
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_answer_missing));
+                } else {
+                    EntityAnswer answer = db.answer().getAnswer(aid);
+                    if (answer == null)
+                        throw new IllegalArgumentException("Template not found");
+                }
                 return;
             case TYPE_TTS:
                 return;
@@ -541,9 +545,18 @@ public class EntityRule {
         if (identity == null)
             throw new IllegalArgumentException("Rule identity not found name=" + rule.name);
 
-        EntityAnswer answer = db.answer().getAnswer(aid);
-        if (answer == null)
-            throw new IllegalArgumentException("Rule answer not found name=" + rule.name);
+        EntityAnswer answer;
+        if (aid < 0) {
+            if (TextUtils.isEmpty(to))
+                throw new IllegalArgumentException("Rule template missing name=" + rule.name);
+
+            answer = new EntityAnswer();
+            answer.text = "";
+        } else {
+            answer = db.answer().getAnswer(aid);
+            if (answer == null)
+                throw new IllegalArgumentException("Rule template not found name=" + rule.name);
+        }
 
         EntityFolder outbox = db.folder().getOutbox();
         if (outbox == null) {

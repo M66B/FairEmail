@@ -632,6 +632,11 @@ public class FragmentRule extends FragmentBase {
                 adapterIdentity.clear();
                 adapterIdentity.addAll(data.identities);
 
+                EntityAnswer none = new EntityAnswer();
+                none.name = "-";
+                none.favorite = false;
+                data.answers.add(0, none);
+
                 adapterAnswer.clear();
                 adapterAnswer.addAll(data.answers);
 
@@ -970,7 +975,7 @@ public class FragmentRule extends FragmentBase {
                                         }
 
                                     long answer = jaction.optLong("answer", -1);
-                                    for (int pos = 0; pos < adapterAnswer.getCount(); pos++)
+                                    for (int pos = 1; pos < adapterAnswer.getCount(); pos++)
                                         if (adapterAnswer.getItem(pos).id.equals(answer)) {
                                             spAnswer.setSelection(pos);
                                             break;
@@ -1117,6 +1122,7 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jrecipient = jcondition.optJSONObject("recipient");
                     JSONObject jsubject = jcondition.optJSONObject("subject");
                     JSONObject jheader = jcondition.optJSONObject("header");
+                    JSONObject jdate = jcondition.optJSONObject("date");
                     JSONObject jschedule = jcondition.optJSONObject("schedule");
 
                     if (jsender == null &&
@@ -1124,6 +1130,7 @@ public class FragmentRule extends FragmentBase {
                             jsubject == null &&
                             !jcondition.optBoolean("attachments") &&
                             jheader == null &&
+                            jdate == null &&
                             jschedule == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
@@ -1295,7 +1302,7 @@ public class FragmentRule extends FragmentBase {
                     EntityIdentity identity = (EntityIdentity) spIdent.getSelectedItem();
                     EntityAnswer answer = (EntityAnswer) spAnswer.getSelectedItem();
                     jaction.put("identity", identity == null ? -1 : identity.id);
-                    jaction.put("answer", answer == null ? -1 : answer.id);
+                    jaction.put("answer", answer == null || answer.id == null ? -1 : answer.id);
                     jaction.put("to", etTo.getText().toString().trim());
                     jaction.put("cc", cbCc.isChecked());
                     jaction.put("attachments", cbWithAttachments.isChecked());
