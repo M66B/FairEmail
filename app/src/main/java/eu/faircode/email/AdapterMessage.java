@@ -430,6 +430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvKeywordsEx;
 
         private TextView tvHeaders;
+        private ImageButton ibCopyHeaders;
         private ImageButton ibCloseHeaders;
         private ContentLoadingProgressBar pbHeaders;
         private TextView tvNoInternetHeaders;
@@ -637,6 +638,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywordsEx = vsBody.findViewById(R.id.tvKeywordsEx);
 
             tvHeaders = vsBody.findViewById(R.id.tvHeaders);
+            ibCopyHeaders = vsBody.findViewById(R.id.ibCopyHeaders);
             ibCloseHeaders = vsBody.findViewById(R.id.ibCloseHeaders);
             pbHeaders = vsBody.findViewById(R.id.pbHeaders);
             tvNoInternetHeaders = vsBody.findViewById(R.id.tvNoInternetHeaders);
@@ -766,6 +768,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPinContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
+                ibCopyHeaders.setOnClickListener(this);
                 ibCloseHeaders.setOnClickListener(this);
 
                 ibSaveAttachments.setOnClickListener(this);
@@ -880,6 +883,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPinContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
 
+                ibCopyHeaders.setOnClickListener(null);
                 ibCloseHeaders.setOnClickListener(null);
 
                 ibSaveAttachments.setOnClickListener(null);
@@ -1334,6 +1338,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
             tvKeywordsEx.setVisibility(View.GONE);
+
+            ibCopyHeaders.setVisibility(View.GONE);
 
             pbHeaders.setVisibility(View.GONE);
             tvNoInternetHeaders.setVisibility(View.GONE);
@@ -1968,10 +1974,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
-            if (show_headers && message.headers != null)
+            if (show_headers && message.headers != null) {
                 tvHeaders.setText(HtmlHelper.highlightHeaders(context, message.headers));
-            else
+                ibCopyHeaders.setVisibility(View.VISIBLE);
+            } else {
                 tvHeaders.setText(null);
+                ibCopyHeaders.setVisibility(View.GONE);
+            }
 
             if (scroll)
                 ApplicationEx.getMainHandler().post(new Runnable() {
@@ -3051,6 +3060,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 int id = view.getId();
                 if (id == R.id.ibExpanderAddress) {
                     onToggleAddresses(message);
+                } else if (id == R.id.ibCopyHeaders) {
+                    onCopyHeaders(message);
                 } else if (id == R.id.ibCloseHeaders) {
                     onMenuShowHeaders(message);
                 } else if (id == R.id.ibSaveAttachments) {
@@ -4922,6 +4933,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ask.setArguments(args);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_PRINT);
             ask.show(parentFragment.getParentFragmentManager(), "message:print");
+        }
+
+        private void onCopyHeaders(TupleMessageEx message) {
+            ClipboardManager clipboard =
+                    (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboard == null)
+                return;
+
+            ClipData clip = ClipData.newPlainText(context.getString(R.string.title_show_headers), message.headers);
+            clipboard.setPrimaryClip(clip);
+
+            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
         }
 
         private void onMenuShowHeaders(TupleMessageEx message) {
