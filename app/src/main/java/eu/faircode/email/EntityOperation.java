@@ -239,6 +239,10 @@ public class EntityOperation {
                     EntityMessage.snooze(context, message.id, null);
                 }
 
+                if (source.account.equals(target.account) &&
+                        EntityFolder.USER.equals(target.type))
+                    db.folder().increaseSelectedCount(target.id, new Date().getTime());
+
                 if (EntityFolder.JUNK.equals(source.type) && EntityFolder.INBOX.equals(target.type)) {
                     List<EntityRule> rules = db.rule().getRules(target.id);
                     for (EntityRule rule : rules)
