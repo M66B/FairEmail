@@ -350,6 +350,7 @@ public class FragmentOptions extends FragmentBase {
                         for (String option : options)
                             editor.remove(option);
                         editor.apply();
+
                         ToastEx.makeText(context, R.string.title_setup_done, Toast.LENGTH_LONG).show();
                     }
                 })

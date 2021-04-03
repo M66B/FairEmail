@@ -211,8 +211,9 @@ public interface DaoFolder {
     int increaseSelectedCount(long id, long last);
 
     @Query("UPDATE folder" +
-            " SET selected_last = 0, selected_count = 0")
-    int resetSelectedCount();
+            " SET selected_last = 0, selected_count = 0" +
+            " WHERE account = :account")
+    int resetSelectedCount(long account);
 
     @Query("SELECT * FROM folder WHERE id = :id")
     EntityFolder getFolder(Long id);

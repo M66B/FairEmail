@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -47,7 +46,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -55,6 +56,9 @@ public class FragmentDialogFolder extends FragmentDialogBase {
     private int result = 0;
 
     private static final int MAX_SELECTED_FOLDERS = 5;
+
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(1, "folder");
 
     @NonNull
     @Override
@@ -84,6 +88,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final TextView tvFavorite1 = dview.findViewById(R.id.tvFavorite1);
         final TextView tvFavorite2 = dview.findViewById(R.id.tvFavorite2);
         final TextView tvFavorite3 = dview.findViewById(R.id.tvFavorite3);
+        final ImageButton ibResetFavorites = dview.findViewById(R.id.ibResetFavorites);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
         final Group grpReady = dview.findViewById(R.id.grpReady);
@@ -136,6 +141,8 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 JSONArray jarray = new JSONArray(selected_folders);
                 prefs.edit().putString("selected_folders", jarray.toString()).apply();
 
+                increaseSelectedCount(folder.id, context);
+
                 Bundle args = getArguments();
                 args.putLong("folder", folder.id);
 
@@ -147,10 +154,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         tvFavorite1.setVisibility(View.GONE);
         tvFavorite2.setVisibility(View.GONE);
         tvFavorite3.setVisibility(View.GONE);
-
-        tvFavorite1.setPaintFlags(tvFavorite1.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvFavorite2.setPaintFlags(tvFavorite2.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvFavorite3.setPaintFlags(tvFavorite3.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        ibResetFavorites.setVisibility(View.GONE);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -158,6 +162,8 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 Long id = (Long) v.getTag();
                 if (id == null)
                     return;
+
+                increaseSelectedCount(id, context);
 
                 Bundle args = getArguments();
                 args.putLong("folder", id);
@@ -169,6 +175,29 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         tvFavorite1.setOnClickListener(listener);
         tvFavorite2.setOnClickListener(listener);
         tvFavorite3.setOnClickListener(listener);
+
+        ibResetFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvFavorite1.setVisibility(View.GONE);
+                tvFavorite2.setVisibility(View.GONE);
+                tvFavorite3.setVisibility(View.GONE);
+                ibResetFavorites.setVisibility(View.GONE);
+
+                final DB db = DB.getInstance(context);
+
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            db.folder().resetSelectedCount(account);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+            }
+        });
 
         rvFolder.setAdapter(adapter);
 
@@ -264,9 +293,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 if (data.folders == null || data.folders.size() == 0)
                     tvNoFolder.setVisibility(View.VISIBLE);
                 else {
-                    adapter.setDisabled(Helper.fromLongArray(disabled));
-                    adapter.set(data.folders);
-                    if (data.favorites != null) {
+                    if (data.favorites != null && data.favorites.size() > 0) {
                         TextView[] tv = new TextView[]{tvFavorite1, tvFavorite2, tvFavorite3};
                         for (int i = 0; i < data.favorites.size(); i++) {
                             EntityFolder favorite = data.favorites.get(i);
@@ -274,7 +301,13 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                             tv[i].setText(favorite.getDisplayName(context));
                             tv[i].setVisibility(View.VISIBLE);
                         }
+
+                        ibResetFavorites.setVisibility(View.VISIBLE);
                     }
+
+                    adapter.setDisabled(Helper.fromLongArray(disabled));
+                    adapter.set(data.folders);
+
                     grpReady.setVisibility(View.VISIBLE);
                 }
             }
@@ -291,6 +324,23 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 .setView(dview)
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
+    }
+
+    private static void increaseSelectedCount(Long id, Context context) {
+        final DB db = DB.getInstance(context);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    EntityFolder folder = db.folder().getFolder(id);
+                    if (folder != null && EntityFolder.USER.equals(folder.type))
+                        db.folder().increaseSelectedCount(folder.id, new Date().getTime());
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private static class Data {
