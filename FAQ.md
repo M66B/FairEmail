@@ -1,3 +1,4 @@
+<a name="top"></a>
 # FairEmail support
 
 If you have a question, please check the following frequently asked questions first.

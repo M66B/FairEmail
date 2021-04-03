@@ -152,7 +152,7 @@ public class Helper {
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
-    static final String FAQ_URI = "https://email.faircode.eu/faq/";
+    static final String FAQ_URI = "https://email.faircode.eu/faq/#top";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
