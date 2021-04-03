@@ -2653,7 +2653,9 @@ Note that the notification setting *Show launcher icon with number of new messag
 Only *new* unread messages in folders set to show new message notifications will be counted,
 so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled).
+When enabled the badge count will be the same as the number of new message notifications.
+When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
 
 This feature depends on support of your launcher.
 FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
