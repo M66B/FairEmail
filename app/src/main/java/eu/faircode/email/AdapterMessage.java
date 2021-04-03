@@ -156,6 +156,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.net.IDN;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
@@ -6256,7 +6257,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
             final Group grpOwner = dview.findViewById(R.id.grpOwner);
 
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             ibDifferent.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -6288,7 +6290,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     cbSecure.setText(
                             secure ? R.string.title_link_https : R.string.title_link_http);
-                    cbSecure.setTextColor(Helper.resolveColor(getContext(),
+                    cbSecure.setTextColor(Helper.resolveColor(context,
                             secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
                     cbSecure.setTypeface(
                             secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
@@ -6325,12 +6327,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onClick(View v) {
                     ClipboardManager clipboard =
-                            (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                            (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
                     if (clipboard != null) {
                         ClipData clip = ClipData.newPlainText(title, etLink.getText().toString());
                         clipboard.setPrimaryClip(clip);
 
-                        ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -6364,7 +6366,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             tvOwnerRemark.setMovementMethod(LinkMovementMethod.getInstance());
-            cbNotAgain.setText(getContext().getString(R.string.title_no_ask_for_again, uri.getHost()));
+            cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, uri.getHost()));
             cbNotAgain.setVisibility(
                     "https".equals(uri.getScheme()) && !TextUtils.isEmpty(uri.getHost())
                             ? View.VISIBLE : View.GONE);
@@ -6421,11 +6423,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvTitle.setText(title);
             tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
-            etLink.setText(uri.toString());
 
-            grpDifferent.setVisibility(uri.getHost() == null ||
+            String host = uri.getHost();
+            String puny;
+            try {
+                puny = IDN.toASCII(host);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                puny = host;
+            }
+
+            if (host != null && !host.equals(puny)) {
+                etLink.setText(uri.buildUpon().encodedAuthority(puny).build().toString());
+                etLink.setTextColor(Helper.resolveColor(context, R.attr.colorWarning));
+            } else
+                etLink.setText(uri.toString());
+
+            grpDifferent.setVisibility(host == null ||
                     uriTitle == null || uriTitle.getHost() == null ||
-                    uriTitle.getHost().equalsIgnoreCase(uri.getHost())
+                    uriTitle.getHost().equalsIgnoreCase(host)
                     ? View.GONE : View.VISIBLE);
 
             boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
@@ -6436,8 +6452,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvDisconnectCategories.setText(TextUtils.join(", ", categories));
             tvDisconnect.setVisibility(categories == null ? View.GONE : View.VISIBLE);
             tvDisconnectCategories.setVisibility(categories == null ? View.GONE : View.VISIBLE);
-
-            final Context context = getContext();
 
             return new AlertDialog.Builder(context)
                     .setView(dview)
