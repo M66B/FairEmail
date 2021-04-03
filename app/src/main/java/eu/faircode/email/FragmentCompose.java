@@ -3893,6 +3893,9 @@ public class FragmentCompose extends FragmentBase {
                                 for (Element e : d.select("[x-plain=true]"))
                                     e.removeAttr("x-plain");
 
+                                if (BuildConfig.DEBUG)
+                                    d.select(".faircode_remove").remove();
+
                                 if ("reply".equals(action) || "reply_all".equals(action)) {
                                     // Remove signature separators
                                     boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
