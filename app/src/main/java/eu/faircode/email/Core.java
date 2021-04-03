@@ -2376,7 +2376,8 @@ class Core {
                             db.beginTransaction();
 
                             message.id = db.message().insertMessage(message);
-                            Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
+                            Log.i(folder.name + " added id=" + message.id +
+                                    " uidl/msgid=" + message.uidl + "/" + message.msgid);
 
                             int sequence = 1;
                             for (EntityAttachment attachment : parts.getAttachments()) {
