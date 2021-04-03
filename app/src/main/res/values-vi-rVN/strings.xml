@@ -336,6 +336,7 @@
     <string name="title_advanced_actionbar">Hiện thanh hành đông ở cuộc hội thoại</string>
     <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
     <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
+    <string name="title_advanced_parse_classes">Xử lý các trang phong cách</string>
     <string name="title_advanced_authentication">Hiện cảnh báo khi máy chủ nhận không thể xác thực thư</string>
     <string name="title_advanced_sync_on_launch">Đồng bộ hóa khi mở</string>
     <string name="title_advanced_double_back">\'Quay lại\' hai lần để thoát</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_lookup_mx_hint">Cái này sẽ kiểm tra xem các bản ghi DNS MX có tồn tại không</string>
     <string name="title_advanced_sync_delay_hint">Cái này sẽ làm chậm việc đồng bộ hóa thư</string>
     <string name="title_advanced_suggest_names_hint">Nếu bị tắt, chỉ có các địa chỉ email sẽ được sử dụng khi chọn các liên hệ</string>
+    <string name="title_advanced_suggest_local_hint">Bên cạnh các liên hệ được Android cung cấp. Dữ liệu liên hệ sẽ được lưu trữ cho các thư mới được gửi hoặc nhận chỉ khi được bật.</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
     <string name="title_advanced_metered_hint">Các kết nối trả phí nói chung là kết nối di động hoặc điểm phát sóng Wi-Fi trả phí</string>
@@ -479,6 +481,7 @@
     <string name="title_advanced_navbar_colorize_hint">Cái này hoạt động hay không còn tuỳ vào phiên bản và biến thể Android</string>
     <string name="title_advanced_split_hint">Cái này sẽ tách màn hình thành các phần</string>
     <string name="title_advanced_threading_hint">Nhóm các thư liên quan đến nhau</string>
+    <string name="title_advanced_highlight_hint">Màu nổi bật của chủ đề sẽ được sử dụng để đánh dấu</string>
     <string name="title_advanced_gravatars_hint">Có thể có rủi ro về sự riêng tư</string>
     <string name="title_advanced_name_email_hint">Khi được tắt, chỉ có tên sẽ được hiện khi có</string>
     <string name="title_advanced_preview_hint">Chỉ có khi văn bản thư đã được tải xuống</string>
