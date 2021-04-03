@@ -1882,6 +1882,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 
+            if (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
+                return 0;
+
             if (message.folderReadOnly)
                 return 0;
 
@@ -2121,11 +2124,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             TupleMessageEx message = list.get(pos);
             if (message == null)
-                return null;
-
-            if (message.uid == null &&
-                    !EntityFolder.OUTBOX.equals(message.folderType) &&
-                    message.accountProtocol == EntityAccount.TYPE_IMAP)
                 return null;
 
             if (iProperties.getValue("expanded", message.id))
