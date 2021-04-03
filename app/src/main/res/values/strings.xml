@@ -330,6 +330,7 @@
     <string name="title_advanced_signature_reply">Use signature when replying</string>
     <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
+    <string name="title_advanced_reply_move">On replying to a message that is not in the inbox, save the reply in the same folder</string>
 
     <string name="title_advanced_auto_link">Automatically create links</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
@@ -581,6 +582,7 @@
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
+    <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>

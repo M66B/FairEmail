@@ -514,6 +514,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean reply_move = prefs.getBoolean("reply_move", false);
         boolean debug = prefs.getBoolean("debug", false);
 
         if (message.identity == null)
@@ -550,7 +551,23 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         // Prepare sent message
         Long sid = null;
-        EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
+        EntityFolder sent = null;
+
+        if (reply_move && !TextUtils.isEmpty(message.inreplyto)) {
+            List<EntityMessage> replied = db.message().getMessagesByMsgId(message.account, message.inreplyto);
+            if (replied != null)
+                for (EntityMessage m : replied) {
+                    EntityFolder folder = db.folder().getFolder(m.folder);
+                    if (folder != null && EntityFolder.USER.equals(folder.type)) {
+                        sent = folder;
+                        break;
+                    }
+                }
+        }
+
+        if (sent == null)
+            sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
+
         if (sent != null) {
             Log.i(sent.name + " Preparing sent message");
 

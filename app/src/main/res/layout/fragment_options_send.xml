@@ -402,6 +402,28 @@
             app:layout_constraintTop_toBottomOf="@id/btnEditSignature"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swReplyMove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_reply_move"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDiscardDelete"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvReplyMoveHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_reply_move_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swReplyMove" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvCaptionAdvanced"
             android:layout_width="0dp"
@@ -412,7 +434,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/swDiscardDelete" />
+            app:layout_constraintTop_toBottomOf="@+id/tvReplyMoveHint" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoLink"
