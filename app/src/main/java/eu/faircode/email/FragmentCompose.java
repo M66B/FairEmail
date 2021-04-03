@@ -3846,9 +3846,14 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         // Reply template
-                        EntityAnswer a = (answer < 0
-                                ? db.answer().getStandardAnswer()
-                                : db.answer().getAnswer(answer));
+                        EntityAnswer a = null;
+                        if (answer < 0) {
+                            if ("reply".equals(action) || "reply_all".equals(action) ||
+                                    "forward".equals(action) || "list".equals(action))
+                                a = db.answer().getStandardAnswer();
+                        } else
+                            a = db.answer().getAnswer(answer);
+
                         if (a != null) {
                             Document d = JsoupEx.parse(a.getText(data.draft.to));
                             document.body().append(d.body().html());
