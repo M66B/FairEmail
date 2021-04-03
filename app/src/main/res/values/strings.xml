@@ -314,6 +314,10 @@
     <string name="title_advanced_suggest_sent">Suggest addresses found in sent messages</string>
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
     <string name="title_advanced_suggest_frequently">Sort suggested addresses on frequency of use</string>
+    <string name="title_advanced_send_reminders">Show reminders</string>
+    <string name="title_advanced_send_delayed">Delay sending messages</string>
+    <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
+
     <string name="title_advanced_compose_font">Default font</string>
     <string name="title_advanced_prefix_once">Prefix subject only once on replying or forwarding</string>
     <string name="title_advanced_separate_reply">Insert a horizontal line before a reply/forward header</string>
@@ -325,16 +329,15 @@
     <string name="title_advanced_signature_location">Signature position</string>
     <string name="title_advanced_signature_reply">Use signature when replying</string>
     <string name="title_advanced_signature_forward">Use signature when forwarding</string>
+    <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
+
     <string name="title_advanced_auto_link">Automatically create links</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
     <string name="title_advanced_flow">\'format flowed\' for plain text</string>
-    <string name="title_advanced_receipt">When requesting a receipt</string>
     <string name="title_advanced_usenet_signature">Follow Usenet signature convention</string>
     <string name="title_advanced_remove_signatures">Remove recognized signatures</string>
-    <string name="title_advanced_send_reminders">Show reminders</string>
+    <string name="title_advanced_receipt">When requesting a receipt</string>
     <string name="title_advanced_lookup_mx">Check recipient email addresses before sending</string>
-    <string name="title_advanced_send_delayed">Delay sending messages</string>
-    <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
@@ -444,7 +447,6 @@
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
     <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Reset importance on moving messages</string>
-    <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
     <string name="title_advanced_default_snooze">Default snooze time</string>
 
     <string name="title_advanced_notifications">Manage notifications</string>
