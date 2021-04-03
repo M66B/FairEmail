@@ -1260,8 +1260,7 @@ public class MessageHelper {
                 }
 
             email = decodeMime(email);
-            if (!Helper.isSingleScript(email))
-                email = punyCode(email);
+            email = punyCode(email);
 
             iaddress.setAddress(email);
 
