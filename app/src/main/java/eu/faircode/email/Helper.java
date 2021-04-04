@@ -50,6 +50,8 @@ import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.security.KeyChainException;
+import android.text.Layout;
+import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -57,6 +59,7 @@ import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -791,6 +794,21 @@ public class Helper {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    static int getOffset(TextView widget, Spannable buffer, MotionEvent event) {
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+
+        x -= widget.getTotalPaddingLeft();
+        y -= widget.getTotalPaddingTop();
+
+        x += widget.getScrollX();
+        y += widget.getScrollY();
+
+        Layout layout = widget.getLayout();
+        int line = layout.getLineForVertical(y);
+        return layout.getOffsetForHorizontal(line, x);
     }
 
     // Graphics

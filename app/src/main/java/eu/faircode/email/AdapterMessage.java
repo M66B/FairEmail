@@ -56,7 +56,6 @@ import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.Html;
-import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -4257,18 +4256,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             @Override
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    int x = (int) event.getX();
-                    int y = (int) event.getY();
-
-                    x -= widget.getTotalPaddingLeft();
-                    y -= widget.getTotalPaddingTop();
-
-                    x += widget.getScrollX();
-                    y += widget.getScrollY();
-
-                    Layout layout = widget.getLayout();
-                    int line = layout.getLineForVertical(y);
-                    int off = layout.getOffsetForHorizontal(line, x);
+                    int off = Helper.getOffset(widget, buffer, event);
 
                     boolean show_images = properties.getValue("images", message.id);
                     if (!show_images) {
