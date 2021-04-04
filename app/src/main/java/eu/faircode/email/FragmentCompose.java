@@ -56,11 +56,13 @@ import android.security.KeyChain;
 import android.system.ErrnoException;
 import android.text.Editable;
 import android.text.Html;
+import android.text.Layout;
+import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
+import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
@@ -692,7 +694,53 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setTypeface(Typeface.create(compose_font, Typeface.NORMAL));
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
-        tvReference.setMovementMethod(LinkMovementMethod.getInstance());
+
+        tvReference.setMovementMethod(new ArrowKeyMovementMethod() {
+            @Override
+            public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int x = (int) event.getX();
+                    int y = (int) event.getY();
+
+                    x -= widget.getTotalPaddingLeft();
+                    y -= widget.getTotalPaddingTop();
+
+                    x += widget.getScrollX();
+                    y += widget.getScrollY();
+
+                    Layout layout = widget.getLayout();
+                    int line = layout.getLineForVertical(y);
+                    int off = layout.getOffsetForHorizontal(line, x);
+
+                    URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                    if (link.length > 0) {
+                        String url = link[0].getURL();
+                        Uri uri = Uri.parse(url);
+                        if (uri.getScheme() == null)
+                            uri = Uri.parse("https://" + url);
+
+                        int start = buffer.getSpanStart(link[0]);
+                        int end = buffer.getSpanEnd(link[0]);
+                        String title = (start < 0 || end < 0 || end <= start
+                                ? null : buffer.subSequence(start, end).toString());
+                        if (url.equals(title))
+                            title = null;
+
+                        Bundle args = new Bundle();
+                        args.putParcelable("uri", uri);
+                        args.putString("title", title);
+
+                        FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
+                        fragment.setArguments(args);
+                        fragment.show(getParentFragmentManager(), "open:link");
+
+                        return true;
+                    }
+                }
+
+                return super.onTouchEvent(widget, buffer, event);
+            }
+        });
 
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
