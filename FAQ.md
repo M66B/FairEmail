@@ -297,6 +297,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
 * [(165) Is Android Auto supported?](#user-content-faq165)
+* [(166) Can you add snooze to folder?](#user-content-faq166)
 
 [I have another question.](#user-content-support)
 
@@ -3631,6 +3632,21 @@ For notification (messaging) support you'll need to enable the following notific
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
 The developers guide is [here](https://developer.android.com/training/cars/messaging).
+
+<br />
+
+<a name="faq166"></a>
+**(166) Can you add snooze to folder?**
+
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+
+Snoozing to a folder requires the message to be moved to another folder (obviously).
+Moving a message can fail and moving a message back on waking up can fail too.
+Moreover, snoozing can be done only after the message has been moved,
+which would be problematic when there is no internet connection available.
+
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing.
+Unfortunately, it is not possible to hide messages on the email server.
 
 <br />
 
