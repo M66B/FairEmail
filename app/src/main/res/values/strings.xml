@@ -330,7 +330,7 @@
     <string name="title_advanced_signature_reply">Use signature when replying</string>
     <string name="title_advanced_signature_forward">Use signature when forwarding</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
-    <string name="title_advanced_reply_move">On replying to a message that is not in the inbox, save the reply in the same folder</string>
+    <string name="title_advanced_reply_move">On replying to a message in a user folder, save the reply in the same folder</string>
 
     <string name="title_advanced_auto_link">Automatically create links</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
