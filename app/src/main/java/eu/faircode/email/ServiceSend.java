@@ -569,7 +569,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
 
         if (sent != null) {
-            Log.i(sent.name + " Preparing sent message");
+            Log.i(sent.name + " Preparing sent message" +
+                    " folder=" + sent.name + "/" + sent.type);
 
             long id = message.id;
 
