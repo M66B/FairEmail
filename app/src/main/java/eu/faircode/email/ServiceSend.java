@@ -569,13 +569,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
 
         if (sent != null) {
-            Log.i(sent.name + " Preparing sent message" +
+            EntityLog.log(this, sent.name + " Preparing sent message" +
                     " folder=" + sent.name + "/" + sent.type);
 
             long id = message.id;
 
             imessage.saveChanges();
-            MessageHelper helper = new MessageHelper(imessage, ServiceSend.this);
+            MessageHelper helper = new MessageHelper(imessage, this);
 
             if (message.uid != null) {
                 Log.e("Outbox id=" + message.id + " uid=" + message.uid);
