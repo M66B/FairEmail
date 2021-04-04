@@ -229,7 +229,9 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                 reportError(result, "IAB launch billing flow");
         } else
             try {
-                Uri uri = Uri.parse(BuildConfig.PRO_FEATURES_URI + "?challenge=" + getChallenge(this));
+                Uri uri = Uri.parse(BuildConfig.PRO_FEATURES_URI +
+                        "?challenge=" + getChallenge(this) +
+                        "&version=" + BuildConfig.VERSION_CODE);
                 Helper.view(this, uri, true);
             } catch (NoSuchAlgorithmException ex) {
                 Log.unexpectedError(getSupportFragmentManager(), ex);

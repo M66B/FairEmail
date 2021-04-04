@@ -165,7 +165,7 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
     }
 
     private static String getResponse(Context context) throws NoSuchAlgorithmException {
-        return Helper.sha256(BuildConfig.APPLICATION_ID + getChallenge(context));
+        return Helper.sha256(BuildConfig.APPLICATION_ID.replace(".debug", "") + getChallenge(context));
     }
 
     static boolean activatePro(Context context, Uri data) throws NoSuchAlgorithmException {
@@ -229,7 +229,9 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
             //    reportError(result, "IAB launch billing flow");
         } else
             try {
-                Uri uri = Uri.parse(BuildConfig.PRO_FEATURES_URI + "?challenge=" + getChallenge(this));
+                Uri uri = Uri.parse(BuildConfig.PRO_FEATURES_URI +
+                        "?challenge=" + getChallenge(this) +
+                        "&version=" + BuildConfig.VERSION_CODE);
                 Helper.view(this, uri, true);
             } catch (NoSuchAlgorithmException ex) {
                 Log.unexpectedError(getSupportFragmentManager(), ex);
@@ -375,6 +377,7 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
                             " purchased=" + isPurchased(purchase) +
                             " valid=" + isPurchaseValid(purchase) +
                             " time=" + new Date(time));
+                    Log.i("IAB json=" + purchase.getOriginalJson());
 
                     //if (new Date().getTime() - purchase.getPurchaseTime() > 3 * 60 * 1000L) {
                     //    consumePurchase(purchase);
@@ -510,19 +513,28 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
         if (result == null)
             message = stage;
         else {
-            String debug = result.getDebugMessage();
-            message = getBillingResponseText(result) + (debug == null ? "" : " " + debug) + " " + stage;
+            message = getBillingResponseText(result);
 
-            // https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponse#service_disconnected
-            if (result.getResponseCode() == BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
-                retry(60);
+            String debug = result.getDebugMessage();
+            if (!TextUtils.isEmpty(debug))
+                message += " " + debug;
+
+            message += " " + stage;
         }
 
         EntityLog.log(this, message);
 
-        if (result.getResponseCode() != BillingClient.BillingResponseCode.USER_CANCELED)
-            for (IBillingListener listener : listeners)
-                listener.onError(message);
+        if (result != null) {
+            // https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponse#service_disconnected
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                retry(60);
+
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.USER_CANCELED)
+                return;
+        }
+
+        for (IBillingListener listener : listeners)
+            listener.onError(message);
     }
 
     private static String getBillingResponseText(BillingResult result) {
