@@ -51,6 +51,8 @@ public class FragmentAbout extends FragmentBase {
         setSubtitle(R.string.menu_about);
         setHasOptionsMenu(true);
 
+        final Context context = getContext();
+
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         TextView tvVersion = view.findViewById(R.id.tvVersion);
@@ -65,18 +67,18 @@ public class FragmentAbout extends FragmentBase {
 
         long last = 0;
         try {
-            PackageManager pm = getContext().getPackageManager();
+            PackageManager pm = context.getPackageManager();
             PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, 0);
             last = pi.lastUpdateTime;
         } catch (Throwable ex) {
             Log.e(ex);
         }
 
-        DateFormat DF = Helper.getDateTimeInstance(getContext(), DateFormat.SHORT, DateFormat.SHORT);
+        DateFormat DF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
         tvUpdated.setText(getString(R.string.app_updated, last == 0 ? "-" : DF.format(last)));
 
         ibUpdate.setVisibility(
-                Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG
+                Helper.hasValidFingerprint(context) || BuildConfig.DEBUG
                         ? View.VISIBLE : View.GONE);
         ibUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +97,6 @@ public class FragmentAbout extends FragmentBase {
                 Helper.view(view.getContext(), Uri.parse(Helper.LICENSE_URI), true);
             }
         });
-
-        final Context context = getContext();
 
         TypedValue style = new TypedValue();
         context.getTheme().resolveAttribute(R.style.TextAppearance_AppCompat_Small, style, true);
