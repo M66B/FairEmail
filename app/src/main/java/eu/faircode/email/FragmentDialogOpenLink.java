@@ -123,6 +123,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final TextView tvTitle = dview.findViewById(R.id.tvTitle);
         final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
         final EditText etLink = dview.findViewById(R.id.etLink);
+        final TextView tvLink = dview.findViewById(R.id.tvLink);
         final TextView tvSuspicious = dview.findViewById(R.id.tvSuspicious);
         final TextView tvDisconnect = dview.findViewById(R.id.tvDisconnect);
         final TextView tvDisconnectCategories = dview.findViewById(R.id.tvDisconnectCategories);
@@ -320,9 +321,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         if (host != null && !host.equals(puny)) {
             etLink.setText(uri.buildUpon().encodedAuthority(puny).build().toString());
+            tvLink.setText(uri.toString());
             tvSuspicious.setVisibility(View.VISIBLE);
         } else {
             etLink.setText(uri.toString());
+            tvLink.setText(null);
             tvSuspicious.setVisibility(Helper.isSingleScript(host) ? View.GONE : View.VISIBLE);
         }
 
