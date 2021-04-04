@@ -116,8 +116,6 @@
 
         <item name="colorUnreadHighlight">@color/lightAmberAccentDark</item>
 
-        <item name="colorWarning">@color/lightAmberAccent</item>
-
         <item name="colorFabBackground">@color/lightAmberAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
@@ -355,8 +353,6 @@
         <item name="android:textColorSecondaryInverse">@color/bw_textcolor_inverse</item>
         <item name="android:textColorTertiaryInverse">@color/bw_textcolor_inverse</item>
         <item name="android:textColorLink">@color/lightBluePrimary</item>
-
-        <item name="colorWarning">@color/lightColorWarning</item>
 
         <item name="colorRead">@color/white</item>
         <item name="colorUnread">@color/white</item>
