@@ -498,7 +498,7 @@ public class FragmentAnswer extends FragmentBase {
             args.putInt("start", etText.getSelectionStart());
             args.putInt("end", etText.getSelectionEnd());
 
-            FragmentDialogLink fragment = new FragmentDialogLink();
+            FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
             fragment.setArguments(args);
             fragment.setTargetFragment(this, REQUEST_LINK);
             fragment.show(getParentFragmentManager(), "answer:link");

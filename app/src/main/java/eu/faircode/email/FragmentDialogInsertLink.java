@@ -36,7 +36,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentDialogLink extends FragmentDialogBase {
+public class FragmentDialogInsertLink extends FragmentDialogBase {
     private EditText etLink;
 
     @Override

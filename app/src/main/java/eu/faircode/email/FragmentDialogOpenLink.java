@@ -309,9 +309,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         String host = uri.getHost();
         String thost = (uriTitle == null ? null : uriTitle.getHost());
 
-        String puny;
+        String puny = null;
         try {
-            puny = IDN.toASCII(host);
+            if (host != null)
+                puny = IDN.toASCII(host, IDN.ALLOW_UNASSIGNED);
         } catch (Throwable ex) {
             Log.e(ex);
             puny = host;
@@ -322,7 +323,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             tvSuspicious.setVisibility(View.VISIBLE);
         } else {
             etLink.setText(uri.toString());
-            tvSuspicious.setVisibility(View.GONE);
+            tvSuspicious.setVisibility(Helper.isSingleScript(host) ? View.GONE : View.VISIBLE);
         }
 
         grpDifferent.setVisibility(

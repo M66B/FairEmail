@@ -1113,6 +1113,10 @@ public class Helper {
 
     static boolean isSingleScript(String s) {
         // https://en.wikipedia.org/wiki/IDN_homograph_attack
+
+        if (TextUtils.isEmpty(s))
+            return true;
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             return true;
 

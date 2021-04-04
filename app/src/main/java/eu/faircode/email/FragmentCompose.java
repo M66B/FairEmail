@@ -1831,7 +1831,7 @@ public class FragmentCompose extends FragmentBase {
         args.putInt("start", etBody.getSelectionStart());
         args.putInt("end", etBody.getSelectionEnd());
 
-        FragmentDialogLink fragment = new FragmentDialogLink();
+        FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_LINK);
         fragment.show(getParentFragmentManager(), "compose:link");

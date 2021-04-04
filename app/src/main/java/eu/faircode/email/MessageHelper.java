@@ -1580,7 +1580,7 @@ public class MessageHelper {
             String domain = email.substring(at + 1);
 
             try {
-                user = IDN.toASCII(user);
+                user = IDN.toASCII(user, IDN.ALLOW_UNASSIGNED);
             } catch (IllegalArgumentException ex) {
                 Log.e(ex);
             }
@@ -1588,7 +1588,7 @@ public class MessageHelper {
             String[] parts = domain.split("\\.");
             for (int p = 0; p < parts.length; p++)
                 try {
-                    parts[p] = IDN.toASCII(parts[p]);
+                    parts[p] = IDN.toASCII(parts[p], IDN.ALLOW_UNASSIGNED);
                 } catch (IllegalArgumentException ex) {
                     Log.e(ex);
                 }
