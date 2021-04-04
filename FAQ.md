@@ -2066,10 +2066,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Sender contains
+* Sender contains or sender is contact
 * Recipient contains
 * Subject contains
-* Has attachments
+* Has attachments (optional of specific type)
 * Header contains
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
