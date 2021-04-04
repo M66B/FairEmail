@@ -90,6 +90,18 @@
             app:layout_constraintTop_toBottomOf="@id/ibCopy" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSuspicious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_suspicious_link"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDifferent" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvDisconnect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +111,7 @@
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDifferent" />
+            app:layout_constraintTop_toBottomOf="@id/tvSuspicious" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDisconnectCategories"

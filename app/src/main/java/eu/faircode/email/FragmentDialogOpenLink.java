@@ -123,6 +123,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final TextView tvTitle = dview.findViewById(R.id.tvTitle);
         final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
         final EditText etLink = dview.findViewById(R.id.etLink);
+        final TextView tvSuspicious = dview.findViewById(R.id.tvSuspicious);
         final TextView tvDisconnect = dview.findViewById(R.id.tvDisconnect);
         final TextView tvDisconnectCategories = dview.findViewById(R.id.tvDisconnectCategories);
         final ImageButton ibShare = dview.findViewById(R.id.ibShare);
@@ -318,14 +319,15 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         if (host != null && !host.equals(puny)) {
             etLink.setText(uri.buildUpon().encodedAuthority(puny).build().toString());
-            grpDifferent.setVisibility(View.VISIBLE);
+            tvSuspicious.setVisibility(View.VISIBLE);
         } else {
             etLink.setText(uri.toString());
-
-            grpDifferent.setVisibility(
-                    host == null || thost == null || host.equalsIgnoreCase(thost)
-                            ? View.GONE : View.VISIBLE);
+            tvSuspicious.setVisibility(View.GONE);
         }
+
+        grpDifferent.setVisibility(
+                host == null || thost == null || host.equalsIgnoreCase(thost)
+                        ? View.GONE : View.VISIBLE);
 
         boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
         List<String> categories = null;
