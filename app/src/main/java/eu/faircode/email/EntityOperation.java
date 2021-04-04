@@ -292,7 +292,8 @@ public class EntityOperation {
                         message.ui_flagged = false;
                         message.color = null;
                     }
-                    message.ui_hide = false;
+                    if (message.ui_snoozed != null)
+                        message.ui_hide = false;
                     message.ui_browsed = false;
                     message.error = null;
                     message.id = db.message().insertMessage(message);
@@ -329,6 +330,9 @@ public class EntityOperation {
                         }
 
                     EntityAttachment.copy(context, message.id, tmpid);
+
+                    if (message.ui_snoozed != null)
+                        EntityMessage.snooze(context, tmpid, message.ui_snoozed);
                 }
 
                 // Cross account move
