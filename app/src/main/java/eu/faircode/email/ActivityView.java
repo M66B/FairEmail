@@ -115,6 +115,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private boolean exit = false;
     private boolean searching = false;
+    private int lastBackStackCount = 0;
     private Snackbar lastSnackbar = null;
 
     static final int REQUEST_UNIFIED = 1;
@@ -148,12 +149,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, false);
 
+        if (savedInstanceState != null) {
+            Intent intent = savedInstanceState.getParcelable("fair:intent");
+            if (intent != null)
+                setIntent(intent);
+        }
+
         // Workaround stale intents from recent apps screen
         boolean recents = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0;
         if (recents) {
             Intent intent = getIntent();
+            Log.i("Stale intent=" + intent);
             intent.setAction(null);
-            setIntent(intent);
         }
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
@@ -427,6 +434,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelable("fair:intent", getIntent());
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
         outState.putBoolean("fair:searching", searching);
         super.onSaveInstanceState(outState);
@@ -718,6 +726,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (count == 0)
             finish();
         else {
+            if (count < lastBackStackCount) {
+                Intent intent = getIntent();
+                intent.setAction(null);
+                Log.i("Reset intent");
+            }
+            lastBackStackCount = count;
+
             if (drawerLayout.isDrawerOpen(drawerContainer) &&
                     !drawerLayout.isLocked(drawerContainer))
                 drawerLayout.closeDrawer(drawerContainer);
@@ -1018,7 +1033,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Refresh from widget
         if (intent.getBooleanExtra("refresh", false)) {
             intent.removeExtra("refresh");
-            setIntent(intent);
 
             int version = intent.getIntExtra("version", 0);
 
@@ -1030,9 +1044,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         String action = intent.getAction();
         if (action != null) {
-            intent.setAction(null);
-            setIntent(intent);
-
             if (action.startsWith("unified")) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
@@ -1041,6 +1052,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Intent clear = new Intent(this, ServiceUI.class)
                             .setAction(action.replace("unified", "clear"));
                     startService(clear);
+                    intent.setAction("unified");
                 }
 
             } else if (action.startsWith("folders")) {
@@ -1066,6 +1078,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Intent clear = new Intent(this, ServiceUI.class)
                             .setAction("clear:" + parts[2]);
                     startService(clear);
+                    intent.setAction("folder:" + folder);
                 }
 
             } else if ("why".equals(action)) {
@@ -1079,11 +1092,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Helper.viewFAQ(this, 2);
                 }
 
+                intent.setAction(null);
+
             } else if ("alert".equals(action) || "error".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
                 Helper.viewFAQ(this, "alert".equals(action) ? 23 : 22);
+
+                intent.setAction(null);
 
             } else if ("outbox".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
@@ -1139,7 +1156,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
 
             intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
-            setIntent(intent);
         }
     }
 
