@@ -487,6 +487,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             Log.breadcrumb("stop", crumb);
 
                             Log.i("### stop=" + accountNetworkState);
+                            db.account().setAccountThread(accountNetworkState.accountState.id, null);
                             state.stop();
                             state.join();
                             EntityLog.log(ServiceSynchronize.this, "### stopped=" + accountNetworkState);
@@ -1131,9 +1132,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             boolean forced = false;
             final DB db = DB.getInstance(this);
 
-            long thread = Thread.currentThread().getId();
-            Long currentThread = thread;
-            db.account().setAccountThread(account.id, thread);
+            Long currentThread = Thread.currentThread().getId();
+            Long accountThread = currentThread;
+            db.account().setAccountThread(account.id, accountThread);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (account.notify)
@@ -1148,8 +1149,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             state.setBackoff(CONNECT_BACKOFF_START);
             if (account.backoff_until != null)
                 db.account().setAccountBackoff(account.id, null);
-            while (state.isRunning() &&
-                    currentThread != null && currentThread.equals(thread)) {
+            while (state.isRunning() && currentThread.equals(accountThread)) {
                 state.reset();
                 Log.i(account.name + " run thread=" + currentThread);
 
@@ -2126,11 +2126,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
                 }
 
-                currentThread = Thread.currentThread().getId();
+                accountThread = db.account().getAccountThread(account.id);
             }
 
-            if (currentThread == null || !currentThread.equals(thread))
-                Log.e(account.name + " orphan thread id=" + currentThread + "/" + thread);
+            if (!currentThread.equals(accountThread))
+                Log.e(account.name + " orphan thread id=" + currentThread + "/" + accountThread);
         } finally {
             EntityLog.log(this, account.name + " stopped");
             wlAccount.release();
