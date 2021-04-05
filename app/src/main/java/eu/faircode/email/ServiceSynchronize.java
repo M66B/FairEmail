@@ -2129,7 +2129,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 accountThread = db.account().getAccountThread(account.id);
             }
 
-            if (!currentThread.equals(accountThread))
+            if (!currentThread.equals(accountThread) && accountThread != null)
                 Log.e(account.name + " orphan thread id=" + currentThread + "/" + accountThread);
         } finally {
             EntityLog.log(this, account.name + " stopped");
