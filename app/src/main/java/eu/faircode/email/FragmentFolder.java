@@ -76,6 +76,7 @@ public class FragmentFolder extends FragmentBase {
     private EditText etKeepDays;
     private CheckBox cbKeepAll;
     private CheckBox cbAutoDelete;
+    private TextView tvAutoDeleteArchiveHint;
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvInboxRootHint;
@@ -140,6 +141,7 @@ public class FragmentFolder extends FragmentBase {
         etKeepDays = view.findViewById(R.id.etKeepDays);
         cbKeepAll = view.findViewById(R.id.cbKeepAll);
         cbAutoDelete = view.findViewById(R.id.cbAutoDelete);
+        tvAutoDeleteArchiveHint = view.findViewById(R.id.tvAutoDeleteArchiveHint);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         tvInboxRootHint = view.findViewById(R.id.tvInboxRootHint);
@@ -245,6 +247,7 @@ public class FragmentFolder extends FragmentBase {
         cbAutoClassifySource.setVisibility(View.GONE);
         cbAutoClassifyTarget.setVisibility(View.GONE);
         tvAutoClassifyPro.setVisibility(View.GONE);
+        tvAutoDeleteArchiveHint.setVisibility(View.GONE);
         grpAutoDelete.setVisibility(View.GONE);
         btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
@@ -322,6 +325,8 @@ public class FragmentFolder extends FragmentBase {
                 Helper.setViewsEnabled(view, true);
 
                 boolean canAutoClassify = (imap && MessageClassifier.isEnabled(getContext()));
+                boolean canAutoDelete = (imap && (folder == null || !folder.read_only));
+                boolean isArchive = (folder != null && EntityFolder.ARCHIVE.equals(folder.type));
                 boolean pro = (ActivityBilling.isPro(getContext()) ||
                         (folder != null && EntityFolder.JUNK.equals(folder.type)));
 
@@ -340,7 +345,8 @@ public class FragmentFolder extends FragmentBase {
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 cbAutoDelete.setText(folder != null && EntityFolder.TRASH.equals(folder.type)
                         ? R.string.title_auto_delete : R.string.title_auto_trash);
-                grpAutoDelete.setVisibility(!imap || (folder != null && folder.read_only) ? View.GONE : View.VISIBLE);
+                grpAutoDelete.setVisibility(canAutoDelete ? View.VISIBLE : View.GONE);
+                tvAutoDeleteArchiveHint.setVisibility(canAutoDelete && isArchive ? View.VISIBLE : View.GONE);
                 btnSave.setEnabled(true);
                 tvInboxRootHint.setVisibility(folder == null && parent == null ? View.VISIBLE : View.GONE);
 

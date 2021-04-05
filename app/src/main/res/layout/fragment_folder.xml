@@ -346,6 +346,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbAutoDelete" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvAutoDeleteArchiveHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_auto_delete_archive_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAutoDeleteHint" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -354,7 +365,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAutoDeleteHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvAutoDeleteArchiveHint" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
