@@ -546,6 +546,7 @@ class Core {
                             // Delete: NO mailbox selected READ-ONLY
                             // Flags: NO mailbox selected READ-ONLY
                             // Keyword: NO STORE completed
+                            // Keyword: NO [CANNOT] Keyword length too long (n.nnn + n.nnn secs).
                             // Search: BAD command syntax error
                             // Search (sync): BAD Could not parse command
 
