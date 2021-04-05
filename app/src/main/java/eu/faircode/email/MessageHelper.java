@@ -1581,7 +1581,7 @@ public class MessageHelper {
 
             try {
                 user = IDN.toASCII(user, IDN.ALLOW_UNASSIGNED);
-            } catch (IllegalArgumentException ex) {
+            } catch (Throwable ex) {
                 Log.e(ex);
             }
 
@@ -1589,7 +1589,7 @@ public class MessageHelper {
             for (int p = 0; p < parts.length; p++)
                 try {
                     parts[p] = IDN.toASCII(parts[p], IDN.ALLOW_UNASSIGNED);
-                } catch (IllegalArgumentException ex) {
+                } catch (Throwable ex) {
                     Log.e(ex);
                 }
 
