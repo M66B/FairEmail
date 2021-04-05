@@ -2529,10 +2529,12 @@ class Core {
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
-            Flags flags = ifolder.getPermanentFlags();
-            SearchTerm searchTerm = account.use_date
+            SearchTerm dateTerm = account.use_date
                     ? new SentDateTerm(ComparisonTerm.GE, new Date(sync_time))
                     : new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
+
+            SearchTerm searchTerm = dateTerm;
+            Flags flags = ifolder.getPermanentFlags();
             if (sync_nodate)
                 searchTerm = new OrTerm(searchTerm, new ReceivedDateTerm(ComparisonTerm.LT, new Date(365 * 24 * 3600 * 1000L)));
             if (sync_unseen && flags.contains(Flags.Flag.SEEN))
@@ -2542,14 +2544,17 @@ class Core {
 
             long search = SystemClock.elapsedRealtime();
             Message[] imessages;
-            try {
-                imessages = ifolder.search(searchTerm);
-            } catch (MessagingException ex) {
-                Log.w(ex);
-                // Fallback to date only search
-                // BAD Could not parse command
-                imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
-            }
+            if (sync_time == 0)
+                imessages = ifolder.getMessages();
+            else
+                try {
+                    imessages = ifolder.search(searchTerm);
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                    // Fallback to date only search
+                    // BAD Could not parse command
+                    imessages = ifolder.search(dateTerm);
+                }
             if (imessages == null)
                 imessages = new Message[0];
 
