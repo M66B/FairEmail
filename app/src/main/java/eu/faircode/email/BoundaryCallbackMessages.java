@@ -231,10 +231,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         int found = 0;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean fts = prefs.getBoolean("fts", false);
-        boolean pro = ActivityBilling.isPro(context);
-        if (fts && pro && criteria.fts && criteria.query != null) {
+        if (criteria.fts && criteria.query != null) {
             if (state.ids == null) {
                 SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
                 state.ids = FtsDbHelper.match(sdb, account, folder, criteria);
