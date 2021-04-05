@@ -296,7 +296,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             prefs.edit().putString("last_search", criteria.query).apply();
 
                         criteria.fts = cbSearchIndex.isChecked();
-                        if (!fts) {
+                        if (!criteria.fts) {
                             criteria.in_senders = cbSenders.isChecked();
                             criteria.in_recipients = cbRecipients.isChecked();
                             criteria.in_subject = cbSubject.isChecked();
