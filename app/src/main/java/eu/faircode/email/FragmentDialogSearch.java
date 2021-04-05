@@ -290,10 +290,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
 
                         criteria.query = etQuery.getText().toString();
+                        prefs.edit().putString("last_search", criteria.query).apply();
+
                         if (TextUtils.isEmpty(criteria.query))
                             criteria.query = null;
-                        else
-                            prefs.edit().putString("last_search", criteria.query).apply();
 
                         criteria.fts = cbSearchIndex.isChecked();
                         if (!criteria.fts) {
