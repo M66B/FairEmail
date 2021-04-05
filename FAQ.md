@@ -3336,7 +3336,8 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
+There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider).
+If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 
