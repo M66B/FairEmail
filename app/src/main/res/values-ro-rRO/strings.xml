@@ -266,6 +266,8 @@
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
+    <string name="title_advanced_send_reminders">Arată mementouri</string>
+    <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
@@ -277,15 +279,14 @@
     <string name="title_advanced_signature_location">Poziție semnătură</string>
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
+    <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_flow">\'format fluent\' pentru text simplu</string>
-    <string name="title_advanced_receipt">Când se cere o confirmare</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_remove_signatures">Elimină semnăturile cunoscute</string>
-    <string name="title_advanced_send_reminders">Arată mementouri</string>
+    <string name="title_advanced_receipt">Când se cere o confirmare</string>
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
-    <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
@@ -389,7 +390,6 @@
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
-    <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
     <string name="title_advanced_notifications_default">Canal implicit</string>

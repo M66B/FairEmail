@@ -256,6 +256,9 @@
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
     <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
+    <string name="title_advanced_send_reminders">Toon herinneringen</string>
+    <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
+    <string name="title_advanced_send_pending">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
     <string name="title_advanced_compose_font">Standaard lettertype</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_separate_reply">Voeg een horizontale lijn in voor een antwoord/doorsturen kop</string>
@@ -267,16 +270,15 @@
     <string name="title_advanced_signature_location">Positie handtekening</string>
     <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
     <string name="title_advanced_signature_forward">Gebruik handtekening bij doorsturen</string>
+    <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
+    <string name="title_advanced_reply_move">Bewaar het antwoord in dezelfde map wanneer het bericht in een gebruikersmap wordt beantwoord</string>
     <string name="title_advanced_auto_link">Automatisch koppelingen maken</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
     <string name="title_advanced_flow">\'format flowed\' voor platte tekst</string>
-    <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_remove_signatures">Verwijder herkende handtekeningen</string>
-    <string name="title_advanced_send_reminders">Toon herinneringen</string>
+    <string name="title_advanced_receipt">Bij het aanvragen van een bevestiging</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
-    <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
@@ -380,7 +382,6 @@
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_auto_important">Automatisch berichten met een ster belangrijk maken</string>
     <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
-    <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
     <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
@@ -486,6 +487,7 @@
     <string name="title_advanced_suggest_local_hint">Naast contacten die door Android worden geleverd. Contactgegevens worden alleen opgeslagen voor nieuw verzonden of ontvangen berichten wanneer ingeschakeld.</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
+    <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
@@ -1257,6 +1259,7 @@
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_different_link">De titel en het link-adres zijn verschillend</string>
     <string name="title_tracking_link">Deze website kan je volgen</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Dit is een verdachte koppeling</string>
     <string name="title_link_http">Verkeer wordt niet versleuteld</string>
     <string name="title_link_https">Verkeer wordt versleuteld</string>
     <string name="title_sanitize_link">Verwijder tracking parameters</string>

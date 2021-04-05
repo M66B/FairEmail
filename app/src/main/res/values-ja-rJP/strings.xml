@@ -244,6 +244,9 @@
     <string name="title_advanced_suggest_sent">送信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_received">受信したメッセージで見つかったアドレスを提案</string>
     <string name="title_advanced_suggest_frequently">使用頻度で提案されたアドレスを並べ替える</string>
+    <string name="title_advanced_send_reminders">リマインダーを表示</string>
+    <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
+    <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_compose_font">デフォルトフォント</string>
     <string name="title_advanced_prefix_once">返信または転送時にプレフィックスを1回だけにします</string>
     <string name="title_advanced_separate_reply">返信/転送ヘッダーの前に水平線を挿入</string>
@@ -255,16 +258,14 @@
     <string name="title_advanced_signature_location">署名の場所</string>
     <string name="title_advanced_signature_reply">返信時に署名を使用する</string>
     <string name="title_advanced_signature_forward">転送時に署名を使用する</string>
+    <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
     <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
-    <string name="title_advanced_receipt">要求する確認メッセージの種類</string>
     <string name="title_advanced_usenet_signature">署名の区切</string>
     <string name="title_advanced_remove_signatures">認識された署名を削除</string>
-    <string name="title_advanced_send_reminders">リマインダーを表示</string>
+    <string name="title_advanced_receipt">要求する確認メッセージの種類</string>
     <string name="title_advanced_lookup_mx">送信する前に受信者のメールアドレスを確認</string>
-    <string name="title_advanced_send_delayed">メッセージ送信を遅延させます</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_metered">従量制課金接続を使用</string>
     <string name="title_advanced_download">従量制課金接続でメッセージと添付ファイルを自動的にダウンロードします</string>
     <string name="title_advanced_roaming">ローミング中にメッセージと添付ファイルをダウンロードします</string>
@@ -368,7 +369,6 @@
     <string name="title_advanced_autounstar">移動するメッセージのスターを取り消します</string>
     <string name="title_advanced_auto_important">スター付きメッセージを自動的に重要にする</string>
     <string name="title_advanced_reset_importance">移動メッセージの重要度をリセット</string>
-    <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ時間</string>
     <string name="title_advanced_notifications">通知の管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>

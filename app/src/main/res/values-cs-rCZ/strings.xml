@@ -185,6 +185,7 @@
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
+    <string name="title_setup_doze_remark">Pro spolehlivé odesílání a příjem e-mailu</string>
     <string name="title_setup_doze_hint">Třebaže to může znít protichůdně, vypnutí optimalizace výdrže baterie povede k menší spotřebě baterie</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
@@ -275,6 +276,8 @@
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
+    <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
+    <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
     <string name="title_advanced_separate_reply">Vložit vodorovnou čáru před hlavičku odpovědi/přeposlání</string>
@@ -286,15 +289,14 @@
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
     <string name="title_advanced_signature_forward">Použít podpis při přeposlání</string>
+    <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
     <string name="title_advanced_auto_link">Automaticky vytvářet odkazy</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_flow">„Format flowed“ pro prostý text</string>
-    <string name="title_advanced_receipt">Při požadování potvrzení</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
     <string name="title_advanced_remove_signatures">Odmazat rozpoznané podpisy</string>
-    <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
+    <string name="title_advanced_receipt">Při požadování potvrzení</string>
     <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
-    <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
@@ -396,7 +398,6 @@
     <string name="title_advanced_autounstar">Při přesunu odebrat zprávám hvězdičku automaticky</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
-    <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>

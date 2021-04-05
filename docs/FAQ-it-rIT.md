@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # Supporto FairEmail
 
 Se hai delle domande, controlla prima le seguenti domande frequenti. [In fondo](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) puoi scoprire come porre altre domande, richiedere funzionalità e segnalare bug.
@@ -286,6 +288,7 @@ Il design è stato a lungo oggetto di discussione e, se si desidera, se ne può 
 * [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
 * [(164) Puoi aggiungere temi personalizzabili?](#user-content-faq164)
 * [(165) Android Auto è supportato?](#user-content-faq165)
+* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
 [Ho un'altra domanda.](#user-content-support)
 
@@ -2193,7 +2196,7 @@ Note that the notification setting *Show launcher icon with number of new messag
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). Quando abilitato, il conteggio dei badge sarà lo stesso del numero di notifiche dei nuovi messaggi. Quando disabilitato, il conteggio dei badge sarà il numero di messaggi non letti, indipendentemente se sono mostrati in una notifica o sono nuovi.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
@@ -2987,6 +2990,19 @@ For notification (messaging) support you'll need to enable the following notific
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
 The developers guide is [here](https://developer.android.com/training/cars/messaging).
+
+<br />
+
+<a name="faq166"></a>
+**(166) Can I snooze a message across multiple devices?**
+
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 

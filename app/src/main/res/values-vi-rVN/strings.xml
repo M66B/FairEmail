@@ -245,6 +245,9 @@
     <string name="title_advanced_suggest_sent">Đề xuất các địa chỉ được tìm thấy trong các thư đã gửi</string>
     <string name="title_advanced_suggest_received">Đề xuất các địa chỉ được tìm thấy trong các thư đã nhận</string>
     <string name="title_advanced_suggest_frequently">Sắp xếp các địa chỉ được đề xuất theo tần số sử dụng</string>
+    <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
+    <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
+    <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_compose_font">Phông chữ mặc định</string>
     <string name="title_advanced_prefix_once">Chỉ đặt tiền tố cho chủ đề một lần khi trả lời hoặc chuyển tiếp</string>
     <string name="title_advanced_separate_reply">Chèn một đường thẳng ngang trước tiêu đề trả lời/chuyển tiếp</string>
@@ -256,16 +259,14 @@
     <string name="title_advanced_signature_location">Vị trí chữ ký</string>
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
+    <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
     <string name="title_advanced_flow">\'format flowed\' cho văn bản thường</string>
-    <string name="title_advanced_receipt">Khi yêu cầu xác nhận</string>
     <string name="title_advanced_usenet_signature">Theo quy ước chữ ký của Usenet</string>
     <string name="title_advanced_remove_signatures">Xoá các chữ ký đã nhận ra</string>
-    <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
+    <string name="title_advanced_receipt">Khi yêu cầu xác nhận</string>
     <string name="title_advanced_lookup_mx">Kiểm tra địa chỉ email người nhận trước khi gửi</string>
-    <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_metered">Sử dụng các kết nối trả phí</string>
     <string name="title_advanced_download">Tự động tải xuống các thư và tệp đính kèm trong kết nối trả phí lớn nhất</string>
     <string name="title_advanced_roaming">Tải xuống các thư và tệp đính kèm khi đang chuyển vùng</string>
@@ -301,6 +302,7 @@
     <string name="title_advanced_circular">Hiện biểu tượng tròn</string>
     <string name="title_advanced_color_saturation">Độ bão hoà: %1$s %%</string>
     <string name="title_advanced_color_value">Độ sáng: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Ngưỡng cửa màu chữ: %1$s %%</string>
     <string name="title_advanced_name_email">Hiện tên và địa chỉ email</string>
     <string name="title_advanced_replace_name">Ưu tiên tên danh bạ hơn tên được gửi</string>
     <string name="title_advanced_only_name">Chỉ hiển thị tên danh bạ</string>
@@ -321,9 +323,12 @@
     <string name="title_advanced_preview_lines">Số dòng xem trước</string>
     <string name="title_advanced_addresses">Mở rộng chi tiết địa chỉ theo mặc định</string>
     <string name="title_advanced_attachments_alt">Hiện các tệp đính kèm sau văn bản thư</string>
+    <string name="title_advanced_thumbnails">Hiện hình ảnh xem trước sau văn bản thư</string>
     <string name="title_advanced_message_text_zoom">Độ phóng văn bản thư mặc định</string>
     <string name="title_advanced_overview_mode">Phóng thư gốc để vừa với màn hình</string>
     <string name="title_advanced_contrast">Sử dụng độ tương phản cao cho văn bản thư</string>
+    <string name="title_advanced_monospaced">Sử dụng phông chữ đơn cách cho văn bản thư theo mặc định</string>
+    <string name="title_advanced_monospaced_pre">Sử dụng phông chữ đơn cách cho văn bản đã định dạng trước</string>
     <string name="title_advanced_text_color">Sử dụng màu sắc văn bản</string>
     <string name="title_advanced_text_size">Sử dụng kích cỡ văn bản</string>
     <string name="title_advanced_text_font">Sử dụng phông chữ</string>
@@ -363,7 +368,6 @@
     <string name="title_advanced_autounstar">Tự động bỏ sao khỏi thư khi di chuyển thư</string>
     <string name="title_advanced_auto_important">Tự động làm cho thư được gắn sao trở nên quan trọng</string>
     <string name="title_advanced_reset_importance">Đặt lại tầm quan trọng khi di chuyển thư</string>
-    <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
     <string name="title_advanced_default_snooze">Thời gian báo lại mặc định</string>
     <string name="title_advanced_notifications">Quản lý thông báo</string>
     <string name="title_advanced_notifications_default">Kênh mặc định</string>
@@ -530,6 +534,7 @@
     <string name="title_identity_email">Địa chỉ email của bạn</string>
     <string name="title_identity_color_hint">Màu sắc danh tính được ưu tiên trước màu sắc thư mục và tài khoản</string>
     <string name="title_advanced_sender">Cho phép chỉnh sửa địa chỉ người gửi</string>
+    <string name="title_advanced_sender_regex">Sử dụng biểu thức tìm kiếm để khớp với tên người dùng của các địa chỉ email sắp đến</string>
     <string name="title_identity_reply_to">Trả lời đến địa chỉ</string>
     <string name="title_identity_unicode">Sử dụng vận chuyển Unicode</string>
     <string name="title_identity_unicode_remark">Đa số các máy chủ không hỗ trợ điều này</string>
@@ -1068,6 +1073,7 @@
     <string name="title_rule_time_after">Đã nhận sau</string>
     <string name="title_rule_time_before">Đã nhận trước</string>
     <string name="title_rule_time_rel">Thời gian tương đối (đã nhận) giữa</string>
+    <string name="title_rule_regex">Biểu thức tìm kiếm</string>
     <string name="title_rule_and">VÀ</string>
     <string name="title_rule_action">Hành động</string>
     <string name="title_rule_action_remark">Hành động này sẽ được áp dụng cho các thư mới đi đến thư mục %1$s</string>

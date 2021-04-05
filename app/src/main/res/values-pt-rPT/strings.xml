@@ -242,6 +242,8 @@
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
+    <string name="title_advanced_send_reminders">Mostrar lembretes</string>
+    <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
     <string name="title_advanced_prefix_once">Prefixo do assunto único ao responder ou encaminhar</string>
     <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento extendido</string>
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
@@ -249,13 +251,12 @@
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
     <string name="title_advanced_signature_forward">Usar assinatura quando encaminhar</string>
+    <string name="title_advanced_discard_delete">Ao discartar rascunho, apagar permanentemente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
-    <string name="title_advanced_receipt">Quando solicitado recibo</string>
     <string name="title_advanced_usenet_signature">Seguir a convenção de assinatura Usenet</string>
     <string name="title_advanced_remove_signatures">Remover assinaturas reconhecidas</string>
-    <string name="title_advanced_send_reminders">Mostrar lembretes</string>
+    <string name="title_advanced_receipt">Quando solicitado recibo</string>
     <string name="title_advanced_lookup_mx">Verificar endereços de e-mail do destinatário antes de enviar</string>
-    <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
     <string name="title_advanced_metered">Usar conexões limitadas</string>
     <string name="title_advanced_download">Descarregar automaticamente mensagens e anexos numa conexão limitada</string>
     <string name="title_advanced_roaming">Descarregar mensagens e anexos em roaming</string>
@@ -330,7 +331,6 @@
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao mover mensagens</string>
     <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
-    <string name="title_advanced_discard_delete">Ao discartar rascunho, apagar permanentemente</string>
     <string name="title_advanced_default_snooze">Tempo para adiamento predefinido</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>

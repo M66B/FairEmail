@@ -244,6 +244,9 @@
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
+    <string name="title_advanced_send_reminders">显示提醒</string>
+    <string name="title_advanced_send_delayed">延迟发送消息</string>
+    <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
     <string name="title_advanced_compose_font">默认字体</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
@@ -255,16 +258,15 @@
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
     <string name="title_advanced_signature_forward">转发时使用签名</string>
+    <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
+    <string name="title_advanced_reply_move">回复用户文件夹中的消息时，将回复保存在相同文件夹中</string>
     <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_flow">对纯文本采用”格式流动式“（format flowed）引用文本换行</string>
-    <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
-    <string name="title_advanced_send_reminders">显示提醒</string>
+    <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
-    <string name="title_advanced_send_delayed">延迟发送消息</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
@@ -368,7 +370,6 @@
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
-    <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
     <string name="title_advanced_default_snooze">默认打盹时间</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
@@ -474,6 +475,7 @@
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
+    <string name="title_advanced_reply_move_hint">邮件服务器仍然可以将消息添加到“已发送消息”文件夹</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
@@ -1245,6 +1247,7 @@
     <string name="title_open_link">打开链接</string>
     <string name="title_different_link">标题和链接地址不同</string>
     <string name="title_tracking_link">此网站可能会跟踪你</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">这是一个可疑的链接</string>
     <string name="title_link_http">流量不会被加密</string>
     <string name="title_link_https">流量将被加密</string>
     <string name="title_sanitize_link">删除跟踪参数</string>

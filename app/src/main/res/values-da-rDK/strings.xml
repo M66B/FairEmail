@@ -252,6 +252,9 @@
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
+    <string name="title_advanced_send_reminders">Vis påmindelser</string>
+    <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
+    <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_separate_reply">Indsæt en vandret linje før en svar-/videresendelsesoverskrift</string>
@@ -263,16 +266,15 @@
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
     <string name="title_advanced_signature_forward">Benyt signatur ved videresendelse</string>
+    <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
+    <string name="title_advanced_reply_move">Når en besked i en brugermappe besvares, gem svaret i pågældende mappe</string>
     <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>
-    <string name="title_advanced_receipt">Når kvittering udbedes</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Fjern genkedte signaturer</string>
-    <string name="title_advanced_send_reminders">Vis påmindelser</string>
+    <string name="title_advanced_receipt">Når kvittering udbedes</string>
     <string name="title_advanced_lookup_mx">Tjek modtager e-mail inden afsendelse</string>
-    <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_metered">Brug forbrugsbaserede forbindelser</string>
     <string name="title_advanced_download">Download automatisk beskeder og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
@@ -375,7 +377,6 @@
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
-    <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
@@ -480,6 +481,7 @@
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
+    <string name="title_advanced_reply_move_hint">E-mailserveren kan stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
@@ -1242,6 +1244,7 @@
     <string name="title_open_link">Åbn link</string>
     <string name="title_different_link">Titlen og linkadressen er forskellige</string>
     <string name="title_tracking_link">Dette websted sporer dig muligvis</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Dette er et mistænkeligt link</string>
     <string name="title_link_http">Trafik bliver ikke krypteret</string>
     <string name="title_link_https">Trafik bliver krypteret</string>
     <string name="title_sanitize_link">Fjern sporingsparametre</string>

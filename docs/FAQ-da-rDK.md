@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # FairEmail-support
 
 Ved evt. spørgsmål, tjek først de ofte stillede spørgsmål nedenfor. [Allernederst](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) findes info om, hvordan der stilles andre spørgsmål, anmodes om funktioner og indrapporteres fejl.
@@ -286,6 +288,7 @@ Designet baserer sig på mange debatter, så ønsks det debatteret yderligere, t
 * [(163) Hvad er beskedklassificering?](#user-content-faq163)
 * [(164) Kan der blive tilføjet tilpasselige temaer?](#user-content-faq164)
 * [(165) Is Android Auto supported?](#user-content-faq165)
+* [(166) Kan en besked slumres på tværs af flere enheder?](#user-content-faq166)
 
 [Har et andet spørgsmål.](#user-content-support)
 
@@ -2193,7 +2196,7 @@ Note that the notification setting *Show launcher icon with number of new messag
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Afhængigt af ønske, vil notifikationsindstillingen *Lad antallet af nye beskeder matcher antallet af notifikationer* skulle aktiveres eller deaktiveres (standard er inaktiv). Når aktiveret, vil badgeantallet være lig antallet af nye beskednotifikationer. Når deaktiveret, vil badgeantallet være lig antallet af ulæste beskeder, uanset om de vises i en notifikation eller er nye.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
@@ -2990,29 +2993,42 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 
 <br />
 
+<a name="faq166"></a>
+**(166) Kan en besked slumres på tværs af flere enheder?**
+
+Da der ingen standarder for beskedslumring, er alle slumringsimplementeringer er tilpassede løsninger.
+
+Nogle e-mailudbydere flytte slumrede beskeder til en særlig mappe. Desværre har tredjeparts-apps ingen adgang til denne specielle mappe.
+
+Flytning af en besked til en anden mappe og tilbage mislykkes måske og er ikke mulig uden Internetforbindelse. Dette er problematisk, da en besked kun kan slumres efter at være blevet flyttet.
+
+For at forhindre disse problemer, sker slumring lokalt på enheden ved at skjule beskeden under slumring. Desværre er det ikke muligt også at skjule beskeder på e-mailserveren.
+
+<br />
+
 ## Get support
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail understøttes kun på smartphones, tablets og ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Kun seneste Play Butik- og GitHub-versioner understøttes. F-Droid build understøttes kun, hvis versionsnummeret er identisk med den seneste GitHub-udgivelses ditto. Dette betyder også, at nedgradering ikke understøttes.
 
-There is no support on things that are not directly related to FairEmail.
+Der er ingen support for ting, som ikke er direkte relateret til FairEmail.
 
-There is no support on building and developing things by yourself.
+Der er ingen support til bygning og udvikling af ting fra dig selv.
 
-Requested features should:
+Anmodede funktioner skal:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er mhp. at muliggøre langsigtet vedligeholdelse og support.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Har du spørgsmål, ønsker til en funktion eller vil anmelde en fejl, **så benyt [denne formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Ophavsrettigheder &copy; 2018-2021 Marcel Bokhorst.

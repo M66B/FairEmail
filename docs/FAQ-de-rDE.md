@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # FairEmail - Support
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Unten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
@@ -286,6 +288,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(163) Was ist Nachrichtenklassifizierung?](#user-content-faq163)
 * [(164) Können Sie anpassbare Designs hinzufügen?](#user-content-faq164)
 * [(165) Wird Android Auto unterstützt?](#user-content-faq165)
+* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
 [Ich habe eine andere Frage.](#user-content-support)
 
@@ -2193,7 +2196,7 @@ Note that the notification setting *Show launcher icon with number of new messag
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Je nachdem was gewünscht wird, muss die Benachrichtigungseinstellung *Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen lassen* aktiviert werden (Standard deaktiviert). Wenn diese Funktion aktiviert ist, entspricht die Zahl der Kennzeichnung der Anzahl der Benachrichtigungen über neue Nachrichten. Wenn diese Funktion deaktiviert ist, wird die Anzahl der ungelesenen Nachrichten angezeigt, unabhängig davon, ob sie in einer Benachrichtigung angezeigt werden oder neu sind.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
@@ -2990,29 +2993,42 @@ Die Anleitung für Entwickler ist [hier](https://developer.android.com/training/
 
 <br />
 
+<a name="faq166"></a>
+**(166) Can I snooze a message across multiple devices?**
+
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
+
+<br />
+
 ## Hilfe erhalten
 
-FairEmail kann nur auf Smartphones, Tablets und ChromeOS genutzt werden.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Nur die neuesten Versionen aus dem Play-Store oder von GitHub werden unterstützt. Der F-Droid-Build wird nur unterstützt, wenn die Versionsnummer mit der Versionsnummer der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass ein Downgrade nicht unterstützt wird.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Für Funktionen, die nicht direkt mit FairEmail zusammenhängen, gibt es keine Unterstützung.
+There is no support on things that are not directly related to FairEmail.
 
-Es gibt keinem Support für eigene Builds und selbstentwickelte Funktionen.
+There is no support on building and developing things by yourself.
 
-Angeforderte Funktionen sollten:
+Requested features should:
 
 * für die meisten Menschen nützlich sein
 * die Nutzung von FairEmail nicht verkomplizieren
 * in die Philosophie von FairEmail passen (privatsphäre- und sicherheitsorientiert)
 * den gängigen Standards entsprechen (IMAP, SMTP, etc)
 
-Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Das soll auch langfristig die Wartung und Unterstützung ermöglichen.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, **benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub Issues sind wegen häufigen Missbrauchs deaktiviert.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Urheberrecht &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

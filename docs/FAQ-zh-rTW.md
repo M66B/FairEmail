@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # FairEmail 支援
 
 如果你有疑問，請先查閱以下常見問題。 [在本頁下方](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), 你可以了解如何問其他問題、要求功能、以及回報錯誤。
@@ -286,6 +288,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [(163) 甚麼是訊息分類?](#user-content-faq163)
 * [(164) 你能新增客製化主題功能嗎?](#user-content-faq164)
 * [(165) 是否支援Android Auto?](#user-content-faq165)
+* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
 [我有其他問題](#user-content-support)
 
@@ -2193,7 +2196,7 @@ Note that the notification setting *Show launcher icon with number of new messag
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). When enabled the badge count will be the same as the number of new message notifications. When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
@@ -2990,6 +2993,19 @@ You can enable other notification actions too, if you like, but they are not sup
 
 <br />
 
+<a name="faq166"></a>
+**(166) Can I snooze a message across multiple devices?**
+
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
+
+<br />
+
 ## 取得支援
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
@@ -3000,7 +3016,7 @@ There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-請求新增的功能須有下列特質：
+Requested features should:
 
 * 對大部分人來說是好用的
 * 不會讓FairEmail變得複雜
@@ -3009,7 +3025,7 @@ There is no support on building and developing things by yourself.
 
 Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-如果您有問題、想要要求新功能，或是回報bug，</strong>請使用[此格式](https://contact.faircode.eu/?product=fairemailsupport)</0>
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
 GitHub issues are disabled due to frequent misusage.
 

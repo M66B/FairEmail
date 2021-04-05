@@ -220,6 +220,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_suggest_sent">Suggeriu adreces trobades als missatges enviats</string>
     <string name="title_advanced_suggest_received">Suggeriu adreces trobades als missatges rebuts</string>
     <string name="title_advanced_suggest_frequently">Ordena les adreces suggerides en funció de la freqüència d’ús</string>
+    <string name="title_advanced_send_reminders">Mostra els recordatoris</string>
+    <string name="title_advanced_send_delayed">Retarda l\'enviament de missatges</string>
     <string name="title_advanced_compose_font">Tipus de lletra per defecte</string>
     <string name="title_advanced_prefix_once">El prefix de l\'assumpte només una vegada a la resposta o al reenviament</string>
     <string name="title_advanced_extended_reply">Utilitza resposta estesa/capçalera de reenviament</string>
@@ -228,14 +230,13 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_signature_location">Posició de la signatura</string>
     <string name="title_advanced_signature_reply">Utilitzeu la signatura per respondre</string>
     <string name="title_advanced_signature_forward">Utilitzeu la signatura per reenviar</string>
+    <string name="title_advanced_discard_delete">En descartar l\'esborrany, suprimeix el projecte permanent</string>
     <string name="title_advanced_plain_only">Envia en text pla només per defecte</string>
     <string name="title_advanced_flow">\"format fluid\" per al text pla</string>
-    <string name="title_advanced_receipt">Quan sol·liciteu un rebut</string>
     <string name="title_advanced_usenet_signature">Convenció de signatura Usenet</string>
     <string name="title_advanced_remove_signatures">Elimineu les signatures reconegudes</string>
-    <string name="title_advanced_send_reminders">Mostra els recordatoris</string>
+    <string name="title_advanced_receipt">Quan sol·liciteu un rebut</string>
     <string name="title_advanced_lookup_mx">Comproveu les adreces de correu electrònic del destinatari abans d’enviar-les</string>
-    <string name="title_advanced_send_delayed">Retarda l\'enviament de missatges</string>
     <string name="title_advanced_metered">Utilitza les connexions dosificada</string>
     <string name="title_advanced_download">Baixeu de forma automàtica missatges i fitxers adjunts fins a una connexió de dosificació fins a</string>
     <string name="title_advanced_roaming">Baixeu missatges i fitxers adjunts en itinerància</string>
@@ -324,7 +325,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
     <string name="title_advanced_auto_important">Posar estrella automàticament als missatges importants</string>
     <string name="title_advanced_reset_importance">Restablir la importància per moure missatges</string>
-    <string name="title_advanced_discard_delete">En descartar l\'esborrany, suprimeix el projecte permanent</string>
     <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
     <string name="title_advanced_notifications">Gestiona les notificacions</string>
     <string name="title_advanced_notifications_default">Canal per defecte</string>

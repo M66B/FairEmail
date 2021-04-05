@@ -253,6 +253,8 @@
     <string name="title_advanced_suggest_sent">Elküldött üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
+    <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
+    <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
     <string name="title_advanced_compose_font">Alapértelmezett betűtípus</string>
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
     <string name="title_advanced_separate_reply">Fekvő vonal elhelyezése a válasz/továbbítás fejléc előtt</string>
@@ -264,14 +266,13 @@
     <string name="title_advanced_signature_location">Aláírás pozíció</string>
     <string name="title_advanced_signature_reply">Aláírás használata válaszoláskor</string>
     <string name="title_advanced_signature_forward">Aláírás használata toivábbításkor</string>
+    <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_flow">\'format flowed\' üres szöveghez</string>
-    <string name="title_advanced_receipt">Visszajelzés kérésekor</string>
     <string name="title_advanced_usenet_signature">Usenet aláírás konvenció használata</string>
     <string name="title_advanced_remove_signatures">Felismert aláírások eltávolítása</string>
-    <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
+    <string name="title_advanced_receipt">Visszajelzés kérésekor</string>
     <string name="title_advanced_lookup_mx">Fogadók címeinek ellenőrzése küldés előtt</string>
-    <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
     <string name="title_advanced_metered">Mért kapcsolat használata</string>
     <string name="title_advanced_download">Üzenetek és mellékleteik automatikus letöltése mért kapcsolaton az alábbi méretig</string>
     <string name="title_advanced_roaming">Üzenetek és mellékleteik letöltése roaming kapcsolaton</string>
@@ -374,7 +375,6 @@
     <string name="title_advanced_autounstar">Csillagok automatikus eltávolítása az üzenetek áthelyezésekor</string>
     <string name="title_advanced_auto_important">Automatikusan csináljon csillagozott üzeneteket fontossá</string>
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
-    <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
     <string name="title_advanced_default_snooze">Szundi alapértelmezett időtartama</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>
     <string name="title_advanced_notifications_default">Alapértelmezett csatorna</string>

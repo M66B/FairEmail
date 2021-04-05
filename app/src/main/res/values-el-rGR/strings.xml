@@ -256,6 +256,9 @@
     <string name="title_advanced_suggest_sent">Προτείνονται διευθύνσεις που βρέθηκαν σε απεσταλμένα μηνύματα</string>
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
+    <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
+    <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
+    <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
     <string name="title_advanced_separate_reply">Εισαγωγή μιας οριζόντιας γραμμής πριν από την κεφαλίδα μιας απάντησης/προώθησης</string>
@@ -267,16 +270,15 @@
     <string name="title_advanced_signature_location">Θέση της υπογραφής</string>
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
     <string name="title_advanced_signature_forward">Χρήση υπογραφής κατά την προώθηση</string>
+    <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
+    <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος σε έναν φάκελο χρήστη, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_flow">Αναπροσαρμοσμένη μορφοποίηση για απλό κείμενο</string>
-    <string name="title_advanced_receipt">Όταν ζητάτε αποδεικτικό</string>
     <string name="title_advanced_usenet_signature">Τήρηση των συμβάσεων υπογραφής του Usenet</string>
     <string name="title_advanced_remove_signatures">Αφαίρεση των γνωστών υπογραφών</string>
-    <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
+    <string name="title_advanced_receipt">Όταν ζητάτε αποδεικτικό</string>
     <string name="title_advanced_lookup_mx">Έλεγχος των διευθύνσεων των παραληπτών προτού γίνει η αποστολή</string>
-    <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
     <string name="title_advanced_metered">Χρήση συνδέσεων με ογκοχρέωση</string>
     <string name="title_advanced_download">Αυτόματο κατέβασμα μηνυμάτων και συνημμένων με σύνδεση ογκοχρέωσης μέχρι</string>
     <string name="title_advanced_roaming">Κατέβασμα μηνυμάτων και συνημμένων σε λειτουργία περιαγωγής</string>
@@ -380,7 +382,6 @@
     <string name="title_advanced_autounstar">Αυτόματη αφαίρεση των αστεριών από τα μηνύματα κατά τη μετακίνησή τους</string>
     <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_reset_importance">Επαναφορά του βαθμού σημαντικότητας κατά τη μετακίνηση των μηνυμάτων</string>
-    <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προσχεδίου όταν αυτό απορρίπτεται</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
@@ -484,6 +485,7 @@
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
+    <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_metered_hint">Οι συνδέσεις με ογκοχρέωση είναι, γενικά, οι κινητές συνδέσεις διαδικτύου ή τα επί πληρωμή σημεία Wi-Fi</string>
     <string name="title_advanced_metered_warning">Αν απενεργοποιηθεί, θα απενεργοποιηθούν η λήψη και η αποστολή μηνυμάτων σε κινητές συνδέσεις διαδικτύου</string>
     <string name="title_advanced_rlah_hint">Υπό την προϋπόθεση ότι δεν λαμβάνει χώρα περιαγωγή εντός της ΕΕ</string>
@@ -1255,6 +1257,7 @@
     <string name="title_open_link">Άνοιγμα συνδέσμου</string>
     <string name="title_different_link">Ο τίτλος και η διεύθυνση του συνδέσμου διαφέρουν μεταξύ τους</string>
     <string name="title_tracking_link">Ο ιστότοπος αυτός μπορεί να σας παρακολουθεί</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Ο σύνδεσμος αυτός είναι ύποπτος</string>
     <string name="title_link_http">Η κίνηση δεδομένων δεν θα κρυπτογραφηθεί</string>
     <string name="title_link_https">Η κίνηση δεδομένων θα κρυπτογραφηθεί</string>
     <string name="title_sanitize_link">Αφαίρεση παραμέτρων ιχνηλάτησης</string>

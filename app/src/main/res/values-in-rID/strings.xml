@@ -240,6 +240,8 @@
     <string name="title_advanced_suggest_sent">Sarankan alamat yang ditemukan dalam pesan terkirim</string>
     <string name="title_advanced_suggest_received">Sarankan alamat yang ditemukan dalam pesan yang diterima</string>
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
+    <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
+    <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
     <string name="title_advanced_compose_font">Huruf Standar</string>
     <string name="title_advanced_prefix_once">Awali subjek hanya sekali saat membalas atau meneruskan</string>
     <string name="title_advanced_separate_reply">Tambahkan garis horizontal sebelum header balasan/teruskan</string>
@@ -251,14 +253,13 @@
     <string name="title_advanced_signature_location">Posisi tanda tangan</string>
     <string name="title_advanced_signature_reply">Gunakan tanda tangan saat membalas</string>
     <string name="title_advanced_signature_forward">Gunakan tanda tangan saat meneruskan</string>
+    <string name="title_advanced_discard_delete">Hapus draf secara permanen ketika membuangnya</string>
     <string name="title_advanced_plain_only">Kirim teks biasa hanya secara bawaan</string>
     <string name="title_advanced_flow">\'format mengalir\' untuk teks biasa</string>
-    <string name="title_advanced_receipt">Saat meminta tanda terima</string>
     <string name="title_advanced_usenet_signature">Ikuti konvensi tanda tangan Usenet</string>
     <string name="title_advanced_remove_signatures">Hapus tanda tangan yang dikenali</string>
-    <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
+    <string name="title_advanced_receipt">Saat meminta tanda terima</string>
     <string name="title_advanced_lookup_mx">Periksa alamat email penerima sebelum mengirim</string>
-    <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
     <string name="title_advanced_metered">Gunakan Koneksi Terukur</string>
     <string name="title_advanced_download">Unduh pesan dan lampiran secara otomatis pada koneksi terukur hingga</string>
     <string name="title_advanced_roaming">Unduh pesan dan lampiran saat roaming</string>
@@ -360,7 +361,6 @@
     <string name="title_advanced_autounstar">Secara otomatis menghapus bintang saat memindahkan pesan</string>
     <string name="title_advanced_auto_important">Secara otomatis pesan berbintang menjadi pesan penting</string>
     <string name="title_advanced_reset_importance">Atur ulang \'label penting\' saat pesan di pindah</string>
-    <string name="title_advanced_discard_delete">Hapus draf secara permanen ketika membuangnya</string>
     <string name="title_advanced_default_snooze">Standar waktu penundaan</string>
     <string name="title_advanced_notifications">Kelola pemberitahuan</string>
     <string name="title_advanced_notifications_default">Standar Pemberitahuan</string>

@@ -266,6 +266,8 @@
     <string name="title_advanced_suggest_sent">Пропонувати адреси, що були знайдені у надісланих повідомленнях</string>
     <string name="title_advanced_suggest_received">Пропонувати адреси, що були знайдені в отриманих повідомленнях</string>
     <string name="title_advanced_suggest_frequently">Сортувати запропоновані адреси за частотою використання</string>
+    <string name="title_advanced_send_reminders">Показувати нагадування</string>
+    <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
     <string name="title_advanced_separate_reply">Вставити горизонтальну лінію перед заголовком відповіді/перенаправлення</string>
@@ -277,15 +279,14 @@
     <string name="title_advanced_signature_location">Положення підпису</string>
     <string name="title_advanced_signature_reply">Використовувати підпис під час відповіді</string>
     <string name="title_advanced_signature_forward">Використовувати підпис під час перенаправлення</string>
+    <string name="title_advanced_discard_delete">Видалення чернетки на назавжди</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати як звичайний текст за замовчуванням</string>
     <string name="title_advanced_flow">помічати відповідь в форматі звичайного тексту</string>
-    <string name="title_advanced_receipt">Коли запитується звіт про отримання</string>
     <string name="title_advanced_usenet_signature">Стиль підпису як в Usenet</string>
     <string name="title_advanced_remove_signatures">Видалити розпізнані підписи</string>
-    <string name="title_advanced_send_reminders">Показувати нагадування</string>
+    <string name="title_advanced_receipt">Коли запитується звіт про отримання</string>
     <string name="title_advanced_lookup_mx">Перед надсиланням перевіряти адреси електронної пошти одержувача</string>
-    <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_metered">Використовувати лімітовані підключення</string>
     <string name="title_advanced_download">Автоматично завантажувати повідомлення і вкладення при лімітованому з\'єднанні</string>
     <string name="title_advanced_roaming">Завантажити повідомлення та вкладення у роумінгу</string>
@@ -389,7 +390,6 @@
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
-    <string name="title_advanced_discard_delete">Видалення чернетки на назавжди</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>

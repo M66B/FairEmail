@@ -277,6 +277,9 @@
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
+    <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
+    <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
+    <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
     <string name="title_advanced_compose_font">Domyślna czcionka</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_separate_reply">Wstaw poziomą linię przed nagłówkiem odpowiedzi/przekazania</string>
@@ -288,15 +291,14 @@
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
     <string name="title_advanced_signature_forward">Użyj podpisu podczas przesyłania dalej</string>
+    <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej usuń ją trwale</string>
     <string name="title_advanced_auto_link">Automatycznie utwórz linki</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_flow">\'format flowed\' dla zwykłego tekstu</string>
-    <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
-    <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
+    <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
-    <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
@@ -400,7 +402,6 @@
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
-    <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej usuń ją trwale</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>

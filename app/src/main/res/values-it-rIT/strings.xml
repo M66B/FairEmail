@@ -164,6 +164,7 @@
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
+    <string name="title_setup_doze_remark">Per inviare e ricevere posta elettronica in modo affidabile</string>
     <string name="title_setup_doze_hint">Anche se questo può sembrare contraddittorio, spegnere le ottimizzazioni della batteria si tradurrà in un minore utilizzo della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di dialogo Android, cambia «Non ottimizzato» in «Tutte le app», seleziona questa app e seleziona «Non ottimizzare»</string>
     <string name="title_setup_doze_battery">Consumo elevato della batteria?</string>
@@ -255,6 +256,9 @@
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti in base alla frequenza d\'uso</string>
+    <string name="title_advanced_send_reminders">Mostra promemoria</string>
+    <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
+    <string name="title_advanced_send_pending">Mostra l\'icona discreta di invio ritardato</string>
     <string name="title_advanced_compose_font">Tipo di carattere predefinito</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima dell\'intestazione di una risposta/inoltro</string>
@@ -266,15 +270,15 @@
     <string name="title_advanced_signature_location">Posizione della firma</string>
     <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
     <string name="title_advanced_signature_forward">Usa la firma durante l\'inoltro</string>
+    <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
+    <string name="title_advanced_reply_move">Quando si risponde a un messaggio in una cartella utente, salva la risposta nella stessa cartella</string>
     <string name="title_advanced_auto_link">Crea automaticamente collegamenti</string>
     <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_flow">\'format flowed\' per il testo normale</string>
-    <string name="title_advanced_receipt">Quando si richiede una ricevuta</string>
     <string name="title_advanced_usenet_signature">Segui convenzione di firma di Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi firme riconosciute</string>
-    <string name="title_advanced_send_reminders">Mostra promemoria</string>
+    <string name="title_advanced_receipt">Quando si richiede una ricevuta</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi e-mail dei destinatari prima di inviare</string>
-    <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
@@ -378,7 +382,6 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente la stella dai messaggi sullo spostamento dei messaggi</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi preferiti</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza dei messaggi spostati</string>
-    <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
     <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
@@ -484,6 +487,7 @@
     <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android. I dati di contatto verranno archiviati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_usenet_hint">Inserisci \'-- \' tra il testo e la firma</string>
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo del messaggio o l\'oggetto è vuoto o quando un allegato potrebbe mancare</string>
+    <string name="title_advanced_reply_move_hint">Il server di posta elettronica potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
@@ -850,6 +854,10 @@
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
     <string name="title_download_message">Download &#8230;</string>
+    <string name="title_reformatted">        Questa è la vista dei messaggi riformattati.
+        Puoi toccare l\'icona &#x26F6; per visualizzare il messaggio originale e nascondere questo messaggio.
+        La formattazione dei messaggi richiede un po\' di tempo, a seconda della dimensione del messaggio e della velocità del dispositivo.
+    </string>
     <string name="title_compose">Scrivi</string>
     <string name="title_submitter">Inviato da:</string>
     <string name="title_delivered_to">Consegnato a:</string>

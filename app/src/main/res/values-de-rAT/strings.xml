@@ -257,6 +257,9 @@
     <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
+    <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
+    <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
+    <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
@@ -268,16 +271,15 @@
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
     <string name="title_advanced_signature_forward">Signatur beim Weiterleiten hinzufügen</string>
+    <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
+    <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht in einem Benutzerordner die Antwort im selben Ordner speichern</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
     <string name="title_advanced_plain_only">Standardmäßig nur als unformatierten Text senden</string>
     <string name="title_advanced_flow">Format fließend für unformatierten Text</string>
-    <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
-    <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
+    <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden per DNS MX</string>
-    <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
@@ -381,7 +383,6 @@
     <string name="title_advanced_autounstar">Markierungen automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
-    <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
@@ -487,6 +488,7 @@
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
+    <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
@@ -1255,6 +1257,7 @@
     <string name="title_open_link">Link öffnen</string>
     <string name="title_different_link">Titel und Link-Ziel sind unterschiedlich</string>
     <string name="title_tracking_link">Diese Website könnte Sie verfolgen</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Dies ist ein verdächtiger Link</string>
     <string name="title_link_http">Datenverkehr wird nicht verschlüsselt</string>
     <string name="title_link_https">Datenverkehr wird verschlüsselt</string>
     <string name="title_sanitize_link">Tracking-Parameter entfernen</string>

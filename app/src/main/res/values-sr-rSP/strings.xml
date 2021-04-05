@@ -177,13 +177,14 @@
     <string name="title_advanced_suggest_local">Предлажи локално ускладиштене контакте</string>
     <string name="title_advanced_suggest_sent">Предлажи адресе нађене међу послатим порукама</string>
     <string name="title_advanced_suggest_received">Предлажи адресе нађене међу примљеним порукама</string>
+    <string name="title_advanced_send_delayed">Одложи слање порука</string>
     <string name="title_advanced_prefix_once">Префиксуј наслов само једном приликом одговарања или прослеђивања</string>
     <string name="title_advanced_extended_reply">Користи проширено заглавље одговора/прослеђивања</string>
     <string name="title_advanced_quote_reply">Цитирај текст на који се одговара</string>
+    <string name="title_advanced_discard_delete">Трајно избриши нацрт приликом одбацивања</string>
     <string name="title_advanced_plain_only">Подразумевано шаљи обичан текст</string>
     <string name="title_advanced_usenet_signature">Usenet конвенција потписа</string>
     <string name="title_advanced_lookup_mx">Провери е-мејл адресу примаоца пре слања</string>
-    <string name="title_advanced_send_delayed">Одложи слање порука</string>
     <string name="title_advanced_metered">Користи конекције које мере потрошњу података</string>
     <string name="title_advanced_download">Аутоматски преузимај поруке и прилоге на конекцијама које мере потрошњу података до</string>
     <string name="title_advanced_roaming">Преузимај поруке и прилоге у ромингу</string>
@@ -236,7 +237,6 @@
     <string name="title_advanced_onclose">На затварање разговора</string>
     <string name="title_advanced_autoread">Аутоматски означи поруке као прочитане кад се померају</string>
     <string name="title_advanced_autounstar">Аутоматски уклони звездице са порука кад се померају</string>
-    <string name="title_advanced_discard_delete">Трајно избриши нацрт приликом одбацивања</string>
     <string name="title_advanced_default_snooze">Подразумевано време одлагања</string>
     <string name="title_advanced_notifications">Управљај обавештењима</string>
     <string name="title_advanced_notifications_default">Подразумевани канал</string>

@@ -149,8 +149,8 @@
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_manual">Ручная настройка и параметры учётной записи</string>
-    <string name="title_setup_account_remark">Получение электронной почты</string>
-    <string name="title_setup_identity_remark">Отправка электронной почты</string>
+    <string name="title_setup_account_remark">Получение эл. почты</string>
+    <string name="title_setup_identity_remark">Отправка эл. почты</string>
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
     <string name="title_setup_accounts">Учётные записи</string>
     <string name="title_setup_identities">Идентификаторы</string>
@@ -278,6 +278,9 @@
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_suggest_frequently">Сортировать предложенные адреса по частоте использования</string>
+    <string name="title_advanced_send_reminders">Показывать напоминания</string>
+    <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
+    <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_separate_reply">Вставлять горизонтальную линию перед заголовком ответа/пересылки</string>
@@ -289,16 +292,15 @@
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
     <string name="title_advanced_signature_forward">Использовать подпись при пересылке</string>
+    <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
+    <string name="title_advanced_reply_move">При ответе на сообщение в пользовательской папке сохранять ответ в ней же</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование обычного текста</string>
-    <string name="title_advanced_receipt">При запросе уведомления</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_remove_signatures">Удалять распознанные подписи</string>
-    <string name="title_advanced_send_reminders">Показывать напоминания</string>
+    <string name="title_advanced_receipt">При запросе уведомления</string>
     <string name="title_advanced_lookup_mx">Проверять адрес электронной почты получателя перед отправкой</string>
-    <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
@@ -402,7 +404,6 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
-    <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
     <string name="title_advanced_notifications_default">Канал по умолчанию</string>
@@ -508,6 +509,7 @@
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_usenet_hint">Вставлять \'-- \' между текстом и подписью</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
+    <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
@@ -1279,6 +1281,7 @@
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_different_link">Заголовок и адрес ссылки отличаются</string>
     <string name="title_tracking_link">Этот сайт может отслеживать вас</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Это подозрительная ссылка</string>
     <string name="title_link_http">Не шифровать трафик</string>
     <string name="title_link_https">Трафик будет зашифрован</string>
     <string name="title_sanitize_link">Удалить параметры отслеживания</string>

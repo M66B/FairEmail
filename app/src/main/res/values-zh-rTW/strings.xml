@@ -238,6 +238,8 @@
     <string name="title_advanced_suggest_sent">建議在寄件備份中的郵件地址</string>
     <string name="title_advanced_suggest_received">建議在收件匣中的郵件地址</string>
     <string name="title_advanced_suggest_frequently">建議經常使用的郵件地址</string>
+    <string name="title_advanced_send_reminders">顯示提醒</string>
+    <string name="title_advanced_send_delayed">延遲寄送訊息</string>
     <string name="title_advanced_compose_font">預設字體</string>
     <string name="title_advanced_prefix_once">在回覆或轉發郵件時，前綴只出現一次</string>
     <string name="title_advanced_separate_reply">在 回覆/轉寄 標題前加入水平線</string>
@@ -249,14 +251,13 @@
     <string name="title_advanced_signature_location">簽名位置</string>
     <string name="title_advanced_signature_reply">當回覆時使用簽名</string>
     <string name="title_advanced_signature_forward">當轉寄時使用簽名</string>
+    <string name="title_advanced_discard_delete">當放棄草稿時永久刪除草稿</string>
     <string name="title_advanced_plain_only">預設傳送純文字</string>
     <string name="title_advanced_flow">對純文字使用 \'形式轉換\'</string>
-    <string name="title_advanced_receipt">當被要求收件回執時</string>
     <string name="title_advanced_usenet_signature">遵從 Usene 的簽名習慣</string>
     <string name="title_advanced_remove_signatures">移除認證過的簽名</string>
-    <string name="title_advanced_send_reminders">顯示提醒</string>
+    <string name="title_advanced_receipt">當被要求收件回執時</string>
     <string name="title_advanced_lookup_mx">在寄送之前確認收件人郵件地址</string>
-    <string name="title_advanced_send_delayed">延遲寄送訊息</string>
     <string name="title_advanced_metered">使用行動網路</string>
     <string name="title_advanced_download">在行動網路下自動下載訊息及附件</string>
     <string name="title_advanced_roaming">漫遊時下載訊息及附件</string>
@@ -356,7 +357,6 @@
     <string name="title_advanced_autounstar">當移動一則訊息時自動移除星號</string>
     <string name="title_advanced_auto_important">自動將標記星號的訊息設定為重要</string>
     <string name="title_advanced_reset_importance">當移動訊息時重設重要度</string>
-    <string name="title_advanced_discard_delete">當放棄草稿時永久刪除草稿</string>
     <string name="title_advanced_default_snooze">預設延後時間</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">預設頻道</string>

@@ -236,6 +236,8 @@
     <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
+    <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
+    <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_separate_reply">Yanıtlama / iletme başlığından önce yatay bir çizgi ekleyin</string>
@@ -247,14 +249,13 @@
     <string name="title_advanced_signature_location">İmza konumu</string>
     <string name="title_advanced_signature_reply">Yanıtlarken imza kullan</string>
     <string name="title_advanced_signature_forward">Yönlendirirken imza kullan</string>
+    <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_flow">düz metin için \"biçim akışı\"</string>
-    <string name="title_advanced_receipt">Makbuz talep ederken</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_remove_signatures">Tanınan imzaları kaldır</string>
-    <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
+    <string name="title_advanced_receipt">Makbuz talep ederken</string>
     <string name="title_advanced_lookup_mx">Göndermeden önce alıcı e-posta adreslerini kontrol edin</string>
-    <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
@@ -353,7 +354,6 @@
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
-    <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>

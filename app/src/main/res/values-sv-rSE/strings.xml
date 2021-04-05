@@ -231,6 +231,8 @@
     <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
     <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
+    <string name="title_advanced_send_reminders">Visa påminnelser</string>
+    <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_separate_reply">Infoga en horisontell linje innan ett svar/framåt sidhuvud</string>
@@ -242,14 +244,13 @@
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
     <string name="title_advanced_signature_forward">Använd signatur vid vidarebefordran</string>
+    <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_flow">\'Formatera flöde\' för oformaterad text</string>
-    <string name="title_advanced_receipt">När kvitto begärs</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_remove_signatures">Ta bort igenkända signaturer</string>
-    <string name="title_advanced_send_reminders">Visa påminnelser</string>
+    <string name="title_advanced_receipt">När kvitto begärs</string>
     <string name="title_advanced_lookup_mx">Kontrollera mottagarens e-postadresser innan du skickar</string>
-    <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
@@ -349,7 +350,6 @@
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
-    <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>

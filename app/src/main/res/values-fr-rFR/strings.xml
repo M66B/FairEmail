@@ -256,6 +256,9 @@
     <string name="title_advanced_suggest_sent">Suggérer les adresses trouvées dans les messages envoyés</string>
     <string name="title_advanced_suggest_received">Suggérer les adresses trouvées dans les messages reçus</string>
     <string name="title_advanced_suggest_frequently">Trier les adresses suggérées par fréquence d’utilisation</string>
+    <string name="title_advanced_send_reminders">Afficher les rappels</string>
+    <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
+    <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_compose_font">Police de caractères par défaut</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_separate_reply">Insérer une ligne horizontale avant l\'en-tête de réponse/transfert</string>
@@ -267,16 +270,15 @@
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
     <string name="title_advanced_signature_reply">Utiliser la signature lors de la réponse</string>
     <string name="title_advanced_signature_forward">Utiliser la signature lors du transfert</string>
+    <string name="title_advanced_discard_delete">Lors de l’abandon d’un brouillon, le supprimer définitivement</string>
+    <string name="title_advanced_reply_move">Lors de la réponse à un message dans un dossier utilisateur, enregistrer la réponse dans le même dossier</string>
     <string name="title_advanced_auto_link">Créer automatiquement des liens</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_flow">Utiliser \'format flowed\' pour le texte brut</string>
-    <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
     <string name="title_advanced_usenet_signature">Suivre la convention Usenet pour les signatures</string>
     <string name="title_advanced_remove_signatures">Supprimer les signatures reconnues</string>
-    <string name="title_advanced_send_reminders">Afficher les rappels</string>
+    <string name="title_advanced_receipt">Lorsque vous demandez une confirmation</string>
     <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail des destinataires avant l’envoi</string>
-    <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
-    <string name="title_advanced_send_pending" comment="title_advanced_send_pending&#10;Setting to enable/disable a faint icon at the bottom left, which will appear if there are messages in the outbox scheduled to be sent later (or delayed as configured in the send settings). Tapping on the icon will open the outbox.">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_metered">Utiliser les connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes sur les connexions limitées jusqu’à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
@@ -380,7 +382,6 @@
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_reset_importance">Réinitialiser l\'importance lors du déplacement des messages</string>
-    <string name="title_advanced_discard_delete">Lors de l’abandon d’un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_default_snooze">Délai de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
@@ -486,6 +487,7 @@
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les informations des contacts seront stockées pour les messages récemment envoyés ou reçus seulement si ceci est activé.</string>
     <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
+    <string name="title_advanced_reply_move_hint">Le serveur de messagerie peut également ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">La désactivation de cette option empêchera la réception et l’envoi de messages sur les connexions de données mobiles</string>
     <string name="title_advanced_rlah_hint">Considérer qu’il n’y a pas d’itinérance au sein de l’Union Européenne (Roam Like at Home)</string>
@@ -1257,6 +1259,7 @@
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_different_link">Le titre et l\'adresse du lien sont différents</string>
     <string name="title_tracking_link">Ce site web pourrait vous pister</string>
+    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Ceci est un lien suspect</string>
     <string name="title_link_http">Le trafic ne sera pas chiffré</string>
     <string name="title_link_https">Le trafic sera chiffré</string>
     <string name="title_sanitize_link">Supprimer les paramètres de pistage</string>

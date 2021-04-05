@@ -198,6 +198,8 @@
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
     <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
     <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
+    <string name="title_advanced_send_reminders">Покажи напомняния</string>
+    <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
@@ -205,14 +207,13 @@
     <string name="title_advanced_signature_location">Позиция на подписа</string>
     <string name="title_advanced_signature_reply">Използвайте подпис при отговор</string>
     <string name="title_advanced_signature_forward">Използвайте подпис при пренасочване</string>
+    <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_flow">\'форматиран поток\' за обикновен текст</string>
-    <string name="title_advanced_receipt">При искане на разписка</string>
     <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
     <string name="title_advanced_remove_signatures">Премахване на разпознатите подписи</string>
-    <string name="title_advanced_send_reminders">Покажи напомняния</string>
+    <string name="title_advanced_receipt">При искане на разписка</string>
     <string name="title_advanced_lookup_mx">Проверка имейл адреса на получателя преди изпращане</string>
-    <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
     <string name="title_advanced_metered">Използвай измервана връзка</string>
     <string name="title_advanced_download">Автоматично изтегляне на съобщения и прикачени файлове с големина до</string>
     <string name="title_advanced_roaming">Изтегляне на съобщения и прикачени файлове в роуминг</string>
@@ -296,7 +297,6 @@
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
-    <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_default_snooze">Време за отлагане по подразбиране</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>

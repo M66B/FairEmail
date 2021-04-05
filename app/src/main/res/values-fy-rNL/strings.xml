@@ -226,6 +226,8 @@
     <string name="title_advanced_suggest_sent">Suggestearje adressen fûn yn ferstjoerde berjochten</string>
     <string name="title_advanced_suggest_received">Suggestearje adressen fûn yn ûntfange berjochten</string>
     <string name="title_advanced_suggest_frequently">Sorteer suggesteare adressen op frekwinsje fan gebrûk</string>
+    <string name="title_advanced_send_reminders">Sjoch herinneringen</string>
+    <string name="title_advanced_send_delayed">Fertrage ferstjoeren fan berjochten</string>
     <string name="title_advanced_compose_font">Standert lettertype</string>
     <string name="title_advanced_prefix_once">Prefix ûnderwerp mar ien kear oer antwurdzje of trochstjoere</string>
     <string name="title_advanced_separate_reply">Foegje in horizontale line foar in antwurd/foarút koptekst</string>
@@ -237,14 +239,13 @@
     <string name="title_advanced_signature_location">Hantekening posysje</string>
     <string name="title_advanced_signature_reply">Brûk hantekening as jo antwurdzje</string>
     <string name="title_advanced_signature_forward">Brûk hântekening by trochstjoeren</string>
+    <string name="title_advanced_discard_delete">By ûntwerp ferwiderje konsept permanint</string>
     <string name="title_advanced_plain_only">Stjoer standert allinich platte tekst</string>
     <string name="title_advanced_flow">\'formaat streamde\' foar platte tekst</string>
-    <string name="title_advanced_receipt">By it oanfreegjen fan in kwitânsje</string>
     <string name="title_advanced_usenet_signature">Folgje Usenet hantekeningkonvinsje</string>
     <string name="title_advanced_remove_signatures">Ferwiderje erkende hantekeningen</string>
-    <string name="title_advanced_send_reminders">Sjoch herinneringen</string>
+    <string name="title_advanced_receipt">By it oanfreegjen fan in kwitânsje</string>
     <string name="title_advanced_lookup_mx">Kontrolearje e-postadressen fan ûntfanger foardat jo ferstjoere</string>
-    <string name="title_advanced_send_delayed">Fertrage ferstjoeren fan berjochten</string>
     <string name="title_advanced_metered">Brûk meteare ferbiningen</string>
     <string name="title_advanced_download">Berjochten en bylagen automatysk downloade op in metere ferbining oant</string>
     <string name="title_advanced_roaming">Download berjochten en bylagen ûnder swerven</string>
@@ -340,7 +341,6 @@
     <string name="title_advanced_autounstar">Fuortsmite stjerren automatysk fan berjochten op bewegende berjochten</string>
     <string name="title_advanced_auto_important">Meitsje automatyske berjochten wichtich</string>
     <string name="title_advanced_reset_importance">Belang werstelle by it ferpleatsen fan berjochten</string>
-    <string name="title_advanced_discard_delete">By ûntwerp ferwiderje konsept permanint</string>
     <string name="title_advanced_default_snooze">Standert sluimertiid</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
     <string name="title_advanced_notifications_default">Standert kanaal</string>

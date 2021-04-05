@@ -276,6 +276,8 @@
     <string name="title_advanced_suggest_sent">Navrhovať adresy nájdené v odoslaných správach</string>
     <string name="title_advanced_suggest_received">Navrhovať adresy nájdené v prijatých správach</string>
     <string name="title_advanced_suggest_frequently">Zoradiť navrhované adresy podľa počtu použití</string>
+    <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
+    <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
     <string name="title_advanced_compose_font">Predvolené písmo</string>
     <string name="title_advanced_prefix_once">Pri odpovedaní alebo preposielaní pridať do predmetu len jednu predponu</string>
     <string name="title_advanced_separate_reply">Vložiť vodorovnú čiaru pred hlavičkou odpovedanej / preposlanej správy</string>
@@ -287,14 +289,13 @@
     <string name="title_advanced_signature_location">Umiestnenie podpisu</string>
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>
     <string name="title_advanced_signature_forward">Používať podpis pri preposielaní</string>
+    <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
     <string name="title_advanced_plain_only">Predvolene odosielať obyčajný text</string>
     <string name="title_advanced_flow">\"format flowed\" pre obyčajný text</string>
-    <string name="title_advanced_receipt">Pri požadovaní potvrdenia</string>
     <string name="title_advanced_usenet_signature">Používať konvenciu Usenet pre podpisy</string>
     <string name="title_advanced_remove_signatures">Odstraňovať rozpoznané podpisy</string>
-    <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
+    <string name="title_advanced_receipt">Pri požadovaní potvrdenia</string>
     <string name="title_advanced_lookup_mx">Pred odoslaním skontrolovať e-mailové adresy príjemcov</string>
-    <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
     <string name="title_advanced_metered">Používať účtované pripojenia</string>
     <string name="title_advanced_download">Automaticky preberať správy a prílohy na účtovanom pripojení do veľkosti</string>
     <string name="title_advanced_roaming">Preberať správy a prílohy počas roamingu</string>
@@ -397,7 +398,6 @@
     <string name="title_advanced_autounstar">Automaticky odstrániť hviezdičku po presunutí správ</string>
     <string name="title_advanced_auto_important">Automaticky nastaviť vysokú prioritu pre správy s hviezdičkou</string>
     <string name="title_advanced_reset_importance">Zrušiť nastavenie priority po presunutí správ</string>
-    <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
     <string name="title_advanced_default_snooze">Predvolený čas pre odloženie správ</string>
     <string name="title_advanced_notifications">Spravovať oznámenia</string>
     <string name="title_advanced_notifications_default">Predvolený kanál</string>

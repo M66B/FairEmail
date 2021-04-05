@@ -249,6 +249,8 @@
     <string name="title_advanced_suggest_sent">Suxerir enderezos atopados en mensaxes enviadas</string>
     <string name="title_advanced_suggest_received">Suxerir enderezos atopados en mensaxes recibidas</string>
     <string name="title_advanced_suggest_frequently">Ordenar enderezos suxeridos pola frecuencia de uso</string>
+    <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
+    <string name="title_advanced_send_delayed">Adiar o envío de mensaxes</string>
     <string name="title_advanced_compose_font">Fonte predefinida</string>
     <string name="title_advanced_prefix_once">Só poñer un único prefixo no asunto cando se responde ou reenvía</string>
     <string name="title_advanced_separate_reply">Inserir unha liña horizontal antes dunha cabeceira de resposta ou reenvío</string>
@@ -260,14 +262,13 @@
     <string name="title_advanced_signature_location">Posición da sinatura</string>
     <string name="title_advanced_signature_reply">Usar sinatura nas contestacións</string>
     <string name="title_advanced_signature_forward">Usar sinatura nos reenvíos</string>
+    <string name="title_advanced_discard_delete">Borrar permanentemente os borradores descartados</string>
     <string name="title_advanced_plain_only">Enviar só en formato texto por defecto</string>
     <string name="title_advanced_flow">\'format flowed\' para formato texto</string>
-    <string name="title_advanced_receipt">Cando se empregue acuse de recibo</string>
     <string name="title_advanced_usenet_signature">Seguir a convención de sinatura de Usenet</string>
     <string name="title_advanced_remove_signatures">Eliminar sinaturas recoñecidas</string>
-    <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
+    <string name="title_advanced_receipt">Cando se empregue acuse de recibo</string>
     <string name="title_advanced_lookup_mx">Comprobar as direccións de email dos destinatarios antes de enviar</string>
-    <string name="title_advanced_send_delayed">Adiar o envío de mensaxes</string>
     <string name="title_advanced_metered">Usar conexións con límite de datos</string>
     <string name="title_advanced_download">Baixar automaticamente mensaxes e anexos en conexións con límite de datos até</string>
     <string name="title_advanced_roaming">Baixar mensaxes e anexos con roaming</string>
@@ -369,7 +370,6 @@
     <string name="title_advanced_autounstar">Quitar as estrelas automaticamente das mensaxes ao movelas</string>
     <string name="title_advanced_auto_important">Marcar como importantes as mensaxes con estrela</string>
     <string name="title_advanced_reset_importance">Reiniciar a importancia ao mover as mensaxes</string>
-    <string name="title_advanced_discard_delete">Borrar permanentemente os borradores descartados</string>
     <string name="title_advanced_default_snooze">Tempo predeterminado do adiamento</string>
     <string name="title_advanced_notifications">Xestionar notificacións</string>
     <string name="title_advanced_notifications_default">Canal por omisión</string>
