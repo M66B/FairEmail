@@ -99,8 +99,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             _title = null;
         final String title = _title;
 
+        final Context context = getContext();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         // Preload web view
-        Helper.customTabsWarmup(getContext());
+        Helper.customTabsWarmup(context);
 
         // Process link
         final Uri sanitized;
@@ -119,7 +122,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             uriTitle = null;
 
         // Get views
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
         final TextView tvTitle = dview.findViewById(R.id.tvTitle);
         final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
         final EditText etLink = dview.findViewById(R.id.etLink);
@@ -139,9 +142,6 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
         final Group grpOwner = dview.findViewById(R.id.grpOwner);
-
-        final Context context = getContext();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         ibDifferent.setOnClickListener(new View.OnClickListener() {
             @Override
