@@ -4564,11 +4564,14 @@ class Core {
             }
 
             // https://developer.android.com/training/wearables/notifications
-            // https://developer.android.com/reference/android/app/Notification.WearableExtender
+            // https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.WearableExtender
             mbuilder.extend(new NotificationCompat.WearableExtender()
                             .addActions(wactions)
                             .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id)
                     /* .setBridgeTag(id < 0 ? "header" : "body") */);
+
+            // https://developer.android.com/reference/androidx/car/app/notification/CarAppExtender
+            mbuilder.extend(new NotificationCompat.CarExtender());
 
             notifications.add(mbuilder);
         }
