@@ -143,7 +143,7 @@ public class EntityAttachment {
         // For example, sometimes PDF files are sent as application/octet-stream
 
         // https://android.googlesource.com/platform/libcore/+/refs/tags/android-9.0.0_r49/luni/src/main/java/libcore/net/MimeUtils.java
-        // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
+        // https://docs.microsoft.com/en-us/archive/blogs/vsofficedeveloper/office-2007-file-format-mime-types-for-http-content-streaming-2
 
         if (encryption != null)
             return type;
@@ -162,6 +162,24 @@ public class EntityAttachment {
         if ("gpx".equals(extension))
             return "application/gpx+xml";
 
+        if ("doc".equals(extension))
+            return "application/msword";
+
+        if ("docx".equals(extension))
+            return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+
+        if ("xls".equals(extension))
+            return "application/vnd.ms-excel";
+
+        if ("xlsx".equals(extension))
+            return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+        if ("ppt".equals(extension))
+            return "application/vnd.ms-powerpoint";
+
+        if ("pptx".equals(extension))
+            return "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+
         if ("pdf".equals(extension))
             return "application/pdf";
 
@@ -178,9 +196,6 @@ public class EntityAttachment {
         if (!TextUtils.isEmpty(type) &&
                 (type.endsWith("/pdf") || type.endsWith("/x-pdf")))
             return "application/pdf";
-
-        if ("application/vnd.ms-pps".equals(type))
-            return "application/vnd.ms-powerpoint";
 
         // Guess types
         if (gtype != null) {
