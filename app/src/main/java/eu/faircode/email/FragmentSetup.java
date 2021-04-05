@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -81,14 +82,17 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvDozeDone;
     private Button btnDoze;
+
+    private Button btnBackgroundRestricted;
+    private Button btnDataSaver;
+
     private TextView tvBatteryUsage;
     private TextView tvSyncStopped;
-
-    private Button btnDataSaver;
 
     private Button btnInbox;
 
     private Group grpManual;
+    private Group grpBackgroundRestricted;
     private Group grpDataSaver;
 
     private int textColorPrimary;
@@ -143,14 +147,17 @@ public class FragmentSetup extends FragmentBase {
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
+
+        btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
+        btnDataSaver = view.findViewById(R.id.btnDataSaver);
+
         tvBatteryUsage = view.findViewById(R.id.tvBatteryUsage);
         tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
-
-        btnDataSaver = view.findViewById(R.id.btnDataSaver);
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
         grpManual = view.findViewById(R.id.grpManual);
+        grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
         // Wire controls
@@ -329,20 +336,34 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        PackageManager pm = getContext().getPackageManager();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            final Intent settings = new Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+
+            btnBackgroundRestricted.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
+            btnBackgroundRestricted.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(settings);
+                }
+            });
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             final Intent settings = new Intent(
                     Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
                     Uri.parse("package:" + BuildConfig.APPLICATION_ID));
 
+            btnDataSaver.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
             btnDataSaver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(settings);
                 }
             });
-
-            PackageManager pm = getContext().getPackageManager();
-            btnDataSaver.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
         }
 
         btnInbox.setOnClickListener(new View.OnClickListener() {
@@ -365,6 +386,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox.setEnabled(false);
 
+        grpBackgroundRestricted.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
 
         setContactsPermission(hasPermission(Manifest.permission.READ_CONTACTS));
@@ -461,6 +483,11 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setTypeface(null, ignoring ? Typeface.NORMAL : Typeface.BOLD);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            grpBackgroundRestricted.setVisibility(am.isBackgroundRestricted() ? View.VISIBLE : View.GONE);
+        }
 
         // https://developer.android.com/training/basics/network-ops/data-saver.html
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

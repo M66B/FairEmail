@@ -1569,6 +1569,9 @@ public class Log {
             sb.append(String.format("Standby bucket: %d\r\n", bucket));
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            sb.append(String.format("Background restricted: %b\r\n", am.isBackgroundRestricted()));
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
