@@ -1919,16 +1919,18 @@ Pending [operations](#user-content-faq3) are shown in the operations view access
 
 The following authentication methods are supported and used in this order:
 
+* CRAM-MD5
 * LOGIN
 * PLAIN
-* CRAM-MD5
-* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 * NTLM (untested)
+* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 
 SASL authentication methods, besides CRAM-MD5, are not supported
 because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
+
+[Client certificates](https://en.wikipedia.org/wiki/Client_certificate) can be selected in the account and identity settings.
 
 [Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported
 by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
