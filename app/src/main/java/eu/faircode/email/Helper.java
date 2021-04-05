@@ -650,17 +650,27 @@ public class Helper {
                 ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         } else {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
+            int colorPrimary = resolveColor(context, R.attr.colorPrimary);
+            int colorPrimaryDark = resolveColor(context, R.attr.colorPrimaryDark);
+
+            CustomTabColorSchemeParams.Builder schemes = new CustomTabColorSchemeParams.Builder()
+                    .setToolbarColor(colorPrimary)
+                    .setSecondaryToolbarColor(colorPrimaryDark);
+            if (navbar_colorize)
+                schemes.setNavigationBarColor(colorPrimaryDark);
+
             // https://developer.chrome.com/multidevice/android/customtabs
-            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-            builder.setDefaultColorSchemeParams(new CustomTabColorSchemeParams.Builder()
-                    .setToolbarColor(resolveColor(context, R.attr.colorPrimary))
-                    .setSecondaryToolbarColor(resolveColor(context, R.attr.colorPrimaryDark))
-                    .build());
-            builder.setColorScheme(Helper.isDarkTheme(context)
-                    ? CustomTabsIntent.COLOR_SCHEME_DARK
-                    : CustomTabsIntent.COLOR_SCHEME_LIGHT);
-            builder.setShareState(CustomTabsIntent.SHARE_STATE_ON);
-            builder.setUrlBarHidingEnabled(true);
+            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder()
+                    .setDefaultColorSchemeParams(schemes.build())
+                    .setColorScheme(Helper.isDarkTheme(context)
+                            ? CustomTabsIntent.COLOR_SCHEME_DARK
+                            : CustomTabsIntent.COLOR_SCHEME_LIGHT)
+                    .setShareState(CustomTabsIntent.SHARE_STATE_ON)
+                    .setUrlBarHidingEnabled(true)
+                    .setStartAnimations(context, R.anim.activity_open_enter, R.anim.activity_open_exit)
+                    .setExitAnimations(context, R.anim.activity_close_enter, R.anim.activity_close_exit);
 
             CustomTabsIntent customTabsIntent = builder.build();
             try {
