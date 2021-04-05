@@ -58,6 +58,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private ImageView ivChannelDefault;
     private Button btnManageService;
     private ImageView ivChannelService;
+    private ImageButton ibWhy;
     private SwitchCompat swNewestFirst;
     private SwitchCompat swBackground;
 
@@ -129,6 +130,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         ivChannelDefault = view.findViewById(R.id.ivChannelDefault);
         btnManageService = view.findViewById(R.id.btnManageService);
         ivChannelService = view.findViewById(R.id.ivChannelService);
+        ibWhy = view.findViewById(R.id.ibWhy);
         swNewestFirst = view.findViewById(R.id.swNewestFirst);
         swBackground = view.findViewById(R.id.swBackground);
 
@@ -217,6 +219,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         ivChannelService.setVisibility(View.GONE);
+
+        ibWhy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 2);
+            }
+        });
 
         swNewestFirst.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
