@@ -267,7 +267,7 @@ dependencies {
     def openpgp_version = "12.0"
     def requery_version = "3.34.1"
     def badge_version = "1.1.22"
-    def bugsnag_version = "5.7.1"
+    def bugsnag_version = "5.9.0"
     def biweekly_version = "0.6.6"
     def relinker_version = "1.4.1"
     def markwon_version = "4.6.2"
