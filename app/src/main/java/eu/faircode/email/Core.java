@@ -2530,9 +2530,15 @@ class Core {
 
             // Reduce list of local uids
             Flags flags = ifolder.getPermanentFlags();
-            SearchTerm searchTerm = account.use_date
-                    ? new SentDateTerm(ComparisonTerm.GE, new Date(sync_time))
-                    : new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
+            SearchTerm searchTerm;
+            if (sync_time == 0 && flags.contains(Flags.Flag.SEEN))
+                searchTerm = new OrTerm(
+                        new FlagTerm(new Flags(Flags.Flag.SEEN), false),
+                        new FlagTerm(new Flags(Flags.Flag.SEEN), true));
+            else
+                searchTerm = account.use_date
+                        ? new SentDateTerm(ComparisonTerm.GE, new Date(sync_time))
+                        : new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
             if (sync_nodate)
                 searchTerm = new OrTerm(searchTerm, new ReceivedDateTerm(ComparisonTerm.LT, new Date(365 * 24 * 3600 * 1000L)));
             if (sync_unseen && flags.contains(Flags.Flag.SEEN))
