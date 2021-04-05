@@ -94,6 +94,20 @@ public class EntityAnswer implements Serializable {
             }
         }
 
+        if (fullName != null && !fullName.equals(first)) {
+            String[] parts = first.split("\\.");
+            if (parts != null && parts.length > 0) {
+                boolean initials = true;
+                for (String part : parts)
+                    if (part.trim().length() > 1) {
+                        initials = false;
+                        break;
+                    }
+                if (initials)
+                    first = null;
+            }
+        }
+
         text = text.replace("$name$", fullName == null ? "" : fullName);
         text = text.replace("$firstname$", first == null ? "" : first);
         text = text.replace("$lastname$", last == null ? "" : last);
