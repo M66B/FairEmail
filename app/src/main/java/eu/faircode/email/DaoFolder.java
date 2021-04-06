@@ -344,6 +344,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET uidv = :uidv WHERE id = :id AND NOT (uidv IS :uidv)")
     int setFolderUidValidity(long id, Long uidv);
 
+    @Query("UPDATE folder SET modseq = :modseq WHERE id = :id AND NOT (modseq IS :modseq)")
+    int setFolderModSeq(long id, Long modseq);
+
     @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id AND NOT (last_sync IS :last_sync)")
     int setFolderLastSync(long id, long last_sync);
 

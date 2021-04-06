@@ -71,6 +71,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Long account; // Outbox = null
     public Long parent;
     public Long uidv; // UIDValidity
+    public Long modseq;
     @NonNull
     public String name;
     @NonNull
