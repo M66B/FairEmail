@@ -191,6 +191,7 @@
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените «Не оптимизировать» на «Все приложения», выберите это приложение и для него выберите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
+    <string name="title_setup_background" comment="title_setup_background&#10;https://developer.android.com/reference/android/app/ActivityManager#isBackgroundRestricted()&#10;">Фоновые ограничения включены</string>
     <string name="title_setup_data">Сохранение данных включено</string>
     <string name="title_setup_advanced_options">Дополнительно</string>
     <string name="title_setup_inbox">Перейти во \"Входящие\"</string>
@@ -731,6 +732,7 @@
     <string name="title_auto_trash">Автоматически перемещать старые сообщения в корзину</string>
     <string name="title_auto_delete">Автоматически навсегда удалять старые сообщения</string>
     <string name="title_auto_delete_hint">Старые сообщения — это сообщения, которые больше не хранятся на устройстве</string>
+    <string name="title_auto_delete_archive_hint">Удаление из папки архива не всегда допускается почтовым сервером</string>
     <string name="title_inbox_root_hint">        Некоторые провайдеры требуют создания новых папок внутри папки \"Входящие\".
         Для этого в списке папок удерживайте нажатие на \"Входящие\" и выберите \"Создать вложенную папку\".
     </string>
@@ -1281,7 +1283,7 @@
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_different_link">Заголовок и адрес ссылки отличаются</string>
     <string name="title_tracking_link">Этот сайт может отслеживать вас</string>
-    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Это подозрительная ссылка</string>
+    <string name="title_suspicious_link">Это подозрительная ссылка</string>
     <string name="title_link_http">Не шифровать трафик</string>
     <string name="title_link_https">Трафик будет зашифрован</string>
     <string name="title_sanitize_link">Удалить параметры отслеживания</string>

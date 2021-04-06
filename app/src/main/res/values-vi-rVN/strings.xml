@@ -469,6 +469,7 @@
     <string name="title_advanced_suggest_local_hint">Bên cạnh các liên hệ được Android cung cấp. Dữ liệu liên hệ sẽ được lưu trữ cho các thư mới được gửi hoặc nhận chỉ khi được bật.</string>
     <string name="title_advanced_usenet_hint">Chèn \'-- \' giữa văn bản và chữ ký</string>
     <string name="title_advanced_send_reminders_hint">Hiện một lời cảnh báo khi văn bản thư hoặc chủ đề trống hoặc khi một tệp đính kèm có thể đang thiếu</string>
+    <string name="title_advanced_reply_move_hint">Máy chủ email vẫn có thể thêm thư vào thư mục thư đã gửi</string>
     <string name="title_advanced_metered_hint">Các kết nối trả phí nói chung là kết nối di động hoặc điểm phát sóng Wi-Fi trả phí</string>
     <string name="title_advanced_metered_warning">Việc tắt tuỳ chọn này sẽ tắt việc nhận và gửi thư khi dùng kết nối internet di động</string>
     <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
@@ -686,6 +687,7 @@
     <string name="title_auto_trash">Tự động di chuyển các thư cũ vào thùng rác</string>
     <string name="title_auto_delete">Tự động xoá các thư cũ vĩnh viễn</string>
     <string name="title_auto_delete_hint">Các thư cũ là các thư không còn được giữ trên thiết bị</string>
+    <string name="title_auto_delete_archive_hint">Việc xoá khỏi thư mục lưu trữ không luôn được máy chủ email cho phép</string>
     <string name="title_inbox_root_hint">        Một số nhà cung cấp yêu cầu tạo các thư mục mới dưới hộp thư đến.
         Trong trường hợp này, bạn có thể nhấn giữ hộp thư đến trong danh sách thư mục và chọn \'Tạo thư mục con\'.
     </string>

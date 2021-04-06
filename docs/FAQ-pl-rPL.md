@@ -1586,15 +1586,17 @@ Pending [operations](#user-content-faq3) are shown in the operations view access
 
 The following authentication methods are supported and used in this order:
 
+* CRAM-MD5
 * LOGIN
 * PLAIN
-* CRAM-MD5
-* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 * NTLM (untested)
+* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
+
+[Client certificates](https://en.wikipedia.org/wiki/Client_certificate) can be selected in the account and identity settings.
 
 [Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
 
@@ -1699,10 +1701,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Sender contains
+* Sender contains or sender is contact
 * Recipient contains
 * Subject contains
-* Has attachments
+* Has attachments (optional of specific type)
 * Header contains
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
@@ -2249,7 +2251,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Ustawienia > Ręczna konfiguracja > Konta > dotknij konto > dotknij Zaawansowane > Odznacz > Pobieranie częściowe
+Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2534,7 +2536,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-W ustawieniach konta (Ustawienia, dotknij Ręczna konfiguracja, dotknij Konta, dotknij konto) możesz włączyć *Pozostaw usunięte wiadomości na serwerze*.
+In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -2629,7 +2631,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-Możesz rozwiązać ten problem ręcznie wybierając folder szkiców w ustawieniach konta (Ustawienia, dotknij Ręcznej konfiguracji, dotknij Konta, dotknij konto u dołu). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2710,7 +2712,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. Można to zmienić w zaawansowanych ustawieniach konta: Ustawienia, dotknij Ręczna konfiguracja, dotknij Konta, dotknij konto, dotknij Zaawansowane.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2740,7 +2742,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
+There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 

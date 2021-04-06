@@ -1586,24 +1586,26 @@ Pending [operations](#user-content-faq3) are shown in the operations view access
 
 The following authentication methods are supported and used in this order:
 
-* LOGIN
-* PLAIN
 * CRAM-MD5
+* ACCESSO
+* SEMPLICE
+* NTLM (non testato)
 * XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
-* NTLM (untested)
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
 
-[Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
+I [Certificati Gmail](https://en.wikipedia.org/wiki/Client_certificate) sono selezionabili nelle impostazioni del profilo e dell'identità.
+
+L'[Indicazione del Nome del Server](https://en.wikipedia.org/wiki/Server_Name_Indication) è supportata da [tutte le versioni Android supportate](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
 <a name="faq63"></a>
-**(63) How are images resized for displaying on screens?**
+**(63) Come sono ridimensionate le immagini per la visualizzazione sugli schermi?**
 
-Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images will automatically be resized for displaying on screens. This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB. Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %. Images are scaled down using whole number factors to reduce memory usage and to retain image quality. Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
+Le immagini in linea o allegate grandi in [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [JPEG](https://en.wikipedia.org/wiki/JPEG) saranno ridimensionate automaticamente per la visualizzazione sugli schermi. Questo perché i messaggi email sono di dimensioni limitate, in base al provider, principalmente tra 10 e 50 MB. Le immagini saranno ridimensionate di default a una larghezza e altezza massima di circa 1440 pixel e salvate con un rapporto di compressione del 90%. Le immagini sono ridimensionate usando fattori interi per ridurre l'uso della memoria e mantenere la qualità dell'immagine. Il ridimensionamento automatico delle immagini in linea e/o allegate e la dimensione di destinazione massima dell'immagine sono configurabili nelle impostazioni di invio.
 
 If you want to resize images on a case-by-case basis, you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) or a similar app.
 
@@ -1699,10 +1701,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Sender contains
+* Sender contains or sender is contact
 * Recipient contains
 * Subject contains
-* Has attachments
+* Has attachments (optional of specific type)
 * Header contains
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
@@ -2196,7 +2198,7 @@ Note that the notification setting *Show launcher icon with number of new messag
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). Quando abilitato, il conteggio dei badge sarà lo stesso del numero di notifiche dei nuovi messaggi. Quando disabilitato, il conteggio dei badge sarà il numero di messaggi non letti, indipendentemente se sono mostrati in una notifica o sono nuovi.
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). When enabled the badge count will be the same as the number of new message notifications. When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
@@ -2740,7 +2742,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
+There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 

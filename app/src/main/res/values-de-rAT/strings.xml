@@ -170,6 +170,7 @@
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
+    <string name="title_setup_background" comment="title_setup_background&#10;https://developer.android.com/reference/android/app/ActivityManager#isBackgroundRestricted()&#10;">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
     <string name="title_setup_advanced_options">Erweiterte Optionen anzeigen</string>
     <string name="title_setup_inbox">Zum Posteingang</string>
@@ -710,6 +711,7 @@
     <string name="title_auto_trash">Alte Nachrichten automatisch in den Papierkorb verschieben</string>
     <string name="title_auto_delete">Automatisch alte Nachrichten dauerhaft löschen</string>
     <string name="title_auto_delete_hint">Alte Nachrichten sind Nachrichten, die nicht mehr auf dem Gerät vorgehalten werden</string>
+    <string name="title_auto_delete_archive_hint">Das Löschen aus dem Archivordner wird nicht immer vom E-Mail-Server zugelassen</string>
     <string name="title_inbox_root_hint">Bei einigen Anbietern müssen neue Ordner unterhalb des Posteingangs angelegt werden. In diesem Fall können Sie den Posteingang in der Ordnerliste lange drücken und „Unterordner erstellen“ wählen.
     </string>
     <string name="title_folder_name_missing">Ordnername fehlt</string>
@@ -1257,7 +1259,7 @@
     <string name="title_open_link">Link öffnen</string>
     <string name="title_different_link">Titel und Link-Ziel sind unterschiedlich</string>
     <string name="title_tracking_link">Diese Website könnte Sie verfolgen</string>
-    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Dies ist ein verdächtiger Link</string>
+    <string name="title_suspicious_link">Dies ist ein verdächtiger Link</string>
     <string name="title_link_http">Datenverkehr wird nicht verschlüsselt</string>
     <string name="title_link_https">Datenverkehr wird verschlüsselt</string>
     <string name="title_sanitize_link">Tracking-Parameter entfernen</string>

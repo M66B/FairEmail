@@ -1586,15 +1586,17 @@ Pending [operations](#user-content-faq3) are shown in the operations view access
 
 The following authentication methods are supported and used in this order:
 
+* CRAM-MD5
 * LOGIN
 * PLAIN
-* CRAM-MD5
-* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 * NTLM (untested)
+* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
+
+[Client certificates](https://en.wikipedia.org/wiki/Client_certificate) can be selected in the account and identity settings.
 
 [Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
 
@@ -1699,10 +1701,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Sender contains
+* Sender contains or sender is contact
 * Recipient contains
 * Subject contains
-* Has attachments
+* Has attachments (optional of specific type)
 * Header contains
 * Absolut tid (modtaget) mellem (siden version 1.1540)
 * Relativ tid (modtaget) mellem
@@ -2196,7 +2198,7 @@ Note that the notification setting *Show launcher icon with number of new messag
 
 Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
 
-Afhængigt af ønske, vil notifikationsindstillingen *Lad antallet af nye beskeder matcher antallet af notifikationer* skulle aktiveres eller deaktiveres (standard er inaktiv). Når aktiveret, vil badgeantallet være lig antallet af nye beskednotifikationer. Når deaktiveret, vil badgeantallet være lig antallet af ulæste beskeder, uanset om de vises i en notifikation eller er nye.
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). When enabled the badge count will be the same as the number of new message notifications. When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 
@@ -2249,7 +2251,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
-Indstillinger > Manuel opsætning > Konti > konto > avanceret > Delvis hentning > afmarkér
+Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
@@ -2295,7 +2297,7 @@ Biometric authentication is a pro feature.
 <a name="faq114"></a>
 **(114) Can you add an import for the settings of other email apps?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. F.eks. har FairEmail, i modsætning til de fleste andre e-mail-apps, indstillinger for antallet af synkdage for beskeder samt for antallet af dage til at beholde beskeder, hovedsageligt for at spare strøm. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
+The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
 <br />
 
@@ -2398,7 +2400,7 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-Kan FairEmail ikke forbinde til en e-mail-server for at synke beskeder, (grundet dårlig Internetforbindelse eller en firewall/VPN, der blokerer forbindelsen e.l.), vil FairEmail prøve én gang efter 8 sek. afventning, mens enheden holdes vågen (=bruger strømi). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 
@@ -2534,7 +2536,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 *POP3*
 
-I kontoindstillingerne (Settings > Manuel opsætning > Konti > konto) kan *Behold slettede beskeder på serveren* aktiveres.
+In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
 
 *IMAP*
 
@@ -2629,7 +2631,7 @@ Displaying strange characters is almost always caused by specifying no or an inv
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
-Dette problem kan løsee ved manuelt at vælge udkastmappen i kontoindstillingerne (Settings > Manuel opsætning > Konti > konto nederst). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
 
 Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
 
@@ -2710,7 +2712,7 @@ Since the sent date/time is optional and can be manipulated by the sender, FairE
 
 Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. Dette kan ændres i de avancerede kontoindstillinger: Indstillinger > Manuel opsætning > Konti > konto > Avanceret.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2740,7 +2742,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
+There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 
@@ -2994,41 +2996,41 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 <br />
 
 <a name="faq166"></a>
-**(166) Kan en besked slumres på tværs af flere enheder?**
+**(166) Can I snooze a message across multiple devices?**
 
-Da der ingen standarder for beskedslumring, er alle slumringsimplementeringer er tilpassede løsninger.
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
-Nogle e-mailudbydere flytte slumrede beskeder til en særlig mappe. Desværre har tredjeparts-apps ingen adgang til denne specielle mappe.
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
 
-Flytning af en besked til en anden mappe og tilbage mislykkes måske og er ikke mulig uden Internetforbindelse. Dette er problematisk, da en besked kun kan slumres efter at være blevet flyttet.
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-For at forhindre disse problemer, sker slumring lokalt på enheden ved at skjule beskeden under slumring. Desværre er det ikke muligt også at skjule beskeder på e-mailserveren.
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 
 ## Get support
 
-FairEmail understøttes kun på smartphones, tablets og ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Kun seneste Play Butik- og GitHub-versioner understøttes. F-Droid build understøttes kun, hvis versionsnummeret er identisk med den seneste GitHub-udgivelses ditto. Dette betyder også, at nedgradering ikke understøttes.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Der er ingen support for ting, som ikke er direkte relateret til FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Der er ingen support til bygning og udvikling af ting fra dig selv.
+There is no support on building and developing things by yourself.
 
-Anmodede funktioner skal:
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Funktioner, som ikke opfylder disse krav, afvises sandsynligvis. Dette er mhp. at muliggøre langsigtet vedligeholdelse og support.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Har du spørgsmål, ønsker til en funktion eller vil anmelde en fejl, **så benyt [denne formular](https://contact.faircode.eu/?product=fairemailsupport)**.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub-problemstillinger er deaktiveret grundet hyppigt misbrug.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Ophavsrettigheder &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

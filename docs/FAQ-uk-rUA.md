@@ -1586,15 +1586,17 @@ Pending [operations](#user-content-faq3) are shown in the operations view access
 
 The following authentication methods are supported and used in this order:
 
+* CRAM-MD5
 * LOGIN
 * PLAIN
-* CRAM-MD5
-* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 * NTLM (untested)
+* XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
 If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
+
+[Client certificates](https://en.wikipedia.org/wiki/Client_certificate) can be selected in the account and identity settings.
 
 [Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
 
@@ -1699,10 +1701,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 The following rule conditions are available:
 
-* Sender contains
+* Sender contains or sender is contact
 * Recipient contains
 * Subject contains
-* Has attachments
+* Has attachments (optional of specific type)
 * Header contains
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
@@ -2398,7 +2400,7 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-Якщо FairEmail не може підключитися до сервера електронної пошти для синхронізації повідомлень, наприклад, якщо погане підключення до Інтернету або брандмауер чи VPN блокує з’єднання, FairEmail повторно спробує підключитися через 8 секунд після очікування пристрою, залишаючи пристрій активним (=використовувати заряд акумулятора). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 
@@ -2740,7 +2742,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-There is a built-in profile for Apple iCloud, but if needed you can find the right settings [here](https://support.apple.com/en-us/HT202304).
+There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 

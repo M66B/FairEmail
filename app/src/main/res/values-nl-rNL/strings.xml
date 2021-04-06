@@ -169,6 +169,7 @@
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
+    <string name="title_setup_background" comment="title_setup_background&#10;https://developer.android.com/reference/android/app/ActivityManager#isBackgroundRestricted()&#10;">Achtergrondbeperkingen zijn ingeschakeld</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
     <string name="title_setup_advanced_options">Toon geavanceerde opties</string>
     <string name="title_setup_inbox">Ga naar postvak in</string>
@@ -709,6 +710,7 @@
     <string name="title_auto_trash">Automatisch oude berichten verplaatsen naar de prullenbak</string>
     <string name="title_auto_delete">Automatisch oude berichten definitief verwijderen</string>
     <string name="title_auto_delete_hint">Oude berichten zijn berichten die niet meer op het apparaat worden bewaard</string>
+    <string name="title_auto_delete_archive_hint">Verwijderen uit de archiefmap wordt niet altijd toegestaan door de e-mailserver</string>
     <string name="title_inbox_root_hint">        Sommige aanbieders vereisen dat nieuwe mappen aangemaakt worden onder de inbox.
         In dit geval u kunt de inbox in de mappenlijst lang indrukken en kiezen voor \'Maak submap\'.
     </string>
@@ -1259,7 +1261,7 @@
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_different_link">De titel en het link-adres zijn verschillend</string>
     <string name="title_tracking_link">Deze website kan je volgen</string>
-    <string name="title_suspicious_link" comment="title_suspicious_link&#10;link as in hyperlink&#10;">Dit is een verdachte koppeling</string>
+    <string name="title_suspicious_link">Dit is een verdachte koppeling</string>
     <string name="title_link_http">Verkeer wordt niet versleuteld</string>
     <string name="title_link_https">Verkeer wordt versleuteld</string>
     <string name="title_sanitize_link">Verwijder tracking parameters</string>
