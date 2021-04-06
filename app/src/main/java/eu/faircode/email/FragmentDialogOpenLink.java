@@ -315,7 +315,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             if (host != null)
                 puny = IDN.toASCII(host, IDN.ALLOW_UNASSIGNED);
         } catch (Throwable ex) {
-            Log.e(ex);
+            Log.w(ex);
             puny = host;
         }
 

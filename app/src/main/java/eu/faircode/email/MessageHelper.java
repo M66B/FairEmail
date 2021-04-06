@@ -1582,7 +1582,7 @@ public class MessageHelper {
             try {
                 user = IDN.toASCII(user, IDN.ALLOW_UNASSIGNED);
             } catch (Throwable ex) {
-                Log.e(ex);
+                Log.w(ex);
             }
 
             String[] parts = domain.split("\\.");
@@ -1590,7 +1590,7 @@ public class MessageHelper {
                 try {
                     parts[p] = IDN.toASCII(parts[p], IDN.ALLOW_UNASSIGNED);
                 } catch (Throwable ex) {
-                    Log.e(ex);
+                    Log.w(ex);
                 }
 
             email = user + '@' + TextUtils.join(".", parts);
