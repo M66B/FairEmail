@@ -157,7 +157,7 @@ public class Helper {
 
     static final String FAQ_URI = "https://email.faircode.eu/faq/";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
-    static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
+    static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport&version=" + BuildConfig.VERSION_NAME;
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String GRAVATAR_PRIVACY_URI = "https://meta.stackexchange.com/questions/44717/is-gravatar-a-privacy-risk";
     static final String LICENSE_URI = "https://www.gnu.org/licenses/gpl-3.0.html";
@@ -720,6 +720,13 @@ public class Helper {
         return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
     }
 
+    static Uri getSupportUri(Context context) {
+        return Uri.parse(SUPPORT_URI)
+                .buildUpon()
+                .appendQueryParameter("installed", Helper.hasValidFingerprint(context) ? "" : "Other")
+                .build();
+    }
+
     static Intent getIntentIssue(Context context) {
         if (ActivityBilling.isPro(context)) {
             String version = BuildConfig.VERSION_NAME + "/" +
@@ -739,7 +746,7 @@ public class Helper {
             return intent;
         } else {
             if (Helper.hasValidFingerprint(context))
-                return new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_URI));
+                return new Intent(Intent.ACTION_VIEW, getSupportUri(context));
             else
                 return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
         }

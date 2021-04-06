@@ -154,8 +154,8 @@ public class FragmentOAuth extends FragmentBase {
 
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Helper.view(view.getContext(), Uri.parse(Helper.SUPPORT_URI), false);
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext()), false);
             }
         });
 
