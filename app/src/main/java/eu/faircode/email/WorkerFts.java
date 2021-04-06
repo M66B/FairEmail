@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -66,49 +65,47 @@ public class WorkerFts extends Worker {
 
             SQLiteDatabase sdb = FtsDbHelper.getInstance(context);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            try (Cursor cursor = db.message().getMessageFts()) {
-                while (cursor.moveToNext())
-                    try {
-                        long id = cursor.getLong(0);
-                        Log.i("FTS index=" + id);
 
-                        ids.add(id);
+            for (long id : db.message().getMessageFts())
+                try {
+                    Log.i("FTS index=" + id);
 
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null) {
-                            Log.i("FTS gone");
-                            continue;
-                        }
+                    ids.add(id);
 
-                        File file = message.getFile(context);
-                        String text = HtmlHelper.getFullText(file);
-                        if (TextUtils.isEmpty(text)) {
-                            Log.i("FTS empty");
-                            continue;
-                        }
-
-                        boolean fts = prefs.getBoolean("fts", false);
-                        if (!fts)
-                            break;
-
-                        try {
-                            sdb.beginTransaction();
-                            FtsDbHelper.insert(sdb, message, text);
-                            sdb.setTransactionSuccessful();
-                        } finally {
-                            sdb.endTransaction();
-                        }
-
-                        indexed++;
-
-                        if (ids.size() > INDEX_BATCH_SIZE)
-                            markIndexed(db, ids);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null) {
+                        Log.i("FTS gone");
+                        continue;
                     }
 
-                markIndexed(db, ids);
-            }
+                    File file = message.getFile(context);
+                    String text = HtmlHelper.getFullText(file);
+                    if (TextUtils.isEmpty(text)) {
+                        Log.i("FTS empty");
+                        continue;
+                    }
+
+                    boolean fts = prefs.getBoolean("fts", false);
+                    if (!fts)
+                        break;
+
+                    try {
+                        sdb.beginTransaction();
+                        FtsDbHelper.insert(sdb, message, text);
+                        sdb.setTransactionSuccessful();
+                    } finally {
+                        sdb.endTransaction();
+                    }
+
+                    indexed++;
+
+                    if (ids.size() > INDEX_BATCH_SIZE)
+                        markIndexed(db, ids);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
+            markIndexed(db, ids);
 
             Log.i("FTS indexed=" + indexed);
             return Result.success();

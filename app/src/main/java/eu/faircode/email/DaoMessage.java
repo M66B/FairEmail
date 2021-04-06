@@ -249,7 +249,7 @@ public interface DaoMessage {
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE " + is_outbox +
             " AND NOT ui_snoozed IS NULL")
-    LiveData<Integer>  liveOutboxPending();
+    LiveData<Integer> liveOutboxPending();
 
     @Query("SELECT account.name AS accountName" +
             ", COUNT(message.id) AS count" +
@@ -310,13 +310,14 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
+    @Transaction
     @Query("SELECT message.id FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE content" +
             " AND NOT fts" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             " ORDER BY message.received")
-    Cursor getMessageFts();
+    List<Long> getMessageFts();
 
     @Query("SELECT message.id, account, thread, (:find IS NULL" +
             " OR (:senders AND `from` LIKE :find COLLATE NOCASE)" + // no index
