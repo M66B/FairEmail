@@ -4134,6 +4134,10 @@ public class FragmentCompose extends FragmentBase {
 
                                     if (cid.contains(attachment.cid))
                                         attachment.disposition = Part.INLINE;
+                                    else {
+                                        attachment.cid = null;
+                                        attachment.disposition = Part.ATTACHMENT;
+                                    }
 
                                     attachment.id = null;
                                     attachment.message = data.draft.id;
