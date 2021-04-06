@@ -163,10 +163,12 @@
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
+    <string name="title_setup_doze_remark">Sähköpostien lähettämiseen ja vastaanottamiseen luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen käytöstä vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
+    <string name="title_setup_background" comment="title_setup_background&#10;https://developer.android.com/reference/android/app/ActivityManager#isBackgroundRestricted()&#10;">Taustarajoitukset ovat käytössä</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
     <string name="title_setup_advanced_options">Näytä lisäasetukset</string>
     <string name="title_setup_inbox">Siirry saapuneisiin</string>
@@ -256,6 +258,7 @@
     <string name="title_advanced_suggest_frequently">Järjestä ehdotetut osoitteet käytetyimmät ensin</string>
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
+    <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_separate_reply">Lisää vaakaviiva ennen vastaus-/edelleenlähetystunnistetietoja</string>
@@ -268,6 +271,7 @@
     <string name="title_advanced_signature_reply">Käytä allekirjoitusta vastatessa</string>
     <string name="title_advanced_signature_forward">Käytä allekirjoitusta edelleenlähetettäessä</string>
     <string name="title_advanced_discard_delete">Poista luonnos hylättäessä</string>
+    <string name="title_advanced_reply_move">Tallenna vastaus samaan kansioon vastatessa viestiin käyttäjän kansiossa</string>
     <string name="title_advanced_auto_link">Luo linkkejä automaattisesti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
@@ -482,11 +486,12 @@
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
+    <string name="title_advanced_reply_move_hint">Sähköpostipalvelin voi silti lisätä viestit lähetettyjen viestien kansioon</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa yhteysongelmia joissakin laitteissa</string>
-    <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä ja muissakin tilanteissa</string>
+    <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä tai joissakin muissakaan tilanteissa</string>
     <string name="title_advanced_timeout_hint">Luku-/kirjoitusaikakatkaisu asetetaan kaksi kertaa niin pitkäksi kuin yhteyden aikakatkaisu. Korkeat arvot aiheuttavat enemmän akun käyttöä.</string>
     <string name="title_advanced_ssl_harden_hint">Tämän käyttöönotto kytkee heikot SSL-protokollat ja salakirjoitukset pois käytöstä, mikä voi aiheuttaa yhteysongelmia</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
@@ -703,6 +708,7 @@
     <string name="title_auto_trash">Siirrä vanhat viestit automaattisesti roskakoriin</string>
     <string name="title_auto_delete">Poista vanhat viestit automaattisesti</string>
     <string name="title_auto_delete_hint">Vanhoilla viesteillä tarkoitetaan viestejä, joita ei enää pidetä laitteessa</string>
+    <string name="title_auto_delete_archive_hint">Sähköpostipalvelin ei aina salli poistamista arkistokansiosta</string>
     <string name="title_inbox_root_hint">Jotkut palveluntarjoajat edellyttävät, että uudet kansiot luodaan saapuneet-kansion alle.
         Voit painaa pitkään saapuneet-kansiota kansiolistauksessa ja valita \'Luo alikansio\'.
     </string>
@@ -848,6 +854,10 @@
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
+    <string name="title_reformatted">Tämä on uudelleenmuotoillun viestin näkymä.
+        Voit napauttaa &#x26F6; nähdäksesi alkuperäisen viestin ja piilottaaksesi tämän ohjeen.
+        Viestien uudelleenmuotoilu kestää hetken riippuen viestin koosta ja laitteesi nopeudesta.
+    </string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_submitter">Lähettäjä:</string>
     <string name="title_delivered_to">Toimitettu osoitteeseen:</string>
@@ -1249,6 +1259,7 @@
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>
     <string name="title_tracking_link">Tämä verkkosivu saattaa seurata sinua</string>
+    <string name="title_suspicious_link">Tämä on epäilyttävä linkki</string>
     <string name="title_link_http">Verkkoliikennettä ei salata</string>
     <string name="title_link_https">Verkkoliikenne salataan</string>
     <string name="title_sanitize_link">Poista seurantaparametrit</string>

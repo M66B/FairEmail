@@ -158,6 +158,7 @@
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
+    <string name="title_setup_background" comment="title_setup_background&#10;https://developer.android.com/reference/android/app/ActivityManager#isBackgroundRestricted()&#10;">Hạn chế trong nền đang bật</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
     <string name="title_setup_advanced_options">Hiện tùy chọn nâng cao</string>
     <string name="title_setup_inbox">Đi đến hộp thư đến</string>
@@ -260,6 +261,7 @@
     <string name="title_advanced_signature_reply">Sử dụng chữ ký khi trả lời</string>
     <string name="title_advanced_signature_forward">Sử dụng chữ ký khi chuyển tiếp</string>
     <string name="title_advanced_discard_delete">Khi bỏ thư nháp vĩnh viễn xoá thư nháp</string>
+    <string name="title_advanced_reply_move">Khi trả lời một thư trong một thư mục người dùng, lưu thư trả lời vào thư mục đó</string>
     <string name="title_advanced_auto_link">Tự động tạo các liên kết</string>
     <string name="title_advanced_plain_only">Chỉ gửi văn bản thường theo mặc định</string>
     <string name="title_advanced_flow">\'format flowed\' cho văn bản thường</string>
@@ -286,11 +288,12 @@
     <string name="title_advanced_landscape">Sử dụng hai cột ở chế độ hướng ngang</string>
     <string name="title_advanced_landscape3">Hiện menu điều hướng ở chế độ hướng ngang theo mặc định</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
-    <string name="title_advanced_cards">Dùng kiểu thẻ thay vì kiểu tab</string>
+    <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi sử dụng kiểu thẻ</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
     <string name="title_advanced_threading_unread">Hiện số thư chưa đọc trong các cuộc hội thoại</string>
+    <string name="title_advanced_indentation">Lùi trái/phải các thư đã nhận/đã gửi trong cuộc hội thoại</string>
     <string name="title_advanced_highlight_unread">Đánh dấu các thư chưa đọc</string>
     <string name="title_advanced_highlight_subject">Đánh dấu chủ đề</string>
     <string name="title_advanced_color_stripe">Hiện dải màu</string>
@@ -865,9 +868,9 @@
     <string name="title_send_priority">Mức ưu tiên</string>
     <string name="title_no_server">Không tìm thấy máy chủ tại \'%1$s\'</string>
     <string name="title_style">Phong cách</string>
-    <string name="title_style_bold">Chữ đậm</string>
-    <string name="title_style_italic">Chữ nghiêng</string>
-    <string name="title_style_underline">Chữ gạch chân</string>
+    <string name="title_style_bold">Đậm</string>
+    <string name="title_style_italic">Nghiêng</string>
+    <string name="title_style_underline">Gạch chân</string>
     <string name="title_style_size">Kích cỡ</string>
     <string name="title_style_size_small">Nhỏ</string>
     <string name="title_style_size_medium">Vừa</string>
@@ -1095,6 +1098,7 @@
     <string name="title_rule_identity_missing">Thiếu danh tính</string>
     <string name="title_rule_answer_missing">Thiếu mẫu</string>
     <string name="title_rule_keyword_missing">Thiếu từ khoá</string>
+    <string name="title_rule_automation_hint">Cái này sẽ gửi intent \'%1$s\' với \'%2$s\' được thêm vào</string>
     <string name="title_rule_execute">Thực thi ngay</string>
     <string name="title_rule_applied">Các thư bị ảnh hưởng: %1$d</string>
     <string name="title_rule_check">Kiểm tra</string>
@@ -1234,6 +1238,7 @@
     <string name="title_open_link">Mở liên kết</string>
     <string name="title_different_link">Tiêu đề và địa chỉ liên kết khác nhau</string>
     <string name="title_tracking_link">Trang web này có thể sẽ theo dõi bạn</string>
+    <string name="title_suspicious_link">Đây là một liên kết đáng nghi</string>
     <string name="title_link_http">Lưu lượng sẽ không được mã hoá</string>
     <string name="title_link_https">Lưu lượng sẽ được mã hoá</string>
     <string name="title_sanitize_link">Xoá các tham số theo dõi</string>
