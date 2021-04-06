@@ -60,6 +60,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvPrice;
     private ImageView ivExternal;
     private TextView tvPriceHint;
+    private TextView tvFamilyHint;
     private TextView tvRestoreHint;
     private Button btnCheck;
 
@@ -86,6 +87,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPrice = view.findViewById(R.id.tvPrice);
         ivExternal = view.findViewById(R.id.ivExternal);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
+        tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
 
         btnCheck = view.findViewById(R.id.btnCheck);
@@ -140,6 +142,14 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 19);
+            }
+        });
+
+        tvFamilyHint.setPaintFlags(tvFamilyHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvFamilyHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 66);
             }
         });
 

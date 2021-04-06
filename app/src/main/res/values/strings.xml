@@ -1498,6 +1498,7 @@
     <string name="title_pro_hide">Hide small message for %1$d weeks</string>
     <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported.</string>
     <string name="title_pro_price">Why are the pro features so expensive?</string>
+    <string name="title_pro_family">Can I use the Google Play Family Library?</string>
     <string name="title_pro_restore">How can I restore a purchase?</string>
     <string name="title_pro_pending">Purchase pending</string>
     <string name="title_pro_response" translatable="false">Response</string>
