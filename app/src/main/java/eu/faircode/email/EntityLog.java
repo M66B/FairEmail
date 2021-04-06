@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
@@ -60,6 +62,11 @@ public class EntityLog {
 
     static void log(final Context context, String data) {
         Log.i(data);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean main_log = prefs.getBoolean("main_log", true);
+        if (!main_log)
+            return;
 
         final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();

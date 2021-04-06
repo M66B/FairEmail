@@ -2,8 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/menu_enabled"
+        android:checkable="true"
+        android:checked="true"
+        android:title="@string/title_enabled"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_auto_scroll"
         android:checkable="true"
+        android:checked="true"
         android:title="@string/title_auto_scroll"
         app:showAsAction="never" />
     <item

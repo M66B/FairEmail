@@ -19,7 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -106,6 +108,10 @@ public class FragmentLogs extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean main_log = prefs.getBoolean("main_log", true);
+
+        menu.findItem(R.id.menu_enabled).setChecked(main_log);
         menu.findItem(R.id.menu_auto_scroll).setChecked(autoScroll);
         super.onPrepareOptionsMenu(menu);
     }
@@ -113,15 +119,30 @@ public class FragmentLogs extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_auto_scroll) {
-            autoScroll = !item.isChecked();
-            item.setChecked(autoScroll);
+        if (itemId == R.id.menu_enabled) {
+            boolean enabled = !item.isChecked();
+            onMenuEnable(enabled);
+            item.setChecked(enabled);
+            return true;
+        } else if (itemId == R.id.menu_auto_scroll) {
+            boolean enabled = !item.isChecked();
+            onMenuAutoScoll(enabled);
+            item.setChecked(enabled);
             return true;
         } else if (itemId == R.id.menu_clear) {
             onMenuClear();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onMenuEnable(boolean enabled) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("main_log", enabled).apply();
+    }
+
+    private void onMenuAutoScoll(boolean enabled) {
+        autoScroll = enabled;
     }
 
     private void onMenuClear() {
