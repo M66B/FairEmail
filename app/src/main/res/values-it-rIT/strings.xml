@@ -169,6 +169,7 @@
     <string name="title_setup_doze_instructions">Nella prossima finestra di dialogo Android, cambia «Non ottimizzato» in «Tutte le app», seleziona questa app e seleziona «Non ottimizzare»</string>
     <string name="title_setup_doze_battery">Consumo elevato della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
+    <string name="title_setup_background">Le restrizioni in sfondo sono abilitate</string>
     <string name="title_setup_data">Risparmio dati attivato</string>
     <string name="title_setup_advanced_options">Mostra opzioni avanzate</string>
     <string name="title_setup_inbox">Vai alla posta in arrivo</string>
@@ -1260,6 +1261,7 @@
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_different_link">Il titolo del link e l\'indirizzo sono diversi</string>
     <string name="title_tracking_link">Questo sito web potrebbe tracciarti</string>
+    <string name="title_suspicious_link">Questo è un collegamento sospetto</string>
     <string name="title_link_http">Il traffico non verrà criptato</string>
     <string name="title_link_https">Il traffico verrà crittografato</string>
     <string name="title_sanitize_link">Rimuovi i parametri di tracciamento</string>
