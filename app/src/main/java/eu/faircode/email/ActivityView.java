@@ -102,6 +102,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvAccount;
     private ImageButton ibExpanderUnified;
     private RecyclerView rvUnified;
+    private ImageButton ibExpanderFolder;
     private RecyclerView rvFolder;
     private RecyclerView rvMenu;
     private ImageButton ibExpanderExtra;
@@ -321,11 +322,28 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         // Navigation folders
+        ibExpanderFolder = drawerContainer.findViewById(R.id.ibExpanderFolder);
+
         rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
         adapterNavFolder = new AdapterNavFolder(this, this);
         rvFolder.setAdapter(adapterNavFolder);
 
+        boolean nav_folder = prefs.getBoolean("nav_folder", true);
+        ibExpanderFolder.setImageLevel(nav_folder ? 0 /* less */ : 1 /* more */);
+        rvFolder.setVisibility(nav_folder ? View.VISIBLE : View.GONE);
+
+        ibExpanderFolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean nav_folder = !prefs.getBoolean("nav_folder", true);
+                prefs.edit().putBoolean("nav_folder", nav_folder).apply();
+                ibExpanderFolder.setImageLevel(nav_folder ? 0 /* less */ : 1 /* more */);
+                rvFolder.setVisibility(nav_folder ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        // Menus
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
         rvMenu.setLayoutManager(new LinearLayoutManager(this));
         adapterNavMenu = new AdapterNavMenu(this, this);
