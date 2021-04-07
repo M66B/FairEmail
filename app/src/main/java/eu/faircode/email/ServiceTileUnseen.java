@@ -97,4 +97,9 @@ public class ServiceTileUnseen extends TileService {
         Log.i("Stop tile unseen");
         owner.stop();
     }
+
+    @Override
+    public void onClick() {
+        ServiceUI.sync(getApplicationContext(), null);
+    }
 }
