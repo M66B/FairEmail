@@ -1072,7 +1072,8 @@ public class FragmentCompose extends FragmentBase {
 
         popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_plain_text, 1, R.string.title_edit_plain_text);
         popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_formatted_text, 2, R.string.title_edit_formatted_text);
-        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 3, R.string.title_delete);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, 3, R.string.title_clipboard_copy);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
@@ -1083,6 +1084,9 @@ public class FragmentCompose extends FragmentBase {
                     return true;
                 } else if (itemId == R.string.title_edit_formatted_text) {
                     convertRef(false);
+                    return true;
+                } else if (itemId == R.string.title_clipboard_copy) {
+                    copyRef();
                     return true;
                 } else if (itemId == R.string.title_delete) {
                     deleteRef();
@@ -1153,6 +1157,26 @@ public class FragmentCompose extends FragmentBase {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentCompose.this, args, "compose:convert");
+            }
+
+            private void copyRef() {
+                Context context = getContext();
+                if (context == null)
+                    return;
+
+                ClipboardManager clipboard =
+                        (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                if (clipboard == null)
+                    return;
+
+                String html = HtmlHelper.toHtml((Spanned) tvReference.getText(), context);
+
+                ClipData clip = ClipData.newHtmlText(
+                        etSubject.getText().toString(),
+                        HtmlHelper.getText(getContext(), html),
+                        html);
+                clipboard.setPrimaryClip(clip);
+                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
             }
 
             private void deleteRef() {
