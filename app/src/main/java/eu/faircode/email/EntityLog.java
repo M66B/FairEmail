@@ -63,6 +63,9 @@ public class EntityLog {
     static void log(final Context context, String data) {
         Log.i(data);
 
+        if (context == null)
+            return;
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean main_log = prefs.getBoolean("main_log", true);
         if (!main_log)
