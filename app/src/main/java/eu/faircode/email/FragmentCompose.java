@@ -655,15 +655,16 @@ public class FragmentCompose extends FragmentBase {
 
                 ClipboardManager clipboard =
                         (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                if (clipboard != null) {
-                    ClipData clip = ClipData.newHtmlText(
-                            getContext().getString(R.string.title_edit_signature_text),
-                            HtmlHelper.getText(getContext(), identity.signature),
-                            identity.signature);
-                    clipboard.setPrimaryClip(clip);
+                if (clipboard == null)
+                    return;
 
-                    ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-                }
+                ClipData clip = ClipData.newHtmlText(
+                        getContext().getString(R.string.title_edit_signature_text),
+                        HtmlHelper.getText(getContext(), identity.signature),
+                        identity.signature);
+                clipboard.setPrimaryClip(clip);
+
+                ToastEx.makeText(getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
             }
         });
 

@@ -2557,11 +2557,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         private void onCopy() {
                             ClipboardManager clipboard =
                                     (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                            if (clipboard != null) {
-                                ClipData clip = ClipData.newPlainText(title, text);
-                                clipboard.setPrimaryClip(clip);
-                                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-                            }
+                            if (clipboard == null)
+                                return;
+
+                            ClipData clip = ClipData.newPlainText(title, text);
+                            clipboard.setPrimaryClip(clip);
+                            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -3718,13 +3719,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionCopyNote(TupleMessageEx message) {
+            if (TextUtils.isEmpty(message.notes))
+                return;
+
             ClipboardManager clipboard =
                     (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            if (clipboard != null && !TextUtils.isEmpty(message.notes)) {
-                ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), message.notes);
-                clipboard.setPrimaryClip(clip);
-                ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-            }
+            if (clipboard == null)
+                return;
+
+            ClipData clip = ClipData.newPlainText(context.getString(R.string.app_name), message.notes);
+            clipboard.setPrimaryClip(clip);
+            ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
