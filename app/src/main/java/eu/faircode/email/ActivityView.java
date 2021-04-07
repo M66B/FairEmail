@@ -104,6 +104,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvUnified;
     private ImageButton ibExpanderFolder;
     private RecyclerView rvFolder;
+    private ImageButton ibExpanderMenu;
     private RecyclerView rvMenu;
     private ImageButton ibExpanderExtra;
     private RecyclerView rvMenuExtra;
@@ -344,10 +345,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         // Menus
+        ibExpanderMenu = drawerContainer.findViewById(R.id.ibExpanderMenu);
+
         rvMenu = drawerContainer.findViewById(R.id.rvMenu);
         rvMenu.setLayoutManager(new LinearLayoutManager(this));
         adapterNavMenu = new AdapterNavMenu(this, this);
         rvMenu.setAdapter(adapterNavMenu);
+
+        boolean nav_menu = prefs.getBoolean("nav_menu", true);
+        ibExpanderMenu.setImageLevel(nav_menu ? 0 /* less */ : 1 /* more */);
+        rvMenu.setVisibility(nav_menu ? View.VISIBLE : View.GONE);
+
+        ibExpanderMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean nav_menu = !prefs.getBoolean("nav_menu", true);
+                prefs.edit().putBoolean("nav_menu", nav_menu).apply();
+                ibExpanderMenu.setImageLevel(nav_menu ? 0 /* less */ : 1 /* more */);
+                rvMenu.setVisibility(nav_menu ? View.VISIBLE : View.GONE);
+            }
+        });
 
         // Extra menus
         ibExpanderExtra = drawerContainer.findViewById(R.id.ibExpanderExtra);
