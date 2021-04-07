@@ -1632,9 +1632,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) FairEmail est-il disponible dans la bibliothèque familiale Google Play ?**
 
-Le prix unique des quelques fonctionnalités pro est trop bas, inférieur au prix des applications les plus similaires, et il y a [trop de frais et de taxes](#user-content-faq19), pour justifier la mise à disposition de FairEmail dans la [bibliothèque familiale Google Play](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+Le prix unique des quelques fonctionnalités Pro est trop bas, inférieur au prix des applications les plus similaires et il y a [trop de frais et de taxes](#user-content-faq19) pour justifier la mise à disposition de FairEmail dans la [bibliothèque familiale Google Play](https://support.google.com/googleone/answer/7007852). Notez que Google promeut la bibliothèque familiale mais la fait payer par les développeurs.
 
 <br />
 

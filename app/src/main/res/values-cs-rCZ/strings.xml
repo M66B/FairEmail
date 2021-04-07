@@ -251,7 +251,6 @@
     <string name="title_advanced_section_encryption">Šifrování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
-    <string name="title_advanced_default">Všechny volby mají běžně používané standardní hodnoty</string>
     <string name="title_advanced_receive">Přijímat zprávy pro všechny účty</string>
     <string name="title_advanced_when">Kdy</string>
     <string name="title_advanced_always">Neustále přijímat zprávy pro tyto účty</string>

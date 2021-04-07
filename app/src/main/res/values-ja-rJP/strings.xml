@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_search">検索</string>
+    <string name="app_search">FairEmail 検索</string>
     <string name="app_changelog">変更履歴</string>
     <string name="app_welcome">FairEmailはプライバシーとセキュリティに焦点を当てたオープンソースのメールアプリです。その為一部の機能は以前とは異なる動作をする場合があります</string>
     <string name="app_limitations">例えば、メッセージは、安全でない要素を削除し、可読性を向上させるためにデフォルトで再フォーマットされ、リンクを開く際は安全のために確認が必要です。 どちらも必要に応じて無効にできます。</string>
@@ -157,6 +157,7 @@
     <string name="title_setup_doze_instructions">次のAndroidダイアログで「最適化されていないアプリ」を「すべてのアプリ」に変更し、このアプリを選択して「最適化しない」を選択します。</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
+    <string name="title_setup_background">バックグラウンドの制限は有効です</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
     <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
     <string name="title_setup_inbox">受信トレイに移動</string>
@@ -219,7 +220,7 @@
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
-    <string name="title_advanced_default">すべてのオプションは、一般的に標準値が設定されています</string>
+    <string name="title_advanced_default">すべてのオプションにはよく使われる標準的な値が設定されており、アプリを使用するために変更する必要はありません</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>
@@ -259,6 +260,7 @@
     <string name="title_advanced_signature_reply">返信時に署名を使用する</string>
     <string name="title_advanced_signature_forward">転送時に署名を使用する</string>
     <string name="title_advanced_discard_delete">下書きを破棄する場合、下書きを完全に削除</string>
+    <string name="title_advanced_reply_move">ユーザーフォルダ内のメッセージに返信したとき、返信メールを同じフォルダに保存します</string>
     <string name="title_advanced_auto_link">自動的にリンクを作成</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみを送信</string>
     <string name="title_advanced_flow">プレーンテキストの \'フォーマットフロー\'</string>
@@ -466,15 +468,19 @@
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、多くのデータが転送され電池消費が増えます</string>
     <string name="title_advanced_gmail_thread_hint">これは新しく受信したメッセージにのみ適用され、既存のグループを壊す可能性があります</string>
     <string name="title_advanced_sync_folders_hint">これを無効にするとデータと電池の使用量が多少減りますが、フォルダーのリストの更新も無効になります</string>
+    <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信先のアドレスが同じかどうかを確認します</string>
     <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
+    <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android内の連絡先に加えます。連絡先データは有効にした場合のみ新しく送信又は受信メッセージへ保存されます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「-」を挿入</string>
     <string name="title_advanced_send_reminders_hint">メッセージテキスト又は件名が空の場合や添付ファイルが無い場合に警告を表示</string>
+    <string name="title_advanced_reply_move_hint">メールサーバーは、メッセージを送信済みメッセージフォルダに追加することができます</string>
     <string name="title_advanced_metered_hint">従量制課金接続とは一般的にモバイル接続または有料Wi-Fiホットスポットの事です</string>
     <string name="title_advanced_metered_warning">このオプションを無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU内でのローミングのみ</string>
     <string name="title_advanced_tcp_keep_alive_hint">これを有効にすると、一部のデバイスで接続に問題が発生する可能性があります</string>
+    <string name="title_advanced_validate_hint">これにより、たとえばVPNを使用している場合だけでなく、他の状況でもメッセージが同期されない可能性があります</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの2倍に設定されます。値を大きくするとバッテリーの使用量が増えます</string>
     <string name="title_advanced_ssl_harden_hint">有効にすると弱いSSLプロトコルと暗号が無効になり接続の問題が発生する可能性が有ります</string>
     <string name="title_advanced_roaming_hint">ローミング時メッセージヘッダーが常に取得されます。 デバイスのローミング設定を使用して、ローミング中にインターネットを無効にする事が出来ます</string>
@@ -484,6 +490,7 @@
     <string name="title_advanced_beige_hint">ライトテーマのみ</string>
     <string name="title_advanced_date_hint">時間で並び替えをしている場合にのみ、メッセージは日付でグループ化されます</string>
     <string name="title_advanced_navbar_colorize_hint">これが機能するかはAndroidのバージョンとバリアントによって異なります</string>
+    <string name="title_advanced_split_hint">画面をパーツごとに分割します</string>
     <string name="title_advanced_threading_hint">互いに関連するグループメッセージ</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーに強調表示を使用します</string>
     <string name="title_advanced_gravatars_hint">プライバシーリスクが有るかもしれません</string>
@@ -497,6 +504,7 @@
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、おそらく遅延が有ります</string>
     <string name="title_advanced_language_detection_hint">言語検出のサポートはデバイスメーカーによって異なります</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが1つだけの場合、又は未読メッセージが1つだけの場合に自動的にメッセージを開きます</string>
+    <string name="title_advanced_autoseen_hint">開いたメッセージを自動的に既読にする機能は、個々のアカウント設定で無効にできます</string>
     <string name="title_advanced_autoclose_hint">全てのメッセージがアーカイブ、送信、又は破棄された時に自動的に会話を閉じます</string>
     <string name="title_advanced_sender_hint">殆どのプロバイダは変更された送信者アドレスを許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信時に追加されます</string>
@@ -521,6 +529,7 @@
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
     <string name="title_advanced_experiments_hint">現在の実験的な機能のリスト</string>
     <string name="title_advanced_protocol_hint">これにより、バッテリーとストレージの使用量が大幅に増加します!</string>
+    <string name="title_advanced_debug_hint">さまざまな場所で醜いデバッグ情報が表示されます</string>
     <string name="title_advanced_cleanup_attachments_hint">手動でクリーニングすると同期されていないメッセージから添付ファイルが削除されます</string>
     <string name="title_advanced_cleanup_hint">全ての一時ファイルが削除されます</string>
     <string name="title_advanced_never_favorite">お気に入りにしないようにします</string>
@@ -567,6 +576,7 @@
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>
     <string name="title_password">パスワード</string>
+    <string name="title_password_storage">パスワードはどのように保管されますか?</string>
     <string name="title_case_sensitive">ユーザ名とパスワードは通常大文字と小文字を区別します</string>
     <string name="title_client_certificate">クライアント証明書</string>
     <string name="title_realm">Realm(Ntlm認証に使用)</string>
@@ -600,6 +610,7 @@
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_drafts">下書きフォルダがありません</string>
     <string name="title_no_junk_folder">このアカウントではスパムフォルダが選択されていません</string>
+    <string name="title_default_composable">デフォルトのEメールアドレスは、プライマリアカウントのプライマリIDによって決定されます</string>
     <string name="title_no_composable">メールを送信するには、IDを設定し、アカウント設定で下書きフォルダを選択する必要があります</string>
     <string name="title_no_standard">このプロバイダーは独自の電子メールプロトコルを使用している為、サードパーティの電子メールクライアントを使用することは出来ません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。 これにより新しいメッセージの受信が遅れバッテリーの使用量が増加します</string>
@@ -671,6 +682,7 @@
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
     <string name="title_synchronize_folder">同期(メッセージを受信)</string>
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
+    <string name="title_poll_folder_remark">ほとんどのメールサーバーでは、一部のフォルダに対してのみプッシュメッセージを許可しています</string>
     <string name="title_download_folder">メッセージテキストと添付ファイルを自動的にダウンロードする</string>
     <string name="title_notify_folder">新しいメッセージで通知する</string>
     <string name="title_auto_classify_source">このフォルダに新しいメッセージを分類</string>
@@ -685,6 +697,7 @@
     <string name="title_auto_trash">古いメッセージをゴミ箱に自動的に移動する</string>
     <string name="title_auto_delete">古いメッセージを自動的に完全に削除します</string>
     <string name="title_auto_delete_hint">古いメッセージはデバイスに保持されなくなったメッセージです</string>
+    <string name="title_auto_delete_archive_hint">アーカイブフォルダからの削除は、メールサーバーによって許可されていない場合があります</string>
     <string name="title_inbox_root_hint">一部のプロバイダーでは受信トレイの中に新しいフォルダーを作る必要があります。
         その場合は、フォルダーリストの中の受信トレイを長押しして「サブフォルダーを作成」を選択してください。
     </string>
@@ -736,6 +749,8 @@
     <string name="title_pin">ショートカットを追加</string>
     <string name="title_print">印刷</string>
     <string name="title_print_header">ヘッダを印刷</string>
+    <string name="title_print_images">画像を印刷</string>
+    <string name="title_print_images_remark">画像のダウンロードに時間がかかる場合があります</string>
     <string name="title_show_headers">ヘッダーを表示</string>
     <string name="title_raw_save">素のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
@@ -746,6 +761,10 @@
     <string name="title_download_all">すべてダウンロード</string>
     <string name="title_save_all">すべて保存</string>
     <string name="title_save_eml">素のメッセージファイルを保存する</string>
+    <string name="title_raw_remaining">オリジナルメッセージをダウンロード: %1$d</string>
+    <string name="title_ask_raw">メッセージを転送するには、生(オリジナル) メッセージをサーバーからダウンロードする必要があります。インターネット接続が必要です。</string>
+    <string name="title_buttons">ボタンを選択</string>
+    <string name="title_configure_buttons">ボタンを設定 &#8230;</string>
     <string name="title_trash">ゴミ箱</string>
     <string name="title_copy">コピー &#8230;</string>
     <string name="title_copy_to">&#8230; にコピー</string>
@@ -824,6 +843,10 @@
     <string name="title_third_party">サードパーティバージョンを使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>
     <string name="title_download_message">&#8230; をダウンロード中</string>
+    <string name="title_reformatted">        これは、再フォーマットされたメッセージ表示です。
+        元のメッセージを表示するには &#x26F6; アイコンをタップし、このメッセージを非表示にすることができます。
+        メッセージの再フォーマットには、メッセージのサイズやデバイスの速度に応じて時間がかかります。
+    </string>
     <string name="title_compose">作成する</string>
     <string name="title_submitter">送信者:</string>
     <string name="title_delivered_to">配信先:</string>
@@ -845,9 +868,11 @@
     <string name="title_discard">破棄</string>
     <string name="title_save">保存</string>
     <string name="title_send">送信</string>
+    <string name="title_sending">送信中 &#8230;</string>
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">～経由で送信</string>
     <string name="title_send_at">&#8230; 日時指定送信</string>
+    <string name="title_send_auto_archive">既読メッセージをアーカイブ</string>
     <string name="title_send_encryption">暗号化</string>
     <string name="title_send_priority">優先度</string>
     <string name="title_no_server">\'%1$s\'にサーバが見つかりません</string>
@@ -892,6 +917,7 @@
     <string name="title_media_toolbar">メディアツールバー</string>
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
     <string name="title_insert_template">テンプレートを挿入</string>
+    <string name="title_create_template">テンプレートを作成</string>
     <string name="title_edit_plain_text">プレーンテキストとして編集</string>
     <string name="title_edit_formatted_text">再フォーマットされたテキストとして編集</string>
     <string name="title_select_certificate">公開鍵を選択</string>
@@ -910,6 +936,7 @@
     <string name="title_extra_missing">ユーザー名が有りません</string>
     <string name="title_to_missing">受信者がいません</string>
     <string name="title_pgp_reminder">PGPキーが利用可能</string>
+    <string name="title_smime_reminder">S/MIME キーが利用可能です</string>
     <string name="title_subject_reminder">件名無し</string>
     <string name="title_text_reminder">メッセージが空です</string>
     <string name="title_attachment_keywords">添付,添付ファイル,付属</string>
@@ -966,6 +993,7 @@
     <string name="title_search_in_subject">件名で</string>
     <string name="title_search_in_keywords">キーワード内 (サポートされている場合)</string>
     <string name="title_search_in_message">メッセージテキスト内</string>
+    <string name="title_search_in_notes">ローカルノート</string>
     <string name="title_search_with">検索を制限</string>
     <string name="title_search_with_unseen">未読</string>
     <string name="title_search_with_flagged">スター付き</string>
@@ -980,6 +1008,7 @@
     <string name="title_search_flag_hidden">非表示</string>
     <string name="title_search_flag_encrypted">暗号化済み</string>
     <string name="title_search_flag_attachments">添付ファイル</string>
+    <string name="title_search_flag_notes">メモ</string>
     <string name="title_search_flag_invite">招待</string>
     <string name="title_search_flag_size">サイズ &gt; %1$s</string>
     <string name="title_search_device">デバイスで検索</string>
@@ -1024,6 +1053,11 @@
     <string name="title_answer_favorite">お気に入り</string>
     <string name="title_answer_hide">メニューに表示しません</string>
     <string name="title_answer_text">テンプレートテキスト</string>
+    <string name="title_answer_placeholder">プレースホルダー</string>
+    <string name="title_answer_placeholder_name">差出人フルネーム</string>
+    <string name="title_answer_placeholder_email">送信者メールアドレス</string>
+    <string name="title_answer_placeholder_firstname">差出人名</string>
+    <string name="title_answer_placeholder_lastname">差出人姓</string>
     <string name="title_rule_noop">何もしない</string>
     <string name="title_rule_seen">既読</string>
     <string name="title_rule_unseen">未読</string>
@@ -1050,6 +1084,10 @@
     <string name="title_rule_subject">件名に含まれる</string>
     <string name="title_rule_attachments">添付ファイル有り</string>
     <string name="title_rule_header">ヘッダーが含まれています</string>
+    <string name="title_rule_time_abs">間の絶対時間（受信）</string>
+    <string name="title_rule_time_after">受信後</string>
+    <string name="title_rule_time_before">受信前</string>
+    <string name="title_rule_time_rel">間の相対時間（受信）</string>
     <string name="title_rule_regex">正規表現</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">アクション</string>
@@ -1210,6 +1248,7 @@
     <string name="title_open_link">リンクを開く</string>
     <string name="title_different_link">タイトルとリンクアドレスが異なります</string>
     <string name="title_tracking_link">このウェブサイトはあなたを追跡するかもしれません</string>
+    <string name="title_suspicious_link">これは不審なリンクです</string>
     <string name="title_link_http">トラフィックは暗号化されません</string>
     <string name="title_link_https">トラフィックは暗号化されます</string>
     <string name="title_sanitize_link">追跡パラメーターを削除する</string>
@@ -1275,6 +1314,7 @@
     <string name="title_pro_hide">メッセージを%1$d 週間非表示にする</string>
     <string name="title_pro_hint">プロ機能を購入すると、現在及び将来全てのプロ機能を使用出来る様になりアプリとサポートが維持されます</string>
     <string name="title_pro_price">なぜプロ機能はそんなに高価なのですか？</string>
+    <string name="title_pro_family">Google Playファミリーライブラリを使用できますか？</string>
     <string name="title_pro_restore">購入を復元するにはどうすればよいですか?</string>
     <string name="title_pro_pending">購入保留中</string>
     <string name="title_pro_activated">全てのプロ機能がアクティブになりました</string>
@@ -1300,6 +1340,7 @@
     <string name="title_unexpected_info_remark">エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新しいメッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>
+    <string name="title_widget_title_sync">同期 オン/オフ</string>
     <string name="title_widget_account">アカウント</string>
     <string name="title_widget_account_all">全て</string>
     <string name="title_widget_folder">フォルダー</string>

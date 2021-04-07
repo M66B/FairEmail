@@ -213,7 +213,6 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">其他</string>
-    <string name="title_advanced_default">所有選項都有常用的預設值</string>
     <string name="title_advanced_receive">接收所有帳號訊息</string>
     <string name="title_advanced_when">何時</string>
     <string name="title_advanced_always">這些帳號隨時都接受訊息</string>

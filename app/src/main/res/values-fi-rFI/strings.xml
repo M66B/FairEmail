@@ -231,7 +231,6 @@
     <string name="title_advanced_section_encryption">Salaus</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
-    <string name="title_advanced_default">Kaikilla asetuksilla on yleisesti käytetyt oletusarvot</string>
     <string name="title_advanced_receive">Vastaanota viestit kaikille tileille</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_always">Vastaanota aina viestit näille tileille</string>

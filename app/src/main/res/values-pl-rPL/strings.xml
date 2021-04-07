@@ -253,7 +253,6 @@
     <string name="title_advanced_section_encryption">Szyfrowanie</string>
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_misc">Różne</string>
-    <string name="title_advanced_default">Wszystkie opcje mają powszechnie stosowane wartości standardowe</string>
     <string name="title_advanced_receive">Odbierz wiadomości ze wszystkich kont</string>
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
@@ -1347,7 +1346,7 @@
     <string name="title_pro_hide">Ukryj małą wiadomość na %1$d tygodnie</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Dlaczego funkcje pro są tak drogie?</string>
-    <string name="title_pro_family" comment="title_pro_family&#10;Point to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq66">Czy mogę korzystać z biblioteki rodzinnej Google Play?</string>
+    <string name="title_pro_family">Czy mogę korzystać z biblioteki rodzinnej Google Play?</string>
     <string name="title_pro_restore">Jak mogę przywrócić zakup?</string>
     <string name="title_pro_pending">Zakup w toku</string>
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>

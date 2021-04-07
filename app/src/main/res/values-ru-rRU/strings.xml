@@ -254,7 +254,7 @@
     <string name="title_advanced_section_encryption">Шифрование</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
-    <string name="title_advanced_default">Все настройки имеют общеиспользуемые стандартные значения</string>
+    <string name="title_advanced_default">Все настройки имеют общеиспользуемые стандартные параметры, не нуждающиеся в изменении для использования приложения</string>
     <string name="title_advanced_receive">Получать сообщения со всех учётных записей</string>
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
@@ -1349,7 +1349,7 @@
     <string name="title_pro_hide">Скрыть маленькое сообщение на %1$d недели</string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Почему функции Pro так дороги?</string>
-    <string name="title_pro_family" comment="title_pro_family&#10;Point to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq66">Можно ли использовать семейную библиотеку Google Play?</string>
+    <string name="title_pro_family">Можно ли использовать семейную библиотеку Google Play?</string>
     <string name="title_pro_restore">Как восстановить покупку?</string>
     <string name="title_pro_pending">Ожидание обработки покупки</string>
     <string name="title_pro_activated">Все функции Pro активированы</string>

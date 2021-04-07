@@ -232,7 +232,6 @@
     <string name="title_advanced_section_encryption">Crittografia</string>
     <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_misc">Altro</string>
-    <string name="title_advanced_default">Tutte le opzioni hanno valori standard comunemente utilizzati</string>
     <string name="title_advanced_receive">Ricevi messaggi per tutti gli account</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_always">Ricevi sempre messaggi per questi account</string>

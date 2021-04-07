@@ -215,7 +215,6 @@
     <string name="title_advanced_section_encryption">Enkripsi</string>
     <string name="title_advanced_section_notifications">Pemberitahuan</string>
     <string name="title_advanced_section_misc">Lainnya</string>
-    <string name="title_advanced_default">Semua opsi umumnya menggunakan nilai standar</string>
     <string name="title_advanced_receive">Terima pesan untuk semua akun</string>
     <string name="title_advanced_when">Kapan</string>
     <string name="title_advanced_always">Selalu terima pesan untuk akun ini</string>

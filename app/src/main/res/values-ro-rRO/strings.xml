@@ -241,7 +241,6 @@
     <string name="title_advanced_section_encryption">Criptare</string>
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_default">Toate opțiunile au valori standard utilizate în mod obișnuit</string>
     <string name="title_advanced_receive">Primește mesaje pentru toate conturile</string>
     <string name="title_advanced_when">Când</string>
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>

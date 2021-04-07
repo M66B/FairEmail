@@ -157,7 +157,7 @@
     <string name="title_setup_doze_instructions">请在下一页面中，将 \"未优化\" 切换为 \"所有应用\"，然后下拉找到本应用，并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
-    <string name="title_setup_background">后台限制已启用</string>
+    <string name="title_setup_background">已启用后台限制</string>
     <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_advanced_options">显示高级选项</string>
     <string name="title_setup_inbox">转到收件箱</string>
@@ -220,7 +220,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
-    <string name="title_advanced_default">所有选项都有常用的标准值</string>
+    <string name="title_advanced_default">所有选项均具有常用的标准值，无需更改即可使用本应用</string>
     <string name="title_advanced_receive">接收所有账户的消息</string>
     <string name="title_advanced_when">何时</string>
     <string name="title_advanced_always">总是接收这些账户的消息</string>
@@ -1314,7 +1314,7 @@
     <string name="title_pro_hide">隐藏升级提示消息 %1$d 周</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">为什么专业功能如此昂贵？</string>
-    <string name="title_pro_family" comment="title_pro_family&#10;Point to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq66">我可以使用 Google Play 家人共享内容库吗？</string>
+    <string name="title_pro_family">我可以使用 Google Play 家人共享内容库吗？</string>
     <string name="title_pro_restore">如何恢复购买？</string>
     <string name="title_pro_pending">购买待处理</string>
     <string name="title_pro_activated">全部专业版功能已激活</string>

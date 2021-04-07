@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig g
 * [Häufig gestellte Fragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Hilfe erhalten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Konten einrichten
+## Konten autorisieren
 
 In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
 
@@ -26,7 +26,7 @@ Die Suche nach *IMAP* und dem Namen des E-Mail-Anbieters reichen meist aus, um d
 
 In einigen Fällen müssen Sie den externen Zugriff auf Ihr Konto erlauben und/oder ein spezielles (App-)Passwort verwenden, wenn beispielsweise eine Zwei-Faktor-Authentifizierung aktiviert ist.
 
-Für die Anmeldung:
+Zur Autorisierung:
 
 * Gmail / G Suite: siehe [Frage 6](#user-content-faq6)
 * Outlook / Live / Hotmail: siehe [Frage 14](#user-content-faq14)
@@ -47,21 +47,21 @@ Für die Anmeldung:
 
 ## Wie kann ich …?
 
-* Kontonamen ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen
+* Kontonamen ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen
 * Aktion für Links-/Rechtswischen ändern: Einstellungen → Verhalten → Wischgesten festlegen
-* Passwort ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen → Passwort ändern
-* Signatur festlegen: Einstellungen → Manuelle Einrichtung und weitere Optionen → Identitäten → Identität auswählen → Signatur bearbeiten.
+* Passwort ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → Passwort ändern
+* Signatur festlegen: Einstellungen → Manuelle Einrichtung und Kontooptionen → Identitäten → Identität auswählen → Signatur bearbeiten.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
 * Zur nächsten/vorherigen Nachricht beim Archiviren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
 * Einen Ordner zum Sammeleingang hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Sammeleingang anzeigen* ankreuzen
 * Einen Ordner zum Navigationsmenü hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Navigationsmenü anzeigen* ankreuzen
 * Weitere Nachrichten laden: lange auf den Ordner in der Ordnerliste drücken und *Weitere Nachrichten abrufen* auswählen
 * Um eine Nachricht direkt zu löschen und den Papierkorb zu umgehen, halten sie das Löschen-Symbol gedrückt
-* Konto/Identität löschen: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten/Identitäten → Konto/Identität auswählen → Drei-Punkte-Menü → Löschen
+* Konto/Identität löschen: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten/Identitäten → Konto/Identität auswählen → Drei-Punkte-Menü → Löschen
 * Ordner löschen: lange auf den Ordner in der Ordnerliste drücken -> Eigenschaften -> Drei-Punkte-Menü -> Löschen
 * Senden rückgängig machen: Postausgang, dann Nachricht nach links oder rechts schieben
 * Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)
-* Systemordner ändern: Einstellungen → Manuelle Einrichtung und weitere Optionen → Konten → Konto auswählen → im unteren Bereich
+* Systemordner ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → im unteren Bereich
 * Einstellungen exportieren/importieren: Einstellungen, Navigationsmenü (linke Seite)
 
 ## Bekannte Probleme
@@ -189,7 +189,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?](#user-content-faq63)
 * [~~(64) Kann man benutzerdefinierte Aktionen zum Links-/Rechtswischen hinzufügen?~~](#user-content-faq64)
 * [(65) Warum werden einige Anhänge abgedunkelt angezeigt?](#user-content-faq65)
-* [(66) Gibt es FairMail in der Google Play Familienmediathek?](#user-content-faq66)
+* [(66) Gibt es FairMail in der Google-Play-Familienmediathek?](#user-content-faq66)
 * [(67) Wie kann ich Konversationen stumm schalten?](#user-content-faq67)
 * [~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~](#user-content-faq68)
 * [(69) Gibt es eine Option »Bei neuen Nachrichten automatisch nach oben rollen«?](#user-content-faq69)
@@ -397,17 +397,17 @@ Vorgänge werden nur verarbeitet, wenn eine Verbindung zum E-Mail-Server besteht
 <br />
 *... Ungültiges Sicherheitszertifikat (Identität des Servers kann nicht verifiziert werden) ...*
 
-Dies kann durch die Verwendung eines falschen Hostnamens verursacht werden. Überprüfen Sie daher zunächst den Hostnamen in den erweiterten Identitäts-/Kontoeinstellungen (Manuelle Einrichtung und weitere Optionen). Bitte informieren Sie sich in der Dokumentation des E-Mail-Providers über den richtigen Hostnamen.
+Das kann durch die Verwendung eines falschen Hostnamens verursacht werden. Überprüfen Sie daher zunächst den Hostnamen in den erweiterten Identitäts-/Kontoeinstellungen (Manuelle Einrichtung und Kontooptionen). Bitte informieren Sie sich in der Dokumentation des E-Mail-Providers über den richtigen Hostnamen.
 
 Sie sollten versuchen, dies zu beheben, indem Sie sich an Ihren Provider wenden oder ein gültiges Sicherheitszertifikat besorgen denn ungültige Sicherheitszertifikate sind unsicher und ermöglichen [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Wenn Geld ein Hindernis ist, können Sie kostenlose Sicherheitszertifikate von [Let's Encrypt](https://letsencrypt.org) erhalten.
 
-Die schnelle, aber unsichere Lösung (nicht empfohlen) ist, *Sichere Verbindungen* in den erweiterten Identitätseinstellungen zu aktivieren (Navigationsmenü -> *Einstellungen* -> *Manuelle Einstellungen und weitere Optionen* -> *Identitäten* -> jweilige Identität -> *Erweitert*).
+Die schnelle, aber unsichere Lösung (nicht empfohlen) ist, *Sichere Verbindungen* in den erweiterten Identitätseinstellungen zu aktivieren (Navigationsmenü  → *Einstellungen* → *Manuelle Einrichtung und Kontooptionen* → *Identitäten* → Identität auswählen → *Erweitert*).
 
 Alternativ können Sie den Fingerabdruck von ungültigen Serverzertifikaten auch so akzeptieren:
 
 1. Stellen Sie sicher, dass Sie eine vertrauenswürdige Internetverbindung verwenden (keine öffentlichen WLAN-Netzwerke, etc)
 1. Gehen Sie zu den Einstellungen über das Navigationsmenü (wischen Sie von der linken Seite nach innen)
-1. Manuelle Einrichtung und weitere Optionen -> Accounts / Identitäten -> jeweiliger fehlerhafter Account oder Identität
+1. Manuelle Einrichtung und Kontooptionen → Konten/Identitäten → fehlerhaftes Konto oder Identität auswählen
 1. Prüfen/Speichern Sie Konto und Identität
 1. Markieren Sie das Kontrollkästchen unterhalb der Fehlermeldung und speichern Sie erneut
 
@@ -638,7 +638,7 @@ Sie müssen zuerst [OpenKeychain](https://f-droid.org/en/packages/org.sufficient
 
 **Wichtig**: die OpenKeychain-App ist dafür bekannt, (stillschweigend) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen bestehenden öffentlichen Schlüssel erhält. Sie können dieses Problem umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
 
-**Wichtig**: Wenn die OpenKeychain-App einen Schlüssel nicht (mehr) findet, müssen Sie eventuell einen zuvor ausgewählten Schlüssel zurücksetzen. Dies kann durch langes Drücken einer Identität in der Liste der Identitäten erfolgen (Einstellungen -> Manuelle Einrichtung und weitere Optionen -> Identitäten).
+**Wichtig**: Wenn die OpenKeychain-App einen Schlüssel nicht (mehr) findet, müssen Sie eventuell einen zuvor ausgewählten Schlüssel zurücksetzen. Das kann durch langes Drücken einer Identität in der Liste der Identitäten erfolgen (Einstellungen → Manuelle Einrichtung und Kontooptionen → Identitäten).
 
 **Wichtig**: damit sich Apps wie FairEmail zuverlässig mit dem OpenKeychain-Dienst verbinden können, um Nachrichten zu verschlüsseln/entschlüsseln, kann es notwendig sein, die Akku-Optimierungen für die OpenKeychain-App zu deaktivieren.
 
@@ -909,7 +909,7 @@ Es gibt allgemeine Fehler und Fehler spezifisch für Gmail-Konten (siehe unten).
 <a name="authfailed"></a>
 Der Fehler *... **Authentifizierung fehlgeschlagen** ...* oder *... „Authentifizierung fehlgeschlagen …”* bedeutet wahrscheinlich, dass Ihr Benutzername oder Passwort ungültig ist. Einige Anbieter erwarten als Benutzername nur den *Benutzernamen* und andere jedoch Ihre vollständige E-Mail-Adresse (*benutzername@beispiel.de*). Beim Kopieren/Einfügen eines Benutzernamens oder Passworts können unsichtbare Zeichen kopiert werden, was auch zu diesem Problem führen kann. Einige Passwortmanager sind dafür bekannt, diesen Fehler ebenfalls zu machen. Beim Benutzernamen wird möglicherweise die Groß- und Kleinschreibung berücksichtigt, versuchen Sie also nur Kleinbuchstaben. Beim Passwort wird fast immer zwischen Groß- und Kleinschreibung unterschieden. Einige Anbieter verlangen die Verwendung eines App-Passworts anstelle des Kontopassworts, daher prüfen Sie bitte die Dokumentation des Anbieters. Manchmal ist es notwendig, den externen Zugriff (IMAP/SMTP) erst auf der Website des Providers zu aktivieren. Andere mögliche Ursachen sind, dass das Konto gesperrt ist oder dass die Anmeldung auf irgendeine Weise administrativ eingeschränkt wurde, z. B. indem die Anmeldung nur von bestimmten Netzwerken / IP-Adressen erlaubt ist.
 
-Bei Bedarf können Sie ein Passwort in den Kontoeinstellungen aktualisieren: Navigationsmenü (linkes Seitenmenü), *Einstellungen* -> *Manuelle Einstellungen und weitere Optionen* -> *Konten* -> jeweiliges Konto. Das Ändern des Kontopassworts ändert in den meisten Fällen automatisch auch das Passwort der zugehörigen Identitäten. Wenn das Konto mit OAuth über den Schnelleinrichtungsassistenten statt mit einem Passwort autorisiert wurde, können Sie den Schnelleinrichtungsassistenten erneut ausführen und *Vorhandenes Konto erneut autorisieren* ankreuzen, um das Konto erneut zu authentifizieren. Beachten Sie, dass dafür eine aktuelle Version der App erforderlich ist.
+Bei Bedarf können Sie ein Passwort in den Kontoeinstellungen aktualisieren: Navigationsmenü (linkes Seitenmenü), *Einstellungen* → *Manuelle Einrichtung und Kontooptionen* → *Konten* → Konto auswählen. Das Ändern des Kontopassworts ändert in den meisten Fällen automatisch auch das Passwort der zugehörigen Identitäten. Wenn das Konto mit OAuth über den Schnelleinrichtungsassistenten statt mit einem Passwort autorisiert wurde, können Sie den Schnelleinrichtungsassistenten erneut ausführen und *Vorhandenes Konto erneut autorisieren* ankreuzen, um das Konto erneut zu authentifizieren. Beachten Sie, dass dafür eine aktuelle Version der App erforderlich ist.
 
 Der Fehler *... Zu viele schlechte Authentifizierungsversuche ...* bedeutet wahrscheinlich, dass Sie ein Yahoo-Kontopasswort anstelle eines App-Passworts verwenden. Bitte lesen Sie [diese FAQ](#user-content-faq88), wie Sie ein Yahoo-Konto einrichten können.
 
@@ -986,9 +986,9 @@ SMTP-Server können Nachrichten aus [einer Reihe von Gründen](https://en.wikipe
 Wenn Sie den SMTP-Server von Gmaill verwenden wollen, um einen zu strengen Spam-Filter zu umgehen oder um die Zustellung von Nachrichten zu verbessern:
 
 * Überprüfen Sie Ihre E-Mail-Adresse [hier](https://mail.google.com/mail/u/0/#settings/accounts) (Sie müssen dafür einen Desktop-Browser verwenden)
-* Ändern Sie die Identitätseinstellungen so (Einstellungen -> manuelles Setup -> Identitäten -> jeweilige Identität):
+* Die Identitätseinstellungen folgendermaßen ändern (Einstellungen → Manuelle Einrichtung und Kontooptionen → Identitäten → Identität auswählen):
 
-&emsp;&emsp;Benutzername: *Ihre Gmail-Adresse*<br /> &emsp;&emsp;Passwort: *[ein App-Passwort](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp. mail. om*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Verschlüsselung: *SSL/TLS*<br /> &emsp;&emsp;Antworte auf Adresse: *deine E-Mail-Adresse* (erweiterte Identitätseinstellungen)<br />
+&emsp;&emsp;Benutzername: *Ihre Gmail-Adresse*<br /> &emsp;&emsp;Passwort: *[ein App-Passwort](#user-content-faq6)*<br /> &emsp;&emsp;Host: *smtp.gmail.com*<br /> &emsp;&emsp;Port: *465*<br /> &emsp;&emsp;Verschlüsselung: *SSL/TLS*<br /> &emsp;&emsp;Antwortadresse: *Ihre E-Mail-Adresse* (erweiterte Identitätseinstellungen)<br />
 
 <br />
 
@@ -1632,9 +1632,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) Ist FairEmail in der Google-Play-Familienmediathek verfügbar?**
 
-Der einmalige Preis für die wenigen Pro-Funktionen ist zu niedrig, niedriger als der Preis der meisten ähnlichen Apps, und es gibt [zu viele Gebühren und Steuern](#user-content-faq19), um zu rechtfertigen, dass FairEmail in der [Google Play Familienbibliothek](https://support.google.com/googleone/answer/7007852) verfügbar ist. Note that Google promotes the Family libray, but lets developers pay for it.
+Der einmalige Preis für die wenigen Pro-Funktionen ist zu niedrig, niedriger als der Preis der meisten ähnlichen Apps und es gibt [zu viele Gebühren und Steuern](#user-content-faq19), um zu rechtfertigen, dass FairEmail in der [Google-Play-Familienmediathek](https://support.google.com/googleone/answer/7007852) verfügbar ist. Bitte beachten Sie, dass Google die Familienmediathek bewirbt, aber Entwickler dafür bezahlen lässt.
 
 <br />
 

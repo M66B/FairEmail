@@ -2,7 +2,7 @@
 
 # FairEmail のサポート
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 [ページ下部](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)では、他の質問をしたり、機能をリクエストしたり、バグを報告する方法を見つけることができます。
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -18,15 +18,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## アカウントの認証
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+ほとんどの場合、クイックセットアップウィザードは自動的に正しい構成を識別することができます。
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+クイックセットアップに失敗した場合は、アカウント(メール受信用) とID(メール送信用) を、手動で設定する必要があります。 この場合、SSL / TLSまたはSTARTTLSのいずれかを使用するかに関わらず、IMAPおよびSMTPサーバーのアドレスとポート番号、そしてあなたのユーザー名（ほとんどの場合メールアドレス）とパスワードが必要です。
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+*IMAP* とプロバイダ名を検索することで、ほとんどの場合適切なドキュメントを見つけることができます。
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+場合によってはアカウントへの外部アクセスを有効にする必要があります。 例えば、二段階認証が有効になっている場合、特別な(アプリ毎の) パスワードを使用する必要があります。
 
-For authorizing:
+認証方法:
 
 * Gmail / G suite の場合: [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail の場合: [question 14](#user-content-faq14)
@@ -36,9 +36,9 @@ For authorizing:
 * Apple iCloud の場合: [question 148](#user-content-faq148)
 * Free.fr の場合: [question 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+一般的なエラーメッセージとその解決策については、 [こちら](#user-content-faq22) を参照してください。
 
-Related questions:
+関連する質問:
 
 * [OAuth はサポートされていますか?](#user-content-faq111)
 * [ActiveSyncがサポートされていないのはなぜですか?](#user-content-faq133)

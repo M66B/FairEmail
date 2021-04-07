@@ -232,7 +232,7 @@
     <string name="title_advanced_section_encryption">Cifrado</string>
     <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_misc">Misceláneas</string>
-    <string name="title_advanced_default">Todas las opciones tienen valores estándar comúnmente utilizados</string>
+    <string name="title_advanced_default">Todas las opciones tienen valores estándar comúnmente utilizados, que no necesitan ser cambiados para usar la aplicación</string>
     <string name="title_advanced_receive">Recibir mensajes para todas las cuentas</string>
     <string name="title_advanced_when">Cuando</string>
     <string name="title_advanced_always">Siempre recibir mensajes para estas cuentas</string>
@@ -1327,7 +1327,7 @@
     <string name="title_pro_hide">Ocultar mensaje pequeño durante %1$d semanas</string>
     <string name="title_pro_hint">La compra de características Pro le permitirá usar todas las características Pro actuales y futuras, y ayudará al mantenimiento y desarrollo de esta aplicación</string>
     <string name="title_pro_price">¿Por qué las características pro son tan caras?</string>
-    <string name="title_pro_family" comment="title_pro_family&#10;Point to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq66">¿Puedo utilizar la Biblioteca Familiar de Google Play?</string>
+    <string name="title_pro_family">¿Puedo utilizar la Biblioteca Familiar de Google Play?</string>
     <string name="title_pro_restore">¿Cómo puedo restaurar una compra?</string>
     <string name="title_pro_pending">Compra pendiente</string>
     <string name="title_pro_activated">Todas las características Pro están activadas</string>

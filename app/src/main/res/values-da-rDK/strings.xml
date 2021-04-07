@@ -229,7 +229,7 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Notifikationer</string>
     <string name="title_advanced_section_misc">Diverse</string>
-    <string name="title_advanced_default">Alle indstillinger har almindeligt anvendte standardværdier</string>
+    <string name="title_advanced_default">Alle indstillinger har alm. anvendte standardværdier uden behov for ændringer for brug af appen</string>
     <string name="title_advanced_receive">Modtag beskeder til alle konti</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_always">Modtag altid beskeder til disse konti</string>
@@ -1311,7 +1311,7 @@
     <string name="title_pro_hide">Skjul små meddelelser i %1$d uger</string>
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
     <string name="title_pro_price">Hvorfor er Pro-funktionerne så dyre?</string>
-    <string name="title_pro_family" comment="title_pro_family&#10;Point to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq66">Kan man bruge Google Play Familie-biblioteket?</string>
+    <string name="title_pro_family">Kan man bruge Google Play Familie-biblioteket?</string>
     <string name="title_pro_restore">Hvordan gendannes et køb?</string>
     <string name="title_pro_pending">Afventende køb</string>
     <string name="title_pro_activated">Alle Pro-funktioner er aktiveret</string>

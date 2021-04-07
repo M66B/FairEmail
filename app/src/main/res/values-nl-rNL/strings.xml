@@ -232,7 +232,7 @@
     <string name="title_advanced_section_encryption">Versleuteling</string>
     <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_misc">Diversen</string>
-    <string name="title_advanced_default">Alle opties hebben vaak gebruikte standaardwaarden</string>
+    <string name="title_advanced_default">Alle opties hebben veelgebruikte standaardwaarden, die niet hoeven te worden gewijzigd om de app te gebruiken</string>
     <string name="title_advanced_receive">Ontvang berichten voor alle accounts</string>
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_always">Ontvang altijd berichten voor deze accounts</string>
@@ -1326,7 +1326,7 @@
     <string name="title_pro_hide">Verberg het kleine bericht voor %1$d weken</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app.</string>
     <string name="title_pro_price">Waarom zijn de pro functies zo duur?</string>
-    <string name="title_pro_family" comment="title_pro_family&#10;Point to https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq66">Kan ik de Google Play Familie-bibliotheek gebruiken?</string>
+    <string name="title_pro_family">Kan ik de Google Play Familie-bibliotheek gebruiken?</string>
     <string name="title_pro_restore">Hoe kan ik een aankoop herstellen?</string>
     <string name="title_pro_pending">Aankoop in behandeling</string>
     <string name="title_pro_activated">Alle pro-functies zijn geactiveerd</string>

@@ -14,7 +14,7 @@
     <string name="channel_update">Cập nhật</string>
     <string name="channel_warning">Cảnh báo</string>
     <string name="channel_error">Lỗi</string>
-    <string name="channel_alert">Báo động của máy chủ</string>
+    <string name="channel_alert">Cảnh báo của máy chủ</string>
     <string name="channel_group_contacts">Liên lạc</string>
     <string name="channel_service_description">Đồng bộ hoá và giám sát các tài khoản</string>
     <string name="channel_send_description">Gửi thư</string>
@@ -73,7 +73,7 @@
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_idle">Rảnh</string>
     <string name="title_notification_failed">\'%1$s\' thất bại</string>
-    <string name="title_notification_alert">\'%1$s\' báo động của máy chủ</string>
+    <string name="title_notification_alert">\'%1$s\' cảnh báo của máy chủ</string>
     <string name="title_notification_sending_left">Lần thử còn lại: %1$d</string>
     <string name="title_notification_sending_failed">Gửi đến %1$s thất bại</string>
     <string name="title_notification_redacted">Đã rút lại: xác thực sinh trắc học hoặc mã PIN được bật</string>
@@ -221,7 +221,6 @@
     <string name="title_advanced_section_encryption">Mã hóa</string>
     <string name="title_advanced_section_notifications">Thông báo</string>
     <string name="title_advanced_section_misc">Khác</string>
-    <string name="title_advanced_default">Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng</string>
     <string name="title_advanced_receive">Nhận thư cho tất cả tài khoản</string>
     <string name="title_advanced_when">Khi nào</string>
     <string name="title_advanced_always">Luôn nhận thư cho các tài khoản đó</string>
@@ -292,6 +291,7 @@
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi sử dụng kiểu thẻ</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
+    <string name="title_advanced_threading">Chia cuộc hội thoại thành các chủ đề</string>
     <string name="title_advanced_threading_unread">Hiện số thư chưa đọc trong các cuộc hội thoại</string>
     <string name="title_advanced_indentation">Lùi trái/phải các thư đã nhận/đã gửi trong cuộc hội thoại</string>
     <string name="title_advanced_highlight_unread">Đánh dấu các thư chưa đọc</string>
@@ -624,6 +624,7 @@
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
     <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
+    <string name="title_review">Xem xét</string>
     <string name="title_hint_alias">Nhấn giữ một danh tính để hiển thị các tuỳ chọn, như là sao chép để tạo danh tính kiểu bí danh</string>
     <string name="title_service_auth">Máy chủ email nói: \'%1$s\'</string>
     <string name="title_service_vpn">Điều này có thể được gây ra bởi VPN đang được sử dụng</string>
@@ -656,6 +657,7 @@
     <string name="title_empty_spam_all_ask">Xoá tất cả thư rác của tất cả tài khoản vĩnh viễn?</string>
     <string name="title_empty_all">Việc này sẽ xoá tất cả thư khỏi cả thiết bị và máy chủ</string>
     <string name="title_delete_operation_title">Xoá các hoạt động</string>
+    <string name="title_delete_operation_error">Có thông báo lỗi</string>
     <string name="title_delete_operation_fetch">Lấy các hoạt động</string>
     <string name="title_delete_operation_move">Di chuyển các hoạt động</string>
     <string name="title_delete_operation_flag">Gắn cờ các hoạt động</string>
@@ -1304,6 +1306,7 @@
     <string name="title_pro_hide">Ẩn thông báo nhỏ trong %1$d tuần</string>
     <string name="title_pro_hint">Việc mua các tính năng pro sẽ cho phép bạn sử dụng các tính năng pro hiện tại và tương lai và sẽ giữ cho ứng dụng này được duy trì và hỗ trợ.</string>
     <string name="title_pro_price">Tại sao các tính năng pro lại đắt thế?</string>
+    <string name="title_pro_family">Tôi có thể sử dụng Thư viện Gia đình của Google Play không?</string>
     <string name="title_pro_restore">Tôi có thể khôi phục việc mua như thế nào?</string>
     <string name="title_pro_pending">Đang chờ mua</string>
     <string name="title_pro_activated">Tất cả tính năng pro được kích hoạt</string>

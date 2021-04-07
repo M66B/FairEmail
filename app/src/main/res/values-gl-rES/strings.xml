@@ -225,7 +225,6 @@
     <string name="title_advanced_section_encryption">Cifrado</string>
     <string name="title_advanced_section_notifications">Notificacións</string>
     <string name="title_advanced_section_misc">Varios</string>
-    <string name="title_advanced_default">Todas as opcións teñen valores habituais estándar</string>
     <string name="title_advanced_receive">Recibir mensaxes de todas as contas</string>
     <string name="title_advanced_when">Cando</string>
     <string name="title_advanced_always">Sempre recibir mensaxes destas contas</string>

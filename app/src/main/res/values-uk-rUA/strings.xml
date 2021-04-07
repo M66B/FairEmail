@@ -241,7 +241,6 @@
     <string name="title_advanced_section_encryption">Шифрування</string>
     <string name="title_advanced_section_notifications">Сповіщення</string>
     <string name="title_advanced_section_misc">Інші налаштування</string>
-    <string name="title_advanced_default">Всі параметри мають зазвичай стандартні значення</string>
     <string name="title_advanced_receive">Отримувати повідомлення для всіх облікових записів</string>
     <string name="title_advanced_when">Коли</string>
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
