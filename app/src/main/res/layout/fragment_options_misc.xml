@@ -530,6 +530,18 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swModSeq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_modseq"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swWal"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swExpunge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -538,7 +550,7 @@
             android:text="@string/title_advanced_expunge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swWal"
+            app:layout_constraintTop_toBottomOf="@id/swModSeq"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -694,7 +706,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             swQueries,tvQueriesHint,tvQueriesRemark,swWal,
-            swExpunge,
+            swModSeq,swExpunge,
             swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,
             tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,
             tvFingerprint,

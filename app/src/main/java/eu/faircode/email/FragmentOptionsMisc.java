@@ -112,6 +112,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDebug;
     private SwitchCompat swQueries;
     private SwitchCompat swWal;
+    private SwitchCompat swModSeq;
     private SwitchCompat swExpunge;
     private SwitchCompat swAuthPlain;
     private SwitchCompat swAuthLogin;
@@ -139,7 +140,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "classification", "class_min_probability", "class_min_difference",
             "language", "watchdog", "updates",
             "experiments", "wal", "query_threads", "crash_reports", "cleanup_attachments",
-            "protocol", "debug", "log_level", "perform_expunge", "auth_plain", "auth_login", "auth_ntlm", "auth_sasl"
+            "protocol", "debug", "log_level",
+            "use_modseq", "perform_expunge",
+            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -213,6 +216,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug = view.findViewById(R.id.swDebug);
         swQueries = view.findViewById(R.id.swQueries);
         swWal = view.findViewById(R.id.swWal);
+        swModSeq = view.findViewById(R.id.swModSeq);
         swExpunge = view.findViewById(R.id.swExpunge);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
         swAuthLogin = view.findViewById(R.id.swAuthLogin);
@@ -529,11 +533,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swModSeq.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("use_modseq", checked).apply();
+                ServiceSynchronize.reload(compoundButton.getContext(), null, true, "use_modseq");
+            }
+        });
+
         swExpunge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("perform_expunge", checked).apply();
-                ServiceSynchronize.reload(getContext(), null, true, "perform_expunge");
+                ServiceSynchronize.reload(compoundButton.getContext(), null, true, "perform_expunge");
             }
         });
 
@@ -918,6 +930,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
         swWal.setChecked(prefs.getBoolean("wal", true));
+        swModSeq.setChecked(prefs.getBoolean("use_modseq", BuildConfig.DEBUG));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
