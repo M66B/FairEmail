@@ -2488,11 +2488,11 @@ class Core {
             boolean modified = true;
             try {
                 if (use_modseq &&
-                        !force && initialize == 0 &&
                         MessageHelper.hasCapability(ifolder, "CONDSTORE")) {
                     long modseq = ifolder.getHighestModSeq();
                     Log.i(folder.name + " modseq=" + modseq + "/" + folder.modseq);
-                    modified = (folder.modseq == null || !folder.modseq.equals(modseq));
+                    modified = (force || initialize != 0 ||
+                            folder.modseq == null || !folder.modseq.equals(modseq));
                     folder.modseq = modseq;
                     db.folder().setFolderModSeq(folder.id, folder.modseq);
                 }
