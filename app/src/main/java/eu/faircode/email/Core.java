@@ -2460,7 +2460,7 @@ class Core {
             boolean sync_flagged = prefs.getBoolean("sync_flagged", false);
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
-            boolean use_modseq = prefs.getBoolean("use_modseq", BuildConfig.DEBUG);
+            boolean use_modseq = prefs.getBoolean("use_modseq", true);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
@@ -2485,20 +2485,19 @@ class Core {
 
             // https://tools.ietf.org/html/rfc4551
             // https://wiki.mozilla.org/Thunderbird:IMAP_RFC_4551_Implementation
+            Long modseq = null;
             boolean modified = true;
-            try {
-                if (use_modseq &&
-                        MessageHelper.hasCapability(ifolder, "CONDSTORE")) {
-                    long modseq = ifolder.getHighestModSeq();
-                    Log.i(folder.name + " modseq=" + modseq + "/" + folder.modseq);
-                    modified = (force || initialize != 0 ||
-                            folder.modseq == null || !folder.modseq.equals(modseq));
-                    folder.modseq = modseq;
-                    db.folder().setFolderModSeq(folder.id, folder.modseq);
+            if (use_modseq)
+                try {
+                    if (MessageHelper.hasCapability(ifolder, "CONDSTORE")) {
+                        modseq = ifolder.getHighestModSeq();
+                        modified = (force || initialize != 0 ||
+                                folder.modseq == null || !folder.modseq.equals(modseq));
+                        Log.i(folder.name + " modseq=" + modseq + "/" + folder.modseq + " modified=" + modified);
+                    }
+                } catch (MessagingException ex) {
+                    Log.w(folder.name, ex);
                 }
-            } catch (MessagingException ex) {
-                Log.w(folder.name, ex);
-            }
 
             // Get reference times
             Calendar cal_sync = Calendar.getInstance();
@@ -2906,6 +2905,11 @@ class Core {
                 Log.i(folder.name + " deleted orphans=" + orphans);
             }
 
+            // Update modseq
+            folder.modseq = modseq;
+            db.folder().setFolderModSeq(folder.id, folder.modseq);
+
+            // Update stats
             int count = MessageHelper.getMessageCount(ifolder);
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
             account.last_connected = new Date().getTime();

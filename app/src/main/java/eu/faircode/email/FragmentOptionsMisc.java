@@ -930,7 +930,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swQueries.setChecked(prefs.getInt("query_threads", 4) < 4);
         swWal.setChecked(prefs.getBoolean("wal", true));
-        swModSeq.setChecked(prefs.getBoolean("use_modseq", BuildConfig.DEBUG));
+        swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
         swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
         swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
         swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
