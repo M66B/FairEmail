@@ -777,7 +777,7 @@
     <string name="title_raw_remaining">Originalnachrichten zum Herunterladen: %1$d</string>
     <string name="title_ask_raw">Um Nachrichten weiterzuleiten, müssen die Originalnachrichten vom Server heruntergeladen werden. Dies erfordert eine Internetverbindung.</string>
     <string name="title_buttons">Schaltflächen auswählen</string>
-    <string name="title_configure_buttons">Schaltflächen &#8230; konfigurieren</string>
+    <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>
