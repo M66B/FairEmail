@@ -6390,10 +6390,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final Bundle args = getArguments();
             final long id = args.getLong("id");
             final String notes = args.getString("notes");
-            final Integer color = args.getInt("color");
 
             final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            final Integer color = (TextUtils.isEmpty(notes)
+                    ? prefs.getInt("note_color", Color.TRANSPARENT)
+                    : args.getInt("color"));
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_notes, null);
             final EditText etNotes = view.findViewById(R.id.etNotes);
@@ -6401,7 +6405,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             etNotes.setText(notes);
             btnColor.setColor(color);
-
 
             etNotes.selectAll();
             etNotes.requestFocus();
@@ -6492,9 +6495,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
 
-            if (resultCode == RESULT_OK && data != null) {
-                Bundle args = data.getBundleExtra("args");
-                btnColor.setColor(args.getInt("color"));
+            try {
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    int color = args.getInt("color");
+                    btnColor.setColor(color);
+
+                    Context context = getContext();
+                    if (context != null) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        prefs.edit().putInt("note_color", color).apply();
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
         }
     }
