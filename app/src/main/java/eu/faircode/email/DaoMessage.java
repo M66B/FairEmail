@@ -732,8 +732,11 @@ public interface DaoMessage {
             "  OR NOT (warning IS :warning))")
     int setMessageContent(long id, boolean content, String language, Boolean plain_only, String preview, String warning);
 
-    @Query("UPDATE message SET notes = :notes WHERE id = :id AND NOT (notes IS :notes)")
-    int setMessageNotes(long id, String notes);
+    @Query("UPDATE message" +
+            " SET notes = :notes, notes_color = :color" +
+            " WHERE id = :id" +
+            " AND NOT (notes IS :notes AND notes_color IS :color)")
+    int setMessageNotes(long id, String notes, Integer color);
 
     @Query("UPDATE message" +
             " SET size = :size, total = :total" +

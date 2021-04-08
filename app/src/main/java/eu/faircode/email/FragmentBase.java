@@ -320,10 +320,10 @@ public class FragmentBase extends Fragment {
         super.onDetach();
 
         try {
-            InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             View focused = getActivity().getCurrentFocus();
-            if (focused != null)
-                im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            if (imm != null && focused != null)
+                imm.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         } catch (Throwable ex) {
             Log.w(ex);
             /*

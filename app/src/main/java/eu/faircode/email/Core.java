@@ -3051,6 +3051,7 @@ class Core {
         // - messages in archive have same id as original
         Integer color = null;
         String notes = null;
+        Integer notes_color = null;
         if (message == null) {
             String msgid = helper.getMessageID();
             Log.i(folder.name + " searching for " + msgid);
@@ -3093,8 +3094,10 @@ class Core {
 
                 if (dup.flagged && dup.color != null)
                     color = dup.color;
-                if (dup.notes != null)
+                if (dup.notes != null) {
                     notes = dup.notes;
+                    notes_color = dup.notes_color;
+                }
             }
         }
 
@@ -3164,6 +3167,7 @@ class Core {
             message.ui_encrypt = message.encrypt;
             message.received = received;
             message.notes = notes;
+            message.notes_color = notes_color;
             message.sent = sent;
             message.seen = seen;
             message.answered = answered;

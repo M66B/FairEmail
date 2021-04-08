@@ -280,7 +280,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         }
 
         etQuery.requestFocus();
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        if (imm != null)
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)

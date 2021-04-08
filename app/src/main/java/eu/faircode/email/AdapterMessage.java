@@ -216,6 +216,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorAccent;
     private int textColorPrimary;
     private int textColorSecondary;
+    private int textColorTertiary;
     private int textColorLink;
     private int colorUnread;
     private int colorRead;
@@ -1146,6 +1147,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
             tvNotes.setText(message.notes);
+            tvNotes.setTextColor(message.notes_color == null ? textColorTertiary : message.notes_color);
             tvNotes.setVisibility(TextUtils.isEmpty(message.notes) ? View.GONE : View.VISIBLE);
 
             // Error / warning
@@ -4639,6 +4641,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putString("notes", message.notes);
+            args.putInt("color", message.notes_color == null ? Color.TRANSPARENT : message.notes_color);
 
             FragmentDialogNotes fragment = new FragmentDialogNotes();
             fragment.setArguments(args);
@@ -5331,6 +5334,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
@@ -5573,9 +5577,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("preview changed", next.id);
                 }
-                if (!Objects.equals(prev.notes, next.notes)) {
+                if (!Objects.equals(prev.notes, next.notes) ||
+                        !Objects.equals(prev.notes_color, next.notes_color)) {
                     same = false;
-                    log("notes changed", next.id);
+                    log("notes/color changed", next.id);
                 }
                 if (!Objects.equals(prev.sent, next.sent)) {
                     same = false;
@@ -6377,22 +6382,49 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     public static class FragmentDialogNotes extends FragmentDialogBase {
+        private ViewButtonColor btnColor;
+
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final long id = getArguments().getLong("id");
-            final String notes = getArguments().getString("notes");
+            final Bundle args = getArguments();
+            final long id = args.getLong("id");
+            final String notes = args.getString("notes");
+            final Integer color = args.getInt("color");
 
             final Context context = getContext();
             final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_notes, null);
             final EditText etNotes = view.findViewById(R.id.etNotes);
-            etNotes.setText(notes);
-            etNotes.selectAll();
+            btnColor = view.findViewById(R.id.btnColor);
 
+            etNotes.setText(notes);
+            btnColor.setColor(color);
+
+
+            etNotes.selectAll();
             etNotes.requestFocus();
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            if (imm != null)
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
+            btnColor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (imm != null)
+                        imm.hideSoftInputFromWindow(etNotes.getWindowToken(), 0);
+
+                    Bundle args = new Bundle();
+                    args.putInt("color", btnColor.getColor());
+                    args.putString("title", getString(R.string.title_color));
+                    args.putBoolean("reset", true);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentDialogNotes.this, 1);
+                    fragment.show(getParentFragmentManager(), "identity:color");
+                }
+            });
 
             return new AlertDialog.Builder(context)
                     .setView(view)
@@ -6402,15 +6434,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Bundle args = new Bundle();
                             args.putLong("id", id);
                             args.putString("notes", etNotes.getText().toString());
+                            args.putInt("color", btnColor.getColor());
 
                             new SimpleTask<Void>() {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) {
                                     long id = args.getLong("id");
                                     String notes = args.getString("notes");
+                                    Integer color = args.getInt("color");
 
                                     if ("".equals(notes.trim()))
                                         notes = null;
+
+                                    if (color == Color.TRANSPARENT)
+                                        color = null;
 
                                     DB db = DB.getInstance(context);
                                     try {
@@ -6420,7 +6457,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         if (message == null)
                                             return null;
 
-                                        db.message().setMessageNotes(message.id, notes);
+                                        db.message().setMessageNotes(message.id, notes, color);
 
                                         if (TextUtils.isEmpty(message.msgid))
                                             return null;
@@ -6430,7 +6467,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             return null;
 
                                         for (EntityMessage m : messages)
-                                            db.message().setMessageNotes(m.id, notes);
+                                            db.message().setMessageNotes(m.id, notes, color);
 
                                         db.setTransactionSuccessful();
                                     } finally {
@@ -6449,6 +6486,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (resultCode == RESULT_OK && data != null) {
+                Bundle args = data.getBundleExtra("args");
+                btnColor.setColor(args.getInt("color"));
+            }
         }
     }
 
@@ -6519,7 +6566,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             etKeyword.setText(null);
 
             etKeyword.requestFocus();
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            if (imm != null)
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 
             return new AlertDialog.Builder(context)
                     .setView(view)
