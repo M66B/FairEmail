@@ -41,6 +41,7 @@ public class ServiceExternal extends Service {
     private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
     private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
+    private static final String ACTION_INTERVAL = BuildConfig.APPLICATION_ID + ".INTERVAL";
     private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
 
     static final int PI_WIDGET_ENABLE = 1;
@@ -48,6 +49,7 @@ public class ServiceExternal extends Service {
     // adb shell am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
+    // adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes {0, 15, 30, 60, 120, 240, 480, 1440}
     // adb shell am start-foreground-service -a eu.faircode.email.DISCONNECT
 
     private static final ExecutorService executor =
@@ -95,6 +97,9 @@ public class ServiceExternal extends Service {
                             case ACTION_ENABLE:
                             case ACTION_DISABLE:
                                 set(context, intent);
+                                break;
+                            case ACTION_INTERVAL:
+                                interval(context, intent);
                                 break;
                             case ACTION_DISCONNECT_ME:
                                 disconnect(context, intent);
@@ -161,6 +166,17 @@ public class ServiceExternal extends Service {
         }
 
         ServiceSynchronize.eval(context, "external poll account=" + accountName);
+    }
+
+    private static void interval(Context context, Intent intent) {
+        int minutes = intent.getIntExtra("minutes", 0);
+        int[] values = context.getResources().getIntArray(R.array.pollIntervalValues);
+        for (int value : values)
+            if (value >= minutes) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.edit().putInt("poll_interval", value).apply();
+                break;
+            }
     }
 
     private static void set(Context context, Intent intent) {
