@@ -4005,7 +4005,7 @@ class Core {
             // Build notifications
             List<NotificationCompat.Builder> notifications = getNotificationUnseen(context,
                     group, groupMessages.get(group),
-                    notify_summary, current - prev,
+                    notify_summary, current - prev, current,
                     redacted);
 
             Log.i("Notify group=" + group +
@@ -4069,7 +4069,7 @@ class Core {
     private static List<NotificationCompat.Builder> getNotificationUnseen(
             Context context,
             long group, List<TupleMessageEx> messages,
-            boolean notify_summary, int new_messages, boolean redacted) {
+            boolean notify_summary, int new_messages, int total_messages, boolean redacted) {
         List<NotificationCompat.Builder> notifications = new ArrayList<>();
 
         // Android 7+ N https://developer.android.com/training/notify-user/group
@@ -4160,7 +4160,7 @@ class Core {
 
             // Build title
             String title = context.getResources().getQuantityString(
-                    R.plurals.title_notification_unseen, messages.size(), messages.size());
+                    R.plurals.title_notification_unseen, total_messages, total_messages);
 
             long cgroup = (group >= 0
                     ? group
@@ -4174,7 +4174,7 @@ class Core {
                                     : R.drawable.baseline_mail_white_24)
                             .setContentTitle(title)
                             .setContentIntent(piContent)
-                            .setNumber(messages.size())
+                            .setNumber(total_messages)
                             .setDeleteIntent(piClear)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(notify_summary
