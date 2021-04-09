@@ -4799,7 +4799,7 @@ public class FragmentCompose extends FragmentBase {
                         return draft;
                     }
 
-                    if (!shouldEncrypt)
+                    if (!shouldEncrypt && !autosave)
                         for (EntityAttachment attachment : attachments)
                             if (attachment.isEncryption())
                                 db.attachment().deleteAttachment(attachment.id);
