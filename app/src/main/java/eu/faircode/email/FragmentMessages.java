@@ -37,6 +37,7 @@ import android.content.res.ColorStateList;
 import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Typeface;
@@ -8075,13 +8076,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
+            TextView tvHelp = dview.findViewById(R.id.tvHelp);
 
-            return new AlertDialog.Builder(getContext())
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+            Dialog dialog = new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             prefs.edit().putBoolean("review_asked", true).apply();
                             startActivity(Helper.getIntentRate(getContext()));
                         }
@@ -8089,18 +8092,28 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             prefs.edit().putBoolean("review_asked", true).apply();
                         }
                     })
                     .setNeutralButton(R.string.title_later, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             prefs.edit().putLong("review_later", new Date().getTime()).apply();
                         }
                     })
                     .create();
+
+            tvHelp.setPaintFlags(tvHelp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            tvHelp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dismiss();
+                    prefs.edit().putLong("review_later", new Date().getTime()).apply();
+                    startActivity(Helper.getIntentIssue(v.getContext()));
+                }
+            });
+
+            return dialog;
         }
     }
 

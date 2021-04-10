@@ -983,6 +983,7 @@
         You have been using FairEmail for a while.
         It would be appreciated if you could rate FairEmail in the Play Store.
     </string>
+    <string name="title_need_help">I need help</string>
     <string name="title_ask_once">This message will only appear once, unless you select \'Later\'</string>
 
     <string name="title_third_party">You are using a version of a third party</string>

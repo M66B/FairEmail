@@ -32,6 +32,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableTint="?android:attr/textColorLink"
+            android:text="@string/title_need_help"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExplanation" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvOnce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,6 +52,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvExplanation" />
+            app:layout_constraintTop_toBottomOf="@id/tvHelp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
