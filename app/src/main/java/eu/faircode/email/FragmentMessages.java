@@ -8115,6 +8115,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             return dialog;
         }
+
+        @Override
+        public void onCancel(@NonNull DialogInterface dialog) {
+            super.onCancel(dialog);
+            try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                prefs.edit().putBoolean("review_asked", true).apply();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
     }
 
     public static class FragmentDialogAccount extends FragmentDialogBase {
