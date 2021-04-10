@@ -41,6 +41,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/simple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_simple"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/intro" />
+
         <View
             android:id="@+id/vSeparatorWizard"
             android:layout_width="0dp"
@@ -49,7 +61,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/intro" />
+            app:layout_constraintTop_toBottomOf="@id/simple" />
 
         <ImageView
             android:id="@+id/one"
