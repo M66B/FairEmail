@@ -4315,8 +4315,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private boolean onOpenLink(final Uri uri, String title, boolean always_confirm) {
+        private boolean onOpenLink(Uri uri, String title, boolean always_confirm) {
             Log.i("Opening uri=" + uri + " title=" + title);
+            uri = Uri.parse(uri.toString().replaceAll("\\s+", ""));
 
             if ("email.faircode.eu".equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                 try {
