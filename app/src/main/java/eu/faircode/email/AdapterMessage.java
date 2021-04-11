@@ -4949,7 +4949,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 Bitmap.Config.ARGB_8888);
                     }
 
-                    String label = (TextUtils.isEmpty(message.subject) ? context.getString(R.string.app_name) : message.subject);
+                    String label;
+                    if (!TextUtils.isEmpty(message.notes))
+                        label = message.notes;
+                    else if (!TextUtils.isEmpty(message.subject))
+                        label = message.subject;
+                    else
+                        label = context.getString(R.string.app_name);
 
                     IconCompat icon = IconCompat.createWithBitmap(bm);
                     String id = "message:" + message.id;
