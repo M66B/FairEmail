@@ -275,7 +275,7 @@ public class FragmentOAuth extends FragmentBase {
                 params.put("force_confirm", "true");
             }
 
-            if ("mailru".equals(provider))
+            if ("mailru".equals(provider.id))
                 params.put("prompt_force", "1");
 
             AuthorizationRequest.Builder authRequestBuilder =
