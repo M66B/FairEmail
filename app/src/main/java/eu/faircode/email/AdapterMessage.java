@@ -4814,6 +4814,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String html = Helper.readText(file);
                     String text = HtmlHelper.getText(context, html);
 
+                    result.put("html", html);
                     if (!TextUtils.isEmpty(text))
                         result.put("text", text);
 
@@ -4846,6 +4847,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             intent.putExtra(Intent.EXTRA_SUBJECT, (String) data.get("subject"));
                         if (data.containsKey("text"))
                             intent.putExtra(Intent.EXTRA_TEXT, (String) data.get("text"));
+                        if (data.containsKey("html"))
+                            intent.putExtra(Intent.EXTRA_HTML_TEXT, (String) data.get("html"));
 
                         ArrayList<Uri> uris = new ArrayList<>();
 
