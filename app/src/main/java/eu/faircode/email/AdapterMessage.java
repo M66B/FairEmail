@@ -116,6 +116,7 @@ import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.IconCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -4157,6 +4158,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
+            popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(ShortcutManagerCompat.isRequestPinShortcutSupported(context));
             popupMenu.getMenu().findItem(R.id.menu_event).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
@@ -4227,6 +4229,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_share) {
                         onMenuShare(message, false);
+                        return true;
+                    } else if (itemId == R.id.menu_pin) {
+                        onMenuPin(message);
                         return true;
                     } else if (itemId == R.id.menu_event) {
                         if (ActivityBilling.isPro(context))
@@ -4884,6 +4889,65 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
+        }
+
+        private void onMenuPin(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putLong("account", message.account);
+            args.putString("folderType", message.folderType);
+            args.putSerializable("addresses", message.from);
+
+            new SimpleTask<ContactInfo[]>() {
+                @Override
+                protected ContactInfo[] onExecute(Context context, Bundle args) {
+                    long account = args.getLong("account");
+                    String folderType = args.getString("folderType");
+                    Address[] addresses = (Address[]) args.getSerializable("addresses");
+                    return ContactInfo.get(context, account, folderType, addresses);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, ContactInfo[] contactInfo) {
+                    Intent thread = new Intent(context, ActivityView.class);
+                    thread.setAction("thread:" + message.id);
+                    thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    thread.putExtra("account", message.account);
+                    thread.putExtra("folder", message.folder);
+                    thread.putExtra("thread", message.thread);
+                    thread.putExtra("filter_archive", true);
+                    thread.putExtra("pinned", true);
+
+                    Bitmap bm;
+                    if (contactInfo[0].hasPhoto())
+                        bm = contactInfo[0].getPhotoBitmap();
+                    else {
+                        int resid = R.drawable.baseline_mail_24;
+                        Drawable d = context.getDrawable(resid);
+                        bm = Bitmap.createBitmap(
+                                d.getIntrinsicWidth(),
+                                d.getIntrinsicHeight(),
+                                Bitmap.Config.ARGB_8888);
+                    }
+
+                    String label = (TextUtils.isEmpty(message.subject) ? context.getString(R.string.app_name) : message.subject);
+
+                    IconCompat icon = IconCompat.createWithBitmap(bm);
+                    String id = "message:" + message.id;
+                    ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
+                            .setIcon(icon)
+                            .setShortLabel(label)
+                            .setLongLabel(label)
+                            .setIntent(thread);
+
+                    ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:pin");
         }
 
         private void onMenuPrint(TupleMessageEx message) {

@@ -277,6 +277,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private long id;
     private boolean filter_archive;
     private boolean found;
+    private boolean pinned;
     private BoundaryCallbackMessages.SearchCriteria criteria = null;
     private boolean pane;
 
@@ -388,6 +389,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         id = args.getLong("id", -1);
         filter_archive = args.getBoolean("filter_archive", true);
         found = args.getBoolean("found", false);
+        pinned = args.getBoolean("pinned", false);
         criteria = (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
         pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
@@ -4836,6 +4838,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean handleThreadActions(
             @NonNull PagedList<TupleMessageEx> messages,
             ArrayList<MessageTarget> targets, List<Long> removed) {
+        if (messages.size() == 0 && pinned)
+            return false;
+
         // Auto close / next
         if (messages.size() == 0 && (autoclose || onclose != null)) {
             handleAutoClose();
