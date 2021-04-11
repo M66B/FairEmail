@@ -757,6 +757,7 @@
     <string name="title_backoff_until">Waiting after failure until: %1$s</string>
     <string name="title_storage_quota">Server storage usage: %1$s/%2$s</string>
     <string name="title_pop_support">The POP3 protocol supports downloading and deleting messages from the inbox only. POP3 cannot mark messages as read, move messages, etc. POP3 will use more battery power and data than IMAP. So, consider using the IMAP protocol whenever possible.</string>
+    <string name="title_pop_warning">If a POP3 server does not support the UIDL command, the data usage might be high. So, adjust the poll frequency below accordingly.</string>
     <string name="title_oauth_support">OAuth is not supported</string>
     <string name="title_review">Review</string>
     <string name="title_hint_alias">Long press an identity to display options, like copy to create alias identities</string>
