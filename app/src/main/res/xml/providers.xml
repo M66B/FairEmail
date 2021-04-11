@@ -500,7 +500,7 @@
             clientSecret="5f1525783e1d4defb3bc9c2c4b7d0c54"
             enabled="false"
             redirectUri="https://oauth.faircode.eu/"
-            scopes="userinfo,mail.imap"
+            scopes="userinfo mail.imap"
             tokenEndpoint="https://oauth.mail.ru/token" />
         <!-- https://oauth.mail.ru/docs -->
     </provider>
