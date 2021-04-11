@@ -3819,9 +3819,12 @@ public class FragmentCompose extends FragmentBase {
                         // Subject
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
-                            if (prefix_once)
+                            if (prefix_once) {
                                 for (String re : Helper.getStrings(context, ref.language, R.string.title_subject_reply, ""))
                                     subject = unprefix(subject, re);
+                                for (String re : Helper.getStrings(context, ref.language, R.string.title_subject_reply_alt, ""))
+                                    subject = unprefix(subject, re);
+                            }
                             data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_reply, subject);
 
                             String t = args.getString("text");
@@ -3836,9 +3839,12 @@ public class FragmentCompose extends FragmentBase {
                                 document.body().appendChild(div);
                             }
                         } else if ("forward".equals(action)) {
-                            if (prefix_once)
+                            if (prefix_once) {
                                 for (String fwd : Helper.getStrings(context, ref.language, R.string.title_subject_forward, ""))
                                     subject = unprefix(subject, fwd);
+                                for (String fwd : Helper.getStrings(context, ref.language, R.string.title_subject_forward_alt, ""))
+                                    subject = unprefix(subject, fwd);
+                            }
                             data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
                             if (ref.from != null && ref.from.length == 1) {
