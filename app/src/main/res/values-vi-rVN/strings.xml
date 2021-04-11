@@ -107,6 +107,8 @@
     <string name="title_setup">Cài đặt</string>
     <string name="title_setup_help">Trợ giúp</string>
     <string name="title_setup_quick">Thiết lập nhanh</string>
+    <string name="title_setup_intro">Việc thiết lập một tài khoản chỉ bao gồm ba bước và sau đó bạn có thể gửi và nhận email</string>
+    <string name="title_setup_simple">Không cần thiết phải thay đổi bất kỳ tuỳ chọn nào khác</string>
     <string name="title_setup_quick_accounts">Thêm tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
@@ -221,6 +223,7 @@
     <string name="title_advanced_section_encryption">Mã hóa</string>
     <string name="title_advanced_section_notifications">Thông báo</string>
     <string name="title_advanced_section_misc">Khác</string>
+    <string name="title_advanced_default">Tất cả tuỳ chọn đều có các giá trị tiêu chuẩn thường được sử dụng, chúng không cần được thay đổi để sử dụng ứng dụng</string>
     <string name="title_advanced_receive">Nhận thư cho tất cả tài khoản</string>
     <string name="title_advanced_when">Khi nào</string>
     <string name="title_advanced_always">Luôn nhận thư cho các tài khoản đó</string>
@@ -297,7 +300,7 @@
     <string name="title_advanced_highlight_unread">Đánh dấu các thư chưa đọc</string>
     <string name="title_advanced_highlight_subject">Đánh dấu chủ đề</string>
     <string name="title_advanced_color_stripe">Hiện dải màu</string>
-    <string name="title_advanced_avatars">Hiện ảnh danh bạ</string>
+    <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_gravatars">Hiện Gravatar</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>
@@ -422,6 +425,7 @@
     <string name="title_advanced_auto_undo_decrypt">Hoàn tác giải mã khi đóng cuộc hội thoại</string>
     <string name="title_advanced_openpgp">Nhà cung cấp OpenPGP</string>
     <string name="title_advanced_autocrypt">Sử dụng Autocrypt</string>
+    <string name="title_advanced_autocrypt_mutual">Chế độ Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Mã hoá chủ đề</string>
     <string name="title_advanced_check_certificate">Kiểm tra mã khoá công khai khi gửi</string>
     <string name="title_advanced_manage_certificates">Quản lý các mã khoá công khai</string>
@@ -832,6 +836,7 @@
     <string name="title_ask_review_rationale">        Bạn đã sử dụng FairEmail được một thời gian.
         Tôi sẽ rất cảm kích nếu bạn có thể đánh giá FairEmail trên CH Play.
     </string>
+    <string name="title_need_help">Tôi cần trợ giúp</string>
     <string name="title_ask_once">Thông báo này sẽ chỉ hiện một lần, trừ khi bạn chọn \'Để sau\'</string>
     <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>

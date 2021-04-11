@@ -1860,19 +1860,27 @@ To enable/disable a specific account:
 
 Note that disabling an account will hide the account and all associated folders and messages.
 
+To set the poll interval:
+
+```
+(adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
+```
+
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
-Nuova attività: Qualcosa di riconoscibile
-Categoria d'Azione: Intento Varie/Invia
-Azione: eu.faircode.email.ENABLE
-Target: Servizio
+New task: Something recognizable
+Action Category: Misc/Send Intent
+Action: eu.faircode.email.ENABLE
+Target: Service
 ```
 
 To enable/disable an account with the name *Gmail*:
 
 ```
-Extra: account:Gmail
+Extras: account:Gmail
 ```
 
 Account names are case sensitive.
@@ -2134,10 +2142,10 @@ You can synchronize Gmail categories by creating filters to label categorized me
 Possible categories:
 
 ```
-categoria: social
-categoria: aggiornamenti
-categoria: forum
-categoria: promozioni
+category:social
+category:updates
+category:forums
+category:promotions
 ```
 
 Unfortunately, this is not possible for snoozed messages folder.

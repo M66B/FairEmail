@@ -118,6 +118,8 @@
     <string name="title_setup">Instellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Snel instellen</string>
+    <string name="title_setup_intro">Het instellen van een account is slechts drie stappen en daarna kunt u e-mails verzenden en ontvangen</string>
+    <string name="title_setup_simple">Het is niet nodig om enige andere opties te wijzigen</string>
     <string name="title_setup_quick_accounts">Accounts toevoegen</string>
     <string name="title_setup_quick_support">Sommige providers maken het moeilijk om een account toe te voegen. Geef a.u.b. FairEmail hiervoor niet de schuld, maar vraag om ondersteuning.</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
@@ -739,6 +741,8 @@
     <string name="title_duplicate_in">Dubbel bericht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Re: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
     <string name="title_toggle_seen">Lezen omschakelen</string>
@@ -852,6 +856,7 @@
     <string name="title_ask_review_rationale">        U gebruikt FairEmail al een tijdje.
         Het zou gewaardeerd worden als u FairEmail in de Play Store zou kunnen beoordelen.
     </string>
+    <string name="title_need_help">Ik heb hulp nodig</string>
     <string name="title_ask_once">Dit bericht zal slechts één keer verschijnen, tenzij je \'Later\' selecteert</string>
     <string name="title_third_party">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>

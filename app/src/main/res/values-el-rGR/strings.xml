@@ -118,6 +118,7 @@
     <string name="title_setup">Ρυθμίσεις</string>
     <string name="title_setup_help">Βοήθεια</string>
     <string name="title_setup_quick">Γρήγορη ρύθμιση</string>
+    <string name="title_setup_intro">Η ρύθμιση ενός λογαριασμού αποτελείται από τρία μόνο βήματα και μετά μπορείτε να στέλνετε και να λαμβάνετε μηνύματα ηλ. ταχυδρομείου</string>
     <string name="title_setup_quick_accounts">Προσθήκη λογαριασμών</string>
     <string name="title_setup_quick_support">Ορισμένοι πάροχοι δυσχεραίνουν την προσθήκη ενός λογαριασμού. Παρακαλούμε, μην κατηγορείτε το FairEmail για αυτό, αλλά δοκιμάστε να λάβετε υποστήριξη.</string>
     <string name="title_setup_quick_hint">Η γρήγορη ρύθμιση θα ανακτήσει πληροφορίες εγκατάστασης από το autoconfig.thunderbird.net</string>
@@ -737,6 +738,8 @@
     <string name="title_duplicate_in">Διπλότυπο μήνυμα σε %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Απ: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Πρθ: %1$s</string>
     <string name="title_seen">Σήμανση ως αναγνωσμένο</string>
     <string name="title_unseen">Σήμανση ως μη αναγνωσμένο</string>
     <string name="title_toggle_seen">(Μη) αναγνωσμένο</string>
@@ -850,6 +853,7 @@
     <string name="title_ask_review_rationale">        Χρησιμοποιείτε το FairEmail για αρκετό χρονικό διάστημα.
         Θα το εκτιμούσαμε αν θα αξιολογούσατε το FairEmail στο Play Store.
     </string>
+    <string name="title_need_help">Χρειάζομαι βοήθεια</string>
     <string name="title_ask_once">Το μήνυμα αυτό θα εμφανιστεί μόνο μια φορά, εκτός αν επιλέξετε \"Αργότερα\"</string>
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>

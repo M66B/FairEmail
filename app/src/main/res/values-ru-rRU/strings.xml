@@ -140,6 +140,8 @@
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
     <string name="title_setup_quick">Быстрая настройка</string>
+    <string name="title_setup_intro">Настройте учётную запись всего за три шага и сможете отправлять и получать письма</string>
+    <string name="title_setup_simple">Нет необходимости менять другие параметры</string>
     <string name="title_setup_quick_accounts">Добавить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
@@ -149,8 +151,8 @@
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_manual">Ручная настройка и параметры учётной записи</string>
-    <string name="title_setup_account_remark">Получение эл. почты</string>
-    <string name="title_setup_identity_remark">Отправка эл. почты</string>
+    <string name="title_setup_account_remark">Получение почты</string>
+    <string name="title_setup_identity_remark">Отправка почты</string>
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
     <string name="title_setup_accounts">Учётные записи</string>
     <string name="title_setup_identities">Идентификаторы</string>
@@ -761,6 +763,8 @@
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Re: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
     <string name="title_toggle_seen">Прочитано/непрочитано</string>
@@ -874,6 +878,7 @@
     <string name="title_ask_review_rationale">        Вы уже пользуетесь FairEmail некоторое время.
         Мы были бы признательны, если бы вы оценили FairEmail в Play Store.
     </string>
+    <string name="title_need_help">Нужна помощь</string>
     <string name="title_ask_once">Это сообщение будет показано только один раз, если вы не выберите \"Позже\"</string>
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>

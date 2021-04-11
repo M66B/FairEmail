@@ -119,6 +119,8 @@
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_help">Hilfe</string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
+    <string name="title_setup_intro">Die Einrichtung eines Kontos ist mit nur drei Schritten erledigt und danach können Sie bereits E-Mails senden und empfangen</string>
+    <string name="title_setup_simple">Es ist nicht notwendig, andere Optionen zu ändern</string>
     <string name="title_setup_quick_accounts">Konten hinzufügen</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
@@ -739,6 +741,8 @@
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">AW: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Wg: %1$s</string>
     <string name="title_seen">Gelesen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_toggle_seen">Gelesen umschalten</string>
@@ -852,6 +856,7 @@
     <string name="title_ask_review_rationale">        Sie verwenden FairEmail bereits seit einiger Zeit.
         Es wäre schön, wenn Sie FairEmail im Play Store bewerten würden.
     </string>
+    <string name="title_need_help">Ich benötige Hilfe</string>
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen „Später”</string>
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht wird %1$s heruntergeladen</string>

@@ -118,6 +118,8 @@
     <string name="title_setup">Paramètres</string>
     <string name="title_setup_help">Aide</string>
     <string name="title_setup_quick">Configuration rapide</string>
+    <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des e-mails</string>
+    <string name="title_setup_simple">Il n\'est pas nécessaire de changer d\'autres options</string>
     <string name="title_setup_quick_accounts">Ajouter des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -739,6 +741,8 @@
     <string name="title_duplicate_in">Message en double dans %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Re: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Tr: %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
     <string name="title_toggle_seen">Marquer lu/non lu</string>
@@ -852,6 +856,7 @@
     <string name="title_ask_review_rationale">        Vous utilisez FairEmail depuis un certain temps.
         Il serait souhaitable que vous évaluiez FairEmail dans le Play Store.
     </string>
+    <string name="title_need_help">J\'ai besoin d\'aide</string>
     <string name="title_ask_once">Ce message n\'apparaîtra qu\'une seule fois, sauf si vous sélectionnez « Plus tard »</string>
     <string name="title_third_party">Vous utilisez une version tierce</string>
     <string name="title_expand_warning">Déplier ce message téléchargera %1$s</string>

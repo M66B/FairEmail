@@ -118,6 +118,7 @@
     <string name="title_setup">Indstillinger</string>
     <string name="title_setup_help">Hjælp</string>
     <string name="title_setup_quick">Hurtig opsætning</string>
+    <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
     <string name="title_setup_quick_accounts">Tilføj konti</string>
     <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>
@@ -730,6 +731,8 @@
     <string name="title_duplicate_in">Dubletbeskeder i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vs: %1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Sv: %1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Vs: %1$s</string>
     <string name="title_seen">Markér som læst</string>
     <string name="title_unseen">Markér som ulæst</string>
     <string name="title_toggle_seen">Slå læst til/fra</string>
@@ -840,6 +843,7 @@
     <string name="title_ask_review_rationale">        Du har nu benyttet FairEmail i et stykke tid.
          Det vil blive værdsat, hvis du kunne bedømme FairEmail i Play Butik.
     </string>
+    <string name="title_need_help">Jeg behøver hjælp</string>
     <string name="title_ask_once">Denne besked vises kun én gang, med mindre duvælger \'Senere\'</string>
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>

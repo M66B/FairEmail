@@ -118,6 +118,7 @@
     <string name="title_setup">Ajustes</string>
     <string name="title_setup_help">Ayuda</string>
     <string name="title_setup_quick">Configuración rápida</string>
+    <string name="title_setup_intro">Configurar una cuenta son sólo tres pasos y después puede enviar y recibir correos electrónicos</string>
     <string name="title_setup_quick_accounts">Añadir cuentas</string>
     <string name="title_setup_quick_support">Algunos proveedores hacen difícil añadir una cuenta. Por favor, no culpe a FairEmail por esto, en su lugar pida ayuda.</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>

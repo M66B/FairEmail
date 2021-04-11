@@ -1860,13 +1860,21 @@ To enable/disable a specific account:
 
 Note that disabling an account will hide the account and all associated folders and messages.
 
+To set the poll interval:
+
+```
+(adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
+```
+
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
-Nueva tarea: Algo reconocible
-Categoría de acción: Misc/Intento de envío
-Acción: eu.faircode.email.ENABLE
-Objetivo: Servicio
+New task: Something recognizable
+Action Category: Misc/Send Intent
+Action: eu.faircode.email.ENABLE
+Target: Service
 ```
 
 To enable/disable an account with the name *Gmail*:
@@ -2134,10 +2142,10 @@ You can synchronize Gmail categories by creating filters to label categorized me
 Possible categories:
 
 ```
-categoría:social
-categoría:actualizaciones
-categoría:foros
-categoría:promociones
+category:social
+category:updates
+category:forums
+category:promotions
 ```
 
 Unfortunately, this is not possible for snoozed messages folder.
@@ -2207,7 +2215,7 @@ Some launchers display a dot or a '1' for [the monitoring notification](#user-co
 FairEmail does send a new message count intent as well:
 
 ```
-eu.faircode.email.NEW_MESAGE_COUNT
+eu.faircode.email.NEW_MESSAGE_COUNT
 ```
 
 The number of new, unread messages will be in an integer "*count*" parameter.
@@ -2610,7 +2618,7 @@ The error *User is authenticated but not connected* might occur if:
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
 ```
-usted@ejemplo.com\compartido@ejemplo.com
+you@example.com\shared@example.com
 ```
 
 Note that it should be a backslash and not a forward slash.

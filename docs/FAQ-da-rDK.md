@@ -1860,19 +1860,27 @@ To enable/disable a specific account:
 
 Note that disabling an account will hide the account and all associated folders and messages.
 
+To set the poll interval:
+
+```
+(adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
+```
+
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
-Ny opgave: En genkendelig
-Handlingskategori: Div./Send-
-hensigtshandling: eu.faircode.email.ENABLE
-Mål: Tjeneste
+New task: Something recognizable
+Action Category: Misc/Send Intent
+Action: eu.faircode.email.ENABLE
+Target: Service
 ```
 
 To enable/disable an account with the name *Gmail*:
 
 ```
-Ekstra: konto:Gmail
+Extras: account:Gmail
 ```
 
 Account names are case sensitive.
@@ -1992,9 +2000,9 @@ Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo e
 Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
 
 ```
-Y1-EVNE
-* MULIGHED FOR IMAP4rev1 ID FLYT NAVNEOMRÅDE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT AFMARKÉR OBJEKTID
-Y1 OK MULIGHED fuldført
+Y1 CAPABILITY
+* CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
+Y1 OK CAPABILITY completed
 ```
 
 <br />
@@ -2610,7 +2618,7 @@ The error *User is authenticated but not connected* might occur if:
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
 ```
-dig@eksempel.dk\delt@eksempel.dk
+you@example.com\shared@example.com
 ```
 
 Note that it should be a backslash and not a forward slash.

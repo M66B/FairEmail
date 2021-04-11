@@ -189,6 +189,7 @@
     <string name="title_setup_doze_hint">Třebaže to může znít protichůdně, vypnutí optimalizace výdrže baterie povede k menší spotřebě baterie</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
+    <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
     <string name="title_setup_advanced_options">Zobrazit rozšířené možnosti</string>
     <string name="title_setup_inbox">Přejít na Doručené</string>
@@ -277,6 +278,7 @@
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
+    <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_compose_font">Výchozí písmo</string>
     <string name="title_advanced_prefix_once">Při odpovídání nebo přeposílání přidat do předmětu pouze jednu předponu</string>
     <string name="title_advanced_separate_reply">Vložit vodorovnou čáru před hlavičku odpovědi/přeposlání</string>
@@ -502,10 +504,12 @@
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_send_reminders_hint">Zobrazit upozornění, je-li text zprávy či předmět prázdný nebo může-li chybět příloha</string>
+    <string name="title_advanced_reply_move_hint">E-mailový server může stále zprávy přidávat do složky odeslané</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
     <string name="title_advanced_tcp_keep_alive_hint">Povolení může na některých zařízeních způsobit problémy s připojením</string>
+    <string name="title_advanced_validate_hint">Může vést k nesynchronizovaným zprávám, například při použití VPN, ale i v jiných situacích</string>
     <string name="title_advanced_timeout_hint">Časový limit čtení/zápisu bude nastaven na dvojnásobek časového limitu připojení. Vyšší hodnoty povedou k větší spotřebě baterie.</string>
     <string name="title_advanced_ssl_harden_hint">Povolení této volby zakáže slabé SSL protokoly a šifry, což může vést k problémům s připojením</string>
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
@@ -720,6 +724,7 @@
     <string name="title_auto_trash">Automaticky přesouvat staré zprávy do koše</string>
     <string name="title_auto_delete">Automaticky trvale mazat staré zprávy</string>
     <string name="title_auto_delete_hint">Staré zprávy jsou zprávy, které již nejsou uchovány v zařízení</string>
+    <string name="title_auto_delete_archive_hint">Smazání ze složky archivu není e-mailovým serverem pokaždé dovoleno</string>
     <string name="title_inbox_root_hint">        Někteří poskytovatelé vyžadují, že nové složky budou tvořeny pod složkou doručené.
         V takovém případě v seznamu složek dlouze podržte složku doručené a zvolte \"Vytvořit podsložku\".
     </string>
@@ -1264,6 +1269,7 @@
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>
     <string name="title_tracking_link">Tato stránka vás může sledovat</string>
+    <string name="title_suspicious_link">Toto je podezřelý odkaz</string>
     <string name="title_link_http">Provoz nebude šifrován</string>
     <string name="title_link_https">Provoz bude šifrován</string>
     <string name="title_sanitize_link">Odebrat sledovací parametry</string>

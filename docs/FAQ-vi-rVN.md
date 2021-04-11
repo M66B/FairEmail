@@ -22,9 +22,9 @@ In most cases, the quick setup wizard will be able to automatically identify the
 
 If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Đối với điều này, bạn sẽ cần địa chỉ máy chủ IMAP và SMTP và số cổng, cho dù nên sử dụng SSL / TLS hay STARTTLS và tên người dùng của bạn (hầu hết, nhưng không phải lúc nào, địa chỉ email của bạn) và mật khẩu của bạn.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Việc tìm kiếm *IMAP* và tên nhà cung cấp phần lớn là đủ để tìm tài liệu đúng.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Trong một số trường hợp, bạn sẽ cần bật quyền truy cập bên ngoài vào tài khoản của bạn và/hoặc sử dụng mật khẩu (ứng dụng) đặc biệt, ví dụ khi xác thực hai yếu tố được bật.
 
 Để ủy quyền:
 
@@ -47,37 +47,37 @@ Câu hỏi liên quan:
 
 ## Làm thế nào để ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* Đổi tên tài khoản: Cài đặt, nhấn Thiết lập thủ công, nhấn Tài khoản, nhấn vào tài khoản
 * Thay đổi mục tiêu vuốt trái/phải: Cài đặt, trang Hành vi, Đặt hành động vuốt
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Đổi mật khẩu: Cài đặt, nhấn Thiết lập thủ công, nhấn Tài khoản, nhấn vào tài khoản, đổi mật khẩu
+* Đặt một chữ ký: Cài đặt, nhấn Thiết lập thủ công, nhấn Danh tính, nhấn vào danh tính, Chỉnh sửa chữ ký.
+* Thêm địa chỉ CC và BCC: nhấn vào biểu tượng người ở cuối chủ đề
+* Đi đến thư sau/trước khi lưu trữ/xoá: trong cài đặt hành vi, tắt *Tự động đóng các cuộc hội thoại* và chọn *Đi đến cuộc hội thoại trước/sau* trong *Khi đóng cuộc hội thoại*
+* Thêm một thư mục vào hộp thư đến hợp nhất: nhấn giữ thư mục trong danh sách thư mục và chọn *Hiện trong hộp thư đến hợp nhất*
+* Thêm một thư mục vào menu điều hướng: nhấn giữ thư mục trong danh sách thư mục và chọn *Hiện trong menu điều hướng*
+* Tải thêm thư: nhấn giữ một thư mục trong danh sách thư mục, chọn *Lấy thêm thư*
+* Xoá một thư, bỏ qua thùng rác: nhấn giữ biểu tượng thùng rác
+* Xoá một tài khoản/danh tính: Cài đặt, nhấn Thiết lập thủ công, nhấn Tài khoản/Danh tính, nhấn vào tài khoản/danh tính, biểu tượng thùng rác ở góc trên bên phải
+* Xoá một thư mục: nhấn giữ thư mục trong danh sách thư mục, Chỉnh sửa thuộc tính, biểu tượng thùng rác ở góc trên bên phải
+* Hoàn tác gửi: Hộp thư đi, vuốt thư trong thư mục sang trái hoặc phải
+* Lưu trữ thư đã gửi trong hộp thư đến: vui lòng [xem câu hỏi thường gặp này](#user-content-faq142)
+* Thay đổi thư mục hệ thống: Cài đặt, nhấn Thiết lập thủ công, nhấn Tài khoản, nhấn vào tài khoản, ở dưới cùng
+* Xuất/nhập cài đặt: Cài đặt, menu điều hướng (bên trái)
 
 ## Những vấn đề đã biết
 
-* ~~Một [lỗi ở Android 5.1 và 6](https://issuetracker.google.com/issues/37054851) làm cho các ứng dụng đôi khi hiển thị định dạng thời gian sai. Bật/tắt cài đặt Android *Sử dụng định dạng 24 giờ* có thể tạm thời giải quyết vấn đề này. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* ~~Một [lỗi ở Android 5.1 và 6](https://issuetracker.google.com/issues/37054851) làm cho các ứng dụng đôi khi hiển thị định dạng thời gian sai. Bật/tắt cài đặt Android *Sử dụng định dạng 24 giờ* có thể tạm thời giải quyết vấn đề này. Một giải pháp đã được thêm.~~
+* ~~Một [lỗi ở Google Drive](https://issuetracker.google.com/issues/126362828) làm cho các tệp được xuất ra Google Drive trở nên bị trống. Google đã sửa lỗi này.~~
+* ~~Một [lỗi ở AndroidX](https://issuetracker.google.com/issues/78495471) làm cho FairEmail đôi khi bị crash (văng ra) khi nhấn giữ hoặc vuốt. Google đã sửa lỗi này.~~
+* ~~Một [lỗi ở AndroidX ROOM](https://issuetracker.google.com/issues/138441698) đôi khi gây ra crash với "*... Exception while computing database live data ... Couldn't read row ...*". Một giải pháp đã được thêm.~~
+* Một [lỗi ở Android](https://issuetracker.google.com/issues/119872129) làm cho FairEmail bị crash với "*... Bad notification posted ...*" một lần trên một số thiết bị sau khi cập nhật FairEmail và nhấn vào một thông báo.
+* Một [lỗi ở Android](https://issuetracker.google.com/issues/62427912) đôi khi gây ra crash với "*... ActivityRecord not found for ...*" sau khi cập nhật FairEmail. Việc cài đặt lại ([nguồn](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) có thể sẽ sửa được vấn đề này.
+* Một [lỗi ở Android](https://issuetracker.google.com/issues/37018931) đôi khi gây ra crash với *... InputChannel is not initialized ...* trên một số thiết bị.
+* ~~Một [lỗi ở LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) đôi khi gây ra crash với *>... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* Một lỗi ở Nova Launcher trên Android 5.x làm cho FairEmail bị crash với *java.lang.StackOverflowError* khi Nova Launcher có quyền truy cập vào dịch vụ hỗ trợ tiếp cận.
+* ~~Trình chọn thư mục đôi khi không hiện thư mục nào vì lý do chưa xác định. Lỗi này có vẻ đã được sửa.~~
+* ~~Một [lỗi ở AndroidX](https://issuetracker.google.com/issues/64729576) khiến việc cuộn nhanh khó khăn. Một giải pháp đã được thêm.~~
+* ~~Việc mã hoá bằng YubiKey dẫn đến một vòng lặp vô tận. Điều này có vẻ bị gây ra bởi một [lỗi ở OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
 * A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
@@ -121,14 +121,14 @@ Bất kỳ thứ gì trong danh sách này đều là theo thứ tự ngẫu nhi
 
 ## Các tính năng thường được yêu cầu
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Thiết kế của ứng dụng được dựa trên nhiều cuộc thảo luận và nếu bạn thích thì bạn cũng có thể thảo luận về nó [trong diễn đàn này](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Mục tiêu của thiết kế này là để được tối giản (không có menu, nút, v.v. không cần thiết) và không gây xao nhãng (không có màu sắc, hoạt ảnh, v.v. đẹp đặc biệt). Tất cả những thứ được hiển thị nên được hữu ích theo cách này hay cách khác và nên được đặt vị trí cẩn thận để dễ sử dụng. Các phông chữ, kích cỡ, màu sắc, v.v. nên theo thiết kế Material bất cứ khi nào có thể.
 
 ## Những câu hỏi thường gặp
 
 * [(1) Những quyền nào là cần thiết và tại sao?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
+* [(2) Tại sao lại có một thông báo vĩnh viễn được hiện?](#user-content-faq2)
+* [(3) Hoạt động là gì và tại sao chúng lại đang chờ?](#user-content-faq3)
+* [(4) Tôi có thể sử dụng một chứng chỉ bảo mật không hợp lệ / mật khẩu trống / kết nối văn bản thuần như thế nào?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
 * [(6) Tôi có thể đăng nhập vào Gmail / G suite như thế nào?](#user-content-faq6)
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
@@ -295,24 +295,24 @@ The design is based on many discussions and if you like you can discuss about it
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
-The following Android permissions are needed:
+Những quyền Android sau đây là cần thiết:
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *có quyền truy cập mạng đầy đủ* (INTERNET): để gửi và nhận email
+* *xem các kết nối mạng* (ACCESS_NETWORK_STATE): để giám sát các thay đổi của kết nối internet
+* *chạy khi khởi động* (RECEIVE_BOOT_COMPLETED): để bắt đầu giám sát khi khởi động thiết bị
+* *dịch vụ ở trước* (FOREGROUND_SERVICE): để chạy một dịch vụ ở trước trên Android 9 hoặc mới hơn, đồng thời hãy xem câu hỏi tiếp theo
+* *ngăn chặn thiết bị ngủ* (WAKE_LOCK): để giữ cho thiết bị thức trong khi đang đồng bộ hoá thư
+* *thanh toán trong ứng dụng* (BILLING): để cho phép mua hàng trong ứng dụng
+* Không bắt buộc: *đọc danh bạ* (READ_CONTACTS): để tự động điền các địa chỉ, để hiện ảnh liên hệ và [để chọn liên hệ](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Không bắt buộc: *đọc nội dung của thẻ SD* (READ_EXTERNAL_STORAGE): để chấp nhận các tệp từ các ứng dụng lỗi thời khác, đồng thời hãy xem [câu hỏi thường gặp này](#user-content-faq49)
+* Không bắt buộc: *sử dụng phần cứng vân tay* (USE_FINGERPRINT) và *sử dụng phần cứng sinh trắc học* (USE_BIOMETRIC): để sử dụng xác thực sinh trắc học
+* Không bắt buộc: *tìm tài khoản trên thiết bị* (GET_ACCOUNTS): để chọn một tài khoản khi sử dụng thiết lập nhanh cho Gmail
+* Android 5.1 Lollipop và cũ hơn: *sử dụng tài khoản trên thiết bị* (USE_CREDENTIALS): để chọn một tài khoản khi sử dụng thiết lập nhanh cho Gmail (không được yêu cầu trên các phiên bản Android mới hơn)
+* Android 5.1 Lollipop và cũ hơn: *Đọc hồ sơ* (READ_PROFILE): để đọc tên của bạn khi sử dụng thiết lập nhanh cho Gmail (không được yêu cầu trên các phiên bản Android mới hơn)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Các quyền không bắt buộc](https://developer.android.com/training/permissions/requesting) chỉ được hỗ trợ trên Android 6 Marshmallow và mới hơn. Trên các phiên bản Android cũ hơn, bạn sẽ được hỏi để cấp các quyền không bắt buộc khi cài đặt FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Các quyền sau đây là cần thiết để hiện số lượng thư chưa đọc dưới dạng huy hiệu (đồng thời hãy xem [câu hỏi thường gặp này](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -331,7 +331,7 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail sẽ giữ một danh sách các địa chỉ mà bạn nhận thư từ chúng và gửi thư đến chúng và sẽ sử dụng danh sách này để đề xuất các liên hệ khi FairEmail không được cấp quyền danh bạ. Điều này có nghĩa là bạn có thể sử dụng FairEmail mà không có nhà cung cấp danh bạ của Android (sổ địa chỉ). Lưu ý rằng bạn vẫn có thể chọn liên hệ mà không cấp quyền danh bạ cho FairEmail, chỉ có việc đề xuất liên hệ sẽ không được khi không có quyền danh bạ.
 
 <br />
 
@@ -1859,6 +1859,14 @@ To enable/disable a specific account:
 ```
 
 Note that disabling an account will hide the account and all associated folders and messages.
+
+To set the poll interval:
+
+```
+(adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
+```
+
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 

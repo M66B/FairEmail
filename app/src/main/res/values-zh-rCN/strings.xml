@@ -106,6 +106,8 @@
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
     <string name="title_setup_quick">快速设置</string>
+    <string name="title_setup_intro">设置一个帐户只是三步，之后你就可以发送和接收电子邮件</string>
+    <string name="title_setup_simple">无需更改任何其他选项</string>
     <string name="title_setup_quick_accounts">添加帐户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要怪责于 FairEmail, 而应向提供商寻求支持</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
@@ -727,6 +729,8 @@
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
+    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">回复：%1$s</string>
+    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_toggle_seen">切换已读状态</string>
@@ -840,6 +844,7 @@
     <string name="title_ask_review_rationale">        您使用 FairEmail 已经有一段时间了
         如果您能在 Play Store 中为 FairEmail 评分, 我将不胜感激
     </string>
+    <string name="title_need_help">我需要帮助</string>
     <string name="title_ask_once">此消息将只会显示一次，除非您选择\"稍后再说\"</string>
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此消息将下载 %1$s</string>

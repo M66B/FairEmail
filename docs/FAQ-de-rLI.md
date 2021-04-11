@@ -2,7 +2,7 @@
 
 # FairEmail - Support
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Unten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Fuße der Seite](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -1859,6 +1859,14 @@ To enable/disable a specific account:
 ```
 
 Note that disabling an account will hide the account and all associated folders and messages.
+
+To set the poll interval:
+
+```
+(adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
+```
+
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
