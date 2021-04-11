@@ -5071,7 +5071,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
 
                     Intent send = new Intent(Intent.ACTION_SEND);
-                    send.setPackage(BuildConfig.APPLICATION_ID);
+                    //send.setPackage(BuildConfig.APPLICATION_ID);
                     send.putExtra(Intent.EXTRA_STREAM, uri);
                     send.setType("message/rfc822");
                     send.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
