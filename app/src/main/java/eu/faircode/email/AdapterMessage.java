@@ -4237,17 +4237,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_manage_keywords) {
                         onMenuManageKeywords(message);
                         return true;
-                    } else if (itemId == R.id.menu_share) {
-                        onMenuShare(message, false);
-                        return true;
-                    } else if (itemId == R.id.menu_pin) {
-                        onMenuPin(message);
-                        return true;
                     } else if (itemId == R.id.menu_event) {
                         if (ActivityBilling.isPro(context))
                             onMenuShare(message, true);
                         else
                             context.startActivity(new Intent(context, ActivityBilling.class));
+                        return true;
+                    } else if (itemId == R.id.menu_share) {
+                        onMenuShare(message, false);
+                        return true;
+                    } else if (itemId == R.id.menu_pin) {
+                        onMenuPin(message);
                         return true;
                     } else if (itemId == R.id.menu_print) {
                         onMenuPrint(message);

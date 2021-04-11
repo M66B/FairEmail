@@ -69,16 +69,16 @@
         android:title="@string/title_manage_keywords" />
 
     <item
+        android:id="@+id/menu_event"
+        android:title="@string/title_event" />
+
+    <item
         android:id="@+id/menu_share"
         android:title="@string/title_share" />
 
     <item
         android:id="@+id/menu_pin"
         android:title="@string/title_pin" />
-
-    <item
-        android:id="@+id/menu_event"
-        android:title="@string/title_event" />
 
     <item
         android:id="@+id/menu_print"
