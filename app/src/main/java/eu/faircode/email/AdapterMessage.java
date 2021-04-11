@@ -4819,7 +4819,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String html = Helper.readText(file);
                     String text = HtmlHelper.getText(context, html);
 
-                    result.put("html", html);
+                    Document document = JsoupEx.parse(html);
+
+                    Element a = document.createElement("a");
+                    a.text(context.getString(R.string.app_name));
+                    a.attr("href", "message://" + BuildConfig.APPLICATION_ID + "/" + message.id);
+
+                    document.body().appendElement("p").appendChild(a);
+
+                    result.put("html", document.body().html());
+
                     if (!TextUtils.isEmpty(text))
                         result.put("text", text);
 
