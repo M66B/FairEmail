@@ -132,6 +132,16 @@
             app:layout_constraintTop_toBottomOf="@id/cbEvent" />
 
         <CheckBox
+            android:id="@+id/cbPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_pin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbShare" />
+
+        <CheckBox
             android:id="@+id/cbPrint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,7 +149,7 @@
             android:text="@string/title_print"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbShare" />
+            app:layout_constraintTop_toBottomOf="@id/cbPin" />
 
         <CheckBox
             android:id="@+id/cbUnsubscribe"

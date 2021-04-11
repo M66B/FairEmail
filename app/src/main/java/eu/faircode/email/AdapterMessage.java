@@ -420,6 +420,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
         private ImageButton ibPrint;
+        private ImageButton ibPin;
         private ImageButton ibShare;
         private ImageButton ibEvent;
         private ImageButton ibSearch;
@@ -648,6 +649,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibPrint = vsBody.findViewById(R.id.ibPrint);
+            ibPin = vsBody.findViewById(R.id.ibPin);
             ibShare = vsBody.findViewById(R.id.ibShare);
             ibEvent = vsBody.findViewById(R.id.ibEvent);
             ibSearch = vsBody.findViewById(R.id.ibSearch);
@@ -753,6 +755,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibPrint.setOnClickListener(this);
+                ibPin.setOnClickListener(this);
                 ibShare.setOnClickListener(this);
                 ibEvent.setOnClickListener(this);
                 ibSearch.setOnClickListener(this);
@@ -868,6 +871,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibPrint.setOnClickListener(null);
+                ibPin.setOnClickListener(null);
                 ibShare.setOnClickListener(null);
                 ibEvent.setOnClickListener(null);
                 ibSearch.setOnClickListener(null);
@@ -1331,6 +1335,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibPrint.setVisibility(View.GONE);
+            ibPin.setVisibility(View.GONE);
             ibShare.setVisibility(View.GONE);
             ibEvent.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
@@ -1536,6 +1541,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibPrint.setVisibility(View.GONE);
+            ibPin.setVisibility(View.GONE);
             ibShare.setVisibility(View.GONE);
             ibEvent.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
@@ -1716,6 +1722,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_search = prefs.getBoolean("button_search", false);
                     boolean button_event = prefs.getBoolean("button_event", false);
                     boolean button_share = prefs.getBoolean("button_share", false);
+                    boolean button_pin = prefs.getBoolean("button_pin", false);
                     boolean button_print = prefs.getBoolean("button_print", false);
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
@@ -1727,6 +1734,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
+                    ibPin.setVisibility(tools && button_pin && ShortcutManagerCompat.isRequestPinShortcutSupported(context) ? View.VISIBLE : View.GONE);
                     ibShare.setVisibility(tools && button_share && message.content ? View.VISIBLE : View.GONE);
                     ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) && !outbox ? View.VISIBLE : View.GONE);
@@ -3066,6 +3074,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionUnsubscribe(message);
                 } else if (id == R.id.ibPrint) {
                     onMenuPrint(message);
+                } else if (id == R.id.ibPin) {
+                    onMenuPin(message);
                 } else if (id == R.id.ibShare) {
                     onMenuShare(message, false);
                 } else if (id == R.id.ibEvent) {
@@ -6894,9 +6904,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
             final CheckBox cbEvent = dview.findViewById(R.id.cbEvent);
             final CheckBox cbShare = dview.findViewById(R.id.cbShare);
+            final CheckBox cbPin = dview.findViewById(R.id.cbPin);
             final CheckBox cbPrint = dview.findViewById(R.id.cbPrint);
             final CheckBox cbUnsubscribe = dview.findViewById(R.id.cbUnsubscribe);
             final CheckBox cbRule = dview.findViewById(R.id.cbRule);
+
+            cbPin.setVisibility(
+                    ShortcutManagerCompat.isRequestPinShortcutSupported(context)
+                            ? View.VISIBLE : View.GONE);
 
             cbJunk.setChecked(prefs.getBoolean("button_junk", true));
             cbTrash.setChecked(prefs.getBoolean("button_trash", true));
@@ -6909,6 +6924,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbSearch.setChecked(prefs.getBoolean("button_search", false));
             cbEvent.setChecked(prefs.getBoolean("button_event", false));
             cbShare.setChecked(prefs.getBoolean("button_share", false));
+            cbPin.setChecked(prefs.getBoolean("button_pin", false));
             cbPrint.setChecked(prefs.getBoolean("button_print", false));
             cbUnsubscribe.setChecked(prefs.getBoolean("button_unsubscribe", true));
             cbRule.setChecked(prefs.getBoolean("button_rule", false));
@@ -6930,6 +6946,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             editor.putBoolean("button_search", cbSearch.isChecked());
                             editor.putBoolean("button_event", cbEvent.isChecked());
                             editor.putBoolean("button_share", cbShare.isChecked());
+                            editor.putBoolean("button_pin", cbPin.isChecked());
                             editor.putBoolean("button_print", cbPrint.isChecked());
                             editor.putBoolean("button_unsubscribe", cbUnsubscribe.isChecked());
                             editor.putBoolean("button_rule", cbRule.isChecked());
