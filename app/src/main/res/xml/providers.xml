@@ -483,6 +483,7 @@
     <provider
         name="Mail.ru"
         domain="mail\\.ru,inbox\\.ru,list\\.ru,bk\\.ru"
+        id="mailru"
         link="https://help.mail.ru/mail-help/mailer/popsmtp">
         <imap
             host="imap.mail.ru"
@@ -492,6 +493,16 @@
             host="smtp.mail.ru"
             port="465"
             starttls="false" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="https://oauth.mail.ru/login"
+            clientId="ce54d27dc1574b3a8b50e6789cd1a44a"
+            clientSecret="5f1525783e1d4defb3bc9c2c4b7d0c54"
+            enabled="false"
+            redirectUri="https://oauth.faircode.eu/"
+            scopes="userinfo,mail.imap"
+            tokenEndpoint="https://oauth.mail.ru/token" />
+        <!-- https://oauth.mail.ru/docs -->
     </provider>
     <provider
         name="KPN mail"
