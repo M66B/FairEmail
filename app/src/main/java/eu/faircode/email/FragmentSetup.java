@@ -183,7 +183,8 @@ public class FragmentSetup extends FragmentBase {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_outlook, order++, R.string.title_setup_outlook);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
-                    if (provider.oauth != null && provider.oauth.enabled)
+                    if (provider.oauth != null &&
+                            (provider.oauth.enabled || BuildConfig.DEBUG))
                         popupMenu.getMenu()
                                 .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
