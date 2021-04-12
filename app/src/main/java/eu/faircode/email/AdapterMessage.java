@@ -4825,22 +4825,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!TextUtils.isEmpty(message.subject))
                         result.put("subject", message.subject);
 
-                    String html = Helper.readText(file);
-                    String text = HtmlHelper.getText(context, html);
+                    String link = "message://" + BuildConfig.APPLICATION_ID + "/" + message.id;
 
-                    Document document = JsoupEx.parse(html);
+                    Document document = JsoupEx.parse(file);
 
                     Element a = document.createElement("a");
                     a.text(context.getString(R.string.app_name));
-                    a.attr("href", "message://" + BuildConfig.APPLICATION_ID + "/" + message.id);
+                    a.attr("href", link);
 
                     document.body().appendElement("p").appendChild(a);
 
-                    result.put("html", document.body().html());
+                    String html = document.body().html();
+                    String text = HtmlHelper.getText(context, html);
 
-                    if (!TextUtils.isEmpty(text))
-                        result.put("text", text);
-
+                    result.put("html", html);
+                    result.put("text", text);
                     result.put("attachments", db.attachment().getAttachments(message.id));
 
                     return result;
