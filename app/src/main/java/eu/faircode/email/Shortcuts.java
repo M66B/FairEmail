@@ -29,6 +29,9 @@ import android.content.pm.ShortcutManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -218,5 +221,77 @@ class Shortcuts {
         }
 
         return builder;
+    }
+
+    @NonNull
+    static ShortcutInfoCompat.Builder getMessage(Context context, EntityMessage message, ContactInfo[] contactInfo) {
+        Intent thread = new Intent(context, ActivityView.class);
+        thread.setAction("thread:" + message.id);
+        thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        thread.putExtra("account", message.account);
+        thread.putExtra("folder", message.folder);
+        thread.putExtra("thread", message.thread);
+        thread.putExtra("filter_archive", true);
+        thread.putExtra("pinned", true);
+
+        Bitmap bm;
+        if (contactInfo[0].hasPhoto())
+            bm = contactInfo[0].getPhotoBitmap();
+        else {
+            int resid = R.drawable.baseline_mail_24;
+            Drawable d = context.getDrawable(resid);
+            bm = Bitmap.createBitmap(
+                    d.getIntrinsicWidth(),
+                    d.getIntrinsicHeight(),
+                    Bitmap.Config.ARGB_8888);
+        }
+
+        String label;
+        if (!TextUtils.isEmpty(message.notes))
+            label = message.notes;
+        else if (!TextUtils.isEmpty(message.subject))
+            label = message.subject;
+        else
+            label = context.getString(R.string.app_name);
+
+        IconCompat icon = IconCompat.createWithBitmap(bm);
+        String id = "message:" + message.id;
+        return new ShortcutInfoCompat.Builder(context, id)
+                .setIcon(icon)
+                .setShortLabel(label)
+                .setLongLabel(label)
+                .setIntent(thread);
+    }
+
+    @NonNull
+    static ShortcutInfoCompat.Builder getFolder(Context context, EntityFolder folder) {
+        Intent view = new Intent(context, ActivityView.class);
+        view.setAction("folder:" + folder.id);
+        view.putExtra("account", folder.account);
+        view.putExtra("type", folder.type);
+        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        int resid = EntityFolder.getIcon(folder.type);
+        Drawable d = context.getDrawable(resid);
+        Bitmap bm = Bitmap.createBitmap(
+                d.getIntrinsicWidth(),
+                d.getIntrinsicHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bm);
+        d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        d.setTint(folder.color == null ? Color.DKGRAY : folder.color);
+        d.draw(canvas);
+
+        IconCompat icon = IconCompat.createWithBitmap(bm);
+        String id = "folder:" + folder.id;
+        return new ShortcutInfoCompat.Builder(context, id)
+                .setIcon(icon)
+                .setShortLabel(folder.getDisplayName(context))
+                .setLongLabel(folder.getDisplayName(context))
+                .setIntent(view);
+    }
+
+    static boolean can(Context context) {
+        return ShortcutManagerCompat.isRequestPinShortcutSupported(context);
     }
 }

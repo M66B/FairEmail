@@ -116,7 +116,6 @@ import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.graphics.drawable.IconCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -1734,7 +1733,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
-                    ibPin.setVisibility(tools && button_pin && ShortcutManagerCompat.isRequestPinShortcutSupported(context) ? View.VISIBLE : View.GONE);
+                    ibPin.setVisibility(tools && button_pin && pin ? View.VISIBLE : View.GONE);
                     ibShare.setVisibility(tools && button_share && message.content ? View.VISIBLE : View.GONE);
                     ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) && !outbox ? View.VISIBLE : View.GONE);
@@ -4168,7 +4167,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
-            popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(ShortcutManagerCompat.isRequestPinShortcutSupported(context));
+            popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(pin);
             popupMenu.getMenu().findItem(R.id.menu_event).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
@@ -4928,43 +4927,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, ContactInfo[] contactInfo) {
-                    Intent thread = new Intent(context, ActivityView.class);
-                    thread.setAction("thread:" + message.id);
-                    thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    thread.putExtra("account", message.account);
-                    thread.putExtra("folder", message.folder);
-                    thread.putExtra("thread", message.thread);
-                    thread.putExtra("filter_archive", true);
-                    thread.putExtra("pinned", true);
-
-                    Bitmap bm;
-                    if (contactInfo[0].hasPhoto())
-                        bm = contactInfo[0].getPhotoBitmap();
-                    else {
-                        int resid = R.drawable.baseline_mail_24;
-                        Drawable d = context.getDrawable(resid);
-                        bm = Bitmap.createBitmap(
-                                d.getIntrinsicWidth(),
-                                d.getIntrinsicHeight(),
-                                Bitmap.Config.ARGB_8888);
-                    }
-
-                    String label;
-                    if (!TextUtils.isEmpty(message.notes))
-                        label = message.notes;
-                    else if (!TextUtils.isEmpty(message.subject))
-                        label = message.subject;
-                    else
-                        label = context.getString(R.string.app_name);
-
-                    IconCompat icon = IconCompat.createWithBitmap(bm);
-                    String id = "message:" + message.id;
-                    ShortcutInfoCompat.Builder builder = new ShortcutInfoCompat.Builder(context, id)
-                            .setIcon(icon)
-                            .setShortLabel(label)
-                            .setLongLabel(label)
-                            .setIntent(thread);
-
+                    ShortcutInfoCompat.Builder builder =
+                            Shortcuts.getMessage(context, message, contactInfo);
                     ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
                 }
 
@@ -6915,9 +6879,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbUnsubscribe = dview.findViewById(R.id.cbUnsubscribe);
             final CheckBox cbRule = dview.findViewById(R.id.cbRule);
 
-            cbPin.setVisibility(
-                    ShortcutManagerCompat.isRequestPinShortcutSupported(context)
-                            ? View.VISIBLE : View.GONE);
+            cbPin.setVisibility(Shortcuts.can(context) ? View.VISIBLE : View.GONE);
 
             cbJunk.setChecked(prefs.getBoolean("button_junk", true));
             cbTrash.setChecked(prefs.getBoolean("button_trash", true));
