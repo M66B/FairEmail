@@ -106,6 +106,8 @@
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
     <string name="title_setup_quick">クイックセットアップ</string>
+    <string name="title_setup_intro">アカウントの設定はたったの3ステップだけで、その後はメールの送受信ができます。</string>
+    <string name="title_setup_simple">他のオプションを変更する必要はありません</string>
     <string name="title_setup_quick_accounts">アカウントを設定</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
@@ -628,6 +630,8 @@
     <string name="title_backoff_until">失敗後の待機時間: %1$s</string>
     <string name="title_storage_quota">サーバストレージ使用量:%1$s/%2$s</string>
     <string name="title_pop_support">POP3プロトコルは受信ボックスからのメッセージダウンロードと削除のみをサポートします。POP3はメッセージを既読としてマークしたりメッセージを移動したりする事は出来ません。POP3はIMAPよりも多くのバッテリー電力とデータを使用します。その為に可能な限りIMAPプロトコルの使用の検討して下さい</string>
+    <string name="title_pop_warning">POP3サーバがUIDLコマンドをサポートしていない場合、データ使用量が高くなる可能性があります。</string>
+    <string name="title_pop_folders">POP3プロトコルはフォルダの作成をサポートしていません</string>
     <string name="title_oauth_support">OAuthはサポートされていません</string>
     <string name="title_review">レビュー</string>
     <string name="title_hint_alias">長押しアクションのオプション(エイリアスIDを作成するコピーなど)</string>
@@ -726,6 +730,8 @@
     <string name="title_duplicate_in">%1$sのメッセージが重複しています</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">既読にする</string>
     <string name="title_unseen">未読にします</string>
     <string name="title_toggle_seen">読み取りの切り替え</string>
@@ -764,6 +770,7 @@
     <string name="title_raw_remaining">オリジナルメッセージをダウンロード: %1$d</string>
     <string name="title_ask_raw">メッセージを転送するには、生(オリジナル) メッセージをサーバーからダウンロードする必要があります。インターネット接続が必要です。</string>
     <string name="title_buttons">ボタンを選択</string>
+    <string name="title_buttons_hint">利用可能な実際のアクションは、アカウントの種類と構成によって異なります</string>
     <string name="title_configure_buttons">ボタンを設定 &#8230;</string>
     <string name="title_trash">ゴミ箱</string>
     <string name="title_copy">コピー &#8230;</string>
@@ -839,6 +846,7 @@
     <string name="title_ask_review_rationale">        FairEmail をしばらく使用しています。
         Play ストアで FairEmail を評価していただければ幸いです。
     </string>
+    <string name="title_need_help">支援が必要です</string>
     <string name="title_ask_once">「後ほど」を選択しない限り、このメッセージは一度しか表示されません。</string>
     <string name="title_third_party">サードパーティバージョンを使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$sがダウンロードされます</string>

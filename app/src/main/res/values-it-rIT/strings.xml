@@ -118,6 +118,8 @@
     <string name="title_setup">Impostazioni</string>
     <string name="title_setup_help">Aiuto</string>
     <string name="title_setup_quick">Configurazione rapida</string>
+    <string name="title_setup_intro">Configurare un account richiede solo tre passaggi e poi potrai già inviare e ricevere email</string>
+    <string name="title_setup_simple">Non c\'è bisogno di cambiare altre opzioni</string>
     <string name="title_setup_quick_accounts">Aggiungi account</string>
     <string name="title_setup_quick_support">Alcuni fornitori rendono difficile aggiungere un account. Per favore non incolpare FairEmail per questo ma chiedi aiuto invece.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
@@ -232,6 +234,7 @@
     <string name="title_advanced_section_encryption">Crittografia</string>
     <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_misc">Altro</string>
+    <string name="title_advanced_default">Tutte le opzioni hanno valori standard comunemente usati, che non devono essere modificati per utilizzare l\'app</string>
     <string name="title_advanced_receive">Ricevi messaggi per tutti gli account</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_always">Ricevi sempre messaggi per questi account</string>
@@ -640,6 +643,8 @@
     <string name="title_backoff_until">Attesa dopo il fallimento fino a: %1$s</string>
     <string name="title_storage_quota">Utilizzo archiviazione server: %1$s/%2$s</string>
     <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostare i messaggi, ecc. POP3 userà più energia e dati di IMAP. Quindi, considera l\'uso del protocollo IMAP quando possibile.</string>
+    <string name="title_pop_warning">Se un server POP3 non supporta il comando UIDL, l\'utilizzo dei dati potrebbe essere elevato. Quindi, regola in modo appropriato la frequenza di ricezione.</string>
+    <string name="title_pop_folders">Il protocollo POP3 non supporta la creazione di cartelle</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
     <string name="title_hint_alias">Premi a lungo per le opzioni, come copia per creare le identità alias</string>
@@ -738,6 +743,8 @@
     <string name="title_duplicate_in">Duplica messaggio in %1$s</string>
     <string name="title_subject_reply">R: %1$s</string>
     <string name="title_subject_forward">I: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
     <string name="title_toggle_seen">Attiva/disattiva lettura</string>
@@ -776,6 +783,7 @@
     <string name="title_raw_remaining">Messaggi grezzi da scaricare: %1$d</string>
     <string name="title_ask_raw">Per inoltrare i messaggi, i messaggi grezzi (originali) devono essere scaricati dal server. Ciò richiede una connessione Internet.</string>
     <string name="title_buttons">Seleziona pulsanti</string>
+    <string name="title_buttons_hint">Le azioni effettive disponibili dipendono dal tipo di account e dalla configurazione</string>
     <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
@@ -851,6 +859,7 @@
     <string name="title_ask_review_rationale">        Stai usando FairEmail da un po’.
         Sarebbe apprezzato se potessi votare FairEmail nel Play Store.
     </string>
+    <string name="title_need_help">Ho bisogno di aiuto</string>
     <string name="title_ask_once">Questo messaggio apparirà solo una volta, a meno che tu selezioni «Più tardi»</string>
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandendo questo messaggio verrà scaricato %1$s</string>
@@ -1326,6 +1335,7 @@
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
     <string name="title_pro_price">Perché le caratteristiche pro sono così costose?</string>
+    <string name="title_pro_family">Posso usare la Raccolta di famiglia di Google Play?</string>
     <string name="title_pro_restore">Come posso ripristinare un acquisto?</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
     <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>

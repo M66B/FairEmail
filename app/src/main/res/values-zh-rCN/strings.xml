@@ -631,6 +631,8 @@
     <string name="title_backoff_until">连接失败后等待: %1$s 秒</string>
     <string name="title_storage_quota">服务器存储用量： %1$s/%2$s</string>
     <string name="title_pop_support">POP3协议仅支持从收件箱下载并删除消息。POP3无法标记消息为已读、移动消息等。相比IMAP协议，POP3消耗的电量和数流量都更多。因此，尽可能考虑使用 IMAP 协议。</string>
+    <string name="title_pop_warning">如果一个 POP3 服务器不支持 UIDL 命令，数据使用量可能很高。因此相应调整下面检查新邮件的频率。</string>
+    <string name="title_pop_folders">POP3 协议不支持创建文件夹</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
@@ -729,8 +731,8 @@
     <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">回复：%1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">转发：%1$s</string>
+    <string name="title_subject_reply_alt">回复：%1$s</string>
+    <string name="title_subject_forward_alt">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_toggle_seen">切换已读状态</string>
@@ -769,6 +771,7 @@
     <string name="title_raw_remaining">要下载的原始消息: %1$d</string>
     <string name="title_ask_raw">转发消息要先从服务器下载原始消息，这需要网络连接</string>
     <string name="title_buttons">选择按钮</string>
+    <string name="title_buttons_hint">实际可用操作取决于账户类型和配置</string>
     <string name="title_configure_buttons">配置按钮 &#8230;</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>

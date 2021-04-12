@@ -627,6 +627,8 @@
     <string name="title_backoff_until">Đang đợi sau khi thất bại cho đến: %1$s</string>
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
     <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
+    <string name="title_pop_warning">Nếu một máy chủ POP3 không hỗ trợ lệnh UIDL, sử dụng dữ liệu có thể sẽ cao. Vậy nên, hãy theo đó mà điều chỉnh tần số kiểm tra ở dưới.</string>
+    <string name="title_pop_folders">Giao thức POP3 không hỗ trợ việc tạo thư mục</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
     <string name="title_review">Xem xét</string>
     <string name="title_hint_alias">Nhấn giữ một danh tính để hiển thị các tuỳ chọn, như là sao chép để tạo danh tính kiểu bí danh</string>
@@ -725,6 +727,8 @@
     <string name="title_duplicate_in">Nhân đôi thư trong %1$s</string>
     <string name="title_subject_reply">Trả lời: %1$s</string>
     <string name="title_subject_forward">Chuyển tiếp: %1$s</string>
+    <string name="title_subject_reply_alt">Trả lời: %1$s</string>
+    <string name="title_subject_forward_alt">Chuyển tiếp: %1$s</string>
     <string name="title_seen">Đánh dấu đã đọc</string>
     <string name="title_unseen">Đánh dấu chưa đọc</string>
     <string name="title_toggle_seen">Bật/tắt đã đọc</string>
@@ -763,6 +767,7 @@
     <string name="title_raw_remaining">Thư thô sẽ tải xuống: %1$d</string>
     <string name="title_ask_raw">Để chuyển tiếp thư, thư thô (thư gốc) cần được tải xuống từ máy chủ. Điều này yêu cầu kết nối internet.</string>
     <string name="title_buttons">Chọn các nút</string>
+    <string name="title_buttons_hint">Các hành động thực sự có sẵn còn tuỳ vào loại tài khoản và thiết lập tài khoản</string>
     <string name="title_configure_buttons">Thiết lập các nút &#8230;</string>
     <string name="title_trash">Thùng rác</string>
     <string name="title_copy">Sao chép &#8230;</string>

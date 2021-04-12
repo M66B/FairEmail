@@ -303,12 +303,13 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * * служба переднего плана * (FOREGROUND_SERVICE): чтобы запустить службу переднего плана на Android 9 Pie и более поздних версиях, см. также следующий вопрос
 * * запретить переход устройства в спящий режим * (WAKE_LOCK): чтобы устройство не спало во время синхронизации сообщений.
 * * биллинг в приложении * (BILLING): для разрешения покупок в приложении
-* Необязательно: *чтение ваших контактов* (READ_CONTACTS): для автозаполнения адресов, отображения фото и [выбора контактов](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Необязательно: *считывание содержимого вашей SD-карты* (READ_EXTERNAL_STORAGE): чтобы принимать файлы из других устаревших приложений, см. также [этот FAQ](#user-content-faq49)
-* Необязательно: * используйте оборудование для снятия отпечатков пальцев * (USE_FINGERPRINT) и используйте * биометрическое оборудование * (USE_BIOMETRIC): для использования биометрической аутентификации
-* Необязательно: * поиск учетных записей на устройстве * (GET_ACCOUNTS): для выбора учетной записи при использовании быстрой настройки Gmail
-* Android 5.1 Lollipop и более ранние версии: * использовать учетные записи на устройстве * (USE_CREDENTIALS): для выбора учетной записи при использовании быстрой настройки Gmail (не требуется в более поздних версиях Android)
-* Android 5.1 Lollipop и ниже: *Используют учетные записи устройства* (READ_PROFILE): чтобы узнать ваше имя во время быстрой настройки Gmail (не требуется в более поздних версиях Android)
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
+* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Необязательные разрешения](https://developer.android.com/training/permissions/requesting) поддерживаются только на Android 6 Marshmallow и позднее. В предыдущих версиях Android вам будет предложено предоставить дополнительные разрешения на установку FairEmail.
 

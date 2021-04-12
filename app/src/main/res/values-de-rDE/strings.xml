@@ -644,6 +644,8 @@
     <string name="title_backoff_until">Warten nach einem Fehler bis: %1$s</string>
     <string name="title_storage_quota">Server-Speicherauslastung: %1$s/%2$s</string>
     <string name="title_pop_support">Das POP3-Protokoll unterstützt das Herunterladen und Löschen von Nachrichten nur aus dem Posteingang. POP3 kann Nachrichten nicht markieren, Nachrichten verschieben, etc. POP3 verwendet mehr Akku- und Daten als IMAP. Daher erwägen Sie, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
+    <string name="title_pop_warning">Falls ein POP3-Server den Befehl UIDL nicht unterstützt, kann eine hohe Datenauslastung entstehen. Stellen Sie also die unten stehende Abfragefrequenz entsprechend ein.</string>
+    <string name="title_pop_folders">Das POP3-Protokoll unterstützt das Erstellen von Ordnern nicht</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
     <string name="title_review">Kontrolle</string>
     <string name="title_hint_alias">Lange Drücken für Optionen, wie z.B. Kopieren oder um Alias-Adressen zu erstellen</string>
@@ -741,8 +743,8 @@
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">AW: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Wg: %1$s</string>
+    <string name="title_subject_reply_alt">AW: %1$s</string>
+    <string name="title_subject_forward_alt">Wg: %1$s</string>
     <string name="title_seen">Gelesen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_toggle_seen">Gelesen umschalten</string>
@@ -781,6 +783,7 @@
     <string name="title_raw_remaining">Originalnachrichten zum Herunterladen: %1$d</string>
     <string name="title_ask_raw">Um Nachrichten weiterzuleiten, müssen die Originalnachrichten vom Server heruntergeladen werden. Dies erfordert eine Internetverbindung.</string>
     <string name="title_buttons">Schaltflächen auswählen</string>
+    <string name="title_buttons_hint">Die aktuell möglichen Aktionen hängen vom Kontotyp und der Konfiguration ab</string>
     <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>

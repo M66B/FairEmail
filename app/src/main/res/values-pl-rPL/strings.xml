@@ -139,6 +139,8 @@
     <string name="title_setup">Ustawienia</string>
     <string name="title_setup_help">Pomoc</string>
     <string name="title_setup_quick">Szybkie ustawienia</string>
+    <string name="title_setup_intro">Założenie konta to tylko trzy kroki, po których możesz wysyłać i odbierać wiadomości e-mail</string>
+    <string name="title_setup_simple">Nie ma potrzeby zmiany innych opcji</string>
     <string name="title_setup_quick_accounts">Dodaj konto</string>
     <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
@@ -253,6 +255,7 @@
     <string name="title_advanced_section_encryption">Szyfrowanie</string>
     <string name="title_advanced_section_notifications">Powiadomienia</string>
     <string name="title_advanced_section_misc">Różne</string>
+    <string name="title_advanced_default">Wszystkie opcje mają powszechnie używane wartości standardowe, które nie muszą być zmieniane, aby używać aplikacji</string>
     <string name="title_advanced_receive">Odbierz wiadomości ze wszystkich kont</string>
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
@@ -661,6 +664,7 @@
     <string name="title_backoff_until">Oczekiwanie po niepowodzeniu do: %1$s</string>
     <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>
     <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
+    <string name="title_pop_warning">Jeśli serwer POP3 nie obsługuje polecenia UIDL, użycie danych może być wysokie. Dlatego odpowiednio dostosuj częstotliwość odpytywania poniżej.</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
     <string name="title_hint_alias">Naciśnij i przytrzymaj tożsamość, aby wyświetlić opcje, np. kopiuj, aby utworzyć tożsamość aliasu</string>
@@ -759,6 +763,8 @@
     <string name="title_duplicate_in">Duplikat wiadomości w %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
+    <string name="title_subject_reply_alt">Odp: %1$s</string>
+    <string name="title_subject_forward_alt">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
     <string name="title_unseen">Oznacz jako nieprzeczytane</string>
     <string name="title_toggle_seen">Przeczytane/nieprzeczytane</string>
@@ -872,6 +878,7 @@
     <string name="title_ask_review_rationale">        Używasz FairEmail już od jakiegoś czasu.
         Byłbym wdzięczny, gdybyś mógł ocenić FairEmail w Sklepie Play.
     </string>
+    <string name="title_need_help">Potrzebuję pomocy</string>
     <string name="title_ask_once">Ta wiadomość pojawi się tylko raz, chyba że wybierzesz \'Później\'</string>
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>

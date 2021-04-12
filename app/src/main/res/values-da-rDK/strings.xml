@@ -634,6 +634,8 @@
     <string name="title_backoff_until">Ventetid efter fejl: %1$s</string>
     <string name="title_storage_quota">Serverlagerpladsforbrug: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder fra Indbakken. POP3 kan ikke markere beskeder som læste eller flytte dem mv. POP3 forbruger mere batteristrøm og data end IMAP, så overvej at benytte IMAP-protokollen, når det er muligt.</string>
+    <string name="title_pop_warning">Understøtter en POP3-server ikke UIDL-kommandoen, kan dataforbruget være højt. Justér derfor pollingsfrekvensen nedenfor.</string>
+    <string name="title_pop_folders">POP3-protokollen understøtter mappeoprettelse</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
     <string name="title_hint_alias">Tryk og hold for indstillinger, såsom kopiér for at oprette aliasidentiteter</string>
@@ -731,8 +733,8 @@
     <string name="title_duplicate_in">Dubletbeskeder i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vs: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Sv: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Vs: %1$s</string>
+    <string name="title_subject_reply_alt">Sv: %1$s</string>
+    <string name="title_subject_forward_alt">Vs: %1$s</string>
     <string name="title_seen">Markér som læst</string>
     <string name="title_unseen">Markér som ulæst</string>
     <string name="title_toggle_seen">Slå læst til/fra</string>
@@ -769,6 +771,7 @@
     <string name="title_save_eml">Gem besked i råformatsfil</string>
     <string name="title_raw_remaining">Rå beskeder at downloade: %1$d</string>
     <string name="title_ask_raw">Beskedvideresendelse kræver download af de rå (originelle) beskeder fra serveren, hvilket kræver Internetforbindelse.</string>
+    <string name="title_buttons_hint">De faktisk tilgængelige handlinger afhænger af kontotype og opsætning</string>
     <string name="title_trash">Papirkurv</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>

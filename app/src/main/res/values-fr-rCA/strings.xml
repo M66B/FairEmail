@@ -119,7 +119,7 @@
     <string name="title_setup_help">Aide</string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des courriels</string>
-    <string name="title_setup_simple">Il n\'est pas nécessaire de changer d\'autres options</string>
+    <string name="title_setup_simple">Il n\'est pas nécessaire de modifier d\'autres options</string>
     <string name="title_setup_quick_accounts">Ajouter des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -643,6 +643,8 @@
     <string name="title_backoff_until">Attente après l\'échec jusqu\'à : %1$s</string>
     <string name="title_storage_quota">Utilisation du stockage sur le serveur : %1$s/%2$s</string>
     <string name="title_pop_support">Le protocole POP3 prend en charge le téléchargement et la suppression des messages depuis la boîte de réception uniquement. POP3 ne permet pas de marquer les messages comme lus, de les déplacer, etc. POP3 utilisera davantage de pile et de données qu’IMAP. Par conséquent, envisagez d’utiliser le protocole IMAP lorsque cela est possible.</string>
+    <string name="title_pop_warning">Si un serveur POP3 ne prend pas en charge la commande UIDL, l\'utilisation des données peut être élevée. Ajustez donc la fréquence de synchronisation ci-dessous en conséquence.</string>
+    <string name="title_pop_folders">Le protocole POP3 ne permet pas la création de dossiers</string>
     <string name="title_oauth_support">OAuth n’est pas pris en charge</string>
     <string name="title_review">Récapitulatif</string>
     <string name="title_hint_alias">Appuyer longuement pour les options, comme copier pour créer des identités alias</string>
@@ -741,8 +743,8 @@
     <string name="title_duplicate_in">Message en double dans %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Re: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Tr: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Tr: %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
     <string name="title_toggle_seen">Marquer lu/non lu</string>
@@ -781,6 +783,7 @@
     <string name="title_raw_remaining">Messages bruts à télécharger : %1$d</string>
     <string name="title_ask_raw">Pour transférer des messages, les messages bruts (originaux) doivent être téléchargés depuis le serveur. Ceci nécessite une connexion Internet.</string>
     <string name="title_buttons">Sélectionner les boutons</string>
+    <string name="title_buttons_hint">Les actions réellement disponibles dépendent du type de compte et de la configuration</string>
     <string name="title_configure_buttons">Configurer les boutons&#8230;</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>

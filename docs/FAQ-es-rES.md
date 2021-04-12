@@ -303,12 +303,13 @@ The following Android permissions are needed:
 * *servicio de primer plano* (FOREGROUND_SERVICE): para ejecutar un servicio de primer plano en Android 9 Pie y posterior, ver también la siguiente pregunta
 * *evitar que el dispositivo duerme* (WAKE_LOCK): para mantener el dispositivo despierto mientras sincroniza los mensajes
 * *facturación in-app* (BILLING): para permitir compras en la app
-* Opcional: *leer sus contactos* (READ_CONTACTS): para autocompletar direcciones, mostrar fotos de contacto y [ seleccionar contactos](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Opcional: *lee el contenido de tu tarjeta SD* (READ_EXTERNAL_STORAGE): para aceptar archivos de otras aplicaciones desactualizadas, consulta también [este FAQ](#user-content-faq49)
-* Opcional: *usar hardware de huella dactilar* (USE_FINGERPRINT) y usar *hardware biométrico* (USE_BIOMETRIC): para usar autenticación biométrica
-* Opcional: *encontrar cuentas en el dispositivo* (GET_ACCOUNTS) para seleccionar una cuenta cuando se utiliza la configuración rápida de Gmail
-* Android 5. Lollipop y antes: *usar cuentas en el dispositivo* (USE_CREDENTIALS): para seleccionar una cuenta al usar la configuración rápida de Gmail (no solicitada en versiones posteriores de Android)
-* Android 5. Lollipop y antes: *usar cuentas en el dispositivo* (USE_CREDENTIALS): para seleccionar una cuenta al usar la configuración rápida de Gmail (no solicitada en versiones posteriores de Android)
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
+* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Permisos opcionales](https://developer.android.com/training/permissions/requesting) son compatibles sólo en Android 6 Marshmallow y posteriores. En versiones anteriores de Android se le pedirá que conceda los permisos opcionales para instalar FairEmail.
 
@@ -1032,7 +1033,7 @@ Possible causes are:
 First try to wait some time to see if the problem resolves itself, else:
 
 * either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
-* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
+* o configure algunas carpetas para sondear en lugar de sincronizar (mantenga presionada una carpeta de la lista de carpetas, editar propiedades)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 

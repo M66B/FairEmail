@@ -640,6 +640,8 @@
     <string name="title_backoff_until">Αναμονή μετά από μία αποτυχία μέχρι: %1$s</string>
     <string name="title_storage_quota">Χρήση χωρητικότητας διακομιστή: %1$s/%2$s</string>
     <string name="title_pop_support">Το πρωτόκολλο POP3 υποστηρίζει το κατέβασμα και τη διαγραφή μηνυμάτων μόνον από τα εισερχόμενα. Το POP3 δεν μπορεί να επισημαίνει μηνύματα ως αναγνωσμένα, να τα μετακινεί, κλπ. Το POP3 καταναλώνει περισσότερη μπαταρία και δεδομένα από το IMAP. Συνεπώς, σκεφτείτε να χρησιμοποιείτε το πρωτόκολλο IMAP όποτε είναι δυνατόν.</string>
+    <string name="title_pop_warning">Εάν ένας POP3 διακομιστής δεν υποστηρίζει την εντολή UIDL, η χρήση δεδομένων μπορεί να είναι υψηλή. Συνεπώς, ρυθμίστε, παρακάτω, τη συχνότητα συγχρονισμού αναλόγως.</string>
+    <string name="title_pop_folders">Το πρωτόκολλο POP3 δεν υποστηρίζει τη δημιουργία φακέλων</string>
     <string name="title_oauth_support">Δεν υποστηρίζεται OAuth</string>
     <string name="title_review">Επανέλεγχος</string>
     <string name="title_hint_alias">Παρατεταμένο πάτημα πάνω σε μια ταυτότητα για να εμφανιστούν οι επιλογές, όπως αντιγραφή για τη δημιουργία ψευδώνυμων ταυτοτήτων</string>
@@ -738,8 +740,8 @@
     <string name="title_duplicate_in">Διπλότυπο μήνυμα σε %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Απ: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Πρθ: %1$s</string>
+    <string name="title_subject_reply_alt">Απ: %1$s</string>
+    <string name="title_subject_forward_alt">Πρθ: %1$s</string>
     <string name="title_seen">Σήμανση ως αναγνωσμένο</string>
     <string name="title_unseen">Σήμανση ως μη αναγνωσμένο</string>
     <string name="title_toggle_seen">(Μη) αναγνωσμένο</string>
@@ -778,6 +780,7 @@
     <string name="title_raw_remaining">Ακατέργαστα μηνύματα για λήψη: %1$d</string>
     <string name="title_ask_raw">Για να προωθήσετε μηνύματα, τα ακατέργαστα (αρχικά) μηνύματα πρέπει να ληφθούν από τον διακομιστή. Απαιτείται σύνδεση στο διαδίκτυο για αυτό.</string>
     <string name="title_buttons">Επιλέξτε κουμπιά</string>
+    <string name="title_buttons_hint">Οι όντως διαθέσιμες ενέργειες εξαρτώνται από τον τύπο και τη ρύθμιση του λογαριασμού</string>
     <string name="title_configure_buttons">Ρύθμιση κουμπιών &#8230;</string>
     <string name="title_trash">Απορρίμματα</string>
     <string name="title_copy">Αντιγραφή &#8230;</string>

@@ -303,8 +303,9 @@ Následující Android oprávnění jsou potřeba:
 * *služba na popředí* (FOREGROUND_SERVICE): pro spuštění služby na popředí na Androidu 9 Pie a pozdějších, viz také další otázka
 * *bránění spánku zařízení* (WAKE_LOCK): pro udržení zařízení vzhůru v průběhu synchronizace zpráv
 * *nákupy v aplikaci* (BILLING): pro umožnění nákupů v aplikaci
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
 * Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Volitelně: *čtení obsahu vaší SD karty* (READ_EXTERNAL_STORAGE): pro příjem souborů od jiných, zastaralých aplikací, viz také [tento nejčastější dotaz](#user-content-faq49)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)

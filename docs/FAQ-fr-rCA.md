@@ -303,12 +303,13 @@ Les autorisations Android suivantes sont nécessaires :
 * *exécuter un service de premier plan* (FOREGROUND_SERVICE) : pour exécuter un service de premier plan sur Android 9 Pie et ultérieur. Voir aussi la question suivante
 * *empêcher le téléphone de passer en mode veille* (WAKE_LOCK): pour garder l'appareil éveillé lors de la synchronisation des messages
 * *Service de facturation Google Play* (BILLING): pour permettre les achats dans l'application
-* Optionnel: *lire vos contacts* (READ_CONTACTS): pour compléter automatiquement les adresses, pour afficher les photos de contact et [pour choisir les contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Facultatif : *lire le contenu de votre carte SD* (READ_EXTERNAL_STORAGE): pour accepter des fichiers provenant d'autres applications obsolètes, voir aussi [cette question](#user-content-faq49)
-* Facultatif : *utiliser le matériel d'empreintes digitales* (USE_FINGERPRINT) et *utiliser les composants biométriques* (USE_BIOMETRIC): pour utiliser l'authentification biométrique
-* Facultatif : *rechercher des comptes sur l'appareil* (GET_ACCOUNTS): pour sélectionner un compte lors de la configuration rapide de Gmail
-* Android 5.1 Lollipop et antérieur: *utiliser les comptes sur l'appareil* (USE_CREDENTIALS): pour sélectionner un compte lors de la configuration rapide de Gmail (non demandée pour les versions ultérieures d'Android)
-* Android 5.1 Lollipop et antérieur : *Lire le profil* (READ_PROFILE): pour lire votre nom lorsque vous utilisez la configuration rapide de Gmail (non demandée pour les versions ultérieures d'Android)
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
+* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Les autorisations facultatives](https://developer.android.com/training/permissions/requesting) ne sont prises en charge que sur Android 6 Marshmallow et ultérieur. Sur les versions antérieures d'Android, il vous sera demandé d'accorder les autorisations facultatives à l'installation de FairEmail.
 
@@ -529,7 +530,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Pourquoi les messages envoyés n'apparaissent-ils pas (directement) dans le dossier « Envoyés » ? **
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 

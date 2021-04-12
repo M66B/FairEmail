@@ -303,12 +303,13 @@ Sono necessarie le seguenti autorizzazioni Android:
 * *servizio in primo piano* (FOREGROUND_SERVICE): per eseguire un servizio in primo piano su Android 9 Pie e successive, vedi anche la prossima domanda
 * *prevenire che il dispositivo vada in riposo* (WAKE_LOCK): per mantenere attivo il dispositivo durante la sincronizzazione dei messaggi
 * *fatturazione in-app* (BILLING): per consentire gli acquisti in-app
-* Opzionale: *leggi i tuoi contatti* (READ_CONTACTS): per completare gli indirizzi automaticamente, per visualizzare le foto dei contatti e [per selezionare i contatti](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Opzionale: *leggere i contenuti della tua scheda SD* (READ_EXTERNAL_STORAGE): per accettare i file da altre app obsolete, vedi anche [questa FAQ](#user-content-faq49)
-* Opzionale: *usa l'hardware delle impronte digitali* (USE_FINGERPRINT) e usa *l'hardware biometrico* (USE_BIOMETRIC): per usare l'autenticazione biometrica
-* Opzionale: *trova profili sul dispositivo* (GET_ACCOUNTS): per selezionare un profilo quando si utilizza la configurazione rapida di Gmail
-* Android 5.1 e precedenti: *usa profili sul dispositivo* (USE_CREDENTIALS): per selezionare un profilo quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
-* Android 5.1 Lollipop e precedenti: *Leggi profilo* (READ_PROFILE): per leggere il tuo nome quando usi la configurazione rapida di Gmail (non necessario sulle versioni di Android successive)
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
+* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Autorizzazioni opzionali](https://developer.android.com/training/permissions/requesting) sono supportate soltanto da Android 6 Marshmallow e versioni successive. Con versioni precedenti di Android, verrà chiesto di concedere le autorizzazioni facoltative per l'installazione di FairEmail.
 

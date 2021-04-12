@@ -665,6 +665,8 @@
     <string name="title_backoff_until">Ожидание после ошибки до: %1$s</string>
     <string name="title_storage_quota">Занято на сервере: %1$s/%2$s</string>
     <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
+    <string name="title_pop_warning">Если сервер POP3 не поддерживает команду UIDL, объём передаваемых данных может быть большим. Установите ниже приемлемую частоту опроса.</string>
+    <string name="title_pop_folders">Протокол POP3 не поддерживает создание папок</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
     <string name="title_hint_alias">Длительное нажатие откроет другие действия, например, копирования для создания псевдонима идентификатора.</string>
@@ -763,8 +765,8 @@
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
-    <string name="title_subject_reply_alt" comment="title_subject_reply_alt&#10;Alternative reply prefix (for removal only).">Re: %1$s</string>
-    <string name="title_subject_forward_alt" comment="title_subject_forward_alt&#10;Alternative forward prefix (for removal only).">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
     <string name="title_toggle_seen">Прочитано/непрочитано</string>
@@ -803,6 +805,7 @@
     <string name="title_raw_remaining">Исходные сообщения для загрузки: %1$d</string>
     <string name="title_ask_raw">Чтобы переслать сообщения, необходимо загрузить необработанные (исходные) сообщения с сервера. Для этого необходимо подключение к интернету.</string>
     <string name="title_buttons">Выбрать кнопки</string>
+    <string name="title_buttons_hint">Доступные действия зависят от типа учётной записи и конфигурации</string>
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать&#8230;</string>

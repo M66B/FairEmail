@@ -2,7 +2,7 @@
 
 # FairEmail 지원
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+문의사항이 있으면, 먼저 하단의 자주 묻는 질문들을 확인해 주세요. [아래에서](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) 질문 및 수정사항을 요청하는 방법을 찾으실 수 있습니다.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -18,15 +18,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## 계정 인증
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+대부분의 경우 빠른 설정은 올바른 구성을 자동으로 식별할 수 있습니다.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+빠른 설정이 실패할 경우 수동으로 계정(이메일을 수신할 계정) 과 인증(이메일을 보낼 계정) 을 설정해야 합니다. 이를 위해 SSL/TLS 또는 STARTTLS를 사용하고 있다면, IMAP과 SMTP 서버 주소와 포트 번호, 사용자 이름(대부분의 경우 이메일 주소) 및 비밀번호가 필요합니다.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+*IMAP*과 각종 설정에 대한 문서를 찾는 것은 쉽습니다.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+경우에 따라 계정에 대한 외부 액세스를 활성화하거나 특수(앱) 암호를 사용해야 합니다. 예를 들어, 2단계 인증을 사용할 수 있습니다.
 
-For authorizing:
+인증:
 
 * Gmail/ G Suite의 경우 [질문 6번](#user-content-faq6)을 확인하세요.
 * Outlook / Live / Hotmail의 경우 [질문 14번](#user-content-faq14)을 확인하세요.
@@ -36,9 +36,9 @@ For authorizing:
 * Apple iCloud의 경우 [질문 148번](#user-content-faq148)을 확인하세요.
 * Free.fr의 경우 [질문 157번](#user-content-faq157)을 확인하세요.
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+일반적인 오류 메시지 및 해결 방법은 [여기](#user-content-faq22)를 참조하세요.
 
-Related questions:
+관련 질문:
 
 * [OAuth를 지원합니까?](#user-content-faq111)
 * [왜 ActiveSync는 지원하지 않습니까?](#user-content-faq133)
@@ -303,6 +303,7 @@ The following Android permissions are needed:
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
 * *in-app billing* (BILLING): to allow in-app purchases
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
 * Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication

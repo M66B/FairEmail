@@ -303,12 +303,13 @@ The following Android permissions are needed:
 * *förgrundstjänst* (FOREGROUND_SERVICE): att köra en förgrundstjänst på Android 9 Pie och senare, se även nästa fråga
 * *förhindra enheten från att sova* (WAKE_LOCK): för att hålla enheten vaken vid synkronisering av meddelanden
 * *i-app fakturering* (BILLING): för att tillåta i-app köp
+* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
 * Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Valfritt: *läs innehållet på ditt SD-kort* (READ_EXTERNAL_STORAGE): för att acceptera filer från andra, ej uppdaterade appar, se även [denna FAQ](#user-content-faq49)
-* Valfritt: *använd maskinvara för fingeravtryck* (USE_FINGERPRINT) och använd *biometrisk hårdvara* (USE_BIOMETRIC): för att använda biometrisk autentisering
-* Valfritt: *hitta konton på enheten* (GET_ACCOUNTS): för att välja ett konto när du använder Gmail snabbinställning
-* Android 5. Lollipop och tidigare: *använda konton på enheten* (USE_CREDENTIALS): för att välja ett konto när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
-* Android 5. Lollipop och tidigare: *Läs profil* (READ_PROFILE): för att läsa ditt namn när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 

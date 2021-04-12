@@ -303,12 +303,13 @@ Flg. Android-tilladelser kræves:
 * *forgrundstjeneste* (FOREGROUND_SERVICE): For at køre en forgrundstjeneste på Android 9 Pie og senere, se også næste spørgsmål
 * *forhindre enhed i at sove* (WAKE_LOCK): For at holde enheden vågen, mens beskeder synkroniseres
 * *in-app fakturering* (BILLING): For at tillade køb direkte i appen
-* Valgfrit: *Læs dine kontakter* (READ_CONTACTS): For automatisk at udfylde adresser, vise kontaktfotos samt [vælge kontakter](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Valgfri: *læse indholdet af dit SD-kort* (READ_EXTERNAL_STORAGE): For at acceptere filer fra andre, forældede apps, se også [denne FAQ](#user-content-faq49)
-* Valgfri: *benyt fingeraftrykshardware* (USE_FINGERPRINT) og benyt *biometrisk hardware* (USE_BIOMETRIC): For at benytte biometrisk godkendelse
-* Valgfri: *find konti på enheden* (GET_ACCOUNTS): For at vælge en konto ifm. Gmails hurtig-opsætning
-* Android 5.1 Lollipop og ældre: *Benyt konti på enheden* (USE_CREDENTIALS): For at vælge en konto ifm. Gmails hurtig-opsætning (senere Android-version benytter ikke denne forespørgsel)
-* Android 5.1 Lollipop og ældre: *Læse profil* (READ_PROFILE): For at læse dit navn ifm. Gmails hurtig-opsætning (senere Android-version benytter ikke denne forespørgsel)
+* *planlæg eksakt alarm* (SCHEDULE_EXACT_ALARM): For præcis alarmplanlægning (Android 12 og senere)
+* Valgfrit: *Læs kontakter* (READ_CONTACTS): For automatisk adresseautofuldførelse, kontaktfotovisning samt [kontaktvalg](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Valgfri: *Læs SD-kortindhold* (READ_EXTERNAL_STORAGE): For at acceptere filer fra andre, forældede apps (tjek også [denne FAQ](#user-content-faq49))
+* Valgfri: Benyt *fingeraftrykshardware* (USE_FINGERPRINT) og *biometrisk hardware* (USE_BIOMETRIC): For at benytte biometrisk godkendelse
+* Valgfri: *Find konti på enheden* (GET_ACCOUNTS): For at vælge en konto ifm. Gmails hurtig-opsæning
+* Op til Android 5.1 Lollipop: *Benyt konti på enheden* (USE_CREDENTIALS): For kontovalg ifm. Gmails hurtigopsætning (senere OS-version benytter ikke denne forespørgsel)
+* Op til Android 5.1 Lollipop: *Læs profil* (READ_PROFILE): For at læse brugerens navn ifm. Gmails hurtigopsætning (senere OS-version benytter ikke denne forespørgsel)
 
 [Valgfrie tilladelser](https://developer.android.com/training/permissions/requesting) understøttes kun på Android 6 Marshmallow og nyere. Tidligere Android-versioner anmoder om at tildele de valgfri tilladelser ved installation af FairEmail.
 
