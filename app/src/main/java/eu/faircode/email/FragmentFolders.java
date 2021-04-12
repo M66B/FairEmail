@@ -291,12 +291,10 @@ public class FragmentFolders extends FragmentBase {
                     else
                         fabError.hide();
 
-                    if (!primary) {
-                        if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
-                            fabAdd.hide();
-                        else
-                            fabAdd.show();
-                    }
+                    if (account == null || !imap || primary)
+                        fabAdd.hide();
+                    else
+                        fabAdd.show();
                 }
             });
 
