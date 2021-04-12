@@ -187,6 +187,12 @@ public class FragmentFolders extends FragmentBase {
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Boolean pop = (Boolean) v.getTag();
+                if (pop != null && pop) {
+                    ToastEx.makeText(v.getContext(), R.string.title_pop_folders, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 FragmentFolder fragment = new FragmentFolder();
@@ -291,10 +297,12 @@ public class FragmentFolders extends FragmentBase {
                     else
                         fabError.hide();
 
-                    if (account == null || !imap || primary)
+                    if (account == null || primary)
                         fabAdd.hide();
-                    else
+                    else {
+                        fabAdd.setTag(!imap);
                         fabAdd.show();
+                    }
                 }
             });
 
