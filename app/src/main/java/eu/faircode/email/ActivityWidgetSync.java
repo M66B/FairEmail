@@ -112,6 +112,8 @@ public class ActivityWidgetSync extends ActivityBase {
             }
         });
 
+        btnColor.setColor(Color.TRANSPARENT);
+
         setResult(RESULT_CANCELED, resultValue);
     }
 }

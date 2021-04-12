@@ -48,12 +48,16 @@ public class WidgetSync extends AppWidgetProvider {
             for (int appWidgetId : appWidgetIds) {
                 boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                 int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+                int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
                 RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_sync);
                 views.setOnClickPendingIntent(R.id.ivSync, pi);
                 views.setImageViewResource(R.id.ivSync, enabled ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
 
-                if (background != Color.TRANSPARENT) {
+                if (background == Color.TRANSPARENT) {
+                    if (!semi && version > 1550)
+                        views.setInt(R.id.widget, "setBackgroundColor", background);
+                } else {
                     float lum = (float) ColorUtils.calculateLuminance(background);
 
                     if (semi)

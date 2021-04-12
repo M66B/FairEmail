@@ -95,7 +95,10 @@ public class WidgetUnified extends AppWidgetProvider {
 
             views.setPendingIntentTemplate(R.id.lv, piItem);
 
-            if (background != Color.TRANSPARENT) {
+            if (background == Color.TRANSPARENT) {
+                if (!semi && version > 1550)
+                    views.setInt(R.id.widget, "setBackgroundColor", background);
+            } else {
                 float lum = (float) ColorUtils.calculateLuminance(background);
 
                 if (semi)

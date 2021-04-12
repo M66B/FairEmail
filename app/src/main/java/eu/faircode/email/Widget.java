@@ -123,7 +123,10 @@ public class Widget extends AppWidgetProvider {
                         views.setViewVisibility(R.id.tvAccount, ViewStripe.VISIBLE);
                     }
 
-                    if (background != Color.TRANSPARENT) {
+                    if (background == Color.TRANSPARENT) {
+                        if (!semi && version > 1550)
+                            views.setInt(R.id.widget, "setBackgroundColor", background);
+                    } else {
                         float lum = (float) ColorUtils.calculateLuminance(background);
 
                         if (semi)

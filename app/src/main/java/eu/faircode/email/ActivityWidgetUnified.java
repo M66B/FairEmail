@@ -256,6 +256,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         adapterPadding.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spPadding.setAdapter(adapterPadding);
 
+        btnColor.setColor(Color.TRANSPARENT);
+
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 

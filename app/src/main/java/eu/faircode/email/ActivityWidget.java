@@ -180,6 +180,7 @@ public class ActivityWidget extends ActivityBase {
         ((TextView) inOld.findViewById(R.id.tvCount)).setText("12");
         ((TextView) inNew.findViewById(R.id.tvCount)).setText("12");
 
+        btnColor.setColor(Color.TRANSPARENT);
         setBackground();
 
         grpReady.setVisibility(View.GONE);
@@ -223,8 +224,13 @@ public class ActivityWidget extends ActivityBase {
         boolean semi = cbSemiTransparent.isChecked();
         int background = btnColor.getColor();
         if (background == Color.TRANSPARENT) {
-            inOld.setBackgroundResource(R.drawable.widget_background);
-            inNew.setBackgroundResource(R.drawable.widget_background);
+            if (semi) {
+                inOld.setBackgroundResource(R.drawable.widget_background);
+                inNew.setBackgroundResource(R.drawable.widget_background);
+            } else {
+                inOld.setBackgroundColor(background);
+                inNew.setBackgroundColor(background);
+            }
         } else {
             float lum = (float) ColorUtils.calculateLuminance(background);
             int color = (lum > 0.7 ? Color.BLACK : getResources().getColor(R.color.colorWidgetForeground));
