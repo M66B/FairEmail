@@ -66,12 +66,18 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     if (path == null)
                         return null;
                     String[] parts = path.split("/");
-                    if (parts.length < 1)
+                    if (parts.length < 3)
                         return null;
-                    long id = Long.parseLong(parts[1]);
+
+                    long account = Long.parseLong(parts[1]);
+                    String msgid = parts[2];
 
                     DB db = DB.getInstance(context);
-                    return db.message().getMessage(id);
+                    List<EntityMessage> messages = db.message().getMessagesByMsgId(account, msgid);
+                    if (messages == null || messages.size() == 0)
+                        return null;
+
+                    return messages.get(0);
                 }
 
                 @Override
