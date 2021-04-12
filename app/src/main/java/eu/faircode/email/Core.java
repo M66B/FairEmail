@@ -4109,6 +4109,7 @@ class Core {
         boolean notify_reply_direct = (prefs.getBoolean("notify_reply_direct", false) && pro);
         boolean notify_flag = (prefs.getBoolean("notify_flag", false) && flags && pro);
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
+        boolean notify_hide = (prefs.getBoolean("notify_hide", false) && pro);
         boolean notify_snooze = (prefs.getBoolean("notify_snooze", false) && pro);
         boolean notify_remove = prefs.getBoolean("notify_remove", true);
         boolean light = prefs.getBoolean("light", false);
@@ -4546,6 +4547,23 @@ class Core {
                 mbuilder.addAction(actionSeen.build());
 
                 wactions.add(actionSeen.build());
+            }
+
+            if (notify_hide) {
+                Intent hide = new Intent(context, ServiceUI.class)
+                        .setAction("hide:" + message.id)
+                        .putExtra("group", group);
+                PendingIntent piHide = PendingIntentCompat.getService(
+                        context, ServiceUI.PI_HIDE, hide, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionHide = new NotificationCompat.Action.Builder(
+                        R.drawable.twotone_visibility_off_24,
+                        context.getString(R.string.title_advanced_notify_action_hide),
+                        piHide)
+                        .setShowsUserInterface(false)
+                        .setAllowGeneratedReplies(false);
+                mbuilder.addAction(actionHide.build());
+
+                wactions.add(actionHide.build());
             }
 
             if (notify_snooze) {

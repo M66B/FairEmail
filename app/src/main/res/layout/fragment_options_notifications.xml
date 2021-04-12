@@ -283,13 +283,22 @@
             app:layout_constraintTop_toBottomOf="@id/cbNotifyActionFlag" />
 
         <CheckBox
+            android:id="@+id/cbNotifyActionHide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_action_hide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
+
+        <CheckBox
             android:id="@+id/cbNotifyActionSnooze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/title_advanced_notify_action_snooze"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionHide" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvNotifyActionsHint"

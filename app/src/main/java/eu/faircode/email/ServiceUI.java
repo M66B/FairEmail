@@ -54,9 +54,10 @@ public class ServiceUI extends IntentService {
     static final int PI_REPLY_DIRECT = 6;
     static final int PI_FLAG = 7;
     static final int PI_SEEN = 8;
-    static final int PI_SNOOZE = 9;
-    static final int PI_IGNORED = 10;
-    static final int PI_THREAD = 11;
+    static final int PI_HIDE = 9;
+    static final int PI_SNOOZE = 10;
+    static final int PI_IGNORED = 11;
+    static final int PI_THREAD = 12;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -137,6 +138,11 @@ public class ServiceUI extends IntentService {
                 case "seen":
                     cancel(group, id);
                     onSeen(id);
+                    break;
+
+                case "hide":
+                    cancel(group, id);
+                    onHide(id);
                     break;
 
                 case "snooze":
@@ -374,6 +380,25 @@ public class ServiceUI extends IntentService {
             EntityOperation.queue(this, message, EntityOperation.SEEN, true);
 
             db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private void onHide(long id) {
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            db.message().setMessageSnoozed(message.id, Long.MAX_VALUE);
+            db.message().setMessageUiIgnored(message.id, true);
+
+            db.setTransactionSuccessful();
+
         } finally {
             db.endTransaction();
         }
