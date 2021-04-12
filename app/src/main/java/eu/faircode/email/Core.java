@@ -2493,7 +2493,7 @@ class Core {
                         modseq = ifolder.getHighestModSeq();
                         modified = (force || initialize != 0 ||
                                 folder.modseq == null || !folder.modseq.equals(modseq));
-                        Log.i(folder.name + " modseq=" + modseq + "/" + folder.modseq + " modified=" + modified);
+                        EntityLog.log(context, folder.name + " modseq=" + modseq + "/" + folder.modseq + " modified=" + modified);
                     }
                 } catch (MessagingException ex) {
                     Log.w(folder.name, ex);
