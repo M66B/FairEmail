@@ -24,7 +24,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -238,10 +237,6 @@ public class EntityMessage implements Serializable {
         // https://www.jwz.org/doc/mid.html
         // https://tools.ietf.org/html/rfc2822.html#section-3.6.4
         return "<" + UUID.randomUUID() + "@" + domain + '>';
-    }
-
-    String getLink() {
-        return "message://" + BuildConfig.APPLICATION_ID + "/" + this.account + "/" + Uri.encode(this.msgid);
     }
 
     boolean replySelf(List<TupleIdentityEx> identities, long account) {
