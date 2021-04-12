@@ -68,6 +68,7 @@ import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -3819,12 +3820,8 @@ public class FragmentCompose extends FragmentBase {
                         // Subject
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
-                            if (prefix_once) {
-                                for (String re : Helper.getStrings(context, ref.language, R.string.title_subject_reply, ""))
-                                    subject = unprefix(subject, re);
-                                for (String re : Helper.getStrings(context, ref.language, R.string.title_subject_reply_alt, ""))
-                                    subject = unprefix(subject, re);
-                            }
+                            if (prefix_once)
+                                subject = collapsePrefixes(context, ref.language, subject, false);
                             data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_reply, subject);
 
                             String t = args.getString("text");
@@ -3839,12 +3836,8 @@ public class FragmentCompose extends FragmentBase {
                                 document.body().appendChild(div);
                             }
                         } else if ("forward".equals(action)) {
-                            if (prefix_once) {
-                                for (String fwd : Helper.getStrings(context, ref.language, R.string.title_subject_forward, ""))
-                                    subject = unprefix(subject, fwd);
-                                for (String fwd : Helper.getStrings(context, ref.language, R.string.title_subject_forward_alt, ""))
-                                    subject = unprefix(subject, fwd);
-                            }
+                            if (prefix_once)
+                                subject = collapsePrefixes(context, ref.language, subject, true);
                             data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
                             if (ref.from != null && ref.from.length == 1) {
@@ -5259,6 +5252,42 @@ public class FragmentCompose extends FragmentBase {
         while (subject.toLowerCase().startsWith(prefix))
             subject = subject.substring(prefix.length()).trim();
         return subject;
+    }
+
+    private static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
+        List<Pair<String, Boolean>> prefixes = new ArrayList<>();
+        for (String re : Helper.getStrings(context, language, R.string.title_subject_reply, ""))
+            prefixes.add(new Pair<>(re.trim().toLowerCase(), false));
+        for (String re : Helper.getStrings(context, language, R.string.title_subject_reply_alt, ""))
+            prefixes.add(new Pair<>(re.trim().toLowerCase(), false));
+        for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward, ""))
+            prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
+        for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward_alt, ""))
+            prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
+
+        List<Boolean> scanned = new ArrayList<>();
+        subject = subject.trim();
+        while (true) {
+            boolean found = false;
+            for (Pair<String, Boolean> prefix : prefixes)
+                if (subject.toLowerCase().startsWith(prefix.first)) {
+                    found = true;
+                    int count = scanned.size();
+                    if (!prefix.second.equals(count == 0 ? forward : scanned.get(count - 1)))
+                        scanned.add(prefix.second);
+                    subject = subject.substring(prefix.first.length()).trim();
+                    break;
+                }
+            if (!found)
+                break;
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < scanned.size(); i++)
+            result.append(context.getString(scanned.get(i) ? R.string.title_subject_forward : R.string.title_subject_reply, ""));
+        result.append(subject);
+
+        return result.toString();
     }
 
     private static void addSignature(Context context, Document document, EntityMessage message, EntityIdentity identity) {
