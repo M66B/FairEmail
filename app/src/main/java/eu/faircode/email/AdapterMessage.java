@@ -1767,12 +1767,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private Spanned formatAddresses(Address[] addresses, boolean full) {
+            return formatAddresses(addresses, full, Integer.MAX_VALUE);
+        }
+
+        private Spanned formatAddresses(Address[] addresses, boolean full, int max) {
             SpannableStringBuilder ssb = new SpannableStringBuilder();
 
             if (addresses == null || addresses.length == 0)
                 return ssb;
 
-            for (int i = 0; i < addresses.length; i++) {
+            for (int i = 0; i < addresses.length && i < max; i++) {
                 if (i > 0)
                     ssb.append("; ");
 
@@ -1803,6 +1807,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ssb.append(addresses[i].toString());
             }
 
+            if (addresses.length > max)
+                ssb.append(context.getString(R.string.title_name_plus, "", addresses.length - max));
+
             return ssb;
         }
 
@@ -1816,10 +1823,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             Spanned submitter = formatAddresses(message.submitter, true);
             Spanned from = formatAddresses(message.senders, true);
-            Spanned to = formatAddresses(message.to, full);
             Spanned replyto = formatAddresses(message.reply, true);
-            Spanned cc = formatAddresses(message.cc, full);
-            Spanned bcc = formatAddresses(message.bcc, full);
 
             grpAddresses.setVisibility(View.VISIBLE);
 
@@ -1852,30 +1856,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFromEx.setVisibility((froms > 1 || show_addresses) && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setText(from);
 
-            tvToTitle.setVisibility((!show_recipients || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
-            tvTo.setVisibility((!show_recipients || show_addresses) && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
-            if (show_addresses || (message.to == null || message.to.length < MAX_RECIPIENTS))
-                tvTo.setText(to);
-            else
-                tvTo.setText(context.getString(R.string.title_recipients, message.to.length));
+            tvToTitle.setVisibility((!show_recipients || show_addresses) && (message.to != null && message.to.length > 0) ? View.VISIBLE : View.GONE);
+            tvTo.setVisibility((!show_recipients || show_addresses) && (message.to != null && message.to.length > 0) ? View.VISIBLE : View.GONE);
+            tvTo.setText(formatAddresses(message.to, full, show_addresses ? Integer.MAX_VALUE : MAX_RECIPIENTS));
 
             tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setText(replyto);
 
-            tvCcTitle.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
-            tvCc.setVisibility(!TextUtils.isEmpty(cc) ? View.VISIBLE : View.GONE);
-            if (show_addresses || (message.cc == null || message.cc.length < MAX_RECIPIENTS))
-                tvCc.setText(cc);
-            else
-                tvCc.setText(context.getString(R.string.title_recipients, message.cc.length));
+            tvCcTitle.setVisibility(message.cc == null || message.cc.length == 0 ? View.GONE : View.VISIBLE);
+            tvCc.setVisibility(message.cc == null || message.cc.length == 0 ? View.GONE : View.VISIBLE);
+            tvCc.setText(formatAddresses(message.cc, full, show_addresses ? Integer.MAX_VALUE : MAX_RECIPIENTS));
 
-            tvBccTitle.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
-            tvBcc.setVisibility(!TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
-            if (show_addresses || (message.bcc == null || message.bcc.length < MAX_RECIPIENTS))
-                tvBcc.setText(bcc);
-            else
-                tvBcc.setText(context.getString(R.string.title_recipients, message.bcc.length));
+            tvBccTitle.setVisibility(message.bcc == null || message.bcc.length == 0 ? View.GONE : View.VISIBLE);
+            tvBcc.setVisibility(message.bcc == null || message.bcc.length == 0 ? View.GONE : View.VISIBLE);
+            tvBcc.setText(formatAddresses(message.bcc, full, show_addresses ? Integer.MAX_VALUE : MAX_RECIPIENTS));
 
             InternetAddress via = null;
             if (message.identityEmail != null)
