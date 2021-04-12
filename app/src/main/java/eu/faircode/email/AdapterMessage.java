@@ -4825,13 +4825,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!TextUtils.isEmpty(message.subject))
                         result.put("subject", message.subject);
 
-                    String link = "message://" + BuildConfig.APPLICATION_ID + "/" + message.id;
-
                     Document document = JsoupEx.parse(file);
 
                     Element a = document.createElement("a");
                     a.text(context.getString(R.string.app_name));
-                    a.attr("href", link);
+                    a.attr("href", message.getLink());
 
                     document.body().appendElement("p").appendChild(a);
 
