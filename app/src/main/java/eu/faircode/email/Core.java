@@ -2595,8 +2595,9 @@ class Core {
                 try {
                     for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++) {
                         long uid = ifolder.getUID(imessages[i]);
-                        ids[i] = db.message().getMessageMsgIdByUid(folder.id, uid);
-                        if (ids[i] == null) {
+                        EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                        ids[i] = (message == null ? null : message.id);
+                        if (message == null || message.ui_hide) {
                             Log.i(folder.name + " missing uid=" + uid);
                             modified = true;
                             break;

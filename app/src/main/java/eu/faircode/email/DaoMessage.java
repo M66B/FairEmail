@@ -299,12 +299,6 @@ public interface DaoMessage {
     @Query("SELECT id" +
             " FROM message" +
             " WHERE folder = :folder" +
-            " AND uid = :uid")
-    Long getMessageMsgIdByUid(long folder, long uid);
-
-    @Query("SELECT id" +
-            " FROM message" +
-            " WHERE folder = :folder" +
             " AND NOT ui_hide" +
             " ORDER BY message.received DESC")
     List<Long> getMessageByFolder(long folder);
