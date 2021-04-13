@@ -4888,6 +4888,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             TupleMessageEx single = null;
             TupleMessageEx see = null;
             TupleMessageEx flag = null;
+            TupleMessageEx pin = null;
             for (TupleMessageEx message : messages) {
                 if (message == null)
                     continue;
@@ -4909,6 +4910,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
+                if (pinned && message.id.equals(id))
+                    pin = message;
+
                 if (message.folder == folder &&
                         !EntityFolder.OUTBOX.equals(message.folderType))
                     autoCloseCount++;
@@ -4920,7 +4924,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             // - sole message
             if (autoexpand) {
                 TupleMessageEx expand = null;
-                if (count == 1)
+                if (pin != null)
+                    expand = pin;
+                else if (count == 1)
                     expand = single;
                 else if (unseen == 1)
                     expand = see;
