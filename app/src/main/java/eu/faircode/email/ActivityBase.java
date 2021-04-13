@@ -375,7 +375,64 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onDestroy() {
         Log.i("Destroy " + this.getClass().getName());
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
-        super.onDestroy();
+        try {
+            super.onDestroy();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.RuntimeException: Unable to destroy activity {eu.faircode.email/eu.faircode.email.ActivityView}: java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
+                  at android.app.ActivityThread.performDestroyActivity(ActivityThread.java:4605)
+                  at android.app.ActivityThread.handleDestroyActivity(ActivityThread.java:4623)
+                  at android.app.ActivityThread.-wrap5(Unknown Source:0)
+                  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1757)
+                  at android.os.Handler.dispatchMessage(Handler.java:105)
+                  at android.os.Looper.loop(Looper.java:164)
+                  at android.app.ActivityThread.main(ActivityThread.java:6944)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:327)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1374)
+                Caused by: java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
+                  at android.text.SpannableStringInternal.checkRange(SpannableStringInternal.java:442)
+                  at android.text.SpannableStringInternal.setSpan(SpannableStringInternal.java:163)
+                  at android.text.SpannableStringInternal.setSpan(SpannableStringInternal.java:152)
+                  at android.text.SpannableString.setSpan(SpannableString.java:46)
+                  at android.text.Selection.setSelection(Selection.java:76)
+                  at android.widget.TextView.semSetSelection(TextView.java:13204)
+                  at android.widget.Editor$SelectionModifierCursorController.resetDragAcceleratorState(Editor.java:6547)
+                  at android.widget.Editor$SelectionModifierCursorController.resetTouchOffsets(Editor.java:6537)
+                  at android.widget.Editor$SelectionModifierCursorController.<init>(Editor.java:6172)
+                  at android.widget.Editor.getSelectionController(Editor.java:2449)
+                  at android.widget.Editor.onDetachedFromWindow(Editor.java:470)
+                  at android.widget.TextView.onDetachedFromWindowInternal(TextView.java:7232)
+                  at android.view.View.dispatchDetachedFromWindow(View.java:18677)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.dispatchDetachedFromWindow(ViewGroup.java:3878)
+                  at android.view.ViewGroup.removeViewInternal(ViewGroup.java:5432)
+                  at android.view.ViewGroup.removeViewInternal(ViewGroup.java:5403)
+                  at android.view.ViewGroup.removeView(ViewGroup.java:5334)
+                  at androidx.fragment.app.SpecialEffectsController$Operation$State.applyState(SourceFile:14)
+                  at androidx.fragment.app.SpecialEffectsController$1.run(SourceFile:2)
+                  at androidx.fragment.app.SpecialEffectsController$Operation.complete(SourceFile:6)
+                  at androidx.fragment.app.SpecialEffectsController$FragmentStateManagerOperation.complete(SourceFile:1)
+                  at androidx.fragment.app.SpecialEffectsController$Operation.cancel(SourceFile:4)
+                  at androidx.fragment.app.SpecialEffectsController.forceCompleteAllOperations(SourceFile:21)
+                  at androidx.fragment.app.FragmentManager.dispatchStateChange(SourceFile:6)
+                  at androidx.fragment.app.FragmentManager.dispatchDestroy(SourceFile:4)
+                  at androidx.fragment.app.FragmentController.dispatchDestroy(SourceFile:1)
+                  at androidx.fragment.app.FragmentActivity.onDestroy(SourceFile:2)
+                  at androidx.appcompat.app.AppCompatActivity.onDestroy(SourceFile:1)
+                  at eu.faircode.email.ActivityBase.onDestroy(SourceFile:3)
+                  at eu.faircode.email.ActivityBilling.onDestroy(SourceFile:3)
+                  at eu.faircode.email.ActivityView.onDestroy(SourceFile:3)
+                  at android.app.Activity.performDestroy(Activity.java:7522)
+             */
+        }
     }
 
     @Override
