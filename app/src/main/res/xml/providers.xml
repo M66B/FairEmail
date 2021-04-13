@@ -1106,4 +1106,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="GoDaddy Workspace"
+        link="https://www.godaddy.com/help/server-and-port-settings-for-workspace-email-6949">
+        <imap
+            host="imap.secureserver.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtpout.secureserver.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
