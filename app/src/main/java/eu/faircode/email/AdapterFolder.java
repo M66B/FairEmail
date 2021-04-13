@@ -961,7 +961,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 private void onActionPinFolder() {
-                    ShortcutInfoCompat.Builder builder = Shortcuts.getFolder(context, folder);
+                    ShortcutInfoCompat.Builder builder = Shortcuts.getShortcut(context, folder);
                     ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
                 }
 

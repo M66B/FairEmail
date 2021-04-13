@@ -224,7 +224,7 @@ class Shortcuts {
     }
 
     @NonNull
-    static ShortcutInfoCompat.Builder getMessage(Context context, EntityMessage message, ContactInfo[] contactInfo) {
+    static ShortcutInfoCompat.Builder getShortcut(Context context, EntityMessage message, ContactInfo[] contactInfo) {
         Intent thread = new Intent(context, ActivityView.class);
         thread.setAction("thread:" + message.id);
         thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -264,7 +264,7 @@ class Shortcuts {
     }
 
     @NonNull
-    static ShortcutInfoCompat.Builder getFolder(Context context, EntityFolder folder) {
+    static ShortcutInfoCompat.Builder getShortcut(Context context, EntityFolder folder) {
         Intent view = new Intent(context, ActivityView.class);
         view.setAction("folder:" + folder.id);
         view.putExtra("account", folder.account);

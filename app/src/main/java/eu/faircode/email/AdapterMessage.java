@@ -4922,7 +4922,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, ContactInfo[] contactInfo) {
                     ShortcutInfoCompat.Builder builder =
-                            Shortcuts.getMessage(context, message, contactInfo);
+                            Shortcuts.getShortcut(context, message, contactInfo);
                     ShortcutManagerCompat.requestPinShortcut(context, builder.build(), null);
                 }
 
