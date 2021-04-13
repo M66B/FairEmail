@@ -398,6 +398,7 @@
     <string name="title_advanced_notify_action_reply_direct">Trả lời trực tiếp</string>
     <string name="title_advanced_notify_action_flag">Gắn sao</string>
     <string name="title_advanced_notify_action_seen">Đã đọc</string>
+    <string name="title_advanced_notify_action_hide">Ẩn</string>
     <string name="title_advanced_notify_action_snooze">Báo lại</string>
     <string name="title_advanced_notify_remove">Xoá thông báo thư mới khi nhấn vào thông báo</string>
     <string name="title_advanced_notify_clear">Xoá các thông báo thư mới khi xem danh sách thư</string>
@@ -443,6 +444,8 @@
     <string name="title_advanced_fts">Xây dựng mục lục tìm kiếm</string>
     <string name="title_advanced_fts_indexed">%1$d /%2$d thư đã tạo mục lục (%3$s)</string>
     <string name="title_advanced_classification">Phân loại thư</string>
+    <string name="title_advanced_class_min_chance">Khả năng tối thiểu của class: %1$s %%</string>
+    <string name="title_advanced_class_min_difference">Sự khác biệt tối thiểu của class: %1$s %%</string>
     <string name="title_advanced_language">Ngôn ngữ</string>
     <string name="title_advanced_language_system">Hệ thống</string>
     <string name="title_advanced_watchdog">Kiểm tra định kỳ xem FairEmail vẫn hoạt động hay không</string>
@@ -542,6 +545,7 @@
     <string name="title_identity_email">Địa chỉ email của bạn</string>
     <string name="title_identity_color_hint">Màu sắc danh tính được ưu tiên trước màu sắc thư mục và tài khoản</string>
     <string name="title_advanced_sender">Cho phép chỉnh sửa địa chỉ người gửi</string>
+    <string name="title_advanced_sender_name">Sử dụng tên khi địa chỉ người gửi đã được chỉnh sửa</string>
     <string name="title_advanced_sender_regex">Sử dụng biểu thức tìm kiếm để khớp với tên người dùng của các địa chỉ email sắp đến</string>
     <string name="title_identity_reply_to">Trả lời đến địa chỉ</string>
     <string name="title_identity_unicode">Sử dụng vận chuyển Unicode</string>
@@ -558,7 +562,9 @@
     <string name="title_account_interval_hint">Tần số làm mới kết nối để nhận thông báo đẩy hoặc tần số kiểm tra thư mới</string>
     <string name="title_account_partial_fetch_hint">Chỉ tắt cái này trong trường hợp có thư trống hoặc tệp đính kèm bị hỏng</string>
     <string name="title_color">Màu săc</string>
+    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Trong suốt</string>
     <string name="title_account_ondemand">Đồng bộ hoá thủ công</string>
+    <string name="title_account_notify">Thông báo riêng</string>
     <string name="title_account_left">Vuốt trái</string>
     <string name="title_account_right">Vuốt phải</string>
     <string name="title_account_move">Mặc định di chuyển đến</string>
@@ -627,6 +633,7 @@
     <string name="title_backoff_until">Đang đợi sau khi thất bại cho đến: %1$s</string>
     <string name="title_storage_quota">Sử dụng kho lưu trữ của máy chủ: %1$s/%2$s</string>
     <string name="title_pop_support">Giao thức POP3 chỉ hỗ trợ việc tải xuống và xoá thư khỏi hộp thư đến. POP3 không thể đánh dấu thư là đã đọc, di chuyển thư, v.v. POP3 sẽ sử dụng nhiều pin và dữ liệu hơn IMAP. Vậy nên hãy cân nhắc việc sử dụng giao thức IMAP bất cứ khi nào có thể.</string>
+    <string name="title_pop_sent">Nếu thiết bị của bạn bị mất hoặc trộm, các thư đã gửi sẽ có thể bị mất.</string>
     <string name="title_pop_warning">Nếu một máy chủ POP3 không hỗ trợ lệnh UIDL, sử dụng dữ liệu có thể sẽ cao. Vậy nên, hãy theo đó mà điều chỉnh tần số kiểm tra ở dưới.</string>
     <string name="title_pop_folders">Giao thức POP3 không hỗ trợ việc tạo thư mục</string>
     <string name="title_oauth_support">OAuth không được hỗ trợ</string>
@@ -804,6 +811,7 @@
     <string name="title_no_viewer">Không có ứng dụng xem %1$s</string>
     <string name="title_no_recorder">Không có ứng dụng ghi âm phù hợp</string>
     <string name="title_no_camera">Không có ứng dụng máy ảnh phù hợp</string>
+    <string name="title_no_saf">Storage access framework không có sẵn</string>
     <string name="title_no_stream">Một ứng dụng lỗi thời đã gửi một đường dẫn tệp thay vì một luồng truyền tệp</string>
     <string name="title_no_internet">Không có hoặc không có kết nối internet phù hợp</string>
     <string name="title_no_connection">Đang kết nối đến một hoặc nhiều tài khoản &#8230;</string>

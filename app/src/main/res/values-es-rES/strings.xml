@@ -409,6 +409,7 @@
     <string name="title_advanced_notify_action_reply_direct">Responder</string>
     <string name="title_advanced_notify_action_flag">Destacar</string>
     <string name="title_advanced_notify_action_seen">Leído</string>
+    <string name="title_advanced_notify_action_hide">Ocultar</string>
     <string name="title_advanced_notify_action_snooze">Posponer</string>
     <string name="title_advanced_notify_remove">Eliminar notificación de nuevos mensajes al pulsar en la notificación</string>
     <string name="title_advanced_notify_clear">Eliminar notificaciones de mensajes nuevos al ver la lista de mensajes</string>
@@ -643,6 +644,7 @@
     <string name="title_backoff_until">Esperando después de un error hasta: %1$s</string>
     <string name="title_storage_quota">Uso de almacenamiento del servidor: %1$s/%2$s</string>
     <string name="title_pop_support">El protocolo POP3 soporta descargar y eliminar mensajes de la bandeja de entrada únicamente. POP3 no puede marcar mensajes como leídos, mover mensajes, etc. POP3 utilizará más batería y datos que IMAP. Por lo tanto considera utilizar el protocolo IMAP cuando sea posible.</string>
+    <string name="title_pop_sent">Si el dispositivo se pierde o es robado, los mensajes enviados podrían perderse.</string>
     <string name="title_pop_warning">Si un servidor POP3 no soporta el comando UIDL, el uso de datos podría ser alto. Por lo tanto, ajuste la frecuencia de sondeo a continuación en consecuencia.</string>
     <string name="title_pop_folders">El protocolo POP3 no soporta la creación de carpetas</string>
     <string name="title_oauth_support">OAuth no está soportado</string>

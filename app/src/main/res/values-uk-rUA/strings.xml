@@ -128,6 +128,8 @@
     <string name="title_setup">Налаштування</string>
     <string name="title_setup_help">Довідка</string>
     <string name="title_setup_quick">Швидке налаштування</string>
+    <string name="title_setup_intro">Налаштування облікового запису лише за три кроки, і після цього ви зможете відправляти та отримувати листи</string>
+    <string name="title_setup_simple">Немає необхідності змінювати будь-які інші параметри</string>
     <string name="title_setup_quick_accounts">Додати облікові записи</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
     <string name="title_setup_quick_hint">Швидке налаштування дасть інформацію про конфігурацію з autoconfig.thunderbird.net</string>
@@ -179,6 +181,7 @@
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
+    <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
     <string name="title_setup_advanced_options">Показати додаткові налаштування</string>
     <string name="title_setup_inbox">Йти до теки \"Вхідні\"</string>
@@ -241,6 +244,7 @@
     <string name="title_advanced_section_encryption">Шифрування</string>
     <string name="title_advanced_section_notifications">Сповіщення</string>
     <string name="title_advanced_section_misc">Інші налаштування</string>
+    <string name="title_advanced_default">Всі параметри зазвичай мають стандартні значення, які не потрібно змінювати</string>
     <string name="title_advanced_receive">Отримувати повідомлення для всіх облікових записів</string>
     <string name="title_advanced_when">Коли</string>
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
@@ -267,6 +271,7 @@
     <string name="title_advanced_suggest_frequently">Сортувати запропоновані адреси за частотою використання</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
+    <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_compose_font">Типовий шрифт</string>
     <string name="title_advanced_prefix_once">Одноразова тема префікса при відповіді або перенаправленні</string>
     <string name="title_advanced_separate_reply">Вставити горизонтальну лінію перед заголовком відповіді/перенаправлення</string>
@@ -279,6 +284,7 @@
     <string name="title_advanced_signature_reply">Використовувати підпис під час відповіді</string>
     <string name="title_advanced_signature_forward">Використовувати підпис під час перенаправлення</string>
     <string name="title_advanced_discard_delete">Видалення чернетки на назавжди</string>
+    <string name="title_advanced_reply_move">Відповідаючи на повідомлення з теки користувачів, збережіть відповідь в тій же теці</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати як звичайний текст за замовчуванням</string>
     <string name="title_advanced_flow">помічати відповідь в форматі звичайного тексту</string>
@@ -413,6 +419,7 @@
     <string name="title_advanced_notify_action_reply_direct">Пряма відповідь</string>
     <string name="title_advanced_notify_action_flag">Обране</string>
     <string name="title_advanced_notify_action_seen">Прочитано</string>
+    <string name="title_advanced_notify_action_hide">Приховати</string>
     <string name="title_advanced_notify_action_snooze">Відкласти</string>
     <string name="title_advanced_notify_remove">Видалити сповіщення про нове повідомлення при натисканні</string>
     <string name="title_advanced_notify_clear">Видалити сповіщення про нове повідомлення при перегляді списку повідомлень</string>
@@ -493,6 +500,7 @@
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
+    <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
     <string name="title_advanced_metered_warning">Вимкнення цієї опції вимкне отримання та надсилання повідомлень через мобільні підключення до Інтернету</string>
     <string name="title_advanced_rlah_hint">Якщо без роумінгу в межах ЄС</string>
@@ -645,6 +653,9 @@
     <string name="title_backoff_until">Очікування після збою до: %1$s</string>
     <string name="title_storage_quota">Використання простору на сервері: %1$s/%2$s</string>
     <string name="title_pop_support">Протокол POP3 підтримує завантаження і видалення повідомлень тільки з поштової скриньки. POP3 не може позначати повідомлення як прочитані, переміщати повідомлення, і т. д. POP3 використовуватиме більше енергії та даних, ніж IMAP. Отже, розгляньте можливість використання протоколу IMAP, коли це можливо.</string>
+    <string name="title_pop_sent">Якщо ваш пристрій загублено або викрадено, надіслані повідомлення можуть бути втрачені.</string>
+    <string name="title_pop_warning">Якщо сервер POP3 не підтримує команду UIDL, використання даних може бути високим. Отже, змініть частоту опитування в налаштуваннях нижче.</string>
+    <string name="title_pop_folders">Протокол POP3 не підтримує створення тек</string>
     <string name="title_oauth_support">OAuth не підтримується</string>
     <string name="title_review">Відгук</string>
     <string name="title_hint_alias">Довге натискання на посвідчення особи для відображення параметрів, наприклад, копіювання для створення псевдонімів</string>
@@ -714,6 +725,7 @@
     <string name="title_auto_trash">Автоматично переміщати старі повідомлення до кошику</string>
     <string name="title_auto_delete">Автоматично видаляти старі повідомлення назавжди</string>
     <string name="title_auto_delete_hint">Старі повідомлення - це повідомлення, які більше не зберігаються на пристрої</string>
+    <string name="title_auto_delete_archive_hint">Видалення з теки архіву не завжди дозволяється сервером електронної пошти</string>
     <string name="title_inbox_root_hint">        Деякі постачальники вимагають створення нових тек нижче вхідної теки.
         В цьому випадку, ви можете довго натиснути на кнопку \"Вхідні\" у списку тек і вибрати \"Створити підтеку\".
     </string>
@@ -742,6 +754,8 @@
     <string name="title_duplicate_in">Дублювати повідомлення в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Позначити як прочитане</string>
     <string name="title_unseen">Позначити як непрочитане</string>
     <string name="title_toggle_seen">Перемкнути статус прочитано</string>
@@ -780,6 +794,7 @@
     <string name="title_raw_remaining">Необроблені повідомлення для завантаження: %1$d</string>
     <string name="title_ask_raw">Для пересилання повідомлень необхідно завантажити їх з серверу. Для цього потрібне підключення до інтернету.</string>
     <string name="title_buttons">Виберіть кнопки</string>
+    <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_trash">Кошик</string>
     <string name="title_copy">Копіювати &#8230;</string>
@@ -855,6 +870,7 @@
     <string name="title_ask_review_rationale">        Ви користуєтеся FairEmail деякий час.
         Буду вдячний, якщо Ви зможете оцінити FairEmail у Play Store.
     </string>
+    <string name="title_need_help">Мені потрібна допомога</string>
     <string name="title_ask_once">Це повідомлення з\'явиться лише один раз, якщо ви не виберете \"Пізніше\"</string>
     <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення може завантажити %1$s</string>
@@ -1264,6 +1280,7 @@
     <string name="title_open_link">Відкрити посилання</string>
     <string name="title_different_link">Назва та адреса посилання відрізняються</string>
     <string name="title_tracking_link">Цей сайт може відстежувати Вас</string>
+    <string name="title_suspicious_link">Це підозріле посилання</string>
     <string name="title_link_http">Трафік не буде зашифровано</string>
     <string name="title_link_https">Трафік буде зашифровано</string>
     <string name="title_sanitize_link">Видалити параметри відстеження</string>
@@ -1329,6 +1346,7 @@
     <string name="title_pro_hide">Приховати невелике повідомлення протягом %1$d тижнів</string>
     <string name="title_pro_hint">Купівля Pro-функцій дозволить вам використовувати всі поточні та майбутні Pro-функції, і допоможе підтримувати і обслуговувати цей додаток.</string>
     <string name="title_pro_price">Чому Pro функції такі дорогі?</string>
+    <string name="title_pro_family">Чи можна використовувати сімейну бібліотеку Google Play?</string>
     <string name="title_pro_restore">Як я можу відновити покупку?</string>
     <string name="title_pro_pending">Покупка в очікуванні</string>
     <string name="title_pro_activated">Всі Pro-функції активовано</string>

@@ -117,6 +117,8 @@
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
     <string name="title_setup_quick">Pika-asennus</string>
+    <string name="title_setup_intro">Tilin asettaminen sisältää vain kolme vaihetta, joiden jälkeen voit lähettää ja vastaanottaa sähköpostia</string>
+    <string name="title_setup_simple">Muita valintoja ei tarvitse muuttaa</string>
     <string name="title_setup_quick_accounts">Lisää tilejä</string>
     <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
@@ -231,6 +233,7 @@
     <string name="title_advanced_section_encryption">Salaus</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
+    <string name="title_advanced_default">Kaikilla valinnoilla on yleisesti käytetyt vakioarvot, joita ei tarvitse muuttaa</string>
     <string name="title_advanced_receive">Vastaanota viestit kaikille tileille</string>
     <string name="title_advanced_when">Milloin</string>
     <string name="title_advanced_always">Vastaanota aina viestit näille tileille</string>
@@ -405,6 +408,7 @@
     <string name="title_advanced_notify_action_reply_direct">Vastaa</string>
     <string name="title_advanced_notify_action_flag">Lisää tähti</string>
     <string name="title_advanced_notify_action_seen">Luetuksi</string>
+    <string name="title_advanced_notify_action_hide">Piilota</string>
     <string name="title_advanced_notify_action_snooze">Torkuta</string>
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_notify_clear">Poista ilmoitukset uusista viesteistä katsottaessa viestilistaa</string>
@@ -638,6 +642,9 @@
     <string name="title_backoff_until">Odottaa epäonnistumisen jälkeen ajanhetkeen: %1$s</string>
     <string name="title_storage_quota">Palvelimen tallennustilan käyttö: %1$s/%2$s</string>
     <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. POP3 ei merkitse viestejä luetuksi, siirrä niitä, jne. POP3 käyttää enemmän akkua ja dataa kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
+    <string name="title_pop_sent">Jos laitteesi katoaa tai varastetaan, lähetetyt viestit saattavat kadota.</string>
+    <string name="title_pop_warning">Datan käyttö saattaa olla suurta, jos POP3-palvelin ei tue UIDL-komentoa. Säädä kyselytaajuus sen mukaisesti.</string>
+    <string name="title_pop_folders">POP3-protokolla ei tue kansioiden luomista</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
     <string name="title_hint_alias">Pitkä painallus näyttää vaihtoehdot, kuten kopioinnin aliasten luomiseksi</string>
@@ -736,6 +743,7 @@
     <string name="title_duplicate_in">Tee viestistä kopio kansioon %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Vs: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>
     <string name="title_unseen">Merkitse lukemattomaksi</string>
     <string name="title_toggle_seen">Vaihda luettu</string>
@@ -774,6 +782,7 @@
     <string name="title_raw_remaining">Raakaviestejä ladattavana: %1$d</string>
     <string name="title_ask_raw">Viestien edelleenlähettämiseksi raakaviestit (alkuperäiset viestit) pitää ladata palvelimelta. Tämä edellyttää internetyhteyttä.</string>
     <string name="title_buttons">Valitse painikkeita</string>
+    <string name="title_buttons_hint">Käytettävissä olevat toiminnot riippuvat tilin tyypistä ja asetuksista</string>
     <string name="title_configure_buttons">Määritä painikkeet &#8230;</string>
     <string name="title_trash">Siirrä roskakoriin</string>
     <string name="title_copy">Kopioi &#8230;</string>
@@ -849,6 +858,7 @@
     <string name="title_ask_review_rationale">        Olet käyttänyt FairEmailia jo jonkin aikaa.
         Olisi hyvä, jos voisit arvostella FairEmailin Play Kaupassa.
     </string>
+    <string name="title_need_help">Tarvitsen apua</string>
     <string name="title_ask_once">Tämä viesti näytetään vain kerran, jos et valitse \'Myöhemmin\'</string>
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
@@ -1324,6 +1334,7 @@
     <string name="title_pro_hide">Piilota pieni viesti %1$d viikoksi</string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Miksi pro-ominaisuudet ovat niin kalliita?</string>
+    <string name="title_pro_family">Voinko käyttää Google Play Koko perheen kirjastoa?</string>
     <string name="title_pro_restore">Miten voin palauttaa oston?</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>
     <string name="title_pro_activated">Kaikki pro-ominaisuudet on aktivoitu</string>

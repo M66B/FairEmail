@@ -408,6 +408,7 @@
     <string name="title_advanced_notify_action_reply_direct">Άμεση απάντηση</string>
     <string name="title_advanced_notify_action_flag">Αστέρι</string>
     <string name="title_advanced_notify_action_seen">Αναγνωσμένο</string>
+    <string name="title_advanced_notify_action_hide">Απόκρυψη</string>
     <string name="title_advanced_notify_action_snooze">Αναβολή</string>
     <string name="title_advanced_notify_remove">Να απομακρύνεται η ειδοποίηση για νέο μήνυμα με άγγιγμα στην ειδοποίηση</string>
     <string name="title_advanced_notify_clear">Να απομακρύνεται η ειδοποίηση για νέο μήνυμα με την προβολή της λίστας μηνυμάτων</string>
@@ -640,6 +641,7 @@
     <string name="title_backoff_until">Αναμονή μετά από μία αποτυχία μέχρι: %1$s</string>
     <string name="title_storage_quota">Χρήση χωρητικότητας διακομιστή: %1$s/%2$s</string>
     <string name="title_pop_support">Το πρωτόκολλο POP3 υποστηρίζει το κατέβασμα και τη διαγραφή μηνυμάτων μόνον από τα εισερχόμενα. Το POP3 δεν μπορεί να επισημαίνει μηνύματα ως αναγνωσμένα, να τα μετακινεί, κλπ. Το POP3 καταναλώνει περισσότερη μπαταρία και δεδομένα από το IMAP. Συνεπώς, σκεφτείτε να χρησιμοποιείτε το πρωτόκολλο IMAP όποτε είναι δυνατόν.</string>
+    <string name="title_pop_sent">Εάν η συσκευή σας χαθεί ή κλαπεί, ενδέχεται να χαθούν απεσταλμένα μηνύματα.</string>
     <string name="title_pop_warning">Εάν ένας POP3 διακομιστής δεν υποστηρίζει την εντολή UIDL, η χρήση δεδομένων μπορεί να είναι υψηλή. Συνεπώς, ρυθμίστε, παρακάτω, τη συχνότητα συγχρονισμού αναλόγως.</string>
     <string name="title_pop_folders">Το πρωτόκολλο POP3 δεν υποστηρίζει τη δημιουργία φακέλων</string>
     <string name="title_oauth_support">Δεν υποστηρίζεται OAuth</string>

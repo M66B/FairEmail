@@ -409,6 +409,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direct antwoord</string>
     <string name="title_advanced_notify_action_flag">Ster</string>
     <string name="title_advanced_notify_action_seen">Gelezen</string>
+    <string name="title_advanced_notify_action_hide">Verbergen</string>
     <string name="title_advanced_notify_action_snooze">Sluimeren</string>
     <string name="title_advanced_notify_remove">Verwijder melding van nieuw bericht bij het tikken op melding</string>
     <string name="title_advanced_notify_clear">Verwijder meldingen van nieuwe berichten bij het bekijken van een berichtenlijst</string>
@@ -556,6 +557,7 @@
     <string name="title_identity_email">Uw e-mailadres</string>
     <string name="title_identity_color_hint">Identiteitskleuren prevaleren boven de map en de accountkleuren</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
+    <string name="title_advanced_sender_name">Gebruik naam wanneer afzenderadres is bewerkt</string>
     <string name="title_advanced_sender_regex">Regex om gebruikersnaam deel van inkomende e-mailadressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_unicode">Gebruik Unicode transport</string>
@@ -572,6 +574,7 @@
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_color">Kleur</string>
+    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Doorzichtig</string>
     <string name="title_account_ondemand">Handmatig synchroniseren</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_account_left">Veeg links</string>
@@ -643,6 +646,7 @@
     <string name="title_backoff_until">Wachten na fout tot: %1$s</string>
     <string name="title_storage_quota">Opslaggebruik server: %1$s/%2$s</string>
     <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 zal meer batterijvermogen en -gegevens gebruiken dan IMAP. Overweeg dus om het IMAP-protocol waar mogelijk te gebruiken.</string>
+    <string name="title_pop_sent">Als uw apparaat verloren of gestolen is, kunnen verzonden berichten verloren gaan.</string>
     <string name="title_pop_warning">Als een POP3-server het UIDL-commando niet ondersteunt, kan het datagebruik hoog zijn. Pas dus de onderstaande poll-frequentie dienovereenkomstig aan.</string>
     <string name="title_pop_folders">Het POP3-protocol biedt geen ondersteuning voor het maken van mappen</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>

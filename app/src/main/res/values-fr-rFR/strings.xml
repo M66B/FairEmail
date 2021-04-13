@@ -345,7 +345,7 @@
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
-    <string name="title_advanced_monospaced_pre">Utiliser la police à espacement fixe pour le texte préformaté</string>
+    <string name="title_advanced_monospaced_pre">Utiliser une police à espacement fixe pour le texte préformaté</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
@@ -409,6 +409,7 @@
     <string name="title_advanced_notify_action_reply_direct">Répondre directement</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
+    <string name="title_advanced_notify_action_hide">Masquer</string>
     <string name="title_advanced_notify_action_snooze">Reporter</string>
     <string name="title_advanced_notify_remove">Supprimer les notifications de nouveaux messages en tapant dessus</string>
     <string name="title_advanced_notify_clear">Supprimer les notifications de nouveaux messages lors de la visualisation de la liste des messages</string>
@@ -556,6 +557,7 @@
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_color_hint">Les couleurs d’identité ont la priorité sur les couleurs de dossiers et de comptes</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
+    <string name="title_advanced_sender_name">Utiliser le nom lorsque l\'adresse de l\'expéditeur a été modifiée</string>
     <string name="title_advanced_sender_regex">Expression régulière pour faire correspondre le nom d’utilisateur des adresses e-mail entrantes</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_unicode">Utiliser le transport Unicode</string>
@@ -572,6 +574,7 @@
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou fréquence de vérification des nouveaux messages</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_color">Couleur</string>
+    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Transparent</string>
     <string name="title_account_ondemand">Synchroniser manuellement</string>
     <string name="title_account_notify">Notifications séparées</string>
     <string name="title_account_left">Balayer vers la gauche</string>
@@ -643,6 +646,7 @@
     <string name="title_backoff_until">Attente après l\'échec jusqu\'à : %1$s</string>
     <string name="title_storage_quota">Utilisation du stockage sur le serveur : %1$s/%2$s</string>
     <string name="title_pop_support">Le protocole POP3 prend en charge le téléchargement et la suppression des messages depuis la boîte de réception uniquement. POP3 ne permet pas de marquer les messages comme lus, de les déplacer, etc. POP3 utilisera davantage de batterie et de données qu’IMAP. Par conséquent, envisagez d’utiliser le protocole IMAP lorsque cela est possible.</string>
+    <string name="title_pop_sent">Si votre appareil est perdu ou volé, les messages envoyés pourraient être perdus.</string>
     <string name="title_pop_warning">Si un serveur POP3 ne prend pas en charge la commande UIDL, l\'utilisation des données peut être élevée. Ajustez donc la fréquence de synchronisation ci-dessous en conséquence.</string>
     <string name="title_pop_folders">Le protocole POP3 ne permet pas la création de dossiers</string>
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>

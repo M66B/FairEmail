@@ -410,6 +410,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direktantwort</string>
     <string name="title_advanced_notify_action_flag">Markieren</string>
     <string name="title_advanced_notify_action_seen">Gelesen</string>
+    <string name="title_advanced_notify_action_hide">Ausblenden</string>
     <string name="title_advanced_notify_action_snooze">Wiedervorlage</string>
     <string name="title_advanced_notify_remove">Benachrichtigung über neue Nachrichten durch Tippen auf die Benachrichtigung entfernen</string>
     <string name="title_advanced_notify_clear">Benachrichtigung über neue Nachrichten beim Anzeigen der Nachrichtenliste entfernen</string>
@@ -573,6 +574,7 @@
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
     <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
     <string name="title_color">Farbe</string>
+    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Transparent</string>
     <string name="title_account_ondemand">Manuell synchronisieren</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_account_left">Nach links wischen</string>
@@ -644,6 +646,7 @@
     <string name="title_backoff_until">Warten nach einem Fehler bis: %1$s</string>
     <string name="title_storage_quota">Server-Speicherauslastung: %1$s/%2$s</string>
     <string name="title_pop_support">Das POP3-Protokoll unterstützt das Herunterladen und Löschen von Nachrichten nur aus dem Posteingang. POP3 kann Nachrichten nicht markieren, Nachrichten verschieben, etc. POP3 verwendet mehr Akku- und Daten als IMAP. Daher erwägen Sie, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
+    <string name="title_pop_sent">Wenn Ihr Gerät verloren geht oder gestohlen wird, können gesendete Nachrichten verloren gehen.</string>
     <string name="title_pop_warning">Falls ein POP3-Server den Befehl UIDL nicht unterstützt, kann eine hohe Datenauslastung entstehen. Stellen Sie also die unten stehende Abfragefrequenz entsprechend ein.</string>
     <string name="title_pop_folders">Das POP3-Protokoll unterstützt das Erstellen von Ordnern nicht</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>

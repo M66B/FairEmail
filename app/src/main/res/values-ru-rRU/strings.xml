@@ -431,6 +431,7 @@
     <string name="title_advanced_notify_action_reply_direct">Прямой ответ</string>
     <string name="title_advanced_notify_action_flag">В избранное</string>
     <string name="title_advanced_notify_action_seen">Прочитано</string>
+    <string name="title_advanced_notify_action_hide">Скрыть</string>
     <string name="title_advanced_notify_action_snooze">Отложить</string>
     <string name="title_advanced_notify_remove">Удалять уведомление о новом сообщении при нажатии на уведомление</string>
     <string name="title_advanced_notify_clear">Удалять уведомления о новых сообщениях при просмотре списка сообщений</string>
@@ -578,6 +579,7 @@
     <string name="title_identity_email">Ваш адрес электронной почты</string>
     <string name="title_identity_color_hint">Цвета идентификаторов имеют приоритет над цветами папок учётных записей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
+    <string name="title_advanced_sender_name">Использовать имя, если адрес отправителя был изменён</string>
     <string name="title_advanced_sender_regex">Регулярное выражение для имени в адресе входящей электронной почты</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_unicode">Использовать транспорт Unicode</string>
@@ -594,6 +596,7 @@
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
     <string name="title_color">Цвет</string>
+    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Прозрачность</string>
     <string name="title_account_ondemand">Синхронизировать вручную</string>
     <string name="title_account_notify">Раздельные уведомления</string>
     <string name="title_account_left">Смахивание влево</string>
@@ -665,6 +668,7 @@
     <string name="title_backoff_until">Ожидание после ошибки до: %1$s</string>
     <string name="title_storage_quota">Занято на сервере: %1$s/%2$s</string>
     <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
+    <string name="title_pop_sent">Если ваше устройство будет потеряно или украдено, отправленные сообщения могут быть утрачены.</string>
     <string name="title_pop_warning">Если сервер POP3 не поддерживает команду UIDL, объём передаваемых данных может быть большим. Установите ниже приемлемую частоту опроса.</string>
     <string name="title_pop_folders">Протокол POP3 не поддерживает создание папок</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
