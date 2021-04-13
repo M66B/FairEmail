@@ -5246,14 +5246,6 @@ public class FragmentCompose extends FragmentBase {
         getActivity().invalidateOptionsMenu();
     }
 
-    private static String unprefix(String subject, String prefix) {
-        subject = subject.trim();
-        prefix = prefix.trim().toLowerCase();
-        while (subject.toLowerCase().startsWith(prefix))
-            subject = subject.substring(prefix.length()).trim();
-        return subject;
-    }
-
     private static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
         List<Pair<String, Boolean>> prefixes = new ArrayList<>();
         for (String re : Helper.getStrings(context, language, R.string.title_subject_reply, ""))
