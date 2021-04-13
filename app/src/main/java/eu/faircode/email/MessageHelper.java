@@ -226,7 +226,8 @@ public class MessageHelper {
                     !message.extra.equals(identity.email.split("@")[0])) {
                 int at = email.indexOf('@');
                 email = message.extra + email.substring(at);
-                name = null;
+                if (!identity.sender_extra_name)
+                    name = null;
                 Log.i("extra=" + email);
             }
             imessage.setFrom(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));

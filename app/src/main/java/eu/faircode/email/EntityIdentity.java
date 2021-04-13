@@ -95,6 +95,8 @@ public class EntityIdentity {
     public Boolean self = true;
     @NonNull
     public Boolean sender_extra = false;
+    @NonNull
+    public Boolean sender_extra_name = false;
     public String sender_extra_regex;
     public String replyto;
     public String cc;
@@ -201,6 +203,7 @@ public class EntityIdentity {
         json.put("primary", primary);
         json.put("self", self);
         json.put("sender_extra", sender_extra);
+        json.put("sender_extra_name", sender_extra_name);
         json.put("sender_extra_regex", sender_extra_regex);
 
         json.put("replyto", replyto);
@@ -261,6 +264,8 @@ public class EntityIdentity {
 
         if (json.has("sender_extra"))
             identity.sender_extra = json.getBoolean("sender_extra");
+        if (json.has("sender_extra_name"))
+            identity.sender_extra_name = json.getBoolean("sender_extra_name");
         if (json.has("sender_extra_regex"))
             identity.sender_extra_regex = json.getString("sender_extra_regex");
 
@@ -298,6 +303,7 @@ public class EntityIdentity {
                     this.primary.equals(other.primary) &&
                     this.self.equals(other.self) &&
                     this.sender_extra.equals(other.sender_extra) &&
+                    this.sender_extra_name.equals(other.sender_extra_name) &&
                     Objects.equals(this.sender_extra_regex, other.sender_extra_regex) &&
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.cc, other.cc) &&

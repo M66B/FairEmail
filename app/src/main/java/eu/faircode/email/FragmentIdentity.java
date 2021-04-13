@@ -110,6 +110,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSelf;
 
     private CheckBox cbSenderExtra;
+    private CheckBox cbSenderExtraName;
     private TextView etSenderExtra;
     private ImageButton ibSenderExtra;
     private EditText etReplyTo;
@@ -206,6 +207,7 @@ public class FragmentIdentity extends FragmentBase {
         cbSelf = view.findViewById(R.id.cbSelf);
 
         cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
+        cbSenderExtraName = view.findViewById(R.id.cbSenderExtraName);
         etSenderExtra = view.findViewById(R.id.etSenderExtra);
         ibSenderExtra = view.findViewById(R.id.ibSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
@@ -367,6 +369,13 @@ public class FragmentIdentity extends FragmentBase {
                             scroll.smoothScrollTo(0, btnAdvanced.getTop());
                         }
                     });
+            }
+        });
+
+        cbSenderExtra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbSenderExtraName.setEnabled(isChecked);
             }
         });
 
@@ -621,6 +630,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("display", etDisplay.getText().toString());
         args.putInt("color", btnColor.getColor());
         args.putBoolean("sender_extra", cbSenderExtra.isChecked());
+        args.putBoolean("sender_extra_name", cbSenderExtraName.isChecked());
         args.putString("sender_extra_regex", etSenderExtra.getText().toString());
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
@@ -705,6 +715,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean self = args.getBoolean("self");
 
                 boolean sender_extra = args.getBoolean("sender_extra");
+                boolean sender_extra_name = args.getBoolean("sender_extra_name");
                 String sender_extra_regex = args.getString("sender_extra_regex");
                 String replyto = args.getString("replyto");
                 String cc = args.getString("cc");
@@ -847,6 +858,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.sender_extra, sender_extra))
                         return true;
+                    if (!Objects.equals(identity.sender_extra_name, sender_extra_name))
+                        return true;
                     if (!Objects.equals(identity.sender_extra_regex, sender_extra_regex))
                         return true;
                     if (!Objects.equals(identity.replyto, replyto))
@@ -947,6 +960,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.self = self;
 
                     identity.sender_extra = sender_extra;
+                    identity.sender_extra_name = sender_extra_name;
                     identity.sender_extra_regex = sender_extra_regex;
                     identity.replyto = replyto;
                     identity.cc = cc;
@@ -1124,6 +1138,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbSelf.setChecked(identity == null ? true : identity.self);
 
                     cbSenderExtra.setChecked(identity != null && identity.sender_extra);
+                    cbSenderExtraName.setChecked(identity != null && identity.sender_extra_name);
                     etSenderExtra.setText(identity == null ? null : identity.sender_extra_regex);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etCc.setText(identity == null ? null : identity.cc);
@@ -1173,6 +1188,7 @@ public class FragmentIdentity extends FragmentBase {
                 }
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
+                cbSenderExtraName.setEnabled(cbSenderExtra.isChecked());
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean sign_default = prefs.getBoolean("sign_default", false);

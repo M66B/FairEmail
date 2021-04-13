@@ -663,6 +663,7 @@
     <string name="title_identity_email">Your email address</string>
     <string name="title_identity_color_hint">Identity colors take precedence over folder and account colors</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
+    <string name="title_advanced_sender_name">Use name when sender address has been edited</string>
     <string name="title_advanced_sender_regex">Regex to match username of incoming email addresses</string>
     <string name="title_identity_reply_to">Reply to address</string>
     <string name="title_identity_unicode">Use Unicode transport</string>
