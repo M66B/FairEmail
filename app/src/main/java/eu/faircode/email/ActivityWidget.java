@@ -120,9 +120,10 @@ public class ActivityWidget extends ActivityBase {
                                 setBackground();
                             }
                         })
-                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.title_transparent, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(Color.TRANSPARENT);
                                 setBackground();
                             }

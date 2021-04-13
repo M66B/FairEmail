@@ -118,9 +118,10 @@ public class ActivityWidgetUnified extends ActivityBase {
                                 btnColor.setColor(selectedColor);
                             }
                         })
-                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.title_transparent, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                cbSemiTransparent.setChecked(false);
                                 btnColor.setColor(Color.TRANSPARENT);
                             }
                         })
