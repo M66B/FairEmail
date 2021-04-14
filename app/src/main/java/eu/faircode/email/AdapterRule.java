@@ -48,8 +48,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -298,6 +296,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             long id = args.getLong("id");
 
                             DB db = DB.getInstance(context);
+
                             EntityRule rule = db.rule().getRule(id);
                             if (rule == null)
                                 return 0;
@@ -307,9 +306,11 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             if (jheader != null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
 
+                            List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+                            if (ids == null)
+                                return 0;
+
                             int applied = 0;
-                            List<Long> ids =
-                                    db.message().getMessageIdsByFolder(rule.folder);
                             for (long mid : ids)
                                 try {
                                     db.beginTransaction();
@@ -335,20 +336,14 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
-                            Snackbar.make(
-                                    parentFragment.getView(),
-                                    context.getString(R.string.title_rule_applied, applied), Snackbar.LENGTH_LONG)
-                                    .setGestureInsetBottomIgnored(true).show();
+                            ToastEx.makeText(context,
+                                    context.getString(R.string.title_rule_applied, applied),
+                                    Toast.LENGTH_LONG).show();
                         }
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            if (ex instanceof IllegalArgumentException)
-                                Snackbar.make(
-                                        parentFragment.getView(), ex.getMessage(), Snackbar.LENGTH_LONG)
-                                        .setGestureInsetBottomIgnored(true).show();
-                            else
-                                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
                         }
                     }.execute(context, owner, args, "rule:execute");
                 }
