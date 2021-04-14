@@ -2498,8 +2498,10 @@ public class MessageHelper {
                 ContentType ct = new ContentType(part.getContentType());
                 if ("v1".equals(ct.getParameter("protected-headers"))) {
                     String[] subject = part.getHeader("subject");
-                    if (subject != null && subject.length != 0)
+                    if (subject != null && subject.length != 0) {
+                        subject[0] = subject[0].replaceAll("\\?=[\\r\\n\\t ]+=\\?", "\\?==\\?");
                         parts.protected_subject = decodeMime(subject[0]);
+                    }
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
