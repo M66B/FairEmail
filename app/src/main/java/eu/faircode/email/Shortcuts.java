@@ -233,6 +233,7 @@ class Shortcuts {
         thread.putExtra("thread", message.thread);
         thread.putExtra("filter_archive", true);
         thread.putExtra("pinned", true);
+        thread.putExtra("msgid", message.msgid);
 
         Bitmap bm;
         if (contactInfo[0].hasPhoto())

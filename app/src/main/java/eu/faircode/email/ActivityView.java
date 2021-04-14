@@ -1459,6 +1459,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         args.putBoolean("filter_archive", intent.getBooleanExtra("filter_archive", true));
         args.putBoolean("found", found);
         args.putBoolean("pinned", intent.getBooleanExtra("pinned", false));
+        args.putString("msgid", intent.getStringExtra("msgid"));
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);

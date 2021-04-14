@@ -89,6 +89,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     thread.putExtra("thread", message.thread);
                     thread.putExtra("filter_archive", true);
                     thread.putExtra("pinned", true);
+                    thread.putExtra("msgid", message.msgid);
 
                     startActivity(thread);
                 }

@@ -278,6 +278,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean filter_archive;
     private boolean found;
     private boolean pinned;
+    private String msgid;
     private BoundaryCallbackMessages.SearchCriteria criteria = null;
     private boolean pane;
 
@@ -390,6 +391,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         filter_archive = args.getBoolean("filter_archive", true);
         found = args.getBoolean("found", false);
         pinned = args.getBoolean("pinned", false);
+        msgid = args.getString("msgid");
         criteria = (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
         pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
@@ -4910,7 +4912,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                if (pinned && message.id.equals(id))
+                if (pinned &&
+                        (message.id.equals(id) || Objects.equals(message.msgid, msgid)))
                     pin = message;
 
                 if (message.folder == folder &&
