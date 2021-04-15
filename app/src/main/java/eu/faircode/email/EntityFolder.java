@@ -186,6 +186,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     private static Map<String, TypeScore> GUESS_FOLDER_TYPE = new HashMap<String, TypeScore>() {{
         // Contains:
         put("all", new TypeScore(EntityFolder.ARCHIVE, 100));
+        put("Archiv", new TypeScore(EntityFolder.ARCHIVE, 100)); // German
         put("archive", new TypeScore(EntityFolder.ARCHIVE, 100));
         put("archief", new TypeScore(EntityFolder.ARCHIVE, 100)); // Dutch
         put("Архив", new TypeScore(EntityFolder.ARCHIVE, 100));
