@@ -787,6 +787,7 @@
     <string name="title_empty_spam">Empty spam</string>
     <string name="title_edit_properties">Edit properties</string>
     <string name="title_edit_rules">Edit rules</string>
+    <string name="title_execute_rules">Execute rules</string>
     <string name="title_create_channel">Create notification channel</string>
     <string name="title_edit_channel">Edit notification channel</string>
     <string name="title_delete_channel">Delete notification channel</string>

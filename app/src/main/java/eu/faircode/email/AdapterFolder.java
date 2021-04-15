@@ -67,12 +67,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.mail.MessagingException;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Fragment parentFragment;
@@ -527,8 +533,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, order++, R.string.title_synchronize_enabled)
                             .setCheckable(true).setChecked(folder.synchronize);
 
-                    if (!folder.read_only)
+                    if (!folder.read_only) {
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, order++, R.string.title_edit_rules);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_execute_rules, order++, R.string.title_execute_rules);
+                    }
                 }
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
@@ -548,8 +556,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
-            if (EntityFolder.INBOX.equals(folder.type) && folder.accountProtocol == EntityAccount.TYPE_POP)
+            if (EntityFolder.INBOX.equals(folder.type) && folder.accountProtocol == EntityAccount.TYPE_POP) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, order++, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_execute_rules, order++, R.string.title_execute_rules);
+            }
 
             int childs = 0;
             if (folder.child_refs != null)
@@ -624,6 +634,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_edit_rules) {
                         onActionEditRules();
+                        return true;
+                    } else if (itemId == R.string.title_execute_rules) {
+                        onActionExecuteRules();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onActionEditProperties();
@@ -913,6 +926,79 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     .putExtra("protocol", folder.accountProtocol)
                                     .putExtra("folder", folder.id)
                                     .putExtra("type", folder.type));
+                }
+
+                private void onActionExecuteRules() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+
+                    new SimpleTask<Integer>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected Integer onExecute(Context context, Bundle args) throws JSONException, MessagingException, IOException {
+                            long fid = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+
+                            List<EntityRule> rules = db.rule().getEnabledRules(fid);
+                            if (rules == null)
+                                return 0;
+
+                            for (EntityRule rule : rules) {
+                                JSONObject jcondition = new JSONObject(rule.condition);
+                                JSONObject jheader = jcondition.optJSONObject("header");
+                                if (jheader != null)
+                                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+                            }
+
+                            List<Long> ids = db.message().getMessageIdsByFolder(fid);
+                            if (ids == null)
+                                return 0;
+
+                            int applied = 0;
+                            for (long mid : ids)
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(mid);
+                                    if (message == null)
+                                        continue;
+
+                                    for (EntityRule rule : rules)
+                                        if (rule.matches(context, message, null)) {
+                                            if (rule.execute(context, message))
+                                                applied++;
+                                            if (rule.stop)
+                                                break;
+                                        }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                            if (applied > 0)
+                                ServiceSynchronize.eval(context, "rules/manual");
+
+                            return applied;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Integer applied) {
+                            ToastEx.makeText(context,
+                                    context.getString(R.string.title_rule_applied, applied),
+                                    Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
+                        }
+                    }.execute(context, owner, args, "folder:rules");
                 }
 
                 private void onActionEditProperties() {
