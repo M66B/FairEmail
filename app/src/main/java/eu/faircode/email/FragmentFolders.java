@@ -56,10 +56,16 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+
+import javax.mail.MessagingException;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -93,6 +99,7 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_DELETE_LOCAL = 1;
     static final int REQUEST_EMPTY_FOLDER = 2;
     static final int REQUEST_DELETE_FOLDER = 3;
+    static final int REQUEST_EXECUTE_RULES = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -592,6 +599,10 @@ public class FragmentFolders extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onDeleteFolder(data.getBundleExtra("args"));
                     break;
+                case REQUEST_EXECUTE_RULES:
+                    if (resultCode == RESULT_OK && data != null)
+                        onExecuteRules(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -750,6 +761,76 @@ public class FragmentFolders extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folder:delete");
+    }
+
+    private void onExecuteRules(Bundle args) {
+        new SimpleTask<Integer>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected Integer onExecute(Context context, Bundle args) throws JSONException, MessagingException, IOException {
+                long fid = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+
+                List<EntityRule> rules = db.rule().getEnabledRules(fid);
+                if (rules == null)
+                    return 0;
+
+                for (EntityRule rule : rules) {
+                    JSONObject jcondition = new JSONObject(rule.condition);
+                    JSONObject jheader = jcondition.optJSONObject("header");
+                    if (jheader != null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+                }
+
+                List<Long> ids = db.message().getMessageIdsByFolder(fid);
+                if (ids == null)
+                    return 0;
+
+                int applied = 0;
+                for (long mid : ids)
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(mid);
+                        if (message == null)
+                            continue;
+
+                        for (EntityRule rule : rules)
+                            if (rule.matches(context, message, null)) {
+                                if (rule.execute(context, message))
+                                    applied++;
+                                if (rule.stop)
+                                    break;
+                            }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                if (applied > 0)
+                    ServiceSynchronize.eval(context, "rules/manual");
+
+                return applied;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Integer applied) {
+                ToastEx.makeText(getContext(),
+                        getString(R.string.title_rule_applied, applied),
+                        Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex, false);
+            }
+        }.execute(this, args, "folder:rules");
     }
 
     public static class FragmentDialogApply extends FragmentDialogBase {

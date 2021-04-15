@@ -67,18 +67,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.mail.MessagingException;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Fragment parentFragment;
@@ -930,75 +924,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 private void onActionExecuteRules() {
                     Bundle args = new Bundle();
-                    args.putLong("id", folder.id);
+                    args.putString("question", context.getString(R.string.title_execute_rules));
+                    args.putLong("folder", folder.id);
 
-                    new SimpleTask<Integer>() {
-                        @Override
-                        protected void onPreExecute(Bundle args) {
-                            ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        protected Integer onExecute(Context context, Bundle args) throws JSONException, MessagingException, IOException {
-                            long fid = args.getLong("id");
-
-                            DB db = DB.getInstance(context);
-
-                            List<EntityRule> rules = db.rule().getEnabledRules(fid);
-                            if (rules == null)
-                                return 0;
-
-                            for (EntityRule rule : rules) {
-                                JSONObject jcondition = new JSONObject(rule.condition);
-                                JSONObject jheader = jcondition.optJSONObject("header");
-                                if (jheader != null)
-                                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
-                            }
-
-                            List<Long> ids = db.message().getMessageIdsByFolder(fid);
-                            if (ids == null)
-                                return 0;
-
-                            int applied = 0;
-                            for (long mid : ids)
-                                try {
-                                    db.beginTransaction();
-
-                                    EntityMessage message = db.message().getMessage(mid);
-                                    if (message == null)
-                                        continue;
-
-                                    for (EntityRule rule : rules)
-                                        if (rule.matches(context, message, null)) {
-                                            if (rule.execute(context, message))
-                                                applied++;
-                                            if (rule.stop)
-                                                break;
-                                        }
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                            if (applied > 0)
-                                ServiceSynchronize.eval(context, "rules/manual");
-
-                            return applied;
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Integer applied) {
-                            ToastEx.makeText(context,
-                                    context.getString(R.string.title_rule_applied, applied),
-                                    Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
-                        }
-                    }.execute(context, owner, args, "folder:rules");
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(args);
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EXECUTE_RULES);
+                    ask.show(parentFragment.getParentFragmentManager(), "folder:execute");
                 }
 
                 private void onActionEditProperties() {
