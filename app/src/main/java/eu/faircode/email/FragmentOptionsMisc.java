@@ -838,16 +838,26 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     private void onResetQuestions() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        SharedPreferences.Editor editor = prefs.edit();
-        for (String option : RESET_QUESTIONS)
-            editor.remove(option);
-        for (String key : prefs.getAll().keySet())
-            if (key.endsWith(".show_full") || key.endsWith(".show_images") || key.endsWith(".confirm_link"))
-                editor.remove(key);
-        editor.apply();
+        final Context context = getContext();
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.title_setup_reset_questions)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        for (String option : RESET_QUESTIONS)
+                            editor.remove(option);
+                        for (String key : prefs.getAll().keySet())
+                            if (key.endsWith(".show_full") || key.endsWith(".show_images") || key.endsWith(".confirm_link"))
+                                editor.remove(key);
+                        editor.apply();
 
-        ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(context, R.string.title_setup_done, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void onCleanup() {
