@@ -68,10 +68,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -557,9 +555,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_execute_rules, order++, R.string.title_execute_rules);
             }
 
-            if (folder.accountProtocol == EntityAccount.TYPE_POP)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_export_messages, order++, R.string.title_export_messages);
-
             int childs = 0;
             if (folder.child_refs != null)
                 for (TupleFolderEx child : folder.child_refs)
@@ -636,9 +631,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_execute_rules) {
                         onActionExecuteRules();
-                        return true;
-                    } else if (itemId == R.string.title_export_messages) {
-                        onActionExportMessages();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onActionEditProperties();
@@ -939,26 +931,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ask.setArguments(args);
                     ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EXECUTE_RULES);
                     ask.show(parentFragment.getParentFragmentManager(), "folder:execute");
-                }
-
-                private void onActionExportMessages() {
-                    Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-                    intent.addCategory(Intent.CATEGORY_OPENABLE);
-                    intent.setType("*/*");
-                    intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
-                            new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".mbox");
-                    Helper.openAdvanced(intent);
-
-                    if (intent.resolveActivity(context.getPackageManager()) == null) { //  // system/GET_CONTENT whitelisted
-                        ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    parentFragment.getArguments().putLong("selected_folder", folder.id);
-
-                    parentFragment.startActivityForResult(
-                            Helper.getChooser(context, intent),
-                            FragmentFolders.REQUEST_EXPORT_MESSAGES);
                 }
 
                 private void onActionEditProperties() {

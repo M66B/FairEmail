@@ -20,14 +20,12 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -57,27 +55,17 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.sun.mail.mbox.MboxProvider;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
 
-import javax.mail.Folder;
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Store;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -112,7 +100,6 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_EMPTY_FOLDER = 2;
     static final int REQUEST_DELETE_FOLDER = 3;
     static final int REQUEST_EXECUTE_RULES = 4;
-    static final int REQUEST_EXPORT_MESSAGES = 5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -616,10 +603,6 @@ public class FragmentFolders extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onExecuteRules(data.getBundleExtra("args"));
                     break;
-                case REQUEST_EXPORT_MESSAGES:
-                    if (resultCode == RESULT_OK && data != null)
-                        onExportMessages(data.getData());
-                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -848,86 +831,6 @@ public class FragmentFolders extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex, false);
             }
         }.execute(this, args, "folder:rules");
-    }
-
-    private void onExportMessages(Uri uri) {
-        long id = getArguments().getLong("selected_folder", -1L);
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-        args.putParcelable("uri", uri);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long fid = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                if (!"content".equals(uri.getScheme())) {
-                    Log.w("Export uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                DB db = DB.getInstance(context);
-                List<Long> ids = db.message().getMessageIdsByFolder(fid);
-                if (ids == null)
-                    ids = new ArrayList<>();
-
-                File tmp = new File(context.getCacheDir(), "export_" + fid + ".mbox");
-                tmp.createNewFile();
-
-                System.setProperty("mail.mbox.locktype", "none");
-
-                Properties iprops = new Properties();
-                Session isession = Session.getDefaultInstance(iprops);
-                isession.addProvider(new MboxProvider());
-
-                Store istore = isession.getStore("mbox");
-                istore.connect();
-
-                try {
-                    Folder ifolder = istore.getDefaultFolder().getFolder(tmp.getAbsolutePath());
-                    ifolder.open(Folder.READ_WRITE);
-
-                    for (long id : ids) {
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
-                            continue;
-
-                        Message imessage = MessageHelper.from(context, message, null, isession, false);
-                        ifolder.appendMessages(new Message[]{imessage});
-                    }
-
-                } finally {
-                    istore.close();
-                }
-
-                ContentResolver resolver = context.getContentResolver();
-                try (OutputStream out = resolver.openOutputStream(uri)) {
-                    Helper.copy(new FileInputStream(tmp), out);
-                }
-
-                if (!BuildConfig.DEBUG)
-                    tmp.delete();
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "folder:export");
     }
 
     public static class FragmentDialogApply extends FragmentDialogBase {
