@@ -611,7 +611,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         onActionSyncMore();
                         return true;
                     } else if (itemId == R.string.title_unified_folder || itemId == R.string.title_navigation_folder || itemId == R.string.title_notify_folder || itemId == R.string.title_synchronize_enabled) {
-                        onActionProperty(item.getItemId(), !item.isChecked());
+                        onActionProperty(itemId, !item.isChecked());
                         return true;
                     } else if (itemId == R.string.title_subscribe) {
                         onActionSubscribe();
