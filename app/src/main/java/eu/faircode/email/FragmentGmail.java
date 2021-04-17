@@ -134,8 +134,10 @@ public class FragmentGmail extends FragmentBase {
                             null,
                             null);
                     PackageManager pm = getContext().getPackageManager();
-                    if (intent.resolveActivity(pm) == null) // system whitelisted
+                    if (intent.resolveActivity(pm) == null) { // system whitelisted
+                        Log.e("newChooseAccountIntent unavailable");
                         throw new IllegalArgumentException(getString(R.string.title_no_viewer, intent));
+                    }
                     startActivityForResult(intent, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
                 } catch (Throwable ex) {
                     if (ex instanceof IllegalArgumentException)
@@ -259,8 +261,10 @@ public class FragmentGmail extends FragmentBase {
     private void onNoAccountSelected() {
         AccountManager am = AccountManager.get(getContext());
         Account[] accounts = am.getAccountsByType(TYPE_GOOGLE);
-        if (accounts.length == 0)
+        if (accounts.length == 0) {
+            Log.e("newChooseAccountIntent without result");
             ToastEx.makeText(getContext(), R.string.title_no_account, Toast.LENGTH_LONG).show();
+        }
     }
 
     private void onAccountSelected(Intent data) {
