@@ -292,7 +292,7 @@ public class EntityOperation {
                         message.ui_flagged = false;
                         message.color = null;
                     }
-                    if (message.ui_snoozed != null)
+                    if (message.ui_snoozed == null)
                         message.ui_hide = false;
                     message.ui_browsed = false;
                     message.error = null;
