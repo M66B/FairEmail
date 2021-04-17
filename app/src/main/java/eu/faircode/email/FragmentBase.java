@@ -73,8 +73,6 @@ public class FragmentBase extends Fragment {
     private boolean finished = false;
     private String requestKey = null;
 
-    private long message = -1;
-    private long attachment = -1;
     private int scrollTo = 0;
 
     private static int requestSequence = 0;
@@ -211,6 +209,10 @@ public class FragmentBase extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         Log.i("Create " + this + " saved=" + (savedInstanceState != null));
         super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        if (args == null)
+            setArguments(new Bundle());
 
         if (savedInstanceState != null) {
             subtitle = savedInstanceState.getString("fair:subtitle");
@@ -412,7 +414,8 @@ public class FragmentBase extends Fragment {
     };
 
     private void onStoreAttachment(Intent intent) {
-        attachment = intent.getLongExtra("id", -1);
+        long attachment = intent.getLongExtra("id", -1L);
+        getArguments().putLong("selected_attachment", attachment);
         Log.i("Save attachment id=" + attachment);
 
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
@@ -429,7 +432,8 @@ public class FragmentBase extends Fragment {
     }
 
     private void onStoreAttachments(Intent intent) {
-        message = intent.getLongExtra("id", -1);
+        long message = intent.getLongExtra("id", -1L);
+        getArguments().putLong("selected_message", message);
         Log.i("Save attachments message=" + message);
 
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
@@ -443,6 +447,8 @@ public class FragmentBase extends Fragment {
     }
 
     private void onSaveAttachment(Intent data) {
+        long attachment = getArguments().getLong("selected_attachment", -1L);
+
         Bundle args = new Bundle();
         args.putLong("id", attachment);
         args.putParcelable("uri", data.getData());
@@ -516,6 +522,8 @@ public class FragmentBase extends Fragment {
     }
 
     private void onSaveAttachments(Intent data) {
+        long message = getArguments().getLong("selected_message", -1L);
+
         Bundle args = new Bundle();
         args.putLong("id", message);
         args.putParcelable("uri", data.getData());
