@@ -153,7 +153,7 @@ public class FragmentOperations extends FragmentBase {
                             new SimpleTask<Integer>() {
                                 @Override
                                 protected void onPostExecute(Bundle args) {
-                                    ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -221,6 +221,9 @@ public class FragmentOperations extends FragmentBase {
                                 protected void onExecuted(Bundle args, Integer deleted) {
                                     if (deleted == null)
                                         deleted = -1;
+                                    Context context = getContext();
+                                    if (context == null)
+                                        return;
                                     ToastEx.makeText(
                                             context,
                                             getString(R.string.title_delete_operation_deleted, deleted),
