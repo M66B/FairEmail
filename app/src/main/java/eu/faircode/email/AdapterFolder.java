@@ -942,11 +942,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 private void onActionExportMessages() {
+                    String filename = Helper.sanitizeFilename(
+                            folder.accountName.replace(" ", "_") + "_" +
+                                    folder.getDisplayName(context).replace(" ", "_") + "_" +
+                                    new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".mbox");
+
                     Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                     intent.addCategory(Intent.CATEGORY_OPENABLE);
                     intent.setType("*/*");
-                    intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
-                            new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".mbox");
+                    intent.putExtra(Intent.EXTRA_TITLE, filename);
                     Helper.openAdvanced(intent);
 
                     if (intent.resolveActivity(context.getPackageManager()) == null) { //  // system/GET_CONTENT whitelisted
