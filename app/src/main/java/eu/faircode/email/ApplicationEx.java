@@ -465,6 +465,11 @@ public class ApplicationEx extends Application
                             Log.e(ex);
                         }
                 }
+        } else if (version < 1556) {
+            if (prefs.contains("last_search")) {
+                editor.putString("last_search1", prefs.getString("last_search", null));
+                editor.remove("last_search");
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

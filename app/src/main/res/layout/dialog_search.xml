@@ -124,16 +124,77 @@
             app:layout_constraintTop_toBottomOf="@id/ibFlow" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSearch1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:padding="6dp"
+            android:singleLine="true"
+            android:text="search1"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvSearch2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etQuery" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSearch2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:padding="6dp"
+            android:singleLine="true"
+            android:text="search2"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvSearch3"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@id/tvSearch1"
+            app:layout_constraintTop_toBottomOf="@id/etQuery" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSearch3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:padding="6dp"
+            android:singleLine="true"
+            android:text="search3"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/ibResetSearches"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@id/tvSearch2"
+            app:layout_constraintTop_toBottomOf="@id/etQuery" />
+
+        <ImageButton
+            android:id="@+id/ibResetSearches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etQuery"
+            app:srcCompat="@drawable/twotone_cancel_24" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:text="@string/title_search_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etQuery" />
+            app:layout_constraintTop_toBottomOf="@id/tvSearch1" />
 
         <ImageButton
             android:id="@+id/ibMore"

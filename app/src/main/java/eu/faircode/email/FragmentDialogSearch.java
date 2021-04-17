@@ -53,6 +53,7 @@ import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -74,11 +75,15 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
         boolean last_search_message = prefs.getBoolean("last_search_message", true);
         boolean last_search_notes = prefs.getBoolean("last_search_notes", true);
-        String last_search = prefs.getString("last_search", null);
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
         final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
+        final TextView tvSearch1 = dview.findViewById(R.id.tvSearch1);
+        final TextView tvSearch2 = dview.findViewById(R.id.tvSearch2);
+        final TextView tvSearch3 = dview.findViewById(R.id.tvSearch3);
+        final ImageButton ibResetSearches = dview.findViewById(R.id.ibResetSearches);
+
         final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
         final ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
         final ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
@@ -149,6 +154,41 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         etQuery.setAdapter(adapter);
+
+        View.OnClickListener onSearch = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etQuery.setText(((TextView) v).getText());
+                ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+            }
+        };
+
+        boolean hasSearches = false;
+        TextView[] views = new TextView[]{tvSearch1, tvSearch2, tvSearch3};
+        for (int i = 1; i <= 3; i++) {
+            boolean has = prefs.contains("last_search" + i);
+            if (has) {
+                hasSearches = true;
+                String search = prefs.getString("last_search" + i, null);
+                views[i - 1].setText(search);
+                views[i - 1].setOnClickListener(onSearch);
+            }
+            views[i - 1].setVisibility(has ? View.VISIBLE : View.GONE);
+        }
+        ibResetSearches.setVisibility(hasSearches ? View.VISIBLE : View.GONE);
+
+        ibResetSearches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = prefs.edit();
+                for (int i = 1; i <= 3; i++) {
+                    editor.remove("last_search" + i);
+                    views[i - 1].setVisibility(View.GONE);
+                }
+                editor.apply();
+                ibResetSearches.setVisibility(View.GONE);
+            }
+        });
 
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
@@ -274,11 +314,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         grpMore.setVisibility(View.GONE);
 
-        if (!TextUtils.isEmpty(last_search)) {
-            etQuery.setText(last_search);
-            etQuery.setSelection(0, last_search.length());
-        }
-
         etQuery.requestFocus();
         if (imm != null)
             imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
@@ -291,7 +326,23 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
 
                         criteria.query = etQuery.getText().toString();
-                        prefs.edit().putString("last_search", criteria.query).apply();
+
+                        if (!TextUtils.isEmpty(criteria.query)) {
+                            List<String> searches = new ArrayList<>();
+                            for (int i = 1; i <= 3; i++)
+                                if (prefs.contains("last_search" + i)) {
+                                    String search = prefs.getString("last_search" + i, null);
+                                    searches.add(search);
+                                }
+
+                            if (!searches.contains(criteria.query))
+                                searches.add(0, criteria.query);
+
+                            SharedPreferences.Editor editor = prefs.edit();
+                            for (int i = 1; i <= Math.min(3, searches.size()); i++)
+                                editor.putString("last_search" + i, searches.get(i - 1));
+                            editor.apply();
+                        }
 
                         if (TextUtils.isEmpty(criteria.query))
                             criteria.query = null;
