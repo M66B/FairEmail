@@ -5135,7 +5135,10 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                // Do nothing
+                etBody.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null)
+                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
