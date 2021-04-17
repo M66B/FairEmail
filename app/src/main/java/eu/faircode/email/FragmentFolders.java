@@ -909,25 +909,18 @@ public class FragmentFolders extends FragmentBase {
                         Message imessage = MessageHelper.from(context, message, null, isession, false);
                         imessage.writeTo(new FilterOutputStream(out) {
                             private boolean cr = false;
-                            private boolean lf = false;
                             private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
 
                             @Override
                             public void write(int b) throws IOException {
                                 if (b == 13 /* CR */) {
-                                    if (cr || lf)
+                                    if (cr) // another
                                         line();
                                     cr = true;
                                 } else if (b == 10 /* LF */) {
-                                    if (cr)
-                                        line();
-                                    else if (lf) {
-                                        line();
-                                        lf = true;
-                                    } else
-                                        lf = true;
+                                    line();
                                 } else {
-                                    if (cr || lf)
+                                    if (cr) // dangling
                                         line();
                                     buffer.write(b);
                                 }
@@ -935,7 +928,7 @@ public class FragmentFolders extends FragmentBase {
 
                             @Override
                             public void flush() throws IOException {
-                                if (buffer.size() > 0 || cr || lf)
+                                if (buffer.size() > 0 || cr /* dangling */)
                                     line();
                                 out.write(10);
                                 super.flush();
@@ -964,7 +957,6 @@ public class FragmentFolders extends FragmentBase {
 
                                 buffer.reset();
                                 cr = false;
-                                lf = false;
                             }
                         });
                     }
