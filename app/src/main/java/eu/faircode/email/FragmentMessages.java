@@ -284,7 +284,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private WebView printWebView = null;
 
-    private long message = -1;
     private OpenPgpServiceConnection pgpService;
 
     private boolean cards;
@@ -5839,7 +5838,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onStoreRaw(Intent intent) {
-        message = intent.getLongExtra("id", -1);
+        getArguments().putLong("selected_message", intent.getLongExtra("id", -1));
         String subject = intent.getStringExtra("subject");
         String name = (TextUtils.isEmpty(subject) ? "email" : Helper.sanitizeFilename(subject)) + ".eml";
 
@@ -6091,7 +6090,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onSaveRaw(Intent data) {
         Bundle args = new Bundle();
-        args.putLong("id", message);
+        args.putLong("id", getArguments().getLong("selected_message", -1L));
         args.putParcelable("uri", data.getData());
 
         new SimpleTask<Void>() {
