@@ -574,7 +574,7 @@
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_color">Kleur</string>
-    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Doorzichtig</string>
+    <string name="title_transparent">Doorzichtig</string>
     <string name="title_account_ondemand">Handmatig synchroniseren</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_account_left">Veeg links</string>
@@ -671,6 +671,8 @@
     <string name="title_empty_spam">Spam map leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
     <string name="title_edit_rules">Bewerk regels</string>
+    <string name="title_execute_rules">Voer regels uit</string>
+    <string name="title_export_messages">Exporteer berichten</string>
     <string name="title_create_channel">Meldingskanaal maken</string>
     <string name="title_edit_channel">Meldingskanaal wijzigen</string>
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>

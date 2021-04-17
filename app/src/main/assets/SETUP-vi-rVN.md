@@ -28,7 +28,7 @@ Nếu tài khoản được thiết lập thủ công, có khả năng bạn cũ
 
 Xem [câu hỏi thường gặp này](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) về việc sử dụng bí danh.
 
-## Cấp quyền - để truy cập thông tin liện hệ
+## Cấp quyền - để truy cập thông tin liên hệ
 
 Nếu bạn muốn tra cứu địa chỉ email, hiện ảnh liên hệ, v.v., bạn sẽ cần cấp quyền đọc thông tin liên hệ cho FairEmail. Chỉ cần nhấn *Cấp* và chọn *Cho phép*.
 

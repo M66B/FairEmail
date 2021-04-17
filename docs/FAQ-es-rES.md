@@ -49,14 +49,14 @@ Preguntas relacionadas:
 
 * Cambiar el nombre de la cuenta: Configuración, toque Configuración manual, toque Cuentas, toque la cuenta
 * Cambiar el objetivo del deslizamiento a la izquierda/derecha: Configuración, pestaña Comportamiento, Acciones de deslizamiento
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Cambiar contraseña: Configuración, toque Configuración manual, toque Cuentas, toque cuenta, cambiar contraseña
+* Establecer una firma: Configuración, toque Configuración manual, toque Identidades, toque identidad, Editar firma.
 * Añadir dirección CC y CCO: toque el icono de la persona al final del asunto
 * Ir al mensaje siguiente/anterior en archivar/eliminar: en la configuración de comportamiento desactive *Cerrar conversaciones automáticamente* y seleccione *Ir a la siguiente/anterior conversación* para *Al cerrar una conversación*
 * Añadir una carpeta a la bandeja de entrada unificada: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en la bandeja de entrada unificada*
 * Añadir una carpeta al menú de navegación: mantenga presionada la carpeta en la lista de carpetas y marque *Mostrar en el menú de navegación*
 * Cargar más mensajes: mantenga presionado una carpeta en la lista de carpetas, seleccione *Obtener más mensajes*
-* Delete a message, skipping trash: long press the trash icon
+* Eliminar un mensaje, omitiendo la papelera: mantenga presionado el icono de la papelera
 * Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
 * Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
 * Undo send: Outbox, swipe the message in the list left or right

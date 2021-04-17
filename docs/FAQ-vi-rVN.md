@@ -94,8 +94,8 @@ Câu hỏi liên quan:
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
+* ~~Tìm kiếm thư có/không có tệp đính kèm~~ (tính năng này không thể được thêm vì IMAP không hỗ trợ tìm kiếm tệp đính kèm)
+* ~~Tìm kiếm một thư mục~~ (việc lọc một danh sách thư mục có tính cấp bậc có rất nhiều vấn đề)
 * ~~Đề xuất tìm kiếm~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Các thư mục hợp nhất chung chung~~

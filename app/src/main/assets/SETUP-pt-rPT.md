@@ -10,7 +10,7 @@ Uma ligação à internet é obrigatória para configurar contas e identidades.
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-This will work for most email providers.
+Isto funcionará para a maioria dos provedores de e-mail.
 
 If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
@@ -34,7 +34,7 @@ If you want to lookup email addresses, have contact photos shown, etc, you'll ne
 
 ## Configurar otimizações de bateria - para continuamente receber emails
 
-Nas versões mais recentes do Android, o Android põe as aplicações em modo de suspensão quando a tela estiver desligada durante algum tempo para reduzir uso da bateria. Se quiser receber novos emails sem atraso, terá que desabilitar as otimizações de bateria para o FairMail. Tap *Manage* and follow the instructions.
+Nas versões mais recentes do Android, o Android põe as aplicações em modo de suspensão quando a tela estiver desligada durante algum tempo para reduzir uso da bateria. Se quiser receber novos emails sem atraso, terá que desabilitar as otimizações de bateria para o FairMail. Toque em *Gerenciar* e siga as instruções.
 
 ## Perguntas ou problemas
 

@@ -397,6 +397,7 @@
     <string name="title_advanced_notify_action_reply_direct">直接返信</string>
     <string name="title_advanced_notify_action_flag">スター</string>
     <string name="title_advanced_notify_action_seen">既読</string>
+    <string name="title_advanced_notify_action_hide">非表示</string>
     <string name="title_advanced_notify_action_snooze">スヌーズ</string>
     <string name="title_advanced_notify_remove">通知をタップすると新着メッセージ通知を削除</string>
     <string name="title_advanced_notify_clear">メッセージリスト表示時に新着メッセージ通知を削除</string>
@@ -543,6 +544,7 @@
     <string name="title_identity_email">メールアドレス</string>
     <string name="title_identity_color_hint">IDカラーはフォルダとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">送信者アドレスの編集を許可</string>
+    <string name="title_advanced_sender_name">送信者アドレスが編集された時に名前を使用する</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先アドレス</string>
     <string name="title_identity_unicode">Unicode トランスポートを使用</string>
@@ -559,6 +561,7 @@
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度又は新しいメッセージを確認する頻度</string>
     <string name="title_account_partial_fetch_hint">空のメッセージ又は破損した添付ファイルの場合にのみ無効</string>
     <string name="title_color">カラー</string>
+    <string name="title_transparent">透過</string>
     <string name="title_account_ondemand">手動で同期</string>
     <string name="title_account_notify">個別の通知</string>
     <string name="title_account_left">左にスワイプ</string>
@@ -630,6 +633,7 @@
     <string name="title_backoff_until">失敗後の待機時間: %1$s</string>
     <string name="title_storage_quota">サーバストレージ使用量:%1$s/%2$s</string>
     <string name="title_pop_support">POP3プロトコルは受信ボックスからのメッセージダウンロードと削除のみをサポートします。POP3はメッセージを既読としてマークしたりメッセージを移動したりする事は出来ません。POP3はIMAPよりも多くのバッテリー電力とデータを使用します。その為に可能な限りIMAPプロトコルの使用の検討して下さい</string>
+    <string name="title_pop_sent">デバイスを紛失または盗難された場合、送信されたメッセージが失われる可能性があります。</string>
     <string name="title_pop_warning">POP3サーバがUIDLコマンドをサポートしていない場合、データ使用量が高くなる可能性があります。</string>
     <string name="title_pop_folders">POP3プロトコルはフォルダの作成をサポートしていません</string>
     <string name="title_oauth_support">OAuthはサポートされていません</string>
@@ -654,6 +658,7 @@
     <string name="title_empty_spam">迷惑メールを空にする</string>
     <string name="title_edit_properties">プロパティを編集</string>
     <string name="title_edit_rules">ルールを編集</string>
+    <string name="title_execute_rules">ルールを実行</string>
     <string name="title_create_channel">通知チャンネルを作成</string>
     <string name="title_edit_channel">通知チャンネルを編集</string>
     <string name="title_delete_channel">通知チャンネルを削除</string>

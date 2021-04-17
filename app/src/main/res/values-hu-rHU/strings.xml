@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail nem támogatott ezen az eszközön, az Android hibái miatt</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="app_cake">Nincs elég tárhely</string>
+    <string name="app_updated">Utoljára frissítve: %1$s</string>
     <string name="channel_service">Fogadás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Email</string>
@@ -117,6 +118,8 @@
     <string name="title_setup">Beállítások</string>
     <string name="title_setup_help">Súgó</string>
     <string name="title_setup_quick">Gyors beállítás</string>
+    <string name="title_setup_intro">A fiók létrehozása csak három lépésből áll és ezt követően e-maileket küldhet és fogadhat</string>
+    <string name="title_setup_simple">Nincs szükség egyéb lehetőségek megváltoztatására</string>
     <string name="title_setup_quick_accounts">Fiókok hozzáadása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
     <string name="title_setup_quick_hint">A gyors beállítás alkalmazza az autoconfig.thunderbird.net-en található konfigurációs információkat</string>
@@ -163,9 +166,12 @@
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
     <string name="title_setup_doze">Akkumulátor-optimalizálás kikapcsolása</string>
+    <string name="title_setup_doze_remark">Megbízhatóan küldhet és fogadhat e-maileket</string>
     <string name="title_setup_doze_hint">Lehet hogy ez érdekesnek hangozhat, de az akkumulátor optimalizációk kikapcsolása esetén kevesebb lesz az akkumulátor-használat</string>
+    <string name="title_setup_doze_instructions">A következő Android párbeszédpanelen változtassa meg a „Nincs optimalizálva” értéket „Minden alkalmazás” értékre, válassza ki ezt az alkalmazást, és válassza a „Ne optimalizálja” lehetőséget</string>
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
+    <string name="title_setup_background">A háttérkorlátozások engedélyezve vannak</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
     <string name="title_setup_advanced_options">Haladó beállítások megjelenítése</string>
     <string name="title_setup_inbox">Ugrás a beérkezett üzenetekhez</string>
@@ -228,6 +234,7 @@
     <string name="title_advanced_section_encryption">Titkosítás</string>
     <string name="title_advanced_section_notifications">Értesítések</string>
     <string name="title_advanced_section_misc">Egyebek</string>
+    <string name="title_advanced_default">Az összes opció általánosan használt szabványos értékeket tartalmaz, amelyeket nem kell megváltoztatni az alkalmazás használatához</string>
     <string name="title_advanced_receive">Üzenetek fogadása minden fiókon</string>
     <string name="title_advanced_when">Mikor</string>
     <string name="title_advanced_always">Mindig fogadjon értesítéseket e fiókokhoz</string>
@@ -254,6 +261,7 @@
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
     <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
     <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
+    <string name="title_advanced_send_pending">Nem zavaró küldés késleltetett ikon megjelenítése</string>
     <string name="title_advanced_compose_font">Alapértelmezett betűtípus</string>
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
     <string name="title_advanced_separate_reply">Fekvő vonal elhelyezése a válasz/továbbítás fejléc előtt</string>
@@ -266,6 +274,8 @@
     <string name="title_advanced_signature_reply">Aláírás használata válaszoláskor</string>
     <string name="title_advanced_signature_forward">Aláírás használata toivábbításkor</string>
     <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
+    <string name="title_advanced_reply_move">Ha egy felhasználói mappában lévő üzenetre válaszol, mentse a választ ugyanabba a mappába</string>
+    <string name="title_advanced_auto_link">Automatikus link létrehozása</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_flow">\'format flowed\' üres szöveghez</string>
     <string name="title_advanced_usenet_signature">Usenet aláírás konvenció használata</string>
@@ -361,6 +371,7 @@
     <string name="title_advanced_swipe_close">A beszélgetés bezárásához húzd le</string>
     <string name="title_advanced_swipe_move">Pöccintsen fel a beszélgetés áthelyezéséhez</string>
     <string name="title_advanced_autoexpand">Üzenetek automatikus kibontása</string>
+    <string name="title_advanced_expand_first">Az első üzenet automatikus kibontása a beszélgetés olvasásakor</string>
     <string name="title_advanced_expand_all">Összes olvasott üzenet automatikus kibontása</string>
     <string name="title_advanced_expand_one">Egyszerre csak egy üzenet kibontása</string>
     <string name="title_advanced_collapse_multiple">Több üzenetet tartalmazó beszélgetés üzeneteinek összecsukása \'vissza\'-val</string>
@@ -398,6 +409,7 @@
     <string name="title_advanced_notify_action_reply_direct">Gyors válasz</string>
     <string name="title_advanced_notify_action_flag">Csillag</string>
     <string name="title_advanced_notify_action_seen">Elolvasott</string>
+    <string name="title_advanced_notify_action_hide">Elrejtés</string>
     <string name="title_advanced_notify_action_snooze">Szundi</string>
     <string name="title_advanced_notify_remove">\"Új üzenet\" értesítés törlése az értesítésre koppintással</string>
     <string name="title_advanced_notify_clear">Összes \"Új üzenet\" értesítés törlése az üzenetlista megnyitásakor</string>
@@ -478,10 +490,12 @@
     <string name="title_advanced_suggest_local_hint">Az Android által biztosított névjegyek mellett. A kapcsolattartási adatokat az újonnan elküldött vagy fogadott üzenetek csak akkor fogják tárolni, ha ez engedélyezve van.</string>
     <string name="title_advanced_usenet_hint">Elválasztó \'--\' beillesztése a szövegtörzs és az aláírás közé</string>
     <string name="title_advanced_send_reminders_hint">Figyelmeztetés megjelenítése, ha az üzenet szövege vagy a tárgy üres, illetve ha a melléklet feltehetőleg hiányzik</string>
+    <string name="title_advanced_reply_move_hint">Az e-mail szerver továbbra is felveheti az üzeneteket az elküldött üzenetek mappájába</string>
     <string name="title_advanced_metered_hint">A mért kapcsolatok általában adatkapcsolatok vagy fizetős Wi-Fi hozzáférési pontok</string>
     <string name="title_advanced_metered_warning">Az opció kikapcsolása letiltja az üzenetek fogadását és küldését adatkapcsolaton keresztül</string>
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
     <string name="title_advanced_tcp_keep_alive_hint">E funkció aktiválása csatlakozási problémákat okozhat néhány készüléken</string>
+    <string name="title_advanced_validate_hint">Ez azt eredményezheti, hogy nem szinkronizálják az üzeneteket, például VPN használatakor, de más helyzetekben is</string>
     <string name="title_advanced_timeout_hint">Az olvasás/írás időtúllépés be lesz állítva a kapcsolat időtúllépés duplájára. Nagyobb értékek több akkumulátor használatot eredményezhetnek.</string>
     <string name="title_advanced_ssl_harden_hint">Ennek a bekapcsolása kikapcsolja a gyenge SSL protokollokat és ciphereket ami csatlakozási problémákat okozhat</string>
     <string name="title_advanced_roaming_hint">Az üzenetek fejléce roamingoláskor minden esetben letöltésre kerül. A készülék beállításai között kikapcsolhatja a roaming internet használatot.</string>

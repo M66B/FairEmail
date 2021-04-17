@@ -558,6 +558,7 @@
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
+    <string name="title_advanced_sender_name">Name verwenden, wenn die Absenderadresse bearbeitet wurde</string>
     <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_unicode">Unicode-Transport verwenden</string>
@@ -574,7 +575,7 @@
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
     <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
     <string name="title_color">Farbe</string>
-    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Transparent</string>
+    <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Manuell synchronisieren</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_account_left">Nach links wischen</string>
@@ -630,7 +631,7 @@
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
     <string name="title_default_composable">Die Standard-E-Mail-Adresse wird durch die primäre Identität des Hauptkontos bestimmt</string>
     <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Ordners „Entwürfe”</string>
-    <string name="title_no_standard">Dieser Provider verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Clients von Drittanbietern zu nutzen</string>
+    <string name="title_no_standard">Dieser Anbieter verwendet ein proprietäres E-Mail-Protokoll, so dass es nicht möglich ist, E-Mail-Programme von Drittanbietern zu verwenden.</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
     <string name="title_no_sync">Synchronisationsfehler seit %1$s</string>
@@ -670,7 +671,9 @@
     <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_empty_spam">Spamordner leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
-    <string name="title_edit_rules">Regel bearbeiten</string>
+    <string name="title_edit_rules">Regeln bearbeiten</string>
+    <string name="title_execute_rules">Regeln ausführen</string>
+    <string name="title_export_messages">Nachrichten exportieren</string>
     <string name="title_create_channel">Benachrichtigungskanal erstellen</string>
     <string name="title_edit_channel">Benachrichtigungskanal bearbeiten</string>
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>

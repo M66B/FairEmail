@@ -566,6 +566,7 @@
     <string name="title_identity_email">Ваша електронна адреса</string>
     <string name="title_identity_color_hint">Кольори ідентифікації мають пріоритет над кольорами теки та облікового запису</string>
     <string name="title_advanced_sender">Дозволити редагування адреси відправника</string>
+    <string name="title_advanced_sender_name">Використовувати ім\'я, коли адресу відправника було відредаговано</string>
     <string name="title_advanced_sender_regex">Регулярний вираз, що застосовується до імені користувача з вхідних адрес електронної пошти</string>
     <string name="title_identity_reply_to">Відповісти на адресу</string>
     <string name="title_identity_unicode">Використовувати Unicode при комунікації з сервером</string>
@@ -582,6 +583,7 @@
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
     <string name="title_color">Колір</string>
+    <string name="title_transparent">Прозорість</string>
     <string name="title_account_ondemand">Синхронізувати вручну</string>
     <string name="title_account_notify">Окремі сповіщення</string>
     <string name="title_account_left">Свайп вліво</string>
@@ -678,6 +680,7 @@
     <string name="title_empty_spam">Очистити спам</string>
     <string name="title_edit_properties">Редагувати властивості</string>
     <string name="title_edit_rules">Змінити правила</string>
+    <string name="title_execute_rules">Виконати правила</string>
     <string name="title_create_channel">Створити канал сповіщень</string>
     <string name="title_edit_channel">Редагувати канал сповіщень</string>
     <string name="title_delete_channel">Видалити канал сповіщень</string>

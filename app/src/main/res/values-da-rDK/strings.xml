@@ -660,6 +660,8 @@
     <string name="title_empty_spam">Tøm spam</string>
     <string name="title_edit_properties">Redigér egenskaber</string>
     <string name="title_edit_rules">Redigér regler</string>
+    <string name="title_execute_rules">Eksekvere regler</string>
+    <string name="title_export_messages">Eksportere beskeder</string>
     <string name="title_create_channel">Opret notifikationskanal</string>
     <string name="title_edit_channel">Redigér notifikationskanal</string>
     <string name="title_delete_channel">Slet notifikationskanal</string>

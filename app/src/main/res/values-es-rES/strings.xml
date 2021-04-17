@@ -557,6 +557,7 @@
     <string name="title_identity_email">Su dirección de correo electrónico</string>
     <string name="title_identity_color_hint">Los colores de indentidad tienen prioridad sobre los colores de carpeta y cuenta</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
+    <string name="title_advanced_sender_name">Usar nombre cuando la dirección del remitente ha sido editada</string>
     <string name="title_advanced_sender_regex">Expresión regular que coincida con el nombre de usuario de las direcciones de correo entrantes</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_unicode">Usar transporte Unicode</string>
@@ -573,6 +574,7 @@
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_color">Color</string>
+    <string name="title_transparent">Transparente</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificaciones separadas</string>
     <string name="title_account_left">Deslizar a la izquierda</string>
@@ -669,6 +671,8 @@
     <string name="title_empty_spam">Vaciar spam</string>
     <string name="title_edit_properties">Editar propiedades</string>
     <string name="title_edit_rules">Editar reglas</string>
+    <string name="title_execute_rules">Ejecutar reglas</string>
+    <string name="title_export_messages">Exportar mensajes</string>
     <string name="title_create_channel">Crear canal de notificación</string>
     <string name="title_edit_channel">Editar canal de notificación</string>
     <string name="title_delete_channel">Eliminar canal de notificación</string>

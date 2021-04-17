@@ -562,7 +562,7 @@
     <string name="title_account_interval_hint">Tần số làm mới kết nối để nhận thông báo đẩy hoặc tần số kiểm tra thư mới</string>
     <string name="title_account_partial_fetch_hint">Chỉ tắt cái này trong trường hợp có thư trống hoặc tệp đính kèm bị hỏng</string>
     <string name="title_color">Màu săc</string>
-    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Trong suốt</string>
+    <string name="title_transparent">Trong suốt</string>
     <string name="title_account_ondemand">Đồng bộ hoá thủ công</string>
     <string name="title_account_notify">Thông báo riêng</string>
     <string name="title_account_left">Vuốt trái</string>
@@ -585,6 +585,7 @@
     <string name="title_password_storage">Mật khẩu được lưu trữ như thế nào?</string>
     <string name="title_case_sensitive">Tên người dùng và mật khẩu thường phân biệt chữ hoa/chữ thường</string>
     <string name="title_client_certificate">Chứng chỉ khách</string>
+    <string name="title_realm">Realm</string>
     <string name="title_use_ip">Sử dụng địa chỉ IP thay vì tên máy chủ</string>
     <string name="title_ehlo">Nhận dạng HELO/EHLO tuỳ chỉnh</string>
     <string name="title_primary">Chính</string>
@@ -658,6 +659,8 @@
     <string name="title_empty_spam">Dọn sạch thư rác</string>
     <string name="title_edit_properties">Chỉnh sửa thuộc tính</string>
     <string name="title_edit_rules">Chỉnh sửa các quy tắc</string>
+    <string name="title_execute_rules">Thực thi các quy tắc</string>
+    <string name="title_export_messages">Xuất thư</string>
     <string name="title_create_channel">Tạo kênh thông báo</string>
     <string name="title_edit_channel">Chỉnh sửa kênh thông báo</string>
     <string name="title_delete_channel">Xoá kênh thông báo</string>
@@ -801,6 +804,7 @@
     <string name="title_reply_to_all">Trả lời tất cả</string>
     <string name="title_reply_list">Trả lời danh sách</string>
     <string name="title_reply_receipt">Gửi xác nhận đã đọc</string>
+    <string name="title_reply_hard_bounce">Gửi thông báo chưa được gửi vĩnh viễn (hard bounce)</string>
     <string name="title_reply_template">Trả lời bằng mẫu</string>
     <string name="title_move_undo">Đang di chuyển đến %1$s (%2$d)</string>
     <string name="title_open_with">Mở bằng</string>
@@ -953,6 +957,7 @@
     <string name="title_attachment_keywords">đã đính kèm,tệp đính kèm,các tệp đính kèm,đã bao gồm</string>
     <string name="title_attachment_reminder">Bạn có ý định thêm tệp đính kèm không?</string>
     <string name="title_plain_reminder">Tất cả định dạng sẽ bị mất</string>
+    <string name="title_dsn_reminder">Các thông báo hard bounce sẽ làm hư hại danh tiếng email của người gửi ban đầu!</string>
     <string name="title_size_reminder">Thư (%1$s) lớn hơn giới hạn máy chủ (%2$s)</string>
     <string name="title_attachments_missing">Không phải tất cả tệp đính kèm đã được tải xuống</string>
     <string name="title_dialog_hint">Hộp thoại này có thể được bật lại qua menu ba chấm trong thanh hành động phía trên</string>

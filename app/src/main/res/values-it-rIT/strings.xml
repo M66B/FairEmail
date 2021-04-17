@@ -409,6 +409,7 @@
     <string name="title_advanced_notify_action_reply_direct">Risposta diretta</string>
     <string name="title_advanced_notify_action_flag">Stella</string>
     <string name="title_advanced_notify_action_seen">Letto</string>
+    <string name="title_advanced_notify_action_hide">Nascondi</string>
     <string name="title_advanced_notify_action_snooze">Posticipa</string>
     <string name="title_advanced_notify_remove">Rimuovi la notifica di nuovo messaggio quando si tocca la notifica</string>
     <string name="title_advanced_notify_clear">Rimuovi le notifiche dei nuovi messaggi dalla lista dei messaggi</string>
@@ -556,6 +557,7 @@
     <string name="title_identity_email">Il tuo indirizzo e-mail</string>
     <string name="title_identity_color_hint">I colori dell\'identità hanno precedenza sui colori di cartella e account</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
+    <string name="title_advanced_sender_name">Usa il nome quando l\'indirizzo del mittente è stato modificato</string>
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
     <string name="title_identity_unicode">Usa il trasporto Unicode</string>
@@ -572,6 +574,7 @@
     <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
     <string name="title_account_partial_fetch_hint">Disabilita questo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_color">Colore</string>
+    <string name="title_transparent">Trasparente</string>
     <string name="title_account_ondemand">Sincronizza manualmente</string>
     <string name="title_account_notify">Notifiche separate</string>
     <string name="title_account_left">Scorri a sinistra</string>
@@ -643,6 +646,7 @@
     <string name="title_backoff_until">Attesa dopo il fallimento fino a: %1$s</string>
     <string name="title_storage_quota">Utilizzo archiviazione server: %1$s/%2$s</string>
     <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostare i messaggi, ecc. POP3 userà più energia e dati di IMAP. Quindi, considera l\'uso del protocollo IMAP quando possibile.</string>
+    <string name="title_pop_sent">Se il dispositivo viene smarrito o rubato, i messaggi inviati potrebbero andare persi.</string>
     <string name="title_pop_warning">Se un server POP3 non supporta il comando UIDL, l\'utilizzo dei dati potrebbe essere elevato. Quindi, regola in modo appropriato la frequenza di ricezione.</string>
     <string name="title_pop_folders">Il protocollo POP3 non supporta la creazione di cartelle</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
@@ -667,6 +671,8 @@
     <string name="title_empty_spam">Svuota spam</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_edit_rules">Modifica regole</string>
+    <string name="title_execute_rules">Esegui le regole</string>
+    <string name="title_export_messages">Esporta messaggi</string>
     <string name="title_create_channel">Crea un canale di notifica</string>
     <string name="title_edit_channel">Modifica canale di notifica</string>
     <string name="title_delete_channel">Elimina canale di notifica</string>

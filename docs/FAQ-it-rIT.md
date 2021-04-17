@@ -47,22 +47,22 @@ Domande correlate:
 
 ## Come fare per ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* Cambiare il nome dell'account: Impostazioni, Configurazione manuale, Account, cliccare l'account desiderato
 * Cambiare l'azione di scorrimento a sinistra/destra: Impostazioni, Impostazioni pagina, Imposta azioni di scorrimento
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Cambiare password: Impostazioni, Configurazione manuale, Account, cliccare l'account desiderato, Cambia password
+* Impostare una firma: Impostazioni, Configurazione manuale, Identità, cliccare l'identità desiderata, Modifica firma.
 * Aggiungere indirizzi CC e CCN: cliccare l'icona delle persone alla fine dell'oggetto dell'email
 * Andare al messaggio successivo/precedente nell'archivio/cestino: nelle impostazioni di comportamento disattivare *Chiudi automaticamente le conversazioni* e selezionare *Vai alla conversazione precedente/successiva* sotto *Alla chiusura di una conversazione*
 * Aggiungere una cartella nella casella di posta unificata: nell'elenco delle cartelle, tenere premuta la cartella desiderata e spuntare *Mostra nella casella di posta unificata*
 * Aggiungere una cartella al menu di navigazione: nell'elenco delle cartelle, tenere premuta la cartella desiderata e spuntare *Mostra nel menu di navigazione*
 * Caricare più messaggi: nell'elenco delle cartelle, tenere premuta la cartella desiderata e selezionare *Carica più messaggi*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Eliminare un messaggio, evitando il cestino: premi a lungo l'icona del cestino
+* Eliminare account/identità: Impostazioni, Impostazioni manuali, Account/Identità, cliccare sull'account/identità, icona del cestino in alto a destra
+* Eliminare una cartella: tenere premuta a lungo la cartella nell'elenco delle cartelle, Modifica proprietà, icona del cestino in alto a destra
+* Annullare un invio: Posta in uscita, scorri il messaggio nell'elenco verso sinistra o destra
 * Conservare i messaggi inviati nella posta in arrivo: [si vedano queste domande frequenti](#user-content-faq142).
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Cambiare le cartelle di sistema: Impostazioni, Configurazione manuale, Account, cliccare l'account desiderato, in fondo
+* Impostazioni di esportazione/importazione: Impostazioni, menu di navigazione (lato sinistro)
 
 ## Problemi ricorrenti
 
@@ -260,7 +260,7 @@ Il design è stato a lungo oggetto di discussione e, se si desidera, se ne può 
 * [(135) Perché i messaggi cestinati e le bozze sono mostrati nelle conversazioni?](#user-content-faq135)
 * [(135) Come posso eliminare un profilo/un'identità/una cartella?](#user-content-faq136)
 * [(137) Come posso reimpostare 'Non chiedere più'?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
+* [(138) Puoi aggiungere la gestione di calendario/contatti/attività/note?](#user-content-faq138)
 * [(139) Come risolvo 'L'utente è autenticato ma non connesso'?](#user-content-faq139)
 * [(140) Perché il testo del massaggio contiene caratteri strani?](#user-content-faq140)
 * [(141) Come posso correggere 'Una cartella delle bozze è necessaria per inviare i messaggi'?](#user-content-faq141)
@@ -288,7 +288,7 @@ Il design è stato a lungo oggetto di discussione e, se si desidera, se ne può 
 * [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
 * [(164) Puoi aggiungere temi personalizzabili?](#user-content-faq164)
 * [(165) Android Auto è supportato?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(166) Posso ritardare un messaggio su più dispositivi?](#user-content-faq166)
 
 [Ho un'altra domanda.](#user-content-support)
 
@@ -354,7 +354,7 @@ La notifica nella barra di stato può essere disabilitata tramite le impostazion
 
 Android 8 Oreo potrebbe anche mostrare una notifica nella barra di stato con il testo *Le app sono in esecuzione in background*. Si prega di vedere [qui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) come disabilitare questa notifica.
 
-Alcuni utenti hanno suggerito di usare [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) invece di un servizio Android con una notifica nella barra di stato, ma questo costringerebbe gli emittenti a inviare messaggi FCM ad un server centrale in cui sono raccolti tutti i messaggi FCM. The first is not going to happen and the last would have significant privacy implications.
+Alcuni utenti hanno suggerito di usare [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) invece di un servizio Android con una notifica nella barra di stato, ma questo costringerebbe gli emittenti a inviare messaggi FCM ad un server centrale in cui sono raccolti tutti i messaggi FCM. La prima non accadrà mai è l'ultima avrebbe implicazioni importanti sulla privacy.
 
 Se si è arrivati qui cliccando sulla notifica, il prossimo click aprirà la casella di posta unificata.
 
@@ -398,23 +398,23 @@ Le operazioni vengono elaborate solo quando si è connessi al server di posta el
 <br />
 *... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Si consulta la documentazione del provider di posta elettronica sul nome host giusto.
+Ciò può essere causato dall'uso di un nome host errato, quindi prima ricontrolla il nome host nelle impostazioni avanzate di identità/account (tocca Configurazione manuale). Si consulta la documentazione del provider di posta elettronica sul nome host giusto.
 
 È possibile risolvere questo problema contattando il proprio provider oppure ottenendo un certificato di sicurezza valido poiché i certificati di sicurezza non validi sono insicuri e consentono [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il prezzo di questi rappresenta un ostacolo, è possibile ottenere certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
+La soluzione veloce, ma non sicura (non consigliata), è quella di attivare *Connessioni non sicure* nelle impostazioni di identità avanzate (menu di navigazione, tocca *Impostazioni*, *Configurazione manuale*, *Identità*, scegli l'identità, *Avanzate*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+In alternativa, puoi accettare l'impronta dei certificati server non validi in questo modo:
 
 1. Assicurati di star usando una connessione internet affidabile (nessuna rete Wi-Fi pubblica, etc)
 1. Vai alla schermata di configurazione tramite il menu di navigazione (scorri verso l'interno dal lato sinistro)
-1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
+1. Tocca Configurazione manuale, Account/Identità e scegli l'account/l'Identità difettoso/a
 1. Seleziona/salva il profilo e l'identità
 1. Seleziona la casella sotto al messaggio di errore e salva di nuovo
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Ciò "fisserà" il certificato del server per prevenire attacchi man-in-the-middle.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Nota che le versioni più vecchie di Android potrebbero non riconoscere le autorità di certificazione più recenti come Let's Encrypt, perciò le connessioni potrebbero essere considerate non sicure, vedi anche [qui](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
@@ -432,27 +432,27 @@ You can pin the certificate too, see above.
 
 <br />
 
-*Empty password*
+*Password vuota*
 
-Your username is likely easily guessed, so this is insecure.
+Il tuo nome utente è probabile che sia facile da indovinare, perciò non è sicuro.
 
-*Plain text connection*
+*Connessione di testo semplice*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Il tuo nome utente, la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che è **molto insicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto semplice su una connessione non crittografata.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Se vuoi comunque usare un certificato di sicurezza non valido, una password vuota o una connessione di testo semplice, dovrai attivare le connessioni non sicure nelle impostazioni del profilo e/o identità. STARTTLS dovrebbe essere selezionato per le connessioni di testo semplice. Se attivi le connessioni non sicure, dovresti connetterti soltanto tramite reti affidabili e private e mai tramite reti pubbliche, come quelle offerte negli hotel, aeroporti, ecc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Come posso personalizzare la visualizzazione dei messaggi?**
 
-In the three dot overflow menu you can enable or disable or select:
+Nel menu a tre puntini puoi attivare o disattivare o selezionare:
 
 * *dimensione del testo*: per tre differenti dimensioni del font
 * *vista compatta*: per altri elementi di messaggio compressi e un font di testo del messaggio più piccolo
 
-In the display section of the settings you can enable or disable for example:
+Nella sezione di visualizzazione nelle impostazioni puoi attivare o disattivare ad esempio:
 
 * *Casella unificata*: per disabilitare la casella della posta in arrivo unificata ed elencare le cartelle selezionate invece per la casella di posta in arrivo unificata
 * *Stile tabulare*: per mostrare un elenco lineare invece delle schede
@@ -469,9 +469,9 @@ In the display section of the settings you can enable or disable for example:
 * *Mostra automaticamente il messaggio originale per i contatti noti*: per mostrare automaticamente i messaggi originali per i contatti sul tuo dispositivo, sei pregato di leggere [questa FAQ](#user-content-faq35)
 * *Mostra automaticamente le immagini per i contatti noti*: per mostrare automaticamente le immagini per i contatti sul tuo dispositivo, sei pregato di leggere [questa FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Nota che i messaggi sono visibili in anteprima solo quando il testo del messaggio è stato scaricato. I testi più lunghi non vengono scaricati in modo predefinito su reti a consumo (generalmente mobili). Puoi cambiarlo nelle impostazioni di connessione.
 
-Some people ask:
+Alcune persone chiedono:
 
 * di mostrare il soggetto in grassetto, ma il grassetto è già usato per evidenziare i messaggi non letti
 * di spostare la stella a sinistra, ma è molto più facile azionarla sul lato destro
@@ -607,16 +607,16 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*General*
+*Generale*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Si prega di [vedere qui](https://en.wikipedia.org/wiki/Public-key_cryptography) come funziona la crittografia della chiave pubblica/privata.
 
-Encryption in short:
+La crittografia in breve:
 
 * I messaggi **in uscita** sono crittografati con la **chiave pubblica** del destinatario
 * I messaggi **in arrivo** sono decrittografati con la **chiave privata** del destinatario
 
-Signing in short:
+Le firme in breve:
 
 * I messaggi **In Uscita** sono firmati con la **chiave privata** del mittente
 * I messaggi **In Entrata** sono verificati con la **chiave pubblica** del mittente
@@ -655,19 +655,19 @@ All key handling is delegated to the OpenKey chain app for security reasons. Thi
 
 Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
-Signed-only or encrypted-only messages are not a good idea, please see here about why not:
+I messaggi solo firmati o solo crittografati non sono una buona idea, vedi qui i motivi:
 
 * [Considerazioni di OpenPGP Parte I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [Considerazioni di OpenPGP Parte II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [Considerazioni di OpenPGP Parte III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+I messaggi solo firmati sono supportati, i messaggi solo crittografati no.
 
-Common errors:
+Errori comuni:
 
 * *Nessuna chiave*: non c'è nessuna chiave PGP disponibile per uno degli indirizzi e-mail elencati
 * *Chiave mancante per la crittografia*: c'è probabilmente una chiave selezionata in FairEmail che non esiste più nell'applicazione OpenKeychain. Resettare la chiave (vedi sopra) probabilmente risolverà questo problema.
-* *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
+* *Manca la chiave per la verifica della firma*: la chiave pubblica per il mittente non è disponibile nell'app OpenKeychain. Ciò può anche essere causato dal fatto che Autocrypt è disattivato nelle impostazioni di crittografia o dall'intestazione di Autocrypt che non viene inviata.
 
 <br />
 
@@ -1085,15 +1085,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Immagine incorporata](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Immagine danneggiata](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1527,11 +1527,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1928,7 +1928,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2679,7 +2679,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Immagine esterna](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -3019,26 +3019,26 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 ## Ricevi supporto
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail è supportato solo su smartphone, tablet e ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Sono supportate solo le ultime versioni del Play Store e di GitHub. La build di F-Droid è supportata solo se il numero della versione corrisponde a quello dell'ultima versione di GitHub. Ciò significa anche che tornare a una versione precedente non è supportato.
 
-There is no support on things that are not directly related to FairEmail.
+Non c'è alcun supporto su cose non direttamente correlate a FairEmail.
 
-There is no support on building and developing things by yourself.
+Non c'è alcun supporto sulle build e lo sviluppo di cose per conto proprio.
 
-Requested features should:
+Le funzionalità richieste dovrebbero:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* essere utili alla maggior parte delle persone
+* non complicare l'uso di FairEmail
+* adattarsi alla filosofia di FairEmail (orientate alla privacy, con un occhio alla sicurezza)
+* conformarsi agli standard comuni (IMAP, SMTP, ecc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+È probabile che le funzionalità che non soddisfano questi requisiti saranno respinte. Ciò serve anche a mantenere gestibili a lungo termine la manutenzione e il supporto.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Se hai una domanda, vuoi richiedere una funzionalità o segnalare un errore, **usa [questo modulo](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+Le segnalazioni su GitHub sono disattivate a causa di un frequente uso improprio.
 
 <br />
 

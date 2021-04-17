@@ -545,7 +545,7 @@
     <string name="title_identity_email">邮箱地址</string>
     <string name="title_identity_color_hint">身份颜色优先于文件夹和账户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
-    <string name="title_advanced_sender_name">当发送者地址被编辑时使用名称</string>
+    <string name="title_advanced_sender_name">修改发件人地址后使用名称</string>
     <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_unicode">使用 Unicode 传输</string>
@@ -562,7 +562,7 @@
     <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
     <string name="title_color">颜色</string>
-    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">透明</string>
+    <string name="title_transparent">透明</string>
     <string name="title_account_ondemand">手动同步</string>
     <string name="title_account_notify">单独的通知</string>
     <string name="title_account_left">左滑</string>
@@ -659,6 +659,8 @@
     <string name="title_empty_spam">清空垃圾邮件</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
+    <string name="title_execute_rules">执行规则</string>
+    <string name="title_export_messages">导出消息</string>
     <string name="title_create_channel">创建通知通道</string>
     <string name="title_edit_channel">编辑通知通道</string>
     <string name="title_delete_channel">删除通知通道</string>

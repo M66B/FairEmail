@@ -596,7 +596,7 @@
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
     <string name="title_color">Цвет</string>
-    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Прозрачность</string>
+    <string name="title_transparent">Прозрачность</string>
     <string name="title_account_ondemand">Синхронизировать вручную</string>
     <string name="title_account_notify">Раздельные уведомления</string>
     <string name="title_account_left">Смахивание влево</string>
@@ -693,6 +693,8 @@
     <string name="title_empty_spam">Очистить \"Спам\"</string>
     <string name="title_edit_properties">Изменить свойства</string>
     <string name="title_edit_rules">Редактировать правила</string>
+    <string name="title_execute_rules">Выполнить привила</string>
+    <string name="title_export_messages">Экспорт сообщений</string>
     <string name="title_create_channel">Создать канал уведомлений</string>
     <string name="title_edit_channel">Изменить канал уведомлений</string>
     <string name="title_delete_channel">Удалить канал уведомлений</string>

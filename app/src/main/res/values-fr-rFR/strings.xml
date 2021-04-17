@@ -574,7 +574,7 @@
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou fréquence de vérification des nouveaux messages</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_color">Couleur</string>
-    <string name="title_transparent" comment="title_transparent&#10;Title for color dialog choice&#10;Needs to be short (one word)&#10;">Transparent</string>
+    <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Synchroniser manuellement</string>
     <string name="title_account_notify">Notifications séparées</string>
     <string name="title_account_left">Balayer vers la gauche</string>
@@ -671,6 +671,8 @@
     <string name="title_empty_spam">Vider les indésirables</string>
     <string name="title_edit_properties">Modifier les propriétés</string>
     <string name="title_edit_rules">Modifier les règles</string>
+    <string name="title_execute_rules">Exécuter les règles</string>
+    <string name="title_export_messages">Exporter les messages</string>
     <string name="title_create_channel">Créer un canal de notification</string>
     <string name="title_edit_channel">Modifier un canal de notification</string>
     <string name="title_delete_channel">Supprimer un canal de notification</string>
@@ -817,7 +819,7 @@
     <string name="title_reply_hard_bounce">Envoyer un refus permanent</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
-    <string name="title_open_with">Ouvrir avec</string>
+    <string name="title_open_with">Ouvrir avec&#8230;</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
     <string name="title_receipt_subject">Confirmation de lecture : %1$s</string>
     <string name="title_receipt_text">Cette confirmation atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
@@ -1290,7 +1292,7 @@
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Rétablir</string>
     <string name="title_add">Ajouter</string>
-    <string name="title_browse">Ouvrir avec</string>
+    <string name="title_browse">Ouvrir avec&#8230;</string>
     <string name="title_info">Info</string>
     <string name="title_download">Télécharger</string>
     <string name="title_report">Signaler</string>

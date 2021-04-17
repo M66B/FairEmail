@@ -430,6 +430,7 @@
     <string name="title_advanced_notify_action_reply_direct">Odpowiedź</string>
     <string name="title_advanced_notify_action_flag">Oznacz gwiazdką</string>
     <string name="title_advanced_notify_action_seen">Odczytana</string>
+    <string name="title_advanced_notify_action_hide">Ukryj</string>
     <string name="title_advanced_notify_action_snooze">Odłóż</string>
     <string name="title_advanced_notify_remove">Usuń powiadomienie o nowej wiadomości po dotknięciu powiadomienia</string>
     <string name="title_advanced_notify_clear">Usuń powiadomienia o nowych wiadomościach podczas przeglądania listy wiadomości</string>
@@ -577,6 +578,7 @@
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami folderów i kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
+    <string name="title_advanced_sender_name">Użyj nazwy, gdy adres nadawcy został edytowany</string>
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_unicode">Użyj transportu Unicode</string>
@@ -593,6 +595,7 @@
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_color">Kolor</string>
+    <string name="title_transparent">Przeźroczysty</string>
     <string name="title_account_ondemand">Synchronizuj ręcznie</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
     <string name="title_account_left">Przesuń w lewo</string>
@@ -664,7 +667,9 @@
     <string name="title_backoff_until">Oczekiwanie po niepowodzeniu do: %1$s</string>
     <string name="title_storage_quota">Wykorzystane miejsce: %1$s/%2$s</string>
     <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
+    <string name="title_pop_sent">Jeśli zgubisz swoje urządzenie lub zostanie skradzione, wysłane wiadomości mogą zostać utracone.</string>
     <string name="title_pop_warning">Jeśli serwer POP3 nie obsługuje polecenia UIDL, użycie danych może być wysokie. Dlatego odpowiednio dostosuj częstotliwość odpytywania poniżej.</string>
+    <string name="title_pop_folders">Protokół POP3 nie obsługuje tworzenia folderów</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
     <string name="title_hint_alias">Naciśnij i przytrzymaj tożsamość, aby wyświetlić opcje, np. kopiuj, aby utworzyć tożsamość aliasu</string>
@@ -687,6 +692,7 @@
     <string name="title_empty_spam">Opróżnij Spam</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_edit_rules">Edytuj reguły</string>
+    <string name="title_execute_rules">Wykonaj reguły</string>
     <string name="title_create_channel">Utwórz kanał powiadomień</string>
     <string name="title_edit_channel">Edytuj kanał powiadomień</string>
     <string name="title_delete_channel">Usuń kanał powiadomień</string>
@@ -803,6 +809,7 @@
     <string name="title_raw_remaining">Surowe wiadomości (RAW) do pobrania: %1$d</string>
     <string name="title_ask_raw">Aby przesyłać wiadomości dalej, należy pobrać surowe (oryginalne) wiadomości z serwera. Wymaga to połączenia z Internetem.</string>
     <string name="title_buttons">Wybierz przyciski</string>
+    <string name="title_buttons_hint">Dostępne działania zależą od typu konta i konfiguracji</string>
     <string name="title_configure_buttons">Konfiguruj przyciski &#8230;</string>
     <string name="title_trash">Kosz</string>
     <string name="title_copy">Kopiuj &#8230;</string>
