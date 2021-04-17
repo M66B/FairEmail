@@ -1227,6 +1227,8 @@ public class Helper {
                 return "text/plain";
             else if ("ovpn".equals(extension))
                 return "application/x-openvpn-profile";
+            else if ("mbox".equals(extension))
+                return "application/mbox"; // https://tools.ietf.org/html/rfc4155
             else
                 return "application/octet-stream";
 
