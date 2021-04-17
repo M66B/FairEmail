@@ -557,7 +557,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_execute_rules, order++, R.string.title_execute_rules);
             }
 
-            if (folder.accountProtocol == EntityAccount.TYPE_POP || debug)
+            if (folder.accountProtocol == EntityAccount.TYPE_POP || debug || BuildConfig.DEBUG)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_export_messages, order++, R.string.title_export_messages);
 
             int childs = 0;
