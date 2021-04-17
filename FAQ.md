@@ -938,7 +938,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 The message header and message body are fetched separately from the server.
 The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message.
 The message text will keep loading if there is no connection to the account, see also the next question,
-or if there other operations, like synchronizing messages, are being executed.
+or if there are other operations, like synchronizing messages, are being executed.
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons)
 and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
