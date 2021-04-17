@@ -888,7 +888,7 @@ public class FragmentFolders extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties();
                 Session isession = Session.getInstance(props, null);
 
-                // https://www.ietf.org/rfc/rfc4155.txt
+                // https://www.ietf.org/rfc/rfc4155.txt (Appendix A)
                 // http://qmail.org./man/man5/mbox.html
                 ContentResolver resolver = context.getContentResolver();
                 try (OutputStream out = new BufferedOutputStream(resolver.openOutputStream(uri))) {
@@ -909,16 +909,16 @@ public class FragmentFolders extends FragmentBase {
                         imessage.writeTo(new FilterOutputStream(out) {
                             @Override
                             public void write(int b) throws IOException {
-                                super.write(b);
+                                if (b != 13)
+                                    out.write(b);
                             }
 
                             @Override
                             public void flush() throws IOException {
+                                out.write(10);
                                 super.flush();
                             }
                         });
-
-                        out.write("\n".getBytes());
                     }
                 }
 
