@@ -75,7 +75,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_priority"
-        android:tint="?attr/colorWarning"
+        android:tint="?attr/colorAccent"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ibAuth"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"

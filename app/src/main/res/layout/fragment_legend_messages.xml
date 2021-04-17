@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_priority"
             android:padding="12dp"
-            android:tint="?attr/colorWarning"
+            android:tint="?attr/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAuth"
             app:srcCompat="@drawable/twotone_priority_high_24" />
