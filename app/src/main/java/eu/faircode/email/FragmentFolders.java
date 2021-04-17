@@ -907,16 +907,62 @@ public class FragmentFolders extends FragmentBase {
 
                         Message imessage = MessageHelper.from(context, message, null, isession, false);
                         imessage.writeTo(new FilterOutputStream(out) {
+                            private int pos = 0;
+                            private boolean cr = false;
+                            private boolean lf = false;
+                            private byte[] buffer = new byte[998];
+
                             @Override
                             public void write(int b) throws IOException {
-                                if (b != 13)
-                                    out.write(b);
+                                if (b == 13) {
+                                    if (cr)
+                                        line();
+                                    else
+                                        cr = true;
+                                } else if (b == 10) {
+                                    if (lf)
+                                        line();
+                                    else
+                                        lf = true;
+                                } else {
+                                    if (cr || lf)
+                                        line();
+                                    if (pos == buffer.length)
+                                        throw new IOException("Line too long");
+                                    buffer[pos++] = (byte) b;
+                                }
                             }
 
                             @Override
                             public void flush() throws IOException {
+                                if (pos > 0 || cr || lf)
+                                    line();
                                 out.write(10);
                                 super.flush();
+                            }
+
+                            private void line() throws IOException {
+                                int i = 0;
+                                for (; i < pos; i++)
+                                    if (buffer[i] != '>')
+                                        break;
+
+                                if (i + 4 < pos &&
+                                        buffer[i + 0] == 'F' &&
+                                        buffer[i + 1] == 'r' &&
+                                        buffer[i + 2] == 'o' &&
+                                        buffer[i + 3] == 'm' &&
+                                        buffer[i + 4] == ' ')
+                                    out.write('>');
+
+                                for (i = 0; i < pos; i++)
+                                    out.write(buffer[i]);
+
+                                out.write(10);
+
+                                pos = 0;
+                                cr = false;
+                                lf = false;
                             }
                         });
                     }
