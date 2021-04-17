@@ -783,7 +783,10 @@ Note that S/MIME signing with other algorithms than RSA is supported, but be aw
 S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
 
 The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time.
-You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+You can long press on the send button to change the encryption method for an identity.
+If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity,
+so you can change the encryption method by selecting one of the two identities.
+You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
