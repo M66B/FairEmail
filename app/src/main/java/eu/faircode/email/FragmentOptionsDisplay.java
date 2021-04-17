@@ -131,6 +131,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swImagesPlaceholders;
     private SwitchCompat swImagesInline;
+    private SwitchCompat swButtonExtra;
     private SwitchCompat swAttachmentsAlt;
     private SwitchCompat swThumbnails;
 
@@ -152,7 +153,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "addresses",
             "message_zoom", "overview_mode", "contrast", "monospaced", "monospaced_pre",
             "text_color", "text_size", "text_font", "text_align", "text_separators",
-            "collapse_quotes", "image_placeholders", "inline_images", "attachments_alt", "thumbnails",
+            "collapse_quotes", "image_placeholders", "inline_images", "button_extra", "attachments_alt", "thumbnails",
             "parse_classes", "authentication"
     };
 
@@ -236,6 +237,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swImagesPlaceholders = view.findViewById(R.id.swImagesPlaceholders);
         swImagesInline = view.findViewById(R.id.swImagesInline);
+        swButtonExtra = view.findViewById(R.id.swButtonExtra);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swThumbnails = view.findViewById(R.id.swThumbnails);
         swParseClasses = view.findViewById(R.id.swParseClasses);
@@ -815,6 +817,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swButtonExtra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("button_extra", checked).apply();
+            }
+        });
+
         swAttachmentsAlt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1006,6 +1015,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swImagesPlaceholders.setChecked(prefs.getBoolean("image_placeholders", true));
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
+        swButtonExtra.setChecked(prefs.getBoolean("button_extra", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 

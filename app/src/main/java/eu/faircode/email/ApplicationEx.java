@@ -470,6 +470,9 @@ public class ApplicationEx extends Application
                 editor.putString("last_search1", prefs.getString("last_search", null));
                 editor.remove("last_search");
             }
+        } else if (version < 1558) {
+            if (!prefs.contains("button_extra"))
+                editor.putBoolean("button_extra", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

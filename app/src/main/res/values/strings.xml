@@ -419,6 +419,7 @@
     <string name="title_advanced_collapse_quotes">Collapse quoted text</string>
     <string name="title_advanced_image_placeholders">Show image placeholders</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
+    <string name="title_advanced_button_extra">Show extra buttons at the bottom of a message</string>
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">Show conversation action bar</string>
     <string name="title_advanced_actionbar_color">Use account color as background color for conversation action bar</string>

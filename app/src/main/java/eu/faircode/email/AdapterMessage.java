@@ -1725,6 +1725,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_print = prefs.getBoolean("button_print", false);
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
+                    boolean button_extra = prefs.getBoolean("button_extra", false);
 
                     ibSeen.setImageResource(message.ui_seen ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
                     ibTrash.setTag(delete);
@@ -1752,8 +1753,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTools.setImageLevel(tools ? 0 : 1);
                     ibTools.setVisibility(outbox ? View.GONE : View.VISIBLE);
 
-                    ibTrashBottom.setVisibility(button_trash && trash ? View.VISIBLE : View.GONE);
-                    ibArchiveBottom.setVisibility(button_archive && archive ? View.VISIBLE : View.GONE);
+                    ibTrashBottom.setVisibility(button_extra && button_trash && trash ? View.VISIBLE : View.GONE);
+                    ibArchiveBottom.setVisibility(button_extra && button_archive && archive ? View.VISIBLE : View.GONE);
 
                     if (bind)
                         bindBody(message, scroll);

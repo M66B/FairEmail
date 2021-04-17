@@ -92,7 +92,7 @@ public class FragmentOptions extends FragmentBase {
             "name_email", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "authentication",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines",
-            "message_zoom", "overview_mode", "addresses", "attachments_alt", "thumbnails",
+            "message_zoom", "overview_mode", "addresses", "button_extra", "attachments_alt", "thumbnails",
             "contrast", "monospaced", "monospaced_pre",
             "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images",
