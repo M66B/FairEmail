@@ -914,12 +914,11 @@ public class FragmentFolders extends FragmentBase {
 
                             @Override
                             public void write(int b) throws IOException {
-                                if (b == 13) {
-                                    if (cr)
+                                if (b == 13 /* CR */) {
+                                    if (cr || lf)
                                         line();
-                                    else
-                                        cr = true;
-                                } else if (b == 10) {
+                                    cr = true;
+                                } else if (b == 10 /* LF */) {
                                     if (cr)
                                         line();
                                     else if (lf) {
