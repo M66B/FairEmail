@@ -920,9 +920,12 @@ public class FragmentFolders extends FragmentBase {
                                     else
                                         cr = true;
                                 } else if (b == 10) {
-                                    if (lf)
+                                    if (cr)
                                         line();
-                                    else
+                                    else if (lf) {
+                                        line();
+                                        lf = true;
+                                    } else
                                         lf = true;
                                 } else {
                                     if (cr || lf)
