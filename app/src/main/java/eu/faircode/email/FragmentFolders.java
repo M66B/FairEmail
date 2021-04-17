@@ -62,6 +62,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -907,10 +908,9 @@ public class FragmentFolders extends FragmentBase {
 
                         Message imessage = MessageHelper.from(context, message, null, isession, false);
                         imessage.writeTo(new FilterOutputStream(out) {
-                            private int pos = 0;
                             private boolean cr = false;
                             private boolean lf = false;
-                            private byte[] buffer = new byte[998];
+                            private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
 
                             @Override
                             public void write(int b) throws IOException {
@@ -929,40 +929,40 @@ public class FragmentFolders extends FragmentBase {
                                 } else {
                                     if (cr || lf)
                                         line();
-                                    if (pos == buffer.length)
-                                        throw new IOException("Line too long");
-                                    buffer[pos++] = (byte) b;
+                                    buffer.write(b);
                                 }
                             }
 
                             @Override
                             public void flush() throws IOException {
-                                if (pos > 0 || cr || lf)
+                                if (buffer.size() > 0 || cr || lf)
                                     line();
                                 out.write(10);
                                 super.flush();
                             }
 
                             private void line() throws IOException {
+                                byte[] b = buffer.toByteArray();
+
                                 int i = 0;
-                                for (; i < pos; i++)
-                                    if (buffer[i] != '>')
+                                for (; i < b.length; i++)
+                                    if (b[i] != '>')
                                         break;
 
-                                if (i + 4 < pos &&
-                                        buffer[i + 0] == 'F' &&
-                                        buffer[i + 1] == 'r' &&
-                                        buffer[i + 2] == 'o' &&
-                                        buffer[i + 3] == 'm' &&
-                                        buffer[i + 4] == ' ')
+                                if (i + 4 < b.length &&
+                                        b[i + 0] == 'F' &&
+                                        b[i + 1] == 'r' &&
+                                        b[i + 2] == 'o' &&
+                                        b[i + 3] == 'm' &&
+                                        b[i + 4] == ' ')
                                     out.write('>');
 
-                                for (i = 0; i < pos; i++)
-                                    out.write(buffer[i]);
+                                for (i = 0; i < b.length; i++)
+                                    out.write(b[i]);
 
                                 out.write(10);
 
-                                pos = 0;
+                                buffer.reset();
                                 cr = false;
                                 lf = false;
                             }
