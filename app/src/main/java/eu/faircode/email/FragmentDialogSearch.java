@@ -129,7 +129,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 Log.i("Search suggest=" + typed);
 
                 MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
-                if (TextUtils.isEmpty(typed) || cbSearchIndex.isChecked())
+                if (TextUtils.isEmpty(typed))
                     return cursor;
 
                 String query = "%" + typed + "%";
