@@ -546,7 +546,6 @@
     <string name="title_received_header">Brûk \'Untfongen\' koptekst</string>
     <string name="title_date_header">Brûk \'Datum\' koptekst (ferstjoerde tiid)</string>
     <string name="title_date_remark">Feroarings sille allinich tapast wurde op nije berjochten</string>
-    <string name="title_related_identity">Ferlykbere identiteit tafoegje</string>
     <string name="title_check">Kontrolearje</string>
     <string name="title_trust">Serversertifikaat fertrouwe mei fingerprint %1$s</string>
     <string name="title_no_name">Namme ûntbrekke</string>

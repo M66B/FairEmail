@@ -559,7 +559,6 @@
     <string name="title_received_header">Använd \'Mottagen\' i header</string>
     <string name="title_date_header">Använd \'Datum\' i header (skickad tid)</string>
     <string name="title_date_remark">Ändringar kommer endast att tillämpas på nya meddelanden</string>
-    <string name="title_related_identity">Lägg till relaterad identitet</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_trust">Lita på servercertifikat med fingeravtryck %1$s</string>
     <string name="title_no_name">Namn saknas</string>

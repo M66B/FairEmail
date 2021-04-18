@@ -602,7 +602,6 @@
     <string name="title_received_header">Benyt \"Modtaget\"-overskrift</string>
     <string name="title_date_header">Benyt \'Dato\'-overskrift (afsendelsestid)</string>
     <string name="title_date_remark">Ændringer effektueres kun for nye beskeder</string>
-    <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
     <string name="title_trust">Gør servercertifikat betroet med fingeraftryk %1$s</string>
     <string name="title_no_name">Navn mangler</string>

@@ -613,7 +613,6 @@
     <string name="title_received_header">Usar encabezado \'Received\'</string>
     <string name="title_date_header">Usar encabezado \'Date\' (fecha de envío)</string>
     <string name="title_date_remark">Los cambios sólo se aplicarán a nuevos mensajes</string>
-    <string name="title_related_identity">Añadir identidad relacionada</string>
     <string name="title_check">Verificar</string>
     <string name="title_trust">Confiar en el certificado del servidor con huella digital %1$s</string>
     <string name="title_no_name">Falta nombre</string>

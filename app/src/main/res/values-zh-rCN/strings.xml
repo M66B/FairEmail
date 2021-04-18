@@ -11,6 +11,7 @@
     <string name="channel_service">接收</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">电子邮件</string>
+    <string name="channel_progress">进度</string>
     <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">账户的同步与监测</string>
     <string name="channel_send_description">消息的发送</string>
     <string name="channel_notification_description">新消息通知</string>
+    <string name="channel_progress_description">较长时间运行活动的进度通知</string>
     <plurals name="page_conversation">
         <item quantity="other">会话</item>
     </plurals>
@@ -342,6 +344,7 @@
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_image_placeholders">显示图像占位符</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
+    <string name="title_advanced_button_extra">在消息底部显示额外按钮</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
@@ -601,7 +604,7 @@
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>
     <string name="title_date_remark">更改将仅会应用于新消息</string>
-    <string name="title_related_identity">添加相关身份</string>
+    <string name="title_related_identity">添加相关身份(SMTP 服务器)</string>
     <string name="title_check">检查</string>
     <string name="title_trust">信任具有指纹 %1$s的服务器证书</string>
     <string name="title_no_name">缺少名称</string>

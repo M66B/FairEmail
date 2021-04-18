@@ -574,7 +574,6 @@
     <string name="title_received_header">Gunakan header \'Received\'</string>
     <string name="title_date_header">Gunakan header \'Date\' (waktu pengiriman)</string>
     <string name="title_date_remark">Perubahan akan diterapkan hanya ke pesan baru saja</string>
-    <string name="title_related_identity">Tambahkan identitas terkait</string>
     <string name="title_check">Periksa</string>
     <string name="title_trust">Mempercayai sertifikat server dengan sidik jari %1$s</string>
     <string name="title_no_name">Tidak ada nama</string>

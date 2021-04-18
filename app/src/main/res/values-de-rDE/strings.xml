@@ -11,6 +11,7 @@
     <string name="channel_service">Empfangen</string>
     <string name="channel_send">Senden</string>
     <string name="channel_notification">Neue E-Mail</string>
+    <string name="channel_progress">Fortschritt</string>
     <string name="channel_update">Aktualisierungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Synchronisation und Überwachung von Konten</string>
     <string name="channel_send_description">Benachrichtigungen für den Versand</string>
     <string name="channel_notification_description">Benachrichtigungen für neue Nachrichten</string>
+    <string name="channel_progress_description">Fortschrittsbenachrichtigungen bei längeren laufenden Aktivitäten</string>
     <plurals name="page_conversation">
         <item quantity="one">Unterhaltung</item>
         <item quantity="other">Unterhaltungen</item>
@@ -355,6 +357,7 @@
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_image_placeholders">Platzhalter für Bilder anzeigen</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
+    <string name="title_advanced_button_extra">Zusätzliche Schaltflächen am unteren Rand einer Nachricht anzeigen</string>
     <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>
     <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
@@ -614,7 +617,7 @@
     <string name="title_received_header">Received-Kopfzeile verwenden</string>
     <string name="title_date_header">Date-Kopfzeile verwenden (Sendezeit)</string>
     <string name="title_date_remark">Änderungen werden nur auf neue Nachrichten angewendet</string>
-    <string name="title_related_identity">Hierzu passende Identität hinzufügen</string>
+    <string name="title_related_identity">Verwandte Identität hinzufügen (SMTP Server)</string>
     <string name="title_check">Prüfen</string>
     <string name="title_trust">Serverzertifikat mit Fingerabdruck %1$s vertrauen</string>
     <string name="title_no_name">Name fehlt</string>

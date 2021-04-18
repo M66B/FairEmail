@@ -584,7 +584,6 @@
     <string name="title_received_header">Usar a cabeceira de \'Recibido\'</string>
     <string name="title_date_header">Usar a cabeceira de \'Data\' (data de envío)</string>
     <string name="title_date_remark">Os cambios aplicaranse só as novas mensaxes</string>
-    <string name="title_related_identity">Engadir identidade relacionada</string>
     <string name="title_check">Comprobar</string>
     <string name="title_trust">Confiar no certificado do servidor con pegada %1$s</string>
     <string name="title_no_name">Falta o nome</string>

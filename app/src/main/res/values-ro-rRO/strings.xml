@@ -624,7 +624,6 @@
     <string name="title_received_header">Folosește antetul \"Primit\"</string>
     <string name="title_date_header">Folosește antetul \'Dată\' (ora trimisă)</string>
     <string name="title_date_remark">Modificările vor fi aplicate doar mesajelor noi</string>
-    <string name="title_related_identity">Adaugă identitate conexă</string>
     <string name="title_check">Verificare</string>
     <string name="title_trust">Autorizare certificat server cu amprenta %1$s</string>
     <string name="title_no_name">Lipsește numele</string>

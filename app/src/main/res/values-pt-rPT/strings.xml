@@ -342,7 +342,13 @@
     <string name="title_advanced_message_text_zoom">Zoom padrão do texto da mensagem</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
+    <string name="title_advanced_text_color">Usar cores de texto</string>
+    <string name="title_advanced_text_size">Usar tamanho do texto</string>
+    <string name="title_advanced_text_font">Usar fontes</string>
+    <string name="title_advanced_text_align">Usar alinhamento do texto</string>
+    <string name="title_advanced_text_separators">Usar linhas de separador</string>
     <string name="title_advanced_collapse_quotes">Encolher texto cidado</string>
+    <string name="title_advanced_image_placeholders">Mostrar espaços reservados da imagem</string>
     <string name="title_advanced_images_inline">Mostrar automaticamente imagens embutidas</string>
     <string name="title_advanced_seekbar">Exibir posição relativa de conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>
@@ -350,6 +356,7 @@
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recepção não puder autenticar a mensagem</string>
+    <string name="title_advanced_sync_on_launch">Sincronizar no início</string>
     <string name="title_advanced_double_back">Duplo \'voltar\' para sair</string>
     <string name="title_advanced_pull_refresh">Arrastar para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Voltar ao topo quando recebe novas mensagens</string>
@@ -390,6 +397,7 @@
     <string name="title_advanced_notify_action_reply_direct">Resposta direta</string>
     <string name="title_advanced_notify_action_flag">Favorito</string>
     <string name="title_advanced_notify_action_seen">Lida</string>
+    <string name="title_advanced_notify_action_hide">Esconder</string>
     <string name="title_advanced_notify_action_snooze">Adiar</string>
     <string name="title_advanced_notify_remove">Remover nova notificação de mensagem ao tocar na notificação</string>
     <string name="title_advanced_notify_clear">Remover novas notificações de mensagens ao ver lista de mensagens</string>
@@ -448,4 +456,28 @@
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Desligado</item>
+        <item>2,5 s</item>
+        <item>5 s</item>
+        <item>7,5 s</item>
+        <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Cursivo</item>
+        <item>Serif</item>
+        <item>Sans Serif</item>
+        <item>Monospace</item>
+    </string-array>
 </resources>

@@ -446,7 +446,6 @@
     <string name="title_leave_on_device">Pusti sporočila na napravi</string>
     <string name="title_max_messages">Največje število prejetih sporočil (prazno za vse)</string>
     <string name="title_keep_alive_interval">Razmik med poizvedbami (min.)</string>
-    <string name="title_related_identity">Dodaj povezano identiteto</string>
     <string name="title_check">Preveri</string>
     <string name="title_trust">Zaupaj potrdilu strežnika s prstnim odtisom %1$s</string>
     <string name="title_no_name">Manjka ime.</string>

@@ -474,7 +474,6 @@
     <string name="title_received_header">Erabili \'Jasota\' goiburua</string>
     <string name="title_date_header">Erabili \'Data\' goiburua (Bidaltze unea)</string>
     <string name="title_date_remark">Aldaketak mezu berriei aplikatuko zaizkie soilik</string>
-    <string name="title_related_identity">Gehitu lotutako identitatea</string>
     <string name="title_check">Egiaztatu</string>
     <string name="title_trust">Fidatu %1$s hatz marka duen zerbitzariaren agiriarekin</string>
     <string name="title_no_name">Izena falta da</string>

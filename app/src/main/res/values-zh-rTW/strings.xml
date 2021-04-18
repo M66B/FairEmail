@@ -568,7 +568,6 @@
     <string name="title_received_header">使用“已接收”標題</string>
     <string name="title_date_header">使用“日期”標頭（發送時間）</string>
     <string name="title_date_remark">更改將僅應用於新消息</string>
-    <string name="title_related_identity">添加相關身份</string>
     <string name="title_check">檢查</string>
     <string name="title_trust">信任帶有指紋的服務器證書 %1$s</string>
     <string name="title_no_name">姓名缺失</string>

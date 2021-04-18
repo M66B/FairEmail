@@ -613,7 +613,6 @@
     <string name="title_received_header">Usa intestazione «Ricevuto»</string>
     <string name="title_date_header">Usa intestazione «Date» (ora di invio)</string>
     <string name="title_date_remark">Le modifiche saranno applicate solo ai nuovi messaggi</string>
-    <string name="title_related_identity">Aggiungi identità correlata</string>
     <string name="title_check">Controlla</string>
     <string name="title_trust">Certificato server fidato con impronta digitale %1$s</string>
     <string name="title_no_name">Nome mancante</string>

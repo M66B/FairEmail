@@ -354,6 +354,7 @@
     <string name="title_advanced_collapse_quotes">Replier le texte cité</string>
     <string name="title_advanced_image_placeholders">Afficher les espaces réservés aux images</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
+    <string name="title_advanced_button_extra">Afficher des boutons supplémentaires en bas du message</string>
     <string name="title_advanced_seekbar">Indiquer la position relative de la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
     <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur de fond de la barre d’action de conversation</string>
@@ -613,7 +614,6 @@
     <string name="title_received_header">Utiliser l\'en-tête « Reçu »</string>
     <string name="title_date_header">Utiliser l\'en-tête « Date » (heure d\'envoi)</string>
     <string name="title_date_remark">Les modifications seront appliquées uniquement aux nouveaux messages</string>
-    <string name="title_related_identity">Ajouter une identité liée</string>
     <string name="title_check">Vérifier</string>
     <string name="title_trust">Faire confiance au certificat du serveur avec l\'empreinte digitale %1$s</string>
     <string name="title_no_name">Nom manquant</string>

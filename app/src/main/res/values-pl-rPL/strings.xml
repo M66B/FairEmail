@@ -634,7 +634,6 @@
     <string name="title_received_header">Użyj nagłówka \'Odbiorca\'</string>
     <string name="title_date_header">Użyj nagłówka \'Data\' (wysłany czas)</string>
     <string name="title_date_remark">Zmiany zostaną zastosowane tylko do nowych wiadomości</string>
-    <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_trust">Zaufaj certyfikatowi serwera za pomocą odcisku palca %1$s</string>
     <string name="title_no_name">Brak nazwy</string>

@@ -622,7 +622,6 @@
     <string name="title_received_header">Використовувати заголовок \'Received\'</string>
     <string name="title_date_header">Використовувати заголовок \'Date\' (час відправлення)</string>
     <string name="title_date_remark">Зміни будуть застосовані тільки до нових повідомлень</string>
-    <string name="title_related_identity">Додати пов\'язані особисті дані</string>
     <string name="title_check">Перевірити</string>
     <string name="title_trust">Довіряти сертифікату сервера з відбитком %1$s</string>
     <string name="title_no_name">Назва відсутня</string>

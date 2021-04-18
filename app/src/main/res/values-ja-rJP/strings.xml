@@ -342,6 +342,7 @@
     <string name="title_advanced_collapse_quotes">引用テキストを折りたたむ</string>
     <string name="title_advanced_image_placeholders">画像のプレースホルダを表示</string>
     <string name="title_advanced_images_inline">インライン画像を自動的に表示</string>
+    <string name="title_advanced_button_extra">メッセージの下部に追加ボタンを表示する</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示</string>
     <string name="title_advanced_actionbar">会話アクションバーを表示</string>
     <string name="title_advanced_actionbar_color">会話アクションバーの背景色としてアカウントの色を使用</string>
@@ -600,7 +601,6 @@
     <string name="title_received_header">\'受信済み\' ヘッダーを使用</string>
     <string name="title_date_header">\'日付\' ヘッダーを使用 (送信時刻)</string>
     <string name="title_date_remark">変更は新しいメッセージにのみ適用されます</string>
-    <string name="title_related_identity">関連するIDを追加</string>
     <string name="title_check">確認</string>
     <string name="title_trust">指紋認証 %1$sでサーバ証明書を信頼する</string>
     <string name="title_no_name">名前が有りません</string>
@@ -659,6 +659,7 @@
     <string name="title_edit_properties">プロパティを編集</string>
     <string name="title_edit_rules">ルールを編集</string>
     <string name="title_execute_rules">ルールを実行</string>
+    <string name="title_export_messages">メッセージをエクスポート</string>
     <string name="title_create_channel">通知チャンネルを作成</string>
     <string name="title_edit_channel">通知チャンネルを編集</string>
     <string name="title_delete_channel">通知チャンネルを削除</string>

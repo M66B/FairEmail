@@ -343,6 +343,7 @@
     <string name="title_advanced_collapse_quotes">Thu gọn văn bản được trích dẫn</string>
     <string name="title_advanced_image_placeholders">Hiện các chỗ giữ chỗ hình ảnh</string>
     <string name="title_advanced_images_inline">Tự động hiện hình ảnh tích hợp</string>
+    <string name="title_advanced_button_extra">Hiện các nút bổ sung ở phía dưới cùng của thư</string>
     <string name="title_advanced_seekbar">Hiện vị trí tương đối của cuộc hội thoại bằng một dấu chầm</string>
     <string name="title_advanced_actionbar">Hiện thanh hành đông ở cuộc hội thoại</string>
     <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
@@ -601,7 +602,6 @@
     <string name="title_received_header">Sử dụng tiêu đề \'Received\'</string>
     <string name="title_date_header">Sử dụng tiêu đề \'Date\' (thời gian gửi)</string>
     <string name="title_date_remark">Các thay đổi sẽ chỉ áp dụng cho các thư mới</string>
-    <string name="title_related_identity">Thêm danh tính có liên quan</string>
     <string name="title_check">Kiểm tra</string>
     <string name="title_trust">Tin tưởng chứng chỉ máy chủ có mã xác minh %1$s</string>
     <string name="title_no_name">Thiếu tên</string>

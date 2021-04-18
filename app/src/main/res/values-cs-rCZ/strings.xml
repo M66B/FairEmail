@@ -7,6 +7,7 @@
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu „zpět“ pro ukončení</string>
     <string name="app_cake">Nedostatek místa v úložišti</string>
+    <string name="app_updated">Poslední aktualizace: %1$s</string>
     <string name="channel_service">Příjem</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">E-mail</string>
@@ -423,6 +424,7 @@
     <string name="title_advanced_notify_action_reply_direct">Přímá odpověď</string>
     <string name="title_advanced_notify_action_flag">Hvězdička</string>
     <string name="title_advanced_notify_action_seen">Přečteno</string>
+    <string name="title_advanced_notify_action_hide">Skrýt</string>
     <string name="title_advanced_notify_action_snooze">Odložit</string>
     <string name="title_advanced_notify_remove">Odebrat oznámení o nové zprávě při stisku oznámení</string>
     <string name="title_advanced_notify_clear">Odebrat oznámení nové zprávy při zobrazení seznamu zpráv</string>
@@ -623,7 +625,6 @@
     <string name="title_received_header">Použít hlavičku „přijato“</string>
     <string name="title_date_header">Použít hlavičku „datum“ (čas odeslání)</string>
     <string name="title_date_remark">Změny budou použity pouze u nových zpráv</string>
-    <string name="title_related_identity">Přidat související identitu</string>
     <string name="title_check">Ověřit</string>
     <string name="title_trust">Důvěřovat certifikátu serveru s digitálním otiskem %1$s</string>
     <string name="title_no_name">Chybí jméno</string>
@@ -866,6 +867,7 @@
     <string name="title_ask_review_rationale">        Již nějakou dobu FairEmail používáte.
         Cenili bychom si, kdyby jste mohli FairEmail ohodnotit v obchodě Google Play.
     </string>
+    <string name="title_need_help">Potřebuji pomoc</string>
     <string name="title_ask_once">Tato zpráva se zobrazí pouze jednou, nezvolíte-li „Později“</string>
     <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>

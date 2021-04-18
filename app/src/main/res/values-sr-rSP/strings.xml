@@ -353,7 +353,6 @@
     <string name="title_primary_identity">Главни (подразумевани идентитет)</string>
     <string name="title_leave_on_server">Остави поруке на серверу</string>
     <string name="title_keep_alive_interval">Интервал за одржавање везе/довлачење (у минутима)</string>
-    <string name="title_related_identity">Додај повезани идентитет</string>
     <string name="title_check">Провери</string>
     <string name="title_no_name">Недостаје име</string>
     <string name="title_no_email">Недостаје е-мејл адреса</string>

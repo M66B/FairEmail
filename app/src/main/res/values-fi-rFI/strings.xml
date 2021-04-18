@@ -609,7 +609,6 @@
     <string name="title_received_header">Käytä \'Received\'-tunnistetta</string>
     <string name="title_date_header">Käytä \'Date\'-tunnistetta (lähetysaika)</string>
     <string name="title_date_remark">Muutokset vaikuttavat vain uusiin viesteihin</string>
-    <string name="title_related_identity">Lisää liittyvä identiteetti</string>
     <string name="title_check">Tarkista</string>
     <string name="title_trust">Luota palvelimen sertifikaattiin, jolla on sormenjälki %1$s</string>
     <string name="title_no_name">Nimi puuttuu</string>

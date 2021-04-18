@@ -410,7 +410,6 @@
     <string name="title_leave_deleted">رهاکردن پیام‌های حذف شده روی سرور</string>
     <string name="title_leave_on_device">رها کردن پیام‌ها روی دستگاه</string>
     <string name="title_keep_alive_interval">فعال ماندن/فاصله اخذ (دقایق)</string>
-    <string name="title_related_identity">افزودن هویت مرتبط</string>
     <string name="title_check">بررسی</string>
     <string name="title_no_name">نام وجود ندارد</string>
     <string name="title_no_email">ایمیل آدرس وجود ندارد</string>

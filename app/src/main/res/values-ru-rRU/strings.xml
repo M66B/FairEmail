@@ -11,6 +11,7 @@
     <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Эл. почта</string>
+    <string name="channel_progress">Выполнено</string>
     <string name="channel_update">Обновления</string>
     <string name="channel_warning">Предупреждения</string>
     <string name="channel_error">Ошибки</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Синхронизация и отслеживание учётных записей</string>
     <string name="channel_send_description">Отправка сообщений</string>
     <string name="channel_notification_description">Уведомления о новых сообщениях</string>
+    <string name="channel_progress_description">Уведомления о более длительных запущенных действиях</string>
     <plurals name="page_conversation">
         <item quantity="one">Диалог</item>
         <item quantity="few">Диалоги</item>
@@ -376,6 +378,7 @@
     <string name="title_advanced_collapse_quotes">Сворачивать цитируемый текст</string>
     <string name="title_advanced_image_placeholders">Показывать места расположения изображений</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
+    <string name="title_advanced_button_extra">Показывать дополнительные кнопки внизу сообщения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
@@ -635,7 +638,7 @@
     <string name="title_received_header">Использовать заголовок \'Received\'</string>
     <string name="title_date_header">Использовать заголовок \'Date\' (время отправки)</string>
     <string name="title_date_remark">Изменения будут применены только к новым сообщениям</string>
-    <string name="title_related_identity">Добавить связанный идентификатор</string>
+    <string name="title_related_identity">Добавить связанный идентификатор (сервер SMTP)</string>
     <string name="title_check">Проверить</string>
     <string name="title_trust">Доверять сертификату сервера с отпечатком %1$s</string>
     <string name="title_no_name">Отсутствует имя</string>

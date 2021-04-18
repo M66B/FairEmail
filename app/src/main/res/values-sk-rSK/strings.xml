@@ -619,7 +619,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_received_header">Použiť hlavičku \'Received\'</string>
     <string name="title_date_header">Použiť hlavičku \'Date\' (čas odoslania)</string>
     <string name="title_date_remark">Zmeny budú použité len pre nové správy</string>
-    <string name="title_related_identity">Pridať súvisiacu totožnosť</string>
     <string name="title_check">Skontrolovať</string>
     <string name="title_trust">Dôverovať certifikátu s odtlačkom %1$s</string>
     <string name="title_no_name">Chýba meno</string>

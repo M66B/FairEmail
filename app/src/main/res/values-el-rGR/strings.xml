@@ -354,6 +354,7 @@
     <string name="title_advanced_collapse_quotes">Σύμπτυξη του παρατιθέμενου κειμένου</string>
     <string name="title_advanced_image_placeholders">Να προβάλλονται οι κρατημένες για εικόνες θέσεις</string>
     <string name="title_advanced_images_inline">Να προβάλλονται αυτόματα οι ένθετες εικόνες</string>
+    <string name="title_advanced_button_extra">Εμφάνιση επιπλέον κουμπιών στο κάτω μέρος ενός μηνύματος</string>
     <string name="title_advanced_seekbar">Επισήμανση της σχετικής θέσης στη συζήτηση με μία τελεία</string>
     <string name="title_advanced_actionbar">Προβολή της γραμμής ενεργειών της συζήτησης</string>
     <string name="title_advanced_actionbar_color">Χρήση του χρώματος του λογαριασμού ως χρωματικό υπόβαθρο για τη γραμμή ενεργειών της συζήτησης</string>
@@ -611,7 +612,6 @@
     <string name="title_received_header">Χρήση της κεφαλίδας \"Λήφθηκε\"</string>
     <string name="title_date_header">Χρήση κεφαλίδας \"Ημερομηνία\" (ώρα αποστολής)</string>
     <string name="title_date_remark">Οι αλλαγές θα εφαρμοστούν μόνο στα νέα μηνύματα</string>
-    <string name="title_related_identity">Προσθήκη σχετικής ταυτότητας</string>
     <string name="title_check">Έλεγχος</string>
     <string name="title_trust">Να θεωρείται αξιόπιστο το πιστοποιητικό διακομιστή με αποτύπωμα %1$s</string>
     <string name="title_no_name">Λείπει το όνομα</string>

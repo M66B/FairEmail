@@ -681,7 +681,7 @@ Note that certificates can contains multiple keys for multiple purposes,  for ex
 
 Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
 
-The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You might need to enable the send options in the three dots menu again to be able to select the encryption method.
+The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
@@ -2790,6 +2790,8 @@ Instead, the email provider/server is responsible for backups.
 
 If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
 
+Since version 1.1556 it is possible to export all messages of a POP3 folder in mbox format according to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), which might be useful to save sent messages if the email server doesn't.
+
 If you want to import an mbox file to an existing email account, you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
 
 <br />
@@ -3019,26 +3021,26 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 ## Ricevi supporto
 
-FairEmail è supportato solo su smartphone, tablet e ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Sono supportate solo le ultime versioni del Play Store e di GitHub. La build di F-Droid è supportata solo se il numero della versione corrisponde a quello dell'ultima versione di GitHub. Ciò significa anche che tornare a una versione precedente non è supportato.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Non c'è alcun supporto su cose non direttamente correlate a FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Non c'è alcun supporto sulle build e lo sviluppo di cose per conto proprio.
+There is no support on building and developing things by yourself.
 
-Le funzionalità richieste dovrebbero:
+Requested features should:
 
 * essere utili alla maggior parte delle persone
 * non complicare l'uso di FairEmail
 * adattarsi alla filosofia di FairEmail (orientate alla privacy, con un occhio alla sicurezza)
 * conformarsi agli standard comuni (IMAP, SMTP, ecc.)
 
-È probabile che le funzionalità che non soddisfano questi requisiti saranno respinte. Ciò serve anche a mantenere gestibili a lungo termine la manutenzione e il supporto.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Se hai una domanda, vuoi richiedere una funzionalità o segnalare un errore, **usa [questo modulo](https://contact.faircode.eu/?product=fairemailsupport)**.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-Le segnalazioni su GitHub sono disattivate a causa di un frequente uso improprio.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 

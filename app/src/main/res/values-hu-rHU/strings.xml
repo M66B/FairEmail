@@ -609,7 +609,6 @@
     <string name="title_received_header">\'Received\' fejléc használata</string>
     <string name="title_date_header">\'Date\' fejléc használata (küldés időpontja)</string>
     <string name="title_date_remark">A változások csak az új üzenetekre lesznek alkalmazva</string>
-    <string name="title_related_identity">Kapcsolódó identitás felvétele</string>
     <string name="title_check">Ellenőrzés</string>
     <string name="title_trust">A következő ujjlenyomattal rendelkező szerver tanusítványának elfogadása: %1$s</string>
     <string name="title_no_name">Hiányzó név</string>
