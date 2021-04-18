@@ -729,7 +729,7 @@
     <string name="title_received_header">Use \'Received\' header</string>
     <string name="title_date_header">Use \'Date\' header (sent time)</string>
     <string name="title_date_remark">Changes will be applied to new messages only</string>
-    <string name="title_related_identity">Add related identity</string>
+    <string name="title_related_identity">Add related identity (SMTP server)</string>
     <string name="title_check">Check</string>
     <string name="title_trust">Trust server certificate with fingerprint %1$s</string>
     <string name="title_no_name">Name missing</string>
