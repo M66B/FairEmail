@@ -920,81 +920,84 @@ public class FragmentFolders extends FragmentBase {
                     long last = new Date().getTime();
                     ContentResolver resolver = context.getContentResolver();
                     try (OutputStream out = new BufferedOutputStream(resolver.openOutputStream(uri))) {
-                        for (int i = 0; i < ids.size(); i++) {
-                            long now = new Date().getTime();
-                            if (now - last > EXPORT_PROGRESS_INTERVAL) {
-                                last = now;
-                                builder.setProgress(ids.size(), i, false);
-                                nm.notify("export", 1, builder.build());
-                            }
+                        for (int i = 0; i < ids.size(); i++)
+                            try {
+                                long now = new Date().getTime();
+                                if (now - last > EXPORT_PROGRESS_INTERVAL) {
+                                    last = now;
+                                    builder.setProgress(ids.size(), i, false);
+                                    nm.notify("export", 1, builder.build());
+                                }
 
-                            long id = ids.get(i);
-                            EntityMessage message = db.message().getMessage(id);
-                            if (message == null)
-                                continue;
+                                long id = ids.get(i);
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message == null)
+                                    continue;
 
-                            String email = null;
-                            if (message.from != null && message.from.length > 0)
-                                email = ((InternetAddress) message.from[0]).getAddress();
-                            if (TextUtils.isEmpty(email))
-                                email = "MAILER-DAEMON";
+                                String email = null;
+                                if (message.from != null && message.from.length > 0)
+                                    email = ((InternetAddress) message.from[0]).getAddress();
+                                if (TextUtils.isEmpty(email))
+                                    email = "MAILER-DAEMON";
 
-                            out.write(("From " + email + " " + df.format(message.received) + "\n").getBytes());
+                                out.write(("From " + email + " " + df.format(message.received) + "\n").getBytes());
 
-                            Message imessage = MessageHelper.from(context, message, null, isession, false);
-                            imessage.writeTo(new FilterOutputStream(out) {
-                                private boolean cr = false;
-                                private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
+                                Message imessage = MessageHelper.from(context, message, null, isession, false);
+                                imessage.writeTo(new FilterOutputStream(out) {
+                                    private boolean cr = false;
+                                    private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
 
-                                @Override
-                                public void write(int b) throws IOException {
-                                    if (b == 13 /* CR */) {
-                                        if (cr) // another
+                                    @Override
+                                    public void write(int b) throws IOException {
+                                        if (b == 13 /* CR */) {
+                                            if (cr) // another
+                                                line();
+                                            cr = true;
+                                        } else if (b == 10 /* LF */) {
                                             line();
-                                        cr = true;
-                                    } else if (b == 10 /* LF */) {
-                                        line();
-                                    } else {
-                                        if (cr) // dangling
-                                            line();
-                                        buffer.write(b);
+                                        } else {
+                                            if (cr) // dangling
+                                                line();
+                                            buffer.write(b);
+                                        }
                                     }
-                                }
 
-                                @Override
-                                public void flush() throws IOException {
-                                    if (buffer.size() > 0 || cr /* dangling */)
-                                        line();
-                                    out.write(10);
-                                    super.flush();
-                                }
+                                    @Override
+                                    public void flush() throws IOException {
+                                        if (buffer.size() > 0 || cr /* dangling */)
+                                            line();
+                                        out.write(10);
+                                        super.flush();
+                                    }
 
-                                private void line() throws IOException {
-                                    byte[] b = buffer.toByteArray();
+                                    private void line() throws IOException {
+                                        byte[] b = buffer.toByteArray();
 
-                                    int i = 0;
-                                    for (; i < b.length; i++)
-                                        if (b[i] != '>')
-                                            break;
+                                        int i = 0;
+                                        for (; i < b.length; i++)
+                                            if (b[i] != '>')
+                                                break;
 
-                                    if (i + 4 < b.length &&
-                                            b[i + 0] == 'F' &&
-                                            b[i + 1] == 'r' &&
-                                            b[i + 2] == 'o' &&
-                                            b[i + 3] == 'm' &&
-                                            b[i + 4] == ' ')
-                                        out.write('>');
+                                        if (i + 4 < b.length &&
+                                                b[i + 0] == 'F' &&
+                                                b[i + 1] == 'r' &&
+                                                b[i + 2] == 'o' &&
+                                                b[i + 3] == 'm' &&
+                                                b[i + 4] == ' ')
+                                            out.write('>');
 
-                                    for (i = 0; i < b.length; i++)
-                                        out.write(b[i]);
+                                        for (i = 0; i < b.length; i++)
+                                            out.write(b[i]);
 
-                                    out.write(10);
+                                        out.write(10);
 
-                                    buffer.reset();
-                                    cr = false;
-                                }
-                            });
-                        }
+                                        buffer.reset();
+                                        cr = false;
+                                    }
+                                });
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                     } finally {
                         nm.cancel("export", 1);
                     }
