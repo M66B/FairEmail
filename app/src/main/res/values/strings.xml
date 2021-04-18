@@ -14,6 +14,7 @@
     <string name="channel_service">Receive</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Email</string>
+    <string name="channel_progress">Progress</string>
     <string name="channel_update">Updates</string>
     <string name="channel_warning">Warnings</string>
     <string name="channel_error">Errors</string>
@@ -23,6 +24,7 @@
     <string name="channel_service_description">Synchronizing and monitoring of accounts</string>
     <string name="channel_send_description">Sending of messages</string>
     <string name="channel_notification_description">New message notifications</string>
+    <string name="channel_progress_description">Progress notifications of longer running activities</string>
 
     <plurals name="page_conversation">
         <item quantity="one">Conversation</item>

@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -47,6 +48,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -71,6 +73,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -114,6 +117,8 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_DELETE_FOLDER = 3;
     static final int REQUEST_EXECUTE_RULES = 4;
     static final int REQUEST_EXPORT_MESSAGES = 5;
+
+    private static final long EXPORT_PROGRESS_INTERVAL = 5000L; // milliseconds
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -885,6 +890,20 @@ public class FragmentFolders extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                     }
 
+                    NotificationManager nm =
+                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    NotificationCompat.Builder builder =
+                            new NotificationCompat.Builder(context, "progress")
+                                    .setSmallIcon(R.drawable.baseline_get_app_white_24)
+                                    .setContentTitle(getString(R.string.title_export_messages))
+                                    .setAutoCancel(false)
+                                    .setOngoing(true)
+                                    .setShowWhen(false)
+                                    .setLocalOnly(true)
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setCategory(NotificationCompat.CATEGORY_PROGRESS)
+                                    .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+
                     DB db = DB.getInstance(context);
                     List<Long> ids = db.message().getMessageIdsByFolder(fid);
                     if (ids == null)
@@ -898,9 +917,18 @@ public class FragmentFolders extends FragmentBase {
 
                     // https://www.ietf.org/rfc/rfc4155.txt (Appendix A)
                     // http://qmail.org./man/man5/mbox.html
+                    long last = new Date().getTime();
                     ContentResolver resolver = context.getContentResolver();
                     try (OutputStream out = new BufferedOutputStream(resolver.openOutputStream(uri))) {
-                        for (long id : ids) {
+                        for (int i = 0; i < ids.size(); i++) {
+                            long now = new Date().getTime();
+                            if (now - last > EXPORT_PROGRESS_INTERVAL) {
+                                last = now;
+                                builder.setProgress(ids.size(), i, false);
+                                nm.notify("export", 1, builder.build());
+                            }
+
+                            long id = ids.get(i);
                             EntityMessage message = db.message().getMessage(id);
                             if (message == null)
                                 continue;
@@ -967,6 +995,8 @@ public class FragmentFolders extends FragmentBase {
                                 }
                             });
                         }
+                    } finally {
+                        nm.cancel("export", 1);
                     }
 
                     return null;

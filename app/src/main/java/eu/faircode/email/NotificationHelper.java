@@ -76,6 +76,14 @@ class NotificationHelper {
         notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         nm.createNotificationChannel(notification);
 
+        NotificationChannel progress = new NotificationChannel(
+                "progress", context.getString(R.string.channel_progress),
+                NotificationManager.IMPORTANCE_DEFAULT);
+        notification.setDescription(context.getString(R.string.channel_progress_description));
+        progress.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+        progress.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        nm.createNotificationChannel(progress);
+
         // Update
         if (!Helper.isPlayStoreInstall()) {
             NotificationChannel update = new NotificationChannel(
