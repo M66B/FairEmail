@@ -128,6 +128,9 @@ Anything on this list is in random order and *might* be added in the near future
 ## Frequently requested features
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
+![1618746203399](https://user-images.githubusercontent.com/82519618/115144268-4f5de400-a03b-11eb-85d8-c8186c7857a7.jpg)
+
+![1618746264978](https://user-images.githubusercontent.com/82519618/115144289-74525700-a03b-11eb-84b9-77ce3672e3e2.jpg)
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 Fonts, sizes, colors, etc should be material design whenever possible.
