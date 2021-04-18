@@ -127,6 +127,7 @@ public interface DaoAttachment {
             "   AND a.available" +
             "   AND message.ui_seen" +
             "   AND NOT message.ui_flagged" +
+            "   AND encryption IS NULL" +
             "   AND message.received < :now - (folder.sync_days + 1) * 24 * 3600 * 1000)")
     int purge(long now);
 
