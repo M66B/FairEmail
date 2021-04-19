@@ -967,6 +967,11 @@ class Core {
             imessage.addHeader(MessageHelper.HEADER_CORRELATION_ID, message.msgid);
 
             imessage.saveChanges();
+
+            imessage.setFlag(Flags.Flag.SEEN, message.ui_seen);
+            imessage.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
+            imessage.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
+            imessage.setFlag(Flags.Flag.DELETED, message.ui_deleted);
         }
 
         db.message().setMessageRaw(message.id, true);
