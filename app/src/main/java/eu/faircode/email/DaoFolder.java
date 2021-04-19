@@ -199,11 +199,12 @@ public interface DaoFolder {
     LiveData<List<TupleFolderUnified>> liveUnified();
 
     @Query("SELECT * FROM folder" +
-            " WHERE selected_count > 0" +
+            " WHERE account = :account" +
+            " AND selected_count > 0" +
             " AND NOT folder.id IN (:disabled)" +
             " ORDER BY selected_count DESC, selected_last DESC" +
             " LIMIT :count")
-    List<EntityFolder> getFavoriteFolders(int count, long[] disabled);
+    List<EntityFolder> getFavoriteFolders(long account, int count, long[] disabled);
 
     @Query("UPDATE folder" +
             " SET selected_last = :last, selected_count = selected_count + 1" +

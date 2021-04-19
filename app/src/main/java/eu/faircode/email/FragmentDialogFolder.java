@@ -283,7 +283,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
                 Data data = new Data();
                 data.folders = db.folder().getFoldersEx(account);
-                data.favorites = db.folder().getFavoriteFolders(3, disabled);
+                data.favorites = db.folder().getFavoriteFolders(account, 3, disabled);
 
                 return data;
             }
