@@ -616,6 +616,7 @@
     <string name="title_received_header">Gebruik de kop \'Received\'</string>
     <string name="title_date_header">Gebruik de kop \'Date\' (verzonden tijd)</string>
     <string name="title_date_remark">Wijzigingen worden alleen toegepast op nieuwe berichten</string>
+    <string name="title_related_identity">Voeg een gerelateerde identiteit toe (SMTP-server)</string>
     <string name="title_check">Controleer</string>
     <string name="title_trust">Vertrouw server certificaat met de vingerafdruk %1$s</string>
     <string name="title_no_name">Naam ontbreekt</string>

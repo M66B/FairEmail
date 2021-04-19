@@ -11,6 +11,7 @@
     <string name="channel_service">受信</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">電子メール</string>
+    <string name="channel_progress">進行度</string>
     <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">エラー</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">アカウントの同期と監視</string>
     <string name="channel_send_description">メッセージの送信</string>
     <string name="channel_notification_description">新しいメッセージ通知</string>
+    <string name="channel_progress_description">長時間実行中のアクティビティの進行度を通知します。</string>
     <plurals name="page_conversation">
         <item quantity="other">会話</item>
     </plurals>
@@ -601,6 +603,7 @@
     <string name="title_received_header">\'受信済み\' ヘッダーを使用</string>
     <string name="title_date_header">\'日付\' ヘッダーを使用 (送信時刻)</string>
     <string name="title_date_remark">変更は新しいメッセージにのみ適用されます</string>
+    <string name="title_related_identity">関連IDを追加 (SMTPサーバー)</string>
     <string name="title_check">確認</string>
     <string name="title_trust">指紋認証 %1$sでサーバ証明書を信頼する</string>
     <string name="title_no_name">名前が有りません</string>

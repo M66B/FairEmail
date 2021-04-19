@@ -11,6 +11,7 @@
     <string name="channel_service">Odbierz</string>
     <string name="channel_send">Wyślij</string>
     <string name="channel_notification">E-mail</string>
+    <string name="channel_progress">Postęp</string>
     <string name="channel_update">Aktualizacje</string>
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Synchronizacja i monitorowanie kont</string>
     <string name="channel_send_description">Wysyłanie wiadomości</string>
     <string name="channel_notification_description">Powiadomienia o nowych wiadomościach</string>
+    <string name="channel_progress_description">Powiadomienia o postępach dotyczące dłuższych działań</string>
     <plurals name="page_conversation">
         <item quantity="one">Wątek</item>
         <item quantity="few">Wątki</item>
@@ -375,6 +377,7 @@
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_image_placeholders">Pokaż symbole zastępcze obrazu</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
+    <string name="title_advanced_button_extra">Pokaż dodatkowe przyciski na dole wiadomości</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
@@ -634,6 +637,7 @@
     <string name="title_received_header">Użyj nagłówka \'Odbiorca\'</string>
     <string name="title_date_header">Użyj nagłówka \'Data\' (wysłany czas)</string>
     <string name="title_date_remark">Zmiany zostaną zastosowane tylko do nowych wiadomości</string>
+    <string name="title_related_identity">Dodaj powiązaną tożsamość (serwer SMTP)</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_trust">Zaufaj certyfikatowi serwera za pomocą odcisku palca %1$s</string>
     <string name="title_no_name">Brak nazwy</string>
@@ -692,6 +696,7 @@
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_edit_rules">Edytuj reguły</string>
     <string name="title_execute_rules">Wykonaj reguły</string>
+    <string name="title_export_messages">Eksportuj wiadomości</string>
     <string name="title_create_channel">Utwórz kanał powiadomień</string>
     <string name="title_edit_channel">Edytuj kanał powiadomień</string>
     <string name="title_delete_channel">Usuń kanał powiadomień</string>

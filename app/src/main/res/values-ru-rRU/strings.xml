@@ -11,7 +11,7 @@
     <string name="channel_service">Получение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Эл. почта</string>
-    <string name="channel_progress">Выполнено</string>
+    <string name="channel_progress">Выполнение</string>
     <string name="channel_update">Обновления</string>
     <string name="channel_warning">Предупреждения</string>
     <string name="channel_error">Ошибки</string>
@@ -20,7 +20,7 @@
     <string name="channel_service_description">Синхронизация и отслеживание учётных записей</string>
     <string name="channel_send_description">Отправка сообщений</string>
     <string name="channel_notification_description">Уведомления о новых сообщениях</string>
-    <string name="channel_progress_description">Уведомления о более длительных запущенных действиях</string>
+    <string name="channel_progress_description">Уведомления о выполнении длительных запущенных действий</string>
     <plurals name="page_conversation">
         <item quantity="one">Диалог</item>
         <item quantity="few">Диалоги</item>

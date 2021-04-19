@@ -11,6 +11,7 @@
     <string name="channel_service">Recibir</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correo electrónico</string>
+    <string name="channel_progress">Progreso</string>
     <string name="channel_update">Actualizaciones</string>
     <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Sincronización y monitoreo de cuentas</string>
     <string name="channel_send_description">Envío de mensajes</string>
     <string name="channel_notification_description">Notificaciones de mensajes nuevos</string>
+    <string name="channel_progress_description">Progreso de notificaciones de actividades en ejecución más larga</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversación</item>
         <item quantity="other">Conversaciones</item>
@@ -354,6 +356,7 @@
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_image_placeholders">Mostrar marcadores de posición de imagen</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
+    <string name="title_advanced_button_extra">Mostrar botones extra en la parte inferior de un mensaje</string>
     <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
@@ -613,6 +616,7 @@
     <string name="title_received_header">Usar encabezado \'Received\'</string>
     <string name="title_date_header">Usar encabezado \'Date\' (fecha de envío)</string>
     <string name="title_date_remark">Los cambios sólo se aplicarán a nuevos mensajes</string>
+    <string name="title_related_identity">Añadir identidad relacionada (servidor SMTP)</string>
     <string name="title_check">Verificar</string>
     <string name="title_trust">Confiar en el certificado del servidor con huella digital %1$s</string>
     <string name="title_no_name">Falta nombre</string>

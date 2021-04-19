@@ -11,6 +11,7 @@
     <string name="channel_service">Réception</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">Courriel</string>
+    <string name="channel_progress">Progression</string>
     <string name="channel_update">Mises à jour</string>
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Synchronisation et surveillance des comptes</string>
     <string name="channel_send_description">Envoi des messages</string>
     <string name="channel_notification_description">Notifications de nouveaux messages</string>
+    <string name="channel_progress_description">Notifications d\'avancement des actions de longue durée</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversation</item>
         <item quantity="other">Conversations</item>
@@ -614,6 +616,7 @@
     <string name="title_received_header">Utiliser l\'en-tête « Reçu »</string>
     <string name="title_date_header">Utiliser l\'en-tête « Date » (heure d\'envoi)</string>
     <string name="title_date_remark">Les modifications seront appliquées uniquement aux nouveaux messages</string>
+    <string name="title_related_identity">Ajouter une identité liée (serveur SMTP)</string>
     <string name="title_check">Vérifier</string>
     <string name="title_trust">Faire confiance au certificat du serveur avec l’empreinte digitale %1$s</string>
     <string name="title_no_name">Nom manquant</string>

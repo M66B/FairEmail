@@ -11,6 +11,7 @@
     <string name="channel_service">Nhận</string>
     <string name="channel_send">Gửi</string>
     <string name="channel_notification">Email</string>
+    <string name="channel_progress">Tiến trình</string>
     <string name="channel_update">Cập nhật</string>
     <string name="channel_warning">Cảnh báo</string>
     <string name="channel_error">Lỗi</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Đồng bộ hoá và giám sát các tài khoản</string>
     <string name="channel_send_description">Gửi thư</string>
     <string name="channel_notification_description">Thông báo thư mới</string>
+    <string name="channel_progress_description">Các thông báo tiến trình của các hoạt động dài hơn đang chạy</string>
     <plurals name="page_conversation">
         <item quantity="other">Cuộc hội thoại</item>
     </plurals>
@@ -602,6 +604,7 @@
     <string name="title_received_header">Sử dụng tiêu đề \'Received\'</string>
     <string name="title_date_header">Sử dụng tiêu đề \'Date\' (thời gian gửi)</string>
     <string name="title_date_remark">Các thay đổi sẽ chỉ áp dụng cho các thư mới</string>
+    <string name="title_related_identity">Thêm danh tính có liên quan (máy chủ SMTP)</string>
     <string name="title_check">Kiểm tra</string>
     <string name="title_trust">Tin tưởng chứng chỉ máy chủ có mã xác minh %1$s</string>
     <string name="title_no_name">Thiếu tên</string>

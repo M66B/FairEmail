@@ -799,32 +799,32 @@ Pour configurer un compte Office 365, veuillez consulter [cette FAQ](#user-conte
 
 L'en-tête du message et le corps du message sont récupérés séparément du serveur. Le texte du message des messages de plus grande taille n'est pas pré-récupéré sur les connexions limitées et sera récupéré à la demande lors de l'expansion d'un message. Le texte du message continuera à se charger s'il n'y a pas de connexion au compte, voir aussi la question suivante, ou s'il y a d'autres opérations en cours d'exécution comme la synchronisation des messages.
 
-You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+Vous pouvez vérifier le compte et la liste des dossiers pour le compte, et l'état du dossier (voir la légende pour la signification des icônes) ainsi que la liste des opérations accessibles via le menu de navigation principal pour les opérations en attente (voir [cette FAQ](#user-content-faq3) pour la signification des opérations).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+Si FairEmail est suspendu en raison de problèmes de connectivité antérieurs, veuillez consulter [cette FAQ](#user-content-faq123), vous pouvez forcer la synchronisation via le menu à trois points.
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+Dans les paramètres de réception, vous pouvez définir la taille maximale pour le téléchargement automatique des messages sur les connexions limitées.
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+Les connexions mobiles sont presque toujours limitées et certains points d'accès Wi-Fi (payants) le sont aussi.
 
 <br />
 
 <a name="faq16" mark="crwd-mark"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Pourquoi les messages ne sont-ils pas synchronisés ?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Les causes possibles de non-synchronisation des messages (envoyés ou reçus) sont:
 
-* The account or folder(s) are not set to synchronize
-* The number of days to synchronize message for is set too low
-* There is no usable internet connection
-* The email server is temporarily not available
-* Android stopped the synchronization service
+* Le compte ou les dossier(s) ne sont pas configurés pour synchroniser
+* Le nombre de jours pour synchroniser le message est trop faible
+* Il n'y a pas de connexion Internet utilisable
+* Le serveur de messagerie est temporairement indisponible
+* Android a arrêté le service de synchronisation
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Vérifiez donc les paramètres de votre compte et de votre dossier et vérifiez si les comptes/dossiers sont connectés (voir la légende dans le menu de navigation pour la signification des icônes).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+S'il y a des messages d'erreur, veuillez consulter [cette FAQ](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+Sur certains appareils, où il y a beaucoup d'applications en concurrence pour la mémoire, Android peut arrêter le service de synchronisation en dernier recours.
 
 Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
 
@@ -879,7 +879,7 @@ I have been working on FairEmail almost every day for more than two years, so I 
 <a name="faq20" mark="crwd-mark"></a>
 **(20) Can I get a refund?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. En aucun cas il n'y a de remboursement possible pour tout problème lié aux fonctionnalités gratuites, étant donné que rien a été payé pour les obtenir et parce qu'elles peuvent être évaluées sans aucune limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21" mark="crwd-mark"></a>
 **(21) How do I enable the notification light?**

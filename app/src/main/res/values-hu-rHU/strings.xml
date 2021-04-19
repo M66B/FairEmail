@@ -11,6 +11,7 @@
     <string name="channel_service">Fogadás</string>
     <string name="channel_send">Küldés</string>
     <string name="channel_notification">Email</string>
+    <string name="channel_progress">Előrehaladás</string>
     <string name="channel_update">Frissítések</string>
     <string name="channel_warning">Figyelmeztetések</string>
     <string name="channel_error">Hibák</string>
@@ -571,6 +572,7 @@
     <string name="title_account_interval_hint">A push üzenetek fogadásának, vagy az új üzenetek ellenőrzésének gyakorisága</string>
     <string name="title_account_partial_fetch_hint">Csak hiányzó üzenet szövegek vagy hibás mellékletek esetén kapcsolja ki ezt az opciót</string>
     <string name="title_color">Szín</string>
+    <string name="title_transparent">Átlátszó</string>
     <string name="title_account_ondemand">Manuális szinkronizálás</string>
     <string name="title_account_notify">Értesítések elkülönítése</string>
     <string name="title_account_left">Balra csúsztatás</string>
@@ -737,6 +739,8 @@
     <string name="title_duplicate_in">Duplikált üzenet a(z) %1$s mappában</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Megjelölés olvasottként</string>
     <string name="title_unseen">Megjelölés olvasatlanként</string>
     <string name="title_toggle_seen">Megjelölés olvasottként</string>
@@ -873,6 +877,7 @@
     <string name="title_discard">Elvetés</string>
     <string name="title_save">Mentés</string>
     <string name="title_send">Küldés</string>
+    <string name="title_sending">Küldés &#8230;</string>
     <string name="title_send_now">Küldés most</string>
     <string name="title_send_via">Küldés a következővel</string>
     <string name="title_send_at">Küldés ekkor &#8230;</string>
@@ -1012,6 +1017,7 @@
     <string name="title_search_flag_hidden">rejtett</string>
     <string name="title_search_flag_encrypted">titkosított</string>
     <string name="title_search_flag_attachments">csatolmányok</string>
+    <string name="title_search_flag_notes">jegyzetek</string>
     <string name="title_search_flag_invite">meghívás</string>
     <string name="title_search_flag_size">méret &gt; %1$s</string>
     <string name="title_search_device">Keresés az eszközön</string>
@@ -1246,6 +1252,7 @@
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>
     <string name="title_tracking_link">Ez az oldal követheti Önt</string>
+    <string name="title_suspicious_link">Ez egy gyanús link</string>
     <string name="title_link_http">A forgalom nem lesz titkosítva</string>
     <string name="title_link_https">A forgalom titkosítva lesz</string>
     <string name="title_sanitize_link">Követési paraméterek eltávolítása</string>
@@ -1336,6 +1343,7 @@
     <string name="title_unexpected_info_remark">Kérem írja le, mit csinált amikor az alkalmazás összeomlott:</string>
     <string name="title_widget_title_count">Új üzenetek számláló</string>
     <string name="title_widget_title_list">Üzenet lista</string>
+    <string name="title_widget_title_sync">Szink. be/ki</string>
     <string name="title_widget_account">Fiók</string>
     <string name="title_widget_account_all">Mind</string>
     <string name="title_widget_folder">Mappa</string>

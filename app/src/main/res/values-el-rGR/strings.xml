@@ -11,6 +11,7 @@
     <string name="channel_service">Λήψη</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
+    <string name="channel_progress">Πρόοδος</string>
     <string name="channel_update">Ενημερώσεις</string>
     <string name="channel_warning">Προειδοποιήσεις</string>
     <string name="channel_error">Σφάλματα</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Συγχρονισμός και παρακολούθηση λογαριασμών</string>
     <string name="channel_send_description">Αποστολή μηνυμάτων</string>
     <string name="channel_notification_description">Ειδοποιήσεις νέων μηνυμάτων</string>
+    <string name="channel_progress_description">Ειδοποιήσεις προόδου για δραστηριότητες μεγαλύτερης διάρκειας</string>
     <plurals name="page_conversation">
         <item quantity="one">Συζήτηση</item>
         <item quantity="other">Συζητήσεις</item>
@@ -612,6 +614,7 @@
     <string name="title_received_header">Χρήση της κεφαλίδας \"Λήφθηκε\"</string>
     <string name="title_date_header">Χρήση κεφαλίδας \"Ημερομηνία\" (ώρα αποστολής)</string>
     <string name="title_date_remark">Οι αλλαγές θα εφαρμοστούν μόνο στα νέα μηνύματα</string>
+    <string name="title_related_identity">Προσθήκη σχετικής ταυτότητας (SMTP server)</string>
     <string name="title_check">Έλεγχος</string>
     <string name="title_trust">Να θεωρείται αξιόπιστο το πιστοποιητικό διακομιστή με αποτύπωμα %1$s</string>
     <string name="title_no_name">Λείπει το όνομα</string>
