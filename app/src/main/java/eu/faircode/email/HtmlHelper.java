@@ -458,9 +458,9 @@ public class HtmlHelper {
         for (Element font : document.select("font")) {
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font
             String style = font.attr("style");
-            String color = font.attr("color");
-            String size = font.attr("size");
-            String face = font.attr("face");
+            String color = font.attr("color").trim();
+            String size = font.attr("size").trim();
+            String face = font.attr("face").trim();
 
             style = style.trim();
             if (!TextUtils.isEmpty(style) && !style.endsWith(";"))
