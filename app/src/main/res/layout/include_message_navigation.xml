@@ -119,7 +119,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_move"
-        app:srcCompat="@drawable/twotone_folder_24"
+        app:srcCompat="@drawable/twotone_drive_file_move_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
