@@ -301,8 +301,7 @@ class ImageHelper {
                             return d;
                         } else {
                             Drawable d = new BitmapDrawable(res, bm);
-                            DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                            d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                             if (view != null)
                                 fitDrawable(d, a, scale, view);
                             return d;
@@ -319,9 +318,7 @@ class ImageHelper {
                         throw new IllegalArgumentException("decode byte array failed");
 
                     Drawable d = new BitmapDrawable(context.getResources(), bm);
-
-                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
 
                     if (view != null)
                         fitDrawable(d, a, scale, view);
@@ -338,8 +335,6 @@ class ImageHelper {
                     Uri uri = Uri.parse(a.source);
                     Log.i("Loading image source=" + uri);
 
-                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
-
                     BitmapFactory.Options options;
                     try (InputStream is = context.getContentResolver().openInputStream(uri)) {
                         options = new BitmapFactory.Options();
@@ -347,7 +342,7 @@ class ImageHelper {
                         BitmapFactory.decodeStream(is, null, options);
                     }
 
-                    int scaleToPixels = dm.widthPixels;
+                    int scaleToPixels = res.getDisplayMetrics().widthPixels;
                     int factor = 1;
                     while (options.outWidth / factor > scaleToPixels)
                         factor *= 2;
@@ -366,7 +361,7 @@ class ImageHelper {
                     }
 
                     Drawable d = new BitmapDrawable(res, bm);
-                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
 
                     if (view != null)
                         fitDrawable(d, a, scale, view);
