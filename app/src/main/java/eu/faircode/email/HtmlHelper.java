@@ -477,13 +477,19 @@ public class HtmlHelper {
 
             if (!TextUtils.isEmpty(size)) {
                 try {
-                    int s = Integer.parseInt(size);
-                    if (s < 3)
-                        size = "small";
-                    else if (s > 3)
-                        size = "large";
-                    else
-                        size = "medium";
+                    if (size.startsWith("-"))
+                        size = "smaller";
+                    else if (size.startsWith("+"))
+                        size = "larger";
+                    else {
+                        int s = Integer.parseInt(size);
+                        if (s < 3)
+                            size = "small";
+                        else if (s > 3)
+                            size = "large";
+                        else
+                            size = "medium";
+                    }
                     sb.append("font-size:").append(size).append(";");
                 } catch (NumberFormatException ex) {
                     Log.i(ex);
