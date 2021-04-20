@@ -475,26 +475,25 @@ public class HtmlHelper {
             if (!TextUtils.isEmpty(color))
                 sb.append("color:").append(color).append(";");
 
-            if (!TextUtils.isEmpty(size)) {
+            if (!TextUtils.isEmpty(size))
                 try {
-                    if (size.startsWith("-"))
-                        size = "smaller";
-                    else if (size.startsWith("+"))
-                        size = "larger";
-                    else {
-                        int s = Integer.parseInt(size);
-                        if (s < 3)
-                            size = "small";
-                        else if (s > 3)
-                            size = "large";
-                        else
-                            size = "medium";
-                    }
+                    int s = Integer.parseInt(size);
+                    if (size.startsWith("-")) {
+                        if (s < 0)
+                            size = "smaller";
+                    } else if (size.startsWith("+")) {
+                        if (s > 0)
+                            size = "larger";
+                    } else if (s >= 1 && s < 3)
+                        size = "small";
+                    else if (s > 3 && s <= 7)
+                        size = "large";
+                    else
+                        size = "medium";
                     sb.append("font-size:").append(size).append(";");
                 } catch (NumberFormatException ex) {
                     Log.i(ex);
                 }
-            }
 
             if (!TextUtils.isEmpty(face)) {
                 sb.append("font-family:");
