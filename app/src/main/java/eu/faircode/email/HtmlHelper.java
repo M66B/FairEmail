@@ -496,8 +496,20 @@ public class HtmlHelper {
                 }
             }
 
-            if (!TextUtils.isEmpty(face))
-                sb.append("font-family:").append(face).append(";");
+            if (!TextUtils.isEmpty(face)) {
+                sb.append("font-family:");
+                String[] faces = face.split(",");
+                for (int i = 0; i < faces.length; i++) {
+                    if (i > 0)
+                        sb.append(',');
+                    String f = faces[i].trim();
+                    if (f.contains(" ") && !f.startsWith("\"") && !f.endsWith("\""))
+                        sb.append('"').append(f).append('"');
+                    else
+                        sb.append(f);
+                }
+                sb.append(";");
+            }
 
             font.attr("style", sb.toString());
 
