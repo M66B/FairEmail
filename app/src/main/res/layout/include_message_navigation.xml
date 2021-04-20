@@ -185,7 +185,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_toggle_seen"
-        app:srcCompat="@drawable/twotone_visibility_24"
+        app:srcCompat="@drawable/twotone_mail_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton

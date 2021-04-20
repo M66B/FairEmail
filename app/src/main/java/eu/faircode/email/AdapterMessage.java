@@ -1727,7 +1727,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_rule = prefs.getBoolean("button_rule", false);
                     boolean button_extra = prefs.getBoolean("button_extra", false);
 
-                    ibSeen.setImageResource(message.ui_seen ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
+                    ibSeen.setImageResource(message.ui_seen ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
                     ibTrash.setTag(delete);
 
                     ibUndo.setVisibility(outbox ? View.VISIBLE : View.GONE);
