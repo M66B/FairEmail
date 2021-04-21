@@ -106,6 +106,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -548,189 +549,198 @@ public class HtmlHelper {
             if (!TextUtils.isEmpty(style)) {
                 StringBuilder sb = new StringBuilder();
 
+                Map<String, String> kv = new LinkedHashMap<>();
                 String[] params = style.split(";");
                 for (String param : params) {
                     int colon = param.indexOf(':');
-                    if (colon > 0) {
-                        String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
-                        String value = param.substring(colon + 1).toLowerCase(Locale.ROOT)
-                                .replace("!important", "")
-                                .trim()
-                                .replaceAll("\\s+", " ");
-                        switch (key) {
-                            case "color":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/color
-                                if (!text_color)
-                                    continue;
+                    if (colon <= 0)
+                        continue;
+                    String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+                    String value = param.substring(colon + 1).toLowerCase(Locale.ROOT)
+                            .replace("!important", "")
+                            .trim()
+                            .replaceAll("\\s+", " ");
+                    kv.put(key, value);
+                }
 
-                                Integer color = parseColor(value);
+                for (String key : kv.keySet()) {
+                    String value = kv.get(key);
+                    switch (key) {
+                        case "color":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/color
+                            if (!text_color)
+                                continue;
 
-                                if (color != null && !view && Helper.isDarkTheme(context)) {
-                                    float lum = (float) ColorUtils.calculateLuminance(color);
-                                    if (lum < 0.1f)
-                                        color = null;
+                            Integer color = parseColor(value);
+
+                            if (color != null && !view && Helper.isDarkTheme(context)) {
+                                float lum = (float) ColorUtils.calculateLuminance(color);
+                                if (lum < 0.1f)
+                                    color = null;
+                            }
+
+                            if (color == null)
+                                element.removeAttr("color");
+                            else {
+                                if (view)
+                                    color = adjustColor(dark, textColorPrimary, color);
+
+                                // fromHtml does not support transparency
+                                String c = String.format("#%06x", color);
+                                sb.append("color:").append(c).append(";");
+                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+                                    element.attr("color", c);
+                            }
+
+                            break;
+
+                        case "font-size":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+                            if (!text_size)
+                                continue;
+
+                            float current;
+                            if (tag.length() == 2 &&
+                                    tag.charAt(0) == 'h' &&
+                                    Character.isDigit(tag.charAt(1)))
+                                current = HEADING_SIZES[tag.charAt(1) - '1'];
+                            else
+                                current = 1.0f;
+
+                            Element parent = element.parent();
+                            while (parent != null) {
+                                String xFontSize = parent.attr("x-font-size");
+                                if (!TextUtils.isEmpty(xFontSize)) {
+                                    current = Float.parseFloat(xFontSize);
+                                    break;
                                 }
+                                parent = parent.parent();
+                            }
 
-                                if (color == null)
-                                    element.removeAttr("color");
-                                else {
-                                    if (view)
-                                        color = adjustColor(dark, textColorPrimary, color);
-
-                                    // fromHtml does not support transparency
-                                    String c = String.format("#%06x", color);
-                                    sb.append("color:").append(c).append(";");
-                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-                                        element.attr("color", c);
+                            Float fsize = getFontSize(value, current);
+                            if (fsize != null && fsize != 0) {
+                                if (!view) {
+                                    if (fsize < 1)
+                                        fsize = FONT_SMALL;
+                                    else if (fsize > 1)
+                                        fsize = FONT_LARGE;
                                 }
+                                element.attr("x-font-size", Float.toString(fsize));
+                                element.attr("x-font-size-rel", Float.toString(fsize / current));
+                            }
+                            break;
 
-                                break;
-
-                            case "font-size":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
-                                if (!text_size)
-                                    continue;
-
-                                float current;
-                                if (tag.length() == 2 &&
-                                        tag.charAt(0) == 'h' &&
-                                        Character.isDigit(tag.charAt(1)))
-                                    current = HEADING_SIZES[tag.charAt(1) - '1'];
-                                else
-                                    current = 1.0f;
-
-                                Element parent = element.parent();
-                                while (parent != null) {
-                                    String xFontSize = parent.attr("x-font-size");
-                                    if (!TextUtils.isEmpty(xFontSize)) {
-                                        current = Float.parseFloat(xFontSize);
-                                        break;
+                        case "font-weight":
+                            if (element.parent() != null) {
+                                Integer fweight = getFontWeight(value);
+                                if (fweight != null && fweight >= 600) {
+                                    Element strong = new Element("strong");
+                                    for (Node child : new ArrayList<>(element.childNodes())) {
+                                        child.remove();
+                                        strong.appendChild(child);
                                     }
-                                    parent = parent.parent();
+                                    element.appendChild(strong);
                                 }
+                            }
+                            break;
 
-                                Float fsize = getFontSize(value, current);
-                                if (fsize != null && fsize != 0) {
-                                    if (!view) {
-                                        if (fsize < 1)
-                                            fsize = FONT_SMALL;
-                                        else if (fsize > 1)
-                                            fsize = FONT_LARGE;
-                                    }
-                                    element.attr("x-font-size", Float.toString(fsize));
-                                    element.attr("x-font-size-rel", Float.toString(fsize / current));
-                                }
-                                break;
+                        case "font-family":
+                            if (!text_font)
+                                continue;
 
-                            case "font-weight":
-                                if (element.parent() != null) {
-                                    Integer fweight = getFontWeight(value);
-                                    if (fweight != null && fweight >= 600) {
-                                        Element strong = new Element("strong");
-                                        for (Node child : new ArrayList<>(element.childNodes())) {
-                                            child.remove();
-                                            strong.appendChild(child);
-                                        }
-                                        element.appendChild(strong);
-                                    }
-                                }
-                                break;
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
+                            sb.append(key).append(":").append(value).append(";");
+                            break;
 
-                            case "font-family":
-                                if (!text_font)
-                                    continue;
+                        case "text-decoration":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
+                            if (value.contains("line-through"))
+                                sb.append("text-decoration:line-through;");
+                            break;
 
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
-                                sb.append(key).append(":").append(value).append(";");
-                                break;
+                        case "display":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/display
+                            if (element.parent() != null &&
+                                    !display_hidden && "none".equals(value)) {
+                                Log.i("Removing display none " + element.tagName());
+                                element.remove();
+                            }
 
-                            case "text-decoration":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration
-                                if (value.contains("line-through"))
-                                    sb.append("text-decoration:line-through;");
-                                break;
+                            if ("block".equals(value) || "inline-block".equals(value))
+                                element.attr("x-block", "true");
 
-                            case "display":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/display
-                                if (element.parent() != null &&
-                                        !display_hidden && "none".equals(value)) {
-                                    Log.i("Removing display none " + element.tagName());
-                                    element.remove();
-                                }
+                            if ("inline".equals(value) || "inline-block".equals(value)) {
+                                if (element.nextSibling() != null)
+                                    element.attr("x-inline", "true");
+                            }
+                            break;
 
-                                if ("block".equals(value) || "inline-block".equals(value))
-                                    element.attr("x-block", "true");
-
-                                if ("inline".equals(value) || "inline-block".equals(value)) {
-                                    if (element.nextSibling() != null)
-                                        element.attr("x-inline", "true");
-                                }
-                                break;
-
-                            case "height":
-                            case "width":
-                                //case "font-size":
-                                //case "line-height":
-                                if (element.parent() != null && !display_hidden) {
-                                    Float s = getFontSize(value, 1.0f);
-                                    if (s != null && s == 0) {
+                        case "height":
+                        case "width":
+                            //case "font-size":
+                            //case "line-height":
+                            if (element.parent() != null && !display_hidden) {
+                                Float s = getFontSize(value, 1.0f);
+                                if (s != null && s == 0) {
+                                    if (!"table".equals(element.tagName()) ||
+                                            !"fixed".endsWith(kv.get("table-layout"))) {
                                         Log.i("Removing no height/width " + element.tagName());
                                         element.remove();
                                     }
                                 }
-                                break;
+                            }
+                            break;
 
-                            case "margin":
-                            case "padding":
-                            case "margin-top":
-                            case "margin-bottom":
-                            case "padding-top":
-                            case "padding-bottom":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/margin
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/padding
-                                if (element.isBlock()) {
-                                    Float[] p = new Float[4];
+                        case "margin":
+                        case "padding":
+                        case "margin-top":
+                        case "margin-bottom":
+                        case "padding-top":
+                        case "padding-bottom":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+                            if (element.isBlock()) {
+                                Float[] p = new Float[4];
 
-                                    String[] v = value.split(" ");
-                                    for (int i = 0; i < v.length && i < p.length; i++)
-                                        p[i] = getFontSize(v[i], 1.0f);
+                                String[] v = value.split(" ");
+                                for (int i = 0; i < v.length && i < p.length; i++)
+                                    p[i] = getFontSize(v[i], 1.0f);
 
-                                    if (v.length == 1) {
-                                        p[1] = p[0];
-                                        p[2] = p[0];
-                                        p[3] = p[0];
-                                    } else if (v.length == 2) {
-                                        p[2] = p[0];
-                                        p[3] = p[1];
-                                    }
-
-                                    if (key.endsWith("top"))
-                                        p[2] = null;
-                                    else if (key.endsWith("bottom"))
-                                        p[0] = null;
-
-                                    if (p[0] != null)
-                                        if (p[0] == 0)
-                                            element.attr("x-line-before", "false");
-                                        else if (p[0] > 0.5)
-                                            element.attr("x-line-before", "true");
-                                    if (p[2] != null)
-                                        if (p[2] == 0)
-                                            element.attr("x-line-after", "false");
-                                        else if (p[2] > 0.5)
-                                            element.attr("x-line-after", "true");
+                                if (v.length == 1) {
+                                    p[1] = p[0];
+                                    p[2] = p[0];
+                                    p[3] = p[0];
+                                } else if (v.length == 2) {
+                                    p[2] = p[0];
+                                    p[3] = p[1];
                                 }
-                                break;
 
-                            case "text-align":
-                                // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
-                                if (text_align) {
-                                    element.attr("x-align", value);
-                                    sb.append("display:block;");
-                                    sb.append(key).append(':').append(value).append(';');
-                                }
-                                break;
-                        }
+                                if (key.endsWith("top"))
+                                    p[2] = null;
+                                else if (key.endsWith("bottom"))
+                                    p[0] = null;
+
+                                if (p[0] != null)
+                                    if (p[0] == 0)
+                                        element.attr("x-line-before", "false");
+                                    else if (p[0] > 0.5)
+                                        element.attr("x-line-before", "true");
+                                if (p[2] != null)
+                                    if (p[2] == 0)
+                                        element.attr("x-line-after", "false");
+                                    else if (p[2] > 0.5)
+                                        element.attr("x-line-after", "true");
+                            }
+                            break;
+
+                        case "text-align":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
+                            if (text_align) {
+                                element.attr("x-align", value);
+                                sb.append("display:block;");
+                                sb.append(key).append(':').append(value).append(';');
+                            }
+                            break;
                     }
                 }
 
