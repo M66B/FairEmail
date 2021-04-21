@@ -481,12 +481,16 @@ public class HtmlHelper {
                     if (size.startsWith("-")) {
                         if (s < 0)
                             size = "smaller";
+                        else
+                            throw new NumberFormatException("size=" + size);
                     } else if (size.startsWith("+")) {
                         if (s > 0)
                             size = "larger";
-                    } else if (s >= 1 && s < 3)
+                        else
+                            throw new NumberFormatException("size=" + size);
+                    } else if (s < 3)
                         size = "small";
-                    else if (s > 3 && s <= 7)
+                    else if (s > 3)
                         size = "large";
                     else
                         size = "medium";
