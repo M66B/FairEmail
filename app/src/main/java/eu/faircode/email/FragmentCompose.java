@@ -471,6 +471,15 @@ public class FragmentCompose extends FragmentBase {
         ibCcAdd.setOnClickListener(onPick);
         ibBccAdd.setOnClickListener(onPick);
 
+        tvPlainTextOnly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("force_dialog", true);
+                onAction(R.id.action_check, args, "force");
+            }
+        });
+
         setZoom();
 
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
