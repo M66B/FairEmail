@@ -30,7 +30,6 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -876,136 +875,127 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
-                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-                PowerManager.WakeLock wl = pm.newWakeLock(
-                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":mbox");
-                try {
-                    wl.acquire();
+                long fid = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
 
-                    long fid = args.getLong("id");
-                    Uri uri = args.getParcelable("uri");
+                if (!"content".equals(uri.getScheme())) {
+                    Log.w("Export uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
 
-                    if (!"content".equals(uri.getScheme())) {
-                        Log.w("Export uri=" + uri);
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                    }
+                NotificationManager nm =
+                        (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationCompat.Builder builder =
+                        new NotificationCompat.Builder(context, "progress")
+                                .setSmallIcon(R.drawable.baseline_get_app_white_24)
+                                .setContentTitle(getString(R.string.title_export_messages))
+                                .setAutoCancel(false)
+                                .setOngoing(true)
+                                .setShowWhen(false)
+                                .setLocalOnly(true)
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setCategory(NotificationCompat.CATEGORY_PROGRESS)
+                                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-                    NotificationManager nm =
-                            (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    NotificationCompat.Builder builder =
-                            new NotificationCompat.Builder(context, "progress")
-                                    .setSmallIcon(R.drawable.baseline_get_app_white_24)
-                                    .setContentTitle(getString(R.string.title_export_messages))
-                                    .setAutoCancel(false)
-                                    .setOngoing(true)
-                                    .setShowWhen(false)
-                                    .setLocalOnly(true)
-                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                    .setCategory(NotificationCompat.CATEGORY_PROGRESS)
-                                    .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+                DB db = DB.getInstance(context);
+                List<Long> ids = db.message().getMessageIdsByFolder(fid);
+                if (ids == null)
+                    return null;
 
-                    DB db = DB.getInstance(context);
-                    List<Long> ids = db.message().getMessageIdsByFolder(fid);
-                    if (ids == null)
-                        return null;
+                String PATTERN_ASCTIME = "EEE MMM d HH:mm:ss yyyy";
+                SimpleDateFormat df = new SimpleDateFormat(PATTERN_ASCTIME, Locale.US);
 
-                    String PATTERN_ASCTIME = "EEE MMM d HH:mm:ss yyyy";
-                    SimpleDateFormat df = new SimpleDateFormat(PATTERN_ASCTIME, Locale.US);
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
 
-                    Properties props = MessageHelper.getSessionProperties();
-                    Session isession = Session.getInstance(props, null);
+                // https://www.ietf.org/rfc/rfc4155.txt (Appendix A)
+                // http://qmail.org./man/man5/mbox.html
+                long last = new Date().getTime();
+                ContentResolver resolver = context.getContentResolver();
+                try (OutputStream out = new BufferedOutputStream(resolver.openOutputStream(uri))) {
+                    for (int i = 0; i < ids.size(); i++)
+                        try {
+                            long now = new Date().getTime();
+                            if (now - last > EXPORT_PROGRESS_INTERVAL) {
+                                last = now;
+                                builder.setProgress(ids.size(), i, false);
+                                nm.notify("export", 1, builder.build());
+                            }
 
-                    // https://www.ietf.org/rfc/rfc4155.txt (Appendix A)
-                    // http://qmail.org./man/man5/mbox.html
-                    long last = new Date().getTime();
-                    ContentResolver resolver = context.getContentResolver();
-                    try (OutputStream out = new BufferedOutputStream(resolver.openOutputStream(uri))) {
-                        for (int i = 0; i < ids.size(); i++)
-                            try {
-                                long now = new Date().getTime();
-                                if (now - last > EXPORT_PROGRESS_INTERVAL) {
-                                    last = now;
-                                    builder.setProgress(ids.size(), i, false);
-                                    nm.notify("export", 1, builder.build());
+                            long id = ids.get(i);
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message == null)
+                                continue;
+
+                            String email = null;
+                            if (message.from != null && message.from.length > 0)
+                                email = ((InternetAddress) message.from[0]).getAddress();
+                            if (TextUtils.isEmpty(email))
+                                email = "MAILER-DAEMON";
+
+                            out.write(("From " + email + " " + df.format(message.received) + "\n").getBytes());
+
+                            Message imessage = MessageHelper.from(context, message, null, isession, false);
+                            imessage.writeTo(new FilterOutputStream(out) {
+                                private boolean cr = false;
+                                private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
+
+                                @Override
+                                public void write(int b) throws IOException {
+                                    if (b == 13 /* CR */) {
+                                        if (cr) // another
+                                            line();
+                                        cr = true;
+                                    } else if (b == 10 /* LF */) {
+                                        line();
+                                    } else {
+                                        if (cr) // dangling
+                                            line();
+                                        buffer.write(b);
+                                    }
                                 }
 
-                                long id = ids.get(i);
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message == null)
-                                    continue;
+                                @Override
+                                public void flush() throws IOException {
+                                    if (buffer.size() > 0 || cr /* dangling */)
+                                        line();
+                                    out.write(10);
+                                    super.flush();
+                                }
 
-                                String email = null;
-                                if (message.from != null && message.from.length > 0)
-                                    email = ((InternetAddress) message.from[0]).getAddress();
-                                if (TextUtils.isEmpty(email))
-                                    email = "MAILER-DAEMON";
+                                private void line() throws IOException {
+                                    byte[] b = buffer.toByteArray();
 
-                                out.write(("From " + email + " " + df.format(message.received) + "\n").getBytes());
+                                    int i = 0;
+                                    for (; i < b.length; i++)
+                                        if (b[i] != '>')
+                                            break;
 
-                                Message imessage = MessageHelper.from(context, message, null, isession, false);
-                                imessage.writeTo(new FilterOutputStream(out) {
-                                    private boolean cr = false;
-                                    private ByteArrayOutputStream buffer = new ByteArrayOutputStream(998);
+                                    if (i + 4 < b.length &&
+                                            b[i + 0] == 'F' &&
+                                            b[i + 1] == 'r' &&
+                                            b[i + 2] == 'o' &&
+                                            b[i + 3] == 'm' &&
+                                            b[i + 4] == ' ')
+                                        out.write('>');
 
-                                    @Override
-                                    public void write(int b) throws IOException {
-                                        if (b == 13 /* CR */) {
-                                            if (cr) // another
-                                                line();
-                                            cr = true;
-                                        } else if (b == 10 /* LF */) {
-                                            line();
-                                        } else {
-                                            if (cr) // dangling
-                                                line();
-                                            buffer.write(b);
-                                        }
-                                    }
+                                    for (i = 0; i < b.length; i++)
+                                        out.write(b[i]);
 
-                                    @Override
-                                    public void flush() throws IOException {
-                                        if (buffer.size() > 0 || cr /* dangling */)
-                                            line();
-                                        out.write(10);
-                                        super.flush();
-                                    }
+                                    out.write(10);
 
-                                    private void line() throws IOException {
-                                        byte[] b = buffer.toByteArray();
-
-                                        int i = 0;
-                                        for (; i < b.length; i++)
-                                            if (b[i] != '>')
-                                                break;
-
-                                        if (i + 4 < b.length &&
-                                                b[i + 0] == 'F' &&
-                                                b[i + 1] == 'r' &&
-                                                b[i + 2] == 'o' &&
-                                                b[i + 3] == 'm' &&
-                                                b[i + 4] == ' ')
-                                            out.write('>');
-
-                                        for (i = 0; i < b.length; i++)
-                                            out.write(b[i]);
-
-                                        out.write(10);
-
-                                        buffer.reset();
-                                        cr = false;
-                                    }
-                                });
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                    } finally {
-                        nm.cancel("export", 1);
-                    }
-
-                    return null;
+                                    buffer.reset();
+                                    cr = false;
+                                }
+                            });
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                 } finally {
-                    wl.release();
+                    nm.cancel("export", 1);
                 }
+
+                return null;
             }
 
             @Override
