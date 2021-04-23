@@ -683,7 +683,7 @@ public class HtmlHelper {
                                 Float s = getFontSize(value, 1.0f);
                                 if (s != null && s == 0) {
                                     if (!"table".equals(element.tagName()) ||
-                                            !"fixed".endsWith(kv.get("table-layout"))) {
+                                            !"fixed".equals(kv.get("table-layout"))) {
                                         Log.i("Removing no height/width " + element.tagName());
                                         element.remove();
                                     }
