@@ -287,7 +287,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(2, "differ");
 
-    private static final int MAX_RECIPIENTS = 5;
+    private static final int MAX_RECIPIENTS_COMPACT = 3;
+    private static final int MAX_RECIPIENTS_NORMAL = 7;
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
@@ -1821,7 +1822,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int froms = (message.from == null ? 0 : message.from.length);
             int tos = (message.to == null ? 0 : message.to.length);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
-
+            int maxRecipients = (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL);
             Spanned submitter = formatAddresses(message.submitter, true);
             Spanned from = formatAddresses(message.senders, true);
             Spanned replyto = formatAddresses(message.reply, true);
@@ -1859,7 +1860,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvToTitle.setVisibility((!show_recipients || show_addresses) && (message.to != null && message.to.length > 0) ? View.VISIBLE : View.GONE);
             tvTo.setVisibility((!show_recipients || show_addresses) && (message.to != null && message.to.length > 0) ? View.VISIBLE : View.GONE);
-            tvTo.setText(formatAddresses(message.to, full, show_addresses ? Integer.MAX_VALUE : MAX_RECIPIENTS));
+            tvTo.setText(formatAddresses(message.to, full, show_addresses ? Integer.MAX_VALUE : maxRecipients));
 
             tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
@@ -1867,11 +1868,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvCcTitle.setVisibility(message.cc == null || message.cc.length == 0 ? View.GONE : View.VISIBLE);
             tvCc.setVisibility(message.cc == null || message.cc.length == 0 ? View.GONE : View.VISIBLE);
-            tvCc.setText(formatAddresses(message.cc, full, show_addresses ? Integer.MAX_VALUE : MAX_RECIPIENTS));
+            tvCc.setText(formatAddresses(message.cc, full, show_addresses ? Integer.MAX_VALUE : maxRecipients));
 
             tvBccTitle.setVisibility(message.bcc == null || message.bcc.length == 0 ? View.GONE : View.VISIBLE);
             tvBcc.setVisibility(message.bcc == null || message.bcc.length == 0 ? View.GONE : View.VISIBLE);
-            tvBcc.setText(formatAddresses(message.bcc, full, show_addresses ? Integer.MAX_VALUE : MAX_RECIPIENTS));
+            tvBcc.setText(formatAddresses(message.bcc, full, show_addresses ? Integer.MAX_VALUE : maxRecipients));
 
             InternetAddress via = null;
             if (message.identityEmail != null)
