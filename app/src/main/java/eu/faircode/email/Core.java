@@ -644,11 +644,16 @@ class Core {
         if (TextUtils.isEmpty(message.msgid))
             throw new IllegalArgumentException("Message without msgid for " + op.name);
 
-        Long uid = findUid(context, ifolder, message.msgid, false);
-        if (uid == null)
-            throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
-
         DB db = DB.getInstance(context);
+
+        Long uid = findUid(context, ifolder, message.msgid, false);
+        if (uid == null) {
+            if (EntityFolder.DRAFTS.equals(folder.type) &&
+                    EntityOperation.MOVE.equals(op.name))
+                db.message().deleteMessage(message.id);
+            throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
+        }
+
         db.message().setMessageUid(message.id, message.uid);
         message.uid = uid;
     }
