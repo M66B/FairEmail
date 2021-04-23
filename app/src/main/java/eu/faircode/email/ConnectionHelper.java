@@ -34,6 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.ConnectionException;
+import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -374,6 +375,7 @@ public class ConnectionHelper {
         while (ex != null) {
             if (isMaxConnections(ex.getMessage()) ||
                     ex instanceof IOException ||
+                    ex instanceof FolderClosedIOException ||
                     ex instanceof ConnectionException ||
                     ex instanceof AccountsException ||
                     ex instanceof InterruptedException ||
