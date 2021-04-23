@@ -180,6 +180,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
@@ -304,6 +305,8 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_PERMISSION = 15;
+
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -2768,7 +2771,7 @@ public class FragmentCompose extends FragmentBase {
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "compose:pgp");
+        }.setExecutor(executor).execute(this, args, "compose:pgp");
     }
 
     private void onSmime(Bundle args, final int action, final Bundle extras) {
@@ -3128,7 +3131,7 @@ public class FragmentCompose extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex, !expected);
                 }
             }
-        }.execute(this, args, "compose:s/mime");
+        }.setExecutor(executor).execute(this, args, "compose:s/mime");
     }
 
     private void onContactGroupSelected(Bundle args) {
