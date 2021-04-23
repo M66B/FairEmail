@@ -424,6 +424,7 @@ public class HtmlHelper {
                 .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
+                .addAttributes("span", "dir")
                 .addAttributes("div", "x-plain")
                 .removeTags("col", "colgroup")
                 .removeTags("thead", "tbody", "tfoot")
@@ -547,7 +548,11 @@ public class HtmlHelper {
 
             // Process style
             if (!TextUtils.isEmpty(style)) {
+                boolean block = false;
                 StringBuilder sb = new StringBuilder();
+                if ("span".equals(element.tagName()) &&
+                        "rtl".equals(element.attr("dir")))
+                    block = true;
 
                 Map<String, String> kv = new LinkedHashMap<>();
                 String[] params = style.split(";");
@@ -736,13 +741,16 @@ public class HtmlHelper {
                         case "text-align":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
                             if (text_align) {
+                                block = true;
                                 element.attr("x-align", value);
-                                sb.append("display:block;");
                                 sb.append(key).append(':').append(value).append(';');
                             }
                             break;
                     }
                 }
+
+                if (block)
+                    sb.append("display:block;");
 
                 if (sb.length() == 0)
                     element.removeAttr("style");
