@@ -375,6 +375,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             "time", "unread", "starred", "priority"
     ));
 
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "decrypt");
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -6496,7 +6498,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "decrypt:pgp");
+        }.setExecutor(executor).execute(this, args, "decrypt:pgp");
     }
 
     private void onSmime(Bundle args) {
@@ -7071,7 +7073,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 return trace;
             }
-        }.execute(this, args, "decrypt:s/mime");
+        }.setExecutor(executor).execute(this, args, "decrypt:s/mime");
     }
 
     private static void checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) {
