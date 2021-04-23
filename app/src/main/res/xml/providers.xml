@@ -121,7 +121,8 @@
         appPassword="true"
         domain="yahoo\\..*"
         id="yahoo"
-        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
+        order="6">
         <imap
             host="imap.mail.yahoo.com"
             port="993"
@@ -498,7 +499,7 @@
             authorizationEndpoint="https://oauth.mail.ru/login"
             clientId="ce54d27dc1574b3a8b50e6789cd1a44a"
             clientSecret="5f1525783e1d4defb3bc9c2c4b7d0c54"
-            enabled="false"
+            enabled="true"
             redirectUri="https://oauth.faircode.eu/"
             scopes="userinfo mail.imap"
             tokenEndpoint="https://oauth.mail.ru/token" />
