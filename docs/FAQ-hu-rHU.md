@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Gyakran Ismételt Kérdések](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
 * [Segítség kérése](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Authorizing accounts
+## Felhasználói fiókok jóváhagyása
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 

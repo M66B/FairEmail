@@ -2,7 +2,7 @@
 
 # FairEmail Support
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. [Längst ner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), kan du få reda på hur du kan ställa andra frågor, föreslå nya funktioner, och rapportera buggar.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -18,9 +18,9 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## Auktoriserar konton
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+I de flesta fall kommer snabbinstallationen att automatiskt kunna identifiera rätt konfiguration.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Om snabbinstallationen misslyckas, måste du manuellt konfigurera ett konto (för att ta emot e-post) och en identitet (för att skicka e-post). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 

@@ -190,7 +190,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [~~(64) Kann man benutzerdefinierte Aktionen zum Links-/Rechtswischen hinzufügen?~~](#user-content-faq64)
 * [(65) Warum werden einige Anhänge abgedunkelt angezeigt?](#user-content-faq65)
 * [(66) Gibt es FairMail in der Google-Play-Familienmediathek?](#user-content-faq66)
-* [(67) Wie kann ich Konversationen stumm schalten?](#user-content-faq67)
+* [(67) Wie kann ich Konversationen zurückstellen?](#user-content-faq67)
 * [~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~](#user-content-faq68)
 * [(69) Gibt es eine Option »Bei neuen Nachrichten automatisch nach oben rollen«?](#user-content-faq69)
 * [(70) Wann werden Nachrichten automatisch erweitert?](#user-content-faq70)
@@ -236,7 +236,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(111) Wird OAuth unterstützt?](#user-content-faq111)
 * [(112) Welchen E-Mail-Provider empfehlen Sie?](#user-content-faq112)
 * [(113) Wie funktioniert die biometrische Authentifizierung?](#user-content-faq113)
-* [(114) Kann man die Einstellungen anderer E-Mail-Apps importieren?](#user-content-faq114)
+* [(114) Kann ein Import der Einstellungen anderer E-Mail-Apps hinzugefügt werden?](#user-content-faq114)
 * [(115) Können E-Mail-Adressen-Chips hinzufügt werden?](#user-content-faq115)
 * [~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen? ~~](#user-content-faq116)
 * [Können Sie mir helfen, meinen Kauf wiederherzustellen?](#user-content-faq117)
@@ -594,7 +594,7 @@ Siehe [diese FAQ](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 
 ~~Siehe auch [was Google dazu schreibt](https://support.google.com/mail/answer/7104828).~~
 
-~~Zum Beispiel kann [Gmail](https://support.google.com/mail/answer/21289) Nachrichten von einem anderen POP-Konto importieren,~~ ~~Was als Workaround genutzt werden kann, wenn Ihr Provider IMAP nicht unterstützt.~~
+~~Zum Beispiel kann [Gmail](https://support.google.com/mail/answer/21289) Nachrichten von einem anderen POP-Konto importieren,~~ ~~Was als Abhilfe genutzt werden kann, wenn Ihr Provider IMAP nicht unterstützt.~~
 
 ~~Zusammenfassung; Überlegen Sie, ob Sie zu IMAP wechseln wollen.~~
 
@@ -1621,7 +1621,7 @@ Wenn Sie die Größe der Bilder von Fall zu Fall ändern möchten, können Sie [
 
 ~~~Wischen nach links oder rechts, um eine Nachricht als gelesen oder ungelesen zu markieren, ist unnatürlich, weil die Nachricht zuerst weg geht und später wiederkommt in einer anderen Form. ~ ~~Beachten Sie, dass es eine erweiterte Option gibt, um Nachrichten automatisch beim Verschieben zu markieren, ~ ~~, was in den meisten Fällen ein perfekter Ersatz ist für die Sequenz 'als gelesen markieren und in einen Ordner verschieben'. ~ ~~Sie können auch Nachrichten von der Benachrichtigung aus als gelesen markieren.
 
-~~Wenn Sie eine Nachricht später lesen möchten, können Sie sie bis zu einer bestimmten Zeit ausblenden, indem Sie das *snooze* Menü verwenden.~~
+~~Wenn Sie eine Nachricht später lesen möchten, können Sie sie bis zu einer bestimmten Zeit ausblenden, indem Sie das Menü *Zurückstellen* verwenden.~~
 
 <br />
 
@@ -1640,19 +1640,19 @@ Der einmalige Preis für die wenigen Pro-Funktionen ist zu niedrig, niedriger al
 <br />
 
 <a name="faq67" mark="crwd-mark"></a>
-**(67) Wie kann ich Konversationen ausblenden?**
+**(67) Wie kann ich Konversationen zurückstellen?**
 
-Wählen Sie eine von weiteren Unterhaltungen (lange drücken um die Mehrfach-Auswahl zu starten), tippen Sie dann auf die Drei-Punkt-Schaltfläche und wählen *Schlummern ...*. Alternativ können Sie in der erweiterten Nachrichtenansicht *Schlummern...* im Nachricht-drei-Punkte-Menü oder die Zeitrafferfunktion in der unteren Aktionsleiste verwenden. Wählen Sie die Zeit, die die Unterhaltung(en) ausgeblendet werden soll, und bestätigen dies, indem Sie auf OK klicken. Die Unterhaltungen werden für die gewählte Zeit ausgeblendet und anschließend wieder angezeigt. Sie erhalten eine neue Benachrichtigung als Erinnerung.
+Wählen Sie eine von weiteren Unterhaltungen (lange drücken, um die Mehrfach-Auswahl zu starten), tippen Sie dann auf die Drei-Punkt-Schaltfläche und wählen *Zurückstellen …*. Alternativ können Sie in der erweiterten Nachrichtenansicht *Zurückstellen …* im Drei-Punkte-Menü „Mehr” der Nachricht oder die Zeitrafferaktion in der unteren Aktionsleiste verwenden. Wählen Sie die Zeit, die die Unterhaltung(en) zurückgestellt werden soll, und bestätigen dies, indem Sie auf OK klicken. Die Unterhaltungen werden für die gewählte Zeit ausgeblendet und anschließend wieder angezeigt. Sie erhalten eine neue Benachrichtigung als Erinnerung.
 
-Es ist auch möglich, Nachrichten mit [einer Regel](#user-content-faq71) auszublenden, mit der Sie auch Nachrichten in einen Ordner verschieben können, damit sie automatisch ausgeblendet werden.
+Es ist auch möglich, Nachrichten mit [einer Regel](#user-content-faq71) zurückzustellen, mit der Sie auch Nachrichten in einen Ordner verschieben können, damit sie automatisch zurückgestellt werden.
 
-Sie können Schlummernachrichten anzeigen, indem Sie *Ausfiltern* > *Versteckt* im Drei-Punkte-Überlaufmenü abwählen.
+Sie können zurückgestellte Nachrichten anzeigen, indem Sie *Filtern* ➜ *Ausblenden* im Drei-Punkte-Auswahlmenü abwählen.
 
-Sie können auf das kleine Schlummer-Symbol tippen, um zu sehen, bis wann eine Konversation ausgeblendet ist.
+Sie können das kleine Symbol „Zurückstellen” antippen, um anzuzeigen, bis wann eine Konversation zurückgestellt wurde.
 
-Durch die Auswahl einer Null-Schlummerdauer können Sie die Schlummerfunktion abbrechen.
+Durch Auswahl einer Dauer von Null, können Sie das Zurückstellen abbrechen.
 
-Drittanbieter-Apps haben keinen Zugriff auf den Nachrichtenordner für ausgeblendete Nachrichten bei Google Mail.
+Drittanbieter-Apps haben bei Google Mail keinen Zugriff auf den Nachrichtenordner für zurückgestellte Nachrichten.
 
 <br />
 
@@ -1829,7 +1829,7 @@ Automatisierung, siehe unten, kann für erweiterte Zeitpläne verwendet werden, 
 
 FairEmail kann in mehreren Benutzerprofilen installiert werden, zum Beispiel ein persönliches und ein Arbeitsprofil, und man kann FairEmail in jedem Profil anders konfigurieren, was eine weitere Möglichkeit ist, verschiedene Synchronisationspläne zu haben und verschiedene Konten zu synchronisieren.
 
-Es ist auch möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Nachrichten bis zur Endzeit der Zeitbedingung auszublenden. Auf diesem Weg ist es z. B. möglich, Arbeits-Mails bis zum Beginn der Arbeitszeit auszublenden. Dies bedeutet auch, dass die Nachrichten auf Ihrem Gerät sind, wenn es (vorübergehend) keine Internetverbindung gibt.
+Außerdem ist es möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Meldungen bis zum Ende der Zeitbedingung zurückzustellen. Auf diese Weise ist es möglich, dienstliche Nachrichten bis zum Beginn der Arbeitszeit *zurückzustellen*. Dies bedeutet auch, dass die Nachrichten auf Ihrem Gerät sind, wenn es (vorübergehend) keine Internetverbindung gibt.
 
 Beachten Sie, dass aktuelle Android-Versionen DND (Nicht stören) pro Benachrichtigungskanal und pro App überschreiben können, was verwendet werden könnte, um bestimmte (geschäftliche) Benachrichtigungen (nicht) stillzulegen. Weitere Informationen finden Sie [hier](https://support.google.com/android/answer/9069335).
 
@@ -2149,7 +2149,7 @@ category:forums
 category:promotions
 ```
 
-Leider ist dies nicht möglich für den Nachrichtenordner mit zurückgestellten Nachrichten.
+Leider ist dies für den Ordner „Zurückgestellte Nachrichten” nicht möglich.
 
 Sie können *Sync* im Drei-Punkte-Menü des einheitlichen Posteingangs verwenden, um FairEmail erneut die Ordnerliste synchronisieren zu lassen und Sie können einen Ordner lange drücken, um die Synchronisierung zu aktivieren.
 
@@ -2931,7 +2931,7 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**Wichtig**: die meisten E-Mail-Server unterstützen das nicht! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
 
 <br />
 
@@ -3007,13 +3007,13 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) Kann ich eine Nachricht über mehrere Geräte hinweg zurückstellen?**
 
-First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+Zunächst einmal gibt es keinen Standard für zurückgestellte Nachrichten, daher sind alle Umsetzungen von „Zurückstellen” kundenspezifische Lösungen.
 
-Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+Einige E-Mail-Anbieter, wie z. B. Gmail, verschieben zurückgestellte Nachrichten in einen speziellen Ordner. Unfortunately, third party apps have no access to this special folder.
 
-Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. Dies ist problematisch, da eine Nachricht erst nach dem Verschieben der Nachricht zurückgestellt werden kann.
 
 To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 

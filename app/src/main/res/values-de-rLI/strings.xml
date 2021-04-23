@@ -251,7 +251,7 @@
     <string name="title_advanced_gmail_thread">Die Nachrichten in Gmail-Konten im Stil von Gmail gruppieren</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_sync_shared_folders">Listen der freigegebenen Ordner synchronisieren</string>
-    <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
+    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Abonnierte Ordner verwalten</string>
     <string name="title_advanced_check_reply_domain">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
@@ -385,11 +385,11 @@
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
-    <string name="title_advanced_star_snoozed">Bei schlummernden Meldungen automatisch eine Markierung hinzufügen</string>
+    <string name="title_advanced_star_snoozed">Zurückgestellte Nachrichten automatisch kennzeichnen</string>
     <string name="title_advanced_autounstar">Markierungen automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
-    <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
+    <string name="title_advanced_default_snooze">Voreingestellte Zurückstellzeit</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Empfangskanal</string>
@@ -414,7 +414,7 @@
     <string name="title_advanced_notify_action_flag">Markieren</string>
     <string name="title_advanced_notify_action_seen">Gelesen</string>
     <string name="title_advanced_notify_action_hide">Ausblenden</string>
-    <string name="title_advanced_notify_action_snooze">Wiedervorlage</string>
+    <string name="title_advanced_notify_action_snooze">Zurückstellen</string>
     <string name="title_advanced_notify_remove">Benachrichtigung über neue Nachrichten durch Tippen auf die Benachrichtigung entfernen</string>
     <string name="title_advanced_notify_clear">Benachrichtigung über neue Nachrichten beim Anzeigen der Nachrichtenliste entfernen</string>
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an tragbare Gerätschaften senden</string>
@@ -699,7 +699,7 @@
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
     <string name="title_folder_name">Ordnername</string>
-    <string name="title_display_name">Anzeigename</string>
+    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
     <string name="title_show_flagged">Anzahl markierter Nachrichten anzeigen</string>
     <string name="title_subscribed_only">Nur abonnierte</string>
@@ -813,7 +813,7 @@
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
     <string name="title_snooze">Zurückstellen &#8230;</string>
-    <string name="title_archive">Archivieren</string>
+    <string name="title_archive" comment="title_archive&#10;Archive a message">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Dem Absender antworten</string>
     <string name="title_reply_to_all">Allen antworten</string>
@@ -1320,7 +1320,7 @@
     <string name="title_hours">Stunden</string>
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Ausblenden</string>
-    <string name="title_snooze_now">Schlummern</string>
+    <string name="title_snooze_now">Zurückstellen</string>
     <string name="title_loading">wird geladen &#8230;</string>
     <string name="title_fetching_again">Nachricht wird erneut vom Server abgerufen</string>
     <string name="title_conversation_actions">Aktionen</string>
@@ -1399,7 +1399,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_accessibility_expand">Erweitern</string>
     <string name="title_accessibility_view_contact">Kontakt anzeigen</string>
     <string name="title_accessibility_show_authentication_result">Authentifizierungsergebnis anzeigen</string>
-    <string name="title_accessibility_show_snooze_time">Schlummerzeit anzeigen</string>
+    <string name="title_accessibility_show_snooze_time">Zurückstellzeit anzeigen</string>
     <string name="title_accessibility_view_help">Hilfe anzeigen</string>
     <string name="title_accessibility_selected">Ausgewählt</string>
     <string name="title_accessibility_answered">Beantwortet</string>

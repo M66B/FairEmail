@@ -238,7 +238,7 @@
     <string name="title_advanced_gmail_thread">为 Gmail 账户采用 Gmail (官方)分组风格</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
-    <string name="title_advanced_subscriptions">管理文件夹订阅</string>
+    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">管理文件夹订阅</string>
     <string name="title_advanced_check_reply_domain">同步消息时检查回复地址</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
@@ -604,7 +604,7 @@
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>
     <string name="title_date_remark">更改将仅会应用于新消息</string>
-    <string name="title_related_identity">添加相关身份(SMTP 服务器)</string>
+    <string name="title_related_identity">添加相关身份 (SMTP 服务器)</string>
     <string name="title_check">检查</string>
     <string name="title_trust">信任具有指纹 %1$s的服务器证书</string>
     <string name="title_no_name">缺少名称</string>
@@ -686,7 +686,7 @@
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_hint_operations">删除操作可能导致丢失消息和同步问题</string>
     <string name="title_folder_name">文件夹名</string>
-    <string name="title_display_name">显示昵称</string>
+    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">显示昵称</string>
     <string name="title_show_folders">显示隐藏文件夹</string>
     <string name="title_show_flagged">显示星标消息计数</string>
     <string name="title_subscribed_only">只显示已订阅的</string>
@@ -801,7 +801,7 @@
     <string name="title_report_spam">视为垃圾邮件</string>
     <string name="title_delete_permanently">永久删除</string>
     <string name="title_snooze">打盹 &#8230;</string>
-    <string name="title_archive">存档</string>
+    <string name="title_archive" comment="title_archive&#10;Archive a message">存档</string>
     <string name="title_reply">回复</string>
     <string name="title_reply_to_sender">回复发件人：</string>
     <string name="title_reply_to_all">回复全部</string>
