@@ -1250,6 +1250,8 @@ public class FragmentAccount extends FragmentBase {
                     nm.cancel("alert:" + account.id, 1);
                 }
 
+                args.putBoolean("saved", true);
+
                 return false;
             }
 
@@ -1271,7 +1273,8 @@ public class FragmentAccount extends FragmentBase {
                     if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         getParentFragmentManager().popBackStack();
 
-                        if (cbIdentity.isChecked()) {
+                        boolean saved = args.getBoolean("saved");
+                        if (saved && cbIdentity.isChecked()) {
                             Bundle aargs = new Bundle();
                             aargs.putLong("account", args.getLong("account"));
 
