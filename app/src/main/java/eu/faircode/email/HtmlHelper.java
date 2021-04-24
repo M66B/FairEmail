@@ -1420,6 +1420,8 @@ public class HtmlHelper {
                 return Float.parseFloat(value.substring(0, value.length() - 3).trim());
             if (value.endsWith("em"))
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) * current;
+            if (value.endsWith("ex")) // 1 ex = 0.5 em
+                return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / 2 * current;
             if (value.endsWith("pt"))
                 return Float.parseFloat(value.substring(0, value.length() - 2).trim()) / DEFAULT_FONT_SIZE_PT;
             if (value.endsWith("px"))
