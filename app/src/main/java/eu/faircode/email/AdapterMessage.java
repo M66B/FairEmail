@@ -4216,7 +4216,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionMove(message, true);
                         return true;
                     } else if (itemId == R.id.menu_delete) {
-                        onMenuDelete(message);
+                        onActionDelete(message);
                         return true;
                     } else if (itemId == R.id.menu_resync) {
                         onMenuResync(message);
@@ -4585,19 +4585,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "importance:set");
-        }
-
-        private void onMenuDelete(final TupleMessageEx message) {
-            Bundle aargs = new Bundle();
-            aargs.putString("question", context.getString(R.string.title_ask_delete));
-            aargs.putString("remark", message.getRemark());
-            aargs.putLong("id", message.id);
-            aargs.putBoolean("warning", true);
-
-            FragmentDialogAsk ask = new FragmentDialogAsk();
-            ask.setArguments(aargs);
-            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
-            ask.show(parentFragment.getParentFragmentManager(), "message:delete");
         }
 
         private void onMenuResync(TupleMessageEx message) {
