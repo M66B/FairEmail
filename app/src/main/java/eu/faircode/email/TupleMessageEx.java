@@ -47,6 +47,7 @@ public class TupleMessageEx extends EntityMessage {
     public boolean folderReadOnly;
     public String identityName;
     public String identityEmail;
+    public Integer identityColor;
     public Boolean identitySynchronize;
     public Address[] senders;
     public Address[] recipients;
@@ -117,6 +118,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.folderReadOnly == other.folderReadOnly &&
                     Objects.equals(this.identityName, other.identityName) &&
                     Objects.equals(this.identityEmail, other.identityEmail) &&
+                    Objects.equals(this.identityColor, other.identityColor) &&
                     Objects.equals(this.identitySynchronize, other.identitySynchronize) &&
                     MessageHelper.equal(this.senders, other.senders) &&
                     MessageHelper.equal(this.recipients, other.recipients) &&

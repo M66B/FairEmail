@@ -5764,6 +5764,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("identityEmail changed", next.id);
                 }
+                if (!Objects.equals(prev.identityColor, next.identityColor)) {
+                    same = false;
+                    log("identityColor changed", next.id);
+                }
                 if (!Objects.equals(prev.identitySynchronize, next.identitySynchronize)) {
                     same = false;
                     log("identitySynchronize changed", next.id);

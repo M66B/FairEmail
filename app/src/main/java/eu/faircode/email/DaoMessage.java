@@ -49,7 +49,7 @@ public interface DaoMessage {
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
-            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
+            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", '[' || group_concat(message.`from`, ',') || ']' AS senders" +
             ", '[' || group_concat(message.`to`, ',') || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
@@ -127,7 +127,7 @@ public interface DaoMessage {
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
-            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
+            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", '[' || group_concat(message.`from`, ',') || ']' AS senders" +
             ", '[' || group_concat(message.`to`, ',') || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
@@ -196,7 +196,7 @@ public interface DaoMessage {
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
-            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
+            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
             ", 1 AS count" +
@@ -433,7 +433,7 @@ public interface DaoMessage {
             ", account.pop AS accountProtocol, account.name AS accountName, identity.color AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
-            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
+            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
             ", 1 AS count" +
@@ -465,7 +465,7 @@ public interface DaoMessage {
             ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
-            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
+            ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
             ", 1 AS count" +

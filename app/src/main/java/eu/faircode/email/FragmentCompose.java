@@ -37,6 +37,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -5872,6 +5873,7 @@ public class FragmentCompose extends FragmentBase {
             final SwitchCompat swSendReminders = dview.findViewById(R.id.swSendReminders);
             final TextView tvSendRemindersHint = dview.findViewById(R.id.tvSendRemindersHint);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
+            final TextView tvViaTitle = dview.findViewById(R.id.tvViaTitle);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
             final TextView tvPlainHint = dview.findViewById(R.id.tvPlainHint);
@@ -6165,6 +6167,8 @@ public class FragmentCompose extends FragmentBase {
                                 MessageHelper.formatAddresses(tos, name_email, false), extra));
                     tvTo.setTextColor(Helper.resolveColor(context,
                             to + extra > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
+                    if (draft.identityColor != null && draft.identityColor != Color.TRANSPARENT)
+                        tvViaTitle.setTextColor(draft.identityColor);
                     tvVia.setText(draft.identityEmail);
 
                     cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only && !dsn);
