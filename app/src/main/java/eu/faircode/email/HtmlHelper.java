@@ -550,7 +550,8 @@ public class HtmlHelper {
             if (!TextUtils.isEmpty(style)) {
                 boolean block = false;
                 StringBuilder sb = new StringBuilder();
-                if ("span".equals(element.tagName()) &&
+                if (!view &&
+                        "span".equals(element.tagName()) &&
                         "rtl".equals(element.attr("dir")))
                     block = true;
 
@@ -741,7 +742,8 @@ public class HtmlHelper {
                         case "text-align":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
                             if (text_align) {
-                                block = true;
+                                if (!element.isBlock())
+                                    block = true;
                                 element.attr("x-align", value);
                                 sb.append(key).append(':').append(value).append(';');
                             }
@@ -749,8 +751,12 @@ public class HtmlHelper {
                     }
                 }
 
-                if (block)
+                if (block) {
                     sb.append("display:block;");
+                    Element next = element.nextElementSibling();
+                    if (next != null && "br".equals(next.tagName()))
+                        next.remove();
+                }
 
                 if (sb.length() == 0)
                     element.removeAttr("style");
