@@ -192,6 +192,7 @@ public class ServiceUI extends IntentService {
     }
 
     private void cancel(long group, long id) {
+        // https://issuetracker.google.com/issues/159152393
         String tag = "unseen." + group + ":" + id;
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
