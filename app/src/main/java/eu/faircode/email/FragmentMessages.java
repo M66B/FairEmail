@@ -936,7 +936,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onReply();
+                onReply(false);
+            }
+        });
+
+        fabReply.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                onReply(true);
+                return true;
             }
         });
 
@@ -2366,7 +2374,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     };
 
-    private void onReply() {
+    private void onReply(boolean sender) {
         if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
             long id = values.get("expanded").get(0);
             int pos = adapter.getPositionForKey(id);
@@ -2376,7 +2384,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             String selected = (holder == null ? null : holder.getSelectedText());
             if (message == null)
                 return;
-            onReply(message, selected, fabReply);
+
+            if (sender && message.content)
+                onMenuReply(message, "reply", selected);
+            else
+                onReply(message, selected, fabReply);
         }
     }
 
