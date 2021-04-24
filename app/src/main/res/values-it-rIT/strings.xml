@@ -179,7 +179,7 @@
     <string name="title_setup_inbox">Vai alla posta in arrivo</string>
     <string name="title_setup_go">Avvia</string>
     <string name="title_setup_to_do">Da fare</string>
-    <string name="title_setup_done">Fine</string>
+    <string name="title_setup_done">Fatto</string>
     <string name="title_setup_still">Ancora da fare</string>
     <string name="title_setup_error">Errore</string>
     <string name="title_setup_configuring">Configurazione del profilo &#8230;</string>
@@ -250,7 +250,7 @@
     <string name="title_advanced_gmail_thread">Stile di raggruppamento dei messaggi di Gmail per i profili di Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
-    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Gestisci abbonamenti cartelle</string>
+    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Gestisci sottoscrizioni alla cartella</string>
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
@@ -701,7 +701,7 @@
     <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Nome mostrato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_show_flagged">Mostra conteggio dei messaggi stellati</string>
-    <string name="title_subscribed_only">Solo sottoscritti</string>
+    <string name="title_subscribed_only">Solo sottoscritte</string>
     <string name="title_apply_to_all">Applica a tutti &#8230;</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_unified_folder">Mostra nella posta in arrivo unificata</string>
@@ -1007,7 +1007,7 @@
     <string name="title_signature_subject">Oggetto</string>
     <string name="title_signature_validity">Validità</string>
     <string name="title_signature_outdated">Questa chiave pubblica non è correntemente valida</string>
-    <string name="title_signature_store">Registra</string>
+    <string name="title_signature_store">Memorizza</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_for_hint">Inserisci testo</string>
     <string name="title_search_hint">        La ricerca inizialmente cercherà i messaggi memorizzati sul tuo dispositivo.
@@ -1119,7 +1119,7 @@
     <string name="title_rule_time_before">Ricevuto prima</string>
     <string name="title_rule_time_rel">Tempo relativo (di ricezione) tra</string>
     <string name="title_rule_regex">Regex</string>
-    <string name="title_rule_and">AND</string>
+    <string name="title_rule_and">E</string>
     <string name="title_rule_action">Azione</string>
     <string name="title_rule_action_remark">Quest\'azione sarà applicata ai nuovi messaggi in arrivo nella cartella %1$s</string>
     <string name="title_rule_hours">Ore</string>
@@ -1269,19 +1269,19 @@
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere un po\' di tempo, in base alla velocità del provider, la connessione internet, il dispositivo e il numero di messaggi. Durante il download dei messaggi l\'app potrebbe rispondere più lentamente.</string>
     <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare l\'uso dello spazio d\'archiviazione, della batteria e dei dati. Puoi modificare ciò tenendo premuta una cartella nell\'elenco delle cartelle e selezionando \'Sincronizza altri\'.</string>
-    <string name="title_hint_battery">Poiché FairEmail per impostazione predefinita riceve sempre messaggi, Android segnalerà FairEmail come sempre attivo. Potrebbe quindi sembrare che FairEmail utilizzi sempre la carica della batteria, ma in realtà non è così.</string>
-    <string name="title_hint_reformat">Per impostazione predefinita, FairEmail formatta i messaggi per motivi di privacy e sicurezza. Per visualizzare il messaggio originale, tocca l\'icona \'schermo intero\' sopra il testo del messaggio.</string>
-    <string name="title_hint_design">Il design è intenzionalmente non distraente ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma si prega di capire che è impossibile rendere tutti completamente felici allo stesso tempo.</string>
-    <string name="title_hint_junk">Il filtraggio dello spam dovrebbe essere fatto dal server di posta elettronica e non può essere fatto in modo affidabile su un dispositivo alimentato a batteria con capacità limitate.</string>
+    <string name="title_hint_battery">Poiché FairEmail di default riceve sempre i messaggi, Android la segnalerà sempre come attiva. Dunque potrebbe sembrare che FairEmail stia sempre consumando energia della batteria sebbene difatti non sia il caso.</string>
+    <string name="title_hint_reformat">Di default, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, tocca l\'icona \'schermo interno\' sul testo del messaggio.</string>
+    <string name="title_hint_design">Il design è intenzionalmente non distraente, ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma sei pregato di comprendere che sia impossibile per rendere tutti completamente felici allo stesso tempo.</string>
+    <string name="title_hint_junk">Il filtraggio antispam dovrebbe esser fatto dal server email e non può esser fatto affidabilmente su un dispositivo alimentato da batteria con capacità limitate.</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
-    <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
-    <string name="title_open_link">Apri collegamento</string>
-    <string name="title_different_link">Il titolo del link e l\'indirizzo sono diversi</string>
-    <string name="title_tracking_link">Questo sito web potrebbe tracciarti</string>
-    <string name="title_suspicious_link">Questo è un collegamento sospetto</string>
-    <string name="title_link_http">Il traffico non verrà criptato</string>
-    <string name="title_link_https">Il traffico verrà crittografato</string>
-    <string name="title_sanitize_link">Rimuovi i parametri di tracciamento</string>
+    <string name="title_hint_eml">Questo è un riepilogo del contenuto del file di un messaggio non elaborato. Salva il messaggio non elaborato con l\'icona di salvataggio nella barra d\'azione per vedere tutto il contenuto.</string>
+    <string name="title_open_link">Apri link</string>
+    <string name="title_different_link">Il titolo e l\'indirizzo del link sono diversi</string>
+    <string name="title_tracking_link">Questo sito web potrebbe monitorarti</string>
+    <string name="title_suspicious_link">Questo è un link sospetto</string>
+    <string name="title_link_http">Il traffico non sarà crittografato</string>
+    <string name="title_link_https">Il traffico sarà crittografato</string>
+    <string name="title_sanitize_link">Rimuovi i parametri di monitoraggio</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>
     <string name="title_check_owner">Verifica proprietario</string>
     <string name="title_remark_owner">Le informazioni saranno recuperate da <a href="https://ipinfo.io/">ipinfo.io</a></string>
@@ -1297,7 +1297,7 @@
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Apri con</string>
     <string name="title_info">Info</string>
-    <string name="title_download">Scarica</string>
+    <string name="title_download">Download</string>
     <string name="title_report">Segnala</string>
     <string name="title_fix">Correggi</string>
     <string name="title_enable">Abilita</string>
@@ -1336,29 +1336,29 @@
     <string name="title_pro_list">Elenco di funzionalità pro</string>
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_once">Solo una volta</string>
-    <string name="title_pro_info">        Sviluppare FairEmail ha richiesto letteralmente migliaia di ore e, nonostante quello, la maggior parte delle caratteristiche sono gratuite.
-        FairEmail prende sul serio la tua vita privata e non mostra annunci e non utilizza tracciamento o analisi per guadagnare denaro.
-        Per mantenere e supportare FairEmail a lungo termine, alcune comodità e funzionalità avanzate non sono gratuite.
-        FairEmail mostra un piccolo messaggio per ricordarti questo, che verrà rimosso se compri le funzioni pro.
+    <string name="title_pro_info">        Sviluppare FairEmail ha letteralmente impiegato migliaio di ore e, nonostante ciò, gran parte delle funzionalità sono gratuite.
+        FairEmail prende sul serio la tua privacy e non mostra annunci né usa il monitoraggio o le analisi per guadagnare denaro.
+        Per mantenere e supportare FairEmail a lungo termine, alcune funzionalità convenzionali e avanzate non sono gratuite.
+        FairEmail mostra un piccolo messaggio per ricordartene, che sarà rimosso se acquisti le funzionalità pro.
     </string>
     <string name="title_pro_hide">Nascondi il piccolo messaggio per %1$d settimane</string>
-    <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
-    <string name="title_pro_price">Perché le caratteristiche pro sono così costose?</string>
-    <string name="title_pro_family">Posso usare la Raccolta di famiglia di Google Play?</string>
+    <string name="title_pro_hint">Acquistare le funzionalità pro ti consentirà di usare tutte le funzionalità pro correnti e future, aiuterà a mantenere e supportare quest\'app.</string>
+    <string name="title_pro_price">Perché le funzionalità pro sono così costose?</string>
+    <string name="title_pro_family">Posso usare la Libreria di Famiglia di Google Play?</string>
     <string name="title_pro_restore">Come posso ripristinare un acquisto?</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
-    <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>
-    <string name="title_pro_valid">Tutte le funzionalità attivate</string>
+    <string name="title_pro_activated">Tutte le funzionalità pro sono attive</string>
+    <string name="title_pro_valid">Tutte le funzionalità pro attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>
-    <string name="title_pro_support">FairEmail ha bisogno del tuo aiuto. Tocca per acquistare funzionalità pro per mantenere il progetto in corso o disattivare questo messaggio.</string>
-    <string name="title_boundary_error">Errore nel download dei messaggi dal server di posta elettronica</string>
-    <string name="title_boundary_retry">Prova di nuovo</string>
+    <string name="title_pro_support">FairEmail ha bisogno del tuo aiuto. Tocca per acquistare le funzionalità pro per mantenere in corso il progetto o disattivare questo messaggio.</string>
+    <string name="title_boundary_error">Errore scaricando i messaggi dal server email</string>
+    <string name="title_boundary_retry">Riprova</string>
     <string name="title_unexpected_error">Errore imprevisto</string>
     <string name="title_log">Registro</string>
     <string name="title_auto_scroll">Scorrimento automatico</string>
-    <string name="title_log_clear">Svuota</string>
-    <string name="title_rules_search_hint">Ricerca un nome o una condizione</string>
-    <string name="title_rules_export">Esporta le regole</string>
+    <string name="title_log_clear">Cancella</string>
+    <string name="title_rules_search_hint">Cerca nome o condizione</string>
+    <string name="title_rules_export">Regole di esportazione</string>
     <string name="title_rules_import">Importa le regole</string>
     <string name="title_rules_delete_all">Elimina tutte le regole</string>
     <string name="title_rules_delete_junk">Elimina le regole di spam</string>

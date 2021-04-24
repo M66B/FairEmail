@@ -133,7 +133,7 @@ Il design si basa su molte discussioni e, se lo desideri, puoi discuterne anche 
 * [(6) Come posso accedere a Gmail / G suite?](#user-content-faq6)
 * [(7) Perché i messaggi inviati non appaiono (direttamente) nella cartella inviati?](#user-content-faq7)
 * [(8) Posso usare un profilo di Microsoft Exchange?](#user-content-faq8)
-* [(9) Cosa sono le identità / come faccio ad aggiungere un alias?](#user-content-faq9)
+* [(9) Cosa sono le identità / come aggiungo un alias?](#user-content-faq9)
 * [~~(11) Perché POP non è supportato?~~](#user-content-faq11)
 * [~~(10) Cosa significa 'UIDPLUS non supportato'?~~](#user-content-faq10)
 * [(12) Come funziona la crittografia/decifrazione?](#user-content-faq12)
@@ -295,25 +295,25 @@ Il design si basa su molte discussioni e, se lo desideri, puoi discuterne anche 
 <a name="faq1"></a>
 **(1) Quali autorizzazioni sono necessarie e perché?**
 
-Sono necessarie le seguenti autorizzazioni Android:
+Sono necessarie le seguenti autorizzazioni di Android:
 
 * *avere accesso completo alla rete* (INTERNET): per inviare e ricevere le email
 * *visualizzare le connessioni di rete* (ACCESS_NETWORK_STATE): per monitorare le modifiche alla connettività di internet
 * *eseguire all'avvio* (RECEIVE_BOOT_COMPLETED): per avviare il monitoraggio all'avvio del dispositivo
 * *servizio in primo piano* (FOREGROUND_SERVICE): per eseguire un servizio in primo piano su Android 9 Pie e successive, vedi anche la prossima domanda
-* *prevenire che il dispositivo vada in riposo* (WAKE_LOCK): per mantenere attivo il dispositivo durante la sincronizzazione dei messaggi
-* *fatturazione in-app* (BILLING): per consentire gli acquisti in-app
-* *pianifica sveglia esatta* (SCHEDULE_EXACT_ALARM): per usare la pianificazione esatta della sveglia (Android 12 e successive)
-* Facoltativo: *leggi la tua rubrica* (READ_CONTACTS): per completare automaticamente indirizzi, mostrare foto di contatto e [selezionare i contatti](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Facoltativo: *leggi i contenuti della tua scheda SD* (READ_EXTERNAL_STORAGE): per accettare file da altre app obsolete, vedi anche [questa FAQ](#user-content-faq49)
-* Facoltativo: *usa l'hardware di impronte digitali* (USE_FINGERPRINT) e usa l'*hardware biometrico* (USE_BIOMETRIC): per usare l'autenticazione biometrica
-* Facoltativo: *trova i profili sul dispositivo* (GET_ACCOUNTS): per selezionare il profilo usando la configurazione rapida di Gmail
-* Android 5.1 Lollipop e precedenti: *usa profili sul dispositivo* (USE_CREDENTIALS): per selezionare un profilo usando la configurazione rapida di Gmail (non necessario su versioni successive di Android)
-* Android 5.1 Lollipop e precedenti: *Leggi profilo* (READ_PROFILE): per leggere il tuo nome usando la configurazione rapida di Gmail (non necessario sulle versioni successive di Android)
+* *prevenire che il dispositivo vada in riposo* (WAKE_LOCK): per mantenere attivo il dispositivo sincronizzando i messaggi
+* *fatturazione integrata* (BILLING): per consentire gli acquisti in app
+* *pianificare la sveglia esatta* (SCHEDULE_EXACT_ALARM): per usare la pianificazione della sveglia esatta (Android 12 e successive)
+* Opzionale: *leggere la tua rubrica* (READ_CONTACTS): per auto completare gli indirizzi, mostrare le foto di contatto e [selezionare i contatti](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Opzionale: *leggere i contenuti della tua scheda SD* (READ_EXTERNAL_STORAGE): per accettare file da altre app obsolete, vedi anche [questa FAQ](#user-content-faq49)
+* Opzionale: *usare l'hardware delle impronte digitali* (USE_FINGERPRINT) e usare l'*hardware biometrico* (USE_BIOMETRIC): per usare l'autenticazione biometrica
+* Opzionale: *trovare profili sul dispositivo* (GET_ACCOUNTS): per selezionare un profilo usando la configurazione rapida di Gmail
+* Android 5.1 Lollipop e precedenti: *usare i profili sul dispositivo* (USE_CREDENTIALS): per selezionare un profilo usando la configurazione rapida di Gmail (non richiesto sulle versioni successive di Android)
+* Android 5.1 Lollipop e precedenti: *Leggere il profilo* (READ_PROFILE): per leggere il tuo nome usando la configurazione rapida di Gmail (non richiesto sulle versioni successive di Android)
 
-[Autorizzazioni opzionali](https://developer.android.com/training/permissions/requesting) sono supportate soltanto da Android 6 Marshmallow e versioni successive. Con versioni precedenti di Android, verrà chiesto di concedere le autorizzazioni facoltative per l'installazione di FairEmail.
+Le [Autorizzazioni opzionali](https://developer.android.com/training/permissions/requesting) sono supportate solo su Android 6 Marshmallow e successive. Sulle versioni precedenti di Android ti sarà chiesto di concedere le autorizzazioni opzionali all'installazione di FairEmail.
 
-Le seguenti autorizzazioni sono necessarie per mostrare il numero di messaggi non letti come distintivo (vedi anche [questa FAQ](#user-content-faq106)):
+Le seguenti autorizzazioni sono necessarie per mostrare il conteggio dei messaggi non letti come un dispositivo (vedi anche [questa FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -332,43 +332,43 @@ Le seguenti autorizzazioni sono necessarie per mostrare il numero di messaggi no
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail salverà un elenco di indirizzi da cui si ricevono e a cui si inviano messaggi e userà questa lista per suggerire dei contatti se non viene concesso alcun permesso a FairEmail di accedere ai contatti. Ciò significa che è possibile utilizzare FairEmail senza il provider di contatti Android (rubrica indirizzi). Si noti che è ancora possibile scegliere i contatti senza concedere a FairEmail i permessi di accesso ai contatti, il solo suggerimento di contatti non funzionerà senza i permessi di accesso ai contatti.
+FairEmail manterrà un elenco di indirizzi da cui ricevi e invii i messaggi e userà questo elenco per suggerire i contatti quando non è concesso alcun permesso dei contatti a FairEmail. Questo significa che puoi usare FairEmail senza il provider dei contatti di Android (rubrica). Si noti che puoi ancora selezionare i contatti senza concedere le autorizzazioni dei contatti a FairEmail, il solo suggerimento di essi non funzionerà senza le autorizzazioni.
 
 <br />
 
 <a name="faq2"></a>
 **(2) Perché viene mostrata una notifica permanente?**
 
-Una notifica a bassa priorità, permanente nella barra di stato, con il numero di account monitorati e il numero di operazioni in sospeso (si veda la domanda successiva) viene mostrata per impedire ad Android di interrompere il il servizio che si occupa della ricezione continua di e-mail. Ciò era [già necessario](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)) in precedenza ma, con l'introduzione della [funzione Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) di Android 6 Marshmallow, è diventato indispensabile. La funzione Doze interrompe tutte le app nel momento in cui lo schermo è bloccato, a meno che l'app non avvii un servizio in primo piano, il quale richiede la visualizzazione di una notifica nella barra di stato.
+Una notifica sulla barra di stato permanente a bassa priorità con il numero di profili monitorati e di operazioni in sospeso (vedi la prossima domanda) è mostrata per prevenire che Android termini il servizio che si occupa della continua ricezione di email. Questo era [già necessario](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), ma con l'introduzione della [modalità standby](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow ciò è diventato più necessario che mai. La modalità standby interromperà tutte le app quando lo schermo è spento per un po', a meno che l'app non avvii un servizio in primo piano, che richiede la visualizzazione di una notifica sulla barra di stato.
 
-La maggior parte delle app di posta elettronica, se non tutte, non mostra una notifica, col conseguente "effetto collaterale" per cui i nuovi messaggi sono spesso non segnalati o segnalati tardi, e che i messaggi non sono inviati o sono inviati in ritardo.
+Gran parte, se non tutte, le altre app email non mostrano una notifica, con lo 'effetto laterale' che i nuovi messaggi spesso non sono o sono segnalati e inviati in ritardo.
 
-Android mostra per prime le icone delle notifiche ad alta priorità nella barra di stato e nasconde le icone delle notifiche di FairEmail se non c'è più spazio per mostrarne altre. In pratica ciò significa che la notifica non non occupa spazio nella barra di stato a meno che non ci sia spazio disponibile.
+Android mostra per prime le icone delle notifiche ad alta priorità nella barra di stato e nasconde le icone delle notifiche di FairEmail se non c'è più spazio per mostrarne altre. In pratica ciò significa che la notifica della barra di stato non richiede spazio nella barra di stato, a meno che non ci sia spazio disponibile.
 
-La notifica nella barra di stato può essere disabilitata tramite le impostazioni di notifica di FairEmail:
+La notifica della barra di stato è disabilitabile tramite le impostazioni di notifica di FairEmail:
 
-* Android 8 Oreo e versioni successive: cliccare *Ricevi canale* e disabilitare il canale tramite le impostazioni di Android (questo non disabiliterà le notifiche dei messaggi)
-* Android 7 Nougat e versioni precedenti: abilitare l'*Uso del servizio in background per sincronizzare i messaggi*, ma assicurarsi di leggere nell'impostazione
+* Android 8 Oreo e successive: tocca il pulsante *Canale di ricezione* e disabilitalo tramite le impostazioni di Android (questo non disabiliterà le notifiche dei nuovi messaggi)
+* Android 7 Nougat e precedenti: abilita *Usa il servizio in background per sincronizzare i messaggi*, ma assicurati di leggere l'osservazione sotto l'impostazione
 
-È possibile passare alla sincronizzazione periodica dei messaggi nelle impostazioni di ricezione per rimuovere la notifica, ma questo potrebbe aumentare l'utilizzo dell'energia della batteria. Cliccare [qui](#user-content-faq39) per maggiori dettagli sull'utilizzo della batteria.
+Puoi passare a sincronizzare periodicamente i messaggi nelle impostazioni di ricezione per rimuovere la notifica, ma sappi che ciò potrebbe usare più energia della batteria. Vedi [qui](#user-content-faq39) per ulteriori dettagli sull'uso della batteria.
 
-Android 8 Oreo potrebbe anche mostrare una notifica nella barra di stato con il testo *Le app sono in esecuzione in background*. Si prega di vedere [qui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) come disabilitare questa notifica.
+Android 8 Oreo potrebbe anche mostrare una notifica della barra di stato con il testo *App in esecuzione in background*. Sei pregato di vedere [qui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) come disabilitare questa notifica.
 
-Alcuni utenti hanno suggerito di usare [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) invece di un servizio Android con una notifica nella barra di stato, ma questo costringerebbe gli emittenti a inviare messaggi FCM ad un server centrale in cui sono raccolti tutti i messaggi FCM. La prima non accadrà mai è l'ultima avrebbe implicazioni importanti sulla privacy.
+Alcune persone hanno suggerito di usare [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) invece di un servizio Android con una notifica della barra di stato, ma questo richiederebbe ai provider email di inviare messaggi FCM o un server centrale dove siano raccolti tutti i messaggi inviati da FCM. La prima non succederà e l'ultima avrebbe significative implicazioni sulla privacy.
 
-Se si è arrivati qui cliccando sulla notifica, il prossimo click aprirà la casella di posta unificata.
+Se sei arrivato qui cliccando su una notifica, dovresti sapere che il prossimo click aprirà la casella di posta unificata.
 
 <br />
 
 <a name="faq3"></a>
 **(3) Quali sono le operazioni e perché sono in sospeso?**
 
-La notifica a bassa priorità nella barra di stato mostra il numero di operazioni in sospeso, che possono essere:
+La notifica della barra di stato a bassa priorità mostra il numero di operazioni in sospeso, che possono essere:
 
 * *add*: aggiungi messaggio alla cartella remota
-* *move*: sposta messaggio ad un'altra cartella remota
+* *move*: sposta messaggio in un'altra cartella remota
 * *copy*: copia messaggio in un'altra cartella remota
-* *fetch*: preleva il messaggio modificato (spinto)
+* *fetch*: recupera il messaggio modificato (push)
 * *delete*: elimina il messaggio dalla cartella remota
 * *seen*: contrassegna il messaggio come letto/non letto nella cartella remota
 * *answered*: contrassegna il messaggio come risposto nella cartella remota
@@ -376,45 +376,45 @@ La notifica a bassa priorità nella barra di stato mostra il numero di operazion
 * *keyword*: aggiunge/rimuove il flag IMAP nella cartella remota
 * *label*: imposta/ripristina l'etichetta di Gmail nella cartella remota
 * *headers*: scarica le intestazioni dei messaggi
-* *raw*: scarica il messaggio grezzo
+* *raw*: scarica il messaggio non elaborato
 * *body*: scarica il testo del messaggio
 * *attachment*: scarica l'allegato
 * *sync*: sincronizza i messaggi locali e remoti
-* *subscribe*: si iscrive alla cartella remota
+* *subscribe*: iscriviti alla cartella remota
 * *purge*: elimina tutti i messaggi dalla cartella remota
 * *send*: invia messaggio
 * *exists*: controlla se il messaggio esiste
 * *rule*: esegui regola sul corpo del testo
 * *expunge*: elimina permanentemente i messaggi
 
-Le operazioni vengono elaborate solo quando si è connessi al server di posta elettronica o quando vi è una sincronizzazione manuale. Si veda anche [questa FAQ](#user-content-faq16).
+Le operazioni sono elaborate solo quando c'è una connessione al server email o sincronizzando manualmente. Vedi anche [questa FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
 **(4) Come posso usare un certificato di sicurezza non valido / password vuota / connessione di testo semplice?**
 
-*... Non attendibile ... non nel certificato ...*
+*... Non affidabile... non nel certificato...*
 <br />
-*... Certificato di sicurezza non valido (Impossibile verificare l'identità del server) ...*
+*... Ceritificato di sicurezza non valido (Impossibile verificare l'identità del server)...*
 
-Ciò può essere causato dall'uso di un nome host errato, quindi prima ricontrolla il nome host nelle impostazioni avanzate di identità/account (tocca Configurazione manuale). Si consulta la documentazione del provider di posta elettronica sul nome host giusto.
+Questo può esser causato dall'uso di un nome errato dell'host, quindi prima ricontrollalo nelle impostazioni avanzate dell'identità/del profilo (tocca Configurazione manuale). Sei pregato di consultare la documentazione del provider email sul giusto nome dell'host.
 
-È possibile risolvere questo problema contattando il proprio provider oppure ottenendo un certificato di sicurezza valido poiché i certificati di sicurezza non validi sono insicuri e consentono [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il prezzo di questi rappresenta un ostacolo, è possibile ottenere certificati di sicurezza gratuiti da [Let's Encrypt](https://letsencrypt.org).
+Dovresti provare a risolverlo contattando il tuo provider o ottenendo un certificato di sicurezza valido, poiché quelli invalidi non sono sicuri e consentono [attacchi man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se il denaro è un ostacolo, puoi ottenere certificati di sicurezza gratuiti da [Let' Encrypt](https://letsencrypt.org).
 
-La soluzione veloce, ma non sicura (non consigliata), è quella di attivare *Connessioni non sicure* nelle impostazioni di identità avanzate (menu di navigazione, tocca *Impostazioni*, *Configurazione manuale*, *Identità*, scegli l'identità, *Avanzate*).
+La soluzione rapida e non sicura (sconsigliata), è abilitare le *Connessioni non sicure* nelle impostazioni avanzate dell'identità (menu di navigazione, tocca *Impostazioni*, tocca *Configurazione manuale*, tocca *Identità*, tocca l'identità, tocca *Avanzate*).
 
-In alternativa, puoi accettare l'impronta dei certificati server non validi in questo modo:
+Altrimenti, puoi accettare l'impronta digitale dei certificati non validi del server come segue:
 
-1. Assicurati di star usando una connessione internet affidabile (nessuna rete Wi-Fi pubblica, etc)
+1. Assicurati di star usando una connessione a internet affidabile (nessuna rete Wi-Fi pubblica, etc.)
 1. Vai alla schermata di configurazione tramite il menu di navigazione (scorri verso l'interno dal lato sinistro)
-1. Tocca Configurazione manuale, Account/Identità e scegli l'account/l'Identità difettoso/a
-1. Seleziona/salva il profilo e l'identità
-1. Seleziona la casella sotto al messaggio di errore e salva di nuovo
+1. Tocca Configurazione manuale, tocca Profili/Identità e tocca il profilo e l'identità difettosi
+1. Controlla/salva il profilo e l'identità
+1. Spunta la casella sotto al messaggio d'errore e salva di nuovo
 
 Ciò "fisserà" il certificato del server per prevenire attacchi man-in-the-middle.
 
-Nota che le versioni più vecchie di Android potrebbero non riconoscere le autorità di certificazione più recenti come Let's Encrypt, perciò le connessioni potrebbero essere considerate non sicure, vedi anche [qui](https://developer.android.com/training/articles/security-ssl).
+Nota che le versioni più vecchie di Android potrebbero non riconoscere autorità di certificazione più nuove come Let's Encrypt considerando le connessioni come non sicure, vedi anche [qui](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
@@ -434,38 +434,38 @@ Puoi anche fissare il certificato, vedi sopra.
 
 *Password vuota*
 
-Il tuo nome utente è probabile che sia facile da indovinare, perciò non è sicuro.
+Il tuo nome utente potrebbe esser facilmente indovinato, quindi non è sicuro.
 
 *Connessione di testo semplice*
 
-Il tuo nome utente, la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che è **molto insicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto semplice su una connessione non crittografata.
+Il tuo nome utente, la password e tutti i messaggi saranno inviati e ricevuti non crittografati, il che è **molto insicuro** perché un [attacco man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) è molto facile su una connessione non crittografata.
 
-Se vuoi comunque usare un certificato di sicurezza non valido, una password vuota o una connessione di testo semplice, dovrai attivare le connessioni non sicure nelle impostazioni del profilo e/o identità. STARTTLS dovrebbe essere selezionato per le connessioni di testo semplice. Se attivi le connessioni non sicure, dovresti connetterti soltanto tramite reti affidabili e private e mai tramite reti pubbliche, come quelle offerte negli hotel, aeroporti, ecc.
+Se vuoi ancora usare un certificato di sicurezza non valido, una password vuota o una connessione di testo semplice, dovrai abilitare le connessioni non sicure nelle impostazioni del profilo e/o dell'identità. STARTTLS dovrebbe esser selezionato per le connessioni di testo semplice. Se abiliti le connessioni non sicure, dovresti connetterti solo tramite reti private e affidabili e mai via reti pubbliche, come quelle offerte in hotel, aeroporti, etc.
 
 <br />
 
 <a name="faq5"></a>
 **(5) Come posso personalizzare la visualizzazione dei messaggi?**
 
-Nel menu a tre puntini puoi attivare o disattivare o selezionare:
+Nel menu a tre puntini a scorrimento puoi abilitare, disabilitare o selezionare:
 
 * *dimensione del testo*: per tre differenti dimensioni del font
-* *vista compatta*: per altri elementi di messaggio compressi e un font di testo del messaggio più piccolo
+* *vista compatta*: per altri elementi del messaggio compresso e un più piccolo font del testo del messaggio
 
-Nella sezione di visualizzazione nelle impostazioni puoi attivare o disattivare ad esempio:
+Nella sezione di visualizzazione delle impostazioni puoi, ad esempio, abilitare o disabilitare:
 
-* *Casella unificata*: per disabilitare la casella della posta in arrivo unificata ed elencare le cartelle selezionate invece per la casella di posta in arrivo unificata
-* *Stile tabulare*: per mostrare un elenco lineare invece delle schede
+* *Casella di posta in arrivo unificata*: per disabilitare la casella di posta in arrivo unificata ed elencare invece l'elenco delle cartelle selezionate per essa
+* *Stile tabulare*: per mostrare un elenco lineare invece che delle carte
 * *Raggruppa per data*: mostra l'intestazione della data sui messaggi con la stessa data
-* *Filettatura di conversazione*: per disabilitare la filettatura della conversazione e mostrare messaggi singoli piuttosto
-* *Barra d'azione della conversazione*: per disabilitare la barra di navigazione in basso
-* *Evidenzia colore*: per selezionare un colore per il mittente dei messaggi non letti
+* *Threading della conversazione*: per disabilitare il threading della conversazione e mostrare piuttosto i singoli messaggi
+* *Barra d'azione della conversazione*: per disabilitare la barra inferiore di navigazione
+* *Colore d'evidenziazione*: per selezionare un colore per il mittente dei messaggi non letti
 * *Mostra foto di contatto*: per nascondere le foto di contatto
 * *Mostra nomi e indirizzi email*: per mostrare nomi o nomi e indirizzi email
-* *Mostra oggetto corsivo*: per mostrare l'oggetto del messaggio come testo normale
+* *Mostra oggetto in corsivo*: per mostrare l'oggetto del messaggio come testo normale
 * *Mostra stelle*: per nascondere le stelle (preferiti)
-* *Mostra anteprima del messaggio*: per mostrare 1-4 linee del testo del messaggio
-* *Mostra dettagli dell'indirizzo di default*: per espandere la sezione degli indirizzi di default
+* *Mostra anteprima del messaggio*: per mostrare 1-4 righe del testo del messaggio
+* *Mostra i dettagli dell'indirizzo di default*: per espandere la sezione degli indirizzi di default
 * *Mostra automaticamente il messaggio originale per i contatti noti*: per mostrare automaticamente i messaggi originali per i contatti sul tuo dispositivo, sei pregato di leggere [questa FAQ](#user-content-faq35)
 * *Mostra automaticamente le immagini per i contatti noti*: per mostrare automaticamente le immagini per i contatti sul tuo dispositivo, sei pregato di leggere [questa FAQ](#user-content-faq35)
 
