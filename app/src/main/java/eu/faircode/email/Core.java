@@ -653,8 +653,10 @@ class Core {
                 try {
                     long fid = new JSONArray(op.args).optLong(0, -1L);
                     EntityFolder target = db.folder().getFolder(fid);
-                    if (target != null && EntityFolder.TRASH.equals(folder.type))
+                    if (target != null && EntityFolder.TRASH.equals(target.type)) {
+                        Log.w(folder.name + " deleting id=" + message.id);
                         db.message().deleteMessage(message.id);
+                    }
                 } catch (JSONException ex) {
                     Log.e(ex);
                 }
