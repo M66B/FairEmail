@@ -70,6 +70,7 @@ import net.openid.appauth.browser.VersionedBrowserMatcher;
 
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -77,6 +78,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.mail.AuthenticationFailedException;
+import javax.net.ssl.HttpsURLConnection;
 
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
@@ -105,6 +107,8 @@ public class FragmentOAuth extends FragmentBase {
     private Button btnSupport;
 
     private Group grpError;
+
+    private static final int MAILRU_TIMEOUT = 20 * 1000; // milliseconds
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -470,7 +474,28 @@ public class FragmentOAuth extends FragmentBase {
 
                 if (askAccount)
                     identities.add(new Pair<>(address, personal));
-                else
+                else if ("mailru".equals(id)) {
+                    URL url = new URL("https://oauth.mail.ru/userinfo?access_token=" + token);
+                    Log.i("GET " + url);
+                    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setReadTimeout(MAILRU_TIMEOUT);
+                    connection.setConnectTimeout(MAILRU_TIMEOUT);
+                    connection.connect();
+
+                    try {
+                        String json = Helper.readStream(connection.getInputStream());
+                        Log.i("json=" + json);
+                        JSONObject data = new JSONObject(json);
+                        name = data.getString("name");
+                        address = data.getString("email");
+                        username = address;
+                        identities.add(new Pair<>(address, name));
+                    } finally {
+                        connection.disconnect();
+                    }
+
+                } else
                     throw new IllegalArgumentException("Unknown provider=" + id);
 
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
