@@ -357,7 +357,7 @@ public class EntityMessage implements Serializable {
             }
             if (received != null) { // embedded messages
                 Element strong = document.createElement("strong");
-                strong.text(Helper.getString(context, l, R.string.title_received) + " ");
+                strong.text(Helper.getString(context, l, R.string.title_date) + " ");
                 p.appendChild(strong);
                 p.appendText(DF.format(received));
                 p.appendElement("br");
