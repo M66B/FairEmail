@@ -648,9 +648,17 @@ class Core {
 
         Long uid = findUid(context, ifolder, message.msgid, false);
         if (uid == null) {
-            if (EntityFolder.DRAFTS.equals(folder.type) &&
-                    EntityOperation.MOVE.equals(op.name))
-                db.message().deleteMessage(message.id);
+            if (EntityOperation.MOVE.equals(op.name) &&
+                    EntityFolder.DRAFTS.equals(folder.type))
+                try {
+                    long fid = new JSONArray(op.args).optLong(0, -1L);
+                    EntityFolder target = db.folder().getFolder(fid);
+                    if (target != null && EntityFolder.TRASH.equals(folder.type))
+                        db.message().deleteMessage(message.id);
+                } catch (JSONException ex) {
+                    Log.e(ex);
+                }
+
             throw new IllegalArgumentException("Message not found for " + op.name + " folder=" + folder.name);
         }
 
