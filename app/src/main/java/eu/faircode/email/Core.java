@@ -4507,7 +4507,7 @@ class Core {
                 Intent reply = new Intent(context, ServiceUI.class)
                         .setAction("reply:" + message.id)
                         .putExtra("group", group);
-                PendingIntent piReply = PendingIntentCompat.getService(
+                PendingIntent piReply = PendingIntent.getService(
                         context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_reply_24,
