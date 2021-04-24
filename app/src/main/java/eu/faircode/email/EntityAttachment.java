@@ -95,6 +95,14 @@ public class EntityAttachment {
     }
 
     boolean isEncryption() {
+        if ("application/pkcs7-mime".equals(type))
+            return true;
+        if ("application/x-pkcs7-mime".equals(type))
+            return true;
+        if ("application/pkcs7-signature".equals(type))
+            return true;
+        if ("application/x-pkcs7-signature".equals(type))
+            return true;
         return (encryption != null);
     }
 
