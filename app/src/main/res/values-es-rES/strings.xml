@@ -889,6 +889,7 @@
     <string name="title_via_identity">Vía:</string>
     <string name="title_sent">Enviado:</string>
     <string name="title_received">Recibido:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Fecha:</string>
     <string name="title_stored">Almacenado:</string>
     <string name="title_size">Tamaño:</string>
     <string name="title_language">Idioma:</string>

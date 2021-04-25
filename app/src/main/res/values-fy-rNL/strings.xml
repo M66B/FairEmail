@@ -249,7 +249,7 @@
     <string name="title_advanced_gmail_thread">Gmail berjochten groepearstyl foar Gmail akkounts</string>
     <string name="title_advanced_sync_folders">Maplist syngronisearje</string>
     <string name="title_advanced_sync_shared_folders">Syngronisearje dielde maplisten</string>
-    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Mapabonneminten beheare</string>
+    <string name="title_advanced_subscriptions">Mapabonneminten beheare</string>
     <string name="title_advanced_check_reply_domain">Kontrolearje antwurdadres by it syngronisearjen fan berjochten</string>
     <string name="title_advanced_check_mx">Kontrolearje e-mailadressen fan stjoerder op syngronisearjen fan berjochten</string>
     <string name="title_advanced_tune_keep_alive">Tune it ynterval foar libbenhâlden automatysk</string>
@@ -695,7 +695,7 @@
     <string name="title_no_operations">Gjin wachtsjende operaasjes</string>
     <string name="title_hint_operations">Wiskjen fan operaasjes kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>
     <string name="title_folder_name">Map namme</string>
-    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Display namme</string>
+    <string name="title_display_name">Display namme</string>
     <string name="title_show_folders">Sjoch ferburgen mappen</string>
     <string name="title_show_flagged">Toant stjerre berjochten</string>
     <string name="title_subscribed_only">Ynskriuwe allinich</string>
@@ -808,7 +808,7 @@
     <string name="title_report_spam">Behannelje as spam</string>
     <string name="title_delete_permanently">Wiskje permanint</string>
     <string name="title_snooze">Snooze &#8230;</string>
-    <string name="title_archive" comment="title_archive&#10;Archive a message">Argyf</string>
+    <string name="title_archive">Argyf</string>
     <string name="title_reply">Antwurdzje</string>
     <string name="title_reply_to_sender">Antwurdzje op stjoerder</string>
     <string name="title_reply_to_all">Antwurdzje allegear</string>

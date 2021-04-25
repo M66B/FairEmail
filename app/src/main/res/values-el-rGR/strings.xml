@@ -887,6 +887,7 @@
     <string name="title_via_identity">Μέσω:</string>
     <string name="title_sent">Απεστάλη:</string>
     <string name="title_received">Λήφθηκε:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Ημερομηνία:</string>
     <string name="title_stored">Αποθηκεύτηκε:</string>
     <string name="title_size">Μέγεθος:</string>
     <string name="title_language">Γλώσσα:</string>

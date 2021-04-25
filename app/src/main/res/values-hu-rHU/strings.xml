@@ -249,7 +249,7 @@
     <string name="title_advanced_gmail_thread">Gmail stílusú üzenetcsoportosítás a Gmail fiókokhoz</string>
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
-    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Mappa feliratkozások kezelése</string>
+    <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
     <string name="title_advanced_check_reply_domain">Válaszcím ellenőrzése üzenetek szinkronizálásakor</string>
     <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
@@ -686,7 +686,7 @@
     <string name="title_no_operations">Nincs végrehajtásra váró művelet</string>
     <string name="title_hint_operations">Műveletek törlése eltűnő üzeneteket és szinkronizálási problémákat okozhat</string>
     <string name="title_folder_name">Mappanév</string>
-    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Megjelenítendő név</string>
+    <string name="title_display_name">Megjelenítendő név</string>
     <string name="title_show_folders">Rejtett mappák megjelenításe</string>
     <string name="title_show_flagged">Csillagozott üzenet számláló mutatása</string>
     <string name="title_subscribed_only">Csak feliratkozott</string>
@@ -797,7 +797,7 @@
     <string name="title_report_spam">Megjelölés spamként</string>
     <string name="title_delete_permanently">Végleges törlés</string>
     <string name="title_snooze">Halasztás &#8230;</string>
-    <string name="title_archive" comment="title_archive&#10;Archive a message">Archiválás</string>
+    <string name="title_archive">Archiválás</string>
     <string name="title_reply">Válasz</string>
     <string name="title_reply_to_sender">Válasz a feladónak</string>
     <string name="title_reply_to_all">Válasz mindenkinek</string>

@@ -876,6 +876,7 @@
     <string name="title_via_identity">経由:</string>
     <string name="title_sent">送信済み:</string>
     <string name="title_received">受信:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">日付:</string>
     <string name="title_stored">保存済み:</string>
     <string name="title_size">サイズ:</string>
     <string name="title_language">言語:</string>

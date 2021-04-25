@@ -129,7 +129,7 @@ Thiết kế của ứng dụng được dựa trên nhiều cuộc thảo luậ
 * [(2) Tại sao lại có một thông báo vĩnh viễn được hiện?](#user-content-faq2)
 * [(3) Hoạt động là gì và tại sao chúng lại đang chờ?](#user-content-faq3)
 * [(4) Tôi có thể sử dụng một chứng chỉ bảo mật không hợp lệ / mật khẩu trống / kết nối văn bản thuần như thế nào?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
+* [(5) Tôi có thể tuỳ biến mục hiển thị thư như thế nào?](#user-content-faq5)
 * [(6) Tôi có thể đăng nhập vào Gmail / G suite như thế nào?](#user-content-faq6)
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
@@ -303,13 +303,13 @@ Những quyền Android sau đây là cần thiết:
 * *dịch vụ ở trước* (FOREGROUND_SERVICE): để chạy một dịch vụ ở trước trên Android 9 hoặc mới hơn, đồng thời hãy xem câu hỏi tiếp theo
 * *ngăn chặn thiết bị ngủ* (WAKE_LOCK): để giữ cho thiết bị thức trong khi đang đồng bộ hoá thư
 * *thanh toán trong ứng dụng* (BILLING): để cho phép mua hàng trong ứng dụng
-* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *đặt lịch báo thức chính xác* (SCHEDULE_EXACT_ALARM): để sử dụng tính năng đặt lịch báo thức chính xác (Android 12 và mới hơn)
+* Không bắt buộc: *đọc danh bạ* (READ_CONTACTS): để tự động điền các địa chỉ, để hiện ảnh liên hệ và [để chọn liên hệ](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Không bắt buộc: *đọc nội dung của thẻ SD* (READ_EXTERNAL_STORAGE): để chấp nhận các tệp từ các ứng dụng lỗi thời khác, đồng thời hãy xem [câu hỏi thường gặp này](#user-content-faq49)
+* Không bắt buộc: *sử dụng phần cứng vân tay* (USE_FINGERPRINT) và *sử dụng phần cứng sinh trắc học* (USE_BIOMETRIC): để sử dụng xác thực sinh trắc học
+* Không bắt buộc: *tìm tài khoản trên thiết bị* (GET_ACCOUNTS): để chọn một tài khoản khi sử dụng thiết lập nhanh cho Gmail
+* Android 5.1 Lollipop và cũ hơn: *sử dụng tài khoản trên thiết bị* (USE_CREDENTIALS): để chọn một tài khoản khi sử dụng thiết lập nhanh cho Gmail (không được yêu cầu trên các phiên bản Android mới hơn)
+* Android 5.1 Lollipop và cũ hơn: *Đọc hồ sơ* (READ_PROFILE): để đọc tên của bạn khi sử dụng thiết lập nhanh cho Gmail (không được yêu cầu trên các phiên bản Android mới hơn)
 
 [Các quyền không bắt buộc](https://developer.android.com/training/permissions/requesting) chỉ được hỗ trợ trên Android 6 Marshmallow và mới hơn. Trên các phiên bản Android cũ hơn, bạn sẽ được hỏi để cấp các quyền không bắt buộc khi cài đặt FairEmail.
 

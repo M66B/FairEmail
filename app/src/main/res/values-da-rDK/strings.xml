@@ -873,6 +873,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sendt:</string>
     <string name="title_received">Modtaget:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Dato:</string>
     <string name="title_stored">Gemt:</string>
     <string name="title_size">Størrelse:</string>
     <string name="title_language">Sprog:</string>

@@ -911,6 +911,7 @@
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Отправлено:</string>
     <string name="title_received">Получено:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Дата:</string>
     <string name="title_stored">Сохранено:</string>
     <string name="title_size">Размер:</string>
     <string name="title_language">Язык:</string>

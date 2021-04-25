@@ -2,7 +2,7 @@
 
 # Bantuan FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. %Pada bagian bawah%, anda bisa mencari tahu bagaimana menanyakan pertanyaannya lain, memintar fitur, dan melaporkan kesalahan.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 

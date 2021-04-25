@@ -889,6 +889,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Verzonden:</string>
     <string name="title_received">Ontvangen:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Datum:</string>
     <string name="title_stored">Opgeslagen:</string>
     <string name="title_size">Grootte:</string>
     <string name="title_language">Taal:</string>

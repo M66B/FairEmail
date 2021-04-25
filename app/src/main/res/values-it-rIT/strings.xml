@@ -250,7 +250,7 @@
     <string name="title_advanced_gmail_thread">Stile di raggruppamento dei messaggi di Gmail per i profili di Gmail</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
-    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Gestisci sottoscrizioni alla cartella</string>
+    <string name="title_advanced_subscriptions">Gestisci sottoscrizioni alla cartella</string>
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
@@ -698,7 +698,7 @@
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
     <string name="title_folder_name">Nome della cartella</string>
-    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Nome mostrato</string>
+    <string name="title_display_name">Nome mostrato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_show_flagged">Mostra conteggio dei messaggi stellati</string>
     <string name="title_subscribed_only">Solo sottoscritte</string>
@@ -813,7 +813,7 @@
     <string name="title_report_spam">Tratta come spam</string>
     <string name="title_delete_permanently">Elimina permanentemente</string>
     <string name="title_snooze">Posticipa &#8230;</string>
-    <string name="title_archive" comment="title_archive&#10;Archive a message">Archivia</string>
+    <string name="title_archive">Archivia</string>
     <string name="title_reply">Risposta</string>
     <string name="title_reply_to_sender">Rispondi al mittente</string>
     <string name="title_reply_to_all">Rispondi a tutti</string>
@@ -889,6 +889,7 @@
     <string name="title_via_identity">Tramite:</string>
     <string name="title_sent">Inviato:</string>
     <string name="title_received">Ricevuto:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Data:</string>
     <string name="title_stored">Memorizzato:</string>
     <string name="title_size">Dimensioni:</string>
     <string name="title_language">Lingua:</string>

@@ -243,7 +243,7 @@
     <string name="title_advanced_gmail_thread">Gmail hesapları için Gmail stili gruplama</string>
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
-    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Dizin aboneliklerini yönet</string>
+    <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
@@ -652,7 +652,7 @@
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
     <string name="title_folder_name">Klasör adı</string>
-    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Görünen ad</string>
+    <string name="title_display_name">Görünen ad</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
     <string name="title_show_flagged">Yıldızlı mesaj sayısını göster</string>
     <string name="title_subscribed_only">Sadece abone olunanlar</string>
@@ -752,7 +752,7 @@
     <string name="title_report_spam">Spam olarak işaretle</string>
     <string name="title_delete_permanently">Kalıcı olarak sil</string>
     <string name="title_snooze">Ertele &#8230;</string>
-    <string name="title_archive" comment="title_archive&#10;Archive a message">Arşivle</string>
+    <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
     <string name="title_reply_to_sender">Gönderene cevap ver</string>
     <string name="title_reply_to_all">Tümünü yanıtla</string>

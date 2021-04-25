@@ -877,6 +877,7 @@
     <string name="title_via_identity">Qua:</string>
     <string name="title_sent">Đã gửi:</string>
     <string name="title_received">Đã nhận:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Ngày:</string>
     <string name="title_stored">Đã lưu trữ:</string>
     <string name="title_size">Kích cỡ:</string>
     <string name="title_language">Ngôn ngữ:</string>

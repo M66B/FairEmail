@@ -136,9 +136,9 @@ Il design si basa su molte discussioni e, se lo desideri, puoi discuterne anche 
 * [(9) Cosa sono le identità / come aggiungo un alias?](#user-content-faq9)
 * [~~(11) Perché POP non è supportato?~~](#user-content-faq11)
 * [~~(10) Cosa significa 'UIDPLUS non supportato'?~~](#user-content-faq10)
-* [(12) Come funziona la crittografia/decifrazione?](#user-content-faq12)
+* [(12) Come funziona la crittografia/decrittografia?](#user-content-faq12)
 * [(13) Come funziona la ricerca su dispositivo/server?](#user-content-faq13)
-* [(14) Come posso impostare un account Outlook / Live / Hotmail?](#user-content-faq14)
+* [(14) Come posso configurare un profilo di Outlook / Live / Hotmail?](#user-content-faq14)
 * [(15) Perché il testo del messaggio continua a caricare?](#user-content-faq15)
 * [(16) Perché i messaggi non vengono sincronizzati?](#user-content-faq16)
 * [~~(17) Perché la sincronizzazione manuale non funziona?~~](#user-content-faq17)
@@ -221,74 +221,74 @@ Il design si basa su molte discussioni e, se lo desideri, puoi discuterne anche 
 * [(96) Dove posso trovare le impostazioni IMAP e SMTP?](#user-content-faq96)
 * [(97) Cos'è 'pulizia'?](#user-content-faq97)
 * [(98) Perché posso ancora scegliere i contatti dopo aver revocato i permessi dei contatti?](#user-content-faq98)
-* [(99) Puoi aggiungere un editor ricco di testo o markdown?](#user-content-faq99)
+* [(99) Puoi aggiungere un editor del rich text o di markdown?](#user-content-faq99)
 * [(100) Come posso sincronizzare le categorie di Gmail?](#user-content-faq100)
-* [(101) Cosa significa il punto blu/arancione in fondo alle conversazioni?](#user-content-faq101)
+* [(101) Cosa significa il puntino blu/arancione in fondo alle conversazioni?](#user-content-faq101)
 * [(102) Come posso abilitare la rotazione automatica delle immagini?](#user-content-faq102)
 * [(103) Come registro l'audio?](#user-content-faq158)
 * [(104) Cosa devo sapere sulla segnalazione degli errori?](#user-content-faq104)
 * [(105) Come funziona l'opzione roam-like-at-home?](#user-content-faq105)
 * [(106) Quali launcher possono mostrare un distintivo di conteggio con il numero di messaggi non letti?](#user-content-faq106)
 * [(107) Come uso le stelle colorate?](#user-content-faq107)
-* [~~(108) Puoi aggiungere permanentemente l'eliminazione dei messaggi da ogni cartella?~~](#user-content-faq108)
+* [~~(108) Puoi aggiungere l'eliminazione permanente dei messaggi da ogni cartella?~~](#user-content-faq108)
 * [~~(109) Perché 'seleziona profilo' è disponibile solo nelle versioni ufficiali?~~](#user-content-faq109)
-* [(110) Perché (alcuni) messaggi vuoti e/o allegati sono corrotti?](#user-content-faq110)
+* [(110) Perché (alcuni) messaggi sono vuoti e/o gli allegati sono corrotti?](#user-content-faq110)
 * [(111) OAuth è supportato?](#user-content-faq111)
-* [(112) Quale provider di posta elettronica consigliate?](#user-content-faq112)
+* [(112) Che provider email consigli?](#user-content-faq112)
 * [(113) Come funziona l'autenticazione biometrica?](#user-content-faq113)
-* [(114) Puoi aggiungere un'importazione per le impostazioni di altre app d'email?](#user-content-faq114)
-* [(115) Puoi aggiungere i chip dell'indirizzo e-mail?](#user-content-faq115)
-* [~~(116) Come posso mostrare le immagini nei messaggi da mittenti fidati di default?~~](#user-content-faq116)
+* [(114) Puoi aggiungere un'importazione per le impostazioni di altre app email?](#user-content-faq114)
+* [(115) Puoi aggiungere i chip dell'indirizzo email?](#user-content-faq115)
+* [~~(116) Come posso mostrare le immagini nei messaggi dai mittenti fidati di default?~~](#user-content-faq116)
 * [(117) Puoi aiutarmi a ripristinare il mio acquisto?](#user-content-faq117)
-* [(118) Cosa fa 'Rimuovi parametri di tracciamento' esattamente?](#user-content-faq118)
-* [~~(119) Puoi aggiungere i colori al widget di posta in arrivo unificato?~~](#user-content-faq119)
-* [(120) Perché le notifiche dei nuovi messaggi non sono rimosse all'apertura dell'app?](#user-content-faq120)
+* [(118) Cosa fa esattamente 'Rimuovi parametri di monitoraggio'?](#user-content-faq118)
+* [~~(119) Puoi aggiungere i colori al widget della casella di posta in arrivo unificata?~~](#user-content-faq119)
+* [(120) Perché le notifiche di nuovo messaggio non sono rimosse all'apertura dell'app?](#user-content-faq120)
 * [(121) Come sono raggruppati i messaggi in una conversazione?](#user-content-faq121)
-* [~~(122) Perché il nome/indirizzo email del destinatario viene mostrato come un colore d'avviso?~~](#user-content-faq122)
-* [(123) Cosa succederà quando FairEmail non potrà connettersi ad un server d'email?](#user-content-faq123)
-* [(124) Perché ricevo 'Messaggio troppo grande o troppo complesso da mostrare'?](#user-content-faq124)
-* [(125) Quali sono le caratteristiche sperimentali correnti?](#user-content-faq125)
-* [(126) Possono le anteprime del messaggio essere inviate al mio indossabile?](#user-content-faq126)
-* [(127) Come posso risolvere 'Argomento/i di HELO Sintatticamente non validi'? ](#user-content-faq127)
-* [(128) Come posso reimpostare le domande chieste, ad esempio per mostrare le immagini?](#user-content-faq128)
-* [(129) Sono ProtonMail e Tutanota supportati?](#user-content-faq129)
-* [(130) Cosa significa messaggio d'errore ?](#user-content-faq130)
+* [~~(122) Perché il nome/indirizzo email del destinatario è mostrato con un colore di avviso?~~](#user-content-faq122)
+* [(123) Cosa succederà quando FairEmail non potrà connettersi a un server email?](#user-content-faq123)
+* [(124) Perché ottengo 'Messaggio troppo grande o troppo complesso da mostrare'?](#user-content-faq124)
+* [(125) Quali sono le correnti funzionalità sperimentali?](#user-content-faq125)
+* [(126) Le anteprime dei messaggi sono inviabili al mio indossabile?](#user-content-faq126)
+* [(127) Come posso correggere 'Argomenti HELO sintatticamente non validi'?](#user-content-faq127)
+* [(128) Come posso ripristinare le domande fatte, ad esempio per mostrare le immagini?](#user-content-faq128)
+* [(129) ProtonMail e Tutanota sono supportati?](#user-content-faq129)
+* [(130) Cosa significa il messaggio di errore...?](#user-content-faq130)
 * [(131) Puoi modificare la direzione per lo scorrimento al messaggio precedente/successivo?](#user-content-faq131)
 * [(132) Perché le notifiche dei nuovi messaggi sono silenziate?](#user-content-faq132)
 * [(133) Perché ActiveSync non è supportato?](#user-content-faq133)
 * [(134) Puoi aggiungere l'eliminazione dei messaggi locali?](#user-content-faq134)
-* [(135) Perché i messaggi cestinati e le bozze sono mostrati nelle conversazioni?](#user-content-faq135)
+* [(135) Perché i messaggi cestinati e di bozza sono mostrati nelle conversazioni?](#user-content-faq135)
 * [(135) Come posso eliminare un profilo/un'identità/una cartella?](#user-content-faq136)
-* [(137) Come posso reimpostare 'Non chiedere più'?](#user-content-faq137)
-* [(138) Puoi aggiungere la gestione di calendario/contatti/attività/note?](#user-content-faq138)
-* [(139) Come risolvo 'L'utente è autenticato ma non connesso'?](#user-content-faq139)
+* [(137) Come posso ripristinare 'Non chiedere più'?](#user-content-faq137)
+* [(138) Puoi aggiungere la gestione del calendario/rubrica/attività/note?](#user-content-faq138)
+* [(139) Come correggo 'Utente autenticato ma non connesso'?](#user-content-faq139)
 * [(140) Perché il testo del massaggio contiene caratteri strani?](#user-content-faq140)
 * [(141) Come posso correggere 'Una cartella delle bozze è necessaria per inviare i messaggi'?](#user-content-faq141)
-* [(142) Come posso memorizzare i messaggi inviati nella posta in arrivo?](#user-content-faq142)
+* [(142) Come posso conservare i messaggi inviati nella posta in arrivo?](#user-content-faq142)
 * [~~(143) Puoi aggiungere una cartella del cestino per i profili POP3?~~](#user-content-faq143)
 * [(144) Come posso registrare le note vocali?](#user-content-faq144)
 * [(145) Come posso impostare un suono di notifica per un profilo, una cartella o un mittente?](#user-content-faq145)
-* [(146) Come posso risolvere gli orari non corretti dei messaggi?](#user-content-faq146)
-* [(147) Cosa dovrei sapere delle versioni di terze parti?](#user-content-faq147)
+* [(146) Come posso correggere gli orari scorretti dei messaggi?](#user-content-faq146)
+* [(147) Cosa dovrei sapere sulle versioni di terze parti?](#user-content-faq147)
 * [(148) Come posso usare un profilo di Apple iCloud?](#user-content-faq148)
 * [(149) Come funziona il widget di conteggio dei messaggi non letti?](#user-content-faq149)
-* [(150) Puoi aggiungere l'annullamento degli inviti al calendario?](#user-content-faq150)
+* [(150) Puoi aggiungere l'annullamento degli inviti del calendario?](#user-content-faq150)
 * [(151) Puoi aggiungere il backup/ripristino dei messaggi?](#user-content-faq151)
 * [(152) Come posso inserire un gruppo di contatto?](#user-content-faq152)
-* [(153) Perché non funziona l'eliminazione permanente dei messaggi di Gmail?](#user-content-faq153)
+* [(153) Perché l'eliminazione permanente del messaggio di Gmail non funziona?](#user-content-faq153)
 * [~~(154) Puoi aggiungere i favicon come foto di contatto?~~](#user-content-faq154)
 * [(155) Cos'è un file winmail.dat?](#user-content-faq155)
 * [(156) Come posso configurare un profilo di Office 365?](#user-content-faq156)
 * [(157) Come posso configurare un profilo di Free.fr?](#user-content-faq157)
-* [(158) Quale registratore audio / videocamera consigliate?](#user-content-faq158)
-* [(159) Cosa sono gli elenchi di protezione del monitoraggio di Disconnect?](#user-content-faq159)
+* [(158) Che fotocamera / registratore audio consigli?](#user-content-faq158)
+* [(159) Cosa sono gli elenchi di protezione del tracciatore di Disconnect?](#user-content-faq159)
 * [(160) Puoi aggiungere l'eliminazione permanente dei messaggi senza conferma?](#user-content-faq160)
-* [(161) Puoi aggiungere un'impostazione per modificare il colore primario e di cadenza?](#user-content-faq161)
+* [(161) Puoi aggiungere un'impostazione per modificare i colori primari e secondari?](#user-content-faq161)
 * [(162) IMAP NOTIFY è supportato?](#user-content-faq162)
 * [(163) Cos'è la classificazione dei messaggi?](#user-content-faq163)
-* [(164) Puoi aggiungere temi personalizzabili?](#user-content-faq164)
+* [(164) Puoi aggiungere i temi personalizzabili?](#user-content-faq164)
 * [(165) Android Auto è supportato?](#user-content-faq165)
-* [(166) Posso ritardare un messaggio su più dispositivi?](#user-content-faq166)
+* [(166) Posso posticipare un messaggio su più dispositivi?](#user-content-faq166)
 
 [Ho un'altra domanda.](#user-content-support)
 
@@ -469,19 +469,19 @@ Nella sezione di visualizzazione delle impostazioni puoi, ad esempio, abilitare 
 * *Mostra automaticamente il messaggio originale per i contatti noti*: per mostrare automaticamente i messaggi originali per i contatti sul tuo dispositivo, sei pregato di leggere [questa FAQ](#user-content-faq35)
 * *Mostra automaticamente le immagini per i contatti noti*: per mostrare automaticamente le immagini per i contatti sul tuo dispositivo, sei pregato di leggere [questa FAQ](#user-content-faq35)
 
-Nota che i messaggi sono visibili in anteprima solo quando il testo del messaggio è stato scaricato. I testi più lunghi non vengono scaricati in modo predefinito su reti a consumo (generalmente mobili). Puoi cambiarlo nelle impostazioni di connessione.
+Nota che i messaggi sono visibili in anteprima solo quando il testo del messaggio è stato scaricato. I testi più grandi non sono scaricati di default su reti a consumo (generalmente mobili). Puoi cambiarlo nelle impostazioni di connessione.
 
 Alcune persone chiedono:
 
-* di mostrare il soggetto in grassetto, ma il grassetto è già usato per evidenziare i messaggi non letti
-* di spostare la stella a sinistra, ma è molto più facile azionarla sul lato destro
+* di mostrare l'oggetto in grassetto, ma il grassetto è già usato per evidenziare i messaggi non letti
+* di spostare la stella a sinistra, ma è molto più facile adoperarla sul lato destro
 
 <br />
 
 <a name="faq6"></a>
 **(6) Come posso accedere a Gmail / G suite?**
 
-Se usi la versione del Play Store o di GitHub di FairEmail, puoi usare la procedura guidata di configurazione rapida per configurare facilmente un profilo e un'identità di Gmail. La procedura guidata di configurazione rapida di Gmail non è disponibile per build di terze parti, come quella di F-Droid perché Google ha approvato l'uso di OAuth per le sole build ufficiali.
+Se usi la versione di FairEmail del Play Store o di GitHub, puoi usare la procedura guidata di configurazione rapida per configurare facilmente il profilo e l'identità di Gmail. La procedura guidata di configurazione rapida di Gmail non è disponibile per build di terze parti, come quella di F-Droid perché Google ha approvato l'uso di OAuth per le sole build ufficiali.
 
 Se non vuoi o non puoi usare un profilo Google sul dispositivo, ad esempio sui dispositivi recenti di Huawei, puoi abilitare l'accesso per "app meno sicure" e usare la password del tuo profilo (sconsigliato) o abilitare l'autenticazione a due fattori e usare una password specifica dell'app. Per usare una password dovrai configurare un profilo e un'identità tramite la configurazione manuale invece che tramite la procedura guidata di configurazione rapida.
 
@@ -601,7 +601,7 @@ Vedi [questa FAQ](#user-content-faq33) sulla modifica del nome utente degli indi
 <br />
 
 <a name="faq12"></a>
-**(12) Come funzionano la crittografia/decrittografia?**
+**(12) Come funziona la crittografia/decrittografia?**
 
 La comunicazione con i server email è sempre crittografata, a meno che tu non l'abbia esplicitamente disattivata. Questa domanda è sulla crittografia end-to-end facoltativa con PGP o S/MIME. Il mittente e il destinatario dovrebbero prima acconsentire e scambiarsi messaggi firmati per trasferire la loro chiave pubblica e poter inviare messaggi crittografati.
 
@@ -609,17 +609,17 @@ La comunicazione con i server email è sempre crittografata, a meno che tu non l
 
 *Generale*
 
-Si prega di [vedere qui](https://en.wikipedia.org/wiki/Public-key_cryptography) come funziona la crittografia della chiave pubblica/privata.
+Sei pregato di [vedere qui](https://en.wikipedia.org/wiki/Public-key_cryptography) come funziona la crittografia a chiave pubblica/privata.
 
 La crittografia in breve:
 
 * I messaggi **in uscita** sono crittografati con la **chiave pubblica** del destinatario
-* I messaggi **in arrivo** sono decrittografati con la **chiave privata** del destinatario
+* I messaggi **in entrata** sono decrittografati con la **chiave privata** del destinatario
 
 Le firme in breve:
 
-* I messaggi **In Uscita** sono firmati con la **chiave privata** del mittente
-* I messaggi **In Entrata** sono verificati con la **chiave pubblica** del mittente
+* I messaggi **in uscita** sono firmati con la **chiave privata** del mittente
+* I messaggi **in entrata** sono verificati con la **chiave pubblica** del mittente
 
 Per firmare/crittografare un messaggio, basta selezionare il metodo appropriato nella finestra di invio. Puoi sempre aprire la finestra di invio usando il menu di trabocco a tre puntini nel caso tu abbia selezionato prima *Non mostrare più*.
 
@@ -655,19 +655,19 @@ Tutta la gestione delle chiavi è delegata all'app OpenKeychain per motivi di si
 
 Il PGP crittografato in linea nei messaggi ricevuti è supportato, ma le firme PGP in linea e i PGP in linea nei messaggi in uscita non sono supportati, vedi [qui](https://josefsson.org/inline-openpgp-considered-harmful.html) perché no.
 
-I messaggi solo firmati o solo crittografati non sono una buona idea, vedi qui i motivi:
+I messaggi solo firmati o solo crittografati non sono una buona idea, sei pregato di vedere qui perché non lo sono:
 
-* [Considerazioni di OpenPGP Parte I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
-* [Considerazioni di OpenPGP Parte II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
-* [Considerazioni di OpenPGP Parte III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+* [Considerazioni su OpenPGP Parte I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
+* [Considerazioni su OpenPGP Parte II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
+* [Considerazioni su OpenPGP Parte III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-I messaggi solo firmati sono supportati, i messaggi solo crittografati no.
+I messaggi solo firmati sono supportati, quelli non crittografati no.
 
 Errori comuni:
 
-* *Nessuna chiave*: non c'è nessuna chiave PGP disponibile per uno degli indirizzi e-mail elencati
-* *Chiave mancante per la crittografia*: c'è probabilmente una chiave selezionata in FairEmail che non esiste più nell'applicazione OpenKeychain. Resettare la chiave (vedi sopra) probabilmente risolverà questo problema.
-* *Manca la chiave per la verifica della firma*: la chiave pubblica per il mittente non è disponibile nell'app OpenKeychain. Ciò può anche essere causato dal fatto che Autocrypt è disattivato nelle impostazioni di crittografia o dall'intestazione di Autocrypt che non viene inviata.
+* *Nessuna chiave*: non è disponibile alcuna chiave PGP per uno degli indirizzi email elencati
+* *Chiave mancante per la crittografia*: probabilmente una chiave selezionata in FairEmail non esiste più nell'app di OpenKeychain. Ripristinare la chiave (vedi sopra) probabilmente risolverà questo problema.
+* *Chiave per la verifica della firma mancante*: la chiave pubblica per il mittente non è disponibile nell'app di OpenKeychain. Questo può esser causato da Autocrypt se disabilitato nelle impostazioni di crittografia o dal mancato invio dell'intestazione di Autocrypt.
 
 <br />
 
@@ -691,9 +691,9 @@ FairEmail verifica sia la firma che l'intera catena di certificati.
 
 Errori comuni:
 
-* *Nessun certificato corrispondente a targetContraints trovato*: questo potrebbe significare che stai usando una versione vecchia di FairEmail
-* *Impossibile trovare il percorso di certificazione valido al target richiesto*: fondamentalmente ciò significa che uno o più certificati intermedi o di root non sono stati trovati
-* *La chiave privata non corrisponde a quelle di crittografia*: la chiave selezionata non è utilizzabile per decrittografare il messaggio, probabilmente perché errata
+* *Nessun certificato corrispondente a targetContraints trovato*: questo potrebbe significare che stai usando una vecchia versione di FairEmail
+* *Impossibile trovare il percorso valido di certificazione all'obiettivo richiesto*: fondamentalmente ciò significa che non sono stati trovati uno o più certificati intermedi o di root
+* *La chiave privata non corrisponde ad alcuna chiave di crittografia*: la chiave selezionata non è utilizzabile per decrittografare il messaggio, probabilmente perché è errata
 * *Nessuna chiave privata*: nessun certificato selezionato o disponibile nel keystore di Android
 
 Nel caso in cui la catena del certificato sia scorretta, puoi toccare sul piccolo pulsante di informazioni per mostrare tutti i certificati. Dopo i dettagli del certificato è mostrato il mittente o "selfSign". Un certificato è auto-firmato quando l'oggetto e l'emittente corrispondono. I certificati da un'autorità di certificazione (CA) sono contrassegnati con "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". I certificati trovati nella memoria di chiavi di Android sono contrassegnati con "Android".
@@ -701,7 +701,7 @@ Nel caso in cui la catena del certificato sia scorretta, puoi toccare sul piccol
 Una catena valida somiglia a questa:
 
 ```
-Il tuo certificato > zero o più certificati intermedi > certificato CA (root) contrassegnato con "Android"
+Il tuo certificato > zero o più certificati intermedi > certificato CA (di root) contrassegnato con "Android"
 ```
 
 Nota che una catena di certificati sarà sempre non valida quando non è trovato alcun certificato d'ancoraggio nella memoria di chiavi di Android, fondamentale per la convalida del certificato S/MIME.
@@ -756,12 +756,12 @@ raw:larger:10M`
 
 Cercare in un gran numero di messaggi sul dispositivo non è molto veloce per due limitazioni:
 
-* [sqlite](https://www.sqlite.org/), il motore del database di Android ha un limite di dimensione del registro, prevenendo che i testi del messaggio siano memorizzati nel database
-* Le app di Android hanno memoria limitata per funzionare, anche se il dispositivo ha molta memoria disponibile
+* [sqlite](https://www.sqlite.org/), il motore del database di Android ha un limite di dimensioni del registro, impedendo ai testi dei messaggi di esser memorizzati nel database
+* Le app di Android hanno memoria limitata per funzionare, anche se il dispositivo ne ha molta disponibile
 
 Questo significa che cercare il testo di un messaggio richiede che i file contenenti i testi del messaggio siano aperti uno per uno per controllare se il testo ricercato sia contenuto nel file, il che è un processo relativamente espansivo.
 
-Nelle *impostazioni varie* puoi abilitare *Crea indice di ricerca* per aumentare significativamente la velocità di ricerca sul dispositivo, ma sappi che questo aumenterà l'uso della batteria e dello spazio di archiviazione. L'indice di ricerca si basa sulle parole, quindi non è possibile cercare testi parziali. Cercare usando l'indice di ricerca è predefinito ad AND (E), quindi cercare *mela arancia* cercherà mela AND (E) arancia. Le parole separate da virgole risulteranno nella ricerca per O (OR), quindi ad esempio *mela, arancia* cercherà mela OR (O) arancia. Entrambi sono combinabili, quindi cercare *mela, arancia banana* cercherà mela OR (O) (arancia AND (E) banana). L'uso dell'indice di ricerca è una funzionalità pro.
+Nelle *impostazioni varie* puoi abilitare *Crea indice di ricerca* per aumentare significativamente la velocità di ricerca sul dispositivo, ma sappi che questo aumenterà l'uso della batteria e dello spazio di archiviazione. L'indice di ricerca si basa sulle parole, quindi non è possibile cercare testi parziali. Cercare usando l'indice di ricerca è predefinito ad E, quindi cercare *mela arancia* cercherà mela E arancia. Le parole separate da virgole risulteranno nella ricerca per O, quindi ad esempio *mela, arancia* cercherà mela O arancia. Entrambi sono combinabili, quindi cercare *mela, arancia banana* cercherà mela O (arancia E banana). L'uso dell'indice di ricerca è una funzionalità pro.
 
 Dalla versione 1.1315 è possibile usare espressioni di ricerca come questa:
 
@@ -772,7 +772,7 @@ mela +banana -ciliegia ?noci
 Questo risulterà nel cercare in questo modo:
 
 ```
-("mela" AND (E) "banana" AND NOT (E NON) "ciliegia") OR (O) "noci"
+("mela" E "banana" E NON "ciliegia") O "noci"
 ```
 
 Le espressioni di ricerca sono utilizzabili per cercare sul dispositivo tramite l'indice di ricerca e sul server email, ma non per cercare sul dispositivo senza l'indice di ricerca per motivi di prestazioni.
@@ -814,11 +814,11 @@ Le connessioni mobili sono quasi sempre misurate e lo sono anche alcuni hotspot 
 
 Possibili cause della mancata sincronizzazione dei messaggi (inviati o ricevuti) sono:
 
-* Il profilo o le cartelle non sono impostate per la sincronizzazione
-* Il numero di giorni per sincronizzare i messaggi è impostato troppo basso
-* Non c'è alcuna connessione internet utilizzabile
-* Il server email è temporaneamente non disponibile
-* Android ha interrotto il servizio di sincronizzazione
+* Il profilo o le cartelle non sono impostati per la sincronizzazione
+* Il numero di giorni per cui sincronizzare i messaggi è troppo basso
+* Non c'è alcuna connessione utilizzabile a internet
+* Il server email non è temporaneamente disponibile
+* Android ha arrestato il servizio di sincronizzazione
 
 Quindi, controlla il tuo profilo e le impostazioni della cartella e verifica se i profili/le cartelle sono connesse (vedi la legenda nel menu di navigazione per il significato delle icone).
 
@@ -864,9 +864,9 @@ Sei pregato di consultare la descrizione dell'app del Play Store o [vedere qui](
 La domanda corretta è "*perché ci sono così tante tasse e commissioni?*":
 
 * IVA: 25% (in base al tuo paese)
-* Commissione di Google: 30 %
-* Tassa sul reddito: 50 %
-* <sub>Commissione di Paypal: 5-10 % in base al paese/importo</sub>
+* Commissione di Google: 30%
+* Tassa sul reddito: 50%
+* <sub>Quota di PayPal: 5-10% in base al paese/importo</sub>
 
 Quindi, quanto rimane allo sviluppatore è solo una frazione di ciò che paghi.
 
@@ -953,14 +953,14 @@ Sei pregato di [vedere qui](#user-content-faq41) per l'errore *... Handshake fal
 
 Vedi [qui](https://linux.die.net/man/3/connect) cosa significano i codici di errore come EHOSTUNREACH e ETIMEDOUT.
 
-Cause possibili sono:
+Sono cause possibili:
 
-* Un firewall o router sta bloccando le connessioni al server
-* Il nome dell'host o numero di porta non è valido
+* Un firewall o router che sta bloccando le connessioni al server
+* Il nome dell'host o il numero di porta non è valido
 * Ci sono problemi con la connessione a internet
 * Ci sono problemi con la risoluzione dei nomi di dominio (Yandex: prova a disabilitare il DNS privato nelle impostazioni di Android)
-* Il server email si rifiuta di accettare le connessioni (esterne)
-* Il server dell'email rifiuta di accettare un messaggio, ad esempio perché troppo grande o contenente collegamenti inaccettabili
+* Il server email si sta rifiutando di accettare le connessioni (esterne)
+* Il server email si sta rifiutando di accettare un messaggio, ad esempio perché troppo grande o contenente link inaccettabili
 * Ci sono troppe connessioni al server, vedi anche la prossima domanda
 
 Molte reti Wi-Fi pubbliche bloccano le email in uscita per prevenire lo spam. A volte puoi risolvere ciò usando un'altra porta SMTP. Vedi la documentazione del provider per i numeri di porta utilizzabili.
@@ -1093,7 +1093,7 @@ Immagine incorporata:
 
 Immagine corrotta:
 
-![Immagine danneggiata](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Immagine corrotta](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Nota che scaricare immagini esterne da un server remoto è utilizzabile per registrare che hai visualizzato un messaggio, cosa che probabilmente non vorresti se il messaggio è di spam o malevolo.
 
@@ -2123,7 +2123,7 @@ Dopo aver revocato i permessi di contatto, Android non consentirà più l'access
 <br />
 
 <a name="faq99"></a>
-**(99) Puoi aggiungere un editor del testo ricco o di markdown?**
+**(99) Puoi aggiungere un editor del rich text o di markdown?**
 
 FairEmail fornisce la formattazione comune del testo (grassetto, corsivo, sottolineato, dimensione e colore del testo) tramite una barra degli strumenti che compare selezionando del testo.
 
@@ -2188,7 +2188,7 @@ Nota che solo le immagini [JPEG](https://en.wikipedia.org/wiki/JPEG) e [PNG](htt
 <br />
 
 <a name="faq105"></a>
-**(105) Come funziona l'opzione naviga come a casa?**
+**(105) Come funziona l'opzione roam-like-at-home?**
 
 FairEmail verificherà se il codice del paese della scheda SIM e della rete sono tra i [paesi roam-like-at-home dell'UE](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) e presume che non ci sia roaming se i codici del paese sono uguali e l'opzione roam-like-at-home avanzata è abilitata.
 
@@ -2493,7 +2493,7 @@ Tutanota usa un protocollo email proprietario e [non supporta IMAP](https://tuta
 <br />
 
 <a name="faq130"></a>
-**(130) Cosa significa il messaggio di errore ...?**
+**(130) Cosa significa il messaggio di errore...?**
 
 Una serie di righe di testo arancioni o rosse con informazioni tecniche significano che la modalità di debug è stata abilitata nelle impostazioni varie.
 
@@ -2569,7 +2569,7 @@ Similmente, le bozze sono mostrate nelle conversazioni per ritrovarle nel contes
 <br />
 
 <a name="faq136"></a>
-**(136) Come posso eliminare un profilo/identità/cartella?**
+**(135) Come posso eliminare un profilo/un'identità/una cartella?**
 
 Eliminare un profilo/identità/cartella è un po' nascosto per prevenire incidenti.
 
@@ -2629,7 +2629,7 @@ Usando una casella condivisa, potresti voler abilitare l'opzione *Sincronizza el
 <br />
 
 <a name="faq140"></a>
-**(140) Perché il messaggio contiene caratteri strani?**
+**(140) Perché il testo del massaggio contiene caratteri strani?**
 
 Mostrare caratteri strani è quasi sempre causato dalla specificazione di nessuna o un'invalida codifica del carattere, dal software di invio. FairEmail presumerà
 

@@ -249,7 +249,7 @@
     <string name="title_advanced_gmail_thread">Använd Gmails stil för gruppering av meddelande på Gmail-konton</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
     <string name="title_advanced_sync_shared_folders">Synkronisera delade mapplistor</string>
-    <string name="title_advanced_subscriptions" comment="title_advanced_subscriptions&#10;https://superuser.com/questions/61585/what-does-it-mean-to-subscribe-to-an-imap-folder&#10;">Hantera mapprenumerationer</string>
+    <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
     <string name="title_advanced_check_reply_domain">Kontrollera svarsadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_tune_keep_alive">Justera automatiskt keep-alive intervallet</string>
@@ -697,7 +697,7 @@
     <string name="title_no_operations">Inga pågående åtgärder</string>
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
     <string name="title_folder_name">Mappnamn</string>
-    <string name="title_display_name" comment="title_display_name&#10;Display name of account, identity, folder, etc">Visningsnamn</string>
+    <string name="title_display_name">Visningsnamn</string>
     <string name="title_show_folders">Visa dolda mappar</string>
     <string name="title_show_flagged">Visa antal stjärnmärkta meddelanden</string>
     <string name="title_subscribed_only">Endast prenumerationer</string>
@@ -812,7 +812,7 @@
     <string name="title_report_spam">Behandla som skräppost</string>
     <string name="title_delete_permanently">Ta bort permanent</string>
     <string name="title_snooze">Slumra &#8230;</string>
-    <string name="title_archive" comment="title_archive&#10;Archive a message">Arkivera</string>
+    <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
     <string name="title_reply_to_sender">Svara till avsändare</string>
     <string name="title_reply_to_all">Svara till alla</string>
