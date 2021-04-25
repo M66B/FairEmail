@@ -727,7 +727,8 @@ public class ContactInfo {
 
     static void update(
             Context context, EntityAccount account, final EntityFolder folder, final EntityMessage message) {
-        if (message.received < account.created)
+        long sync_time = (folder.sync_days == Integer.MAX_VALUE ? 0 : folder.sync_days) * 24 * 3600 * 1000L;
+        if (message.received < account.created - sync_time)
             return;
 
         if (EntityFolder.DRAFTS.equals(folder.type) ||
