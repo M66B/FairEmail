@@ -5592,12 +5592,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             boolean inline = true;
             List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-            for (EntityAttachment attachment : attachments) {
+            for (EntityAttachment attachment : attachments)
                 if (attachment.encryption != null) {
                     inline = false;
-                    break;
+                    if (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt) &&
+                            !EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption))
+                        db.attachment().deleteAttachment(attachment.id);
                 }
-            }
 
             if (inline) {
                 if (message.uid == null)
