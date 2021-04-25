@@ -110,6 +110,8 @@ public abstract class DB extends RoomDatabase {
 
     public abstract DaoLog log();
 
+    private static Context sContext;
+    private static int sPid;
     private static DB sInstance;
 
     private static final String DB_NAME = "fairemail";
@@ -302,16 +304,28 @@ public abstract class DB extends RoomDatabase {
     }
 
     public static synchronized DB getInstance(Context context) {
-        if (sInstance == null) {
-            Log.i("Creating database instance");
-            Context acontext = context.getApplicationContext();
+        Context acontext = context.getApplicationContext();
+        if (sInstance != null &&
+                sContext != null && !sContext.equals(acontext))
+            try {
+                Log.e("Old database instance pid=" + android.os.Process.myPid() + "/" + sPid);
+                sInstance.close();
+                sInstance = null;
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        sContext = acontext;
+        sPid = android.os.Process.myPid();
 
-            sInstance = migrate(acontext, getBuilder(acontext)).build();
+        if (sInstance == null) {
+            Log.i("Creating database instance pid=" + sPid);
+
+            sInstance = migrate(sContext, getBuilder(sContext)).build();
 
             sInstance.getQueryExecutor().execute(new Runnable() {
                 @Override
                 public void run() {
-                    checkEmergencyBackup(acontext);
+                    checkEmergencyBackup(sContext);
                 }
             });
 
