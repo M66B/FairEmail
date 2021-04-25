@@ -308,8 +308,7 @@ public abstract class DB extends RoomDatabase {
         if (sInstance != null &&
                 sContext != null && !sContext.equals(acontext))
             try {
-                Log.e("Old database instance pid=" + android.os.Process.myPid() + "/" + sPid);
-                sInstance.close();
+                Log.e("Orphan database instance pid=" + android.os.Process.myPid() + "/" + sPid);
                 sInstance = null;
             } catch (Throwable ex) {
                 Log.e(ex);
