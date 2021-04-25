@@ -2377,6 +2377,15 @@ class Core {
                         message.ui_ignored = false;
                         message.ui_browsed = false;
 
+                        if (message.deliveredto != null)
+                            try {
+                                Address deliveredto = new InternetAddress(message.deliveredto);
+                                if (MessageHelper.equalEmail(new Address[]{deliveredto}, message.to))
+                                    message.deliveredto = null;
+                            } catch (AddressException ex) {
+                                Log.w(ex);
+                            }
+
                         if (MessageHelper.equalEmail(message.submitter, message.from))
                             message.submitter = null;
 
@@ -3209,6 +3218,15 @@ class Core {
 
             if (message.flagged)
                 message.color = color;
+
+            if (message.deliveredto != null)
+                try {
+                    Address deliveredto = new InternetAddress(message.deliveredto);
+                    if (MessageHelper.equalEmail(new Address[]{deliveredto}, message.to))
+                        message.deliveredto = null;
+                } catch (AddressException ex) {
+                    Log.w(ex);
+                }
 
             if (MessageHelper.equalEmail(message.submitter, message.from))
                 message.submitter = null;
