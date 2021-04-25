@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997, 2019 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0, which is available at
@@ -30,7 +30,6 @@ import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
 import com.sun.mail.util.PropUtil;
@@ -545,21 +544,61 @@ public class Protocol {
     public SocketChannel getChannel() {
 	SocketChannel ret = socket.getChannel();
 	if (ret != null)
-	    return ret;
+		return ret;
 
-	// XXX - Android is broken and SSL wrapped sockets don't delegate
-	// the getChannel method to the wrapped Socket
 	if (socket instanceof SSLSocket) {
-	    try {
-		Field f = socket.getClass().getDeclaredField("socket");
-		f.setAccessible(true);
-		Socket s = (Socket)f.get(socket);
-		ret = s.getChannel();
-	    } catch (Exception ex) {
-		// ignore anything that might go wrong
-	    }
+		ret = Protocol.findSocketChannel(socket);
 	}
 	return ret;
+    }
+
+    /**
+     * Android is broken and SSL wrapped sockets don't delegate
+     * the getChannel method to the wrapped Socket.
+     * 
+     * @param socket a non null socket
+     * @return the SocketChannel or null if not found
+     */
+    private static SocketChannel findSocketChannel(Socket socket) {
+	//Search class hierarchy for field name socket regardless of modifier.
+	for (Class<?> k = socket.getClass(); k != Object.class; k = k.getSuperclass()) {
+		try {
+			Field f = k.getDeclaredField("socket");
+			f.setAccessible(true);
+			Socket s = (Socket) f.get(socket);
+			SocketChannel ret = s.getChannel();
+			if (ret != null) {
+				return ret;
+			}
+		} catch (Exception ignore) {
+			//ignore anything that might go wrong
+		}
+	}
+	
+	//Search class hierarchy for fields that can hold a Socket
+	//or subclass regardless of modifier.  Fields declared as super types of Socket
+	//will be ignored.
+	for (Class<?> k = socket.getClass(); k != Object.class; k = k.getSuperclass()) {
+		try {
+			for (Field f : k.getDeclaredFields()) {
+				if (Socket.class.isAssignableFrom(f.getType())) {
+					try {
+						f.setAccessible(true);
+						Socket s = (Socket) f.get(socket);
+						SocketChannel ret = s.getChannel();
+						if (ret != null) {
+							return ret;
+						}
+					} catch (Exception ignore) {
+						//ignore anything that might go wrong
+					}
+				}
+			}
+		} catch (Exception ignore) {
+			//ignore anything that might go wrong
+		}
+	}
+	return null;
     }
 
     /**

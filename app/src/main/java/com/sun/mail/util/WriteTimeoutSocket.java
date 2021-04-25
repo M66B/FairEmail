@@ -322,12 +322,12 @@ public class WriteTimeoutSocket extends Socket {
      * @return	the FileDescriptor object
      */
     public FileDescriptor getFileDescriptor$() {
-        //The loop handles issues with non-public classes between
-        //java.net.Socket and the actual socket type held in this object.
-        //Must inspect java.net.Socket to ensure compatiblity with old behavior.
-        for (Class<?> k = socket.getClass(); k != Object.class; k = k.getSuperclass()) {
+    	//The loop handles issues with non-public classes between 
+    	//java.net.Socket and the actual socket type held in this object.
+    	//Must inspect java.net.Socket to ensure compatiblity with old behavior.
+    	for (Class<?> k = socket.getClass(); k != Object.class; k = k.getSuperclass()) {
             try {
-                Method m = k.getDeclaredMethod("getFileDescriptor$");
+                Method m = k.getDeclaredMethod("getFileDescriptor$");  
                 if (FileDescriptor.class.isAssignableFrom(m.getReturnType())) {
                         //Skip setAccessible so non-public methods fail to invoke.
                     return (FileDescriptor) m.invoke(socket);

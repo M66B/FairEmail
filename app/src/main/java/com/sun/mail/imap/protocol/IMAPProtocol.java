@@ -630,6 +630,7 @@ public class IMAPProtocol extends Protocol {
 	authenticated = true;
     }
 
+
     /**
      * The AUTHENTICATE command with AUTH=PLAIN authentication scheme.
      * This is based heavly on the {@link #authlogin} method.

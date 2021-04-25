@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--
 
-    Copyright (c) 1997, 2020 Oracle and/or its affiliates. All rights reserved.
+    Copyright (c) 1997, 2021 Oracle and/or its affiliates. All rights reserved.
 
     This program and the accompanying materials are made available under the
     terms of the Eclipse Public License v. 2.0, which is available at
@@ -388,6 +388,13 @@ Because the OAuth 2.0 protocol requires a special access token instead of
 a password, this mechanism is disabled by default.  Enable it by explicitly
 setting this property to "false" or by setting the "mail.pop3.auth.mechanisms"
 property to "XOAUTH2".</TD>
+</TR>
+
+<TR>
+<TD><A ID="mail.pop3.auth.xoauth2.two.line.authentication.format">mail.pop3.auth.xoauth2.two.line.authentication.format</A></TD>
+<TD>boolean</TD>
+<TD>If true, splits authentication command on two lines.
+Default is false.</TD>
 </TR>
 
 <TR>
