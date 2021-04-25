@@ -189,7 +189,6 @@ public class FragmentQuickSetup extends FragmentBase {
         pbCheck.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
-        btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         grpSetup.setVisibility(View.GONE);
@@ -241,7 +240,6 @@ public class FragmentQuickSetup extends FragmentBase {
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
-                btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
             }
@@ -496,7 +494,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
-                            scroll.smoothScrollTo(0, tvErrorHint.getBottom());
+                            scroll.smoothScrollTo(0, btnSupport.getBottom());
                         }
                     });
                 } else {
@@ -508,8 +506,6 @@ public class FragmentQuickSetup extends FragmentBase {
                         btnHelp.setTag(uri);
                         btnHelp.setVisibility(View.VISIBLE);
                     }
-
-                    btnSupport.setVisibility(View.VISIBLE);
 
                     if (args.containsKey("documentation")) {
                         tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation"), getContext()));

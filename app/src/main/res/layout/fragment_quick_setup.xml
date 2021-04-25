@@ -289,6 +289,6 @@
             android:id="@+id/grpError"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint,tvErrorRemark" />
+            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint,tvErrorRemark,btnSupport" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
