@@ -94,7 +94,6 @@ public class ContactInfo {
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
     private static final Map<String, Avatar> emailGravatar = new HashMap<>();
-    private static final Map<Long, List<EntityIdentity>> accountIdentities = new HashMap<>();
 
     private static final ExecutorService executorLookup =
             Helper.getBackgroundExecutor(1, "contact");
@@ -192,12 +191,6 @@ public class ContactInfo {
                 }
             }
         });
-    }
-
-    static void clearIdentities() {
-        synchronized (accountIdentities) {
-            accountIdentities.clear();
-        }
     }
 
     @NonNull
@@ -757,14 +750,7 @@ public class ContactInfo {
         // Check if from self
         if (type == EntityContact.TYPE_FROM) {
             if (message.from != null) {
-                List<EntityIdentity> identities;
-                synchronized (accountIdentities) {
-                    if (!accountIdentities.containsKey(folder.account))
-                        accountIdentities.put(folder.account,
-                                db.identity().getSynchronizingIdentities(folder.account));
-                    identities = accountIdentities.get(folder.account);
-                }
-
+                List<EntityIdentity> identities = Core.getIdentities(folder.account, context);
                 if (identities != null) {
                     for (Address sender : message.from) {
                         for (EntityIdentity identity : identities)

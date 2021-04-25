@@ -158,6 +158,23 @@ class Core {
     private static final int FIND_RETRY_COUNT = 3; // times
     private static final long FIND_RETRY_DELAY = 5 * 1000L; // milliseconds
 
+    private static final Map<Long, List<EntityIdentity>> accountIdentities = new HashMap<>();
+
+    static void clearIdentities() {
+        synchronized (accountIdentities) {
+            accountIdentities.clear();
+        }
+    }
+
+    static List<EntityIdentity> getIdentities(long account, Context context) {
+        synchronized (accountIdentities) {
+            if (!accountIdentities.containsKey(account))
+                accountIdentities.put(account,
+                        DB.getInstance(context).identity().getSynchronizingIdentities(account));
+            return accountIdentities.get(account);
+        }
+    }
+
     static void processOperations(
             Context context,
             EntityAccount account, EntityFolder folder, List<TupleOperationEx> ops,
@@ -3603,7 +3620,7 @@ class Core {
             }
 
         // Search for matching identity
-        List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(folder.account);
+        List<EntityIdentity> identities = getIdentities(folder.account, context);
         if (identities != null) {
             for (Address address : addresses)
                 for (EntityIdentity identity : identities)

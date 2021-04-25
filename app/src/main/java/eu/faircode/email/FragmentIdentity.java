@@ -990,7 +990,7 @@ public class FragmentIdentity extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ContactInfo.clearIdentities();
+                Core.clearIdentities();
 
                 return false;
             }
@@ -1376,7 +1376,7 @@ public class FragmentIdentity extends FragmentBase {
                 DB db = DB.getInstance(context);
                 db.identity().deleteIdentity(id);
 
-                ContactInfo.clearIdentities();
+                Core.clearIdentities();
 
                 return null;
             }
