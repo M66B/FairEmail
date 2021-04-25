@@ -387,6 +387,7 @@ public class Log {
                     boolean should = shouldNotify(ex);
 
                     if (should) {
+                        event.addMetadata("extra", "pid", Integer.toString(android.os.Process.myPid()));
                         event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
                         event.addMetadata("extra", "memory_free", getFreeMemMb());
                         event.addMetadata("extra", "memory_available", getAvailableMb());
