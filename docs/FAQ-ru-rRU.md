@@ -47,22 +47,22 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## Узнайте, как...
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* Изменить имя аккаунта: настройки, Ручная настройка и параметры учётной записи, нажмите "Учётные записи", выберите нужную учётную запись.
 * Изменить действия свайпа влево/вправо: настройки, поведение вкладки, действие свайпа
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Изменить пароль: настройки, Ручная настройка и параметры учётной записи, нажмите "Учётные записи", выберите нужную "Учётную запись", смените пароль.
+* Установка подписи: Настройки, Ручная настройка и параметры учётной записи, нажмите «Идентификаторы», нажмите на нужную учётную запись, «Изменить подпись».
 * Добавить адреса CC и BCC: нажмите на иконку человека в конце темы
 * Перейти к следующему/предыдущему сообщению при архивации/удалении: в настройках поведения отключите *Автоматически закрывать диалоги* и выберите *Перейти к следующему/предыдущему диалогу* для *При закрытии диалога*
 * Добавить папку в единый почтовый ящик: долгое нажатие на папку в списке и галочка *Показать в едином почтовом ящике*
 * Добавьте папку в навигационное меню: долгое нажатие на папку в списке и установите флажок *Показать в меню навигации*
 * Загрузить больше сообщений: долгое нажатие на папку в списке, выберите *Синхронизировать ещё сообщения*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Удаление сообщения, не используя корзину: длительное нажатие на значок корзины.
+* Удалить аккаунт/идентификатор: настройки, нажмите ручную настройку и другие функции, меню "Три точки", Удалить
+* Удалить папку: долгое нажатие на папку в списке папок, свойства редактирования, "значок корзины" вверху справа.
+* Отмена отправки: Исходящие, проведите пальцем по сообщению в списке влево или вправо
 * Сохранять отправленные сообщения в папке "Входящие": пожалуйста [смотрите этот FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Изменить системные папки: Настройки, Удаление сообщения, пропуск корзины: длительное нажатие на значок корзины, нажмите "Учётные записи", выберите нужную учётную запись.
+* Настройки экспорта/импорта: Настройки, левое боковое меню.
 
 ## Известные проблемы
 
@@ -288,7 +288,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [(163) Что такое классификация сообщений?](#user-content-faq163)
 * [(164) Можете ли вы добавить настраиваемые темы?](#user-content-faq164)
 * [(165) Поддерживает ли Android Auto?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(166) Могу ли я отложить сообщение на несколько устройств?](#user-content-faq166)
 
 [У меня есть еще один вопрос.](#user-content-support)
 
@@ -303,13 +303,13 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * * служба переднего плана * (FOREGROUND_SERVICE): чтобы запустить службу переднего плана на Android 9 Pie и более поздних версиях, см. также следующий вопрос
 * * запретить переход устройства в спящий режим * (WAKE_LOCK): чтобы устройство не спало во время синхронизации сообщений.
 * * биллинг в приложении * (BILLING): для разрешения покупок в приложении
-* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *расписание точного будильника* (SCHEDULE_EXACT_ALARM): для использования точного графика планирования(Android 12 и выше)
+* Необязательно: *чтение ваших контактов* (READ_CONTACTS): для автозаполнения адресов, отображения фото и [выбора контактов](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Необязательно: *считывание содержимого вашей SD-карты* (READ_EXTERNAL_STORAGE): чтобы принимать файлы из других устаревших приложений, см. также [этот FAQ](#user-content-faq49)
+* Дополнительно: *используйте аппаратное обеспечение отпечатка пальца* (USE_FINGERPRINT) и используйте *биометрическое оборудование* (USE_BIOMETRIC): для использования биометрической аутентификации
+* Необязательно: * поиск учетных записей на устройстве * (GET_ACCOUNTS): для выбора учетной записи при использовании быстрой настройки Gmail
+* Android 5.1 Lollipop и более ранние версии: * использовать учетные записи на устройстве * (USE_CREDENTIALS): для выбора учетной записи при использовании быстрой настройки Gmail (не требуется в более поздних версиях Android)
+* Android 5.1 Lollipop и ниже: *Используют учётные записи устройства* (READ_PROFILE): чтобы узнать ваше имя во время быстрой настройки Gmail (не требуется в более поздних версиях Android)
 
 [Необязательные разрешения](https://developer.android.com/training/permissions/requesting) поддерживаются только на Android 6 Marshmallow и позднее. В предыдущих версиях Android вам будет предложено предоставить дополнительные разрешения на установку FairEmail.
 
@@ -332,38 +332,38 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail будет хранить список адресов, от которых вы получаете сообщения и которым их отправляете, и будет использовать этот список, чтобы подсказывать вам адреса при отправке сообщений, если FairEmail не будет предоставлено ни одного разрешения к списку контактов. Это значит что вы можете использовать FairEmail, не используя список контактов Android (адресную книгу). Обратите внимание, что вы все еще можете выбирать контакты без предоставления разрешения на доступ к контактам FairEmail, только предлагающие контакты не будут работать без прав доступа.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Почему отображается постоянное уведомление?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Низкоприоритетное не пропадающее уведомление в строке состояния с количеством отслеживаемых учетных записей и ожидающих операций (см. следующий вопрос) показывается для того, чтобы предотвратить автоматическое завершение работы службы, необходимой для непрерывного получения писем. Это было [необходимо и ранее](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), но с введением в Android 6 Marshmallow [спящего режима](https://developer.android.com/training/monitoring-device-state/doze-standby) это стало более, чем необходимо. Режим Doze будет останавливать все приложения, когда экран выключен на некоторое время, если приложение не запустило переднюю службу, которая требует отображения уведомлений в строке состояния.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Большинство, если не все, другие почтовые приложения не присылают уведомления с "побочным эффектом" при котором уведомления о новых сообщения или приходят слишком поздно или не приходят вовсе, и так же происходит с уведомлениями об отправленных сообщениях.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android показывает значки уведомлений в строке состояния высокого приоритета и скрывает иконку уведомления от FairEmail, если больше нет места для отображения значков. На практике это означает, что уведомление в строке состояния не отображается, если нет свободного места.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Уведомления в строке состояния могут быть отключены через настройки уведомлений о FairEmail:
 
 * Android 8 Oreo и более поздние версии: нажмите кнопку *Получить канал* и отключите его через настройки уведомлений Android (уведомления о новых сообщениях не отключатся)
 * Android 7 Nougat и более ранние версии: включите настройку *Использовать фоновый сервис для синхронизации сообщений*, но не забудьте прочитать предупреждение под ней
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Вы можете переключиться на периодическую синхронизацию сообщений в настройках их получения, чтобы избавиться от уведомления в строке состояния, но имейте в виду, что это может увеличить расход батареи. Смотрите [здесь](#user-content-faq39) для получения более подробной информации об использовании батареи.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+На Android 8 Oreo также может появиться уведомление в строке состояния с текстом *Приложения запущены в фоновом режиме*. Пожалуйста, загляните [сюда](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) чтобы узнать как отключить это уведомление.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Некоторые люди советуют использовать [Службу Облачных Сообщений Firebase](https://firebase.google.com/docs/cloud-messaging/) (FMC) вместо Android службы уведомлений в строке состояния, но для этого провайдеру электронной почты потребуется отправлять сообщения FMC или на центральный сервер, где собираются все сообщения для отправки FMC. Первое никогда не произойдет, а второе будет иметь значительные последствия для конфиденциальности.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Если вы попали сюда, нажав на уведомление, вам стоит знать, что следующий щелчок откроет единый почтовый ящик.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Что такое операции и почему они ожидают?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Низкоприоритетное уведомление в строке состояния показывает число ожидающих операций, которыми могут быть:
 
 * *add - добавить*: добавить сообщение в удаленную папку
 * *move - переместить*: переместить сообщение в другую удалённую папку
@@ -385,18 +385,18 @@ The low priority status bar notification shows the number of pending operations,
 * *send - отправить*: отправить сообщение
 * *exists - существует*: проверить существует ли сообщение
 * *rule - правило*: использовать правило на основной текст сообщения
-* *expunge*: permanently delete messages
+* *expunge*: навсегда удалять сообщения
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Операции производятся только, когда есть соединение с сервером почты или во время ручной синхронизации. Смотрите так же [данный FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Как я могу использовать неверный сертификат безопасности / пустой пароль / обычное текстовое соединение?**
 
-*... Untrusted ... not in certificate ...*
+*... Недоверенное ... не в сертификате ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Неверный сертификат безопасности (Не удается проверить подлинность сервера) ...*
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
 

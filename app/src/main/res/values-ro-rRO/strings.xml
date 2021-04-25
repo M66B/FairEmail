@@ -11,6 +11,7 @@
     <string name="channel_service">Primește</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">E-mail</string>
+    <string name="channel_progress">Progres</string>
     <string name="channel_update">Actualizări</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
@@ -19,6 +20,7 @@
     <string name="channel_service_description">Sincronizarea şi monitorizarea conturilor</string>
     <string name="channel_send_description">Expediere mesaje</string>
     <string name="channel_notification_description">Notificări mesaje noi</string>
+    <string name="channel_progress_description">Notificări privind progresul activităților de lungă durată</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversație</item>
         <item quantity="few">Conversații</item>
@@ -365,6 +367,7 @@
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_image_placeholders">Afișați înlocuitorul imaginii</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
+    <string name="title_advanced_button_extra">Arată butoane suplimentare în partea de jos a mesajului</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_actionbar_color">Folosește culoarea contului pentru culoarea de fundal a barei de acțiuni a conversației</string>
@@ -624,6 +627,7 @@
     <string name="title_received_header">Folosește antetul \"Primit\"</string>
     <string name="title_date_header">Folosește antetul \'Dată\' (ora trimisă)</string>
     <string name="title_date_remark">Modificările vor fi aplicate doar mesajelor noi</string>
+    <string name="title_related_identity">Adaugă identitatea asociată (server SMTP)</string>
     <string name="title_check">Verificare</string>
     <string name="title_trust">Autorizare certificat server cu amprenta %1$s</string>
     <string name="title_no_name">Lipsește numele</string>
@@ -681,6 +685,8 @@
     <string name="title_empty_spam">Golire spam</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>
+    <string name="title_execute_rules">Execută regulile</string>
+    <string name="title_export_messages">Exportă mesajele</string>
     <string name="title_create_channel">Creare canal de notificare</string>
     <string name="title_edit_channel">Editare canal de notificare</string>
     <string name="title_delete_channel">Șterge canal de notificare</string>
@@ -894,6 +900,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Trimis:</string>
     <string name="title_received">Primit:</string>
+    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Dată:</string>
     <string name="title_stored">Stocat:</string>
     <string name="title_size">Mărime:</string>
     <string name="title_language">Limbă:</string>

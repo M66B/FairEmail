@@ -696,7 +696,7 @@
     <string name="title_empty_spam">Очистить \"Спам\"</string>
     <string name="title_edit_properties">Изменить свойства</string>
     <string name="title_edit_rules">Редактировать правила</string>
-    <string name="title_execute_rules">Выполнить привила</string>
+    <string name="title_execute_rules">Выполнить правила</string>
     <string name="title_export_messages">Экспорт сообщений</string>
     <string name="title_create_channel">Создать канал уведомлений</string>
     <string name="title_edit_channel">Изменить канал уведомлений</string>
