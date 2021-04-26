@@ -130,7 +130,6 @@
     <string name="title_setup_quick">Швидке налаштування</string>
     <string name="title_setup_intro">Налаштування облікового запису лише за три кроки, і після цього ви зможете відправляти та отримувати листи</string>
     <string name="title_setup_simple">Немає необхідності змінювати будь-які інші параметри</string>
-    <string name="title_setup_quick_accounts">Додати облікові записи</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
     <string name="title_setup_quick_hint">Швидке налаштування дасть інформацію про конфігурацію з autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Сервер IMAP для отримання повідомлень</string>

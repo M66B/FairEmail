@@ -122,7 +122,6 @@
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_intro">Att lägga till ett konto tar bara tre steg och efter det kan du skicka och ta emot e-post</string>
     <string name="title_setup_simple">Det finns ingen anledning att ändra några andra inställningar</string>
-    <string name="title_setup_quick_accounts">Lägg till konton</string>
     <string name="title_setup_quick_support">Vissa leverantörer gör det svårt att lägga till ett konto. Vänligen skyll inte på FairEmail för det, be om support istället.</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>

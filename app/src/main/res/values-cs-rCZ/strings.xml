@@ -140,7 +140,6 @@
     <string name="title_setup">Nastavení</string>
     <string name="title_setup_help">Nápověda</string>
     <string name="title_setup_quick">Rychlé nastavení</string>
-    <string name="title_setup_quick_accounts">Přidat účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>

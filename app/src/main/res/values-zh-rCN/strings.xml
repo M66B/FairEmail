@@ -110,7 +110,6 @@
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_intro">设置一个帐户只需三步，之后您就可以发送和接收电子邮件了</string>
     <string name="title_setup_simple">无需更改任何其他选项</string>
-    <string name="title_setup_quick_accounts">添加帐户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要怪责于 FairEmail, 而应向提供商寻求支持</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
@@ -877,7 +876,7 @@
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
     <string name="title_received">接收时间：</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">日期:</string>
+    <string name="title_date">日期:</string>
     <string name="title_stored">消息存储于：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">语言：</string>

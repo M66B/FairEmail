@@ -122,7 +122,6 @@
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des e-mails</string>
     <string name="title_setup_simple">Il n\'est pas nécessaire de modifier d\'autres options</string>
-    <string name="title_setup_quick_accounts">Ajouter des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
@@ -889,7 +888,7 @@
     <string name="title_via_identity">Via :</string>
     <string name="title_sent">Envoyé :</string>
     <string name="title_received">Reçu :</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Date :</string>
+    <string name="title_date">Date :</string>
     <string name="title_stored">Stocké :</string>
     <string name="title_size">Taille :</string>
     <string name="title_language">Langue :</string>

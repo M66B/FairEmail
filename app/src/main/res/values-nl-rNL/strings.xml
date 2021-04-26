@@ -122,7 +122,7 @@
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_intro">Het instellen van een account is slechts drie stappen en daarna kunt u e-mails verzenden en ontvangen</string>
     <string name="title_setup_simple">Het is niet nodig om enige andere opties te wijzigen</string>
-    <string name="title_setup_quick_accounts">Accounts toevoegen</string>
+    <string name="title_setup_quick_accounts">Accounts toevoegen of wijzigen</string>
     <string name="title_setup_quick_support">Sommige providers maken het moeilijk om een account toe te voegen. Geef a.u.b. FairEmail hiervoor niet de schuld, maar vraag om ondersteuning.</string>
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
@@ -889,7 +889,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Verzonden:</string>
     <string name="title_received">Ontvangen:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Datum:</string>
+    <string name="title_date">Datum:</string>
     <string name="title_stored">Opgeslagen:</string>
     <string name="title_size">Grootte:</string>
     <string name="title_language">Taal:</string>

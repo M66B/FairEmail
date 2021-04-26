@@ -111,7 +111,6 @@
     <string name="title_setup_quick">Thiết lập nhanh</string>
     <string name="title_setup_intro">Việc thiết lập một tài khoản chỉ bao gồm ba bước và sau đó bạn có thể gửi và nhận email</string>
     <string name="title_setup_simple">Không cần thiết phải thay đổi bất kỳ tuỳ chọn nào khác</string>
-    <string name="title_setup_quick_accounts">Thêm tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
@@ -877,7 +876,7 @@
     <string name="title_via_identity">Qua:</string>
     <string name="title_sent">Đã gửi:</string>
     <string name="title_received">Đã nhận:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Ngày:</string>
+    <string name="title_date">Ngày:</string>
     <string name="title_stored">Đã lưu trữ:</string>
     <string name="title_size">Kích cỡ:</string>
     <string name="title_language">Ngôn ngữ:</string>

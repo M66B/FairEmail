@@ -7,9 +7,11 @@
     <string name="app_crash">FairEmail tidak didukung pada perangkat ini karena ada beberapa kesalahan di Android menyebabkan crash/error</string>
     <string name="app_exit">Ketuk \"Kembali\" untuk keluar</string>
     <string name="app_cake">Sisa ruang penyimpanan tidak mencukupi</string>
+    <string name="app_updated">Pembaharuan terakhir: %1$s</string>
     <string name="channel_service">Menerima</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Email</string>
+    <string name="channel_progress">Pekembangan</string>
     <string name="channel_update">Pembaruan</string>
     <string name="channel_warning">Peringatan</string>
     <string name="channel_error">Kesalahan/Error</string>
@@ -18,6 +20,7 @@
     <string name="channel_service_description">Menyinkronkan dan memantau akun</string>
     <string name="channel_send_description">Mengirim pesan</string>
     <string name="channel_notification_description">Pemberitahuan pesan baru</string>
+    <string name="channel_progress_description">Pemberitahuan notifikasi terhadap aktivitas perjalanan yang lama</string>
     <plurals name="page_conversation">
         <item quantity="other">Percakapan</item>
     </plurals>
@@ -104,7 +107,8 @@
     <string name="title_setup">Pengaturan</string>
     <string name="title_setup_help">Bantuan</string>
     <string name="title_setup_quick">Pengaturan Cepat</string>
-    <string name="title_setup_quick_accounts">Tambahkan akun</string>
+    <string name="title_setup_intro">Melakukan pengaturan akun hanya dengan tiga cara dan setelah itu anda sudah bisa mengirim dan menerima email</string>
+    <string name="title_setup_simple">Tidak perlu melakukan perubahan pada opsi lain</string>
     <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
     <string name="title_setup_quick_hint">Pengaturan cepat akan mengambil informasi konfigurasi dari autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
@@ -150,9 +154,12 @@
     <string name="title_setup_permissions">Berikan Izin</string>
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
+    <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara handal</string>
     <string name="title_setup_doze_hint">Meskipun ini mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai akan mengurangi penggunaan baterai</string>
+    <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
+    <string name="title_setup_background">Pembatasan pada latar belakang telah diaktifkan</string>
     <string name="title_setup_data">Penghemat kuota diaktifkan</string>
     <string name="title_setup_advanced_options">Tampilkan opsi lanjutan</string>
     <string name="title_setup_inbox">Buka kotak masuk</string>
@@ -215,6 +222,7 @@
     <string name="title_advanced_section_encryption">Enkripsi</string>
     <string name="title_advanced_section_notifications">Pemberitahuan</string>
     <string name="title_advanced_section_misc">Lainnya</string>
+    <string name="title_advanced_default">Semua opsi biasanya telah menggunakan nila standar, yang tidak perlu diubah untuk menggunakan aplikasi</string>
     <string name="title_advanced_receive">Terima pesan untuk semua akun</string>
     <string name="title_advanced_when">Kapan</string>
     <string name="title_advanced_always">Selalu terima pesan untuk akun ini</string>
@@ -241,6 +249,7 @@
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
     <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
     <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
+    <string name="title_advanced_send_pending">Tampilkan ikon tunda kirim yang tidak mengganggu</string>
     <string name="title_advanced_compose_font">Huruf Standar</string>
     <string name="title_advanced_prefix_once">Awali subjek hanya sekali saat membalas atau meneruskan</string>
     <string name="title_advanced_separate_reply">Tambahkan garis horizontal sebelum header balasan/teruskan</string>
@@ -253,6 +262,8 @@
     <string name="title_advanced_signature_reply">Gunakan tanda tangan saat membalas</string>
     <string name="title_advanced_signature_forward">Gunakan tanda tangan saat meneruskan</string>
     <string name="title_advanced_discard_delete">Hapus draf secara permanen ketika membuangnya</string>
+    <string name="title_advanced_reply_move">Saat membalas pesan di folder pengguna, simpan balasan di folder yang sama</string>
+    <string name="title_advanced_auto_link">Secara otomatis membuat tautan</string>
     <string name="title_advanced_plain_only">Kirim teks biasa hanya secara bawaan</string>
     <string name="title_advanced_flow">\'format mengalir\' untuk teks biasa</string>
     <string name="title_advanced_usenet_signature">Ikuti konvensi tanda tangan Usenet</string>
@@ -263,6 +274,7 @@
     <string name="title_advanced_download">Unduh pesan dan lampiran secara otomatis pada koneksi terukur hingga</string>
     <string name="title_advanced_roaming">Unduh pesan dan lampiran saat roaming</string>
     <string name="title_advanced_rlah">Berkeliaran seperti di rumah</string>
+    <string name="title_advanced_validated">Membutuhkan koneksi yang divalidasi (dicentang)</string>
     <string name="title_advanced_timeout">Batas waktu terhubung (detik)</string>
     <string name="title_advanced_prefer_ip4">Direkomendasikan IPv4 daripada IPv6</string>
     <string name="title_advanced_ssl_harden">Perkuat dengan koneksi SSL</string>
@@ -330,6 +342,7 @@
     <string name="title_advanced_collapse_quotes">Ciutkan teks kutipan</string>
     <string name="title_advanced_image_placeholders">Tampilkan lokasi gambar</string>
     <string name="title_advanced_images_inline">Tampilkan gambar sebaris secara otomatis</string>
+    <string name="title_advanced_button_extra">Tampilkan tombol tambahan di bagian bawah pesan</string>
     <string name="title_advanced_seekbar">Tunjukkan posisi percakapan relatif dengan titik</string>
     <string name="title_advanced_actionbar">Tampilkan percakapan pada status bar</string>
     <string name="title_advanced_actionbar_color">Gunakan warna akun sebagai latar belakang percakapan pada status bar</string>
@@ -347,6 +360,7 @@
     <string name="title_advanced_swipe_close">Geser ke bawah untuk menutup percakapan</string>
     <string name="title_advanced_swipe_move">Geser ke atas untuk memindahkan percakapan</string>
     <string name="title_advanced_autoexpand">Luaskan pesan secara otomatis</string>
+    <string name="title_advanced_expand_first">Secara otomatis memperluas pesan pertama ketika percakapan di baca</string>
     <string name="title_advanced_expand_all">Secara otomatis luaskan tampilan semua pesan yang sudah terbaca</string>
     <string name="title_advanced_expand_one">Luaskan tampilan hanya satu pesan dalam satu waktu</string>
     <string name="title_advanced_collapse_multiple">Sempitkan tampilan pesan dalam beberapa percakapan ketika kembali</string>
@@ -384,6 +398,7 @@
     <string name="title_advanced_notify_action_reply_direct">Balas langsung</string>
     <string name="title_advanced_notify_action_flag">Bintangi</string>
     <string name="title_advanced_notify_action_seen">Baca</string>
+    <string name="title_advanced_notify_action_hide">Sembunyikan</string>
     <string name="title_advanced_notify_action_snooze">Tunda</string>
     <string name="title_advanced_notify_remove">Hapus notifikasi pesan baru saat mengetuk notifikasi</string>
     <string name="title_advanced_notify_clear">Hapus pemberitahuan pesan baru saat melihat daftar pesan</string>
@@ -434,6 +449,7 @@
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
     <string name="title_advanced_optimize">Optimalkan secara otomatis</string>
     <string name="title_advanced_updates">Periksa pembaruan di GitHub</string>
+    <string name="title_advanced_check_weekly">Periksa setiap minggu daripada setiap hari</string>
     <string name="title_advanced_experiments">Mencoba fitur eksperimen</string>
     <string name="title_advanced_query_threads">Batasi akses database paralel</string>
     <string name="title_advanced_crash_reports">Kirim laporan kesalahan</string>
@@ -461,10 +477,12 @@
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
     <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
+    <string name="title_advanced_reply_move_hint">Server email bisa menambahkan pesan pada folder pesan terkirim</string>
     <string name="title_advanced_metered_hint">Koneksi yang diukur umumnya koneksi data seluler atau hotspot Wi-Fi berbayar</string>
     <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
     <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat menyebabkan masalah koneksi pada beberapa perangkat</string>
+    <string name="title_advanced_validate_hint">Ini dapat mengakibatkan pesan tidak tersinkronasi, contohnya ketika menggunakan VPN, tetapi juga dalam situasi lain</string>
     <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
     <string name="title_advanced_ssl_harden_hint">Mengaktifkan ini akan menonaktifkan protokol dan cipher SSL yang lemah, yang biasanya menyebabkan masalah koneksi</string>
     <string name="title_advanced_roaming_hint">Header pesan akan selalu diambil saat roaming. Anda dapat menggunakan pengaturan roaming perangkat untuk menonaktifkan Internet saat roaming.</string>
@@ -488,6 +506,7 @@
     <string name="title_advanced_parse_classes_hint">Ini akan lebih akurat menampilkan pesan, tapi mungkin dengan penundaan</string>
     <string name="title_advanced_language_detection_hint">Dukungan deteksi bahasa tergantung pada perangkat</string>
     <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
+    <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan sebagai telah dibaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun setiap individu</string>
     <string name="title_advanced_autoclose_hint">Tutup percakapan secara otomatis ketika seluruh pesan terarsip, terkirim, atau terbuang</string>
     <string name="title_advanced_sender_hint">Kebanyakan penyedia tidak mengizinkan untuk mengubah alamat pengirim</string>
     <string name="title_advanced_bcc_hint">Alamat tidak akan ditampilkan, namun akan ditambahkan ketika mengirim</string>
@@ -512,6 +531,7 @@
     <string name="title_advanced_english_hint">Hal ini akan mengulang aplikasi kembali</string>
     <string name="title_advanced_experiments_hint">Daftar fitur eksperimental yang sedang berjalan</string>
     <string name="title_advanced_protocol_hint">Hal ini akan menurunkan penggunaan baterai dan ruang penyimpanan secara signifikan!</string>
+    <string name="title_advanced_debug_hint">Ini akan menampilkan informasi debug kurang baik di berbagai tempat</string>
     <string name="title_advanced_cleanup_attachments_hint">Saat membersihkan secara manual, ini menghapus lampiran dari pesan yang tidak lagi disinkronkan</string>
     <string name="title_advanced_cleanup_hint">Hal ini akan menghapus berkas sementara</string>
     <string name="title_advanced_never_favorite">Tidak akan masuk favorit</string>
@@ -523,6 +543,7 @@
     <string name="title_identity_email">Surel anda</string>
     <string name="title_identity_color_hint">Identitas warna memiliki hak lebih tinggi dari warna folder dan akun</string>
     <string name="title_advanced_sender">Izinkan menyunting alamat pengirim</string>
+    <string name="title_advanced_sender_name">Gunakan nama ketika alamat pengirim telah di edit</string>
     <string name="title_advanced_sender_regex">Regex untuk mencocokkan nama alamat email yang masuk</string>
     <string name="title_identity_reply_to">Balas ke alamat</string>
     <string name="title_identity_unicode">Menggunakan transportasi Unicode</string>
@@ -530,6 +551,7 @@
     <string name="title_identity_max_size">Ukuran pesan maksimum (MB)</string>
     <string name="title_identity_receipt">Minta pengiriman / bukti baca secara default</string>
     <string name="title_identity_use_ip_hint">Dalam kasus \'\'invalid greeting\', \'memerlukan alamat yang valid\' atau kesalahan serupa, coba ubah pengaturan ini</string>
+    <string name="title_identity_self_hint">Juga mencegahmu dari membalas kepada diri sendiri</string>
     <string name="title_optional">Opsional</string>
     <string name="title_recommended">Disarankan</string>
     <string name="title_account_linked">Akun Terhubung</string>
@@ -538,11 +560,13 @@
     <string name="title_account_interval_hint">Kecepatan refresh koneksi pesan push atau frekuensi pemeriksaan pesan baru</string>
     <string name="title_account_partial_fetch_hint">Nonaktifkan ini hanya jika pesan kosong atau lampiran rusak</string>
     <string name="title_color">Warna</string>
+    <string name="title_transparent">Transparan</string>
     <string name="title_account_ondemand">Sinkronisasi secara manual</string>
     <string name="title_account_notify">Kelola pemberitahuan secara terpisah</string>
     <string name="title_account_left">Geser ke kiri</string>
     <string name="title_account_right">Geser ke kanan</string>
     <string name="title_account_move">Pindah ke (default)</string>
+    <string name="title_account_gmail">Untuk sinkronisasi akun Gmail yang andal, wizard pengaturan cepat Gmail harus digunakan bila memungkinkan</string>
     <string name="title_domain">Nama Domain</string>
     <string name="title_autoconfig">Mendapatkan pengaturan</string>
     <string name="title_aliases">Alias</string>
@@ -556,6 +580,7 @@
     <string name="title_port">Nomor port</string>
     <string name="title_user">Nama Pengguna</string>
     <string name="title_password">Kata Sandi</string>
+    <string name="title_password_storage">Bagaimana kata sandi tersimpan?</string>
     <string name="title_case_sensitive">Nama pengguna dan sandi biasanya case sensitive</string>
     <string name="title_client_certificate">Sertifikat klien</string>
     <string name="title_realm">Bidang</string>
@@ -574,6 +599,7 @@
     <string name="title_received_header">Gunakan header \'Received\'</string>
     <string name="title_date_header">Gunakan header \'Date\' (waktu pengiriman)</string>
     <string name="title_date_remark">Perubahan akan diterapkan hanya ke pesan baru saja</string>
+    <string name="title_related_identity">Tambahkan identitas terkait (Server SMTP)</string>
     <string name="title_check">Periksa</string>
     <string name="title_trust">Mempercayai sertifikat server dengan sidik jari %1$s</string>
     <string name="title_no_name">Tidak ada nama</string>
@@ -588,6 +614,7 @@
     <string name="title_no_inbox">Kotak masuk tidak ditemukan</string>
     <string name="title_no_drafts">Tidak ada folder draf</string>
     <string name="title_no_junk_folder">Tidak ada folder spam yang dipilih untuk akun ini</string>
+    <string name="title_default_composable">Alamat email default ditentukan oleh identitas utama dari akun utama</string>
     <string name="title_no_standard">Penyedia ini menggunakan protokol surel hak milik dan maka dari itu penggunaan pihak ketiga untuk surel klien tidak memungkinkan</string>
     <string name="title_no_idle">Penyedia ini tidak mendukung pesan push. Hal ini akan menunda penerimaan pesan baru dan meningkatkan penggunaan baterai.</string>
     <string name="title_no_utf8">Penyedia ini tidak mendukung UTF-8</string>
@@ -604,6 +631,9 @@
     <string name="title_backoff_until">Menunggu setelah terjadi kegagalan koneksi sampai: %1$s</string>
     <string name="title_storage_quota">Penggunaan penyimpanan server: %1$s/%2$s</string>
     <string name="title_pop_support">Protokol POP3 mendukung pengunduhan dan penghapusan pesan hanya dari kotak masuk. POP3 tidak dapat menandai pesan sebagai sudah dibaca, memindahkan pesan, dll. POP3 akan menggunakan lebih banyak daya baterai dan data daripada IMAP. Jadi, pertimbangkan dahulu sebelum menggunakan protokol IMAP.</string>
+    <string name="title_pop_sent">Jika perangkat anda hilang atau dicuri, mengirim pesan mungkin dapat hilang.</string>
+    <string name="title_pop_warning">Jika server POP3 tidak mendukung perintah UIDL, data yang digunakan mungkin tinggi. Jadi, sesuaikan frekuensi polling di bawah ini.</string>
+    <string name="title_pop_folders">Protokol POP3 tidak mendukung pembuatan folder</string>
     <string name="title_oauth_support">Tidak terdukung OAuth</string>
     <string name="title_review">Periksa</string>
     <string name="title_hint_alias">Tekan lama identitas untuk menampilkan opsi, seperti salin untuk membuat identitas alias</string>
@@ -614,6 +644,9 @@
     <string name="title_advanced_browse">Jelajahi pesan di server</string>
     <string name="title_advanced_expand_read">Tandai pesan telah dibaca saat memperluas</string>
     <string name="title_synchronize_now">Sinkronkan sekarang</string>
+    <string name="title_synchronize_subfolders">Subfolder</string>
+    <string name="title_synchronize_more">Ambil lebih banyak pesan</string>
+    <string name="title_synchronize_more_hint">Ini dapat menghasilkan sebuah unduhan pesan terdahulu, jadi tidak akan menghasilkan penggunaan baterai untuk setiap hari</string>
     <string name="title_synchronize_enabled">Mengsinkronisasikan</string>
     <string name="title_synchronize_batch_enable">Aktifkan sinkronisasi</string>
     <string name="title_synchronize_batch_disable">Nonaktifkan sinkronisasi</string>
@@ -623,6 +656,8 @@
     <string name="title_empty_spam">Kosongkan spam</string>
     <string name="title_edit_properties">Ubah properti</string>
     <string name="title_edit_rules">Ubah aturan</string>
+    <string name="title_execute_rules">Menjalankan peraturan</string>
+    <string name="title_export_messages">Ekspor pesan</string>
     <string name="title_create_channel">Buat saluran pemberitahuan / notifikasi</string>
     <string name="title_edit_channel">Ubah saluran pemberitahuan / notifikasi</string>
     <string name="title_delete_channel">Hapus saluran pemberitahuan / notifikasi</string>
@@ -655,16 +690,22 @@
     <string name="title_navigation_folder">Tampilkan di menu navigasi</string>
     <string name="title_synchronize_folder">Mensinkronkan (pesan masuk)</string>
     <string name="title_poll_folder">Periksa secara berkala bukan secara berkelanjutan</string>
+    <string name="title_poll_folder_remark">Sebagian besar server email mengizinkan pesan push hanya untuk beberapa folder!</string>
     <string name="title_download_folder">Unduh pesan dan lampiran secara otomatis</string>
     <string name="title_notify_folder">Beri tahu setiap ada pesan baru</string>
+    <string name="title_auto_classify_source">Mengklasifikasi pesan baru pada folder ini</string>
+    <string name="title_auto_classify_target">Secara otomatis memindahkan klasifikasi pesan pada folder ini</string>
     <string name="title_sync_days">Mensinkronkan pesan (hari)</string>
     <string name="title_sync_days_remark">Meningkatkan nilai ini akan meningkatkan penggunaan baterai dan data</string>
     <string name="title_keep_days">Simpan pesan (hari)</string>
     <string name="title_keep_days_remark">Pesan lama akan dihapus dari perangkat, tetapi akan tetap ada di server</string>
     <string name="title_keep_all">Simpan semua pesan</string>
+    <string name="title_poll_system">Mengatur folder sistem untuk mengecek pesan baru secara berkala</string>
+    <string name="title_poll_user">Mengatur folder pengguna secara berkala untuk mengecek pesan baru</string>
     <string name="title_auto_trash">Pindahkan pesan lama ke kotak sampah secara otomatis</string>
     <string name="title_auto_delete">Hapus pesan lama secara otomatis</string>
     <string name="title_auto_delete_hint">Pesan lama adalah pesan yang tidak lagi disimpan pada perangkat</string>
+    <string name="title_auto_delete_archive_hint">Penghapusan dari folder arsip tidak selalu diperbolehkan oleh server email</string>
     <string name="title_inbox_root_hint">        Beberapa penyedia mengharuskan folder baru dibuat di bawah kotak masuk.
         Dalam hal ini, Anda dapat menekan lama kotak masuk di daftar folder dan memilih \'Buat sub folder\'.
     </string>
@@ -686,12 +727,15 @@
     <string name="title_folder_user_only">Folder pengguna saja</string>
     <string name="title_folder_primary">Folder akun utama</string>
     <string name="title_folders_unified">Folder kotak masuk terpadu</string>
+    <string name="title_folder_local_drafts">Konsep lokal</string>
     <string name="title_no_folders">Tidak ada folder</string>
     <string name="title_no_messages">Tidak ada pesan</string>
     <string name="title_filters_active">Filter aktif lebih dari satu</string>
     <string name="title_duplicate_in">Pesan duplikat dalam %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Tandai sudah dibaca</string>
     <string name="title_unseen">Tandai belum dibaca</string>
     <string name="title_toggle_seen">Alihkan ke mode baca</string>
@@ -708,11 +752,15 @@
     <string name="title_forward">Teruskan</string>
     <string name="title_new_message">Pesan baru</string>
     <string name="title_editasnew">Edit sebagai pesan baru</string>
+    <string name="title_edit_notes">Sunting catatan lokal</string>
     <string name="title_create_rule">Buat aturan &#8230;</string>
     <string name="title_share">Bagikan</string>
     <string name="title_event">Tambahkan ke kalender</string>
     <string name="title_pin">Buat pintasan</string>
     <string name="title_print">Cetak</string>
+    <string name="title_print_header">Mencetak header</string>
+    <string name="title_print_images">Mencetak gambar</string>
+    <string name="title_print_images_remark">Mengunduh gambar butuh beberapa waktu</string>
     <string name="title_show_headers">Tampilkan Judul</string>
     <string name="title_raw_save">Simpan pesan sebagai bahan</string>
     <string name="title_raw_send">Kirim sebagai lampiran</string>
@@ -881,6 +929,7 @@
     <string name="title_decrypt">Dekripsi</string>
     <string name="title_resync">Sinkron ulang</string>
     <string name="title_not_encrypted">Pesan tidak ditandatangani atau dienkripsi</string>
+    <string name="title_signature_invalid_reason">Tanda tangan pesan tidak valid:% 1$s</string>
     <string name="title_signature_sender">Tampilkan pilihan gambar</string>
     <string name="title_signature_subject">Subjek</string>
     <string name="title_signature_validity">Masa berlaku</string>

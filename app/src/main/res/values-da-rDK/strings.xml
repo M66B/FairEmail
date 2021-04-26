@@ -121,7 +121,6 @@
     <string name="title_setup_help">Hjælp</string>
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
-    <string name="title_setup_quick_accounts">Tilføj konti</string>
     <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Hurtig opsætningen vil hente opsætningsoplysninger fra autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server til beskedmodtagelse</string>
@@ -873,7 +872,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sendt:</string>
     <string name="title_received">Modtaget:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Dato:</string>
+    <string name="title_date">Dato:</string>
     <string name="title_stored">Gemt:</string>
     <string name="title_size">Størrelse:</string>
     <string name="title_language">Sprog:</string>

@@ -122,7 +122,6 @@
     <string name="title_setup_quick">Flugge opset</string>
     <string name="title_setup_intro">In akkount tafoegje kin al in trije stappen, dêrnei kinsto email stjoere en ûntfange</string>
     <string name="title_setup_simple">Dêr is gjin needsaak om oare opsjes te feroarjen</string>
-    <string name="title_setup_quick_accounts">Akkount tafoegje</string>
     <string name="title_setup_quick_support">Guon oanbieders meitsje it dreech om in akkount ta te foegjen. Doch asjebleaft FairEmail hjir gjin skuld foar, mar freegje ynstee om stipe.</string>
     <string name="title_setup_quick_hint">De rappe opset sil konfiguraasje-ynformaasje ophelje fan autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-tsjinner om berjochten te ûntfangen</string>
@@ -884,7 +883,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Stjoerd:</string>
     <string name="title_received">Ûntfangen:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Datum:</string>
+    <string name="title_date">Datum:</string>
     <string name="title_stored">Opslein:</string>
     <string name="title_size">Grutte:</string>
     <string name="title_language">Taal:</string>

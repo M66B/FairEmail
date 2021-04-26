@@ -1566,6 +1566,7 @@ Per motivi di sicurezza i file con i testi del messaggio originale non sono acce
 * Sapevi che puoi tenere premuto a lungo le icone del cestino (sia nella barra di azione in fondo che nel messaggio) per eliminare permanentemente un messaggio o una conversazione? (versione 1.1368+)
 * Sapevi che puoi tenere premuta l'azione di invio per mostrare la finestra di invio, anche se disabilitata?
 * Sapevi che puoi tenere premuta l'icona dello schermo intero per mostrare solo il testo del messaggio originale?
+* Did you know that you can long press the answer button to reply to the sender? (since version 1.1562)
 
 <br />
 

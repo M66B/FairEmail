@@ -116,7 +116,6 @@
     <string name="title_setup">Axustes</string>
     <string name="title_setup_help">Axuda</string>
     <string name="title_setup_quick">Configuración rápida</string>
-    <string name="title_setup_quick_accounts">Engadir contas</string>
     <string name="title_setup_quick_support">Algúns provedores fan difícil engadir unha conta. Por favor, non culpe a FairEmail por isto, e no seu lugar solicite axuda.</string>
     <string name="title_setup_quick_hint">A configuración rápida collerá a información de configuración de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensaxes</string>

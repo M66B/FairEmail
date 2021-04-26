@@ -122,7 +122,6 @@
     <string name="title_setup_quick">Γρήγορη ρύθμιση</string>
     <string name="title_setup_intro">Η ρύθμιση ενός λογαριασμού αποτελείται από τρία μόνο βήματα και μετά μπορείτε να στέλνετε και να λαμβάνετε μηνύματα ηλ. ταχυδρομείου</string>
     <string name="title_setup_simple">Δεν χρειάζεται να αλλάξετε άλλες επιλογές</string>
-    <string name="title_setup_quick_accounts">Προσθήκη λογαριασμών</string>
     <string name="title_setup_quick_support">Ορισμένοι πάροχοι δυσχεραίνουν την προσθήκη ενός λογαριασμού. Παρακαλούμε, μην κατηγορείτε το FairEmail για αυτό, αλλά δοκιμάστε να λάβετε υποστήριξη.</string>
     <string name="title_setup_quick_hint">Η γρήγορη ρύθμιση θα ανακτήσει πληροφορίες εγκατάστασης από το autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Διακομιστής IMAP για λήψη μηνυμάτων</string>
@@ -887,7 +886,7 @@
     <string name="title_via_identity">Μέσω:</string>
     <string name="title_sent">Απεστάλη:</string>
     <string name="title_received">Λήφθηκε:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Ημερομηνία:</string>
+    <string name="title_date">Ημερομηνία:</string>
     <string name="title_stored">Αποθηκεύτηκε:</string>
     <string name="title_size">Μέγεθος:</string>
     <string name="title_language">Γλώσσα:</string>

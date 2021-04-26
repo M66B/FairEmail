@@ -108,7 +108,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_setup">Preferències</string>
     <string name="title_setup_help">Ajuda</string>
     <string name="title_setup_quick">Configuració ràpida</string>
-    <string name="title_setup_quick_accounts">Afegir comptes</string>
     <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>

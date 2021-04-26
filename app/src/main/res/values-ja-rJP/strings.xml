@@ -110,7 +110,6 @@
     <string name="title_setup_quick">クイックセットアップ</string>
     <string name="title_setup_intro">アカウントの設定はたったの3ステップだけで、その後はメールの送受信ができます。</string>
     <string name="title_setup_simple">他のオプションを変更する必要はありません</string>
-    <string name="title_setup_quick_accounts">アカウントを設定</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
@@ -876,7 +875,7 @@
     <string name="title_via_identity">経由:</string>
     <string name="title_sent">送信済み:</string>
     <string name="title_received">受信:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">日付:</string>
+    <string name="title_date">日付:</string>
     <string name="title_stored">保存済み:</string>
     <string name="title_size">サイズ:</string>
     <string name="title_language">言語:</string>

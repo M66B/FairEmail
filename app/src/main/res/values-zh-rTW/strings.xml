@@ -106,7 +106,6 @@
     <string name="title_setup">設定</string>
     <string name="title_setup_help">幫助</string>
     <string name="title_setup_quick">快速設定</string>
-    <string name="title_setup_quick_accounts">新增帳戶</string>
     <string name="title_setup_quick_support">有些提供者讓新增一個帳號變得困難。請不要將此怪罪於 FairEmail 而是向你的提供商請求支援。</string>
     <string name="title_setup_quick_hint">快速設定將會透過 autoconfig.thunderbird.net 取得設定資訊</string>
     <string name="title_setup_quick_imap">IMAP 伺服器用於接收訊息</string>

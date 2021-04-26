@@ -133,7 +133,6 @@
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_intro">Configurarea unui cont are doar trei pași și după aceea puteți trimite și primi e-mailuri</string>
     <string name="title_setup_simple">Nu este nevoie să schimbați alte opțiuni</string>
-    <string name="title_setup_quick_accounts">Adaugă conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
@@ -900,7 +899,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Trimis:</string>
     <string name="title_received">Primit:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Dată:</string>
+    <string name="title_date">Dată:</string>
     <string name="title_stored">Stocat:</string>
     <string name="title_size">Mărime:</string>
     <string name="title_language">Limbă:</string>

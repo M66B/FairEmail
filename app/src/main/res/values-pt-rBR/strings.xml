@@ -120,7 +120,6 @@
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_intro">A criação de uma conta tem apenas três passos e, depois disso, você poderá enviar e receber e-mails</string>
     <string name="title_setup_simple">Não há necessidade de alteração de nenhuma das opções</string>
-    <string name="title_setup_quick_accounts">Adicionar contas</string>
     <string name="title_setup_quick_support">Alguns fornecedores dificultam a adição de uma conta. Por favor, não culpe a FairEmail por isso, mas peça apoio em seu lugar.</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>

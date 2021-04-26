@@ -123,7 +123,6 @@
     <string name="title_setup_quick">Schnelleinrichtung</string>
     <string name="title_setup_intro">Die Einrichtung eines Kontos ist mit nur drei Schritten erledigt und danach können Sie bereits E-Mails senden und empfangen</string>
     <string name="title_setup_simple">Es ist nicht notwendig, andere Optionen zu ändern</string>
-    <string name="title_setup_quick_accounts">Konten hinzufügen</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
@@ -889,7 +888,7 @@
     <string name="title_via_identity">Über:</string>
     <string name="title_sent">Gesendet:</string>
     <string name="title_received">Empfangen:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Datum:</string>
+    <string name="title_date">Datum:</string>
     <string name="title_stored">Gespeichert:</string>
     <string name="title_size">Größe:</string>
     <string name="title_language">Sprache:</string>

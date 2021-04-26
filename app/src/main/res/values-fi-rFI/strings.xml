@@ -121,7 +121,6 @@
     <string name="title_setup_quick">Pika-asennus</string>
     <string name="title_setup_intro">Tilin asettaminen sisältää vain kolme vaihetta, joiden jälkeen voit lähettää ja vastaanottaa sähköpostia</string>
     <string name="title_setup_simple">Muita valintoja ei tarvitse muuttaa</string>
-    <string name="title_setup_quick_accounts">Lisää tilejä</string>
     <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
@@ -886,7 +885,7 @@
     <string name="title_via_identity">Kautta:</string>
     <string name="title_sent">Lähetetty:</string>
     <string name="title_received">Vastaanotettu:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Päivämäärä:</string>
+    <string name="title_date">Päivämäärä:</string>
     <string name="title_stored">Tallennettu:</string>
     <string name="title_size">Koko:</string>
     <string name="title_language">Kieli:</string>

@@ -139,7 +139,6 @@
     <string name="title_setup">Nastavenia</string>
     <string name="title_setup_help">Pomoc</string>
     <string name="title_setup_quick">Rýchle nastavenie</string>
-    <string name="title_setup_quick_accounts">Pridať účty</string>
     <string name="title_setup_quick_support">Niektorí poskitovatelia.</string>
     <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server na prijímanie správ</string>

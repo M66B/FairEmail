@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail табырга</string>
+    <string name="app_changelog">Үзгәрү логы</string>
     <string name="channel_send">Җибәрү</string>
     <string name="channel_notification">Эл. почта</string>
+    <string name="channel_update">Яңарту</string>
+    <string name="channel_warning">Игътибар</string>
+    <string name="channel_error">Хаталар</string>
+    <plurals name="page_message">
+        <item quantity="other">Хәбәрләр</item>
+    </plurals>
     <string name="page_folders">Папкалар</string>
     <string name="shortcut_refresh">Яңарту</string>
     <string name="menu_exit">Чыгу</string>

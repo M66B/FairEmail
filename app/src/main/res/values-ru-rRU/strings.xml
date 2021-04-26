@@ -144,7 +144,6 @@
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_intro">Настройте учётную запись всего за три шага и сможете отправлять и получать письма</string>
     <string name="title_setup_simple">Нет необходимости менять другие параметры</string>
-    <string name="title_setup_quick_accounts">Добавить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
@@ -911,7 +910,7 @@
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Отправлено:</string>
     <string name="title_received">Получено:</string>
-    <string name="title_date" comment="title_date&#10;Title for received/sent date in extended reply header">Дата:</string>
+    <string name="title_date">Дата:</string>
     <string name="title_stored">Сохранено:</string>
     <string name="title_size">Размер:</string>
     <string name="title_language">Язык:</string>
