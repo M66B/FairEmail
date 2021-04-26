@@ -921,6 +921,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @SuppressLint("WrongConstant")
         private void bindTo(final TupleMessageEx message, boolean scroll) {
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
+            boolean junk = EntityFolder.JUNK.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
             boolean reverse = (outgoing && viewType != ViewType.THREAD &&
@@ -1037,10 +1038,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setText(context.getString(outgoing && viewType != ViewType.THREAD && compact
                                 ? R.string.title_to_from
                                 : R.string.title_from_to,
-                        MessageHelper.formatAddresses(senders, name_email, false),
-                        MessageHelper.formatAddresses(recipients, name_email, false)));
+                        MessageHelper.formatAddresses(senders, name_email || junk, false),
+                        MessageHelper.formatAddresses(recipients, name_email || junk, false)));
             else
-                tvFrom.setText(MessageHelper.formatAddresses(senders, name_email, false));
+                tvFrom.setText(MessageHelper.formatAddresses(senders, name_email || junk, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize));
             tvSize.setVisibility(
@@ -1827,7 +1828,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindAddresses(TupleMessageEx message) {
             boolean show_addresses = properties.getValue("addresses", message.id);
-            boolean full = (show_addresses || name_email);
+            boolean full = (show_addresses || name_email || EntityFolder.JUNK.equals(message.folderType));
 
             int froms = (message.from == null ? 0 : message.from.length);
             int tos = (message.to == null ? 0 : message.to.length);
@@ -5287,9 +5288,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     result.add(context.getString(R.string.title_accessibility_attachment));
 
                 boolean outgoing = isOutgoing(message);
+                boolean junk = EntityFolder.JUNK.equals(message.folderType);
                 Address[] addresses = (EntityFolder.isOutgoing(message.folderType) &&
                         (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
-                String from = MessageHelper.formatAddresses(addresses, name_email, false);
+                String from = MessageHelper.formatAddresses(addresses, name_email || junk, false);
                 // For a11y purpose subject is reported first when: user wishes so or this is a single outgoing message
                 if (subject_top || (outgoing && message.visible == 1)) {
                     result.add(message.subject); // Don't want to ellipsize for a11y
