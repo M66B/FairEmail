@@ -122,6 +122,7 @@
     <string name="title_setup_quick">Flugge opset</string>
     <string name="title_setup_intro">In akkount tafoegje kin al in trije stappen, dêrnei kinsto email stjoere en ûntfange</string>
     <string name="title_setup_simple">Dêr is gjin needsaak om oare opsjes te feroarjen</string>
+    <string name="title_setup_quick_accounts">Akkounts tafoegje of feroarje</string>
     <string name="title_setup_quick_support">Guon oanbieders meitsje it dreech om in akkount ta te foegjen. Doch asjebleaft FairEmail hjir gjin skuld foar, mar freegje ynstee om stipe.</string>
     <string name="title_setup_quick_hint">De rappe opset sil konfiguraasje-ynformaasje ophelje fan autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-tsjinner om berjochten te ûntfangen</string>
@@ -169,6 +170,7 @@
     <string name="title_setup_doze">Batteryoptimalisaasje ûtskeakelje</string>
     <string name="title_setup_doze_remark">Om betrouber email te ferstjoeren en te ûntfangen</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil it útskeakeljen fan batterijoptimaasjes resultearje yn minder batterijgebrûk</string>
+    <string name="title_setup_doze_instructions">Yn it folgjende Android-dialooch feroarje \"Net optimisearre\" nei \"Alle apps\", selektearje dizze app en selektearje \"Net optimalisearje\"</string>
     <string name="title_setup_doze_battery">Hege batterij gebrûk?</string>
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
     <string name="title_setup_background">Eftergrûnbeheinings binne ynskeakele</string>
@@ -286,6 +288,8 @@
     <string name="title_advanced_download">Berjochten en bylagen automatysk downloade op in metere ferbining oant</string>
     <string name="title_advanced_roaming">Download berjochten en bylagen ûnder swerven</string>
     <string name="title_advanced_rlah">Roam lykas thús</string>
+    <string name="title_advanced_download_headers">Helje alle berjochtkoppen op</string>
+    <string name="title_advanced_download_eml">Helje rauw berjocht op</string>
     <string name="title_advanced_validated">Fereaskje in falidearre (kontroleare) ferbining</string>
     <string name="title_advanced_timeout">Timeout foar ferbining (sekonden)</string>
     <string name="title_advanced_prefer_ip4">Foarkar IPv4 boppe IPv6</string>
@@ -468,6 +472,7 @@
     <string name="title_advanced_query_threads">Beheine tagong ta parallel databank</string>
     <string name="title_advanced_crash_reports">Stjoer flaterrapporten</string>
     <string name="title_advanced_protocol">Protokol oanmeld</string>
+    <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup_attachments">Bylagen fan âlde berjochten wiskje</string>
     <string name="title_advanced_cleanup">Skjinmeitsjen</string>
@@ -494,6 +499,7 @@
     <string name="title_advanced_metered_hint">Metereare ferbiningen binne oer it algemien mobile ferbiningen as betelle Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Dizze opsje útsette sil it ûntfangen en ferstjoeren fan berjochten op mobile ynternetferbiningen útskeakelje</string>
     <string name="title_advanced_rlah_hint">Utgeande fan gjin swalkjen binnen de EU</string>
+    <string name="title_advanced_usage_hint">Dit sil gebrûk fan batterij, gegevens en opslachromte ferheegje</string>
     <string name="title_advanced_tcp_keep_alive_hint">As jo dit ynskeakelje, kinne op guon apparaten ferbiningsproblemen feroarsaakje</string>
     <string name="title_advanced_validate_hint">Dit kin resultearje yn berjochten diet net syngronisearje, bygelyks as jo in VPN brûke, mar ek yn oare situaasjes</string>
     <string name="title_advanced_timeout_hint">De time-out foar lêzen / skriuwen wurdt ynsteld op it dûbele fan \'e time-out foar ferbining. Hegere wearden sille resultearje yn mear batterijgebrûk.</string>
@@ -748,11 +754,14 @@
     <string name="title_duplicate_in">Berjocht duplisearje yn %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Foarút: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Mark lêzen</string>
     <string name="title_unseen">Markearje as net lêzen</string>
     <string name="title_toggle_seen">Wikselje lêze</string>
     <string name="title_hide">Ferbergje</string>
     <string name="title_unhide">Sjoch</string>
+    <string name="title_toggle_hide">Ferstopjen út/ynskeakelje</string>
     <string name="title_flag">Stjer tafoegje</string>
     <string name="title_flag_color">Kleurde stjer &#8230;</string>
     <string name="title_unflag">Stjer fuortsmite</string>
@@ -1076,6 +1085,7 @@
     <string name="title_answer_group">Sjabloangroep (opsjoneel)</string>
     <string name="title_answer_standard">Standert</string>
     <string name="title_answer_favorite">Favoryt</string>
+    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Brûk as lêsbewiis</string>
     <string name="title_answer_hide">Ferbergje foar menu\'s</string>
     <string name="title_answer_text">Sjabloantekst</string>
     <string name="title_answer_placeholder">Plakhâlder</string>

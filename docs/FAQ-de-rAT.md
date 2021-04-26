@@ -1566,7 +1566,7 @@ Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps
 * Wussten Sie, dass Sie die Papierkorbsymbole (sowohl in der Nachricht als auch in der unteren Aktionsleiste) lange drücken können, um eine Nachricht oder Unterhaltung dauerhaft zu löschen? (Version 1.1368+)
 * Wussten Sie, dass Sie die Sende-Aktion lange halten können, um den Sende-Dialog anzuzeigen, auch wenn er deaktiviert wurde?
 * Wussten Sie, dass Sie das Vollbildsymbol lange drücken können, um nur den Originaltext (ohne den Nachrichtenkopf) anzuzeigen?
-* Did you know that you can long press the answer button to reply to the sender? (since version 1.1562)
+* Wussten Sie, dass Sie die Schaltfläche „Antworten” lange gedrückt halten können, um dem Absender zu antworten? (seit Version 1.1562)
 
 <br />
 

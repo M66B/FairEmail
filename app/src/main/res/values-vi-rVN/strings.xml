@@ -111,6 +111,7 @@
     <string name="title_setup_quick">Thiết lập nhanh</string>
     <string name="title_setup_intro">Việc thiết lập một tài khoản chỉ bao gồm ba bước và sau đó bạn có thể gửi và nhận email</string>
     <string name="title_setup_simple">Không cần thiết phải thay đổi bất kỳ tuỳ chọn nào khác</string>
+    <string name="title_setup_quick_accounts">Thêm hoặc đổi tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
@@ -276,6 +277,8 @@
     <string name="title_advanced_download">Tự động tải xuống các thư và tệp đính kèm trong kết nối trả phí lớn nhất</string>
     <string name="title_advanced_roaming">Tải xuống các thư và tệp đính kèm khi đang chuyển vùng</string>
     <string name="title_advanced_rlah">Chuyển vùng như ở nhà</string>
+    <string name="title_advanced_download_headers">Tải xuống tất cả tiêu đề thư</string>
+    <string name="title_advanced_download_eml">Tải xuống các tệp thư thô</string>
     <string name="title_advanced_validated">Yêu cầu kết nối đã xác minh (đã kiểm tra)</string>
     <string name="title_advanced_timeout">Thời gian chờ kết nối (giây)</string>
     <string name="title_advanced_prefer_ip4">Ưu tiên IPv4 hơn IPv6</string>
@@ -485,6 +488,7 @@
     <string name="title_advanced_metered_hint">Các kết nối trả phí nói chung là kết nối di động hoặc điểm phát sóng Wi-Fi trả phí</string>
     <string name="title_advanced_metered_warning">Việc tắt tuỳ chọn này sẽ tắt việc nhận và gửi thư khi dùng kết nối internet di động</string>
     <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
+    <string name="title_advanced_usage_hint">Cái này sẽ làm tăng sử dụng pin, dữ liệu và không gian bộ nhớ</string>
     <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra các vấn đề kết nối ở một số thiết bị</string>
     <string name="title_advanced_validate_hint">Cái này có thể dẫn đến không đồng bộ hoá thư, ví dụ khi sử dụng VPN, nhưng cũng trong các trường hợp khác</string>
     <string name="title_advanced_timeout_hint">Thời gian chờ đọc/ghi sẽ được đặt thành gấp đôi thời gian chờ kết nối. Các giá trị cao hơn sẽ dẫn đến hao pin nhiều hơn.</string>
@@ -746,6 +750,7 @@
     <string name="title_toggle_seen">Bật/tắt đã đọc</string>
     <string name="title_hide">Ẩn</string>
     <string name="title_unhide">Hiện</string>
+    <string name="title_toggle_hide">Bật/tắt ẩn</string>
     <string name="title_flag">Thêm sao</string>
     <string name="title_flag_color">Sao có màu &#8230;</string>
     <string name="title_unflag">Bỏ sao</string>
@@ -1069,6 +1074,7 @@
     <string name="title_answer_group">Nhóm mẫu (không bắt buộc)</string>
     <string name="title_answer_standard">Mặc định</string>
     <string name="title_answer_favorite">Yêu thích</string>
+    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Sử dụng làm xác nhận đã đọc</string>
     <string name="title_answer_hide">Ẩn khỏi các menu</string>
     <string name="title_answer_text">Văn bản mẫu</string>
     <string name="title_answer_placeholder">Giữ chỗ</string>

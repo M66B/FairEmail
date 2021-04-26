@@ -1,6 +1,6 @@
-# Help mei opset
+# Ynstellingshelp
 
-FairEmail ynstelle is frij simpel. Do moast teminsten ien akkount tafoegje om email te ûntfangen en op syn minst ien identiteit asto email wolst stjoere. The quick setup will add an account and an identity in one go for most major providers.
+FairEmail ynstelle is frij simpel. Do moast teminsten ien akkount tafoegje om email te ûntfangen en op syn minst ien identiteit asto email stjoere wolst. Foar de measte grutte oanbieders kinst gau in iin kear in akkount en identiteit tafoegje.
 
 ## Fereasken
 
@@ -8,34 +8,34 @@ In ynternetferbining is nedich om akkounts en identiteiten yn te stellen.
 
 ## Flugge opset
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Kies dyn provider as *Oare oanbieder* út en fol dyn namme, emailadres en kaaiwurd in en tik op *Kontrolearje*.
 
-This will work for most email providers.
+Dit slachet foar de mease emailoanbieders.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+At it ynstelle net fansels slachet, moast sels dyn akkount en identiteit ynstelle. Sjoch hjirûnder hoe dat moat.
 
 ## Akkount ynstelle - om email te ûntfangen
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Selektearje in provider út 'e list, fier de brûkersnamme yn, lykwols dyn emailadres, en fier dyn kaaiwurd yn. Tapje *Kontrolearje* om FairEmail ferbining te litten meitsje mei de e-tsjinner en in list mei systeemmappen op te heljen. Nei it kontrolearjen fan de seleksje fan systeemmap kinne jo it akkount tafoegje troch op *Bewarje * te tikjen.
+Om in akkount ta te foegjen, tik op *Sels ynstelle en akkountopsjes*, op *Akkounts* en dearny op 'e 'plus' ûnderoan en selektearje IMAP (of POP3). Selektearje in provider út 'e list, fier de brûkersnamme yn, lykwols dyn emailadres, en fier dyn kaaiwurd yn. Tik op *Kontrolearje* om FairEmail in ferbining meitsje te litten mei de emailserver en in list mei systeemmappen op te heljen. Nei it kontrolearjen fan 'e seleksje fan systeemmappen kinsto it akkount tafoegje troch op *Bewarje * te tikjen.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Fier de domeinnamme yn, bygelyks *gmail.com* en tapje *Ynstellings krije*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Sjoch [hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) foar mear oer dit.
+As dy emailoanbieder net iin 'e list stiet, der binne tûzenen, kies *Oanpast*. Fier de domeinnamme yn, bygelyks *gmail.com* en tikje *Krij ynstellings*. As dyn ynternetoanbieder [auto-discovery](https://tools.ietf.org/html/rfc6186) stipet, sil FairEmail de hostnamme en poartenûmer ynfolje, oars kontrolearje de ynstallaasje-ynstruksjes fan jo ynternetoanbieder foar de juste IMAP-hostnamme, poartenûmer en protokol (SSL/TLS of STARTTLS). Sjoch [hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) foar mear hjiroer.
 
 ## Identiteit ynstelle - om email te ferstjoeren
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Fier de namme yn dasto wost sjen as ferstjoerderadres fan de emailberjochten dy'sto stjoerst en selektearje in keppele akkount. Tapje *Bewarje* om de identiteit ta te foegjen.
+Likegoed om in identiteit ta te foegjen, tik op *Sels ynstelle en akkountopsjes*, op *Identiteiten* en dearny op 'e 'plus' ûnderoan. Fier de namme yn dasto wost sjen as ferstjoerderadres fan de emailberjochten dy'sto stjoerst en selektearje in keppele akkount. Tikje op *Bewarje* om de identiteit ta te foegjen.
 
-As de akkount hânmjittich waard konfigureare, moatte jo de identiteit wierskynlik ek hânmjittich konfigurearje. Fier de domeinnamme yn, bygelyks *gmail.com* en tapje *Ynstellings krije*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+As it akkount hânmjittich ynstelle waard, dan soesto wierskynlik dyn identiteit ek mei de hân ynstelle moatte. Fier de domeinnamme yn, bygelyks *gmail.com* en tikje op *Krij ynstellings*. As dyn ynternetoanbieder [auto-discovery](https://tools.ietf.org/html/rfc6186) stipet, sil FairEmail de hostnamme en poartenûmer ynfolje, oars kontrolearje de ynstallaasje-ynstruksjes fan jo ynternetoanbieder foar de juste IMAP-hostnamme, poartenûmer en protokol (SSL/TLS of STARTTLS).
 
 Sjoch [dizze FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) oer it brûken fan aliassen.
 
-## Fergunningferliening - om tagong te krijen ta kontaktynformaasje
+## Fergunnings jaan - om tagong te krijen ta kontaktynformaasje
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Asto emailadressen sykje wolst, kontaktfoto's sjen litte, ensfh., Moasto tastimming jaan om kontaktynformaasje te lêzen oan FairEmail. Tikje op *Tastean machtigingen* en selektearje *Tastean*.
 
 ## Batterijoptimalisaasjes ynstelle - om kontinu email te ûntfangen
 
-Op resinte Android-ferzjes, sil Android apps sliepe as it skerm út is foar in skoftke om batterijgebrûk te ferminderjen. Asto nije email wolst ûntfange sûnder fertragingen, moasto batterijoptimalisaasjes útsette foar FairEmail. Tap *Manage* and follow the instructions.
+Resinte Android-ferzjes sette apps yn sliep as it skerm in skoft út is om batterijgebrûk te ferminderjen. Asto nije email ûntfange wolst sûnder fertragingen, moasto batterijoptimalisaasjes útsette foar FairEmail. Tikje op *Beheare* en folgje de ynstruksjes.
 
 ## Fragen as problemen
 
-As jo in fraach of probleem hawwe, [sjoch hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md) foar help.
+Asto in fraach of probleem hast, [sjoch hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md) foar help.

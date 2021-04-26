@@ -398,183 +398,183 @@ Android показывает значки уведомлений в строке
 <br />
 *... Неверный сертификат безопасности (Не удается проверить подлинность сервера) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
+Это может быть вызвано использованием неверного имени хоста, поэтому сначала проверьте имя хоста в настройках расширенного идентификатора/аккаунта (нажмите «Настройка вручную»). Обратитесь к документации поставщика электронной почты о правильном имени хоста.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Вы должны попытаться исправить это, связавшись с вашим провайдером или получив действительный сертификат безопасности, потому что неверные сертификаты безопасности небезопасны и позволяют [атаки человека посередине](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Если деньги являются препятствием, вы можете получить бесплатные сертификаты безопасности от ["Давайте шифроваться"](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
+Быстрые, но небезопасные решения (не рекомендуется), это включить *небезопасных соединений* в расширенных настройках идентификации (меню навигации, нажмите *Настройки*, нажмите *Ручная настройка*, нажмите *Идентификаторы*, нажмите *Расширенные*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Кроме того, вы можете принять отпечаток недействительных сертификатов сервера:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Убедитесь, что вы используете доверенное подключение к Интернету (нет публичных сетей Wi-Fi и т.д.)
+1. Перейдите на экран установки через меню навигации (проведите пальцем с левой стороны вправо)
+1. Нажмите на ручную настройку, нажмите "Аккаунты/идентификаторы" и коснитесь ошибочной учетной записи и идентификации
+1. Проверка/сохранить аккаунт и идентификатор
+1. Установите флажок под сообщением об ошибке и сохраните снова
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Это «прикрепит» сертификат сервера, чтобы предотвратить атаки человека в середине.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
-
-<br />
-
-*Trust anchor for certification path not found*
-
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
-
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
-
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
-
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
-
-You can pin the certificate too, see above.
+Обратите внимание, что старые версии Android могут не распознавать новые сертификаты, такие как "Давайте шифроваться" подключения, считая их небезопасными, см. также [здесь](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
-*Empty password*
+*Не найден ключ доверия для пути сертификации*
 
-Your username is likely easily guessed, so this is insecure.
+*... java.security.cert.CertPathValidatorException: Якорь доверия для пути сертификации не найден ...* означает, что менеджер доверия Android по умолчанию не смог проверить сертификат сервера.
 
-*Plain text connection*
+Это может быть вызвано тем, что корневой сертификат не устанавливается на вашем устройстве или промежуточные сертификаты отсутствуют, к примеру, потому что почтовый сервер не отправил его.
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Вы можете исправить первую проблему, загрузив и установив корневой сертификат с сайта провайдера сертификата.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Вторая проблема должна быть решена путем изменения конфигурации сервера или импорта промежуточных сертификатов на вашем устройстве.
+
+Вы также можете закрепить сертификат, см. выше.
+
+<br />
+
+*Пустой пароль*
+
+Вероятно, ваше имя пользователя легкое, так что это небезопасно.
+
+*Обычное текстовое соединение*
+
+Ваше имя пользователя и пароль и все сообщения будут отправлены и получены незашифрованно, что **очень небезопасно**, потому что [атаки человека в середине](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) очень просты при незашифрованном соединении.
+
+Если вы все еще хотите использовать неверный сертификат безопасности, пустой пароль или текстовое соединение необходимо включить небезопасные подключения в настройках учетной записи и/или идентификатора. STARTTLS должен быть выбран для простого текстового соединения. При включении небезопасных соединений необходимо подключаться только через частные, надежные сети и никогда не через публичные сети, подобные предлагаемым в гостиницах, аэропортах и т.д.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Как настроить вид сообщений?**
 
-In the three dot overflow menu you can enable or disable or select:
+В меню с тремя точками переполнения вы можете включить/выключить или выбрать:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* *размер текста*: для трех различных размеров шрифтов
+* *компактный вид*: для большего количества узлов сообщений и меньшего шрифта текста сообщений
 
-In the display section of the settings you can enable or disable for example:
+В разделе "Отображение" настроек можно включить или выключить, например:
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Tabular style*: to show a linear list instead of cards
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
-* *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Единый почтовый ящик*: отключить единый почтовый ящик и перечислить папки, выбранные для единого почтового ящика
+* *Табличный стиль*: показать линейный список вместо карточек
+* *Группировка по дате*: показать заголовок даты выше сообщений с той же датой
+* *Цепочка разговора*: отключить цепочку писем и вместо этого показать отдельные сообщения
+* *Действия в диалоге*: отключить нижнюю панель навигации
+* *Цвет выделения*: выбрать цвет для отправки непрочитанных сообщений
+* *Показать фотографии контактов*: чтобы скрыть фотографии контактов
+* *Показать имена и адреса электронной почты*: для отображения имен или для показа имен и адресов электронной почты
+* *Показать тему курсивом*: показать тему сообщения как обычный текст
+* *Показать звезды*: чтобы скрыть звезды (избранные)
+* *Показать предпросмотр сообщения*: показать 1-4 строки текста сообщения
+* *Показать детали адреса по умолчанию*: развернуть раздел адресов по умолчанию
+* *Автоматически показывать оригинальное сообщение для известных контактов*: чтобы автоматически показывать оригинальные сообщения для контактов на вашем устройстве, пожалуйста, прочитайте [этот FAQ](#user-content-faq35)
+* *Автоматически показывать оригинальное сообщение для известных контактов*: чтобы автоматически показывать оригинальные сообщения для контактов на вашем устройстве, пожалуйста, прочитайте [этот FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Заметьте, что сообщения могут быть просмотрены только тогда, когда текст сообщения был загружен. Более крупные тексты сообщений не загружаются по умолчанию при ограниченных (обычно мобильных) сетях. Вы всегда можете изменить это в **Настройках подключения**.
 
-Some people ask:
+Некоторые люди спрашивают:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to move the star to the left, but it is much easier to operate the star on the right side
+* чтобы показать тему полужирной, но жирный уже используется для выделения непрочитанных сообщений
+* переместить звезду слева, но управлять звёздами с правой стороны намного проще
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Как войти в Gmail /G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Если вы используете Play store или GitHub версию FairEmail, вы можете использовать мастер быстрой настройки для настройки учетной записи Gmail и идентификации. Мастер быстрой настройки Gmail не доступен для сторонних сборок, как сборка F-Droid потому что Google одобрил использование OAuth только для официальных сборок.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Если вы не хотите использовать или не можете использовать учетную запись Google на устройстве, например на недавних Huawei устройствах, вы можете включить доступ для "менее безопасных приложений" и использовать пароль учетной записи (не рекомендуется) или включить двухфакторную аутентификацию и использовать пароль для конкретного приложения. Чтобы использовать пароль, необходимо настроить учетную запись и идентификацию через ручную настройку, а не с помощью мастера быстрой установки.
 
-**Important**: sometimes Google issues this alert:
+**Важно**: иногда Google выводит это предупреждение:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Пожалуйста, войдите с помощью своего веб браузера: https://support.google.com/mail/accounts/answer/78754 (Неудача)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Эта проверка безопасности Google чаще запускается при включённом *менее безопасных приложениях* , меньше с паролем приложения, и едва ли при использовании учетной записи на устройстве (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Пожалуйста, посмотрите [этот FAQ](#user-content-faq111) о том, почему могут использоваться только учетные записи на устройствах.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Обратите внимание, что при включенной двухфакторной аутентификации требуется специальный пароль приложения.
 
 <br />
 
-*Enable "Less secure apps"*
+*Специальный пароль приложения*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Смотрите [здесь](https://support.google.com/accounts/answer/185833) о том, как сгенерировать специальный пароль для приложения.
 
 <br />
 
-*General*
+*Включить "Менее безопасные приложения"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Важно**: использование этого метода не рекомендуется, потому что он менее надёжный.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Важно**: Gsuite accounts авторизованные с именем пользователя/паролем перестанут работать [в ближайшем будущем](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Смотрите [здесь](https://support.google.com/accounts/answer/6010255) о том, как включить "менее безопасные приложения" или перейдите [к параметру](https://www.google.com/settings/security/lesssecureapps).
+
+Если вы используете несколько аккаунтов Gmail, убедитесь, что вы изменили настройку «менее безопасных приложений» правильного аккаунта(ов).
+
+Имейте в виду, что вам нужно оставить окно настроек «менее безопасных приложений», используя "стрелку назад", чтобы применить эту настройку.
+
+Если вы используете этот метод, вы должны использовать надёжный [пароль](https://en.wikipedia.org/wiki/Password_strength) для вашей учетной записи Gmail, что является хорошей идеей. Обратите внимание, что использование [стандартного](https://tools.ietf.org/html/rfc3501) протокола IMAP само по себе не менее безопасно.
+
+Когда "менее безопасные приложения" не включены, Вы получите ошибку *Аутентификация не удалась - неверные учётные данные* для учётных записей (IMAP) и *Имя пользователя и Пароль не приняты* для идентификации (SMTP).
+
+<br />
+
+*Основные*
+
+Вы можете получить оповещение "*Пожалуйста, войдите через веб-браузер*". Это происходит, когда Google считает небезопасной сеть, которая подключает вас к Интернету (это может быть VPN). Это можно предотвратить, используя мастер быстрой установки Gmail или пароль для конкретного приложения.
+
+Смотрите [здесь](https://support.google.com/mail/answer/7126229) для инструкций Google и [здесь](https://support.google.com/mail/accounts/answer/78754) для устранения неполадок.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Почему сообщения не появляются (непосредственно) в папке отправленных?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Отправленные сообщения обычно перемещаются из папки "Исходящие" в отправленную папку, как только провайдер добавляет посылаемые сообщения в отправленную папку. Это требует выбора папки "Отправленные" в настройках учетной записи и синхронизации для папки "Отправленные".
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Некоторые провайдеры не отслеживают отправленные сообщения или SMTP сервер не может быть связан с провайдером. В этих случаях FairEmail, автоматически добавляет отправленные сообщения в папку отправленных при синхронизации этой папки, которая произойдёт после отправки сообщения. Обратите внимание, что это приведет к дополнительному интернет-трафику.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Если этого не произойдет, ваш провайдер не может отслеживать отправленные сообщения или вы можете использовать SMTP-сервер, не связанный с провайдером. ~ ~~В этих случаях вы можете включить расширенный параметр идентификации *Хранить отправленные сообщения*, чтобы разрешить FairEmail добавлять отправленные сообщения в папку отправленных сразу после отправки сообщения. ~ ~~Заметьте, что включение этой настройки может привести к дублированию сообщений, если ваш провайдер тоже добавит отправленные сообщения в отправленную папку. ~ ~~Также будьте осторожны, что включение этой настройки приведет к большему использованию данных, особенно при отправке сообщений с большими вложениями.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Если отправленные сообщения в папке "Исходящие" не найдены в папке "Отправленные" при полной синхронизации, они также будут перемещены из папки "Исходящие" в папку "Отправленные". ~ ~~A полная синхронизация происходит при переподключении к серверу или при периодической или ручной синхронизации. ~ ~~вы, скорее всего, хотите включить расширенную настройку *Хранить отправленные сообщения* вместо того, чтобы скоро перемещать сообщения в папку "Отправленные".~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Могу ли я использовать учетную запись Microsoft Exchange?**
 
-The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
+Протокол веб-служб Microsoft Exchange [постепенно исчезает](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). Таким образом, было бы неразумно добавлять этот протокол.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Вы можете использовать учетную запись Microsoft Exchange, если она доступна через IMAP, что в большинстве случаев так. Смотрите [здесь](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) для получения дополнительной информации.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Обратите внимание, что описание FairEmail начинается с отметки, что нестандартные протоколы, такие как Microsoft Exchange Web Services и Microsoft ActiveSync не поддерживаются.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Пожалуйста, смотрите [здесь](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) для документации Microsoft по настройке почтового клиента. Существует также раздел об общих ошибках связи и решениях.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Некоторые старые версии сервера Exchange имеют ошибку, приводящую к пустым сообщениям и повреждению вложений. Пожалуйста, смотрите [этот FAQ](#user-content-faq110) для получения дополнительной информации.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Смотрите [этот FAQ](#user-content-faq133) о поддержке ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Смотрите [этот FAQ](#user-content-faq111) о поддержке OAuth.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Что такое идентификаторы / как добавлять псевдоним?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Идентификаторы представляют собой адреса электронной почты, которые вы отправляете по электронной почте *с* (SMTP) сервера.
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Некоторые провайдеры позволяют вам иметь несколько псевдонимов. Вы можете настроить их, в настройках - идентификаторы для псевдонима и установив поле имя пользователя для вашего основного адреса электронной почты.
 
-Note that you can copy an identity by long pressing it.
+Обратите внимание, что вы можете скопировать идентификацию долгим нажатием на него.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+В качестве альтернативы вы можете включить *Разрешить редактировать адрес отправителя* в дополнительных настройках существующего идентификаторы для редактирования имени пользователя при составлении нового сообщения, если ваш провайдер разрешает это.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail автоматически обновит пароли связанных идентификаторов при обновлении пароля соответствующей учетной записи или связанной с ней идентификатора.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Смотрите [этот FAQ](#user-content-faq33) по редактированию имени пользователя email адресов.
 
 <br />
 
@@ -1566,7 +1566,7 @@ For security reasons the files with the original message texts are not accessibl
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
 * Did you know that you can long press the send action to show the send dialog, even if it was disabled?
 * Did you know that you can long press the full screen icon to show the original message text only?
-* Did you know that you can long press the answer button to reply to the sender? (since version 1.1562)
+* Знаете ли вы, что вы можете удерживать кнопку ответа, чтобы ответить отправителю? (начиная с версии 1.1562)
 
 <br />
 

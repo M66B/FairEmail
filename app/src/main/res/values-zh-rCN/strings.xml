@@ -110,6 +110,7 @@
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_intro">设置一个帐户只需三步，之后您就可以发送和接收电子邮件了</string>
     <string name="title_setup_simple">无需更改任何其他选项</string>
+    <string name="title_setup_quick_accounts">添加或更改账户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要怪责于 FairEmail, 而应向提供商寻求支持</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
@@ -275,6 +276,8 @@
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
     <string name="title_advanced_rlah">国内漫游</string>
+    <string name="title_advanced_download_headers">下载所有消息标题</string>
+    <string name="title_advanced_download_eml">下载原始消息文件</string>
     <string name="title_advanced_validated">需要已验证 (已检查) 的连接</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
@@ -485,6 +488,7 @@
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
+    <string name="title_advanced_usage_hint">这将增加电池、数据和存储空间的使用</string>
     <string name="title_advanced_tcp_keep_alive_hint">启用此选项可能会在某些设备上造成连接问题</string>
     <string name="title_advanced_validate_hint">这可能导致消息不同步，例如在使用 VPN 时，其他情况下也可能发生</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
@@ -746,6 +750,7 @@
     <string name="title_toggle_seen">切换已读状态</string>
     <string name="title_hide">隐藏</string>
     <string name="title_unhide">显示</string>
+    <string name="title_toggle_hide">隐藏/显示</string>
     <string name="title_flag">加注星标</string>
     <string name="title_flag_color">多彩星标 &#8230;</string>
     <string name="title_unflag">移除星标</string>
@@ -1069,6 +1074,7 @@
     <string name="title_answer_group">模板组 (可选)</string>
     <string name="title_answer_standard">默认</string>
     <string name="title_answer_favorite">收藏</string>
+    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">用作已读回执</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_placeholder">占位符</string>

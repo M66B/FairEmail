@@ -144,6 +144,7 @@
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_intro">Настройте учётную запись всего за три шага и сможете отправлять и получать письма</string>
     <string name="title_setup_simple">Нет необходимости менять другие параметры</string>
+    <string name="title_setup_quick_accounts">Добавить или изменить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
@@ -309,6 +310,8 @@
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
     <string name="title_advanced_rlah">В роуминге как дома</string>
+    <string name="title_advanced_download_headers">Загружать все заголовки сообщений</string>
+    <string name="title_advanced_download_eml">Загружать оригиналы сообщений</string>
     <string name="title_advanced_validated">Требовать проверенное подключение</string>
     <string name="title_advanced_timeout">Время ожидания подключения (сек.)</string>
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>
@@ -519,6 +522,7 @@
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
+    <string name="title_advanced_usage_hint">Это увеличит расход заряда батареи, трафика и места в хранилище</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с подключением на некоторых устройствах</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
@@ -780,6 +784,7 @@
     <string name="title_toggle_seen">Прочитано/непрочитано</string>
     <string name="title_hide">Скрыть</string>
     <string name="title_unhide">Показать</string>
+    <string name="title_toggle_hide">Переключить видимость</string>
     <string name="title_flag">В избранное</string>
     <string name="title_flag_color">Цветная метка&#8230;</string>
     <string name="title_unflag">Удалить из избранного</string>
@@ -1103,6 +1108,7 @@
     <string name="title_answer_group">Группа шаблонов (необязательно)</string>
     <string name="title_answer_standard">По умолчанию</string>
     <string name="title_answer_favorite">Избранное</string>
+    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Использовать как уведомление о прочтении</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_placeholder">Заполнение</string>
