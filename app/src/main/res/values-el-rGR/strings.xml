@@ -289,6 +289,7 @@
     <string name="title_advanced_roaming">Κατέβασμα μηνυμάτων και συνημμένων σε λειτουργία περιαγωγής</string>
     <string name="title_advanced_rlah">Περιήγηση όπως στο σπίτι</string>
     <string name="title_advanced_download_headers">Λήψη όλων των κεφαλίδων μηνυμάτων</string>
+    <string name="title_advanced_download_eml">Λήψη αρχείων ακατέργαστων μηνυμάτων</string>
     <string name="title_advanced_validated">Απαιτείται επικυρωμένη (επαληθευμένη) σύνδεση</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>

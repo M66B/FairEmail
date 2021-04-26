@@ -929,6 +929,7 @@
     <string name="title_decrypt">Dekripsi</string>
     <string name="title_resync">Sinkron ulang</string>
     <string name="title_not_encrypted">Pesan tidak ditandatangani atau dienkripsi</string>
+    <string name="title_signature_valid_from">Tanda tangan pesan tidak valid: %1$s</string>
     <string name="title_signature_sender">Tampilkan pilihan gambar</string>
     <string name="title_signature_subject">Subjek</string>
     <string name="title_signature_validity">Masa berlaku</string>

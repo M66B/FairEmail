@@ -7,9 +7,11 @@
     <string name="app_crash">FairEmail nie je podporovaný na tomto zariadení, pretože chyby v systéme spôsobujú pády</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
+    <string name="app_updated">Posledná aktualizácia: %1$s</string>
     <string name="channel_service">Prijať</string>
     <string name="channel_send">Odoslať</string>
     <string name="channel_notification">Email</string>
+    <string name="channel_progress">Priebeh</string>
     <string name="channel_update">Aktualizácie</string>
     <string name="channel_warning">Upozornenia</string>
     <string name="channel_error">Chyby</string>
@@ -18,6 +20,7 @@
     <string name="channel_service_description">Synchronizácia a monitorovanie účtov</string>
     <string name="channel_send_description">Odosielanie správ</string>
     <string name="channel_notification_description">Oznámenia nových správ</string>
+    <string name="channel_progress_description">Oznámenia o priebehu dlhšie prebiehajúcich aktivít</string>
     <plurals name="page_conversation">
         <item quantity="one">Konverzácia</item>
         <item quantity="few">Konverzácie</item>
@@ -139,6 +142,9 @@
     <string name="title_setup">Nastavenia</string>
     <string name="title_setup_help">Pomoc</string>
     <string name="title_setup_quick">Rýchle nastavenie</string>
+    <string name="title_setup_intro">Nastavenie účtu má len tri kroky a hneď potom môžete prijímať a posielať emaily</string>
+    <string name="title_setup_simple">Nie je potrebné meniť žiadne ďalšie nastavenia</string>
+    <string name="title_setup_quick_accounts">Pridať alebo zmeniť účty</string>
     <string name="title_setup_quick_support">Niektorí poskitovatelia.</string>
     <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP server na prijímanie správ</string>
@@ -184,10 +190,12 @@
     <string name="title_setup_permissions">Udeliť oprávnenia</string>
     <string name="title_setup_permissions_remark">Prístup k informáciám kontaktov (voliteľné)</string>
     <string name="title_setup_doze">Vypnite optimalizáciu batérie</string>
+    <string name="title_setup_doze_remark">Aby ste mohli spoľahlivo prijímať a odosielať email</string>
     <string name="title_setup_doze_hint">Môže sa zdať, že opak je pravdou, no vypnutím optimalizácie batérie ušetríte využitie pri napájaní z batérie</string>
     <string name="title_setup_doze_instructions">V nasledujúsom dialógu systému android zmeňte \"Neoptimalizované\" na \"Všetky aplikácie\", nájdite túto aplikáciu a nastavte \"Neoptimalizovať\"</string>
     <string name="title_setup_doze_battery">Vysoká spotreba batérie?</string>
     <string name="title_setup_doze_stopped">Zastavila sa synchronizácia?</string>
+    <string name="title_setup_background">Obmedzenia spustenia na pozadí sú aktívne</string>
     <string name="title_setup_data">Šetrenie údajov je povolené</string>
     <string name="title_setup_advanced_options">Zobraziť rozšírené možnosti</string>
     <string name="title_setup_inbox">Prejsť do schránky</string>
@@ -250,6 +258,7 @@
     <string name="title_advanced_section_encryption">Šifrovanie</string>
     <string name="title_advanced_section_notifications">Oznámenia</string>
     <string name="title_advanced_section_misc">Rôzne</string>
+    <string name="title_advanced_default">Všetky voľby majú bežne používané štandardné hodnoty, ktoré nie je pri používaní aplikácie potrebné meniť</string>
     <string name="title_advanced_receive">Prijímať správy pre všetky účty</string>
     <string name="title_advanced_when">Kedy</string>
     <string name="title_advanced_always">Vždy prijímať správy pre tieto účty</string>
@@ -276,6 +285,7 @@
     <string name="title_advanced_suggest_frequently">Zoradiť navrhované adresy podľa počtu použití</string>
     <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
     <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
+    <string name="title_advanced_send_pending">Zobrazovať nevtieravú ikonu oneskoreného odosielania</string>
     <string name="title_advanced_compose_font">Predvolené písmo</string>
     <string name="title_advanced_prefix_once">Pri odpovedaní alebo preposielaní pridať do predmetu len jednu predponu</string>
     <string name="title_advanced_separate_reply">Vložiť vodorovnú čiaru pred hlavičkou odpovedanej / preposlanej správy</string>
@@ -288,6 +298,8 @@
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>
     <string name="title_advanced_signature_forward">Používať podpis pri preposielaní</string>
     <string name="title_advanced_discard_delete">Pri odstránení konceptu nepoužívať kôš</string>
+    <string name="title_advanced_reply_move">Pri odpovedaní na správu v používateľskom priečinku, uložiť odpoveď v tom istom umiestnení</string>
+    <string name="title_advanced_auto_link">Automaticky vytvoriť odkazy</string>
     <string name="title_advanced_plain_only">Predvolene odosielať obyčajný text</string>
     <string name="title_advanced_flow">\"format flowed\" pre obyčajný text</string>
     <string name="title_advanced_usenet_signature">Používať konvenciu Usenet pre podpisy</string>
@@ -298,6 +310,8 @@
     <string name="title_advanced_download">Automaticky preberať správy a prílohy na účtovanom pripojení do veľkosti</string>
     <string name="title_advanced_roaming">Preberať správy a prílohy počas roamingu</string>
     <string name="title_advanced_rlah">Roaming ako doma</string>
+    <string name="title_advanced_download_headers">Prevziať všetky hlavičky správy</string>
+    <string name="title_advanced_download_eml">Prevziať surové súbory správy</string>
     <string name="title_advanced_validated">Vyžaduje funkčné (skontrolované) pripojenie</string>
     <string name="title_advanced_timeout">Časový limit pripojenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Uprednostňovať IPv4 pred IPv6</string>
@@ -366,6 +380,7 @@
     <string name="title_advanced_collapse_quotes">Zbaliť citovaný text</string>
     <string name="title_advanced_image_placeholders">Zobrazovať náhrady obrázkov</string>
     <string name="title_advanced_images_inline">Automaticky zobrazovať vložené obrázky</string>
+    <string name="title_advanced_button_extra">Zobraziť ďalšie tlačidlá pod textom správy</string>
     <string name="title_advanced_seekbar">Zobraziť relatívnu pozíciu v konverzácii bodkou</string>
     <string name="title_advanced_actionbar">Zobraziť lištu akcií konverzácie</string>
     <string name="title_advanced_actionbar_color">Použiť farbu účtu ako farbu pozadia panela akcií konverzácie</string>
@@ -383,6 +398,7 @@
     <string name="title_advanced_swipe_close">Zatvoriť konverzáciu potiahnutím dolu</string>
     <string name="title_advanced_swipe_move">Presunúť konverzáciu potiahnutím hore</string>
     <string name="title_advanced_autoexpand">Automaticky rozbaľovať správy</string>
+    <string name="title_advanced_expand_first">Automaticky rozbaliť prvú správu, keď je konverzácia prečítaná</string>
     <string name="title_advanced_expand_all">Automaticky rozbaľovať všetky prečítané správy</string>
     <string name="title_advanced_expand_one">Rozbaliť vždy len jednu správu</string>
     <string name="title_advanced_collapse_multiple">Zbaliť konverzácie s viacerými správami stlačením tlačidla \'Späť\'</string>
@@ -420,6 +436,7 @@
     <string name="title_advanced_notify_action_reply_direct">Priamo odpovedať</string>
     <string name="title_advanced_notify_action_flag">S hviezdičkou</string>
     <string name="title_advanced_notify_action_seen">Prečítané</string>
+    <string name="title_advanced_notify_action_hide">Skryť</string>
     <string name="title_advanced_notify_action_snooze">Odložiť</string>
     <string name="title_advanced_notify_remove">Odstrániť oznámenie o novej správe po kliknutí</string>
     <string name="title_advanced_notify_clear">Odstrániť oznámenia o nových správach po zobrazení zoznamu správ</string>
@@ -501,10 +518,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_suggest_local_hint">Okrem kontaktov poskytnutých systémom. Zaznamenané budú kontaktné údaje z prijatých a odoslaných správ, len ak je to povolené.</string>
     <string name="title_advanced_usenet_hint">Oddeliť podpis od textu správy znakmi \'-- \'</string>
     <string name="title_advanced_send_reminders_hint">Zobraziť varovanie, ak je text správy alebo predmet prázdny alebo môže chýbať príloha</string>
+    <string name="title_advanced_reply_move_hint">Poštový server môže stále umiestniť správy v priečinku s odoslanou poštou</string>
     <string name="title_advanced_metered_hint">Účtované pripojenia sú obyčajne mobilné dáta alebo platené wifi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutím zakážete prijímanie a odosielanie správ cez mobilný internet</string>
     <string name="title_advanced_rlah_hint">Predpokladá sa žiaden roaming v krajinách EU</string>
+    <string name="title_advanced_usage_hint">Toto zvýši využívanie batérie, údajov a úložného priestoru</string>
     <string name="title_advanced_tcp_keep_alive_hint">Zapnutie môže na niektorých zariadeniach spôsobovať problémy s pripojením</string>
+    <string name="title_advanced_validate_hint">Výsledkom môžu byť výpadky synchronizácie správ, najmä pri používaní VPN ale aj v iných občasných prípadoch</string>
     <string name="title_advanced_timeout_hint">Časový limit čítania/zápisu bude nastavený na dvojnásobok limitu spojenia. Čím vyššia hodnota, tým vyšší nárok na využívanie batérie.</string>
     <string name="title_advanced_ssl_harden_hint">Povolením zakážete slabé metódy a protokoly SSL, čo môže viesť k problémom so spojením</string>
     <string name="title_advanced_roaming_hint">Hlavičky správ budú vždy preberané počas roamingu. Na zakázanie internetu v roamingu použite nastavenia zariadenia.</string>
