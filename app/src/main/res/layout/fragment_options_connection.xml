@@ -161,7 +161,53 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRlahHint" />
+            app:layout_constraintTop_toBottomOf="@id/swRlah" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDownloadHeaders"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_download_headers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDownloadHeadersHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_usage_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDownloadHeaders" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDownloadEml"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_download_eml"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDownloadHeadersHint"
+            app:switchPadding="12dp" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvDownloadEmlHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_usage_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDownloadEml" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swValidated"
@@ -171,7 +217,7 @@
             android:text="@string/title_advanced_validated"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+            app:layout_constraintTop_toBottomOf="@id/tvDownloadEmlHint"
             app:switchPadding="12dp" />
 
         <eu.faircode.email.FixedTextView

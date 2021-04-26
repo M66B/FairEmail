@@ -3055,6 +3055,7 @@ class Core {
             List<EntityRule> rules, State state, SyncStats stats) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean download_headers = prefs.getBoolean("download_headers", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean pro = ActivityBilling.isPro(context);
@@ -3207,6 +3208,8 @@ class Core {
             message.list_post = helper.getListPost();
             message.unsubscribe = helper.getListUnsubscribe();
             message.autocrypt = helper.getAutocrypt();
+            if (download_headers)
+                message.headers = helper.getHeaders();
             message.subject = helper.getSubject();
             message.size = parts.getBodySize();
             message.total = helper.getSize();
@@ -3706,6 +3709,7 @@ class Core {
         long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
         if (maxSize == 0)
             maxSize = Long.MAX_VALUE;
+        boolean download_eml = prefs.getBoolean("download_eml", false);
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
@@ -3784,6 +3788,16 @@ class Core {
                             Log.e(folder.name, ex);
                             db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
                         }
+        }
+
+        if (download_eml &&
+                (state.getNetworkState().isUnmetered() || (message.total != null && message.total < maxSize))) {
+            File file = message.getRawFile(context);
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                imessage.writeTo(os);
+            }
+
+            db.message().setMessageRaw(message.id, true);
         }
 
         return fetch;

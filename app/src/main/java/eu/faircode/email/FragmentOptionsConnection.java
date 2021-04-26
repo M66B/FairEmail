@@ -59,6 +59,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Spinner spDownload;
     private SwitchCompat swRoaming;
     private SwitchCompat swRlah;
+    private SwitchCompat swDownloadHeaders;
+    private SwitchCompat swDownloadEml;
     private SwitchCompat swValidated;
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
@@ -75,6 +77,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "roaming", "rlah",
+            "download_headers", "download_eml",
             "require_validated", "timeout", "prefer_ip4", "standalone_vpn", "tcp_keep_alive", "ssl_harden"
     };
 
@@ -92,6 +95,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         spDownload = view.findViewById(R.id.spDownload);
         swRoaming = view.findViewById(R.id.swRoaming);
         swRlah = view.findViewById(R.id.swRlah);
+        swDownloadHeaders = view.findViewById(R.id.swDownloadHeaders);
+        swDownloadEml = view.findViewById(R.id.swDownloadEml);
         swValidated = view.findViewById(R.id.swValidated);
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
@@ -145,6 +150,20 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("rlah", checked).apply();
+            }
+        });
+
+        swDownloadHeaders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("download_headers", checked).apply();
+            }
+        });
+
+        swDownloadEml.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("download_eml", checked).apply();
             }
         });
 
@@ -312,6 +331,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
         swRlah.setChecked(prefs.getBoolean("rlah", true));
+
+        swDownloadHeaders.setChecked(prefs.getBoolean("download_headers", false));
+        swDownloadEml.setChecked(prefs.getBoolean("download_eml", false));
 
         swValidated.setChecked(prefs.getBoolean("require_validated", false));
 
