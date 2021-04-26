@@ -885,6 +885,7 @@
     <string name="title_toggle_seen">Toggle read</string>
     <string name="title_hide">Hide</string>
     <string name="title_unhide">Show</string>
+    <string name="title_toggle_hide">Toggle hide</string>
     <string name="title_flag">Add star</string>
     <string name="title_flag_color">Colored star &#8230;</string>
     <string name="title_unflag">Remove star</string>
