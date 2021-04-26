@@ -3499,6 +3499,12 @@ class Core {
                         " labels=" + (labels == null ? null : TextUtils.join(" ", labels)));
             }
 
+            if (download_headers && message.headers == null) {
+                update = true;
+                message.headers = helper.getHeaders();
+                Log.i(folder.name + " updated id=" + message.id + " headers");
+            }
+
             if (message.hash == null || process) {
                 update = true;
                 message.hash = helper.getHash();
@@ -3791,13 +3797,15 @@ class Core {
         }
 
         if (download_eml &&
+                (message.raw == null || !message.raw) &&
                 (state.getNetworkState().isUnmetered() || (message.total != null && message.total < maxSize))) {
             File file = message.getRawFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
             }
 
-            db.message().setMessageRaw(message.id, true);
+            message.raw = true;
+            db.message().setMessageRaw(message.id, message.raw);
         }
 
         return fetch;
