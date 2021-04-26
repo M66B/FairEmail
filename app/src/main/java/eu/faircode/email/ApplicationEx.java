@@ -104,7 +104,8 @@ public class ApplicationEx extends Application
                         public void onVmViolation(Violation v) {
                             String message = v.getMessage();
                             if (message != null &&
-                                    (message.contains("computeFitSystemWindows") ||
+                                    (message.contains("AbstractConscryptSocket") ||
+                                            message.contains("computeFitSystemWindows") ||
                                             message.contains("makeOptionalFitsSystemWindows")))
                                 return;
 
