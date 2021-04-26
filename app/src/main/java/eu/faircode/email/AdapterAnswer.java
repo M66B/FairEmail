@@ -69,6 +69,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         private TextView tvGroup;
         private ImageView ivStandard;
         private ImageView ivFavorite;
+        private ImageView ivReceipt;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "RulePopup");
 
@@ -80,6 +81,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             tvGroup = itemView.findViewById(R.id.tvGroup);
             ivStandard = itemView.findViewById(R.id.ivStandard);
             ivFavorite = itemView.findViewById(R.id.ivFavorite);
+            ivReceipt = itemView.findViewById(R.id.ivReceipt);
         }
 
         private void wire() {
@@ -99,6 +101,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             tvGroup.setVisibility(TextUtils.isEmpty(answer.group) ? View.GONE : View.VISIBLE);
             ivStandard.setVisibility(answer.standard ? View.VISIBLE : View.GONE);
             ivFavorite.setVisibility(answer.favorite ? View.VISIBLE : View.GONE);
+            ivReceipt.setVisibility(answer.receipt ? View.VISIBLE : View.GONE);
         }
 
         @Override

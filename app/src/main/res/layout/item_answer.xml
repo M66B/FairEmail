@@ -37,9 +37,19 @@
                 android:maxLines="1"
                 android:text="Group"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toStartOf="@+id/ivStandard"
+                app:layout_constraintEnd_toStartOf="@+id/ivReceipt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <ImageView
+                android:id="@+id/ivReceipt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivStandard"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_playlist_add_check_24" />
 
             <ImageView
                 android:id="@+id/ivStandard"

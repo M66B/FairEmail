@@ -59,6 +59,7 @@ public class FragmentAnswer extends FragmentBase {
     private EditText etGroup;
     private CheckBox cbStandard;
     private CheckBox cbFavorite;
+    private CheckBox cbReceipt;
     private CheckBox cbHide;
     private EditTextCompose etText;
     private BottomNavigationView style_bar;
@@ -102,6 +103,7 @@ public class FragmentAnswer extends FragmentBase {
         etGroup = view.findViewById(R.id.etGroup);
         cbStandard = view.findViewById(R.id.cbStandard);
         cbFavorite = view.findViewById(R.id.cbFavorite);
+        cbReceipt = view.findViewById(R.id.cbReceipt);
         cbHide = view.findViewById(R.id.cbHide);
         etText = view.findViewById(R.id.etText);
 
@@ -190,6 +192,7 @@ public class FragmentAnswer extends FragmentBase {
                     etGroup.setText(answer == null ? null : answer.group);
                     cbStandard.setChecked(answer == null ? false : answer.standard);
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
+                    cbReceipt.setChecked(answer == null ? false : answer.receipt);
                     cbHide.setChecked(answer == null ? false : answer.hide);
 
                     String html = (answer == null ? a.getString("html") : answer.text);
@@ -303,6 +306,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putString("group", etGroup.getText().toString().trim());
         args.putBoolean("standard", cbStandard.isChecked());
         args.putBoolean("favorite", cbFavorite.isChecked());
+        args.putBoolean("receipt", cbReceipt.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
         args.putString("html", HtmlHelper.toHtml(etText.getText(), getContext()));
 
@@ -324,6 +328,7 @@ public class FragmentAnswer extends FragmentBase {
                 String group = args.getString("group");
                 boolean standard = args.getBoolean("standard");
                 boolean favorite = args.getBoolean("favorite");
+                boolean receipt = args.getBoolean("receipt");
                 boolean hide = args.getBoolean("hide");
                 String html = args.getString("html");
 
@@ -340,6 +345,8 @@ public class FragmentAnswer extends FragmentBase {
 
                     if (standard)
                         db.answer().resetStandard();
+                    if (receipt)
+                        db.answer().resetReceipt();
 
                     if (id < 0) {
                         EntityAnswer answer = new EntityAnswer();
@@ -347,6 +354,7 @@ public class FragmentAnswer extends FragmentBase {
                         answer.group = group;
                         answer.standard = standard;
                         answer.favorite = favorite;
+                        answer.receipt = receipt;
                         answer.hide = hide;
                         answer.text = document.body().html();
                         answer.id = db.answer().insertAnswer(answer);
@@ -356,6 +364,7 @@ public class FragmentAnswer extends FragmentBase {
                         answer.group = group;
                         answer.standard = standard;
                         answer.favorite = favorite;
+                        answer.receipt = receipt;
                         answer.hide = hide;
                         answer.text = document.body().html();
                         db.answer().updateAnswer(answer);

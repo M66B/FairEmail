@@ -1239,6 +1239,7 @@
     <string name="title_answer_group">Template group (optional)</string>
     <string name="title_answer_standard">Default</string>
     <string name="title_answer_favorite">Favorite</string>
+    <string name="title_answer_receipt">Use as read receipt</string>
     <string name="title_answer_hide">Hide from menus</string>
     <string name="title_answer_text">Template text</string>
     <string name="title_answer_placeholder">Placeholder</string>

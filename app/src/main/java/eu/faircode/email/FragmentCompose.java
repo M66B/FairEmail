@@ -3886,8 +3886,17 @@ public class FragmentCompose extends FragmentBase {
                             String[] texts;
                             if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn))
                                 texts = new String[]{context.getString(R.string.title_hard_bounce_text)};
-                            else
-                                texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
+                            else {
+                                EntityAnswer receipt = db.answer().getReceiptAnswer();
+                                if (receipt == null)
+                                    texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
+                                else {
+                                    texts = new String[0];
+                                    Document d = JsoupEx.parse(receipt.getText(null));
+                                    document.body().append(d.body().html());
+                                }
+                            }
+
                             for (int i = 0; i < texts.length; i++) {
                                 if (i > 0)
                                     document.body()

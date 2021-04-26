@@ -48,6 +48,10 @@ public interface DaoAnswer {
     EntityAnswer getStandardAnswer();
 
     @Query("SELECT * FROM answer" +
+            " WHERE receipt AND NOT hide")
+    EntityAnswer getReceiptAnswer();
+
+    @Query("SELECT * FROM answer" +
             " ORDER BY -favorite, name COLLATE NOCASE")
     LiveData<List<EntityAnswer>> liveAnswers();
 
@@ -66,6 +70,9 @@ public interface DaoAnswer {
 
     @Query("UPDATE answer SET standard = 0 WHERE NOT (standard IS 0)")
     void resetStandard();
+
+    @Query("UPDATE answer SET receipt = 0 WHERE NOT (receipt IS 0)")
+    void resetReceipt();
 
     @Query("DELETE FROM answer WHERE id = :id")
     void deleteAnswer(long id);

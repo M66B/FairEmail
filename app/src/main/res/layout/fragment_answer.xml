@@ -73,6 +73,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/cbStandard" />
 
                 <CheckBox
+                    android:id="@+id/cbReceipt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_answer_receipt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbFavorite" />
+
+                <CheckBox
                     android:id="@+id/cbHide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +90,7 @@
                     android:layout_marginTop="6dp"
                     android:text="@string/title_answer_hide"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbFavorite" />
+                    app:layout_constraintTop_toBottomOf="@+id/cbReceipt" />
 
                 <View
                     android:id="@+id/vSeparator"
