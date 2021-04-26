@@ -256,8 +256,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        checkAuthentication();
-
         int colorPrimaryDark = Helper.resolveColor(this, R.attr.colorPrimaryDark);
         int colorActionForeground = Helper.resolveColor(this, R.attr.colorActionForeground);
 
@@ -278,8 +276,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (navbar_colorize) {
             Window window = getWindow();
             if (window != null)
-                window.setNavigationBarColor(Helper.resolveColor(this, R.attr.colorPrimaryDark));
+                window.setNavigationBarColor(colorPrimaryDark);
         }
+
+        checkAuthentication();
 
         super.onCreate(savedInstanceState);
     }
