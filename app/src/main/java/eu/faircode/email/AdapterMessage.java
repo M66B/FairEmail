@@ -2969,11 +2969,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 if (message.identityEmail == null)
                     return false;
-                if (message.from == null)
+
+                if (message.from != null && message.from.length == 1 &&
+                        message.to != null && message.to.length == 1 &&
+                        message.identityEmail.equalsIgnoreCase(((InternetAddress) message.from[0]).getAddress()) &&
+                        message.identityEmail.equalsIgnoreCase(((InternetAddress) message.to[0]).getAddress()))
                     return false;
-                for (Address from : message.from)
-                    if (message.identityEmail.equalsIgnoreCase(((InternetAddress) from).getAddress()))
-                        return true;
+
+                if (message.from != null)
+                    for (Address from : message.from)
+                        if (message.identityEmail.equalsIgnoreCase(((InternetAddress) from).getAddress()))
+                            return true;
+
                 return false;
             }
         }
