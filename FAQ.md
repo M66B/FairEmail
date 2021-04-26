@@ -1990,10 +1990,10 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The one time price of the few pro features is too low, lower than the price of most similar apps,
-and there are [too many fees and taxes](#user-content-faq19),
-to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852).
-Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852)
+under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 
