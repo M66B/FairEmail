@@ -99,6 +99,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
         final CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
         final CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
+        final CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
         final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
         final CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
@@ -198,9 +199,12 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 if (grpMore.getVisibility() == View.VISIBLE) {
                     ibMore.setImageLevel(1);
                     grpMore.setVisibility(View.GONE);
+                    cbHeaders.setVisibility(View.GONE);
                 } else {
                     ibMore.setImageLevel(0);
                     grpMore.setVisibility(View.VISIBLE);
+                    if (BuildConfig.DEBUG)
+                        cbHeaders.setVisibility(View.VISIBLE);
                 }
             }
         };
@@ -218,6 +222,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 cbKeywords.setEnabled(!isChecked);
                 cbMessage.setEnabled(!isChecked);
                 cbNotes.setEnabled(!isChecked);
+                cbHeaders.setEnabled(!isChecked);
                 cbUnseen.setEnabled(!isChecked);
                 cbFlagged.setEnabled(!isChecked);
                 cbHidden.setEnabled(!isChecked);
@@ -313,6 +318,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         tvBefore.setText(null);
 
         grpMore.setVisibility(View.GONE);
+        cbHeaders.setVisibility(View.GONE);
 
         etQuery.requestFocus();
         if (imm != null)
@@ -355,6 +361,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.in_keywords = cbKeywords.isChecked();
                             criteria.in_message = cbMessage.isChecked();
                             criteria.in_notes = cbNotes.isChecked();
+                            criteria.in_headers = cbHeaders.isChecked();
                             criteria.with_unseen = cbUnseen.isChecked();
                             criteria.with_flagged = cbFlagged.isChecked();
                             criteria.with_hidden = cbHidden.isChecked();

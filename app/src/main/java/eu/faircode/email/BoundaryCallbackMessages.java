@@ -270,6 +270,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         criteria.in_keywords,
                         criteria.in_message,
                         criteria.in_notes,
+                        criteria.in_headers,
                         criteria.with_unseen,
                         criteria.with_flagged,
                         criteria.with_hidden,
@@ -675,6 +676,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean in_keywords = true;
         boolean in_message = true;
         boolean in_notes = true;
+        boolean in_headers = false;
         boolean with_unseen;
         boolean with_flagged;
         boolean with_hidden;
@@ -868,6 +870,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.in_keywords == other.in_keywords &&
                         this.in_message == other.in_message &&
                         this.in_notes == other.in_notes &&
+                        this.in_headers == other.in_headers &&
                         this.with_unseen == other.with_unseen &&
                         this.with_flagged == other.with_flagged &&
                         this.with_hidden == other.with_hidden &&
@@ -893,6 +896,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " keywords=" + in_keywords +
                     " message=" + in_message +
                     " notes=" + in_notes +
+                    " headers=" + in_headers +
                     " unseen=" + with_unseen +
                     " flagged=" + with_flagged +
                     " hidden=" + with_hidden +
