@@ -973,42 +973,50 @@ public class Helper {
     }
 
     static DateFormat getTimeInstance(Context context) {
-        return Helper.getTimeInstance(context, SimpleDateFormat.MEDIUM);
-    }
-
-    static DateFormat getDateInstance(Context context) {
-        return SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM);
+        return getTimeInstance(context, SimpleDateFormat.MEDIUM);
     }
 
     static DateFormat getTimeInstance(Context context, int style) {
         if (context != null &&
-                (style == SimpleDateFormat.SHORT || style == SimpleDateFormat.MEDIUM)) {
-            Locale locale = Locale.getDefault();
-            boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
-            String skeleton = (is24Hour ? "Hm" : "hm");
-            if (style == SimpleDateFormat.MEDIUM)
-                skeleton += "s";
-            String pattern = android.text.format.DateFormat.getBestDateTimePattern(locale, skeleton);
-            return new SimpleDateFormat(pattern, locale);
-        } else
+                (style == SimpleDateFormat.SHORT || style == SimpleDateFormat.MEDIUM))
+            return new SimpleDateFormat(getTimePattern(context, style));
+        else
             return SimpleDateFormat.getTimeInstance(style);
     }
 
-    static DateFormat getDateTimeInstance(Context context) {
-        return getDateTimeInstance(context, null);
+    static DateFormat getDateInstance(Context context) {
+        return getDateInstance(context, SimpleDateFormat.MEDIUM);
     }
 
-    static DateFormat getDateTimeInstance(Context context, Locale locale) {
-        return Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM, locale);
+    private static DateFormat getDateInstance(Context context, int style) {
+        return SimpleDateFormat.getDateInstance(style);
+    }
+
+    static DateFormat getDateTimeInstance(Context context) {
+        return getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM);
     }
 
     static DateFormat getDateTimeInstance(Context context, int dateStyle, int timeStyle) {
-        return getDateTimeInstance(context, dateStyle, timeStyle, null);
+        if (context != null &&
+                (timeStyle == SimpleDateFormat.SHORT || timeStyle == SimpleDateFormat.MEDIUM)) {
+            DateFormat dateFormat = getDateInstance(context, dateStyle);
+            if (dateFormat instanceof SimpleDateFormat) {
+                String datePattern = ((SimpleDateFormat) dateFormat).toPattern();
+                String timePattern = getTimePattern(context, timeStyle);
+                return new SimpleDateFormat(datePattern + " " + timePattern);
+            }
+        }
+
+        return SimpleDateFormat.getDateTimeInstance(dateStyle, timeStyle);
     }
 
-    static DateFormat getDateTimeInstance(Context context, int dateStyle, int timeStyle, Locale locale) {
-        // TODO fix time format
-        return SimpleDateFormat.getDateTimeInstance(dateStyle, timeStyle);
+    private static String getTimePattern(Context context, int style) {
+        // https://issuetracker.google.com/issues/37054851
+        boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
+        String skeleton = (is24Hour ? "Hm" : "hm");
+        if (style == SimpleDateFormat.MEDIUM)
+            skeleton += "s";
+        return android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
     }
 
     static CharSequence getRelativeTimeSpanString(Context context, long millis) {
