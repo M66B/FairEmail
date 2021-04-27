@@ -57,7 +57,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     private List<TupleAccountEx> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
-    private DateFormat DTF;
+    private DateFormat TF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -112,7 +112,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             tvItem.setTextColor(account.unseen == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(account.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
-            tvItemExtra.setText(account.last_connected == null ? null : DTF.format(account.last_connected));
+            tvItemExtra.setText(account.last_connected == null ? null : TF.format(account.last_connected));
 
             ivExternal.setVisibility(View.GONE);
             ivWarning.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
@@ -190,7 +190,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
-        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
+        this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
         setHasStableIds(true);
     }

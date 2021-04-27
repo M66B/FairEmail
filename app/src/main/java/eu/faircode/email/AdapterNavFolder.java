@@ -56,7 +56,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     private List<TupleFolderNav> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
-    private DateFormat DTF;
+    private DateFormat TF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
@@ -127,7 +127,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
-            tvItemExtra.setText(folder.last_sync == null ? null : DTF.format(folder.last_sync));
+            tvItemExtra.setText(folder.last_sync == null ? null : TF.format(folder.last_sync));
             tvItemExtra.setVisibility(debug ? View.VISIBLE : View.GONE);
 
             ivExternal.setVisibility(View.GONE);
@@ -165,7 +165,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
-        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
+        this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
         setHasStableIds(true);
     }
