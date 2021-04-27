@@ -212,8 +212,8 @@ preBuild.dependsOn copyMarkdown
 
 repositories {
     google()
-    jcenter()
-    maven { url "https://repo1.maven.org/maven2/" }
+    //jcenter()
+    maven { url "https://repo1.maven.org/maven2/" } // Maven Central
     maven { url "https://jitpack.io" }
     //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     //maven { url "https://jakarta.oss.sonatype.org/content/repositories/snapshots/" }
