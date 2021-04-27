@@ -5157,10 +5157,7 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                etBody.requestFocus();
-                InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm != null)
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+                focus();
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5461,35 +5458,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                final Context context = getContext();
-
-                final View target;
-                if (TextUtils.isEmpty(etTo.getText().toString().trim()))
-                    target = etTo;
-                else if (TextUtils.isEmpty(etSubject.getText().toString()))
-                    target = etSubject;
-                else
-                    target = etBody;
-
-                getMainHandler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            target.requestFocus();
-
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean keyboard = prefs.getBoolean("keyboard", true);
-                            if (keyboard) {
-                                InputMethodManager imm =
-                                        (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                                if (imm != null)
-                                    imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
-                            }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-                    }
-                });
+                focus();
             }
 
             @Override
@@ -5497,6 +5466,41 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:show");
+    }
+
+    private void focus() {
+        final View target;
+        if (TextUtils.isEmpty(etTo.getText().toString().trim()))
+            target = etTo;
+        else if (TextUtils.isEmpty(etSubject.getText().toString()))
+            target = etSubject;
+        else
+            target = etBody;
+
+        getMainHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    target.requestFocus();
+
+                    Context context = target.getContext();
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean keyboard = prefs.getBoolean("keyboard", true);
+                    if (!keyboard)
+                        return;
+
+                    InputMethodManager imm =
+                            (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (imm == null)
+                        return;
+
+                    imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
     }
 
     private void setBodyPadding() {
