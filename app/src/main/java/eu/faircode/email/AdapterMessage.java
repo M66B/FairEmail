@@ -89,7 +89,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.webkit.WebSettings;
@@ -4725,10 +4724,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
             pw.showAtLocation(parentFragment.getView(), Gravity.TOP | Gravity.END, 0, 0);
 
-            etSearch.requestFocus();
-            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null)
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            Helper.showKeyboard(etSearch);
         }
 
         private int find(String query, int result) {
@@ -6469,7 +6465,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             final Context context = getContext();
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
             final Integer color = (TextUtils.isEmpty(notes)
                     ? prefs.getInt("note_color", Color.TRANSPARENT)
@@ -6483,15 +6478,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnColor.setColor(color);
 
             etNotes.selectAll();
-            etNotes.requestFocus();
-            if (imm != null)
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            Helper.showKeyboard(etNotes);
 
             btnColor.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (imm != null)
-                        imm.hideSoftInputFromWindow(etNotes.getWindowToken(), 0);
+                    Helper.hideKeyboard(etNotes);
 
                     Bundle args = new Bundle();
                     args.putInt("color", btnColor.getColor());
@@ -6649,15 +6641,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final long id = getArguments().getLong("id");
 
             final Context context = getContext();
-            final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_add, null);
             final EditText etKeyword = view.findViewById(R.id.etKeyword);
             etKeyword.setText(null);
-
-            etKeyword.requestFocus();
-            if (imm != null)
-                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+            Helper.showKeyboard(etKeyword);
 
             return new AlertDialog.Builder(context)
                     .setView(view)

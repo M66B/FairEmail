@@ -64,6 +64,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -921,6 +922,43 @@ public class Helper {
                     dark ? Color.WHITE : Color.BLACK,
                     dark ? min - lum : lum - (1 - min));
         return color;
+    }
+
+    static void showKeyboard(final View view) {
+        final InputMethodManager imm =
+                (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm == null)
+            return;
+
+        if (view.hasFocus())
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
+        final View.OnFocusChangeListener listener = view.getOnFocusChangeListener();
+
+        view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (listener != null)
+                    listener.onFocusChange(v, hasFocus);
+
+                if (hasFocus)
+                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+                else
+                    imm.toggleSoftInput(0, 0);
+            }
+        });
+
+        if (!view.hasFocus())
+            view.requestFocus();
+    }
+
+    static void hideKeyboard(final View view) {
+        InputMethodManager imm =
+                (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (imm == null)
+            return;
+
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     // Formatting

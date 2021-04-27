@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -48,7 +47,6 @@ import android.util.Pair;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.PopupMenu;
@@ -180,9 +178,7 @@ public class StyleHelper {
                     }
 
                     private boolean setColor(MenuItem item) {
-                        InputMethodManager imm = (InputMethodManager) etBody.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
-                        if (imm != null)
-                            imm.hideSoftInputFromWindow(etBody.getWindowToken(), 0);
+                        Helper.hideKeyboard(etBody);
 
                         Context context = etBody.getContext();
                         int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);

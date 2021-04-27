@@ -33,7 +33,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -113,12 +112,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final TextView tvAfter = dview.findViewById(R.id.tvAfter);
         final Group grpMore = dview.findViewById(R.id.grpMore);
 
-        final InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+                Helper.hideKeyboard(etQuery);
                 Helper.viewFAQ(v.getContext(), 13);
             }
         });
@@ -195,7 +192,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+                Helper.hideKeyboard(etQuery);
 
                 if (grpMore.getVisibility() == View.VISIBLE) {
                     ibMore.setImageLevel(1);
@@ -326,9 +323,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbHeaders.setVisibility(View.GONE);
         cbHtml.setVisibility(View.GONE);
 
-        etQuery.requestFocus();
-        if (imm != null)
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        Helper.showKeyboard(etQuery);
 
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
@@ -390,7 +385,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         if (before != null)
                             criteria.before = ((Calendar) before).getTimeInMillis();
 
-                        imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
+                        Helper.hideKeyboard(etQuery);
 
                         if (criteria.query != null && criteria.query.startsWith("raw:"))
                             new SimpleTask<EntityFolder>() {
