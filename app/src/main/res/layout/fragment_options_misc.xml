@@ -601,6 +601,17 @@
             app:layout_constraintTop_toBottomOf="@id/swAuthNtlm"
             app:switchPadding="12dp" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swExactAlarms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_exact_alarms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAuthSasl"
+            app:switchPadding="12dp" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvProcessors"
             android:layout_width="0dp"
@@ -610,7 +621,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAuthSasl" />
+            app:layout_constraintTop_toBottomOf="@id/swExactAlarms" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvMemoryClass"
@@ -708,6 +719,7 @@
             swQueries,tvQueriesHint,tvQueriesRemark,swWal,
             swModSeq,swExpunge,
             swAuthPlain,swAuthLogin,swAuthNtlm,swAuthSasl,
+            swExactAlarms,
             tvProcessors,tvMemoryClass,tvMemoryUsage,tvStorageUsage,
             tvFingerprint,
             btnGC,btnCharsets,btnCiphers,btnFiles" />

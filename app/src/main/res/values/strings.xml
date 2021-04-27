@@ -296,6 +296,7 @@
 
     <string name="title_advanced_receive">Receive messages for all accounts</string>
     <string name="title_advanced_when">When</string>
+    <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>
     <string name="title_advanced_schedule">Schedule</string>
     <string name="title_advanced_advanced">Advanced</string>
@@ -433,6 +434,9 @@
 
     <string name="title_advanced_sync_on_launch">Synchronize on start</string>
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
+    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
     <string name="title_advanced_autoscroll">Scroll to top on receiving new messages</string>
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
@@ -533,9 +537,6 @@
 
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
     <string name="title_advanced_shortcuts">Show frequently used contacts in Android share menu</string>
-    <string name="title_advanced_conversation_actions">Suggest actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggest reply texts (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_fts">Build search index</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexed (%3$s)</string>
     <string name="title_advanced_classification">Classify messages</string>
@@ -544,27 +545,27 @@
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
+    <string name="title_advanced_updates">Check for GitHub updates</string>
+    <string name="title_advanced_check_weekly">Check weekly instead of daily</string>
+    <string name="title_advanced_experiments">Try experimental features</string>
+    <string name="title_advanced_crash_reports">Send error reports</string>
+    <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
+    <string name="title_advanced_cleanup">Cleanup</string>
+    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
+    <string name="title_advanced_app">App settings</string>
+    <string name="title_advanced_more">More options</string>
+    <string name="title_advanced_protocol">Protocol logging</string>
+    <string name="title_advanced_log_info">Debug logging</string>
+    <string name="title_advanced_debug">Debug mode</string>
+    <string name="title_advanced_query_threads">Limit parallel database access</string>
+    <string name="title_advanced_wal" translatable="false">WAL (debug only)</string>
     <string name="title_advanced_modseq" translatable="false">MODSEQ (debug only)</string>
     <string name="title_advanced_expunge" translatable="false">EXPUNGE (debug only)</string>
     <string name="title_advanced_auth_plain" translatable="false">PLAIN (debug only)</string>
     <string name="title_advanced_auth_login" translatable="false">LOGIN (debug only)</string>
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM (debug only)</string>
     <string name="title_advanced_auth_sasl" translatable="false">SASL (debug only)</string>
-    <string name="title_advanced_optimize">Automatically optimize</string>
-    <string name="title_advanced_updates">Check for GitHub updates</string>
-    <string name="title_advanced_check_weekly">Check weekly instead of daily</string>
-    <string name="title_advanced_experiments">Try experimental features</string>
-    <string name="title_advanced_query_threads">Limit parallel database access</string>
-    <string name="title_advanced_wal">WAL (debug only)</string>
-    <string name="title_advanced_crash_reports">Send error reports</string>
-    <string name="title_advanced_protocol">Protocol logging</string>
-    <string name="title_advanced_log_info">Debug logging</string>
-    <string name="title_advanced_debug">Debug mode</string>
-    <string name="title_advanced_cleanup_attachments">Delete attachments of old messages</string>
-    <string name="title_advanced_cleanup">Cleanup</string>
-    <string name="title_advanced_last_cleanup">Last cleanup: %1$s</string>
-    <string name="title_advanced_app">App settings</string>
-    <string name="title_advanced_more">More options</string>
+    <string name="title_advanced_exact_alarms" translatable="false">Use exact timers (debug only)</string>
     <string name="title_advanced_processors" translatable="false">Processors: %1$d</string>
     <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s/%2$s Total: %3$s</string>
     <string name="title_advanced_memory_usage" translatable="false">Memory usage: %1$s/%2$s Native: %3$s</string>

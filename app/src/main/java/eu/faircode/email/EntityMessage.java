@@ -27,7 +27,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.AlarmManagerCompat;
 import androidx.preference.PreferenceManager;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -464,7 +463,7 @@ public class EntityMessage implements Serializable {
             am.cancel(pi);
         } else {
             Log.i("Set snooze id=" + id + " wakeup=" + new Date(wakeup));
-            AlarmManagerCompat.setAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, wakeup, pi);
+            AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, wakeup, pi);
         }
     }
 
