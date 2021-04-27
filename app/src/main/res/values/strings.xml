@@ -922,7 +922,10 @@
 
     <string name="title_buttons">Select buttons</string>
     <string name="title_buttons_hint">The actual actions available depend on the account type and configuration</string>
+    <string name="title_button_search">Search in messages</string>
+    <string name="title_button_search_text">Search in message text</string>
     <string name="title_configure_buttons">Configure buttons &#8230;</string>
+
     <string name="title_trash">Trash</string>
     <string name="title_copy">Copy &#8230;</string>
     <string name="title_copy_to">Copy to &#8230;</string>
