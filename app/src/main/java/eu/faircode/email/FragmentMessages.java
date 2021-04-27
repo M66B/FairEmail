@@ -4901,10 +4901,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int unseen = 0;
             int flagged = 0;
             int found = 0;
-            TupleMessageEx single = null;
-            TupleMessageEx see = null;
-            TupleMessageEx flag = null;
-            TupleMessageEx pin = null;
+            TupleMessageEx singleMessage = null;
+            TupleMessageEx unseenMessage = null;
+            TupleMessageEx flaggedMessage = null;
+            TupleMessageEx pinnedMessage = null;
             TupleMessageEx foundMessage = null;
             for (TupleMessageEx message : messages) {
                 if (message == null)
@@ -4915,21 +4915,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         !EntityFolder.TRASH.equals(message.folderType)) {
                     count++;
 
-                    single = message;
+                    singleMessage = message;
                     if (!message.ui_seen) {
                         unseen++;
-                        see = message;
+                        unseenMessage = message;
                     }
 
                     if (message.ui_flagged) {
                         flagged++;
-                        flag = message;
+                        flaggedMessage = message;
                     }
                 }
 
                 if (pinned &&
                         (message.id.equals(id) || Objects.equals(message.msgid, msgid)))
-                    pin = message;
+                    pinnedMessage = message;
 
                 if (!message.duplicate && message.ui_found) {
                     found++;
@@ -4951,22 +4951,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (found > 0) {
                     if (found == 1)
                         expand = foundMessage;
-                } else if (pin != null)
-                    expand = pin;
+                } else if (pinnedMessage != null)
+                    expand = pinnedMessage;
                 else if (count == 1)
-                    expand = single;
+                    expand = singleMessage;
                 else if (unseen == 1)
-                    expand = see;
+                    expand = unseenMessage;
                 else if (unseen == 0 && flagged == 1)
-                    expand = flag;
+                    expand = flaggedMessage;
                 else if (messages.size() == 1)
                     expand = messages.get(0);
                 else if (messages.size() > 0) {
-                    TupleMessageEx first = messages.get(adapter.getAscending() ? messages.size() - 1 : 0);
-                    if (first != null &&
-                            (EntityFolder.OUTBOX.equals(first.folderType) ||
-                                    (expand_first && unseen == 0 && !EntityFolder.DRAFTS.equals(first.folderType))))
-                        expand = first;
+                    TupleMessageEx firstMessage = messages.get(adapter.getAscending() ? messages.size() - 1 : 0);
+                    if (firstMessage != null &&
+                            (EntityFolder.OUTBOX.equals(firstMessage.folderType) ||
+                                    (expand_first && unseen == 0 && !EntityFolder.DRAFTS.equals(firstMessage.folderType))))
+                        expand = firstMessage;
                 }
 
                 if (expand != null &&
