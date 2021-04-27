@@ -464,15 +464,19 @@ public class FragmentSetup extends FragmentBase {
         super.onResume();
 
         // Doze
+        Boolean ignoring = Helper.isIgnoringOptimizations(getContext());
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             btnDoze.setEnabled(false);
         else {
             Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
             PackageManager pm = getContext().getPackageManager();
-            btnDoze.setEnabled(intent.resolveActivity(pm) != null); // system whitelisted
+            if (intent.resolveActivity(pm) == null)
+                btnDoze.setEnabled(false);
+            else
+                btnDoze.setEnabled((ignoring != null && !ignoring) || BuildConfig.DEBUG);
         }
 
-        Boolean ignoring = Helper.isIgnoringOptimizations(getContext());
         tvDozeDone.setText(ignoring == null || ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(ignoring == null || ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setTypeface(null, ignoring == null || ignoring ? Typeface.NORMAL : Typeface.BOLD);
