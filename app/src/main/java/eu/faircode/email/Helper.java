@@ -995,10 +995,18 @@ public class Helper {
     }
 
     static DateFormat getDateTimeInstance(Context context) {
-        return Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM);
+        return getDateTimeInstance(context, null);
+    }
+
+    static DateFormat getDateTimeInstance(Context context, Locale locale) {
+        return Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM, locale);
     }
 
     static DateFormat getDateTimeInstance(Context context, int dateStyle, int timeStyle) {
+        return getDateTimeInstance(context, dateStyle, timeStyle, null);
+    }
+
+    static DateFormat getDateTimeInstance(Context context, int dateStyle, int timeStyle, Locale locale) {
         // TODO fix time format
         return SimpleDateFormat.getDateTimeInstance(dateStyle, timeStyle);
     }

@@ -40,7 +40,6 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.Serializable;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -324,12 +323,7 @@ public class EntityMessage implements Serializable {
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String l = (language_detection ? language : null);
 
-        DateFormat DF;
-        if (l == null)
-            DF = Helper.getDateTimeInstance(context);
-        else
-            DF = SimpleDateFormat.getDateTimeInstance(
-                    SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM, new Locale(l));
+        DateFormat DF = Helper.getDateTimeInstance(context, l == null ? null : new Locale(l));
 
         Element p = document.createElement("p");
         if (extended) {
