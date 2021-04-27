@@ -464,26 +464,19 @@ public class FragmentSetup extends FragmentBase {
         super.onResume();
 
         // Doze
-        Boolean ignoring = true;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            btnDoze.setEnabled(false);
+        else {
             Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
             PackageManager pm = getContext().getPackageManager();
-            if (intent.resolveActivity(pm) != null) { // system whitelisted
-                ignoring = Helper.isIgnoringOptimizations(getContext());
-                if (ignoring == null)
-                    ignoring = true;
-            }
+            btnDoze.setEnabled(intent.resolveActivity(pm) != null); // system whitelisted
         }
 
-        btnDoze.setEnabled(!ignoring);
-
-        // https://issuetracker.google.com/issues/37070074
-        //ignoring = (ignoring || Build.VERSION.SDK_INT != Build.VERSION_CODES.M);
-
-        tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
-        tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
-        tvDozeDone.setTypeface(null, ignoring ? Typeface.NORMAL : Typeface.BOLD);
-        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
+        Boolean ignoring = Helper.isIgnoringOptimizations(getContext());
+        tvDozeDone.setText(ignoring == null || ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvDozeDone.setTextColor(ignoring == null || ignoring ? textColorPrimary : colorWarning);
+        tvDozeDone.setTypeface(null, ignoring == null || ignoring ? Typeface.NORMAL : Typeface.BOLD);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring == null || ignoring ? check : null, null, null, null);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
