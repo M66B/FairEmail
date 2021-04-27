@@ -50,6 +50,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -322,10 +323,13 @@ public class FragmentBase extends Fragment {
         super.onDetach();
 
         try {
-            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            View focused = getActivity().getCurrentFocus();
-            if (imm != null && focused != null)
-                imm.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            FragmentActivity activity = getActivity();
+            if (activity != null) {
+                InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+                View focused = activity.getCurrentFocus();
+                if (imm != null && focused != null)
+                    imm.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
         } catch (Throwable ex) {
             Log.w(ex);
             /*
