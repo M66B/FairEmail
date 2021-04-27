@@ -323,7 +323,7 @@ public class EntityMessage implements Serializable {
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String l = (language_detection ? language : null);
 
-        DateFormat DF = Helper.getDateTimeInstance(context, l == null ? null : new Locale(l));
+        DateFormat DF = Helper.getDateTimeInstance(context);
 
         Element p = document.createElement("p");
         if (extended) {
