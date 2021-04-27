@@ -455,6 +455,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             criteria.in_message = false;
             criteria.in_notes = false;
             criteria.in_headers = false;
+            criteria.in_html = false;
             criteria.with_flagged = true;
             FragmentMessages.search(
                     context, owner, parentFragment.getParentFragmentManager(),

@@ -1176,6 +1176,7 @@
     <string name="title_search_in_message">In message text</string>
     <string name="title_search_in_notes">In local notes</string>
     <string name="title_search_in_headers" translatable="false">In headers</string>
+    <string name="title_search_in_html" translatable="false">In HTML</string>
     <string name="title_search_with">Limit search to</string>
     <string name="title_search_with_unseen">Unread</string>
     <string name="title_search_with_flagged">Starred</string>
