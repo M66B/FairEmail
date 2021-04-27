@@ -251,8 +251,9 @@ dependencies {
     def documentfile_version = "1.0.1"
     def lifecycle_version = "2.4.0-alpha01"
     def lifecycle_extensions_version = "2.2.0"
-    def sqlite_version = "2.1.0"
     def room_version = "2.3.0"
+    def sqlite_version = "2.1.0"
+    def requery_version = "3.34.1"
     def paging_version = "2.1.2" // 3.0.0-alpha11
     def preference_version = "1.1.1"
     def work_version = "2.6.0-alpha02"
@@ -265,7 +266,6 @@ dependencies {
     def jax_version = "2.3.0-jaxb-1.0.6"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
-    def requery_version = "3.34.1"
     def badge_version = "1.1.22"
     def bugsnag_version = "5.9.0"
     def biweekly_version = "0.6.6"
@@ -344,6 +344,11 @@ dependencies {
     implementation "androidx.sqlite:sqlite-framework:$sqlite_version" // because of exclude
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
+    // https://www.sqlite.org/changes.html
+    // https://github.com/requery/sqlite-android/
+    // https://mvnrepository.com/artifact/io.requery/sqlite-android?repo=jcenter
+    implementation "io.requery:sqlite-android:$requery_version"
+
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
     // https://developer.android.com/jetpack/androidx/releases/paging
     //implementation "androidx.paging:paging-runtime:$paging_version"
@@ -392,11 +397,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.sufficientlysecure/openpgp-api
     //implementation "org.sufficientlysecure:openpgp-api:$openpgp_version"
     implementation project(':openpgp-api')
-
-    // https://www.sqlite.org/changes.html
-    // https://github.com/requery/sqlite-android/
-    // https://mvnrepository.com/artifact/io.requery/sqlite-android?repo=jcenter
-    implementation "io.requery:sqlite-android:$requery_version"
 
     // https://github.com/leolin310148/ShortcutBadger
     // https://mvnrepository.com/artifact/me.leolin/ShortcutBadger
