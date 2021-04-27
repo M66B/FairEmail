@@ -3107,7 +3107,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else
                         context.startActivity(new Intent(context, ActivityBilling.class));
                 } else if (id == R.id.ibSearchText) {
-                    onMenuSearch(message);
+                    onSearchText(message);
                 } else if (id == R.id.ibSearch) {
                     onSearchContact(message);
                 } else if (id == R.id.ibAnswer) {
@@ -4257,7 +4257,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onMenuNotes(message);
                         return true;
                     } else if (itemId == R.id.menu_search_in_text) {
-                        onMenuSearch(message);
+                        onSearchText(message);
                         return true;
                     } else if (itemId == R.id.menu_create_rule) {
                         onMenuCreateRule(message);
@@ -4677,7 +4677,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragment.show(parentFragment.getParentFragmentManager(), "edit:notes");
         }
 
-        private void onMenuSearch(TupleMessageEx message) {
+        private void onSearchText(TupleMessageEx message) {
             LayoutInflater inflater = LayoutInflater.from(context);
             View dview = inflater.inflate(R.layout.popup_search_in_text, null, false);
             EditText etSearch = dview.findViewById(R.id.etSearch);
