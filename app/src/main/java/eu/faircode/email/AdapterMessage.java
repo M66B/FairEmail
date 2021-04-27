@@ -423,6 +423,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibPin;
         private ImageButton ibShare;
         private ImageButton ibEvent;
+        private ImageButton ibSearchText;
         private ImageButton ibSearch;
         private ImageButton ibHide;
         private ImageButton ibSeen;
@@ -653,6 +654,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPin = vsBody.findViewById(R.id.ibPin);
             ibShare = vsBody.findViewById(R.id.ibShare);
             ibEvent = vsBody.findViewById(R.id.ibEvent);
+            ibSearchText = vsBody.findViewById(R.id.ibSearchText);
             ibSearch = vsBody.findViewById(R.id.ibSearch);
             ibHide = vsBody.findViewById(R.id.ibHide);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
@@ -760,6 +762,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPin.setOnClickListener(this);
                 ibShare.setOnClickListener(this);
                 ibEvent.setOnClickListener(this);
+                ibSearchText.setOnClickListener(this);
                 ibSearch.setOnClickListener(this);
                 ibHide.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
@@ -877,6 +880,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibPin.setOnClickListener(null);
                 ibShare.setOnClickListener(null);
                 ibEvent.setOnClickListener(null);
+                ibSearchText.setOnClickListener(null);
                 ibSearch.setOnClickListener(null);
                 ibHide.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
@@ -1344,6 +1348,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPin.setVisibility(View.GONE);
             ibShare.setVisibility(View.GONE);
             ibEvent.setVisibility(View.GONE);
+            ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
@@ -1551,6 +1556,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPin.setVisibility(View.GONE);
             ibShare.setVisibility(View.GONE);
             ibEvent.setVisibility(View.GONE);
+            ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
@@ -1715,6 +1721,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final boolean delete = (inTrash || !hasTrash || inJunk || outbox ||
                             message.uid == null || message.accountProtocol == EntityAccount.TYPE_POP);
 
+                    boolean full = properties.getValue("full", message.id);
+
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
                     boolean expand_one = prefs.getBoolean("expand_one", true);
@@ -1729,6 +1737,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_hide = prefs.getBoolean("button_hide", false);
                     boolean button_search = prefs.getBoolean("button_search", false);
+                    boolean button_search_text = prefs.getBoolean("button_search_text", false);
                     boolean button_event = prefs.getBoolean("button_event", false);
                     boolean button_share = prefs.getBoolean("button_share", false);
                     boolean button_pin = prefs.getBoolean("button_pin", false);
@@ -1748,6 +1757,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibPin.setVisibility(tools && button_pin && pin ? View.VISIBLE : View.GONE);
                     ibShare.setVisibility(tools && button_share && message.content ? View.VISIBLE : View.GONE);
                     ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
+                    ibSearchText.setVisibility(tools && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) && !outbox ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
@@ -3097,6 +3107,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onMenuShare(message, true);
                     else
                         context.startActivity(new Intent(context, ActivityBilling.class));
+                } else if (id == R.id.ibSearchText) {
+                    onMenuSearch(message);
                 } else if (id == R.id.ibSearch) {
                     onSearchContact(message);
                 } else if (id == R.id.ibAnswer) {
@@ -3928,6 +3940,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.setHeight(message.id, null);
             properties.setPosition(message.id, null);
 
+            setupTools(message, false, false);
             bindBody(message, false);
         }
 
@@ -6879,6 +6892,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
             final CheckBox cbHide = dview.findViewById(R.id.cbHide);
             final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
+            final CheckBox cbSearchText = dview.findViewById(R.id.cbSearchText);
             final CheckBox cbEvent = dview.findViewById(R.id.cbEvent);
             final CheckBox cbShare = dview.findViewById(R.id.cbShare);
             final CheckBox cbPin = dview.findViewById(R.id.cbPin);
@@ -6898,6 +6912,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbSeen.setChecked(prefs.getBoolean("button_seen", false));
             cbHide.setChecked(prefs.getBoolean("button_hide", false));
             cbSearch.setChecked(prefs.getBoolean("button_search", false));
+            cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
             cbEvent.setChecked(prefs.getBoolean("button_event", false));
             cbShare.setChecked(prefs.getBoolean("button_share", false));
             cbPin.setChecked(prefs.getBoolean("button_pin", false));
@@ -6921,6 +6936,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             editor.putBoolean("button_seen", cbSeen.isChecked());
                             editor.putBoolean("button_hide", cbHide.isChecked());
                             editor.putBoolean("button_search", cbSearch.isChecked());
+                            editor.putBoolean("button_search_text", cbSearchText.isChecked());
                             editor.putBoolean("button_event", cbEvent.isChecked());
                             editor.putBoolean("button_share", cbShare.isChecked());
                             editor.putBoolean("button_pin", cbPin.isChecked());
