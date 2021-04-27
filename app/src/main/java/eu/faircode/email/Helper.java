@@ -422,13 +422,14 @@ public class Helper {
     }
 
     static Boolean isIgnoringOptimizations(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            if (pm == null)
-                return null;
-            return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
-        }
-        return null;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            return null;
+
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        if (pm == null)
+            return null;
+
+        return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
     }
 
     static Integer getBatteryLevel(Context context) {
