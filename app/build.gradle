@@ -259,7 +259,7 @@ dependencies {
     def exif_version = "1.3.2"
     def biometric_version = "1.2.0-alpha03"
     def billingclient_version = "3.0.3"
-    def javamail_version = "1.6.5"
+    def javamail_version = "1.6.7"
     def jsoup_version = "1.13.1"
     def css_version = "0.9.29"
     def jax_version = "2.3.0-jaxb-1.0.6"
