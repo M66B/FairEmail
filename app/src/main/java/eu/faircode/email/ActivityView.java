@@ -922,7 +922,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate(boolean always) {
-        if (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(this))
+        if (Helper.isPlayStoreInstall())
+            return;
+        if (!Helper.hasValidFingerprint(this) && !(always && BuildConfig.DEBUG))
             return;
 
         long now = new Date().getTime();
@@ -1000,7 +1002,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             String name = jasset.getString("name");
                             if (name.endsWith(".apk")) {
                                 Log.i("Latest version=" + info.tag_name);
-                                if (BuildConfig.VERSION_NAME.equals(info.tag_name))
+                                if (BuildConfig.VERSION_NAME.equals(info.tag_name) && !BuildConfig.DEBUG)
                                     return null;
                                 else
                                     return info;
