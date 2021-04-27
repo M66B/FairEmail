@@ -328,7 +328,7 @@ public class FragmentBase extends Fragment {
                 InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
                 View focused = activity.getCurrentFocus();
                 if (imm != null && focused != null)
-                    imm.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                    imm.hideSoftInputFromWindow(focused.getWindowToken(), 0);
             }
         } catch (Throwable ex) {
             Log.w(ex);
