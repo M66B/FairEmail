@@ -179,11 +179,11 @@ public class EntityIdentity {
         json.put("id", id);
         json.put("name", name);
         json.put("email", email);
+        // not account
         json.put("display", display);
         if (color != null)
             json.put("color", color);
         json.put("signature", signature);
-        // not account
 
         json.put("host", host);
         json.put("encryption", encryption);
@@ -210,15 +210,22 @@ public class EntityIdentity {
         json.put("cc", cc);
         json.put("bcc", bcc);
 
+        json.put("unicode", unicode);
         // not plain_only
+        json.put("sign_default", sign_default);
+        json.put("encrypt_default", encrypt_default);
         // not encrypt
+        // delivery_receipt
+        // read_receipt
         // not store_sent
         // not sent_folder
         // not sign_key
+        // sign_key_alias
         // not tbd
         // not state
         // not error
         // not last_connected
+        // not max_size
         return json;
     }
 
@@ -275,6 +282,14 @@ public class EntityIdentity {
             identity.cc = json.getString("cc");
         if (json.has("bcc") && !json.isNull("bcc"))
             identity.bcc = json.getString("bcc");
+
+        if (json.has("unicode"))
+            identity.unicode = json.getBoolean("unicode");
+
+        if (json.has("sign_default"))
+            identity.sign_default = json.getBoolean("sign_default");
+        if (json.has("encrypt_default"))
+            identity.encrypt_default = json.getBoolean("encrypt_default");
 
         return identity;
     }
