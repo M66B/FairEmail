@@ -2333,7 +2333,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         EntityFolder targetFolder = db.folder().getFolder(tid);
                         if (targetFolder == null)
-                            return result;
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
 
                         EntityAccount targetAccount = db.account().getAccount(targetFolder.account);
                         if (targetAccount == null)
