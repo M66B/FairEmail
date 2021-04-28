@@ -254,23 +254,23 @@ public class EntityOperation {
                     File msource = message.getFile(context);
 
                     // Copy message to target folder
-                    long id = message.id;
-                    Long identity = message.identity;
-                    long uid = message.uid;
-                    Boolean raw = message.raw;
-                    Long stored = message.stored;
-                    int notifying = message.notifying;
-                    boolean fts = message.fts;
+                    long _id = message.id;
+                    Long _identity = message.identity;
+                    long _uid = message.uid;
+                    Boolean _raw = message.raw;
+                    Long _stored = message.stored;
+                    int _notifying = message.notifying;
+                    boolean _fts = message.fts;
                     boolean _auto_classified = message.auto_classified;
-                    Integer importance = message.importance;
-                    boolean seen = message.seen;
-                    boolean flagged = message.flagged;
-                    boolean ui_seen = message.ui_seen;
-                    boolean ui_flagged = message.ui_flagged;
-                    Boolean ui_hide = message.ui_hide;
-                    boolean ui_browsed = message.ui_browsed;
-                    Integer color = message.color;
-                    String error = message.error;
+                    Integer _importance = message.importance;
+                    boolean _seen = message.seen;
+                    boolean _flagged = message.flagged;
+                    boolean _ui_seen = message.ui_seen;
+                    boolean _ui_flagged = message.ui_flagged;
+                    Boolean _ui_hide = message.ui_hide;
+                    boolean _ui_browsed = message.ui_browsed;
+                    Integer _color = message.color;
+                    String _error = message.error;
 
                     message.id = null;
                     message.account = target.account;
@@ -302,25 +302,25 @@ public class EntityOperation {
                     long tmpid = message.id;
                     jargs.put(2, tmpid);
 
-                    message.id = id;
+                    message.id = _id;
                     message.account = source.account;
                     message.folder = source.id;
-                    message.identity = identity;
-                    message.uid = uid;
-                    message.raw = raw;
-                    message.stored = stored;
-                    message.notifying = notifying;
-                    message.fts = fts;
+                    message.identity = _identity;
+                    message.uid = _uid;
+                    message.raw = _raw;
+                    message.stored = _stored;
+                    message.notifying = _notifying;
+                    message.fts = _fts;
                     message.auto_classified = _auto_classified;
-                    message.importance = importance;
-                    message.seen = seen;
-                    message.flagged = flagged;
-                    message.ui_seen = ui_seen;
-                    message.ui_flagged = ui_flagged;
-                    message.ui_hide = ui_hide;
-                    message.ui_browsed = ui_browsed;
-                    message.color = color;
-                    message.error = error;
+                    message.importance = _importance;
+                    message.seen = _seen;
+                    message.flagged = _flagged;
+                    message.ui_seen = _ui_seen;
+                    message.ui_flagged = _ui_flagged;
+                    message.ui_hide = _ui_hide;
+                    message.ui_browsed = _ui_browsed;
+                    message.color = _color;
+                    message.error = _error;
 
                     if (message.content)
                         try {
