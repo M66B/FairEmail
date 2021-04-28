@@ -83,6 +83,7 @@ Related questions:
 * [Bug idi Android 6.0](https://issuetracker.google.com/issues/37068143) menyebabkan crash dengan *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Bug ini telah diperbaiki dalam Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). Hal ini merupakan limitasi Android yang tidak dapat diperbaiki atau di buat bekerja.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Fitur yang Direncanakan
 
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The one time price of the few pro features is too low, lower than the price of most similar apps, and there are [too many fees and taxes](#user-content-faq19), to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 

@@ -227,6 +227,7 @@
     <string name="title_advanced_default">すべてのオプションにはよく使われる標準的な値が設定されており、アプリを使用するために変更する必要はありません</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信する</string>
     <string name="title_advanced_when">同期</string>
+    <string name="title_advanced_optimize">自動的に最適化</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信する</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_advanced">詳細</string>
@@ -355,6 +356,9 @@
     <string name="title_advanced_authentication">受信サーバがメッセージを認証出来なかった時に警告を表示</string>
     <string name="title_advanced_sync_on_launch">起動時に同期</string>
     <string name="title_advanced_double_back">\"戻る\"をダブルタップして終了</string>
+    <string name="title_advanced_conversation_actions">アクションを提案 (Android 10以上)</string>
+    <string name="title_advanced_conversation_actions_replies">返信テキストを提案 (Android 10以上)</string>
+    <string name="title_advanced_language_detection">メッセージテキストの言語を検出する</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したらトップにスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にします</string>
@@ -442,9 +446,6 @@
     </string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_shortcuts">頻繁に使用される連絡先をAndroid共有メニューに表示</string>
-    <string name="title_advanced_conversation_actions">アクションを提案 (Android 10以上)</string>
-    <string name="title_advanced_conversation_actions_replies">返信テキストを提案 (Android 10以上)</string>
-    <string name="title_advanced_language_detection">メッセージテキストの言語を検出する</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d個のメッセージがインデックス付けされました(%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類</string>
@@ -453,19 +454,18 @@
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_watchdog">FairEmailがアクティブか定期的に確認</string>
-    <string name="title_advanced_optimize">自動的に最適化</string>
     <string name="title_advanced_updates">GitHubのアップデートを確認する</string>
     <string name="title_advanced_check_weekly">毎日ではなく毎週チェックする</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
-    <string name="title_advanced_query_threads">並列データベースアクセスを制限</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
-    <string name="title_advanced_protocol">プロトコルログの収集</string>
-    <string name="title_advanced_log_info">デバッグログ</string>
-    <string name="title_advanced_debug">デバッグモード</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
     <string name="title_advanced_app">アプリの設定</string>
     <string name="title_advanced_more">その他のオプション</string>
+    <string name="title_advanced_protocol">プロトコルログの収集</string>
+    <string name="title_advanced_log_info">デバッグログ</string>
+    <string name="title_advanced_debug">デバッグモード</string>
+    <string name="title_advanced_query_threads">並列データベースアクセスを制限</string>
     <string name="title_advanced_manual_hint">メッセージの受信が無効になっている場合でも、メッセージ一覧をプルダウンして手動でメッセージを受信することができます。</string>
     <string name="title_advanced_poll_hint">新しいメッセージを定期的にチェックすると、ローカルメッセージとリモートメッセージが毎回比較されます。これはコストのかかる操作であり、特にメッセージが多い場合は、バッテリーの使用量が増える可能性があります。 常に受信することで、変更を継続的に追跡してこれを防ぎます。</string>
     <string name="title_advanced_optimize_hint">これは、バッテリー使用量を節約するために、メールサーバーの機能と動作に応じて同期頻度を変更することがあります</string>
@@ -1073,7 +1073,7 @@
     <string name="title_answer_group">テンプレートグループ (オプション)</string>
     <string name="title_answer_standard">デフォルト</string>
     <string name="title_answer_favorite">お気に入り</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">開封確認メッセージを使用</string>
+    <string name="title_answer_receipt">開封確認メッセージを使用</string>
     <string name="title_answer_hide">メニューに表示しません</string>
     <string name="title_answer_text">テンプレートテキスト</string>
     <string name="title_answer_placeholder">プレースホルダー</string>

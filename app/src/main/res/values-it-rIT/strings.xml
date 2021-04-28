@@ -238,6 +238,7 @@
     <string name="title_advanced_default">Tutte le opzioni hanno comunemente usato valori standard, che non devono esser cambiati per usare l\'app</string>
     <string name="title_advanced_receive">Ricevi i messaggi per tutti i profili</string>
     <string name="title_advanced_when">Quando</string>
+    <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_always">Ricevi sempre i messaggi per questi profili</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_advanced">Avanzate</string>
@@ -364,6 +365,9 @@
     <string name="title_advanced_authentication">Mostra un avviso quando il server di ricezione non è riuscito ad autenticare il messaggio</string>
     <string name="title_advanced_sync_on_launch">Sincronizza all\'avvio</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
+    <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggerisci i testi di risposta (Android 10+)</string>
+    <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
     <string name="title_advanced_pull_refresh">Scorri in giù per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri in su alla ricezione di nuovi messaggi</string>
     <string name="title_advanced_double_tap">Tocca due volte per contrassegnare un messaggio come letto/non letto</string>
@@ -451,9 +455,6 @@
     </string>
     <string name="title_advanced_external_search">Consenti alle altre app di cercare tra i messaggi</string>
     <string name="title_advanced_shortcuts">Mostra i contatti usati frequentemente nel menu di condivisione di Android</string>
-    <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggerisci i testi di risposta (Android 10+)</string>
-    <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classifica i messaggi</string>
@@ -462,20 +463,19 @@
     <string name="title_advanced_language">Lingua</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
-    <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_updates">Controlla gli aggiornamenti di GitHub</string>
     <string name="title_advanced_check_weekly">Controlla settimanalmente invece che giornalmente</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
-    <string name="title_advanced_query_threads">Limita l\'accesso al database parallelo</string>
     <string name="title_advanced_crash_reports">Invia rapporti d\'errore</string>
-    <string name="title_advanced_protocol">Registrazione del protocollo</string>
-    <string name="title_advanced_log_info">Registrazione di debug</string>
-    <string name="title_advanced_debug">Modalità di debug</string>
     <string name="title_advanced_cleanup_attachments">Elimina gli allegati dei vecchi messaggi</string>
     <string name="title_advanced_cleanup">Pulizia</string>
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
+    <string name="title_advanced_protocol">Registrazione del protocollo</string>
+    <string name="title_advanced_log_info">Registrazione di debug</string>
+    <string name="title_advanced_debug">Modalità di debug</string>
+    <string name="title_advanced_query_threads">Limita l\'accesso al database parallelo</string>
     <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi scorrendo in giù nell\'elenco dei messaggi</string>
     <string name="title_advanced_poll_hint">Cercare periodicamente i nuovi messaggi confronterà i messaggi locali e remoti ogni volta, che è un\'operazione costosa che potrebbe risultare in un uso extra della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamento le modifiche.</string>
     <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare sull\'uso della batteria in base alle capacità e il comportamento dei server email</string>

@@ -227,6 +227,7 @@
     <string name="title_advanced_default">所有选项均具有常用的标准值，无需做出更改即可使用</string>
     <string name="title_advanced_receive">接收所有账户的消息</string>
     <string name="title_advanced_when">何时</string>
+    <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_always">总是接收这些账户的消息</string>
     <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_advanced">高级</string>
@@ -355,6 +356,9 @@
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_sync_on_launch">应用启动时同步</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
+    <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">建议回复内容 (Android 10+)</string>
+    <string name="title_advanced_language_detection">检测消息文本的语言</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
@@ -442,9 +446,6 @@
     </string>
     <string name="title_advanced_external_search">允许其他应用在消息中搜索</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
-    <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">建议回复内容 (Android 10+)</string>
-    <string name="title_advanced_language_detection">检测消息文本的语言</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>
@@ -453,20 +454,19 @@
     <string name="title_advanced_language">语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
-    <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
     <string name="title_advanced_check_weekly">每周而不是每天检查</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
-    <string name="title_advanced_query_threads">限制并行数据库访问</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
-    <string name="title_advanced_protocol">协议日志记录</string>
-    <string name="title_advanced_log_info">调试日志</string>
-    <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_app">应用设置</string>
     <string name="title_advanced_more">更多选项</string>
+    <string name="title_advanced_protocol">协议日志记录</string>
+    <string name="title_advanced_log_info">调试日志</string>
+    <string name="title_advanced_debug">调试模式</string>
+    <string name="title_advanced_query_threads">限制并行数据库访问</string>
     <string name="title_advanced_manual_hint">如果禁用了接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
     <string name="title_advanced_poll_hint">定期检查新消息将每次都比较本地消息和远程消息，这是一项耗费的操作，可能会导致额外的电池用量，尤其是在有消息非常多时。 始终接收将通过持续跟踪变化来防止这种情况</string>
     <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
@@ -785,6 +785,8 @@
     <string name="title_ask_raw">转发消息要先从服务器下载原始消息，这需要网络连接</string>
     <string name="title_buttons">选择按钮</string>
     <string name="title_buttons_hint">实际操作可行性取决于账户类型和配置</string>
+    <string name="title_button_search">搜索消息</string>
+    <string name="title_button_search_text">搜索消息文本</string>
     <string name="title_configure_buttons">配置按钮 &#8230;</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
@@ -1074,7 +1076,7 @@
     <string name="title_answer_group">模板组 (可选)</string>
     <string name="title_answer_standard">默认</string>
     <string name="title_answer_favorite">收藏</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">用作已读回执</string>
+    <string name="title_answer_receipt">用作已读回执</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_placeholder">占位符</string>

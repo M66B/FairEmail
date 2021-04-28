@@ -200,6 +200,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_section_misc">Miscel·lània</string>
     <string name="title_advanced_receive">Rep els missatges de tots els comptes</string>
     <string name="title_advanced_when">Quan</string>
+    <string name="title_advanced_optimize">Optimitzar automàticament</string>
     <string name="title_advanced_always">Sempre rebeu missatges d\'aquests comptes</string>
     <string name="title_advanced_schedule">Planificar</string>
     <string name="title_advanced_advanced">Avançat</string>
@@ -382,15 +383,14 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
-    <string name="title_advanced_optimize">Optimitzar automàticament</string>
     <string name="title_advanced_experiments">Prova característiques experimentals</string>
-    <string name="title_advanced_query_threads">Limiteu l\'accés paral·lel a la base de dades</string>
     <string name="title_advanced_crash_reports">Enviar registre d\'errors</string>
-    <string name="title_advanced_debug">Mode de depuració</string>
     <string name="title_advanced_cleanup_attachments">Eliminar fitxers adjunts de missatges antics</string>
     <string name="title_advanced_cleanup">Neteja</string>
     <string name="title_advanced_app">Configuració de l\'aplicació</string>
     <string name="title_advanced_more">Més opcions</string>
+    <string name="title_advanced_debug">Mode de depuració</string>
+    <string name="title_advanced_query_threads">Limiteu l\'accés paral·lel a la base de dades</string>
     <string name="title_advanced_poll_hint">Si es revisen periòdicament nous missatges, es comparen els missatges locals i remots cada vegada, la qual cosa és una operació costosa que pot provocar un ús addicional de la bateria, especialment si hi ha molts missatges. Sempre rebre evitarà això seguint contínuament canvis.</string>
     <string name="title_advanced_schedule_hint">Toqueu una hora per definir-la</string>
     <string name="title_advanced_no_date_hint">Alguns proveïdors emmagatzemen missatges amb data desconeguda, invàlida o futura com a missatges sense data</string>

@@ -236,6 +236,7 @@
     <string name="title_advanced_default">Todas as opções normalmente tem usado valores padrão, que não precisam ser alteradas para o uso do aplicativo</string>
     <string name="title_advanced_receive">Receber mensagens para todas as contas</string>
     <string name="title_advanced_when">Quando</string>
+    <string name="title_advanced_optimize">Otimizar automaticamente</string>
     <string name="title_advanced_always">Sempre receber mensagens para estas contas</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_advanced">Avançado</string>
@@ -359,6 +360,9 @@
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_sync_on_launch">Sincronizar ao iniciar app</string>
     <string name="title_advanced_double_back">Pressione duas vezes \"Voltar\" para sair</string>
+    <string name="title_advanced_conversation_actions">Sugerir ações (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sugerir respostas (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detectar idioma da mensagem</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
@@ -444,9 +448,6 @@
     </string>
     <string name="title_advanced_external_search">Permitir que outros aplicativos pesquisem nas mensagens</string>
     <string name="title_advanced_shortcuts">Mostrar contatos usados com frequência no menu de compartilhamento do Android</string>
-    <string name="title_advanced_conversation_actions">Sugerir ações (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Sugerir respostas (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detectar idioma da mensagem</string>
     <string name="title_advanced_fts">Construir índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
     <string name="title_advanced_classification">Classificar mensagens</string>
@@ -455,20 +456,19 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
-    <string name="title_advanced_optimize">Otimizar automaticamente</string>
     <string name="title_advanced_updates">Buscar atualizações</string>
     <string name="title_advanced_check_weekly">Verificar semanalmente ao invés de diariamente</string>
     <string name="title_advanced_experiments">Experimente recursos experimentais</string>
-    <string name="title_advanced_query_threads">Limitar acesso paralelo ao banco de dados</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
-    <string name="title_advanced_protocol">Registro de protocolo</string>
-    <string name="title_advanced_log_info">Log de depuração</string>
-    <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_cleanup_attachments">Apagar anexos de mensagens antigas</string>
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_last_cleanup">Última limpeza: %1$s</string>
     <string name="title_advanced_app">Configurações do aplicativo</string>
     <string name="title_advanced_more">Mais opções</string>
+    <string name="title_advanced_protocol">Registro de protocolo</string>
+    <string name="title_advanced_log_info">Log de depuração</string>
+    <string name="title_advanced_debug">Modo de depuração</string>
+    <string name="title_advanced_query_threads">Limitar acesso paralelo ao banco de dados</string>
     <string name="title_advanced_manual_hint">Se o recebimento de mensagens estiver desativado, ainda é possível receber mensagens manualmente arrastando para baixo a lista de mensagens</string>
     <string name="title_advanced_poll_hint">A verificação periódica por novas mensagens irá sempre comparar mensagens locais e remotas todas as vezes, o que é uma operação pesada e que pode resultar em uso extra de bateria, especialmente se houver muitas mensagens. A opção \'sempre receber\' irá prevenir isso por meio da busca contínua por mudanças.</string>
     <string name="title_advanced_optimize_hint">Isto pode alterar a frequência de sincronização para economizar o uso da bateria, dependendo dos recursos e comportamento dos servidores de e-mail</string>

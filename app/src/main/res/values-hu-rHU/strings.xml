@@ -237,6 +237,7 @@
     <string name="title_advanced_default">Az összes opció általánosan használt szabványos értékeket tartalmaz, amelyeket nem kell megváltoztatni az alkalmazás használatához</string>
     <string name="title_advanced_receive">Üzenetek fogadása minden fiókon</string>
     <string name="title_advanced_when">Mikor</string>
+    <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_always">Mindig fogadjon értesítéseket e fiókokhoz</string>
     <string name="title_advanced_schedule">Ütemezés</string>
     <string name="title_advanced_advanced">Haladó</string>
@@ -362,6 +363,9 @@
     <string name="title_advanced_authentication">Figyelmeztessen, ha a fogadó szerver nem tudta igazolni az üzenet hitelességét</string>
     <string name="title_advanced_sync_on_launch">Szinkronizálás az alkalmazás indításakor</string>
     <string name="title_advanced_double_back">Használja a \'vissza\'-t kétszer a kilépéshez</string>
+    <string name="title_advanced_conversation_actions">Műveletek felajánlása (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Válasszövegek felajánlása (Android 10+)</string>
+    <string name="title_advanced_language_detection">Üzenetszöveg nyelvének észlelése</string>
     <string name="title_advanced_pull_refresh">Húzza le a frissítéshez</string>
     <string name="title_advanced_autoscroll">Új üzenet érkezésekor automatikus tetejére görgetés</string>
     <string name="title_advanced_double_tap">Olvasott/olvasatlannak jelölés dupla koppintásra</string>
@@ -449,9 +453,6 @@
     </string>
     <string name="title_advanced_external_search">Keresés engedélyezése az üzenetekben más alkalmazások számára</string>
     <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
-    <string name="title_advanced_conversation_actions">Műveletek felajánlása (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Válasszövegek felajánlása (Android 10+)</string>
-    <string name="title_advanced_language_detection">Üzenetszöveg nyelvének észlelése</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
     <string name="title_advanced_classification">Üzenetek osztályozása</string>
@@ -460,19 +461,18 @@
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
-    <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_updates">GitHub-frissítések keresése</string>
     <string name="title_advanced_check_weekly">Hetente keressen, ne naponta</string>
     <string name="title_advanced_experiments">Kísérleti funkciók kipróbálása</string>
-    <string name="title_advanced_query_threads">Párhuzamos adatbázis hozzáférés korlátozása</string>
     <string name="title_advanced_crash_reports">Hibajelentések küldése</string>
-    <string name="title_advanced_protocol">Protokol naplózás</string>
-    <string name="title_advanced_log_info">Hibakeresési naplózás</string>
-    <string name="title_advanced_debug">Hibakeresési mód</string>
     <string name="title_advanced_cleanup_attachments">Régi üzenetek csatolmányainak törlése</string>
     <string name="title_advanced_cleanup">Takarítás</string>
     <string name="title_advanced_app">Alkalmazásbeállítások</string>
     <string name="title_advanced_more">Több opció</string>
+    <string name="title_advanced_protocol">Protokol naplózás</string>
+    <string name="title_advanced_log_info">Hibakeresési naplózás</string>
+    <string name="title_advanced_debug">Hibakeresési mód</string>
+    <string name="title_advanced_query_threads">Párhuzamos adatbázis hozzáférés korlátozása</string>
     <string name="title_advanced_manual_hint">Amennyiben az üzenetek folyamatos fogadása ki van kapcsolva, az üzenetlista a lehúzásávan manuálisan még mindíg frissíthető</string>
     <string name="title_advanced_poll_hint">A periodikus szinkronizálás minden egyes alkalommal összehasonlítja a helyileg tárolt üzeneteket a távoliakkal. Ez erőforrásigényes folyamat amely fokozott akkumulátorhasználathoz vezethet. A folyamatos szinkronizálás kiküszöböli ezt, mivel csak a változásokat figyeli és alkalmazza.</string>
     <string name="title_advanced_optimize_hint">A szinkronizálás sűrűségének az E-Mail kiszolgáló képességeihez való igazítása, az akumlátorhasználat csökkentse érdekében</string>

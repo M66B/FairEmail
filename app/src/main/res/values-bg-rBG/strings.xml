@@ -179,6 +179,7 @@
     <string name="title_advanced_section_misc">Разни</string>
     <string name="title_advanced_receive">Получаване на съобщения от всички акаунти</string>
     <string name="title_advanced_when">Кога</string>
+    <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_always">Получаване съобщения от тези акаунти винаги</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_advanced">Разширени</string>
@@ -349,15 +350,14 @@
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
-    <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_experiments">Пробване на експерименталните функции</string>
-    <string name="title_advanced_query_threads">Ограничете паралелния достъп до база данни</string>
     <string name="title_advanced_crash_reports">Изпращане на доклад с грешки</string>
-    <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
     <string name="title_advanced_cleanup_attachments">Изтрийте прикачени файлове на стари съобщения</string>
     <string name="title_advanced_cleanup">Почистване</string>
     <string name="title_advanced_app">Настройки на приложението</string>
     <string name="title_advanced_more">Още опции</string>
+    <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
+    <string name="title_advanced_query_threads">Ограничете паралелния достъп до база данни</string>
     <string name="title_advanced_manual_hint">Ако получаването на съобщения е деактивирано, все още е възможно ръчно получаване на съобщения чрез изтегляне на списъка със съобщения</string>
     <string name="title_advanced_poll_hint">Периодичното проверяване за нови съобщения ще сравнява всеки път локални и отдалечени съобщения, което е скъпа операция, която може да доведе до допълнително използване на батерията, особено ако има много съобщения. Получаването винаги ще предотврати това.</string>
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>

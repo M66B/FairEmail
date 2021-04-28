@@ -342,10 +342,10 @@
     <string name="title_advanced_watchdog">Občasno preveri, ali je FairEmail še vedno dejaven</string>
     <string name="title_advanced_experiments">Preizkusne značilnosti</string>
     <string name="title_advanced_crash_reports">Pošiljaj poročila o napakah</string>
-    <string name="title_advanced_debug">Razhroščevalni način</string>
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih sporočil</string>
     <string name="title_advanced_cleanup">Počisti</string>
     <string name="title_advanced_more">Več možnosti</string>
+    <string name="title_advanced_debug">Razhroščevalni način</string>
     <string name="title_advanced_schedule_hint">Dotaknite se časa, da ga nastavite.</string>
     <string name="title_advanced_no_date_hint">Nekateri ponudniki shranjujejo sporočila z neznanim, neveljavnim ali prihodnjim datumom kot sporočila brez datuma.</string>
     <string name="title_advanced_unseen_hint">Nekateri ponudniki tega ne podpirajo ustrezno, kar lahko privede do sinhronizacije vseh ali nobenega sporočila.</string>

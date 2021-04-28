@@ -260,6 +260,7 @@
     <string name="title_advanced_default">Wszystkie opcje mają powszechnie używane wartości standardowe, które nie muszą być zmieniane, aby używać aplikacji</string>
     <string name="title_advanced_receive">Odbierz wiadomości ze wszystkich kont</string>
     <string name="title_advanced_when">Kiedy</string>
+    <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_advanced">Zaawansowane</string>
@@ -388,6 +389,9 @@
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_sync_on_launch">Synchronizuj podczas włączania aplikacji</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
+    <string name="title_advanced_conversation_actions">Sugeruj akcje (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sugeruj teksty odpowiedzi (Android 10+)</string>
+    <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
     <string name="title_advanced_pull_refresh">Przeciągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_double_tap">Podwójne kliknięcie, aby oznaczyć odczytane/nieodczytane</string>
@@ -475,9 +479,6 @@
     </string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
-    <string name="title_advanced_conversation_actions">Sugeruj akcje (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Sugeruj teksty odpowiedzi (Android 10+)</string>
-    <string name="title_advanced_language_detection">Wykryj język tekstu wiadomości</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
@@ -486,20 +487,19 @@
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
-    <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
     <string name="title_advanced_check_weekly">Sprawdzaj co tydzień zamiast codziennie</string>
     <string name="title_advanced_experiments">Wypróbuj funkcje eksperymentalne</string>
-    <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
-    <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
-    <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
-    <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
     <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
+    <string name="title_advanced_protocol">Rejestrowanie protokołów</string>
+    <string name="title_advanced_log_info">Rejestrowanie debugowania</string>
+    <string name="title_advanced_debug">Debuguj</string>
+    <string name="title_advanced_query_threads">Ogranicz równoległy dostęp do bazy danych</string>
     <string name="title_advanced_manual_hint">Gdy synchronizacja jest wyłączona, nadal można odbierać wiadomości ręcznie, przeciągając listę wiadomości</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_optimize_hint">Może to zmienić częstotliwość synchronizacji, aby zaoszczędzić zużycie baterii w zależności od możliwości i zachowania serwerów e-mail</string>
@@ -1107,7 +1107,7 @@
     <string name="title_answer_group">Grupa szablonów (opcjonalnie)</string>
     <string name="title_answer_standard">Domyślna</string>
     <string name="title_answer_favorite">Ulubione</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Użyj jako potwierdzenia przeczytania</string>
+    <string name="title_answer_receipt">Użyj jako potwierdzenia przeczytania</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>
     <string name="title_answer_placeholder">Symbol zastępczy</string>

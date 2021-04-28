@@ -239,6 +239,7 @@
     <string name="title_advanced_default">Alle opties hebben veelgebruikte standaardwaarden, die niet hoeven te worden gewijzigd om de app te gebruiken</string>
     <string name="title_advanced_receive">Ontvang berichten voor alle accounts</string>
     <string name="title_advanced_when">Wanneer</string>
+    <string name="title_advanced_optimize">Automatisch optimaliseren</string>
     <string name="title_advanced_always">Ontvang altijd berichten voor deze accounts</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_advanced">Geavanceerd</string>
@@ -367,6 +368,9 @@
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_sync_on_launch">Synchroniseren bij start</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
+    <string name="title_advanced_conversation_actions">Acties voorstellen (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Stel antwoordteksten voor (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detecteer de taal van de berichttekst</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
@@ -454,9 +458,6 @@
     </string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
-    <string name="title_advanced_conversation_actions">Acties voorstellen (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Stel antwoordteksten voor (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detecteer de taal van de berichttekst</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>
@@ -465,20 +466,19 @@
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
-    <string name="title_advanced_optimize">Automatisch optimaliseren</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
     <string name="title_advanced_check_weekly">Controleer wekelijks in plaats van dagelijks</string>
     <string name="title_advanced_experiments">Probeer experimentele functies</string>
-    <string name="title_advanced_query_threads">Beperk parallelle database toegang</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
-    <string name="title_advanced_protocol">Protocol logging</string>
-    <string name="title_advanced_log_info">Debug logging</string>
-    <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_cleanup_attachments">Bijlagen van oude berichten verwijderen</string>
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
     <string name="title_advanced_app">App instellingen</string>
     <string name="title_advanced_more">Meer opties</string>
+    <string name="title_advanced_protocol">Protocol logging</string>
+    <string name="title_advanced_log_info">Debug logging</string>
+    <string name="title_advanced_debug">Foutopsporing modus</string>
+    <string name="title_advanced_query_threads">Beperk parallelle database toegang</string>
     <string name="title_advanced_manual_hint">Als het ontvangen van berichten is uitgeschakeld, is het nog steeds mogelijk om handmatig berichten te ontvangen door de berichtenlijst omlaag te trekken</string>
     <string name="title_advanced_poll_hint">Periodiek controleren op nieuwe berichten zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is die kan resulteren in extra batterijgebruik, vooral als er veel berichten zijn. Altijd ontvangen zal dit voorkomen door continu veranderingen te volgen.</string>
     <string name="title_advanced_optimize_hint">Dit kan de synchronisatie-frequentie wijzigen om op batterijgebruik te besparen, afhankelijk van de mogelijkheden en het gedrag van de e-mailservers</string>
@@ -797,6 +797,8 @@
     <string name="title_ask_raw">Om berichten door te sturen, moeten de ruwe (originele) berichten worden gedownload van de server. Dit vereist een internetverbinding.</string>
     <string name="title_buttons">Selecteer knoppen</string>
     <string name="title_buttons_hint">De daadwerkelijk beschikbare acties hangen af van het accounttype en de configuratie</string>
+    <string name="title_button_search">Zoeken in berichten</string>
+    <string name="title_button_search_text">Zoeken in berichttekst</string>
     <string name="title_configure_buttons">Configureer knoppen &#8230;</string>
     <string name="title_trash">Prullenbak</string>
     <string name="title_copy">Kopieer &#8230;</string>
@@ -1086,7 +1088,7 @@
     <string name="title_answer_group">Sjabloongroep (optioneel)</string>
     <string name="title_answer_standard">Standaard</string>
     <string name="title_answer_favorite">Favoriet</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Als leesbevestiging gebruiken</string>
+    <string name="title_answer_receipt">Als leesbevestiging gebruiken</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_placeholder">Plaatshouder</string>

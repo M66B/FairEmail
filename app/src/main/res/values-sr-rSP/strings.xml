@@ -274,10 +274,10 @@
     <string name="title_advanced_watchdog">Периодично проверавај да ли је FairEmail и даље активан</string>
     <string name="title_advanced_experiments">Испробај експерименталне функционалности</string>
     <string name="title_advanced_crash_reports">Шаљи извештаје о грешкама</string>
-    <string name="title_advanced_debug">Режим отклањања грешака</string>
     <string name="title_advanced_cleanup">Чишћење</string>
     <string name="title_advanced_app">Подешавања апликације</string>
     <string name="title_advanced_more">Више опција</string>
+    <string name="title_advanced_debug">Режим отклањања грешака</string>
     <string name="title_advanced_schedule_hint">Кликните на време да га поставите</string>
     <string name="title_advanced_unseen_hint">Неки провајдери не подржавају ово најбоље, што може да доведе да синхронизујете или све или ниједну поруку</string>
     <string name="title_advanced_sync_kept_hint">Ово ће пренети више података и потрошити више батерије, нарочито ако на уређају има јако много порука</string>

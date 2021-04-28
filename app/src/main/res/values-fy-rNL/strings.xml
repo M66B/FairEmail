@@ -239,6 +239,7 @@
     <string name="title_advanced_default">Alle opsjes hawwe faak standertwearden brûkt, diesto net hoest oan te pasjen om de app te brûken</string>
     <string name="title_advanced_receive">Berjochten ûntfange foar alle akkounts</string>
     <string name="title_advanced_when">Wannear</string>
+    <string name="title_advanced_optimize">Automatysk optimalisearje</string>
     <string name="title_advanced_always">Untfang altyd berjochten foar dizze akkounts</string>
     <string name="title_advanced_schedule">Skema</string>
     <string name="title_advanced_advanced">Avansearre</string>
@@ -367,6 +368,9 @@
     <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
     <string name="title_advanced_sync_on_launch">Syngronisearje by opstarten</string>
     <string name="title_advanced_double_back">Dûbel \'werom\' om út te gean</string>
+    <string name="title_advanced_conversation_actions">Aksjes foarstelle (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Antwurdteksten foarstelle (Android 10+)</string>
+    <string name="title_advanced_language_detection">Teksttaal fan berjocht opspoare</string>
     <string name="title_advanced_pull_refresh">Lûk del om te ferfarskjen</string>
     <string name="title_advanced_autoscroll">Rôlje nei boppe op ûntfangen fan nije berjochten</string>
     <string name="title_advanced_double_tap">Dûbelklikke om berjocht lêzen / net lêzen te markearjen</string>
@@ -454,9 +458,6 @@
     </string>
     <string name="title_advanced_external_search">Stean oare apps tastean om yn berjochten te sykjen</string>
     <string name="title_advanced_shortcuts">Lit faak brûkte kontakten sjen yn Android-dielmenu</string>
-    <string name="title_advanced_conversation_actions">Aksjes foarstelle (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Antwurdteksten foarstelle (Android 10+)</string>
-    <string name="title_advanced_language_detection">Teksttaal fan berjocht opspoare</string>
     <string name="title_advanced_fts">Sykje-yndeks bouwe</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berjochten yndekseare (%3$s)</string>
     <string name="title_advanced_classification">Berjochten klassifisearje</string>
@@ -465,19 +466,18 @@
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Kontrolearje periodyk as FairEmail noch aktyf is</string>
-    <string name="title_advanced_optimize">Automatysk optimalisearje</string>
     <string name="title_advanced_updates">Kontrolearje op GitHub-updates</string>
     <string name="title_advanced_check_weekly">Kontrolearje wykliks ynstee fan dagelyks</string>
     <string name="title_advanced_experiments">Besykje eksperimintele funksjes</string>
-    <string name="title_advanced_query_threads">Beheine tagong ta parallel databank</string>
     <string name="title_advanced_crash_reports">Stjoer flaterrapporten</string>
-    <string name="title_advanced_protocol">Protokol oanmeld</string>
-    <string name="title_advanced_log_info">Debug logging</string>
-    <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_cleanup_attachments">Bylagen fan âlde berjochten wiskje</string>
     <string name="title_advanced_cleanup">Skjinmeitsjen</string>
     <string name="title_advanced_app">App ynstellings</string>
     <string name="title_advanced_more">Mear opsjes</string>
+    <string name="title_advanced_protocol">Protokol oanmeld</string>
+    <string name="title_advanced_log_info">Debug logging</string>
+    <string name="title_advanced_debug">Debug mode</string>
+    <string name="title_advanced_query_threads">Beheine tagong ta parallel databank</string>
     <string name="title_advanced_manual_hint">As it ûntfangen fan berjochten is útskeakele, is it noch altyd mooglik om berjochten mei de hân te ûntfangen troch de berjochtenlist nei ûnderen te lûken</string>
     <string name="title_advanced_poll_hint">Periodyk kontrolearje op nije berjochten sil elke kear lokale en eksterne berjochten fergelykje, wat in djoere operaasje is dy\'t kin resultearje yn ekstra batterijgebrûk, fral as d\'r in soad berjochten binne. Altyd ûntfange sil dit foarkomme troch wizigingen kontinu te folgjen.</string>
     <string name="title_advanced_optimize_hint">Hjirtroch kin de syngronisaasjefrekwinsje feroarje om batterijgebrûk te sparjen, ôfhinklik fan \'e mooglikheden en gedrach fan \'e emailservers</string>
@@ -1085,7 +1085,7 @@
     <string name="title_answer_group">Sjabloangroep (opsjoneel)</string>
     <string name="title_answer_standard">Standert</string>
     <string name="title_answer_favorite">Favoryt</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Brûk as lêsbewiis</string>
+    <string name="title_answer_receipt">Brûk as lêsbewiis</string>
     <string name="title_answer_hide">Ferbergje foar menu\'s</string>
     <string name="title_answer_text">Sjabloantekst</string>
     <string name="title_answer_placeholder">Plakhâlder</string>

@@ -237,6 +237,7 @@
     <string name="title_advanced_default">Kaikilla valinnoilla on yleisesti käytetyt vakioarvot, joita ei tarvitse muuttaa</string>
     <string name="title_advanced_receive">Vastaanota viestit kaikille tileille</string>
     <string name="title_advanced_when">Milloin</string>
+    <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_always">Vastaanota aina viestit näille tileille</string>
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_advanced">Lisäasetukset</string>
@@ -363,6 +364,9 @@
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_sync_on_launch">Synkronoi käynnistettäessä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
+    <string name="title_advanced_conversation_actions">Ehdota toimintoja (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Ehdota vastaustekstejä (Android 10+)</string>
+    <string name="title_advanced_language_detection">Tunnista viestin tekstin kieli</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
@@ -449,9 +453,6 @@
         Avaimet ja sertifikaatit löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
-    <string name="title_advanced_conversation_actions">Ehdota toimintoja (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Ehdota vastaustekstejä (Android 10+)</string>
-    <string name="title_advanced_language_detection">Tunnista viestin tekstin kieli</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d viestiä indeksoitu (%3$s)</string>
     <string name="title_advanced_classification">Luokittele viestit</string>
@@ -460,20 +461,19 @@
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
-    <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
     <string name="title_advanced_check_weekly">Tarkista viikoittain päivittäisen sijaan</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
-    <string name="title_advanced_query_threads">Rajoita rinnakkaisia tietokantayhteyksiä</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
-    <string name="title_advanced_protocol">Protokollan kirjaaminen lokiin</string>
-    <string name="title_advanced_log_info">Vianetsintätietojen kirjaaminen</string>
-    <string name="title_advanced_debug">Vianetsintätila</string>
     <string name="title_advanced_cleanup_attachments">Poista vanhojen viestien liitteet</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
     <string name="title_advanced_last_cleanup">Viimeisin puhdistus: %1$s</string>
     <string name="title_advanced_app">Sovellusasetukset</string>
     <string name="title_advanced_more">Lisää asetuksia</string>
+    <string name="title_advanced_protocol">Protokollan kirjaaminen lokiin</string>
+    <string name="title_advanced_log_info">Vianetsintätietojen kirjaaminen</string>
+    <string name="title_advanced_debug">Vianetsintätila</string>
+    <string name="title_advanced_query_threads">Rajoita rinnakkaisia tietokantayhteyksiä</string>
     <string name="title_advanced_manual_hint">Jos viestien vastaanotto on pois käytöstä, voi viestejä silti vastaanottaa manuaalisesti vetämällä alaspäin viestilistassa</string>
     <string name="title_advanced_poll_hint">Väliajoin uusien viestien tarkistus vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun viestejä on paljon. Jatkuva vastaanotto välttää tämän seuraamalla jatkuvasti muutoksia.</string>
     <string name="title_advanced_optimize_hint">Tämä saattaa muuttaa synkronoinnin aikaväliä akun säästämiseksi riippuen sähköpostipalvelinten ominaisuuksista ja käyttäytymisestä</string>

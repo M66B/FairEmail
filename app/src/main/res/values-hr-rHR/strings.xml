@@ -343,11 +343,11 @@
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_experiments">Probaj eksperimentalne značajke</string>
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
-    <string name="title_advanced_debug">Modus za lakše pronalaženje pogrešaka (debug)</string>
     <string name="title_advanced_cleanup">Čišćenje</string>
     <string name="title_advanced_last_cleanup">Posljednje čišćenje: %1$s</string>
     <string name="title_advanced_app">Postavke aplikacije</string>
     <string name="title_advanced_more">Više opcija</string>
+    <string name="title_advanced_debug">Modus za lakše pronalaženje pogrešaka (debug)</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
     <string name="title_advanced_unseen_hint">Neki davatelji ne podržavaju to ispravno, što može uzrokovati sinkronizaciju nijedne ili svih poruka</string>
     <string name="title_advanced_deleted_unseen">Kad je onemogućeno, nepročitane poruke zauvijek se čuvaju na uređaju</string>

@@ -249,6 +249,7 @@
     <string name="title_advanced_default">Toate opțiunile au valori standard utilizate în mod obișnuit, care nu trebuie modificate pentru a utiliza aplicația</string>
     <string name="title_advanced_receive">Primește mesaje pentru toate conturile</string>
     <string name="title_advanced_when">Când</string>
+    <string name="title_advanced_optimize">Optimizare automată</string>
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_advanced">Avansate</string>
@@ -375,6 +376,9 @@
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_sync_on_launch">Sincronizare la pornire</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
+    <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sugerare texte de răspuns (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
@@ -462,9 +466,6 @@
     </string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
-    <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Sugerare texte de răspuns (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
@@ -473,20 +474,19 @@
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
-    <string name="title_advanced_optimize">Optimizare automată</string>
     <string name="title_advanced_updates">Verificați dacă există actualizări pe Github</string>
     <string name="title_advanced_check_weekly">Verifică săptămânal în loc de zilnic</string>
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
-    <string name="title_advanced_query_threads">Limitează accesul paralel la baza de date</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
-    <string name="title_advanced_protocol">Jurnalizare protocol</string>
-    <string name="title_advanced_log_info">Jurnal depanare</string>
-    <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
     <string name="title_advanced_cleanup">Curățare</string>
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
+    <string name="title_advanced_protocol">Jurnalizare protocol</string>
+    <string name="title_advanced_log_info">Jurnal depanare</string>
+    <string name="title_advanced_debug">Depanare</string>
+    <string name="title_advanced_query_threads">Limitează accesul paralel la baza de date</string>
     <string name="title_advanced_manual_hint">Dacă primirea mesajelor este dezactivată, încă este posibilă primirea manuală a mesajelor glisând în jos lista de mesaje</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje. Modul de sincronizare permanent evită aceasta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_optimize_hint">Acest lucru ar putea schimba frecvența de sincronizare pentru a economisi consumul bateriei în funcție de capacitățile și comportamentul serverelor de e-mail</string>

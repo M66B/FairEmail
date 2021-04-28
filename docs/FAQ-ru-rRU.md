@@ -4,7 +4,7 @@
 
 Если у вас есть вопросы, пожалуйста проверьте сначала часто задаваемые вопросы. [Снизу](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), вы можете найти как задать другие вопросы, предложить идеи и сообщить об ошибках.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Если у вас есть вопрос, пожалуйста, сначала проверьте часто задаваемые вопросы (FAQ) ниже. [ В самом низу вы узнаете](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), как задавать дополнительные вопросы, запрашивать функции и сообщать об ошибках.
 
 ## Оглавление
 
@@ -83,6 +83,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * А [ ошибка в Android 6.0](https://issuetracker.google.com/issues/37068143) вызывает сбой с *... Недопустимое смещение: ... Допустимый диапазон - ...* при условии, что текст выделен и нажимается за пределами выделенного текста. Эта ошибка была исправлена в Android 6.0.1.
 * Внутренние (якорь) ссылки не будут работать, потому что оригинальные сообщения отображаются во встроенном WebView в прокручиваемом виде (списке разговоров). Это ограничение Android, которое невозможно исправить или обойти.
 * Определение языка [больше не работает](https://issuetracker.google.com/issues/173337263) на устройствах Pixel с (обновленных до?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Запланированные возможности
 
@@ -579,57 +580,57 @@ FairEmail автоматически обновит пароли связанн�
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Что означает 'UIDPLUS не поддерживается?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~Сообщение об ошибке *UIDPLUS не поддерживается* означает, что ваш почтовый провайдер не предоставляет IMAP [UIDPLUS расширение](https://tools.ietf.org/html/rfc4315). Это расширение IMAP требуется для реализации двух способов синхронизации, что не является обязательной функцией. Итак, если ваш провайдер не может включить это расширение, вы не можете использовать FairEmail для этого провайдера.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Почему POP не поддерживается?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~Кроме того, что любой приличный поставщик электронной почты поддерживает [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) в эти дни,~~ ~~Использование [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) приведет к ненужному дополнительному использованию батареи и задержке уведомлений о новых сообщениях.~~ ~~Более того, POP не подходит для двусторонней синхронизации, и в наши дни люди чаще всего читают и пишут сообщения на разных устройствах.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~В основном POP поддерживает только загрузку и удаление сообщений из папки "Входящие".~~ ~~Таким образом, обычные операции, такие как настройка атрибутов сообщений (чтение, звездочка, ответ и т. д.), добавление (резервное копирование) и перемещение сообщений, невозможны.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Смотрите также [что Google пишет об этом](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~Например, [Gmail может импортировать сообщения](https://support.google.com/mail/answer/21289) из другой учетной записи POP,~~ ~~который можно использовать в качестве обходного пути, когда ваш провайдер не поддерживает IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~tl;dr; рассмотрите возможность переключения на IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Как работает шифрование/дешифрование?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Связь с серверами электронной почты всегда зашифрована, если только вы явно не отключили эту функцию. Этот вопрос касается необязательного сквозного шифрования с помощью PGP или S/MIME. Отправитель и получатель должны сначала договориться об этом и обменяться подписанными сообщениями для передачи своего открытого ключа, чтобы иметь возможность отправлять зашифрованные сообщения.
 
 <br />
 
-*General*
+*Общее*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Пожалуйста, [смотрите здесь](https://en.wikipedia.org/wiki/Public-key_cryptography) о том, как работает шифрование с открытым/закрытым ключом.
 
-Encryption in short:
+Шифрование вкратце:
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **Исходящие** сообщения шифруются с помощью **открытого ключа** получателя
+* **Входящие** сообщения расшифровываются с помощью **закрытого ключа** получателя
 
-Signing in short:
+Подписание вкратце:
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* **Исходящие** сообщения подписываются **закрытым ключом** отправителя
+* **Входящие** сообщения проверяются с помощью **открытого ключа** отправителя
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Чтобы подписать/зашифровать сообщение, просто выберите соответствующий метод в диалоговом окне "Отправить". Вы всегда можете открыть диалог отправки, используя меню переполнения трёх точек в случае, если вы выбрали *Не показывать ещё раз* раньше.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Чтобы проверить подпись или расшифровать полученное сообщение, откройте сообщение и просто нажмите на значок жеста или замка прямо на панели действий сообщения.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+При первой отправке подписанного/зашифрованного сообщения вас могут попросить ввести ключ подписи. FairEmail автоматически сохранит выбранный ключ подписи в используемой идентификации в следующий раз. Если вам нужно сбросить ключ знака, просто сохраните идентификацию или долго нажмите идентифицировать в списке идентификаторов и выберите *Сброс ключа подписи*. Выбранный ключ подписи отображается в списке идентификаторов. Если необходимо выбрать ключ в каждом конкретном случае, вы можете создать несколько идентификаторов для одной и той же учетной записи с одним и тем же адресом.
 
-In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
+В настройках шифрования, вы можете выбрать способ шифрования по умолчанию (с помощью PGP или S/MIME с), включить *подпись по умолчанию*, *шифрование по умолчанию* и *автоматическую расшифровку сообщения*, но следует помнить, что автоматическая расшифровка не представляется возможной, если требуется взаимодействие с пользователем, например выбор ключа или значение токена безопасности.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+Зашифрованный текст/вложения сообщения и расшифрованный текст/вложения сообщения хранятся только локально и никогда не будут добавлены на удалённый сервер. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
 
 <br />
 
@@ -647,26 +648,26 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Полученные заголовки Autocrypt будут отправлены в приложение OpenKeychain для хранения при проверке подписи или расшифровке сообщения.
 
 Although this shouldn't be necessary for most email clients, you can attach your public key to a message and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
 
 All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
 
-Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+Встроенное PGP-шифрование  в принятых сообщениях поддерживается, но встроенные PGP-подписи и встроенное PGP-шифрование в исходящих сообщениях не поддерживается, см. [здесь](https://josefsson.org/inline-openpgp-considered-harmful.html) о причине.
 
-Signed-only or encrypted-only messages are not a good idea, please see here about why not:
+Только подписанные или только зашифрованные сообщения не являются хорошей идеей, пожалуйста, ознакомьтесь с причинами этого:
 
-* [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
-* [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
-* [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+* [Особенности OpenPGP часть I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
+* [Особенности OpenPGP часть II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
+* [Особенности OpenPGP часть III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+Поддерживаются только подписанные сообщения, только зашифрованные сообщения не поддерживаются.
 
-Common errors:
+Распространённые ошибки:
 
-* *No key*: there is no PGP key available for one of the listed email addresses
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Нет ключа*: ключ PGP для одного из перечисленных адресов электронной почты не доступен
+* *Отсутствует ключ для шифрования*: вероятно, в FairEmail выбран ключ, который больше не существует в приложении OpenKeychain. Сброс ключа (см. Выше), вероятно, исправит эту проблему.
 * *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
 
 <br />
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-Цена разовой покупки нескольких pro-функций слишком низкая, ниже большинства подобных приложений. Также существует [множество комиссий и налогов](#user-content-faq19), чтобы оправдать доступность FairEmail в [Семейной библиотеке Google Play](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 

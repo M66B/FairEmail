@@ -2,7 +2,7 @@
 
 # FairEmail Destek
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [En altta](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), diğer soruları nasıl soracağınızı, özellikleri nasıl isteyeceğinizi ve hataları nasıl bildireceğinizi öğrenebilirsiniz.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -18,15 +18,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## Hesap Yetkilendirme
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Çoğu durumda, hızlı kurulum sihirbazı doğru yapılandırmayı otomatik olarak tanımlayabilecektir.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Hızlı kurulum sihirbazı başarısız olursa, manuel olarak bir hesap (e-posta almak için) ve bir kimlik (e-posta göndermek için) oluşturmanız gerekir. Bunun için, SSL / TLS veya STARTTLS'e ihtiyacınız olacak, IMAP ve SMTP sunucu adreslerine ve bağlantı noktası numaralarına ihtiyacınız olacak ve kullanıcı adınız (çoğunlukla, ancak her zaman değil, e-posta adresiniz) ve şifreniz.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+*IMAP* ve sağlayıcının adını aramak çoğunlukla doğru belgeleri bulmak için yeterlidir.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Bazı durumlarda, hesabınıza harici erişimi etkinleştirmeniz ve / veya özel bir (uygulama) şifresi kullanmanız gerekebilir.
 
-For authorizing:
+Yetkilendirmek için:
 
 * Gmail / G Suite, [6. soru](#user-content-faq6)ya bakınız
 * Outlook / Live / Hotmail, [14. soru](#user-content-faq14)ya bakınız
@@ -36,9 +36,9 @@ For authorizing:
 * Apple iCloud, [148. soru](#user-content-faq148)ya bakınız
 * Free.fr, [157. soru](#user-content-faq157)ya bakınız
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-faq22) kontrol ediniz.
 
-Related questions:
+İlgili sorular:
 
 * [OAuth destekleniyor mu?](#user-content-faq111)
 * [ActiveSync neden desteklenmiyor?](#user-content-faq133)
@@ -47,29 +47,29 @@ Related questions:
 
 ## Nasıl yapılır ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* Hesap adını değiştirme: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokunun, Hesaplar'a dokunun, hesaba dokunun
 * Sağa/sola kaydırma hareketlerini değiştirme: Ayarlar, Sayfa Davranışına dokun, Kaydırma hareketlerini ayarla
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Şifre değiştir: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokun, Hesaplar'a dokun, hesaba dokun, şifre değiştir
+* Bir imza belirleyin: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokun, Kimlikler'e dokun, İmzayı düzenle.
 * CC ve BCC adresleri ekleme: başlık kısmının sonundaki kişi ikonuna tıklayın
 * Arşiv/silinenlerdeki bir önceki/sonraki mesaja gitme: davranış ayarlarında *konuşmaları otomatik silmeyi* devre dışı bırakıp *bir görüşmeyi kapatırken* *bir sonraki/önceki konuşmaya giti* seçin
 * Birleşik gelen kutusuna klasör ekleme: klasör listesindeki klasöre basılı tutun ve *Birleşik gelen postayı göster*i işaretleyin
 * Dolaşım menüsüne dosya ekleme: klasör listesindeki klasöre basılı tutun ve *Navigasyon menüsünde göster*i işaretleyin
 * Daha fazla mesaj yükleme: klasör listesindeki klasöre basılı tutun ve *Daha fazla mesajı getir*i işaretleyin
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Çöp kutusunu atlayarak bir mesajı silin: çöp simgesine uzun basın
+* Bir hesabı / kimliği silin: Ayarlar, Manuel kurulum'a dokunun, Hesaplar / Kimlikler'e dokunun, hesaba / kimliğe, sağ üstteki çöp kutusu simgesine dokunun
+* Bir klasörü silin: klasör listesindeki klasöre uzun basın, Özellikleri düzenle, çöp kutusu simgesi sağ üst
+* Göndermeyi geri al: Giden kutusu, listedeki mesajı sola veya sağa kaydırın
 * Gönderilen mesajları gelen kutusunda saklama: lütfen [SSS'ı inceleyin](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Sistem klasörlerini değiştirme: Ayarlar, Manuel kurulum'a dokunun, Hesaplar'a dokunun, altta hesaba dokunun
+* Ayarları dışa / içe aktarma: Ayarlar, gezinme (sol taraf) menüsü
 
 ## Bilinen Hatalar
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
+* ~~ Android 5.1 ve 6'daki bir [ hata ](https://issuetracker.google.com/issues/37054851), uygulamaların bazen yanlış bir saat biçimi göstermesine neden oluyor. Android ayarını değiştirmek * 24 saatlik biçimi kullanın * sorunu geçici olarak çözebilir. Bir geçici çözüm eklendi. ~~
+* ~~ Google Drive'daki bir [ hata ](https://issuetracker.google.com/issues/126362828), Google Drive'a dışa aktarılan dosyaların boş olmasına neden oluyor. Google bunu düzeltti. ~~
+* ~~ AndroidX'teki bir [ hata ](https://issuetracker.google.com/issues/78495471), FairEmail'in bazen uzun basma veya kaydırma sırasında çökmesine neden oluyor. Google bunu düzeltti. ~~
+* ~~ AndroidX ROOM'daki bir [ hatası ](https://issuetracker.google.com/issues/138441698), bazen çökmeye sebep oluyor "*... Veritabanı canlı verilerini hesaplarken istisna ... Satır okunamadı ... * ". Bir geçici çözüm eklendi. ~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
@@ -83,6 +83,7 @@ Related questions:
 * A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Planlanan özellikler
 
@@ -91,42 +92,42 @@ Related questions:
 * ~~ Mesajı kopyala ~~
 * ~~Renkli yıldızlar~~
 * ~~Her bir klasör için bildirim ayarı~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
+* ~~ İmzalar için yerel resimler seçmek ~~ (bu eklenmeyecektir çünkü resim dosyası yönetimi gerektirmektedir ve resimler zaten çoğu e-posta istemcisinde varsayılan olarak gösterilmemektedir)
 * ~~ Bir kuralla eşleşen mesajları göster ~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
+* ~~[ ManageSieve ](https://tools.ietf.org/html/rfc5804) ~~ (uygun bir lisansa sahip ve bağımlılıkları olmayan korunan Java kitaplıkları yoktur ve bunun yanında, FairEmail'in kendi filtre kuralları vardır)
+* ~~ Ekli / eksiz mesajları ara ~~ (bu eklenemez çünkü IMAP ekleri aramayı desteklemiyor)
+* ~~ Bir klasör arayın ~~ (hiyerarşik bir klasör listesini filtrelemek sorun teşkil eder)
 * ~~ Arama önerileri ~~
-* ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
-* ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
+* ~~[ Otomatik Şifreleme Kurulum Mesajı ](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (bölüm 4.4) ~~ (IMO, bir e-posta istemcisinin istisnai bir kullanım durumu için hassas şifreleme anahtarlarını işlemesine izin verirken, OpenKeychain de anahtarları dışa aktarabilir)
+* ~~ Genel birleşik klasörler ~~
+* ~~ Hesap başına yeni mesaj bildirim programları ~~ (kurallara bir zaman koşulu eklenerek uygulanır, böylece mesajlar seçilen dönemlerde ertelenebilir)
 * ~~ Hesapları ve kimlikleri kopyalayın ~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
+* ~~ Kıstırma yakınlaştırma ~~ (kayan bir listede güvenilir bir şekilde mümkün değildir; bunun yerine tam ileti görünümü yakınlaştırılabilir)
+* ~~ Daha kompakt klasör görünümü ~~
+* ~~ Listeler ve tablolar oluşturun ~~ (bu, zengin bir metin düzenleyici gerektirir, bkz. [ bu SSS ](#user-content-faq99))
+* ~~ Yakınlaştırma metin boyutunu sıkıştırma ~~
 * ~~ GIF'leri Görüntüle ~~
 * ~~ Temalar ~~ (Çoğu insan bu temayı istediği için gri, açık ve koyu bir tema eklendi.)
-* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
+* ~~ Herhangi bir gün zamanı koşulu ~~ (herhangi bir gün, başlangıç ​​/ bitiş tarih / saat durumuna tam olarak uymaz)
 * ~~ Ek olarak gönder ~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
-* ~~Move notification action~~
-* ~~S/MIME support~~
+* ~~ Seçilen hesap için Widget ~~
+* ~~ Dosyaları eklemeyi hatırlatma ~~
+* Resim göstermek için domain seçin (Bu kullanması çok kafa karıştırıcı olacaktır)
+* ~~ Birleşik yıldızlı mesajlar görünümü ~~ (bunun için zaten özel bir arama var)
+* ~~ Bildirim eylemini taşı ~~
+* ~~ S / MIME desteği ~~
 * ~~ Ayarları ara ~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Bu listedeki her şey rastgele sıradadır ve yakın gelecekte * eklenebilir *.
 
-## Frequently requested features
+## Sıkça talep edilen özellikler
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) da tartışabilirsiniz. Tasarımın amacı minimalist olmak (gereksiz menüler, düğmeler vb. Yok) ve dikkat dağıtmamaktır (süslü renkler, animasyonlar vb.). Görüntülenen tüm şeyler şu veya bu şekilde yararlı olmalı ve kolay kullanım için dikkatlice yerleştirilmelidir. Yazı tipleri, boyutları, renkleri, vb. Mümkün olduğunca materyal tasarım olmalıdır.
 
-## Frequently Asked Questions
+## Sıkça Sorulan Sorular
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
+* [(1) Hangi izinler gerekli ve neden?](#user-content-faq1)
+* [(2) Neden gösterilen kalıcı bir bildirim var?](#user-content-faq2)
 * [(3) What are operations and why are they pending?](#user-content-faq3)
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
@@ -1242,11 +1243,11 @@ Long version:
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Parolalar nasıl saklanır?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+Desteklenen tüm Android sürümleri [tüm kullanıcı verilerini şifreler](https://source.android.com/security/encryption), bu nedenle kullanıcı adları, şifreler, mesajlar vb. dahil tüm veriler şifrelenmiş olarak saklanır.
 
-If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+Cihaz bir PIN, desen veya şifre ile güvenlik altına alınmışsa, hesap ve kimlik şifrelerini görünür hale getirebilirsiniz. Cihazı başkalarıyla paylaştığınız için sorun oluyorsa, [kullanıcı profilleri](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/) kullanmayı düşünün.
 
 <br />
 
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The one time price of the few pro features is too low, lower than the price of most similar apps, and there are [too many fees and taxes](#user-content-faq19), to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 
@@ -1660,7 +1663,7 @@ Third party apps do not have access to the Gmail snoozed messages folder.
 <a name="faq68"></a>
 **~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~**
 
-~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~ ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~ ~~to have access to actively shared files only. This is for privacy and security reasons.~~
+~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~ ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~ ~~to have access to actively shared files only. Bu gizlilik ve güvenlik sebepleri içindir
 
 ~~You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader / Microsoft app,~~ ~~but you are advised to install an up-to-date and preferably open source PDF reader / document viewer,~~ ~~for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).~~
 
@@ -1840,7 +1843,7 @@ For more complex schemes you could set one or more accounts to manual synchroniz
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-For a specific account:
+Spesifik bir hesap için:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
@@ -2858,26 +2861,26 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Nasıl Free.fr hesabı kurabilirim?**
 
-Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+Lütfen talimatlar için [buraya bakın](https://free.fr/assistance/597.html).
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP varsayılan olarak devre dışıdır **, lütfen [ buraya bakın](https://free.fr/assistance/2406.html) nasıl etkinleştirilebileceği hakkında.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Ayrıntılı bir kılavuz için lütfen [buraya bakın](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr).
 
 <br />
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Hangi kamera / ses kaydediciyi önerirsiniz?**
 
-To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
+Fotoğraf çekmek ve ses kaydetmek için bir kamera ve bir ses kaydedici uygulaması gereklidir. Aşağıdaki uygulamalar açık kaynaklı kameralar ve ses kaydedicilerdir:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
-* [Audio Recorder version 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
+* [Audio Recorder sürüm 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([ F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
+Sesli notları vb. Kaydetmek için ses kaydedicinin desteklemesi gerekir [ MediaStore.Audio.Media.RECORD_SOUND_ACTION ](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). İşin garibi, çoğu ses kaydedici bu standart Android eylemini desteklemiyor gibi görünüyor.
 
 <br />
 
@@ -2979,70 +2982,70 @@ Message classification is a pro feature, except for the spam folder.
 <br />
 
 <a name="faq164"></a>
-**(164) Can you add customizable themes?**
+**(164) Özelleştirilebilir temalar ekleyebilir misiniz?**
 
-Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+Maalesef Android [dinamik temaları desteklemiyor](https://stackoverflow.com/a/26511725/1794097), yani tüm temaların [önceden hazırlanması](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml) gerekir.
 
-Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
+Her tema için açık, koyu ve siyah bir varyant olması gerektiğinden, her renk kombinasyonu için (kelimenin tam anlamıyla milyonlarca) önceden tanımlanmış bir tema eklemek mümkün değildir.
 
-Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
+Dahası, bir tema birkaç renkten daha fazlasıdır. Örneğin, sarı vurgu rengine sahip temalar, yeterli kontrast için daha koyu bir bağlantı rengi kullanır.
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+Tema renkleri, [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten) 'in renk çemberine dayalıdır.
 
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+** (165) Android Auto destekleniyor mu? **
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Evet, Android Auto desteklenir, ancak yalnızca GitHub sürümüyle, lütfen [buraya bakın](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) nedeniyle ilgili.
 
-For notification (messaging) support you'll need to enable the following notification options:
+Bildirim (mesajlaşma) desteği için aşağıdaki bildirim seçeneklerini etkinleştirmeniz gerekir:
 
-* *Use Android 'messaging style' notification format*
-* Notification actions: *Direct reply* and (mark as) *Read*
+* *Android 'mesajlaşma stili' bildirim biçimini kullanın*
+* Bildirim eylemleri: * Doğrudan yanıt * ve (şu şekilde işaretle) * Oku *
 
-You can enable other notification actions too, if you like, but they are not supported by Android Auto.
+İsterseniz diğer bildirim eylemlerini de etkinleştirebilirsiniz, ancak bunlar Android Auto tarafından desteklenmez.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+Geliştiriciler kılavuzu [burada](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) Bir mesajı birden çok cihazda erteleyebilir miyim?**
 
-First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+Her şeyden önce, mesajları ertelemek için bir standart yoktur, bu nedenle tüm erteleme uygulamaları özel çözümlerdir.
 
-Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+Gmail gibi bazı e-posta sağlayıcıları, ertelenen iletileri özel bir klasöre taşır. Maalesef, üçüncü taraf uygulamaların bu özel klasöre erişimi yoktur.
 
-Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+Bir mesajın başka bir klasöre taşınması ve geri alınması başarısız olabilir ve internet bağlantısı yoksa mümkün olmayabilir. Bu sorun teşkil eder çünkü bir mesaj ancak mesaj taşındıktan sonra ertelenebilir.
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
-
-<br />
-
-## Get support
-
-FairEmail is supported on smartphones, tablets and ChromeOS only.
-
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
-
-There is no support on things that are not directly related to FairEmail.
-
-There is no support on building and developing things by yourself.
-
-Requested features should:
-
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
-
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
-
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
-
-GitHub issues are disabled due to frequent misusage.
+Bu sorunları önlemek için, erteleme, erteleme sırasında mesaj gizlenerek cihazda yerel olarak yapılır. Ne yazık ki, e-posta sunucusunda da mesajları gizlemek mümkün değildir.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+## Destek alın
+
+FairEmail yalnızca akıllı telefonlar, tabletler ve ChromeOS'de desteklenir.
+
+Yalnızca en son Play Store sürümü ve en son GitHub sürümü desteklenir. F-Droid yapısı yalnızca sürüm numarası en son GitHub sürümünün sürüm numarasıyla aynıysa desteklenir. Bu aynı zamanda eski sürüme geçmenin desteklenmediği anlamına gelir.
+
+FairEmail ile doğrudan ilgili olmayan konularda destek yoktur.
+
+Bir şeyleri kendi başınıza inşa etme ve geliştirme konusunda hiçbir destek yoktur.
+
+Gelmesini istediğiniz özellikler şunları içermelidir:
+
+* çoğu insan için faydalı olması
+* fairEmail kullanımını karmaşıklaştırmaması
+* fairEmail felsefesine uygun (gizlilik odaklı, güvenlik odaklı)
+* ortak standartlarla uyumlu (IMAP, SMTP, vb.)
+
+Bu gereksinimleri karşılamayan özellikler büyük olasılıkla reddedilecektir. Bu aynı zamanda bakım ve desteği uzun vadede mümkün kılmak içindir.
+
+Bir sorunuz varsa, bir özellik talep etmek veya bir hata bildirmek istiyorsanız, ** lütfen [ bu formu ](https://contact.faircode.eu/?product=fairemailsupport) ** kullanın.
+
+GitHub sorunları, sık sık yanlış kullanım nedeniyle devre dışı bırakıldı.
+
+<br />
+
+Telif hakkı &copy; 2018-2021 M. Bokhorst 'a aittir.

@@ -83,6 +83,7 @@ Related questions:
 * Um [erro no Android](https://issuetracker.google.com/issues/37068143) faz com que o FairMail deixe de funcionar com "*... Deslocamento inválido: ... Intervalo válido é ...* quando o texto é selecionado e tocando fora do texto selecionado. Este erro foi corrigido no Android 6.0.1.
 * Links (ancorados) internos não vão funcionar porque as mensagens originais são mostradas numa WebView incorporada numa visualização de deslize (a lista de conversação). Esta é uma limitação do Android que não pode ser resolvida nem ultrapassada.
 * A detecção de idiomas [já não está a funcionar](https://issuetracker.google.com/issues/173337263) em dispositivos Pixel com (actualização para?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Funcionalidades planeadas
 
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The one time price of the few pro features is too low, lower than the price of most similar apps, and there are [too many fees and taxes](#user-content-faq19), to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 

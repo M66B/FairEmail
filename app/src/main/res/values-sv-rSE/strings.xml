@@ -237,6 +237,7 @@
     <string name="title_advanced_default">Alla alternativ har standardvärden, som inte behöver ändras för att använda appen</string>
     <string name="title_advanced_receive">Ta emot meddelanden för alla konton</string>
     <string name="title_advanced_when">När</string>
+    <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_advanced">Avancerat</string>
@@ -363,6 +364,9 @@
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_sync_on_launch">Synkronisera vid start</string>
     <string name="title_advanced_double_back">Dubbel \"tillbaka\" för att avsluta</string>
+    <string name="title_advanced_conversation_actions">Föreslå åtgärder (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Föreslå svarstexter (Android 10+)</string>
+    <string name="title_advanced_language_detection">Identifiera meddelandetextspråk</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
     <string name="title_advanced_double_tap">Dubbeltryck för att markera meddelande läst/oläst</string>
@@ -450,9 +454,6 @@
     </string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
-    <string name="title_advanced_conversation_actions">Föreslå åtgärder (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Föreslå svarstexter (Android 10+)</string>
-    <string name="title_advanced_language_detection">Identifiera meddelandetextspråk</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_classification">Klassificera meddelanden</string>
@@ -461,20 +462,19 @@
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
-    <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
     <string name="title_advanced_check_weekly">Kolla veckovis istället för dagligen</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
-    <string name="title_advanced_query_threads">Begränsa parallell åtkomst till databas</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
-    <string name="title_advanced_protocol">Loggar för protokoll</string>
-    <string name="title_advanced_log_info">Debug Logging</string>
-    <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
     <string name="title_advanced_cleanup">Rensa</string>
     <string name="title_advanced_last_cleanup">Senaste rensning: %1$s</string>
     <string name="title_advanced_app">App-inställningar</string>
     <string name="title_advanced_more">Fler alternativ</string>
+    <string name="title_advanced_protocol">Loggar för protokoll</string>
+    <string name="title_advanced_log_info">Debug Logging</string>
+    <string name="title_advanced_debug">Felsökningsläge</string>
+    <string name="title_advanced_query_threads">Begränsa parallell åtkomst till databas</string>
     <string name="title_advanced_manual_hint">Om mottagande av meddelanden är inaktiverat är det fortfarande möjligt att manuellt ta emot meddelanden genom att dra ner meddelandelistan</string>
     <string name="title_advanced_poll_hint">Genom att regelbundet kontrollera efter nya meddelanden kommer att jämföra lokala- och fjärrmeddelanden varje gång, detta är en drastisk åtgärd som kan leda till extra batterianvändning, särskilt om det finns många meddelanden. Genom att alltid ta emot kommer att förhindra detta genom att kontinuerligt följa förändringar.</string>
     <string name="title_advanced_optimize_hint">Detta kan ändra synkroniseringsfrekvensen för att spara på batteriet, beroende på e-postservrarnas funktioner och beteende</string>

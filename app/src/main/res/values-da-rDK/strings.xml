@@ -235,6 +235,7 @@
     <string name="title_advanced_default">Alle indstillinger har alm. anvendte standardværdier uden behov for ændringer for brug af appen</string>
     <string name="title_advanced_receive">Modtag beskeder til alle konti</string>
     <string name="title_advanced_when">Når</string>
+    <string name="title_advanced_optimize">Optimér automatisk</string>
     <string name="title_advanced_always">Modtag altid beskeder til disse konti</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_advanced">Avanceret</string>
@@ -360,6 +361,9 @@
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_sync_on_launch">Synkronisér ved opstart</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
+    <string name="title_advanced_conversation_actions">Foreslå handlinger (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Foreslå svartekster (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detektér beskedtekstsprog</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
@@ -447,9 +451,6 @@
     </string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
-    <string name="title_advanced_conversation_actions">Foreslå handlinger (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Foreslå svartekster (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detektér beskedtekstsprog</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
     <string name="title_advanced_classification">Klassificér beskeder</string>
@@ -458,20 +459,19 @@
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
-    <string name="title_advanced_optimize">Optimér automatisk</string>
     <string name="title_advanced_updates">Tjek for GitHub-opdateringer</string>
     <string name="title_advanced_check_weekly">Tjek ugentligt i stedet for dagligt</string>
     <string name="title_advanced_experiments">Prøv eksperimentelle funktioner</string>
-    <string name="title_advanced_query_threads">Begræns parallel databaseadgang</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
-    <string name="title_advanced_protocol">Protokollogning</string>
-    <string name="title_advanced_log_info">Fejllogning</string>
-    <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_cleanup_attachments">Slet gamle beskeders vedhæftninger</string>
     <string name="title_advanced_cleanup">Oprydning</string>
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
     <string name="title_advanced_app">App-indstillinger</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
+    <string name="title_advanced_protocol">Protokollogning</string>
+    <string name="title_advanced_log_info">Fejllogning</string>
+    <string name="title_advanced_debug">Fejlretningstilstand</string>
+    <string name="title_advanced_query_threads">Begræns parallel databaseadgang</string>
     <string name="title_advanced_manual_hint">Er beskedmodtagelse er deaktiveret, er det stadig muligt at modtage beskeder ved at trække beskedlisten ned</string>
     <string name="title_advanced_poll_hint">Periodisk tjek for nye beskeder sammenligner lokal- og fjernbeskeder hver gang, hvilket er en kostbar handling, der kan resultere i ekstra batteriforbrug, især hvis der er mange beskeder. Modtag altid vilforhindre dette ved løbende at følge ændringer.</string>
     <string name="title_advanced_optimize_hint">Dette kan ændre synkfrekvensen for at spare strøm afhængigt af e-mailserverens funktioner og adfærd</string>
@@ -1066,7 +1066,7 @@
     <string name="title_answer_group">Skabelongruppe (valgfrit)</string>
     <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Brug som læst-kvittering</string>
+    <string name="title_answer_receipt">Brug som læst-kvittering</string>
     <string name="title_answer_hide">Skjul fra menuer</string>
     <string name="title_answer_text">Skabelontekst</string>
     <string name="title_answer_placeholder">Variabel</string>

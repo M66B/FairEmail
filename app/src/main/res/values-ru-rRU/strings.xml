@@ -261,6 +261,7 @@
     <string name="title_advanced_default">Все настройки имеют общеиспользуемые стандартные параметры, не нуждающиеся в изменении для использования приложения</string>
     <string name="title_advanced_receive">Получать сообщения со всех учётных записей</string>
     <string name="title_advanced_when">Когда</string>
+    <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_advanced">Дополнительно</string>
@@ -389,6 +390,9 @@
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_sync_on_launch">Синхронизация при запуске</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
+    <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Предлагать ответы (Android 10+)</string>
+    <string name="title_advanced_language_detection">Определять язык сообщения</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокручивать к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
@@ -476,9 +480,6 @@
     </string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
-    <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Предлагать ответы (Android 10+)</string>
-    <string name="title_advanced_language_detection">Определять язык сообщения</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_classification">Классифицировать сообщения</string>
@@ -487,20 +488,19 @@
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
-    <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_updates">Проверять обновления на GitHub</string>
     <string name="title_advanced_check_weekly">Еженедельная проверка вместо ежедневной</string>
     <string name="title_advanced_experiments">Попробовать экспериментальные функции</string>
-    <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
-    <string name="title_advanced_protocol">Журнал протокола</string>
-    <string name="title_advanced_log_info">Журнал отладки</string>
-    <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_cleanup_attachments">Удалять вложения старых сообщений</string>
     <string name="title_advanced_cleanup">Очистка</string>
     <string name="title_advanced_last_cleanup">Последняя очистка: %1$s</string>
     <string name="title_advanced_app">Настройки приложения</string>
     <string name="title_advanced_more">Другие возможности</string>
+    <string name="title_advanced_protocol">Журнал протокола</string>
+    <string name="title_advanced_log_info">Журнал отладки</string>
+    <string name="title_advanced_debug">Режим отладки</string>
+    <string name="title_advanced_query_threads">Ограничение одновременного доступа к базе данных</string>
     <string name="title_advanced_manual_hint">Если получение сообщений отключено, его можно выполнить вручную, потянув вниз список сообщений</string>
     <string name="title_advanced_poll_hint">Периодическая проверка новых сообщений будет сравнивать сообщения на сервере с локальными. Это \"тяжёлая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений много. Постоянное получение избегает этого, непрерывно отслеживая только изменения.</string>
     <string name="title_advanced_optimize_hint">Может изменять частоту синхронизации для экономии заряда батареи в зависимости от возможностей и поведения почтовых серверов</string>
@@ -819,6 +819,8 @@
     <string name="title_ask_raw">Чтобы переслать сообщения, необходимо загрузить необработанные (исходные) сообщения с сервера. Для этого необходимо подключение к интернету.</string>
     <string name="title_buttons">Выбрать кнопки</string>
     <string name="title_buttons_hint">Доступные действия зависят от типа учётной записи и конфигурации</string>
+    <string name="title_button_search">Поиск в сообщениях</string>
+    <string name="title_button_search_text">Поиск в тексте сообщения</string>
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
     <string name="title_trash">Корзина</string>
     <string name="title_copy">Копировать&#8230;</string>
@@ -1108,7 +1110,7 @@
     <string name="title_answer_group">Группа шаблонов (необязательно)</string>
     <string name="title_answer_standard">По умолчанию</string>
     <string name="title_answer_favorite">Избранное</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Использовать как уведомление о прочтении</string>
+    <string name="title_answer_receipt">Использовать как уведомление о прочтении</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_placeholder">Заполнение</string>

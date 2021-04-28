@@ -83,6 +83,7 @@ En rapport avec:
 * Un [bug sur Android 6.0](https://issuetracker.google.com/issues/37068143) provoque un plantage *... Invalid offset: ... Valid range is ...* lorsque du texte est sélectionné et en tapotant à côté de ce dernier. Ce bogue a été corrigé dans Android 6.0.1.
 * Les liens internes (ancrés) ne fonctionneront pas parce que les messages originaux sont affichés dans une WebView intégrée dans une vue défilante (la liste des conversations). Il s'agit d'une limitation Android qui ne peut être ni corrigée ni contournée.
 * La détection de la langue [ne fonctionne plus](https://issuetracker.google.com/issues/173337263) sur les appareils Pixel avec (mise à jour vers ?) Android 11
+* Un bogue [dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) provoque des signatures PGP invalides lors de l'utilisation d'un jeton matériel.
 
 ## Fonctionnalités prévues
 
@@ -1636,14 +1637,16 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66" mark="crwd-mark"></a>
 **(66) FairEmail est-il disponible dans la bibliothèque familiale Google Play ?**
 
-Le prix unique des quelques fonctionnalités Pro est trop bas, inférieur au prix des applications les plus similaires et il y a [trop de frais et de taxes](#user-content-faq19) pour justifier la mise à disposition de FairEmail dans la [bibliothèque familiale Google Play](https://support.google.com/googleone/answer/7007852). Notez que Google promeut la bibliothèque familiale mais la fait payer par les développeurs.
+*Vous ne pouvez pas partager des achats dans-l'ppli et des applications gratuites avec les membres de votre famille.*
+
+Voir [ici](https://support.google.com/googleone/answer/7007852) sous "*Voir si le contenu est admissible à être ajouté à la bibliothèque familiale*",*Appli & jeux*".
 
 <br />
 
 <a name="faq67" mark="crwd-mark"></a>
-**(67) How can I snooze conversations?**
+**(67) Comment puis-je répéter les conversations ?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Sélectionnez plusieurs conversations (appui long pour démarrer la sélection multiple), appuyez sur le bouton à trois points et sélectionnez *Rappel ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
 It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
 
@@ -2791,257 +2794,257 @@ Instead, the email provider/server is responsible for backups.
 
 If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
 
-Depuis la version 1. 556 il est possible d'exporter tous les messages d'un dossier POP3 au format mbox selon [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), ce qui peut être utile pour enregistrer les messages envoyés si le serveur de messagerie ne le fait pas.
+Since version 1.1556 it is possible to export all messages of a POP3 folder in mbox format according to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), which might be useful to save sent messages if the email server doesn't.
 
-Si vous voulez importer un fichier mbox dans un compte de messagerie existant, vous pouvez utiliser Thunderbird sur un ordinateur de bureau et l'extension [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/).
+If you want to import an mbox file to an existing email account, you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
 
 <br />
 
 <a name="faq152" mark="crwd-mark"></a>
-**(152) Comment puis-je insérer un groupe de contacts ?**
+**(152) How can I insert a contact group?**
 
-Vous pouvez insérer les adresses e-mail de tous les contacts dans un groupe de contacts via le menu à trois points du compositeur de messages.
+You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
 
-Vous pouvez définir des groupes de contacts avec l'application de contacts d'Android, veuillez consulter [ici](https://support.google.com/contacts/answer/30970) pour obtenir des instructions.
+You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 
 <br />
 
 <a name="faq153" mark="crwd-mark"></a>
-**(153) Pourquoi la suppression permanente du message Gmail ne fonctionne-t-elle pas ?**
+**(153) Why does permanently deleting Gmail message not work?**
 
-Vous aurez peut-être à modifier [les paramètres IMAP de Gmail](https://mail.google.com/mail/u/0/#settings/fwdandpop) sur un navigateur de bureau pour le faire fonctionner :
+You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
 
 * When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
 * When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
 
-Notez que les messages archivés ne peuvent être supprimés qu'en les déplaçant d'abord dans la corbeille.
+Note that archived messages can be deleted only by moving them to the trash folder first.
 
-Un peu d'arrière-plan : Gmail semble avoir une vue des messages supplémentaire pour IMAP, qui peut être différente de la vue principale des messages.
+Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
 
-Une autre curiosité est qu'une étoile (message favori) définie via l'interface web ne peut pas être supprimée avec la commande IMAP
+Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command
 
 ```
 STORE <message number> -FLAGS (\Flagged)
 ```
 
-D'un autre côté, une étoile définie via IMAP est affichée dans l'interface web et peut être retirée via IMAP.
+On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.
 
 <br />
 
 <a name="faq154" mark="crwd-mark"></a>
-**~~(154) Pouvez-vous ajouter des favicons comme photos de contact?~~**
+**~~(154) Can you add favicons as contact photos?~~**
 
-~~Outre le fait qu'un [favicon](https://en.wikipedia.org/wiki/Favicon) peut être partagé par de nombreuses adresses e-mail avec le même nom de domaine~~ ~~~et n'est donc pas directement lié à une adresse e-mail, un favicon peut être utilisé pour vous suivre à la trace.~~
+~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
 
 <br />
 
 <a name="faq155" mark="crwd-mark"></a>
-**(155) Qu'est-ce qu'un fichier winmail.dat ?**
+**(155) What is a winmail.dat file?**
 
-Un fichier *winmail.dat* est envoyé par un client Outlook mal configuré. Il s'agit d'un format de fichier spécifique à Microsoft ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) contenant un message et éventuellement des pièces jointes.
+A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
-Vous pouvez trouver plus d'informations sur ce fichier [ici](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-Vous pouvez le visionner par exemple avec l'application Android [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
 
 <a name="faq156" mark="crwd-mark"></a>
-**(156) Comment puis-je configurer un compte Office365 ?**
+**(156) How can I set up an Office 365 account?**
 
-Un compte Office365 peut être configuré via l'assistant d'installation rapide en sélectionnant *Office365 (OAuth)*.
+An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
-Si l'assistant se termine par *AUTHENTIFICATION échouée*, il se peut que IMAP et/ou SMTP soient désactivés pour le compte. Dans ce cas, vous devriez demander à l'administrateur d'activer IMAP et SMTP. La procédure est documentée [ici](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
-Si vous avez activé *les valeurs par défaut de sécurité* dans votre organisation, vous pourriez avoir besoin d'activer le protocole SMTP AUTH. Veuillez [voir ici](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) comment faire.
+If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
 
 <br />
 
 <a name="faq157" mark="crwd-mark"></a>
-**(157) Comment puis-je configurer un compte Free.fr ?**
+**(157) How can I set up an Free.fr account?**
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
 <br />
 
 <a name="faq103" mark="crwd-mark"></a>
 <a name="faq158" mark="crwd-mark"></a>
-**(158) Quelle caméra / enregistreur audio recommandez-vous ?**
+**(158) Which camera / audio recorder do you recommend?**
 
-Pour prendre des photos et enregistrer le son, une application appareil photo et une application d'enregistrement audio sont nécessaires. Les applications suivantes sont des caméras et des enregistreurs audio open source:
+To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder version 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-Pour enregistrer des notes vocales, etc, l'enregistreur audio doit supporter [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Étrangement, la plupart des enregistreurs audio ne semblent pas prendre en charge cette action Android standard.
+To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
 
 <br />
 
 <a name="faq159" mark="crwd-mark"></a>
-**(159) Que sont les listes de protection des trackers de Disconnect ?**
+**(159) What are Disconnect's tracker protection lists?**
 
-Veuillez consulter [ici](https://disconnect.me/trackerprotection) pour plus d'informations sur les listes de protection des trackers de Disconnect.
+Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 
-Après avoir téléchargé les listes dans les paramètres de confidentialité, les listes pourront être utilisées au choix:
+After downloading the lists in the privacy settings, the lists can optionally be used:
 
 * to warn about tracking links on opening links
 * to recognize tracking images in messages
 
-Les images de suivi ne seront désactivées que si l'option principale 'désactivé' correspondante est activée.
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
-Les images de suivi ne seront pas reconnues lorsque le domaine est classé comme '*Contenu*', voir [ici](https://disconnect.me/trackerprotection#trackers-we-dont-block) pour plus d'informations.
+Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Cette commande peut être envoyée à FairEmail depuis une application d'automatisation pour mettre à jour les listes de protection :
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Mettre à jour une fois par semaine sera probablement suffisant, veuillez consulter [ici](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) pour la liste des modifications récentes des listes.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
 <a name="faq160"></a>
-**(160) Pouvez-vous ajouter une suppression définitive des messages sans confirmation ?**
+**(160) Can you add permanent deletion of messages without confirmation?**
 
-La suppression permanente signifie que les messages seront *irréversiblement* perdus, et pour éviter que cela ne se produise accidentellement, cela doit toujours être confirmé. Même avec confirmation, certaines personnes très en colère qui ont perdu certains de leurs messages par leur propre faute m'ont contacté, qui a été une expérience plutôt désagréable :-(
+Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
-Avancé : le drapeau de suppression IMAP en combinaison avec la commande EXPUNGE n'est pas prise en charge car, et les serveurs de messagerie et toutes les personnes ne savent gérer cela, risquant de perdre inopinément des messages. Une difficulté supplémentaire est que tous les serveurs de messagerie ne supportent pas [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
+Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
-À partir de la version 1.1485, il est possible d'activer temporairement le mode débogage dans les paramètres divers pour désactiver l'expulsion des messages. Notez que les messages avec un drapeau *\Supprimé* ne seront pas affichés dans FairEmail.
+From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
 
 <br />
 
 <a name="faq161"></a>
-**(161) Pouvez-vous ajouter un paramètre pour changer les couleurs primaire et d'accentuation ?***
+**(161) Can you add a setting to change the primary and accent color?***
 
-Si je le pouvais, j'ajouterais un paramètre pour sélectionner la couleur primaire et de l'accent tout de suite, mais malheureusement les thèmes Android sont fixes, voir par exemple [ici](https://stackoverflow.com/a/26511725/1794097), donc ce n'est pas possible.
+If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 
 <br />
 
 <a name="faq162"></a>
-**(162) L'IMAP NOTIFY est-il pris en charge?***
+**(162) Is IMAP NOTIFY supported?***
 
-Oui, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) a été pris en charge depuis la version 1.1413.
+Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
 
-La prise en charge IMAP NOTIFY signifie que les notifications pour des messages ajoutés, modifiés ou supprimés de tous les dossiers *abonnés* seront demandées et si une notification est reçue pour un dossier abonné, que le dossier sera synchronisé. La synchronisation des dossiers abonnés peut donc être désactivée, en épargnant des connexions aux dossiers du serveur de messagerie.
+IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
 
-**Important**: les messages push (=toujours synchroniser) pour la gestion de la boîte de réception et des abonnements (paramètres de réception) doivent être activés.
+**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
-**Important**: la plupart des serveurs de messagerie ne prennent pas en charge ceci! Vous pouvez consulter le journal via le menu de navigation si un serveur de messagerie prend en charge la commande NOTIFY.
+**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
 
 <br />
 
 <a name="faq163"></a>
-**(163) Qu'est-ce que la classification de message ?**
+**(163) What is message classification?**
 
-*Ceci est une fonctionnalité expérimentale!*
+*This is an experimental feature!*
 
-La classification des messages tentera de regrouper automatiquement les e-mails en classes, en fonction de leur contenu, en utilisant [les statistiques bayésiennes](https://en.wikipedia.org/wiki/Bayesian_statistics). Dans le contexte de FairEmail, un dossier est une classe. Ainsi, par exemple, la boîte de réception, le dossier spam, un dossier 'marketing', etc, etc.
+Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-Vous pouvez activer la classification des messages dans les paramètres divers. Cela n'activera que le mode "apprentissage". Par défaut, le classificateur "apprend" à partir des nouveaux messages de la boîte de réception et du dossier spam. La propriété du dossier *Classer les nouveaux messages dans ce dossier* activera ou désactivera le mode 'apprentissage' pour ce dossier. Vous pouvez effacer les messages locaux (appuyez longuement sur un dossier dans la liste des dossiers d'un compte) et synchroniser les messages à nouveau pour classer les messages existants.
+You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
-Chaque dossier a une option *Déplacez automatiquement les messages classés dans ce dossier* ('classification automatique' pour court). Lorsque ceci est activé, les nouveaux messages dans d'autres dossiers dont le classificateur pense qu'ils appartiennent à ce dossier seront automatiquement déplacés.
+Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-L'option *Utiliser le filtre de spam local* dans la boîte de dialogue de rapport spam activera la classification des messages dans les paramètres divers et la classification automatique pour le dossier spam. Veuillez comprendre qu'il ne s'agit pas d'un remplacement pour le filtre anti-spam du serveur de messagerie et peut entraîner [faux positifs et faux négatifs](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Voir aussi [cette FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
-Un exemple pratique : supposons qu'il y ait un dossier 'marketing' et que la classification automatique des messages soit activée pour ce dossier. Chaque fois que vous déplacez un message dans ce dossier, vous apprenez à FairEmail que des messages similaires appartiennent à ce dossier. Chaque fois que vous déplacez un message en dehors de ce dossier, vous apprenez à FairEmail que des messages similaires n'appartiennent pas à ce dossier. Après avoir déplacé certains messages dans le dossier 'marketing', FairEmail commencera automatiquement à déplacer des messages similaires dans ce dossier. Ou, à l'inverse, après avoir déplacé certains messages en dehors du dossier 'marketing', FairEmail arrêtera automatiquement de déplacer des messages similaires dans ce dossier. Cela fonctionnera au mieux avec les messages au contenu similaire (adresses e-mail, sujet et texte du message).
+A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
-La classification doit être considérée comme une meilleure estimation - ce pourrait être une mauvaise supposition, ou le classificateur ne pourra pas être suffisamment confiant pour faire une quelconque supposition. Si le classificateur n'est pas sûr, il laissera simplement un email là où il se trouve.
+Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
 
-Pour éviter que le serveur de messagerie ne déplace un message dans le dossier spam répétitivement, La classification automatique du dossier spam ne sera pas effectuée.
+To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
 
-Le classificateur de messages calcule la probabilité qu'un message appartient à un dossier (classe). Il y a deux options dans les paramètres divers qui contrôlent si un message sera automatiquement déplacé dans un dossier, à condition que le classement automatique soit activé pour le dossier :
+The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
 
 * *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 15 %)
 * *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
 
-Les deux conditions doivent être remplies avant qu'un message ne soit déplacé.
+Both conditions must be satisfied before a message will be moved.
 
-En considérant les valeurs d'option par défaut :
+Considering the default option values:
 
 * Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
 * Apples 10 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 15 %
 * Apples 50 % and bananas 20 % would result in selecting apples
 
-La classification est optimisée pour utiliser le moins de ressources possible, mais consommera inévitablement une puissance de batterie supplémentaire.
+Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
 
-Vous pouvez supprimer toutes les données de classification en désactivant trois fois la classification dans les paramètres divers.
+You can delete all classification data by turning classification in the miscellaneous settings three times off.
 
-[Les règles de filtrage](#user-content-faq71) seront exécutées avant la classification.
+[Filter rules](#user-content-faq71) will be executed before classification.
 
-La classification des messages est une fonctionnalité pro, à l'exception du dossier spam.
+Message classification is a pro feature, except for the spam folder.
 
 <br />
 
 <a name="faq164"></a>
-**(164) Pouvez-vous ajouter des thèmes personnalisables ?**
+**(164) Can you add customizable themes?**
 
-Malheureusement, Android [ne prend pas en charge](https://stackoverflow.com/a/26511725/1794097) les thèmes dynamiques, ce qui signifie que tous les thèmes ont besoin [d'être prédéfinis](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Puisque chaque thème nécessite une variante claire, sombre et noire, il n'est pas possible d'ajouter un thème prédéfini pour chaque combinaison de couleurs (littéralement des millions).
+Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
-De plus, un thème est plus que quelques couleurs. Par exemple, les thèmes avec une nuance jaune utilisent une couleur de lien plus foncée pour obtenir un contraste suffisant.
+Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
-Les couleurs de thème sont basées sur le cercle de couleurs de [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 <a name="faq165"></a>
-**(165) Android Auto est-il pris en charge ?**
+**(165) Is Android Auto supported?**
 
-Oui, Android Auto est pris en charge, mais seulement avec la version GitHub, veuillez [voir ici](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) pourquoi.
+Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
 
-Pour la prise en charge des notifications (messagerie), vous devrez activer les options de notification suivantes :
+For notification (messaging) support you'll need to enable the following notification options:
 
 * *Use Android 'messaging style' notification format*
 * Notification actions: *Direct reply* and (mark as) *Read*
 
-Vous pouvez également activer d'autres actions de notification, si vous le souhaitez, mais elles ne sont pas prises en charge par Android Auto.
+You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-Le guide des développeurs est [ici](https://developer.android.com/training/cars/messaging).
+The developers guide is [here](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Puis-je mettre en veille un message sur plusieurs appareils ?**
+**(166) Can I snooze a message across multiple devices?**
 
-Tout d'abord, il n'y a pas de standard pour la mise en veille des messages, donc toutes les implémentations de mise en veille sont des solutions personnalisées.
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
-Certains fournisseurs de messagerie, comme Gmail, déplacent les messages en-veille vers un dossier spécial. Malheureusement, les applications tierces n'ont pas accès à ce dossier spécial.
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
 
-Le déplacement d'un message vers un autre dossier et retour pourrait échouer et ne pas être possible s'il n'y a pas de connexion Internet. Ceci est problématique car un message ne peut être mis en veille qu'après avoir déplacé le message.
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-Pour éviter ces problèmes, la mise en veille est effectuée localement sur l'appareil en cachant le message pendant qu'il est mis en veille. Malheureusement, il n'est pas possible de masquer les messages sur le serveur de messagerie également.
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 
 ## Obtenir de l'aide
 
-FairEmail est pris en charge uniquement sur les smartphones, tablettes et ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Seules la dernière version du Play Store et la dernière version de GitHub sont prises en charge. La version F-Droid n'est prise en charge que si le numéro de version est le même que le numéro de version de la dernière version de GitHub. Cela signifie également que la rétrogradation n'est pas prise en charge.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Il n'y a pas de support sur des choses qui ne sont pas directement liées à FairEmail.
+There is no support on things that are not directly related to FairEmail.
 
-Il n'y a aucun support pour construire et développer les choses par vous-même.
+There is no support on building and developing things by yourself.
 
-Les demandes d'ajout de fonctionnalités doivent :
+Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
 * fit within the philosophy of FairEmail (privacy oriented, security minded)
 * comply with common standards (IMAP, SMTP, etc)
 
-Les fonctionnalités qui ne satisfont pas à ces exigences seront probablement rejetées. Il s'agit également que la maintenance et le soutien à long terme soient réalisables.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Si vous avez une question, vous voulez demander une fonctionnalité ou signaler un bogue, **veuillez utiliser [ce formulaire](https://contact.faircode.eu/?product=fairemailsupport)**.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-Les "issues"/tickets GitHub sont désactivés en raison d'un usage abusif fréquent.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 

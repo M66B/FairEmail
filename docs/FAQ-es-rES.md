@@ -83,6 +83,7 @@ Preguntas relacionadas:
 * Un [error en Android 6.0](https://issuetracker.google.com/issues/37068143) causa un error con *... Offset inválido: ... El rango válido es ...* cuando el texto está seleccionado y se toca fuera del texto seleccionado. Este error ha sido corregido en Android 6.0.1.
 * Los enlaces internos (anchor) no funcionarán porque los mensajes originales se muestran en una WebView embebida en una vista de desplazamiento (la lista de conversaciones). Esta es una limitación de Android que no se puede arreglar o eludir.
 * La detección de idioma [ya no funciona](https://issuetracker.google.com/issues/173337263) en dispositivos Pixel con (¿actualizado a?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Características planificadas
 
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) ¿Está FairEmail disponible en la Biblioteca Familiar de Google Play?**
 
-El precio de FairEmail es demasiado bajo, inferior al de la mayoría de aplicaciones similares, y hay [demasiadas comisiones e impuestos](#user-content-faq19), para justificar que FairEmail esté disponible en la [Biblioteca Familiar de Google Play](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 

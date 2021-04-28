@@ -83,6 +83,7 @@ Related questions:
 * En [bugg i Android 6.0](https://issuetracker.google.com/issues/37068143) orsakar en krasch med *... Ogiltig offset: ... Giltigt intervall är ...* när text är markerad och knackar utanför den valda texten. Detta fel har rättats i Android 6.0.1.
 * Interna (ankare) länkar kommer inte att fungera eftersom ursprungliga meddelanden visas i en inbäddad WebView i en rullande vy (meddelandelistan). Detta är en Android-begränsning som inte kan lösas eller arbetas runt.
 * Språkdetektering [fungerar inte längre](https://issuetracker.google.com/issues/173337263) på Pixelenheter med (uppgraderat till?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Planerade funktioner
 
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The one time price of the few pro features is too low, lower than the price of most similar apps, and there are [too many fees and taxes](#user-content-faq19), to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 

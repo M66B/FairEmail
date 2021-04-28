@@ -239,6 +239,7 @@
     <string name="title_advanced_default">Todas las opciones tienen valores estándar comúnmente utilizados, que no necesitan ser cambiados para usar la aplicación</string>
     <string name="title_advanced_receive">Recibir mensajes para todas las cuentas</string>
     <string name="title_advanced_when">Cuando</string>
+    <string name="title_advanced_optimize">Optimizar automáticamente</string>
     <string name="title_advanced_always">Siempre recibir mensajes para estas cuentas</string>
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_advanced">Avanzado</string>
@@ -367,6 +368,9 @@
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_sync_on_launch">Sincronizar al inicio</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
+    <string name="title_advanced_conversation_actions">Sugerir acciones (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Sugerir textos de respuesta (Android 10+)</string>
+    <string name="title_advanced_language_detection">Detectar idioma de texto del mensaje</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje como leído/no leído</string>
@@ -454,9 +458,6 @@
     </string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
-    <string name="title_advanced_conversation_actions">Sugerir acciones (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Sugerir textos de respuesta (Android 10+)</string>
-    <string name="title_advanced_language_detection">Detectar idioma de texto del mensaje</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_classification">Clasificar mensajes</string>
@@ -465,20 +466,19 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
-    <string name="title_advanced_optimize">Optimizar automáticamente</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
     <string name="title_advanced_check_weekly">Comprobar semanalmente en lugar de diariamente</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
-    <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
-    <string name="title_advanced_protocol">Registro de protocolos</string>
-    <string name="title_advanced_log_info">Registro de depuración</string>
-    <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
     <string name="title_advanced_cleanup">Limpieza</string>
     <string name="title_advanced_last_cleanup">Última limpieza: %1$s</string>
     <string name="title_advanced_app">Ajustes de la app</string>
     <string name="title_advanced_more">Más opciones</string>
+    <string name="title_advanced_protocol">Registro de protocolos</string>
+    <string name="title_advanced_log_info">Registro de depuración</string>
+    <string name="title_advanced_debug">Modo de depuración</string>
+    <string name="title_advanced_query_threads">Limitar acceso paralelo a la base de datos</string>
     <string name="title_advanced_manual_hint">Si la recepción de mensajes está desactivada, todavía es posible recibir mensajes manualmente tirando hacia abajo en la lista de mensajes</string>
     <string name="title_advanced_poll_hint">Comprobar periódicamente si hay nuevos mensajes comparará los mensajes locales y remotos cada vez, lo que es una operación costosa que puede resultar en un uso adicional de la batería, especialmente si hay muchos mensajes. Siempre recibir evitará esto siguiendo continuamente los cambios.</string>
     <string name="title_advanced_optimize_hint">Esto podría cambiar la frecuencia de sincronización para ahorrar batería dependiendo de las capacidades y el comportamiento de los servidores de correo electrónico</string>
@@ -797,6 +797,8 @@
     <string name="title_ask_raw">Para reenviar mensajes, los mensajes sin procesar (originales) deben ser descargados desde el servidor. Esto requiere una conexión a Internet.</string>
     <string name="title_buttons">Seleccionar botones</string>
     <string name="title_buttons_hint">Las acciones disponibles dependen del tipo de cuenta y configuración</string>
+    <string name="title_button_search">Buscar en mensajes</string>
+    <string name="title_button_search_text">Buscar en el texto del mensaje</string>
     <string name="title_configure_buttons">Configurar botones &#8230;</string>
     <string name="title_trash">Papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
@@ -1086,7 +1088,7 @@
     <string name="title_answer_group">Grupo de plantillas (opcional)</string>
     <string name="title_answer_standard">Por defecto</string>
     <string name="title_answer_favorite">Favorito</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Usar como acuse de lectura</string>
+    <string name="title_answer_receipt">Usar como acuse de lectura</string>
     <string name="title_answer_hide">Ocultar de menús</string>
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_placeholder">Marcador de posición</string>

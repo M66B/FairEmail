@@ -254,6 +254,7 @@
     <string name="title_advanced_section_misc">Ostatní</string>
     <string name="title_advanced_receive">Přijímat zprávy pro všechny účty</string>
     <string name="title_advanced_when">Kdy</string>
+    <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_always">Neustále přijímat zprávy pro tyto účty</string>
     <string name="title_advanced_schedule">Plán</string>
     <string name="title_advanced_advanced">Pokročilé</string>
@@ -377,6 +378,9 @@
     <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
     <string name="title_advanced_sync_on_launch">Synchronizovat při spuštění</string>
     <string name="title_advanced_double_back">Dvakrát „zpět“ pro ukončení</string>
+    <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Navrhovat odpovědní texty (Android 10+)</string>
+    <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
@@ -463,9 +467,6 @@
     </string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
-    <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Navrhovat odpovědní texty (Android 10+)</string>
-    <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_classification">Klasifikovat zprávy</string>
@@ -474,20 +475,19 @@
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
-    <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>
     <string name="title_advanced_check_weekly">Kontrolovat týdně, místo denně</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
-    <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
-    <string name="title_advanced_protocol">Protokolovat protokoly</string>
-    <string name="title_advanced_log_info">Protokolování při ladění</string>
-    <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
     <string name="title_advanced_cleanup">Úklid</string>
     <string name="title_advanced_last_cleanup">Poslední čištění: %1$s</string>
     <string name="title_advanced_app">Nastavení aplikace</string>
     <string name="title_advanced_more">Více možností</string>
+    <string name="title_advanced_protocol">Protokolovat protokoly</string>
+    <string name="title_advanced_log_info">Protokolování při ladění</string>
+    <string name="title_advanced_debug">Režim ladění</string>
+    <string name="title_advanced_query_threads">Omezit paralelní přístup k databázi</string>
     <string name="title_advanced_manual_hint">Je-li příjem zpráv zakázán, stále je možno zprávy přijímat ručně tažením dolů v seznamu zpráv</string>
     <string name="title_advanced_poll_hint">Pravidelná kontrola nových zpráv pokaždé porovnává místní a vzdálené zprávy, což je zdlouhavá operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv. Neustálý příjem tomuto předchází průběžným sledováním změn.</string>
     <string name="title_advanced_optimize_hint">Může změnit synchronizační interval pro úsporu spotřeby baterie, v závislosti na možnostech a chování e-mailových serverů</string>

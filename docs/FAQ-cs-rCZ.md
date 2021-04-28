@@ -83,6 +83,7 @@ Související dotazy:
 * [Chyba v Androidu 6.0](https://issuetracker.google.com/issues/37068143) způsobuje pád s *... Invalid offset: ... Valid range is ...* při výběru textu a následném stisku mimo vybraný text. Tato chyba byla opravena v Androidu 6.0.1.
 * Interní (kotevní) odkazy nebudou fungovat, protože původní zprávy jsou zobrazeny ve vloženém WebView, v posouvajícím se zobrazení (seznam konverzací). Jedná se o omezení Androidu, které nelze opravit či obejít.
 * Detekce jazyka [přestala fungovat](https://issuetracker.google.com/issues/173337263) na zařízeních Pixel s (aktualizovaným?) Android 11
+* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 ## Plánované funkce
 
@@ -1636,7 +1637,9 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-The one time price of the few pro features is too low, lower than the price of most similar apps, and there are [too many fees and taxes](#user-content-faq19), to justify making FairEmail available in the [Google Play Family Library](https://support.google.com/googleone/answer/7007852). Note that Google promotes the Family libray, but lets developers pay for it.
+"*You can't share in-app purchases and free apps with your family members.*"
+
+See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
 
 <br />
 

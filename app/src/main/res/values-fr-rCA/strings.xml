@@ -239,6 +239,7 @@
     <string name="title_advanced_default">Toutes les options ont des valeurs standard couramment utilisées qui n\'ont pas besoin d\'être modifiées pour utiliser l\'application</string>
     <string name="title_advanced_receive">Recevoir des messages pour tous les comptes</string>
     <string name="title_advanced_when">Quand</string>
+    <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>
     <string name="title_advanced_schedule">Planification</string>
     <string name="title_advanced_advanced">Avancé</string>
@@ -367,6 +368,9 @@
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n’a pas pu authentifier le message</string>
     <string name="title_advanced_sync_on_launch">Synchroniser au lancement de l\'application</string>
     <string name="title_advanced_double_back">Faire deux fois « Retour » pour quitter</string>
+    <string name="title_advanced_conversation_actions">Suggérer des actions (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Suggérer des textes de réponse (Android 10+)</string>
+    <string name="title_advanced_language_detection">Reconnaître la langue du contenu du message</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut quand un nouveau message est reçu</string>
     <string name="title_advanced_double_tap">Appuyer deux fois pour marquer le message comme lu/non lu</string>
@@ -454,9 +458,6 @@
     </string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
-    <string name="title_advanced_conversation_actions">Suggérer des actions (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Suggérer des textes de réponse (Android 10+)</string>
-    <string name="title_advanced_language_detection">Reconnaître la langue du contenu du message</string>
     <string name="title_advanced_fts">Construire l’index de recherche</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messages indexés (%3$s)</string>
     <string name="title_advanced_classification">Classer les messages</string>
@@ -465,20 +466,19 @@
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
-    <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_updates">Rechercher des mises à jour sur GitHub</string>
     <string name="title_advanced_check_weekly">Vérifier une fois par semaine au lieu d\'une fois par jour</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
-    <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_crash_reports">Envoyer les rapports d’erreur</string>
-    <string name="title_advanced_protocol">Journalisation du protocole</string>
-    <string name="title_advanced_log_info">Journal de débogage</string>
-    <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
     <string name="title_advanced_app">Paramètres Android de l\'application</string>
     <string name="title_advanced_more">Plus d’options</string>
+    <string name="title_advanced_protocol">Journalisation du protocole</string>
+    <string name="title_advanced_log_info">Journal de débogage</string>
+    <string name="title_advanced_debug">Débogage</string>
+    <string name="title_advanced_query_threads">Limiter les accès multiples à la base de données</string>
     <string name="title_advanced_manual_hint">Si la réception de messages est désactivée, il est toujours possible de recevoir manuellement des messages en tirant vers le bas la liste des messages</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_optimize_hint">Ceci peut changer la fréquence de synchronisation pour économiser la pile en fonction des capacités et du comportement des serveurs de courriel</string>
@@ -797,6 +797,8 @@
     <string name="title_ask_raw">Pour transférer des messages, les messages bruts (originaux) doivent être téléchargés depuis le serveur. Ceci nécessite une connexion Internet.</string>
     <string name="title_buttons">Sélectionner les boutons</string>
     <string name="title_buttons_hint">Les actions réellement disponibles dépendent du type de compte et de la configuration</string>
+    <string name="title_button_search">Rechercher dans les messages</string>
+    <string name="title_button_search_text">Rechercher dans le texte du message</string>
     <string name="title_configure_buttons">Configurer les boutons&#8230;</string>
     <string name="title_trash">Supprimer</string>
     <string name="title_copy">Copier&#8230;</string>
@@ -1086,7 +1088,7 @@
     <string name="title_answer_group">Groupe de modèles (optionnel)</string>
     <string name="title_answer_standard">Par défaut</string>
     <string name="title_answer_favorite">Favori</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Utiliser comme confirmation de lecture</string>
+    <string name="title_answer_receipt">Utiliser comme confirmation de lecture</string>
     <string name="title_answer_hide">Masquer du menu « Répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_placeholder">Place réservée</string>

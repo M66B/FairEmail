@@ -228,6 +228,7 @@
     <string name="title_advanced_default">Tất cả tuỳ chọn đều có các giá trị tiêu chuẩn thường được sử dụng, chúng không cần được thay đổi để sử dụng ứng dụng</string>
     <string name="title_advanced_receive">Nhận thư cho tất cả tài khoản</string>
     <string name="title_advanced_when">Khi nào</string>
+    <string name="title_advanced_optimize">Tự động tối ưu hoá</string>
     <string name="title_advanced_always">Luôn nhận thư cho các tài khoản đó</string>
     <string name="title_advanced_schedule">Lịch trình</string>
     <string name="title_advanced_advanced">Nâng cao</string>
@@ -356,6 +357,9 @@
     <string name="title_advanced_authentication">Hiện cảnh báo khi máy chủ nhận không thể xác thực thư</string>
     <string name="title_advanced_sync_on_launch">Đồng bộ hóa khi mở</string>
     <string name="title_advanced_double_back">\'Quay lại\' hai lần để thoát</string>
+    <string name="title_advanced_conversation_actions">Đề xuất các hành động (Android 10+)</string>
+    <string name="title_advanced_conversation_actions_replies">Đề xuất các văn bản trả lời (Android 10+)</string>
+    <string name="title_advanced_language_detection">Dò tìm ngôn ngữ văn bản thư</string>
     <string name="title_advanced_pull_refresh">Kéo xuống để làm mới</string>
     <string name="title_advanced_autoscroll">Cuộn lên đầu khi nhận thư mới</string>
     <string name="title_advanced_double_tap">Nhấn đúp để đánh dấu thư đã đọc/chưa đọc</string>
@@ -443,9 +447,6 @@
     </string>
     <string name="title_advanced_external_search">Cho phép các ứng dụng khác tìm kiếm trong thư</string>
     <string name="title_advanced_shortcuts">Hiện các liên hệ hay sử dụng trong menu chia sẻ của Android</string>
-    <string name="title_advanced_conversation_actions">Đề xuất các hành động (Android 10+)</string>
-    <string name="title_advanced_conversation_actions_replies">Đề xuất các văn bản trả lời (Android 10+)</string>
-    <string name="title_advanced_language_detection">Dò tìm ngôn ngữ văn bản thư</string>
     <string name="title_advanced_fts">Xây dựng mục lục tìm kiếm</string>
     <string name="title_advanced_fts_indexed">%1$d /%2$d thư đã tạo mục lục (%3$s)</string>
     <string name="title_advanced_classification">Phân loại thư</string>
@@ -454,19 +455,18 @@
     <string name="title_advanced_language">Ngôn ngữ</string>
     <string name="title_advanced_language_system">Hệ thống</string>
     <string name="title_advanced_watchdog">Kiểm tra định kỳ xem FairEmail vẫn hoạt động hay không</string>
-    <string name="title_advanced_optimize">Tự động tối ưu hoá</string>
     <string name="title_advanced_updates">Kiểm tra cập nhật trên GitHub</string>
     <string name="title_advanced_check_weekly">Kiểm tra hàng tuần thay vì hàng ngày</string>
     <string name="title_advanced_experiments">Thử các tính năng thử nghiệm</string>
-    <string name="title_advanced_query_threads">Giới hạn truy cập cơ sở dữ liệu song song</string>
     <string name="title_advanced_crash_reports">Gửi báo cáo lỗi</string>
-    <string name="title_advanced_protocol">Ghi nhật ký giao thức</string>
-    <string name="title_advanced_log_info">Nhật ký gỡ lỗi</string>
-    <string name="title_advanced_debug">Chế độ gỡ lỗi</string>
     <string name="title_advanced_cleanup_attachments">Xoá tệp đính kèm của các thư cũ</string>
     <string name="title_advanced_cleanup">Dọn dẹp</string>
     <string name="title_advanced_app">Cài đặt ứng dụng</string>
     <string name="title_advanced_more">Thêm tuỳ chọn</string>
+    <string name="title_advanced_protocol">Ghi nhật ký giao thức</string>
+    <string name="title_advanced_log_info">Nhật ký gỡ lỗi</string>
+    <string name="title_advanced_debug">Chế độ gỡ lỗi</string>
+    <string name="title_advanced_query_threads">Giới hạn truy cập cơ sở dữ liệu song song</string>
     <string name="title_advanced_manual_hint">Nếu việc nhận thư bị tắt thì vẫn có thể nhận thư thủ công bằng cách kéo danh sách thư xuống</string>
     <string name="title_advanced_poll_hint">Việc kiểm tra thư mới định kỳ sẽ so sánh thư cục bộ và thư trên mạng mỗi lần kiểm tra, nó là một hoạt động tốn kém có thể dẫn đến sử dụng thêm pin, đặc biệt là nếu có nhiều thư. Luôn nhận sẽ ngăn chặn điều này bằng cách liên tục theo dõi các thay đổi.</string>
     <string name="title_advanced_optimize_hint">Điều này có thể thay đổi tần số đồng bộ hoá để tiết kiệm pin tuỳ thuộc vào khả năng và hành vi của các máy chủ email</string>
@@ -1074,7 +1074,7 @@
     <string name="title_answer_group">Nhóm mẫu (không bắt buộc)</string>
     <string name="title_answer_standard">Mặc định</string>
     <string name="title_answer_favorite">Yêu thích</string>
-    <string name="title_answer_receipt" comment="title_answer_receipt&#10;Title for option to use template as read receipt text">Sử dụng làm xác nhận đã đọc</string>
+    <string name="title_answer_receipt">Sử dụng làm xác nhận đã đọc</string>
     <string name="title_answer_hide">Ẩn khỏi các menu</string>
     <string name="title_answer_text">Văn bản mẫu</string>
     <string name="title_answer_placeholder">Giữ chỗ</string>
