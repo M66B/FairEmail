@@ -283,10 +283,14 @@ public class EntityMessage implements Serializable {
     }
 
     boolean hasKeyword(@NonNull String value) {
-        if (keywords != null)
-            for (String keyword : keywords)
-                if (value.equalsIgnoreCase(keyword))
-                    return true;
+        // https://tools.ietf.org/html/rfc5788
+        if (keywords == null)
+            return false;
+
+        for (String keyword : keywords)
+            if (value.equalsIgnoreCase(keyword))
+                return true;
+
         return false;
     }
 
