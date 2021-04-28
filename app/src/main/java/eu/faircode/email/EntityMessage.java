@@ -282,10 +282,10 @@ public class EntityMessage implements Serializable {
         return addresses.toArray(new Address[0]);
     }
 
-    boolean isForwarded() {
+    boolean hasKeyword(@NonNull String value) {
         if (keywords != null)
             for (String keyword : keywords)
-                if ("$Forwarded".equalsIgnoreCase(keyword))
+                if (value.equalsIgnoreCase(keyword))
                     return true;
         return false;
     }

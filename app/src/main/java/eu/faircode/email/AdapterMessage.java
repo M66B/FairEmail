@@ -1084,7 +1084,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
-            ivClassified.setVisibility(message.auto_classified ? View.VISIBLE : View.GONE);
+            ivClassified.setVisibility(message.auto_classified || message.hasKeyword("$Classified") ? View.VISIBLE : View.GONE);
 
             int snoozy = (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
                     ? R.drawable.twotone_visibility_off_24
@@ -1100,7 +1100,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibSnoozed.setVisibility(message.ui_snoozed == null && !message.ui_unsnoozed ? View.GONE : View.VISIBLE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
-            ivForwarded.setVisibility(message.isForwarded() ? View.VISIBLE : View.GONE);
+            ivForwarded.setVisibility(message.hasKeyword("$Forwarded") ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.FOLDER)

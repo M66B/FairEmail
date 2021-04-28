@@ -104,6 +104,7 @@ public class MessageClassifier {
             if (classified != null &&
                     !classified.equals(folder.name) &&
                     !TextUtils.isEmpty(message.msgid) &&
+                    !message.hasKeyword("$Classified") &&
                     !accountMsgIds.get(folder.account).contains(message.msgid) &&
                     !EntityFolder.JUNK.equals(folder.type)) {
                 boolean pro = ActivityBilling.isPro(context);
@@ -115,6 +116,7 @@ public class MessageClassifier {
                     EntityFolder dest = db.folder().getFolderByName(folder.account, classified);
                     if (dest != null && dest.auto_classify_target &&
                             (pro || EntityFolder.JUNK.equals(dest.type))) {
+                        EntityOperation.queue(context, message, EntityOperation.KEYWORD, "$Classified", true);
                         EntityOperation.queue(context, message, EntityOperation.MOVE, dest.id, false, true);
                         message.ui_hide = true;
                     }
