@@ -261,6 +261,7 @@ public class EntityOperation {
                     Long stored = message.stored;
                     int notifying = message.notifying;
                     boolean fts = message.fts;
+                    boolean _auto_classified = message.auto_classified;
                     Integer importance = message.importance;
                     boolean seen = message.seen;
                     boolean flagged = message.flagged;
@@ -310,6 +311,7 @@ public class EntityOperation {
                     message.stored = stored;
                     message.notifying = notifying;
                     message.fts = fts;
+                    message.auto_classified = _auto_classified;
                     message.importance = importance;
                     message.seen = seen;
                     message.flagged = flagged;
