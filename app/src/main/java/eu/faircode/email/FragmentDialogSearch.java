@@ -323,8 +323,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbHeaders.setVisibility(View.GONE);
         cbHtml.setVisibility(View.GONE);
 
-        Helper.showKeyboard(etQuery);
-
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -485,6 +483,12 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         return dialog;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @Override

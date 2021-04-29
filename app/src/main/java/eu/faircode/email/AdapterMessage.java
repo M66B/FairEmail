@@ -85,10 +85,12 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.webkit.WebSettings;
@@ -4725,7 +4727,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
             pw.showAtLocation(parentFragment.getView(), Gravity.TOP | Gravity.END, 0, 0);
 
-            Helper.showKeyboard(etSearch);
+            final InputMethodManager imm =
+                    (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null)
+                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
         }
 
         private int find(String query, int result) {
@@ -6479,7 +6484,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnColor.setColor(color);
 
             etNotes.selectAll();
-            Helper.showKeyboard(etNotes);
 
             btnColor.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -6558,6 +6562,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+        }
+
+        @Override
+        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
 
         @Override
@@ -6646,7 +6656,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_add, null);
             final EditText etKeyword = view.findViewById(R.id.etKeyword);
             etKeyword.setText(null);
-            Helper.showKeyboard(etKeyword);
 
             return new AlertDialog.Builder(context)
                     .setView(view)
@@ -6695,6 +6704,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+        }
+
+        @Override
+        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
     }
 
