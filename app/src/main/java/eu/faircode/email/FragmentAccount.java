@@ -799,7 +799,7 @@ public class FragmentAccount extends FragmentBase {
         else
             encryption = EmailService.ENCRYPTION_SSL;
 
-        args.putString("host", etHost.getText().toString().trim());
+        args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
