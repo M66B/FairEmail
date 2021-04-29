@@ -330,7 +330,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
 
-                        criteria.query = etQuery.getText().toString();
+                        criteria.query = etQuery.getText().toString().trim();
 
                         if (!TextUtils.isEmpty(criteria.query)) {
                             List<String> searches = new ArrayList<>();
