@@ -228,6 +228,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvMaxSize.setText(account.max_size == null ? null : Helper.humanReadableByteCount(account.max_size));
             tvMaxSize.setVisibility(settings && account.max_size != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            if (tvMaxSize.getVisibility() == View.VISIBLE)
+                tvQuota.setVisibility(View.VISIBLE);
 
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts != null || !settings ? View.GONE : View.VISIBLE);
