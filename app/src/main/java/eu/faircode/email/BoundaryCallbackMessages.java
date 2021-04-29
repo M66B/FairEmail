@@ -574,7 +574,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         SearchTerm terms = criteria.getTerms(utf8, state.ifolder.getPermanentFlags(), keywords);
         if (terms == null)
-            throw new ProtocolException("No search conditions");
+            return state.ifolder.getMessages();
 
         SearchSequence ss = new SearchSequence(protocol);
         Argument args = ss.generateSequence(terms, utf8 ? StandardCharsets.UTF_8.name() : null);
