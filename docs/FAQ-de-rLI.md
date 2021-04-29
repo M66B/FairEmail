@@ -83,7 +83,7 @@ Zur Autorisierung:
 * Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit * … Ungültiger Offset: ... Der gültige Bereich ist …* wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
 * Interne (Anker-)Links funktionieren nicht, da die Originalnachrichten in einer eingebetteten Web-Ansicht in einer scrollenden Ansicht (der Konversationsliste) angezeigt werden. Dies ist eine Einschränkung von Android, die nicht behoben oder umgangen werden kann.
 * Die Erkennung der Sprache [funktioniert nicht mehr](https://issuetracker.google.com/issues/173337263) auf Pixel-Geräten mit (Update auf?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* Ein [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) verursacht ungültige PGP-Signaturen bei der Verwendung eines Hardware-Tokens.
 
 ## Geplante Funktionen
 
@@ -1456,7 +1456,7 @@ Die Navigation (Hamburger) im *Ordner-Menü* in den Einstellungen kann verwendet
 <a name="faq52"></a>
 **(52) Warum braucht es einige Zeit, um sich wieder mit einem Konto zu verbinden?**
 
-There is no reliable way to know if an account connection was terminated gracefully or forcefully. Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems like [too many simultaneous connections](#user-content-faq23) or even the account being blocked. Um solche Probleme zu vermeiden, wartet FairEmail 90 Sekunden, bis versucht wird, sich erneut zu verbinden.
+Es gibt keinen zuverlässigen Weg, um zu erfahren, ob eine Verbindung zu einem Konto ordentlich oder außerordentlich beendet wurde. Der Versuch, eine Verbindung zu einem Konto wiederherzustellen, während die Verbindung zu einem Konto erzwungen wird, kann zu Problemen wie [zu viele gleichzeitige Verbindungen](#user-content-faq23) oder sogar einem gesperrten Konto führen. Um solche Probleme zu vermeiden, wartet FairEmail 90 Sekunden, bis versucht wird, sich erneut zu verbinden.
 
 Sie können *Einstellungen* im Navigationsmenü lange drücken, um sofort wieder zu verbinden.
 
@@ -1528,11 +1528,11 @@ Wenn Sie vorformatierten Text verwenden möchten, wie [ASCII Art](https://en.wik
 
 Das E-Mail-Symbol in der Ordnerliste kann geöffnet (umrissen) oder geschlossen sein (gefüllt):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Nachrichtentexte und Anhänge werden standardmäßig nicht heruntergeladen.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Nachrichtentexte und Anhänge werden standardmäßig heruntergeladen.
 
@@ -1550,14 +1550,14 @@ Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps
 
 * Wussten Sie, dass markierte Nachrichten immer synchronisiert/gespeichert werden können? (dies kann in den Empfangseinstellungen aktiviert werden)
 * Wussten Sie, dass Sie das Symbol "Nachricht schreiben" lange drücken können, um in den Ordner "Entwürfe" zu wechseln?
-* Wussten Sie, dass es eine erweiterte Option gibt, Nachrichten automatisch als gelesen zu markieren, wenn sie verschoben werden? (archiving and trashing is also moving)
+* Wussten Sie, dass es eine erweiterte Option gibt, Nachrichten automatisch als gelesen zu markieren, wenn sie verschoben werden? (Archivieren und wegwerfen sind auch Verschiebungen)
 * Wussten Sie, dass Sie Text (oder eine E-Mail-Adresse) in jeder App für die neuesten Android-Versionen auswählen kannst und FairEmail nach ihm suchen lassen kannst?
 * Wussten Sie, dass FairEmail einen Tablet-Modus hat? Drehen Sie Ihr Gerät ins Querformat und Gesprächsthreads werden in einer zweiten Spalte geöffnet, wenn genügend Bildschirmplatz vorhanden ist.
 * Wussten Sie, dass Sie eine Antwortvorlage lange drücken können, um aus der Vorlage einen Entwurf zu erstellen?
 * Wussten Sie, dass Sie lange drücken, halten und wischen können, um eine Reihe von Nachrichten auszuwählen?
 * Wussten Sie, dass man erneut versuchen kann, Nachrichten zu versenden, indem man in der Outbox herunterzieht?
 * Wussten Sie, dass Sie eine Unterhaltung links oder rechts wischen können, um zur nächsten oder vorherigen Unterhaltung zu gehen?
-* Did you know that you can tap on an image to see where it will be downloaded from?
+* Wusstest du, dass du ein Bild antippen kannst, um zu sehen, woher es heruntergeladen wird?
 * Wussten Sie, dass Sie das Ordnersymbol in der Aktionsleiste lange drücken können, um ein Konto auszuwählen?
 * Wussten Sie, dass Sie das Sternsymbol in einem Gespräch lange drücken können, um einen farbigen Stern zu setzen?
 * Wussten Sie, dass Sie das Navigationsmenü öffnen können, indem Sie von links wischen, auch wenn Sie gerade eine Unterhaltung ansehen?
@@ -1637,35 +1637,35 @@ Inline-Anhänge (Bilder) werden verdunkelt angezeigt. [Inline-Anhänge](https://
 <a name="faq66" mark="crwd-mark"></a>
 **(66) Ist FairEmail in der Google-Play-Familienmediathek verfügbar?**
 
-"*You can't share in-app purchases and free apps with your family members.*"
+"*Sie können In-App-Käufe und kostenlose Apps nicht mit Ihren Familienmitgliedern teilen.*"
 
-See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
+Siehe [hier](https://support.google.com/googleone/answer/7007852) unter "*Sehen Sie, ob Inhalte berechtigt sind, zur Familienbibliothek hinzugefügt zu werden*", "*Apps & Spiele*".
 
 <br />
 
 <a name="faq67" mark="crwd-mark"></a>
-**(67) How can I snooze conversations?**
+**(67) Wie kann ich Konversationen schlummern lassen?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Wählen Sie eine oder mehrere Konversationen mehrfach aus (drücken Sie lange, um die Mehrfachauswahl zu starten), tippen Sie auf die Drei-Punkte-Taste und wählen Sie *Schlummern ...*. Alternativ verwenden Sie in der erweiterten Nachrichtenansicht *Schlummern ...* im Drei-Punkte-Menü "Mehr" der Nachricht oder die Zeitrafferaktion in der unteren Aktionsleiste. Wählen Sie die Zeit aus, die das/die Gespräch(e) schlummern soll(en), und bestätigen Sie mit Tippen auf OK. Die Konversationen werden die ausgewählte Zeit versteckt and danach wieder angezeigt. Sie werden eine neue Benachrichtigung als Erinnerung erhalten.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
+Es ist auch möglich eine Nachricht mit [einer Regel](#user-content-faq71) schlummern zu lassen. Dies erlaubt Ihnen auch Nachrichten in einen Ordner zu verschieben, um sie automatisch schlummern zu lassen.
 
-You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
+Sie können schlummernde Nachrichten anzeigen, indem Sie *Filtern* > *Ausblenden* im Drei-Punkte-Auswahlmenü abwählen.
 
-You can tap on the small snooze icon to see until when a conversation is snoozed.
+Sie können das kleine Symbol „Zurückstellen” antippen, um anzuzeigen, bis zu welchem Zeitpunkt eine Konversation zurückgestellt wurde.
 
-By selecting a zero snooze duration you can cancel snoozing.
+Durch Auswahl einer Dauer von Null, können Sie das Zurückstellen abbrechen.
 
-Third party apps do not have access to the Gmail snoozed messages folder.
+Drittanbieter-Apps haben bei Google Mail keinen Zugriff auf den Nachrichtenordner für schlummernde Nachrichten.
 
 <br />
 
 <a name="faq68" mark="crwd-mark"></a>
-**~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~**
+**~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / könne Microsoft-Apps keine angehängten Dokumente öffnen?~**
 
-~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~ ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~ ~~to have access to actively shared files only. This is for privacy and security reasons.~~
+~~Adobe Acrobat Reader und Microsoft-Apps erwarten weiterhin vollen Zugriff auf alle gespeicherten Dateien,~~ ~~während Apps seit Android KitKat (2013)~~ das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwenden sollten, ~~ ~~um nur auf aktiv freigegebene Dateien zugreifen zu können. This is for privacy and security reasons.~~
 
-~~You can workaround this by saving the attachment and opening it from the Adobe Acrobat reader / Microsoft app,~~ ~~but you are advised to install an up-to-date and preferably open source PDF reader / document viewer,~~ ~~for example one listed [here](https://github.com/offa/android-foss#-document--pdf-viewer).~~
+~~Sie können dies umgehen, indem Sie den Anhang speichern und ihn mit dem Adobe Acrobat Reader / der Microsoft-App öffnen,~~ ~~aber es wird empfohlen, einen aktuellen und vorzugsweise quelloffenen PDF-Reader / Dokumentenbetrachter zu installieren,~~ ~~zum Beispiel einen, der [hier](https://github.com/offa/android-foss#-document--pdf-viewer) aufgelistet ist.~~
 
 <br />
 
@@ -1677,13 +1677,13 @@ The message list is automatically scrolled up when navigating from a new message
 <br />
 
 <a name="faq70" mark="crwd-mark"></a>
-**(70) When will messages be auto expanded?**
+**(70) Wann werden Nachrichten automatisch erweitert?**
 
-When navigation to a conversation one message will be expanded if:
+Wenn Sie zu einer Unterhaltung navigieren, wird eine Nachricht erweitert, wenn:
 
-* Es gibt nur eine Nachricht in der Unterhaltung
-* Es gibt genau eine ungelesene Nachricht in der Unterhaltung
-* Es gibt genau eine gekennzeichnete (favorisierte) Nachricht in der Konversation (ab Version 1.1508)
+* Es nur eine Nachricht in der Unterhaltung gibt
+* Es genau eine ungelesene Nachricht in der Unterhaltung gibt
+* Es genau eine gekennzeichnete (favorisierte) Nachricht in der Konversation gibt (ab Version 1.1508)
 
 There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
 
@@ -1932,7 +1932,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2683,7 +2683,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -3025,27 +3025,27 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 ## Hilfe erhalten
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail unterstützt nur Smartphones, Tablets und ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Nur die neuesten Versionen aus dem Play-Store oder von GitHub werden unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass eine Herabstufung nicht unterstützt wird.
 
-There is no support on things that are not directly related to FairEmail.
+Es gibt keine Hilfe für Dinge, die nicht direkt mit FairEmail verbunden sind.
 
-There is no support on building and developing things by yourself.
+Es gibt keine Unterstützung beim Selberbauen und Entwickeln von eigenen Dingen.
 
-Requested features should:
+Angefragte Funktionen sollten:
 
 * für die meisten Menschen nützlich sein
 * die Nutzung von FairEmail nicht verkomplizieren
-* in die Philosophie von FairEmail passen (privatsphäre- und sicherheitsorientiert)
-* den gängigen Standards entsprechen (IMAP, SMTP, etc)
+* zur Philosophie von FairEmail passen (privatsphären- und sicherheitsorientiert)
+* den gängigen Standards entsprechen (IMAP, SMTP usw.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Das soll auch langfristig die Wartung und Unterstützung ermöglichen.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, **benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-Issues sind wegen häufigen Missbrauchs deaktiviert.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Urheberrecht &copy; 2018-2021 Marcel Bokhorst.

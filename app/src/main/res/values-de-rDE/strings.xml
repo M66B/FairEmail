@@ -797,6 +797,8 @@
     <string name="title_ask_raw">Um Nachrichten weiterzuleiten, müssen die Originalnachrichten vom Server heruntergeladen werden. Dies erfordert eine Internetverbindung.</string>
     <string name="title_buttons">Schaltflächen auswählen</string>
     <string name="title_buttons_hint">Die aktuell möglichen Aktionen hängen vom Kontotyp und der Konfiguration ab</string>
+    <string name="title_button_search">Suchen in Nachrichten</string>
+    <string name="title_button_search_text">Suchen in Nachrichtentext</string>
     <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
     <string name="title_trash">Löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>

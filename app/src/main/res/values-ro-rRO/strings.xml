@@ -133,6 +133,7 @@
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_intro">Configurarea unui cont are doar trei pași și după aceea puteți trimite și primi e-mailuri</string>
     <string name="title_setup_simple">Nu este nevoie să schimbați alte opțiuni</string>
+    <string name="title_setup_quick_accounts">Adăugați sau modificați conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
@@ -299,6 +300,8 @@
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
+    <string name="title_advanced_download_headers">Descărcați toate anteturile mesajelor</string>
+    <string name="title_advanced_download_eml">Descărcați fișiere cu mesaje brute</string>
     <string name="title_advanced_validated">Necesită o conexiune validată (verificată)</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
@@ -508,6 +511,7 @@
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
+    <string name="title_advanced_usage_hint">Acest lucru va crește utilizarea bateriei, a datelor și a spațiului de stocare</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activarea acesteia poate cauza probleme de conexiune pe unele dispozitive</string>
     <string name="title_advanced_validate_hint">Acest lucru poate duce la nesincronizarea mesajelor, de exemplu atunci când se utilizează un VPN, dar și în alte situații</string>
     <string name="title_advanced_timeout_hint">Timpul de expirare a citirii/scrierii va fi setat la dublul intervalului de expirare a conexiunii. Valori mai mari au ca rezultat o utilizare mai mare a bateriei.</string>
@@ -769,6 +773,7 @@
     <string name="title_toggle_seen">Comutare citire</string>
     <string name="title_hide">Ascunde</string>
     <string name="title_unhide">Arată</string>
+    <string name="title_toggle_hide">Comutați ascundeți</string>
     <string name="title_flag">Adaugă stea</string>
     <string name="title_flag_color">Stea colorată &#8230;</string>
     <string name="title_unflag">Elimină stea</string>
@@ -803,6 +808,8 @@
     <string name="title_ask_raw">Pentru a redirecționa mesaje, mesajele brute (originale) trebuie descărcate de pe server. Acest lucru necesită o conexiune la internet.</string>
     <string name="title_buttons">Selectare butoane</string>
     <string name="title_buttons_hint">Acțiunile reale disponibile depind de tipul contului și de configurație</string>
+    <string name="title_button_search">Căutați în mesaje</string>
+    <string name="title_button_search_text">Căutați în textul mesajului</string>
     <string name="title_configure_buttons">Configurare butoane &#8230;</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
@@ -1092,6 +1099,7 @@
     <string name="title_answer_group">Grup șablon (opțional)</string>
     <string name="title_answer_standard">Implicit</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_receipt">Utilizați ca și chitanță de citire</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_placeholder">Substituent</string>

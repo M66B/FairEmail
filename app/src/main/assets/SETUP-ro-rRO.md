@@ -1,41 +1,41 @@
-# Setup help
+# Ajutor pentru configurare
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Configurarea FairEmail este relativ simplă. Va trebui să adăugați cel puțin un cont pentru a primi e-mail și cel puțin o identitate dacă doriți să trimiteți e-mail. Configurarea rapidă va permite adăugarea unui cont și a unei identități într-o singură operațiune pentru majoritatea furnizorilor principali.
 
-## Requirements
+## Precondiții
 
-An internet connection is required to set up accounts and identities.
+Pentru configurarea conturilor și a identităților este necesară o conexiune la internet.
 
-## Quick setup
+## Configurare rapidă
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Trebuie doar să selectați furnizorul corespunzător sau *Altul furnizor* și introduceți numele, adresa de e-mail și parola, apoi apăsați pe *Check*.
 
-This will work for most email providers.
+Această metodă este valabilă pentru majoritatea furnizorilor de e-mail.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Dacă configurarea rapidă nu funcționează, va trebui să configurați manual un cont și o identitate; consultați instrucțiunile de mai jos.
 
-## Set up account - to receive email
+## Configurați un cont - pentru a primi e-mailuri
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Pentru a adăuga un cont, atingeți *Configurare manuală și mai multe opțiuni*, apăsați *Conturi* și apăsați butonul "plus" din partea de jos și selectați IMAP (sau POP3). Selectați un furnizor din listă, introduceți numele de utilizator, care este în general adresa dvs. de e-mail și introduceți parola. Apăsați *Check* pentru a permite FairEmail să se conecteze la serverul de e-mail și să extragă o listă de dosare de sistem. După ce ați revizuit selecția dosarului de sistem, puteți adăuga contul atingând *Salvare*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Dacă furnizorul dvs. nu se află în lista de furnizori, există mii de furnizori, selectați *Custom*. Introduceți numele domeniului, de exemplu *gmail.com* și apăsați *Obține setările*. Dacă furnizorul dvs. suportă [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail va completa numele gazdei și numărul de port, în caz contrar, verificați instrucțiunile de configurare ale furnizorului dumneavoastră pentru a afla numele de gazdă IMAP, numărul de port și protocolul de criptare (SSL/TLS sau STARTTLS). Pentru mai multe informații în acest sens, vă rugăm să consultați [ aici](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Configurați identitatea - pentru a trimite e-mailuri
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+În mod similar, pentru a adăuga o identitate, apăsați *Configurare manuală și mai multe opțiuni*, apăsați *Identități* și apăsați butonul "plus" din partea de jos. Introduceți numele care doriți să fie afișat în adresa de la care trimiteți e-mailuri și selectați un cont asociat. Apăsați *Salvare* pentru a adăuga identitatea.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+În cazul în care contul a fost configurat manual, probabil că trebuie să configurați și identitatea manual. Introduceți numele domeniului, de exemplu *gmail.com* și apăsați *Obține setările*. Dacă furnizorul dvs. suportă [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail va completa numele gazdei și numărul de port, în caz contrar, verificați instrucțiunile de configurare ale furnizorului dvs. pentru numele de gazdă SMTP, numărul de port și protocolul de criptare (SSL/TLS sau STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Vedeți [acest FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) despre utilizarea aliasurilor.
 
-## Grant permissions - to access contact information
+## Oferirea de permisiuni - pentru a accesa informațiile de contact
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Dacă doriți să căutați adrese de e-mail, să afișați fotografii de contact, etc., va trebui să acordați permisiunea de a citi informații de contact pentru FairEmail. Trebuie doar să apăsați *Grant* și să selectați *Allow*.
 
-## Setup battery optimizations - to continuously receive emails
+## Configurați optimizări ale bateriei - pentru a primi continuu e-mailuri
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+Pe versiunile recente de Android, Android va pune aplicațiile în stare de repaus atunci când ecranul este oprit pentru o perioadă de timp, pentru a reduce consumul bateriei. Dacă doriți să primiți e-mailuri noi fără întârzieri, ar trebui să dezactivați optimizarea bateriei pentru FairEmail. Apăsați *Manage* și urmați instrucțiunile.
 
-## Questions or problems
+## Întrebări sau probleme
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Dacă aveți o întrebare sau o problemă, vă rugăm să [vezi aici](https://github.com/M66B/FairEmail/blob/master/FAQ.md) pentru ajutor.

@@ -1,100 +1,100 @@
 <a name="top"></a>
 
-# FairEmail support
+# Asistență FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Dacă aveți o întrebare, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [În partea de jos](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), puteți afla cum să puneți alte întrebări, să solicitați caracteristici și să raportați erori.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Dacă aveți o întrebare, vă rugăm să consultați mai întâi întrebările frecvente (FAQ) de mai jos. [În partea de jos veți afla](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), cum să puneți mai multe întrebări, să solicitați caracteristici și să raportați erori.
 
 ## Index
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorizarea conturilor](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
+* [Cum să...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
+* [Probleme cunoscute](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
+* [Funcții planificate](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
+* [Funcții solicitate frecvent](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
+* [Întrebări puse frecvent](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
+* [Obțineți asistență](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
 
-## Authorizing accounts
+## Autorizarea conturilor
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+În cele mai multe cazuri, asistentul de configurare rapidă va fi capabil să identifice automat configurația corectă.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Dacă expertul de configurare rapidă eșuează, va trebui să configurați manual un cont (pentru a primi e-mailuri) și o identitate (pentru a trimite e-mailuri). Pentru aceasta veți avea nevoie de adresele și numerele de port ale serverelor IMAP și SMTP, dacă trebuie utilizat SSL/TLS sau STARTTLS și numele dvs. de utilizator (în general, dar nu întotdeauna, adresa dvs. de e-mail) și parola.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Căutarea *IMAP* și a numelui furnizorului este de cele mai multe ori suficientă pentru a găsi documentația corectă.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+În unele cazuri, va trebui să activați accesul extern la contul dvs. și/sau să utilizați o parolă specială (aplicație), de exemplu atunci când este activată autentificarea cu doi factori.
 
-For authorizing:
+Pentru autorizare:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, vezi [întrebarea 6](#user-content-faq6)
+* Outlook / Live / Hotmail, vedeți [întrebarea 14](#user-content-faq14)
+* Office 365, consultați [întrebarea 14](#user-content-faq156)
+* Microsoft Exchange, consultați [întrebarea 8](#user-content-faq8)
+* Yahoo, AOL și Sky, vezi [întrebarea 88](#user-content-faq88)
+* Apple iCloud, vezi [întrebarea 148](#user-content-faq148)
+* Free.fr, a se vedea [întrebarea 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Vă rugăm să consultați [aici](#user-content-faq22) pentru mesaje de eroare comune și soluții.
 
-Related questions:
+Întrebări conexe:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Este acceptat OAuth?](#user-content-faq111)
+* [De ce nu este acceptat ActiveSync?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Cum să...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Schimbați numele contului: Setări, apăsați Configurare manuală, apăsați Conturi, apăsați cont
+* Modificați ținta de glisare stânga/dreapta: Setări, pagina de tabulare Comportament, Setați acțiunile de glisare
+* Schimbarea parolei: Setări, apăsați Configurare manuală, apăsați Conturi, apăsați Cont, apăsați Cont, schimbați parola
+* Setați o semnătură: Setări, apăsați Configurare manuală, apăsați Identități, apăsați Identitate, Editați semnătura.
+* Adăugați adrese CC și BCC: apăsați pe pictograma persoanelor de la sfârșitul subiectului
+* Treceți la mesajul următor/precedent la arhivare/eliminare: în setările de comportament dezactivați *Închideți automat conversațiile* și selectați *Mergeți la conversația următoare/precedentă* pentru *La închiderea unei conversații*
+* Adăugați un dosar în căsuța poștală unificată: apăsați lung dosarul din lista de dosare și bifați *Arată în căsuța poștală unificată*
+* Adăugați un dosar în meniul de navigare: apăsați lung pe dosarul din lista de dosare și bifați *Afișează în meniul de navigare*
+* Încărcați mai multe mesaje: apăsați lung pe un dosar din lista de dosare, selectați *Căutați mai multe mesaje*
+* Ștergeți un mesaj, trecând peste coșul de gunoi: apăsați lung pe pictograma coșului de gunoi
+* Ștergeți un cont/identitate: Setări, apăsați Configurare manuală, apăsați Conturi/Identități, apăsați contul/identitatea, pictograma coș de gunoi în dreapta sus
+* Ștergerea unui dosar: apăsați lung pe dosar în lista de dosare, Editare proprietăți, pictograma coș de gunoi în dreapta sus
+* Anulați trimiterea: Outbox, glisați mesajul din listă spre stânga sau spre dreapta
+* Stocarea mesajelor trimise în căsuța de primire: vă rugăm să [vedeți acest FAQ](#user-content-faq142)
+* Schimbați dosarele de sistem: Setări, apăsați pe Configurare manuală, apăsați pe Conturi, apăsați pe Cont, în partea de jos
+* Setări de export/import: Setări, meniul de navigare (partea stângă)
 
-## Known problems
+## Probleme cunoscute
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* ~~A [bug în Android 5.1 și 6](https://issuetracker.google.com/issues/37054851) face ca aplicațiile să afișeze uneori un format de timp greșit. Comutând setarea Android *Folosiți formatul 24 de ore* ar putea rezolva temporar problema. O soluție a fost adăugată.~~
+* ~~Un [bug în Google Drive](https://issuetracker.google.com/issues/126362828) face ca fișierele exportate în Google Drive să fie goale. Google a rezolvat acest lucru.~~
+* ~~A [bug în AndroidX](https://issuetracker.google.com/issues/78495471) face ca FairEmail să se blocheze ocazional la apăsarea lungă sau la glisare. Google a rezolvat acest lucru.~~
+* ~~Un [bug în AndroidX ROOM](https://issuetracker.google.com/issues/138441698) provoacă uneori o blocare cu "*... Excepție în timpul calculării datelor live ale bazei de date ... Nu s-a putut citi rândul ...*". A fost adăugată o soluție de rezolvare.~~
+* Un [bug în Android](https://issuetracker.google.com/issues/119872129) face ca FairEmail să se prăbușească cu "*... O notificare greșită a fost postată ...*" pe unele dispozitive o dată după ce ați actualizat FairEmail și ați apăsat pe o notificare.
+* Un [bug din Android](https://issuetracker.google.com/issues/62427912) cauzează uneori o prăbușire cu "*... Înregistrarea activității nu a fost găsită pentru ...*" după actualizarea FairEmail. Reinstalarea ([sursa](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) ar putea rezolva problema.
+* Un [bug din Android](https://issuetracker.google.com/issues/37018931) provoacă uneori o prăbușire cu *... InputChannel nu este inițializat ...* pe unele dispozitive.
+* ~~Un [bug în LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) provoacă uneori o eroare cu *... java.lang.ArrayIndexOutOfOfBoundsException: length=...; index=... ...*.~~
+* O eroare în Nova Launcher pe Android 5.x face ca FairEmail să se prăbușească cu un *java.lang.StackOverflowError* atunci când Nova Launcher are acces la serviciul de accesibilitate.
+* ~~Selectorul de dosare nu afișează uneori niciun dosar din motive încă necunoscute. Acest lucru pare a fi rezolvat.~~
+* ~~Un [bug în AndroidX](https://issuetracker.google.com/issues/64729576) face dificilă apucarea scroll-ului rapid. A fost adăugată o soluție de rezolvare.~~
+* ~~Criptarea cu YubiKey duce la o buclă infinită. Acest lucru pare să fie cauzat de un [bug în OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Derularea către o locație legată intern în mesajele originale nu funcționează. Acest lucru nu poate fi rezolvat deoarece vizualizarea mesajului original este inclusă într-o vizualizare cu derulare.
+* O previzualizare a textului unui mesaj nu apare (întotdeauna) pe ceasurile Samsung, deoarece [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) pare să fie ignorat. Se știe că textele de previzualizare a mesajelor sunt afișate corect pe dispozitivele portabile Pebble 2, Fitbit Charge 3, Mi band 3 și Xiaomi Amazfit BIP. A se vedea, de asemenea, [acest FAQ](#user-content-faq126).
+* Un [bug din Android 6.0](https://issuetracker.google.com/issues/37068143) provoacă o blocare cu *... Decalaj invalid: ... Intervalul valabil este ...* atunci când textul este selectat și atingerea în afara textului selectat. Această eroare a fost corectată în Android 6.0.1.
+* Legăturile interne (cu ancoră) nu vor funcționa deoarece mesajele originale sunt afișate într-un WebView încorporat într-o vizualizare derulantă (lista de conversații). Aceasta este o limitare a sistemului Android care nu poate fi reparată sau evitată.
+* Detectarea limbii [nu mai funcționează](https://issuetracker.google.com/issues/173337263) pe dispozitivele Pixel cu (actualizat la?) Android 11
+* Un [bug din OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) provoacă semnături PGP invalide atunci când se utilizează un token hardware.
 
-## Planned features
+## Funcții planificate
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
-* ~~Colored stars~~
-* ~~Notification settings per folder~~
-* ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
-* ~~Show messages matched by a rule~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
+* ~~Sincronizare la cerere (manuală)~~
+* ~~Criptare semi-automată~~
+* ~~Copiază mesajul~~
+* ~~Stele colorate~~
+* ~~Setări de notificare pentru fiecare dosar~~
+* ~~Selectați imagini locale pentru semnături~~ (acest lucru nu va fi adăugat pentru că necesită gestionarea fișierelor de imagine și pentru că imaginile nu sunt afișate în mod implicit în majoritatea clienților de e-mail oricum)
+* ~~Afișează mesajele care corespund unei reguli~~
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~~ (nu există biblioteci Java întreținute cu o licență adecvată și fără dependențe și în afară de asta, FairEmail are propriile reguli de filtrare)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~

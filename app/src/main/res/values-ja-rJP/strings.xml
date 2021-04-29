@@ -784,6 +784,8 @@
     <string name="title_ask_raw">メッセージを転送するには、生(オリジナル) メッセージをサーバーからダウンロードする必要があります。インターネット接続が必要です。</string>
     <string name="title_buttons">ボタンを選択</string>
     <string name="title_buttons_hint">利用可能な実際のアクションは、アカウントの種類と構成によって異なります</string>
+    <string name="title_button_search">メッセージを検索</string>
+    <string name="title_button_search_text">メッセージ本文を検索します</string>
     <string name="title_configure_buttons">ボタンを設定 &#8230;</string>
     <string name="title_trash">ゴミ箱</string>
     <string name="title_copy">コピー &#8230;</string>

@@ -122,6 +122,7 @@
     <string name="title_setup_quick">Snabbinstallation</string>
     <string name="title_setup_intro">Att lägga till ett konto tar bara tre steg och efter det kan du skicka och ta emot e-post</string>
     <string name="title_setup_simple">Det finns ingen anledning att ändra några andra inställningar</string>
+    <string name="title_setup_quick_accounts">Lägg till eller byt konton</string>
     <string name="title_setup_quick_support">Vissa leverantörer gör det svårt att lägga till ett konto. Vänligen skyll inte på FairEmail för det, be om support istället.</string>
     <string name="title_setup_quick_hint">Snabbinställningen hämtar konfigurationsinformation från autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server för att ta emot meddelanden</string>
@@ -287,6 +288,8 @@
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_rlah">Roaming som hemma</string>
+    <string name="title_advanced_download_headers">Ladda ner meddelande-huvuden</string>
+    <string name="title_advanced_download_eml">Ladda ner råa meddelande-filer</string>
     <string name="title_advanced_validated">Kräv en validerad (kontrollerad) anslutning</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
@@ -496,6 +499,7 @@
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
+    <string name="title_advanced_usage_hint">Det här kommer att öka användningen av batteri, data och lagringsutrymme</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
@@ -757,6 +761,7 @@
     <string name="title_toggle_seen">Växla lästa</string>
     <string name="title_hide">Dölj</string>
     <string name="title_unhide">Visa</string>
+    <string name="title_toggle_hide">Skifta till dölj</string>
     <string name="title_flag">Lägg till stjärna</string>
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
@@ -791,6 +796,8 @@
     <string name="title_ask_raw">För att vidarebefordra meddelanden måste de råa (ursprungliga) meddelandena laddas ner från servern. Detta kräver en internetanslutning.</string>
     <string name="title_buttons">Välj knappar</string>
     <string name="title_buttons_hint">De faktiska åtgärder som är tillgängliga beror på kontotyp och konfiguration</string>
+    <string name="title_button_search">Sök i meddelanden</string>
+    <string name="title_button_search_text">Sök i meddelandetext</string>
     <string name="title_configure_buttons">Konfigurera knappar &#8230;</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_copy">Kopiera &#8230;</string>
@@ -887,6 +894,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Skickat:</string>
     <string name="title_received">Mottaget:</string>
+    <string name="title_date">Datum:</string>
     <string name="title_stored">Lagrad:</string>
     <string name="title_size">Storlek:</string>
     <string name="title_language">Språk:</string>
@@ -1079,6 +1087,7 @@
     <string name="title_answer_group">Mallgrupp (valfritt)</string>
     <string name="title_answer_standard">Standard</string>
     <string name="title_answer_favorite">Favorit</string>
+    <string name="title_answer_receipt">Använd som ett läskvitto</string>
     <string name="title_answer_hide">Dölj från menyer</string>
     <string name="title_answer_text">Malltext</string>
     <string name="title_answer_placeholder">Platshållare</string>
