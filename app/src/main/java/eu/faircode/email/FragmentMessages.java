@@ -761,6 +761,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 this, type, found, viewType,
                 compact, zoom, sort, ascending, filter_duplicates,
                 iProperties);
+        adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.PREVENT);
         rvMessage.setAdapter(adapter);
 
         sbThread.setOnTouchListener(new View.OnTouchListener() {
@@ -1769,6 +1770,29 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void run() {
                     rvMessage.scrollBy(x, y);
+                }
+            });
+        }
+
+        @Override
+        public void ready(long id) {
+            iProperties.setValue("ready", id, true);
+
+            if (!values.containsKey("expanded"))
+                return;
+
+            for (long expanded : values.get("expanded"))
+                if (!iProperties.getValue("ready", expanded))
+                    return;
+
+            getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.ALLOW);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
             });
         }
@@ -3672,10 +3696,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
-
-            LinearLayoutManager llm = (LinearLayoutManager) rvMessage.getLayoutManager();
-            outState.putInt("fair:scroll", llm.findFirstVisibleItemPosition());
         }
+
+        values.remove("ready");
 
         if (selectionTracker != null)
             selectionTracker.onSaveInstanceState(outState);
@@ -3703,8 +3726,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Parcelable rv = savedInstanceState.getParcelable("fair:rv");
                 rvMessage.getLayoutManager().onRestoreInstanceState(rv);
             }
-
-            adapter.gotoPos(savedInstanceState.getInt("fair:scroll"));
 
             if (selectionTracker != null)
                 selectionTracker.onRestoreInstanceState(savedInstanceState);

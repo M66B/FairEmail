@@ -1638,6 +1638,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         bindBody(message, false);
 
                     bindAttachments(message, attachments, true);
+
+                    if (!scroll)
+                        properties.ready(message.id);
                 }
             });
 
@@ -6238,6 +6241,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void scrollTo(int pos, int y);
 
         void scrollBy(int x, int y);
+
+        void ready(long id);
 
         void move(long id, String type);
 
