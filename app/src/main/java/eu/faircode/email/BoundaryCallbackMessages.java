@@ -762,8 +762,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             or.add(new SubjectTerm(search));
                         }
 
-                if (in_keywords && hasKeywords)
-                    or.add(new FlagTerm(new Flags(MessageHelper.sanitizeKeyword(search)), true));
+                if (in_keywords && hasKeywords) {
+                    String keyword = MessageHelper.sanitizeKeyword(search);
+                    if (TextUtils.isEmpty(keyword))
+                        Log.w("Keyword empty=" + search);
+                    else
+                        or.add(new FlagTerm(new Flags(keyword), true));
+                }
 
                 if (in_message)
                     if (plus.size() + minus.size() + opt.size() == 0)
