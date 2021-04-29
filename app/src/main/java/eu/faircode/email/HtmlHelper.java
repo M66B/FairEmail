@@ -134,8 +134,6 @@ public class HtmlHelper {
     private static final int SMALL_IMAGE_SIZE = 5; // pixels
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
-    private static String WHITESPACE = " \t\f";
-    private static String WHITESPACE_NL = WHITESPACE + "\r\n";
     private static final String LINE = "----------------------------------------";
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
@@ -2038,8 +2036,7 @@ public class HtmlHelper {
             private int plain = 0;
             private List<TextNode> block = new ArrayList<>();
 
-            private Pattern TRIM_WHITESPACE_NL =
-                    Pattern.compile("[" + WHITESPACE + "]*\\r?\\n[" + WHITESPACE + "]*");
+            private final Pattern FOLD_WHITESPACE = Pattern.compile("[ \t\f\r\n]+");
 
             // https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
 
@@ -2079,13 +2076,9 @@ public class HtmlHelper {
                 // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace
                 TextNode tnode;
                 String text;
-                int index;
                 for (int i = 0; i < block.size(); ) {
                     tnode = block.get(i);
                     text = tnode.getWholeText();
-
-                    // Remove whitespace before/after newlines
-                    text = TRIM_WHITESPACE_NL.matcher(text).replaceAll(" ");
 
                     if ("-- ".equals(text)) {
                         tnode.text(text);
@@ -2093,23 +2086,17 @@ public class HtmlHelper {
                         continue;
                     }
 
-                    // Remove leading whitespace
-                    if (i == 0 || endsWithWhitespace(block.get(i - 1).text())) {
-                        index = 0;
-                        while (isWhiteSpace(text, index))
-                            index++;
+                    // Fold white space
+                    text = FOLD_WHITESPACE.matcher(text).replaceAll(" ");
 
-                        if (index > 0)
-                            text = text.substring(index);
-                    }
+                    // Conditionally remove leading whitespace
+                    if (isSpace(text, 0) &&
+                            (i == 0 || endsWithSpace(block.get(i - 1).text())))
+                        text = text.substring(1);
 
-                    // Remove multiple trailing whitespace
-                    index = text.length() - 1;
-                    while (isWhiteSpace(text, index) &&
-                            (isWhiteSpace(text, index - 1) || i == block.size() - 1))
-                        index--;
-
-                    text = text.substring(0, index + 1);
+                    // Conditionally remove trailing whitespace
+                    if (i == block.size() - 1 && endsWithSpace(text))
+                        text = text.substring(0, text.length() - 1);
 
                     tnode.text(text);
 
@@ -2119,23 +2106,13 @@ public class HtmlHelper {
                         i++;
                 }
 
-                // Remove last trailing whitespace
-                if (block.size() > 0) {
-                    tnode = block.get(block.size() - 1);
-                    text = tnode.getWholeText();
-                    if (!"-- ".equals(text) && endsWithWhitespace(text)) {
-                        text = text.substring(0, text.length() - 1);
-                        tnode.text(text);
-                    }
-                }
-
-                // Remove blank blocks
+                // Remove all blank blocks
                 boolean blank = true;
                 for (int i = 0; i < block.size(); i++) {
                     text = block.get(i).getWholeText();
                     for (int j = 0; j < text.length(); j++) {
                         char kar = text.charAt(j);
-                        if (WHITESPACE.indexOf(kar) < 0) {
+                        if (kar == ' ') {
                             blank = false;
                             break;
                         }
@@ -2155,15 +2132,14 @@ public class HtmlHelper {
                 }
             }
 
-            boolean isWhiteSpace(String text, int index) {
+            boolean isSpace(String text, int index) {
                 if (index < 0 || index >= text.length())
                     return false;
-                char kar = text.charAt(index);
-                return (WHITESPACE_NL.indexOf(kar) >= 0);
+                return (text.charAt(index) == ' ');
             }
 
-            boolean endsWithWhitespace(String text) {
-                return isWhiteSpace(text, text.length() - 1);
+            boolean endsWithSpace(String text) {
+                return isSpace(text, text.length() - 1);
             }
         }, document.body());
 
