@@ -957,31 +957,6 @@ public class Helper {
     }
     // https://issuetracker.google.com/issues/37054851
 
-    static boolean isRtl(String text) {
-        if (TextUtils.isEmpty(text))
-            return false;
-
-        int rtl = 0;
-        int ltr = 0;
-        for (int i = 0; i < text.length(); i++)
-            switch (Character.getDirectionality(text.charAt(i))) {
-                case java.lang.Character.DIRECTIONALITY_RIGHT_TO_LEFT:
-                case java.lang.Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC:
-                case java.lang.Character.DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING:
-                case java.lang.Character.DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE:
-                    rtl++;
-                    break;
-
-                case java.lang.Character.DIRECTIONALITY_LEFT_TO_RIGHT:
-                case java.lang.Character.DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING:
-                case java.lang.Character.DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE:
-                    ltr++;
-                    break;
-            }
-
-        return (rtl > ltr);
-    }
-
     static DateFormat getTimeInstance(Context context) {
         return getTimeInstance(context, SimpleDateFormat.MEDIUM);
     }

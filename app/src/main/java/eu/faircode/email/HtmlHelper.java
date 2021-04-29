@@ -36,6 +36,7 @@ import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
@@ -2260,7 +2261,7 @@ public class HtmlHelper {
                                 case "text-align":
                                     // https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
                                     Layout.Alignment alignment = null;
-                                    boolean rtl = Helper.isRtl(ssb.subSequence(start, ssb.length()).toString());
+                                    boolean rtl = TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(ssb, start, ssb.length() - start);
                                     switch (value) {
                                         case "left":
                                         case "start":
