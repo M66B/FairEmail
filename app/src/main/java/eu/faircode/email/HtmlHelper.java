@@ -2112,7 +2112,7 @@ public class HtmlHelper {
                     text = block.get(i).getWholeText();
                     for (int j = 0; j < text.length(); j++) {
                         char kar = text.charAt(j);
-                        if (kar == ' ') {
+                        if (kar != ' ') {
                             blank = false;
                             break;
                         }
