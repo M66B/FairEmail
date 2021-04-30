@@ -185,6 +185,9 @@ class Core {
 
             DB db = DB.getInstance(context);
 
+            NotificationManager nm =
+                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
             int retry = 0;
             boolean group = true;
             Log.i(folder.name + " executing operations=" + ops.size());
@@ -201,6 +204,10 @@ class Core {
                             " args=" + op.args +
                             " group=" + group +
                             " retry=" + retry);
+
+                    if (EntityOperation.HEADERS.equals(op.name) ||
+                            EntityOperation.RAW.equals(op.name))
+                        nm.cancel(op.name + ":" + op.message, 1);
 
                     if (!Objects.equals(folder.id, op.folder))
                         throw new IllegalArgumentException("Invalid folder=" + folder.id + "/" + op.folder);
@@ -487,6 +494,7 @@ class Core {
 
                             if (message != null &&
                                     !EntityOperation.FETCH.equals(op.name) &&
+                                    !EntityOperation.ATTACHMENT.equals(op.name) &&
                                     !(ex instanceof IllegalArgumentException))
                                 db.message().setMessageError(message.id, op.error);
 
@@ -512,6 +520,8 @@ class Core {
                                         (ex.getCause() instanceof BadCommandException ||
                                                 ex.getCause() instanceof CommandFailedException /* NO */)) ||
                                 MessageHelper.isRemoved(ex) ||
+                                EntityOperation.HEADERS.equals(op.name) ||
+                                EntityOperation.RAW.equals(op.name) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
                                 (EntityOperation.ADD.equals(op.name) &&
                                         EntityFolder.DRAFTS.equals(folder.type))) {
@@ -599,6 +609,18 @@ class Core {
                             }
 
                             ops.remove(op);
+
+                            int resid = context.getResources().getIdentifier(
+                                    "title_op_title_" + op.name,
+                                    "string",
+                                    context.getPackageName());
+                            String title = (resid == 0 ? null : context.getString(resid));
+                            if (title != null) {
+                                NotificationCompat.Builder builder =
+                                        getNotificationError(context, "warning", title, ex);
+                                nm.notify(op.name + ":" + op.message, 1, builder.build());
+                            }
+
                         } else {
                             retry++;
                             if (retry < LOCAL_RETRY_MAX &&

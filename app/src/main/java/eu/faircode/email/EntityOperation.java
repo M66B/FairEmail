@@ -511,7 +511,9 @@ public class EntityOperation {
         if (EntityOperation.ATTACHMENT.equals(name))
             try {
                 JSONArray jargs = new JSONArray(args);
-                db.attachment().setProgress(jargs.getLong(0), null);
+                long id = jargs.getLong(0);
+                db.attachment().setProgress(id, null);
+                db.attachment().setError(id, error);
                 return;
             } catch (JSONException ex) {
                 Log.e(ex);
