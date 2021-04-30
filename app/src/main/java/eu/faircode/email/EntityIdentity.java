@@ -210,6 +210,7 @@ public class EntityIdentity {
         json.put("replyto", replyto);
         json.put("cc", cc);
         json.put("bcc", bcc);
+        json.put("internal", internal);
 
         json.put("unicode", unicode);
         // not plain_only
@@ -283,6 +284,8 @@ public class EntityIdentity {
             identity.cc = json.getString("cc");
         if (json.has("bcc") && !json.isNull("bcc"))
             identity.bcc = json.getString("bcc");
+        if (json.has("internal") && !json.isNull("internal"))
+            identity.internal = json.getString("internal");
 
         if (json.has("unicode"))
             identity.unicode = json.getBoolean("unicode");
@@ -324,6 +327,7 @@ public class EntityIdentity {
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.cc, other.cc) &&
                     Objects.equals(this.bcc, other.bcc) &&
+                    Objects.equals(this.internal, other.internal) &&
                     Objects.equals(this.sign_key, other.sign_key) &&
                     Objects.equals(this.sign_key_alias, other.sign_key_alias) &&
                     Objects.equals(this.state, other.state) &&
