@@ -1679,7 +1679,13 @@ public class Log {
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             List<EntityAccount> accounts = db.account().getAccounts();
-            size += write(os, "accounts=" + accounts.size() + "\r\n\r\n");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
+
+            size += write(os, "accounts=" + accounts.size() +
+                    " enabled=" + enabled +
+                    " interval=" + pollInterval + "\r\n\r\n");
 
             for (EntityAccount account : accounts) {
                 if (account.synchronize) {
