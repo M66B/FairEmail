@@ -631,6 +631,7 @@
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_bcc_hint">The address won\'t be shown, but will be added on sending</string>
+    <string name="title_advanced_internal_hint">There will be a warning when sending to another domain</string>
 
     <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
@@ -673,6 +674,7 @@
     <string name="title_advanced_sender_name">Use name when sender address has been edited</string>
     <string name="title_advanced_sender_regex">Regex to match username of incoming email addresses</string>
     <string name="title_identity_reply_to">Reply to address</string>
+    <string name="title_identity_internal">Internal domain names (comma separated)</string>
     <string name="title_identity_unicode">Use Unicode transport</string>
     <string name="title_identity_unicode_remark">Most servers do not support this</string>
     <string name="title_identity_max_size">Maximum message size (MB)</string>
@@ -1114,10 +1116,11 @@
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
 
     <string name="title_from_missing">Sender missing</string>
-    <string name="title_extra_missing">Username missing</string>
-    <string name="title_to_missing">Recipient missing</string>
     <string name="title_pgp_reminder">PGP keys available</string>
     <string name="title_smime_reminder">S/MIME keys available</string>
+    <string name="title_to_missing">Recipient missing</string>
+    <string name="title_extra_missing">Username missing</string>
+    <string name="title_external_reminder">Sending to an external address</string>
     <string name="title_subject_reminder">Subject is empty</string>
     <string name="title_text_reminder">Message is empty</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>

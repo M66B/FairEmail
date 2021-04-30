@@ -116,6 +116,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etReplyTo;
     private EditText etCc;
     private EditText etBcc;
+    private EditText etInternal;
     private CheckBox cbSignDefault;
     private CheckBox cbEncryptDefault;
     private CheckBox cbUnicode;
@@ -213,6 +214,7 @@ public class FragmentIdentity extends FragmentBase {
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etCc = view.findViewById(R.id.etCc);
         etBcc = view.findViewById(R.id.etBcc);
+        etInternal = view.findViewById(R.id.etInternal);
         cbSignDefault = view.findViewById(R.id.cbSignDefault);
         cbEncryptDefault = view.findViewById(R.id.cbEncryptDefault);
         cbUnicode = view.findViewById(R.id.cbUnicode);
@@ -635,6 +637,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
+        args.putString("internal", etInternal.getText().toString().replaceAll(" ", ""));
         args.putBoolean("sign_default", cbSignDefault.isChecked());
         args.putBoolean("encrypt_default", cbEncryptDefault.isChecked());
         args.putBoolean("unicode", cbUnicode.isChecked());
@@ -720,6 +723,7 @@ public class FragmentIdentity extends FragmentBase {
                 String replyto = args.getString("replyto");
                 String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
+                String internal = args.getString("internal");
                 boolean sign_default = args.getBoolean("sign_default");
                 boolean encrypt_default = args.getBoolean("encrypt_default");
                 boolean unicode = args.getBoolean("unicode");
@@ -778,6 +782,9 @@ public class FragmentIdentity extends FragmentBase {
                     } catch (AddressException ex) {
                         throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
                     }
+
+                if (TextUtils.isEmpty(internal))
+                    internal = null;
 
                 if (TextUtils.isEmpty(display))
                     display = null;
@@ -867,6 +874,8 @@ public class FragmentIdentity extends FragmentBase {
                     if (!Objects.equals(identity.cc, cc))
                         return true;
                     if (!Objects.equals(identity.bcc, bcc))
+                        return true;
+                    if (!Objects.equals(identity.internal, internal))
                         return true;
                     if (!Objects.equals(identity.sign_default, sign_default))
                         return true;
@@ -965,6 +974,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.replyto = replyto;
                     identity.cc = cc;
                     identity.bcc = bcc;
+                    identity.internal = internal;
                     identity.sign_default = sign_default;
                     identity.encrypt_default = encrypt_default;
                     identity.unicode = unicode;
@@ -1145,6 +1155,7 @@ public class FragmentIdentity extends FragmentBase {
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etCc.setText(identity == null ? null : identity.cc);
                     etBcc.setText(identity == null ? null : identity.bcc);
+                    etInternal.setText(identity == null ? null : identity.internal);
                     cbSignDefault.setChecked(identity != null && identity.sign_default);
                     cbEncryptDefault.setChecked(identity != null && identity.encrypt_default);
                     cbUnicode.setChecked(identity != null && identity.unicode);

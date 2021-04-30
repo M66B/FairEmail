@@ -4925,16 +4925,45 @@ public class FragmentCompose extends FragmentBase {
                             //        identity != null && identity.sender_extra)
                             //    args.putBoolean("remind_extra", true);
 
+                            List<Address> recipients = new ArrayList<>();
+                            if (draft.to != null)
+                                recipients.addAll(Arrays.asList(draft.to));
+                            if (draft.cc != null)
+                                recipients.addAll(Arrays.asList(draft.cc));
+                            if (draft.bcc != null)
+                                recipients.addAll(Arrays.asList(draft.bcc));
+
+                            if (identity != null && !TextUtils.isEmpty(identity.internal)) {
+                                boolean external = false;
+                                String[] internals = identity.internal.split(",");
+                                for (Address recipient : recipients) {
+                                    String email = ((InternetAddress) recipient).getAddress();
+                                    if (TextUtils.isEmpty(email))
+                                        continue;
+
+                                    int at = email.lastIndexOf('@');
+                                    if (at < 0)
+                                        continue;
+                                    String domain = email.substring(at + 1).trim();
+                                    if (TextUtils.isEmpty(domain))
+                                        continue;
+
+                                    boolean found = false;
+                                    for (String internal : internals)
+                                        if (internal.equalsIgnoreCase(domain)) {
+                                            found = true;
+                                            break;
+                                        }
+                                    if (!found) {
+                                        external = true;
+                                        break;
+                                    }
+                                }
+                                args.putBoolean("remind_external", external);
+                            }
+
                             if (draft.ui_encrypt == null ||
                                     EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt)) {
-                                List<Address> recipients = new ArrayList<>();
-                                if (draft.to != null)
-                                    recipients.addAll(Arrays.asList(draft.to));
-                                if (draft.cc != null)
-                                    recipients.addAll(Arrays.asList(draft.cc));
-                                if (draft.bcc != null)
-                                    recipients.addAll(Arrays.asList(draft.bcc));
-
                                 if (recipients.size() > 0) {
                                     if (pgpService != null && pgpService.isBound()) {
                                         String[] userIds = new String[recipients.size()];
@@ -5210,6 +5239,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_smime = args.getBoolean("remind_smime", false);
                 boolean remind_to = args.getBoolean("remind_to", false);
                 boolean remind_extra = args.getBoolean("remind_extra", false);
+                boolean remind_external = args.getBoolean("remind_external", false);
                 boolean remind_subject = args.getBoolean("remind_subject", false);
                 boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -5219,7 +5249,8 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
-                        address_error != null || mx_error != null || remind_dsn || remind_size || remind_pgp || remind_smime || remind_to ||
+                        address_error != null || mx_error != null ||
+                        remind_dsn || remind_size || remind_pgp || remind_smime || remind_to || remind_external ||
                         recipients > RECIPIENTS_WARNING ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
                         (send_reminders &&
@@ -5889,6 +5920,7 @@ public class FragmentCompose extends FragmentBase {
             final boolean remind_smime = args.getBoolean("remind_smime", false);
             final boolean remind_to = args.getBoolean("remind_to", false);
             final boolean remind_extra = args.getBoolean("remind_extra", false);
+            final boolean remind_external = args.getBoolean("remind_external", false);
             final boolean remind_subject = args.getBoolean("remind_subject", false);
             final boolean remind_text = args.getBoolean("remind_text", false);
             final boolean remind_attachment = args.getBoolean("remind_attachment", false);
@@ -5917,6 +5949,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSmime = dview.findViewById(R.id.tvRemindSmime);
             final TextView tvRemindTo = dview.findViewById(R.id.tvRemindTo);
             final TextView tvRemindExtra = dview.findViewById(R.id.tvRemindExtra);
+            final TextView tvRemindExternal = dview.findViewById(R.id.tvRemindExternal);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
@@ -5954,6 +5987,7 @@ public class FragmentCompose extends FragmentBase {
 
             tvRemindTo.setVisibility(remind_to ? View.VISIBLE : View.GONE);
             tvRemindExtra.setVisibility(send_reminders && remind_extra ? View.VISIBLE : View.GONE);
+            tvRemindExternal.setVisibility(remind_external ? View.VISIBLE : View.GONE);
             tvRemindSubject.setVisibility(send_reminders && remind_subject ? View.VISIBLE : View.GONE);
             tvRemindText.setVisibility(send_reminders && remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(send_reminders && remind_attachment ? View.VISIBLE : View.GONE);

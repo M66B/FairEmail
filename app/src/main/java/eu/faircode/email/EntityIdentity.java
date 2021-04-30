@@ -101,6 +101,7 @@ public class EntityIdentity {
     public String replyto;
     public String cc;
     public String bcc;
+    public String internal;
     @NonNull
     public Boolean unicode = false;
     @NonNull

@@ -104,6 +104,17 @@
             app:layout_constraintTop_toBottomOf="@id/tvRemindTo" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvRemindExternal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_external_reminder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindSubject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,7 +123,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRemindExtra" />
+            app:layout_constraintTop_toBottomOf="@id/tvRemindExternal" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvRemindText"
