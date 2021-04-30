@@ -98,6 +98,39 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     @Override
+    public void dispatchWindowFocusChanged(boolean hasFocus) {
+        try {
+            super.dispatchWindowFocusChanged(hasFocus);
+        } catch (Throwable ex) {
+            /*
+				java.lang.SecurityException: No access to content://com.sec.android.semclipboardprovider/images: neither user 1010197 nor current process has android.permission.INTERACT_ACROSS_USERS_FULL or android.permission.INTERACT_ACROSS_USERS
+				  at android.os.Parcel.createException(Parcel.java:2088)
+				  at android.os.Parcel.readException(Parcel.java:2056)
+				  at android.os.Parcel.readException(Parcel.java:2004)
+				  at android.sec.clipboard.IClipboardService$Stub$Proxy.getClipData(IClipboardService.java:951)
+				  at com.samsung.android.content.clipboard.SemClipboardManager.getLatestClip(SemClipboardManager.java:612)
+				  at android.widget.EditText.updateClipboardFilter(EditText.java:316)
+				  at android.widget.EditText.dispatchWindowFocusChanged(EditText.java:297)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewGroup.dispatchWindowFocusChanged(ViewGroup.java:1502)
+				  at android.view.ViewRootImpl.handleWindowFocusChanged(ViewRootImpl.java:3458)
+				  at android.view.ViewRootImpl.access$1300(ViewRootImpl.java:205)
+				  at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:5361)
+				  at android.os.Handler.dispatchMessage(Handler.java:107)
+             */
+            Log.w(ex);
+        }
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         try {
             return super.onTouchEvent(event);
@@ -112,7 +145,7 @@ public class FixedEditText extends AppCompatEditText {
         try {
             return super.performLongClick();
         } catch (Throwable ex) {
-/*
+            /*
             java.lang.IllegalStateException: Drag shadow dimensions must be positive
                     at android.view.View.startDragAndDrop(View.java:27316)
                     at android.widget.Editor.startDragAndDrop(Editor.java:1340)
@@ -120,7 +153,7 @@ public class FixedEditText extends AppCompatEditText {
                     at android.widget.TextView.performLongClick(TextView.java:13544)
                     at android.view.View.performLongClick(View.java:7928)
                     at android.view.View$CheckForLongPress.run(View.java:29321)
-*/
+             */
             Log.w(ex);
             return false;
         }
