@@ -376,15 +376,31 @@ public class FragmentCompose extends FragmentBase {
         View.OnTouchListener onTouchListener = new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                EditText et = (EditText) v;
-                int sstart = et.getSelectionStart();
-                int send = et.getSelectionEnd();
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    EditText et = (EditText) v;
+                    int start = et.getSelectionStart();
+                    int end = et.getSelectionEnd();
 
-                if (sstart == send && event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (start < 0 || end < 0)
+                        return false;
+
+                    if (start == end)
+                        return false;
+
+                    if (start > end) {
+                        int tmp = start;
+                        start = end;
+                        end = tmp;
+                    }
+
                     float x = event.getX() + et.getScrollX();
                     float y = event.getY() + et.getScrollY();
                     int pos = et.getOffsetForPosition(x, y);
-                    if (pos >= 0)
+                    if (pos < 0)
+                        return false;
+
+                    // Undo selection to be able to select another address
+                    if (pos < start || pos >= end)
                         et.setSelection(pos);
                 }
 
@@ -396,20 +412,41 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public boolean onLongClick(View v) {
                 EditText et = (EditText) v;
-                int sstart = et.getSelectionStart();
-                int send = et.getSelectionEnd();
+                int start = et.getSelectionStart();
+                int end = et.getSelectionEnd();
+
+                if (start < 0 || end < 0)
+                    return false;
+
+                if (start > end) {
+                    int tmp = start;
+                    start = end;
+                    end = tmp;
+                }
+
                 String text = et.getText().toString();
-
-                if (send < 0 || send > sstart)
+                if (text.length() == 0)
                     return false;
 
-                int ecomma = text.indexOf(',', sstart);
-                if (ecomma < 0)
-                    return false;
+                int last = text.indexOf(',', start);
+                last = (last < 0 ? text.length() - 1 : last);
 
-                int scomma = text.substring(0, ecomma).lastIndexOf(',');
-                scomma = (scomma < 0 ? 0 : scomma + 1);
-                et.setSelection(scomma, ecomma + 1);
+                int first = text.substring(0, last).lastIndexOf(',');
+                first = (first < 0 ? 0 : first + 1);
+
+                if (first == start && last + 1 == end) {
+                    String selected = et.getText().subSequence(start, end).toString();
+                    int gt = selected.lastIndexOf('<');
+                    int lt = selected.lastIndexOf('>');
+                    if (gt >= 0 && lt >= 0 && gt < lt) {
+                        et.setSelection(start + gt + 1, start + lt);
+                        return true;
+                    }
+                } else {
+                    et.setSelection(first, last + 1);
+                    return true;
+                }
+
                 return false;
             }
         };
