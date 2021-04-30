@@ -2884,15 +2884,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
 
-                if (result.isTrash || !result.hasTrash || result.isJunk ||
-                        ids.length <= MAX_PERMANENT_DELETE) // is trash or no trash or is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently);
+                if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
 
                 if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash);
 
-                if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
+                if (result.isTrash || !result.hasTrash || result.isJunk ||
+                        ids.length <= MAX_PERMANENT_DELETE) // is trash or no trash or is junk
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently);
 
                 if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send);
@@ -2954,14 +2954,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         } else if (itemId == R.string.title_archive) {
                             onActionMoveSelection(EntityFolder.ARCHIVE);
                             return true;
-                        } else if (itemId == R.string.title_delete_permanently) {
-                            onActionDeleteSelection();
+                        } else if (itemId == R.string.title_spam) {
+                            onActionJunkSelection();
                             return true;
                         } else if (itemId == R.string.title_trash) {
                             onActionMoveSelection(EntityFolder.TRASH);
                             return true;
-                        } else if (itemId == R.string.title_spam) {
-                            onActionJunkSelection();
+                        } else if (itemId == R.string.title_delete_permanently) {
+                            onActionDeleteSelection();
                             return true;
                         } else if (itemId == R.string.title_raw_send) {
                             onActionRaw();
