@@ -129,6 +129,7 @@ android {
     productFlavors {
         github {
             dimension "all"
+            isDefault true
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
