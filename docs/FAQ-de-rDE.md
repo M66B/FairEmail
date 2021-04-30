@@ -1672,7 +1672,7 @@ Drittanbieter-Apps haben bei Google Mail keinen Zugriff auf den Nachrichtenordne
 <a name="faq69" mark="crwd-mark"></a>
 **(69) Can you add auto scroll up on new message?**
 
-The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh. Always automatically scrolling up on arrival of new messages would interfere with your own scrolling, but if you like you can enable this in the settings.
+Die Nachrichtenliste wird automatisch nach oben gescrollt, wenn Sie von einer neuen Nachrichtenbenachrichtigung oder nach einer manuellen Aktualisierung navigieren. Immer automatisch nach oben scrollen, wenn neue Nachrichten erscheinen, würde Ihr eigenes Scrollen stören, aber wenn Sie wünschen, können Sie dies in den Einstellungen aktivieren.
 
 <br />
 
@@ -1685,26 +1685,26 @@ Wenn Sie zu einer Unterhaltung navigieren, wird eine Nachricht erweitert, wenn:
 * Es genau eine ungelesene Nachricht in der Unterhaltung gibt
 * Es genau eine gekennzeichnete (favorisierte) Nachricht in der Konversation gibt (ab Version 1.1508)
 
-There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the 'connection' settings tab.
+Es gibt eine Ausnahme: Die Nachricht wurde noch nicht heruntergeladen und die Nachricht ist zu groß, um sie automatisch über eine kostenpflichtigen (Mobil) Verbindung herunterzuladen. Sie können die maximale Nachrichtengröße auf der Registerkarte 'Verbindung' einstellen oder deaktivieren.
 
-Duplicate (archived) messages, trashed messages and draft messages are not counted.
+Doppelte (archivierte) Nachrichten, gelöschte Nachrichten und Nachrichten-Entwürfe werden nicht gezählt.
 
-Messages will automatically be marked read on expanding, unless this was disabled in the individual account settings.
+Nachrichten werden bei der Erweiterung automatisch als gelesen markiert, es sei denn, dies wurde in den jeweiligen Kontoeinstellungen deaktiviert.
 
 <br />
 
 <a name="faq71" mark="crwd-mark"></a>
-**(71) How do I use filter rules?**
+**(71) Wie verwende ich Filterregeln?**
 
-You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
+Sie können Filterregeln durch langes Drücken eines Ordners in der Ordnerliste eines Kontos bearbeiten (tippen Sie auf den Kontonamen im Navigations/Seitenmenü).
 
-New rules will be applied to new messages received in the folder, not to existing messages. You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
+Neue Regeln werden auf neue Nachrichten angewendet, die im Ordner empfangen werden, nicht auf bestehende Nachrichten. Sie können die Regel überprüfen und die Regel auf bestehende Nachrichten anwenden oder alternativ lange die Regel in der Regelliste drücken und *Ausführen* wählen.
 
-You'll need to give a rule a name and you'll need to define the order in which a rule should be executed relative to other rules.
+Sie müssen einer Regel einen Namen geben und Sie müssen die Reihenfolge festlegen, in der eine Regel im Verhältnis zu anderen Regeln ausgeführt werden soll.
 
-You can disable a rule and you can stop processing other rules after a rule has been executed.
+Sie können eine Regel deaktivieren und Sie können die Verarbeitung anderer Regeln beenden, nachdem eine Regel ausgeführt wurde.
 
-The following rule conditions are available:
+Folgende Regelbedingungen sind verfügbar:
 
 * Absender enthält oder Absender ist Kontakt
 * Empfänger enthält
@@ -1714,25 +1714,25 @@ The following rule conditions are available:
 * Absolute Zeit (empfangen) zwischen (seit Version 1.1540)
 * Relative Zeit (empfangen) zwischen
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger ntzen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten.
 
-Note that email addresses are formatted like this:
+Beachten Sie, dass E-Mail-Adressen wie folgt formatiert sind:
 
 `
-"Somebody" <somebody@example.org>`
+"Jemand" <somebody@example.org>`
 
-You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
+Sie können mehrere Regeln verwenden, möglicherweise mit einer *Stop-Verarbeitung*, für eine *oder* oder eine *nicht* Bedingung.
 
-Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions. You can test a regex [here](https://regexr.com/).
+Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Bitte siehe [hier](https://developer.android.com/reference/java/util/regex/Pattern) für die Dokumentation regulärer Java-Ausdrücke. Du kannst eine RegEx [hier](https://regexr.com/) testen.
 
-Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:
+Beachten Sie, dass ein regulärer Ausdruck einen *oder* Operator unterstützt. Wenn also mehrere Absender zutreffen sollen, können Sie folgendes tun:
 
 `
 .*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
-You can select one of these actions to apply to matching messages:
+Sie können eine dieser Aktionen für passende Nachrichten auswählen:
 
 * Keine Aktion (nützlich für *nichts*)
 * Als gelesen markieren
@@ -1749,87 +1749,87 @@ You can select one of these actions to apply to matching messages:
 * Text-zu-Sprache (Absender und Betreff)
 * Automatisierung (Tasker, etc)
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Regeln werden direkt angewendet, nachdem der Nachrichtenkopf abgerufen wurde, aber bevor der Nachrichtentext heruntergeladen wurde, damit ist es nicht möglich, Bedingungen auf den Nachrichtentext anzuwenden. Beachten Sie, dass bei Bedarf große Nachrichtentexte bei einer kostenpflichtigen Verbindung erst auf Anfrage heruntergeladen werden, um Datennutzung zu sparen.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Da Nachrichtenheader standardmäßig nicht heruntergeladen und gespeichert werden, um Akku, Datenverbrauch und Speicherplatz zu sparen, ist es nicht möglich, eine Vorschau zu sehen, welche Nachrichten zu einer Headerregel-Bedingung passen.
 
-Some common header conditions (regex):
+Einige häufige Header-Bedingungen (RegEx):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+Im Drei-Punkte-Menü *mehr* gibt es ein Element, um eine Regel für eine empfangene Nachricht mit den häufigsten Bedingungen zu erstellen.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+Das POP3-Protokoll unterstützt nicht das Setzen von Schlüsselwörtern und das Verschieben oder Kopieren von Nachrichten.
 
-Using rules is a pro feature.
+Das Verwenden von Regeln ist ein Pro-Funktion.
 
 <br />
 
 <a name="faq72" mark="crwd-mark"></a>
-**(72) What are primary accounts/identities?**
+**(72) Was sind Primär-Konten bzw. -Identitäten?**
 
 The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
 
 Similarly, the primary identity of an account is used when the identity is ambiguous.
 
-There can be just one primary account and there can be just one primary identity per account.
+Es kann nur ein Primärkonto geben und es kann nur eine primäre Identität pro Konto geben.
 
 <br />
 
 <a name="faq73" mark="crwd-mark"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Ist das Verschieben von Nachrichten über Konten sicher/effizient?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+Nachrichten über Konten hinweg zu verschieben, ist sicher, weil die rohen Originalnachrichten heruntergeladen und verschoben werden und die Quellnachrichten erst dann gelöscht werden, nachdem die Zielnachrichten hinzugefügt wurden
 
 Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
 
 <br />
 
 <a name="faq74" mark="crwd-mark"></a>
-**(74) Why do I see duplicate messages?**
+**(74) Warum sehe ich doppelte Nachrichten?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail zeigt alle diese Nachrichten in einer nicht aufdringlichen Art und Weise an, um darauf hinzuweisen, dass diese Nachrichten tatsächlich die gleiche Nachricht sind.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+Google Mail erlaubt es einer Nachricht mehrere Labels zu haben, die FairEmail als Ordner angezeigt werden. Das bedeutet, dass Nachrichten mit mehreren Labels auch mehrfach angezeigt werden.
 
 <br />
 
 <a name="faq75" mark="crwd-mark"></a>
 **(75) Can you make an iOS, Windows, Linux, etc version?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+Eine Menge Wissen und Erfahrung ist erforderlich, um erfolgreich eine App für eine bestimmte Plattform zu entwickeln; deshalb entwickle ich nur Apps für Android.
 
 <br />
 
 <a name="faq76" mark="crwd-mark"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) Was macht 'Lösche lokale Nachrichten'?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+Das Ordnermenü *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die aber auf dem Server noch vorhanden sind. Es löscht keine Nachrichten vom Server. Dies kann nützlich sein, wenn die Ordnereinstellungen geändert werden, um den Nachrichteninhalt (Text und Anhänge) nicht herunterzuladen, zum Beispiel um Speicherplatz zu sparen.
 
 <br />
 
 <a name="faq77" mark="crwd-mark"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Warum werden Nachrichten manchmal mit einer kleinen Verzögerung angezeigt?**
 
-Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+Abhängig von der Geschwindigkeit Ihres Geräts (Prozessorgeschwindigkeit und vielleicht sogar noch mehr Speichergeschwindigkeit) können Nachrichten mit einer kleinen Verzögerung angezeigt werden. FairEmail is designed to dynamically handle a large number of messages without running out of memory. Das bedeutet, dass Nachrichten aus einer Datenbank gelesen werden müssen und dass diese Datenbank auf Änderungen überwacht werden muss; beides kann zu kleinen Verzögerungen führen.
 
-Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Einige Komfort-Funktionen, wie zum Beispiel Gruppieren von Nachrichten zur Anzeige von Unterhaltungshinweisen und die Bestimmung der vorherigen/nächsten Nachricht, nehmen ein wenig mehr Zeit in Anspruch. Note that there is no *the* next message because in the meantime a new message might have been arrived.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+Beim Vergleich der Geschwindigkeit von FairEmail mit ähnlichen Apps sollte dies Teil des Vergleichs sein. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
+FairEmail basiert auf den neuesten [Android-Architekturkomponenten](https://developer.android.com/topic/libraries/architecture/), und bietet daher wenig Platz für Leistungsverbesserungen.
 
 <br />
 
 <a name="faq78" mark="crwd-mark"></a>
-**(78) How do I use schedules?**
+**(78) Wie verwende ich Zeitpläne?**
 
-In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Beachten Sie, dass eine Endzeit gleich oder früher als die Startzeit 24 Stunden später betrachtet wird.
 
-Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+Automatisierung, siehe unten, kann für erweiterte Zeitpläne verwendet werden, zum Beispiel mehrere Synchronisationszeiträume pro Tag oder unterschiedliche Synchronisationszeiträume für unterschiedliche Tage.
 
 It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
 
