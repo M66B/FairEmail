@@ -2886,7 +2886,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (result.isTrash || !result.hasTrash || result.isJunk ||
                         ids.length <= MAX_PERMANENT_DELETE) // is trash or no trash or is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently);
 
                 if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash);
@@ -2954,7 +2954,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         } else if (itemId == R.string.title_archive) {
                             onActionMoveSelection(EntityFolder.ARCHIVE);
                             return true;
-                        } else if (itemId == R.string.title_delete) {
+                        } else if (itemId == R.string.title_delete_permanently) {
                             onActionDeleteSelection();
                             return true;
                         } else if (itemId == R.string.title_trash) {
