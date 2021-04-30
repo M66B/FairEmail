@@ -335,6 +335,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private static final int MAX_MORE = 100; // messages
+    private static final int MAX_PERMANENT_DELETE = 3; // messages
     private static final int MAX_SEND_RAW = 50; // messages
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
@@ -2883,7 +2884,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
 
-                if (result.isTrash || !result.hasTrash || result.isJunk) // is trash or no trash or is junk
+                if (result.isTrash || !result.hasTrash || result.isJunk ||
+                        ids.length <= MAX_PERMANENT_DELETE) // is trash or no trash or is junk
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
 
                 if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
@@ -3287,6 +3289,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                aargs.putString("remark", getString(R.string.title_no_undo));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
@@ -3667,6 +3670,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                aargs.putString("remark", getString(R.string.title_no_undo));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
