@@ -150,7 +150,7 @@
         android:tooltipText="@string/title_toggle_seen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/twotone_visibility_24" />
+        app:srcCompat="@drawable/twotone_mail_24" />
 
     <include
         android:id="@+id/InAction"

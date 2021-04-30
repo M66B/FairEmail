@@ -2006,7 +2006,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             clearActions();
 
             ibSeenBottom.setImageResource(message.ui_seen
-                    ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
+                    ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24);
             ibSeenBottom.setVisibility(!(message.folderReadOnly || message.uid == null) ||
                     message.accountProtocol == EntityAccount.TYPE_POP
                     ? View.VISIBLE : View.GONE);
