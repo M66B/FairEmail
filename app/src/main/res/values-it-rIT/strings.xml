@@ -169,7 +169,6 @@
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email in modo affidabile</string>
-    <string name="title_setup_doze_hint">Sebbene possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria risulterà in un minore uso della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
@@ -701,7 +700,7 @@
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Scaricamento delle intestazioni</string>
+    <string name="title_op_title_headers">Scaricamento delle intestazioni</string>
     <string name="title_folder_name">Nome della cartella</string>
     <string name="title_display_name">Nome mostrato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>

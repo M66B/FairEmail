@@ -166,7 +166,6 @@
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt</string>
-    <string name="title_setup_doze_hint">Selv om dette kan lyde selvmodsigende, vil deaktivering af batterioptimering resultere i lavere batteriforbrug</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
@@ -690,8 +689,8 @@
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Downloader overskrifter</string>
-    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Downloader besked i råformat</string>
+    <string name="title_op_title_headers">Downloader overskrifter</string>
+    <string name="title_op_title_raw">Downloader besked i råformat</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>

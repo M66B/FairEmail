@@ -157,7 +157,7 @@
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
     <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
     <string name="title_setup_doze_remark">確実にメールを送受信するために必要です</string>
-    <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、バッテリーの最適化をオフにするとバッテリー使用量が少なくなります。</string>
+    <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、このアプリのバッテリー最適化をオフにするとバッテリー使用量が少なくなります</string>
     <string name="title_setup_doze_instructions">次のAndroidダイアログで「最適化されていないアプリ」を「すべてのアプリ」に変更し、このアプリを選択して「最適化しない」を選択します。</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
@@ -689,8 +689,8 @@
     <string name="title_delete_contacts">ローカルにある全ての連絡先を削除しますか？</string>
     <string name="title_no_operations">保留中の操作は有りません</string>
     <string name="title_hint_operations">操作を削除するとメッセージが消え同期の問題が発生する可能性が有ります</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">ヘッダーをダウンロードしています</string>
-    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">未加工メッセージをダウンロードしています</string>
+    <string name="title_op_title_headers">ヘッダーをダウンロードしています</string>
+    <string name="title_op_title_raw">未加工メッセージをダウンロードしています</string>
     <string name="title_folder_name">フォルダー名</string>
     <string name="title_display_name">表示名</string>
     <string name="title_show_folders">隠しフォルダーを表示</string>

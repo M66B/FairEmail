@@ -155,7 +155,6 @@
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
     <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara handal</string>
-    <string name="title_setup_doze_hint">Meskipun ini mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>

@@ -167,7 +167,6 @@
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
     <string name="title_setup_doze_remark">Sähköpostien lähettämiseen ja vastaanottamiseen luotettavasti</string>
-    <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen käytöstä vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>

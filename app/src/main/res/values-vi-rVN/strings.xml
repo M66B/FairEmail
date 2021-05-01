@@ -158,7 +158,6 @@
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
     <string name="title_setup_doze_remark">Để gửi và nhận email một cách đáng tin cậy</string>
-    <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin sẽ gây ra sử dụng pin ít hơn</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
@@ -690,8 +689,8 @@
     <string name="title_delete_contacts">Xoá tất cả liên hệ cục bộ?</string>
     <string name="title_no_operations">Không có hoạt động đang chờ</string>
     <string name="title_hint_operations">Việc xoá các hoạt động có thể dẫn đến biến mất thư và các vấn đề đồng bộ hoá</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Đang tải xuống tiêu đề</string>
-    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Đang tải xuống thư thô</string>
+    <string name="title_op_title_headers">Đang tải xuống tiêu đề</string>
+    <string name="title_op_title_raw">Đang tải xuống thư thô</string>
     <string name="title_folder_name">Tên thư mục</string>
     <string name="title_display_name">Tên hiển thị</string>
     <string name="title_show_folders">Hiện các thư mục ẩn</string>

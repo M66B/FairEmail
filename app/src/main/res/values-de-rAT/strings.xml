@@ -170,7 +170,7 @@
     <string name="title_setup_permissions_remark">Um auf Kontaktinformationen zuzugreifen (optional)</string>
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
     <string name="title_setup_doze_remark">Um Nachrichten zuverlässig zu senden und zu empfangen</string>
-    <string name="title_setup_doze_hint">Auch wenn es widersprüchlich klingt, wird das Ausschalten der Akkuoptimierung zu weniger Akkuverbrauch führen</string>
+    <string name="title_setup_doze_hint">Obwohl dies widersprüchlich klingen mag, führt das Deaktivieren der Akku-Optimierungen für diese App zu einem geringeren Akkuverbrauch</string>
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
@@ -703,8 +703,8 @@
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Kopfzeilen werden heruntergeladen</string>
-    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Rohdaten der Nachricht werden heruntergeladen</string>
+    <string name="title_op_title_headers">Kopfzeilen werden heruntergeladen</string>
+    <string name="title_op_title_raw">Rohdaten der Nachricht werden heruntergeladen</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>

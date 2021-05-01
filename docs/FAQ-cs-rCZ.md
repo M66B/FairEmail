@@ -47,9 +47,9 @@ Související dotazy:
 
 ## Jak na ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* Změna názvu účtu: Nastavení, Ruční nastavení, Účty, účet
 * Změnu chování při tažení vlevo/vpravo: Nastavení, záložka Chování, Nastavit akce tažení prstem
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
+* Změna hesla: Nastavení, Ruční nastavení, Účty, účet, změna hesla
 * Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
 * Přidání CC a BCC adres: stiskněte ikonu lidí na konci řádku s předmětem
 * Přechod na další/předchozí zprávu po archivaci/smazání: v nastavení chování vypněte *Zavírat konverzace automaticky* a pod *Při zavření konverzace* zvolte *Přejít na další/předchozí konverzaci*
@@ -62,7 +62,7 @@ Související dotazy:
 * Undo send: Outbox, swipe the message in the list left or right
 * Ukládání odeslaných zpráv v doručených: přečtěte si prosím [tyto nejčastější dotazy](#user-content-faq142)
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Export/import nastavení: Nastavení, navigace (levá strana) menu
 
 ## Známé problémy
 
@@ -155,7 +155,7 @@ Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze za
 * [(27) Jak odliším vložené obrázky od externích?](#user-content-faq27)
 * [(28) Jak mohu spravovat oznámení ve stavové liště?](#user-content-faq28)
 * [(29) Jak získám oznámení pro nové zprávy z ostatních složek?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
+* [(30) Jak mohu použít poskytnuté rychlé nastavení?](#user-content-faq30)
 * [(31) How can I use the provided shortcuts?](#user-content-faq31)
 * [(32) Jak ověřím, že čtení e-mailu je skutečně bezpečné?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
@@ -255,7 +255,7 @@ Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze za
 * [(129) Jsou ProtonMail, Tutanota podporovány?](#user-content-faq129)
 * [(130) What does message error ... mean?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
+* [(132) Proč jsou oznámení o nových zprávách ztišena?](#user-content-faq132)
 * [(133) Proč není ActiveSync podporován?](#user-content-faq133)
 * [(134) Can you add deleting local messages?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
@@ -446,7 +446,7 @@ If you still want to use an invalid security certificate, an empty password or a
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Jak mohu přizpůsobit zobrazení zpráv?**
 
 In the three dot overflow menu you can enable or disable or select:
 

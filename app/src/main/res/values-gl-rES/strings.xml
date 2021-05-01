@@ -168,7 +168,6 @@
     <string name="title_setup_permissions_remark">Para acceder á información de contacto (opcional)</string>
     <string name="title_setup_doze">Desactivar as optimizacións da batería</string>
     <string name="title_setup_doze_remark">Para recibir e enviar o correo de maneira fiable</string>
-    <string name="title_setup_doze_hint">Aínda que poida soar contraditorio, desactivar as optimizacións da batería podería resultar nun menor uso da batería</string>
     <string name="title_setup_doze_instructions">No seguinte diálogo de Android, cambie de \"Non optimizado\" a \"Todas as apps\", seleccione esta aplicación e logo \"Non optimizar\"</string>
     <string name="title_setup_doze_battery">Uso elevado da batería?</string>
     <string name="title_setup_doze_stopped">Detívose a sincronización?</string>

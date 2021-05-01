@@ -169,7 +169,6 @@
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
     <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη ηλ. μηνυμάτων</string>
-    <string name="title_setup_doze_hint">Αν και μπορεί να ακούγεται αντιφατικό, η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας θα έχει ως αποτέλεσμα λιγότερη χρήση μπαταρίας</string>
     <string name="title_setup_doze_instructions">Στο επόμενο παράθυρο διαλόγου του Android αλλάζετε το \"Μη βελτιστοποιημένες\" σε \"Όλες οι εφαρμογές\", επιλέγετε αυτήν την εφαρμογή και επιλέγετε \"Να μην γίνεται βελτιστοποίηση\"</string>
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
@@ -700,8 +699,8 @@
     <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
     <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Λήψη κεφαλίδων</string>
-    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Λήψη ακατέργαστου μηνύματος</string>
+    <string name="title_op_title_headers">Λήψη κεφαλίδων</string>
+    <string name="title_op_title_raw">Λήψη ακατέργαστου μηνύματος</string>
     <string name="title_folder_name">Όνομα φακέλου</string>
     <string name="title_display_name">Προβαλλόμενο όνομα</string>
     <string name="title_show_folders">Εμφάνιση κρυμμένων φακέλων</string>

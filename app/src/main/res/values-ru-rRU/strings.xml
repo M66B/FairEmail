@@ -191,7 +191,7 @@
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжного получения и отправки электронной почты</string>
-    <string name="title_setup_doze_hint">Хотя это звучит нелогично, отключение оптимизации батареи приведёт к меньшему потреблению заряда</string>
+    <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведёт к сокращению использования заряда батареи</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените «Не оптимизировать» на «Все приложения», выберите это приложение и для него выберите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
@@ -724,8 +724,8 @@
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_hint_operations">Удаление операций может привести к исчезновению сообщений и проблемам синхронизации.</string>
-    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Загрузка заголовков</string>
-    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Загрузка оригинала сообщения</string>
+    <string name="title_op_title_headers">Загрузка заголовков</string>
+    <string name="title_op_title_raw">Загрузка оригинала сообщения</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_show_folders">Показывать скрытые папки</string>

@@ -147,7 +147,6 @@
     <string name="title_setup_identity_what">Hva er en identitet?</string>
     <string name="title_setup_permissions">Gi tillatelser</string>
     <string name="title_setup_permissions_remark">Få tilgang til kontaktinformasjon (valgfritt)</string>
-    <string name="title_setup_doze_hint">Selv om dette kan lyde motstridende, vil det å slå av batterioptimaliseringer føre til mindre batteribruk</string>
     <string name="title_setup_doze_battery">Høy batteriforbruk?</string>
     <string name="title_setup_doze_stopped">Synkroniseringen stoppet?</string>
     <string name="title_setup_data">Datasparing er aktivert</string>
