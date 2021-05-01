@@ -1739,7 +1739,7 @@ public class HtmlHelper {
                 for (int i = 0; i < param.length; i++) {
                     String[] kv = param[i].split("=");
                     if (kv.length == 2) {
-                        switch (kv[0].replace(" ", "").toLowerCase()) {
+                        switch (kv[0].replace(" ", "").toLowerCase(Locale.ROOT)) {
                             case "user-scalable":
                                 kv[1] = "yes";
                                 param[i] = TextUtils.join("=", kv);

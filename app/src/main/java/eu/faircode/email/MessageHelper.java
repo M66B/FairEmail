@@ -2826,9 +2826,9 @@ public class MessageHelper {
         String email1 = ((InternetAddress) a1).getAddress();
         String email2 = ((InternetAddress) a2).getAddress();
         if (email1 != null)
-            email1 = email1.toLowerCase();
+            email1 = email1.toLowerCase(Locale.ROOT);
         if (email2 != null)
-            email2 = email2.toLowerCase();
+            email2 = email2.toLowerCase(Locale.ROOT);
         return Objects.equals(email1, email2);
     }
 

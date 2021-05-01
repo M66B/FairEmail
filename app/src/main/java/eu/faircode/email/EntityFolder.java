@@ -390,7 +390,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
                 return null;
 
             if (attr.startsWith("\\")) {
-                int index = SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1).toLowerCase());
+                int index = SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1).toLowerCase(Locale.ROOT));
                 if (index >= 0)
                     return SYSTEM_FOLDER_TYPE.get(index);
             }

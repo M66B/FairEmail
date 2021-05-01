@@ -31,6 +31,7 @@ import androidx.room.PrimaryKey;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -167,7 +168,7 @@ public class EntityIdentity {
             if (user.equalsIgnoreCase(cemail[0]))
                 return true;
         } else {
-            String input = (sender_extra_regex.contains("@") ? other.toLowerCase() : cother[0]);
+            String input = (sender_extra_regex.contains("@") ? other.toLowerCase(Locale.ROOT) : cother[0]);
             if (Pattern.matches(sender_extra_regex, input))
                 return true;
         }

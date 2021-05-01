@@ -75,6 +75,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.mail.AuthenticationFailedException;
@@ -688,7 +689,7 @@ public class FragmentOAuth extends FragmentBase {
             if (ex instanceof AuthenticationFailedException)
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
 
-            String e = etEmail.getText().toString().toLowerCase();
+            String e = etEmail.getText().toString().toLowerCase(Locale.ROOT);
             if (e.contains("@outlook") ||
                     e.contains("@live") ||
                     e.contains("@hotmail") ||
