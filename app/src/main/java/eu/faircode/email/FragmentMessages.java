@@ -762,7 +762,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 this, type, found, viewType,
                 compact, zoom, sort, ascending, filter_duplicates,
                 iProperties);
-        adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.PREVENT);
+        if (viewType == AdapterMessage.ViewType.THREAD)
+            adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.PREVENT);
         rvMessage.setAdapter(adapter);
 
         sbThread.setOnTouchListener(new View.OnTouchListener() {
