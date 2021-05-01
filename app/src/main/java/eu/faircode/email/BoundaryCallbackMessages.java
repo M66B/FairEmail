@@ -502,6 +502,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                     if (message == null)
                         add.add(m);
+                } catch (FolderClosedException ex) {
+                    throw ex;
                 } catch (Throwable ex) {
                     Log.w(ex);
                     add.add(m);
