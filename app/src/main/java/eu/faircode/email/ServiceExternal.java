@@ -109,7 +109,7 @@ public class ServiceExternal extends Service {
                         }
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        EntityLog.log(context, Log.formatThrowable(ex));
+                        EntityLog.log(context, "External " + Log.formatThrowable(ex));
                     }
                 }
             });

@@ -1428,7 +1428,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Log.formatThrowable(ex, false));
+                                                folder.name + " added " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -1459,7 +1459,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Log.formatThrowable(ex, false));
+                                                folder.name + " removed " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -1485,7 +1485,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Log.formatThrowable(ex, false));
+                                                folder.name + " changed " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -1508,7 +1508,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Log.formatThrowable(ex, false));
+                                                folder.name + " idle " + Log.formatThrowable(ex, false));
                                         state.error(new FolderClosedException(ifolder, "IDLE", new Exception(ex)));
                                     } finally {
                                         Log.i(folder.name + " end idle");
@@ -1752,7 +1752,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                             Log.e(folder.name, ex);
                                                             EntityLog.log(
                                                                     ServiceSynchronize.this,
-                                                                    folder.name + " " + Log.formatThrowable(ex, false));
+                                                                    folder.name + " process " + Log.formatThrowable(ex, false));
                                                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                                             if (!(ex instanceof FolderNotFoundException))
                                                                 state.error(new OperationCanceledException("Process"));
@@ -1923,7 +1923,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     last_fail = ex;
                     Log.e(account.name, ex);
                     EntityLog.log(this,
-                            account.name + " " + Log.formatThrowable(ex, false));
+                            account.name + " connect " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
 
                     // Report account connection error

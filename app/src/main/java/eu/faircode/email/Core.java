@@ -2722,9 +2722,11 @@ class Core {
                             uids.remove(ifolder.getUID(imessages[i]));
                     } catch (MessageRemovedException ex) {
                         Log.w(folder.name, ex);
+                    } catch (FolderClosedException ex) {
+                        throw ex;
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
+                        EntityLog.log(context, folder.name + " expunge " + Log.formatThrowable(ex, false));
                         db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                     }
 
