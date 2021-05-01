@@ -411,10 +411,8 @@ public class ConnectionHelper {
             return false;
         // 501 HELO requires valid address
         // 501 Syntactically invalid HELO argument(s)
-        // 451 4.7.0 Temporary server error. Please try again later. PRX4  [xxx.yyy.prod.outlook.com]
         String message = ex.getMessage().toLowerCase(Locale.ROOT);
-        return message.contains("prx4") ||
-                message.contains("syntactically invalid") ||
+        return message.contains("syntactically invalid") ||
                 message.contains("requires valid address");
     }
 
