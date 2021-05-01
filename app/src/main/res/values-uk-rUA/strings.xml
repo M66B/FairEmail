@@ -977,10 +977,10 @@
     <string name="title_send_receipt">Запит підтвердження отримання</string>
     <string name="title_send_receipt_remark">Більшість постачальників та email клієнтів ігнорують запити на отримання</string>
     <string name="title_from_missing">Відсутній відправник</string>
-    <string name="title_extra_missing">Не вказано ім\'я користувача</string>
-    <string name="title_to_missing">Відсутній отримувач</string>
     <string name="title_pgp_reminder">Доступні PGP ключі</string>
     <string name="title_smime_reminder">Доступні S/MIME ключі</string>
+    <string name="title_to_missing">Відсутній отримувач</string>
+    <string name="title_extra_missing">Не вказано ім\'я користувача</string>
     <string name="title_subject_reminder">Тема не вказана</string>
     <string name="title_text_reminder">Порожнє повідомлення</string>
     <string name="title_attachment_keywords">вкладені, вкладення, вкладення, включене</string>

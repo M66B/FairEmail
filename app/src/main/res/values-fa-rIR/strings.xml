@@ -662,9 +662,9 @@
     <string name="title_send_receipt">درخواست رسید دریافت</string>
     <string name="title_send_receipt_remark">بیشتر فراهم‌کنندگان و کارخواه‌ها، درخواست‌های رسید دریافت را نادیده می‌گیرند</string>
     <string name="title_from_missing">فرستنده وجود ندارد</string>
-    <string name="title_extra_missing">نام کاربری وجود ندارد</string>
-    <string name="title_to_missing">گیرنده وجود ندارد</string>
     <string name="title_pgp_reminder">کلیدهای PGP در دسترس هستند</string>
+    <string name="title_to_missing">گیرنده وجود ندارد</string>
+    <string name="title_extra_missing">نام کاربری وجود ندارد</string>
     <string name="title_subject_reminder">موضوع خالی است</string>
     <string name="title_text_reminder">پیام خالی است</string>
     <string name="title_attachment_reminder">آیا می‌خواستید که یک پیوست اضافه کنید؟</string>

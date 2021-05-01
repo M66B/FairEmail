@@ -300,21 +300,21 @@ Sunt necesare următoarele permisiuni Android:
 
 * *au acces complet la rețea* (INTERNET): pentru a trimite și primi e-mailuri
 * *view network connections* (ACCESS_NETWORK_STATE): pentru a monitoriza schimbările de conectivitate la internet
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
-* *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
-* *in-app billing* (BILLING): to allow in-app purchases
-* *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *run at startup* (RECEIVE_BOOT_COMPLETED): pentru a începe monitorizarea la pornirea dispozitivului
+* *serviciu de prim-plan* (FOREGROUND_SERVICE): pentru a rula un serviciu de prim-plan pe Android 9 Pie și ulterior, vedeți și următoarea întrebare
+* *împiedică dispozitivul să doarmă* (WAKE_LOCK): pentru a menține dispozitivul treaz în timpul sincronizării mesajelor
+* *facturare în aplicație* (BILLING): pentru a permite achiziții în aplicație
+* *programează alarma exactă* (SCHEDULE_EXACT_ALARM): pentru a utiliza programarea exactă a alarmei (Android 12 și ulterior)
+* Opțional: *citiți contactele* (READ_CONTACTS): pentru a completa automat adresele, pentru a afișa fotografiile contactelor și [pentru a alege contactele](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Opțional: *citiți conținutul cardului SD* (READ_EXTERNAL_STORAGE): pentru a accepta fișiere de la alte aplicații, depășite, vezi și [acest FAQ](#user-content-faq49)
+* Opțional: *utilizarea hardware-ului de amprentă digitală* (USE_FINGERPRINT) și utilizarea * hardware-ului biometric* (USE_BIOMETRIC): pentru a utiliza autentificarea biometrică
+* Opțional: *găsiți conturi pe dispozitiv* (GET_ACCOUNTS): pentru a selecta un cont atunci când se utilizează configurarea rapidă a Gmail
+* Android 5.1 Lollipop și versiunile anterioare: *Citește profilul* (READ_PROFILE): pentru a citi numele dvs. atunci când utilizați configurarea rapidă a Gmail (nu este necesar pe versiunile ulterioare de Android)
+* Android 5.1 Lollipop și versiunile anterioare: *Citește profilul* (READ_PROFILE): pentru a citi numele dvs. atunci când utilizați configurarea rapidă a Gmail (nu este necesar pe versiunile ulterioare de Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Permisiunile opționale](https://developer.android.com/training/permissions/requesting) sunt acceptate numai pe Android 6 Marshmallow și următoarele. Pe versiunile anterioare de Android vi se va cere să acordați permisiunile opționale la instalarea FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Următoarele permisiuni sunt necesare pentru a afișa numărul de mesaje necitite sub formă de insignă (a se vedea și [acest FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -333,418 +333,418 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail va păstra o listă cu adresele de la care primești mesaje și la care trimiți mesaje. și va folosi această listă pentru sugestii de contacte atunci când FairEmail nu are permisiuni de contact. Acest lucru înseamnă că puteți utiliza FairEmail fără furnizorul de contacte Android (agendă). Rețineți că puteți alege în continuare contacte fără a acorda permisiuni de contacte pentru FairEmail, numai că sugerarea contactelor nu va funcționa fără permisiuni de contacte.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) De ce este afișată o notificare permanentă?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Se afișează o notificare permanentă pe bara de stare cu prioritate scăzută, cu numărul de conturi monitorizate și numărul de operațiuni în așteptare (a se vedea întrebarea următoare). pentru a împiedica Android să ucidă serviciul care se ocupă de primirea continuă a e-mailurilor. Acest lucru era [deja necesar](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), dar, odată cu introducerea [modului doze](https://developer.android.com/training/monitoring-device-state/doze-standby) în Android 6 Marshmallow, acest lucru este mai mult ca niciodată necesar. Modul Doze va opri toate aplicațiile atunci când ecranul este oprit pentru o anumită perioadă de timp, cu excepția cazului în care aplicația a inițiat un serviciu în prim-plan, ceea ce necesită afișarea unei notificări în bara de stare.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Cele mai multe, dacă nu toate celelalte aplicații de e-mail nu afișează o notificare cu "efectul secundar" că, adesea, mesajele noi nu sunt raportate sau sunt raportate cu întârziere și că mesajele nu sunt trimise sau sunt trimise cu întârziere.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android afișează mai întâi pictogramele notificărilor cu prioritate ridicată din bara de stare și va ascunde pictograma notificării FairEmail dacă nu mai există spațiu pentru a afișa pictogramele. În practică, acest lucru înseamnă că notificarea din bara de stare nu ocupă spațiu în bara de stare, cu excepția cazului în care există spațiu disponibil.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Notificarea din bara de stare poate fi dezactivată prin intermediul setărilor de notificare din FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
-* Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting
+* Android 8 Oreo și versiunile ulterioare: apăsați pe butonul *Canal de recepție* și dezactivați canalul prin intermediul setărilor Android (acest lucru nu va dezactiva notificările de mesaje noi)
+* Android 7 Nougat și înainte: activați *Utilizați serviciul de fundal pentru a sincroniza mesajele*, dar asigurați-vă că citiți observația de sub setare
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Puteți trece la sincronizarea periodică a mesajelor în setările de recepție pentru a elimina notificarea, dar trebuie să știți că acest lucru ar putea consuma mai multă energie din baterie. Consultați [aici](#user-content-faq39) pentru mai multe detalii despre utilizarea bateriei.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo ar putea afișa, de asemenea, o notificare în bara de stare cu textul *Aplicațiile rulează în fundal*. Vă rugăm să consultați [aici](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) despre cum puteți dezactiva această notificare.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Unele persoane au sugerat să utilizați [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) în locul unui serviciu Android cu o notificare în bara de stare, dar acest lucru ar necesita ca furnizorii de e-mail să trimită mesaje FCM sau un server central unde sunt colectate toate mesajele care trimit mesaje FCM. Prima variantă nu se va întâmpla, iar ultima ar avea implicații semnificative asupra vieții private.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Dacă ați ajuns aici făcând clic pe notificare, trebuie să știți că următorul clic va deschide căsuța de primire unificată.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Ce sunt operațiunile și de ce sunt în așteptare?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Notificarea din bara de stare cu prioritate scăzută arată numărul de operațiuni în așteptare, care pot fi:
 
-* *add*: add message to remote folder
-* *move*: move message to another remote folder
-* *copy*: copy message to another remote folder
-* *fetch*: fetch changed (pushed) message
-* *delete*: delete message from remote folder
-* *seen*: mark message as read/unread in remote folder
-* *answered*: mark message as answered in remote folder
-* *flag*: add/remove star in remote folder
-* *keyword*: add/remove IMAP flag in remote folder
-* *label*: set/reset Gmail label in remote folder
-* *headers*: download message headers
-* *raw*: download raw message
-* *body*: download message text
-* *attachment*: download attachment
-* *sync*: synchronize local and remote messages
-* *subscribe*: subscribe to remote folder
-* *purge*: delete all messages from remote folder
-* *send*: send message
-* *exists*: check if message exists
-* *rule*: execute rule on body text
-* *expunge*: permanently delete messages
+* *add*: adaugă mesajul la folderul de la distanță
+* *move*: mută mesajul în alt folder la distanță
+* *copy*: copiază mesajul într-un alt folder la distanță
+* *fetch*: preluarea mesajului modificat (împins)
+* *delete*: șterge mesajul din folderul de la distanță
+* *seen*: marchează mesajul ca fiind citit/necitit în folderul de la distanță
+* *răspuns*: marchează mesajul ca răspuns în folderul de la distanță
+* *flag*: adăugare/eliminare stea în folderul de la distanță
+* *cuvânt cheie*: adăugarea/eliminarea indicatorului IMAP în folderul la distanță
+* *label*: setează/resetează eticheta Gmail în folderul de la distanță
+* *anteturi*: descarcă anteturile mesajului
+* *neprelucrat*: descarcă mesajul original
+* *body*: descarcă textul mesajului
+* *atașament*: descărcare atașament
+* *sincronizare*: sincronizarea mesajelor locale și la distanță
+* *abonare*: abonare la folderul de la distanță
+* *curăţare*: șterge toate mesajele din folderul de la distanță
+* *trimite*: trimite un mesaj
+* *există*: verifică dacă mesajul există
+* *regulă*: execută regula pe corpul textului
+* *expunere*: șterge permanent mesajele
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Operațiunile sunt procesate numai atunci când există o conexiune la serverul de e-mail sau atunci când se efectuează o sincronizare manuală. A se vedea, de asemenea, [acest FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Cum pot folosi un certificat de securitate invalid / o parolă goală / o conexiune în text simplu?**
 
-*... Untrusted ... not in certificate ...*
+*... Neacreditat ... nu este în certificat...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Certificat de securitate invalid (Nu se poate verifica identitatea serverului) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
+Acest lucru poate fi cauzat de utilizarea unui nume de gazdă incorect, așa că mai întâi verificați de două ori numele de gazdă în setările avansate de identitate/cont ( apăsați Configurare manuală). Vă rugăm să consultați documentația furnizorului de e-mail cu privire la numele de gazdă corect.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Ar trebui să încercați să remediați această problemă contactând furnizorul dvs. sau obținând un certificat de securitate valabil deoarece certificatele de securitate nevalabile sunt nesigure și permit [ atacuri de tip "man-in-the-middle" ](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Dacă banii reprezintă un obstacol, puteți obține certificate de securitate gratuite de la [Let's Encrypt](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
+Soluția rapidă, dar nesigură (nerecomandată), este de a activa *Conexiuni nesigure* în setările avansate de identitate (meniul de navigare, atingeți *Settings*, atingeți *Manual setup*, atingeți *Identities*, atingeți identitatea, atingeți *Advanced*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternativ, puteți accepta amprenta digitală a certificatelor de server nevalabile în felul următor:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Asigurați-vă că folosiți o conexiune de internet de încredere (fără rețele Wi-Fi publice etc.)
+1. Accesați ecranul de configurare prin intermediul meniului de navigare (glisați din partea stângă spre interior)
+1. Atingeți Configurare manuală, atingeți Conturi/Identități și atingeți contul și identitatea defecte
+1. Verificarea/salvarea contului și a identității
+1. Bifați caseta de selectare de sub mesajul de eroare și salvați din nou
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Acest lucru va "prinde" certificatul serverului pentru a preveni atacurile de tip man-in-the-middle.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
-
-<br />
-
-*Trust anchor for certification path not found*
-
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
-
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
-
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
-
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
-
-You can pin the certificate too, see above.
+Rețineți că este posibil ca versiunile mai vechi de Android să nu recunoască autoritățile de certificare mai noi, cum ar fi Let's Encrypt, ceea ce face ca conexiunile să fie considerate nesigure, a se vedea, de asemenea, [ aici](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
-*Empty password*
+*Nu s-a găsit ancora de încredere pentru calea de certificare*
 
-Your username is likely easily guessed, so this is insecure.
+*... java.security.cert.CertPathValidatorException: Nu s-a găsit ancora de încredere pentru calea de certificare ...* înseamnă că managerul implicit de încredere Android nu a reușit să verifice lanțul de certificate al serverului.
 
-*Plain text connection*
+Acest lucru se poate datora faptului că certificatul rădăcină nu este instalat pe dispozitivul dvs. sau pentru că lipsesc certificatele intermediare, de exemplu, pentru că serverul de e-mail nu le-a trimis.
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Puteți rezolva prima problemă descărcând și instalând certificatul rădăcină de pe site-ul web al furnizorului de certificate.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+A doua problemă ar trebui să fie rezolvată prin modificarea configurației serverului sau prin importarea certificatelor intermediare pe dispozitiv.
+
+Puteți să fixați și certificatul, a se vedea mai sus.
+
+<br />
+
+*Parolă goală*
+
+Numele dvs. de utilizator este probabil ușor de ghicit, deci acest lucru este nesigur.
+
+*Conexiune în text simplu*
+
+Numele tău de utilizator și parola și toate mesajele vor fi trimise și primite necriptate, ceea ce este **foarte nesigur** deoarece un [man-in-the-middle atac](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) este foarte simplu pe o conexiune necriptată.
+
+Dacă doriți totuși să utilizați un certificat de securitate invalid, o parolă goală sau o conexiune în text simplu va trebui să activați conexiunile nesigure în setările contului și/sau ale identității. STARTTLS trebuie să fie selectat pentru conexiunile de text simplu. Dacă activați conexiunile nesigure, trebuie să vă conectați numai prin intermediul rețelelor private, de încredere și niciodată prin intermediul rețelelor publice, cum ar fi cele oferite în hoteluri, aeroporturi etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Cum pot personaliza vizualizarea mesajelor?**
 
-In the three dot overflow menu you can enable or disable or select:
+În meniul cu trei puncte overflow puteți activa sau dezactiva sau selecta:
 
-* *text size*: for three different font sizes
-* *compact view*: for more condensed message items and a smaller message text font
+* *mărimea textului*: pentru trei mărimi de font diferite
+* *vedere compactă*: pentru elemente de mesaj mai condensate și un font mai mic pentru textul mesajului
 
-In the display section of the settings you can enable or disable for example:
+În secțiunea de afișare a setărilor puteți activa sau dezactiva, de exemplu:
 
-* *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
-* *Tabular style*: to show a linear list instead of cards
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
-* *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
-* *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Bucată de primire unificată*: pentru a dezactiva căsuța de primire unificată și pentru a lista în schimb folderele selectate pentru căsuța de primire unificată
+* *Stilul tabelar*: pentru a afișa o listă liniară în loc de carduri
+* *Grupează după dată*: afișează antetul cu data deasupra mesajelor cu aceeași dată
+* *Transmiterea conversației*: pentru a dezactiva citirea conversației și pentru a afișa în schimb mesaje individuale
+* *Bara de acțiune a conversației*: pentru a dezactiva bara de navigare de jos
+* *Culoare de evidențiere*: pentru a selecta o culoare pentru expeditorul mesajelor necitite
+* *Show contact photos*: pentru a ascunde fotografiile de contact
+* *Show names and email addresses*: pentru a afișa nume sau pentru a afișa nume și adrese de e-mail
+* *Afișează subiectul în italic*: pentru a afișa subiectul mesajului ca text normal
+* *Arată stele*: pentru a ascunde stelele (favorite)
+* *Show message preview*: pentru a afișa 1-4 rânduri din textul mesajului
+* *Show address details by default*: pentru a extinde implicit secțiunea de adrese
+* *Afișarea automată a mesajului original pentru contactele cunoscute*: pentru a afișa automat mesajele originale pentru contactele de pe dispozitiv, vă rugăm să citiți [acest FAQ](#user-content-faq35)
+* *Afișarea automată a imaginilor pentru contactele cunoscute*: pentru a afișa automat imagini pentru contactele de pe dispozitiv, vă rugăm să citiți [acest FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Rețineți că mesajele pot fi previzualizate numai atunci când textul mesajului a fost descărcat. Textele cu mesaje mai mari nu sunt descărcate în mod implicit în rețelele cu contorizare (în general mobile). Puteți modifica acest lucru în setările de conectare.
 
-Some people ask:
+Unii oameni întreabă:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to move the star to the left, but it is much easier to operate the star on the right side
+* pentru a afișa subiectul cu bold, dar boldul este deja folosit pentru a evidenția mesajele necitite
+* pentru a muta steaua spre stânga, dar este mult mai ușor să acționați steaua pe partea dreaptă
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Cum pot să mă conectez la Gmail / G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+Dacă folosiți versiunea FairEmail din Play Store sau GitHub, puteți utiliza expertul de configurare rapidă pentru a configura cu ușurință un cont și o identitate Gmail. Expertul de configurare rapidă Gmail nu este disponibil pentru versiunile terțe, cum ar fi versiunea F-Droid. deoarece Google a aprobat utilizarea OAuth doar pentru compilările oficiale.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Dacă nu doriți sau nu puteți utiliza un cont Google pe dispozitiv, de exemplu pe dispozitivele Huawei recente, puteți fie să activați accesul pentru "aplicații mai puțin sigure" și să folosiți parola contului dvs. (nerecomandat) fie activați autentificarea cu doi factori și utilizați o parolă specifică pentru o aplicație. Pentru a utiliza o parolă, va trebui să configurați un cont și o identitate prin configurarea manuală în loc de expertul de configurare rapidă.
 
-**Important**: sometimes Google issues this alert:
+**Important**: uneori Google emite această alertă:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Vă rugăm să vă conectați prin intermediul browserului dvs. web: https://support.google.com/mail/accounts/answer/78754 (eșec)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Această verificare de securitate Google este declanșată mai des cu *aplicații mai puțin sigure* activate, mai puțin cu o parolă de aplicație și cu greu atunci când se utilizează un cont pe dispozitiv (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Vă rugăm să consultați [acest FAQ](#user-content-faq111) pentru a afla de ce pot fi utilizate doar conturile de pe dispozitiv.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Rețineți că este necesară o parolă specifică aplicației atunci când este activată autentificarea în doi factori.
 
 <br />
 
-*Enable "Less secure apps"*
+*Parolă specifică aplicației*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Consultați [aici](https://support.google.com/accounts/answer/185833) despre cum să generați o parolă specifică aplicației.
 
 <br />
 
-*General*
+*Activați "Aplicații mai puțin sigure"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Important**: utilizarea acestei metode nu este recomandată, deoarece este mai puțin fiabilă.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Important**: Conturile Gsuite autorizate cu un nume de utilizator/parolă nu vor mai funcționa [în viitorul apropiat](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Vedeți [aici](https://support.google.com/accounts/answer/6010255) despre cum să activați "aplicații mai puțin sigure" sau mergeți [direct la setare](https://www.google.com/settings/security/lesssecureapps).
+
+Dacă utilizați mai multe conturi Gmail, asigurați-vă că modificați setarea "Aplicații mai puțin sigure" a contului (conturilor) potrivit.
+
+Rețineți că trebuie să părăsiți ecranul de setări "aplicații mai puțin sigure" folosind săgeata înapoi pentru a aplica setările.
+
+Dacă utilizați această metodă, ar trebui să folosiți o parolă [puternică](https://en.wikipedia.org/wiki/Password_strength) pentru contul dvs. de Gmail, ceea ce este oricum o idee bună. Rețineți că utilizarea protocolului [standard](https://tools.ietf.org/html/rfc3501) IMAP în sine nu este mai puțin sigură.
+
+Atunci când opțiunea "Aplicații mai puțin sigure" nu este activată, veți primi eroarea *Autentificare eșuată - acreditări invalide* pentru conturi (IMAP) și *Nume de utilizator și parolă neacceptate* pentru identități (SMTP).
+
+<br />
+
+*Informații generale*
+
+Este posibil să primiți alerta "*Vă rugăm să vă conectați prin intermediul browserului web*". Acest lucru se întâmplă atunci când Google consideră că rețeaua care vă conectează la internet (poate fi un VPN) nu este sigură. Acest lucru poate fi evitat prin utilizarea asistentului de configurare rapidă Gmail sau a unei parole specifice aplicației.
+
+Vedeți [aici](https://support.google.com/mail/answer/7126229) pentru instrucțiunile de la Google și [aici](https://support.google.com/mail/accounts/answer/78754) pentru depanare.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) De ce mesajele trimise nu apar (direct) în dosarul trimis?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+În mod normal, mesajele trimise sunt mutate din căsuța de ieșire în dosarul de expediere imediat ce furnizorul dvs. adaugă mesajele trimise în dosarul de expediere. Acest lucru necesită selectarea unui dosar trimis în setările contului, iar dosarul trimis trebuie să fie setat pentru sincronizare.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Unii furnizori nu țin evidența mesajelor trimise sau este posibil ca serverul SMTP utilizat să nu aibă legătură cu furnizorul. În aceste cazuri, FairEmail, va adăuga automat mesajele trimise la dosarul trimis la sincronizarea dosarului trimis, care va avea loc după ce un mesaj a fost trimis. Rețineți că acest lucru va avea ca rezultat un trafic de internet suplimentar.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Dacă acest lucru nu se întâmplă, este posibil ca furnizorul dumneavoastră să nu țină evidența mesajelor trimise sau să folosiți un server SMTP care nu are legătură cu furnizorul.~~ ~~În aceste cazuri puteți activa setarea de identitate avansată *Stocarea mesajelor trimise* pentru a permite FairEmail să adauge mesajele trimise în folderul de mesaje trimise imediat după trimiterea unui mesaj.~~ ~~Rețineți că activarea acestei setări ar putea duce la duplicarea mesajelor dacă furnizorul dvs. adaugă și mesajele trimise în folderul de mesaje trimise.~~ ~~Atenție, de asemenea, că activarea acestei setări va duce la o utilizare suplimentară a datelor, în special atunci când trimiteți mesaje cu atașamente mari.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Dacă mesajele trimise din căsuța de ieșire nu sunt găsite în dosarul trimis la o sincronizare completă, acestea vor fi mutate și din căsuța de ieșire în dosarul trimis.~~ ~~O sincronizare completă are loc la reconectarea la server sau la sincronizarea periodică sau manuală.~~ ~~ Probabil că veți dori să activați în schimb setarea avansată *Stocare mesaje trimise* pentru a muta mai repede mesajele în dosarul trimis.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Pot folosi un cont Microsoft Exchange?**
 
-The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
+Protocolul Microsoft Exchange Web Services [este în curs de eliminare progresivă](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). Prin urmare, nu prea mai are sens să se adauge acest protocol.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Puteți utiliza un cont Microsoft Exchange dacă acesta este accesibil prin IMAP, ceea ce este în general cazul. Consultați [aici](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) pentru mai multe informații.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Rețineți că descrierea lui FairEmail începe cu observația că protocoalele non-standard, cum ar fi Microsoft Exchange Web Services și Microsoft ActiveSync, nu sunt acceptate.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Vă rugăm să consultați [aici](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) pentru documentația Microsoft privind configurarea unui client de e-mail. Există, de asemenea, o secțiune despre erorile comune de conectare și soluții.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Unele versiuni mai vechi ale serverului Exchange au o eroare care provoacă mesaje goale și atașamente corupte. Vă rugăm să consultați [acest FAQ](#user-content-faq110) pentru o soluție de rezolvare.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Vă rugăm să consultați [acest FAQ](#user-content-faq133) despre suportul ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Vă rugăm să consultați [acest FAQ](#user-content-faq111) despre suportul OAuth.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Ce sunt identitățile / cum pot adăuga un alias?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Identitățile reprezintă adresele de e-mail pe care le trimiteți *de la* prin intermediul unui server de e-mail (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Unii furnizori vă permit să aveți mai multe pseudonime. Le puteți configura prin setarea câmpului de adresă de e-mail al unei identități suplimentare la adresa alias-ului și setarea câmpului nume de utilizator la adresa dvs. de e-mail principală.
 
-Note that you can copy an identity by long pressing it.
+Rețineți că puteți copia o identitate prin apăsarea lungă a acesteia.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Alternativ, puteți activa *Permiterea editării adresei expeditorului* în setările avansate ale unei identități existente pentru a edita numele de utilizator atunci când compuneți un mesaj nou, dacă furnizorul dvs. permite acest lucru.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail va actualiza automat parolele identităților conexe atunci când actualizați parola contului asociat sau a unei identități conexe.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Consultați [acest FAQ](#user-content-faq33) privind editarea numelui de utilizator al adreselor de e-mail.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) Ce înseamnă "UIDPLUS nu este suportat"?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~Mesajul de eroare *UIDPLUS nu este acceptat* înseamnă că furnizorul dvs. de e-mail nu oferă extensia IMAP [UIDPLUS](https://tools.ietf.org/html/rfc4315). Această extensie IMAP este necesară pentru a implementa sincronizarea bidirecțională, care nu este o caracteristică opțională. Deci, cu excepția cazului în care furnizorul dvs. poate activa această extensie, nu puteți utiliza FairEmail pentru acest furnizor.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~~(11) De ce nu este acceptat POP?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~În afară de faptul că orice furnizor de e-mail decent suportă [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) în aceste zile,~~ ~~ utilizarea [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) va duce la o utilizare suplimentară inutilă a bateriei și la notificări întârziate ale mesajelor noi.~~ ~~În plus, POP este nepotrivit pentru sincronizarea bidirecțională și de cele mai multe ori oamenii citesc și scriu mesaje pe dispozitive diferite în zilele noastre.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~În principiu, POP acceptă doar descărcarea și ștergerea mesajelor din căsuța de primire.~~ ~~Astfel, nu este posibilă efectuarea unor operații obișnuite, cum ar fi setarea atributelor mesajelor (citit, cu stele, răspuns, etc.), adăugarea (backup) și mutarea mesajelor.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Vezi și [ce scrie Google despre asta](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~De exemplu [Gmail poate importa mesaje](https://support.google.com/mail/answer/21289) dintr-un alt cont POP,~~ ~~care poate fi folosit ca o soluție de avarie atunci când furnizorul tău nu suportă IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~tl;dr; ia în considerare pentru a trece la IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Cum funcționează criptarea/decriptarea?**
 
-Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+Comunicarea cu serverele de e-mail este întotdeauna criptată, cu excepția cazului în care ați dezactivat acest lucru în mod explicit. Această întrebare se referă la criptarea opțională end-to-end cu PGP sau S/MIME. Expeditorul și destinatarul trebuie mai întâi să cadă de acord asupra acestui lucru și să facă schimb de mesaje semnate pentru a-și transfera cheia publică pentru a putea trimite mesaje criptate.
 
 <br />
 
-*General*
+*Informații generale*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Vă rugăm să [vezi aici](https://en.wikipedia.org/wiki/Public-key_cryptography) despre cum funcționează criptarea cu cheie publică/privată.
 
-Encryption in short:
+Criptarea pe scurt:
 
-* **Outgoing** messages are encrypted with the **public key** of the recipient
-* **Incoming** messages are decrypted with the **private key** of the recipient
+* **Mesajele de ieșire** sunt criptate cu **cheia publică** a destinatarului
+* **Mesajele primite** sunt decriptate cu **cheia privată** a destinatarului
 
-Signing in short:
+Semnarea pe scurt:
 
-* **Outgoing** messages are signed with the **private key** of the sender
-* **Incoming** messages are verified with the **public key** of the sender
+* **Mesajele de ieșire** sunt semnate cu **cheia privată** a expeditorului
+* **Mesajele primite** sunt verificate cu **cheia publică** a expeditorului
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Pentru a semna/cripta un mesaj, trebuie doar să selectați metoda corespunzătoare în fereastra de dialog de trimitere. Puteți oricând să deschideți dialogul de trimitere folosind meniul de suprapunere cu trei puncte, în cazul în care ați selectat *Don't show again* înainte.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Pentru a verifica o semnătură sau pentru a decripta un mesaj primit, deschideți mesajul și atingeți pictograma de gest sau de lacăt aflată chiar sub bara de acțiune a mesajului.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Prima dată când trimiteți un mesaj semnat/criptat este posibil să vi se ceară o cheie de semnare. FairEmail va stoca automat cheia de semnare selectată în identitatea utilizată pentru data viitoare. Dacă aveți nevoie să resetați cheia de semnătură, trebuie doar să salvați identitatea sau să apăsați lung pe identitatea din lista de identități și să selectați *Reset sign key*. Cheia de semnătură selectată este vizibilă în lista de identități. Dacă aveți nevoie să selectați o cheie de la caz la caz, puteți crea mai multe identități pentru același cont cu aceeași adresă de e-mail.
 
-In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
+În setările de criptare puteți selecta metoda de criptare implicită (PGP sau S/MIME), activați *Semnare implicită*, *Criptare implicită* și *Decriptare automată a mesajelor*, dar rețineți că decriptarea automată nu este posibilă dacă este necesară interacțiunea utilizatorului, cum ar fi selectarea unei chei sau citirea unui token de securitate.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+Textul/atașamentele mesajelor care urmează să fie criptate și textul/atașamentele mesajelor decriptate sunt stocate numai la nivel local și nu vor fi adăugate niciodată pe serverul de la distanță. Dacă doriți să anulați decriptarea, puteți utiliza elementul de meniu *resync* din meniul cu trei puncte din bara de acțiune a mesajului.
 
 <br />
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Va trebui să instalați și să configurați mai întâi [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/). FairEmail a fost testat cu OpenKeychain versiunea 5.4. Versiunile ulterioare vor fi cel mai probabil compatibile, dar este posibil ca versiunile anterioare să nu fie compatibile.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Important**: se știe că aplicația OpenKeychain se blochează (în tăcere) atunci când aplicația apelantă (FairEmail) nu este încă autorizată și primește o cheie publică existentă. Puteți rezolva această problemă încercând să trimiteți un mesaj semnat/criptat către un expeditor cu o cheie publică necunoscută.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
+**Important**: dacă aplicația OpenKeychain nu (mai) poate găsi o cheie, este posibil să fie nevoie să resetați o cheie selectată anterior. Acest lucru se poate face prin apăsarea lungă a unei identități din lista de identități (Setări, atingeți Configurare manuală, atingeți Identități).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Important**: pentru a permite aplicațiilor precum FairEmail să se conecteze în mod fiabil la serviciul OpenKeychain pentru a cripta/decripta mesajele, ar putea fi necesar să dezactivați optimizările de baterie pentru aplicația OpenKeychain.
 
-**Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
+**Important**: se pare că aplicația OpenKeychain are nevoie de permisiunea contactelor pentru a funcționa corect.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Important**: pe unele versiuni / dispozitive Android este necesar să se activeze *Afișează ferestrele pop-up în timp ce rulează în fundal* în permisiunile suplimentare din setările aplicației Android ale aplicației OpenKeychain. Fără această permisiune, proiectul va fi salvat, dar este posibil să nu apară fereastra pop-up OpenKeychain pentru confirmare/selectare.
 
-FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail va trimite antetul [Autocrypt](https://autocrypt.org/) pentru a fi folosit de alți clienți de e-mail, dar numai pentru mesajele semnate și criptate, deoarece prea multe servere de e-mail au probleme cu antetul Autocrypt, care este adesea lung. Rețineți că cel mai sigur mod de a începe un schimb de e-mailuri criptate este de a trimite mai întâi mesaje semnate. Antetele Autocrypt primite vor fi trimise către aplicația OpenKeychain pentru a fi stocate la verificarea unei semnături sau la decriptarea unui mesaj.
 
-Although this shouldn't be necessary for most email clients, you can attach your public key to a message and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
+Deși acest lucru nu ar trebui să fie necesar pentru majoritatea clienților de e-mail, puteți atașa cheia dvs. publică la un mesaj și dacă folosiți *.key* ca extensie, tipul mime va fi corect *application/pgp-keys*.
 
-All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
+Din motive de securitate, toată gestionarea cheilor este delegată aplicației OpenKey chain. Acest lucru înseamnă, de asemenea, că FairEmail nu stochează chei PGP.
 
-Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+Se acceptă PGP criptat în linie în mesajele primite, dar nu se acceptă semnăturile PGP în linie și PGP în linie în mesajele de ieșire, a se vedea [aici](https://josefsson.org/inline-openpgp-considered-harmful.html) despre motivul pentru care nu se acceptă.
 
-Signed-only or encrypted-only messages are not a good idea, please see here about why not:
+Mesajele doar semnate sau doar criptate nu sunt o idee bună; vedeți aici de ce nu:
 
-* [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
-* [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
-* [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+* [Considerații privind OpenPGP Partea I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
+* [Considerații privind OpenPGP Partea II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
+* [Considerații privind OpenPGP Partea a III-a Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+Sunt acceptate doar mesajele semnate, iar mesajele criptate nu sunt acceptate.
 
-Common errors:
+Erori frecvente:
 
-* *No key*: there is no PGP key available for one of the listed email addresses
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
-* *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
+* *Nici o cheie*: nu există o cheie PGP disponibilă pentru una dintre adresele de e-mail listate
+* *Ceava lipsă pentru criptare*: există probabil o cheie selectată în FairEmail care nu mai există în aplicația OpenKeychain. Resetarea cheii (a se vedea mai sus) va rezolva probabil această problemă.
+* *Key for signature verification is missing*: cheia publică pentru expeditor nu este disponibilă în aplicația OpenKeychain. Acest lucru poate fi cauzat și de faptul că Autocrypt este dezactivat în setările de criptare sau că antetul Autocrypt nu este trimis.
 
 <br />
 
 *S/MIME*
 
-Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
+Criptarea unui mesaj necesită cheia (cheile) publică a destinatarului (destinatarilor). Semnarea unui mesaj necesită cheia dvs. privată.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the encryption settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Cheile private sunt stocate de Android și pot fi importate prin intermediul setărilor avansate de securitate Android. Există o comandă rapidă (buton) pentru aceasta în setările de criptare. Android vă va cere să setați un PIN, un model sau o parolă, dacă nu ați făcut-o până acum. Dacă aveți un dispozitiv Nokia cu Android 9, vă rugăm să [citiți mai întâi acest lucru](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
-Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
+Rețineți că certificatele pot conține mai multe chei pentru mai multe scopuri, de exemplu pentru autentificare, criptare și semnare. Android importă doar prima cheie, astfel încât, pentru a importa toate cheile, certificatul trebuie mai întâi să fie divizat. Acest lucru nu este foarte banal și vă sfătuim să solicitați asistență din partea furnizorului de certificate.
 
-Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
+Rețineți că este acceptată semnarea S/MIME  cu alți algoritmi decât RSA, dar rețineți că este posibil ca alți clienți de e-mail să nu accepte acest lucru. Criptarea S/MIME este posibilă numai cu algoritmi simetrici, ceea ce înseamnă, în practică, utilizarea RSA.
 
-The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
+Metoda de criptare implicită este PGP, dar ultima metodă de criptare utilizată va fi reținută pentru identitatea selectată pentru următoarea dată. Puteți apăsa lung pe butonul de trimitere pentru a schimba metoda de criptare pentru o identitate. Dacă utilizați atât criptarea PGP, cât și S/MIME pentru aceeași adresă de e-mail, ar putea fi util să copiați identitatea, astfel încât să puteți schimba metoda de criptare prin selectarea uneia dintre cele două identități. Puteți apăsa lung pe o identitate din lista de identități (prin configurare manuală în ecranul principal de configurare) pentru a copia o identitate.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+Pentru a permite chei private diferite pentru aceeași adresă de e-mail, FairEmail vă va permite întotdeauna să selectați o cheie atunci când există mai multe identități cu aceeași adresă de e-mail pentru același cont.
 
-Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
+Cheile publice sunt stocate de FairEmail și pot fi importate atunci când se verifică o semnătură pentru prima dată sau prin intermediul setărilor de criptare (format PEM sau DER).
 
-FairEmail verifies both the signature and the complete certificate chain.
+FairEmail verifică atât semnătura, cât și întregul lanț de certificate.
 
-Common errors:
+Erori frecvente:
 
-* *No certificate found matching targetContraints*: this likely means you are using an old version of FairEmail
-* *unable to find valid certification path to requested target*: basically this means one or more intermediate or root certificates were not found
-* *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
-* *No private key*: no certificate was selected or no certificate was available in the Android keystore
+* *Niciun certificat găsit care să corespundă cu targetContraints*: acest lucru înseamnă probabil că folosiți o versiune veche a FairEmail
+* *unable to find valid certification path to requested target*: în principiu asta înseamnă că unul sau mai multe certificate intermediare sau rădăcină nu au fost găsite
+* *Cheia privată nu se potrivește cu nicio cheie de criptare*: cheia selectată nu poate fi utilizată pentru decriptarea mesajului, probabil pentru că este o cheie incorectă
+* *Nici o cheie privată*: nu a fost selectat niciun certificat sau nu era disponibil niciun certificat în keystore-ul Android
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+În cazul în care lanțul de certificate este incorect, puteți apăsa pe butonul mic de informații pentru a afișa toate certificatele. După detaliile certificatului este afișat emitentul sau "selfSign". Un certificat este autofirmat atunci când subiectul și emitentul sunt identice. Certificatele de la o autoritate de certificare (CA) sunt marcate cu "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificatele găsite în magazinul de chei Android sunt marcate cu "Android".
 
-A valid chain looks like this:
-
-```
-Your certificate > zero or more intermediate certificates > CA (root) certificate marked with "Android"
-```
-
-Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
-
-Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
-
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
-
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
-
-How to extract a public key from a S/MIME certificate:
+Un lanț valid arată în felul următor:
 
 ```
-openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
+Certificatul dumneavoastră > zero sau mai multe certificate intermediare > certificatul CA (root) marcat cu "Android"
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Rețineți că un lanț de certificate va fi întotdeauna invalid atunci când nu se găsește niciun certificat de ancorare în magazinul de chei Android, ceea ce este fundamental pentru validarea certificatelor S/MIME.
+
+Vă rugăm să vedeți [aici](https://support.google.com/pixelphone/answer/2844832?hl=en) cum puteți importa certificate în magazinul de chei Android.
+
+Nu se acceptă utilizarea cheilor expirate, a mesajelor criptate/semnate în linie și a token-urilor de securitate hardware.
+
+Dacă sunteți în căutarea unui certificat S/MIME gratuit (de test), consultați [ aici](http://kb.mozillazine.org/Getting_an_SMIME_certificate) pentru opțiuni. Vă rugăm să vă asigurați că [citiți acest lucru mai întâi](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) dacă doriți să solicitați un certificat S/MIME Actalis. Dacă sunteți în căutarea unui certificat S/MIME ieftin, am avut o experiență bună cu [Certum](https://www.certum.eu/en/smime-certificates/).
+
+Cum se extrage o cheie publică dintr-un certificat S/MIME:
+
+```
+openssl pkcs12 -in filename.pfx/p12 -nokeys -nokeys -out cert.pem
+```
+
+Puteți decoda semnăturile S/MIME, etc., [ aici](https://lapo.it/asn1js/).
 
 <br />
 
-*pretty Easy privacy*
+*destul de intimitate Easy*
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people are using it.
+Încă nu există [nici un standard aprobat](https://tools.ietf.org/id/draft-birk-pep-00.html) pentru confidențialitatea destul de ușoară (p≡p) și nu sunt mulți cei care îl folosesc.
 
-However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p. Also, FairEmail understands incoming p≡p messages since version 1.1519, so the encrypted subject will be shown and the embedded message text will be shown more nicely.
+Cu toate acestea, FairEmail poate trimite și primi mesaje criptate PGP, care sunt compatibile cu p≡p. De asemenea, FairEmail înțelege mesajele p≡p primite începând cu versiunea 1.1519, astfel încât subiectul criptat va fi afișat și textul mesajului încorporat va fi afișat mai frumos.
 
 <br />
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+Semnarea/cifrarea S/MIME este o caracteristică pro, dar toate celelalte operațiuni PGP și S/MIME sunt gratuite.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Cum funcționează căutarea pe dispozitiv/server?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Puteți începe căutarea mesajelor în funcție de expeditor (de la), destinatar (la, cc, bcc), subiect, cuvinte cheie sau textul mesajului utilizând lupa din bara de acțiune a unui dosar. De asemenea, puteți efectua căutări din orice aplicație selectând *Cercetare e-mail* în meniul pop-up copy/paste.
 
-Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
+Căutarea în căsuța de primire unificată va căuta în toate dosarele din toate conturile, căutarea în lista de dosare va căuta numai în contul asociat. iar căutarea într-un dosar va căuta numai în dosarul respectiv.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Mesajele vor fi căutate mai întâi pe dispozitiv. În partea de jos va exista un buton de acțiune cu o pictogramă de căutare din nou pentru a continua căutarea pe server. Puteți selecta în ce dosar să continuați căutarea.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+Protocolul IMAP nu acceptă căutarea în mai mult de un dosar în același timp. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
 
 Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 

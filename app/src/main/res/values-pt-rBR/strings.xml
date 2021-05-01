@@ -937,9 +937,9 @@
     <string name="title_send_receipt">Solicitar recibo</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
     <string name="title_from_missing">Remetente faltante</string>
-    <string name="title_extra_missing">Nome de usuário ausente</string>
-    <string name="title_to_missing">Destinatário faltante</string>
     <string name="title_pgp_reminder">Chaves PGP disponíveis</string>
+    <string name="title_to_missing">Destinatário faltante</string>
+    <string name="title_extra_missing">Nome de usuário ausente</string>
     <string name="title_subject_reminder">Assunto está vazio</string>
     <string name="title_text_reminder">A mensagem está em branco</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluídos</string>

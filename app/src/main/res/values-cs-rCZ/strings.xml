@@ -722,6 +722,8 @@
     <string name="title_delete_contacts">Smazat všechny lokální kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>
+    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Stahování záhlaví</string>
+    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Stahování zdrojové zprávy</string>
     <string name="title_folder_name">Název složky</string>
     <string name="title_display_name">Zobrazované jméno</string>
     <string name="title_show_folders">Zobrazit skryté složky</string>
@@ -840,6 +842,7 @@
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
     <string name="title_report_spam">Považovat za nevyžádané</string>
     <string name="title_delete_permanently">Trvale smazat</string>
+    <string name="title_no_undo">Toto nelze vrátit zpět!</string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
@@ -992,10 +995,10 @@
     <string name="title_send_receipt">Požádat o potvrzení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_from_missing">Chybí odesílatel</string>
-    <string name="title_extra_missing">Chybí uživatelské jméno</string>
-    <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_pgp_reminder">PGP klíče k dispozici</string>
     <string name="title_smime_reminder">S/MIME klíče k dispozici</string>
+    <string name="title_to_missing">Chybí příjemce</string>
+    <string name="title_extra_missing">Chybí uživatelské jméno</string>
     <string name="title_subject_reminder">Chybí předmět</string>
     <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>

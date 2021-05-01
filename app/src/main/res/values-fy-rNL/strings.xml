@@ -565,6 +565,7 @@
     <string name="title_advanced_sender_name">Gebrûk namme at ferstjoerderadres oanpasse is</string>
     <string name="title_advanced_sender_regex">Regex om oerien te nimmen mei brûkersnamme fan ynkommende emailadressen</string>
     <string name="title_identity_reply_to">Antwurdzje op adres</string>
+    <string name="title_identity_internal">Ynterne domeinnammen (komma skieden)</string>
     <string name="title_identity_unicode">Brûk Unicode-ferfier</string>
     <string name="title_identity_unicode_remark">De measte servers stypje dit net</string>
     <string name="title_identity_max_size">Maksimum berjochtengrutte (MB)</string>
@@ -815,6 +816,7 @@
     <string name="title_move_to_account">Ferhúzje nei %1$s &#8230;</string>
     <string name="title_report_spam">Behannelje as spam</string>
     <string name="title_delete_permanently">Wiskje permanint</string>
+    <string name="title_no_undo">Dit kin net ûngedien wurde!</string>
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Argyf</string>
     <string name="title_reply">Antwurdzje</string>
@@ -967,10 +969,10 @@
     <string name="title_send_receipt">Untfange oanfreegje</string>
     <string name="title_send_receipt_remark">Ûntfangstoanfragen wurde troch measte oanbieders en emailliïnten negeare</string>
     <string name="title_from_missing">Ofstjoerder mist</string>
-    <string name="title_extra_missing">Brûkersnamme ûntbrekt</string>
-    <string name="title_to_missing">Untfanger ûntbrekt</string>
     <string name="title_pgp_reminder">PGP-kaaien beskikber</string>
     <string name="title_smime_reminder">S/MIME-kaaien beskikber</string>
+    <string name="title_to_missing">Untfanger ûntbrekt</string>
+    <string name="title_extra_missing">Brûkersnamme ûntbrekt</string>
     <string name="title_subject_reminder">Underwerp is leech</string>
     <string name="title_text_reminder">Berjocht is leech</string>
     <string name="title_attachment_keywords">taheakke,taheaksel,taheaksels,opnommen</string>

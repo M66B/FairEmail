@@ -1637,40 +1637,40 @@ Inline-Anhänge (Bilder) werden verdunkelt angezeigt. [Inline-Anhänge](https://
 <a name="faq66" mark="crwd-mark"></a>
 **(66) Ist FairEmail in der Google-Play-Familienmediathek verfügbar?**
 
-"*Sie können In-App-Käufe und kostenlose Apps nicht mit Ihren Familienmitgliedern teilen.*"
+*Sie können In-App-Käufe und kostenlose Apps nicht mit Ihren Familienmitgliedern teilen.*
 
-Siehe [hier](https://support.google.com/googleone/answer/7007852) unter "*Sehen Sie, ob Inhalte berechtigt sind, zur Familienbibliothek hinzugefügt zu werden*", "*Apps & Spiele*".
+Unter *[»Feststellen, ob Inhalte hinzugefügt werden können«](https://support.google.com/googleone/answer/7007852)* und *»Apps und Spiele«*, sehen Sie, ob Inhalte berechtigt sind, zur Familienmediathek hinzugefügt zu werden.
 
 <br />
 
 <a name="faq67" mark="crwd-mark"></a>
-**(67) Wie kann ich Konversationen schlummern lassen?**
+**(67) Wie kann ich Unterhaltungen zurückstellen?**
 
-Wählen Sie eine oder mehrere Konversationen mehrfach aus (drücken Sie lange, um die Mehrfachauswahl zu starten), tippen Sie auf die Drei-Punkte-Taste und wählen Sie *Schlummern ...*. Alternativ verwenden Sie in der erweiterten Nachrichtenansicht *Schlummern ...* im Drei-Punkte-Menü "Mehr" der Nachricht oder die Zeitrafferaktion in der unteren Aktionsleiste. Wählen Sie die Zeit aus, die das/die Gespräch(e) schlummern soll(en), und bestätigen Sie mit Tippen auf OK. Die Konversationen werden die ausgewählte Zeit versteckt and danach wieder angezeigt. Sie werden eine neue Benachrichtigung als Erinnerung erhalten.
+Wählen Sie eine oder mehrere Unterhaltungen aus (drücken Sie lange, um die Mehrfachauswahl zu starten), tippen Sie auf die Drei-Punkte-Taste und wählen Sie *Zurückstellen …*. Alternativ in der erweiterten Nachrichtenansicht *Zurückstellen …* im Drei-Punkte-Menü der Nachricht oder die Zeitrafferaktion in der unteren Aktionsleiste. Wählen Sie die Zeit, welche die Unterhaltung(en) zurückgestellt werden soll, und bestätigen dieses, indem Sie auf OK klicken. Die Unterhaltungen werden für die gewählte Zeit ausgeblendet und anschließend wieder angezeigt. Sie werden eine neue Benachrichtigung als Erinnerung erhalten.
 
-Es ist auch möglich eine Nachricht mit [einer Regel](#user-content-faq71) schlummern zu lassen. Dies erlaubt Ihnen auch Nachrichten in einen Ordner zu verschieben, um sie automatisch schlummern zu lassen.
+Es ist auch möglich, Nachrichten mit [einer Regel](#user-content-faq71) zurückzustellen, mit der Sie auch Nachrichten in einen Ordner verschieben können, damit sie automatisch zurückgestellt werden.
 
-Sie können schlummernde Nachrichten anzeigen, indem Sie *Filtern* > *Ausblenden* im Drei-Punkte-Auswahlmenü abwählen.
+Sie können zurückgestellte Nachrichten anzeigen, indem Sie *Filtern* > *Ausblenden* im Drei-Punkte-Auswahlmenü abwählen.
 
-Sie können das kleine Symbol „Zurückstellen” antippen, um anzuzeigen, bis zu welchem Zeitpunkt eine Konversation zurückgestellt wurde.
+Sie können das kleine Symbol „Zurückstellen” antippen, um anzuzeigen, bis zu welchem Zeitpunkt eine Unterhaltung zurückgestellt wurde.
 
-Durch Auswahl einer Dauer von Null, können Sie das Zurückstellen abbrechen.
+Durch Auswahl einer Null, können Sie das Zurückstellen abbrechen.
 
-Drittanbieter-Apps haben bei Google Mail keinen Zugriff auf den Nachrichtenordner für schlummernde Nachrichten.
+Drittanbieter-Apps haben bei Gmail keinen Zugriff auf den Nachrichtenordner für zurückgestellte Nachrichten.
 
 <br />
 
 <a name="faq68" mark="crwd-mark"></a>
-**~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / könne Microsoft-Apps keine angehängten Dokumente öffnen?~**
+**~~(68) Warum kann Adobe-Acrobat-Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~**
 
-~~Adobe Acrobat Reader und Microsoft-Apps erwarten weiterhin vollen Zugriff auf alle gespeicherten Dateien,~~ ~~während Apps seit Android KitKat (2013)~~ das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwenden sollten, ~~ ~~um nur auf aktiv freigegebene Dateien zugreifen zu können. This is for privacy and security reasons.~~
+~~Adobe Acrobat Reader und Microsoft-Apps erwarten weiterhin vollen Zugriff auf alle gespeicherten Dateien,~~ ~~während Apps seit Android KitKat (2013)~~ das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwenden sollten, ~~ ~~um nur auf aktiv freigegebene Dateien zugreifen zu können. Dieses ist aus Gründen der Privatsphäre und Sicherheit so.~~
 
 ~~Sie können dies umgehen, indem Sie den Anhang speichern und ihn mit dem Adobe Acrobat Reader / der Microsoft-App öffnen,~~ ~~aber es wird empfohlen, einen aktuellen und vorzugsweise quelloffenen PDF-Reader / Dokumentenbetrachter zu installieren,~~ ~~zum Beispiel einen, der [hier](https://github.com/offa/android-foss#-document--pdf-viewer) aufgelistet ist.~~
 
 <br />
 
 <a name="faq69" mark="crwd-mark"></a>
-**(69) Can you add auto scroll up on new message?**
+**(69) Kannst du automatisches Hochscrollen bei Erhalt einer neuen Nachricht hinzufügen?**
 
 Die Nachrichtenliste wird automatisch nach oben gescrollt, wenn Sie von einer neuen Nachrichtenbenachrichtigung oder nach einer manuellen Aktualisierung navigieren. Immer automatisch nach oben scrollen, wenn neue Nachrichten erscheinen, würde Ihr eigenes Scrollen stören, aber wenn Sie wünschen, können Sie dies in den Einstellungen aktivieren.
 
@@ -1723,14 +1723,14 @@ Beachten Sie, dass E-Mail-Adressen wie folgt formatiert sind:
 
 Sie können mehrere Regeln verwenden, möglicherweise mit einer *Stop-Verarbeitung*, für eine *oder* oder eine *nicht* Bedingung.
 
-Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). Bitte siehe [hier](https://developer.android.com/reference/java/util/regex/Pattern) für die Dokumentation regulärer Java-Ausdrücke. Du kannst eine RegEx [hier](https://regexr.com/) testen.
+Bei der Bedingungs-Prüfung wird keine Groß-/Kleinschreibung beachtet, es sei denn, Sie verwenden [reguläre Ausdrücke](https://en.wikipedia.org/wiki/Regular_expression). Bitte siehe [hier](https://developer.android.com/reference/java/util/regex/Pattern) für die Dokumentation regulärer Java-Ausdrücke. Du kannst eine RegEx [hier](https://regexr.com/) testen.
 
 Beachten Sie, dass ein regulärer Ausdruck einen *oder* Operator unterstützt. Wenn also mehrere Absender zutreffen sollen, können Sie folgendes tun:
 
 `
 .*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*`
 
-Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
+Beachten Sie, dass [Punkt All-Modus](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) aktiviert ist, sodass [entsperrte Header](https://tools.ietf.org/html/rfc2822#section-3.2.3) entsprechend geprüft werden können.
 
 Sie können eine dieser Aktionen für passende Nachrichten auswählen:
 
@@ -1751,7 +1751,7 @@ Sie können eine dieser Aktionen für passende Nachrichten auswählen:
 
 Regeln werden direkt angewendet, nachdem der Nachrichtenkopf abgerufen wurde, aber bevor der Nachrichtentext heruntergeladen wurde, damit ist es nicht möglich, Bedingungen auf den Nachrichtentext anzuwenden. Beachten Sie, dass bei Bedarf große Nachrichtentexte bei einer kostenpflichtigen Verbindung erst auf Anfrage heruntergeladen werden, um Datennutzung zu sparen.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Wenn Sie eine Nachricht weiterleiten wollen, sollten Sie stattdessen die Aktion "Verschieben" verwenden. Dies wird auch zuverlässiger sein als weiterleiten, da weitergeleitete Nachrichten als Spam angesehen werden können.
 
 Da Nachrichtenheader standardmäßig nicht heruntergeladen und gespeichert werden, um Akku, Datenverbrauch und Speicherplatz zu sparen, ist es nicht möglich, eine Vorschau zu sehen, welche Nachrichten zu einer Headerregel-Bedingung passen.
 
@@ -1771,9 +1771,9 @@ Das Verwenden von Regeln ist ein Pro-Funktion.
 <a name="faq72" mark="crwd-mark"></a>
 **(72) Was sind Primär-Konten bzw. -Identitäten?**
 
-The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+Das Primärkonto wird verwendet, wenn das Konto uneindeutig ist. Zum Beispiel wenn ein neuer Entwurf aus dem einheitlichen Posteingang gestartet wird.
 
-Similarly, the primary identity of an account is used when the identity is ambiguous.
+Ebenso wird die primäre Identität eines Kontos verwendet, wenn die Identität uneindeutig ist.
 
 Es kann nur ein Primärkonto geben und es kann nur eine primäre Identität pro Konto geben.
 
@@ -1831,49 +1831,49 @@ In the receive settings you can enable scheduling and set a time period and the 
 
 Automatisierung, siehe unten, kann für erweiterte Zeitpläne verwendet werden, zum Beispiel mehrere Synchronisationszeiträume pro Tag oder unterschiedliche Synchronisationszeiträume für unterschiedliche Tage.
 
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+FairEmail kann in mehreren Benutzerprofilen installiert werden, zum Beispiel ein persönliches und ein Arbeitsprofil, und man kann FairEmail in jedem Profil anders konfigurieren, was eine weitere Möglichkeit ist, verschiedene Synchronisationspläne zu haben und verschiedene Konten zu synchronisieren.
 
-It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+Außerdem ist es möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Meldungen bis zum Ende der Zeitbedingung zurückzustellen. Auf diese Weise ist es möglich, dienstliche Nachrichten bis zum Beginn der Arbeitszeit *zurückzustellen*. Dies bedeutet auch, dass die Nachrichten auf Ihrem Gerät sind, wenn es (vorübergehend) keine Internetverbindung gibt.
 
-Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
+Beachten Sie, dass aktuelle Android-Versionen DND (Do Not Disturb) pro Benachrichtigungskanal und pro App überschreiben können, was verwendet werden könnte, um bestimmte (geschäftliche) Benachrichtigungen (nicht) stillzulegen. Weitere Informationen finden Sie [hier](https://support.google.com/android/answer/9069335).
 
-For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
+Für komplexere Schemata können Sie ein oder mehrere Konten auf manuelle Synchronisierung setzen und den folgenden Befehl an FairEmail senden, um nach neuen Nachrichten zu suchen:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-For a specific account:
+Für ein bestimmtes Konto:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
 ```
 
-You can also automate turning receiving messages on and off by sending these commands to FairEmail:
+Sie können auch das Ein- und Ausschalten des Nachrichten-Empfangs automatisieren, indem Sie die folgenden Befehle an FairEmail schicken:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE
 ```
 
-To enable/disable a specific account:
+Um ein bestimmtes Konto zu aktivieren/deaktivieren:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages.
+Beachten Sie, dass das Deaktivieren eines Kontos das Konto und alle zugehörigen Ordner und Nachrichten ausblenden wird.
 
-To set the poll interval:
+Um das Abfrageintervall einzustellen:
 
 ```
 (adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
 ```
 
-Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. Ein Wert von 0 bedeutet Push-Benachrichtigungen.
 
-You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
+Sie können automatisch Befehle senden, zum Beispiel mit [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
 Neue Aufgabe: Etwas wiedererkennbares
@@ -1882,28 +1882,28 @@ Aktion: eu.faircode.email.ENABLE
 Ziel: Service
 ```
 
-To enable/disable an account with the name *Gmail*:
+Um ein Konto mit dem Namen *Gmail* zu aktivieren/deaktivieren:
 
 ```
 Extras: Konto:Gmail
 ```
 
-Account names are case sensitive.
+Bei Kontobezeichnungen bitte die Groß- und Kleinschreibung beachten.
 
-Scheduling is a pro feature.
+Terminplanung ist eine Pro-Funktion.
 
 <br />
 
 <a name="faq79" mark="crwd-mark"></a>
-**(79) How do I use synchronize on demand (manual)?**
+**(79) Wie kann ich bei Bedarf die Synchronisierung nutzen (Handbuch)?**
 
-Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time. If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
+Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn Sie dies nicht wollen, zum Beispiel, um nicht gestört zu werden oder, um beim Batterieverbrauch zu sparen, können Sie den Empfang neuer Nachrichten in den Empfangseinstellungen deaktivieren. Dadurch wird der Hintergrunddienst, der sich um die automatische Synchronisierung kümmert, gestoppt und die zugehörige Benachrichtigung entfernt.
 
-You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
+Sie können auch *manuell synchronisieren* in den erweiterten Kontoeinstellungen aktivieren, wenn Sie nur bestimmte Konten manuell synchronisieren möchten.
 
 You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
 
-If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
+Wenn Sie einige oder alle Ordner eines Kontos manuell synchronisieren möchten, deaktivieren Sie einfach die Synchronisierung für die jeweiligen Ordner (aber nicht die des Kontos).
 
 You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
@@ -1926,20 +1926,20 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq82" mark="crwd-mark"></a>
-**(82) What is a tracking image?**
+**(82) Was ist ein Verfolgungsbild?**
 
-Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
+Bitte [hier](https://en.wikipedia.org/wiki/Web_beacon) nachsehen, was ein Verfolgungsbild genau ist. In kleinen Verfolgungsbildern wird festgehalten, ob Sie eine Nachricht geöffnet haben.
 
-FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+FairEmail erkennt in den meisten Fällen automatisch Verfolgungsbilder und ersetzt diese durch dieses Symbol:
 
 ![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+Die automatische Erkennung von Verfolgungsbildern kann in den Privatsphäreneinstellungen deaktiviert werden.
 
 <br />
 
 <a name="faq84" mark="crwd-mark"></a>
-**(84) What are local contacts for?**
+**(84) Wofür sind lokale Kontakte?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
@@ -1972,7 +1972,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 ~~The advanced option *extra privacy features* enables:~~
 
 * ~~Suche nach dem Besitzer der IP-Adresse eines Link~~
-* ~~Erkennung und Entfernung von [Tracking-Bildern](#user-content-faq82)~~
+* ~~Erkennung und Entfernung von [Verfolgungsbildern](#user-content-faq82)~~
 
 <br />
 
@@ -2368,9 +2368,9 @@ If you cannot solve the problem with the purchase, you will have to contact Goog
 <br />
 
 <a name="faq118" mark="crwd-mark"></a>
-**(118) What does 'Remove tracking parameters' exactly?**
+**(118) Was genau bedeutet »Verfolgungsparameter entfernen«?**
 
-Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
+*Verefolgungsparameter entfernen* entfernt alle [UTM-Parameter](https://en.wikipedia.org/wiki/UTM_parameters) von einem Link.
 
 <br />
 
@@ -2894,7 +2894,7 @@ After downloading the lists in the privacy settings, the lists can optionally be
 * to warn about tracking links on opening links
 * to recognize tracking images in messages
 
-Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
+Verfolgungsbilder werden nur deaktiviert, wenn die entsprechende Hauptoption »deaktiviert« aktiviert ist.
 
 Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
@@ -3019,7 +3019,7 @@ Some email providers, like Gmail, move snoozed messages to a special folder. Unf
 
 Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
+Um diese Probleme zu vermeiden, wird das Schlummern lokal auf dem Gerät durchgeführt, indem die Nachricht während des Schlummerns versteckt wird. Leider ist es nicht möglich, Nachrichten auch auf dem E-Mail-Server zu verstecken.
 
 <br />
 

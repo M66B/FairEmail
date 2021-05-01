@@ -541,6 +541,7 @@
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_bcc_hint">Adresa nu va fi afișată, dar va fi adăugată la trimitere</string>
+    <string name="title_advanced_internal_hint">Va exista un avertisment la trimiterea către un alt domeniu</string>
     <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
@@ -577,6 +578,7 @@
     <string name="title_advanced_sender_name">Utilizează numele atunci când adresa expeditorului a fost editată</string>
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
+    <string name="title_identity_internal">Nume de domenii interne (separate prin virgulă)</string>
     <string name="title_identity_unicode">Folosește transportul Unicode</string>
     <string name="title_identity_unicode_remark">Majoritatea serverelor nu acceptă acest lucru</string>
     <string name="title_identity_max_size">Dimensiunea maximă a mesajului (MB)</string>
@@ -711,6 +713,8 @@
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_hint_operations">Ștergerea de operațiuni poate duce la dispariția mesajelor și la probleme de sincronizare</string>
+    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Descărcarea antetelor</string>
+    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Descărcarea mesajului original</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
@@ -829,6 +833,7 @@
     <string name="title_move_to_account">Mută în %1$s &#8230;</string>
     <string name="title_report_spam">Tratează ca spam</string>
     <string name="title_delete_permanently">Șterge permanent</string>
+    <string name="title_no_undo">Acest lucru nu poate fi anulat!</string>
     <string name="title_snooze">Amână &#8230;</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
@@ -981,10 +986,11 @@
     <string name="title_send_receipt">Solicitare confirmare</string>
     <string name="title_send_receipt_remark">Majoritatea furnizorilor și clienților de email ignoră cererile de confirmare</string>
     <string name="title_from_missing">Expeditor lipsă</string>
-    <string name="title_extra_missing">Lipsește numele de utilizator</string>
-    <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_pgp_reminder">Chei PGP disponibile</string>
     <string name="title_smime_reminder">Chei S/MIME disponibile</string>
+    <string name="title_to_missing">Destinatar lipsă</string>
+    <string name="title_extra_missing">Lipsește numele de utilizator</string>
+    <string name="title_external_reminder">Trimiterea la o adresă externă</string>
     <string name="title_subject_reminder">Subiectul este gol</string>
     <string name="title_text_reminder">Mesajul este gol</string>
     <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>

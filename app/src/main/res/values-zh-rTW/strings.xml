@@ -894,10 +894,10 @@
     <string name="title_send_receipt">索取收據</string>
     <string name="title_send_receipt_remark">大多數提供商和電子郵件客戶端都會忽略收據請求</string>
     <string name="title_from_missing">遺失寄件人</string>
-    <string name="title_extra_missing">用戶名缺失</string>
-    <string name="title_to_missing">收件者缺失</string>
     <string name="title_pgp_reminder">PGP密鑰可用</string>
     <string name="title_smime_reminder">S/MIME密鑰可用</string>
+    <string name="title_to_missing">收件者缺失</string>
+    <string name="title_extra_missing">用戶名缺失</string>
     <string name="title_subject_reminder">主旨為空</string>
     <string name="title_text_reminder">訊息為空</string>
     <string name="title_attachment_keywords">附件，附件，附件，包括</string>

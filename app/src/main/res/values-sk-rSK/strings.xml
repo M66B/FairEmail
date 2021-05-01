@@ -989,10 +989,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_send_receipt">Vyžiadať potvrdenie</string>
     <string name="title_send_receipt_remark">Väčšina poskytovateľov a emailových klientov ignoruje požiadavky o potvrdenie</string>
     <string name="title_from_missing">Chýbajúci odosielateľ</string>
-    <string name="title_extra_missing">Chýba meno používateľa</string>
-    <string name="title_to_missing">Chýbajúci adresát</string>
     <string name="title_pgp_reminder">Sú dostupné PGP kľúče</string>
     <string name="title_smime_reminder">K dispozícii sú kľúče S/MIME</string>
+    <string name="title_to_missing">Chýbajúci adresát</string>
+    <string name="title_extra_missing">Chýba meno používateľa</string>
     <string name="title_subject_reminder">Predmet je prázdny</string>
     <string name="title_text_reminder">Telo správy je prázdne</string>
     <string name="title_attachment_keywords">priložené,príloha,prílohy,zahrnuté</string>

@@ -761,9 +761,9 @@
     <string name="title_send_receipt">Eskatu agiria</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
     <string name="title_from_missing">Igorlea falta da</string>
-    <string name="title_extra_missing">Erabiltzailearen izena falta da</string>
-    <string name="title_to_missing">Hartzailea falta da</string>
     <string name="title_pgp_reminder">PGP gakoak eskuragarri daude</string>
+    <string name="title_to_missing">Hartzailea falta da</string>
+    <string name="title_extra_missing">Erabiltzailearen izena falta da</string>
     <string name="title_subject_reminder">Mintzagaia hutsik dago</string>
     <string name="title_text_reminder">Mezua hutsik dago</string>
     <string name="title_attachment_keywords">erantsita,eranskina,eranskinak,txertatuta</string>

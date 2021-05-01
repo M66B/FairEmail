@@ -960,10 +960,10 @@
     <string name="title_send_receipt">Pyydä kuittausta</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
-    <string name="title_extra_missing">Käyttäjätunnus puuttuu</string>
-    <string name="title_to_missing">Vastaanottaja puuttuu</string>
     <string name="title_pgp_reminder">PGP-avaimet saatavilla</string>
     <string name="title_smime_reminder">S/MIME-avaimet saatavilla</string>
+    <string name="title_to_missing">Vastaanottaja puuttuu</string>
+    <string name="title_extra_missing">Käyttäjätunnus puuttuu</string>
     <string name="title_subject_reminder">Aihe puuttuu</string>
     <string name="title_text_reminder">Viesti on tyhjä</string>
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>

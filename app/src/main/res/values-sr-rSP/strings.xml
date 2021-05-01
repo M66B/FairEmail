@@ -573,8 +573,8 @@
     <string name="title_send_plain_text">Само обични текст</string>
     <string name="title_send_receipt_remark">Већина провајдера и е-мејл клијената игноришу потврде о пријему</string>
     <string name="title_from_missing">Недостаје пошиљалац</string>
-    <string name="title_extra_missing">Недостаје корисничко име</string>
     <string name="title_to_missing">Недостаје прималац</string>
+    <string name="title_extra_missing">Недостаје корисничко име</string>
     <string name="title_subject_reminder">Наслов је празан</string>
     <string name="title_text_reminder">Порука је празна</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included;прилог;додатак;прилогу;додатку;приложени;атачмент;prilog;dodatak;prilogu;dodatku;priloženi;atačment</string>

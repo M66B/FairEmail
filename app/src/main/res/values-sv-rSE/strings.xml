@@ -969,10 +969,10 @@
     <string name="title_send_receipt">Begär läskvitto</string>
     <string name="title_send_receipt_remark">De flesta leverantörer och e-postklienter ignorerar kvittonförfrågningar</string>
     <string name="title_from_missing">Avsändaren saknas</string>
-    <string name="title_extra_missing">Användarnamn saknas</string>
-    <string name="title_to_missing">Mottagare saknas</string>
     <string name="title_pgp_reminder">PGP-nycklar tillgängliga</string>
     <string name="title_smime_reminder">S/MIME-nycklar tillgängliga</string>
+    <string name="title_to_missing">Mottagare saknas</string>
+    <string name="title_extra_missing">Användarnamn saknas</string>
     <string name="title_subject_reminder">Ämnet är tomt</string>
     <string name="title_text_reminder">Meddelandet är tomt</string>
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>

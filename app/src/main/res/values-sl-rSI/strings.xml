@@ -694,9 +694,9 @@
     <string name="title_send_receipt">Zahtevaj potrdilo</string>
     <string name="title_send_receipt_remark">Večina ponudnikov in e-poštnih odjemalcev prezre zahteve za potrdilo.</string>
     <string name="title_from_missing">Manjka pošiljatelj.</string>
-    <string name="title_extra_missing">Manjka uporabniško ime.</string>
-    <string name="title_to_missing">Manjka prejemnik.</string>
     <string name="title_pgp_reminder">Ključi PGP so na voljo.</string>
+    <string name="title_to_missing">Manjka prejemnik.</string>
+    <string name="title_extra_missing">Manjka uporabniško ime.</string>
     <string name="title_subject_reminder">Zadeva je prazna.</string>
     <string name="title_text_reminder">Sporočilo je prazno.</string>
     <string name="title_attachment_keywords">priložena,priloženo,priložen,pripeta,pripeto,pripet,priloga,prilogi,priloge,priponka,priponki,priponke</string>

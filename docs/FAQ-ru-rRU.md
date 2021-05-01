@@ -83,7 +83,7 @@
 * А [ ошибка в Android 6.0](https://issuetracker.google.com/issues/37068143) вызывает сбой с *... Недопустимое смещение: ... Допустимый диапазон - ...* при условии, что текст выделен и нажимается за пределами выделенного текста. Эта ошибка была исправлена в Android 6.0.1.
 * Внутренние (якорь) ссылки не будут работать, потому что оригинальные сообщения отображаются во встроенном WebView в прокручиваемом виде (списке разговоров). Это ограничение Android, которое невозможно исправить или обойти.
 * Определение языка [больше не работает](https://issuetracker.google.com/issues/173337263) на устройствах Pixel с (обновленных до?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* [Ошибка в OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) приводит к недопустимым подписям PGP при использовании аппаратного токена.
 
 ## Запланированные возможности
 
@@ -1637,16 +1637,16 @@ Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-"*You can't share in-app purchases and free apps with your family members.*"
+"*Вы не можете делиться покупками в приложении и бесплатными приложениями с членами вашей семьи.*"
 
-See [here](https://support.google.com/googleone/answer/7007852) under "*See if content is eligible to be added to Family Library*", "*Apps & games*".
+См. [Здесь](https://support.google.com/googleone/answer/7007852) в разделе "*Посмотрите, можно ли добавлять контент в семейную библиотеку*", "*Приложения и игры*".
 
 <br />
 
 <a name="faq67"></a>
-**(67) How can I snooze conversations?**
+**(67) Как я могу отложить разговоры?**
 
-Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
+Несколько выберите один из нескольких чатов (длительное нажатие, чтобы начать множественный выбор), нажмите кнопку с тремя точками и выберите *Отложить ...*. Кроме того, в расширенном представлении сообщений используйте *Отложить...* в меню сообщения с тремя точками "больше" или временное действие в нижней панели действий. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
 It is also possible to snooze messages with [a rule](#user-content-faq71), which will also allow you to move messages to a folder to let them be auto snoozed.
 
@@ -1719,7 +1719,7 @@ All the conditions of a rule need to be true for the rule action to be executed.
 Note that email addresses are formatted like this:
 
 `
-"Somebody" <somebody@example.org>`
+"Кто-то" <somebody@example.org>`
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 

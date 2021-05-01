@@ -521,6 +521,7 @@
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men tilføjes ved afsendelse</string>
+    <string name="title_advanced_internal_hint">En advarsel vises, når der sendes til et andet domæne</string>
     <string name="title_advanced_display_harmful_hint">Deaktivering af denne indstilling kan være skadelig for din datafortrolighed</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i underligt udseende/dobbelte tekster</string>
     <string name="title_advanced_display_pin_hint">PIN-kode har forrang frem for biometrisk godkendelse</string>
@@ -556,6 +557,7 @@
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
+    <string name="title_identity_internal">Interne domænenavne (kommasepareret)</string>
     <string name="title_identity_unicode">Benyt Unicode-transport</string>
     <string name="title_identity_unicode_remark">Flere servere understøtter ikke dette</string>
     <string name="title_identity_max_size">Maks. beskedstørrelse (MBb)</string>
@@ -688,6 +690,8 @@
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
+    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Downloader overskrifter</string>
+    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Downloader besked i råformat</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
@@ -800,6 +804,7 @@
     <string name="title_move_to_account">Flyt til %1$s &#8230;</string>
     <string name="title_report_spam">Håndtér som spam</string>
     <string name="title_delete_permanently">Slet permanent</string>
+    <string name="title_no_undo">Dette er irreversibelt!</string>
     <string name="title_snooze">Udsæt &#8230;</string>
     <string name="title_archive">Arkivér</string>
     <string name="title_reply">Besvar</string>
@@ -950,9 +955,10 @@
     <string name="title_send_receipt">Bed om kvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
     <string name="title_from_missing">Afsender mangler</string>
-    <string name="title_extra_missing">Brugernavn mangler</string>
-    <string name="title_to_missing">Modtager mangler</string>
     <string name="title_pgp_reminder">PGP-nøgler tilgængelige</string>
+    <string name="title_to_missing">Modtager mangler</string>
+    <string name="title_extra_missing">Brugernavn mangler</string>
+    <string name="title_external_reminder">Sender til et eksternt domæne</string>
     <string name="title_subject_reminder">Emne er tomt</string>
     <string name="title_text_reminder">Besked er tom</string>
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>

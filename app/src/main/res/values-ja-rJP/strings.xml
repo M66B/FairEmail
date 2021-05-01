@@ -517,6 +517,7 @@
     <string name="title_advanced_autoclose_hint">全てのメッセージがアーカイブ、送信、又は破棄された時に自動的に会話を閉じます</string>
     <string name="title_advanced_sender_hint">殆どのプロバイダは変更された送信者アドレスを許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信時に追加されます</string>
+    <string name="title_advanced_internal_hint">別のドメインに送信するときに警告が表示されます</string>
     <string name="title_advanced_display_harmful_hint">このオプションを無効にするとプライバシーが損なわれる可能性が有ります</string>
     <string name="title_advanced_display_hidden_hint">これにより奇妙な外観になったりと二重テキストが生成される可能性があります</string>
     <string name="title_advanced_display_pin_hint">PINを生体認証よりも優先</string>
@@ -553,6 +554,7 @@
     <string name="title_advanced_sender_name">送信者アドレスが編集された時に名前を使用する</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名に一致する正規表現</string>
     <string name="title_identity_reply_to">返信先アドレス</string>
+    <string name="title_identity_internal">内部ドメイン名（カンマ区切り）</string>
     <string name="title_identity_unicode">Unicode トランスポートを使用</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーはこれをサポートしていません</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
@@ -687,6 +689,8 @@
     <string name="title_delete_contacts">ローカルにある全ての連絡先を削除しますか？</string>
     <string name="title_no_operations">保留中の操作は有りません</string>
     <string name="title_hint_operations">操作を削除するとメッセージが消え同期の問題が発生する可能性が有ります</string>
+    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">ヘッダーをダウンロードしています</string>
+    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">未加工メッセージをダウンロードしています</string>
     <string name="title_folder_name">フォルダー名</string>
     <string name="title_display_name">表示名</string>
     <string name="title_show_folders">隠しフォルダーを表示</string>
@@ -805,6 +809,7 @@
     <string name="title_move_to_account">%1$s &#8230; に移動します</string>
     <string name="title_report_spam">迷惑メールとして扱う</string>
     <string name="title_delete_permanently">完全に削除</string>
+    <string name="title_no_undo">この操作を元に戻すことはできません</string>
     <string name="title_snooze">スヌーズ &#8230;</string>
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>
@@ -957,10 +962,11 @@
     <string name="title_send_receipt">開封確認メッセージを要求する</string>
     <string name="title_send_receipt_remark">殆どのプロバイダーと電子メールクライアントは開封確認メッセージの要求を無視します</string>
     <string name="title_from_missing">送信者がいません</string>
-    <string name="title_extra_missing">ユーザー名が有りません</string>
-    <string name="title_to_missing">受信者がいません</string>
     <string name="title_pgp_reminder">PGPキーが利用可能</string>
     <string name="title_smime_reminder">S/MIME キーが利用可能です</string>
+    <string name="title_to_missing">受信者がいません</string>
+    <string name="title_extra_missing">ユーザー名が有りません</string>
+    <string name="title_external_reminder">外部アドレスに送信中</string>
     <string name="title_subject_reminder">件名無し</string>
     <string name="title_text_reminder">メッセージが空です</string>
     <string name="title_attachment_keywords">添付,添付ファイル,付属</string>

@@ -773,9 +773,9 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_send_receipt">Sol·licita confirmació de lectura</string>
     <string name="title_send_receipt_remark">La majoria de proveïdors i clients de correu electrònic ignoren les sol·licituds de recepció</string>
     <string name="title_from_missing">Falta l\'emissor</string>
-    <string name="title_extra_missing">Falta nom de d\'usuari</string>
-    <string name="title_to_missing">Falta el receptor</string>
     <string name="title_pgp_reminder">Claus PGP disponibles</string>
+    <string name="title_to_missing">Falta el receptor</string>
+    <string name="title_extra_missing">Falta nom de d\'usuari</string>
     <string name="title_subject_reminder">L\'assumpte és buit</string>
     <string name="title_text_reminder">El missatge és buit</string>
     <string name="title_attachment_keywords">adjunt, fitxer adjunt, fitxers adjunts inclosos</string>

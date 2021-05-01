@@ -530,6 +530,7 @@
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_bcc_hint">L’adresse ne sera pas affichée mais sera ajoutée lors de l’envoi</string>
+    <string name="title_advanced_internal_hint">Il y aura un avertissement lors de l\'envoi vers un autre domaine</string>
     <string name="title_advanced_display_harmful_hint">Désactiver cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut engendrer des problèmes d’affichage et de dédoublement du texte</string>
     <string name="title_advanced_display_pin_hint">Le code NIP a la priorité sur l’authentification biométrique</string>
@@ -566,6 +567,7 @@
     <string name="title_advanced_sender_name">Utiliser le nom lorsque l\'adresse de l\'expéditeur a été modifiée</string>
     <string name="title_advanced_sender_regex">Expression régulière pour faire correspondre le nom d’utilisateur des adresses courriel entrantes</string>
     <string name="title_identity_reply_to">Répondre à l’adresse</string>
+    <string name="title_identity_internal">Noms de domaine internes (séparés par des virgules)</string>
     <string name="title_identity_unicode">Utiliser le transport Unicode</string>
     <string name="title_identity_unicode_remark">La plupart des serveurs ne prennent pas ceci en charge</string>
     <string name="title_identity_max_size">Taille maximale du message (Mo)</string>
@@ -700,6 +702,8 @@
     <string name="title_delete_contacts">Supprimer tous les contacts locaux?</string>
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_hint_operations">La suppression d’opérations en attente peut entraîner la perte de messages ainsi que des problèmes de synchronisation</string>
+    <string name="title_op_title_headers" comment="title_op_title_headers&#10;Title to tell what when wrong">Téléchargement des en-têtes</string>
+    <string name="title_op_title_raw" comment="title_op_title_raw&#10;Title to tell what when wrong">Téléchargement du message brut</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom affiché</string>
     <string name="title_show_folders">Afficher les dossiers cachés</string>
@@ -818,6 +822,7 @@
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
     <string name="title_report_spam">Traiter comme indésirable</string>
     <string name="title_delete_permanently">Supprimer définitivement</string>
+    <string name="title_no_undo">Ceci ne peut pas être annulé!</string>
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
@@ -970,10 +975,11 @@
     <string name="title_send_receipt">Demander une confirmation</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et clients de messagerie ignorent les demandes d’accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>
-    <string name="title_extra_missing">Nom d’utilisateur manquant</string>
-    <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_pgp_reminder">Clés PGP disponibles</string>
     <string name="title_smime_reminder">Clés S/MIME disponibles</string>
+    <string name="title_to_missing">Destinataire manquant</string>
+    <string name="title_extra_missing">Nom d’utilisateur manquant</string>
+    <string name="title_external_reminder">Envoi en cours vers une adresse externe</string>
     <string name="title_subject_reminder">L’objet est vide</string>
     <string name="title_text_reminder">Le message est vide</string>
     <string name="title_attachment_keywords">joint,jointe,joints,jointes,ci-joint,ci-jointe,ci-joints,ci-jointes,attaché,attachés,attachée,attachées,lettre de motivation,cv</string>

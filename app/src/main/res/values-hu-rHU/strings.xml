@@ -941,10 +941,10 @@
     <string name="title_send_receipt">Visszaigazolás kérése</string>
     <string name="title_send_receipt_remark">A legtöbb email szolgáltató és kliens figyelmen kívül hagyja a visszajelzés kéréseket</string>
     <string name="title_from_missing">A feladó hiányzik</string>
-    <string name="title_extra_missing">A felhasználónév hiányzik</string>
-    <string name="title_to_missing">A címzett hiányzik</string>
     <string name="title_pgp_reminder">PGP kulcsok elérhetők</string>
     <string name="title_smime_reminder">S/MIME kulcsok elérhetők</string>
+    <string name="title_to_missing">A címzett hiányzik</string>
+    <string name="title_extra_missing">A felhasználónév hiányzik</string>
     <string name="title_subject_reminder">A tárgy hiányzik</string>
     <string name="title_text_reminder">Az üzenet szövege üres</string>
     <string name="title_attachment_keywords">csatolva,melléklet,mellékletek,tartalmazza</string>

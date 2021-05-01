@@ -566,6 +566,7 @@
     <string name="title_advanced_sender_name">Gönderen adresi düzenlendiğinde adı kullan</string>
     <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
+    <string name="title_identity_internal">Dahili alan adları (virgülle ayrılmış)</string>
     <string name="title_identity_unicode">Unicode taşımayı kullan</string>
     <string name="title_identity_unicode_remark">Çoğu sunucu bunu desteklemiyor</string>
     <string name="title_identity_max_size">Maksimum mesaj boyutu (MB)</string>
@@ -937,9 +938,9 @@
     <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
     <string name="title_from_missing">Gönderici Eksik</string>
-    <string name="title_extra_missing">Kullanıcı adı eksik</string>
-    <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_pgp_reminder">PGP anahtarı var</string>
+    <string name="title_to_missing">Alıcı eksik</string>
+    <string name="title_extra_missing">Kullanıcı adı eksik</string>
     <string name="title_subject_reminder">Konu boş</string>
     <string name="title_text_reminder">İleti boş</string>
     <string name="title_attachment_keywords">eklendi,ek,ekler,dahil edildi</string>
