@@ -929,6 +929,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 message.id = null;
                                 message.fts = false;
+                                message.stored = new Date().getTime();
                                 message.id = db.message().insertMessage(message);
 
                                 if (message.content) {
