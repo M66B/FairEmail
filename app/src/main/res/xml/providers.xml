@@ -558,7 +558,8 @@
     </provider>
     <provider
         name="Migadu"
-        link="https://www.migadu.com/en/guides/config.html">
+        domain="migadu\\.com"
+        link="https://www.migadu.com/guides/index.html">
         <imap
             host="imap.migadu.com"
             port="993"
@@ -872,6 +873,7 @@
     </provider>
     <provider
         name="Kabel Mail &amp; Cloud"
+        domain="kabelmail\\.de"
         link="https://sso.kabelmail.de/portal/info/IMAP_und_SMTP"
         useip="false">
         <imap
@@ -946,6 +948,7 @@
     </provider>
     <provider
         name="OnMail"
+        domain="onmail\\.com"
         enabled="false"
         link="https://support.onmail.com/hc/en-us/articles/360048987651-Connecting-My-Custom-Domain-to-Edison-Mail">
         <imap
@@ -973,6 +976,7 @@
     </provider>
     <provider
         name="Interia"
+        domain="interia\\.pl,interia\\.eu,poczta\\.fm,vip\\.interia\\.pl,intmail\\.pl,interia\\.com,interiowy\\.pl,adresik\\.net,pacz\\.to,pisz\\.to,ogarnij\\.se,.*\\.hub\\.pl"
         link="https://pomoc.poczta.interia.pl/news-parametry-do-konfiguracji-programow-pocztowych,nId,2136275">
         <imap
             host="poczta.interia.pl"
@@ -1047,6 +1051,7 @@
     </provider>
     <provider
         name="Bahnhof AB"
+        domain="bahnhof\\.se"
         link="https://www.bahnhof.se/support/category/bahnhofmejl/fragor-och-svar-om-din-bahnhofmejl/1546">
         <imap
             host="imap.privat.bahnhof.se"
@@ -1072,6 +1077,7 @@
     </provider>
     <provider
         name="Tin.it"
+        domain="tim\\.it"
         link="https://assistenzatecnica.tim.it/at/portals/mini.portal?_nfpb=true&amp;_pageLabel=null&amp;nodeId=/AT_REPOSITORY/302010&amp;radice=help_virgilio">
         <imap
             host="imaps.tin.it"
@@ -1097,6 +1103,7 @@
     </provider>
     <provider
         name="Telia"
+        domain="telia\\.com"
         link="https://www.telia.se/privat/support/info/konfigurera-e-post-android">
         <imap
             host="mailin.telia.com"
