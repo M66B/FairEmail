@@ -1089,7 +1089,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Intent clear = new Intent(this, ServiceUI.class)
                             .setAction(action.replace("unified", "clear"));
                     startService(clear);
-                    intent.setAction("unified");
                 }
 
             } else if (action.startsWith("folders")) {
@@ -1115,7 +1114,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Intent clear = new Intent(this, ServiceUI.class)
                             .setAction("clear:" + parts[2]);
                     startService(clear);
-                    intent.setAction("folder:" + folder);
                 }
 
             } else if ("why".equals(action)) {
@@ -1129,15 +1127,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Helper.viewFAQ(this, 2);
                 }
 
-                intent.setAction(null);
-
             } else if ("alert".equals(action) || "error".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
                 Helper.viewFAQ(this, "alert".equals(action) ? 23 : 22);
-
-                intent.setAction(null);
 
             } else if ("outbox".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
@@ -1172,6 +1166,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
                 onViewThread(intent);
             }
+
+            intent.setAction(null);
         }
 
         if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
