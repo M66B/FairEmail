@@ -398,7 +398,9 @@ public class EmailService implements AutoCloseable {
                     connect(host, port, auth, user, authenticator, factory);
                 } catch (Exception ex1) {
                     Log.e(ex1);
-                    throw new AuthenticationFailedException(ex.getMessage(), ex1);
+                    throw new AuthenticationFailedException(
+                            context.getString(R.string.title_service_auth, ex.getMessage()),
+                            ex.getNextException());
                 }
             } else if (purpose == PURPOSE_CHECK) {
                 String msg = ex.getMessage();
