@@ -1119,4 +1119,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Libero Aiuto"
+        domain="libero\\.it,iol\\.it"
+        link="https://aiuto.libero.it/articolo/mail/parametri-di-configurazione-per-il-client-di-posta/">
+        <imap
+            host="imapmail.libero.it"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.libero.it"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
