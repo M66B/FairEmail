@@ -380,7 +380,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
         swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
 
-        int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
+        int pollInterval = ServiceSynchronize.getPollInterval(getContext());
         int[] pollIntervalValues = getResources().getIntArray(R.array.pollIntervalValues);
         for (int pos = 0; pos < pollIntervalValues.length; pos++)
             if (pollIntervalValues[pos] == pollInterval) {

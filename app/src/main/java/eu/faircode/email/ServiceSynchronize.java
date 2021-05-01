@@ -117,7 +117,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
     private static final int QUIT_DELAY = 5; // seconds
     private static final long STILL_THERE_THRESHOLD = 3 * 60 * 1000L; // milliseconds
-    static final int DEFAULT_POLL_INTERVAL = 0; // minutes
     private static final int OPTIMIZE_KEEP_ALIVE_INTERVAL = 12; // minutes
     private static final int OPTIMIZE_POLL_INTERVAL = 15; // minutes
     private static final int CONNECT_BACKOFF_START = 8; // seconds
@@ -1931,7 +1930,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
                         EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
 
-                        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+                        int pollInterval = getPollInterval(this);
                         long now = new Date().getTime();
                         long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
                         long maxDelayed = (pollInterval > 0 && !account.poll_exempted
@@ -2175,7 +2174,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         DB db = DB.getInstance(this);
 
-        int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+        int pollInterval = getPollInterval(this);
         EntityLog.log(this, "Auto optimize account=" + account.name + " poll interval=" + pollInterval);
         if (pollInterval == 0) {
             try {
@@ -2369,7 +2368,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = prefs.getInt("poll_interval", DEFAULT_POLL_INTERVAL);
+            int pollInterval = getPollInterval(ServiceSynchronize.this);
 
             long[] schedule = getSchedule(ServiceSynchronize.this);
             long now = new Date().getTime();
@@ -2475,7 +2474,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (at == null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
+            int pollInterval = getPollInterval(context);
             if (poll && enabled && pollInterval > 0) {
                 long now = new Date().getTime();
                 long interval = pollInterval * 60 * 1000L;
@@ -2489,6 +2488,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         } else
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, at, piSync);
+    }
+
+    static int getPollInterval(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int poll_interval = prefs.getInt("poll_interval", 0); // minutes
+        //if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+        //    Boolean ignoring = Helper.isIgnoringOptimizations(context);
+        //    if (ignoring != null && !ignoring)
+        //        poll_interval = 15;
+        //}
+        return poll_interval;
     }
 
     static long[] getSchedule(Context context) {

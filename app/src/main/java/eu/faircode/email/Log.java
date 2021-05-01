@@ -1681,7 +1681,7 @@ public class Log {
             List<EntityAccount> accounts = db.account().getAccounts();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean enabled = prefs.getBoolean("enabled", true);
-            int pollInterval = prefs.getInt("poll_interval", ServiceSynchronize.DEFAULT_POLL_INTERVAL);
+            int pollInterval = ServiceSynchronize.getPollInterval(context);
 
             size += write(os, "accounts=" + accounts.size() +
                     " enabled=" + enabled +
