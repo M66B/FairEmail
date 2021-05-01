@@ -1089,19 +1089,6 @@
             starttls="true" />
     </provider>
     <provider
-        name="Charter.net"
-        appPassword="true"
-        link="https://www.spectrum.net/support/internet/spectrum-email-server-settings/">
-        <imap
-            host="mobile.charter.net"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="mobile.charter.net"
-            port="587"
-            starttls="true" />
-    </provider>
-    <provider
         name="Telia"
         domain="telia\\.com"
         link="https://www.telia.se/privat/support/info/konfigurera-e-post-android">
