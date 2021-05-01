@@ -92,6 +92,7 @@ public class FragmentSetup extends FragmentBase {
     private Button btnInbox;
 
     private Group grpManual;
+    private Group grpDoze;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
 
@@ -157,6 +158,7 @@ public class FragmentSetup extends FragmentBase {
         btnInbox = view.findViewById(R.id.btnInbox);
 
         grpManual = view.findViewById(R.id.grpManual);
+        grpDoze = view.findViewById(R.id.grpDoze);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
@@ -387,6 +389,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox.setEnabled(false);
 
+        grpDoze.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
         grpBackgroundRestricted.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
 

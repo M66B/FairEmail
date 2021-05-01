@@ -574,6 +574,12 @@
             tvAccountIdentity,tvExchangeSupport,tvIdentityWhat" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpDoze"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="three,title3,tvDoze,tvDozeDone,btnDoze,tvDozeHint" />
+
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpBackgroundRestricted"
             android:layout_width="0dp"
             android:layout_height="0dp"
