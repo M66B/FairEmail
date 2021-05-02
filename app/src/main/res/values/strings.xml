@@ -513,6 +513,7 @@
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_safe_browsing" translatable="false">Google Safe browsing (Android 8+)</string>
     <string name="title_advanced_disconnect_blacklist" translatable="false">Disconnect\'s tracker protection lists</string>
+    <string name="title_advanced_disconnect_auto_update">Automatically update lists weekly</string>
     <string name="title_advanced_disconnect_links">Use lists to warn about tracking links</string>
     <string name="title_advanced_disconnect_images">Use lists to recognize tracking images</string>
 

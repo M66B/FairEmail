@@ -182,6 +182,7 @@ public class ApplicationEx extends Application
         ServiceSynchronize.scheduleWatchdog(this);
         WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
 
+        WorkerAutoUpdate.init(this);
         WorkerCleanup.init(this);
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));

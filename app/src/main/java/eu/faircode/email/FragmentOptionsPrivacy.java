@@ -77,6 +77,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private ImageButton ibDisconnectBlacklist;
     private Button btnDisconnectBlacklist;
     private TextView tvDisconnectBlacklistTime;
+    private SwitchCompat swDisconnectAutoUpdate;
     private SwitchCompat swDisconnectLinks;
     private SwitchCompat swDisconnectImages;
 
@@ -87,7 +88,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout",
             "display_hidden", "incognito_keyboard", "secure", "safe_browsing",
-            "disconnect_links", "disconnect_images"
+            "disconnect_auto_update", "disconnect_links", "disconnect_images"
     };
 
     @Override
@@ -118,6 +119,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         ibDisconnectBlacklist = view.findViewById(R.id.ibDisconnectBlacklist);
         btnDisconnectBlacklist = view.findViewById(R.id.btnDisconnectBlacklist);
         tvDisconnectBlacklistTime = view.findViewById(R.id.tvDisconnectBlacklistTime);
+        swDisconnectAutoUpdate = view.findViewById(R.id.swDisconnectAutoUpdate);
         swDisconnectLinks = view.findViewById(R.id.swDisconnectLinks);
         swDisconnectImages = view.findViewById(R.id.swDisconnectImages);
 
@@ -309,6 +311,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        swDisconnectAutoUpdate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("disconnect_auto_update", checked).apply();
+                WorkerAutoUpdate.init(compoundButton.getContext());
+            }
+        });
+
         swDisconnectLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -394,6 +404,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         tvDisconnectBlacklistTime.setText(time < 0 ? null : DF.format(time));
         tvDisconnectBlacklistTime.setVisibility(time < 0 ? View.GONE : View.VISIBLE);
 
+        swDisconnectAutoUpdate.setChecked(prefs.getBoolean("disconnect_auto_update", false));
         swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
         swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));
     }
