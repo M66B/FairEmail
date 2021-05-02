@@ -143,6 +143,9 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 public class Helper {
+    private static Boolean hasPlayStore = null;
+    private static Boolean hasValidFingerprint = null;
+
     static final int NOTIFICATION_SYNCHRONIZE = 1;
     static final int NOTIFICATION_SEND = 2;
     static final int NOTIFICATION_EXTERNAL = 3;
@@ -466,6 +469,19 @@ public class Helper {
 
     static boolean isPlayStoreInstall() {
         return BuildConfig.PLAY_STORE_RELEASE;
+    }
+
+    static boolean hasPlayStore(Context context) {
+        if (hasPlayStore == null)
+            try {
+                PackageManager pm = context.getPackageManager();
+                pm.getPackageInfo("com.android.vending", 0);
+                hasPlayStore = true;
+            } catch (Throwable ex) {
+                Log.w(ex);
+                hasPlayStore = false;
+            }
+        return hasPlayStore;
     }
 
     static boolean isSecure(Context context) {
@@ -1427,9 +1443,12 @@ public class Helper {
     }
 
     static boolean hasValidFingerprint(Context context) {
-        String signed = getFingerprint(context);
-        String expected = context.getString(R.string.fingerprint);
-        return Objects.equals(signed, expected);
+        if (hasValidFingerprint == null) {
+            String signed = getFingerprint(context);
+            String expected = context.getString(R.string.fingerprint);
+            hasValidFingerprint = Objects.equals(signed, expected);
+        }
+        return hasValidFingerprint;
     }
 
     static boolean canAuthenticate(Context context) {

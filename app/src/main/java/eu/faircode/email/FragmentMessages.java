@@ -4009,7 +4009,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
-        if (!Helper.isPlayStoreInstall() && !BuildConfig.DEBUG)
+        if (!Helper.isPlayStoreInstall() &&
+                !(Helper.hasPlayStore(getContext()) &&
+                        (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)))
             return false;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
