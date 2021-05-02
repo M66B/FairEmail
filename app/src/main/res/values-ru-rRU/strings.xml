@@ -460,6 +460,7 @@
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
+    <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
     <string name="title_advanced_disconnect_images">Использовать списки для распознавания отслеживающих изображений</string>
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>

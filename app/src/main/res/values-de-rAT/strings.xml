@@ -439,6 +439,7 @@
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
+    <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>

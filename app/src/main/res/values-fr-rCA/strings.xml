@@ -438,6 +438,7 @@
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
     <string name="title_advanced_pin">NIP</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
+    <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
     <string name="title_advanced_disconnect_images">Utiliser des listes pour identifier les images de pistage</string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
