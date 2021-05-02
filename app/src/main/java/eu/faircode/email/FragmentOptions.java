@@ -180,6 +180,8 @@ public class FragmentOptions extends FragmentBase {
             pager.setCurrentItem(4);
         else if ("encryption".equals(tab))
             pager.setCurrentItem(7);
+        else if ("misc".equals(tab))
+            pager.setCurrentItem(9);
         getActivity().getIntent().removeExtra("tab");
     }
 

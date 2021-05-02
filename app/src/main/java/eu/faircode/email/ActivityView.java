@@ -1001,6 +1001,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         if (jasset.has("name") && !jasset.isNull("name")) {
                             String name = jasset.getString("name");
                             if (name.endsWith(".apk")) {
+                                info.download_url = jasset.optString("browser_download_url");
                                 Log.i("Latest version=" + info.tag_name);
                                 if (BuildConfig.VERSION_NAME.equals(info.tag_name) && !BuildConfig.DEBUG)
                                     return null;
@@ -1037,11 +1038,34 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 .setCategory(NotificationCompat.CATEGORY_REMINDER)
                                 .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
-                Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
-                update.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url))
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 PendingIntent piUpdate = PendingIntentCompat.getActivity(
                         ActivityView.this, REQUEST_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
                 builder.setContentIntent(piUpdate);
+
+                Intent manage = new Intent(ActivityView.this, ActivitySetup.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("tab", "misc");
+                PendingIntent piManage = PendingIntentCompat.getActivity(
+                        ActivityView.this, ActivitySetup.REQUEST_MANAGE, manage, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionManage = new NotificationCompat.Action.Builder(
+                        R.drawable.twotone_settings_24,
+                        getString(R.string.title_setup_manage),
+                        piManage);
+                builder.addAction(actionManage.build());
+
+                if (!TextUtils.isEmpty(info.download_url)) {
+                    Intent download = new Intent(Intent.ACTION_VIEW, Uri.parse(info.download_url))
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PendingIntent piDownload = PendingIntent.getActivity(
+                            ActivityView.this, 0, download, 0);
+                    NotificationCompat.Action.Builder actionDownload = new NotificationCompat.Action.Builder(
+                            R.drawable.twotone_cloud_download_24,
+                            getString(R.string.title_download),
+                            piDownload);
+                    builder.addAction(actionDownload.build());
+                }
 
                 try {
                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1518,6 +1542,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private class UpdateInfo {
         String tag_name; // version
         String html_url;
+        String download_url;
     }
 
     public static class FragmentDialogFirst extends FragmentDialogBase {
