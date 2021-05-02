@@ -418,8 +418,13 @@ public class Helper {
     }
 
     static boolean canPrint(Context context) {
-        PackageManager pm = context.getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_PRINTING);
+        try {
+            PackageManager pm = context.getPackageManager();
+            return pm.hasSystemFeature(PackageManager.FEATURE_PRINTING);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static Boolean isIgnoringOptimizations(Context context) {
