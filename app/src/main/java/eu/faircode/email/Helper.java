@@ -477,8 +477,11 @@ public class Helper {
                 PackageManager pm = context.getPackageManager();
                 pm.getPackageInfo("com.android.vending", 0);
                 hasPlayStore = true;
+            } catch (PackageManager.NameNotFoundException ex) {
+                Log.i(ex);
+                hasPlayStore = false;
             } catch (Throwable ex) {
-                Log.w(ex);
+                Log.e(ex);
                 hasPlayStore = false;
             }
         return hasPlayStore;
