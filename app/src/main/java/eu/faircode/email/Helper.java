@@ -159,7 +159,6 @@ public class Helper {
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
-    static final String FAQ_URI = "https://email.faircode.eu/faq/";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport&version=" + BuildConfig.VERSION_NAME;
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
@@ -735,10 +734,27 @@ public class Helper {
     }
 
     static void viewFAQ(Context context, int question) {
+        // Redirection is done to prevent text editors from opening the link
+        // https://email.faircode.eu/faq -> https://github.com/M66B/FairEmail/blob/master/FAQ.md
+        // https://email.faircode.eu/docs -> https://github.com/M66B/FairEmail/tree/master/docs
+        // https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1
+        // https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md#user-content-faq1
+
+        String base;
+        switch (Locale.getDefault().getLanguage()) {
+            case "de":
+                base = "https://email.faircode.eu/docs/FAQ-de-rDE.md";
+                break;
+            case "fr":
+                base = "https://email.faircode.eu/docs/FAQ-fr-rFR.md";
+                break;
+            default:
+                base = "https://email.faircode.eu/faq";
+        }
         if (question == 0)
-            view(context, Uri.parse(FAQ_URI + "#top"), false);
+            view(context, Uri.parse(base + "#top"), false);
         else
-            view(context, Uri.parse(FAQ_URI + "#user-content-faq" + question), false);
+            view(context, Uri.parse(base + "#user-content-faq" + question), false);
     }
 
     static String getOpenKeychainPackage(Context context) {
