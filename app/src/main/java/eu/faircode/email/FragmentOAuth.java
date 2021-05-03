@@ -678,7 +678,7 @@ public class FragmentOAuth extends FragmentBase {
         if (ex instanceof IllegalArgumentException)
             tvError.setText(ex.getMessage());
         else
-            tvError.setText(Log.formatThrowable(ex));
+            tvError.setText(Log.formatThrowable(ex, false));
 
         grpError.setVisibility(View.VISIBLE);
 
