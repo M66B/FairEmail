@@ -73,7 +73,7 @@ Related questions:
 * [Bug di Android](https://issuetracker.google.com/issues/119872129) menyebabkan FairEmail crash dengan "*... Notifikasi buruk diposkan ...*" dalam beberapa perangkat setelah memperbarui FairEmail dan mengklik notifikasi.
 * [Bug di Android](https://issuetracker.google.com/issues/62427912) beberapa kali menyebabkan crash dengan "*... RekamanAktivitas tidak ditemukan untuk ...*" setelah memperbarui FairEmail. Menginstal ulang ([sumber](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) dapat memperbaiki masalah.
 * [Bug di Android](https://issuetracker.google.com/issues/37018931) beberapa kali menyebabkan crash dengan *... InputChannel is not initialized ...* on some devices.
-* [Bug di LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) beberapa kali menyebabkan crash dengan *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
+* ~~[Bug di LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) beberapa kali menyebabkan crash dengan *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Bug di Nova Launcher dalam Android 5.x menyebabkan FairEmail crash dengan *java.lang.StackOverflowError* ketika Nova Launcher mengakses servis aksesibilitas.
 * ~~Pemilih berkas beberpa kali menampilkan tidak ada berkas dengan alasan yang tidak diketahui. Masalah ini terlihat sudah diperbaiki.~~
 * ~~[Bug di AndroidX](https://issuetracker.google.com/issues/64729576) menyebabkan kesulitan untuk menekan scroll cepat. Solusi telah ditambahkan.~~

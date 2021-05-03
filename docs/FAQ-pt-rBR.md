@@ -100,7 +100,7 @@ Perguntas relacionadas:
 * ~~Sugestões de Pesquisa~~
 * ~~[Configuração de Mensagens do Autocrypt](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (seção 4.4)~~ (na minha opinião, não é uma boa ideia permitir que um cliente de e-mail lide com chaves criptografadas sensíveis para o caso de um uso excepcional, já que o OpenKeychain pode exportar chaves também)
 * ~~Pastas unificadas genéricas~~
-* Nova programação de notificação de mensagens por conta~~ (implementado adicionando uma condição de tempo às regras, para que as mensagens possam ser adiadas durante períodos selecionados)
+* ~~Nova programação de notificação de mensagens por conta~~ (implementado adicionando uma condição de tempo às regras, para que as mensagens possam ser adiadas durante períodos selecionados)
 * ~~Copiar contas e identidades~~
 * ~~Zoom ao aproximar dois dedos~~ (não é possível com segurança em uma lista de rolagem; em vez disso, a visualização de mensagem completa pode ser ampliada)
 * ~~Visualização de pastas mais compacta~~

@@ -426,6 +426,7 @@
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
+    <string name="title_advanced_disconnect_auto_update">リストを自動的に毎週更新</string>
     <string name="title_advanced_disconnect_links">リストを使用して追跡リンクについて警告する</string>
     <string name="title_advanced_disconnect_images">リストを使用して追跡画像を認識する</string>
     <string name="title_advanced_sign_default">デフォルトで署名</string>

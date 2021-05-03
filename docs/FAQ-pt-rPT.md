@@ -99,12 +99,12 @@ Related questions:
 * ~~Procurar uma pasta~~ (filtrar uma lista de pastas hierárquicas é problemático)
 * ~~Procurar sugestões~~
 * ~~[Mensagem de Configuração Autocrypt](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (secção 4.4)~~ (Na minha opinião não é uma boa ideia permitir que um cliente de email lide com chaves encriptadas sensíveis para um caso de uso excepcional quando o OpenKeychain também pode exportar chaves)
-* --Pastas genéricas unificadas~~
+* ~~Pastas genéricas unificadas~~
 * ~~ Agendar notificações de novas mensagem de conta~~ (pode ser implementado adicionando uma condição de tempo às regras para que as mensagens possam ser adiadas durante períodos de tempo seleccionados)
-* ~Copiar contas e identidades~~
+* ~~Copiar contas e identidades~~
 * ~~Alterar ampliação~~ (não é confiável na lista de deslize; opte por ampliar a mensagem original)
 * ~~Mais vista de pastas compactadas~~
-* ~~Compor listas e tabelas-- (isto requer um editor de texto mais abundante, ver [esta FAQ](#user-content-faq99))
+* ~~Compor listas e tabelas~~ (isto requer um editor de texto mais abundante, ver [esta FAQ](#user-content-faq99))
 * ~~Alternar ampliação do tamanho de texto~~
 * ~~Mostrar GIFs~~
 * ~~~Temas~~ (um tema cinza claro e escuro foi adicionado porque é isso que a maioria das pessoas parece querer)

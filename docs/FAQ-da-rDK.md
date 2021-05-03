@@ -94,7 +94,7 @@ Relaterede spørgsmål:
 * ~~Notifikationsindstillinger pr. mappe~~
 * ~~Vælg lokale billeder til underskrifter~~ (ingen af dem tilføjes, da dette kræver billedfilhåndtering, og da billedersom standard alligevel ikke vises i de fleste e-mail klienter)
 * ~~Vis beskeder matchet af en regel~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804) ~ ~ (der er ingen vedligeholdte Java-biblioteker med en passende licens og uden afhængigheder, og desuden har FairEmail sine egne filterregler)
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804) ~~ (der er ingen vedligeholdte Java-biblioteker med en passende licens og uden afhængigheder, og desuden har FairEmail sine egne filterregler)
 * ~~Søg efter beskeder med/uden vedhæftelser~~ (dette kan ikke tilføjes, da IMAP ikke understøtter søgning efter vedhæftninger)
 * ~~Søg efter en mappe~~ (filtrering af en hierarkisk mappeliste er problematisk)
 * ~~Søgeforslag~~

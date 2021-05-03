@@ -116,7 +116,7 @@ Related questions:
 * ~~Enhetlig visning av stjernemerkede meldinger~~ (det er allerede en spesiell søkefunksjon for dette)
 * ~~Flytt varsel-handling~~
 * ~~S/MIME-støtte~~
-* ~Søk i Innstillinger~~
+* ~~Søk i Innstillinger~~
 
 Anything on this list is in random order and *might* be added in the near future.
 

@@ -169,7 +169,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(42) Können Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?](#user-content-faq42)
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
 * [(44) Können Sie Kontaktfotos / Ident-Icons im Gesendeten Ordner anzeigen?](#user-content-faq44)
-* [(45) Wie kann ich »Dieser Schlüssel ist nicht verfügbar« beheben? ~ ?](#user-content-faq45)
+* [(45) Wie kann ich »Dieser Schlüssel ist nicht verfügbar« beheben? To use it, you must import it as one of your own!' ?](#user-content-faq45)
 * [(46) Warum wird die Nachrichtenliste immer wieder aktualisiert?](#user-content-faq46)
 * [(47) Wie löse ich den Fehler »Kein primäres Konto oder kein Ordner für Entwürfe«?](#user-content-faq47)
 * [~~(48) Wie löse ich den Fehler »Kein primäres Konto oder kein Archivordner«?~~](#user-content-faq48)
@@ -1474,11 +1474,11 @@ Beachten Sie, dass es nicht viele E-Mail-Apps gibt, die eine Unterhaltung als Li
 <br />
 
 <a name="faq54"></a>
-**~(54) Wie verwende ich einen Namespace Präfix?~~**
+**~~(54) Wie verwende ich einen Namespace Präfix?~~**
 
 ~~Ein Namespace-Präfix wird verwendet, um die Präfixe, die manche Anbieter automatisch setzen, wieder zu entfernen.~~
 
-~~~Zum Beispiel wird der Gmail-Spam-Ordner genannt:~~
+~~Zum Beispiel wird der Gmail-Spam-Ordner genannt:~~
 
 ```
 [Gmail]/Spam
@@ -1488,21 +1488,21 @@ Beachten Sie, dass es nicht viele E-Mail-Apps gibt, die eine Unterhaltung als Li
 
 <br />
 
-<a name="faq55" mark="crwd-mark"></a>
+<a name="faq55"></a>
 **(55) Wie kann ich alle Nachrichten als gelesen markieren / verschieben oder alle Nachrichten löschen?**
 
 Sie können dafür die Mehrfachauswahl verwenden. Drücken Sie lange auf die erste Nachricht, heben Sie nicht den Finger und gleiten Sie nach unten zur letzten Nachricht. Dann benutzen Sie die Drei-Punkt-Schaltfläche um die gewünschte Aktion auszuführen.
 
 <br />
 
-<a name="faq56" mark="crwd-mark"></a>
+<a name="faq56"></a>
 **(56) Kannst du Unterstützung für JMAP hinzufügen?**
 
 Es gibt fast keine Anbieter, die das [JMAP](https://jmap.io/) Protokoll anbieten, damit ist es nicht viel Mühe wert, in FairEmail Support dafür hinzuzufügen.
 
 <br />
 
-<a name="faq57" mark="crwd-mark"></a>
+<a name="faq57"></a>
 **(57) Kann ich HTML in Signaturen verwenden?**
 
 Ja, Sie können [HTML](https://en.wikipedia.org/wiki/HTML) verwenden. Im Signatur-Editor können Sie über das Drei-Punkte-Menü in den HTML-Modus wechseln.
@@ -1523,7 +1523,7 @@ Wenn Sie vorformatierten Text verwenden möchten, wie [ASCII Art](https://en.wik
 
 <br />
 
-<a name="faq58" mark="crwd-mark"></a>
+<a name="faq58"></a>
 **(58) Was bedeutet ein geöffnet/geschlossenes E-Mail-Icon?**
 
 Das E-Mail-Symbol in der Ordnerliste kann geöffnet (umrissen) oder geschlossen sein (gefüllt):
@@ -1538,14 +1538,14 @@ Nachrichtentexte und Anhänge werden standardmäßig heruntergeladen.
 
 <br />
 
-<a name="faq59" mark="crwd-mark"></a>
+<a name="faq59"></a>
 **(59) Kann man Originalnachrichten im Browser öffnen?**
 
 Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps nicht zugänglich, so dass dies nicht möglich ist. Theoretisch könnte das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwendet werden, um diese Dateien freizugeben. Aber selbst Google Chrome kann dies nicht tun.
 
 <br />
 
-<a name="faq60" mark="crwd-mark"></a>
+<a name="faq60"></a>
 **(60) Wussten Sie ... ?**
 
 * Wussten Sie, dass markierte Nachrichten immer synchronisiert/gespeichert werden können? (dies kann in den Empfangseinstellungen aktiviert werden)
@@ -1571,7 +1571,7 @@ Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps
 
 <br />
 
-<a name="faq61" mark="crwd-mark"></a>
+<a name="faq61"></a>
 **(61) Warum werden einige Nachrichten verdunkelt angezeigt?**
 
 Die verdunkelt angezeigten Nachrichten (grau) sind lokal verschobene Nachrichten, für die der Umzug noch nicht vom Server bestätigt ist. Dies kann passieren, wenn aktuell keine Verbindung zum Server oder zum Konto besteht. Diese Nachrichten werden nach einer Verbindung zum Server synchronisiert oder wenn dies nie geschieht, weerden sie gelöscht, wenn sie zu alt sind, um synchronisiert zu werden.
@@ -1584,7 +1584,7 @@ Ausstehende [Vorgänge](#user-content-faq3) können angesehen werden in der Vorg
 
 <br />
 
-<a name="faq62" mark="crwd-mark"></a>
+<a name="faq62"></a>
 **(62) Welche Authentifizierungsmethoden werden unterstützt?**
 
 Die folgenden Authentifizierungsmethoden werden unterstützt und in dieser Reihenfolge verwendet:
@@ -1605,7 +1605,7 @@ Wenn Ihr Provider eine nicht unterstützte Authentifizierungsmethode benötigt, 
 
 <br />
 
-<a name="faq63" mark="crwd-mark"></a>
+<a name="faq63"></a>
 **(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?**
 
 Große Inline oder angehängte [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) und [JPEG](https://en.wikipedia.org/wiki/JPEG) Bilder werden automatisch für die Anzeige auf den Bildschirmen verändert. Das liegt daran, dass E-Mail-Nachrichten in der Größe begrenzt sind, abhängig vom Anbieter meist zwischen 10 und 50 MB. Bilder werden standardmäßig auf eine maximale Breite und Höhe von etwa 1440 Pixeln verkleinert und mit einer Kompressionsrate von 90 % gespeichert. Bilder werden unter Verwendung ganzer Zahlenfaktoren herunterskaliert, um die Speicherauslastung zu reduzieren und die Bildqualität zu erhalten. Die automatische Gößenänderung von Inline-Bildern und/oder angehängten Bildern und die maximale Zielbild-Größe können in den Sendeeinstellungen eingestellt werden.
@@ -1614,27 +1614,27 @@ Wenn Sie die Größe der Bilder von Fall zu Fall ändern möchten, können Sie [
 
 <br />
 
-<a name="faq64" mark="crwd-mark"></a>
+<a name="faq64"></a>
 **~~(64) Kannst du benutzerdefinierte Aktionen zum Wischen nach links/rechts hinzufügen?~~**
 
-~~Das Natürlichste beim Wischen eines Listeneintrags nach links oder rechts ist, den Eintrag aus der Liste zu entfernen. ~ ~~Die natürlichste Aktion im Kontext einer E-Mail-App ist die Verschiebung der Nachricht aus dem Ordner in einen anderen Ordner. ~ ~~Sie können den zu Ziel-Ordner in den Kontoeinstellungen auswählen.~~
+~~Das Natürlichste beim Wischen eines Listeneintrags nach links oder rechts ist, den Eintrag aus der Liste zu entfernen.~~ ~~Die natürlichste Aktion im Kontext einer E-Mail-App ist die Verschiebung der Nachricht aus dem Ordner in einen anderen Ordner.~~ ~~Sie können den zu Ziel-Ordner in den Kontoeinstellungen auswählen.~~
 
-~~~Andere Aktionen, wie zum Beispiel das Markieren von Nachrichten als gelesen und zurückgestellt, sind über mehrere Auswahlen verfügbar.~~ ~Sie können eine Nachricht lange drücken, um eine Mehrfach-Auswahl zu starten. Siehe auch [diese Frage](#user-content-faq55).~~
+~~Andere Aktionen, wie zum Beispiel das Markieren von Nachrichten als gelesen und zurückgestellt, sind über mehrere Auswahlen verfügbar.~~ ~~Sie können eine Nachricht lange drücken, um eine Mehrfach-Auswahl zu starten. Siehe auch [diese Frage](#user-content-faq55).~~
 
-~~~Wischen nach links oder rechts, um eine Nachricht als gelesen oder ungelesen zu markieren, ist unnatürlich, weil die Nachricht zuerst weg geht und später wiederkommt in einer anderen Form. ~ ~~Beachten Sie, dass es eine erweiterte Option gibt, um Nachrichten automatisch beim Verschieben zu markieren, ~ ~~, was in den meisten Fällen ein perfekter Ersatz ist für die Sequenz 'als gelesen markieren und in einen Ordner verschieben'. ~ ~~Sie können auch Nachrichten von der Benachrichtigung aus als gelesen markieren.
+~~Wischen nach links oder rechts, um eine Nachricht als gelesen oder ungelesen zu markieren, ist unnatürlich, weil die Nachricht zuerst weg geht und später wiederkommt in einer anderen Form.~~ ~~Beachten Sie, dass es eine erweiterte Option gibt, um Nachrichten automatisch beim Verschieben zu markieren,~~ ~~, was in den meisten Fällen ein perfekter Ersatz ist für die Sequenz 'als gelesen markieren und in einen Ordner verschieben'. ~~ ~~Sie können auch Nachrichten von der Benachrichtigung aus als gelesen markieren~~
 
 ~~Wenn Sie eine Nachricht später lesen möchten, können Sie sie bis zu einer bestimmten Zeit ausblenden, indem Sie das Menü *Zurückstellen* verwenden.~~
 
 <br />
 
-<a name="faq65" mark="crwd-mark"></a>
+<a name="faq65"></a>
 **(65) Warum werden einige Anhänge gedimmt angezeigt?**
 
 Inline-Anhänge (Bilder) werden verdunkelt angezeigt. [Inline-Anhänge](https://tools.ietf.org/html/rfc2183) sollten automatisch heruntergeladen und angezeigt werden, aber da FairEmail nicht immer automatisch Anhänge herunterlädt, lesen Sie bitte auch [diese FAQ](#user-content-faq40), zeigt FairEmail trotzdem alle Anhänge an. Um Inline-Anhänge und normale Anhänge zu unterscheiden, werden Inline-Anhänge verdunkelt angeezeigt.
 
 <br />
 
-<a name="faq66" mark="crwd-mark"></a>
+<a name="faq66"></a>
 **(66) Ist FairEmail in der Google-Play-Familienmediathek verfügbar?**
 
 *Sie können In-App-Käufe und kostenlose Apps nicht mit Ihren Familienmitgliedern teilen.*
@@ -1643,7 +1643,7 @@ Unter *[»Feststellen, ob Inhalte hinzugefügt werden können«](https://support
 
 <br />
 
-<a name="faq67" mark="crwd-mark"></a>
+<a name="faq67"></a>
 **(67) Wie kann ich Unterhaltungen zurückstellen?**
 
 Wählen Sie eine oder mehrere Unterhaltungen aus (drücken Sie lange, um die Mehrfachauswahl zu starten), tippen Sie auf die Drei-Punkte-Taste und wählen Sie *Zurückstellen …*. Alternativ in der erweiterten Nachrichtenansicht *Zurückstellen …* im Drei-Punkte-Menü der Nachricht oder die Zeitrafferaktion in der unteren Aktionsleiste. Wählen Sie die Zeit, welche die Unterhaltung(en) zurückgestellt werden soll, und bestätigen dieses, indem Sie auf OK klicken. Die Unterhaltungen werden für die gewählte Zeit ausgeblendet und anschließend wieder angezeigt. Sie werden eine neue Benachrichtigung als Erinnerung erhalten.
@@ -1660,8 +1660,8 @@ Drittanbieter-Apps haben bei Gmail keinen Zugriff auf den Nachrichtenordner für
 
 <br />
 
-<a name="faq68" mark="crwd-mark"></a>
-**~~(68) Warum kann Adobe-Acrobat-Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~**
+<a name="faq68"></a>
+**~~(68) Warum kann Adobe-Acrobat-Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~**
 
 ~~Adobe Acrobat Reader und Microsoft-Apps erwarten weiterhin vollen Zugriff auf alle gespeicherten Dateien,~~ ~~während Apps seit Android KitKat (2013)~~ das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwenden sollten, ~~ ~~um nur auf aktiv freigegebene Dateien zugreifen zu können. Dieses ist aus Gründen der Privatsphäre und Sicherheit so.~~
 
@@ -1669,14 +1669,14 @@ Drittanbieter-Apps haben bei Gmail keinen Zugriff auf den Nachrichtenordner für
 
 <br />
 
-<a name="faq69" mark="crwd-mark"></a>
+<a name="faq69"></a>
 **(69) Kannst du automatisches Hochscrollen bei Erhalt einer neuen Nachricht hinzufügen?**
 
 Die Nachrichtenliste wird automatisch nach oben gescrollt, wenn Sie von einer neuen Nachrichtenbenachrichtigung oder nach einer manuellen Aktualisierung navigieren. Immer automatisch nach oben scrollen, wenn neue Nachrichten erscheinen, würde Ihr eigenes Scrollen stören, aber wenn Sie wünschen, können Sie dies in den Einstellungen aktivieren.
 
 <br />
 
-<a name="faq70" mark="crwd-mark"></a>
+<a name="faq70"></a>
 **(70) Wann werden Nachrichten automatisch erweitert?**
 
 Wenn Sie zu einer Unterhaltung navigieren, wird eine Nachricht erweitert, wenn:
@@ -1693,7 +1693,7 @@ Nachrichten werden bei der Erweiterung automatisch als gelesen markiert, es sei 
 
 <br />
 
-<a name="faq71" mark="crwd-mark"></a>
+<a name="faq71"></a>
 **(71) Wie verwende ich Filterregeln?**
 
 Sie können Filterregeln durch langes Drücken eines Ordners in der Ordnerliste eines Kontos bearbeiten (tippen Sie auf den Kontonamen im Navigations/Seitenmenü).
@@ -1768,7 +1768,7 @@ Das Verwenden von Regeln ist ein Pro-Funktion.
 
 <br />
 
-<a name="faq72" mark="crwd-mark"></a>
+<a name="faq72"></a>
 **(72) Was sind Primär-Konten bzw. -Identitäten?**
 
 Das Primärkonto wird verwendet, wenn das Konto uneindeutig ist. Zum Beispiel wenn ein neuer Entwurf aus dem einheitlichen Posteingang gestartet wird.
@@ -1779,7 +1779,7 @@ Es kann nur ein Primärkonto geben und es kann nur eine primäre Identität pro 
 
 <br />
 
-<a name="faq73" mark="crwd-mark"></a>
+<a name="faq73"></a>
 **(73) Ist das Verschieben von Nachrichten über Konten sicher/effizient?**
 
 Nachrichten über Konten hinweg zu verschieben, ist sicher, weil die rohen Originalnachrichten heruntergeladen und verschoben werden und die Quellnachrichten erst dann gelöscht werden, nachdem die Zielnachrichten hinzugefügt wurden
@@ -1788,7 +1788,7 @@ Batch moving messages across accounts is efficient if both the source folder and
 
 <br />
 
-<a name="faq74" mark="crwd-mark"></a>
+<a name="faq74"></a>
 **(74) Warum sehe ich doppelte Nachrichten?**
 
 Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail zeigt alle diese Nachrichten in einer nicht aufdringlichen Art und Weise an, um darauf hinzuweisen, dass diese Nachrichten tatsächlich die gleiche Nachricht sind.
@@ -1797,21 +1797,21 @@ Google Mail erlaubt es einer Nachricht mehrere Labels zu haben, die FairEmail al
 
 <br />
 
-<a name="faq75" mark="crwd-mark"></a>
+<a name="faq75"></a>
 **(75) Can you make an iOS, Windows, Linux, etc version?**
 
 Eine Menge Wissen und Erfahrung ist erforderlich, um erfolgreich eine App für eine bestimmte Plattform zu entwickeln; deshalb entwickle ich nur Apps für Android.
 
 <br />
 
-<a name="faq76" mark="crwd-mark"></a>
+<a name="faq76"></a>
 **(76) Was macht 'Lösche lokale Nachrichten'?**
 
 Das Ordnermenü *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die aber auf dem Server noch vorhanden sind. Es löscht keine Nachrichten vom Server. Dies kann nützlich sein, wenn die Ordnereinstellungen geändert werden, um den Nachrichteninhalt (Text und Anhänge) nicht herunterzuladen, zum Beispiel um Speicherplatz zu sparen.
 
 <br />
 
-<a name="faq77" mark="crwd-mark"></a>
+<a name="faq77"></a>
 **(77) Warum werden Nachrichten manchmal mit einer kleinen Verzögerung angezeigt?**
 
 Abhängig von der Geschwindigkeit Ihres Geräts (Prozessorgeschwindigkeit und vielleicht sogar noch mehr Speichergeschwindigkeit) können Nachrichten mit einer kleinen Verzögerung angezeigt werden. FairEmail is designed to dynamically handle a large number of messages without running out of memory. Das bedeutet, dass Nachrichten aus einer Datenbank gelesen werden müssen und dass diese Datenbank auf Änderungen überwacht werden muss; beides kann zu kleinen Verzögerungen führen.
@@ -1824,7 +1824,7 @@ FairEmail basiert auf den neuesten [Android-Architekturkomponenten](https://deve
 
 <br />
 
-<a name="faq78" mark="crwd-mark"></a>
+<a name="faq78"></a>
 **(78) Wie verwende ich Zeitpläne?**
 
 In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Beachten Sie, dass eine Endzeit gleich oder früher als die Startzeit 24 Stunden später betrachtet wird.
@@ -1894,7 +1894,7 @@ Terminplanung ist eine Pro-Funktion.
 
 <br />
 
-<a name="faq79" mark="crwd-mark"></a>
+<a name="faq79"></a>
 **(79) Wie kann ich bei Bedarf die Synchronisierung nutzen (Handbuch)?**
 
 Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn Sie dies nicht wollen, zum Beispiel, um nicht gestört zu werden oder, um beim Batterieverbrauch zu sparen, können Sie den Empfang neuer Nachrichten in den Empfangseinstellungen deaktivieren. Dadurch wird der Hintergrunddienst, der sich um die automatische Synchronisierung kümmert, gestoppt und die zugehörige Benachrichtigung entfernt.
@@ -1909,7 +1909,7 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
 <br />
 
-<a name="faq80" mark="crwd-mark"></a>
+<a name="faq80"></a>
 **~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE' ?~~**
 
 ~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~ ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
@@ -1918,14 +1918,14 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
 <br />
 
-<a name="faq81" mark="crwd-mark"></a>
+<a name="faq81"></a>
 **~~(81) Can you make the background of the original message dark in the dark theme?~~**
 
 ~~The original message is shown as the sender has sent it, including all colors.~~ ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
 
 <br />
 
-<a name="faq82" mark="crwd-mark"></a>
+<a name="faq82"></a>
 **(82) Was ist ein Verfolgungsbild?**
 
 Bitte [hier](https://en.wikipedia.org/wiki/Web_beacon) nachsehen, was ein Verfolgungsbild genau ist. In kleinen Verfolgungsbildern wird festgehalten, ob Sie eine Nachricht geöffnet haben.
@@ -1938,7 +1938,7 @@ Die automatische Erkennung von Verfolgungsbildern kann in den Privatsphäreneins
 
 <br />
 
-<a name="faq84" mark="crwd-mark"></a>
+<a name="faq84"></a>
 **(84) Wofür sind lokale Kontakte?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
@@ -1953,7 +1953,7 @@ By default only names and addresses to whom you send messages to will be recorde
 
 <br />
 
-<a name="faq85" mark="crwd-mark"></a>
+<a name="faq85"></a>
 **(85) Why is an identity not available?**
 
 An identity is available for sending a new message or replying or forwarding an existing message only if:
@@ -1966,7 +1966,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 
 <br />
 
-<a name="faq86" mark="crwd-mark"></a>
+<a name="faq86"></a>
 **~~(86) What are 'extra privacy features'?~~**
 
 ~~The advanced option *extra privacy features* enables:~~
@@ -1976,7 +1976,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 
 <br />
 
-<a name="faq87" mark="crwd-mark"></a>
+<a name="faq87"></a>
 **(87) What does 'invalid credentials' mean?**
 
 The error message *invalid credentials* means either that the user name and/or password is incorrect, for example because the password was changed or expired, or that the account authorization has expired.
@@ -1987,7 +1987,7 @@ If the account authorization has expired, you will have to select the account ag
 
 <br />
 
-<a name="faq88" mark="crwd-mark"></a>
+<a name="faq88"></a>
 **(88) How can I use a Yahoo, AOL or Sky account?**
 
 The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
@@ -2012,14 +2012,14 @@ Y1 OK CAPABILITY completed
 
 <br />
 
-<a name="faq89" mark="crwd-mark"></a>
+<a name="faq89"></a>
 **(89) How can I send plain text only messages?**
 
 By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
 
 <br />
 
-<a name="faq90" mark="crwd-mark"></a>
+<a name="faq90"></a>
 **(90) Why are some texts linked while not being a link?**
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
@@ -2030,7 +2030,7 @@ Note that original messages are shown exactly as they are, which means also that
 
 <br />
 
-<a name="faq91" mark="crwd-mark"></a>
+<a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**
 
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
@@ -2039,7 +2039,7 @@ Note that original messages are shown exactly as they are, which means also that
 
 <br />
 
-<a name="faq92" mark="crwd-mark"></a>
+<a name="faq92"></a>
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
@@ -2066,7 +2066,7 @@ If legitimate messages are failing authentication, you should notify the sender 
 
 <br />
 
-<a name="faq93" mark="crwd-mark"></a>
+<a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
 FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
@@ -2079,14 +2079,14 @@ If you need to save on storage space, you can limit the number of days messages 
 
 <br />
 
-<a name="faq94" mark="crwd-mark"></a>
+<a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
 The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
 
 <br />
 
-<a name="faq95" mark="crwd-mark"></a>
+<a name="faq95"></a>
 **(95) Why are not all apps shown when selecting an attachment or image?**
 
 For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
@@ -2097,14 +2097,14 @@ Android Q will make it harder and maybe even impossible to directly access files
 
 <br />
 
-<a name="faq96" mark="crwd-mark"></a>
+<a name="faq96"></a>
 **(96) Where can I find the IMAP and SMTP settings?**
 
 The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
 
 <br />
 
-<a name="faq97" mark="crwd-mark"></a>
+<a name="faq97"></a>
 **(97) What is 'cleanup' ?**
 
 About each four hours FairEmail runs a cleanup job that:
@@ -2119,14 +2119,14 @@ Note that the cleanup job will only run when the synchronize service is active.
 
 <br />
 
-<a name="faq98" mark="crwd-mark"></a>
+<a name="faq98"></a>
 **(98) Why can I still pick contacts after revoking contacts permissions?**
 
 After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
 
 <br />
 
-<a name="faq99" mark="crwd-mark"></a>
+<a name="faq99"></a>
 **(99) Can you add a rich text or markdown editor?**
 
 FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
@@ -2135,7 +2135,7 @@ A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https:
 
 <br />
 
-<a name="faq100" mark="crwd-mark"></a>
+<a name="faq100"></a>
 **(100) How can I synchronize Gmail categories?**
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
@@ -2159,7 +2159,7 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 
 <br />
 
-<a name="faq101" mark="crwd-mark"></a>
+<a name="faq101"></a>
 **(101) What does the blue/orange dot at the bottom of the conversations mean?**
 
 The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
@@ -2168,7 +2168,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 
 <br />
 
-<a name="faq102" mark="crwd-mark"></a>
+<a name="faq102"></a>
 **(102) How can I enable auto rotation of images?**
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
@@ -2177,7 +2177,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 
 <br />
 
-<a name="faq104" mark="crwd-mark"></a>
+<a name="faq104"></a>
 **(104) What do I need to know about error reporting?**
 
 * Fehlerberichte helfen FairEmail zu verbessern
@@ -2191,7 +2191,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 
 <br />
 
-<a name="faq105" mark="crwd-mark"></a>
+<a name="faq105"></a>
 **(105) How does the roam-like-at-home option work?**
 
 FairEmail will check if the country code of the SIM card and the country code of the network are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
@@ -2200,7 +2200,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 <br />
 
-<a name="faq106" mark="crwd-mark"></a>
+<a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
@@ -2227,7 +2227,7 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 
 <br />
 
-<a name="faq107" mark="crwd-mark"></a>
+<a name="faq107"></a>
 **(107) How do I use colored stars?**
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
@@ -2238,28 +2238,28 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 
 <br />
 
-<a name="faq108" mark="crwd-mark"></a>
+<a name="faq108"></a>
 **~~(108) Can you add permanently delete messages from any folder?~~**
 
 ~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
 
 <br />
 
-<a name="faq109" mark="crwd-mark"></a>
+<a name="faq109"></a>
 **~~(109) Why is 'select account' available in official versions only?~~**
 
 ~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
 
 ~~You can solve this in two ways:~~
 
-* ~~Wechseln Sie zur offiziellen Version von FairEmail, siehe [hier](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) für die Optionen~
+* ~~Wechseln Sie zur offiziellen Version von FairEmail, siehe [hier](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) für die Optionen~~
 * ~~App-spezifische Passwörter verwenden, siehe [diese FAQ](#user-content-faq6)~~
 
 ~~Using *select account* in third party builds is not possible in recent versions anymore.~~ ~~In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.~~
 
 <br />
 
-<a name="faq110" mark="crwd-mark"></a>
+<a name="faq110"></a>
 **(110) Why are (some) messages empty and/or attachments corrupt?**
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
@@ -2272,7 +2272,7 @@ Disabling *Partial fetch* will result in more memory usage.
 
 <br />
 
-<a name="faq111" mark="crwd-mark"></a>
+<a name="faq111"></a>
 **(111) Is OAuth supported?**
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
@@ -2283,7 +2283,7 @@ OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth f
 
 <br />
 
-<a name="faq112" mark="crwd-mark"></a>
+<a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
 FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
@@ -2296,7 +2296,7 @@ Using your own (custom) domain name, which is supported by most email providers,
 
 <br />
 
-<a name="faq113" mark="crwd-mark"></a>
+<a name="faq113"></a>
 **(113) How does biometric authentication work?**
 
 If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
@@ -2307,14 +2307,14 @@ Biometric authentication is a pro feature.
 
 <br />
 
-<a name="faq114" mark="crwd-mark"></a>
+<a name="faq114"></a>
 **(114) Can you add an import for the settings of other email apps?**
 
 The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
 <br />
 
-<a name="faq115" mark="crwd-mark"></a>
+<a name="faq115"></a>
 **(115) Can you add email address chips?**
 
 Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited, which is quite inconvenient when you made a typo in an email address.
@@ -2327,7 +2327,7 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 <br />
 
-<a name="faq116" mark="crwd-mark"></a>
+<a name="faq116"></a>
 **~~(116) How can I show images in messages from trusted senders by default?~~**
 
 ~~You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.~~
@@ -2336,8 +2336,8 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 <br />
 
-<a name="faq38" mark="crwd-mark"></a>
-<a name="faq117" mark="crwd-mark"></a>
+<a name="faq38"></a>
+<a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
 First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
@@ -2367,14 +2367,14 @@ If you cannot solve the problem with the purchase, you will have to contact Goog
 
 <br />
 
-<a name="faq118" mark="crwd-mark"></a>
+<a name="faq118"></a>
 **(118) Was genau bedeutet »Verfolgungsparameter entfernen«?**
 
 *Verefolgungsparameter entfernen* entfernt alle [UTM-Parameter](https://en.wikipedia.org/wiki/UTM_parameters) von einem Link.
 
 <br />
 
-<a name="faq119" mark="crwd-mark"></a>
+<a name="faq119"></a>
 **~~(119) Can you add colors to the unified inbox widget?~~**
 
 ~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~ ~~This way the widget will nicely blend in, while still being properly readable.~~
@@ -2385,7 +2385,7 @@ Due to Android limitations it is not possible to dynamically set the opacity of 
 
 <br />
 
-<a name="faq120" mark="crwd-mark"></a>
+<a name="faq120"></a>
 **(120) Why are new message notifications not removed on opening the app?**
 
 New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
@@ -2394,7 +2394,7 @@ On Android 7 Nougat and later new message notifications will be [grouped](https:
 
 <br />
 
-<a name="faq121" mark="crwd-mark"></a>
+<a name="faq121"></a>
 **(121) How are messages grouped into a conversation?**
 
 By default FairEmail groups messages in conversations. This can be turned of in the display settings.
@@ -2403,14 +2403,14 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 
 <br />
 
-<a name="faq122" mark="crwd-mark"></a>
+<a name="faq122"></a>
 **~~(122) Why is the recipient name/email address show with a warning color?~~**
 
 ~~The recipient name and/or email address in the addresses section will be shown in a warning color~~ ~~when the sender domain name and the domain name of the *to* address do not match.~~ ~~Mostly this indicates that the message was received *via* an account with another email address.~~
 
 <br />
 
-<a name="faq123" mark="crwd-mark"></a>
+<a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
 If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
@@ -2425,14 +2425,14 @@ Note that sending will not be retried in case of authentication problems and whe
 
 <br />
 
-<a name="faq124" mark="crwd-mark"></a>
+<a name="faq124"></a>
 **(124) Why do I get 'Message too large or too complex to display'?**
 
 The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
 
 <br />
 
-<a name="faq125" mark="crwd-mark"></a>
+<a name="faq125"></a>
 **(125) What are the current experimental features?**
 
 *Message classification (version 1.1438+)*
@@ -2453,7 +2453,7 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 <br />
 
-<a name="faq126" mark="crwd-mark"></a>
+<a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 
 FairEmail fetches a message in two steps:
@@ -2473,21 +2473,21 @@ If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you m
 
 <br />
 
-<a name="faq127" mark="crwd-mark"></a>
+<a name="faq127"></a>
 **(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
 
 The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
 
 <br />
 
-<a name="faq128" mark="crwd-mark"></a>
+<a name="faq128"></a>
 **(128) How can I reset asked questions, for example to show images?**
 
 You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
 
 <br />
 
-<a name="faq129" mark="crwd-mark"></a>
+<a name="faq129"></a>
 **(129) Are ProtonMail, Tutanota supported?**
 
 ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
@@ -2496,7 +2496,7 @@ Tutanota uses a proprietary email protocol and [does not support IMAP](https://t
 
 <br />
 
-<a name="faq130" mark="crwd-mark"></a>
+<a name="faq130"></a>
 **(130) What does message error ... mean?**
 
 A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
@@ -2513,7 +2513,7 @@ Please see [here](#user-content-faq22) for other error messages in the outbox.
 
 <br />
 
-<a name="faq131" mark="crwd-mark"></a>
+<a name="faq131"></a>
 **(131) Can you change the direction for swiping to previous/next message?**
 
 If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
@@ -2524,7 +2524,7 @@ Anyway, there is a behavior setting to reverse the swipe direction.
 
 <br />
 
-<a name="faq132" mark="crwd-mark"></a>
+<a name="faq132"></a>
 **(132) Why are new message notifications silent?**
 
 Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
@@ -2535,7 +2535,7 @@ Android might rate limit the notification sound, which can cause some new messag
 
 <br />
 
-<a name="faq133" mark="crwd-mark"></a>
+<a name="faq133"></a>
 **(133) Why is ActiveSync not supported?**
 
 The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
@@ -2544,7 +2544,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 
 <br />
 
-<a name="faq134" mark="crwd-mark"></a>
+<a name="faq134"></a>
 **(134) Can you add deleting local messages?**
 
 *POP3*
@@ -2561,7 +2561,7 @@ Note that it is possible to set the swipe left or right action to hide a message
 
 <br />
 
-<a name="faq135" mark="crwd-mark"></a>
+<a name="faq135"></a>
 **(135) Why are trashed messages and drafts shown in conversations?**
 
 Individual messages will rarely be trashed and mostly this happens by accident. Showing trashed messages in conversations makes it easier to find them back.
@@ -2572,7 +2572,7 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 
 <br />
 
-<a name="faq136" mark="crwd-mark"></a>
+<a name="faq136"></a>
 **(136) How can I delete an account/identity/folder?**
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
@@ -2585,14 +2585,14 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 
 <br />
 
-<a name="faq137" mark="crwd-mark"></a>
+<a name="faq137"></a>
 **(137) How can I reset 'Don't ask again'?**
 
 You can reset all questions set to be not asked again in the miscellaneous settings.
 
 <br />
 
-<a name="faq138" mark="crwd-mark"></a>
+<a name="faq138"></a>
 **(138) Can you add calendar/contact/tasks/notes management?**
 
 Calendar, contact, task and note management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
@@ -2607,8 +2607,8 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 
 <br />
 
-<a name="faq83" mark="crwd-mark"></a>
-<a name="faq139" mark="crwd-mark"></a>
+<a name="faq83"></a>
+<a name="faq139"></a>
 **(139) How do I fix 'User is authenticated but not connected'?**
 
 In fact this Microsoft Exchange specific error is an incorrect error message caused by a bug in older Exchange server software.
@@ -2632,14 +2632,14 @@ When using a shared mailbox, you'll likely want to enable the option *Synchroniz
 
 <br />
 
-<a name="faq140" mark="crwd-mark"></a>
+<a name="faq140"></a>
 **(140) Why does the message text contain strange characters?**
 
 Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Other than that there is no way to reliably determine the correct character encoding automatically, so this cannot be fixed by FairEmail. The right action is to complain to the sender.
 
 <br />
 
-<a name="faq141" mark="crwd-mark"></a>
+<a name="faq141"></a>
 **(141) How can I fix 'A drafts folder is required to send messages'?**
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
@@ -2652,7 +2652,7 @@ Quick link for Gmail (will work on a desktop computer only): [https://mail.googl
 
 <br />
 
-<a name="faq142" mark="crwd-mark"></a>
+<a name="faq142"></a>
 **(142) How can I store sent messages in the inbox?**
 
 Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
@@ -2665,7 +2665,7 @@ If this is not an option, you can [create a rule](#user-content-faq71) to automa
 
 <br />
 
-<a name="faq143" mark="crwd-mark"></a>
+<a name="faq143"></a>
 **~~(143) Can you add a trash folder for POP3 accounts?~~**
 
 [POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
@@ -2678,7 +2678,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 <br />
 
-<a name="faq144" mark="crwd-mark"></a>
+<a name="faq144"></a>
 **(144) How can I record voice notes?**
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
@@ -2693,7 +2693,7 @@ Voice notes will automatically be attached.
 
 <br />
 
-<a name="faq145" mark="crwd-mark"></a>
+<a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
 Account:
@@ -2718,7 +2718,7 @@ Setting a notification sound for an account, folder or sender requires Android 8
 
 <br />
 
-<a name="faq146" mark="crwd-mark"></a>
+<a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
 Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
@@ -2731,7 +2731,7 @@ This will not change the time of already synchronized messages. To solve this, l
 
 <br />
 
-<a name="faq147" mark="crwd-mark"></a>
+<a name="faq147"></a>
 **(147) What should I know about third party versions?**
 
 You likely came here because you are using a third party build of FairEmail.
@@ -2752,7 +2752,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 
 <br />
 
-<a name="faq148" mark="crwd-mark"></a>
+<a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
 There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
@@ -2761,7 +2761,7 @@ When using two-factor authentication you might need to use an [app-specific pass
 
 <br />
 
-<a name="faq149" mark="crwd-mark"></a>
+<a name="faq149"></a>
 **(149) How does the unread message count widget work?**
 
 The unread message count widget shows the number of unread messages either for all accounts or for a selected account, but only for the folders for which new message notifications are enabled.
@@ -2774,7 +2774,7 @@ Tapping on the notification will synchronize all folders for which synchronizati
 
 <br />
 
-<a name="faq150" mark="crwd-mark"></a>
+<a name="faq150"></a>
 **(150) Can you add cancelling calendar invites?**
 
 Cancelling calendar invites (removing calendar events) requires write calendar permission, which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
@@ -2785,7 +2785,7 @@ Inserting new calendar events can be done without permissions with special [inte
 
 <br />
 
-<a name="faq151" mark="crwd-mark"></a>
+<a name="faq151"></a>
 **(151) Can you add backup/restore of messages?**
 
 An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
@@ -2800,7 +2800,7 @@ If you want to import an mbox file to an existing email account, you can use Thu
 
 <br />
 
-<a name="faq152" mark="crwd-mark"></a>
+<a name="faq152"></a>
 **(152) How can I insert a contact group?**
 
 You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
@@ -2809,7 +2809,7 @@ You can define contact groups with the Android contacts app, please see [here](h
 
 <br />
 
-<a name="faq153" mark="crwd-mark"></a>
+<a name="faq153"></a>
 **(153) Why does permanently deleting Gmail message not work?**
 
 You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
@@ -2831,14 +2831,14 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 
 <br />
 
-<a name="faq154" mark="crwd-mark"></a>
+<a name="faq154"></a>
 **~~(154) Can you add favicons as contact photos?~~**
 
 ~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
 
 <br />
 
-<a name="faq155" mark="crwd-mark"></a>
+<a name="faq155"></a>
 **(155) What is a winmail.dat file?**
 
 A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
@@ -2849,7 +2849,7 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 
 <br />
 
-<a name="faq156" mark="crwd-mark"></a>
+<a name="faq156"></a>
 **(156) How can I set up an Office 365 account?**
 
 An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
@@ -2860,7 +2860,7 @@ If you've enabled *security defaults* in your organization, you might need to en
 
 <br />
 
-<a name="faq157" mark="crwd-mark"></a>
+<a name="faq157"></a>
 **(157) How can I set up an Free.fr account?**
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
@@ -2871,8 +2871,8 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 
 <br />
 
-<a name="faq103" mark="crwd-mark"></a>
-<a name="faq158" mark="crwd-mark"></a>
+<a name="faq103"></a>
+<a name="faq158"></a>
 **(158) Which camera / audio recorder do you recommend?**
 
 To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
@@ -2884,7 +2884,7 @@ To record voice notes, etc, the audio recorder needs to support [MediaStore.Audi
 
 <br />
 
-<a name="faq159" mark="crwd-mark"></a>
+<a name="faq159"></a>
 **(159) What are Disconnect's tracker protection lists?**
 
 Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
