@@ -2085,6 +2085,7 @@ The following rule conditions are available:
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
 If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+If you want to match a domain name, you can use as a condition something like *@example.org*
 
 Note that email addresses are formatted like this:
 
