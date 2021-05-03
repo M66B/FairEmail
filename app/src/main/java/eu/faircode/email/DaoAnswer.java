@@ -56,8 +56,9 @@ public interface DaoAnswer {
     LiveData<List<EntityAnswer>> liveAnswers();
 
     @Query("SELECT COUNT(*) FROM answer" +
-            " WHERE NOT hide")
-    Integer getAnswerCount();
+            " WHERE NOT hide" +
+            " AND (:favorite OR NOT favorite)")
+    Integer getAnswerCount(boolean favorite);
 
     @Insert
     long insertAnswer(EntityAnswer answer);

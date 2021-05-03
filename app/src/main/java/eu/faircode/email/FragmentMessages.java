@@ -2445,7 +2445,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (message == null)
                     return result;
 
-                args.putInt("answers", db.answer().getAnswerCount());
+                args.putInt("answers", db.answer().getAnswerCount(false));
 
                 result.identities = db.identity().getComposableIdentities(message.account);
                 result.answers = db.answer().getAnswersByFavorite(true);
@@ -2469,7 +2469,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 Address[] recipients = message.getAllRecipients(data.identities, message.account);
 
-                int answers = args.getInt("answers");
+                int answers = args.getInt("answers"); // Non favorite
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean experiments = prefs.getBoolean("experiments", false);
