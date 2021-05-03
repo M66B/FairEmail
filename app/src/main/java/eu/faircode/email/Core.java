@@ -67,6 +67,7 @@ import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.pop3.POP3Folder;
 import com.sun.mail.pop3.POP3Message;
 import com.sun.mail.pop3.POP3Store;
+import com.sun.mail.util.MessageRemovedIOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -1429,7 +1430,7 @@ class Core {
             } finally {
                 ((IMAPMessage) imessage).invalidateHeaders();
             }
-        } catch (MessageRemovedException ex) {
+        } catch (MessageRemovedException | MessageRemovedIOException ex) {
             Log.i(ex);
 
             if (account.isGmail() && EntityFolder.USER.equals(folder.type)) {
