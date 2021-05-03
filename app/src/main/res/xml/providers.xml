@@ -1127,4 +1127,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="123 Reg"
+        link="https://www.123-reg.co.uk/support/email/how-do-i-set-up-an-email-client-with-123-mail/">
+        <imap
+            host="imap.123-reg.co.uk"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.123-reg.co.uk"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
