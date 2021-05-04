@@ -958,14 +958,12 @@ public class FragmentCompose extends FragmentBase {
 
                     String name = cursor.getString(colName);
                     String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
-                    StringBuilder sb = new StringBuilder();
                     if (name == null || !suggest_names)
-                        sb.append(email);
+                        return email;
                     else {
-                        sb.append("\"").append(name).append("\" ");
-                        sb.append("<").append(email).append(">");
+                        Address address = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+                        return MessageHelper.formatAddressesCompose(new Address[]{address});
                     }
-                    return sb.toString();
                 } catch (Throwable ex) {
                     Log.e(ex);
                     return ex.toString();
