@@ -2125,6 +2125,8 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
+An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded,
 so it is not possible to apply conditions to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save on data usage.
