@@ -102,6 +102,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.exifinterface.media.ExifInterface;
@@ -3319,6 +3320,8 @@ public class FragmentCompose extends FragmentBase {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
         View focus = view.findFocus();
+        boolean ime = (Build.VERSION.SDK_INT < Build.VERSION_CODES.R ||
+                view.getRootWindowInsets().isVisible(WindowInsetsCompat.Type.ime()));
 
         // Workaround underlines left by Android
         etBody.clearComposingText();
@@ -3349,7 +3352,9 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("formatted", formatted);
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
         args.putInt("focus", focus == null ? -1 : focus.getId());
+        args.putBoolean("ime", ime);
         args.putBundle("extras", extras);
+
 
         Log.i("Run execute id=" + working + " reason=" + reason);
         actionLoader.execute(this, args, "compose:action:" + action);
@@ -5232,7 +5237,7 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                setFocus(args.getInt("focus"));
+                setFocus(args.getInt("focus"), args.getBoolean("ime"));
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5535,7 +5540,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                setFocus(null);
+                setFocus(null, true);
             }
 
             @Override
@@ -5545,7 +5550,7 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:show");
     }
 
-    private void setFocus(Integer v) {
+    private void setFocus(Integer v, boolean restore) {
         final View target;
         if (v != null)
             target = view.findViewById(v);
@@ -5569,7 +5574,7 @@ public class FragmentCompose extends FragmentBase {
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean keyboard = prefs.getBoolean("keyboard", true);
-                    if (!keyboard)
+                    if (!keyboard || !restore)
                         return;
 
                     InputMethodManager imm =
