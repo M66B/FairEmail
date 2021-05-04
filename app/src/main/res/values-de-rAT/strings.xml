@@ -536,6 +536,7 @@
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
+    <string name="title_advanced_safe_browsing_hint">Der Google-Server weiß, welche Adressen besucht werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
@@ -764,7 +765,7 @@
     <string name="title_subject_forward_alt">Wg: %1$s</string>
     <string name="title_seen">Gelesen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
-    <string name="title_toggle_seen">Gelesen umschalten</string>
+    <string name="title_toggle_seen">Gelesen/Ungelesen</string>
     <string name="title_hide">Ausblenden</string>
     <string name="title_unhide">Anzeigen</string>
     <string name="title_toggle_hide">Aus-/Einblenden</string>

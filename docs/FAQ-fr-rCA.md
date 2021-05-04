@@ -1714,7 +1714,7 @@ The following rule conditions are available:
 * Temps absolu (reçu) entre (depuis la version 1.1540)
 * Temps relatif (reçu) entre
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. Si vous voulez faire correspondre un nom de domaine, vous pouvez utiliser une condition comme *@example.org*
 
 Note that email addresses are formatted like this:
 

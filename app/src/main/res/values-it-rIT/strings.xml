@@ -169,6 +169,7 @@
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email in modo affidabile</string>
+    <string name="title_setup_doze_hint">Sebbene possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per questa app risulterà in un minore uso della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
@@ -289,6 +290,7 @@
     <string name="title_advanced_roaming">Scarica messaggi e allegati in roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_download_headers">Scarica tutte le intestazioni di messaggio</string>
+    <string name="title_advanced_download_eml">Scarica i file di messaggio grezzi</string>
     <string name="title_advanced_validated">Richiede una connessione convalidata (verificata)</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
@@ -436,6 +438,7 @@
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare gli screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout dell\'autenticazione biometrica</string>
+    <string name="title_advanced_disconnect_auto_update">Aggiorna automaticamente le liste settimanalmente</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
     <string name="title_advanced_sign_default">Firma di default</string>
@@ -701,6 +704,7 @@
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
     <string name="title_op_title_headers">Scaricamento delle intestazioni</string>
+    <string name="title_op_title_raw">Scaricamento messaggio grezzo</string>
     <string name="title_folder_name">Nome della cartella</string>
     <string name="title_display_name">Nome mostrato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
@@ -763,6 +767,7 @@
     <string name="title_toggle_seen">Attiva/disattiva lettura</string>
     <string name="title_hide">Nascondi</string>
     <string name="title_unhide">Mostra</string>
+    <string name="title_toggle_hide">Mostra/nascondi</string>
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_flag_color">Stella colorata&#8230;</string>
     <string name="title_unflag">Rimuovi stella</string>

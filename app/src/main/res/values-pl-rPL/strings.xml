@@ -190,6 +190,7 @@
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
     <string name="title_setup_doze_remark">Dla niezawodnego wysyłania i odbierania wiadomości e-mail</string>
+    <string name="title_setup_doze_hint">Chociaż może to brzmieć sprzecznie, wyłączenie optymalizacji baterii dla tej aplikacji spowoduje mniejsze zużycie baterii</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
@@ -458,6 +459,7 @@
     <string name="title_advanced_secure">Ukryj z ekranu ostatnich aplikacji i zapobiegaj wykonywaniu zrzutów ekranu</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
+    <string name="title_advanced_disconnect_auto_update">Automatycznie aktualizuj listy co tydzień</string>
     <string name="title_advanced_disconnect_links">Użyj list do rozpoznawania linków śledzących</string>
     <string name="title_advanced_disconnect_images">Użyj list do rozpoznawania obrazów śledzących</string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
@@ -554,6 +556,7 @@
     <string name="title_advanced_display_harmful_hint">Wyłączenie tej opcji może być szkodliwe dla prywatności</string>
     <string name="title_advanced_display_hidden_hint">Może to powodować dziwne i podwójne teksty</string>
     <string name="title_advanced_display_pin_hint">PIN ma pierwszeństwo przed uwierzytelnianiem biometrycznym</string>
+    <string name="title_advanced_safe_browsing_hint">Serwer Google wie, które adresy są wyszukiwane</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
@@ -587,6 +590,7 @@
     <string name="title_advanced_sender_name">Użyj nazwy, gdy adres nadawcy został edytowany</string>
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
+    <string name="title_identity_internal">Wewnętrzne nazwy domen (oddzielone przecinkami)</string>
     <string name="title_identity_unicode">Użyj transportu Unicode</string>
     <string name="title_identity_unicode_remark">Większość serwerów nie wspiera tego</string>
     <string name="title_identity_max_size">Maksymalny rozmiar wiadomości (MB)</string>
@@ -721,6 +725,8 @@
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
+    <string name="title_op_title_headers">Pobieranie nagłówków</string>
+    <string name="title_op_title_raw">Pobieranie nieprzetworzonej wiadomości</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>

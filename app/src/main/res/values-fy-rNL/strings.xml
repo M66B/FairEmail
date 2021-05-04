@@ -533,6 +533,7 @@
     <string name="title_advanced_display_harmful_hint">Dizze opsje útskeakelje kin skealik wêze foar jo privacy</string>
     <string name="title_advanced_display_hidden_hint">Dit kin resultearje yn ûneven uterlike en dûbele teksten</string>
     <string name="title_advanced_display_pin_hint">In PIN hat foarrang boppe ferifikaasje fan biometrie</string>
+    <string name="title_advanced_safe_browsing_hint">De Google-server wit hokker adressen socht wurde</string>
     <string name="title_advanced_badge_hint">Allinich beskikber op stipe lansearders</string>
     <string name="title_advanced_notify_action_hint">Op syn meast wurde trije aksjes werjûn</string>
     <string name="title_advanced_notify_remove_hint">Notifikaasjes oer nije berjochten sille altyd wurde fuortsmiten as se wurde ferwidere en op markearjen fan berjochten lêzen</string>

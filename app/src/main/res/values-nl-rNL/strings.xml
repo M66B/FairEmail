@@ -535,6 +535,7 @@
     <string name="title_advanced_display_harmful_hint">Het uitschakelen van deze optie kan schadelijk zijn voor uw privacy</string>
     <string name="title_advanced_display_hidden_hint">Dit kan leiden tot vreemd uitziende en dubbele teksten</string>
     <string name="title_advanced_display_pin_hint">Een PIN code gaat voor biometrische authenticatie</string>
+    <string name="title_advanced_safe_browsing_hint">De Google-server weet welke adressen worden opgezocht</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>

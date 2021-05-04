@@ -1714,7 +1714,7 @@ The following rule conditions are available:
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. Asto ​​in domeinnamme oanpasse wolst, do kinst betingst iets brûke lykas *@foarbyld.frl*
 
 Note that email addresses are formatted like this:
 

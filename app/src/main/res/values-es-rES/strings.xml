@@ -169,6 +169,7 @@
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
     <string name="title_setup_doze">Desactivar las optimizaciones de la batería</string>
     <string name="title_setup_doze_remark">Para enviar y recibir correo electrónico de forma confiable</string>
+    <string name="title_setup_doze_hint">Aunque esto pueda sonar contradictorio, desactivar las optimizaciones de la batería resultará en un menor uso de la batería</string>
     <string name="title_setup_doze_instructions">En el siguiente cuadro de diálogo de Android cambiar \"Sin optimizar\" a \"Todas las aplicaciones\", seleccione esta aplicación y seleccione \"No optimizar\"</string>
     <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
     <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
@@ -437,6 +438,7 @@
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
+    <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconocer imágenes de rastreo</string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>
@@ -701,6 +703,8 @@
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_hint_operations">Eliminar operaciones puede resultar en la desaparición de mensajes y problemas de sincronización</string>
+    <string name="title_op_title_headers">Descargando encabezados</string>
+    <string name="title_op_title_raw">Descargando mensaje sin procesar</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
     <string name="title_show_folders">Mostrar carpetas ocultas</string>

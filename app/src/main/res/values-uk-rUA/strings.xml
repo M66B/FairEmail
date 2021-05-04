@@ -179,6 +179,7 @@
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання та надсилання електронної пошти</string>
+    <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
@@ -447,6 +448,7 @@
     <string name="title_advanced_secure">Приховати з екрану останніх програм і не дозволяти робити знімки екрану</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Тайм-аут біометричної автентифікації</string>
+    <string name="title_advanced_disconnect_auto_update">Автоматично оновлювати списки щотижня</string>
     <string name="title_advanced_disconnect_links">Використовуйте списки для попередження про посилання за якими можливе відслідковування</string>
     <string name="title_advanced_disconnect_images">Використовувати списки для розпізнавання зображень за якими можливе відстеження</string>
     <string name="title_advanced_sign_default">Підписати за замовчуванням</string>
@@ -538,6 +540,7 @@
     <string name="title_advanced_autoclose_hint">Автоматично закривати розмови коли всі повідомлення архівовані, надіслані або видалені</string>
     <string name="title_advanced_sender_hint">Більшість провайдерів не дозволяють змінювати адреси відправника</string>
     <string name="title_advanced_bcc_hint">Адреса не буде показана, але буде додана при відправленні</string>
+    <string name="title_advanced_internal_hint">При надсиланні на інший домен буде попередження</string>
     <string name="title_advanced_display_harmful_hint">Вимкнення цієї опції може зашкодити вашій конфіденційності</string>
     <string name="title_advanced_display_hidden_hint">Це може призвести до дивного вигляду та подвійних текстів</string>
     <string name="title_advanced_display_pin_hint">PIN-код має пріоритет над біометричною аутентифікацією</string>
@@ -574,6 +577,7 @@
     <string name="title_advanced_sender_name">Використовувати ім\'я, коли адресу відправника було відредаговано</string>
     <string name="title_advanced_sender_regex">Регулярний вираз, що застосовується до імені користувача з вхідних адрес електронної пошти</string>
     <string name="title_identity_reply_to">Відповісти на адресу</string>
+    <string name="title_identity_internal">Внутрішні доменні імена (розділені комами)</string>
     <string name="title_identity_unicode">Використовувати Unicode при комунікації з сервером</string>
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
     <string name="title_identity_max_size">Максимальний розмір повідомлення (МБ)</string>
@@ -708,6 +712,8 @@
     <string name="title_delete_contacts">Видалити всі локальні контакти?</string>
     <string name="title_no_operations">Немає відкладених операцій</string>
     <string name="title_hint_operations">Видалення операцій може призвести до зникнення повідомлень та проблем з синхронізацією</string>
+    <string name="title_op_title_headers">Завантаження заголовків</string>
+    <string name="title_op_title_raw">Завантаження raw повідомлень</string>
     <string name="title_folder_name">Ім\'я теки</string>
     <string name="title_display_name">Відображуване ім\'я</string>
     <string name="title_show_folders">Відображати приховані теки</string>
@@ -805,6 +811,8 @@
     <string name="title_ask_raw">Для пересилання повідомлень необхідно завантажити їх з серверу. Для цього потрібне підключення до інтернету.</string>
     <string name="title_buttons">Виберіть кнопки</string>
     <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
+    <string name="title_button_search">Пошук у повідомленнях</string>
+    <string name="title_button_search_text">Пошук у тексті повідомлення</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_trash">Кошик</string>
     <string name="title_copy">Копіювати &#8230;</string>
@@ -824,6 +832,7 @@
     <string name="title_move_to_account">Перемістити в %1$s &#8230;</string>
     <string name="title_report_spam">Вважати спамом</string>
     <string name="title_delete_permanently">Видалити назавжди</string>
+    <string name="title_no_undo">Цю дію не можливо скасувати!</string>
     <string name="title_snooze">Відкласти &#8230;</string>
     <string name="title_archive">Архівувати</string>
     <string name="title_reply">Відповісти</string>
@@ -980,6 +989,7 @@
     <string name="title_smime_reminder">Доступні S/MIME ключі</string>
     <string name="title_to_missing">Відсутній отримувач</string>
     <string name="title_extra_missing">Не вказано ім\'я користувача</string>
+    <string name="title_external_reminder">Надсилання на зовнішню адресу</string>
     <string name="title_subject_reminder">Тема не вказана</string>
     <string name="title_text_reminder">Порожнє повідомлення</string>
     <string name="title_attachment_keywords">вкладені, вкладення, вкладення, включене</string>

@@ -535,6 +535,7 @@
     <string name="title_advanced_display_harmful_hint">Désactiver cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut engendrer des problèmes d’affichage et de dédoublement du texte</string>
     <string name="title_advanced_display_pin_hint">Le code NIP a la priorité sur l’authentification biométrique</string>
+    <string name="title_advanced_safe_browsing_hint">Le serveur Google connait les adresses qui sont recherchées</string>
     <string name="title_advanced_badge_hint">Disponible uniquement sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et du marquage des messages comme lus</string>

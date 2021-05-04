@@ -523,7 +523,7 @@
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение данной функции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
-    <string name="title_advanced_usage_hint">Это увеличит расход заряда батареи, трафика и места в хранилище</string>
+    <string name="title_advanced_usage_hint">Увеличится расход заряда батареи, трафика и места в хранилище</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы с подключением на некоторых устройствах</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
@@ -557,6 +557,7 @@
     <string name="title_advanced_display_harmful_hint">Отключение этой функции может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
+    <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса ищутся</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>

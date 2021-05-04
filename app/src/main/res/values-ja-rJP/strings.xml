@@ -522,6 +522,7 @@
     <string name="title_advanced_display_harmful_hint">このオプションを無効にするとプライバシーが損なわれる可能性が有ります</string>
     <string name="title_advanced_display_hidden_hint">これにより奇妙な外観になったりと二重テキストが生成される可能性があります</string>
     <string name="title_advanced_display_pin_hint">PINを生体認証よりも優先</string>
+    <string name="title_advanced_safe_browsing_hint">Googleのサーバーは、どのアドレスが検索されているかを知っています</string>
     <string name="title_advanced_badge_hint">サポートされているランチャーでのみ利用可能</string>
     <string name="title_advanced_notify_action_hint">最大3つのアクションが表示されます</string>
     <string name="title_advanced_notify_remove_hint">新しいメッセージ通知はスワイプで消したり、メッセージを既読にすると常に削除されます</string>

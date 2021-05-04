@@ -523,6 +523,7 @@
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
+    <string name="title_advanced_safe_browsing_hint">谷歌服务器知道正被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>

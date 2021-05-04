@@ -169,7 +169,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(42) Können Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?](#user-content-faq42)
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
 * [(44) Können Sie Kontaktfotos / Ident-Icons im Gesendeten Ordner anzeigen?](#user-content-faq44)
-* [(45) Wie kann ich »Dieser Schlüssel ist nicht verfügbar« beheben? To use it, you must import it as one of your own!' ?](#user-content-faq45)
+* [(45) Wie kann ich folgendes beheben? »Dieser Schlüssel ist nicht verfügbar. Um es zu verwenden, müssen Sie es selbst importieren!« ?](#user-content-faq45)
 * [(46) Warum wird die Nachrichtenliste immer wieder aktualisiert?](#user-content-faq46)
 * [(47) Wie löse ich den Fehler »Kein primäres Konto oder kein Ordner für Entwürfe«?](#user-content-faq47)
 * [~~(48) Wie löse ich den Fehler »Kein primäres Konto oder kein Archivordner«?~~](#user-content-faq48)
@@ -1393,7 +1393,7 @@ Sehen Sie weiter unten, wie Sie mich kontaktieren können.
 <br />
 
 <a name="faq45"></a>
-**(45) Wie kann ich »Dieser Schlüssel ist nicht verfügbar. Um es zu verwenden, müssen sie es selbst importieren«! ?**
+**(45) Wie kann ich »Dieser Schlüssel ist nicht verfügbar. Um es zu verwenden, müssen Sie es selbst importieren!« ?**
 
 Sie werden eine Nachricht *»Dieser Schlüssel ist nicht verfügbar. Um es zu verwenden, müssen Sie es als einen Ihrer eigenen importieren!«* erhalten. Wenn Sie versuchen, eine Nachricht mit einem öffentlichen Schlüssel zu entschlüsseln. Um es zu beheben, müssen Sie den privaten Schlüssel importieren.
 
@@ -1714,7 +1714,7 @@ Folgende Regelbedingungen sind verfügbar:
 * Absolute Zeit (empfangen) zwischen (seit Version 1.1540)
 * Relative Zeit (empfangen) zwischen
 
-Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger ntzen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten.
+Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger ntzen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten. If you want to match a domain name, you can use as a condition something like *@example.org*
 
 Beachten Sie, dass E-Mail-Adressen wie folgt formatiert sind:
 
