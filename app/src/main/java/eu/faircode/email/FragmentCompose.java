@@ -3320,6 +3320,8 @@ public class FragmentCompose extends FragmentBase {
     private void onAction(int action, @NonNull Bundle extras, String reason) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
+        View focus = view.findFocus();
+
         // Workaround underlines left by Android
         etBody.clearComposingText();
 
@@ -3348,6 +3350,7 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("notext", notext);
         args.putBoolean("formatted", formatted);
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
+        args.putInt("focus", focus == null ? -1 : focus.getId());
         args.putBundle("extras", extras);
 
         Log.i("Run execute id=" + working + " reason=" + reason);
@@ -5223,7 +5226,7 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                focus();
+                setFocus(args.getInt("focus"));
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5526,7 +5529,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                focus();
+                setFocus(null);
             }
 
             @Override
@@ -5536,20 +5539,30 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:show");
     }
 
-    private void focus() {
+    private void setFocus(Integer v) {
         final View target;
-        if (TextUtils.isEmpty(etTo.getText().toString().trim()))
+        if (v != null)
+            target = view.findViewById(v);
+        else if (TextUtils.isEmpty(etTo.getText().toString().trim()))
             target = etTo;
         else if (TextUtils.isEmpty(etSubject.getText().toString()))
             target = etSubject;
         else
             target = etBody;
 
+        if (target == null)
+            return;
+
         getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 try {
                     target.requestFocus();
+                    if (target.getId() != R.id.etSubject && target.getId() != R.id.etBody) {
+                        EditText et = (EditText) target;
+                        String text = et.getText().toString();
+                        et.setSelection(text.length());
+                    }
 
                     Context context = target.getContext();
 
