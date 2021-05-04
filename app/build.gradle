@@ -212,8 +212,7 @@ preBuild.dependsOn copyMarkdown
 
 repositories {
     google()
-    //jcenter()
-    maven { url "https://repo1.maven.org/maven2/" } // Maven Central
+    mavenCentral()
     maven { url "https://jitpack.io" }
     //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     //maven { url "https://jakarta.oss.sonatype.org/content/repositories/snapshots/" }
@@ -269,11 +268,11 @@ dependencies {
     def badge_version = "1.1.22"
     def bugsnag_version = "5.9.1"
     def biweekly_version = "0.6.6"
-    def relinker_version = "1.4.1"
+    def relinker_version = "1.4.3"
     def markwon_version = "4.6.2"
     def bouncycastle_version = "1.68"
     def colorpicker_version = "0.0.15"
-    def overscroll_version = "1.1.0"
+    def overscroll_version = "1.1.1"
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
     def apache_poi = "3.17" // Do not update
@@ -416,7 +415,7 @@ dependencies {
     }
 
     // https://github.com/KeepSafe/ReLinker
-    // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker?repo=jcenter
+    // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker
     implementation "com.getkeepsafe.relinker:relinker:$relinker_version"
 
     // https://github.com/noties/Markwon
@@ -427,8 +426,8 @@ dependencies {
     implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"
 
     // https://github.com/EverythingMe/overscroll-decor
-    // https://mvnrepository.com/artifact/me.everything/overscroll-decor-android?repo=jcenter
-    implementation "me.everything:overscroll-decor-android:$overscroll_version"
+    // https://mvnrepository.com/artifact/me.everything/overscroll-decor-android
+    implementation "io.github.everythingme:overscroll-decor-android:$overscroll_version"
 
     // https://www.bouncycastle.org/latest_releases.html
     // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
