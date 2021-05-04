@@ -637,6 +637,7 @@
     <string name="title_advanced_display_harmful_hint">Disabling this option might be harmful to your privacy</string>
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
     <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
+    <string name="title_advanced_safe_browsing_hint">The Google server knows which addresses are being looked up</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>

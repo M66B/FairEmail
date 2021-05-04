@@ -313,6 +313,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvSecureHint"
             app:switchPadding="12dp" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSafeBrowsingHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_safe_browsing_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSafeBrowsing" />
+
         <ImageButton
             android:id="@+id/ibSafeBrowsing"
             android:layout_width="wrap_content"
@@ -320,7 +333,7 @@
             android:contentDescription="@string/title_info"
             android:tooltipText="@string/title_info"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSafeBrowsing"
+            app:layout_constraintTop_toBottomOf="@id/tvSafeBrowsingHint"
             app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
@@ -409,6 +422,6 @@
             android:id="@+id/grpSafeBrowsing"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="swSafeBrowsing,ibSafeBrowsing" />
+            app:constraint_referenced_ids="swSafeBrowsing,tvSafeBrowsingHint,ibSafeBrowsing" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
