@@ -5195,9 +5195,15 @@ public class FragmentCompose extends FragmentBase {
             Log.i("Loaded action id=" + draft.id +
                     " action=" + getActionName(action) + " encryption=" + needsEncryption);
 
-            etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
-            etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
-            etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
+            String to = MessageHelper.formatAddressesCompose(draft.to);
+            String cc = MessageHelper.formatAddressesCompose(draft.cc);
+            String bcc = MessageHelper.formatAddressesCompose(draft.bcc);
+            if (!Objects.equals(etTo.getText().toString(), to))
+                etTo.setText(to);
+            if (!Objects.equals(etCc.getText().toString(), cc))
+                etCc.setText(cc);
+            if (!Objects.equals(etBcc.getText().toString(), bcc))
+                etBcc.setText(bcc);
 
             Bundle extras = args.getBundle("extras");
             boolean show = extras.getBoolean("show");
@@ -5558,11 +5564,6 @@ public class FragmentCompose extends FragmentBase {
             public void run() {
                 try {
                     target.requestFocus();
-                    if (target.getId() != R.id.etSubject && target.getId() != R.id.etBody) {
-                        EditText et = (EditText) target;
-                        String text = et.getText().toString();
-                        et.setSelection(text.length());
-                    }
 
                     Context context = target.getContext();
 
