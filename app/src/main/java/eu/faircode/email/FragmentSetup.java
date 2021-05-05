@@ -182,7 +182,6 @@ public class FragmentSetup extends FragmentBase {
 
                 int order = 1;
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_outlook, order++, R.string.title_setup_outlook);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
                     if (provider.oauth != null &&
@@ -194,7 +193,6 @@ public class FragmentSetup extends FragmentBase {
                                         .putExtra("name", provider.name)
                                         .putExtra("askAccount", provider.oauth.askAccount));
 
-                //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, order++, R.string.title_setup_activesync);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
 
                 SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
@@ -205,6 +203,7 @@ public class FragmentSetup extends FragmentBase {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+
                         int itemId = item.getItemId();
                         if (itemId == R.string.title_setup_gmail) {
                             if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
@@ -212,16 +211,14 @@ public class FragmentSetup extends FragmentBase {
                             else
                                 ToastEx.makeText(getContext(), R.string.title_setup_gmail_support, Toast.LENGTH_LONG).show();
                             return true;
-                        } else if (itemId == R.string.title_setup_activesync) {
-                            Helper.viewFAQ(getContext(), 133);
-                            return true;
-                        } else if (itemId == R.string.title_setup_outlook || itemId == R.string.title_setup_other) {
+                        } else if (itemId == R.string.title_setup_other) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
                             return true;
                         } else if (itemId == R.string.title_setup_pop3) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
                             return true;
                         }
+
                         if (item.getIntent() == null)
                             return false;
                         else {
