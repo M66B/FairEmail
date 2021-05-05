@@ -45,7 +45,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -209,7 +208,17 @@ public class FragmentSetup extends FragmentBase {
                             if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
                             else
-                                ToastEx.makeText(getContext(), R.string.title_setup_gmail_support, Toast.LENGTH_LONG).show();
+                                new AlertDialog.Builder(getContext())
+                                        .setTitle(item.getTitle())
+                                        .setMessage(R.string.title_setup_gmail_support)
+                                        .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Helper.viewFAQ(getContext(), 6);
+                                            }
+                                        })
+                                        .setNegativeButton(android.R.string.cancel, null)
+                                        .show();
                             return true;
                         } else if (itemId == R.string.title_setup_other) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
@@ -225,7 +234,17 @@ public class FragmentSetup extends FragmentBase {
                             if (Helper.hasValidFingerprint(getContext()) || BuildConfig.DEBUG)
                                 lbm.sendBroadcast(item.getIntent());
                             else
-                                ToastEx.makeText(getContext(), R.string.title_setup_oauth_permission, Toast.LENGTH_LONG).show();
+                                new AlertDialog.Builder(getContext())
+                                        .setTitle(item.getTitle())
+                                        .setMessage(R.string.title_setup_oauth_permission)
+                                        .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Helper.viewFAQ(getContext(), 147);
+                                            }
+                                        })
+                                        .setNegativeButton(android.R.string.cancel, null)
+                                        .show();
                             return true;
                         }
                     }
