@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden ha�
 * [Ofte stillede spørgsmål](#user-content-frequently-asked-questions)
 * [Få support](#user-content-get-support)
 
-## Godkendelse af konti
+<h2><a name="authorizing-accounts"></a>Godkendelse af konti</h2>
 
 I de fleste tilfælde vil hurtigopsætningen automatisk kunne identificere den korrekte opsætning.
 
@@ -64,7 +64,7 @@ Relaterede spørgsmål:
 * Skift af systemmapper: Tryk på Indstillinger > Manuel opsætning > Konti > konto nederst
 * Eksport-/importindstillinger: Indstillinger &#062 (venstre) navigeringsmenu
 
-## Kendte problemer
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~En [fejl i Android 5.1 og 6](https://issuetracker.google.com/issues/37054851) medfører, at apps sommetider viser et ukorrekt tidsformat. Skiftning af Android-indstillingen *Benyt 24-timers format* kan midlertidigt løse problemet. En løsning blev tilføjet.~~
 * ~~En [fejl i Google Drive](https://issuetracker.google.com/issues/126362828) medfører, at filer eksporteret til Google Drive kan være tomme. Google har løst problemet.~~
@@ -85,7 +85,7 @@ Relaterede spørgsmål:
 * Sprogdetektering [fungerer ikke længere](https://issuetracker.google.com/issues/173337263) på Pixel-enheder med/ opgraderet til Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Planlagte funktioner
+<h2><a name="planned-features"></a>Planlagte funktioner</h2>
 
 * ~~Synkronisere efter behov (manuelt)~~
 * ~~Semiautomatisk kryptering~~
@@ -120,11 +120,11 @@ Relaterede spørgsmål:
 
 Alt listeindhold er tilfældigt ordnet og tilføjes *måske* i nærmeste fremtid.
 
-## Hyppigt anmodede funktioner
+<h2><a name="frequently-requested-features"></a>Hyppigt anmodede funktioner</h2>
 
 Designet baserer sig på mange debatter, så ønsks det debatteret yderligere, tjek [dette forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Designmålet er minimalisme (ingen unødvendige menuer, knapper mv.) og ikke-distraherende (ingen smarte farver, animationer mv.). Alle viste objekter skal have nytteværdi og bør placeres omhyggeligt for nem brug. Skrifttype/størrelser, farver mv. bør, når muligt, være materielt design.
 
-## Ofte stillede spørgsmål
+<h2><a name="frequently-asked-questions"></a>Ofte stillede spørgsmål</h2>
 
 * [(1) Hvilke tilladelser kræves, og hvorfor?](#user-content-faq1)
 * [(2) Hvorfor optræder der en permanent notifikation?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

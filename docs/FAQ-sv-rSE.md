@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Vanliga frågor](#user-content-frequently-asked-questions)
 * [Få hjälp](#user-content-get-support)
 
-## Auktoriserar konton
+<h2><a name="authorizing-accounts"></a>Auktoriserar konton</h2>
 
 I de flesta fall kommer snabbinstallationen att automatiskt kunna identifiera rätt konfiguration.
 
@@ -64,7 +64,7 @@ Related questions:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-## Kända problem
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~En [bugg i Android 5.1 och 6](https://issuetracker.google.com/issues/37054851) får appar att ibland visa fel tidsformat. Växla Android-inställningen *Använd 24-timmarsformat* kan tillfälligt lösa problemet. En lösning lades till.~~
 * ~~En [bugg i Google Drive](https://issuetracker.google.com/issues/126362828) orsakar filer som exporteras till Google Drive att vara tom. Google har fixat detta.~~
@@ -85,7 +85,7 @@ Related questions:
 * Språkdetektering [fungerar inte längre](https://issuetracker.google.com/issues/173337263) på Pixelenheter med (uppgraderat till?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Planerade funktioner
+<h2><a name="planned-features"></a>Planerade funktioner</h2>
 
 * ~~Synkronisera vid behov (manuellt)~~
 * ~~Semi-automatisk kryptering~~
@@ -120,11 +120,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Tidigare begärda funktioner
+<h2><a name="frequently-requested-features"></a>Tidigare begärda funktioner</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Vanliga frågor
+<h2><a name="frequently-asked-questions"></a>Vanliga frågor</h2>
 
 * [(1) Vilka behörigheter behövs och varför?](#user-content-faq1)
 * [(2) Varför visas en permanent avisering?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

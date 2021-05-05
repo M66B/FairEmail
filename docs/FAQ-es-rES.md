@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden ha�
 * [Preguntas frecuentes](#user-content-frequently-asked-questions)
 * [Obtener ayuda](#user-content-get-support)
 
-## Autorizando cuentas
+<h2><a name="authorizing-accounts"></a>Autorizando cuentas</h2>
 
 En la mayoría de los casos, el asistente de configuración rápida podrá identificar automáticamente la configuración correcta.
 
@@ -64,7 +64,7 @@ Preguntas relacionadas:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-## Problemas conocidos
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~Un [error en Android 5.1 y 6](https://issuetracker.google.com/issues/37054851) hace que las aplicaciones muestren a veces un formato de hora incorrecto. Cambiar la configuración de Android *Usar formato de 24 horas* podría resolver temporalmente el problema. Una solución fue añadida.~~
 * ~~~Un [error en Google Drive](https://issuetracker.google.com/issues/126362828) hace que los archivos exportados a Google Drive estén vacíos. Google ha corregido esto.~~
@@ -85,7 +85,7 @@ Preguntas relacionadas:
 * La detección de idioma [ya no funciona](https://issuetracker.google.com/issues/173337263) en dispositivos Pixel con (¿actualizado a?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Características planificadas
+<h2><a name="planned-features"></a>Características planificadas</h2>
 
 * ~~Sincronizar bajo demanda (manual)~~
 * ~~Cifrado semi automático ~~
@@ -120,11 +120,11 @@ Preguntas relacionadas:
 
 Cualquier cosa en esta lista está en orden aleatorio y *podría* ser añadida en un futuro próximo.
 
-## Características solicitadas con frecuencia
+<h2><a name="frequently-requested-features"></a>Características solicitadas con frecuencia</h2>
 
 El diseño está basado en muchas discusiones y si lo deseas puedes unirte a la discusión [en este foro](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). El objetivo del diseño es ser minimalista (sin menús innecesarios, botones, etc.) y libre de distracciones (colores brillantes, animaciones, etc.). Todas las cosas mostradas deben ser útiles de una u otra manera y deben posicionarse cuidadosamente para un uso fácil. Fuentes, tamaños, colores, etc. deben seguir el "material design" siempre que sea posible.
 
-## Preguntas frecuentes
+<h2><a name="frequently-asked-questions"></a>Preguntas frecuentes</h2>
 
 * [(1) ¿Qué permisos se necesitan y por qué?](#user-content-faq1)
 * [(2) ¿Por qué se muestra una notificación permanente?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

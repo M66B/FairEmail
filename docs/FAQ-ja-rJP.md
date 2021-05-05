@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [よくある質問](#user-content-frequently-asked-questions)
 * [サポートについて](#user-content-get-support)
 
-## アカウントの認証
+<h2><a name="authorizing-accounts"></a>アカウントの認証</h2>
 
 ほとんどの場合、クイックセットアップウィザードは自動的に正しい構成を識別することができます。
 
@@ -64,7 +64,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-## 既知の問題
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~[Android 5.1 と 6 のバグ](https://issuetracker.google.com/issues/37054851) により、アプリに間違った時刻フォーマットが表示されることがあります。  *「24時間表示」* に設定を切り替えると、問題が一時的に解決する可能性があります。 回避策が追加されました。~~
 * ~~ [ Googleドライブのバグ](https://issuetracker.google.com/issues/126362828)により、Googleドライブにエクスポートされたファイルが空になります。 Google が修正しました。~~
@@ -85,7 +85,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## 予定されている機能
+<h2><a name="planned-features"></a>予定されている機能</h2>
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -120,11 +120,11 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## よくリクエストされる機能
+<h2><a name="frequently-requested-features"></a>よくリクエストされる機能</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## よくある質問
+<h2><a name="frequently-asked-questions"></a>よくある質問</h2>
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

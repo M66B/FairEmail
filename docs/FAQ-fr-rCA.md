@@ -2,9 +2,9 @@
 
 # Assistance FairEmail
 
-Veuillez consultez Faq si vous avez des interrogations. [En bas](#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+Veuillez consultez Faq si vous avez des interrogations. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Allez voir les FAQ, la reponse que vous chercher s'y trouve peut-etre . [ Tout en bas ](#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
+Allez voir les FAQ, la reponse que vous chercher s'y trouve peut-etre . [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
@@ -16,7 +16,7 @@ Allez voir les FAQ, la reponse que vous chercher s'y trouve peut-etre . [ Tout e
 * [Foire aux questions](#user-content-frequently-asked-questions)
 * [Aidez-moi je suis mal pris](#user-content-get-support)
 
-## Autorisation des comptes
+<h2><a name="authorizing-accounts"></a>Autorisation des comptes</h2>
 
 Fiez vous a l'assistant de configuration, il est sur la coche.
 
@@ -64,7 +64,7 @@ En rapport avec:
 * Changer les dossiers système : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur le compte, les options se trouvent en bas
 * Exporter/importer les paramètres : Paramètres, panneau de navigation (icône à trois traits)
 
-## Problèmes connus
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~Un [bogue dans Android 5.1 et 6](https://issuetracker.google.com/issues/37054851) fait que les applications affichent parfois un mauvais format d'heure. Changer les paramètres de Android sur *Utiliser le format 24 heures* pourrait résoudre temporairement le problème. Une solution de contournement a été ajoutée.~~
 * ~~Un [bogue dans Google Drive](https://issuetracker.google.com/issues/126362828) vide le dossier des fichiers exportés vers Google Drive. Google a corrigé ceci.~~
@@ -85,7 +85,7 @@ En rapport avec:
 * La détection de la langue [ne fonctionne plus](https://issuetracker.google.com/issues/173337263) sur les appareils Pixel avec (mise à jour vers ?) Android 11
 * Un bogue [dans OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) provoque des signatures PGP invalides lors de l'utilisation d'un jeton matériel.
 
-## Fonctionnalités prévues
+<h2><a name="planned-features"></a>Fonctionnalités prévues</h2>
 
 * ~~Synchronisation à la demande (manuel)~~
 * ~~Chiffrement semi-automatique~~
@@ -120,11 +120,11 @@ En rapport avec:
 
 Tout ce qui se trouve dans cette liste est dans un ordre aléatoire et *pourrait* être ajouté dans un avenir proche.
 
-## Fonctionnalités fréquemment demandées
+<h2><a name="frequently-requested-features"></a>Fonctionnalités fréquemment demandées</h2>
 
 La conception est basée sur de nombreuses discussions et si vous le souhaitez, vous pouvez également en discuter [dans ce forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Le but de la conception est d'être minimaliste (pas de menus inutiles, boutons, etc.) et non distrayant (pas de couleurs fantaisie, animations, etc.). Toutes les informations affichées devraient être utiles d'une manière ou d'une autre et devraient être soigneusement positionnées pour une utilisation facile. Les polices, tailles, couleurs, etc. devraient être Material Design autant que possible.
 
-## Foire aux questions
+<h2><a name="frequently-asked-questions"></a>Foire aux questions</h2>
 
 * [(1) Quelles autorisations Android sont nécessaires et pourquoi ?](#user-content-faq1)
 * [(2) Pourquoi y a-t-il une notification permanente ?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Obtenir de l'aide
+<h2><a name="get-support"></a>Obtenir de l'aide</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

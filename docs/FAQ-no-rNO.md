@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Ofte stilte spørsmål](#user-content-frequently-asked-questions)
 * [Få støtte](#user-content-get-support)
 
-## Autorisering av kontoer
+<h2><a name="authorizing-accounts"></a>Autorisering av kontoer</h2>
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
@@ -64,7 +64,7 @@ Related questions:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-## Kjente problemer
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~En [feil i Android 5.1 og 6](https://issuetracker.google.com/issues/37054851) fører til at apper noen ganger viser feil tidsformat. Bytting av enhetsinnstillingen *Bruk 24-timers format* kan løse problemet midlertidig. En løsning ble lagt til.~~
 * ~~En [feil i Google Disk](https://issuetracker.google.com/issues/126362828) fører til at filer som eksporteres til Google Disk er tomme. Google har løst dette.~~
@@ -85,7 +85,7 @@ Related questions:
 * Språkdeteksjon [virker ikke lengre](https://issuetracker.google.com/issues/173337263) på Pixel-enheter med (oppgradert til?) Android 11.
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Planlagte funksjoner
+<h2><a name="planned-features"></a>Planlagte funksjoner</h2>
 
 * ~~Synkroniser meldinger ved forespørsel (manuell)~~
 * ~~Halvautomatisk kryptering~~
@@ -120,11 +120,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-## Ofte etterspurte funksjoner
+<h2><a name="frequently-requested-features"></a>Ofte etterspurte funksjoner</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-## Ofte stilte spørsmål
+<h2><a name="frequently-asked-questions"></a>Ofte stilte spørsmål</h2>
 
 * [(1) Hvilke tillatelser er nødvendige, og hvorfor?](#user-content-faq1)
 * [(2) Hvorfor vises det en permanent varsling?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

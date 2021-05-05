@@ -2,9 +2,9 @@
 
 # FairEmail - Support
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Übersicht
 
@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig g
 * [Häufig gestellte Fragen](#user-content-frequently-asked-questions)
 * [Hilfe erhalten](#user-content-get-support)
 
-## Konten autorisieren
+<h2><a name="authorizing-accounts"></a>Konten autorisieren</h2>
 
 In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
 
@@ -64,7 +64,7 @@ Zur Autorisierung:
 * Systemordner ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → im unteren Bereich
 * Einstellungen exportieren/importieren: Einstellungen, Navigationsmenü (linke Seite)
 
-## Bekannte Probleme
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
 * ~~Ein [Bug in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
@@ -85,7 +85,7 @@ Zur Autorisierung:
 * Die Erkennung der Sprache [funktioniert nicht mehr](https://issuetracker.google.com/issues/173337263) auf Pixel-Geräten mit (Update auf?) Android 11
 * Ein [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) verursacht ungültige PGP-Signaturen bei der Verwendung eines Hardware-Tokens.
 
-## Geplante Funktionen
+<h2><a name="planned-features"></a>Geplante Funktionen</h2>
 
 * ~~Synchronisieren bei Bedarf (manuell)~~
 * ~~Halbautomatische Verschlüsselung~~
@@ -120,11 +120,11 @@ Zur Autorisierung:
 
 Alles auf dieser Liste ist in zufälliger Reihenfolge und *könnte* in naher Zukunft hinzugefügt werden.
 
-## Häufig angefragte Funktionen
+<h2><a name="frequently-requested-features"></a>Häufig angefragte Funktionen</h2>
 
 Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Knöpfe usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.), zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach zu verwenden zu können. Schriften, Größen, Farben usw. sollten nach Möglichkeit im Materialdesign gestaltet sein.
 
-## Häufig gestellte Fragen
+<h2><a name="frequently-asked-questions"></a>Häufig gestellte Fragen</h2>
 
 * [(1) Welche Berechtigungen werden benötigt und warum?](#user-content-faq1)
 * [(2) Warum wird eine permanente Benachrichtigung angezeigt?](#user-content-faq2)
@@ -3011,7 +3011,7 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) Kann ich eine Nachricht über mehrere Geräte hinweg zurückstellen?**
 
 First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
@@ -3023,9 +3023,9 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Hilfe erhalten
+<h2><a name="get-support"></a>Hilfe erhalten</h2>
 
-FairEmail wird ausschließlich auf Smartphones, Tablets und ChromeOS unterstützt.
+FairEmail wird ausschließlich auf Android-Smartphones und -Tablets und ChromeOS unterstützt.
 
 Es werden nur die neuesten Versionen aus dem Play Store und von GitHub unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass eine Herabstufung nicht unterstützt wird.
 
@@ -3040,7 +3040,7 @@ Angefragte Funktionen sollten:
 * zur Philosophie von FairEmail passen (privatsphären- und sicherheitsorientiert)
 * den gängigen Standards entsprechen (IMAP, SMTP, etc)
 
-Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Dies soll auch langfristig die Wartung und Unterstützung gewährleisten.
+Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Das soll auch langfristig die Wartung und Unterstützung ermöglichen.
 
 Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, **benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 

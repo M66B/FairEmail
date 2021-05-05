@@ -16,7 +16,7 @@ Dacă aveți o întrebare, vă rugăm să consultați mai întâi întrebările 
 * [Întrebări puse frecvent](#user-content-frequently-asked-questions)
 * [Obțineți asistență](#user-content-get-support)
 
-## Autorizarea conturilor
+<h2><a name="authorizing-accounts"></a>Autorizarea conturilor</h2>
 
 În cele mai multe cazuri, asistentul de configurare rapidă va fi capabil să identifice automat configurația corectă.
 
@@ -64,7 +64,7 @@ Vă rugăm să consultați [aici](#user-content-faq22) pentru mesaje de eroare c
 * Schimbați dosarele de sistem: Setări, apăsați pe Configurare manuală, apăsați pe Conturi, apăsați pe Cont, în partea de jos
 * Setări de export/import: Setări, meniul de navigare (partea stângă)
 
-## Probleme cunoscute
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~A [bug în Android 5.1 și 6](https://issuetracker.google.com/issues/37054851) face ca aplicațiile să afișeze uneori un format de timp greșit. Comutând setarea Android *Folosiți formatul 24 de ore* ar putea rezolva temporar problema. O soluție a fost adăugată.~~
 * ~~Un [bug în Google Drive](https://issuetracker.google.com/issues/126362828) face ca fișierele exportate în Google Drive să fie goale. Google a rezolvat acest lucru.~~
@@ -85,7 +85,7 @@ Vă rugăm să consultați [aici](#user-content-faq22) pentru mesaje de eroare c
 * Detectarea limbii [nu mai funcționează](https://issuetracker.google.com/issues/173337263) pe dispozitivele Pixel cu (actualizat la?) Android 11
 * Un [bug din OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) provoacă semnături PGP invalide atunci când se utilizează un token hardware.
 
-## Funcții planificate
+<h2><a name="planned-features"></a>Funcții planificate</h2>
 
 * ~~Sincronizare la cerere (manuală)~~
 * ~~Criptare semi-automată~~
@@ -120,11 +120,11 @@ Vă rugăm să consultați [aici](#user-content-faq22) pentru mesaje de eroare c
 
 Orice lucru de pe această listă este în ordine aleatorie și *poate* fi adăugat în viitorul apropiat.
 
-## Funcții solicitate frecvent
+<h2><a name="frequently-requested-features"></a>Funcții solicitate frecvent</h2>
 
 Designul se bazează pe multe discuții și dacă doriți puteți discuta despre el [ și pe acest forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) de asemenea. Scopul designului este de a fi minimalist (fără meniuri inutile, butoane, etc.) și de a nu distrage atenția (fără culori fanteziste, animații, etc.). Toate lucrurile expuse ar trebui să fie utile într-un fel sau altul și ar trebui să fie poziționate cu grijă pentru a fi utilizate cu ușurință. Fonturile, dimensiunile, culorile etc. ar trebui să fie de tip material design ori de câte ori este posibil.
 
-## Întrebări puse frecvent
+<h2><a name="frequently-asked-questions"></a>Întrebări puse frecvent</h2>
 
 * [(1) Ce permisiuni sunt necesare și de ce?](#user-content-faq1)
 * [(2) De ce este afișată o notificare permanentă?](#user-content-faq2)
@@ -1749,58 +1749,58 @@ Puteți selecta una dintre aceste acțiuni pentru a le aplica mesajelor corespun
 * Text-to-speech (expeditor și subiect)
 * Automatizare (Tasker, etc)
 
-An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+O eroare în condițiile unei reguli poate duce la un dezastru, prin urmare, acțiunile ireversibile nu sunt acceptate.
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Regulile se aplică imediat după ce a fost preluat antetul mesajului, dar înainte ca textul mesajului să fie descărcat, astfel încât nu este posibilă aplicarea de condiții la textul mesajului. Rețineți că mesajele text mari sunt descărcate la cerere pe o conexiune contorizată pentru a economisi date.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Dacă doriți să transmiteți un mesaj, luați în considerare utilizarea acțiunii de mutare. Acest lucru va fi mai fiabil decât redirecționarea, deoarece mesajele redirecționate pot fi considerate ca fiind spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Deoarece antetele mesajelor nu sunt descărcate și stocate în mod implicit pentru a economisi bateria și datele și pentru a economisi spațiu de stocare. nu este posibilă previzualizarea mesajelor care s-ar potrivi cu o condiție a unei reguli de antet.
 
-Some common header conditions (regex):
+Câteva condiții comune pentru antet (regex):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+În meniul de mesaje cu trei puncte *mai mult* există un element care permite crearea unei reguli pentru un mesaj primit, cu cele mai frecvente condiții completate.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+Protocolul POP3 nu acceptă setarea cuvintelor cheie și mutarea sau copierea mesajelor.
 
-Using rules is a pro feature.
+Utilizarea regulilor este o caracteristică profesională.
 
 <br />
 
 <a name="faq72"></a>
-**(72) What are primary accounts/identities?**
+**(72) Ce sunt conturile/identitățile primare?**
 
-The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+Contul principal este utilizat atunci când contul este ambiguu, de exemplu atunci când începeți un nou proiect din căsuța de primire unificată.
 
-Similarly, the primary identity of an account is used when the identity is ambiguous.
+În mod similar, identitatea primară a unui cont este utilizată atunci când identitatea este ambiguă.
 
-There can be just one primary account and there can be just one primary identity per account.
+Nu poate exista decât un singur cont principal și nu poate exista decât o singură identitate principală pentru fiecare cont.
 
 <br />
 
 <a name="faq73"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Este deplasarea mesajelor între conturi sigură/eficientă?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+Mutarea mesajelor între conturi este sigură, deoarece mesajele originale, brute, vor fi descărcate și mutate. și pentru că mesajele sursă vor fi șterse numai după ce mesajele țintă au fost adăugate
 
-Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
+Mutarea pe loturi a mesajelor între conturi este eficientă dacă atât dosarul sursă, cât și dosarul țintă sunt setate pentru sincronizare, în caz contrar, FairEmail trebuie să se conecteze la dosarul (dosarele) pentru fiecare mesaj.
 
 <br />
 
 <a name="faq74"></a>
-**(74) Why do I see duplicate messages?**
+**(74) De ce văd mesaje duplicate?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+Unii furnizori, în special Gmail, listează toate mesajele din toate dosarele, cu excepția celor aruncate la gunoi, și în dosarul de arhivă (toate mesajele). FairEmail afișează toate aceste mesaje într-un mod care nu este deranjant pentru a indica faptul că aceste mesaje sunt de fapt același mesaj.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+Gmail permite ca un mesaj să aibă mai multe etichete, care sunt prezentate în FairEmail sub formă de dosare. Acest lucru înseamnă că mesajele cu mai multe etichete vor fi afișate de mai multe ori.
 
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) Puteți face o versiune pentru iOS, Windows, Linux, etc?**
 
 A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
 
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Obțineți asistență
+<h2><a name="get-support"></a>Obțineți asistență</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

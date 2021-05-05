@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Các câu hỏi thường gặp](#user-content-frequently-asked-questions)
 * [Nhận hỗ trợ](#user-content-get-support)
 
-## Cấp phép tài khoản
+<h2><a name="authorizing-accounts"></a>Cấp phép tài khoản</h2>
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
@@ -64,7 +64,7 @@ Câu hỏi liên quan:
 * Thay đổi thư mục hệ thống: Cài đặt, nhấn Thiết lập thủ công, nhấn Tài khoản, nhấn vào tài khoản, ở dưới cùng
 * Xuất/nhập cài đặt: Cài đặt, menu điều hướng (bên trái)
 
-## Những vấn đề đã biết
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~Một [lỗi ở Android 5.1 và 6](https://issuetracker.google.com/issues/37054851) làm cho các ứng dụng đôi khi hiển thị định dạng thời gian sai. Bật/tắt cài đặt Android *Sử dụng định dạng 24 giờ* có thể tạm thời giải quyết vấn đề này. Một giải pháp đã được thêm.~~
 * ~~Một [lỗi ở Google Drive](https://issuetracker.google.com/issues/126362828) làm cho các tệp được xuất ra Google Drive trở nên bị trống. Google đã sửa lỗi này.~~
@@ -85,7 +85,7 @@ Câu hỏi liên quan:
 * Dò tìm ngôn ngữ [không hoạt động nữa](https://issuetracker.google.com/issues/173337263) trên các thiết bị Pixel với (được nâng cấp lên?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Các tính năng được lên kế hoạch
+<h2><a name="planned-features"></a>Các tính năng được lên kế hoạch</h2>
 
 * ~~Đồng bộ hoá theo yêu cầu (thủ công)~~
 * ~~Mã hoá bán tự động~~
@@ -120,11 +120,11 @@ Câu hỏi liên quan:
 
 Bất kỳ thứ gì trong danh sách này đều là theo thứ tự ngẫu nhiên và *có thể* sẽ được thêm trong tương lai gần.
 
-## Các tính năng thường được yêu cầu
+<h2><a name="frequently-requested-features"></a>Các tính năng thường được yêu cầu</h2>
 
 Thiết kế của ứng dụng được dựa trên nhiều cuộc thảo luận và nếu bạn thích thì bạn cũng có thể thảo luận về nó [trong diễn đàn này](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Mục tiêu của thiết kế này là để được tối giản (không có menu, nút, v.v. không cần thiết) và không gây xao nhãng (không có màu sắc, hoạt ảnh, v.v. đẹp đặc biệt). Tất cả những thứ được hiển thị nên được hữu ích theo cách này hay cách khác và nên được đặt vị trí cẩn thận để dễ sử dụng. Các phông chữ, kích cỡ, màu sắc, v.v. nên theo thiết kế Material bất cứ khi nào có thể.
 
-## Những câu hỏi thường gặp
+<h2><a name="frequently-asked-questions"></a>Những câu hỏi thường gặp</h2>
 
 * [(1) Những quyền nào là cần thiết và tại sao?](#user-content-faq1)
 * [(2) Tại sao lại có một thông báo vĩnh viễn được hiện?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

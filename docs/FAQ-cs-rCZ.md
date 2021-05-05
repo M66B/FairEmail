@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Často kladené dotazy](#user-content-frequently-asked-questions)
 * [Získat podporu](#user-content-get-support)
 
-## Autorizace účtů
+<h2><a name="authorizing-accounts"></a>Autorizace účtů</h2>
 
 Ve většině případů bude průvodce rychlého nastavení schopen automaticky identifikovat správnou konfiguraci.
 
@@ -64,7 +64,7 @@ Související dotazy:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import nastavení: Nastavení, navigace (levá strana) menu
 
-## Známé problémy
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~[Chyba v Androidu 5.1 a 6](https://issuetracker.google.com/issues/37054851) způsobuje, že aplikace mohou někdy zobrazovat špatný formát času. Přepnutí nastavení Androidu *Použít 24hod. formát* může dočasně problém vyřešit. Bylo přidáno provizorní řešení.~~
 * ~~[Chyba v Google Disku](https://issuetracker.google.com/issues/126362828) způsobí, že soubory exportované do Google Disku jsou prázdné. Google toto opravil.~~
@@ -85,7 +85,7 @@ Související dotazy:
 * Detekce jazyka [přestala fungovat](https://issuetracker.google.com/issues/173337263) na zařízeních Pixel s (aktualizovaným?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Plánované funkce
+<h2><a name="planned-features"></a>Plánované funkce</h2>
 
 * ~~Synchronizace na vyžádání (ručně)~~
 * ~~Poloautomatické šifrování~~
@@ -120,11 +120,11 @@ Související dotazy:
 
 Vše na tomto seznamu je v náhodném pořadí a *může* být přidáno v blízké budoucnosti.
 
-## Často požadované funkce
+<h2><a name="frequently-requested-features"></a>Často požadované funkce</h2>
 
 Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze zapojit i vy [na tomto fóru](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). Cílem designu je být minimalistický (žádné zbytečné nabídky, tlačítka, apod.) a nerozptylující (žádné úžasné barvy, animace, apod.). Všechny zobrazené prvky by měly být nějakým způsobem užitečné a měly by být umisťovány s citem pro snadné používání. Písma, velikosti, barvy, apod., by měly odpovídat material designu, kdykoli je to možné.
 
-## Často kladené dotazy
+<h2><a name="frequently-asked-questions"></a>Často kladené dotazy</h2>
 
 * [(1) Jaká oprávnění jsou potřebná a proč?](#user-content-faq1)
 * [(2) Proč je zobrazeno permanentní oznámení?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Get support
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

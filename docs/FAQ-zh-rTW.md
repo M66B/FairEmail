@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [頻繁被問起的問題](#user-content-frequently-asked-questions)
 * [獲取協助](#user-content-get-support)
 
-## 認證帳號時
+<h2><a name="authorizing-accounts"></a>認證帳號時</h2>
 
 在大部分情況下，快速設置精靈將能自動確認正確的配置。
 
@@ -64,7 +64,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-## 已知的問題
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~ [Android 5.1和6中的錯誤](https://issuetracker.google.com/issues/37054851)導致app在顯示時間格式時偶爾會出錯。 將Android切換為*使用24小時格式*可能會暫時解決此問題。 解決方法已添加。~~
 * ~~ [Google雲端的bug](https://issuetracker.google.com/issues/126362828)  造成檔案無法順利輸出到Google 雲端。 Google已修正這個問題~~
@@ -85,7 +85,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * 自動偵測語言功能已 [不再運作](https://issuetracker.google.com/issues/173337263) ，若您使用的是 Pixel 裝置，版本(升級到？) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## 計畫中的功能
+<h2><a name="planned-features"></a>計畫中的功能</h2>
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -120,11 +120,11 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 此列表中的功能以隨機順序進行排序並 *可能* 在不遠的未來被新增。
 
-## 經常請求的功能
+<h2><a name="frequently-requested-features"></a>經常請求的功能</h2>
 
 這些設計都是基於許多的討論而產生的。你可以在 [論壇](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) 中一起參與討論。 設計的核心概念是精簡化，亦即沒有多餘的按鈕或花俏的設計或動畫。 所有的功能應該都要是有實用性的，並且應放在合適的位置以方便使用。 字型、字元大小、顏色等等都應該要經過好好的設計。
 
-## 常見問題
+<h2><a name="frequently-asked-questions"></a>常見問題</h2>
 
 * [(1) 我需要給予什麼權限和為什麼需要這些權限?](#user-content-faq1)
 * [(2) 為什麼有個沒辦法清除的通知在狀態欄?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## 取得支援
+<h2><a name="get-support"></a>取得支援</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 

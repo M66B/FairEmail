@@ -16,7 +16,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Sıkça Sorulan Sorular](#user-content-frequently-asked-questions)
 * [Yardım alın](#user-content-get-support)
 
-## Hesap Yetkilendirme
+<h2><a name="authorizing-accounts"></a>Hesap Yetkilendirme</h2>
 
 Çoğu durumda, hızlı kurulum sihirbazı doğru yapılandırmayı otomatik olarak tanımlayabilecektir.
 
@@ -64,7 +64,7 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 * Sistem klasörlerini değiştirme: Ayarlar, Manuel kurulum'a dokunun, Hesaplar'a dokunun, altta hesaba dokunun
 * Ayarları dışa / içe aktarma: Ayarlar, gezinme (sol taraf) menüsü
 
-## Bilinen Hatalar
+<h2><a name="known-problems"></a>Known problem</h2>
 
 * ~~ Android 5.1 ve 6'daki bir [ hata ](https://issuetracker.google.com/issues/37054851), uygulamaların bazen yanlış bir saat biçimi göstermesine neden oluyor. Android ayarını değiştirmek * 24 saatlik biçimi kullanın * sorunu geçici olarak çözebilir. Bir geçici çözüm eklendi. ~~
 * ~~ Google Drive'daki bir [ hata ](https://issuetracker.google.com/issues/126362828), Google Drive'a dışa aktarılan dosyaların boş olmasına neden oluyor. Google bunu düzeltti. ~~
@@ -85,7 +85,7 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-## Planlanan özellikler
+<h2><a name="planned-features"></a>Planlanan özellikler</h2>
 
 * ~~ Talep üzerine senkronize et (manuel) ~~
 * ~~Yarı-otomatik şifreleme~~
@@ -120,11 +120,11 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 
 Bu listedeki her şey rastgele sıradadır ve yakın gelecekte * eklenebilir *.
 
-## Sıkça talep edilen özellikler
+<h2><a name="frequently-requested-features"></a>Sıkça talep edilen özellikler</h2>
 
 Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) da tartışabilirsiniz. Tasarımın amacı minimalist olmak (gereksiz menüler, düğmeler vb. Yok) ve dikkat dağıtmamaktır (süslü renkler, animasyonlar vb.). Görüntülenen tüm şeyler şu veya bu şekilde yararlı olmalı ve kolay kullanım için dikkatlice yerleştirilmelidir. Yazı tipleri, boyutları, renkleri, vb. Mümkün olduğunca materyal tasarım olmalıdır.
 
-## Sıkça Sorulan Sorular
+<h2><a name="frequently-asked-questions"></a>Sıkça Sorulan Sorular</h2>
 
 * [(1) Hangi izinler gerekli ve neden?](#user-content-faq1)
 * [(2) Neden gösterilen kalıcı bir bildirim var?](#user-content-faq2)
@@ -3023,7 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-## Destek alın
+<h2><a name="get-support"></a>Destek alın</h2>
 
 FairEmail is supported on smartphones, tablets and ChromeOS only.
 
