@@ -3320,8 +3320,13 @@ public class FragmentCompose extends FragmentBase {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
         View focus = view.findFocus();
-        boolean ime = (Build.VERSION.SDK_INT < Build.VERSION_CODES.R ||
-                view.getRootWindowInsets().isVisible(WindowInsetsCompat.Type.ime()));
+        boolean ime = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+            try {
+                ime = view.getRootWindowInsets().isVisible(WindowInsetsCompat.Type.ime());
+            }catch (Throwable ex){
+                Log.e(ex);
+            }
 
         // Workaround underlines left by Android
         etBody.clearComposingText();
