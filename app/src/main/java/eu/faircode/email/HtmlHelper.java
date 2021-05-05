@@ -2525,7 +2525,7 @@ public class HtmlHelper {
                     ssb.replace(i, i + 1, "_");
                 else if (kar == '\u00A0')
                     ssb.replace(i, i + 1, "•");
-                else if (!Character.isLetterOrDigit(kar))
+                else if (!Helper.isPrintableChar(kar))
                     ssb.replace(i, i + 1, "{" + Integer.toHexString(kar) + "}");
             }
 
