@@ -1749,6 +1749,8 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
+An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
@@ -1843,7 +1845,7 @@ For more complex schemes you could set one or more accounts to manual synchroniz
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-Spesifik bir hesap için:
+For a specific account:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
@@ -2277,9 +2279,7 @@ Disabling *Partial fetch* will result in more memory usage.
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Yandex and Yahoo is supported via the quick setup wizard.
-
-OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
 <br />
 
@@ -2861,26 +2861,26 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) Nasıl Free.fr hesabı kurabilirim?**
+**(157) How can I set up an Free.fr account?**
 
-Lütfen talimatlar için [buraya bakın](https://free.fr/assistance/597.html).
+Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP varsayılan olarak devre dışıdır **, lütfen [ buraya bakın](https://free.fr/assistance/2406.html) nasıl etkinleştirilebileceği hakkında.
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-Ayrıntılı bir kılavuz için lütfen [buraya bakın](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr).
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
 <br />
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Hangi kamera / ses kaydediciyi önerirsiniz?**
+**(158) Which camera / audio recorder do you recommend?**
 
-Fotoğraf çekmek ve ses kaydetmek için bir kamera ve bir ses kaydedici uygulaması gereklidir. Aşağıdaki uygulamalar açık kaynaklı kameralar ve ses kaydedicilerdir:
+To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder sürüm 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([ F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-Sesli notları vb. Kaydetmek için ses kaydedicinin desteklemesi gerekir [ MediaStore.Audio.Media.RECORD_SOUND_ACTION ](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). İşin garibi, çoğu ses kaydedici bu standart Android eylemini desteklemiyor gibi görünüyor.
+To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
 
 <br />
 
@@ -2982,70 +2982,70 @@ Message classification is a pro feature, except for the spam folder.
 <br />
 
 <a name="faq164"></a>
-**(164) Özelleştirilebilir temalar ekleyebilir misiniz?**
+**(164) Can you add customizable themes?**
 
-Maalesef Android [dinamik temaları desteklemiyor](https://stackoverflow.com/a/26511725/1794097), yani tüm temaların [önceden hazırlanması](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml) gerekir.
+Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Her tema için açık, koyu ve siyah bir varyant olması gerektiğinden, her renk kombinasyonu için (kelimenin tam anlamıyla milyonlarca) önceden tanımlanmış bir tema eklemek mümkün değildir.
+Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
-Dahası, bir tema birkaç renkten daha fazlasıdır. Örneğin, sarı vurgu rengine sahip temalar, yeterli kontrast için daha koyu bir bağlantı rengi kullanır.
+Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
-Tema renkleri, [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten) 'in renk çemberine dayalıdır.
+The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 <a name="faq165"></a>
-** (165) Android Auto destekleniyor mu? **
+**(165) Is Android Auto supported?**
 
-Evet, Android Auto desteklenir, ancak yalnızca GitHub sürümüyle, lütfen [buraya bakın](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) nedeniyle ilgili.
+Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
 
-Bildirim (mesajlaşma) desteği için aşağıdaki bildirim seçeneklerini etkinleştirmeniz gerekir:
+For notification (messaging) support you'll need to enable the following notification options:
 
 * *Android 'mesajlaşma stili' bildirim biçimini kullanın*
 * Bildirim eylemleri: * Doğrudan yanıt * ve (şu şekilde işaretle) * Oku *
 
-İsterseniz diğer bildirim eylemlerini de etkinleştirebilirsiniz, ancak bunlar Android Auto tarafından desteklenmez.
+You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-Geliştiriciler kılavuzu [burada](https://developer.android.com/training/cars/messaging).
+The developers guide is [here](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Bir mesajı birden çok cihazda erteleyebilir miyim?**
+**(166) Can I snooze a message across multiple devices?**
 
-Her şeyden önce, mesajları ertelemek için bir standart yoktur, bu nedenle tüm erteleme uygulamaları özel çözümlerdir.
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
-Gmail gibi bazı e-posta sağlayıcıları, ertelenen iletileri özel bir klasöre taşır. Maalesef, üçüncü taraf uygulamaların bu özel klasöre erişimi yoktur.
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
 
-Bir mesajın başka bir klasöre taşınması ve geri alınması başarısız olabilir ve internet bağlantısı yoksa mümkün olmayabilir. Bu sorun teşkil eder çünkü bir mesaj ancak mesaj taşındıktan sonra ertelenebilir.
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-Bu sorunları önlemek için, erteleme, erteleme sırasında mesaj gizlenerek cihazda yerel olarak yapılır. Ne yazık ki, e-posta sunucusunda da mesajları gizlemek mümkün değildir.
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 
 ## Destek alın
 
-FairEmail yalnızca akıllı telefonlar, tabletler ve ChromeOS'de desteklenir.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Yalnızca en son Play Store sürümü ve en son GitHub sürümü desteklenir. F-Droid yapısı yalnızca sürüm numarası en son GitHub sürümünün sürüm numarasıyla aynıysa desteklenir. Bu aynı zamanda eski sürüme geçmenin desteklenmediği anlamına gelir.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-FairEmail ile doğrudan ilgili olmayan konularda destek yoktur.
+There is no support on things that are not directly related to FairEmail.
 
-Bir şeyleri kendi başınıza inşa etme ve geliştirme konusunda hiçbir destek yoktur.
+There is no support on building and developing things by yourself.
 
-Gelmesini istediğiniz özellikler şunları içermelidir:
+Requested features should:
 
 * çoğu insan için faydalı olması
 * fairEmail kullanımını karmaşıklaştırmaması
 * fairEmail felsefesine uygun (gizlilik odaklı, güvenlik odaklı)
 * ortak standartlarla uyumlu (IMAP, SMTP, vb.)
 
-Bu gereksinimleri karşılamayan özellikler büyük olasılıkla reddedilecektir. Bu aynı zamanda bakım ve desteği uzun vadede mümkün kılmak içindir.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Bir sorunuz varsa, bir özellik talep etmek veya bir hata bildirmek istiyorsanız, ** lütfen [ bu formu ](https://contact.faircode.eu/?product=fairemailsupport) ** kullanın.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub sorunları, sık sık yanlış kullanım nedeniyle devre dışı bırakıldı.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Telif hakkı &copy; 2018-2021 M. Bokhorst 'a aittir.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

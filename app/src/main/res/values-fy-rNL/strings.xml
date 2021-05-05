@@ -136,15 +136,14 @@
     <string name="title_setup_account_identity_hint">Do kinst de namme, kleur en fei-aksjes ynstelle yn \'e akkountynstellings en in hântekening ynstelle yn\' e identiteitsynstellings</string>
     <string name="title_setup_accounts">Akkounts</string>
     <string name="title_setup_identities">Identiteiten</string>
-    <string name="title_setup_oauth_permission">De emailprovider hat OAuth allinich goedkard foar offisjele appferzjes</string>
     <string name="title_setup_other">Oare oanbieder</string>
     <string name="title_setup_pop3">POP3 akkount</string>
+    <string name="title_setup_oauth_permission">De emailprovider hat OAuth allinich goedkard foar offisjele appferzjes</string>
     <string name="title_setup_gmail_support">Autorisearjen fan Google-akkounts sil allinich yn offisjele ferzjes wurkje om\'t Android de app-hantekening kontroleart</string>
     <string name="title_setup_gmail_rationale">Jou asjebleaft tagongsrjochten om in akkount te selektearjen en jo namme te lêzen</string>
     <string name="title_setup_gmail_permissions">Google sil om tagongsrjochten freegje om al dien email te lêzen, te komponearjen, te ferstjoeren en te wiskjen. FairEmail sil jo berjochten nea wiskje sûnder dien eksplisite tastimming.</string>
     <string name="title_setup_gmail_drafts">As de map ûntwerpen net tagonklik is troch IMAP, kin dit wurde fêst yn \'e ynstellings fan it label fan Gmail</string>
     <string name="title_setup_gmail_password">Ik wol in akkount autorisearje mei in wachtwurd</string>
-    <string name="title_setup_office_remark">Microsoft leveret dit type autorisaasje net foar akkounts foar Outlook, Live, Hotmail, ensfh</string>
     <string name="title_setup_office_auth">De flater \'AUTHENTICATE is mislearre\' kin wurde feroarsake troch IMAP / SMTP te wurden útskeakele troch de systeembehearder</string>
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s akkount</string>
     <string name="title_setup_oauth_update">Autorisearje besteand account opnij</string>

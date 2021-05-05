@@ -132,15 +132,14 @@
     <string name="title_setup_account_identity_hint">Pode configurar o nome, cor e deslizar acções na configuração de conta, e configurar a assinatura na configuração de identidade</string>
     <string name="title_setup_accounts">Contas</string>
     <string name="title_setup_identities">Identidades</string>
-    <string name="title_setup_oauth_permission">O provedor de e-mail aprovou OAuth apenas para versões oficiais da aplicação</string>
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
+    <string name="title_setup_oauth_permission">O provedor de e-mail aprovou OAuth apenas para versões oficiais da aplicação</string>
     <string name="title_setup_gmail_support">Autorização de contas da Google funcionará apenas nas versões oficiais porque o Android verifica a assinatura da aplicação</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e excluir permanentemente todos os teus e-mails. O FairEmail nunca apagará as tuas mensagens sem o teu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se a pasta de rascunhos não estiver acessível pelo IMAP, isso poderá ser corrigido nas configurações de etiquetas do Gmail</string>
     <string name="title_setup_gmail_password">Quero autorizar uma conta com uma senha</string>
-    <string name="title_setup_office_remark">A Microsoft não fornece este tipo de autorização para contas do Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE falhou\' pode ser causado por IMAP/SMTP estar desativado pelo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar conta existente novamente</string>

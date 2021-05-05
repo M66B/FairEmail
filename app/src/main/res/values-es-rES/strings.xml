@@ -136,15 +136,14 @@
     <string name="title_setup_account_identity_hint">Puede configurar el nombre, color y acciones de deslizamiento en la configuración de la cuenta, y configurar una firma en los ajustes de identidad</string>
     <string name="title_setup_accounts">Cuentas</string>
     <string name="title_setup_identities">Identidades</string>
-    <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para versiones oficiales de la aplicación</string>
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_pop3">Cuenta POP3</string>
+    <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para versiones oficiales de la aplicación</string>
     <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
     <string name="title_setup_gmail_password">Quiero autorizar una cuenta con una contraseña</string>
-    <string name="title_setup_office_remark">Microsoft no proporciona este tipo de autorización para cuentas de Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
     <string name="title_setup_oauth_update">Volver a autorizar cuenta existente</string>
@@ -535,6 +534,7 @@
     <string name="title_advanced_display_harmful_hint">Desactivar esta opción podría ser perjudicial para su privacidad</string>
     <string name="title_advanced_display_hidden_hint">Esto puede resultar en textos dobles o de apariencia extraña</string>
     <string name="title_advanced_display_pin_hint">Un PIN tiene prioridad sobre la autenticación biométrica</string>
+    <string name="title_advanced_safe_browsing_hint">El servidor de Google sabe qué direcciones se están buscando</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>

@@ -2,7 +2,7 @@
 
 # FairEmail 支持文档
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+如果有问题，请先检查下列常见问题。 [在这篇文章末尾](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)， 您可以了解到如何询问其他问题、请求功能和报告问题。
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -18,15 +18,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## 账户授权
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+大多数情况下，快速配置向导能够自动识别正确的配置。
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+如果快速配置向导失败了，您需要手动配置一个账户（来接受电子邮件）和一个身份（来发送电子邮件）。 为此，您需要知道 IMAP 和 SMTP 服务器地址和它们的端口号、是否应该使用 SSL/TLS 或 STARTTLS 加密，以及您的用户名（多数情况下还需要要您的电子邮件地址，但并不总是这样），还有您的密码。
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+搜索 *IMAP* 和服务提供商的名称通常足以找到正确的文档。
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+某些情况下，您需要启用对账户的外部访问并/或使用特殊的（应用）密码， 例如当启用了双因素认证（2FA）时。
 
-For authorizing:
+关于认证问题：
 
 * Gmail / G 套件，见[问题6](#user-content-faq6)
 * Outlook / Live / Hotmail，见[问题14](#user-content-faq14)
@@ -36,9 +36,9 @@ For authorizing:
 * 苹果 iCloud，见[问题148](#user-content-faq148)
 * Free.fr, 见 [问题157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+请参阅[此处](#user-content-faq22)获取常见错误信息和解决方法。
 
-Related questions:
+相关问题：
 
 * [是否支持 OAuth ？](#user-content-faq111)
 * [为什么不支持 ActiveSync ？](#user-content-faq133)
@@ -47,7 +47,7 @@ Related questions:
 
 ## 如何 ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
+* 更改账户名称：“设置”，点击 “手动配置“，点击 ”账户“，然后再点击账户。
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
 * Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
 * Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
@@ -1749,6 +1749,8 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
+An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
@@ -2277,9 +2279,7 @@ Disabling *Partial fetch* will result in more memory usage.
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Yandex and Yahoo is supported via the quick setup wizard.
-
-OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
 <br />
 

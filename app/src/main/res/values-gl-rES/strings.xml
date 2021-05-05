@@ -135,15 +135,14 @@
     <string name="title_setup_account_identity_hint">Pode configurar o nome, a cor e as accións de esvarado na configuración das contas, e configurar unha sinatura na configuración de identidade</string>
     <string name="title_setup_accounts">Contas</string>
     <string name="title_setup_identities">Identidades</string>
-    <string name="title_setup_oauth_permission">O provedor de correo so permite OAuth para as aplicacións de versións oficiais</string>
     <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_pop3">Conta POP3</string>
+    <string name="title_setup_oauth_permission">O provedor de correo so permite OAuth para as aplicacións de versións oficiais</string>
     <string name="title_setup_gmail_support">Autorizar contas de Google só funcionará nas versións oficiais desta aplicación porque Android verifica a súa sinatura dixital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar unha conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">Google pedirá permisos para ler, redactar, enviar e borrar permanentemente todo o seu correo. FairEmail nunca eliminará as súas mensaxes sen o seu consentimento explícito.</string>
     <string name="title_setup_gmail_drafts">Se o cartafol de borradores non é accesible por IMAP, isto pódese solucionar na configuración de etiquetas de Gmail</string>
     <string name="title_setup_gmail_password">Quero autorizar unha conta con un contrasinal</string>
-    <string name="title_setup_office_remark">Microsoft non prove este tipo de autorización para as contas de Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode estar causado porque IMAP/SMTP estea desactivado polo administrador do sistema</string>
     <string name="title_setup_oauth_rationale">Autorizar o acceso á súa conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar outra vez unha conta xa existente</string>

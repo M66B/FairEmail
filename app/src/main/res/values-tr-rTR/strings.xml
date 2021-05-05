@@ -136,15 +136,14 @@
     <string name="title_setup_account_identity_hint">Hesap ayarlarında adı, rengi ve kaydırma eylemlerini yapılandırabilir ve kimlik ayarlarında bir imza yapılandırabilirsiniz</string>
     <string name="title_setup_accounts">Hesaplar</string>
     <string name="title_setup_identities">Kimlikler</string>
-    <string name="title_setup_oauth_permission">E-posta sağlayıcısı OAuth\'u yalnızca resmi uygulama sürümleri için onayladı</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
+    <string name="title_setup_oauth_permission">E-posta sağlayıcısı OAuth\'u yalnızca resmi uygulama sürümleri için onayladı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek sadece resmi versiyonlarda çalışacaktır çünkü Android uygulama imzasını kontrol etmektedir</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
     <string name="title_setup_gmail_password">Bir hesabı bir şifre ile yetkilendirmek istiyorum</string>
-    <string name="title_setup_office_remark">Microsoft, Outlook, Live, Hotmail vb. Hesaplar için bu tür bir yetkilendirme sağlamaz.</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut hesabı tekrar yetkilendirin</string>

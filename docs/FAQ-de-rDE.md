@@ -1714,7 +1714,7 @@ Folgende Regelbedingungen sind verfügbar:
 * Absolute Zeit (empfangen) zwischen (seit Version 1.1540)
 * Relative Zeit (empfangen) zwischen
 
-Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger ntzen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten. If you want to match a domain name, you can use as a condition something like *@example.org*
+Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger ntzen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten. Wenn Sie einen Domainnamen abgleichen möchten, können Sie etwas wie *@example.org* als Bedingung verwenden
 
 Beachten Sie, dass E-Mail-Adressen wie folgt formatiert sind:
 
@@ -1749,131 +1749,133 @@ Sie können eine dieser Aktionen für passende Nachrichten auswählen:
 * Text-zu-Sprache (Absender und Betreff)
 * Automatisierung (Tasker, etc)
 
-Regeln werden direkt angewendet, nachdem der Nachrichtenkopf abgerufen wurde, aber bevor der Nachrichtentext heruntergeladen wurde, damit ist es nicht möglich, Bedingungen auf den Nachrichtentext anzuwenden. Beachten Sie, dass bei Bedarf große Nachrichtentexte bei einer kostenpflichtigen Verbindung erst auf Anfrage heruntergeladen werden, um Datennutzung zu sparen.
+An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
 
-Wenn Sie eine Nachricht weiterleiten wollen, sollten Sie stattdessen die Aktion "Verschieben" verwenden. Dies wird auch zuverlässiger sein als weiterleiten, da weitergeleitete Nachrichten als Spam angesehen werden können.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
-Da Nachrichtenheader standardmäßig nicht heruntergeladen und gespeichert werden, um Akku, Datenverbrauch und Speicherplatz zu sparen, ist es nicht möglich, eine Vorschau zu sehen, welche Nachrichten zu einer Headerregel-Bedingung passen.
+If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Einige häufige Header-Bedingungen (RegEx):
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+
+Some common header conditions (regex):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-Im Drei-Punkte-Menü *mehr* gibt es ein Element, um eine Regel für eine empfangene Nachricht mit den häufigsten Bedingungen zu erstellen.
+In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
-Das POP3-Protokoll unterstützt nicht das Setzen von Schlüsselwörtern und das Verschieben oder Kopieren von Nachrichten.
+The POP3 protocol does not support setting keywords and moving or copying messages.
 
-Das Verwenden von Regeln ist ein Pro-Funktion.
+Using rules is a pro feature.
 
 <br />
 
 <a name="faq72"></a>
-**(72) Was sind Primär-Konten bzw. -Identitäten?**
+**(72) What are primary accounts/identities?**
 
-Das Primärkonto wird verwendet, wenn das Konto uneindeutig ist. Zum Beispiel wenn ein neuer Entwurf aus dem einheitlichen Posteingang gestartet wird.
+The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
 
-Ebenso wird die primäre Identität eines Kontos verwendet, wenn die Identität uneindeutig ist.
+Similarly, the primary identity of an account is used when the identity is ambiguous.
 
-Es kann nur ein Primärkonto geben und es kann nur eine primäre Identität pro Konto geben.
+There can be just one primary account and there can be just one primary identity per account.
 
 <br />
 
 <a name="faq73"></a>
-**(73) Ist das Verschieben von Nachrichten über Konten sicher/effizient?**
+**(73) Is moving messages across accounts safe/efficient?**
 
-Nachrichten über Konten hinweg zu verschieben, ist sicher, weil die rohen Originalnachrichten heruntergeladen und verschoben werden und die Quellnachrichten erst dann gelöscht werden, nachdem die Zielnachrichten hinzugefügt wurden
+Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
 
 Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
 
 <br />
 
 <a name="faq74"></a>
-**(74) Warum sehe ich doppelte Nachrichten?**
+**(74) Why do I see duplicate messages?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail zeigt alle diese Nachrichten in einer nicht aufdringlichen Art und Weise an, um darauf hinzuweisen, dass diese Nachrichten tatsächlich die gleiche Nachricht sind.
+Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
 
-Google Mail erlaubt es einer Nachricht mehrere Labels zu haben, die FairEmail als Ordner angezeigt werden. Das bedeutet, dass Nachrichten mit mehreren Labels auch mehrfach angezeigt werden.
+Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
 
 <br />
 
 <a name="faq75"></a>
 **(75) Can you make an iOS, Windows, Linux, etc version?**
 
-Eine Menge Wissen und Erfahrung ist erforderlich, um erfolgreich eine App für eine bestimmte Plattform zu entwickeln; deshalb entwickle ich nur Apps für Android.
+A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
 
 <br />
 
 <a name="faq76"></a>
-**(76) Was macht 'Lösche lokale Nachrichten'?**
+**(76) What does 'Clear local messages' do?**
 
-Das Ordnermenü *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die aber auf dem Server noch vorhanden sind. Es löscht keine Nachrichten vom Server. Dies kann nützlich sein, wenn die Ordnereinstellungen geändert werden, um den Nachrichteninhalt (Text und Anhänge) nicht herunterzuladen, zum Beispiel um Speicherplatz zu sparen.
+The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
 
 <br />
 
 <a name="faq77"></a>
-**(77) Warum werden Nachrichten manchmal mit einer kleinen Verzögerung angezeigt?**
+**(77) Why are messages sometimes shown with a small delay?**
 
-Abhängig von der Geschwindigkeit Ihres Geräts (Prozessorgeschwindigkeit und vielleicht sogar noch mehr Speichergeschwindigkeit) können Nachrichten mit einer kleinen Verzögerung angezeigt werden. FairEmail is designed to dynamically handle a large number of messages without running out of memory. Das bedeutet, dass Nachrichten aus einer Datenbank gelesen werden müssen und dass diese Datenbank auf Änderungen überwacht werden muss; beides kann zu kleinen Verzögerungen führen.
+Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
 
-Einige Komfort-Funktionen, wie zum Beispiel Gruppieren von Nachrichten zur Anzeige von Unterhaltungshinweisen und die Bestimmung der vorherigen/nächsten Nachricht, nehmen ein wenig mehr Zeit in Anspruch. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
 
-Beim Vergleich der Geschwindigkeit von FairEmail mit ähnlichen Apps sollte dies Teil des Vergleichs sein. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
 
-FairEmail basiert auf den neuesten [Android-Architekturkomponenten](https://developer.android.com/topic/libraries/architecture/), und bietet daher wenig Platz für Leistungsverbesserungen.
+FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
 
 <br />
 
 <a name="faq78"></a>
-**(78) Wie verwende ich Zeitpläne?**
+**(78) How do I use schedules?**
 
-In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Beachten Sie, dass eine Endzeit gleich oder früher als die Startzeit 24 Stunden später betrachtet wird.
+In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
-Automatisierung, siehe unten, kann für erweiterte Zeitpläne verwendet werden, zum Beispiel mehrere Synchronisationszeiträume pro Tag oder unterschiedliche Synchronisationszeiträume für unterschiedliche Tage.
+Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
 
-FairEmail kann in mehreren Benutzerprofilen installiert werden, zum Beispiel ein persönliches und ein Arbeitsprofil, und man kann FairEmail in jedem Profil anders konfigurieren, was eine weitere Möglichkeit ist, verschiedene Synchronisationspläne zu haben und verschiedene Konten zu synchronisieren.
+It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
 
-Außerdem ist es möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Meldungen bis zum Ende der Zeitbedingung zurückzustellen. Auf diese Weise ist es möglich, dienstliche Nachrichten bis zum Beginn der Arbeitszeit *zurückzustellen*. Dies bedeutet auch, dass die Nachrichten auf Ihrem Gerät sind, wenn es (vorübergehend) keine Internetverbindung gibt.
+It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
 
-Beachten Sie, dass aktuelle Android-Versionen DND (Do Not Disturb) pro Benachrichtigungskanal und pro App überschreiben können, was verwendet werden könnte, um bestimmte (geschäftliche) Benachrichtigungen (nicht) stillzulegen. Weitere Informationen finden Sie [hier](https://support.google.com/android/answer/9069335).
+Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
 
-Für komplexere Schemata können Sie ein oder mehrere Konten auf manuelle Synchronisierung setzen und den folgenden Befehl an FairEmail senden, um nach neuen Nachrichten zu suchen:
+For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-Für ein bestimmtes Konto:
+For a specific account:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
 ```
 
-Sie können auch das Ein- und Ausschalten des Nachrichten-Empfangs automatisieren, indem Sie die folgenden Befehle an FairEmail schicken:
+You can also automate turning receiving messages on and off by sending these commands to FairEmail:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE
 ```
 
-Um ein bestimmtes Konto zu aktivieren/deaktivieren:
+To enable/disable a specific account:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Beachten Sie, dass das Deaktivieren eines Kontos das Konto und alle zugehörigen Ordner und Nachrichten ausblenden wird.
+Note that disabling an account will hide the account and all associated folders and messages.
 
-Um das Abfrageintervall einzustellen:
+To set the poll interval:
 
 ```
 (adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
 ```
 
-Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. Ein Wert von 0 bedeutet Push-Benachrichtigungen.
+Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
 
-Sie können automatisch Befehle senden, zum Beispiel mit [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
+You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
 Neue Aufgabe: Etwas wiedererkennbares
@@ -1882,28 +1884,28 @@ Aktion: eu.faircode.email.ENABLE
 Ziel: Service
 ```
 
-Um ein Konto mit dem Namen *Gmail* zu aktivieren/deaktivieren:
+To enable/disable an account with the name *Gmail*:
 
 ```
 Extras: Konto:Gmail
 ```
 
-Bei Kontobezeichnungen bitte die Groß- und Kleinschreibung beachten.
+Account names are case sensitive.
 
-Terminplanung ist eine Pro-Funktion.
+Scheduling is a pro feature.
 
 <br />
 
 <a name="faq79"></a>
-**(79) Wie kann ich bei Bedarf die Synchronisierung nutzen (Handbuch)?**
+**(79) How do I use synchronize on demand (manual)?**
 
-Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn Sie dies nicht wollen, zum Beispiel, um nicht gestört zu werden oder, um beim Batterieverbrauch zu sparen, können Sie den Empfang neuer Nachrichten in den Empfangseinstellungen deaktivieren. Dadurch wird der Hintergrunddienst, der sich um die automatische Synchronisierung kümmert, gestoppt und die zugehörige Benachrichtigung entfernt.
+Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time. If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 
-Sie können auch *manuell synchronisieren* in den erweiterten Kontoeinstellungen aktivieren, wenn Sie nur bestimmte Konten manuell synchronisieren möchten.
+You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
 
 You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
 
-Wenn Sie einige oder alle Ordner eines Kontos manuell synchronisieren möchten, deaktivieren Sie einfach die Synchronisierung für die jeweiligen Ordner (aber nicht die des Kontos).
+If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
 
 You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
@@ -1926,20 +1928,20 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq82"></a>
-**(82) Was ist ein Verfolgungsbild?**
+**(82) What is a tracking image?**
 
-Bitte [hier](https://en.wikipedia.org/wiki/Web_beacon) nachsehen, was ein Verfolgungsbild genau ist. In kleinen Verfolgungsbildern wird festgehalten, ob Sie eine Nachricht geöffnet haben.
+Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
 
-FairEmail erkennt in den meisten Fällen automatisch Verfolgungsbilder und ersetzt diese durch dieses Symbol:
+FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Die automatische Erkennung von Verfolgungsbildern kann in den Privatsphäreneinstellungen deaktiviert werden.
+Automatic recognition of tracking images can be disabled in the privacy settings.
 
 <br />
 
 <a name="faq84"></a>
-**(84) Wofür sind lokale Kontakte?**
+**(84) What are local contacts for?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
@@ -2277,9 +2279,7 @@ Disabling *Partial fetch* will result in more memory usage.
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Yandex and Yahoo is supported via the quick setup wizard.
-
-OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
 <br />
 
@@ -2368,9 +2368,9 @@ If you cannot solve the problem with the purchase, you will have to contact Goog
 <br />
 
 <a name="faq118"></a>
-**(118) Was genau bedeutet »Verfolgungsparameter entfernen«?**
+**(118) What does 'Remove tracking parameters' exactly?**
 
-*Verefolgungsparameter entfernen* entfernt alle [UTM-Parameter](https://en.wikipedia.org/wiki/UTM_parameters) von einem Link.
+Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
 
 <br />
 
@@ -2683,7 +2683,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2894,7 +2894,7 @@ After downloading the lists in the privacy settings, the lists can optionally be
 * to warn about tracking links on opening links
 * to recognize tracking images in messages
 
-Verfolgungsbilder werden nur deaktiviert, wenn die entsprechende Hauptoption »deaktiviert« aktiviert ist.
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
 Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
@@ -3019,33 +3019,33 @@ Some email providers, like Gmail, move snoozed messages to a special folder. Unf
 
 Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-Um diese Probleme zu vermeiden, wird das Schlummern lokal auf dem Gerät durchgeführt, indem die Nachricht während des Schlummerns versteckt wird. Leider ist es nicht möglich, Nachrichten auch auf dem E-Mail-Server zu verstecken.
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 
 ## Hilfe erhalten
 
-FairEmail unterstützt nur Smartphones, Tablets und ChromeOS.
+FairEmail is supported on smartphones, tablets and ChromeOS only.
 
-Nur die neuesten Versionen aus dem Play-Store oder von GitHub werden unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass eine Herabstufung nicht unterstützt wird.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-Es gibt keine Hilfe für Dinge, die nicht direkt mit FairEmail verbunden sind.
+There is no support on things that are not directly related to FairEmail.
 
-Es gibt keine Unterstützung beim Selberbauen und Entwickeln von eigenen Dingen.
+There is no support on building and developing things by yourself.
 
-Angefragte Funktionen sollten:
+Requested features should:
 
 * für die meisten Menschen nützlich sein
 * die Nutzung von FairEmail nicht verkomplizieren
 * zur Philosophie von FairEmail passen (privatsphären- und sicherheitsorientiert)
 * den gängigen Standards entsprechen (IMAP, SMTP usw.)
 
-Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Das soll auch langfristig die Wartung und Unterstützung ermöglichen.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, **benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub-Issues sind wegen häufigen Missbrauchs deaktiviert.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Urheberrecht &copy; 2018-2021 Marcel Bokhorst.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

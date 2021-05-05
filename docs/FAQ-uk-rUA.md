@@ -1714,7 +1714,7 @@ The following rule conditions are available:
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
 
-All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like *@example.org*
+All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. Якщо Ви хочете відповідати доменному імені, ви можете використовувати в якості умови щось на зразок *@example.org*
 
 Note that email addresses are formatted like this:
 
@@ -1748,6 +1748,8 @@ You can select one of these actions to apply to matching messages:
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
+
+An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
 
 Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
@@ -2277,9 +2279,7 @@ Disabling *Partial fetch* will result in more memory usage.
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Yandex and Yahoo is supported via the quick setup wizard.
-
-OAuth for Office 365 accounts is supported, but Microsoft does not offer OAuth for Outlook, Live and Hotmail accounts (yet?).
+OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
 <br />
 

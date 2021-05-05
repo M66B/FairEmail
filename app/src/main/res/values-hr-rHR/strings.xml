@@ -131,7 +131,6 @@
     <string name="title_setup_gmail_permissions">Google će tražiti dopuštenja za čitanje, sastavljanje, slanje i trajno brisanje sve vaše e-pošte. FairEmail nikada neće izbrisati vaše poruke bez vašeg izričitog pristanka.</string>
     <string name="title_setup_gmail_drafts">Ako preko IMAP mapa skica nije dostupna, to se može popraviti u postavkama Gmail oznake</string>
     <string name="title_setup_gmail_password">Želim lozinkom odobriti račun</string>
-    <string name="title_setup_office_remark">Microsoft ne pruža ovaj tip odobrenja za Outlook, Live, Hotmail, itd.</string>
     <string name="title_setup_office_auth">Greška \'AUTHENTICATE failed\' se može pojaviti ako je IMAP/SMTP isključen od strane administratora</string>
     <string name="title_setup_oauth_rationale">Autorizirajte pristup vašem %1$s računu</string>
     <string name="title_setup_oauth_update">Ponovo odobri postoječi račun</string>

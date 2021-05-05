@@ -158,15 +158,14 @@
     <string name="title_setup_account_identity_hint">Jméno, barvu a akce přejetím nakonfigurujete v nastavení účtu, a podpis v nastavení identity</string>
     <string name="title_setup_accounts">Účty</string>
     <string name="title_setup_identities">Identity</string>
-    <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_pop3">POP3 účet</string>
+    <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro oficiální verze aplikací</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
     <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
     <string name="title_setup_gmail_password">Chci autorizovat účet pomocí hesla</string>
-    <string name="title_setup_office_remark">Microsoft tento typ autorizace neposkytuje pro účty Outlook, Live, Hotmail, atd.</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_update">Znovu autorizovat již existující účet</string>
@@ -557,6 +556,7 @@
     <string name="title_advanced_display_harmful_hint">Zákazem této volby můžete uškodit svému soukromí</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
     <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
+    <string name="title_advanced_safe_browsing_hint">Google server ví, které adresy jsou vyhledávány</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>

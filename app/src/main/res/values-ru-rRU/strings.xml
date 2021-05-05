@@ -158,15 +158,14 @@
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
     <string name="title_setup_accounts">Учётные записи</string>
     <string name="title_setup_identities">Идентификаторы</string>
-    <string name="title_setup_oauth_permission">Поставщик электронной почты одобрил OAuth только для официальных версий приложения</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_pop3">Учётная запись POP3</string>
+    <string name="title_setup_oauth_permission">Поставщик электронной почты одобрил OAuth только для официальных версий приложения</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
     <string name="title_setup_gmail_password">Я хочу авторизоваться в учётной записи паролем</string>
-    <string name="title_setup_office_remark">Microsoft не предоставляет такого типа авторизации для Outlook, Live, Hotmail и т.п. аккаунтов</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_update">Повторная авторизация учётной записи</string>

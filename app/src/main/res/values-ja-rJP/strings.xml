@@ -124,15 +124,14 @@
     <string name="title_setup_account_identity_hint">アカウント設定で名前、色、スワイプ操作を設定でき、またID設定で署名を設定することができます。</string>
     <string name="title_setup_accounts">アカウント</string>
     <string name="title_setup_identities">ID</string>
-    <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_other">他のプロバイダー</string>
     <string name="title_setup_pop3">POP3 アカウント</string>
+    <string name="title_setup_oauth_permission">メールプロバイダーは、公式のアプリに対してのみOAuthを承認しています</string>
     <string name="title_setup_gmail_support">Androidがアプリの署名をチェックする為、Googleアカウントの承認は公式バージョンでのみ機能します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス許可を与えて下さい</string>
     <string name="title_setup_gmail_permissions">Googleは全てのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmailは明示的な同意なしにメッセージを削除する事は有りません</string>
     <string name="title_setup_gmail_drafts">IMAPで下書きフォルダにアクセス出来ない場合、Gmailラベル設定で修正出来ます</string>
     <string name="title_setup_gmail_password">パスワードでアカウントを認証したい</string>
-    <string name="title_setup_office_remark">MicrosoftはOutlook・Live・Hotmailなどのアカウントに対してOAuthによるログインを提供していません。</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によってIMAP/SMTPが無効にされているときに発生する可能性があります</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可します</string>
     <string name="title_setup_oauth_update">既存のアカウントを再度認証する</string>

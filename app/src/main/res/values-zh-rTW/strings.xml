@@ -122,15 +122,14 @@
     <string name="title_setup_identity_remark">發送電子郵件</string>
     <string name="title_setup_accounts">帳號</string>
     <string name="title_setup_identities">身份</string>
-    <string name="title_setup_oauth_permission">此電子郵件提供者僅在官方應用程式版本中同意OAuth</string>
     <string name="title_setup_other">其他服務商</string>
     <string name="title_setup_pop3">POP3 帳號</string>
+    <string name="title_setup_oauth_permission">此電子郵件提供者僅在官方應用程式版本中同意OAuth</string>
     <string name="title_setup_gmail_support">認證Google帳號只能在官方版本中工作因為Android檢查應用的簽名。</string>
     <string name="title_setup_gmail_rationale">請給予權限來選擇一個帳號並且讀取你的名字。</string>
     <string name="title_setup_gmail_permissions">Google 將會要求權限來讀取、撰寫、發送並永久刪除你的 email。FairEmail 永遠不會在你沒有明確同意的情況下刪除你的訊息。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夾不能被IMAP伺服器讀取，此項設置可在Gmail 標籤設置裡面找到並修復。</string>
     <string name="title_setup_gmail_password">我想要使用密碼授權帳號</string>
-    <string name="title_setup_office_remark">微軟並不提供此種授權方法給Outlook, Live, Hotmail等帳號</string>
     <string name="title_setup_office_auth">\"認證失敗\"的錯誤可能是由於 IMAP 或者 SMTP 被系統管理員關閉導致。</string>
     <string name="title_setup_oauth_rationale">認證存取您的 %1$s 帳號</string>
     <string name="title_setup_oauth_update">再次授權已存在帳號</string>

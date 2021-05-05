@@ -134,15 +134,14 @@
     <string name="title_setup_account_identity_hint">Beállíthatod a nevet, színt és csúsztatási műveleteket a fiókbeállításokban, és konfigurálhatsz egy aláírást az identitási beállításokban</string>
     <string name="title_setup_accounts">Fiókok</string>
     <string name="title_setup_identities">Identitások</string>
-    <string name="title_setup_oauth_permission">Az email-szolgáltató az OAuth-ot csak hivatalos alkalmazásverziókhoz hagyta jóvá</string>
     <string name="title_setup_other">Egyéb szolgáltató</string>
     <string name="title_setup_pop3">POP3 fiók</string>
+    <string name="title_setup_oauth_permission">Az email-szolgáltató az OAuth-ot csak hivatalos alkalmazásverziókhoz hagyta jóvá</string>
     <string name="title_setup_gmail_support">Google fiókok hozzáadása csak a hivatalos verziókban működik, mivel az Android ellenőrzi az alkalmazás aláírását</string>
     <string name="title_setup_gmail_rationale">Kérem adja meg a szükséges engedélyeket hogy a kijelölhessen egy fiókot, illetve az alkalmazás hozzáférjen</string>
     <string name="title_setup_gmail_permissions">A Google engedélyeket fog kérni hogy olvashasson, írhasson, küldhessen és véglegesen törölhessen üzeneteket. A FairEmail sosem törli az üzeneteit az Ön beleegyezése nélkül.</string>
     <string name="title_setup_gmail_drafts">Ha a piszkozatok mappa nem elérhető IMAP-on keresztül, a hibát orvosolhatja a Gmail címkék beállításai között</string>
     <string name="title_setup_gmail_password">Szeretnék egy fiókot hitelesíteni jelszóval</string>
-    <string name="title_setup_office_remark">A Microsoft nem támogatja e típusú autentikációt Outlook, Live, Hotmail, stb fiókoknál</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
     <string name="title_setup_oauth_update">Ismételt autorizáció meglévő fiókhoz</string>

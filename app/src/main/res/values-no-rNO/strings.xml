@@ -120,15 +120,14 @@
     <string name="title_setup_quick_smtp">SMTP-tjener for sending av meldinger</string>
     <string name="title_setup_wizard">Veiviser</string>
     <string name="title_setup_wizard_new">Jeg trenger en ny e-postadresse</string>
-    <string name="title_setup_oauth_permission">E-postleverandøren har bare godkjent OAuth for offisielle versjoner av appen</string>
     <string name="title_setup_other">Annen leverandør</string>
     <string name="title_setup_pop3">POP3-konto</string>
+    <string name="title_setup_oauth_permission">E-postleverandøren har bare godkjent OAuth for offisielle versjoner av appen</string>
     <string name="title_setup_gmail_support">Å autorisere Google kontoer fungerer bare i offisielle versjoner fordi Android sjekker appens signatur</string>
     <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
     <string name="title_setup_gmail_permissions">Google vil be om tillatelser til å lese, komponere, sende og slette all e-postmeldingen din permanent. FairEmail vil aldri slette meldingene dine uten ditt eksplisitte samtykke.</string>
     <string name="title_setup_gmail_drafts">Hvis utkast mappen ikke er tilgjengelig med IMAP, kan du fikse dette i Gmail-etikettinnstillingene</string>
     <string name="title_setup_gmail_password">Jeg ønsker å godkjenne en konto med et passord</string>
-    <string name="title_setup_office_remark">Microsoft gir ikke denne typen autorisasjon for kontoer som Outlook, Live, Hotmail osv. </string>
     <string name="title_setup_office_auth">Feilen \'AUTHENTICATE failed\' kan skyldes at IMAP/SMTP er deaktivert av systemadministratoren</string>
     <string name="title_setup_oauth_rationale">Autoriser tilgang til din %1$s konto</string>
     <string name="title_setup_oauth_update">Autoriser eksisterende konto på nytt</string>

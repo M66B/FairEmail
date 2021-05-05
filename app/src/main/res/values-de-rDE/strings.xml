@@ -137,15 +137,14 @@
     <string name="title_setup_account_identity_hint">Sie können Namen, Farbe und Wischen in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
     <string name="title_setup_accounts">Konten</string>
     <string name="title_setup_identities">Identitäten</string>
-    <string name="title_setup_oauth_permission">Der E-Mail-Anbieter hat OAuth nur für offizielle App-Versionen zugelassen</string>
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_pop3">POP3-Konto</string>
+    <string name="title_setup_oauth_permission">Der E-Mail-Anbieter hat OAuth nur für offizielle App-Versionen zugelassen</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner über IMAP nicht zugänglich ist, kann dies in den Gmail Label-Einstellungen korrigiert werden</string>
     <string name="title_setup_gmail_password">Ich möchte ein Konto mit einem Passwort autorisieren</string>
-    <string name="title_setup_office_remark">Microsoft stellt diese Art der Autorisierung für Outlook-, Live-, Hotmail-Konten usw. nicht zur Verfügung.</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_update">Vorhandenes Konto erneut autorisieren</string>
@@ -536,7 +535,7 @@
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
-    <string name="title_advanced_safe_browsing_hint">Der Google-Server weiß, welche Adressen besucht werden</string>
+    <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>

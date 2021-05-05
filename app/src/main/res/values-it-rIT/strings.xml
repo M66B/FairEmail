@@ -136,15 +136,14 @@
     <string name="title_setup_account_identity_hint">Puoi configurare il nome, il colore e le azioni di scorrimento nelle impostazioni del profilo, e configurare una firma nelle impostazioni dell\'identità</string>
     <string name="title_setup_accounts">Profili</string>
     <string name="title_setup_identities">Identità</string>
-    <string name="title_setup_oauth_permission">Il provider email ha approvato OAuth solo per le versioni ufficiali dell\'app</string>
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_pop3">Profilo POP3</string>
+    <string name="title_setup_oauth_permission">Il provider email ha approvato OAuth solo per le versioni ufficiali dell\'app</string>
     <string name="title_setup_gmail_support">Autorizzare i profili di Google funzionerà solo nelle versioni ufficiali perché Android verifica la firma dell\'app</string>
     <string name="title_setup_gmail_rationale">Sei pregato di garantire i permessi per selezionare un profilo e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
     <string name="title_setup_gmail_drafts">Se la cartella delle bozze non è accessibile da IMAP, questo è risolvibile nelle impostazioni dell\'etichetta di Gmail</string>
     <string name="title_setup_gmail_password">Voglio autorizzare un profilo con una password</string>
-    <string name="title_setup_office_remark">Microsoft non fornisce questo tipo di autorizzazione per i profili di Outlook, Live, Hotmail, etc.</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo profilo di %1$s</string>
     <string name="title_setup_oauth_update">Autorizza di nuovo il profilo esistente</string>

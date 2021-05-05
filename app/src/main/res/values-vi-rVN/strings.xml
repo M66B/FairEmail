@@ -125,15 +125,14 @@
     <string name="title_setup_account_identity_hint">Bạn có thể thiết lập tên, màu sắc và các tuỳ chọn vuốt trong cài đặt tài khoản, và thiết lập một chữ ký trong cài đặt danh tính</string>
     <string name="title_setup_accounts">Tài khoản</string>
     <string name="title_setup_identities">Danh tính</string>
-    <string name="title_setup_oauth_permission">Nhà cung cấp email đã chấp thuận OAuth chỉ với những phiên bản ứng dụng chính thức</string>
     <string name="title_setup_other">Nhà cung cấp khác</string>
     <string name="title_setup_pop3">Tài khoản POP3</string>
+    <string name="title_setup_oauth_permission">Nhà cung cấp email đã chấp thuận OAuth chỉ với những phiên bản ứng dụng chính thức</string>
     <string name="title_setup_gmail_support">Việc uỷ quyền các tài khoản Gmail sẽ chỉ được trong các phiên bản chính thức vì Android kiểm tra chữ ký ứng dụng</string>
     <string name="title_setup_gmail_rationale">Hãy cấp quyền để chọn một tài khoản và đọc tên của bạn</string>
     <string name="title_setup_gmail_permissions">Google sẽ hỏi xin quyền đọc, soạn thư, gửi và vĩnh viễn xoá tất cả email của bạn. FairEmail sẽ không bao giờ xoá các thư của bạn mà không có sự đồng ý cụ thể của bạn.</string>
     <string name="title_setup_gmail_drafts">Nếu thư mục nháp không truy cập được bởi IMAP, điều này có thể được sửa ở cài đặt nhãn Gmail</string>
     <string name="title_setup_gmail_password">Tôi muốn uỷ quyền một tài khoản với mật khẩu</string>
-    <string name="title_setup_office_remark">Microsoft không cung cấp loại uỷ quyền này cho các tài khoản Outlook, Live, Hotmail, v.v.</string>
     <string name="title_setup_office_auth">Lỗi \'XÁC THỰC thất bại\' có thể gây ra bởi IMAP/SMTP bị vô hiệu hoá bởi quản trị viên hệ thống</string>
     <string name="title_setup_oauth_rationale">Cấp quyền truy cập vào tài khoản %1$s của bạn</string>
     <string name="title_setup_oauth_update">Uỷ quyền lại tài khoản đang tồn tại</string>
@@ -427,6 +426,7 @@
     <string name="title_advanced_secure">Ẩn khỏi màn hình đa nhiệm và ngăn chặn chụp màn hình</string>
     <string name="title_advanced_pin">Mã PIN</string>
     <string name="title_advanced_biometrics_timeout">Thời gian chờ xác thực sinh trắc học</string>
+    <string name="title_advanced_disconnect_auto_update">Tự động cập nhật các danh sách hàng tuần</string>
     <string name="title_advanced_disconnect_links">Sử dụng các danh sách để cảnh báo về các liên kết theo dõi</string>
     <string name="title_advanced_disconnect_images">Sử dụng các danh sách để nhận ra các hình ảnh theo dõi</string>
     <string name="title_advanced_sign_default">Ký theo mặc định</string>
@@ -522,6 +522,7 @@
     <string name="title_advanced_display_harmful_hint">Việc tắt cái này có thể có hại cho sự riêng tư của bạn</string>
     <string name="title_advanced_display_hidden_hint">Cái này có thể dẫn đến văn bản trông kỳ quặc và văn bản đôi</string>
     <string name="title_advanced_display_pin_hint">Mã PIN được ưu tiên trước xác thực sinh trắc học</string>
+    <string name="title_advanced_safe_browsing_hint">Máy chủ Google biết các địa chỉ nào đang được tra cứu</string>
     <string name="title_advanced_badge_hint">Chỉ có trên các launcher được hỗ trợ</string>
     <string name="title_advanced_notify_action_hint">Nhiều nhất ba hành động sẽ được hiện</string>
     <string name="title_advanced_notify_remove_hint">Các thông báo thư mới sẽ luôn được xoá khi được vuốt đi và khi đánh dấu thư là đã đọc</string>

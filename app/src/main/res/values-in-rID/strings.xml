@@ -122,15 +122,14 @@
     <string name="title_setup_account_identity_hint">Anda dapat mengkonfigurasi nama, warna dan tindakan menggesek di pengaturan akun, dan mengkonfigurasi tanda tangan di pengaturan identitas</string>
     <string name="title_setup_accounts">Akun</string>
     <string name="title_setup_identities">Identitas</string>
-    <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk versi aplikasi yang resmi saja</string>
     <string name="title_setup_other">Penyedia Lainnya</string>
     <string name="title_setup_pop3">Akun POP3</string>
+    <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk versi aplikasi yang resmi saja</string>
     <string name="title_setup_gmail_support">Memberi otorisasi pada akun Google hanya akan berfungsi dalam versi resminya karena Android memeriksa tanda tangan aplikasi.</string>
     <string name="title_setup_gmail_rationale">Mohon berikan izin untuk memilih akun dan membaca nama Anda.</string>
     <string name="title_setup_gmail_permissions">Google akan meminta izin untuk membaca, menulis, mengirim dan menghapus semua email Anda secara permanen. FairEmail tidak akan pernah menghapus pesan tanpa persetujuan tegas dari Anda.</string>
     <string name="title_setup_gmail_drafts">Jika folder draf tidak dapat diakses oleh IMAP, hal ini dapat diperbaiki pada pengaturan label Gmail.</string>
     <string name="title_setup_gmail_password">Saya ingin mengotorisasi akun dengan kata sandi</string>
-    <string name="title_setup_office_remark">Microsoft tidak akan memberikan tipe otorisasi ini untuk akun Outlook, Live, Hotmail, dan lainnya</string>
     <string name="title_setup_office_auth">Kesalahan \'AUTHENTICATE Failed\' bisa disebabkan oleh IMAP/SMTP yang dinon-aktifkan oleh administrator sistem.</string>
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
     <string name="title_setup_oauth_update">Mengotorisasi akun yang sudah ada</string>

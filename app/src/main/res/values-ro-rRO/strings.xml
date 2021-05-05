@@ -147,15 +147,14 @@
     <string name="title_setup_account_identity_hint">Puteți configura numele, culoarea și acțiunile de glisare în setările contului și puteți configura o semnătură în setările de identitate</string>
     <string name="title_setup_accounts">Conturi</string>
     <string name="title_setup_identities">Identități</string>
-    <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth numai pentru versiunile oficiale ale aplicației</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_pop3">Cont POP3</string>
+    <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth numai pentru versiunile oficiale ale aplicației</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_drafts">Dacă dosarul de ciorne nu este accesibil IMAP, se poate soluționa în setările de etichete Gmail</string>
     <string name="title_setup_gmail_password">Vreau să autorizez un cont cu o parolă</string>
-    <string name="title_setup_office_remark">Microsoft nu suportă acest tip de autorizare pentru conturile Outlook, Live, Hotmail, etc</string>
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_update">Autorizațî din nou contul existent</string>
@@ -546,6 +545,7 @@
     <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
     <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
+    <string name="title_advanced_safe_browsing_hint">Serverul Google știe ce adrese sunt căutate</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
