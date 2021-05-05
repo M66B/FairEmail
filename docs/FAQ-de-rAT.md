@@ -3031,7 +3031,7 @@ Es werden nur die neuesten Versionen aus dem Play Store und von GitHub unterstü
 
 Es gibt keine Hilfe für Dinge, die nicht direkt mit FairEmail zusammenhängen.
 
-Es wird kein Support für ein eigenes Build oder eine eigene Entwicklung durch Sie angeboten.
+Es gibt keine Unterstützung beim Selberbauen und Entwickeln von eigenen Dingen.
 
 Angefragte Funktionen sollten:
 
