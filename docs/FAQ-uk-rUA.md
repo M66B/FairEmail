@@ -2,19 +2,19 @@
 
 # Підтримка FairEmail
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Перелік
 
-* [Авторизація облікогово акаунту](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Як ...? ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Найпоширеніші складнощі](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Заплановані можливості](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Найпопулярніші функції](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Найбільш поширенні питання](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Отримати підтримку](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Авторизація облікогово акаунту](#user-content-authorizing-accounts)
+* [Як ...? ](#user-content-howto)
+* [Найпоширеніші складнощі](#user-content-known-problems)
+* [Заплановані можливості](#user-content-planned-features)
+* [Найпопулярніші функції](#user-content-frequently-requested-features)
+* [Найбільш поширенні питання](#user-content-frequently-asked-questions)
+* [Отримати підтримку](#user-content-get-support)
 
 ## Авторизація облікового акаунту
 

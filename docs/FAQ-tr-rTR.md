@@ -2,19 +2,19 @@
 
 # FairEmail Destek
 
-Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [En altta](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), diğer soruları nasıl soracağınızı, özellikleri nasıl isteyeceğinizi ve hataları nasıl bildireceğinizi öğrenebilirsiniz.
+Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Dizin
 
-* [Hesap Yetkilendirme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Nasıl yapılır ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Bilinen hatalar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planlanan Özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Sıkça talep edilen özellikler](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Sıkça Sorulan Sorular](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Yardım alın](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Hesap Yetkilendirme](#user-content-authorizing-accounts)
+* [Nasıl yapılır ...?](#user-content-howto)
+* [Bilinen hatalar](#user-content-known-problems)
+* [Planlanan Özellikler](#user-content-planned-features)
+* [Sıkça talep edilen özellikler](#user-content-frequently-requested-features)
+* [Sıkça Sorulan Sorular](#user-content-frequently-asked-questions)
+* [Yardım alın](#user-content-get-support)
 
 ## Hesap Yetkilendirme
 

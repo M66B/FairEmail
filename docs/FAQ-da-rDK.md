@@ -2,19 +2,19 @@
 
 # FairEmail-support
 
-Ved evt. spørgsmål, tjek først de ofte stillede spørgsmål nedenfor. [Allernederst](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) findes info om, hvordan der stilles andre spørgsmål, anmodes om funktioner og indrapporteres fejl.
+Ved evt. spørgsmål, tjek først de ofte stillede spørgsmål nedenfor. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Indeks
 
-* [Godkendelse af konti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Hvordan kan man...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Kendte problemer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planlagte funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Hyppigt anmodede funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Ofte stillede spørgsmål](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Få support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Godkendelse af konti](#user-content-authorizing-accounts)
+* [Hvordan kan man...?](#user-content-howto)
+* [Kendte problemer](#user-content-known-problems)
+* [Planlagte funktioner](#user-content-planned-features)
+* [Hyppigt anmodede funktioner](#user-content-frequently-requested-features)
+* [Ofte stillede spørgsmål](#user-content-frequently-asked-questions)
+* [Få support](#user-content-get-support)
 
 ## Godkendelse af konti
 

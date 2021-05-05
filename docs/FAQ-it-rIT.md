@@ -2,19 +2,19 @@
 
 # Supporto FairEmail
 
-Se hai una domanda, sei pregato di controllare prima le seguenti domande frequenti. [In fondo](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) puoi scoprire come porne altre, richiedere funzionalità e segnalare i bug.
+Se hai una domanda, sei pregato di controllare prima le seguenti domande frequenti. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Se hai una domanda, sei pregato di controllare prima le seguenti domande frequenti (FAQ). [In fondo](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) puoi scoprire come porne altre, richiedere funzionalità e segnalare i bug.
+Se hai una domanda, sei pregato di controllare prima le seguenti domande frequenti (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Indice
 
-* [Autorizzare profili](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Come...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Problemi noti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Funzionalità pianificate](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Funzionalità frequentemente richieste](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Domande Frequenti](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Richiedi supporto](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorizzare profili](#user-content-authorizing-accounts)
+* [Come...?](#user-content-howto)
+* [Problemi noti](#user-content-known-problems)
+* [Funzionalità pianificate](#user-content-planned-features)
+* [Funzionalità frequentemente richieste](#user-content-frequently-requested-features)
+* [Domande Frequenti](#user-content-frequently-asked-questions)
+* [Richiedi supporto](#user-content-get-support)
 
 ## Autorizzare profili
 

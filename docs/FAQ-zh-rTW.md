@@ -2,19 +2,19 @@
 
 # FairEmail 支援
 
-如果你有疑問，請先查閱以下常見問題。 [在本頁下方](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), 你可以了解如何問其他問題、要求功能、以及回報錯誤。
+如果你有疑問，請先查閱以下常見問題。 [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## 目錄
 
-* [認證帳號中](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [如何 ...？](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [已知的問題](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [計畫中的功能](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [頻繁請求的功能](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [頻繁被問起的問題](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [獲取協助](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [認證帳號中](#user-content-authorizing-accounts)
+* [如何 ...？](#user-content-howto)
+* [已知的問題](#user-content-known-problems)
+* [計畫中的功能](#user-content-planned-features)
+* [頻繁請求的功能](#user-content-frequently-requested-features)
+* [頻繁被問起的問題](#user-content-frequently-asked-questions)
+* [獲取協助](#user-content-get-support)
 
 ## 認證帳號時
 

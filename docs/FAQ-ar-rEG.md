@@ -2,19 +2,19 @@
 
 # دعم فير ايميل
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## فهرس
 
-* [رخص الحسابات](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [كيفية ...؟](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [المشاكل المعروفة](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [الميزات المخطط لها](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [الميزات المطلوبة بتكرار](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [أسئلة مكررة](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [رخص الحسابات](#user-content-authorizing-accounts)
+* [كيفية ...؟](#user-content-howto)
+* [المشاكل المعروفة](#user-content-known-problems)
+* [الميزات المخطط لها](#user-content-planned-features)
+* [الميزات المطلوبة بتكرار](#user-content-frequently-requested-features)
+* [أسئلة مكررة](#user-content-frequently-asked-questions)
+* [Get support](#user-content-get-support)
 
 ## Authorizing accounts
 

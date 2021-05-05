@@ -2,19 +2,19 @@
 
 # Suporte do FairEmail
 
-Se você tem uma pergunta, verifique primeiro as perguntas mais frequentes. [No final da página](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), você pode descobrir como fazer outras perguntas, solicitar recursos, e relatar bugs.
+Se você tem uma pergunta, verifique primeiro as perguntas mais frequentes. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
-* [Autorizando contas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Como ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Problemas conhecidos](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Funcionalidades planejadas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Funcionalidades solicitadas frequentemente](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Perguntas Frequentes (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Suporte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorizando contas](#user-content-authorizing-accounts)
+* [Como ...?](#user-content-howto)
+* [Problemas conhecidos](#user-content-known-problems)
+* [Funcionalidades planejadas](#user-content-planned-features)
+* [Funcionalidades solicitadas frequentemente](#user-content-frequently-requested-features)
+* [Perguntas Frequentes (FAQ)](#user-content-frequently-asked-questions)
+* [Suporte](#user-content-get-support)
 
 ## Autorizando contas
 

@@ -2,19 +2,19 @@
 
 # Wsparcie FairEmail
 
-W razie jakichkolwiek pytań, sprawdź najpierw poniższy FAQ. [Poniżej](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) dowiesz się jak zadawać pytania innego typu, proponować nowe funkcje i zgłaszać blędy.
+W razie jakichkolwiek pytań, sprawdź najpierw poniższy FAQ. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Spis treści
 
-* [Autoryzacja kont](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [W jaki sposób...](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Znane problemy](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planowane funkcje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Często żądane funkcje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Najczęściej zadawane pytania (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Uzyskaj wsparcie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autoryzacja kont](#user-content-authorizing-accounts)
+* [W jaki sposób...](#user-content-howto)
+* [Znane problemy](#user-content-known-problems)
+* [Planowane funkcje](#user-content-planned-features)
+* [Często żądane funkcje](#user-content-frequently-requested-features)
+* [Najczęściej zadawane pytania (FAQ)](#user-content-frequently-asked-questions)
+* [Uzyskaj wsparcie](#user-content-get-support)
 
 ## Autoryzacja kont
 

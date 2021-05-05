@@ -2,19 +2,19 @@
 
 # Hỗ trợ của FairEmail
 
-Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp sau đây trước. [Ở dưới cùng](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), bạn có thể tìm ra cách hỏi các câu hỏi khác, yêu cầu tính năng, và báo cáo lỗi.
+Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp sau đây trước. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Mục lục
 
-* [Cấp phép tài khoản](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Làm thế nào để ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Các vấn đề đã biết](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Các tính năng được lập kế hoạch](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Các tính năng thường được yêu cầu](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Các câu hỏi thường gặp](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Nhận hỗ trợ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Cấp phép tài khoản](#user-content-authorizing-accounts)
+* [Làm thế nào để ...?](#user-content-howto)
+* [Các vấn đề đã biết](#user-content-known-problems)
+* [Các tính năng được lập kế hoạch](#user-content-planned-features)
+* [Các tính năng thường được yêu cầu](#user-content-frequently-requested-features)
+* [Các câu hỏi thường gặp](#user-content-frequently-asked-questions)
+* [Nhận hỗ trợ](#user-content-get-support)
 
 ## Cấp phép tài khoản
 

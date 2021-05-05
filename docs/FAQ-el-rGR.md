@@ -2,19 +2,19 @@
 
 # Υποστήριξη του FairEmail
 
-Use translation. User
+Use translation. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Ευρετήριο
 
-* [Εξουσιοδότηση λογαριασμών](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Πώς γίνεται...;](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Γνωστά προβλήματα](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Μελλοντικές δυνατότητες](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Δυνατότητες που ζητούνται συχνά](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Συχνές ερωτήσεις](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Υποστήριξη](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Εξουσιοδότηση λογαριασμών](#user-content-authorizing-accounts)
+* [Πώς γίνεται...;](#user-content-howto)
+* [Γνωστά προβλήματα](#user-content-known-problems)
+* [Μελλοντικές δυνατότητες](#user-content-planned-features)
+* [Δυνατότητες που ζητούνται συχνά](#user-content-frequently-requested-features)
+* [Συχνές ερωτήσεις](#user-content-frequently-asked-questions)
+* [Υποστήριξη](#user-content-get-support)
 
 ## Εξουσιοδότηση Λογαριασμών
 

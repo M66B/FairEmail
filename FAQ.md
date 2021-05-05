@@ -2,22 +2,24 @@
 # FairEmail support
 
 If you have a question, please check the following frequently asked questions first.
-[At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support),
+[At the bottom](#user-content-get-support),
 you can find out how to ask other questions, request features, and report bugs.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ).
-[Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support),
+[Ganz unten erfahren Sie](#user-content-get-support),
 wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [How to ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Known problems](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Get support](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Authorizing accounts](#user-content-authorizing-accounts)
+* [How to ...?](#user-content-howto)
+* [Known problems](#user-content-known-problems)
+* [Planned features](#user-content-planned-features)
+* [Frequently requested features](#user-content-frequently-requested-features)
+* [Frequently Asked Questions](#user-content-frequently-asked-questions)
+* [Get support](#user-content-get-support)
+
+<a name="authorizing-accounts">
 
 ## Authorizing accounts
 
@@ -70,6 +72,8 @@ Related questions:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
+<a name="known-problems">
+
 ## Known problems
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
@@ -90,6 +94,8 @@ Related questions:
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+
+<a name="planned-features">
 
 ## Planned features
 
@@ -126,12 +132,16 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
+<a name="frequently-requested-features">
+
 ## Frequently requested features
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 Fonts, sizes, colors, etc should be material design whenever possible.
+
+<a name="frequently-asked-questions">
 
 ## Frequently Asked Questions
 
@@ -3671,6 +3681,8 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
+
+<a name="get-support">
 
 ## Get support
 

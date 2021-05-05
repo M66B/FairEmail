@@ -2,19 +2,19 @@
 
 # Bantuan FairEmail
 
-Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. %Pada bagian bawah%, anda bisa mencari tahu bagaimana menanyakan pertanyaannya lain, memintar fitur, dan melaporkan kesalahan.
+Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Panduan
 
-* [Mengizinkan akun](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Bagaimana cara untuk ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Kendala yang diketahui](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Fitur yang direncanakan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Fitur yang sering diminta](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Pertanyaan yang Sering Diajukan (FAQ)](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Dapatkan bantuan](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Mengizinkan akun](#user-content-authorizing-accounts)
+* [Bagaimana cara untuk ...?](#user-content-howto)
+* [Kendala yang diketahui](#user-content-known-problems)
+* [Fitur yang direncanakan](#user-content-planned-features)
+* [Fitur yang sering diminta](#user-content-frequently-requested-features)
+* [Pertanyaan yang Sering Diajukan (FAQ)](#user-content-frequently-asked-questions)
+* [Dapatkan bantuan](#user-content-get-support)
 
 ## Mengizinkan akun
 

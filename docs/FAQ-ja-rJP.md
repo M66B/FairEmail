@@ -2,19 +2,19 @@
 
 # FairEmail のサポート
 
-ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 [ページ下部](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)では、他の質問をしたり、機能をリクエストしたり、バグを報告する方法を見つけることができます。
+ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## 索引
 
-* [アカウントの認証](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [さまざまな操作](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [既知の問題](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [予定されている機能](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [よくリクエストされる機能](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [よくある質問](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [サポートについて](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [アカウントの認証](#user-content-authorizing-accounts)
+* [さまざまな操作](#user-content-howto)
+* [既知の問題](#user-content-known-problems)
+* [予定されている機能](#user-content-planned-features)
+* [よくリクエストされる機能](#user-content-frequently-requested-features)
+* [よくある質問](#user-content-frequently-asked-questions)
+* [サポートについて](#user-content-get-support)
 
 ## アカウントの認証
 

@@ -800,6 +800,8 @@
     <string name="title_ask_raw">Om berjochten troch te stjoeren, moatte de rauwe (orizjinele) berjochten fan \'e server downloade wurde. Dit freget in ynternetferbining.</string>
     <string name="title_buttons">Knoppen selektearje</string>
     <string name="title_buttons_hint">De eigentlike beskikbere aksjes binne ôfhinklik fan it akkount type en konfiguraasje</string>
+    <string name="title_button_search">Sykje troch berjochten</string>
+    <string name="title_button_search_text">Sykje troch berjochtteksten</string>
     <string name="title_configure_buttons">Knoppen ynstelle &#8230;</string>
     <string name="title_trash">Jiskefet</string>
     <string name="title_copy">Kopy &#8230;</string>
@@ -976,6 +978,7 @@
     <string name="title_smime_reminder">S/MIME-kaaien beskikber</string>
     <string name="title_to_missing">Untfanger ûntbrekt</string>
     <string name="title_extra_missing">Brûkersnamme ûntbrekt</string>
+    <string name="title_external_reminder">Ferstjoere nei in ekstern adres</string>
     <string name="title_subject_reminder">Underwerp is leech</string>
     <string name="title_text_reminder">Berjocht is leech</string>
     <string name="title_attachment_keywords">taheakke,taheaksel,taheaksels,opnommen</string>

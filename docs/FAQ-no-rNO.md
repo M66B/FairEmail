@@ -2,19 +2,19 @@
 
 # FairEmail brukerstøtte
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Innholdsfortegnelse
 
-* [Autorisering av kontoer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Hvordan..?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Kjente problemer](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planlagte funksjoner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Ofte etterspurte funksjoner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Ofte stilte spørsmål](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Få støtte](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorisering av kontoer](#user-content-authorizing-accounts)
+* [Hvordan..?](#user-content-howto)
+* [Kjente problemer](#user-content-known-problems)
+* [Planlagte funksjoner](#user-content-planned-features)
+* [Ofte etterspurte funksjoner](#user-content-frequently-requested-features)
+* [Ofte stilte spørsmål](#user-content-frequently-asked-questions)
+* [Få støtte](#user-content-get-support)
 
 ## Autorisering av kontoer
 

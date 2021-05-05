@@ -2,19 +2,19 @@
 
 # Поддержка FairEmail
 
-Если у вас есть вопросы, пожалуйста проверьте сначала часто задаваемые вопросы. [Снизу](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), вы можете найти как задать другие вопросы, предложить идеи и сообщить об ошибках.
+Если у вас есть вопросы, пожалуйста проверьте сначала часто задаваемые вопросы. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Если у вас есть вопрос, пожалуйста, сначала проверьте часто задаваемые вопросы (FAQ) ниже. [ В самом низу вы узнаете](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), как задавать дополнительные вопросы, запрашивать функции и сообщать об ошибках.
+Если у вас есть вопрос, пожалуйста, сначала проверьте часто задаваемые вопросы (FAQ) ниже. [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Оглавление
 
-* [Авторизация аккаунтов](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Узнайте, как...](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Известные проблемы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Будущие функции](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Часто запрашиваемые функции](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Частые вопросы](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Получить техподдержку](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Авторизация аккаунтов](#user-content-authorizing-accounts)
+* [Узнайте, как...](#user-content-howto)
+* [Известные проблемы](#user-content-known-problems)
+* [Будущие функции](#user-content-planned-features)
+* [Часто запрашиваемые функции](#user-content-frequently-requested-features)
+* [Частые вопросы](#user-content-frequently-asked-questions)
+* [Получить техподдержку](#user-content-get-support)
 
 ## Авторизация аккаунтов
 

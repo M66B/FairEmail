@@ -2,19 +2,19 @@
 
 # फेर इमेल सहयोग
 
-अगर आपके पास सवाल हैं, तो पहले यह बार बार पूंछे जानेवाले प्रश्नों को देखिए। [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+अगर आपके पास सवाल हैं, तो पहले यह बार बार पूंछे जानेवाले प्रश्नों को देखिए। [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## सूची
 
-* [Authorizing accounts](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Kaise ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [जाने हुए समस्या](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planned features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Frequently requested features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Frequently Asked Questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [सहयोग पाएं](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Authorizing accounts](#user-content-authorizing-accounts)
+* [Kaise ...?](#user-content-howto)
+* [जाने हुए समस्या](#user-content-known-problems)
+* [Planned features](#user-content-planned-features)
+* [Frequently requested features](#user-content-frequently-requested-features)
+* [Frequently Asked Questions](#user-content-frequently-asked-questions)
+* [सहयोग पाएं](#user-content-get-support)
 
 ## Authorizing accounts
 

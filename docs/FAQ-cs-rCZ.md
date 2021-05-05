@@ -2,19 +2,19 @@
 
 # FairEmail podpora
 
-Máte-li dotaz, nejprve se prosím podívejte na následující často kladené dotazy (FAQ). Jak pokládat další otázky, žádat o funkce a hlásit chyby naleznete [v dolní části](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support).
+Máte-li dotaz, nejprve se prosím podívejte na následující často kladené dotazy (FAQ). [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Obsah
 
-* [Autorizace účtů](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Jak na ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Známé problémy](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Plánované funkce](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Často požadované funkce](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Často kladené dotazy](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Získat podporu](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorizace účtů](#user-content-authorizing-accounts)
+* [Jak na ...?](#user-content-howto)
+* [Známé problémy](#user-content-known-problems)
+* [Plánované funkce](#user-content-planned-features)
+* [Často požadované funkce](#user-content-frequently-requested-features)
+* [Často kladené dotazy](#user-content-frequently-asked-questions)
+* [Získat podporu](#user-content-get-support)
 
 ## Autorizace účtů
 

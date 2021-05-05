@@ -2,19 +2,19 @@
 
 # FairEmail-tuki
 
-Jos sinulla on kysymyksiä, ole hyvä ja tarkista seuraavat usein kysytyt kysymykset. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Jos sinulla on kysymyksiä, ole hyvä ja tarkista seuraavat usein kysytyt kysymykset. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Sisältö
 
-* [Tilien valtuutus](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Kuinka ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Tunnetut ongelmat](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Suunnitellut ominaisuudet](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Usein pyydetyt ominaisuudet](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Usein Kysytyt Kysymykset](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Ota yhteyttä](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Tilien valtuutus](#user-content-authorizing-accounts)
+* [Kuinka ...?](#user-content-howto)
+* [Tunnetut ongelmat](#user-content-known-problems)
+* [Suunnitellut ominaisuudet](#user-content-planned-features)
+* [Usein pyydetyt ominaisuudet](#user-content-frequently-requested-features)
+* [Usein Kysytyt Kysymykset](#user-content-frequently-asked-questions)
+* [Ota yhteyttä](#user-content-get-support)
 
 ## Tilien valtuutus
 

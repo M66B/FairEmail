@@ -2,19 +2,19 @@
 
 # FairEmail - Support
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Fuße der Seite](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) können Sie herausfinden, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 ## Übersicht
 
-* [Konten autorisieren](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Wie kann ich …?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Bekannte Probleme](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Geplante Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Häufig gewünschte Funktionen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Häufig gestellte Fragen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Hilfe erhalten](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Konten autorisieren](#user-content-authorizing-accounts)
+* [Wie kann ich …?](#user-content-howto)
+* [Bekannte Probleme](#user-content-known-problems)
+* [Geplante Funktionen](#user-content-planned-features)
+* [Häufig gewünschte Funktionen](#user-content-frequently-requested-features)
+* [Häufig gestellte Fragen](#user-content-frequently-asked-questions)
+* [Hilfe erhalten](#user-content-get-support)
 
 ## Konten autorisieren
 
@@ -122,7 +122,7 @@ Alles auf dieser Liste ist in zufälliger Reihenfolge und *könnte* in naher Zuk
 
 ## Häufig angefragte Funktionen
 
-Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Knöpfe usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.), zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach zu verwenden zu können. Schriften, Größen, Farben usw. sollten nach Möglichkeit dem 'Material Design' von Android entsprechen.
+Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Knöpfe usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.), zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach zu verwenden zu können. Schriften, Größen, Farben usw. sollten nach Möglichkeit im Materialdesign gestaltet sein.
 
 ## Häufig gestellte Fragen
 
@@ -407,7 +407,7 @@ Die schnelle, aber unsichere Lösung (nicht empfohlen) ist, *Sichere Verbindunge
 
 Alternativ können Sie den Fingerabdruck von ungültigen Serverzertifikaten auch so akzeptieren:
 
-1. Stellen Sie sicher, dass Sie eine vertrauenswürdige Internetverbindung verwenden (keine öffentlichen WLAN-Netzwerke, etc)
+1. Stellen Sie sicher, dass Sie eine vertrauenswürdige Internetverbindung verwenden (keine öffentlichen WLAN-Netzwerke usw.)
 1. Gehen Sie zu den Einstellungen über das Navigationsmenü (wischen Sie von der linken Seite nach innen)
 1. Manuelle Einrichtung und Kontooptionen → Konten/Identitäten → fehlerhaftes Konto oder Identität auswählen
 1. Prüfen/Speichern Sie Konto und Identität
@@ -719,7 +719,7 @@ Wie man einen öffentlichen Schlüssel aus einem S/MIME-Zertifikat extrahiert:
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-Sie können S/MIME Signaturen dekodieren usw., siehe [hier](https://lapo.it/asn1js/).
+Sie können S/MIME-Signaturen usw. dekodieren, siehe [hier](https://lapo.it/asn1js/).
 
 <br />
 
@@ -1381,7 +1381,7 @@ Sehen Sie weiter unten, wie Sie mich kontaktieren können.
 <a name="faq43"></a>
 **(43) Kann das Original angezeigt werden?**
 
-"Original anzeigen" zeigt die Originalnachricht an, wie der Absender sie gesendet hat, einschließlich Originalschriften, Farben, Ränder usw. Fair E-Mail ändert dies nicht ab und wird es auch nicht auf irgendeine Weise tun, außer, um [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm) zu erfragen, welches *versuchen wird*, kleinen Text besser lesbar zu machen.
+»Original anzeigen« zeigt die Originalnachricht, wie der Absender sie gesendet hat, einschließlich Originalschriften, -farben, -ränder usw. Fair E-Mail ändert dies nicht ab und wird es auch nicht auf irgendeine Weise tun, außer, um [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm) zu erfragen, welches *versuchen wird*, kleinen Text besser lesbar zu machen.
 
 <br />
 
@@ -1747,42 +1747,42 @@ Sie können eine dieser Aktionen für passende Nachrichten auswählen:
 * Kopieren (Gmail: Label)
 * Antworten / Weiterleiten (mit Vorlage)
 * Text-zu-Sprache (Absender und Betreff)
-* Automatisierung (Tasker, etc)
+* Automatisierung (Tasker usw.)
 
-An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+Ein Fehler in der Bedingung der Filterregel kann zu einem Desaster führen. Daher werden unumkerhbare Aktionen nicht unterstützt.
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Regeln werden direkt angewendet, nachdem die Kopfzeilen der Nachricht abgerufen wurden, aber bevor der Nachrichtentext heruntergeladen wurde. Damit ist es nicht möglich, Bedingungen auf den Nachrichtentext anzuwenden. Beachten Sie, dass große Nachrichtentexte bei getakteten Verbindungen erst auf Anfrage heruntergeladen werden, um Datennutzung zu sparen.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Wenn Sie eine Nachricht weiterleiten wollen, sollten Sie stattdessen die Aktion "Verschieben" verwenden. Dies wird auch zuverlässiger sein als weiterzuleiten, da weitergeleitete Nachrichten als Spam angesehen werden können.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Da Nachrichtenheader standardmäßig nicht heruntergeladen und gespeichert werden, um Akku, Datenverbrauch und Speicherplatz zu sparen, ist es nicht möglich, eine Vorschau zu sehen, welche Nachrichten zu einer Headerregel-Bedingung passen.
 
-Some common header conditions (regex):
+Einige häufige Header-Bedingungen (Regex):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+Im Drei-Punkte-Menü *mehr* gibt es ein Element, um eine Regel für eine empfangene Nachricht mit den häufigsten Bedingungen zu erstellen.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+Das POP3-Protokoll unterstützt nicht das Setzen von Schlüsselwörtern und das Verschieben oder Kopieren von Nachrichten.
 
-Using rules is a pro feature.
+Die Verwendung von Regeln ist ein Pro-Feature.
 
 <br />
 
 <a name="faq72"></a>
-**(72) What are primary accounts/identities?**
+**(72) Was sind Primärkonten/Identitäten?**
 
-The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+Das Primärkonto wird verwendet, wenn das Konto nicht eindeutig ist. Zum Beispiel wenn ein neuer Entwurf aus dem einheitlichen Posteingang verfasst wird.
 
-Similarly, the primary identity of an account is used when the identity is ambiguous.
+Ebenso wird die primäre Identität eines Kontos verwendet, wenn die Identität uneindeutig ist.
 
-There can be just one primary account and there can be just one primary identity per account.
+Es können nur ein Primärkonto sowie eine primäre Identität pro Konto existieren.
 
 <br />
 
 <a name="faq73"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Ist das Verschieben von Nachrichten über Konten hinweg sicher/effizient?**
 
 Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
 
@@ -1800,9 +1800,9 @@ Gmail allows one message to have multiple labels, which are presented to FairEma
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) Können Sie eine iOS-, Windows-, Linux- usw. Version erstellen?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+Eine Menge Wissen und Erfahrung ist erforderlich, um erfolgreich eine App für eine bestimmte Plattform zu entwickeln. Deshalb entwickle ich nur Apps für Android.
 
 <br />
 
@@ -1934,7 +1934,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2044,7 +2044,7 @@ Note that original messages are shown exactly as they are, which means also that
 <a name="faq92"></a>
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
-Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Außerdem haben E-Mail-Server Zugriff auf Informationen des verbindenden Servers, wie der IP-Adresse usw., auf die ein E-Mail-Programm keinen Zugriff hat.
 
 Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
@@ -2270,7 +2270,7 @@ Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch 
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
-Disabling *Partial fetch* will result in more memory usage.
+Deaktivieren von *Teilabruf* führt zu mehr Speicherverbrauch.
 
 <br />
 
@@ -2358,7 +2358,7 @@ Note that:
 * Wenn Sie *ITEM_ALREADY_OWNED*erhalten, muss die Play Store App wahrscheinlich aktualisiert werden, bitte [hier finden](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Einkäufe werden in der Google Cloud gespeichert und können nicht verloren gehen
 * Bei Einkäufen gibt es keine Zeitbegrenzung, daher können sie nicht auslaufen
-* Google offenbart keine Details (Name, E-Mail, etc.) über Käufer an Entwickler
+* Google gibt keine Details (Name, E-Mail usw.) über Käufer an Entwickler weiter
 * Eine App wie FairEmail kann nicht auswählen, welches Google-Konto verwendet werden soll
 * Es kann eine Weile dauern, bis die Play Store-App einen Kauf mit einem anderen Gerät synchronisiert hat
 * Käufe über den Play Store können ohne den Play Store nicht verwendet werden, was nach den Play-Store-Regeln ebenfalls nicht zulässig ist
@@ -2456,10 +2456,10 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 <a name="faq126"></a>
 **(126) Can message previews be sent to my wearable?**
 
-FairEmail fetches a message in two steps:
+FairEmail ruft eine Nachricht in zwei Schritten ab:
 
-1. Fetch message headers
-1. Fetch message text and attachments
+1. Nachrichtenköpfe abrufen
+1. Nachrichtentext und Anhänge abrufen
 
 Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
 
@@ -2683,7 +2683,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -3025,27 +3025,27 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 ## Hilfe erhalten
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail wird ausschließlich auf Smartphones, Tablets und ChromeOS unterstützt.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Es werden nur die neuesten Versionen aus dem Play Store und von GitHub unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass eine Herabstufung nicht unterstützt wird.
 
-There is no support on things that are not directly related to FairEmail.
+Es gibt keine Hilfe für Dinge, die nicht direkt mit FairEmail zusammenhängen.
 
-There is no support on building and developing things by yourself.
+Es wird kein Support für ein eigenes Build oder eine eigene Entwicklung durch Sie angeboten.
 
-Requested features should:
+Angefragte Funktionen sollten:
 
 * für die meisten Menschen nützlich sein
 * die Nutzung von FairEmail nicht verkomplizieren
 * zur Philosophie von FairEmail passen (privatsphären- und sicherheitsorientiert)
-* den gängigen Standards entsprechen (IMAP, SMTP usw.)
+* den gängigen Standards entsprechen (IMAP, SMTP, etc)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Dies soll auch langfristig die Wartung und Unterstützung gewährleisten.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Wenn Sie eine Frage haben, eine Funktion wünschen oder einen Fehler melden möchten, **benutzen Sie bitte [dieses Formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+GitHub-Issues sind wegen häufigen Missbrauchs deaktiviert.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Urheberrecht &copy; 2018-2021 Marcel Bokhorst.

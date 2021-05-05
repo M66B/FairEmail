@@ -2,19 +2,19 @@
 
 # Asistență FairEmail
 
-Dacă aveți o întrebare, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [În partea de jos](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), puteți afla cum să puneți alte întrebări, să solicitați caracteristici și să raportați erori.
+Dacă aveți o întrebare, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Dacă aveți o întrebare, vă rugăm să consultați mai întâi întrebările frecvente (FAQ) de mai jos. [În partea de jos veți afla](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), cum să puneți mai multe întrebări, să solicitați caracteristici și să raportați erori.
+Dacă aveți o întrebare, vă rugăm să consultați mai întâi întrebările frecvente (FAQ) de mai jos. [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
-* [Autorizarea conturilor](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Cum să...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Probleme cunoscute](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Funcții planificate](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Funcții solicitate frecvent](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Întrebări puse frecvent](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Obțineți asistență](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorizarea conturilor](#user-content-authorizing-accounts)
+* [Cum să...?](#user-content-howto)
+* [Probleme cunoscute](#user-content-known-problems)
+* [Funcții planificate](#user-content-planned-features)
+* [Funcții solicitate frecvent](#user-content-frequently-requested-features)
+* [Întrebări puse frecvent](#user-content-frequently-asked-questions)
+* [Obțineți asistență](#user-content-get-support)
 
 ## Autorizarea conturilor
 

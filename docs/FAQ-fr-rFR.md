@@ -2,19 +2,19 @@
 
 # Assistance FairEmail
 
-Si vous avez une question, veuillez d'abord consulter les questions fréquemment posées suivantes. [En bas](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+Si vous avez une question, veuillez d'abord consulter les questions fréquemment posées suivantes. [En bas](#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 
-Si vous avez une question, veuillez d'abord consulter la Foire aux questions (FAQ) ci-dessous. [ Tout en bas ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctions et signaler des erreurs.
+Si vous avez une question, veuillez d'abord consulter la Foire aux questions (FAQ) ci-dessous. [ Tout en bas ](#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
 
 ## Sommaire
 
-* [Autorisation des comptes](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Comment faire pour...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Problèmes connus](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Fonctionnalités prévues](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Fonctionnalités souvent demandées](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Foire aux questions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Obtenir de l'aide](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Autorisation des comptes](#user-content-authorizing-accounts)
+* [Comment faire pour...?](#user-content-howto)
+* [Problèmes connus](#user-content-known-problems)
+* [Fonctionnalités prévues](#user-content-planned-features)
+* [Fonctionnalités souvent demandées](#user-content-frequently-requested-features)
+* [Foire aux questions](#user-content-frequently-asked-questions)
+* [Obtenir de l'aide](#user-content-get-support)
 
 ## Autorisation des comptes
 
@@ -1749,65 +1749,65 @@ You can select one of these actions to apply to matching messages:
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
 
-An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
+Une erreur dans une condition de règle peut mener à un désastre, ainsi les actions irréversibles ne sont pas prises en charge.
 
-Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Les règles sont appliquées dès que l'en-tête du message a été récupéré, mais avant que le texte du message ait été téléchargé, donc il n'est pas possible d'appliquer des conditions au texte du message. Notez que les textes de gros messages sont téléchargés à la demande sur une connexion limitée pour économiser sur l'utilisation des données.
 
-If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
+Si vous voulez transférer un message, pensez à utiliser l'action de déplacement à la place. Cela sera plus fiable que le transfert car les messages transmis peuvent être considérés comme des pourriels.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Comme les en-têtes de message ne sont pas téléchargés et stockés par défaut pour économiser sur l'utilisation de la batterie et des données et pour économiser de l'espace de stockage il n'est pas possible de prévisualiser quels messages correspondent à une condition de règle d'en-tête.
 
-Some common header conditions (regex):
+Quelques conditions d'en-tête communes (regex):
 
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;Content-Type: multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
 
-In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+Dans le menu à trois points *plus* du message il y a un élément pour créer une règle pour un message reçu avec les conditions les plus courantes remplies.
 
-The POP3 protocol does not support setting keywords and moving or copying messages.
+Le protocole POP3 ne prend pas en charge la définition de mots-clés et le déplacement ou la copie des messages.
 
-Using rules is a pro feature.
+L'utilisation des règles est une fonctionnalité pro.
 
 <br />
 
 <a name="faq72"></a>
-**(72) What are primary accounts/identities?**
+**(72) Que sont les comptes/identités primaires ?**
 
-The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
+Le compte principal est utilisé lorsque le compte est ambigu, par exemple lors du démarrage d'un nouveau brouillon à partir de la boîte de réception unifiée.
 
-Similarly, the primary identity of an account is used when the identity is ambiguous.
+De même, l'identité principale d'un compte est utilisée lorsque l'identité est ambiguë.
 
-There can be just one primary account and there can be just one primary identity per account.
+Il peut n'y avoir qu'un seul compte principal et il peut n'y avoir qu'une seule identité principale par compte.
 
 <br />
 
 <a name="faq73"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Est-ce que le déplacement des messages entre les comptes est sûr/efficace ?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+Le déplacement des messages entre les comptes est sûr car les messages originaux bruts seront téléchargés et déplacés et parce que les messages source ne seront supprimés qu'après l'ajout des messages cibles
 
-Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
+Le déplacement de messages par lots à travers les comptes est efficace si le dossier source et le dossier cible sont configurés pour synchroniser, sinon FairEmail a besoin de se connecter au(x) dossier(s) pour chaque message.
 
 <br />
 
 <a name="faq74"></a>
-**(74) Why do I see duplicate messages?**
+**(74) Pourquoi est-ce que je vois des messages en double ?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+Certains fournisseurs, notamment Gmail, listent tous les messages dans tous les dossiers, à l'exception des messages mis à la corbeille, dans le dossier archives (tous les messages) également. FairEmail montre tous ces messages de manière discrète pour indiquer que ces messages sont en fait le même message.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+Gmail permet à un message d'avoir plusieurs étiquettes, qui sont présentés à FairEmail comme des dossiers. Cela signifie que les messages avec plusieurs étiquettes seront également affichés plusieurs fois.
 
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) Pouvez-vous faire une version iOS, Windows, Linux, etc ?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+Beaucoup de connaissances et d'expérience sont nécessaires pour développer avec succès une application pour une plate-forme spécifique. cC'est pourquoi je ne développe que des applications pour Android.
 
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) Que fait 'Effacer les messages locaux' ?**
 
 The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
 

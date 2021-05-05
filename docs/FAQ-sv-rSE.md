@@ -2,19 +2,19 @@
 
 # FairEmail Support
 
-Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. [Längst ner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), kan du få reda på hur du kan ställa andra frågor, föreslå nya funktioner, och rapportera buggar.
+Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
-* [Auktoriserar konton](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Hur gör man ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Kända problem](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planerade funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Tidigare begärda funktioner](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Vanliga frågor](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Få hjälp](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Auktoriserar konton](#user-content-authorizing-accounts)
+* [Hur gör man ...?](#user-content-howto)
+* [Kända problem](#user-content-known-problems)
+* [Planerade funktioner](#user-content-planned-features)
+* [Tidigare begärda funktioner](#user-content-frequently-requested-features)
+* [Vanliga frågor](#user-content-frequently-asked-questions)
+* [Få hjälp](#user-content-get-support)
 
 ## Auktoriserar konton
 

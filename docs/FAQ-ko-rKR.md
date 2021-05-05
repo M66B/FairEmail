@@ -2,19 +2,19 @@
 
 # FairEmail 지원
 
-문의사항이 있으면, 먼저 하단의 자주 묻는 질문들을 확인해 주세요. [아래에서](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support) 질문 및 수정사항을 요청하는 방법을 찾으실 수 있습니다.
+문의사항이 있으면, 먼저 하단의 자주 묻는 질문들을 확인해 주세요. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## 목차
 
-* [계정 인증](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [어떻게 하나요?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [자주 묻는 문제](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [계획된 기능](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [자주 묻는 기능](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [자주 묻는 질문](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [지원 받기](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [계정 인증](#user-content-authorizing-accounts)
+* [어떻게 하나요?](#user-content-howto)
+* [자주 묻는 문제](#user-content-known-problems)
+* [계획된 기능](#user-content-planned-features)
+* [자주 묻는 기능](#user-content-frequently-requested-features)
+* [자주 묻는 질문](#user-content-frequently-asked-questions)
+* [지원 받기](#user-content-get-support)
 
 ## 계정 인증
 

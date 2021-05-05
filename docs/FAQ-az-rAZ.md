@@ -2,19 +2,19 @@
 
 # FairEmail texniki dəstək
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## İndeksi
 
-* [Hesabların avtorizasiyası](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-authorizing-accounts)
-* [Necə ...?](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-howto)
-* [Mə`lum problemlər](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems)
-* [Planlaşdırılan yeniliklər](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-planned-features)
-* [Tez-tez sorğu edilən funksiyalar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-requested-features)
-* [Tez-tez verilən suallar](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-frequently-asked-questions)
-* [Dəstək almaq](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-get-support)
+* [Hesabların avtorizasiyası](#user-content-authorizing-accounts)
+* [Necə ...?](#user-content-howto)
+* [Mə`lum problemlər](#user-content-known-problems)
+* [Planlaşdırılan yeniliklər](#user-content-planned-features)
+* [Tez-tez sorğu edilən funksiyalar](#user-content-frequently-requested-features)
+* [Tez-tez verilən suallar](#user-content-frequently-asked-questions)
+* [Dəstək almaq](#user-content-get-support)
 
 ## Hesabların avtorizasiyası
 
