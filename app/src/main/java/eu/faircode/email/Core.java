@@ -4021,13 +4021,13 @@ class Core {
 
             if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;
-                Log.i("Notify cancel tag=" + tag);
+                EntityLog.log(context, "Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
             }
 
             for (Long id : remove) {
                 String tag = "unseen." + group + "." + Math.abs(id);
-                Log.i("Notify cancel tag=" + tag + " id=" + id);
+                EntityLog.log(context, "Notify cancel tag=" + tag + " id=" + id);
                 nm.cancel(tag, 1);
 
                 data.groupNotifying.get(group).remove(id);
