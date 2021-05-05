@@ -733,6 +733,17 @@ public class Helper {
         }
     }
 
+    static String getFAQLocale() {
+        switch (Locale.getDefault().getLanguage()) {
+            case "de":
+                return "de-rDE";
+            case "fr":
+                return "fr-rFR";
+            default:
+                return null;
+        }
+    }
+
     static void viewFAQ(Context context, int question) {
         // Redirection is done to prevent text editors from opening the link
         // https://email.faircode.eu/faq -> https://github.com/M66B/FairEmail/blob/master/FAQ.md
@@ -741,16 +752,12 @@ public class Helper {
         // https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md#user-content-faq1
 
         String base;
-        switch (Locale.getDefault().getLanguage()) {
-            case "de":
-                base = "https://email.faircode.eu/docs/FAQ-de-rDE.md";
-                break;
-            case "fr":
-                base = "https://email.faircode.eu/docs/FAQ-fr-rFR.md";
-                break;
-            default:
-                base = "https://email.faircode.eu/faq";
-        }
+        String locale = getFAQLocale();
+        if (locale == null)
+            base = "https://email.faircode.eu/faq";
+        else
+            base = "https://email.faircode.eu/docs/FAQ-" + locale + ".md";
+
         if (question == 0)
             view(context, Uri.parse(base + "#top"), false);
         else

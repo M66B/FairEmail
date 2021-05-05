@@ -70,13 +70,22 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
             protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 String name = args.getString("name");
 
+                String markdown;
                 String asset = Helper.getLocalizedAsset(context, name);
                 try (InputStream is = context.getAssets().open(asset)) {
                     byte[] buffer = new byte[is.available()];
                     is.read(buffer);
-                    Markwon markwon = Markwon.create(context);
-                    return markwon.toMarkdown(new String(buffer));
+                    markdown = new String(buffer);
                 }
+
+                String locale = Helper.getFAQLocale();
+                if (locale != null)
+                    markdown = markdown.replace(
+                            "https://github.com/M66B/FairEmail/blob/master/FAQ.md",
+                            "https://github.com/M66B/FairEmail/blob/master/docs/FAQ-" + locale + ".md");
+
+                Markwon markwon = Markwon.create(context);
+                return markwon.toMarkdown(markdown);
             }
 
             @Override
