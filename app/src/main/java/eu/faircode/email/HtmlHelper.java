@@ -969,10 +969,14 @@ public class HtmlHelper {
         // Lists
         for (Element e : document.select("ol,ul,blockquote")) {
             if (view) {
-                if (!"false".equals(e.attr("x-line-before")))
-                    e.attr("x-line-before", "true");
-                if (!"false".equals(e.attr("x-line-after")))
-                    e.attr("x-line-after", "true");
+                Element parent = e.parent();
+                if ("blockquote".equals(e.tagName()) || parent == null ||
+                        !("ol".equals(parent.tagName()) || "ul".equals(parent.tagName()))) {
+                    if (!"false".equals(e.attr("x-line-before")))
+                        e.attr("x-line-before", "true");
+                    if (!"false".equals(e.attr("x-line-after")))
+                        e.attr("x-line-after", "true");
+                }
             } else {
                 String style = e.attr("style");
                 e.attr("style",
