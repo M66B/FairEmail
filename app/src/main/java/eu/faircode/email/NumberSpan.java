@@ -73,7 +73,7 @@ public class NumberSpan extends BulletSpan {
     public int getLeadingMargin(boolean first) {
         // https://issuetracker.google.com/issues/36956124
         // This is called before drawLeadingMargin to justify the text
-        return indentWidth * level + margin;
+        return indentWidth * (level + 1) + margin;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class NumberSpan extends BulletSpan {
             if (textSize > p.getTextSize())
                 tp.setTextSize(p.getTextSize());
             int offset = (dir < 0 ? numberWidth : 0);
-            c.drawText(number, x + indentWidth * level * dir - offset, baseline, tp);
+            c.drawText(number, x + indentWidth * (level + 1) * dir - offset, baseline, tp);
             tp.setTextSize(textSize);
         }
     }
