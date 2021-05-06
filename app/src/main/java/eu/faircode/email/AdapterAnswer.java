@@ -135,9 +135,11 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
             if (composable)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_compose, 1, R.string.title_compose);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_hide, 2, R.string.title_answer_hide)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_favorite, 2, R.string.title_answer_favorite)
+                    .setCheckable(true).setChecked(answer.favorite);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_hide, 3, R.string.title_answer_hide)
                     .setCheckable(true).setChecked(answer.hide);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -145,6 +147,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                     int itemId = item.getItemId();
                     if (itemId == R.string.title_compose) {
                         onActionCompose();
+                        return true;
+                    } else if (itemId == R.string.title_answer_favorite) {
+                        onActionFavorite(!item.isChecked());
                         return true;
                     } else if (itemId == R.string.title_answer_hide) {
                         onActionHide(!item.isChecked());
@@ -160,6 +165,30 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                     context.startActivity(new Intent(context, ActivityCompose.class)
                             .putExtra("action", "new")
                             .putExtra("answer", answer.id));
+                }
+
+                private void onActionFavorite(boolean favorite) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", answer.id);
+                    args.putBoolean("favorite", favorite);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean favorite = args.getBoolean("favorite");
+
+                            DB db = DB.getInstance(context);
+                            db.answer().setAnswerFavorite(id, favorite);
+
+                            return favorite;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "answer:favorite");
                 }
 
                 private void onActionHide(boolean hide) {
@@ -183,7 +212,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "rule:enable");
+                    }.execute(context, owner, args, "answer:hide");
                 }
 
                 private void onActionCopy() {

@@ -66,6 +66,9 @@ public interface DaoAnswer {
     @Update
     int updateAnswer(EntityAnswer answer);
 
+    @Query("UPDATE answer SET favorite = :favorite WHERE id = :id AND NOT (favorite IS :favorite)")
+    int setAnswerFavorite(long id, boolean favorite);
+
     @Query("UPDATE answer SET hide = :hide WHERE id = :id AND NOT (hide IS :hide)")
     int setAnswerHidden(long id, boolean hide);
 
