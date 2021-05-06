@@ -2,7 +2,7 @@
 
 # FairEmail support
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+If you have a question, please check the following frequently asked questions first. [Underoan](#user-content-get-support), kinsto útfine hoesto oare fragen stelle, funksjes opfreegje, en flaters melde kinst.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -64,7 +64,7 @@ Related questions:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Bekend probleem</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Get support</h2>
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 

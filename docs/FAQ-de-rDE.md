@@ -2,9 +2,9 @@
 
 # FairEmail - Support
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 ## Übersicht
 
@@ -64,7 +64,7 @@ Zur Autorisierung:
 * Systemordner ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → im unteren Bereich
 * Einstellungen exportieren/importieren: Einstellungen, Navigationsmenü (linke Seite)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Bekannte Probleme</h2>
 
 * ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
 * ~~Ein [Bug in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
@@ -190,7 +190,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?](#user-content-faq63)
 * [~~(64) Kann man benutzerdefinierte Aktionen zum Links-/Rechtswischen hinzufügen?~~](#user-content-faq64)
 * [(65) Warum werden einige Anhänge abgedunkelt angezeigt?](#user-content-faq65)
-* [(66) Gibt es FairMail in der Google-Play-Familienmediathek?](#user-content-faq66)
+* [(66) Gibt es FairEmail in der Google-Play-Familienmediathek?](#user-content-faq66)
 * [(67) Wie kann ich Konversationen zurückstellen?](#user-content-faq67)
 * [~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~](#user-content-faq68)
 * [(69) Gibt es eine Option »Bei neuen Nachrichten automatisch nach oben rollen«?](#user-content-faq69)
@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Hilfe erhalten</h2>
 
-FairEmail wird ausschließlich auf Android-Smartphones und -Tablets und ChromeOS unterstützt.
+FairEmail wird nur auf Android-Smartphones und -Tablets und ChromeOS unterstützt.
 
 Es werden nur die neuesten Versionen aus dem Play Store und von GitHub unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass eine Herabstufung nicht unterstützt wird.
 

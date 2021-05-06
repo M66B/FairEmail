@@ -2,7 +2,7 @@
 
 # FairEmail-support
 
-Ved evt. spørgsmål, tjek først de ofte stillede spørgsmål nedenfor. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Ved evt. spørgsmål, tjek først de ofte stillede spørgsmål nedenfor. [Allernederst](#user-content-get-support) findes info om, hvordan der stilles andre spørgsmål, anmodes om funktioner og indrapporteres fejl.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -64,7 +64,7 @@ Relaterede spørgsmål:
 * Skift af systemmapper: Tryk på Indstillinger > Manuel opsætning > Konti > konto nederst
 * Eksport-/importindstillinger: Indstillinger &#062 (venstre) navigeringsmenu
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Kendte problemer</h2>
 
 * ~~En [fejl i Android 5.1 og 6](https://issuetracker.google.com/issues/37054851) medfører, at apps sommetider viser et ukorrekt tidsformat. Skiftning af Android-indstillingen *Benyt 24-timers format* kan midlertidigt løse problemet. En løsning blev tilføjet.~~
 * ~~En [fejl i Google Drive](https://issuetracker.google.com/issues/126362828) medfører, at filer eksporteret til Google Drive kan være tomme. Google har løst problemet.~~
@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Get support</h2>
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 

@@ -935,6 +935,8 @@
     <string name="title_style_list">Lijst</string>
     <string name="title_style_list_bullets">Opsommingstekens</string>
     <string name="title_style_list_numbered">Nummers</string>
+    <string name="title_style_list_level_increase" comment="title_style_list_level_increase&#10;Title for menu item to create sub lists&#10;">Inspringing vergroten</string>
+    <string name="title_style_list_level_decrease" comment="title_style_list_level_decrease&#10;Title for menu item to create sub lists&#10;">Inspringing verkleinen</string>
     <string name="title_style_font">Lettertype</string>
     <string name="title_style_font_default">Standaard</string>
     <string name="title_style_blockquote">Blokcitaat</string>

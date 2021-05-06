@@ -529,6 +529,7 @@
     <string name="title_advanced_autoclose_hint">Slút petearen automatysk as alle berjochten binne argiveare, ferstjoerd of yn \'e jiskefet</string>
     <string name="title_advanced_sender_hint">De measte oanbieders stean gjin oanpaste stjoeradressen tastien</string>
     <string name="title_advanced_bcc_hint">It adres wurdt net werjûn, mar wurdt tafoege by it ferstjoeren</string>
+    <string name="title_advanced_internal_hint">D\'r sil in warskôging wêze asto nei in oar domein stjoerst</string>
     <string name="title_advanced_display_harmful_hint">Dizze opsje útskeakelje kin skealik wêze foar jo privacy</string>
     <string name="title_advanced_display_hidden_hint">Dit kin resultearje yn ûneven uterlike en dûbele teksten</string>
     <string name="title_advanced_display_pin_hint">In PIN hat foarrang boppe ferifikaasje fan biometrie</string>
@@ -933,6 +934,8 @@
     <string name="title_style_list">List</string>
     <string name="title_style_list_bullets">Kûgels</string>
     <string name="title_style_list_numbered">Nûmer</string>
+    <string name="title_style_list_level_increase" comment="title_style_list_level_increase&#10;Title for menu item to create sub lists&#10;">Ynspringe fergrutsje</string>
+    <string name="title_style_list_level_decrease" comment="title_style_list_level_decrease&#10;Title for menu item to create sub lists&#10;">Ynspringe ferminderje</string>
     <string name="title_style_font">Lettertypen</string>
     <string name="title_style_font_default">Standert</string>
     <string name="title_style_blockquote">Offerte blokkearje</string>

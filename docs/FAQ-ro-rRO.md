@@ -1802,80 +1802,80 @@ Gmail permite ca un mesaj să aibă mai multe etichete, care sunt prezentate în
 <a name="faq75"></a>
 **(75) Puteți face o versiune pentru iOS, Windows, Linux, etc?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+Pentru a dezvolta cu succes o aplicație pentru o anumită platformă sunt necesare multe cunoștințe și experiență, motiv pentru care eu dezvolt aplicații doar pentru Android.
 
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) Ce face 'Clear local messages'?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+Meniul de foldere *Clear local messages* elimină mesajele din dispozitiv care sunt prezente și pe server. Aceasta nu șterge mesajele de pe server. Acest lucru poate fi util după ce ați modificat setările dosarului pentru a nu descărca conținutul mesajului (text și atașamente), de exemplu pentru a economisi spațiu.
 
 <br />
 
 <a name="faq77"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) De ce sunt afișate uneori mesajele cu o mică întârziere?**
 
-Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+În funcție de viteza dispozitivului dvs. (viteza procesorului și poate chiar mai mult viteza memoriei), este posibil ca mesajele să fie afișate cu o mică întârziere. FairEmail este conceput pentru a gestiona în mod dinamic un număr mare de mesaje fără a rămâne fără memorie. Aceasta înseamnă că mesajele trebuie să fie citite dintr-o bază de date și că această bază de date trebuie să fie supravegheată pentru modificări, ceea ce poate cauza mici întârzieri.
 
-Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Unele funcții de comoditate, cum ar fi gruparea mesajelor pentru a afișa firele de conversație și determinarea mesajului anterior/următor, necesită puțin timp suplimentar. Țineți cont că nu există *următorul mesaj* pentru că, între timp, ar fi putut fi trimis un nou mesaj.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+Atunci când se compară viteza FairEmail cu aplicații similare, acest lucru ar trebui să facă parte din comparație. Este ușor să scrieți o aplicație similară, mai rapidă, care să afișeze doar o listă liniară de mesaje, dar care să utilizeze prea multă memorie, dar nu este la fel de ușor să gestionezi în mod corespunzător utilizarea resurselor și să oferi caracteristici mai avansate, cum ar fi conversația în fir.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
+FairEmail se bazează pe componentele de ultimă generație ale arhitecturii [Android](https://developer.android.com/topic/libraries/architecture/), astfel încât există puțin loc pentru îmbunătățirea performanțelor.
 
 <br />
 
 <a name="faq78"></a>
-**(78) How do I use schedules?**
+**(78) Cum se utilizează programele?**
 
-In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+În setările de primire puteți activa programarea și puteți seta o perioadă de timp și zilele săptămânii *când* mesajele ar trebui să fie *recepționate*. Rețineți că o oră de sfârșit egală sau anterioară orei de începere este considerată a fi cu 24 de ore mai târziu.
 
-Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+Automatizarea, a se vedea mai jos, poate fi utilizată pentru programări mai avansate, cum ar fi, de exemplu, mai multe perioade de sincronizare pe zi sau perioade de sincronizare diferite pentru zile diferite.
 
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+Este posibil să instalați FairEmail în mai multe profiluri de utilizator, de exemplu un profil personal și unul de lucru, și să configurați FairEmail în mod diferit în fiecare profil, ceea ce reprezintă o altă posibilitate de a avea programe de sincronizare diferite și de a sincroniza un set diferit de conturi.
 
-It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition. This way it is possible to *snooze* business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+De asemenea, este posibil să se creeze [reguli de filtrare](#user-content-faq71) cu o condiție de timp și să se suspende mesajele până la ora de sfârșit a condiției de timp. În acest fel, este posibil să *snoozeziem* mesajele legate de afaceri până la începerea orelor de lucru. Acest lucru înseamnă, de asemenea, că mesajele vor fi stocate pe dispozitivul dvs. atunci când nu există (temporar) o conexiune la internet.
 
-Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
+Rețineți că versiunile recente de Android permit suprascrierea DND (Do Not Disturb) pentru fiecare canal de notificare și pentru fiecare aplicație, ceea ce ar putea fi utilizat pentru a (nu) reduce la tăcere anumite notificări (de afaceri). Vă rugăm să [vezi aici](https://support.google.com/android/answer/9069335) pentru mai multe informații.
 
-For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
+Pentru scheme mai complexe, puteți seta unul sau mai multe conturi pentru sincronizare manuală. și să trimiteți această comandă către FairEmail pentru a verifica dacă există mesaje noi:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-For a specific account:
+Pentru un anumit cont:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
 ```
 
-You can also automate turning receiving messages on and off by sending these commands to FairEmail:
+De asemenea, puteți automatiza activarea și dezactivarea primirii mesajelor prin trimiterea acestor comenzi către FairEmail:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE
 ```
 
-To enable/disable a specific account:
+Pentru a activa/dezactiva un anumit cont:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages.
+Rețineți că dezactivarea unui cont va ascunde contul și toate folderele și mesajele asociate.
 
-To set the poll interval:
+Pentru a seta intervalul de interogare:
 
 ```
 (adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
 ```
 
-Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+Unde *nnn* este unul dintre 0, 15, 30, 60, 120, 240, 480, 1440. O valoare de 0 înseamnă mesaje push.
 
-You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
+Puteți trimite automat comenzi cu, de exemplu, [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
 O nouă sarcină: Ceva recognoscibil
@@ -1884,39 +1884,39 @@ Acțiune: eu.faircode.email.ENABLE
 Țintă: Serviciul
 ```
 
-To enable/disable an account with the name *Gmail*:
+Pentru a activa/dezactiva un cont cu numele *Gmail*:
 
 ```
 Extras: cont:Gmail
 ```
 
-Account names are case sensitive.
+Numele conturilor sunt sensibile la majuscule și minuscule.
 
-Scheduling is a pro feature.
+Programarea este o caracteristică profesională.
 
 <br />
 
 <a name="faq79"></a>
-**(79) How do I use synchronize on demand (manual)?**
+**(79) Cum se utilizează sincronizarea la cerere (manuală)?**
 
-Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time. If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
+În mod normal, FairEmail menține o conexiune la serverele de e-mail configurate ori de câte ori este posibil pentru a primi mesajele în timp real. Dacă nu doriți acest lucru, de exemplu pentru a nu fi deranjat sau pentru a economisi bateria, dezactivați recepția în setările de recepție. Acest lucru va opri serviciul din fundal care se ocupă de sincronizarea automată și va elimina notificarea asociată din bara de stare.
 
-You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
+De asemenea, puteți activa *Sincronizare manuală* în setările avansate ale contului dacă doriți să sincronizați manual doar anumite conturi.
 
-You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
+Puteți utiliza pull-down-to-refresh într-o listă de mesaje sau puteți utiliza meniul de foldere *Sincronizare acum* pentru a sincroniza manual mesajele.
 
-If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
+Dacă doriți să sincronizați manual unele sau toate folderele unui cont, dezactivați sincronizarea pentru foldere (dar nu și pentru cont).
 
-You'll likely want to disabled [browse on server](#user-content-faq24) too.
+Probabil că veți dori să dezactivați și [browse on server](#user-content-faq24).
 
 <br />
 
 <a name="faq80"></a>
-**~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE' ?~~**
+**~~~(80) Cum pot remedia eroarea 'Unable to load BODYSTRUCTURE' ?~~**
 
-~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~ ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
+~~ Mesajul de eroare *Unable to load BODYSTRUCTURE* este cauzat de erori în serverul de e-mail,~~ ~~vezi [ aici](https://javaee.github.io/javamail/FAQ#imapserverbug) pentru mai multe detalii.~~
 
-~~FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.~~
+~~FairEmail încearcă deja să rezolve aceste erori, dar dacă acest lucru nu reușește, va trebui să solicitați asistență din partea furnizorului dvs..~~
 
 <br />
 
@@ -2044,72 +2044,72 @@ Note that original messages are shown exactly as they are, which means also that
 <a name="faq92"></a>
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
-Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. În general, serverele au mai multă memorie și putere de calcul, așa că sunt mult mai potrivite pentru această misiune decât dispozitivele alimentate cu baterii. De asemenea, veți dori ca spamul să fie filtrat pentru toți clienții de e-mail, inclusiv pentru e-mailurile web, nu doar pentru un singur client de e-mail. În plus, serverele de e-mail au acces la informații, cum ar fi adresa IP etc. a serverului de conectare, la care un client de e-mail nu are acces.
 
-Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
+Filtrarea spam-ului pe baza antetului mesajelor ar fi putut fi fezabilă, dar, din păcate, această tehnică este [patentată de Microsoft](https://patents.google.com/patent/US7543076).
 
-Recent versions of FairEmail can filter spam to a certain extend using a message classifier. Please see [this FAQ](#user-content-faq163) for more information about this.
+Versiunile recente ale FairEmail pot filtra spam-ul până la un anumit punct folosind un clasificator de mesaje. Vă rugăm să consultați [acest FAQ](#user-content-faq163) pentru mai multe informații în acest sens.
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+Bineînțeles că puteți raporta mesajele ca fiind spam cu FairEmail, care va muta mesajele raportate în dosarul de spam și va antrena filtrul de spam al furnizorului, așa cum ar trebui să funcționeze. Acest lucru se poate face automat și cu [regulile de filtrare](#user-content-faq71). Blocarea expeditorului va crea o regulă de filtrare care va muta automat mesajele viitoare ale aceluiași expeditor în dosarul de spam.
 
-Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
+Rețineți că protocolul POP3 oferă acces numai la căsuța de primire. Astfel, nu va fi posibilă raportarea spam-ului pentru conturile POP3.
 
-Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+Rețineți că nu trebuie să ștergeți mesajele spam, nici din dosarul de spam, deoarece serverul de e-mail folosește mesajele din dosarul de spam pentru a "învăța" ce sunt mesajele spam.
 
-If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
+Dacă primiți o mulțime de mesaje spam în căsuța poștală, cel mai bun lucru pe care îl puteți face este să contactați furnizorul de e-mail pentru a întreba dacă filtrarea spam-ului poate fi îmbunătățită.
 
-Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
+De asemenea, FairEmail poate afișa un mic steag roșu de avertizare atunci când autentificarea DKIM, SPF sau [DMARC](https://en.wikipedia.org/wiki/DMARC) a eșuat pe serverul destinatar. Puteți activa/dezactiva [verificarea autentificării](https://en.wikipedia.org/wiki/Email_authentication) în setările de afișare.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
+FairEmail poate afișa un steguleț de avertizare dacă numele de domeniu al adresei de e-mail (de răspuns) a expeditorului nu definește o înregistrare MX îndreptată către un server de e-mail. Acest lucru poate fi activat în setările de recepție. Rețineți că acest lucru va încetini semnificativ sincronizarea mesajelor.
 
-If the domain name of the sender and the domain name of the reply address differ, the warning flag will be shown too because this is most often the case with phishing messages. If desired, this can be disabled in the receive settings (from version 1.1506).
+Dacă numele de domeniu al expeditorului și numele de domeniu al adresei de răspuns diferă, se va afișa și stegulețul de avertizare, deoarece acesta este cel mai adesea cazul mesajelor de phishing. Dacă se dorește, acest lucru poate fi dezactivat în setările de recepție (începând cu versiunea 1.1506).
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
+În cazul în care mesajele legitime nu reușesc să se autentifice, ar trebui să notificați expeditorul, deoarece acest lucru va duce la un risc ridicat ca mesajele să ajungă în dosarul de spam. În plus, în lipsa unei autentificări adecvate, există riscul ca expeditorul să se dea drept persoană. Expeditorul ar putea folosi [acest instrument](https://www.mail-tester.com/) pentru a verifica autentificarea și alte lucruri.
 
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation/data storage on external storage media (sdcard)?**
+**(93) Puteți permite instalarea/stocarea datelor pe medii de stocare externe (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail folosește servicii și alarme, oferă widget-uri și ascultă pentru ca evenimentul de pornire finalizat să fie pornit de la pornirea dispozitivului, deci nu este posibilă stocarea aplicației pe suportul extern de stocare, cum ar fi un sdcard. A se vedea și [aici](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Mesajele, atașamentele etc. stocate pe un suport de stocare extern, cum ar fi un sdcard, pot fi accesate de alte aplicații și, prin urmare, nu sunt sigure. Consultați [aici](https://developer.android.com/training/data-storage) pentru detalii.
 
-When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
+La nevoie, puteți salva mesajele (brute) prin intermediul meniului cu trei puncte de deasupra textului mesajului. și să salvați atașamentele atingând pictograma dischetă.
 
-If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for. You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
+Dacă aveți nevoie să economisiți spațiu de stocare, puteți limita numărul de zile în care mesajele sunt sincronizate și păstrate. Puteți modifica aceste setări prin apăsarea lungă a unui dosar din lista de dosare și prin selectarea *Edit properties*.
 
 <br />
 
 <a name="faq94"></a>
-**(94) What does the red/orange stripe at the end of the header mean?**
+**(94) Ce înseamnă dunga roșie/portocalie de la sfârșitul antetului?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+Fâșia roșie/portocalie din partea stângă a antetului înseamnă că autentificarea DKIM, SPF sau DMARC a eșuat. A se vedea, de asemenea, [acest FAQ](#user-content-faq92).
 
 <br />
 
 <a name="faq95"></a>
-**(95) Why are not all apps shown when selecting an attachment or image?**
+**(95) De ce nu sunt afișate toate aplicațiile atunci când se selectează un atașament sau o imagine?**
 
-For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+Din motive de confidențialitate și securitate, FairEmail nu are permisiuni de acces direct la fișiere, în schimb, pentru selectarea fișierelor se utilizează Storage Access Framework, disponibil și recomandat începând cu Android 4.4 KitKat (lansat în 2013).
 
-If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider). If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
+Dacă o aplicație este listată depinde de faptul dacă aplicația implementează un [document provider](https://developer.android.com/guide/topics/providers/document-provider). Dacă aplicația nu este listată, este posibil să trebuiască să solicitați dezvoltatorului aplicației să adauge suport pentru Storage Access Framework.
 
-Android Q will make it harder and maybe even impossible to directly access files, see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
+Android Q va face mai dificilă și poate chiar imposibilă accesarea directă a fișierelor, a se vedea [aici](https://developer.android.com/preview/privacy/scoped-storage) și [aici](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) pentru mai multe detalii.
 
 <br />
 
 <a name="faq96"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) Unde pot găsi setările IMAP și SMTP?**
 
-The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+Setările IMAP fac parte din setările contului (personalizat), iar setările SMTP fac parte din setările de identitate.
 
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) Ce este 'curățarea'?**
 
-About each four hours FairEmail runs a cleanup job that:
+Aproximativ la fiecare patru ore FairEmail rulează o sarcină de curățare care:
 
 * Elimină textele de mesaje vechi
 * Elimină fișierele atașate vechi
@@ -2117,23 +2117,23 @@ About each four hours FairEmail runs a cleanup job that:
 * Elimină contactele locale vechi
 * Elimină intrările vechi din jurnal
 
-Note that the cleanup job will only run when the synchronize service is active.
+Rețineți că sarcina de curățare se va executa numai atunci când serviciul de sincronizare este activ.
 
 <br />
 
 <a name="faq98"></a>
-**(98) Why can I still pick contacts after revoking contacts permissions?**
+**(98) De ce pot alege în continuare contacte după ce am revocat permisiunile de contacte?**
 
-After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+După revocarea permisiunilor contactelor, Android nu mai permite accesul FairEmail la contactele tale. Cu toate acestea, selectarea contactelor este delegată și efectuată de Android și nu de FairEmail, astfel încât acest lucru va fi în continuare posibil fără permisiuni pentru contacte.
 
 <br />
 
 <a name="faq99"></a>
-**(99) Can you add a rich text or markdown editor?**
+**(99) Puteți adăuga un editor de text bogat sau markdown?**
 
-FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
+FairEmail oferă formatarea obișnuită a textului (bold, italic, subliniere, dimensiunea și culoarea textului) prin intermediul unei bare de instrumente care apare după selectarea unui text.
 
-A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor would not be used by many people on a small mobile device and, more important, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
+Un editor [Rich text](https://en.wikipedia.org/wiki/Formatted_text) sau [Markdown](https://en.wikipedia.org/wiki/Markdown). nu ar fi folosit de mulți oameni pe un dispozitiv mobil de mici dimensiuni și, mai important, Android nu suportă un editor de text bogat, iar majoritatea proiectelor open source de editor de text bogat sunt abandonate. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
 
 <br />
 
@@ -2257,38 +2257,38 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 * ~~ Treceți la versiunea oficială a FairEmail, vedeți [ aici](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) pentru opțiuni~~
 * ~~Utilizați parole specifice aplicației, consultați [acest FAQ](#user-content-faq6)~~
 
-~~Using *select account* in third party builds is not possible in recent versions anymore.~~ ~~In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.~~
+~~Utilizarea *selectare cont* în compilările terților nu mai este posibilă în versiunile recente.~~ ~~În versiunile mai vechi acest lucru era posibil, dar acum va rezulta în eroarea *UNREGISTERED_ON_API_CONSOLE*.~~
 
 <br />
 
 <a name="faq110"></a>
-**(110) Why are (some) messages empty and/or attachments corrupt?**
+**(110) De ce sunt (unele) mesaje goale și/sau atașamente corupte?**
 
-Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
+Mesajele goale și/sau atașamentele corupte sunt probabil cauzate de o eroare în software-ul serverului. Software-ul Microsoft Exchange mai vechi este cunoscut ca fiind cauza acestei probleme. În cea mai mare parte, puteți rezolva această problemă dezactivând *Parțial fetch* în setările avansate ale contului:
 
-Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Setări > Configurare manuală > Conturi > atingeți cont > atingeți avansat > Preluare parțială > debifați
 
-After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
+După dezactivarea acestei setări, puteți utiliza meniul "mai multe" (trei puncte) pentru a 'resincroniza' mesajele goale. Alternativ, puteți *Șterge mesajele locale* prin apăsarea lungă a dosarului (dosarelor) din lista de dosare și sincroniza din nou toate mesajele.
 
-Disabling *Partial fetch* will result in more memory usage.
+Dezactivarea *Parțial fetch* va duce la o utilizare mai mare a memoriei.
 
 <br />
 
 <a name="faq111"></a>
-**(111) Is OAuth supported?**
+**(111) Este OAuth acceptat?**
 
-OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
+OAuth pentru Gmail este acceptat prin intermediul expertului de configurare rapidă. Managerul de conturi Android va fi utilizat pentru a prelua și reîmprospăta token-urile OAuth pentru conturile selectate pe dispozitiv. OAuth pentru conturile care nu sunt pe dispozitiv nu este acceptat deoarece Google solicită un [audit de securitate anual](https://support.google.com/cloud/answer/9110914) (între 15.000 și 75.000 de dolari) pentru acest lucru. Puteți citi mai multe despre acest lucru [ aici](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
-OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
+OAuth pentru Outlook/Office 365, Yahoo, Mail.ru și Yandex este acceptat prin intermediul expertului de configurare rapidă.
 
 <br />
 
 <a name="faq112"></a>
-**(112) Which email provider do you recommend?**
+**(112) Ce furnizor de e-mail recomandați?**
 
-FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
+FairEmail este doar un client de e-mail, așa că trebuie să vă aduceți propria adresă de e-mail. Rețineți că acest lucru este menționat în mod clar în descrierea aplicației.
 
-There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+Există o mulțime de furnizori de e-mail din care puteți alege. Care furnizor de e-mail este cel mai bun pentru dumneavoastră depinde de dorințele/cerințele dumneavoastră. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
 Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Obțineți asistență</h2>
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail este suportat doar pe smartphone-uri și tablete Android și ChromeOS.
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 

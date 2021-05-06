@@ -1,10 +1,10 @@
 <a name="top"></a>
 
-# Assistance FairEmail
+# Besoin d'aide pour fairEmail
 
-Veuillez consultez Faq si vous avez des interrogations. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Avez-vous checker les FAQ au cas où . [En bas](#user-content-get-support), Si les FAQ n'ont pas répondues a vos interrogation, posez nous vos questions ici.
 
-Allez voir les FAQ, la reponse que vous chercher s'y trouve peut-etre . [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Allez voir les FAQ, la reponse que vous chercher s'y trouve peut-etre . [ Tout en bas ](#user-content-get-support), vous trouverez comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
 
 ## Index
 
@@ -64,7 +64,7 @@ En rapport avec:
 * Changer les dossiers système : Paramètres, appuyez sur Configuration manuelle et plus d'options, appuyez sur Comptes, appuyez sur le compte, les options se trouvent en bas
 * Exporter/importer les paramètres : Paramètres, panneau de navigation (icône à trois traits)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Problème connu</h2>
 
 * ~~Un [bogue dans Android 5.1 et 6](https://issuetracker.google.com/issues/37054851) fait que les applications affichent parfois un mauvais format d'heure. Changer les paramètres de Android sur *Utiliser le format 24 heures* pourrait résoudre temporairement le problème. Une solution de contournement a été ajoutée.~~
 * ~~Un [bogue dans Google Drive](https://issuetracker.google.com/issues/126362828) vide le dossier des fichiers exportés vers Google Drive. Google a corrigé ceci.~~
@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Obtenir de l'aide</h2>
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail est pris en charge uniquement sur des smartphones et tablettes Android et sur ChromeOS.
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 

@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Get support</h2>
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 

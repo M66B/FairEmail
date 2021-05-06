@@ -2,7 +2,7 @@
 
 # FairEmail podpora
 
-Máte-li dotaz, nejprve se prosím podívejte na následující často kladené dotazy (FAQ). [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Máte-li dotaz, nejprve se prosím podívejte na následující často kladené dotazy (FAQ). Jak pokládat další otázky, žádat o funkce a hlásit chyby naleznete [v dolní části](#user-content-get-support).
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -50,21 +50,21 @@ Související dotazy:
 * Změna názvu účtu: Nastavení, Ruční nastavení, Účty, účet
 * Změnu chování při tažení vlevo/vpravo: Nastavení, záložka Chování, Nastavit akce tažení prstem
 * Změna hesla: Nastavení, Ruční nastavení, Účty, účet, změna hesla
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Nastavení podpisu: Nastavení, stiskněte Ruční nastavení, dále Identity, Upravit podpis.
 * Přidání CC a BCC adres: stiskněte ikonu lidí na konci řádku s předmětem
 * Přechod na další/předchozí zprávu po archivaci/smazání: v nastavení chování vypněte *Zavírat konverzace automaticky* a pod *Při zavření konverzace* zvolte *Přejít na další/předchozí konverzaci*
 * Přidání složky do sjednocené doručené pošty: dlouze podržte složku v seznamu složek a zaškrtněte *Zobrazit ve sjednocené doručené poště*
 * Přidání složky do navigačního menu: dlouze podržte složku v seznamu složek a zaškrtněte *Zobrazit v navigačním menu*
 * Načtení více zpráv: dlouze podržte složku v seznamu složek a zvolte *Načíst další zprávy*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Smazání zprávy s vynecháním koše: dlouze podržte ikonu koše
+* Odebrání účtu/identity: Nastavení, stiskněte Ruční nastavení, dále Účty/Identity, stiskněte účet/identitu, ikona koše vpravo nahoře
+* Odstranění složky: dlouze podržte složku v seznamu složek, Upravit vlastnosti, ikona koše vpravo nahoře
+* Vrácení zpět odeslání: složka K odeslání, tažením zprávy v seznamu vlevo či vpravo
 * Ukládání odeslaných zpráv v doručených: přečtěte si prosím [tyto nejčastější dotazy](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import nastavení: Nastavení, navigace (levá strana) menu
+* Změna systémových složek: Nastavení, stiskněte Ruční nastavení, dále Účty, stiskněte účet, dole na konci
+* Export/import nastavení: Nastavení, navigační menu (levá strana)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Známé problémy</h2>
 
 * ~~[Chyba v Androidu 5.1 a 6](https://issuetracker.google.com/issues/37054851) způsobuje, že aplikace mohou někdy zobrazovat špatný formát času. Přepnutí nastavení Androidu *Použít 24hod. formát* může dočasně problém vyřešit. Bylo přidáno provizorní řešení.~~
 * ~~[Chyba v Google Disku](https://issuetracker.google.com/issues/126362828) způsobí, že soubory exportované do Google Disku jsou prázdné. Google toto opravil.~~
@@ -83,7 +83,7 @@ Související dotazy:
 * [Chyba v Androidu 6.0](https://issuetracker.google.com/issues/37068143) způsobuje pád s *... Invalid offset: ... Valid range is ...* při výběru textu a následném stisku mimo vybraný text. Tato chyba byla opravena v Androidu 6.0.1.
 * Interní (kotevní) odkazy nebudou fungovat, protože původní zprávy jsou zobrazeny ve vloženém WebView, v posouvajícím se zobrazení (seznam konverzací). Jedná se o omezení Androidu, které nelze opravit či obejít.
 * Detekce jazyka [přestala fungovat](https://issuetracker.google.com/issues/173337263) na zařízeních Pixel s (aktualizovaným?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* [Chyba v OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) způsobuje neplatné PGP podpisy při použití hardwarového tokenu.
 
 <h2><a name="planned-features"></a>Plánované funkce</h2>
 
@@ -130,7 +130,7 @@ Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze za
 * [(2) Proč je zobrazeno permanentní oznámení?](#user-content-faq2)
 * [(3) Co jsou operace a proč probíhají?](#user-content-faq3)
 * [(4) Jak mohu použít neplatný bezpečnostní certifikát / prázdné heslo / prosté textové připojení?](#user-content-faq4)
-* [(5) Jak přizpůsobím zobrazení zpráv?](#user-content-faq5)
+* [(5) Jak mohu přizpůsobit zobrazení zpráv?](#user-content-faq5)
 * [(6) Jak se přihlásím k Gmail / G Suite?](#user-content-faq6)
 * [(7) Proč se odeslané zprávy nezobrazí (přímo) ve složce odeslané?](#user-content-faq7)
 * [(8) Mohu použít účet Microsoft Exchange?](#user-content-faq8)
@@ -147,7 +147,7 @@ Design je založen na mnoha diskuzích a pokud chcete, můžete se do diskuze za
 * [(19) Proč jsou Pro funkce tak drahé?](#user-content-faq19)
 * [(20) Mohu získat vrácení peněz?](#user-content-faq20)
 * [(21) Jak povolím oznamovací LED?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
+* [(22) Co znamená chyba ... účtu/složky?](#user-content-faq22)
 * [(23) Proč dostávám upozornění… ?](#user-content-faq23)
 * [(24) Co znamená, procházení zpráv na serveru?](#user-content-faq24)
 * [(25) Proč nemohu vybrat/otevřít/uložit obrázek, přílohu nebo soubor?](#user-content-faq25)
@@ -898,18 +898,18 @@ Setting a light color before Android 8 is not supported and on Android 8 and lat
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) Co znamená chyba ... účtu/složky?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail chyby neskrývá, jako to často podobné aplikace dělají, takže je snazší problémy diagnostikovat.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently. Please see [this FAQ](#user-content-faq123) for more information about this.
+FairEmail se po prodlevě automaticky pokusí připojit znovu. Tato prodleva se po každém neúspěšném pokusu zdvojnásobí, pro předejití vybíjení baterie a také trvalému zablokování. Pro více informací si prosím přečtěte [tento nejčastější dotaz](#user-content-faq123).
 
-There are general errors and errors specific to Gmail accounts (see below).
+Existují chyby obecné a chyby specifické pro Gmail účty (viz níže).
 
-**General errors**
+**Obecné chyby**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+Chyba *... **Authentication failed** ...* či *... AUTHENTICATE failed ...* pravděpodobně znamená, že vaše uživatelské jméno nebo heslo nebylo správné. Někteří poskytovatelé očekávají jako uživatelské jméno pouze *uživatelské_jméno* a jiní úplnou e-mailovou adresu *uzivatelske_jmeno@example.com*. Při kopírování/vkládání uživatelského jména nebo hesla mohou být zkopírovány i neviditelné znaky, které mohou tento problém také způsobit. O některých správcích hesel je známo, že toto též nedělají správně. Uživatelské jméno může být citlivé na velikost písmen, proto zkuste jen malá písmena. Heslo rozlišuje malá a velká písmena téměř vždy. Někteří poskytovatelé vyžadují použití hesla pro aplikaci, namísto hesla k účtu, proto se prosím podívejte do dokumentace daného poskytovatele. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
@@ -968,7 +968,7 @@ Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you c
 
 If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
-**Send errors**
+**Chyby při odesílání**
 
 SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
 
@@ -994,7 +994,7 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 <br />
 
-**Gmail errors**
+**Gmail chyby**
 
 The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
 
@@ -1131,7 +1131,7 @@ Just long press a folder, select *Edit properties*, and enable either *Show in u
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) Jak mohu použít poskytnuté rychlé nastavení?**
 
 There are quick settings (settings tiles) available to:
 
@@ -2525,7 +2525,7 @@ Anyway, there is a behavior setting to reverse the swipe direction.
 <br />
 
 <a name="faq132"></a>
-**(132) Why are new message notifications silent?**
+**(132) Proč jsou oznámení o nových zprávách ztišena?**
 
 Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
 
@@ -3025,7 +3025,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>Get support</h2>
 
-FairEmail is supported on smartphones, tablets and ChromeOS only.
+FairEmail je podporován pouze na Android smartphonech a tabletech a na ChromeOS.
 
 Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
