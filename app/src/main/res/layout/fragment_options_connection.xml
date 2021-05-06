@@ -161,7 +161,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swRlah" />
+            app:layout_constraintTop_toBottomOf="@id/tvRlahHint" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDownloadHeaders"
