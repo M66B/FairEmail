@@ -4943,7 +4943,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         !EntityFolder.TRASH.equals(message.folderType)) {
                     count++;
 
-                    singleMessage = message;
+                    if (singleMessage == null)
+                        singleMessage = message;
+
                     if (!message.ui_seen) {
                         unseen++;
                         unseenMessage = message;
