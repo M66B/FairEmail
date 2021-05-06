@@ -309,7 +309,6 @@ public class StyleHelper {
                         int i = s;
                         int j = s + 1;
                         int index = 1;
-                        boolean renum = false;
                         while (j < e) {
                             if (i > 0 && edit.charAt(i - 1) == '\n' && edit.charAt(j) == '\n') {
                                 Log.i("Insert " + i + "..." + (j + 1) + " size=" + e);
@@ -318,18 +317,15 @@ public class StyleHelper {
                                         edit.setSpan(new BulletSpanEx(dp24, dp6, colorAccent, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                     else
                                         edit.setSpan(new BulletSpanEx(dp24, dp6, colorAccent, dp3, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
-                                else {
-                                    renum = true;
+                                else
                                     edit.setSpan(new NumberSpan(dp24, dp6, colorAccent, textSize, 0, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
-                                }
 
                                 i = j + 1;
                             }
                             j++;
                         }
 
-                        if (renum)
-                            renumber(edit, false, context);
+                        renumber(edit, false, context);
 
                         etBody.setText(edit);
                         etBody.setSelection(s, e);
@@ -585,7 +581,7 @@ public class StyleHelper {
                 while (levels.size() > level + 1)
                     levels.remove(levels.size() - 1);
                 if (levels.size() == level + 1 && !(span instanceof NumberSpan))
-                    levels.remove(level - 1);
+                    levels.remove(level);
                 while (levels.size() < level + 1)
                     levels.add(0);
 
