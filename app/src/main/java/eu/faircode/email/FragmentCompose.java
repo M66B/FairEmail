@@ -3324,7 +3324,7 @@ public class FragmentCompose extends FragmentBase {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             try {
                 ime = view.getRootWindowInsets().isVisible(WindowInsetsCompat.Type.ime());
-            }catch (Throwable ex){
+            } catch (Throwable ex) {
                 Log.e(ex);
             }
 
