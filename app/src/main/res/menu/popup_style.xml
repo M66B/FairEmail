@@ -62,6 +62,12 @@
                 <item
                     android:id="@+id/menu_style_list_numbered"
                     android:title="@string/title_style_list_numbered" />
+                <item
+                    android:id="@+id/menu_style_list_increase"
+                    android:title="@string/title_style_list_level_increase" />
+                <item
+                    android:id="@+id/menu_style_list_decrease"
+                    android:title="@string/title_style_list_level_decrease" />
             </group>
         </menu>
     </item>

@@ -40,6 +40,9 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.text.Html.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlEx {
@@ -211,7 +214,8 @@ public class HtmlEx {
 
     private /* static */ void withinBlockquoteIndividual(StringBuilder out, Spanned text, int start,
                                                    int end) {
-        Boolean isInBulletList = null;
+        List<Boolean> levels = new ArrayList<>();
+
         int next;
         for (int i = start; i <= end; i = next) {
             next = TextUtils.indexOf(text, '\n', i, end);
@@ -220,14 +224,16 @@ public class HtmlEx {
             }
 
             if (next == i) {
-                if (isInBulletList != null) {
+                if (levels.size() > 0) {
                     // Current paragraph is no longer a list item; close the previously opened list
-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
-                    isInBulletList = null;
+                    for (int l = levels.size() - 1; l >= 0; l--)
+                        out.append(levels.get(l) ? "</ul>\n" : "</ol>\n");
+                    levels.clear();
                 }
                 if (i != text.length())
                     out.append("<br>\n");
             } else {
+                int level = 0;
                 Boolean isBulletListItem = null;
                 ParagraphStyle[] paragraphStyles = text.getSpans(i, next, ParagraphStyle.class);
                 for (ParagraphStyle paragraphStyle : paragraphStyles) {
@@ -235,27 +241,32 @@ public class HtmlEx {
                     if ((spanFlags & Spanned.SPAN_PARAGRAPH) == Spanned.SPAN_PARAGRAPH
                             && paragraphStyle instanceof BulletSpan) {
                         isBulletListItem = !(paragraphStyle instanceof eu.faircode.email.NumberSpan);
+                        if (paragraphStyle instanceof NumberSpan)
+                            level = ((NumberSpan) paragraphStyle).getLevel();
+                        else if (paragraphStyle instanceof BulletSpanEx)
+                            level = ((BulletSpanEx) paragraphStyle).getLevel();
                         break;
                     }
                 }
 
-                if (isBulletListItem != null && isInBulletList != null && isBulletListItem != isInBulletList) {
-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
-                    isInBulletList = null;
-                }
+                if (isBulletListItem == null)
+                    level = -1;
 
-                if (isBulletListItem != null && isInBulletList == null) {
-                    // Current paragraph is the first item in a list
-                    isInBulletList = isBulletListItem;
-                    out.append(isInBulletList ? "<ul" : "<ol")
+                while (levels.size() > level + 1) {
+                    Boolean bullet = levels.remove(levels.size() - 1);
+                    out.append(bullet ? "</ul>\n" : "</ol>\n");
+                }
+                if (level >= 0 &&
+                        levels.size() == level + 1 &&
+                        levels.get(level) != isBulletListItem) {
+                    Boolean bullet = levels.remove(level);
+                    out.append(bullet ? "</ul>\n" : "</ol>\n");
+                }
+                while (levels.size() < level + 1) {
+                    levels.add(isBulletListItem);
+                    out.append(isBulletListItem ? "<ul" : "<ol")
                             .append(getTextStyles(text, i, next, true, false))
                             .append(">\n");
-                }
-
-                if (isInBulletList != null && isBulletListItem == null) {
-                    // Current paragraph is no longer a list item; close the previously opened list
-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
-                    isInBulletList = null;
                 }
 
                 String tagType = isBulletListItem != null ? "li" : "span";
@@ -272,9 +283,10 @@ public class HtmlEx {
                 if (isBulletListItem == null)
                     out.append("<br>\n");
 
-                if (next == end && isInBulletList != null) {
-                    out.append(isInBulletList ? "</ul>\n" : "</ol>\n");
-                    isInBulletList = null;
+                if (next == end && levels.size() > 0) {
+                    for (int l = levels.size() - 1; l >= 0; l--)
+                        out.append(levels.get(l) ? "</ul>\n" : "</ol>\n");
+                    levels.clear();
                 }
             }
 

@@ -26,8 +26,6 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Editable;
 import android.text.Layout;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
@@ -124,6 +122,16 @@ public class StyleHelper {
                     smenu.add(R.id.group_style_font, i, 0, fontNames[i]);
                 smenu.add(R.id.group_style_font, fontNames.length, 0, R.string.title_style_font_default);
 
+                int level = -1;
+                BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
+                for (BulletSpan span : spans)
+                    if (span instanceof NumberSpan)
+                        level = ((NumberSpan) span).getLevel();
+                    else if (span instanceof BulletSpanEx)
+                        level = ((BulletSpanEx) span).getLevel();
+                popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setVisible(level >= 0);
+                popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setVisible(level > 0);
+
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
@@ -136,7 +144,11 @@ public class StyleHelper {
                             } else if (groupId == R.id.group_style_align) {
                                 return setAlignment(item);
                             } else if (groupId == R.id.group_style_list) {
-                                return setList(item);
+                                if (item.getItemId() == R.id.menu_style_list_increase ||
+                                        item.getItemId() == R.id.menu_style_list_decrease)
+                                    return setListLevel(item);
+                                else
+                                    return setList(item);
                             } else if (groupId == R.id.group_style_font) {
                                 return setFont(item);
                             } else if (groupId == R.id.group_style_blockquote) {
@@ -248,12 +260,38 @@ public class StyleHelper {
                         return true;
                     }
 
+                    private boolean setListLevel(MenuItem item) {
+                        Context context = etBody.getContext();
+                        int add = (item.getItemId() == R.id.menu_style_list_increase ? 1 : -1);
+
+                        boolean renum = false;
+                        BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
+                        for (BulletSpan span : spans)
+                            if (span instanceof BulletSpanEx) {
+                                BulletSpanEx bs = (BulletSpanEx) span;
+                                bs.setLevel(bs.getLevel() + add);
+                            } else if (span instanceof NumberSpan) {
+                                renum = true;
+                                NumberSpan ns = (NumberSpan) span;
+                                ns.setLevel(ns.getLevel() + add);
+                            }
+
+                        if (renum)
+                            renumber(edit, false, context);
+
+                        etBody.setText(edit);
+                        etBody.setSelection(start, end);
+
+                        return true;
+                    }
+
                     private boolean setList(MenuItem item) {
                         Context context = etBody.getContext();
 
                         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
                         int dp3 = Helper.dp2pixels(context, 3);
                         int dp6 = Helper.dp2pixels(context, 6);
+                        int dp24 = Helper.dp2pixels(context, 24);
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         int message_zoom = prefs.getInt("message_zoom", 100);
@@ -271,21 +309,27 @@ public class StyleHelper {
                         int i = s;
                         int j = s + 1;
                         int index = 1;
+                        boolean renum = false;
                         while (j < e) {
                             if (i > 0 && edit.charAt(i - 1) == '\n' && edit.charAt(j) == '\n') {
                                 Log.i("Insert " + i + "..." + (j + 1) + " size=" + e);
                                 if (item.getItemId() == R.id.menu_style_list_bullets)
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        edit.setSpan(new BulletSpan(dp6, colorAccent), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        edit.setSpan(new BulletSpanEx(dp24, dp6, colorAccent, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                     else
-                                        edit.setSpan(new BulletSpan(dp6, colorAccent, dp3), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
-                                else
-                                    edit.setSpan(new NumberSpan(dp6, colorAccent, textSize, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        edit.setSpan(new BulletSpanEx(dp24, dp6, colorAccent, dp3, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                else {
+                                    renum = true;
+                                    edit.setSpan(new NumberSpan(dp24, dp6, colorAccent, textSize, 0, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                }
 
                                 i = j + 1;
                             }
                             j++;
                         }
+
+                        if (renum)
+                            renumber(edit, false, context);
 
                         etBody.setText(edit);
                         etBody.setSelection(s, e);
@@ -472,7 +516,7 @@ public class StyleHelper {
         if (end == edit.length())
             edit.append("\n"); // workaround Android bug
 
-        return new Pair(start, end);
+        return new Pair<>(start, end);
     }
 
     static <T extends ParagraphStyle> T clone(Object span, Class<T> type, Context context) {
@@ -485,16 +529,18 @@ public class StyleHelper {
         } else if (NumberSpan.class.isAssignableFrom(type)) {
             NumberSpan n = (NumberSpan) span;
             int dp6 = Helper.dp2pixels(context, 6);
+            int dp24 = Helper.dp2pixels(context, 24);
             int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-            return (T) new NumberSpan(dp6, colorAccent, n.getTextSize(), n.getIndex() + 1);
-        } else if (BulletSpan.class.isAssignableFrom(type)) {
-            BulletSpan b = (BulletSpan) span;
+            return (T) new NumberSpan(dp24, dp6, colorAccent, n.getTextSize(), n.getLevel(), n.getIndex() + 1);
+        } else if (BulletSpanEx.class.isAssignableFrom(type)) {
+            BulletSpanEx b = (BulletSpanEx) span;
+            int dp24 = Helper.dp2pixels(context, 24);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
                 int dp6 = Helper.dp2pixels(context, 6);
                 int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                return (T) new BulletSpan(dp6, colorAccent);
+                return (T) new BulletSpanEx(dp24, dp6, colorAccent, b.getLevel());
             } else
-                return (T) new BulletSpan(b.getGapWidth(), b.getColor(), b.getBulletRadius());
+                return (T) new BulletSpanEx(dp24, b.getGapWidth(), b.getColor(), b.getBulletRadius(), b.getLevel());
 
         } else
             throw new IllegalArgumentException(type.getName());
@@ -502,13 +548,14 @@ public class StyleHelper {
 
     static void renumber(Editable text, boolean clean, Context context) {
         int dp6 = Helper.dp2pixels(context, 6);
+        int dp24 = Helper.dp2pixels(context, 24);
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
 
         Log.i("Renumber clean=" + clean + " text=" + text);
 
         int next;
-        int index = 1;
         int pos = -1;
+        List<Integer> levels = new ArrayList<>();
         for (int i = 0; i < text.length(); i = next) {
             next = text.nextSpanTransition(i, text.length(), NumberSpan.class);
             Log.i("Bullet span next=" + next);
@@ -525,16 +572,33 @@ public class StyleHelper {
                     continue;
                 }
 
-                if (span instanceof NumberSpan) {
-                    if (start == pos)
-                        index++;
-                    else
-                        index = 1;
+                int level;
+                if (span instanceof NumberSpan)
+                    level = ((NumberSpan) span).getLevel();
+                else if (span instanceof BulletSpanEx)
+                    level = ((BulletSpanEx) span).getLevel();
+                else
+                    level = 0;
 
+                if (start != pos)
+                    levels.clear();
+                while (levels.size() > level + 1)
+                    levels.remove(levels.size() - 1);
+                if (levels.size() == level + 1 && !(span instanceof NumberSpan))
+                    levels.remove(level - 1);
+                while (levels.size() < level + 1)
+                    levels.add(0);
+
+                int index = levels.get(level) + 1;
+                levels.remove(level);
+                levels.add(level, index);
+
+                if (span instanceof NumberSpan) {
                     NumberSpan ns = (NumberSpan) span;
                     if (index != ns.getIndex()) {
-                        NumberSpan clone = new NumberSpan(dp6, colorAccent, ns.getTextSize(), index);
                         text.removeSpan(span);
+                        // Text size needs measuring
+                        NumberSpan clone = new NumberSpan(dp24, dp6, colorAccent, ns.getTextSize(), level, index);
                         text.setSpan(clone, start, end, flags);
                     }
 

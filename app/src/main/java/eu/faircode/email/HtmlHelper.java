@@ -43,7 +43,6 @@ import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
-import android.text.style.LeadingMarginSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.ReplacementSpan;
@@ -1915,12 +1914,19 @@ public class HtmlHelper {
 
         for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
             int start = ssb.getSpanStart(span);
-            ssb.insert(start, "* ");
-        }
-
-        for (NumberSpan span : ssb.getSpans(0, ssb.length(), NumberSpan.class)) {
-            int start = ssb.getSpanStart(span);
-            ssb.insert(start, "- ");
+            if (span instanceof NumberSpan) {
+                ssb.insert(start, "- ");
+                int level = ((NumberSpan) span).getLevel();
+                for (int l = 1; l <= level; l++)
+                    ssb.insert(start, "\t");
+            } else {
+                ssb.insert(start, "* ");
+                if (span instanceof BulletSpanEx) {
+                    int level = ((BulletSpanEx) span).getLevel();
+                    for (int l = 1; l <= level; l++)
+                        ssb.insert(start, "\t");
+                }
+            }
         }
 
         return ssb.toString();
@@ -2372,23 +2378,32 @@ public class HtmlHelper {
                                 if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
                                     ssb.append("\n");
 
+                                int level = 0;
+                                Element type = null;
                                 Element parent = element.parent();
-                                while (parent != null &&
-                                        !"ol".equals(parent.tagName()) &&
-                                        !"ul".equals(parent.tagName()))
+                                while (parent != null) {
+                                    if ("ol".equals(parent.tagName()) || "ul".equals(parent.tagName())) {
+                                        level++;
+                                        if (type == null)
+                                            type = parent;
+                                    }
                                     parent = parent.parent();
-                                if (parent == null || "ul".equals(parent.tagName()))
+                                }
+                                if (level > 0)
+                                    level--;
+
+                                if (type == null || "ul".equals(type.tagName())) {
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        setSpan(ssb, new BulletSpan(dp6, colorAccent), start, ssb.length());
+                                        setSpan(ssb, new BulletSpanEx(dp24, dp6, colorAccent, level), start, ssb.length());
                                     else
-                                        setSpan(ssb, new BulletSpan(dp6, colorAccent, dp3), start, ssb.length());
-                                else {
+                                        setSpan(ssb, new BulletSpanEx(dp24, dp6, colorAccent, dp3, level), start, ssb.length());
+                                } else {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
                                     int index = 0;
-                                    String s = parent.attr("start");
+                                    String s = type.attr("start");
                                     if (!TextUtils.isEmpty(s) && TextUtils.isDigitsOnly(s))
                                         index = Integer.parseInt(s) - 1;
-                                    for (Node child : parent.childNodes()) {
+                                    for (Node child : type.childNodes()) {
                                         if (child instanceof Element &&
                                                 child.nodeName().equals(element.tagName())) {
                                             index++;
@@ -2397,8 +2412,9 @@ public class HtmlHelper {
                                         }
                                     }
 
-                                    setSpan(ssb, new NumberSpan(dp6, colorAccent, textSize, index), start, ssb.length());
+                                    setSpan(ssb, new NumberSpan(dp24, dp6, colorAccent, textSize, level, index), start, ssb.length());
                                 }
+
                                 break;
                             case "pre":
                                 // Signature
@@ -2409,15 +2425,6 @@ public class HtmlHelper {
                                 break;
                             case "ol":
                             case "ul":
-                                int llevel = 0;
-                                Element lparent = element.parent();
-                                while (lparent != null) {
-                                    if ("ol".equals(lparent.tagName()) || "ul".equals(lparent.tagName()))
-                                        llevel++;
-                                    lparent = lparent.parent();
-                                }
-                                if (llevel > 0)
-                                    setSpan(ssb, new LeadingMarginSpan.Standard(llevel * dp24), start, ssb.length());
                                 break;
                             case "meta":
                                 // Signature

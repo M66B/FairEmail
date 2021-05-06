@@ -28,27 +28,39 @@ import android.text.TextPaint;
 import android.text.style.BulletSpan;
 
 public class NumberSpan extends BulletSpan {
+    int indentWidth;
+    private int level;
     private int index;
 
     private TextPaint tp;
     private String number;
     private int margin;
 
-    public NumberSpan(int gapWidth, int color, float textSize, int index) {
+    public NumberSpan(int indentWidth, int gapWidth, int color, float textSize, int level, int index) {
         tp = new TextPaint();
         tp.setStyle(Paint.Style.FILL);
         tp.setColor(color);
         tp.setTypeface(Typeface.MONOSPACE);
         tp.setTextSize(textSize);
 
+        this.indentWidth = indentWidth;
+        this.level = level;
         this.index = index;
 
         number = index + ".";
-        margin = Math.round(tp.measureText(number) + gapWidth);
+        margin = Math.round(tp.measureText(number)) + gapWidth;
     }
 
     float getTextSize() {
         return tp.getTextSize();
+    }
+
+    int getLevel() {
+        return this.level;
+    }
+
+    void setLevel(int level) {
+        this.level = level;
     }
 
     int getIndex() {
@@ -59,7 +71,7 @@ public class NumberSpan extends BulletSpan {
     public int getLeadingMargin(boolean first) {
         // https://issuetracker.google.com/issues/36956124
         // This is called before drawLeadingMargin to justify the text
-        return margin;
+        return indentWidth * level + margin;
     }
 
     @Override
@@ -69,7 +81,7 @@ public class NumberSpan extends BulletSpan {
             float textSize = tp.getTextSize();
             if (textSize > p.getTextSize())
                 tp.setTextSize(p.getTextSize());
-            c.drawText(number, x + dir, baseline, tp);
+            c.drawText(number, x + indentWidth * level, baseline, tp);
             tp.setTextSize(textSize);
         }
     }
