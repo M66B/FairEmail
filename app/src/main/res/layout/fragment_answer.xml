@@ -63,16 +63,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/etGroup" />
 
                 <CheckBox
-                    android:id="@+id/cbFavorite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="6dp"
-                    android:text="@string/title_answer_favorite"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbStandard" />
-
-                <CheckBox
                     android:id="@+id/cbReceipt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +70,17 @@
                     android:layout_marginTop="6dp"
                     android:text="@string/title_answer_receipt"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbFavorite" />
+                    app:layout_constraintTop_toBottomOf="@+id/cbStandard" />
+
+                <CheckBox
+                    android:id="@+id/cbFavorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_answer_favorite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbReceipt" />
 
                 <CheckBox
                     android:id="@+id/cbHide"
@@ -90,7 +90,7 @@
                     android:layout_marginTop="6dp"
                     android:text="@string/title_answer_hide"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbReceipt" />
+                    app:layout_constraintTop_toBottomOf="@+id/cbFavorite" />
 
                 <View
                     android:id="@+id/vSeparator"
