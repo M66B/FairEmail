@@ -1915,14 +1915,16 @@ public class HtmlHelper {
         for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
             int start = ssb.getSpanStart(span);
             if (span instanceof NumberSpan) {
-                ssb.insert(start, "- ");
-                int level = ((NumberSpan) span).getLevel();
+                NumberSpan ns = (NumberSpan) span;
+                ssb.insert(start, ns.getIndex() + ". ");
+                int level = ns.getLevel();
                 for (int l = 1; l <= level; l++)
                     ssb.insert(start, "\t");
             } else {
                 ssb.insert(start, "* ");
                 if (span instanceof BulletSpanEx) {
-                    int level = ((BulletSpanEx) span).getLevel();
+                    BulletSpanEx bs = (BulletSpanEx) span;
+                    int level = bs.getLevel();
                     for (int l = 1; l <= level; l++)
                         ssb.insert(start, "\t");
                 }
