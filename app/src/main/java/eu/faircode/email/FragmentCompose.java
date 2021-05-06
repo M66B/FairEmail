@@ -573,9 +573,10 @@ public class FragmentCompose extends FragmentBase {
                 if (activity != null)
                     activity.onUserInteraction();
 
-                if (before == 0 && count == 1 && start > 0 && text.charAt(start) == '\n') {
-                    Log.i("Added=" + start);
-                    added = start;
+                int index = start + before;
+                if (count - before == 1 && index > 0 && text.charAt(index) == '\n') {
+                    Log.i("Added=" + index);
+                    added = index;
                 }
             }
 
