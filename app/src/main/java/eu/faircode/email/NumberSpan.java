@@ -28,12 +28,13 @@ import android.text.TextPaint;
 import android.text.style.BulletSpan;
 
 public class NumberSpan extends BulletSpan {
-    int indentWidth;
+    private int indentWidth;
     private int level;
     private int index;
 
     private TextPaint tp;
     private String number;
+    private int numberWidth;
     private int margin;
 
     public NumberSpan(int indentWidth, int gapWidth, int color, float textSize, int level, int index) {
@@ -48,7 +49,8 @@ public class NumberSpan extends BulletSpan {
         this.index = index;
 
         number = index + ".";
-        margin = Math.round(tp.measureText(number)) + gapWidth;
+        numberWidth = Math.round(tp.measureText(number));
+        margin = numberWidth + gapWidth;
     }
 
     float getTextSize() {
@@ -81,7 +83,8 @@ public class NumberSpan extends BulletSpan {
             float textSize = tp.getTextSize();
             if (textSize > p.getTextSize())
                 tp.setTextSize(p.getTextSize());
-            c.drawText(number, x + indentWidth * level, baseline, tp);
+            int offset = (dir < 0 ? numberWidth : 0);
+            c.drawText(number, x + indentWidth * level * dir - offset, baseline, tp);
             tp.setTextSize(textSize);
         }
     }
