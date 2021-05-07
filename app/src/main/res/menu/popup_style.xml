@@ -33,7 +33,7 @@
 
     <item
         android:id="@+id/menu_style_font"
-        android:icon="@drawable/twotone_title_24"
+        android:icon="@drawable/twotone_text_format_24"
         android:orderInCategory="3"
         android:title="@string/title_style_font">
         <menu>
