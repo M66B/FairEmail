@@ -2037,7 +2037,9 @@ public class HtmlHelper {
         final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         final int dp3 = Helper.dp2pixels(context, 3);
         final int dp6 = Helper.dp2pixels(context, 6);
-        final int dp24 = Helper.dp2pixels(context, 24);
+        int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
+        int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
+        int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
 
         int message_zoom = prefs.getInt("message_zoom", 100);
         float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
@@ -2396,9 +2398,9 @@ public class HtmlHelper {
 
                                 if (type == null || "ul".equals(type.tagName())) {
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        setSpan(ssb, new BulletSpanEx(dp24, dp6, colorAccent, level), start, ssb.length());
+                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, level), start, ssb.length());
                                     else
-                                        setSpan(ssb, new BulletSpanEx(dp24, dp6, colorAccent, dp3, level), start, ssb.length());
+                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, bulletRadius, level), start, ssb.length());
                                 } else {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
                                     int index = 0;
@@ -2414,7 +2416,7 @@ public class HtmlHelper {
                                         }
                                     }
 
-                                    setSpan(ssb, new NumberSpan(dp24, dp6, colorAccent, textSize, level, index), start, ssb.length());
+                                    setSpan(ssb, new NumberSpan(bulletIndent, bulletGap, colorAccent, textSize, level, index), start, ssb.length());
                                 }
 
                                 break;

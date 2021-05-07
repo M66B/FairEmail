@@ -290,9 +290,9 @@ public class StyleHelper {
                         Context context = etBody.getContext();
 
                         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                        int dp3 = Helper.dp2pixels(context, 3);
-                        int dp6 = Helper.dp2pixels(context, 6);
-                        int dp24 = Helper.dp2pixels(context, 24);
+                        int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
+                        int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
+                        int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         int message_zoom = prefs.getInt("message_zoom", 100);
@@ -315,11 +315,11 @@ public class StyleHelper {
                                 Log.i("Insert " + i + "..." + (j + 1) + " size=" + e);
                                 if (item.getItemId() == R.id.menu_style_list_bullets)
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        edit.setSpan(new BulletSpanEx(dp24, dp6, colorAccent, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        edit.setSpan(new BulletSpanEx(bulletIndent, bulletGap, colorAccent, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                     else
-                                        edit.setSpan(new BulletSpanEx(dp24, dp6, colorAccent, dp3, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                        edit.setSpan(new BulletSpanEx(bulletIndent, bulletGap, colorAccent, bulletRadius, 0), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
                                 else
-                                    edit.setSpan(new NumberSpan(dp24, dp6, colorAccent, textSize, 0, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
+                                    edit.setSpan(new NumberSpan(bulletIndent, bulletGap, colorAccent, textSize, 0, index++), i, j + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_PARAGRAPH);
 
                                 i = j + 1;
                             }
@@ -525,27 +525,27 @@ public class StyleHelper {
                 return (T) new QuoteSpan(q.getColor(), q.getStripeWidth(), q.getGapWidth());
         } else if (NumberSpan.class.isAssignableFrom(type)) {
             NumberSpan n = (NumberSpan) span;
-            int dp6 = Helper.dp2pixels(context, 6);
-            int dp24 = Helper.dp2pixels(context, 24);
+            int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
+            int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
             int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-            return (T) new NumberSpan(dp24, dp6, colorAccent, n.getTextSize(), n.getLevel(), n.getIndex() + 1);
+            return (T) new NumberSpan(bulletIndent, bulletGap, colorAccent, n.getTextSize(), n.getLevel(), n.getIndex() + 1);
         } else if (BulletSpanEx.class.isAssignableFrom(type)) {
             BulletSpanEx b = (BulletSpanEx) span;
-            int dp24 = Helper.dp2pixels(context, 24);
+            int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-                int dp6 = Helper.dp2pixels(context, 6);
                 int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                return (T) new BulletSpanEx(dp24, dp6, colorAccent, b.getLevel());
+                int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
+                return (T) new BulletSpanEx(bulletIndent, bulletGap, colorAccent, b.getLevel());
             } else
-                return (T) new BulletSpanEx(dp24, b.getGapWidth(), b.getColor(), b.getBulletRadius(), b.getLevel());
+                return (T) new BulletSpanEx(bulletIndent, b.getGapWidth(), b.getColor(), b.getBulletRadius(), b.getLevel());
 
         } else
             throw new IllegalArgumentException(type.getName());
     }
 
     static void renumber(Editable text, boolean clean, Context context) {
-        int dp6 = Helper.dp2pixels(context, 6);
-        int dp24 = Helper.dp2pixels(context, 24);
+        int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
+        int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
 
         Log.i("Renumber clean=" + clean + " text=" + text);
@@ -595,7 +595,7 @@ public class StyleHelper {
                     if (index != ns.getIndex()) {
                         text.removeSpan(span);
                         // Text size needs measuring
-                        NumberSpan clone = new NumberSpan(dp24, dp6, colorAccent, ns.getTextSize(), level, index);
+                        NumberSpan clone = new NumberSpan(bulletIndent, bulletGap, colorAccent, ns.getTextSize(), level, index);
                         text.setSpan(clone, start, end, flags);
                     }
 

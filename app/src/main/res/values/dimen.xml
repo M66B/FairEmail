@@ -5,4 +5,7 @@
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
     <dimen name="fastscroll_default_thickness" tools:override="true">6dp</dimen>
     <dimen name="menu_item_icon_size">24dp</dimen>
+    <dimen name="bullet_gap_size">6dp</dimen>
+    <dimen name="bullet_radius_size">3dp</dimen>
+    <dimen name="bullet_indent_size">24dp</dimen>
 </resources>
