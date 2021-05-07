@@ -24,9 +24,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.DashPathEffect;
-import android.graphics.Paint;
-import android.graphics.PathEffect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -37,7 +34,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
@@ -45,7 +41,6 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
-import android.text.style.ReplacementSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
@@ -2674,68 +2669,5 @@ public class HtmlHelper {
                         spanned.getSpanEnd(spans[i]),
                         spanned.getSpanFlags(spans[i]));
         return reverse;
-    }
-
-    public static class LineSpan extends ReplacementSpan {
-        private int lineColor;
-        private float strokeWidth;
-        private float dashLength;
-
-        LineSpan(int lineColor, float strokeWidth, float dashLength) {
-            this.lineColor = lineColor;
-            this.strokeWidth = strokeWidth;
-            this.dashLength = dashLength;
-        }
-
-        @Override
-        public int getSize(@NonNull Paint paint, CharSequence text, int start, int end, @Nullable Paint.FontMetricsInt fm) {
-            return 0;
-        }
-
-        @Override
-        public void draw(@NonNull Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, @NonNull Paint paint) {
-            int ypos = (top + bottom) / 2;
-            int c = paint.getColor();
-            float s = paint.getStrokeWidth();
-            PathEffect p = paint.getPathEffect();
-            paint.setColor(lineColor);
-            paint.setStrokeWidth(strokeWidth);
-            if (dashLength != 0)
-                paint.setPathEffect(new DashPathEffect(new float[]{dashLength, dashLength}, 0));
-            canvas.drawLine(0, ypos, canvas.getWidth(), ypos, paint);
-            paint.setColor(c);
-            paint.setStrokeWidth(s);
-            paint.setPathEffect(p);
-        }
-    }
-
-    public static class CustomTypefaceSpan extends TypefaceSpan {
-        private final Typeface newType;
-
-        public CustomTypefaceSpan(String family, Typeface type) {
-            super(family);
-            newType = type;
-        }
-
-        @Override
-        public void updateDrawState(TextPaint ds) {
-            applyCustomTypeFace(ds, newType);
-        }
-
-        @Override
-        public void updateMeasureState(TextPaint paint) {
-            applyCustomTypeFace(paint, newType);
-        }
-
-        private static void applyCustomTypeFace(Paint paint, Typeface tf) {
-            Typeface old = paint.getTypeface();
-            int oldStyle = (old == null ? 0 : old.getStyle());
-            int fake = oldStyle & ~tf.getStyle();
-            if ((fake & Typeface.BOLD) != 0)
-                paint.setFakeBoldText(true);
-            if ((fake & Typeface.ITALIC) != 0)
-                paint.setTextSkewX(-0.25f);
-            paint.setTypeface(tf);
-        }
     }
 }
