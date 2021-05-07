@@ -2847,31 +2847,41 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(Bundle args, final MoreResult result) {
                 long[] ids = args.getLongArray("ids");
 
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabMore);
+                final Context context = getContext();
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), fabMore);
 
                 int order = 0;
 
                 if (result.unseen) // Unseen, not draft
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, order++, R.string.title_seen);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, order++, R.string.title_seen)
+                            .setIcon(R.drawable.twotone_drafts_24);
                 if (result.seen) // Seen, not draft
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen)
+                            .setIcon(R.drawable.twotone_mail_24);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze)
+                        .setIcon(R.drawable.twotone_timelapse_24);
 
                 if (result.visible)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, order++, R.string.title_hide);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, order++, R.string.title_hide)
+                            .setIcon(R.drawable.twotone_visibility_off_24);
                 if (result.hidden)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, order++, R.string.title_unhide);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, order++, R.string.title_unhide)
+                            .setIcon(R.drawable.twotone_visibility_24);
 
                 if (result.unflagged)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag)
+                            .setIcon(R.drawable.twotone_star_24);
                 if (result.flagged)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag)
+                            .setIcon(R.drawable.twotone_star_border_24);
                 if (result.unflagged || result.flagged)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color)
+                            .setIcon(R.drawable.twotone_stars_24);
 
                 SubMenu importance = popupMenu.getMenu()
-                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance);
+                        .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance)
+                        .setIcon(R.drawable.twotone_priority_high_24);
                 importance.add(Menu.NONE, R.string.title_importance_high, 1, R.string.title_importance_high)
                         .setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(result.importance));
                 importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal)
@@ -2880,23 +2890,29 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
                 if (result.hasInbox && !result.isInbox) // not is inbox
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_inbox, order++, R.string.title_folder_inbox);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_inbox, order++, R.string.title_folder_inbox)
+                            .setIcon(R.drawable.twotone_move_to_inbox_24);
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive)
+                            .setIcon(R.drawable.twotone_archive_24);
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam)
+                            .setIcon(R.drawable.twotone_flag_24);
 
                 if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash)
+                            .setIcon(R.drawable.twotone_delete_24);
 
                 if (result.isTrash || !result.hasTrash || result.isJunk ||
                         ids.length <= MAX_PERMANENT_DELETE) // is trash or no trash or is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
+                            .setIcon(R.drawable.twotone_delete_forever_24);
 
                 if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send)
+                            .setIcon(R.drawable.twotone_attachment_24);
 
                 for (EntityAccount account : result.accounts) {
                     String title = getString(R.string.title_move_to_account, account.name);
@@ -2905,12 +2921,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         int i = title.indexOf(account.name);
                         ss.setSpan(new ForegroundColorSpan(account.color), i, i + 1, 0);
                     }
-                    MenuItem item = popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_account, order++, ss);
+                    MenuItem item = popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_account, order++, ss)
+                            .setIcon(R.drawable.twotone_drive_file_move_24);
                     item.setIntent(new Intent().putExtra("account", account.id));
                 }
 
                 if (result.copyto != null)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_copy_to, order++, R.string.title_copy_to);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_copy_to, order++, R.string.title_copy_to)
+                            .setIcon(R.drawable.twotone_file_copy_24);
+
+                popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
