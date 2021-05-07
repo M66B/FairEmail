@@ -177,26 +177,36 @@ public class FragmentSetup extends FragmentBase {
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), btnQuick);
+                final Context context = getContext();
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), btnQuick);
+                Menu menu = popupMenu.getMenu();
 
                 int order = 1;
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
+                menu.add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
 
-                for (EmailProvider provider : EmailProvider.loadProfiles(getContext()))
+                for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.oauth != null &&
-                            (provider.oauth.enabled || BuildConfig.DEBUG))
-                        popupMenu.getMenu()
+                            (provider.oauth.enabled || BuildConfig.DEBUG)) {
+                        MenuItem item = menu
                                 .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
                                         .putExtra("name", provider.name)
                                         .putExtra("askAccount", provider.oauth.askAccount));
+                        int resid = context.getResources()
+                                .getIdentifier("provider_" + provider.id, "drawable", context.getPackageName());
+                        if (resid != 0)
+                            item.setIcon(resid);
+                    }
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other);
+                menu.add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other)
+                        .setIcon(R.drawable.twotone_search_24);
 
                 SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
+                menu.add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
+
+                popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
