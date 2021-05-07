@@ -60,6 +60,8 @@ import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainException;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.style.ForegroundColorSpan;
@@ -2912,9 +2914,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .setIcon(R.drawable.twotone_delete_24);
 
                 if (result.isTrash || !result.hasTrash || result.isJunk ||
-                        ids.length <= MAX_PERMANENT_DELETE) // is trash or no trash or is junk
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
-                            .setIcon(R.drawable.twotone_delete_forever_24);
+                        ids.length <= MAX_PERMANENT_DELETE || true) { // is trash or no trash or is junk
+                    SpannableStringBuilder del = new SpannableStringBuilder();
+                    del.append(getString(R.string.title_delete_permanently));
+                    int pos = del.length();
+                    del.append(" (").append(NF.format(MAX_PERMANENT_DELETE)).append("-)");
+                    del.setSpan(new RelativeSizeSpan(0.7f), pos, del.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, del)
+                            .setIcon(R.drawable.twotone_delete_forever_24)
+                            .setEnabled(ids.length <= MAX_PERMANENT_DELETE);
+                }
 
                 if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_raw_send, order++, R.string.title_raw_send)
