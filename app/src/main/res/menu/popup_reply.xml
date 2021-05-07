@@ -2,38 +2,47 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_reply_to_sender"
+        android:icon="@drawable/twotone_reply_24"
         android:title="@string/title_reply_to_sender" />
 
     <item
         android:id="@+id/menu_reply_to_all"
+        android:icon="@drawable/twotone_reply_all_24"
         android:title="@string/title_reply_to_all" />
 
     <item
         android:id="@+id/menu_reply_list"
+        android:icon="@drawable/twotone_reorder_24"
         android:title="@string/title_reply_list" />
 
     <item
         android:id="@+id/menu_reply_receipt"
+        android:icon="@drawable/twotone_playlist_add_check_24"
         android:title="@string/title_reply_receipt" />
 
     <item
         android:id="@+id/menu_reply_hard_bounce"
+        android:icon="@drawable/twotone_call_missed_24"
         android:title="@string/title_reply_hard_bounce" />
 
     <item
         android:id="@+id/menu_forward"
+        android:icon="@drawable/twotone_forward_24"
         android:title="@string/title_forward" />
 
     <item
         android:id="@+id/menu_editasnew"
+        android:icon="@drawable/twotone_edit_24"
         android:title="@string/title_editasnew" />
 
     <item
         android:id="@+id/menu_new_message"
+        android:icon="@drawable/twotone_add_24"
         android:title="@string/title_new_message" />
 
     <item
         android:id="@+id/menu_reply_answer"
+        android:icon="@drawable/twotone_text_snippet_24"
         android:title="@string/title_reply_template">
         <menu />
     </item>

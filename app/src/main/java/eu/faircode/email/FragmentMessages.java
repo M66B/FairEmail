@@ -2511,9 +2511,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     for (EntityAnswer answer : data.answers) {
                         order++;
                         popupMenu.getMenu().add(1, order, order, answer.toString())
+                                .setIcon(R.drawable.twotone_text_snippet_24)
                                 .setIntent(new Intent().putExtra("id", answer.id));
                     }
                 }
+
+                popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
