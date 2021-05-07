@@ -4168,38 +4168,48 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
-                    (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_unseen)
+                    .setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen)
+                    .setIcon(message.ui_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24)
+                    .setEnabled((message.uid != null && !message.folderReadOnly) ||
+                            message.accountProtocol != EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_hide).setTitle(message.ui_snoozed == null ? R.string.title_hide : R.string.title_unhide);
+            popupMenu.getMenu().findItem(R.id.menu_hide)
+                    .setTitle(message.ui_snoozed == null ? R.string.title_hide : R.string.title_unhide)
+                    .setIcon(message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
-            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(
-                    (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_flag_color)
+                    .setEnabled((message.uid != null && !message.folderReadOnly) ||
+                            message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             int i = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
             popupMenu.getMenu().findItem(R.id.menu_set_importance_low).setEnabled(!EntityMessage.PRIORITIY_LOW.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_normal).setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_high).setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(i));
 
-            popupMenu.getMenu().findItem(R.id.menu_move_to).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_move_to).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_move_to)
+                    .setEnabled(message.uid != null && !message.folderReadOnly)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_copy_to).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_copy_to).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_copy_to)
+                    .setEnabled(message.uid != null && !message.folderReadOnly)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_delete).setEnabled(message.uid == null || !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_delete)
+                    .setEnabled(message.uid == null || !message.folderReadOnly)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+
+            popupMenu.getMenu().findItem(R.id.menu_resync)
+                    .setEnabled(message.uid != null)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content && !full);
 
-            popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
-
             popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(!message.folderReadOnly);
 
-            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords)
+                    .setEnabled(message.uid != null && !message.folderReadOnly)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(pin);
@@ -4216,6 +4226,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+
+            popupMenu.insertIcons(context);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
