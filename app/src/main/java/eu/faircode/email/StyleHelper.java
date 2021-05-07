@@ -142,6 +142,8 @@ public class StyleHelper {
                                 return setSize(item);
                             } else if (groupId == R.id.group_style_color) {
                                 return setColor(item);
+                            } else if (groupId == R.id.group_style_font) {
+                                return setFont(item);
                             } else if (groupId == R.id.group_style_align) {
                                 return setAlignment(item);
                             } else if (groupId == R.id.group_style_list) {
@@ -150,8 +152,6 @@ public class StyleHelper {
                                     return setListLevel(item);
                                 else
                                     return setList(item);
-                            } else if (groupId == R.id.group_style_font) {
-                                return setFont(item);
                             } else if (groupId == R.id.group_style_blockquote) {
                                 return setBlockQuote(item);
                             } else if (groupId == R.id.group_style_strikethrough) {

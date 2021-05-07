@@ -32,9 +32,19 @@
     </group>
 
     <item
+        android:id="@+id/menu_style_font"
+        android:icon="@drawable/twotone_title_24"
+        android:orderInCategory="3"
+        android:title="@string/title_style_font">
+        <menu>
+            <group android:id="@+id/group_style_font" />
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/menu_style_align"
         android:icon="@drawable/twotone_format_align_center_24"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         android:title="@string/title_style_align">
         <menu>
             <group android:id="@+id/group_style_align">
@@ -59,7 +69,7 @@
     <item
         android:id="@+id/menu_style_list"
         android:icon="@drawable/twotone_format_list_bulleted_24"
-        android:orderInCategory="4"
+        android:orderInCategory="5"
         android:title="@string/title_style_list">
         <menu>
             <group android:id="@+id/group_style_list">
@@ -80,16 +90,6 @@
                     android:icon="@drawable/twotone_format_indent_decrease_24"
                     android:title="@string/title_style_list_level_decrease" />
             </group>
-        </menu>
-    </item>
-
-    <item
-        android:id="@+id/menu_style_font"
-        android:icon="@drawable/twotone_title_24"
-        android:orderInCategory="5"
-        android:title="@string/title_style_font">
-        <menu>
-            <group android:id="@+id/group_style_font" />
         </menu>
     </item>
 
