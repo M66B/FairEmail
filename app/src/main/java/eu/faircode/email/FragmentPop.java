@@ -73,6 +73,7 @@ public class FragmentPop extends FragmentBase {
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
+    private TextView tvInsecureRemark;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -137,6 +138,7 @@ public class FragmentPop extends FragmentBase {
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
+        tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvCharacters = view.findViewById(R.id.tvCharacters);
@@ -174,6 +176,13 @@ public class FragmentPop extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_ssl ? "995" : "110");
+            }
+        });
+
+        tvInsecureRemark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 4);
             }
         });
 

@@ -121,12 +121,15 @@
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvInsecureRemark"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:drawableEnd="@drawable/twotone_info_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_insecure_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbInsecure" />
 

@@ -94,6 +94,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
+    private TextView tvInsecureRemark;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -192,6 +193,7 @@ public class FragmentIdentity extends FragmentBase {
         etHost = view.findViewById(R.id.etHost);
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
+        tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -426,6 +428,13 @@ public class FragmentIdentity extends FragmentBase {
                     etPort.setHint("25");
                 else
                     etPort.setHint("465");
+            }
+        });
+
+        tvInsecureRemark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 4);
             }
         });
 
