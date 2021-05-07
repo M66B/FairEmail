@@ -25,17 +25,20 @@
 
     <item
         android:id="@+id/menu_set_importance"
-        android:icon="@drawable/twotone_priority_high_24"
+        android:icon="@drawable/baseline_arrow_upward_24"
         android:title="@string/title_set_importance">
         <menu>
             <item
                 android:id="@+id/menu_set_importance_high"
+                android:icon="@drawable/baseline_arrow_upward_24"
                 android:title="@string/title_importance_high" />
             <item
                 android:id="@+id/menu_set_importance_normal"
+                android:icon="@drawable/twotone_horizontal_rule_24"
                 android:title="@string/title_importance_normal" />
             <item
                 android:id="@+id/menu_set_importance_low"
+                android:icon="@drawable/baseline_arrow_downward_24"
                 android:title="@string/title_importance_low" />
         </menu>
     </item>
