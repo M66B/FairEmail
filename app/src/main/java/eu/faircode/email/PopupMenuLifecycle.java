@@ -106,8 +106,14 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
 
         if (icon == null)
             icon = new ColorDrawable(Color.TRANSPARENT);
-        else
-            icon.setTint(Helper.resolveColor(context, R.attr.colorAccent));
+        else {
+            int color = Helper.resolveColor(context, R.attr.colorAccent);
+            icon.setTint(color);
+            if (!menuItem.isEnabled()) {
+                icon.mutate();
+                icon.setAlpha(Math.round(Helper.LOW_LIGHT * 255));
+            }
+        }
 
         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
         icon.setBounds(0, 0, iconSize, iconSize);
