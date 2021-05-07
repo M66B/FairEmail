@@ -115,6 +115,7 @@ public class StyleHelper {
             } else if (action == R.id.menu_style) {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(anchor.getContext(), owner, anchor);
                 popupMenu.inflate(R.menu.popup_style);
+                popupMenu.insertIcons(anchor.getContext());
 
                 String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
                 SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();

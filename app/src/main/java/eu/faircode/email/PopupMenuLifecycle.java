@@ -20,7 +20,14 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -39,6 +46,10 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
         Log.i("Instantiate " + this);
 
         owner.getLifecycle().addObserver(this);
+    }
+
+    public void insertIcons(Context context) {
+        insertIcons(new ContextThemeWrapper(context, R.style.popupMenuStyle), getMenu());
     }
 
     @Override
@@ -71,5 +82,41 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
     public void onDestroy() {
         Log.i("Destroy " + this);
         this.dismiss();
+    }
+
+    private static void insertIcons(Context context, Menu menu) {
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            CharSequence title = item.getTitle();
+            insertIcon(context, item);
+            if (item.hasSubMenu()) {
+                SubMenu sub = item.getSubMenu();
+                sub.setHeaderTitle(title);
+                for (int j = 0; j < sub.size(); j++)
+                    if (sub.getItem(j).getIcon() != null) {
+                        insertIcons(context, sub);
+                        break;
+                    }
+            }
+        }
+    }
+
+    private static void insertIcon(Context context, MenuItem menuItem) {
+        Drawable icon = menuItem.getIcon();
+
+        if (icon == null)
+            icon = new ColorDrawable(Color.TRANSPARENT);
+        else
+            icon.setTint(Helper.resolveColor(context, R.attr.colorAccent));
+
+        int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
+        icon.setBounds(0, 0, iconSize, iconSize);
+        ImageSpan imageSpan = new ImageSpan(icon);
+
+        SpannableStringBuilder ssb = new SpannableStringBuilder(menuItem.getTitle());
+        ssb.insert(0, "\uFFFC\u2003");
+        ssb.setSpan(imageSpan, 0, 1, 0);
+        menuItem.setTitle(ssb);
+        menuItem.setIcon(null);
     }
 }
