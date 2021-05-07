@@ -37,6 +37,7 @@ FairEmail might be for you if you value your privacy.
 * Two way synchronization
 * Push notifications
 * Offline storage and operations
+* Common text style options (size, color, lists, etc)
 * Battery friendly
 * Low data usage
 * Small (< 20 MB)
