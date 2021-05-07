@@ -20,7 +20,7 @@
 
     <item
         android:id="@+id/menu_flag_color"
-        android:icon="@drawable/twotone_stars_24"
+        android:icon="@drawable/twotone_auto_awesome_24"
         android:title="@string/title_flag_color" />
 
     <item

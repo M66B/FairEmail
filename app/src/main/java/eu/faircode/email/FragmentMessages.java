@@ -2880,7 +2880,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .setIcon(R.drawable.twotone_star_border_24);
                 if (result.unflagged || result.flagged)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color)
-                            .setIcon(R.drawable.twotone_stars_24);
+                            .setIcon(R.drawable.twotone_auto_awesome_24);
 
                 SubMenu importance = popupMenu.getMenu()
                         .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance)
