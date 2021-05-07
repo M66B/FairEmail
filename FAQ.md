@@ -469,6 +469,8 @@ You can pin the certificate too, see above.
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
+<br />
+
 *Plain text connection*
 
 Your username and password and all messages will be sent and received unencrypted, which is **very insecure**
