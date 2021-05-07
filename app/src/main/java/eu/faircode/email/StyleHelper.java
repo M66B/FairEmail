@@ -356,8 +356,8 @@ public class StyleHelper {
                         Context context = etBody.getContext();
 
                         int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                        int dp3 = Helper.dp2pixels(context, 3);
-                        int dp6 = Helper.dp2pixels(context, 6);
+                        int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
+                        int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
 
                         Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
                         int s = paragraph.first;
@@ -371,7 +371,7 @@ public class StyleHelper {
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                             q = new QuoteSpan(colorPrimary);
                         else
-                            q = new QuoteSpan(colorPrimary, dp3, dp6);
+                            q = new QuoteSpan(colorPrimary, quoteStripe, quoteGap);
                         edit.setSpan(q, s, e, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
                         etBody.setText(edit);

@@ -5458,8 +5458,8 @@ public class FragmentCompose extends FragmentBase {
                 final boolean show_images = args.getBoolean("show_images", false);
 
                 int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                int dp3 = Helper.dp2pixels(context, 3);
-                int dp6 = Helper.dp2pixels(context, 6);
+                int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
+                int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
 
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
@@ -5485,7 +5485,7 @@ public class FragmentCompose extends FragmentBase {
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                         q = new QuoteSpan(colorPrimary);
                     else
-                        q = new QuoteSpan(colorPrimary, dp3, dp6);
+                        q = new QuoteSpan(colorPrimary, quoteStripe, quoteGap);
                     bodyBuilder.setSpan(q,
                             bodyBuilder.getSpanStart(quoteSpan),
                             bodyBuilder.getSpanEnd(quoteSpan),

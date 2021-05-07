@@ -2040,6 +2040,8 @@ public class HtmlHelper {
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
         int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
         int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
+        int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
+        int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
 
         int message_zoom = prefs.getInt("message_zoom", 100);
         float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
@@ -2307,7 +2309,7 @@ public class HtmlHelper {
                                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                                     setSpan(ssb, new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 else
-                                    setSpan(ssb, new QuoteSpan(colorPrimary, dp3, dp6), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                    setSpan(ssb, new QuoteSpan(colorPrimary, quoteStripe, quoteGap), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 break;
                             case "br":
                                 ssb.append('\n');
