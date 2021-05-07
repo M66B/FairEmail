@@ -68,6 +68,7 @@ import android.text.style.CharacterStyle;
 import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -523,6 +524,14 @@ public class FragmentCompose extends FragmentBase {
         });
 
         setZoom();
+
+        SpannableStringBuilder hint = new SpannableStringBuilder();
+        hint.append(getString(R.string.title_body_hint));
+        hint.append("\n");
+        int pos = hint.length();
+        hint.append(getString(R.string.title_body_hint_style));
+        hint.setSpan(new RelativeSizeSpan(0.7f), pos, hint.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        etBody.setHint(hint);
 
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override

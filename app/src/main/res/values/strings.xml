@@ -1043,6 +1043,7 @@
     <string name="title_subject">Subject:</string>
     <string name="title_attachment">Attachment:</string>
     <string name="title_body_hint">Your message</string>
+    <string name="title_body_hint_style">You can select text to format it</string>
     <string name="title_discard">Discard</string>
     <string name="title_save">Save</string>
     <string name="title_send">Send</string>
