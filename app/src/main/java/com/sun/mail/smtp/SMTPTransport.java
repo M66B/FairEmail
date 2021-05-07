@@ -16,6 +16,8 @@
 
 package com.sun.mail.smtp;
 
+import android.text.TextUtils;
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -863,6 +865,9 @@ public class SMTPTransport extends Transport {
 		    mex = ex;
 	    }
 	}
+
+	if (TextUtils.isEmpty(passwd))
+		return true;
 
 	if (mex != null) {
 	    closeConnection();
