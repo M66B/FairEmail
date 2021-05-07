@@ -534,6 +534,7 @@
     <string name="title_advanced_display_harmful_hint">Disabilitare quest\'opzione potrebbe esser dannoso per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Questo può risultare in testi strani e doppi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
+    <string name="title_advanced_safe_browsing_hint">Il server di Google sa quali indirizzi vengono cercati</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Saranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
@@ -934,6 +935,8 @@
     <string name="title_style_list">Elenco</string>
     <string name="title_style_list_bullets">Elenco Puntato</string>
     <string name="title_style_list_numbered">Elenco Numerato</string>
+    <string name="title_style_list_level_increase" comment="title_style_list_level_increase&#10;Title for menu item to create sub lists&#10;">Aumenta rientro</string>
+    <string name="title_style_list_level_decrease" comment="title_style_list_level_decrease&#10;Title for menu item to create sub lists&#10;">Riduci rientro</string>
     <string name="title_style_font">Carattere</string>
     <string name="title_style_font_default">Predefinito</string>
     <string name="title_style_blockquote">Citazione in blocco</string>
