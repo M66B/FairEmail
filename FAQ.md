@@ -781,7 +781,7 @@ Android only imports the first key, so to import all the keys, the certificate m
 This is not very trivial and you are advised to ask the certificate supplier for support.
 
 Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this.
-S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
+S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
 
 The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time.
 You can long press on the send button to change the encryption method for an identity.
