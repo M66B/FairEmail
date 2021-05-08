@@ -692,7 +692,7 @@ public class FragmentCompose extends FragmentBase {
                         for (ParagraphStyle p : ps) {
                             int start = text.getSpanStart(p);
                             int end = text.getSpanEnd(p);
-                            if (start == removed && end == removed + 1)
+                            if (start >= removed && end <= removed + 1)
                                 text.removeSpan(p);
                         }
 
