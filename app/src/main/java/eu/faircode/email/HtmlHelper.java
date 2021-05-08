@@ -418,6 +418,7 @@ public class HtmlHelper {
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("span", "dir")
+                .addAttributes("li", "dir")
                 .addAttributes("div", "x-plain")
                 .removeTags("col", "colgroup")
                 .removeTags("thead", "tbody", "tfoot")
@@ -975,6 +976,17 @@ public class HtmlHelper {
                 String style = e.attr("style");
                 e.attr("style",
                         mergeStyles(style, "margin-top:0;margin-bottom:0"));
+
+                int ltr = 0;
+                int rtl = 0;
+                for (Element li : e.children()) {
+                    if ("rtl".equals(li.attr("dir")))
+                        rtl++;
+                    else
+                        ltr++;
+                    li.removeAttr("dir");
+                }
+                e.attr("dir", rtl > ltr ? "rtl" : "ltr");
             }
         }
 
