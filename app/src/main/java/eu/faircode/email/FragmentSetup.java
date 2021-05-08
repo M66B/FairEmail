@@ -201,7 +201,7 @@ public class FragmentSetup extends FragmentBase {
                     }
 
                 menu.add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other)
-                        .setIcon(R.drawable.twotone_search_24);
+                        .setIcon(R.drawable.twotone_auto_fix_high_24);
 
                 SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
