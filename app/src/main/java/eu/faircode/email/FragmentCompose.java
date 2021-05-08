@@ -70,6 +70,7 @@ import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.URLSpan;
+import android.util.LogPrinter;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -591,6 +592,14 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable text) {
+                LogPrinter lp = null;
+                if (BuildConfig.DEBUG &&
+                        (added != null || removed != null))
+                    lp = new LogPrinter(android.util.Log.INFO, "FairEmail");
+
+                if (lp != null)
+                    TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "---before>");
+
                 if (added != null)
                     try {
                         // break block quotes
@@ -600,7 +609,7 @@ public class FragmentCompose extends FragmentBase {
                             int s = text.getSpanStart(span);
                             int e = text.getSpanEnd(span);
                             int f = text.getSpanFlags(span) | Spanned.SPAN_PARAGRAPH;
-                            Log.i("Span " + s + "..." + e + " added=" + added);
+                            Log.i(span + " " + s + "..." + e + " added=" + added);
 
                             if (s > 0 && added - s > 0 && e - (added + 1) > 0 &&
                                     text.charAt(s - 1) == '\n' && text.charAt(added - 1) == '\n' &&
@@ -609,11 +618,11 @@ public class FragmentCompose extends FragmentBase {
 
                                 QuoteSpan q1 = StyleHelper.clone(span, QuoteSpan.class, etBody.getContext());
                                 text.setSpan(q1, s, added, f);
-                                Log.i("Span " + s + "..." + added);
+                                Log.i(span + " " + s + "..." + added);
 
                                 QuoteSpan q2 = StyleHelper.clone(span, QuoteSpan.class, etBody.getContext());
                                 text.setSpan(q2, added + 1, e, f);
-                                Log.i("Span " + (added + 1) + "..." + e);
+                                Log.i(span + " " + (added + 1) + "..." + e);
 
                                 text.removeSpan(span);
                             }
@@ -625,16 +634,16 @@ public class FragmentCompose extends FragmentBase {
                                 int s = text.getSpanStart(span);
                                 int e = text.getSpanEnd(span);
                                 int f = text.getSpanFlags(span);
-                                Log.i("Style span " + s + "..." + e + " start=" + added);
+                                Log.i(span + " " + s + "..." + e + " start=" + added);
 
                                 if (s <= added && added + 1 <= e) {
                                     CharacterStyle s1 = CharacterStyle.wrap(span);
                                     text.setSpan(s1, s, added, f);
-                                    Log.i("Style span " + s + "..." + added);
+                                    Log.i(span + " " + s + "..." + added);
 
                                     CharacterStyle s2 = CharacterStyle.wrap(span);
                                     text.setSpan(s2, added + 1, e, f);
-                                    Log.i("Style span " + (added + 1) + "..." + e);
+                                    Log.i(span + " " + (added + 1) + "..." + e);
 
                                     text.removeSpan(span);
                                 }
@@ -649,7 +658,7 @@ public class FragmentCompose extends FragmentBase {
                             int s = text.getSpanStart(span);
                             int e = text.getSpanEnd(span);
                             int f = text.getSpanFlags(span) | Spanned.SPAN_PARAGRAPH;
-                            Log.i("Span " + s + "..." + e + " added=" + added);
+                            Log.i(span + " " + s + "..." + e + " added=" + added);
 
                             if (s > 0 &&
                                     added + 1 > s && e > added + 1 &&
@@ -657,11 +666,11 @@ public class FragmentCompose extends FragmentBase {
                                 if (e - s > 2) {
                                     BulletSpan b1 = StyleHelper.clone(span, span.getClass(), etBody.getContext());
                                     text.setSpan(b1, s, added + 1, f);
-                                    Log.i("Span " + s + "..." + (added + 1));
+                                    Log.i(span + " " + s + "..." + (added + 1));
 
                                     BulletSpan b2 = StyleHelper.clone(b1, span.getClass(), etBody.getContext());
                                     text.setSpan(b2, added + 1, e, f);
-                                    Log.i("Span " + (added + 1) + "..." + e);
+                                    Log.i(span + " " + (added + 1) + "..." + e);
                                 }
 
                                 renum = true;
@@ -691,6 +700,9 @@ public class FragmentCompose extends FragmentBase {
 
                     removed = null;
                 }
+
+                if (lp != null)
+                    TextUtils.dumpSpans(text, lp, "---after>");
             }
         });
 
