@@ -680,7 +680,7 @@ Le chiavi private sono conservate da Android e sono importabili tramite le impos
 
 Nota che i certificati possono contenere più chiavi per più scopi, ad esempio per l'autenticazione, la crittografia e la firma. Android importa solo la prima chiave, quindi per importarle tutte, il certificato dev'esser diviso. Non è molto banale e ti si consiglia di chiedere supporto al fornitore del certificato.
 
-Nota che la firma S/MIME con altri algoritmi oltre RSA è supportata, ma sappi che altri client email potrebbero non supportarla. La crittografia S/MIME è possibile solo con algoritmi simmetrici, il che significa in pratica usando RSA.
+Nota che la firma S/MIME con altri algoritmi oltre RSA è supportata, ma sappi che altri client email potrebbero non supportarla. S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
 
 Il metodo di crittografia predefinito è PGP, ma l'ultimo metodo di crittografia usato sarà ricordato per l'identità selezionata per la volta successiva. Puoi premere a lungo il pulsante di invio per modificare il metodo di crittografia per un'identità. Se usi sia la crittografia PGP che S/MIME per lo stesso indirizzo email, potrebbe essere utile copiare l'identità, così da cambiare il metodo di crittografia selezionandone una delle due. Puoi premere a lungo su un'identità nell'elenco delle identità (tramite configurazione manuale nella schermata principale di configurazione) per copiare un'identità.
 

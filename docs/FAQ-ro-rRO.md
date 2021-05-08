@@ -680,7 +680,7 @@ Cheile private sunt stocate de Android și pot fi importate prin intermediul set
 
 Rețineți că certificatele pot conține mai multe chei pentru mai multe scopuri, de exemplu pentru autentificare, criptare și semnare. Android importă doar prima cheie, astfel încât, pentru a importa toate cheile, certificatul trebuie mai întâi să fie divizat. Acest lucru nu este foarte banal și vă sfătuim să solicitați asistență din partea furnizorului de certificate.
 
-Rețineți că este acceptată semnarea S/MIME  cu alți algoritmi decât RSA, dar rețineți că este posibil ca alți clienți de e-mail să nu accepte acest lucru. Criptarea S/MIME este posibilă numai cu algoritmi simetrici, ceea ce înseamnă, în practică, utilizarea RSA.
+Rețineți că este acceptată semnarea S/MIME  cu alți algoritmi decât RSA, dar rețineți că este posibil ca alți clienți de e-mail să nu accepte acest lucru. S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
 
 Metoda de criptare implicită este PGP, dar ultima metodă de criptare utilizată va fi reținută pentru identitatea selectată pentru următoarea dată. Puteți apăsa lung pe butonul de trimitere pentru a schimba metoda de criptare pentru o identitate. Dacă utilizați atât criptarea PGP, cât și S/MIME pentru aceeași adresă de e-mail, ar putea fi util să copiați identitatea, astfel încât să puteți schimba metoda de criptare prin selectarea uneia dintre cele două identități. Puteți apăsa lung pe o identitate din lista de identități (prin configurare manuală în ecranul principal de configurare) pentru a copia o identitate.
 

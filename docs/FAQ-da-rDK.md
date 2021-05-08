@@ -680,7 +680,7 @@ Private keys are stored by Android and can be imported via the Android advanced 
 
 Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
 
-Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with symmetric algorithms only, which means in practice using RSA.
+Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
 
 The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. Langt tryk på Send-knappen for at ændre en identitets krypteringsmetode. Bruges både PGP- og S/MIME-kryptering for samme e-mailadresse, kan det være nyttigt at kopiere identiteten, så krypteringsmetoden kan ændres ved at vælge en af de to identiteter. Langt tryk på en identitet på identitetslisten (via manuel opsætning i hovedopsætningsskærmen) for at kopiere denne.
 

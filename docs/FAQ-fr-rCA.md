@@ -435,7 +435,7 @@ Vous pouvez également épingler le certificat, voir ci-dessus.
 
 *Mot de passe vide*
 
-Ihr Benutzername ist wahrscheinlich leicht zu erraten, daher ist dieser äußerst unsicher, es sei denn, der SMTP-Server ist nur über ein eingeschränktes lokales Netzwerk oder ein VPN verfügbar.
+Votre nom d'utilisateur peut être facilement deviné, donc c'est assez peu sûr, sauf si le serveur SMTP n'est disponible que via un réseau local restreint ou un VPN.
 
 *Connexion en clair*
 
@@ -680,7 +680,7 @@ Les clés privées sont stockées par Android et peuvent être importées via le
 
 Notez que les certificats peuvent contenir plusieurs clés à des fins multiples, par exemple pour l'authentification, le chiffrement et la signature. Android importe seulement la première clé, afin d'importer toutes les clés, le certificat doit d'abord être divisé. Ce n'est pas très trivial et il est conseillé de demander l'aide du fournisseur de certificats.
 
-Notez que la signature S/MIME avec d'autres algorithmes que RSA est prise en charge, mais soyez conscient que d'autres clients de messagerie pourraient ne pas la prendre en charge. L'encryptage S/MIME n'est possible uniquement qu'avec des algorithmes symétriques, ce qui signifie dans la pratique l'utilisation de RSA.
+Notez que la signature S/MIME avec d'autres algorithmes que RSA est prise en charge, mais soyez conscient que d'autres clients de messagerie pourraient ne pas la prendre en charge. Le chiffrement S/MIME n'est possible qu'avec des algorithmes symétriques ce qui signifie dans la pratique, l'utilisation de RSA.
 
 La méthode de cryptage par défaut est PGP, mais la dernière méthode de cryptage utilisée sera mémorisée pour l'identité sélectionnée pour la prochaine fois. Vous pouvez appuyer longuement sur le bouton Envoyer pour modifier la méthode de chiffrement pour une identité. Si vous utilisez à la fois le chiffrement PGP et S/MIME pour la même adresse e-mail, il peut être utile de copier l'identité afin que vous puissiez changer la méthode de chiffrement en sélectionnant l'une des deux identités. Vous pouvez appuyer longuement sur une identité dans la liste des identités (via la configuration manuelle dans l'écran principal de configuration) pour copier une identité.
 
