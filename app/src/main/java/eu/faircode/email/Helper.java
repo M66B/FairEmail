@@ -739,6 +739,10 @@ public class Helper {
                 return "de-rDE";
             case "fr":
                 return "fr-rFR";
+            case "it":
+                return "it-rIT";
+            case "ro":
+                return "ro-rRO";
             default:
                 return null;
         }
