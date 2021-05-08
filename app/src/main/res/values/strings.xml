@@ -176,7 +176,7 @@
     <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
     <string name="title_setup_accounts">Accounts</string>
     <string name="title_setup_identities">Identities</string>
-    <string name="title_setup_gmail" translatable="false">Gmail (OAuth)</string>
+    <string name="title_setup_gmail" translatable="false">Gmail</string>
     <string name="title_setup_oauth" translatable="false">%1$s (OAuth)</string>
     <string name="title_setup_other">Other provider</string>
     <string name="title_setup_pop3">POP3 account</string>
