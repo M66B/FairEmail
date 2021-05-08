@@ -5213,17 +5213,20 @@ public class FragmentCompose extends FragmentBase {
             Log.i("Loaded action id=" + draft.id +
                     " action=" + getActionName(action) + " encryption=" + needsEncryption);
 
-            int[] toPos = new int[]{etTo.getSelectionStart(), etTo.getSelectionEnd()};
-            int[] ccPos = new int[]{etCc.getSelectionStart(), etCc.getSelectionEnd()};
-            int[] bccPos = new int[]{etBcc.getSelectionStart(), etBcc.getSelectionEnd()};
+            int toPos = etTo.getSelectionStart();
+            int ccPos = etCc.getSelectionStart();
+            int bccPos = etBcc.getSelectionStart();
 
             etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
             etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
-            etTo.setSelection(toPos[0], toPos[1]);
-            etCc.setSelection(ccPos[0], ccPos[1]);
-            etBcc.setSelection(bccPos[0], bccPos[1]);
+            if (toPos >= 0 && toPos <= etTo.getText().length())
+                etTo.setSelection(toPos);
+            if (ccPos >= 0 && ccPos <= etCc.getText().length())
+                etCc.setSelection(ccPos);
+            if (bccPos >= 0 && bccPos <= etBcc.getText().length())
+                etBcc.setSelection(bccPos);
 
             Bundle extras = args.getBundle("extras");
             boolean show = extras.getBoolean("show");
