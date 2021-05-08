@@ -181,15 +181,8 @@ public class FragmentSetup extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), btnQuick);
                 Menu menu = popupMenu.getMenu();
 
-                // Product icons https://about.google/brand-resource-center/brand-elements/
-                // You may use small depictions of our Google product icons for educational or informational purposes
-                // to indicate that your product or service integrates with, is designed for, or is related to a Google product or service
-                // – but you can’t imply affiliation with or endorsement from Google.
-                // https://commons.wikimedia.org/wiki/File:Google_%22G%22_Logo.svg
-
                 int order = 1;
-                menu.add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail)
-                        .setIcon(R.drawable.provider_google);
+                menu.add(Menu.NONE, R.string.title_setup_gmail, order++, R.string.title_setup_gmail);
 
                 for (EmailProvider provider : EmailProvider.loadProfiles(context))
                     if (provider.oauth != null &&
