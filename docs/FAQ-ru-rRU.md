@@ -435,7 +435,7 @@ Android показывает значки уведомлений в строке
 
 *Пустой пароль*
 
-Вероятно, ваше имя пользователя легкое, так что это небезопасно.
+Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
 *Обычное текстовое соединение*
 

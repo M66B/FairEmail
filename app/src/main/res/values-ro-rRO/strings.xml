@@ -919,6 +919,7 @@
     <string name="title_subject">Subiect:</string>
     <string name="title_attachment">Atașament:</string>
     <string name="title_body_hint">Mesajul dumneavoastră</string>
+    <string name="title_body_hint_style">Puteți selecta textul pentru a-l formata</string>
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
@@ -946,8 +947,8 @@
     <string name="title_style_list">Listă</string>
     <string name="title_style_list_bullets">Buline</string>
     <string name="title_style_list_numbered">Numere</string>
-    <string name="title_style_list_level_increase" comment="title_style_list_level_increase&#10;Title for menu item to create sub lists&#10;">Creșteți indentarea</string>
-    <string name="title_style_list_level_decrease" comment="title_style_list_level_decrease&#10;Title for menu item to create sub lists&#10;">Reduceți indentarea</string>
+    <string name="title_style_list_level_increase">Creșteți indentarea</string>
+    <string name="title_style_list_level_decrease">Reduceți indentarea</string>
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Implicit</string>
     <string name="title_style_blockquote">Bloc citat</string>

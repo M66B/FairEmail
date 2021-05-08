@@ -435,7 +435,7 @@ You can pin the certificate too, see above.
 
 *Empty password*
 
-Your username is likely easily guessed, so this is insecure.
+Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
 *Plain text connection*
 

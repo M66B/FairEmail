@@ -122,7 +122,7 @@
     <string name="title_setup_quick">Configurazione rapida</string>
     <string name="title_setup_intro">Configurare un profilo richiede solo tre fasi e, poi, puoi inviare e ricevere email</string>
     <string name="title_setup_simple">Non serve cambiare altre opzioni</string>
-    <string name="title_setup_quick_accounts">Aggiungi o cambia account</string>
+    <string name="title_setup_quick_accounts">Aggiungi o cambia profili</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un profilo. Sei pregato di non incolpare FairEmail per questo, ma piuttosto di chiedere supporto.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere i messaggi</string>
@@ -168,7 +168,7 @@
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email in modo affidabile</string>
-    <string name="title_setup_doze_hint">Sebbene possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per questa app risulterà in un minore uso della batteria</string>
+    <string name="title_setup_doze_hint">Sebbene questo possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per quest\'app risulterà in un minore uso della batteria</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
@@ -288,8 +288,8 @@
     <string name="title_advanced_download">Scarica automaticamente messaggi e allegati su una connessione a consumo fino a</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati in roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
-    <string name="title_advanced_download_headers">Scarica tutte le intestazioni di messaggio</string>
-    <string name="title_advanced_download_eml">Scarica i file di messaggio grezzi</string>
+    <string name="title_advanced_download_headers">Scarica tutte le intestazioni del messaggio</string>
+    <string name="title_advanced_download_eml">Scarica i file dei messaggi non elaborati</string>
     <string name="title_advanced_validated">Richiede una connessione convalidata (verificata)</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
@@ -437,7 +437,7 @@
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare gli screenshot</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Timeout dell\'autenticazione biometrica</string>
-    <string name="title_advanced_disconnect_auto_update">Aggiorna automaticamente le liste settimanalmente</string>
+    <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
     <string name="title_advanced_sign_default">Firma di default</string>
@@ -500,7 +500,7 @@
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitare quest\'opzione disabiliterà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi che non ci sia roaming nell\'UE</string>
-    <string name="title_advanced_usage_hint">Questo aumenterà l\'utilizzo della batteria, dei dati e dello spazio di archiviazione</string>
+    <string name="title_advanced_usage_hint">Questo aumenterà l\'uso di batteria, dati e spazio d\'archiviazione</string>
     <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi</string>
     <string name="title_advanced_validate_hint">Questo può risultare nel non sincronizzare i messaggi, ad esempio usando una VPN, ma anche altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
@@ -530,11 +530,11 @@
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">Gran parte dei provider non consentono gli indirizzi modificati del mittente</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma aggiunto all\'invio</string>
-    <string name="title_advanced_internal_hint">Ci sarà un avviso quando si invia a un altro dominio</string>
+    <string name="title_advanced_internal_hint">Ci sarà un avviso inviando a un altro dominio</string>
     <string name="title_advanced_display_harmful_hint">Disabilitare quest\'opzione potrebbe esser dannoso per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Questo può risultare in testi strani e doppi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
-    <string name="title_advanced_safe_browsing_hint">Il server di Google sa quali indirizzi vengono cercati</string>
+    <string name="title_advanced_safe_browsing_hint">Il server di Google sa quali indirizzi sono cercati</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Saranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
@@ -568,7 +568,7 @@
     <string name="title_advanced_sender_name">Usa il nome quando l\'indirizzo del mittente è modificato</string>
     <string name="title_advanced_sender_regex">Regex per abbinare il nome utente degli indirizzi email in arrivo</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
-    <string name="title_identity_internal">Nomi di dominio interni (separati da virgola)</string>
+    <string name="title_identity_internal">Nomi di dominio interni (separati da virgole)</string>
     <string name="title_identity_unicode">Usa il trasporto Unicode</string>
     <string name="title_identity_unicode_remark">Gran parte dei server non lo supportano</string>
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
@@ -703,8 +703,8 @@
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
-    <string name="title_op_title_headers">Scaricamento delle intestazioni</string>
-    <string name="title_op_title_raw">Scaricamento messaggio grezzo</string>
+    <string name="title_op_title_headers">Scaricando le intestazioni</string>
+    <string name="title_op_title_raw">Scaricando il messaggio non elaborato</string>
     <string name="title_folder_name">Nome della cartella</string>
     <string name="title_display_name">Nome mostrato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
@@ -767,7 +767,7 @@
     <string name="title_toggle_seen">Attiva/disattiva lettura</string>
     <string name="title_hide">Nascondi</string>
     <string name="title_unhide">Mostra</string>
-    <string name="title_toggle_hide">Mostra/nascondi</string>
+    <string name="title_toggle_hide">Mostra/Nascondi</string>
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_flag_color">Stella colorata&#8230;</string>
     <string name="title_unflag">Rimuovi stella</string>
@@ -823,7 +823,7 @@
     <string name="title_move_to_account">Sposta in %1$s &#8230;</string>
     <string name="title_report_spam">Tratta come spam</string>
     <string name="title_delete_permanently">Elimina permanentemente</string>
-    <string name="title_no_undo">Questo non può essere annullato!</string>
+    <string name="title_no_undo">Questo non è annullabile!</string>
     <string name="title_snooze">Posticipa &#8230;</string>
     <string name="title_archive">Archivia</string>
     <string name="title_reply">Risposta</string>
@@ -908,6 +908,7 @@
     <string name="title_subject">Oggetto:</string>
     <string name="title_attachment">Allegato:</string>
     <string name="title_body_hint">Il tuo messaggio</string>
+    <string name="title_body_hint_style">Puoi selezionare il testo per formattarlo</string>
     <string name="title_discard">Scarta</string>
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
@@ -935,8 +936,8 @@
     <string name="title_style_list">Elenco</string>
     <string name="title_style_list_bullets">Elenco Puntato</string>
     <string name="title_style_list_numbered">Elenco Numerato</string>
-    <string name="title_style_list_level_increase" comment="title_style_list_level_increase&#10;Title for menu item to create sub lists&#10;">Aumenta rientro</string>
-    <string name="title_style_list_level_decrease" comment="title_style_list_level_decrease&#10;Title for menu item to create sub lists&#10;">Riduci rientro</string>
+    <string name="title_style_list_level_increase">Aumenta il rientro</string>
+    <string name="title_style_list_level_decrease">Riduci il rientro</string>
     <string name="title_style_font">Carattere</string>
     <string name="title_style_font_default">Predefinito</string>
     <string name="title_style_blockquote">Citazione in blocco</string>
@@ -982,7 +983,7 @@
     <string name="title_smime_reminder">Chiavi S/MIME disponibili</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_extra_missing">Nome utente mancante</string>
-    <string name="title_external_reminder">Invio in corso a un indirizzo esterno</string>
+    <string name="title_external_reminder">Inviando a un indirizzo esterno</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Messaggio vuoto</string>
     <string name="title_attachment_keywords">allegato,allegati,incluso,inclusi</string>

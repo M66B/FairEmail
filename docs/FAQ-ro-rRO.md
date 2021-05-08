@@ -435,7 +435,7 @@ Puteți să fixați și certificatul, a se vedea mai sus.
 
 *Parolă goală*
 
-Numele dvs. de utilizator este probabil ușor de ghicit, deci acest lucru este nesigur.
+Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
 *Conexiune în text simplu*
 

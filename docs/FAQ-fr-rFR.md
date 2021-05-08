@@ -435,7 +435,7 @@ Vous pouvez également épingler le certificat, voir ci-dessus.
 
 *Mot de passe vide*
 
-Votre nom d'utilisateur est probablement facile à deviner, donc ce n'est pas sécurisé.
+Ihr Benutzername ist wahrscheinlich leicht zu erraten, daher ist dieser äußerst unsicher, es sei denn, der SMTP-Server ist nur über ein eingeschränktes lokales Netzwerk oder ein VPN verfügbar.
 
 *Connexion en clair*
 
@@ -1809,7 +1809,7 @@ Beaucoup de connaissances et d'expérience sont nécessaires pour développer av
 <a name="faq76"></a>
 **(76) Que fait 'Effacer les messages locaux' ?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+Le menu dossiers *Effacer les messages locaux* supprime les messages de l'appareil qui sont présents sur le serveur. Il ne supprime pas les messages du serveur. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
 
 <br />
 

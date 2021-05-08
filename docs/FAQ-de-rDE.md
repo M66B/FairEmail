@@ -435,7 +435,7 @@ Sie können das Zertifikat auch anpinnen, siehe oben.
 
 *Leeres Passwort*
 
-Ihr Benutzername ist möglicherweise leicht zu erraten, daher ist das unsicher.
+Ihr Benutzername ist wahrscheinlich leicht zu erraten, daher ist dieser äußerst unsicher, es sei denn, der SMTP-Server ist nur über ein eingeschränktes lokales Netzwerk oder ein VPN verfügbar.
 
 *Klartextverbindung*
 
@@ -1138,7 +1138,7 @@ Es stehen Schnelleinstellungen (im Einstellungs-Menü) zur Verfügung:
 * global die Synchronisierung aktivieren/deaktivieren
 * zeige die Anzahl neuer Nachrichten und markiere sie als gesehen (nicht gelesen)
 
-Schnelleinstellungen erfordern Android 7.0 Nougat oder höher. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Schnelleinstellungen erfordern Android 7.0 Nougat oder höher. Die Verwendung von Schnelleinstellungen wird hier [erklärt](https://support.google.com/android/answer/9083864).
 
 <br />
 

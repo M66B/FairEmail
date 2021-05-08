@@ -906,6 +906,7 @@
     <string name="title_subject">Θέμα:</string>
     <string name="title_attachment">Συνημμένο:</string>
     <string name="title_body_hint">Το μήνυμά σας</string>
+    <string name="title_body_hint_style">Μπορείτε να επιλέξετε κείμενο για να το μορφοποιήσετε</string>
     <string name="title_discard">Απόρριψη</string>
     <string name="title_save">Αποθήκευση</string>
     <string name="title_send">Αποστολή</string>
@@ -933,8 +934,8 @@
     <string name="title_style_list">Λίστα</string>
     <string name="title_style_list_bullets">Κουκκίδες</string>
     <string name="title_style_list_numbered">Αρίθμηση</string>
-    <string name="title_style_list_level_increase" comment="title_style_list_level_increase&#10;Title for menu item to create sub lists&#10;">Αύξηση εσοχής</string>
-    <string name="title_style_list_level_decrease" comment="title_style_list_level_decrease&#10;Title for menu item to create sub lists&#10;">Μείωση εσοχής</string>
+    <string name="title_style_list_level_increase">Αύξηση εσοχής</string>
+    <string name="title_style_list_level_decrease">Μείωση εσοχής</string>
     <string name="title_style_font">Γραμματοσειρά</string>
     <string name="title_style_font_default">Προεπιλογή</string>
     <string name="title_style_blockquote">Παράθεμα με εσοχή</string>
