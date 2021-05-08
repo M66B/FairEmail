@@ -1809,20 +1809,20 @@ Beaucoup de connaissances et d'expérience sont nécessaires pour développer av
 <a name="faq76"></a>
 **(76) Que fait 'Effacer les messages locaux' ?**
 
-Le menu dossiers *Effacer les messages locaux* supprime les messages de l'appareil qui sont présents sur le serveur. Il ne supprime pas les messages du serveur. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+Le menu dossiers *Effacer les messages locaux* supprime les messages de l'appareil qui sont présents sur le serveur. Il ne supprime pas les messages du serveur. Cela peut être utile après avoir modifié les paramètres du dossier pour ne pas télécharger le contenu du message (texte et pièces jointes), par exemple pour économiser de l'espace.
 
 <br />
 
 <a name="faq77"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Pourquoi les messages sont-ils parfois affichés avec un petit retard ?**
 
-Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+Selon la vitesse de votre appareil (vitesse du processeur et probablement surtout la vitesse de la mémoire) des messages peuvent s'afficher avec un petit délai. FairEmail est conçu pour gérer dynamiquement un grand nombre de messages sans epuiser la totalité de la mémoire. Cela signifie que les messages doivent être lus depuis une base de données et que cette base de données doit être surveillée pour des modifications. toutes deux peuvent entraîner de petits retards.
 
-Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Certaines fonctionnalités pratiques comme le regroupement des messages pour afficher les fils de conversation et déterminer le message précédent/suivant, prennent un peu plus de temps. Notez qu'il n'y a pas *le* message suivant car entre-temps un nouveau message pourrait être arrivé.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+Lorsque vous comparez la vitesse de FairEmail avec des applications similaires, cela devrait faire partie de la comparaison. Il est facile d'écrire une application similaire et plus rapide qui affiche simplement une liste de messages, probablement en utilisant trop de mémoire, mais il n'est pas si facile de gérer correctement l'utilisation des ressources et d'offrir des fonctionnalités plus avancées comme les fils de conversations.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
+FairEmail est basé sur les [composants d'architecture Android dernier cri](https://developer.android.com/topic/libraries/architecture/), donc il y a peu de place pour des améliorations de performance.
 
 <br />
 
