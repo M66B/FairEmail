@@ -32,8 +32,10 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,6 +54,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
+
+import java.util.Objects;
 
 public class ActivitySignature extends ActivityBase {
     private ViewGroup view;
@@ -130,6 +134,43 @@ public class ActivitySignature extends ActivityBase {
                 return false;
             }
         });
+
+        addKeyPressedListener(new IKeyPressedListener() {
+            @Override
+            public boolean onKeyPressed(KeyEvent event) {
+                return false;
+            }
+
+            @Override
+            public boolean onBackPressed() {
+                String prev = getIntent().getStringExtra("html");
+                String current = getHtml();
+                boolean dirty = !Objects.equals(prev, current) &&
+                        !(TextUtils.isEmpty(prev) && TextUtils.isEmpty(current));
+
+                if (dirty)
+                    new AlertDialog.Builder(ActivitySignature.this)
+                            .setTitle(R.string.title_ask_save)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    save();
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            })
+                            .show();
+                else
+                    finish();
+
+                return true;
+            }
+        }, this);
 
         if (savedInstanceState != null)
             etText.setRaw(savedInstanceState.getBoolean("fair:raw"));
