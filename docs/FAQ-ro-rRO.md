@@ -2,17 +2,17 @@
 
 # Asistență FairEmail
 
-Dacă aveți o întrebare, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Dacă aveți o nelămurire, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [În partea de jos](#user-content-get-support), puteți afla cum să puneți alte întrebări, să solicitați caracteristici și să raportați erori.
 
-Dacă aveți o întrebare, vă rugăm să consultați mai întâi întrebările frecvente (FAQ) de mai jos. [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Dacă aveți o problemă, vă rugăm să consultați mai întâi întrebările frecvente (FAQ) de mai jos. [În partea de jos veți afla](#user-content-get-support), cum să puneți mai multe întrebări, să solicitați caracteristici și să raportați erori.
 
 ## Index
 
 * [Autorizarea conturilor](#user-content-authorizing-accounts)
 * [Cum să...?](#user-content-howto)
 * [Probleme cunoscute](#user-content-known-problems)
-* [Funcții planificate](#user-content-planned-features)
-* [Funcții solicitate frecvent](#user-content-frequently-requested-features)
+* [Funcțiile planificate](#user-content-planned-features)
+* [Funcțiile solicitate frecvent](#user-content-frequently-requested-features)
 * [Întrebări puse frecvent](#user-content-frequently-asked-questions)
 * [Obțineți asistență](#user-content-get-support)
 
@@ -49,7 +49,7 @@ Vă rugăm să consultați [aici](#user-content-faq22) pentru mesaje de eroare c
 
 * Schimbați numele contului: Setări, apăsați Configurare manuală, apăsați Conturi, apăsați cont
 * Modificați ținta de glisare stânga/dreapta: Setări, pagina de tabulare Comportament, Setați acțiunile de glisare
-* Schimbarea parolei: Setări, apăsați Configurare manuală, apăsați Conturi, apăsați Cont, apăsați Cont, schimbați parola
+* Schimbarea parolei: Setări, apăsați Configurare manuală, apăsați Conturi, apăsați Conturi, apăsați Cont, schimbați parola
 * Setați o semnătură: Setări, apăsați Configurare manuală, apăsați Identități, apăsați Identitate, Editați semnătura.
 * Adăugați adrese CC și BCC: apăsați pe pictograma persoanelor de la sfârșitul subiectului
 * Treceți la mesajul următor/precedent la arhivare/eliminare: în setările de comportament dezactivați *Închideți automat conversațiile* și selectați *Mergeți la conversația următoare/precedentă* pentru *La închiderea unei conversații*
@@ -64,7 +64,7 @@ Vă rugăm să consultați [aici](#user-content-faq22) pentru mesaje de eroare c
 * Schimbați dosarele de sistem: Setări, apăsați pe Configurare manuală, apăsați pe Conturi, apăsați pe Cont, în partea de jos
 * Setări de export/import: Setări, meniul de navigare (partea stângă)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Probleme cunoscute</h2>
 
 * ~~A [bug în Android 5.1 și 6](https://issuetracker.google.com/issues/37054851) face ca aplicațiile să afișeze uneori un format de timp greșit. Comutând setarea Android *Folosiți formatul 24 de ore* ar putea rezolva temporar problema. O soluție a fost adăugată.~~
 * ~~Un [bug în Google Drive](https://issuetracker.google.com/issues/126362828) face ca fișierele exportate în Google Drive să fie goale. Google a rezolvat acest lucru.~~
@@ -435,7 +435,7 @@ Puteți să fixați și certificatul, a se vedea mai sus.
 
 *Parolă goală*
 
-Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
+Numele dvs. de utilizator este probabil ușor de ghicit, așa că acest lucru este destul de nesigur, cu excepția cazului în care serverul SMTP este disponibil doar prin intermediul unei rețele locale restricționate sau al unui VPN.
 
 *Conexiune în text simplu*
 
@@ -680,7 +680,7 @@ Cheile private sunt stocate de Android și pot fi importate prin intermediul set
 
 Rețineți că certificatele pot conține mai multe chei pentru mai multe scopuri, de exemplu pentru autentificare, criptare și semnare. Android importă doar prima cheie, astfel încât, pentru a importa toate cheile, certificatul trebuie mai întâi să fie divizat. Acest lucru nu este foarte banal și vă sfătuim să solicitați asistență din partea furnizorului de certificate.
 
-Rețineți că este acceptată semnarea S/MIME  cu alți algoritmi decât RSA, dar rețineți că este posibil ca alți clienți de e-mail să nu accepte acest lucru. S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
+Rețineți că este acceptată semnarea S/MIME  cu alți algoritmi decât RSA, dar rețineți că este posibil ca alți clienți de e-mail să nu accepte acest lucru. Criptarea S/MIME este posibilă numai cu algoritmi asimetrici, ceea ce înseamnă, în practică, utilizarea RSA.
 
 Metoda de criptare implicită este PGP, dar ultima metodă de criptare utilizată va fi reținută pentru identitatea selectată pentru următoarea dată. Puteți apăsa lung pe butonul de trimitere pentru a schimba metoda de criptare pentru o identitate. Dacă utilizați atât criptarea PGP, cât și S/MIME pentru aceeași adresă de e-mail, ar putea fi util să copiați identitatea, astfel încât să puteți schimba metoda de criptare prin selectarea uneia dintre cele două identități. Puteți apăsa lung pe o identitate din lista de identități (prin configurare manuală în ecranul principal de configurare) pentru a copia o identitate.
 
@@ -1921,57 +1921,57 @@ Probabil că veți dori să dezactivați și [browse on server](#user-content-fa
 <br />
 
 <a name="faq81"></a>
-**~~(81) Can you make the background of the original message dark in the dark theme?~~**
+**~~(81) Puteți face fundalul mesajului original întunecat în tema întunecată?~~**
 
-~~The original message is shown as the sender has sent it, including all colors.~~ ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
+~~ Mesajul original este afișat așa cum l-a trimis expeditorul, inclusiv toate culorile.~~ ~~Modificarea culorii de fundal nu numai că ar face ca vizualizarea originală să nu mai fie originală, dar poate duce și la mesaje ilizibile.~~
 
 <br />
 
 <a name="faq82"></a>
-**(82) What is a tracking image?**
+**(82) Ce este o imagine de urmărire?**
 
-Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
+Vă rugăm să consultați [aici](https://en.wikipedia.org/wiki/Web_beacon) despre ce este exact o imagine de urmărire. Pe scurt, imaginile de urmărire urmăresc dacă ați deschis un mesaj.
 
-FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+În majoritatea cazurilor, FairEmail va recunoaște automat imaginile de urmărire și le va înlocui cu această pictogramă:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Imagine externă](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+Recunoașterea automată a imaginilor de urmărire poate fi dezactivată în setările de confidențialitate.
 
 <br />
 
 <a name="faq84"></a>
-**(84) What are local contacts for?**
+**(84) Pentru ce sunt contactele locale?**
 
-Local contact information is based on names and addresses found in incoming and outgoing messages.
+Informațiile de contact locale se bazează pe numele și adresele găsite în mesajele primite și trimise.
 
-The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
+Principala utilizare a stocării contactelor locale este de a oferi autocompletare atunci când FairEmail nu a primit permisiunea pentru contacte.
 
-Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people. This is also why the number of times contacted and the last time contacted is being recorded and why you can make a contact a favorite or exclude it from favorites by long pressing it.
+O altă utilizare este aceea de a genera [shortcut-uri](#user-content-faq31) pe versiunile recente de Android pentru a trimite rapid un mesaj către persoanele contactate frecvent. Acesta este și motivul pentru care se înregistrează numărul de contacte și ultima dată când a fost contactat. și de ce puteți face dintr-un contact un favorit sau îl puteți exclude din favorite prin apăsarea lungă a acestuia.
 
-The list of contacts is sorted on number of times contacted and the last time contacted.
+Lista de contacte este sortată în funcție de numărul de contacte și de ultima dată când a fost contactată.
 
-By default only names and addresses to whom you send messages to will be recorded. You can change this in the send settings.
+În mod implicit, vor fi înregistrate doar numele și adresele celor cărora le trimiteți mesaje. Puteți modifica acest lucru în setările de trimitere.
 
 <br />
 
 <a name="faq85"></a>
-**(85) Why is an identity not available?**
+**(85) De ce nu este disponibilă o identitate?**
 
-An identity is available for sending a new message or replying or forwarding an existing message only if:
+O identitate este disponibilă pentru a trimite un mesaj nou sau pentru a răspunde sau a redirecționa un mesaj existent numai dacă:
 
 * identitatea este setată pentru sincronizare (trimiterea de mesaje)
 * contul asociat este setat să se sincronizeze (să primească mesaje)
 * contul asociat are un dosar de ciorne
 
-FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
+FairEmail va încerca să selecteze cea mai bună identitate pe baza adresei *to* a mesajului la care s-a răspuns / care este redirecționat.
 
 <br />
 
 <a name="faq86"></a>
-**~~(86) What are 'extra privacy features'?~~**
+**~~~(86) Ce sunt 'caracteristici suplimentare de confidențialitate'?~~**
 
-~~The advanced option *extra privacy features* enables:~~
+~~Opțiunea avansată *funcții suplimentare de confidențialitate* permite:~~
 
 * ~~ Căutarea proprietarului adresei IP a unui link ~~
 * ~~Detectarea și eliminarea [imaginilor de urmărire](#user-content-faq82)~~
@@ -1979,32 +1979,32 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq87"></a>
-**(87) What does 'invalid credentials' mean?**
+**(87) Ce înseamnă 'acreditări invalide'?**
 
-The error message *invalid credentials* means either that the user name and/or password is incorrect, for example because the password was changed or expired, or that the account authorization has expired.
+Mesajul de eroare *credințe invalide* înseamnă fie că numele de utilizator și/sau parola sunt incorecte, de exemplu, pentru că parola a fost schimbată sau a expirat, fie că autorizația contului a expirat.
 
-If the password is incorrect/expired, you will have to update the password in the account and/or identity settings.
+Dacă parola este incorectă/expirată, va trebui să o actualizați în setările contului și/sau ale identității.
 
-If the account authorization has expired, you will have to select the account again. You will likely need to save the associated identity again as well.
+În cazul în care autorizația contului a expirat, va trebui să selectați din nou contul. Probabil că va trebui, de asemenea, să salvați din nou identitatea asociată.
 
 <br />
 
 <a name="faq88"></a>
-**(88) How can I use a Yahoo, AOL or Sky account?**
+**(88) Cum pot folosi un cont Yahoo, AOL sau Sky?**
 
-The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
+Modalitatea preferată de a configura un cont Yahoo este utilizarea asistentului de configurare rapidă, care va folosi OAuth în loc de parolă și, prin urmare, este mai sigur (și mai ușor).
 
-To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
+Pentru a autoriza un cont Yahoo, AOL sau Sky, va trebui să creați o parolă pentru aplicație. Pentru instrucțiuni, vă rugăm să consultați aici:
 
 * [pentru Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [pentru AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [pentru Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (sub *Alte aplicații de e-mail*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Vă rugăm să consultați [acest FAQ](#user-content-faq111) despre suportul OAuth.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+Rețineți că Yahoo, AOL și Sky nu acceptă mesaje push standard. Aplicația de e-mail Yahoo utilizează un protocol proprietar, nedocumentat, pentru mesajele push.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+Mesajele Push necesită [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE), iar serverul de e-mail Yahoo nu raportează IDLE ca fiind capabil:
 
 ```
 CAPACITATEA Y1
@@ -2015,36 +2015,36 @@ Y1 OK CAPABILITY finalizat
 <br />
 
 <a name="faq89"></a>
-**(89) How can I send plain text only messages?**
+**(89) Cum pot trimite mesaje doar în text simplu?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+În mod implicit, FairEmail trimite fiecare mesaj atât sub formă de text simplu, cât și sub formă de text formatat HTML, deoarece aproape toți destinatarii se așteaptă la mesaje formatate în zilele noastre. Dacă doriți/necesitați să trimiteți numai mesaje text simplu, puteți activa acest lucru în opțiunile avansate de identitate. Este posibil să doriți să creați o nouă identitate pentru acest lucru dacă doriți/trebuie să selectați trimiterea de mesaje text simplu de la caz la caz.
 
 <br />
 
 <a name="faq90"></a>
-**(90) Why are some texts linked while not being a link?**
+**(90) De ce unele texte sunt legate, dar nu sunt o legătură?**
 
-FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
+FairEmail va lega automat legăturile web nelegate (http și https) și adresele de e-mail nelegate (mailto) pentru confortul dumneavoastră. Cu toate acestea, textele și legăturile nu sunt ușor de distins, mai ales când multe [domenii de nivel superior](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) sunt cuvinte. Acesta este motivul pentru care textele cu puncte sunt uneori recunoscute incorect ca fiind linkuri, ceea ce este mai bine decât să nu recunoaștem unele linkuri.
 
-Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+Vor fi recunoscute și legăturile pentru protocoalele tel, geo, rtsp și xmpp, dar nu vor fi recunoscute linkurile pentru protocoale mai puțin obișnuite sau mai puțin sigure, cum ar fi telnet și ftp. Regexul de a recunoaşte link-urile este deja *foarte* complex şi adăugarea mai multor protocoale va face ca acesta să fie doar mai lent şi posibil să cauzeze erori.
 
-Note that original messages are shown exactly as they are, which means also that links are not automatically added.
+Rețineți că mesajele originale sunt afișate exact așa cum sunt, ceea ce înseamnă, de asemenea, că legăturile nu sunt adăugate automat.
 
 <br />
 
 <a name="faq91"></a>
-**~~(91) Can you add periodical synchronization to save battery power?~~**
+**~~~(91) Puteți adăuga sincronizarea periodică pentru a economisi energia bateriei?~~**
 
-~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
+~~Sincronizarea mesajelor este un proces costisitor deoarece mesajele locale și cele de la distanță trebuie comparate,~~ ~~ deci sincronizarea periodică a mesajelor nu va duce la economisirea energiei bateriei, ci dimpotrivă.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~Vezi [această Întrebări frecvente](#user-content-faq39) despre optimizarea utilizării bateriei~~
 
 <br />
 
 <a name="faq92"></a>
-**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
+**(92) Puteți adăuga filtrarea spam-ului, verificarea semnăturii DKIM și autorizarea SPF?**
 
-Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. În general, serverele au mai multă memorie și putere de calcul, așa că sunt mult mai potrivite pentru această misiune decât dispozitivele alimentate cu baterii. De asemenea, veți dori ca spamul să fie filtrat pentru toți clienții de e-mail, inclusiv pentru e-mailurile web, nu doar pentru un singur client de e-mail. În plus, serverele de e-mail au acces la informații, cum ar fi adresa IP etc. a serverului de conectare, la care un client de e-mail nu are acces.
+Filtrarea spam-ului, verificarea semnăturii [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail). și autorizarea [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) este o sarcină a serverelor de e-mail, nu a unui client de e-mail. În general, serverele au mai multă memorie și putere de calcul, așa că sunt mult mai potrivite pentru această misiune decât dispozitivele alimentate cu baterii. De asemenea, veți dori ca spamul să fie filtrat pentru toți clienții de e-mail, inclusiv pentru e-mailurile web, nu doar pentru un singur client de e-mail. În plus, serverele de e-mail au acces la informații, cum ar fi adresa IP etc. a serverului de conectare, la care un client de e-mail nu are acces.
 
 Filtrarea spam-ului pe baza antetului mesajelor ar fi putut fi fezabilă, dar, din păcate, această tehnică este [patentată de Microsoft](https://patents.google.com/patent/US7543076).
 
@@ -2133,20 +2133,20 @@ După revocarea permisiunilor contactelor, Android nu mai permite accesul FairEm
 
 FairEmail oferă formatarea obișnuită a textului (bold, italic, subliniere, dimensiunea și culoarea textului) prin intermediul unei bare de instrumente care apare după selectarea unui text.
 
-Un editor [Rich text](https://en.wikipedia.org/wiki/Formatted_text) sau [Markdown](https://en.wikipedia.org/wiki/Markdown). nu ar fi folosit de mulți oameni pe un dispozitiv mobil de mici dimensiuni și, mai important, Android nu suportă un editor de text bogat, iar majoritatea proiectelor open source de editor de text bogat sunt abandonate. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
+Un editor [Rich text](https://en.wikipedia.org/wiki/Formatted_text) sau [Markdown](https://en.wikipedia.org/wiki/Markdown). nu ar fi folosit de mulți oameni pe un dispozitiv mobil de mici dimensiuni și, mai important, Android nu suportă un editor de text bogat, iar majoritatea proiectelor open source de editor de text bogat sunt abandonate. Consultați [aici](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) pentru mai multe detalii despre acest lucru.
 
 <br />
 
 <a name="faq100"></a>
-**(100) How can I synchronize Gmail categories?**
+**(100) Cum pot sincroniza categoriile Gmail?**
 
-You can synchronize Gmail categories by creating filters to label categorized messages:
+Puteți sincroniza categoriile Gmail prin crearea de filtre pentru a eticheta mesajele clasificate:
 
 * Creați un filtru nou prin Gmail > Setări (roată) > Filtre și adrese blocate > Creați un filtru nou
 * Introduceți o căutare pe categorii (a se vedea mai jos) în câmpul *Cuvintele* și faceți clic pe *Creare filtru*
 * Bifați *Aplicați eticheta* și selectați o etichetă și faceți clic pe *Creare filtru*
 
-Possible categories:
+Categorii posibile:
 
 ```
 category:social
@@ -2155,32 +2155,32 @@ category:forumuri
 categoria:promoții
 ```
 
-Unfortunately, this is not possible for snoozed messages folder.
+Din păcate, acest lucru nu este posibil pentru dosarul de mesaje amânate.
 
-You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again and you can long press the folders to enable synchronization.
+Puteți folosi *Sincronizare forțată* în meniul cu trei puncte din căsuța de primire unificată pentru a permite FairEmail să sincronizeze din nou lista de dosare și puteți apăsa lung pe dosare pentru a activa sincronizarea.
 
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Ce înseamnă punctul albastru/portocaliu din partea de jos a conversațiilor?**
 
-The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+Punctul indică poziția relativă a conversației în lista de mesaje. Punctul va fi portocaliu atunci când conversația este prima sau ultima din lista de mesaje, altfel va fi albastru. Punctul este menit să fie un ajutor atunci când glisați spre stânga/dreapta pentru a trece la conversația anterioară/următoare.
 
-The dot is disabled by default and can be enabled with the display settings *Show relative conversation position with a dot*.
+Punctul este dezactivat în mod implicit și poate fi activat cu setările de afișare *Afișează poziția relativă a conversației cu un punct*.
 
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Cum pot activa rotirea automată a imaginilor?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+Imaginile vor fi rotite automat atunci când redimensionarea automată a imaginilor este activată în setări (activată în mod implicit). Cu toate acestea, rotirea automată depinde de prezența și corectitudinea informațiilor [Exif](https://en.wikipedia.org/wiki/Exif), ceea ce nu este întotdeauna cazul. Mai ales nu atunci când faceți o fotografie cu o aplicație camara de la FairEmail.
 
-Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
+Rețineți că numai imaginile [JPEG](https://en.wikipedia.org/wiki/JPEG) și [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) pot conține informații Exif.
 
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**(104) Ce trebuie să știu despre raportarea erorilor?**
 
 * Rapoartele de eroare vor ajuta la îmbunătățirea FairEmail
 * Raportarea erorilor este opțională și opt-in
@@ -2194,65 +2194,65 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <br />
 
 <a name="faq105"></a>
-**(105) How does the roam-like-at-home option work?**
+**(105) Cum funcționează opțiunea roam-like-at-home?**
 
-FairEmail will check if the country code of the SIM card and the country code of the network are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
+FairEmail va verifica dacă codul de țară al cartelei SIM și codul de țară al rețelei se află în țările [EU roam-like-at-home](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent). și presupune că nu există roaming dacă codurile de țară sunt egale și dacă opțiunea avansată roam-like-at-home este activată.
 
-So, you don't have to disable this option if you don't have an EU SIM or are not connected to an EU network.
+Prin urmare, nu trebuie să dezactivați această opțiune dacă nu aveți un SIM UE sau dacă nu sunteți conectat la o rețea UE.
 
 <br />
 
 <a name="faq106"></a>
-**(106) Which launchers can show a badge count with the number of unread messages?**
+**(106) Ce lansatoare pot afișa un număr de insigne cu numărul de mesaje necitite?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
+Vă rugăm să [vezi aici](https://github.com/leolin310148/ShortcutBadger#supported-launchers) pentru o listă de lansatoare care pot afișa numărul de mesaje necitite.
 
-Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+Rețineți că Nova Launcher necesită Tesla Unread, care nu mai este [nu mai este acceptat](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
-Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+Rețineți că setarea de notificare *Show launcher icon with number of new messages* trebuie să fie activată (implicit activată).
 
-Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
+Se vor număra numai mesajele necitite *noi* din dosarele setate să afișeze notificări de mesaje noi, astfel încât mesajele marcate din nou ca necitite și mesajele din dosarele setate să nu afișeze notificări de mesaje noi nu vor fi luate în considerare.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). When enabled the badge count will be the same as the number of new message notifications. When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
+În funcție de ceea ce doriți, setările de notificare *Lasă numărul de mesaje noi să corespundă cu numărul de notificări* trebuie să fie activate (implicit dezactivate). Atunci când este activată, numărul de insigne va fi același cu numărul de notificări de mesaje noi. Atunci când este dezactivată, numărul de insigne va fi numărul de mesaje necitite, indiferent dacă acestea sunt afișate într-o notificare sau sunt noi.
 
-This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
+Această funcție depinde de suportul pe care îl oferă lansatorul dumneavoastră. FairEmail pur și simplu 'difuzează' numărul de mesaje necitite folosind biblioteca ShortcutBadger. Dacă nu funcționează, acest lucru nu poate fi rezolvat prin modificări în FairEmail.
 
-Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a *badge* for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot (badge) is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
+Unele lansatoare afișează un punct sau un '1' pentru [notificarea de monitorizare](#user-content-faq2), în ciuda faptului că FairEmail a cerut în mod explicit să nu afișeze un *badge* pentru această notificare. Acest lucru ar putea fi cauzat de o eroare în aplicația de lansare sau în versiunea Android. Vă rugăm să verificați de două ori dacă punctul de notificare (insigna) este dezactivat pentru canalul de notificare a primirii (serviciului). Puteți merge la setările canalului de notificare din dreapta prin intermediul setărilor de notificare din FairEmail. Poate că acest lucru nu este evident, dar puteți apăsa pe numele canalului pentru mai multe setări.
 
-FairEmail does send a new message count intent as well:
+FairEmail trimite o nouă intenție de numărare a mesajelor, de asemenea:
 
 ```
 eu.faircode.email.NEW_MESSAGE_COUNT
 ```
 
-The number of new, unread messages will be in an integer "*count*" parameter.
+Numărul de mesaje noi, necitite, se va afla într-un parametru întreg "*count*".
 
 <br />
 
 <a name="faq107"></a>
-**(107) How do I use colored stars?**
+**(107) Cum pot folosi stelele colorate?**
 
-You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
+Puteți seta o stea colorată prin intermediul meniului de mesaje *more*, prin selecție multiplă (pornită prin apăsarea lungă a unui mesaj), prin apăsarea lungă a unei stele într-o conversație sau automat prin utilizarea [regulilor](#user-content-faq71).
 
-You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server. This means that colored stars will not be visible in other email clients and will be lost on downloading messages again. However, the stars (without color) will be synchronized and will be visible in other email clients, when supported.
+Trebuie să știți că stelele colorate nu sunt acceptate de protocolul IMAP și, prin urmare, nu pot fi sincronizate cu un server de e-mail. Acest lucru înseamnă că stelele colorate nu vor fi vizibile în alți clienți de e-mail și vor fi pierdute la descărcarea mesajelor din nou. Cu toate acestea, stelele (fără culoare) vor fi sincronizate și vor fi vizibile în alți clienți de e-mail, atunci când sunt acceptate.
 
-Some email clients use IMAP keywords for colors. However, not all servers support IMAP keywords and besides that there are no standard keywords for colors.
+Unii clienți de e-mail utilizează cuvinte cheie IMAP pentru culori. Cu toate acestea, nu toate serverele acceptă cuvinte cheie IMAP și, în plus, nu există cuvinte cheie standard pentru culori.
 
 <br />
 
 <a name="faq108"></a>
-**~~(108) Can you add permanently delete messages from any folder?~~**
+**~~~(108) Puteți adăuga mesaje șterse permanent din orice dosar?~~**
 
-~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
+~~Când ștergeți mesajele dintr-un dosar, mesajele vor fi mutate în dosarul de gunoi, astfel încât să aveți o șansă de a le restaura.~~ ~~Puteți șterge permanent mesajele din dosarul coș de gunoi.~~ ~~ Ștergerea permanentă a mesajelor din alte dosare ar anula scopul dosarului coș de gunoi, așa că acesta nu va fi adăugat.~~
 
 <br />
 
 <a name="faq109"></a>
-**~~(109) Why is 'select account' available in official versions only?~~**
+**~~~(109) De ce "select account" este disponibil doar în versiunile oficiale?~~**
 
-~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
+~~Utilizarea *select account* pentru a selecta și autoriza conturile Google necesită permisiune specială din partea Google din motive de securitate și confidențialitate.~~ ~~Această permisiune specială poate fi obținută numai pentru aplicațiile pe care un dezvoltator le gestionează și de care este responsabil.~~ ~~Aplicațiile de la terți, cum ar fi cele de la F-Droid, sunt gestionate de terți și sunt responsabilitatea acestora.~~ ~~Prin urmare, numai aceste terțe părți pot obține permisiunea necesară de la Google.~~ ~~Din moment ce aceste terțe părți nu suportă FairEmail, cel mai probabil nu vor solicita permisiunea necesară.~~
 
-~~You can solve this in two ways:~~
+~~Puteți rezolva acest lucru în două moduri:~~
 
 * ~~ Treceți la versiunea oficială a FairEmail, vedeți [ aici](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) pentru opțiuni~~
 * ~~Utilizați parole specifice aplicației, consultați [acest FAQ](#user-content-faq6)~~
@@ -2288,61 +2288,61 @@ OAuth pentru Outlook/Office 365, Yahoo, Mail.ru și Yandex este acceptat prin in
 
 FairEmail este doar un client de e-mail, așa că trebuie să vă aduceți propria adresă de e-mail. Rețineți că acest lucru este menționat în mod clar în descrierea aplicației.
 
-Există o mulțime de furnizori de e-mail din care puteți alege. Care furnizor de e-mail este cel mai bun pentru dumneavoastră depinde de dorințele/cerințele dumneavoastră. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+Există o mulțime de furnizori de e-mail din care puteți alege. Care furnizor de e-mail este cel mai bun pentru dumneavoastră depinde de dorințele/cerințele dumneavoastră. Vă rugăm să consultați site-urile web ale [Restabilirea confidențialității](https://restoreprivacy.com/secure-email/) sau [Instrumente de confidențialitate](https://www.privacytools.io/providers/email/). pentru o listă de furnizori de e-mail orientați spre confidențialitate, cu avantaje și dezavantaje.
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
+Unii furnizori, cum ar fi ProtonMail, Tutanota, utilizează protocoale de e-mail proprietare, ceea ce face imposibilă utilizarea aplicațiilor de e-mail ale unor terțe părți. Vă rugăm să consultați [acest FAQ](#user-content-faq129) pentru mai multe informații.
 
-Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
+Folosind propriul nume de domeniu (personalizat), care este acceptat de majoritatea furnizorilor de e-mail, va fi mai ușor să treceți la un alt furnizor de e-mail.
 
 <br />
 
 <a name="faq113"></a>
-**(113) How does biometric authentication work?**
+**(113) Cum funcționează autentificarea biometrică?**
 
-If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+Dacă dispozitivul dvs. are un senzor biometric, de exemplu un senzor de amprentă digitală, puteți activa/dezactiva autentificarea biometrică în meniul de navigare (hamburger) din ecranul de setări. Atunci când este activat, FairEmail va solicita autentificarea biometrică după o perioadă de inactivitate sau după ce ecranul a fost oprit în timp ce FairEmail era în funcțiune. Activitatea este navigarea în FairEmail, de exemplu, deschiderea unui fir de conversație. Durata perioadei de inactivitate poate fi configurată în setările diverse. Atunci când autentificarea biometrică este activată, notificările de mesaje noi nu vor afișa niciun conținut, iar FairEmail nu va fi vizibil pe ecranul de recenzii de pe Android.
 
-Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+Autentificarea biometrică are rolul de a împiedica alte persoane să vă vadă doar mesajele. FairEmail se bazează pe criptarea dispozitivelor pentru criptarea datelor, vezi și [acest FAQ](#user-content-faq37).
 
-Biometric authentication is a pro feature.
+Autentificarea biometrică este o caracteristică pro.
 
 <br />
 
 <a name="faq114"></a>
-**(114) Can you add an import for the settings of other email apps?**
+**(114) Puteți adăuga un import pentru setările altor aplicații de e-mail?**
 
-The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
+Formatul fișierelor de setări ale majorității celorlalte aplicații de e-mail nu este documentat, așa că acest lucru este dificil. Uneori este posibil să se facă inginerie inversă a formatului, dar de îndată ce se schimbă formatul de setări, lucrurile se vor strica. De asemenea, setările sunt adesea incompatibile. De exemplu, FairEmail are, spre deosebire de majoritatea celorlalte aplicații de e-mail, setări pentru numărul de zile de sincronizare a mesajelor. și pentru numărul de zile pentru păstrarea mesajelor, în principal pentru a economisi bateria. În plus, configurarea unui cont/identitate cu ajutorul asistentului de configurare rapidă este simplă, așa că nu merită cu adevărat efortul.
 
 <br />
 
 <a name="faq115"></a>
-**(115) Can you add email address chips?**
+**(115) Puteți adăuga jetoane de adrese de e-mail?**
 
-Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited, which is quite inconvenient when you made a typo in an email address.
+Adresa de e-mail [chips](https://material.io/design/components/chips.html) arată bine, dar nu poate fi editată, ceea ce este destul de incomod atunci când ați făcut o greșeală de tipar într-o adresă de e-mail.
 
-Note that FairEmail will select the address only when long pressing an address, which makes it easy to delete an address.
+Rețineți că FairEmail va selecta adresa numai atunci când apăsați lung o adresă, ceea ce facilitează ștergerea unei adrese.
 
-Chips are not suitable for showing in a list and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.
+Cipurile nu sunt potrivite pentru a fi afișate într-o listă și, deoarece antetul mesajului dintr-o listă trebuie să arate similar cu antetul mesajului din vizualizarea mesajelor, nu este o opțiune de a utiliza cipuri pentru vizualizarea mesajelor.
 
-Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
+S-a revenit la [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
 
 <br />
 
 <a name="faq116"></a>
-**~~(116) How can I show images in messages from trusted senders by default?~~**
+**~~~(116) Cum pot afișa implicit imagini în mesajele de la expeditori de încredere?~~**
 
-~~You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.~~
+~~Puteți afișa implicit imagini în mesajele de la expeditori de încredere prin activarea setării de afișare *Afișare automată a imaginilor pentru contactele cunoscute*.~~
 
-~~Contacts in the Android contacts list are considered to be known and trusted,~~ ~~unless the contact is in the group / has the label '*Untrusted*' (case insensitive).~~
+~~Contactele din lista de contacte Android sunt considerate a fi cunoscute și de încredere,~~ ~~, cu excepția cazului în care contactul se află în grup / are eticheta "*Untrusted*" (insensibil la majuscule și minuscule).~~
 
 <br />
 
 <a name="faq38"></a>
 <a name="faq117"></a>
-**(117) Can you help me restore my purchase?**
+**(117) Mă puteți ajuta să îmi restabilesc achiziția?**
 
-First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
+În primul rând, o achiziție va fi disponibilă pe toate dispozitivele conectate la același cont Google, *dacă* și aplicația este instalată prin intermediul aceluiași cont Google. Puteți selecta contul în aplicația Play Store.
 
-Google manages all purchases, so as a developer I have little control over purchases. So, basically the only thing I can do, is give some advice:
+Google gestionează toate achizițiile, așa că, în calitate de dezvoltator, am puțin control asupra achizițiilor. Deci, practic, singurul lucru pe care îl pot face este să vă dau câteva sfaturi:
 
 * Asigurați-vă că aveți o conexiune la internet activă și funcțională
 * Asigurați-vă că v-ați conectat cu contul Google corect și că nu există nicio problemă cu contul Google
@@ -2351,9 +2351,9 @@ Google manages all purchases, so as a developer I have little control over purch
 * Deschideți aplicația Magazin Play și așteptați cel puțin un minut pentru a-i da timp să se sincronizeze cu serverele Google
 * Deschide FairEmail și navighează în ecranul de caracteristici pro pentru a permite FairEmail să verifice achizițiile; uneori ajută să atingi butonul *buy*
 
-You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
+De asemenea, puteți încerca să ștergeți memoria cache a aplicației Magazin Play prin intermediul setărilor aplicațiilor Android. Ar putea fi necesară repornirea dispozitivului pentru a permite magazinului Play să recunoască achiziția în mod corect.
 
-Note that:
+Rețineți că:
 
 * Dacă primiți *ITEM_ALREADY_OWNED*, probabil că aplicația magazinului Play trebuie să fie actualizată, vă rugăm să [vezi aici](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Achizițiile sunt stocate în cloud-ul Google și nu se pot pierde
@@ -2363,340 +2363,340 @@ Note that:
 * Este posibil să dureze ceva timp până când aplicația Magazin Play sincronizează o achiziție pe un alt dispozitiv
 * Achizițiile din Play Store nu pot fi utilizate fără Play Store, ceea ce nu este permis nici de regulile Play Store
 
-If you cannot solve the problem with the purchase, you will have to contact Google about it.
+Dacă nu puteți rezolva problema cu achiziția, va trebui să contactați Google în acest sens.
 
 <br />
 
 <a name="faq118"></a>
-**(118) What does 'Remove tracking parameters' exactly?**
+**(118) Ce înseamnă mai exact 'Remove tracking parameters'?**
 
-Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
+Dacă se bifează *Remove tracking parameters* se vor elimina toți parametrii [UTM](https://en.wikipedia.org/wiki/UTM_parameters) dintr-o legătură.
 
 <br />
 
 <a name="faq119"></a>
-**~~(119) Can you add colors to the unified inbox widget?~~**
+**~~~(119) Puteți adăuga culori la widgetul unificat pentru căsuța de primire?~~**
 
-~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~ ~~This way the widget will nicely blend in, while still being properly readable.~~
+~~Widgetul este proiectat pentru a arăta bine pe majoritatea ecranelor de pornire/pornire, făcându-l monocrom și folosind un fundal pe jumătate transparent.~~ ~~În acest fel, widget-ul se va amesteca frumos, fiind în același timp lizibil.~~
 
-~~Adding colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.~~
+~~ Adăugarea de culori va cauza probleme cu unele fundaluri și va cauza probleme de lizibilitate, motiv pentru care aceasta nu va fi adăugată.~~
 
-Due to Android limitations it is not possible to dynamically set the opacity of the background and to have rounded corners at the same time.
+Din cauza limitărilor Android, nu este posibil să setați în mod dinamic opacitatea fundalului și să aveți colțuri rotunjite în același timp.
 
 <br />
 
 <a name="faq120"></a>
-**(120) Why are new message notifications not removed on opening the app?**
+**(120) De ce nu sunt eliminate notificările de mesaje noi la deschiderea aplicației?**
 
-New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
+Notificările de mesaje noi vor fi eliminate la îndepărtarea notificărilor prin glisare sau la marcarea mesajelor asociate ca fiind citite. Deschiderea aplicației nu va elimina notificările de mesaje noi. Acest lucru vă oferă posibilitatea de a lăsa notificările de mesaje noi pentru a vă reaminti că există încă mesaje necitite.
 
-On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group). Tapping on the summary notification will open the unified inbox. The summary notification can be expanded to view individual new message notifications. Tapping on an individual new message notification will open the conversation the message it is part of. See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+Pe Android 7 Nougat și ulterior, notificările de mesaje noi vor fi [grupate](https://developer.android.com/training/notify-user/group). Dacă apăsați pe notificarea sumară, se va deschide căsuța de primire unificată. Notificarea sumară poate fi extinsă pentru a vizualiza notificările individuale de mesaje noi. Atingerea unei notificări individuale de mesaj nou va deschide conversația din care face parte mesajul respectiv. Consultați [acest FAQ](#user-content-faq70) despre momentul în care mesajele dintr-o conversație vor fi extinse automat și marcate ca fiind citite.
 
 <br />
 
 <a name="faq121"></a>
-**(121) How are messages grouped into a conversation?**
+**(121) Cum sunt grupate mesajele într-o conversație?**
 
-By default FairEmail groups messages in conversations. This can be turned of in the display settings.
+În mod implicit, FairEmail grupează mesajele în conversații. Acest lucru poate fi dezactivat în setările de afișare.
 
-FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers. FairEmail does not group on other criteria, like the subject, because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
+FairEmail grupează mesajele pe baza antetelor standard *Message-ID*, *In-Reply-To* și *References*. FairEmail nu grupează pe alte criterii, cum ar fi subiectul, deoarece acest lucru ar putea duce la gruparea unor mesaje care nu au legătură între ele și ar fi în detrimentul unei utilizări mai mari a bateriei.
 
 <br />
 
 <a name="faq122"></a>
-**~~(122) Why is the recipient name/email address show with a warning color?~~**
+**~~~(122) De ce numele destinatarului/adresa de e-mail este afișată cu o culoare de avertizare?~~**
 
-~~The recipient name and/or email address in the addresses section will be shown in a warning color~~ ~~when the sender domain name and the domain name of the *to* address do not match.~~ ~~Mostly this indicates that the message was received *via* an account with another email address.~~
+~~Numele destinatarului și/sau adresa de e-mail din secțiunea adrese vor fi afișate într-o culoare de avertizare~~. ~~când numele de domeniu al expeditorului și numele de domeniu al adresei *la* nu se potrivesc.~~ ~~În general, acest lucru indică faptul că mesajul a fost primit *prin* un cont cu o altă adresă de e-mail.~~
 
 <br />
 
 <a name="faq123"></a>
-**(123) What will happen when FairEmail cannot connect to an email server?**
+**(123) Ce se va întâmpla când FairEmail nu se poate conecta la un server de email?**
 
-If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+Dacă FairEmail nu se poate conecta la un server de e-mail pentru a sincroniza mesajele, de exemplu, dacă conexiunea la internet este proastă sau dacă un firewall sau un VPN blochează conexiunea, FairEmail va încerca din nou o singură dată după ce așteaptă 8 secunde, menținând dispozitivul treaz (=utilizează energia bateriei). În cazul în care acest lucru nu reușește, FairEmail va programa o alarmă pentru a încerca din nou după 15, 30 și, eventual, la fiecare 60 de minute și va lăsa dispozitivul să doarmă (= fără utilizarea bateriei).
 
-Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
+Rețineți că [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) nu permite trezirea dispozitivului mai devreme de 15 minute.
 
-*Force sync* in the three-dots menu of the unified inbox can be used to let FairEmail attempt to reconnect without waiting.
+*Force sync* din meniul cu trei puncte al căsuței de primire unificate poate fi folosit pentru a permite FairEmail să încerce să se reconecteze fără să aștepte.
 
-Sending messages will be retried on connectivity changes only (reconnecting to the same network or connecting to another network) to prevent the email server from blocking the connection permanently. You can pull down the outbox to retry manually.
+Trimiterea mesajelor va fi reluată numai în cazul în care se schimbă conectivitatea (reconectarea la aceeași rețea sau conectarea la o altă rețea) pentru a împiedica serverul de e-mail să blocheze permanent conexiunea. Puteți coborî căsuța de ieșire pentru a încerca din nou manual.
 
-Note that sending will not be retried in case of authentication problems and when the server rejected the message. In this case you can pull down the outbox to try again.
+Rețineți că trimiterea nu va fi reluată în caz de probleme de autentificare și în cazul în care serverul a respins mesajul. În acest caz, puteți coborî căsuța de ieșire pentru a încerca din nou.
 
 <br />
 
 <a name="faq124"></a>
-**(124) Why do I get 'Message too large or too complex to display'?**
+**(124) De ce primesc 'Message too large or too complex to display'?**
 
-The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
+Mesajul *Mesaj prea mare sau prea complex pentru a fi afișat* va fi afișat dacă există mai mult de 100.000 de caractere sau mai mult de 500 de legături într-un mesaj. Reformatarea și afișarea unor astfel de mesaje va dura prea mult timp. În schimb, puteți încerca să utilizați vizualizarea originală a mesajelor, alimentată de browser.
 
 <br />
 
 <a name="faq125"></a>
-**(125) What are the current experimental features?**
+**(125) Care sunt caracteristicile experimentale actuale?**
 
 *Message classification (version 1.1438+)*
 
-Please see [this FAQ](#user-content-faq163) for details.
+Vă rugăm să consultați [acest FAQ](#user-content-faq163) pentru detalii.
 
 Since this is an experimental feature, my advice is to start with just one folder.
 
 <br />
 
-*Send hard bounce (version 1.1477+)*
+*Trimiteți hard bounce (versiunea 1.1477+)*
 
-Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
+Trimiteți o notificare [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) prin intermediul meniului reply/answer.
 
-Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
+Restituirile de tip "hard bounces" vor fi de cele mai multe ori procesate automat, deoarece acestea afectează reputația furnizorului de e-mail. Adresa de respingere (=*Return-Path* antet) este de cele mai multe ori foarte specifică, astfel încât serverul de e-mail poate determina contul expeditor.
 
-For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
+Pentru câteva informații de fond, a se vedea [acest articol din Wikipedia](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 
 <a name="faq126"></a>
-**(126) Can message previews be sent to my wearable?**
+**(126) Pot fi trimise previzualizări ale mesajelor către dispozitivul meu portabil?**
 
-FairEmail fetches a message in two steps:
+FairEmail preia un mesaj în doi pași:
 
 1. Preluarea antetelor de mesaj
 1. Preluarea textului mesajului și a atașamentelor
 
-Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+Imediat după primul pas vor fi notificate noi mesaje. Cu toate acestea, textul mesajului va fi disponibil doar până după cea de-a doua etapă. FairEmail actualizează notificările de ieșire cu o previzualizare a textului mesajului, dar, din păcate, notificările purtabile nu pot fi actualizate.
 
-Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
+Deoarece nu există nicio garanție că textul unui mesaj va fi întotdeauna preluat direct după antetul mesajului, nu este posibil să se garanteze că o notificare de mesaj nou cu un text de previzualizare va fi întotdeauna trimisă către un dispozitiv portabil.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
+Dacă vi se pare suficient de bine, puteți activa opțiunea de notificare *Să trimiteți notificări cu o previzualizare a mesajului numai la dispozitivele portabile*. iar dacă acest lucru nu funcționează, puteți încerca să activați opțiunea de notificare *Show notifications with a preview text only*. Rețineți că acest lucru se aplică și în cazul dispozitivelor purtabile care nu afișează un text de previzualizare, chiar și atunci când aplicația Android Wear indică faptul că notificarea a fost trimisă (bridged).
 
-If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
+Dacă doriți ca textul integral al mesajului să fie trimis pe dispozitivul portabil, puteți activa opțiunea de notificare *Preview all text*. Rețineți că se știe că unele dispozitive portabile se blochează cu această opțiune activată.
 
-If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
+Dacă folosești un dispozitiv portabil Samsung cu aplicația Galaxy Wearable (Samsung Gear), s-ar putea să fie nevoie să activezi notificările pentru FairEmail atunci când setarea *Notificații*, *Aplicații instalate în viitor* este dezactivată în această aplicație.
 
 <br />
 
 <a name="faq127"></a>
-**(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
+**(127) Cum pot repara 'Syntactically invalid HELO argument(s)'?**
 
-The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+Eroarea *... Argumentul (argumentele) HELO invalid din punct de vedere sintactic ...* înseamnă că serverul SMTP a respins adresa IP locală sau numele de gazdă. Probabil că puteți remedia această eroare prin activarea sau dezactivarea opțiunii de indentitate avansată *Utilizați adresa IP locală în loc de numele de gazdă*.
 
 <br />
 
 <a name="faq128"></a>
-**(128) How can I reset asked questions, for example to show images?**
+**(128) Cum pot reseta întrebările adresate, de exemplu pentru a afișa imagini?**
 
-You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
+Puteți reseta întrebările adresate prin intermediul meniului cu trei puncte din setările diverse.
 
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) Sunt acceptate ProtonMail, Tutanota? **
 
-ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
+ProtonMail folosește un protocol de e-mail proprietar și [nu acceptă direct IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), astfel încât nu puteți utiliza FairEmail pentru a accesa ProtonMail.
 
-Tutanota uses a proprietary email protocol and [does not support IMAP](https://tutanota.com/faq/#imap), so you cannot use FairEmail to access Tutanota.
+Tutanota folosește un protocol de e-mail proprietar și [nu acceptă IMAP](https://tutanota.com/faq/#imap), deci nu puteți utiliza FairEmail pentru a accesa Tutanota.
 
 <br />
 
 <a name="faq130"></a>
-**(130) What does message error ... mean?**
+**(130) Ce înseamnă mesajul de eroare ...?**
 
-A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
+O serie de linii cu texte portocalii sau roșii cu informații tehnice înseamnă că modul de depanare a fost activat în setările diverse.
 
-The warning *No server found at ...* means that there was no email server registered at the indicated domain name. Replying to the message might not be possible and might result in an error. This could indicate a falsified email address and/or spam.
+Avertismentul *Niciun server găsit la ...* înseamnă că nu a existat un server de e-mail înregistrat la numele de domeniu indicat. Este posibil ca răspunsul la mesaj să nu fie posibil și să genereze o eroare. Acest lucru ar putea indica o adresă de e-mail falsificată și/sau spam.
 
-The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software. FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
+Eroarea *... ParseException ...* înseamnă că există o problemă cu un mesaj primit, cauzată probabil de o eroare în software-ul de trimitere. FairEmail va rezolva această problemă în cele mai multe cazuri, astfel încât acest mesaj poate fi considerat ca un avertisment în loc de o eroare.
 
-The error *...SendFailedException...* means that there was a problem while sending a message. The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
+Eroarea *...SendFailedException...* înseamnă că a existat o problemă la trimiterea unui mesaj. Eroarea va include aproape întotdeauna un motiv. Motivele frecvente sunt că mesajul era prea mare sau că una sau mai multe adrese de destinatar nu erau valide.
 
-The warning *Message too large to fit into the available memory* means that the message was larger than 10 MiB. Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
+Avertismentul *Mesaj prea mare pentru a încăpea în memoria disponibilă* înseamnă că mesajul a fost mai mare de 10 MiB. Chiar dacă dispozitivul dvs. are suficient spațiu de stocare, Android oferă aplicațiilor o memorie de lucru limitată, ceea ce limitează dimensiunea mesajelor care pot fi gestionate.
 
-Please see [here](#user-content-faq22) for other error messages in the outbox.
+Vă rugăm să consultați [aici](#user-content-faq22) pentru alte mesaje de eroare din outbox.
 
 <br />
 
 <a name="faq131"></a>
-**(131) Can you change the direction for swiping to previous/next message?**
+**(131) Puteți schimba direcția de glisare către mesajul anterior/succesiv?**
 
-If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
+Dacă citiți de la stânga la dreapta, dacă glisați spre stânga se va afișa următorul mesaj. În mod similar, dacă citiți de la dreapta la stânga, glisarea spre dreapta va afișa următorul mesaj.
 
-This behavior seems quite natural to me, also because it is similar to turning pages.
+Acest comportament mi se pare destul de natural, inclusiv pentru că este similar cu întoarcerea paginilor.
 
-Anyway, there is a behavior setting to reverse the swipe direction.
+Oricum, există o setare de comportament pentru a inversa direcția de glisare.
 
 <br />
 
 <a name="faq132"></a>
-**(132) Why are new message notifications silent?**
+**(132) De ce sunt silențioase notificările de mesaje noi?**
 
-Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
+Notificările sunt silențioase în mod implicit în unele versiuni MIUI. Vă rugăm să vedeți [aici](http://en.miui.com/thread-3930694-1-1.html) cum puteți remedia acest lucru.
 
-There is a bug in some Android versions causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to mute notifications. Since FairEmail shows new message notifications right after fetching the message headers and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
+Există o eroare în unele versiuni Android care face ca [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) să dezactiveze notificările. Deoarece FairEmail afișează notificările de mesaje noi imediat după ce a preluat antetul mesajului iar FairEmail trebuie să actualizeze notificările de mesaje noi după ce a preluat ulterior textul mesajului, această problemă nu poate fi rezolvată sau rezolvată de FairEmail.
 
-Android might rate limit the notification sound, which can cause some new message notifications to be silent.
+Este posibil ca Android să limiteze rata sunetului de notificare, ceea ce poate face ca unele notificări de mesaje noi să fie silențioase.
 
 <br />
 
 <a name="faq133"></a>
-**(133) Why is ActiveSync not supported?**
+**(133) De ce nu este acceptat ActiveSync?**
 
-The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
+Protocolul Microsoft Exchange ActiveSync [este patentat](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) și, prin urmare, nu poate fi acceptat. Din acest motiv, nu veți găsi mulți sau chiar niciun alt client de e-mail care acceptă ActiveSync.
 
-Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
+Rețineți că descrierea lui FairEmail începe cu observația că protocoalele non-standard, cum ar fi Microsoft Exchange Web Services și Microsoft ActiveSync, nu sunt acceptate.
 
 <br />
 
 <a name="faq134"></a>
-**(134) Can you add deleting local messages?**
+**(134) Puteți adăuga ștergerea mesajelor locale?**
 
 *POP3*
 
-In the account settings (Settings, tap Manual setup, tap Accounts, tap account) you can enable *Leave deleted messages on server*.
+În setările contului (Setări, apăsați Configurare manuală, apăsați Conturi, apăsați Cont) puteți activa *Lasă mesajele șterse pe server*.
 
 *IMAP*
 
-Since the IMAP protocol is meant to synchronize two ways, deleting a message from the device would result in fetching the message again when synchronizing again.
+Deoarece protocolul IMAP este conceput pentru a sincroniza în două moduri, ștergerea unui mesaj de pe dispozitiv ar duce la recuperarea mesajului din nou la o nouă sincronizare.
 
-However, FairEmail supports hiding messages, either via the three-dots menu in the action bar just above the message text or by multiple selecting messages in the message list. Basically this is the same as "leave on server" of the POP3 protocol with the advantage that you can show the messages again when needed.
+Cu toate acestea, FairEmail acceptă ascunderea mesajelor, fie prin intermediul meniului cu trei puncte din bara de acțiune, chiar deasupra textului mesajului fie prin selectarea multiplă a mesajelor din lista de mesaje. Practic, este același lucru cu " lăsați pe server " din protocolul POP3. cu avantajul că puteți afișa din nou mesajele atunci când este necesar.
 
-Note that it is possible to set the swipe left or right action to hide a message.
+Rețineți că este posibil să setați acțiunea de glisare spre stânga sau spre dreapta pentru a ascunde un mesaj.
 
 <br />
 
 <a name="faq135"></a>
-**(135) Why are trashed messages and drafts shown in conversations?**
+**(135) De ce sunt afișate în conversații mesajele și ciornele aruncate la gunoi?**
 
-Individual messages will rarely be trashed and mostly this happens by accident. Showing trashed messages in conversations makes it easier to find them back.
+Mesajele individuale vor fi rareori aruncate la gunoi și, de cele mai multe ori, acest lucru se întâmplă din greșeală. Afișarea mesajelor aruncate la gunoi în conversații facilitează regăsirea lor.
 
-You can permanently delete a message using the message three-dots *delete* menu, which will remove the message from the conversation. Note that this irreversible.
+Puteți șterge definitiv un mesaj utilizând meniul cu trei puncte *delete* din mesaj, care va elimina mesajul din conversație. Rețineți că acest lucru este ireversibil.
 
-Similarly, drafts are shown in conversations to find them back in the context where they belong. It is easy to read through the received messages before continuing to write the draft later.
+În mod similar, ciornele sunt afișate în conversații pentru a le regăsi în contextul în care își au locul. Este ușor să citiți mesajele primite înainte de a continua să scrieți proiectul mai târziu.
 
 <br />
 
 <a name="faq136"></a>
-**(136) How can I delete an account/identity/folder?**
+**(136) Cum pot șterge un cont/identitate/folder?**
 
-Deleting an account/identity/folder is a little bit hidden to prevent accidents.
+Ștergerea unui cont/identitate/folder este un pic ascunsă pentru a preveni accidentele.
 
 * Cont: Setări > Configurare manuală > Conturi > apăsați cont
 * Identitate: Setări > Configurare manuală > Identități > atingeți identitatea
 * Folder: Apăsați lung folderul din lista de foldere > Editare proprietăți
 
-In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
+În meniul cu trei puncte din dreapta sus există o opțiune pentru a șterge contul/identitatea/folderul.
 
 <br />
 
 <a name="faq137"></a>
-**(137) How can I reset 'Don't ask again'?**
+**(137) Cum pot reseta 'Nu întreba din nou'?**
 
-You can reset all questions set to be not asked again in the miscellaneous settings.
+Puteți reseta toate întrebările setate pentru a nu mai fi adresate din nou în setările diverse.
 
 <br />
 
 <a name="faq138"></a>
-**(138) Can you add calendar/contact/tasks/notes management?**
+**(138) Puteți adăuga gestionarea calendarului/contactului/ sarcinilor/notelor?**
 
-Calendar, contact, task and note management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
+Gestionarea calendarului, a contactelor, a sarcinilor și a notelor poate fi mai bine realizată de o aplicație separată, specializată. Rețineți că FairEmail este o aplicație de e-mail specializată, nu o suită office.
 
-Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
+De asemenea, prefer să fac câteva lucruri foarte bine, în loc să fac multe lucruri doar pe jumătate. În plus, din punct de vedere al securității, nu este o idee bună să acordați mai multe permisiuni unei singure aplicații.
 
-You are advised to use the excellent, open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) app to synchronize/manage your calendars/contacts.
+Vă sfătuim să folosiți excelenta aplicație open source [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) pentru a vă sincroniza/gestiona calendarele/contactele.
 
-Most providers support exporting your contacts. Please [see here](https://support.google.com/contacts/answer/1069522) about how you can import contacts if synchronizing is not possible.
+Majoritatea furnizorilor acceptă exportul contactelor. Vă rugăm să [vedeți aici](https://support.google.com/contacts/answer/1069522) despre cum puteți importa contacte dacă sincronizarea nu este posibilă.
 
-Note that FairEmail does support replying to calendar invites (a pro feature) and adding calendar invites to your personal calendar.
+Rețineți că FairEmail acceptă să răspundeți la invitațiile din calendar (o caracteristică pro) și să adăugați invitații în calendarul personal.
 
 <br />
 
 <a name="faq83"></a>
 <a name="faq139"></a>
-**(139) How do I fix 'User is authenticated but not connected'?**
+**(139) Cum se rezolvă problema 'Utilizatorul este autentificat, dar nu este conectat'?**
 
-In fact this Microsoft Exchange specific error is an incorrect error message caused by a bug in older Exchange server software.
+De fapt, această eroare specifică Microsoft Exchange este un mesaj de eroare incorect cauzat de o eroare în software-ul mai vechi al serverului Exchange.
 
-The error *User is authenticated but not connected* might occur if:
+Eroarea *Utilizatorul este autentificat, dar nu este conectat* poate apărea dacă:
 
 * Mesajele push sunt activate pentru prea multe dosare: consultați [acest FAQ](#user-content-faq23) pentru mai multe informații și o soluție de rezolvare
 * Parola contului a fost schimbată: schimbarea ei și în FairEmail ar trebui să rezolve problema
 * O adresă de e-mail alias este utilizată ca nume de utilizator în loc de adresa de e-mail principală
 * Se utilizează o schemă de conectare incorectă pentru o căsuță poștală partajată: schema corectă este *username@domain\SharedMailboxAlias*
 
-The shared mailbox alias will mostly be the email address of the shared account, like this:
+Aliasul căsuței poștale partajate va fi în general adresa de e-mail a contului partajat, astfel:
 
 ```
 tu@exemplue.com\shared@example.com
 ```
 
-Note that it should be a backslash and not a forward slash.
+Rețineți că trebuie să fie o bară oblică inversă și nu o bară oblică directă.
 
-When using a shared mailbox, you'll likely want to enable the option *Synchronize shared folder lists* in the receive settings.
+Atunci când folosiți o căsuță poștală partajată, probabil că veți dori să activați opțiunea *Sincronizarea listelor de dosare partajate* în setările de primire.
 
 <br />
 
 <a name="faq140"></a>
-**(140) Why does the message text contain strange characters?**
+**(140) De ce textul mesajului conține caractere ciudate?**
 
-Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Other than that there is no way to reliably determine the correct character encoding automatically, so this cannot be fixed by FairEmail. The right action is to complain to the sender.
+Afișarea caracterelor ciudate este aproape întotdeauna cauzată de specificarea unei codificări de caractere inexistente sau invalide de către software-ul de trimitere. FairEmail va presupune [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) atunci când nu există un set de caractere sau când a fost specificat [US-ASCII](https://en.wikipedia.org/wiki/ASCII). În afară de aceasta, nu există nicio modalitate de a determina în mod fiabil și automat codificarea corectă a caracterelor, astfel încât acest lucru nu poate fi fixat de FairEmail. Acțiunea corectă este de a depune o plângere la expeditor.
 
 <br />
 
 <a name="faq141"></a>
-**(141) How can I fix 'A drafts folder is required to send messages'?**
+**(141) Cum pot rezolva problema 'Este necesar un dosar de ciorne pentru a trimite mesaje'?**
 
-To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
+Pentru a stoca proiecte de mesaje, este necesar un dosar de proiecte. În cele mai multe cazuri, FairEmail va selecta automat dosarele de ciorne la adăugarea unui cont. în funcție de [atributele](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) pe care le trimite serverul de e-mail. Cu toate acestea, unele servere de e-mail nu sunt configurate corespunzător și nu trimit aceste atribute. În acest caz, FairEmail încearcă să identifice dosarul drafturi după nume, dar acest lucru ar putea eșua dacă dosarul "drafturi" are un nume neobișnuit sau nu este prezent deloc.
 
-You can fix this problem by manually selecting the drafts folder in the account settings (Settings, tap Manual setup, tap Accounts, tap account, at the bottom). If there is no drafts folder at all, you can create a drafts folder by tapping on the '+' button in the folder list of the account (tap on the account name in the navigation menu).
+Puteți remedia această problemă prin selectarea manuală a dosarului de ciorne în setările contului (Setări, atingeți Configurare manuală, atingeți Conturi, atingeți Cont, în partea de jos). Dacă nu există niciun dosar de proiecte, puteți crea un dosar de ciorne apăsând pe butonul "+" din lista de dosare a contului (apăsați pe numele contului în meniul de navigare).
 
-Some providers, like Gmail, allow enabling/disabling IMAP for individual folders. So, if a folder is not visible, you might need to enable IMAP for the folder.
+Unii furnizori, cum ar fi Gmail, permit activarea/dezactivarea IMAP pentru foldere individuale. Prin urmare, dacă un dosar nu este vizibil, este posibil să trebuiască să activați IMAP pentru acel dosar.
 
-Quick link for Gmail (will work on a desktop computer only): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
+Legătură rapidă pentru Gmail (funcționează numai pe un computer desktop): [https://mail.google.com/mail/u/0/#settings/labels](https://mail.google.com/mail/u/0/#settings/labels)
 
 <br />
 
 <a name="faq142"></a>
-**(142) How can I store sent messages in the inbox?**
+**(142) Cum pot stoca mesajele trimise în inbox?**
 
-Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
+În general, nu este o idee bună să stocați mesajele trimise în căsuța de primire, deoarece acest lucru este greu de anulat și ar putea fi incompatibil cu alți clienți de e-mail.
 
-That said, FairEmail is able to properly handle sent messages in the inbox. FairEmail will mark outgoing messages with a sent messages icon for example.
+Acestea fiind spuse, FairEmail este capabil să gestioneze în mod corespunzător mesajele trimise în inbox. FairEmail va marca mesajele de ieșire cu o pictogramă de mesaje trimise, de exemplu.
 
-The best solution would be to enable showing the sent folder in the unified inbox by long pressing the sent folder in the folder list and enabling *Show in unified inbox*. This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
+Cea mai bună soluție ar fi să permiteți afișarea dosarului trimis în căsuța de primire unificată prin apăsarea lungă a dosarului trimis din lista de dosare și activarea *Show in unified inbox*. În acest fel, toate mesajele pot rămâne acolo unde le este locul, permițând în același timp vizualizarea atât a mesajelor primite, cât și a celor trimise într-un singur loc.
 
-If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox or set a default CC/BCC address in the advanced identity settings to send yourself a copy.
+Dacă aceasta nu este o opțiune, puteți [crea o regulă](#user-content-faq71) pentru a muta automat mesajele trimise în căsuța de primire sau să setați o adresă CC/BCC implicită în setările avansate de identitate pentru a vă trimite o copie.
 
 <br />
 
 <a name="faq143"></a>
-**~~(143) Can you add a trash folder for POP3 accounts?~~**
+**~~~(143) Puteți adăuga un folder de gunoi pentru conturile POP3?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) este un protocol foarte limitat. Practic, numai mesajele pot fi descărcate și șterse din căsuța de primire. Nici măcar nu este posibil să se marcheze un mesaj ca fiind citit.
 
-Since POP3 does not allow access to the trash folder at all, there is no way to restore trashed messages.
+Deoarece POP3 nu permite accesul la folderul de gunoi, nu există nicio modalitate de a restaura mesajele aruncate la gunoi.
 
-Note that you can hide messages and search for hidden messages, which is similar to a local trash folder, without suggesting that trashed messages can be restored, while this is actually not possible.
+Rețineți că puteți ascunde mesajele și puteți căuta mesajele ascunse, ceea ce este similar cu un dosar de gunoi local, fără a sugera că mesajele aruncate la coșul de gunoi pot fi restabilite, deși acest lucru nu este de fapt posibil.
 
-Version 1.1082 added a local trash folder. Note that trashing a message will permanently remove it from the server and that trashed messages cannot be restored to the server anymore.
+Versiunea 1.1082 a adăugat un folder de gunoi local. Rețineți că distrugerea unui mesaj îl va elimina definitiv de pe server și că mesajele distruse nu mai pot fi restaurate pe server.
 
 <br />
 
 <a name="faq144"></a>
-**(144) How can I record voice notes?**
+**(144) Cum pot înregistra note vocale?**
 
-To record voice notes you can press this icon in the bottom action bar of the message composer:
+Pentru a înregistra notițe vocale, puteți apăsa această pictogramă în bara de acțiune din partea de jos a compozitorului de mesaje:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Imagine externă](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
-This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
+Acest lucru necesită instalarea unei aplicații de înregistrare audio compatibile. În special [această intenție comună](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION). trebuie să fie susținută.
 
-For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
+De exemplu, [acest înregistrator audio](https://f-droid.org/app/com.github.axet.audiorecorder) este compatibil.
 
-Voice notes will automatically be attached.
+Notele vocale vor fi atașate automat.
 
 <br />
 
 <a name="faq145"></a>
-**(145) How can I set a notification sound for an account, folder or sender?**
+**(145) Cum pot seta un sunet de notificare pentru un cont, dosar sau expeditor?**
 
-Account:
+Cont:
 
 * Activați * Notificări separate* în setările avansate ale contului (Setări, atingeți Configurare manuală, atingeți Conturi, atingeți Cont, atingeți Cont, atingeți Avansat)
 * Apăsați lung contul din lista de conturi (Setări, atingeți Configurare manuală, atingeți Conturi) și selectați *Modifică canalul de notificare* pentru a schimba sunetul de notificare
@@ -2706,67 +2706,67 @@ Folder:
 * Apăsați lung folderul din lista de foldere și selectați *Creare canal de notificare*
 * Apăsați lung folderul din lista de foldere și selectați *Edit notification channel* pentru a schimba sunetul de notificare
 
-Sender:
+Expeditor:
 
 * Deschideți un mesaj de la expeditor și extindeți-l
 * Extindeți secțiunea Adrese apăsând pe săgeata în jos
 * Atingeți pictograma clopot pentru a crea sau edita un canal de notificare și pentru a modifica sunetul de notificare
 
-The order of precendence is: sender sound, folder sound, account sound and default sound.
+Ordinea de preponderență este următoarea: sunetul expeditorului, sunetul dosarului, sunetul contului și sunetul implicit.
 
-Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.
+Setarea unui sunet de notificare pentru un cont, un dosar sau un expeditor necesită Android 8 Oreo sau o versiune ulterioară și este o funcție pro.
 
 <br />
 
 <a name="faq146"></a>
-**(146) How can I fix incorrect message times?**
+**(146) Cum pot repara timpii incorecți ai mesajelor?**
 
-Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
+Deoarece data/ora trimisă este opțională și poate fi manipulată de către expeditor, FairEmail utilizează în mod implicit data/ora primită de server.
 
-Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
+Uneori, data/ora primită de server este incorectă, de cele mai multe ori pentru că mesajele au fost importate incorect de pe un alt server și uneori din cauza unei erori a serverului de e-mail.
 
-In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
+În aceste cazuri rare, este posibil să lăsați FairEmail să folosească fie data/ora din antetul *Date* (ora de trimitere), fie din antetul *Received* ca o soluție de rezolvare. Acest lucru poate fi modificat în setările avansate ale contului: Setări, atingeți Configurare manuală, atingeți Conturi, atingeți Cont, atingeți Cont, atingeți Avansat.
 
-This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
+Acest lucru nu va modifica ora mesajelor deja sincronizate. Pentru a rezolva acest lucru, apăsați lung pe folderul (folderele) din lista de foldere și selectați *Șterge mesajele locale* și *Sincronizează acum*.
 
 <br />
 
 <a name="faq147"></a>
-**(147) What should I know about third party versions?**
+**(147) Ce ar trebui să știu despre versiunile terțe?**
 
-You likely came here because you are using a third party build of FairEmail.
+Probabil ai ajuns aici pentru că folosești o versiune terță parte a FairEmail.
 
-There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+Există **suport doar** pe cea mai recentă versiune din Magazinul Play, cea mai recentă versiune GitHub și versiunea F-Droid, dar **numai dacă** numărul versiunii de construcţie F-Droid este acelaşi cu numărul versiunii celei mai recente versiuni GitHub.
 
-F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
+F-Droid se construiește neregulat, ceea ce poate fi problematic atunci când există o actualizare importantă. Prin urmare, vă sfătuim să treceți la versiunea GitHub.
 
-The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+Versiunea F-Droid este construită din același cod sursă, dar este semnată diferit. Acest lucru înseamnă că toate caracteristicile sunt disponibile și în versiunea F-Droid, cu excepția utilizării asistentului de configurare rapidă Gmail, deoarece Google a aprobat (și permite) o singură semnătură de aplicație. Pentru toți ceilalți furnizori de e-mail, accesul OAuth este disponibil doar în versiunile Play Store și în versiunile Github, deoarece furnizorii de e-mail permit utilizarea OAuth doar pentru versiunile oficiale.
 
-Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
+Rețineți că va trebui să dezinstalați mai întâi versiunea F-Droid înainte de a putea instala o versiune GitHub. deoarece, din motive de securitate, Android refuză să instaleze aceeași aplicație cu o semnătură diferită.
 
-Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
+Rețineți că versiunea GitHub va verifica automat dacă există actualizări. Dacă doriți, acest lucru poate fi dezactivat în setările diverse.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+Vă rugăm să [vezi aici](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) pentru toate opțiunile de descărcare.
 
-If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
+Dacă aveți o problemă cu compilarea F-Droid, vă rugăm să verificați mai întâi dacă există o versiune GitHub mai nouă.
 
 <br />
 
 <a name="faq148"></a>
-**(148) How can I use an Apple iCloud account?**
+**(148) Cum pot utiliza un cont Apple iCloud?**
 
-There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
+Există un profil încorporat pentru Apple iCloud, astfel încât ar trebui să puteți utiliza expertul de configurare rapidă (alt furnizor). Dacă este necesar, puteți găsi setările corecte [ aici](https://support.apple.com/en-us/HT202304) pentru a configura manual un cont.
 
-When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
+Atunci când utilizați autentificarea cu doi factori, este posibil să fie necesar să folosiți o parolă [ specifică aplicației](https://support.apple.com/en-us/HT204397).
 
 <br />
 
 <a name="faq149"></a>
-**(149) How does the unread message count widget work?**
+**(149) Cum funcționează widget-ul pentru numărul de mesaje necitite?**
 
-The unread message count widget shows the number of unread messages either for all accounts or for a selected account, but only for the folders for which new message notifications are enabled.
+Widgetul de numărare a mesajelor necitite afișează numărul de mesaje necitite, fie pentru toate conturile, fie pentru un cont selectat, dar numai pentru dosarele pentru care sunt activate notificările de mesaje noi.
 
-Tapping on the notification will synchronize all folders for which synchronization is enabled and will open:
+Dacă apăsați pe notificare, se vor sincroniza toate dosarele pentru care este activată sincronizarea și se vor deschide:
 
 * ecranul de start atunci când au fost selectate toate conturile
 * o listă de dosare atunci când a fost selectat un anumit cont și când notificările de mesaje noi sunt activate pentru mai multe dosare
@@ -2775,251 +2775,251 @@ Tapping on the notification will synchronize all folders for which synchronizati
 <br />
 
 <a name="faq150"></a>
-**(150) Can you add cancelling calendar invites?**
+**(150) Puteți adăuga anularea invitațiilor din calendar?**
 
-Cancelling calendar invites (removing calendar events) requires write calendar permission, which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
+Anularea invitațiilor din calendar (eliminarea evenimentelor din calendar) necesită permisiunea de scriere în calendar, ceea ce va avea ca rezultat acordarea efectivă a permisiunii de citire și scriere a *toate* evenimentelor calendaristice din *toate* calendare.
 
-Given the goal of FairEmail, privacy and security, and given that it is easy to remove a calendar event manually, it is not a good idea to request this permission for just this reason.
+Având în vedere scopul FairEmail, confidențialitatea și securitatea, și având în vedere că este ușor să eliminați manual un eveniment din calendar, nu este o idee bună să solicitați această permisiune doar din acest motiv.
 
-Inserting new calendar events can be done without permissions with special [intents](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents). Unfortunately, there exists no intent to delete existing calendar events.
+Inserarea de noi evenimente din calendar se poate face fără permisiuni cu ajutorul unor [intente speciale](https://developer.android.com/guide/topics/providers/calendar-provider.html#intents). Din păcate, nu există nicio intenție de a șterge evenimentele existente din calendar.
 
 <br />
 
 <a name="faq151"></a>
-**(151) Can you add backup/restore of messages?**
+**(151) Puteți adăuga backup/restaurare a mesajelor?**
 
-An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
+Un client de e-mail este menit să citească și să scrie mesaje, nu să facă copii de rezervă și să restaureze mesaje. Rețineți că ruperea sau pierderea dispozitivului înseamnă pierderea mesajelor!
 
-Instead, the email provider/server is responsible for backups.
+În schimb, furnizorul/serverul de e-mail este responsabil pentru copiile de rezervă.
 
-If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
+Dacă doriți să faceți o copie de rezervă dumneavoastră, puteți utiliza un instrument precum [imapsync](https://imapsync.lamiral.info/).
 
-Since version 1.1556 it is possible to export all messages of a POP3 folder in mbox format according to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), which might be useful to save sent messages if the email server doesn't.
+Începând cu versiunea 1.1556, este posibilă exportarea tuturor mesajelor dintr-un dosar POP3 în format mbox în conformitate cu [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), ceea ce ar putea fi util pentru a salva mesajele trimise dacă serverul de e-mail nu o face.
 
-If you want to import an mbox file to an existing email account, you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
+Dacă doriți să importați un fișier mbox într-un cont de e-mail existent, puteți utiliza Thunderbird pe un computer de birou și add-on-ul [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/).
 
 <br />
 
 <a name="faq152"></a>
-**(152) How can I insert a contact group?**
+**(152) Cum pot introduce un grup de contacte?**
 
-You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
+Puteți insera adresele de e-mail ale tuturor contactelor dintr-un grup de contacte prin intermediul meniului cu trei puncte din compozitorul de mesaje.
 
-You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
+Puteți defini grupuri de contacte cu ajutorul aplicației de contacte Android, consultați [aici](https://support.google.com/contacts/answer/30970) pentru instrucțiuni.
 
 <br />
 
 <a name="faq153"></a>
-**(153) Why does permanently deleting Gmail message not work?**
+**(153) De ce nu funcționează ștergerea permanentă a mesajelor Gmail?**
 
-You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
+S-ar putea să fie nevoie să modificați [configurarea Gmail IMAP](https://mail.google.com/mail/u/0/#settings/fwdandpop) pe un browser de desktop pentru a o face să funcționeze:
 
 * Când marchez un mesaj în IMAP ca fiind șters: Auto-Expunge off - Așteptați ca clientul să actualizeze serverul.
 * Atunci când un mesaj este marcat ca fiind șters și eliminat din ultimul dosar IMAP vizibil: Ștergeți imediat mesajul pentru totdeauna
 
-Note that archived messages can be deleted only by moving them to the trash folder first.
+Rețineți că mesajele arhivate pot fi șterse numai dacă le mutați mai întâi în folderul coș de gunoi.
 
-Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
+Câteva detalii: Gmail pare să aibă o vizualizare suplimentară a mesajelor pentru IMAP, care poate fi diferită de vizualizarea principală a mesajelor.
 
-Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command
+O altă ciudățenie este că o stea (mesaj favorit) setată prin interfața web nu poate fi eliminată cu comanda IMAP
 
 ```
 STOCARE <message number> -FLAGS (\Flagged)
 ```
 
-On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.
+Pe de altă parte, o stea setată prin IMAP este afișată în interfața web și poate fi eliminată prin IMAP.
 
 <br />
 
 <a name="faq154"></a>
-**~~(154) Can you add favicons as contact photos?~~**
+**~~(154) Puteți adăuga favicons ca fotografii de contact?~~**
 
-~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
+~~În afară de faptul că un [favicon](https://en.wikipedia.org/wiki/Favicon) ar putea fi partajat de mai multe adrese de e-mail cu același nume de domeniu~ ~~ ~~ și, prin urmare, nu este direct legat de o adresă de e-mail, faviconurile pot fi folosite pentru a vă urmări.~~
 
 <br />
 
 <a name="faq155"></a>
-**(155) What is a winmail.dat file?**
+**(155) Ce este un fișier winmail.dat?**
 
-A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
+Un fișier *winmail.dat* este trimis de un client Outlook configurat incorect. Este un format de fișier specific Microsoft ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) care conține un mesaj și, eventual, atașamente.
 
-You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+Puteți găsi mai multe informații despre acest fișier [ aici](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+Îl puteți vizualiza, de exemplu, cu aplicația Android [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office 365 account?**
+**(156) Cum pot să configurez un cont Office 365?**
 
-An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
+Un cont Office 365 poate fi configurat prin intermediul expertului de configurare rapidă și prin selectarea *Office 365 (OAuth)*.
 
-If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+Dacă expertul se încheie cu *AUTHENTICATE failed*, este posibil ca IMAP și/sau SMTP să fie dezactivate pentru cont. În acest caz, trebuie să solicitați administratorului să activeze IMAP și SMTP. Procedura este documentată [aici](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
-If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+Dacă ați activat *security defaults* în organizația dvs., este posibil să fie necesar să activați protocolul SMTP AUTH. Vă rugăm să [vezi aici](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) despre cum să.
 
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Cum îmi pot crea un cont Free.fr?**
 
-Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+Vă rugăm să [vezi aici](https://free.fr/assistance/597.html) pentru instrucțiuni.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP este dezactivat în mod implicit**, vă rugăm să [vezi aici](https://free.fr/assistance/2406.html) cum poate fi activat.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Vă rugăm să [vedeți aici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pentru un ghid detaliat.
 
 <br />
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Ce aparat foto / înregistrator audio recomandați?**
 
-To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
+Pentru a face fotografii și pentru a înregistra audio sunt necesare o cameră foto și o aplicație de înregistrare audio. Următoarele aplicații sunt camere și aparate de înregistrare audio open source:
 
 * [Deschideți camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder versiunea 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
+Pentru a înregistra note vocale etc., înregistratorul audio trebuie să suporte [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). În mod ciudat, majoritatea aparatelor de înregistrare audio nu par să suporte această acțiune standard Android.
 
 <br />
 
 <a name="faq159"></a>
-**(159) What are Disconnect's tracker protection lists?**
+**(159) Care sunt listele de protecție a urmăritorilor de la Disconnect?**
 
-Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
+Vă rugăm să consultați [aici](https://disconnect.me/trackerprotection) pentru mai multe informații despre listele de protecție a urmăritorilor de la Disconnect.
 
-After downloading the lists in the privacy settings, the lists can optionally be used:
+După descărcarea listelor în setările de confidențialitate, listele pot fi utilizate opțional:
 
 * pentru a avertiza cu privire la legăturile de urmărire la deschiderea legăturilor
 * pentru a recunoaște imaginile de urmărire din mesaje
 
-Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
+Imaginile de urmărire vor fi dezactivate numai dacă este activată opțiunea principală "disable" corespunzătoare.
 
-Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
+Imaginile de urmărire nu vor fi recunoscute atunci când domeniul este clasificat ca fiind "*Content*", a se vedea [aici](https://disconnect.me/trackerprotection#trackers-we-dont-block) pentru mai multe informații.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Această comandă poate fi trimisă către FairEmail de la o aplicație de automatizare pentru a actualiza listele de protecție:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+O actualizare o dată pe săptămână va fi probabil suficientă, vă rugăm să consultați [aici](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) pentru modificările recente ale listelor.
 
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Puteți adăuga ștergerea permanentă a mesajelor fără confirmare?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+Ștergerea permanentă înseamnă că mesajele vor fi pierdute *irreversibil* și, pentru a preveni ca acest lucru să se întâmple accidental, acest lucru trebuie să fie confirmat întotdeauna. Chiar și cu o confirmare, m-au contactat niște oameni foarte supărați că au pierdut o parte din mesajele lor din vina lor, ceea ce a fost o experiență destul de neplăcută :-(
 
-Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
+Avansat: nu se acceptă indicatorul de ștergere IMAP în combinație cu comanda EXPUNGE. deoarece atât serverele de e-mail, cât și nu toate persoanele pot gestiona acest lucru, existând riscul pierderii neașteptate a mesajelor. Un factor care complică situația este faptul că nu toate serverele de e-mail acceptă [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
-From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+Începând cu versiunea 1.1485, este posibil să se activeze temporar modul de depanare în setările diverse pentru a dezactiva ștergerea mesajelor. Rețineți că mesajele cu un steag *\Deleted* nu vor fi afișate în FairEmail.
 
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Puteți adăuga o setare pentru a schimba culoarea principală și cea de accent?***
 
-If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+Dacă aș putea, aș adăuga o setare pentru a selecta imediat culoarea principală și cea de accent, dar, din păcate, temele Android sunt fixe, a se vedea, de exemplu, [aici](https://stackoverflow.com/a/26511725/1794097), așa că acest lucru nu este posibil.
 
 <br />
 
 <a name="faq162"></a>
-**(162) Is IMAP NOTIFY supported?***
+**(162) Este IMAP NOTIFY acceptat?***
 
-Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+Da, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) a fost acceptat începând cu versiunea 1.1413.
 
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+Suportul IMAP NOTIFY înseamnă că vor fi solicitate notificări pentru mesajele adăugate, modificate sau șterse din toate dosarele *subscrise*. iar dacă se primește o notificare pentru un dosar abonat, acel dosar va fi sincronizat. Prin urmare, sincronizarea pentru dosarele abonate poate fi dezactivată, economisind conexiunile dosarelor la serverul de e-mail.
 
-**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
+**Important**: mesajele push (=întotdeauna sincronizate) pentru căsuța de primire și gestionarea abonamentelor (setări de primire) trebuie să fie activate.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**Important**: majoritatea serverelor de e-mail nu acceptă acest lucru! Puteți verifica jurnalul prin intermediul meniului de navigare în cazul în care un server de e-mail acceptă capacitatea NOTIFY.
 
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) Ce este clasificarea mesajelor?**
 
-*This is an experimental feature!*
+*Aceasta este o caracteristică experimentală!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+Clasificarea mesajelor va încerca să grupeze automat e-mailurile în clase, pe baza conținutului acestora, folosind [Statistica Bayesiană](https://en.wikipedia.org/wiki/Bayesian_statistics). În contextul FairEmail, un folder este o clasă. Astfel, de exemplu, căsuța de primire, dosarul de spam, un dosar "marketing" etc. etc.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+Puteți activa clasificarea mesajelor în setările diverse. Acest lucru va activa doar modul 'învățare'. Clasificatorul va 'învăța' în mod implicit din mesajele noi din căsuța de primire și din dosarul de spam. Proprietatea de folder *Clasifică mesajele noi în acest folder* va activa sau dezactiva modul 'învățare' pentru un folder. Puteți șterge mesajele locale (apăsați lung pe un dosar din lista de dosare a unui cont) și sincroniza din nou mesajele pentru a clasifica mesajele existente.
 
-Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Fiecare dosar are o opțiune *Mutarea automată a mesajelor clasificate în acest dosar* ('clasificare automată' pe scurt). Când această opțiune este activată, mesajele noi din alte dosare despre care clasificatorul crede că aparțin acelui dosar vor fi mutate automat.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+Opțiunea *Utilizează filtrul local de spam* din fereastra de dialog Raportează spam va activa clasificarea mesajelor în setările diverse. și clasificarea automată pentru dosarul de spam. Vă rugăm să înțelegeți că acest lucru nu este un înlocuitor pentru filtrul de spam al serverului de e-mail și poate avea ca rezultat [falsi pozitive și false negative](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). A se vedea, de asemenea, [acest FAQ](#user-content-faq92).
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
+Un exemplu practic: să presupunem că există un folder 'marketing' și că este activată clasificarea automată a mesajelor pentru acest folder. De fiecare dată când mutați un mesaj în acest dosar, veți instrui FairEmail că mesajele similare aparțin acestui dosar. De fiecare dată când mutați un mesaj din acest dosar, veți instrui FairEmail că mesajele similare nu au ce căuta în acest dosar. După mutarea unor mesaje în folderul 'marketing', FairEmail va începe să mute automat mesaje similare în acest folder. Sau, invers, după mutarea unor mesaje din folderul 'marketing', FairEmail nu va mai muta automat mesaje similare în acest folder. Acest lucru va funcționa cel mai bine cu mesaje cu conținut similar (adrese de e-mail, subiect și text al mesajului).
 
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+Clasificarea ar trebui considerată ca fiind cea mai bună presupunere - ar putea fi o presupunere greșită sau clasificatorul ar putea să nu fie suficient de încrezător pentru a face orice presupunere. În cazul în care clasificatorul nu este sigur, va lăsa pur și simplu un e-mail acolo unde este.
 
-To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+Pentru a împiedica serverul de e-mail să mute din nou și din nou un mesaj în dosarul de spam, clasificarea automată în afara dosarului de spam nu se va face.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+Clasificatorul de mesaje calculează probabilitatea ca un mesaj să aparțină unui dosar (clasă). Există două opțiuni în setările diverse care controlează dacă un mesaj va fi mutat automat într-un dosar, cu condiția ca clasificarea automată să fie activată pentru folderul respectiv:
 
 * *Probabilitatea minimă a clasei*: un mesaj va fi mutat numai atunci când încrederea că aparține unui dosar este mai mare decât această valoare (implicit 15 %)
 * *Diferența minimă a clasei*: un mesaj va fi mutat numai atunci când diferența de încredere între o clasă și următoarea clasă cea mai probabilă este mai mare decât această valoare (implicit 50 %)
 
-Both conditions must be satisfied before a message will be moved.
+Ambele condiții trebuie să fie îndeplinite înainte ca un mesaj să fie mutat.
 
-Considering the default option values:
+Având în vedere valorile implicite ale opțiunilor:
 
 * Merele 40 % și bananele 30 % nu vor fi luate în considerare, deoarece diferența de 25 % este mai mică decât minimul de 50 %
 * Merele 10 % și bananele 5 % nu vor fi luate în considerare, deoarece probabilitatea pentru mere este sub minimul de 15 %
 * Merele 50 % și bananele 20 % ar duce la selectarea merelor
 
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+Clasificarea este optimizată pentru a utiliza cât mai puține resurse posibil, dar, în mod inevitabil, va utiliza o cantitate suplimentară de energie din baterie.
 
-You can delete all classification data by turning classification in the miscellaneous settings three times off.
+Puteți șterge toate datele de clasificare prin dezactivarea de trei ori a clasificării din Setări diverse.
 
-[Filter rules](#user-content-faq71) will be executed before classification.
+[Reguli de filtrare](#user-content-faq71) vor fi executate înainte de clasificare.
 
-Message classification is a pro feature, except for the spam folder.
+Clasificarea mesajelor este o caracteristică pro, cu excepția dosarului de spam.
 
 <br />
 
 <a name="faq164"></a>
-**(164) Can you add customizable themes?**
+**(164) Puteți adăuga teme personalizabile?**
 
-Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+Din păcate, Android [nu acceptă](https://stackoverflow.com/a/26511725/1794097) teme dinamice, ceea ce înseamnă că toate temele trebuie [să fie predefinite](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
+Deoarece pentru fiecare temă trebuie să existe o variantă deschisă, una închisă și una neagră, nu este fezabil să se adauge pentru fiecare combinație de culori (literalmente milioane) o temă predefinită.
 
-Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
+În plus, o temă este mai mult decât câteva culori. De exemplu, temele cu o culoare de accent galben folosesc o culoare de legătură mai închisă pentru un contrast suficient.
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+Culorile temei se bazează pe cercul cromatic al lui [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) Este acceptat Android Auto?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Da, Android Auto este acceptat, dar numai cu versiunea GitHub, vă rugăm să [vezi aici](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) despre motivul pentru care.
 
-For notification (messaging) support you'll need to enable the following notification options:
+Pentru suportul pentru notificări (mesagerie), va trebui să activați următoarele opțiuni de notificare:
 
 * *Folosiți formatul de notificare Android în 'stil mesagerie'*
 * Acțiuni de notificare: *Răspuns direct* și (marcare ca) *Citește*
 
-You can enable other notification actions too, if you like, but they are not supported by Android Auto.
+Dacă doriți, puteți activa și alte acțiuni de notificare, dar acestea nu sunt acceptate de Android Auto.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+Ghidul dezvoltatorilor este [aici](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) Pot să repet un mesaj pe mai multe dispozitive?**
 
-First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+În primul rând, nu există un standard pentru mesajele de snooze, astfel încât toate implementările de snooze sunt soluții personalizate.
 
-Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+Anumiți furnizori de e-mail, cum ar fi Gmail, mută mesajele care au fost amânate într-un dosar special. Din păcate, aplicațiile terțe nu au acces la acest dosar special.
 
-Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+Mutarea unui mesaj în alt dosar și înapoi ar putea eșua și ar putea să nu fie posibilă dacă nu există o conexiune la internet. Acest lucru este problematic, deoarece un mesaj poate fi amânat numai după mutarea mesajului.
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
+Pentru a preveni aceste probleme, snoozing-ul se face local pe dispozitiv prin ascunderea mesajului în timpul snoozing-ului. Din păcate, nu este posibilă ascunderea mesajelor și pe serverul de e-mail.
 
 <br />
 
@@ -3027,24 +3027,24 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 FairEmail este suportat doar pe smartphone-uri și tablete Android și ChromeOS.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Sunt acceptate doar cea mai recentă versiune a magazinului Play și cea mai recentă versiune GitHub. Construcția F-Droid este acceptată numai dacă numărul versiunii este același cu cel al celei mai recente versiuni GitHub. Acest lucru înseamnă, de asemenea, că nu este posibilă retrogradarea.
 
-There is no support on things that are not directly related to FairEmail.
+Nu există suport pentru lucruri care nu sunt direct legate de FairEmail.
 
-There is no support on building and developing things by yourself.
+Nu există niciun sprijin pentru a construi și dezvolta lucruri de unul singur.
 
-Requested features should:
+Caracteristicile solicitate ar trebui:
 
 * să fie utile pentru majoritatea oamenilor
 * să nu îngreuneze utilizarea FairEmail
 * se încadrează în filozofia FairEmail (orientată spre confidențialitate, orientată spre securitate)
 * respectă standardele comune (IMAP, SMTP, etc.)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Caracteristicile care nu îndeplinesc aceste cerințe vor fi probabil respinse. Acest lucru este, de asemenea, pentru ca întreținerea și asistența pe termen lung să rămână fezabile.
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+Dacă aveți o întrebare, doriți să solicitați o caracteristică sau să raportați o eroare, **vă rugăm să folosiți [acest formular](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+Problemele de pe GitHub sunt dezactivate din cauza utilizării abuzive frecvente.
 
 <br />
 

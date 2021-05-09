@@ -896,6 +896,7 @@
     <string name="title_subject">Chủ đề:</string>
     <string name="title_attachment">Tệp đính kèm:</string>
     <string name="title_body_hint">Thư của bạn</string>
+    <string name="title_body_hint_style">Bạn có thể chọn văn bản để định dạng nó</string>
     <string name="title_discard">Bỏ</string>
     <string name="title_save">Lưu</string>
     <string name="title_send">Gửi</string>

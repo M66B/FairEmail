@@ -145,7 +145,7 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 * [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
 * [(18) Why is the message preview not always shown?](#user-content-faq18)
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
+* [(20) Geri ödeme alabilir miyim?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
 * [(23) Why do I get alert .. ?](#user-content-faq23)
@@ -608,7 +608,7 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*General*
+*Genel*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
