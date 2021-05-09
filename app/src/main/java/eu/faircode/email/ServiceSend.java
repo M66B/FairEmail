@@ -741,8 +741,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(this, "sent");
-
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         nm.cancel("send:" + message.id, 1);
 
@@ -760,9 +758,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             } finally {
                 db.endTransaction();
             }
-
-            ServiceSynchronize.eval(this, "orphan");
         }
+
+        ServiceSynchronize.eval(this, "sent");
     }
 
     private void onExists(Intent intent) {
