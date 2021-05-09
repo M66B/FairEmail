@@ -1831,6 +1831,10 @@ public class FragmentCompose extends FragmentBase {
                                     }
 
                                     etBody.getText().insert(start, spanned);
+
+                                    int pos = getAutoPos(start, spanned.length());
+                                    if (pos >= 0)
+                                        etBody.setSelection(pos);
                                 }
 
                                 return true;
@@ -5546,8 +5550,12 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
                 etBody.setText(text[0]);
-                if (state != State.LOADED)
-                    etBody.setSelection(0);
+                if (state != State.LOADED) {
+                    int pos = getAutoPos(0, etBody.length());
+                    if (pos < 0)
+                        pos = 0;
+                    etBody.setSelection(pos);
+                }
                 grpBody.setVisibility(View.VISIBLE);
 
                 cbSignature.setChecked(draft.signature);
@@ -5626,6 +5634,27 @@ public class FragmentCompose extends FragmentBase {
                 (grpSignature.getVisibility() == View.GONE &&
                         tvReference.getVisibility() == View.GONE);
         etBody.setPadding(0, 0, 0, pad ? Helper.dp2pixels(getContext(), 36) : 0);
+    }
+
+    private int getAutoPos(int start, int end) {
+        if (start > end || end == 0)
+            return -1;
+
+        CharSequence text = etBody.getText();
+        if (text == null)
+            return -1;
+
+        int nl = 0;
+        int pos = 0;
+        String[] lines = text.subSequence(start, end).toString().split("\n");
+        for (int i = 0; i < Math.min(5, lines.length); i++) {
+            if (TextUtils.isEmpty(lines[i]))
+                nl++;
+            if (nl == 2)
+                return start + pos;
+            pos += lines[i].length() + 1;
+        }
+        return -1;
     }
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
