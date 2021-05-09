@@ -78,7 +78,7 @@ public class EditTextCompose extends FixedEditText {
         this.raw = raw;
     }
 
-    public boolean getRaw() {
+    public boolean isRaw() {
         return raw;
     }
 

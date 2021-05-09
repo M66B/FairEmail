@@ -89,7 +89,7 @@ public class ActivitySignature extends ActivityBase {
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
             public void onSelected(boolean selection) {
-                style_bar.setVisibility(selection && !etText.getRaw() ? View.VISIBLE : View.GONE);
+                style_bar.setVisibility(selection && !etText.isRaw() ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -191,7 +191,7 @@ public class ActivitySignature extends ActivityBase {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("fair:raw", etText.getRaw());
+        outState.putBoolean("fair:raw", etText.isRaw());
         super.onSaveInstanceState(outState);
     }
 
@@ -232,7 +232,7 @@ public class ActivitySignature extends ActivityBase {
         String html = getIntent().getStringExtra("html");
         if (html == null)
             etText.setText(null);
-        else if (etText.getRaw())
+        else if (etText.isRaw())
             etText.setText(html);
         else
             etText.setText(HtmlHelper.fromHtml(html, new Html.ImageGetter() {
@@ -276,7 +276,7 @@ public class ActivitySignature extends ActivityBase {
     private String getHtml() {
         etText.clearComposingText();
 
-        if (etText.getRaw())
+        if (etText.isRaw())
             return etText.getText().toString();
         else {
             String html = HtmlHelper.toHtml(etText.getText(), this);
@@ -341,7 +341,7 @@ public class ActivitySignature extends ActivityBase {
             getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
             int start = etText.getSelectionStart();
-            if (etText.getRaw())
+            if (etText.isRaw())
                 etText.getText().insert(start, "<img src=\"" + Html.escapeHtml(uri.toString()) + "\" />");
             else {
                 SpannableStringBuilder ssb = new SpannableStringBuilder(etText.getText());
