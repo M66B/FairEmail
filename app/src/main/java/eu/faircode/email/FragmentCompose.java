@@ -1751,14 +1751,24 @@ public class FragmentCompose extends FragmentBase {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
                 Menu main = popupMenu.getMenu();
 
+                List<EntityAnswer> favorites = new ArrayList<>();
                 List<String> groups = new ArrayList<>();
                 for (EntityAnswer answer : answers)
-                    if (answer.group != null && !groups.contains(answer.group))
+                    if (answer.favorite)
+                        favorites.add(answer);
+                    else if (answer.group != null && !groups.contains(answer.group))
                         groups.add(answer.group);
 
                 Collator collator = Collator.getInstance(Locale.getDefault());
                 collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
                 Collections.sort(groups, collator);
+
+                Collections.sort(favorites, new Comparator<EntityAnswer>() {
+                    @Override
+                    public int compare(EntityAnswer a1, EntityAnswer a2) {
+                        return collator.compare(a1.name, a2.name);
+                    }
+                });
 
                 int order = 0;
 
@@ -1767,6 +1777,8 @@ public class FragmentCompose extends FragmentBase {
                     map.put(group, main.addSubMenu(Menu.NONE, order, order++, group));
 
                 for (EntityAnswer answer : answers) {
+                    if (answer.favorite)
+                        continue;
                     order++;
                     if (answer.group == null)
                         main.add(Menu.NONE, order, order++, answer.toString())
@@ -1777,6 +1789,10 @@ public class FragmentCompose extends FragmentBase {
                                 .setIntent(new Intent().putExtra("id", answer.id));
                     }
                 }
+
+                for (EntityAnswer answer : favorites)
+                    main.add(Menu.NONE, order, order++, answer.toString())
+                            .setIntent(new Intent().putExtra("id", answer.id));
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
