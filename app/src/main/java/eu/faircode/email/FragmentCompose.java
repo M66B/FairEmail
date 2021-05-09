@@ -5637,6 +5637,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private int getAutoPos(int start, int end) {
+        if (!BuildConfig.DEBUG)
+            return -1;
+
         if (start > end || end == 0)
             return -1;
 
