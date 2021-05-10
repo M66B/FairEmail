@@ -26,6 +26,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Editable;
 import android.text.Layout;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
@@ -117,11 +118,15 @@ public class StyleHelper {
                 popupMenu.inflate(R.menu.popup_style);
                 popupMenu.insertIcons(anchor.getContext());
 
-                String[] fontNames = anchor.getResources().getStringArray(R.array.fontNameNames);
+                String[] fontNameNames = anchor.getResources().getStringArray(R.array.fontNameNames);
+                String[] fontNameValues = anchor.getResources().getStringArray(R.array.fontNameValues);
                 SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
-                for (int i = 0; i < fontNames.length; i++)
-                    smenu.add(R.id.group_style_font, i, 0, fontNames[i]);
-                smenu.add(R.id.group_style_font, fontNames.length, 0, R.string.title_style_font_default);
+                for (int i = 0; i < fontNameNames.length; i++) {
+                    SpannableStringBuilder ssb = new SpannableStringBuilder(fontNameNames[i]);
+                    ssb.setSpan(new TypefaceSpan(fontNameValues[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    smenu.add(R.id.group_style_font, i, 0, ssb);
+                }
+                smenu.add(R.id.group_style_font, fontNameNames.length, 0, R.string.title_style_font_default);
 
                 int level = -1;
                 BulletSpan[] spans = edit.getSpans(start, end, BulletSpan.class);
