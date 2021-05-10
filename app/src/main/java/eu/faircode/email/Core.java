@@ -1766,10 +1766,10 @@ class Core {
         else if (imessages == null || imessages.length == 0) {
             long next = new Date().getTime() + EXISTS_RETRY_DELAY;
 
-            Intent intent = new Intent(context, ServiceSend.class);
+            Intent intent = new Intent(context, ServiceSynchronize.class);
             intent.setAction("exists:" + message.id);
             PendingIntent piExists = PendingIntentCompat.getForegroundService(
-                    context, ServiceSend.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    context, ServiceSynchronize.PI_EXISTS, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, piExists);

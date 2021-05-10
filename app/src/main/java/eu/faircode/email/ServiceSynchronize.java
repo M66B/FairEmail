@@ -159,6 +159,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int PI_POLL = 5;
     static final int PI_WATCHDOG = 6;
     static final int PI_UNSNOOZE = 7;
+    static final int PI_EXISTS = 8;
 
     @Override
     public void onCreate() {
@@ -823,6 +824,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         onUnsnooze(intent);
                         break;
 
+                    case "exists":
+                        onExists(intent);
+                        break;
+
                     case "state":
                         onState(intent);
                         break;
@@ -978,6 +983,39 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         ServiceSend.start(ServiceSynchronize.this);
                     else
                         ServiceSynchronize.eval(ServiceSynchronize.this, "unsnooze");
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+    }
+
+    private void onExists(Intent intent) {
+        String action = intent.getAction();
+        long id = Long.parseLong(action.split(":")[1]);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DB db = DB.getInstance(ServiceSynchronize.this);
+
+                    try {
+                        db.beginTransaction();
+
+                        // Message could have been deleted in the meantime
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return;
+
+                        EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.EXISTS, true);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    eval(ServiceSynchronize.this, "exists/delayed");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
