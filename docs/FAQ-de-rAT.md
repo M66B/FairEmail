@@ -1784,18 +1784,18 @@ Es können nur ein Primärkonto sowie eine primäre Identität pro Konto existie
 <a name="faq73"></a>
 **(73) Ist das Verschieben von Nachrichten über Konten hinweg sicher/effizient?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+Das Verschieben von Nachrichten über Konten hinweg ist sicher, weil die rohen, ursprünglichen Nachrichten heruntergeladen und verschoben werden und weil die Quellnachrichten erst gelöscht werden, nachdem die Zielnachrichten hinzugefügt wurden
 
-Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
+Das Stapelverschieben von Nachrichten über Konten hinweg ist effizient, wenn sowohl der Quellordner als auch der Zielordner auf Synchronisation eingestellt sind, andernfalls muss FairEmail für jede Nachricht eine Verbindung zu dem/den Ordner(n) herstellen.
 
 <br />
 
 <a name="faq74"></a>
-**(74) Why do I see duplicate messages?**
+**(74) Warum sehe ich doppelte Nachrichten?**
 
-Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too. FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
+Bei einigen Anbietern, insbesondere bei Google Mail, werden alle Nachrichten in allen Ordnern, mit Ausnahme der gelöschten Nachrichten, auch im Archivordner (alle Nachrichten) aufgelistet. FairEmail zeigt alle diese Nachrichten in einer nicht aufdringlichen Art und Weise an, um darauf hinzuweisen, dass diese Nachrichten tatsächlich die gleiche Nachricht sind.
 
-Gmail allows one message to have multiple labels, which are presented to FairEmail as folders. This means that messages with multiple labels will be shown multiple times as well.
+In Gmail kann eine Nachricht mehrere Labels haben, die FairEmail als Ordner präsentiert werden. Das bedeutet, dass Nachrichten mit mehreren Labels auch mehrfach angezeigt werden.
 
 <br />
 
@@ -1807,16 +1807,16 @@ Eine Menge Wissen und Erfahrung ist erforderlich, um erfolgreich eine App für e
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) Was macht 'Lösche lokale Nachrichten'?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+Die Option *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die auf dem Server noch vorhanden sind. Sie löscht keine Nachrichten vom Server. Dies kann nützlich sein, wenn die Ordnereinstellungen geändert werden, um den Nachrichteninhalt (Text und Anhänge) nicht herunterzuladen, zum Beispiel um Speicherplatz zu sparen.
 
 <br />
 
 <a name="faq77"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Warum werden Nachrichten manchmal mit einer kleinen Verzögerung angezeigt?**
 
-Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+Abhängig von der Geschwindigkeit Ihres Geräts (Prozessorgeschwindigkeit und vielleicht sogar noch mehr Speichergeschwindigkeit) können Nachrichten mit einer kleinen Verzögerung angezeigt werden. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
 
 Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
 
@@ -3013,13 +3013,13 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 <a name="faq166"></a>
 **(166) Kann ich eine Nachricht über mehrere Geräte hinweg zurückstellen?**
 
-First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+Erstens gibt es keinen Standard für das Zurückstellen von Nachrichten, so dass alle Umsetzungen benutzerdefinierte Lösungen sind.
 
-Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+Einige E-Mail-Anbieter, wie z. B. Gmail, verschieben zurückgestellte Nachrichten in einen speziellen Ordner. Leider haben Drittanbieter-Apps keinen Zugriff auf diesen speziellen Ordner.
 
-Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+Das Verschieben einer Nachricht in einen anderen Ordner und zurück könnte fehlschlagen und ist möglicherweise nicht möglich, wenn keine Internetverbindung besteht. Das ist problematisch, da eine Nachricht erst nach dem Verschieben der Nachricht eingeschläffert werden kann.
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
+Um diese Probleme zu vermeiden, wird das Schlummern lokal auf dem Gerät durchgeführt, indem die Nachricht während des Schlummerns versteckt wird. Leider ist es nicht möglich, Nachrichten auch auf dem E-Mail-Server zu verstecken.
 
 <br />
 
