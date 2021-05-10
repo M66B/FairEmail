@@ -807,7 +807,7 @@
     </provider>
     <provider
         name="Onet"
-        domain="onet\\.pl"
+        domain="op\\.pl,onet\\.pl,poczta\\.onet\\.pl,vp\\.pl,onet\\.eu,autograf\\.pl,buziaczek\\.pl,spoko\\.pl,poczta\\.onet\\.eu,onet\\.com\\.pl,amorki\\.pl,opoczta\\.pl"
         link="https://pomoc.poczta.onet.pl/baza-wiedzy/konfiguracja-poczty-na-urzadzeniach-mobilnych/">
         <imap
             host="imap.poczta.onet.pl"
