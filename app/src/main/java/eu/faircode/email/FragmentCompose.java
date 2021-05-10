@@ -5653,9 +5653,6 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private int getAutoPos(int start, int end) {
-        if (!BuildConfig.DEBUG)
-            return -1;
-
         if (start > end || end == 0)
             return -1;
 
@@ -5663,14 +5660,21 @@ public class FragmentCompose extends FragmentBase {
         if (text == null)
             return -1;
 
+        int lc = 0;
         int nl = 0;
         int pos = 0;
         String[] lines = text.subSequence(start, end).toString().split("\n");
-        for (int i = 0; i < Math.min(5, lines.length); i++) {
+        for (int i = 0; i < lines.length; i++) {
             if (TextUtils.isEmpty(lines[i]))
                 nl++;
-            if (nl == 2)
-                return start + pos;
+            else {
+                lc++;
+                nl = 0;
+            }
+            if (lc > 1)
+                return -1;
+            if (nl > 2)
+                return start + pos - 1;
             pos += lines[i].length() + 1;
         }
         return -1;
