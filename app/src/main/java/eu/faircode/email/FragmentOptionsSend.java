@@ -22,6 +22,9 @@ package eu.faircode.email;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.TypefaceSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
@@ -39,6 +43,9 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swKeyboard;
@@ -132,6 +139,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spReceiptType = view.findViewById(R.id.spReceiptType);
         swLookupMx = view.findViewById(R.id.swLookupMx);
 
+        String[] fontNameNames = getResources().getStringArray(R.array.fontNameNames);
+        String[] fontNameValues = getResources().getStringArray(R.array.fontNameValues);
+
+        List<CharSequence> fn = new ArrayList<>();
+        for (int i = 0; i < fontNameNames.length; i++) {
+            SpannableStringBuilder ssb = new SpannableStringBuilder(fontNameNames[i]);
+            ssb.setSpan(new TypefaceSpan(fontNameValues[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            fn.add(ssb);
+        }
+
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, fn);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spComposeFont.setAdapter(adapter);
+
         setOptions();
 
         // Wire controls
@@ -220,13 +241,12 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         spComposeFont.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String[] values = getResources().getStringArray(R.array.fontNameValues);
-                String value = values[position];
+                String value = fontNameValues[position];
                 boolean monospaced = prefs.getBoolean("monospaced", false);
                 if (value.equals(monospaced ? "monospace" : "sans-serif"))
                     prefs.edit().remove("compose_font").apply();
                 else
-                    prefs.edit().putString("compose_font", values[position]).apply();
+                    prefs.edit().putString("compose_font", value).apply();
             }
 
             @Override
