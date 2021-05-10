@@ -437,18 +437,7 @@ public class FragmentCompose extends FragmentBase {
                 int first = text.substring(0, last).lastIndexOf(',');
                 first = (first < 0 ? 0 : first + 1);
 
-                if (first == start && last + 1 == end) {
-                    String selected = et.getText().subSequence(start, end).toString();
-                    int gt = selected.lastIndexOf('<');
-                    int lt = selected.lastIndexOf('>');
-                    if (gt >= 0 && lt >= 0 && gt < lt) {
-                        et.setSelection(start + gt + 1, start + lt);
-                        return true;
-                    }
-                } else {
-                    et.setSelection(first, last + 1);
-                    return true;
-                }
+                et.setSelection(first, last + 1);
 
                 return false;
             }
