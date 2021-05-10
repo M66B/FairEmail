@@ -1871,13 +1871,16 @@
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace</item>
+        <item>Fantasy</item>
     </string-array>
 
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="fontNameValues" translatable="false">
         <item>cursive</item>
         <item>serif</item>
         <item>sans-serif</item>
         <item>monospace</item>
+        <item>fantasy</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

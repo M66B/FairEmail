@@ -1583,5 +1583,7 @@
         <item>Patkové</item>
         <item>Bezpatkové</item>
         <item>Neproporcionální</item>
+        <item>Fantasy</item>
     </string-array>
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

@@ -1002,4 +1002,5 @@
         <item>S/MIME само потпис</item>
         <item>S/MIME потпис+шифровање</item>
     </string-array>
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

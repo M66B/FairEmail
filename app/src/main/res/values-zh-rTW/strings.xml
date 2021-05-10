@@ -1462,5 +1462,7 @@
         <item>襯線</item>
         <item>無襯線字體</item>
         <item>等寬字體</item>
+        <item>Fantasy</item>
     </string-array>
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

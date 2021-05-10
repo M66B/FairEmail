@@ -1514,5 +1514,7 @@
         <item>Talpas</item>
         <item>Talpatlan</item>
         <item>Fix szélességű szöveg</item>
+        <item>Fantasy</item>
     </string-array>
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

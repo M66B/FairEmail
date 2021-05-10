@@ -1586,5 +1586,7 @@
         <item>С засечками</item>
         <item>Без засечек</item>
         <item>Моноширинный</item>
+        <item>Fantasy</item>
     </string-array>
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

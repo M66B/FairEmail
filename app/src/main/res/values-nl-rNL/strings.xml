@@ -1561,5 +1561,7 @@
         <item>Met schreef</item>
         <item>Schreefloos</item>
         <item>Vaste breedte</item>
+        <item>Fantasy</item>
     </string-array>
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>
