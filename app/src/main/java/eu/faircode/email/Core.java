@@ -2973,7 +2973,7 @@ class Core {
 
             // Delete not synchronized messages without uid
             if (!EntityFolder.isOutgoing(folder.type)) {
-                int orphans = db.message().deleteOrphans(folder.id);
+                int orphans = db.message().deleteOrphans(folder.id, new Date().getTime());
                 Log.i(folder.name + " deleted orphans=" + orphans);
             }
 

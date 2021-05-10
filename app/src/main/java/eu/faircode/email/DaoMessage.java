@@ -821,6 +821,7 @@ public interface DaoMessage {
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
+            " AND (ui_busy IS NULL OR ui_busy < :now)" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
@@ -831,7 +832,7 @@ public interface DaoMessage {
             "  WHERE o.account = message.account" +
             "  AND o.name = '" + EntityOperation.MOVE + "'" +
             "  AND m.msgid = message.msgid)")
-    int deleteOrphans(long folder);
+    int deleteOrphans(long folder, long now);
 
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
