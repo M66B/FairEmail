@@ -5276,7 +5276,7 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                setFocus(args.getInt("focus"), args.getBoolean("ime"));
+                setFocus(args.getInt("focus"), args.getBoolean("ime") && false);
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5626,6 +5626,7 @@ public class FragmentCompose extends FragmentBase {
                         return;
 
                     imm.showSoftInput(target, InputMethodManager.SHOW_IMPLICIT);
+
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
