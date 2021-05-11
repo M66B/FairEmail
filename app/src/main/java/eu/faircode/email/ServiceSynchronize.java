@@ -2226,7 +2226,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             prefs.edit().putInt("poll_interval", OPTIMIZE_POLL_INTERVAL).apply();
         } else if (pollInterval <= 60 && account.poll_exempted) {
             db.account().setAccountPollExempted(account.id, false);
-            ServiceSynchronize.eval(this, "Optimize=" + reason);
+            eval(this, "Optimize=" + reason);
         }
     }
 
