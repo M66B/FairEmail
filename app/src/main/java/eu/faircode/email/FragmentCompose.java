@@ -3388,6 +3388,10 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("formatted", formatted);
         args.putBoolean("interactive", getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED));
         args.putInt("focus", focus == null ? -1 : focus.getId());
+        if (focus instanceof EditText) {
+            args.putInt("start", ((EditText) focus).getSelectionStart());
+            args.putInt("end", ((EditText) focus).getSelectionEnd());
+        }
         args.putBoolean("ime", ime);
         args.putBundle("extras", extras);
 
@@ -5276,7 +5280,11 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                setFocus(args.getInt("focus"), args.getBoolean("ime") && false);
+                setFocus(
+                        args.getInt("focus"),
+                        args.getInt("start", -1),
+                        args.getInt("end", -1),
+                        args.getBoolean("ime"));
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -5583,7 +5591,7 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 state = State.LOADED;
 
-                setFocus(null, true);
+                setFocus(null, -1, -1, true);
             }
 
             @Override
@@ -5593,7 +5601,7 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:show");
     }
 
-    private void setFocus(Integer v, boolean restore) {
+    private void setFocus(Integer v, int start, int end, boolean restore) {
         final View target;
         if (v != null)
             target = view.findViewById(v);
@@ -5611,6 +5619,9 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void run() {
                 try {
+                    if (target instanceof EditText && start >= 0)
+                        ((EditText) target).setSelection(start, end < 0 ? start : end);
+
                     target.requestFocus();
 
                     Context context = target.getContext();
