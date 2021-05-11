@@ -597,7 +597,7 @@ public class FragmentCompose extends FragmentBase {
                         for (QuoteSpan span : spans) {
                             int s = text.getSpanStart(span);
                             int e = text.getSpanEnd(span);
-                            int f = text.getSpanFlags(span) | Spanned.SPAN_PARAGRAPH;
+                            int f = text.getSpanFlags(span);
                             Log.i(span + " " + s + "..." + e + " added=" + added);
 
                             if (s > 0 && added - s > 0 && e - (added + 1) > 0 &&
