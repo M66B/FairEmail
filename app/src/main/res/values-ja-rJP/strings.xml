@@ -1548,7 +1548,7 @@
         <item>セリフ</item>
         <item>サンセリフ</item>
         <item>等幅フォント</item>
-        <item>Fantasy</item>
+        <item>ファンタジー</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

@@ -929,6 +929,7 @@
     <string name="title_subject">Temat:</string>
     <string name="title_attachment">Załącznik:</string>
     <string name="title_body_hint">Twoja wiadomość</string>
+    <string name="title_body_hint_style">Możesz wybrać tekst do sformatowania</string>
     <string name="title_discard">Odrzuć</string>
     <string name="title_save">Zapisz</string>
     <string name="title_send">Wyślij</string>
@@ -1583,7 +1584,7 @@
         <item>Szeryfowa</item>
         <item>Bezszeryfowa</item>
         <item>Stała szerokość</item>
-        <item>Fantasy</item>
+        <item>Fantazja</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>
