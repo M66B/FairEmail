@@ -91,12 +91,15 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
             insertIcon(context, item);
             if (item.hasSubMenu()) {
                 SubMenu sub = item.getSubMenu();
-                sub.setHeaderTitle(title);
+                boolean has = false;
                 for (int j = 0; j < sub.size(); j++)
                     if (sub.getItem(j).getIcon() != null) {
+                        has = true;
                         insertIcons(context, sub);
                         break;
                     }
+                if (has)
+                    sub.setHeaderTitle(title);
             }
         }
     }
