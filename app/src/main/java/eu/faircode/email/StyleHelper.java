@@ -114,9 +114,22 @@ public class StyleHelper {
 
                 return true;
             } else if (action == R.id.menu_style) {
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(anchor.getContext(), owner, anchor);
+                final Context context = anchor.getContext();
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
                 popupMenu.inflate(R.menu.popup_style);
-                popupMenu.insertIcons(anchor.getContext());
+
+                {
+                    SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_size).getSubMenu();
+                    smenu.clear();
+                    int[] ids = new int[]{R.id.menu_style_size_small, R.id.menu_style_size_medium, R.id.menu_style_size_large};
+                    int[] titles = new int[]{R.string.title_style_size_small, R.string.title_style_size_medium, R.string.title_style_size_large};
+                    float[] sizes = new float[]{HtmlHelper.FONT_SMALL, 1.0f, HtmlHelper.FONT_LARGE};
+                    for (int i = 0; i < ids.length; i++) {
+                        SpannableStringBuilder ssb = new SpannableStringBuilder(context.getString(titles[i]));
+                        ssb.setSpan(new RelativeSizeSpan(sizes[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        smenu.add(R.id.group_style_size, ids[i], i, ssb);
+                    }
+                }
 
                 String[] fontNameNames = anchor.getResources().getStringArray(R.array.fontNameNames);
                 String[] fontNameValues = anchor.getResources().getStringArray(R.array.fontNameValues);
@@ -137,6 +150,8 @@ public class StyleHelper {
                         level = ((BulletSpanEx) span).getLevel();
                 popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setVisible(level >= 0);
                 popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setVisible(level > 0);
+
+                popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override

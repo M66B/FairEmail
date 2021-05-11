@@ -114,10 +114,10 @@ import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 500; // characters
 
+    static final float FONT_SMALL = 0.8f;
+    static final float FONT_LARGE = 1.25f;
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
-    private static final float FONT_SMALL = 0.8f;
-    private static final float FONT_LARGE = 1.25f;
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
     private static final float MIN_LUMINANCE = 0.7f;
     private static final int TAB_SIZE = 2;
