@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -19,7 +18,6 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.preference.PreferenceManager;
 
 public class FragmentDialogTheme extends FragmentDialogBase {
-    private ImageButton itten;
     private RadioGroup rgTheme;
     private SwitchCompat swReverse;
     private RadioGroup rgThemeOptions;
