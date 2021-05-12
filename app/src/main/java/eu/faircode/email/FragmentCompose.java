@@ -5615,12 +5615,15 @@ public class FragmentCompose extends FragmentBase {
         if (target == null)
             return;
 
+        int s = (start < end ? start : end);
+        int e = (start < end ? end : start);
+
         getMainHandler().post(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (target instanceof EditText && start >= 0)
-                        ((EditText) target).setSelection(start, end < 0 ? start : end);
+                    if (target instanceof EditText && s >= 0)
+                        ((EditText) target).setSelection(s, e < 0 ? s : e);
 
                     target.requestFocus();
 
