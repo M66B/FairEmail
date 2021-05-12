@@ -137,6 +137,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -188,6 +189,8 @@ import biweekly.util.ICalDate;
 
 import static android.app.Activity.RESULT_OK;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
+import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Fragment parentFragment;
@@ -6814,6 +6817,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean overview_mode = prefs.getBoolean("overview_mode", false);
             boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
+            boolean confirm_html = prefs.getBoolean("confirm_html", true);
+            boolean html_dark = prefs.getBoolean("html_dark", confirm_html);
 
             View view = inflater.inflate(R.layout.fragment_open_full, container, false);
             WebView wv = view.findViewById(R.id.wv);
@@ -6833,6 +6838,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 settings.setSafeBrowsingEnabled(safe_browsing);
+
+            if (html_dark &&
+                    WebViewEx.isFeatureSupported(WebViewFeature.FORCE_DARK))
+                WebSettingsCompat.setForceDark(settings,
+                        Helper.isDarkTheme(getContext()) ? FORCE_DARK_ON : FORCE_DARK_OFF);
 
             settings.setLoadsImagesAutomatically(true);
             settings.setBlockNetworkLoads(false);
