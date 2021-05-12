@@ -317,8 +317,12 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
+        if (!Helper.isDarkTheme(getContext())) {
+            boolean beige = prefs.getBoolean("beige", true);
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
+        }
 
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");

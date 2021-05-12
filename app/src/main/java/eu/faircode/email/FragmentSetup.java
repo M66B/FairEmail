@@ -403,8 +403,13 @@ public class FragmentSetup extends FragmentBase {
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
+        if (!Helper.isDarkTheme(getContext())) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean beige = prefs.getBoolean("beige", true);
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
+        }
 
         btnIdentity.setEnabled(false);
         tvNoComposable.setVisibility(View.GONE);

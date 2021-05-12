@@ -333,8 +333,12 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
+        if (!Helper.isDarkTheme(getContext())) {
+            boolean beige = prefs.getBoolean("beige", true);
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
+        }
 
         DB db = DB.getInstance(getContext());
         db.account().liveSynchronizingAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {

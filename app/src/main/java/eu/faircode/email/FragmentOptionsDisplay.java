@@ -283,6 +283,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swBeige.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                getActivity().getIntent().putExtra("tab", "display");
                 prefs.edit().putBoolean("beige", checked).apply();
             }
         });
@@ -854,8 +855,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
+        if (!Helper.isDarkTheme(getContext())) {
+            boolean beige = prefs.getBoolean("beige", true);
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
+                    ? R.color.lightColorBackground_cards_beige
+                    : R.color.lightColorBackground_cards));
+        }
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
