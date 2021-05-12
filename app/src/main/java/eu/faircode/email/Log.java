@@ -839,6 +839,26 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof RuntimeException &&
+                ex.getCause() instanceof CursorWindowAllocationException)
+            /*
+                java.lang.RuntimeException: Exception while computing database live data.
+                  at androidx.room.RoomTrackingLiveData$1.run(SourceFile:10)
+                  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+                  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+                  at java.lang.Thread.run(Thread.java:764)
+                Caused by: io.requery.android.database.CursorWindowAllocationException: Cursor window allocation of 2048 kb failed.
+                  at io.requery.android.database.CursorWindow.<init>(SourceFile:7)
+                  at io.requery.android.database.CursorWindow.<init>(SourceFile:1)
+                  at io.requery.android.database.AbstractWindowedCursor.clearOrCreateWindow(SourceFile:2)
+                  at io.requery.android.database.sqlite.SQLiteCursor.fillWindow(SourceFile:1)
+                  at io.requery.android.database.sqlite.SQLiteCursor.getCount(SourceFile:2)
+                  at eu.faircode.email.DaoAttachment_Impl$14.call(SourceFile:16)
+                  at eu.faircode.email.DaoAttachment_Impl$14.call(SourceFile:1)
+                  at androidx.room.RoomTrackingLiveData$1.run(SourceFile:7)
+             */
+            return false;
+
         if (ex instanceof SQLiteFullException) // database or disk is full (code 13 SQLITE_FULL)
             return false;
 
