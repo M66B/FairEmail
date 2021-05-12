@@ -391,7 +391,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 int id = view.getId();
                 if (id == R.id.ibExpander) {
-                    onCollapse(folder);
+                    onCollapse(folder, pos);
                 } else if (id == R.id.tvFlagged || id == R.id.ibFlagged) {
                     onFlagged(folder);
                 } else {
@@ -416,9 +416,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
         }
 
-        private void onCollapse(TupleFolderEx folder) {
+        private void onCollapse(TupleFolderEx folder, int pos) {
             if (listener != null) {
                 folder.collapsed = !folder.collapsed;
+                notifyItemChanged(pos); // Update expander
                 set(all);
                 return;
             }
