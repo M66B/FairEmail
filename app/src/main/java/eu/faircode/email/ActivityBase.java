@@ -572,7 +572,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         Log.i("Preference " + key + "=" + prefs.getAll().get(key));
         if ("theme".equals(key) || "beige".equals(key)) {
             finish();
-            if (this.getClass().equals(ActivitySetup.class) || this.getClass().equals(ActivityView.class))
+            if (visible &&
+                    (this.getClass().equals(ActivitySetup.class) ||
+                            this.getClass().equals(ActivityView.class)))
                 startActivity(getIntent());
         } else if (!this.getClass().equals(ActivitySetup.class) && !visible &&
                 Arrays.asList(FragmentOptions.OPTIONS_RESTART).contains(key))
