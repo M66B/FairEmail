@@ -82,7 +82,7 @@
         Regeln erstellen und verwenden ist eine Pro-Funktion.
     </string>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
-    <string name="title_junk_filter_hint">Dies kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
+    <string name="title_junk_filter_hint">Das kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
@@ -1288,7 +1288,7 @@
     <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie auf das Symbol „Original anzeigen“ über dem Nachrichtentext.</string>
     <string name="title_hint_design">Das Design ist absichtlich nicht ablenkend, sondern sehr funktional gehalten. Es gibt viele Optionen, um das Aussehen individuell anzupassen, aber bitte verstehen Sie, dass es unmöglich ist, alle Nutzer gleichermaßen vollkommen glücklich zu machen.</string>
-    <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem batteriebetriebenen Gerät mit begrenzten Fähigkeiten nicht zuverlässig durchgeführt werden.</string>
+    <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem akkubetriebenen Gerät mit begrenzten Kapazitäten nicht zuverlässig durchgeführt werden.</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_eml">Das ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei. Speichern Sie die Rohnachricht mit dem Speichernsymbol in der Aktionsleiste, um alle Inhalte anzuzeigen.</string>
     <string name="title_open_link">Link öffnen</string>
