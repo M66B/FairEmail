@@ -534,6 +534,7 @@ class Core {
                             //   javax.net.ssl.SSLException: Write error: ssl=0x8286cac0: I/O error during system call, Broken pipe
                             // Drafts: * BYE Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
                             // Sync: BAD Could not parse command
+                            // Sync: SEARCH not allowed now
                             // Seen: NO mailbox selected READ-ONLY
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n.nnn secs).
                             // Fetch: NO all of the requested messages have been expunged
@@ -543,10 +544,12 @@ class Core {
                             // Fetch: NO [SERVERBUG] UID FETCH Server error - Please try again later
                             // Fetch: NO Invalid message number (took 123 ms)
                             // Fetch: BAD Internal Server Error
+                            // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n .nnn secs).
                             // Fetch UID: NO Some messages could not be FETCHed (Failure)
                             // Fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
                             // Fetch UID: NO Server Unavailable. 15
                             // Fetch UID: NO [UNAVAILABLE] Failed to open mailbox
+                            // Fetch UID: NO [TEMPFAIL] SELECT completed
                             // Move: NO Over quota
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist
@@ -560,6 +563,8 @@ class Core {
                             // Move: NO mailbox selected READ-ONLY
                             // Move: NO System Error (Failure)
                             // Move: NO APPEND processing failed.
+                            // Move: NO Server Unavailable. 15
+                            // Move: NO [CANNOT] Operation is not supported on mailbox
                             // Copy: NO Client tried to access nonexistent namespace. (Mailbox name should probably be prefixed with: INBOX.) (n.nnn + n.nnn secs).
                             // Add: BAD Data length exceeds limit
                             // Add: NO [LIMIT] APPEND Command exceeds the maximum allowed size
