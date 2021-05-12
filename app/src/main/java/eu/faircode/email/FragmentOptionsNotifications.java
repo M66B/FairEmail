@@ -47,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -470,6 +471,10 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 prefs.edit().putBoolean("alert_once", !checked).apply();
             }
         });
+
+        // Initialize
+        if (!Helper.isDarkTheme(getContext()))
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
 
         swAlertOnce.setVisibility(Log.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 

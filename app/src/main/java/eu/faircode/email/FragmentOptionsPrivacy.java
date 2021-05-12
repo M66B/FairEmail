@@ -50,6 +50,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewFeature;
@@ -332,6 +333,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 prefs.edit().putBoolean("disconnect_images", checked).apply();
             }
         });
+
+        // Initialize
+        if (!Helper.isDarkTheme(getContext()))
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
