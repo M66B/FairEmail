@@ -519,7 +519,10 @@ class Core {
                                 ex instanceof SQLiteConstraintException ||
                                 (!ConnectionHelper.isIoError(ex) &&
                                         (ex.getCause() instanceof BadCommandException ||
-                                                ex.getCause() instanceof CommandFailedException /* NO */)) ||
+                                                ex.getCause() instanceof CommandFailedException /* NO */) &&
+                                        // https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird
+                                        (ex.getMessage() == null ||
+                                                !ex.getMessage().contains("mailbox selected READ-ONLY"))) ||
                                 MessageHelper.isRemoved(ex) ||
                                 EntityOperation.HEADERS.equals(op.name) ||
                                 EntityOperation.RAW.equals(op.name) ||
