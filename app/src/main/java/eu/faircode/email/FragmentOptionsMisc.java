@@ -53,6 +53,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
@@ -131,7 +132,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnFiles;
 
     private Group grpUpdates;
-    private Group grpDebug;
+    private CardView cardDebug;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -237,7 +238,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnFiles = view.findViewById(R.id.btnFiles);
 
         grpUpdates = view.findViewById(R.id.grpUpdates);
-        grpDebug = view.findViewById(R.id.grpDebug);
+        cardDebug = view.findViewById(R.id.cardDebug);
 
         setOptions();
 
@@ -509,7 +510,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
-                grpDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+                cardDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -981,7 +982,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvFingerprint.setText(Helper.getFingerprint(getContext()));
 
-        grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }
 
     private void updateUsage() {
