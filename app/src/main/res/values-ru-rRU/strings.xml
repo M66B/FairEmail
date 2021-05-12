@@ -930,7 +930,7 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вложение:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_body_hint_style">Вы можете выбрать текст для форматирования</string>
+    <string name="title_body_hint_style">Вы можете выделить текст, чтобы отформатировать его</string>
     <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>

@@ -3,14 +3,22 @@
     <string name="app_search">البحث في فيرميل</string>
     <string name="app_changelog">سِجل التغييرات</string>
     <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
+    <string name="app_limitations">على سبيل المثال، يتم إعادة تنسيق الرسائل بشكل افتراضي لإزالة العناصر غير الآمنة وتحسين إمكانية القراءة، كما ويجب تأكيد فتح الروابط من أجل السلامة. وكلاهما يمكن أن يُعطلا إذا رُغب في ذلك.</string>
     <string name="app_crash">فيرميل ليس مدعومًا على هذا الجهاز لأن أخطاء في نظام الأندرويد تسبب تعطّلات</string>
     <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
+    <string name="app_cake">مساحة تخزين غير كافية</string>
+    <string name="app_updated">آخر تحديث: %1$s</string>
+    <string name="channel_service">إستلام</string>
     <string name="channel_send">أرسل</string>
+    <string name="channel_notification">البريد الإلكتروني</string>
+    <string name="channel_progress">التفدم</string>
     <string name="channel_update">التحديثات</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="channel_alert">تنبيهات الخادم</string>
     <string name="channel_group_contacts">المُراسِلون</string>
+    <string name="channel_service_description">مزامنة ومراقبة الحسابات</string>
+    <string name="channel_send_description">جارٍ إرسال الرسائل</string>
     <string name="channel_notification_description">إشعارات الرسائل الجديدة</string>
     <string name="page_folders">الملفات</string>
     <string name="page_compose">إنشاء</string>
@@ -35,8 +43,11 @@
         <item quantity="many">%1$d جديدة</item>
         <item quantity="other">%1$d جديدة</item>
     </plurals>
+    <string name="title_ask_spam_who">جعل الرسالة من %1$s كرسالة غير مرغوب فيها؟</string>
+    <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك مسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل موثوق.</string>
     <string name="title_block">حظر %1$s</string>
     <string name="title_block_sender">حظر المرسل</string>
+    <string name="title_block_domain">حظر نطاق المرسل</string>
     <string name="title_notification_sending">جارٍ إرسال الرسالة</string>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
     <string name="title_factor_minutes">%1$d دقيقة</string>
