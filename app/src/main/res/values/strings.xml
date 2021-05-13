@@ -352,8 +352,8 @@
     <string name="title_advanced_validated">Require a validated (checked) connection</string>
     <string name="title_advanced_timeout">Connection timeout (seconds)</string>
     <string name="title_advanced_prefer_ip4">Prefer IPv4 over IPv6</string>
-    <string name="title_advanced_standalone_vpn" translatable="false">Standalone VPN (debug only)</string>
-    <string name="title_advanced_tcp_keep_alive" translatable="false">TCP keep alive (debug only)</string>
+    <string name="title_advanced_standalone_vpn" translatable="false">Standalone VPN</string>
+    <string name="title_advanced_tcp_keep_alive" translatable="false">TCP keep alive</string>
     <string name="title_advanced_ssl_harden">Harden SSL connections</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
@@ -557,14 +557,14 @@
     <string name="title_advanced_log_info">Debug logging</string>
     <string name="title_advanced_debug">Debug mode</string>
     <string name="title_advanced_query_threads">Limit parallel database access</string>
-    <string name="title_advanced_wal" translatable="false">WAL (debug only)</string>
-    <string name="title_advanced_modseq" translatable="false">MODSEQ (debug only)</string>
-    <string name="title_advanced_expunge" translatable="false">EXPUNGE (debug only)</string>
-    <string name="title_advanced_auth_plain" translatable="false">PLAIN (debug only)</string>
-    <string name="title_advanced_auth_login" translatable="false">LOGIN (debug only)</string>
-    <string name="title_advanced_auth_ntlm" translatable="false">NTLM (debug only)</string>
-    <string name="title_advanced_auth_sasl" translatable="false">SASL (debug only)</string>
-    <string name="title_advanced_exact_alarms" translatable="false">Use exact timers (debug only)</string>
+    <string name="title_advanced_wal" translatable="false">WAL</string>
+    <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
+    <string name="title_advanced_expunge" translatable="false">EXPUNGE</string>
+    <string name="title_advanced_auth_plain" translatable="false">PLAIN</string>
+    <string name="title_advanced_auth_login" translatable="false">LOGIN</string>
+    <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>
+    <string name="title_advanced_auth_sasl" translatable="false">SASL</string>
+    <string name="title_advanced_exact_alarms" translatable="false">Use exact timers</string>
     <string name="title_advanced_processors" translatable="false">Processors: %1$d</string>
     <string name="title_advanced_memory_class" translatable="false">Memory class: %1$s/%2$s Total: %3$s</string>
     <string name="title_advanced_memory_usage" translatable="false">Memory usage: %1$s/%2$s Native: %3$s</string>

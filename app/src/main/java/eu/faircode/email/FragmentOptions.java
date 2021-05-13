@@ -278,7 +278,9 @@ public class FragmentOptions extends FragmentBase {
             }
 
             private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
-                if (view instanceof ViewGroup) {
+                if (view == null || "debug".equals(view.getTag()))
+                    return id;
+                else if (view instanceof ViewGroup) {
                     ViewGroup group = (ViewGroup) view;
                     for (int i = 0; i <= group.getChildCount(); i++)
                         id = getSuggestions(query, id, tab, title, group.getChildAt(i), cursor);

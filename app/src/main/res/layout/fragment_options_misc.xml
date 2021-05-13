@@ -515,6 +515,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="3dp"
             android:layout_marginTop="12dp"
+            android:tag="debug"
             app:cardBackgroundColor="?attr/colorCardBackground"
             app:cardCornerRadius="6dp"
             app:cardElevation="0dp"
