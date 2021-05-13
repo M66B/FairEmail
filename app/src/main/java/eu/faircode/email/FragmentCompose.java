@@ -1752,6 +1752,16 @@ public class FragmentCompose extends FragmentBase {
                 collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
                 Collections.sort(groups, collator);
 
+                Collections.sort(answers, new Comparator<EntityAnswer>() {
+                    @Override
+                    public int compare(EntityAnswer a1, EntityAnswer a2) {
+                        if (!BuildConfig.DEBUG || a1.applied.equals(a2.applied))
+                            return collator.compare(a1.name, a2.name);
+                        else
+                            return -a1.applied.compareTo(a2.applied);
+                    }
+                });
+
                 Collections.sort(favorites, new Comparator<EntityAnswer>() {
                     @Override
                     public int compare(EntityAnswer a1, EntityAnswer a2) {
