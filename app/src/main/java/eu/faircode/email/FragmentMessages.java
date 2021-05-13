@@ -1924,14 +1924,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 
+            TupleAccountSwipes swipes = accountSwipes.get(message.account);
+            if (swipes == null)
+                return 0;
+
+            if (message.uid == null &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
+                    EntityFolder.DRAFTS.equals(message.folderType))
+                return makeMovementFlags(0,
+                        (EntityFolder.TRASH.equals(swipes.left_type) ? ItemTouchHelper.LEFT : 0) |
+                                (EntityFolder.TRASH.equals(swipes.right_type) ? ItemTouchHelper.RIGHT : 0));
+
             if (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
                 return 0;
 
             if (message.folderReadOnly)
-                return 0;
-
-            TupleAccountSwipes swipes = accountSwipes.get(message.account);
-            if (swipes == null)
                 return 0;
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP)
@@ -1997,6 +2004,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 swipes = accountSwipes.get(message.account);
                 if (swipes == null)
                     return;
+            }
+
+            if (message.uid == null &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
+                    EntityFolder.DRAFTS.equals(message.folderType)) {
+                boolean right = EntityFolder.TRASH.equals(swipes.right_type);
+                boolean left = EntityFolder.TRASH.equals(swipes.left_type);
+                swipes = new TupleAccountSwipes();
+                swipes.swipe_right = (right ? EntityMessage.SWIPE_ACTION_DELETE : null);
+                swipes.right_type = null;
+                swipes.swipe_left = (left ? EntityMessage.SWIPE_ACTION_DELETE : null);
+                swipes.left_type = null;
             }
 
             if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
@@ -2121,6 +2140,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (action == null) {
                 adapter.notifyDataSetChanged();
                 return;
+            }
+
+            if (message.uid == null &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
+                    EntityFolder.DRAFTS.equals(message.folderType) &&
+                    EntityFolder.TRASH.equals(actionType)) {
+                action = EntityMessage.SWIPE_ACTION_DELETE;
+                actionType = null;
             }
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
