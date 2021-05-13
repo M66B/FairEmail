@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.graphics.Color;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -344,16 +343,16 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return R.drawable.twotone_folder_24;
     }
 
-    static Integer getDefaultColor(String type) {
+    static Integer getDefaultColor(String type, Context context) {
         if (EntityFolder.TRASH.equals(type) || EntityFolder.JUNK.equals(type))
-            return Color.RED;
+            return Helper.resolveColor(context, R.attr.colorError);
         return null;
     }
 
-    static Integer getDefaultColor(Long action, String type) {
+    static Integer getDefaultColor(Long action, String type, Context context) {
         if (EntityMessage.SWIPE_ACTION_DELETE.equals(action))
-            return Color.RED;
-        return getDefaultColor(type);
+            return Helper.resolveColor(context, R.attr.colorError);
+        return getDefaultColor(type, context);
     }
 
     String getDisplayName(Context context) {

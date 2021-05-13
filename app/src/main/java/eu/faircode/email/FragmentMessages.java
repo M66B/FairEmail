@@ -2066,7 +2066,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 // Right swipe
                 d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
                 if (swipes.right_color == null) {
-                    Integer color = EntityFolder.getDefaultColor(swipes.swipe_right, swipes.right_type);
+                    Integer color = EntityFolder.getDefaultColor(swipes.swipe_right, swipes.right_type, context);
                     if (color != null)
                         d.setTint(color);
                 } else
@@ -2082,7 +2082,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 // Left swipe
                 d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
                 if (swipes.left_color == null) {
-                    Integer color = EntityFolder.getDefaultColor(swipes.swipe_left, swipes.left_type);
+                    Integer color = EntityFolder.getDefaultColor(swipes.swipe_left, swipes.left_type, context);
                     if (color != null)
                         d.setTint(color);
                 } else
@@ -8334,13 +8334,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             String notagain = getArguments().getString("notagain");
             ArrayList<MessageTarget> result = getArguments().getParcelableArrayList("result");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_move, null);
+            final Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_move, null);
             TextView tvMessages = dview.findViewById(R.id.tvMessages);
             TextView tvSourceFolders = dview.findViewById(R.id.tvSourceFolders);
             TextView tvTargetFolders = dview.findViewById(R.id.tvTargetFolders);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            String question = getResources()
+            String question = context.getResources()
                     .getQuantityString(R.plurals.title_moving_messages,
                             result.size(), result.size());
 
@@ -8365,21 +8366,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Drawable source = null;
             if (sources.size() == 1) {
-                source = getContext().getDrawable(EntityFolder.getIcon(sources.get(0)));
+                source = context.getDrawable(EntityFolder.getIcon(sources.get(0)));
                 if (source != null)
                     source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
                 if (sourceColor == null)
-                    sourceColor = EntityFolder.getDefaultColor(sources.get(0));
+                    sourceColor = EntityFolder.getDefaultColor(sources.get(0), context);
             } else
                 sourceColor = null;
 
             Drawable target = null;
             if (targets.size() == 1) {
-                target = getContext().getDrawable(EntityFolder.getIcon(targets.get(0)));
+                target = context.getDrawable(EntityFolder.getIcon(targets.get(0)));
                 if (target != null)
                     target.setBounds(0, 0, target.getIntrinsicWidth(), target.getIntrinsicHeight());
                 if (targetColor == null)
-                    targetColor = EntityFolder.getDefaultColor(targets.get(0));
+                    targetColor = EntityFolder.getDefaultColor(targets.get(0), context);
             } else
                 targetColor = null;
 
@@ -8397,12 +8398,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(buttonView.getContext());
                         prefs.edit().putBoolean(notagain, isChecked).apply();
                     }
                 });
 
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
