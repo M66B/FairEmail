@@ -2066,7 +2066,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 // Right swipe
                 d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
                 if (swipes.right_color == null) {
-                    Integer color = EntityFolder.getDefaultColor(swipes.right_type);
+                    Integer color = EntityFolder.getDefaultColor(swipes.swipe_right, swipes.right_type);
                     if (color != null)
                         d.setTint(color);
                 } else
@@ -2082,7 +2082,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 // Left swipe
                 d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
                 if (swipes.left_color == null) {
-                    Integer color = EntityFolder.getDefaultColor(swipes.left_type);
+                    Integer color = EntityFolder.getDefaultColor(swipes.swipe_left, swipes.left_type);
                     if (color != null)
                         d.setTint(color);
                 } else

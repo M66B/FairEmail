@@ -350,6 +350,12 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return null;
     }
 
+    static Integer getDefaultColor(Long action, String type) {
+        if (EntityMessage.SWIPE_ACTION_DELETE.equals(action))
+            return Color.RED;
+        return getDefaultColor(type);
+    }
+
     String getDisplayName(Context context) {
         return (display == null ? localizeName(context, name) : display);
     }
