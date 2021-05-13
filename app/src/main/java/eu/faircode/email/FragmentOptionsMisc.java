@@ -511,6 +511,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
                 cardDebug.setVisibility(checked || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+                if (checked)
+                    view.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.scrollTo(0, swDebug.getTop());
+                        }
+                    });
             }
         });
 
