@@ -186,7 +186,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         final List<NavMenuItem> menus = new ArrayList<>();
 
-        menus.add(new NavMenuItem(R.drawable.twotone_exit_to_app_24, R.string.menu_exit, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.twotone_close_24, R.string.title_setup_close, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer, false);

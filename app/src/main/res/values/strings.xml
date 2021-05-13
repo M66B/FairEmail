@@ -123,7 +123,6 @@
     <string name="title_title_description" translatable="false">%1$s: %2$s</string>
     <string name="title_factor_minutes">%1$d minutes</string>
 
-    <string name="menu_exit">Exit</string>
     <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_contacts">Local contacts</string>
@@ -225,6 +224,7 @@
     <string name="title_setup_error">Error</string>
     <string name="title_setup_configuring">Configuring account &#8230;</string>
 
+    <string name="title_setup_close">Close settings</string>
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
     <string name="title_setup_export_do">The password is used to encrypt the settings and is required to import the settings again</string>
