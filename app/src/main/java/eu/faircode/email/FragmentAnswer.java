@@ -183,6 +183,11 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityAnswer answer) {
+                if (copy > 0 && answer != null) {
+                    answer.applied = 0;
+                    answer.last_applied = null;
+                }
+
                 if (savedInstanceState == null) {
                     Bundle a = getArguments();
                     if (a == null)

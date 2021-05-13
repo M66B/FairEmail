@@ -1796,8 +1796,28 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         long id = intent.getLongExtra("id", -1);
-                        for (EntityAnswer answer : answers)
-                            if (answer.id.equals(id)) {
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+
+                        new SimpleTask<EntityAnswer>() {
+                            @Override
+                            protected EntityAnswer onExecute(Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("id");
+
+                                DB db = DB.getInstance(context);
+                                EntityAnswer answer = db.answer().getAnswer(id);
+                                if (answer != null)
+                                    db.answer().applyAnswer(answer.id, new Date().getTime());
+
+                                return answer;
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, EntityAnswer answer) {
+                                if (answer == null)
+                                    return;
+
                                 if (etSubject.getText().length() == 0)
                                     etSubject.setText(answer.name);
 
@@ -1841,13 +1861,15 @@ public class FragmentCompose extends FragmentBase {
                                     if (pos >= 0)
                                         etBody.setSelection(pos);
                                 }
-
-                                return true;
                             }
 
-                        Log.e("Answer=" + id + " count=" + answers.size() + " not found");
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }.execute(FragmentCompose.this, args, "compose:answer");
 
-                        return false;
+                        return true;
                     }
                 });
 
@@ -3820,6 +3842,7 @@ public class FragmentCompose extends FragmentBase {
                                 ? db.answer().getStandardAnswer()
                                 : db.answer().getAnswer(answer));
                         if (a != null) {
+                            db.answer().applyAnswer(a.id, new Date().getTime());
                             data.draft.subject = a.name;
                             Document d = JsoupEx.parse(a.getText(null));
                             document.body().append(d.body().html());
@@ -3978,6 +4001,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (receipt == null)
                                     texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
                                 else {
+                                    db.answer().applyAnswer(receipt.id, new Date().getTime());
                                     texts = new String[0];
                                     Document d = JsoupEx.parse(receipt.getText(null));
                                     document.body().append(d.body().html());
@@ -4023,6 +4047,7 @@ public class FragmentCompose extends FragmentBase {
                             a = db.answer().getAnswer(answer);
 
                         if (a != null) {
+                            db.answer().applyAnswer(a.id, new Date().getTime());
                             Document d = JsoupEx.parse(a.getText(data.draft.to));
                             document.body().append(d.body().html());
                         }

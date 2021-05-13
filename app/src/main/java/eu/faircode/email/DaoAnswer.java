@@ -78,6 +78,16 @@ public interface DaoAnswer {
     @Query("UPDATE answer SET receipt = 0 WHERE NOT (receipt IS 0)")
     void resetReceipt();
 
+    @Query("UPDATE answer" +
+            " SET applied = applied + 1, last_applied = :time" +
+            " WHERE id = :id")
+    int applyAnswer(long id, long time);
+
+    @Query("UPDATE answer" +
+            " SET applied = 0, last_applied = NULL" +
+            " WHERE id = :id AND NOT (applied IS 0)")
+    int resetAnswer(long id);
+
     @Query("DELETE FROM answer WHERE id = :id")
     void deleteAnswer(long id);
 }

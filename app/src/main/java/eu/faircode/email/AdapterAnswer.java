@@ -47,6 +47,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +58,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+
+    private DateFormat DF;
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private String search = null;
     private List<EntityAnswer> all = new ArrayList<>();
@@ -70,6 +75,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         private ImageView ivStandard;
         private ImageView ivFavorite;
         private ImageView ivReceipt;
+        private TextView tvLastApplied;
+        private TextView tvApplied;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "RulePopup");
 
@@ -82,6 +89,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             ivStandard = itemView.findViewById(R.id.ivStandard);
             ivFavorite = itemView.findViewById(R.id.ivFavorite);
             ivReceipt = itemView.findViewById(R.id.ivReceipt);
+            tvLastApplied = itemView.findViewById(R.id.tvLastApplied);
+            tvApplied = itemView.findViewById(R.id.tvApplied);
         }
 
         private void wire() {
@@ -102,6 +111,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             ivStandard.setVisibility(answer.standard ? View.VISIBLE : View.GONE);
             ivFavorite.setVisibility(answer.favorite ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(answer.receipt ? View.VISIBLE : View.GONE);
+            tvLastApplied.setText(answer.last_applied == null ? null : DF.format(answer.last_applied));
+            tvApplied.setText(NF.format(answer.applied));
         }
 
         @Override
@@ -139,7 +150,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                     .setCheckable(true).setChecked(answer.favorite);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_hide, 3, R.string.title_answer_hide)
                     .setCheckable(true).setChecked(answer.hide);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 4, R.string.title_reset);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 5, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -153,6 +165,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_answer_hide) {
                         onActionHide(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_reset) {
+                        onActionReset();
                         return true;
                     } else if (itemId == R.string.title_copy) {
                         onActionCopy();
@@ -215,6 +230,28 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                     }.execute(context, owner, args, "answer:hide");
                 }
 
+                private void onActionReset() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", answer.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.answer().resetAnswer(id);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "rule:execute");
+                }
+
                 private void onActionCopy() {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
@@ -236,6 +273,8 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        this.DF = Helper.getDateTimeInstance(this.context);
 
         setHasStableIds(true);
 
