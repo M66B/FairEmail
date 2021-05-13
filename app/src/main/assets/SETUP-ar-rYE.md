@@ -1,10 +1,10 @@
 # مساعدة في الإعدادات
 
-انشاء البريد المرضي سهل للغاية. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+انشاء البريد المرضي سهل للغاية. You'll need to add at least one account to receive email and at least one identity if you want to send email. سيضيف الإعداد السريع حساباً وستذهب هوية في واحد لمعظم مقدمي الخدمات الرئيسيين.
 
 ## المتطلبات
 
-An internet connection is required to set up accounts and identities.
+يجب أن تكون متصل بالانترنت لإنشاء الحساب والهوية الخاصة بك.
 
 ## إعدادات سريعة
 
