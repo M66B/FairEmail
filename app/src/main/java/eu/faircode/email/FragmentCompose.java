@@ -2297,12 +2297,16 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof SecurityException) {
-                    pickRequest = requestCode;
-                    pickUri = uri;
-                    String permission = Manifest.permission.READ_CONTACTS;
-                    requestPermissions(new String[]{permission}, REQUEST_PERMISSION);
-                } else
+                if (ex instanceof SecurityException)
+                    try {
+                        pickRequest = requestCode;
+                        pickUri = uri;
+                        String permission = Manifest.permission.READ_CONTACTS;
+                        requestPermissions(new String[]{permission}, REQUEST_PERMISSION);
+                    } catch (Throwable ex1) {
+                        Log.unexpectedError(getParentFragmentManager(), ex1);
+                    }
+                else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:picked");

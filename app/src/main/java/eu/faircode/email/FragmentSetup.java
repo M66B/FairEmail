@@ -336,9 +336,27 @@ public class FragmentSetup extends FragmentBase {
         btnPermissions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnPermissions.setEnabled(false);
-                String permission = Manifest.permission.READ_CONTACTS;
-                requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
+                try {
+                    btnPermissions.setEnabled(false);
+                    String permission = Manifest.permission.READ_CONTACTS;
+                    requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
+                } catch (Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    /*
+                        android.content.ActivityNotFoundException: No Activity found to handle Intent { act=android.content.pm.action.REQUEST_PERMISSIONS pkg=com.google.android.packageinstaller (has extras) }
+                          at android.app.Instrumentation.checkStartActivityResult(Instrumentation.java:1805)
+                          at android.app.Instrumentation.execStartActivity(Instrumentation.java:1634)
+                          at android.app.Activity.startActivityForResult(Activity.java:4583)
+                          at android.app.Activity.requestPermissions(Activity.java:3850)
+                          at androidx.core.app.ActivityCompat.requestPermissions(SourceFile:11)
+                          at androidx.activity.ComponentActivity$2.onLaunch(SourceFile:13)
+                          at androidx.activity.result.ActivityResultRegistry$3.launch(SourceFile:2)
+                          at androidx.activity.result.ActivityResultLauncher.launch(SourceFile:1)
+                          at androidx.fragment.app.FragmentManager.launchRequestPermissions(SourceFile:4)
+                          at androidx.fragment.app.Fragment.requestPermissions(SourceFile:2)
+                          at eu.faircode.email.FragmentSetup$11.onClick(SourceFile:2)
+                     */
+                }
             }
         });
 

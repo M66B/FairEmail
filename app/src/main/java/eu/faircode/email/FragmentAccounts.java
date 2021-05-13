@@ -122,7 +122,11 @@ public class FragmentAccounts extends FragmentBase {
         btnGrant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermissions(Helper.getOAuthPermissions(), REQUEST_IMPORT_OAUTH);
+                try {
+                    requestPermissions(Helper.getOAuthPermissions(), REQUEST_IMPORT_OAUTH);
+                } catch (Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
             }
         });
 
