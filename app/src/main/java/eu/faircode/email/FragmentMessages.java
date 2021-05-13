@@ -2934,7 +2934,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam)
-                            .setIcon(R.drawable.twotone_flag_24);
+                            .setIcon(R.drawable.twotone_report_problem_24);
 
                 if (!result.isTrash && result.hasTrash && !result.isJunk) // not trash and has trash and not is junk
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash)
