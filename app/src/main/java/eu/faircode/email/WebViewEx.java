@@ -98,6 +98,26 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             setScrollY(position.second);
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+        int message_zoom = prefs.getInt("message_zoom", 100);
+        boolean monospaced = prefs.getBoolean("monospaced", false);
+
+        WebSettings settings = getSettings();
+
+        float fontSize = 16f /* Default */ * message_zoom / 100f;
+        if (zoom == 0 /* small */)
+            fontSize *= HtmlHelper.FONT_SMALL;
+        else if (zoom == 2 /* large */)
+            fontSize *= HtmlHelper.FONT_LARGE;
+
+        settings.setDefaultFontSize(Math.round(fontSize));
+        settings.setDefaultFixedFontSize(Math.round(fontSize));
+
+        if (monospaced)
+            settings.setStandardFontFamily("monospace");
+
         this.intf = intf;
 
         setWebViewClient(new WebViewClient() {
