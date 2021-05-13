@@ -609,7 +609,9 @@ class Core {
                                 db.operation().deleteOperation(op.id);
 
                                 // Cleanup messages
-                                if (message != null && MessageHelper.isRemoved(ex))
+                                if (message != null &&
+                                        MessageHelper.isRemoved(ex) &&
+                                        !EntityOperation.SEEN.equals(op.name))
                                     db.message().deleteMessage(message.id);
 
                                 db.setTransactionSuccessful();
