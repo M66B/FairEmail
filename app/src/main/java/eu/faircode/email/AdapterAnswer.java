@@ -249,7 +249,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "rule:execute");
+                    }.execute(context, owner, args, "answer:reset");
                 }
 
                 private void onActionCopy() {
