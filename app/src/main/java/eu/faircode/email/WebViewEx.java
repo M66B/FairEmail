@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -65,6 +66,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         setOnLongClickListener(this);
 
         WebSettings settings = getSettings();
+        settings.setUserAgentString(getUserAgent(context, this));
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(overview_mode);
 
@@ -348,6 +350,26 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             Log.w(ex);
             return false;
         }
+    }
+
+    static String getUserAgent(Context context, WebView webView) {
+        // https://developer.chrome.com/docs/multidevice/user-agent/#chrome-for-android
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean generic_ua = prefs.getBoolean("generic_ua", false);
+
+        if (generic_ua) {
+            boolean large = context.getResources().getConfiguration()
+                    .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
+            return (large ? "Mozilla/5.0" : "Mozilla/5.0 (Mobile)");
+        } else
+            try {
+                if (webView == null)
+                    webView = new WebView(context);
+                return webView.getSettings().getUserAgentString();
+            } catch (Throwable ex) {
+                Log.e(ex);
+                return null;
+            }
     }
 
     interface IWebView {

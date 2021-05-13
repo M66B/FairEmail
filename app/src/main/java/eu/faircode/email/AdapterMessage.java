@@ -6824,6 +6824,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             WebView wv = view.findViewById(R.id.wv);
 
             WebSettings settings = wv.getSettings();
+            settings.setUserAgentString(WebViewEx.getUserAgent(getContext(), wv));
             settings.setUseWideViewPort(true);
             settings.setLoadWithOverviewMode(overview_mode);
 

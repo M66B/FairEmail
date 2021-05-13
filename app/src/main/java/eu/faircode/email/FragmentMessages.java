@@ -7888,6 +7888,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 printWebView = new WebView(context);
 
                 WebSettings settings = printWebView.getSettings();
+                settings.setUserAgentString(WebViewEx.getUserAgent(context, printWebView));
                 settings.setLoadsImagesAutomatically(print_html_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
                 settings.setAllowFileAccess(true);
