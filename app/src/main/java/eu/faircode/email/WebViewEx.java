@@ -369,11 +369,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             return getGenericUserAgent(context);
 
         try {
-            if (userAgent == null) {
-                if (webView == null)
-                    webView = new WebView(context);
-                userAgent = webView.getSettings().getUserAgentString();
-            }
+            if (userAgent == null)
+                userAgent = WebSettings.getDefaultUserAgent(context);
             return userAgent;
         } catch (Throwable ex) {
             Log.w(ex);
