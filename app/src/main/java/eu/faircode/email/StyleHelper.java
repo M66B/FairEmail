@@ -86,7 +86,8 @@ public class StyleHelper {
             if (action == R.id.menu_bold || action == R.id.menu_italic) {
                 int style = (action == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
                 boolean has = false;
-                for (StyleSpan span : edit.getSpans(start, end, StyleSpan.class))
+                StyleSpan[] spans = edit.getSpans(start, end, StyleSpan.class);
+                for (StyleSpan span : spans)
                     if (span.getStyle() == style) {
                         has = true;
                         int s = edit.getSpanStart(span);
@@ -106,7 +107,8 @@ public class StyleHelper {
                 return true;
             } else if (action == R.id.menu_underline) {
                 boolean has = false;
-                for (UnderlineSpan span : edit.getSpans(start, end, UnderlineSpan.class)) {
+                UnderlineSpan[] spans = edit.getSpans(start, end, UnderlineSpan.class);
+                for (UnderlineSpan span : spans) {
                     has = true;
                     int s = edit.getSpanStart(span);
                     int e = edit.getSpanEnd(span);
@@ -258,7 +260,8 @@ public class StyleHelper {
                     }
 
                     private void _setColor(Integer color) {
-                        for (ForegroundColorSpan span : edit.getSpans(start, end, ForegroundColorSpan.class)) {
+                        ForegroundColorSpan spans[] = edit.getSpans(start, end, ForegroundColorSpan.class);
+                        for (ForegroundColorSpan span : spans) {
                             int s = edit.getSpanStart(span);
                             int e = edit.getSpanEnd(span);
                             int f = edit.getSpanFlags(span);
@@ -452,7 +455,8 @@ public class StyleHelper {
 
                     private boolean setStrikeThrough(MenuItem item) {
                         boolean has = false;
-                        for (StrikethroughSpan span : edit.getSpans(start, end, StrikethroughSpan.class)) {
+                        StrikethroughSpan[] spans = edit.getSpans(start, end, StrikethroughSpan.class);
+                        for (StrikethroughSpan span : spans) {
                             has = true;
                             int s = edit.getSpanStart(span);
                             int e = edit.getSpanEnd(span);
