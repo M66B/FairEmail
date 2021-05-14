@@ -106,7 +106,7 @@ public class ContactInfo {
     private static final int GRAVATAR_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
     private static final int FAVICON_READ_TIMEOUT = 10 * 1000; // milliseconds
-    private static final int FAVICON_READ_BYTES = 2048;
+    private static final int FAVICON_READ_BYTES = 4096;
     private static final long CACHE_CONTACT_DURATION = 2 * 60 * 1000L; // milliseconds
     private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
@@ -468,7 +468,7 @@ public class ContactInfo {
     }
 
     private static Bitmap parseFavicon(URL base, int scaleToPixels, Context context) throws IOException {
-        Log.i("GET favicon " + base);
+        Log.i("PARSE favicon " + base);
         HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(FAVICON_READ_TIMEOUT);
@@ -486,7 +486,14 @@ public class ContactInfo {
         String response;
         try {
             byte[] buffer = new byte[FAVICON_READ_BYTES];
-            int len = connection.getInputStream().read(buffer);
+            int len = 0;
+            while (len < buffer.length) {
+                int read = connection.getInputStream().read(buffer, len, buffer.length - len);
+                if (read < 0)
+                    break;
+                else
+                    len += read;
+            }
             if (len < 0)
                 throw new IOException("length");
             response = new String(buffer, 0, len, StandardCharsets.UTF_8.name());
