@@ -53,7 +53,6 @@
     <string name="title_notification_alert">서버 경고: \'%1$s\'</string>
     <string name="title_notification_sending_failed">%1$s에게 전송 실패</string>
     <string name="title_factor_minutes">%1$d분</string>
-    <string name="menu_exit">종료</string>
     <string name="menu_answers">템플릿</string>
     <string name="menu_operations">작업</string>
     <string name="menu_setup">설정</string>

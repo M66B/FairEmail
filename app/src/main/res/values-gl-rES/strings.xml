@@ -90,7 +90,6 @@
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_failed">O envío a %1$s fallou</string>
     <string name="title_factor_minutes">%1$d minutos</string>
-    <string name="menu_exit">Saír</string>
     <string name="menu_answers">Patróns</string>
     <string name="menu_operations">Operacións</string>
     <string name="menu_contacts">Contactos locais</string>

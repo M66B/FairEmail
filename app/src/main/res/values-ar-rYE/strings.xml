@@ -112,7 +112,6 @@
     <string name="title_notification_idle">خامل</string>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
     <string name="title_factor_minutes">%1$d دقيقة</string>
-    <string name="menu_exit">خروج</string>
     <string name="menu_answers">النماذج</string>
     <string name="menu_operations">الإجراءات</string>
     <string name="menu_contacts">المُراسِلون المحليون</string>
@@ -171,6 +170,7 @@
     <string name="title_setup_done">تمّ</string>
     <string name="title_setup_still">لا يزال يتعين القيام به</string>
     <string name="title_setup_error">خطأ</string>
+    <string name="title_setup_close">اغلق الإعدادات</string>
     <string name="title_setup_export">تصدير الإعدادات</string>
     <string name="title_setup_import">استيراد الإعدادات</string>
     <string name="title_setup_password">الكلمة السرية</string>
@@ -218,6 +218,7 @@
     <string name="title_advanced_notify_action_reply">رد</string>
     <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
+    <string name="title_advanced_generic_user_agent">استخدام اعدادات المستخدم العامة في المتصفح</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
     <string name="title_advanced_browse_hint">جلب المزيد من الرسائل عند التمرير إلى أسفل</string>

@@ -113,7 +113,6 @@
     <string name="title_notification_sending_failed">Nepodarilo sa odoslať príjemcovi %1$s</string>
     <string name="title_notification_redacted">Obmedzené: Povolené biometrické overenie, alebo overenie pinom</string>
     <string name="title_factor_minutes">%1$d minút</string>
-    <string name="menu_exit">Ukončiť</string>
     <string name="menu_answers">Šablóny</string>
     <string name="menu_operations">Operácie</string>
     <string name="menu_contacts">Lokálne kontakty</string>
@@ -842,7 +841,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_move_to_account">Presunúť do %1$s &#8230;</string>
     <string name="title_report_spam">Označiť ako spam</string>
     <string name="title_delete_permanently">Odstrániť natrvalo</string>
-    <string name="title_no_undo">Toto nie je možné vrátiť späť!</string>
     <string name="title_snooze">Odložiť &#8230;</string>
     <string name="title_archive">Archivovať</string>
     <string name="title_reply">Odpovedať</string>

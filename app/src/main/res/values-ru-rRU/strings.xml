@@ -98,7 +98,7 @@
     <string name="title_junk_hint">За фильтрацию спама отвечает ваш почтовый провайдер. Приложение электронной почты не имеет достаточно данных, чтобы надёжно исполнять данную функцию.</string>
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
-    <string name="title_block_domain">Заблокировать домен отправителя</string>
+    <string name="title_block_domain">Блокировать домен отправителя</string>
     <string name="title_block_sender_hint">        Блокировка отправителя создаст правило для автоматического перемещения будущих сообщений в папку со спамом.
         Создание и использование правил является Pro-функцией.
     </string>
@@ -107,13 +107,12 @@
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_waiting">Ожидание подходящего подключения</string>
     <string name="title_notification_idle">Низкий</string>
-    <string name="title_notification_failed">\"%1$s\" не удалось</string>
+    <string name="title_notification_failed">\"%1$s\" не выполнено</string>
     <string name="title_notification_alert">\"%1$s\" предупреждение сервера</string>
     <string name="title_notification_sending_left">Оставшиеся попытки: %1$d</string>
     <string name="title_notification_sending_failed">Отправка для %1$s не удалась</string>
     <string name="title_notification_redacted">Отредактировано: включена биометрическая аутентификация или PIN-код</string>
     <string name="title_factor_minutes">%1$d мин.</string>
-    <string name="menu_exit">Выход</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_operations">Операции</string>
     <string name="menu_contacts">Локальные контакты</string>
@@ -204,6 +203,7 @@
     <string name="title_setup_still">Осталось сделать</string>
     <string name="title_setup_error">Ошибка</string>
     <string name="title_setup_configuring">Настройка учётной записи&#8230;</string>
+    <string name="title_setup_close">Выйти из настроек</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
     <string name="title_setup_export_do">Пароль используется для шифрования настроек и потребуется при их импортировании</string>
@@ -459,6 +459,7 @@
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Время до включения биометрической аутентификации</string>
+    <string name="title_advanced_generic_user_agent">Использовать обычный пользовательский агент браузера</string>
     <string name="title_advanced_disconnect_auto_update">Еженедельное автообновление списков</string>
     <string name="title_advanced_disconnect_links">Использовать списки для предупреждения об отслеживающих ссылках</string>
     <string name="title_advanced_disconnect_images">Использовать списки для распознавания отслеживающих изображений</string>
@@ -845,7 +846,7 @@
     <string name="title_move_to_account">Переместить в %1$s&#8230;</string>
     <string name="title_report_spam">Считать спамом</string>
     <string name="title_delete_permanently">Удалить окончательно</string>
-    <string name="title_no_undo">Эта операция необратима!</string>
+    <string name="title_no_undo">Я понимаю, что это не может быть отменено</string>
     <string name="title_snooze">Отложить&#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
@@ -930,7 +931,7 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вложение:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_body_hint_style">Вы можете выделить текст, чтобы отформатировать его</string>
+    <string name="title_body_hint_style">Вы можете выбрать текст для форматирования</string>
     <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>

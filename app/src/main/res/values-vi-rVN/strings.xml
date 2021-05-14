@@ -80,7 +80,6 @@
     <string name="title_notification_sending_failed">Gửi đến %1$s thất bại</string>
     <string name="title_notification_redacted">Đã rút lại: xác thực sinh trắc học hoặc mã PIN được bật</string>
     <string name="title_factor_minutes">%1$d phút</string>
-    <string name="menu_exit">Thoát</string>
     <string name="menu_answers">Mẫu</string>
     <string name="menu_operations">Hoạt động</string>
     <string name="menu_contacts">Liên hệ cục bộ</string>
@@ -171,6 +170,7 @@
     <string name="title_setup_still">Vẫn cần làm</string>
     <string name="title_setup_error">Lỗi</string>
     <string name="title_setup_configuring">Đang thiết lập tài khoản &#8230;</string>
+    <string name="title_setup_close">Đóng cài đặt</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
     <string name="title_setup_export_do">Mật khẩu này được sử dụng để mã hoá cài đặt và được yêu cầu để nhập cài đặt lại</string>
@@ -426,6 +426,7 @@
     <string name="title_advanced_secure">Ẩn khỏi màn hình đa nhiệm và ngăn chặn chụp màn hình</string>
     <string name="title_advanced_pin">Mã PIN</string>
     <string name="title_advanced_biometrics_timeout">Thời gian chờ xác thực sinh trắc học</string>
+    <string name="title_advanced_generic_user_agent">Sử dụng tác nhân người dùng trình duyệt chung chung</string>
     <string name="title_advanced_disconnect_auto_update">Tự động cập nhật các danh sách hàng tuần</string>
     <string name="title_advanced_disconnect_links">Sử dụng các danh sách để cảnh báo về các liên kết theo dõi</string>
     <string name="title_advanced_disconnect_images">Sử dụng các danh sách để nhận ra các hình ảnh theo dõi</string>
@@ -811,7 +812,6 @@
     <string name="title_move_to_account">Di chuyển vào %1$s &#8230;</string>
     <string name="title_report_spam">Coi là thư rác</string>
     <string name="title_delete_permanently">Xóa vĩnh viễn</string>
-    <string name="title_no_undo">Việc này không thể được hoàn tác!</string>
     <string name="title_snooze">Đặt báo lại &#8230;</string>
     <string name="title_archive">Lưu trữ</string>
     <string name="title_reply">Trả lời</string>

@@ -73,7 +73,6 @@
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
     <string name="title_notification_alert">\'%1$s\' zerbitzariko alerta</string>
     <string name="title_factor_minutes">%1$d minutu</string>
-    <string name="menu_exit">Irten</string>
     <string name="menu_answers">Txantiloiak</string>
     <string name="menu_operations">Eragiketak</string>
     <string name="menu_contacts">Kontaktu lokalak</string>

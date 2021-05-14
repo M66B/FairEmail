@@ -73,7 +73,6 @@
     <string name="title_notification_sending_failed">%1$s এর কাছে প্রেরণ ব্যর্থ হয়েছে</string>
     <string name="title_notification_redacted">পুনঃনির্মাণঃ বায়োমেট্রিক বা পিন প্রমাণীকরণ চালু</string>
     <string name="title_factor_minutes">%1$d মিনিট</string>
-    <string name="menu_exit">প্রস্থান</string>
     <string name="menu_answers">টেম্পলেট</string>
     <string name="menu_operations">ক্রিয়াকলাপ</string>
     <string name="menu_contacts">স্থানীয় যোগাযোগ</string>

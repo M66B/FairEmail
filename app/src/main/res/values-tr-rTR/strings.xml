@@ -91,7 +91,6 @@
     <string name="title_notification_sending_failed">%1$s adresine gönderim başarısız oldu</string>
     <string name="title_notification_redacted">Düzeltildi: biyometrik veya PIN kimlik doğrulaması etkin</string>
     <string name="title_factor_minutes">%1$d dakika</string>
-    <string name="menu_exit">Çıkış</string>
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_contacts">Yerel rehber</string>
@@ -181,6 +180,7 @@
     <string name="title_setup_still">Hala yapılacaklar var</string>
     <string name="title_setup_error">Hata</string>
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
+    <string name="title_setup_close">Ayarları kapat</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
     <string name="title_setup_export_do">Parola, ayarları şifrelemek için kullanılır ve ayarları yeniden içe aktarmak için gereklidir</string>

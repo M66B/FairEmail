@@ -58,7 +58,6 @@
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="title_notification_alert">\'%1$s\' server xəbərdarlığı</string>
     <string name="title_factor_minutes">%1$d dəqiqə</string>
-    <string name="menu_exit">Çıxış</string>
     <string name="menu_answers">Şablonlar</string>
     <string name="menu_operations">Əməliyyatlar</string>
     <string name="menu_contacts">Yerli şəxslər</string>

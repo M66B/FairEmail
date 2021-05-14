@@ -113,7 +113,6 @@
     <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
     <string name="title_notification_redacted">Revidováno: zapnuto biometrické či PIN ověření</string>
     <string name="title_factor_minutes">%1$d minut</string>
-    <string name="menu_exit">Ukončit</string>
     <string name="menu_answers">Šablony</string>
     <string name="menu_operations">Operace</string>
     <string name="menu_contacts">Lokální kontakty</string>
@@ -845,7 +844,6 @@
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
     <string name="title_report_spam">Považovat za nevyžádané</string>
     <string name="title_delete_permanently">Trvale smazat</string>
-    <string name="title_no_undo">Toto nelze vrátit zpět!</string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>

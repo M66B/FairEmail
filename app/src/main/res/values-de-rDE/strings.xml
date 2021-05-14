@@ -92,7 +92,6 @@
     <string name="title_notification_sending_failed">Senden an %1$s fehlgeschlagen</string>
     <string name="title_notification_redacted">Geschwärzt: biometrische oder PIN-Authentifizierung aktiviert</string>
     <string name="title_factor_minutes">%1$d Minuten</string>
-    <string name="menu_exit">Beenden</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
     <string name="menu_contacts">Lokale Kontakte</string>
@@ -183,6 +182,7 @@
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
     <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
+    <string name="title_setup_close">Einstellungen schließen</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
     <string name="title_setup_export_do">Das Passwort wird verwendet, um die Einstellungen zu verschlüsseln und ist notwendig, um die Einstellungen erneut zu importieren</string>
@@ -438,6 +438,7 @@
     <string name="title_advanced_secure">Im Anwendungsverlauf verbergen und das Aufnehmen von Bildschirmfotos verhindern</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
+    <string name="title_advanced_generic_user_agent">Nutze allgemeinen Browser-Agent</string>
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Nachverfolgungslinks zu warnen</string>
     <string name="title_advanced_disconnect_images">Listen zur Erkennung von Nachverfolgungsbildern verwenden</string>
@@ -823,7 +824,7 @@
     <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
-    <string name="title_no_undo">Dies kann nicht rückgängig gemacht werden!</string>
+    <string name="title_no_undo">Ich verstehe, dass dies nicht rückgängig gemacht werden kann</string>
     <string name="title_snooze">Zurückstellen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
@@ -1060,7 +1061,7 @@
     <string name="title_search_server">Auf dem Server suchen</string>
     <string name="title_search_in">Suchen in</string>
     <string name="title_sort_on">Sortieren nach</string>
-    <string name="title_sort_on_time">Uhrzeit</string>
+    <string name="title_sort_on_time">Datum/Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>
     <string name="title_sort_on_starred">Markiert</string>
     <string name="title_sort_on_priority">Priorität</string>

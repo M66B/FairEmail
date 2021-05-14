@@ -79,7 +79,6 @@
     <string name="title_notification_sending_failed">%1$s への送信に失敗</string>
     <string name="title_notification_redacted">削除済み：生体認証またはPIN認証の有効化</string>
     <string name="title_factor_minutes">%1$d 分</string>
-    <string name="menu_exit">終了</string>
     <string name="menu_answers">テンプレート</string>
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">端末内の連絡先</string>
@@ -810,7 +809,6 @@
     <string name="title_move_to_account">%1$s &#8230; に移動します</string>
     <string name="title_report_spam">迷惑メールとして扱う</string>
     <string name="title_delete_permanently">完全に削除</string>
-    <string name="title_no_undo">この操作を元に戻すことはできません</string>
     <string name="title_snooze">スヌーズ &#8230;</string>
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>

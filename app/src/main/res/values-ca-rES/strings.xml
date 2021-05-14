@@ -79,7 +79,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_notification_sending_left">Intents restants: %1$d</string>
     <string name="title_notification_sending_failed">Falla l\'enviament a %1$s</string>
     <string name="title_factor_minutes">%1$d minuts</string>
-    <string name="menu_exit">Surt</string>
     <string name="menu_answers">Plantilles</string>
     <string name="menu_operations">Operacions</string>
     <string name="menu_contacts">Contactes locals</string>

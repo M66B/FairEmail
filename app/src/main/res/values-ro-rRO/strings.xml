@@ -102,7 +102,6 @@
     <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
     <string name="title_notification_redacted">Cenzurat: autentificare biometrică sau PIN activată</string>
     <string name="title_factor_minutes">%1$d minute</string>
-    <string name="menu_exit">Ieșire</string>
     <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_contacts">Contacte locale</string>
@@ -193,6 +192,7 @@
     <string name="title_setup_still">Încă de făcut</string>
     <string name="title_setup_error">Eroare</string>
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
+    <string name="title_setup_close">Închideți setările</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
     <string name="title_setup_export_do">Parola este folosită pentru a cripta setările și este necesară pentru a importa din nou setările</string>
@@ -448,6 +448,7 @@
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
+    <string name="title_advanced_generic_user_agent">Utilizați agentul utilizator generic al browserului</string>
     <string name="title_advanced_disconnect_auto_update">Actualizați automat listele săptămânal</string>
     <string name="title_advanced_disconnect_links">Folosește liste pentru a avertiza despre adrese de urmărire</string>
     <string name="title_advanced_disconnect_images">Folosește listele pentru a recunoaște imaginile de urmărire</string>
@@ -834,7 +835,6 @@
     <string name="title_move_to_account">Mută în %1$s &#8230;</string>
     <string name="title_report_spam">Tratează ca spam</string>
     <string name="title_delete_permanently">Șterge permanent</string>
-    <string name="title_no_undo">Acest lucru nu poate fi anulat!</string>
     <string name="title_snooze">Amână &#8230;</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>

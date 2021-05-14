@@ -91,7 +91,6 @@
     <string name="title_notification_sending_failed">Stjoeren nei %1$s is mislearre</string>
     <string name="title_notification_redacted">Redacted: biometrysk as PIN-autentikaasje ynskeakele</string>
     <string name="title_factor_minutes">%1$d minuten</string>
-    <string name="menu_exit">Útgong</string>
     <string name="menu_answers">Sjabloanen</string>
     <string name="menu_operations">Operaasjes</string>
     <string name="menu_contacts">Lokale kontakten</string>
@@ -182,6 +181,7 @@
     <string name="title_setup_still">Noch te dwaan</string>
     <string name="title_setup_error">Fersin</string>
     <string name="title_setup_configuring">Konfigurearje akkount &#8230;</string>
+    <string name="title_setup_close">Slut ynstellings</string>
     <string name="title_setup_export">Ynstellings eksportearje</string>
     <string name="title_setup_import">Ynstellings ymportearje</string>
     <string name="title_setup_export_do">It kaaiwurd wurdt brûkt om de ynstellings te fersiferjen en is nedich om de ynstellings wer te ûntsiferjen</string>
@@ -822,7 +822,7 @@
     <string name="title_move_to_account">Ferhúzje nei %1$s &#8230;</string>
     <string name="title_report_spam">Behannelje as spam</string>
     <string name="title_delete_permanently">Wiskje permanint</string>
-    <string name="title_no_undo">Dit kin net ûngedien wurde!</string>
+    <string name="title_no_undo">Ik begryp dat dit net wêrrom draait wurde kin</string>
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Argyf</string>
     <string name="title_reply">Antwurdzje</string>

@@ -91,7 +91,6 @@
     <string name="title_notification_sending_failed">Verzenden naar %1$s mislukt</string>
     <string name="title_notification_redacted">Redactie: biometrische of pincodeverificatie ingeschakeld</string>
     <string name="title_factor_minutes">%1$d minuten</string>
-    <string name="menu_exit">Afsluiten</string>
     <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Bewerkingen</string>
     <string name="menu_contacts">Lokale contacten</string>
@@ -182,6 +181,7 @@
     <string name="title_setup_still">Nog te doen</string>
     <string name="title_setup_error">Fout</string>
     <string name="title_setup_configuring">Account configureren &#8230;</string>
+    <string name="title_setup_close">Sluit instellingen</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
     <string name="title_setup_export_do">Het wachtwoord wordt gebruikt om de instellingen te versleutelen en is vereist om de instellingen opnieuw te importeren</string>
@@ -437,6 +437,7 @@
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
+    <string name="title_advanced_generic_user_agent">Gebruik algemene browser user agent</string>
     <string name="title_advanced_disconnect_auto_update">Werk lijsten wekelijks automatisch bij</string>
     <string name="title_advanced_disconnect_links">Gebruik lijsten om te waarschuwen voor tracking links</string>
     <string name="title_advanced_disconnect_images">Gebruik lijsten om tracking afbeeldingen te herkennen</string>
@@ -823,7 +824,7 @@
     <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
     <string name="title_report_spam">Behandel als spam</string>
     <string name="title_delete_permanently">Definitief verwijderen</string>
-    <string name="title_no_undo">Dit kan niet ongedaan gemaakt worden!</string>
+    <string name="title_no_undo">Ik begrijp dat dit niet ongedaan kan worden gemaakt</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>

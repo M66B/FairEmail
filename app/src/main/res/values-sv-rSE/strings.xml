@@ -91,7 +91,6 @@
     <string name="title_notification_sending_failed">Det gick inte att skicka till %1$s</string>
     <string name="title_notification_redacted">Redigering: biometrisk autentisering eller PIN-kod aktiverad</string>
     <string name="title_factor_minutes">%1$d minuter</string>
-    <string name="menu_exit">Avsluta</string>
     <string name="menu_answers">Mallar</string>
     <string name="menu_operations">Åtgärder</string>
     <string name="menu_contacts">Lokala kontakter</string>

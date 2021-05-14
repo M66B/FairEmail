@@ -856,7 +856,7 @@ Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachric
 
 Zuallererst: **FairEmail ist grundsätzlich kostenlos zu nutzen** und nur einige erweiterte Funktionen müssen gekauft werden.
 
-Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+Zuerst: **FairEmail ist grundsätzlich kostenlos**, nur einige erweiterte Funktionen müssen gekauft werden.
 
 Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
 
@@ -1816,20 +1816,20 @@ Die Option *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die au
 <a name="faq77"></a>
 **(77) Warum werden Nachrichten manchmal mit einer kleinen Verzögerung angezeigt?**
 
-Abhängig von der Geschwindigkeit Ihres Geräts (Prozessorgeschwindigkeit und vielleicht sogar noch mehr Speichergeschwindigkeit) können Nachrichten mit einer kleinen Verzögerung angezeigt werden. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
+Abhängig von der Geschwindigkeit Ihres Geräts (Prozessorgeschwindigkeit und vielleicht sogar noch mehr Speichergeschwindigkeit) können Nachrichten mit einer kleinen Verzögerung angezeigt werden. FairEmail ist so konzipiert, dass eine große Anzahl von Nachrichten dynamisch bearbeitet werden kann, ohne dass der Speicher voll wird. Das bedeutet, dass Nachrichten aus einer Datenbank gelesen werden müssen sowie diese Datenbank auf Änderungen überwacht werden muss; beides kann zu kleinen Verzögerungen führen.
 
-Some convenience features, like grouping messages to display conversation threads and determining the previous/next message, take a little extra time. Note that there is no *the* next message because in the meantime a new message might have been arrived.
+Einige Komfortfunktionen, wie z. B. das Gruppieren von Nachrichten zur Anzeige von Gesprächsthemen und das Ermitteln der vorherigen/nächsten Nachricht, benötigen etwas mehr Zeit. Beachten Sie, dass es keine *die* nächste Nachricht gibt, da in der Zwischenzeit eine neue Nachricht eingetroffen sein könnte.
 
-When comparing the speed of FairEmail with similar apps this should be part of the comparison. It is easy to write a similar, faster app which just displays a lineair list of messages while possible using too much memory, but it is not so easy to properly manage resource usage and to offer more advanced features like conversation threading.
+Wenn Sie die Geschwindigkeit von FairEmail mit ähnlichen Apps vergleichen, sollte dies ein Teil des Vergleichs sein. Es ist einfach, eine ähnliche, schnellere App zu schreiben, die nur eine Zeilenliste von Nachrichten anzeigt und dabei möglicherweise zu viel Speicher verbraucht, aber es ist nicht so einfach, die Ressourcennutzung richtig zu verwalten und fortgeschrittenere Funktionen wie Konversationsthreading anzubieten.
 
-FairEmail is based on the state-of-the-art [Android architecture components](https://developer.android.com/topic/libraries/architecture/), so there is little room for performance improvements.
+FairEmail basiert auf den modernsten [Android-Architekturkomponenten](https://developer.android.com/topic/libraries/architecture/), daher gibt es wenig Spielraum für Leistungsverbesserungen.
 
 <br />
 
 <a name="faq78"></a>
-**(78) How do I use schedules?**
+**(78) Wie verwende ich Zeitpläne?**
 
-In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
+In den Empfangseinstellungen können Sie die Terminierung aktivieren und einen Zeitraum und die Wochentage festlegen, an denen *Meldungen **empfangen* werden sollen. Beachten Sie, dass eine Endzeit, die gleich oder früher als die Startzeit ist, als 24 Stunden später angesehen wird.
 
 Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
 

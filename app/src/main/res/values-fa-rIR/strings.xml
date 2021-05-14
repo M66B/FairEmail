@@ -75,7 +75,6 @@
     <string name="title_notification_sending_left">تلاش‌های باقی‌مانده: %1$d</string>
     <string name="title_notification_sending_failed">ارسال به %1$s ناموفق بود</string>
     <string name="title_factor_minutes">%1$d دقیقه</string>
-    <string name="menu_exit">خروج</string>
     <string name="menu_answers">الگوها</string>
     <string name="menu_operations">عملیات ها</string>
     <string name="menu_contacts">مخاطبین محلی</string>

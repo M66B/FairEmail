@@ -85,7 +85,6 @@
     <string name="title_notification_sending_failed">Sending til %1$s mislyktes</string>
     <string name="title_notification_redacted">Redigert: biometrisk eller PIN-autentisering aktivert</string>
     <string name="title_factor_minutes">%1$d minutter</string>
-    <string name="menu_exit">Avslutt</string>
     <string name="menu_answers">Maler</string>
     <string name="menu_operations">Aktiviteter</string>
     <string name="menu_contacts">Lokale kontakter</string>

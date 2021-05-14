@@ -79,7 +79,6 @@
     <string name="title_notification_sending_failed">发送至 %1$s 失败</string>
     <string name="title_notification_redacted">已编辑：启用了生物识别或PIN身份验证</string>
     <string name="title_factor_minutes">%1$d分钟</string>
-    <string name="menu_exit">退出</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">本地联系人</string>
@@ -811,7 +810,6 @@
     <string name="title_move_to_account">移动到 %1$s &#8230;</string>
     <string name="title_report_spam">视为垃圾邮件</string>
     <string name="title_delete_permanently">永久删除</string>
-    <string name="title_no_undo">此操作无法撤消！</string>
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>

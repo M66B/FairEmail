@@ -112,7 +112,6 @@
     <string name="title_notification_sending_failed">Wysyłanie do %1$s nie powiodło się</string>
     <string name="title_notification_redacted">Włączono uwierzytelnianie biometryczne lub PIN</string>
     <string name="title_factor_minutes">%1$d minut</string>
-    <string name="menu_exit">Wyjście</string>
     <string name="menu_answers">Szablony</string>
     <string name="menu_operations">Operacje</string>
     <string name="menu_contacts">Kontakty lokalne</string>
@@ -844,7 +843,6 @@
     <string name="title_move_to_account">Przenieś do %1$s &#8230;</string>
     <string name="title_report_spam">Traktuj jako spam</string>
     <string name="title_delete_permanently">Usuń trwale</string>
-    <string name="title_no_undo">Tego nie można cofnąć!</string>
     <string name="title_snooze">Odłóż &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>

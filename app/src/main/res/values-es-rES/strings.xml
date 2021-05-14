@@ -91,7 +91,6 @@
     <string name="title_notification_sending_failed">El envío a %1$s falló</string>
     <string name="title_notification_redacted">Redactado: autenticación biométrica o PIN habilitada</string>
     <string name="title_factor_minutes">%1$d minutos</string>
-    <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
     <string name="menu_contacts">Contactos locales</string>
@@ -437,6 +436,7 @@
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
+    <string name="title_advanced_generic_user_agent">Usar agente de usuario de navegador genérico</string>
     <string name="title_advanced_disconnect_auto_update">Actualizar las listas automáticamente en forma semanal</string>
     <string name="title_advanced_disconnect_links">Usar listas para advertir sobre enlaces de seguimiento</string>
     <string name="title_advanced_disconnect_images">Usar listas para reconocer imágenes de rastreo</string>
@@ -823,7 +823,6 @@
     <string name="title_move_to_account">Mover a %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Borrar permanentemente</string>
-    <string name="title_no_undo">¡Esto no se puede deshacer!</string>
     <string name="title_snooze">Posponer &#8230;</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>

@@ -101,7 +101,6 @@
     <string name="title_notification_sending_failed">Відправлення до %1$s не вдалося</string>
     <string name="title_notification_redacted">Змінено: біометрична або автентифікація за допомогою PIN-коду ввімкнена</string>
     <string name="title_factor_minutes">%1$d хвилин</string>
-    <string name="menu_exit">Вихід</string>
     <string name="menu_answers">Шаблони</string>
     <string name="menu_operations">Операції</string>
     <string name="menu_contacts">Локальні контакти</string>
@@ -192,6 +191,7 @@
     <string name="title_setup_still">Все ще</string>
     <string name="title_setup_error">Помилка</string>
     <string name="title_setup_configuring">Налаштування облікового запису &#8230;</string>
+    <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
     <string name="title_setup_export_do">Пароль використовується для шифрування налаштувань і він потрібен для повторного імпорту налаштувань</string>
@@ -447,6 +447,7 @@
     <string name="title_advanced_secure">Приховати з екрану останніх програм і не дозволяти робити знімки екрану</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_biometrics_timeout">Тайм-аут біометричної автентифікації</string>
+    <string name="title_advanced_generic_user_agent">Використовувати User agent браузера</string>
     <string name="title_advanced_disconnect_auto_update">Автоматично оновлювати списки щотижня</string>
     <string name="title_advanced_disconnect_links">Використовуйте списки для попередження про посилання за якими можливе відслідковування</string>
     <string name="title_advanced_disconnect_images">Використовувати списки для розпізнавання зображень за якими можливе відстеження</string>
@@ -832,7 +833,6 @@
     <string name="title_move_to_account">Перемістити в %1$s &#8230;</string>
     <string name="title_report_spam">Вважати спамом</string>
     <string name="title_delete_permanently">Видалити назавжди</string>
-    <string name="title_no_undo">Цю дію не можливо скасувати!</string>
     <string name="title_snooze">Відкласти &#8230;</string>
     <string name="title_archive">Архівувати</string>
     <string name="title_reply">Відповісти</string>
@@ -917,6 +917,7 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вкладення:</string>
     <string name="title_body_hint">Ваше повідомлення</string>
+    <string name="title_body_hint_style">Ви можете обрати текст для його форматування</string>
     <string name="title_discard">Відхилити</string>
     <string name="title_save">Зберегти</string>
     <string name="title_send">Надсилання</string>
@@ -944,6 +945,8 @@
     <string name="title_style_list">Список</string>
     <string name="title_style_list_bullets">Маркований список</string>
     <string name="title_style_list_numbered">Нумерований список</string>
+    <string name="title_style_list_level_increase">Збільшити відступ</string>
+    <string name="title_style_list_level_decrease">Зменшити відступ</string>
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">За замовчанням</string>
     <string name="title_style_blockquote">Цитата</string>

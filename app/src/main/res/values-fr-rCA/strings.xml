@@ -91,7 +91,6 @@
     <string name="title_notification_sending_failed">L\'envoi à %1$s a échoué</string>
     <string name="title_notification_redacted">Authentification biométrique ou par NIP activée</string>
     <string name="title_factor_minutes">%1$d minutes</string>
-    <string name="menu_exit">Quitter</string>
     <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
     <string name="menu_contacts">Contacts locaux</string>
@@ -182,6 +181,7 @@
     <string name="title_setup_still">Encore à faire</string>
     <string name="title_setup_error">Erreur</string>
     <string name="title_setup_configuring">Configuration du compte&#8230;</string>
+    <string name="title_setup_close">Fermer les paramètres</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
     <string name="title_setup_export_do">Le mot de passe est utilisé pour chiffrer les paramètres et est nécessaire pour importer les paramètres à nouveau</string>
@@ -437,6 +437,7 @@
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
     <string name="title_advanced_pin">NIP</string>
     <string name="title_advanced_biometrics_timeout">Délai d’expiration de l’authentification biométrique</string>
+    <string name="title_advanced_generic_user_agent">Utiliser l\'agent utilisateur générique du navigateur</string>
     <string name="title_advanced_disconnect_auto_update">Mettre à jour automatiquement les listes chaque semaine</string>
     <string name="title_advanced_disconnect_links">Utiliser des listes pour vous avertir des liens de pistage</string>
     <string name="title_advanced_disconnect_images">Utiliser des listes pour identifier les images de pistage</string>
@@ -823,7 +824,7 @@
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
     <string name="title_report_spam">Traiter comme indésirable</string>
     <string name="title_delete_permanently">Supprimer définitivement</string>
-    <string name="title_no_undo">Ceci ne peut pas être annulé!</string>
+    <string name="title_no_undo">Je comprends que ceci ne puisse pas être annulé</string>
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>

@@ -90,7 +90,6 @@
     <string name="title_notification_sending_left">Preostali pokušaji: %1$d</string>
     <string name="title_notification_sending_failed">Slanje prema %1$s nije uspjelo</string>
     <string name="title_factor_minutes">%1$d minuta</string>
-    <string name="menu_exit">Izlaz</string>
     <string name="menu_answers">Predlošci</string>
     <string name="menu_operations">Operacije</string>
     <string name="menu_contacts">Lokalni kontakti</string>
