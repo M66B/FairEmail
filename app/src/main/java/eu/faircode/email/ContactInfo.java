@@ -301,6 +301,7 @@ public class ContactInfo {
                         urlConnection.setDoOutput(false);
                         urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
                         urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
+                        urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                         urlConnection.connect();
 
                         int status = urlConnection.getResponseCode();
@@ -363,28 +364,28 @@ public class ContactInfo {
                             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                                 @Override
                                 public Bitmap call() throws Exception {
-                                    return parseFavicon(base, scaleToPixels);
+                                    return parseFavicon(base, scaleToPixels, context);
                                 }
                             }));
 
                             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                                 @Override
                                 public Bitmap call() throws Exception {
-                                    return parseFavicon(www, scaleToPixels);
+                                    return parseFavicon(www, scaleToPixels, context);
                                 }
                             }));
 
                             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                                 @Override
                                 public Bitmap call() throws Exception {
-                                    return getFavicon(new URL(base, "favicon.ico"), scaleToPixels);
+                                    return getFavicon(new URL(base, "favicon.ico"), scaleToPixels, context);
                                 }
                             }));
 
                             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                                 @Override
                                 public Bitmap call() throws Exception {
-                                    return getFavicon(new URL(www, "favicon.ico"), scaleToPixels);
+                                    return getFavicon(new URL(www, "favicon.ico"), scaleToPixels, context);
                                 }
                             }));
 
@@ -466,7 +467,7 @@ public class ContactInfo {
         return info;
     }
 
-    private static Bitmap parseFavicon(URL base, int scaleToPixels) throws IOException {
+    private static Bitmap parseFavicon(URL base, int scaleToPixels, Context context) throws IOException {
         Log.i("GET favicon " + base);
         HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
         connection.setRequestMethod("GET");
@@ -479,6 +480,7 @@ public class ContactInfo {
                 return true;
             }
         });
+        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
         connection.connect();
 
         String response;
@@ -551,7 +553,7 @@ public class ContactInfo {
             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                 @Override
                 public Bitmap call() throws Exception {
-                    return getFavicon(url, scaleToPixels);
+                    return getFavicon(url, scaleToPixels, context);
                 }
             }));
         }
@@ -571,7 +573,7 @@ public class ContactInfo {
     }
 
     @NonNull
-    private static Bitmap getFavicon(URL url, int scaleToPixels) throws IOException {
+    private static Bitmap getFavicon(URL url, int scaleToPixels, Context context) throws IOException {
         Log.i("GET favicon " + url);
 
         if (!"https".equals(url.getProtocol()))
@@ -588,6 +590,7 @@ public class ContactInfo {
                 return true;
             }
         });
+        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
         connection.connect();
 
         try {

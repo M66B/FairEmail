@@ -7760,6 +7760,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     connection.setReadTimeout(timeout);
                                     connection.setConnectTimeout(timeout);
                                     connection.setInstanceFollowRedirects(true);
+                                    connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                                     connection.connect();
 
                                     try {

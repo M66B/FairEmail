@@ -419,8 +419,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));
 
-        tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext(), null));
-        swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", false));
+        tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext()));
+        swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", true));
         swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
 
         long time = prefs.getLong("disconnect_last", -1);

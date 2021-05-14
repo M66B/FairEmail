@@ -35,6 +35,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
@@ -46,6 +47,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     private int height;
     private IWebView intf;
     private Runnable onPageLoaded;
+
+    private static String userAgent = null;
 
     private static final long PAGE_LOADED_FALLBACK_DELAY = 1500L; // milliseconds
 
@@ -352,24 +355,37 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         }
     }
 
+    @NonNull
+    static String getUserAgent(Context context) {
+        return getUserAgent(context, null);
+    }
+
+    @NonNull
     static String getUserAgent(Context context, WebView webView) {
         // https://developer.chrome.com/docs/multidevice/user-agent/#chrome-for-android
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean generic_ua = prefs.getBoolean("generic_ua", false);
+        boolean generic_ua = prefs.getBoolean("generic_ua", true);
+        if (generic_ua)
+            return getGenericUserAgent(context);
 
-        if (generic_ua) {
-            boolean large = context.getResources().getConfiguration()
-                    .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
-            return (large ? "Mozilla/5.0" : "Mozilla/5.0 (Mobile)");
-        } else
-            try {
+        try {
+            if (userAgent == null) {
                 if (webView == null)
                     webView = new WebView(context);
-                return webView.getSettings().getUserAgentString();
-            } catch (Throwable ex) {
-                Log.e(ex);
-                return null;
+                userAgent = webView.getSettings().getUserAgentString();
             }
+            return userAgent;
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return getGenericUserAgent(context);
+        }
+    }
+
+    @NonNull
+    private static String getGenericUserAgent(Context context) {
+        boolean large = context.getResources().getConfiguration()
+                .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
+        return (large ? "Mozilla/5.0" : "Mozilla/5.0 (Mobile)");
     }
 
     interface IWebView {

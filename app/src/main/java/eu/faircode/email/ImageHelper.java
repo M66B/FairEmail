@@ -605,20 +605,13 @@ class ImageHelper {
             int redirects = 0;
             URL url = new URL(source);
             while (true) {
-                // https://developer.chrome.com/multidevice/user-agent
-                String ua = "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv)" +
-                        " AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0" +
-                        " Chrome/43.0.2357.65" +
-                        " Mobile Safari/537.36";
-
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setDoOutput(false);
                 urlConnection.setReadTimeout(timeout);
                 urlConnection.setConnectTimeout(timeout);
                 urlConnection.setInstanceFollowRedirects(true);
-                if (BuildConfig.DEBUG)
-                    urlConnection.setRequestProperty("User-Agent", ua);
+                urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                 urlConnection.connect();
 
                 int status = urlConnection.getResponseCode();

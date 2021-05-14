@@ -51,17 +51,17 @@ public class IPInfo {
             InetAddress address = DnsHelper.lookupMx(context, domain);
             if (address == null)
                 throw new UnknownHostException();
-            return new Pair<>(domain, getOrganization(address));
+            return new Pair<>(domain, getOrganization(address, context));
         } else {
             String host = uri.getHost();
             if (host == null)
                 throw new UnknownHostException();
             InetAddress address = InetAddress.getByName(host);
-            return new Pair<>(host, getOrganization(address));
+            return new Pair<>(host, getOrganization(address, context));
         }
     }
 
-    private static Organization getOrganization(InetAddress address) throws IOException {
+    private static Organization getOrganization(InetAddress address, Context context) throws IOException {
         synchronized (addressOrganization) {
             if (addressOrganization.containsKey(address))
                 return addressOrganization.get(address);
@@ -74,6 +74,7 @@ public class IPInfo {
         connection.setRequestMethod("GET");
         connection.setReadTimeout(FETCH_TIMEOUT);
         connection.setConnectTimeout(FETCH_TIMEOUT);
+        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
         connection.connect();
 
         Organization organization = new Organization();
