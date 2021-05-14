@@ -84,8 +84,11 @@ public class StyleHelper {
             final int end = _end;
 
             if (action == R.id.menu_bold || action == R.id.menu_italic) {
-                int style = (action == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
+                String name = (action == R.id.menu_bold ? "bold" : "italic");
+                Log.breadcrumb("style", "action", name);
+
                 boolean has = false;
+                int style = (action == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
                 StyleSpan[] spans = edit.getSpans(start, end, StyleSpan.class);
                 for (StyleSpan span : spans)
                     if (span.getStyle() == style) {
@@ -106,6 +109,8 @@ public class StyleHelper {
 
                 return true;
             } else if (action == R.id.menu_underline) {
+                Log.breadcrumb("style", "action", "underline");
+
                 boolean has = false;
                 UnderlineSpan[] spans = edit.getSpans(start, end, UnderlineSpan.class);
                 for (UnderlineSpan span : spans) {
@@ -199,6 +204,8 @@ public class StyleHelper {
                     }
 
                     private boolean setSize(MenuItem item) {
+                        Log.breadcrumb("style", "action", "size");
+
                         Float size;
                         if (item.getItemId() == R.id.menu_style_size_small)
                             size = 0.8f;
@@ -260,6 +267,8 @@ public class StyleHelper {
                     }
 
                     private void _setColor(Integer color) {
+                        Log.breadcrumb("style", "action", "color");
+
                         ForegroundColorSpan spans[] = edit.getSpans(start, end, ForegroundColorSpan.class);
                         for (ForegroundColorSpan span : spans) {
                             int s = edit.getSpanStart(span);
@@ -279,6 +288,8 @@ public class StyleHelper {
                     }
 
                     private boolean setAlignment(MenuItem item) {
+                        Log.breadcrumb("style", "action", "alignment");
+
                         Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
                         int s = paragraph.first;
                         int e = paragraph.second;
@@ -309,6 +320,8 @@ public class StyleHelper {
                     }
 
                     private boolean setListLevel(MenuItem item) {
+                        Log.breadcrumb("style", "action", "level");
+
                         Context context = etBody.getContext();
                         int add = (item.getItemId() == R.id.menu_style_list_increase ? 1 : -1);
 
@@ -334,6 +347,8 @@ public class StyleHelper {
                     }
 
                     private boolean setList(MenuItem item) {
+                        Log.breadcrumb("style", "action", "list");
+
                         Context context = etBody.getContext();
 
                         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
@@ -382,6 +397,8 @@ public class StyleHelper {
                     }
 
                     private boolean setFont(MenuItem item) {
+                        Log.breadcrumb("style", "action", "font");
+
                         int id = item.getItemId();
                         String[] names = anchor.getResources().getStringArray(R.array.fontNameValues);
                         String face = (id < names.length ? names[id] : null);
@@ -406,6 +423,8 @@ public class StyleHelper {
                     }
 
                     private boolean setBlockQuote(MenuItem item) {
+                        Log.breadcrumb("style", "action", "quote");
+
                         Context context = etBody.getContext();
 
                         int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
@@ -454,6 +473,8 @@ public class StyleHelper {
                     }
 
                     private boolean setStrikeThrough(MenuItem item) {
+                        Log.breadcrumb("style", "action", "strike");
+
                         boolean has = false;
                         StrikethroughSpan[] spans = edit.getSpans(start, end, StrikethroughSpan.class);
                         for (StrikethroughSpan span : spans) {
@@ -476,6 +497,8 @@ public class StyleHelper {
                     }
 
                     private boolean clear(MenuItem item) {
+                        Log.breadcrumb("style", "action", "clear");
+
                         int e = end;
 
                         // Expand to paragraph (block quotes)
@@ -506,6 +529,8 @@ public class StyleHelper {
 
                 return true;
             } else if (action == R.id.menu_link) {
+                Log.breadcrumb("style", "action", "link");
+
                 String url = (String) args[0];
 
                 List<Object> spans = new ArrayList<>();
@@ -534,6 +559,8 @@ public class StyleHelper {
 
                 return true;
             } else if (action == R.id.menu_clear) {
+                Log.breadcrumb("style", "action", "clear/all");
+
                 for (Object span : edit.getSpans(0, etBody.length(), Object.class))
                     if (!(span instanceof ImageSpan))
                         edit.removeSpan(span);
@@ -551,6 +578,22 @@ public class StyleHelper {
     }
 
     static void splitSpan(Editable edit, int start, int end, int s, int e, int f, boolean extend, Object span1, Object span2) {
+        if (start < 0 || end < 0) {
+            Log.e(span1 + " invalid selection=" + start + "..." + end);
+            return;
+        }
+
+        if (s < 0 || e < 0) {
+            Log.e(span1 + " not attached=" + s + "..." + e);
+            return;
+        }
+
+        if (s > e) {
+            int tmp = s;
+            s = e;
+            e = tmp;
+        }
+
         if (start < s && end > s && end < e) {
             // overlap before
             if (extend)

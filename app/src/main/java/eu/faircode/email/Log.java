@@ -274,6 +274,12 @@ public class Log {
         }
     }
 
+    static void breadcrumb(String name, String key, String value) {
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put(key, value);
+        breadcrumb(name, crumb);
+    }
+
     static void breadcrumb(String name, Map<String, String> crumb) {
         try {
             Map<String, Object> ocrumb = new HashMap<>();
