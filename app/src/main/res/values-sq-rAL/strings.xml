@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">Kërkimi në FairEmail</string>
+    <string name="app_changelog">Rekordi i ndryshimeve</string>
+    <string name="app_welcome">FairEmail është një aplikacion me kod burimor të hapur i fokusuar në privatësi dhe siguri. Për këtë arsye disa karakteristika mund të punojnë ndryshe nga çfarë ju mund të jeni mësuar.</string>
+    <string name="app_exit"> Shko \'pas\' sërish për të dalë</string>
+    <string name="app_updated">Përditësimi i fundit: %1$s</string>
+    <string name="channel_send">Dërgo</string>
+    <string name="channel_update">Përditësimet</string>
+    <string name="channel_error">Gabimet</string>
+    <string name="channel_group_contacts">Kontaktet</string>
+    <string name="channel_send_description">Duke dërguar mesazhet</string>
+    <string name="channel_notification_description">Njoftimet për mesazhet e reja</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Biseda</item>
+        <item quantity="other">Bisedat</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Mesazh</item>
+        <item quantity="other">Mesazhet</item>
+    </plurals>
+    <string name="title_block_sender">Blloko dërguesin</string>
+    <string name="title_notification_sending">Duke dërguar mesazhet</string>
+    <string name="title_notification_failed">\'%1$s\' dështoi</string>
+    <string name="title_factor_minutes">%1$d minuta</string>
+    <string name="menu_about">Rreth</string>
+    <string name="title_welcome">Mirësevini</string>
+    <string name="title_version">Versioni %1$s</string>
+    <string name="title_list_accounts">Llogaritë</string>
+    <string name="title_list_identities">Identitet</string>
+    <string name="title_edit_account">Ndrysho llogarinë</string>
+    <string name="title_edit_identity">Ndrysho identitet</string>
+    <string name="title_setup_help">Ndihmë</string>
+    <string name="title_setup_accounts">Llogaritë</string>
+    <string name="title_setup_pop3">Llogaria POP3</string>
+    <string name="title_setup_oauth_authorize">Autorizo</string>
+    <string name="title_setup_select_account">Zgjidh llogarinë</string>
+    <string name="title_setup_grant_again">Jep lejet e kërkuara</string>
+    <string name="title_setup_free">Është ky app falas për përdorim?</string>
+    <string name="title_setup_password">Fjalëkalimi</string>
+    <string name="title_setup_password_repeat">Përsërit fjalëkalimin</string>
+    <string name="title_setup_password_missing">Fjalëkalimi mungon</string>
+    <string name="title_setup_password_different">Fjalëkalimet nuk përputhen</string>
+    <string name="title_setup_password_invalid">Fjalëkalimi jo i vlefshëm</string>
+    <string name="title_setup_reorder_accounts">Rendit llogaritë</string>
+    <string name="title_setup_biometrics_enable">Aktivizo</string>
+    <string name="title_setup_biometrics_disable">Çaktivizo</string>
+    <string name="title_setup_biometrics_unlock">Shkyç</string>
+    <string name="title_setup_theme">Zgjidh temë</string>
+    <string name="title_setup_theme_blue_orange">Blu/portokalli</string>
+    <string name="title_setup_theme_red_green">E Kuqe/jeshile</string>
+    <string name="title_setup_theme_grey">Gri</string>
+    <string name="title_setup_theme_black">E zezë</string>
+    <string name="title_setup_theme_black_and_white">Bardh e Zi</string>
+    <string name="title_setup_theme_dark">E errët</string>
+    <string name="title_setup_theme_black_background">Sfond i errët</string>
+    <string name="title_setup_theme_more_colors">Unë kërkoj më shumë ngjyra</string>
+    <string name="title_advanced_section_notifications">Njoftimet</string>
+    <string name="title_advanced_caption_list">Lista</string>
+    <string name="title_advanced_caption_conversation">Biseda</string>
+    <string name="title_advanced_caption_message">Mesazh</string>
+    <string name="title_advanced_date_header">Grupo sipas datës</string>
+    <string name="title_advanced_notifications_default">Kanali i parazgjedhur</string>
+    <string name="title_advanced_notifications_service">Kanali marrës</string>
+    <string name="title_advanced_notify_action_archive">Arkiva</string>
+    <string name="title_advanced_notify_action_move">Zhvendos</string>
+    <string name="title_advanced_notify_action_reply">Përgjigju</string>
+    <string name="title_advanced_notify_action_reply_direct">Përgjigju tani</string>
+    <string name="title_advanced_notify_action_seen">Lexo</string>
+    <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_openpgp">Ofruesi OpenPGP</string>
+    <string name="title_advanced_autocrypt">Përdor Autocrypt</string>
+    <string name="title_advanced_manage_certificates">Menaxho çelësat publik</string>
+    <string name="title_advanced_import_key">Importo çelës privat</string>
+    <string name="title_advanced_manage_keys">Menaxho çelësat privat</string>
+    <string name="title_advanced_ca">Çertifikatat CA të instaluara</string>
+    <string name="title_advanced_fts">Ndërto indeksin e kërkimit</string>
+    <string name="title_advanced_classification">Klasifiko mesazhet</string>
+    <string name="title_advanced_language">Gjuha</string>
+    <string name="title_advanced_cleanup">Pastrim</string>
+    <string name="title_advanced_schedule_hint">Prek për të vendosur një orar</string>
+    <string name="title_advanced_edit_name">Ndrysho emrin</string>
+    <string name="title_identity_name">Emri juaj</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

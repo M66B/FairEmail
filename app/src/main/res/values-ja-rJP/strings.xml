@@ -169,6 +169,7 @@
     <string name="title_setup_still">実行中です</string>
     <string name="title_setup_error">エラー</string>
     <string name="title_setup_configuring">アカウントを設定しています &#8230;</string>
+    <string name="title_setup_close">設定を閉じる</string>
     <string name="title_setup_export">設定をエクスポート</string>
     <string name="title_setup_import">設定をインポート</string>
     <string name="title_setup_export_do">パスワードは設定を暗号化するために使用され、設定を再度インポートする際に必要になります</string>
@@ -424,6 +425,7 @@
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生体認証タイムアウト</string>
+    <string name="title_advanced_generic_user_agent">既定のブラウザのユーザーエージェントを使用する</string>
     <string name="title_advanced_disconnect_auto_update">リストを自動的に毎週更新</string>
     <string name="title_advanced_disconnect_links">リストを使用して追跡リンクについて警告する</string>
     <string name="title_advanced_disconnect_images">リストを使用して追跡画像を認識する</string>
@@ -809,6 +811,7 @@
     <string name="title_move_to_account">%1$s &#8230; に移動します</string>
     <string name="title_report_spam">迷惑メールとして扱う</string>
     <string name="title_delete_permanently">完全に削除</string>
+    <string name="title_no_undo">これを元に戻すことはできないと理解しました</string>
     <string name="title_snooze">スヌーズ &#8230;</string>
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>

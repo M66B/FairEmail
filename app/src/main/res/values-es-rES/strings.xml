@@ -181,6 +181,7 @@
     <string name="title_setup_still">Aún por hacer</string>
     <string name="title_setup_error">Error</string>
     <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
+    <string name="title_setup_close">Cerrar ajustes</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
     <string name="title_setup_export_do">La contraseña se utiliza para cifrar la configuración y es necesaria para importar la configuración de nuevo</string>
@@ -823,6 +824,7 @@
     <string name="title_move_to_account">Mover a %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Borrar permanentemente</string>
+    <string name="title_no_undo">Entiendo que esto no se puede deshacer</string>
     <string name="title_snooze">Posponer &#8230;</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>

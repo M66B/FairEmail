@@ -12,7 +12,7 @@ Just select the appropriate provider or *Other provider* and enter your name, em
 
 This will work for most email providers.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Se a configuração rápida não funcionar, você precisará configurar uma conta e uma identidade manualmente, veja abaixo para obter instruções.
 
 ## Configurar conta - para receber e-mails
 

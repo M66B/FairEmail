@@ -2,7 +2,7 @@
 
 # FairEmail のサポート
 
-ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+ご不明な点がございましたら、まずは下記のよくある質問をご確認ください。 [ページ下部](#user-content-get-support)では、他の質問をしたり、機能をリクエストしたり、バグを報告する方法を見つけることができます。
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 

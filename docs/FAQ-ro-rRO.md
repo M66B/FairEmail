@@ -18,9 +18,9 @@ Dacă aveți o problemă, vă rugăm să consultați mai întâi întrebările f
 
 <h2><a name="authorizing-accounts"></a>Autorizarea conturilor</h2>
 
-În cele mai multe cazuri, asistentul de configurare rapidă va fi capabil să identifice automat configurația corectă.
+În majoritatea cazurilor, asistentul de configurare rapidă va fi capabil să identifice automat configurația corectă.
 
-Dacă expertul de configurare rapidă eșuează, va trebui să configurați manual un cont (pentru a primi e-mailuri) și o identitate (pentru a trimite e-mailuri). Pentru aceasta veți avea nevoie de adresele și numerele de port ale serverelor IMAP și SMTP, dacă trebuie utilizat SSL/TLS sau STARTTLS și numele dvs. de utilizator (în general, dar nu întotdeauna, adresa dvs. de e-mail) și parola.
+Dacă expertul de configurare rapidă eșuează, va fi necesar să configurați manual un cont (pentru a primi e-mailuri) și o identitate (pentru a trimite e-mailuri). Pentru aceasta veți avea nevoie de adresele și numerele de port ale serverelor IMAP și SMTP, dacă trebuie utilizat SSL/TLS sau STARTTLS și numele dvs. de utilizator (în general, dar nu întotdeauna, adresa dvs. de e-mail) și parola.
 
 Căutarea *IMAP* și a numelui furnizorului este de cele mai multe ori suficientă pentru a găsi documentația corectă.
 

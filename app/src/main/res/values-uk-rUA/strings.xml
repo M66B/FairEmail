@@ -833,6 +833,7 @@
     <string name="title_move_to_account">Перемістити в %1$s &#8230;</string>
     <string name="title_report_spam">Вважати спамом</string>
     <string name="title_delete_permanently">Видалити назавжди</string>
+    <string name="title_no_undo">Я розумію, що це неможливо скасувати</string>
     <string name="title_snooze">Відкласти &#8230;</string>
     <string name="title_archive">Архівувати</string>
     <string name="title_reply">Відповісти</string>

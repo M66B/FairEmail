@@ -835,6 +835,7 @@
     <string name="title_move_to_account">Mută în %1$s &#8230;</string>
     <string name="title_report_spam">Tratează ca spam</string>
     <string name="title_delete_permanently">Șterge permanent</string>
+    <string name="title_no_undo">Înțeleg că acest lucru nu poate fi anulat</string>
     <string name="title_snooze">Amână &#8230;</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
