@@ -949,7 +949,7 @@
     <string name="title_move_to_account">Move to %1$s &#8230;</string>
     <string name="title_report_spam">Treat as spam</string>
     <string name="title_delete_permanently">Delete permanently</string>
-    <string name="title_no_undo">This cannot be undone!</string>
+    <string name="title_no_undo">I understand this cannot be undone</string>
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>

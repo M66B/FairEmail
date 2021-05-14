@@ -44,6 +44,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         Bundle args = getArguments();
         String question = args.getString("question");
         String remark = args.getString("remark");
+        String confirm = args.getString("confirm");
         String notagain = args.getString("notagain");
         boolean warning = args.getBoolean("warning");
 
@@ -53,11 +54,14 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
         TextView tvMessage = dview.findViewById(R.id.tvMessage);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
+        CheckBox cbConfirm = dview.findViewById(R.id.cbConfirm);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
         tvMessage.setText(question);
         tvRemark.setText(remark);
         tvRemark.setVisibility(remark == null ? View.GONE : View.VISIBLE);
+        cbConfirm.setText(confirm);
+        cbConfirm.setVisibility(confirm == null ? View.GONE : View.VISIBLE);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
 
         if (warning) {
@@ -82,7 +86,10 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        sendResult(Activity.RESULT_OK);
+                        if (confirm == null || cbConfirm.isChecked())
+                            sendResult(Activity.RESULT_OK);
+                        else
+                            sendResult(Activity.RESULT_CANCELED);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

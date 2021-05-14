@@ -338,7 +338,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private static final int MAX_MORE = 100; // messages
-    private static final int MAX_PERMANENT_DELETE = 10; // messages
     private static final int MAX_SEND_RAW = 50; // messages
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
@@ -2951,16 +2950,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_trash, order++, R.string.title_trash)
                             .setIcon(R.drawable.twotone_delete_24);
 
-                if (result.isTrash || !result.hasTrash || result.isJunk ||
-                        ids.length < MAX_PERMANENT_DELETE || true) { // is trash or no trash or is junk
+                if (result.isTrash || !result.hasTrash || result.isJunk || true) { // is trash or no trash or is junk
                     SpannableStringBuilder del = new SpannableStringBuilder();
                     del.append(getString(R.string.title_delete_permanently));
                     int pos = del.length();
-                    del.append(" (<").append(NF.format(MAX_PERMANENT_DELETE)).append(')');
                     del.setSpan(new RelativeSizeSpan(0.7f), pos, del.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, del)
-                            .setIcon(R.drawable.twotone_delete_forever_24)
-                            .setEnabled(ids.length < MAX_PERMANENT_DELETE);
+                            .setIcon(R.drawable.twotone_delete_forever_24);
                 }
 
                 if (result.accounts.size() > 0 /* IMAP */ && ids.length < MAX_SEND_RAW)
@@ -3363,7 +3359,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                aargs.putString("remark", getString(R.string.title_no_undo));
+                aargs.putString("confirm", getString(R.string.title_no_undo));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
@@ -3744,7 +3740,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                aargs.putString("remark", getString(R.string.title_no_undo));
+                aargs.putString("confirm", getString(R.string.title_no_undo));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
