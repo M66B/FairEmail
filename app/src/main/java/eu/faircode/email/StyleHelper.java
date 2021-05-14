@@ -211,7 +211,7 @@ public class StyleHelper {
                             int e = edit.getSpanEnd(span);
                             int f = edit.getSpanFlags(span);
                             edit.removeSpan(span);
-                            splitSpan(edit, start, end, s, e, f, true,
+                            splitSpan(edit, start, end, s, e, f, false,
                                     new RelativeSizeSpan(span.getSizeChange()),
                                     new RelativeSizeSpan(span.getSizeChange()));
                         }
