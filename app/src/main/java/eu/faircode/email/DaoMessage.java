@@ -560,6 +560,13 @@ public interface DaoMessage {
             " AND NOT uid IS NULL")
     List<Long> getUids(long folder, Long received);
 
+    @Query("SELECT uid FROM message" +
+            " WHERE folder = :folder" +
+            " AND NOT ui_busy IS NULL" +
+            " AND ui_busy > :time" +
+            " AND NOT uid IS NULL")
+    List<Long> getBusyUids(long folder, long time);
+
     @Query("SELECT id, uidl, msgid FROM message" +
             " WHERE folder = :folder")
     List<TupleUidl> getUidls(long folder);

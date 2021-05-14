@@ -61,8 +61,6 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
-import com.sun.mail.imap.protocol.MailboxInfo;
-import com.sun.mail.imap.protocol.MessageSet;
 import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.pop3.POP3Folder;
 import com.sun.mail.pop3.POP3Message;
@@ -2161,23 +2159,25 @@ class Core {
     private static void onPurgeFolder(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws MessagingException {
         // Delete all messages from folder
         try {
-            Log.i(folder.name + " purge=" + ifolder.getMessageCount());
-            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                @Override
-                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                    MailboxInfo info = protocol.select(ifolder.getFullName());
-                    if (info.total > 0) {
-                        MessageSet[] sets = new MessageSet[]{new MessageSet(1, info.total)};
-                        EntityLog.log(context, folder.name + " purging=" + MessageSet.toString(sets));
-                        try {
-                            protocol.storeFlags(sets, new Flags(Flags.Flag.DELETED), true);
-                        } catch (ProtocolException ex) {
-                            throw new ProtocolException("Purge=" + MessageSet.toString(sets), ex);
-                        }
-                    }
-                    return null;
-                }
-            });
+            DB db = DB.getInstance(context);
+            List<Long> busy = db.message().getBusyUids(folder.id, new Date().getTime());
+
+            Message[] imessages = ifolder.getMessages();
+            Log.i(folder.name + " purge=" + imessages.length + " busy=" + busy.size());
+
+            FetchProfile fp = new FetchProfile();
+            fp.add(UIDFolder.FetchProfileItem.UID);
+            ifolder.fetch(imessages, fp);
+
+            List<Message> idelete = new ArrayList<>();
+            for (Message imessage : imessages) {
+                long uid = ifolder.getUID(imessage);
+                if (!busy.contains(uid))
+                    idelete.add(imessage);
+            }
+
+            EntityLog.log(context, folder.name + " purging=" + idelete.size() + "/" + imessages.length);
+            ifolder.setFlags(idelete.toArray(new Message[0]), new Flags(Flags.Flag.DELETED), true);
             Log.i(folder.name + " purge deleted");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
