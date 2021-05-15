@@ -1584,6 +1584,13 @@ public class Log {
                 size.x / density, size.y / density,
                 context.getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)));
 
+        try {
+            int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
+            sb.append(context.getString(R.string.title_advanced_aes_key_size, maxKeySize)).append("\r\n");
+        } catch (Throwable ex) {
+            sb.append(ex.toString()).append("\r\n");
+        }
+
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         boolean ignoring = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
