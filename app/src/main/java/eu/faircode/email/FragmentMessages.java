@@ -2348,6 +2348,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putString("question", getString(R.string.title_ask_delete));
             args.putString("remark", message.getRemark());
             args.putLong("id", message.id);
+            args.putInt("faq", 160);
             args.putBoolean("warning", true);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();

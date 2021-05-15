@@ -4124,6 +4124,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putString("question", context.getString(R.string.title_ask_delete));
             aargs.putString("remark", message.getRemark());
             aargs.putLong("id", message.id);
+            aargs.putInt("faq", 160);
             aargs.putBoolean("warning", true);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
