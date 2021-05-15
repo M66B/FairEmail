@@ -2742,7 +2742,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 DB db = DB.getInstance(context);
 
-                boolean pop = false;
                 MoreResult result = new MoreResult();
                 result.folders = new ArrayList<>();
 
@@ -2777,9 +2776,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         folders.put(folder.id, folder);
                     }
 
-                    if (account.protocol != EntityAccount.TYPE_IMAP)
-                        pop = true;
-
                     if (!result.folders.contains(message.folder))
                         result.folders.add(message.folder);
 
@@ -2790,7 +2786,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
                     boolean isSent = EntityFolder.SENT.equals(folder.type);
 
-                    if (pop && isSent)
+                    if (account.protocol == EntityAccount.TYPE_POP && isSent)
                         isInbox = true;
 
                     result.isInbox = (result.isInbox == null ? isInbox : result.isInbox && isInbox);
@@ -2840,6 +2836,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean hasJunk = false;
 
                     if (account.protocol == EntityAccount.TYPE_IMAP) {
+                        result.hasImap = true;
+
                         EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
                         EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
                         EntityFolder trash = db.folder().getFolderByType(account.id, EntityFolder.TRASH);
@@ -2849,7 +2847,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         hasArchive = (archive != null && archive.selectable);
                         hasTrash = (trash != null && trash.selectable);
                         hasJunk = (junk != null && junk.selectable);
-                    }
+                    } else
+                        result.hasPop = true;
 
                     result.hasInbox = (result.hasInbox == null ? hasInbox : result.hasInbox && hasInbox);
                     result.hasArchive = (result.hasArchive == null ? hasArchive : result.hasArchive && hasArchive);
@@ -2872,7 +2871,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasJunk == null) result.hasJunk = false;
 
                 result.accounts = new ArrayList<>();
-                if (!pop)
+                if (!result.hasPop)
                     for (EntityAccount account : db.account().getSynchronizingAccounts())
                         if (account.protocol == EntityAccount.TYPE_IMAP)
                             result.accounts.add(account);
@@ -3024,7 +3023,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onActionMoveSelection(EntityFolder.TRASH);
                             return true;
                         } else if (itemId == R.string.title_delete_permanently) {
-                            onActionDeleteSelection();
+                            onActionDeleteSelection(result.hasPop && !result.hasImap);
                             return true;
                         } else if (itemId == R.string.title_raw_send) {
                             onActionRaw();
@@ -3309,7 +3308,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:set:importance");
     }
 
-    private void onActionDeleteSelection() {
+    private void onActionDeleteSelection(boolean pop) {
         Bundle args = new Bundle();
         args.putLongArray("selected", getSelection());
 
@@ -3352,7 +3351,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                if (!EntityFolder.TRASH.equals(type) && !EntityFolder.JUNK.equals(type))
+                if (!pop && !EntityFolder.TRASH.equals(type) && !EntityFolder.JUNK.equals(type))
                     aargs.putString("confirm", getString(R.string.title_no_undo));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
@@ -8075,6 +8074,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Boolean isTrash;
         Boolean isJunk;
         Boolean isDrafts;
+        boolean hasPop;
+        boolean hasImap;
         List<Long> folders;
         List<EntityAccount> accounts;
         EntityAccount copyto;
