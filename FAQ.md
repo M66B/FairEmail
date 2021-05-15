@@ -2668,6 +2668,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers)
 for a list of launchers which can show the number of unread messages.
+Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
