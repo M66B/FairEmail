@@ -64,7 +64,7 @@ internal class DefaultDelivery(
             return DeliveryStatus.UNDELIVERED
         } catch (exception: IOException) {
             logger.w("IOException encountered in request", exception)
-            return DeliveryStatus.UNDELIVERED
+            return DeliveryStatus.FAILURE
         } catch (exception: Exception) {
             logger.w("Unexpected error delivering payload", exception)
             return DeliveryStatus.FAILURE
