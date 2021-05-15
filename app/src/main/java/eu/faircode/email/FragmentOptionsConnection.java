@@ -50,6 +50,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
@@ -72,6 +73,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Button btnManage;
     private TextView tvNetworkMetered;
     private TextView tvNetworkRoaming;
+    private CardView cardDebug;
     private TextView tvNetworkInfo;
 
     private Group grpValidated;
@@ -109,6 +111,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
         tvNetworkRoaming = view.findViewById(R.id.tvNetworkRoaming);
+
+        cardDebug = view.findViewById(R.id.cardDebug);
         tvNetworkInfo = view.findViewById(R.id.tvNetworkInfo);
 
         grpValidated = view.findViewById(R.id.grpValidated);
@@ -264,7 +268,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         tvNetworkMetered.setVisibility(View.GONE);
         tvNetworkRoaming.setVisibility(View.GONE);
-        tvNetworkInfo.setVisibility(View.GONE);
+        cardDebug.setVisibility(View.GONE);
 
         return view;
     }
@@ -390,7 +394,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         if (context == null) {
             tvNetworkMetered.setVisibility(View.GONE);
             tvNetworkRoaming.setVisibility(View.GONE);
-            tvNetworkInfo.setVisibility(View.GONE);
+            cardDebug.setVisibility(View.GONE);
             return;
         }
 
@@ -399,7 +403,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         final StringBuilder sb = new StringBuilder();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
-        if ((debug || BuildConfig.DEBUG) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        if ((debug || BuildConfig.DEBUG) &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             try {
                 ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 Network active = (cm == null ? null : cm.getActiveNetwork());
@@ -418,7 +423,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 }
 
                 sb.append("Airplane mode=")
-                        .append(ConnectionHelper.airplaneMode(context)).append("\r\n\r\n");
+                        .append(ConnectionHelper.airplaneMode(context)).append("\r\n");
             } catch (Throwable ex) {
                 Log.e(ex);
             }
@@ -431,7 +436,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                     tvNetworkInfo.setText(sb.toString());
                     tvNetworkMetered.setVisibility(networkState.isConnected() ? View.VISIBLE : View.GONE);
                     tvNetworkRoaming.setVisibility(networkState.isRoaming() ? View.VISIBLE : View.GONE);
-                    tvNetworkInfo.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
+                    cardDebug.setVisibility(sb.length() == 0 ? View.GONE : View.VISIBLE);
                 }
             }
         });
