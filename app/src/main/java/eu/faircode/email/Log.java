@@ -377,7 +377,9 @@ public class Log {
                 @Override
                 public boolean onSession(@NonNull Session session) {
                     // opt-in
-                    return prefs.getBoolean("crash_reports", false);
+                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
+                    boolean vpn = ConnectionHelper.vpnActive(context);
+                    return (crash_reports && !vpn);
                 }
             });
 
