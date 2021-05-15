@@ -166,6 +166,7 @@
     <string name="title_setup_permissions_remark">Para acceder á información de contacto (opcional)</string>
     <string name="title_setup_doze">Desactivar as optimizacións da batería</string>
     <string name="title_setup_doze_remark">Para recibir e enviar o correo de maneira fiable</string>
+    <string name="title_setup_doze_hint">Aínda que poida soar contraditorio, desactivar as optimizacións da batería nesta aplicación podería resultar nun menor uso da batería</string>
     <string name="title_setup_doze_instructions">No seguinte diálogo de Android, cambie de \"Non optimizado\" a \"Todas as apps\", seleccione esta aplicación e logo \"Non optimizar\"</string>
     <string name="title_setup_doze_battery">Uso elevado da batería?</string>
     <string name="title_setup_doze_stopped">Detívose a sincronización?</string>
@@ -179,6 +180,7 @@
     <string name="title_setup_still">Aínda por facer</string>
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_configuring">Estase a configurar a conta &#8230;</string>
+    <string name="title_setup_close">Pechar configuración</string>
     <string name="title_setup_export">Exportar axustes</string>
     <string name="title_setup_import">Importar axustes</string>
     <string name="title_setup_export_do">O contrasinal úsase para cifrar a configuración e necesítase para importala de novo</string>
@@ -434,6 +436,8 @@
     <string name="title_advanced_secure">Excluír da pantalla de aplicacións recentes e impedir a toma de capturas de pantalla</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Tempo límite de autenticación biométrica</string>
+    <string name="title_advanced_generic_user_agent">Usar o identificador dun navegador web xenérico</string>
+    <string name="title_advanced_disconnect_auto_update">Actualizar as listas automaticamente cada semana</string>
     <string name="title_advanced_disconnect_links">Empregar listas para advertir de ligazóns de rastexo</string>
     <string name="title_advanced_disconnect_images">Empregar listas para recoñecer imaxes de rastrexo</string>
     <string name="title_advanced_sign_default">Asinar por defecto</string>
@@ -525,9 +529,11 @@
     <string name="title_advanced_autoclose_hint">Pechar automaticamente as conversas cando todas as mensaxes foron arquivadas, enviadas ou botadas ao lixo</string>
     <string name="title_advanced_sender_hint">Moitos provedores non permiten modificar os enderezos dos remitentes</string>
     <string name="title_advanced_bcc_hint">O enderezo non vai ser mostrado, pero será engadido ao enviar</string>
+    <string name="title_advanced_internal_hint">Mostrarase un aviso cando se envíe a outro dominio</string>
     <string name="title_advanced_display_harmful_hint">Desactivar esta opción pode ser contraproducente para a súa privacidade</string>
     <string name="title_advanced_display_hidden_hint">Isto pode resultar en textos duplicados e con aspecto raro</string>
     <string name="title_advanced_display_pin_hint">O PIN ten preferencia sobre a autenticación biométrica</string>
+    <string name="title_advanced_safe_browsing_hint">O servidor de Google sabe que enderezos se están a buscar</string>
     <string name="title_advanced_badge_hint">Só dispoñible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Mostraranse tres accións como máximo</string>
     <string name="title_advanced_notify_remove_hint">As novas notificacións de mensaxes borraranse sempre cando se arrastren e cando se marquen as mensaxes como lidas</string>
@@ -561,6 +567,7 @@
     <string name="title_advanced_sender_name">Use o nome cando se edite o enderezo do remitente</string>
     <string name="title_advanced_sender_regex">Expresión regular para detectar o nome de usuario dos enderezos de email dos remitentes</string>
     <string name="title_identity_reply_to">Enderezo de resposta</string>
+    <string name="title_identity_internal">Nomes de dominios internos (separados por comas)</string>
     <string name="title_identity_unicode">Usar transporte Unicode</string>
     <string name="title_identity_unicode_remark">A maioría dos servidores non soportan isto</string>
     <string name="title_identity_max_size">Tamaño máximo da mensaxe (MB)</string>
@@ -695,6 +702,8 @@
     <string name="title_delete_contacts">Eliminar todos os contactos locais?</string>
     <string name="title_no_operations">Sen operacións pendentes</string>
     <string name="title_hint_operations">Borrar operacións pode resultar en mensaxes desaparecidas e problemas de sincronización</string>
+    <string name="title_op_title_headers">Descargando cabeceiras</string>
+    <string name="title_op_title_raw">Descargando mensaxe sen procesar</string>
     <string name="title_folder_name">Nome do cartafol</string>
     <string name="title_display_name">Nome a mostrar</string>
     <string name="title_show_folders">Mostrar cartafoles ocultos</string>
@@ -793,6 +802,7 @@
     <string name="title_buttons">Botóns de selección</string>
     <string name="title_buttons_hint">As accións dispoñibles na realidade dependen do tipo de conta e da configuración</string>
     <string name="title_button_search">Buscar en mensaxes</string>
+    <string name="title_button_search_text">Buscar no texto da mensaxe</string>
     <string name="title_configure_buttons">Configurar botóns &#8230;</string>
     <string name="title_trash">Lixo</string>
     <string name="title_copy">Copiar &#8230;</string>
@@ -812,6 +822,7 @@
     <string name="title_move_to_account">Mover a %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Eliminar permanentemente</string>
+    <string name="title_no_undo">Entendo que isto non se pode desfacer</string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
@@ -819,6 +830,7 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder á lista</string>
     <string name="title_reply_receipt">Enviar confirmación de lectura</string>
+    <string name="title_reply_hard_bounce">Enviar unha notificación de rexeitamento</string>
     <string name="title_reply_template">Responder cun patrón</string>
     <string name="title_move_undo">Movendo a %1$s (%2$d)</string>
     <string name="title_open_with">Abrir con</string>
@@ -867,10 +879,15 @@
     <string name="title_ask_review_rationale">        Vostede xa ten experiencia con FairEmail
         Agradeceríalle que puxese unha recensión a FairEmail no Play Store.
     </string>
+    <string name="title_need_help">Necesito axuda</string>
     <string name="title_ask_once">Esta mensaxe só aparecerá unha vez, de non ser que seleccione \'Despois\'</string>
     <string name="title_third_party">A súa versión é de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensaxe descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
+    <string name="title_reformatted">        Isto é a vista de mensaxe procesada.
+        Pode tocar a icona &#x26F6; para ver a mensaxe orixinal e agochar esta notificación.
+        Procesar as mensaxes leva tempo, dependendo do seu tamaño e da velocidade do seu dispositivo.
+    </string>
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviada por:</string>
     <string name="title_delivered_to">Enviada a:</string>
@@ -883,15 +900,18 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Enviado:</string>
     <string name="title_received">Recibido:</string>
+    <string name="title_date">Data:</string>
     <string name="title_stored">Gardado:</string>
     <string name="title_size">Tamaño:</string>
     <string name="title_language">Idioma:</string>
     <string name="title_subject">Asunto:</string>
     <string name="title_attachment">Anexo:</string>
     <string name="title_body_hint">A súa mensaxe</string>
+    <string name="title_body_hint_style">Pode seleccionar texto para formatalo</string>
     <string name="title_discard">Desbotar</string>
     <string name="title_save">Gardar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_sending">Enviando&#8230;</string>
     <string name="title_send_now">Enviar agora</string>
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_at">Enviar ás &#8230;</string>
@@ -915,6 +935,8 @@
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Viñetas</string>
     <string name="title_style_list_numbered">Numerada</string>
+    <string name="title_style_list_level_increase">Incrementar sangría</string>
+    <string name="title_style_list_level_decrease">Decrementar sangría</string>
     <string name="title_style_font">Tipo de letra</string>
     <string name="title_style_font_default">Predefinido</string>
     <string name="title_style_blockquote">Cita de parágrafo</string>
@@ -940,6 +962,7 @@
     <string name="title_media_toolbar">Barra de audiovisuais</string>
     <string name="title_insert_contact_group">Inserir grupo de contacto</string>
     <string name="title_insert_template">Inserir patrón</string>
+    <string name="title_create_template">Crear modelo</string>
     <string name="title_edit_plain_text">Editar como texto simple</string>
     <string name="title_edit_formatted_text">Editar como texto reformatado</string>
     <string name="title_select_certificate">Seleccionar chave pública</string>
@@ -951,6 +974,7 @@
     <string name="title_key_missing">Non hai chave para %1$s</string>
     <string name="title_send_reminder_remark">Pódese habilitar de novo os recordatorios na configuración de envío</string>
     <string name="title_send_plain_text">Só en formato texto</string>
+    <string name="title_send_dsn">Rexistro de estado</string>
     <string name="title_send_receipt">Confirmación de lectura</string>
     <string name="title_send_receipt_remark">A maioría de provedores e de clientes de correo ignoran as confirmacións de envío</string>
     <string name="title_from_missing">Non hai remitente</string>
@@ -958,11 +982,13 @@
     <string name="title_smime_reminder">Chaves S/MIME dispoñibles</string>
     <string name="title_to_missing">Falta o destinatario</string>
     <string name="title_extra_missing">Falta o nome de usuario</string>
+    <string name="title_external_reminder">Enviando a un enderezo externo</string>
     <string name="title_subject_reminder">O asunto está baleiro</string>
     <string name="title_text_reminder">A mensaxe está baleira</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included,anexo,anexado,adxunto,adjunto</string>
     <string name="title_attachment_reminder">Tiña intención de engadir un anexo?</string>
     <string name="title_plain_reminder">Perderase todo o formatado</string>
+    <string name="title_dsn_reminder">Os rexeitamentos firmes danan a reputación de correo do remitente orixinal!</string>
     <string name="title_size_reminder">A mesaxe (%1$s) é máis grande que o límite do servidor (%2$s)</string>
     <string name="title_attachments_missing">Non se descargaron todos os anexos</string>
     <string name="title_dialog_hint">Este diálogo poderase activar de novo a través do menú dos tres puntos na barra de acción de enriba</string>
@@ -1028,6 +1054,7 @@
     <string name="title_search_flag_hidden">agochado</string>
     <string name="title_search_flag_encrypted">cifrado</string>
     <string name="title_search_flag_attachments">con anexos</string>
+    <string name="title_search_flag_notes">notas</string>
     <string name="title_search_flag_invite">invitación</string>
     <string name="title_search_flag_size">tamaño &gt; %1$s</string>
     <string name="title_search_device">Buscar en dispositivo</string>
@@ -1070,8 +1097,14 @@
     <string name="title_answer_group">Grupo de patróns (opcional)</string>
     <string name="title_answer_standard">Predefinido</string>
     <string name="title_answer_favorite">Favorito</string>
+    <string name="title_answer_receipt">Usar como confirmación de lectura</string>
     <string name="title_answer_hide">Agachar nos menús</string>
     <string name="title_answer_text">Texto do patrón</string>
+    <string name="title_answer_placeholder">Referencia</string>
+    <string name="title_answer_placeholder_name">Nome completo do remitente</string>
+    <string name="title_answer_placeholder_email">Enderezo de correo electrónico do remitente</string>
+    <string name="title_answer_placeholder_firstname">Nome do remitente</string>
+    <string name="title_answer_placeholder_lastname">Apelidos do remitente</string>
     <string name="title_rule_noop">Sen acción</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como non lida</string>
@@ -1098,6 +1131,10 @@
     <string name="title_rule_subject">O asunto contén</string>
     <string name="title_rule_attachments">Ten anexos</string>
     <string name="title_rule_header">A cabeceira contén</string>
+    <string name="title_rule_time_abs">Tempo absoluto entre (recibido)</string>
+    <string name="title_rule_time_after">Recibido despois</string>
+    <string name="title_rule_time_before">Recibido antes</string>
+    <string name="title_rule_time_rel">Tempo relativo entre (recibido)</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Acción</string>
@@ -1258,6 +1295,7 @@
     <string name="title_open_link">Abrir ligazón</string>
     <string name="title_different_link">O título e o enderezo da ligazón son diferentes</string>
     <string name="title_tracking_link">Esta páxina web podería estar a rastrexalo/a</string>
+    <string name="title_suspicious_link">Isto é unha ligazón sospeitosa</string>
     <string name="title_link_http">O tráfico non estará cifrado</string>
     <string name="title_link_https">O tráfico estará cifrado</string>
     <string name="title_sanitize_link">Eliminar parámetros de rastrexo</string>
@@ -1323,6 +1361,7 @@
     <string name="title_pro_hide">Agochar mensaxes pequenas durante %1$d semanas</string>
     <string name="title_pro_hint">Mercar as características Pro permitiralle usar as características Pro actuais e futuras, e manterá esta aplicación mantida e soportada.</string>
     <string name="title_pro_price">Por que son tan caras as características pro?</string>
+    <string name="title_pro_family">Podo usar a libraría de Google Play Family?</string>
     <string name="title_pro_restore">Como podo recuperar unha compra?</string>
     <string name="title_pro_pending">Compra pendente</string>
     <string name="title_pro_activated">Todas as características Pro están activadas</string>
@@ -1348,6 +1387,7 @@
     <string name="title_unexpected_info_remark">Por favor, describa que estaba a facer cando apareceu o erro:</string>
     <string name="title_widget_title_count">Número de novas mensaxes</string>
     <string name="title_widget_title_list">Lista de mensaxes</string>
+    <string name="title_widget_title_sync">Act./Des. sincr.</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todo</string>
     <string name="title_widget_folder">Cartafol</string>
@@ -1521,7 +1561,7 @@
         <item>Serif</item>
         <item>Sans Serif</item>
         <item>Ancho fixo</item>
-        <item>Fantasy</item>
+        <item>Fantasía</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

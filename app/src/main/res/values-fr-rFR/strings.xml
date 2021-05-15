@@ -824,7 +824,7 @@
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
     <string name="title_report_spam">Traiter comme indésirable</string>
     <string name="title_delete_permanently">Supprimer définitivement</string>
-    <string name="title_no_undo">Je comprends que ceci ne puisse pas être annulé</string>
+    <string name="title_no_undo">Je comprends que ceci ne peut pas être annulé</string>
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>

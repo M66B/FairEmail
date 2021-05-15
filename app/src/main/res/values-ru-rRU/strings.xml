@@ -370,7 +370,7 @@
     <string name="title_advanced_message_text_zoom">Масштаб текста сообщения по умолчанию</string>
     <string name="title_advanced_overview_mode">Изменять масштаб оригинальных сообщений к размеру экрана</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
-    <string name="title_advanced_monospaced">По умолчанию использовать моношированный шрифт для текста сообщения</string>
+    <string name="title_advanced_monospaced">По умолчанию использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>
     <string name="title_advanced_text_color">Использовать цвета текста</string>
     <string name="title_advanced_text_size">Использовать размер текста</string>
