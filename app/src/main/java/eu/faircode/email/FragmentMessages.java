@@ -3352,8 +3352,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
-                if (!pop && !EntityFolder.TRASH.equals(type) && !EntityFolder.JUNK.equals(type))
-                    aargs.putString("confirm", getString(R.string.title_no_undo));
+                boolean remark = (pop ||
+                        EntityFolder.TRASH.equals(type) ||
+                        EntityFolder.JUNK.equals(type));
+                aargs.putString(remark ? "remark" : "confirm", getString(R.string.title_no_undo));
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
