@@ -3353,6 +3353,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
                 if (!pop && !EntityFolder.TRASH.equals(type) && !EntityFolder.JUNK.equals(type))
                     aargs.putString("confirm", getString(R.string.title_no_undo));
+                aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
@@ -3734,6 +3735,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
                 aargs.putString("remark", getString(R.string.title_no_undo));
+                aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 

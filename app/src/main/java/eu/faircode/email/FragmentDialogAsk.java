@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         String confirm = args.getString("confirm");
         String notagain = args.getString("notagain");
         boolean warning = args.getBoolean("warning");
+        int faq = args.getInt("faq");
 
         final Context context = getContext();
         final int colorError = Helper.resolveColor(context, R.attr.colorError);
@@ -56,6 +58,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
         CheckBox cbConfirm = dview.findViewById(R.id.cbConfirm);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
 
         tvMessage.setText(question);
         tvRemark.setText(remark);
@@ -63,6 +66,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         cbConfirm.setText(confirm);
         cbConfirm.setVisibility(confirm == null ? View.GONE : View.VISIBLE);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
+        ibInfo.setVisibility(faq == 0 ? View.GONE : View.VISIBLE);
 
         if (warning) {
             Drawable w = context.getDrawable(R.drawable.twotone_warning_24);
@@ -78,6 +82,14 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     prefs.edit().putBoolean(notagain, isChecked).apply();
+                }
+            });
+
+        if (faq != 0)
+            ibInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), faq);
                 }
             });
 
