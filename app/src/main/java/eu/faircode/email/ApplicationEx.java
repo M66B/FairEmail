@@ -34,10 +34,9 @@ import android.os.strictmode.Violation;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.work.WorkManager;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -132,7 +131,7 @@ public class ApplicationEx extends Application
 
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
-            public void uncaughtException(@NotNull Thread thread, @NotNull Throwable ex) {
+            public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
                 if (!crash_reports && Log.isOwnFault(ex)) {
                     Log.e(ex);
 

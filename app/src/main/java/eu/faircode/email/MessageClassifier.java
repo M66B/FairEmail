@@ -30,8 +30,6 @@ import android.util.MalformedJsonException;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -735,7 +733,7 @@ public class MessageClassifier {
             this.chance = chance;
         }
 
-        @NotNull
+        @NonNull
         @Override
         public String toString() {
             return clazz + "=" + Math.round(chance * 100.0 * 100.0) / 100.0 + "%";

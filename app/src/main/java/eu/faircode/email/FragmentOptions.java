@@ -61,8 +61,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-import org.jetbrains.annotations.NotNull;
-
 public class FragmentOptions extends FragmentBase {
     private ViewPager pager;
     private PagerAdapter adapter;
@@ -408,7 +406,7 @@ public class FragmentOptions extends FragmentBase {
             return 10;
         }
 
-        @NotNull
+        @NonNull
         @Override
         public Fragment getItem(int position) {
             switch (position) {
@@ -448,7 +446,7 @@ public class FragmentOptions extends FragmentBase {
             return ssb;
         }
 
-        @NotNull
+        @NonNull
         private CharSequence getTitle(int position) {
             switch (position) {
                 case 0:
