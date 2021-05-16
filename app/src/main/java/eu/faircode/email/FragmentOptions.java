@@ -84,7 +84,7 @@ public class FragmentOptions extends FragmentBase {
             "subscriptions",
             "send_pending",
             "portrait2", "landscape", "landscape3", "startup", "cards", "beige", "shadow_unread",
-            "indentation", "date", "threading", "threading_unread",
+            "indentation", "date", "date_bold", "threading", "threading_unread",
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "authentication",

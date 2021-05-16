@@ -373,6 +373,7 @@
     <string name="title_advanced_cards_beige">Use beige background when using card style</string>
     <string name="title_advanced_cards_shadow">Use shadow for unread messages when using card style</string>
     <string name="title_advanced_date_header">Group by date</string>
+    <string name="title_advanced_date_bold">Show date in bold</string>
     <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
     <string name="title_advanced_indentation">Left/right indent received/sent messages in conversations</string>

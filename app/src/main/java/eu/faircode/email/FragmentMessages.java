@@ -290,6 +290,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean cards;
     private boolean beige;
     private boolean date;
+    private boolean date_bold;
     private boolean threading;
     private boolean swipenav;
     private boolean seekbar;
@@ -408,6 +409,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cards = prefs.getBoolean("cards", true);
         beige = prefs.getBoolean("beige", true);
         date = prefs.getBoolean("date", true);
+        date_bold = prefs.getBoolean("date_bold", false);
         threading = prefs.getBoolean("threading", true);
         seekbar = prefs.getBoolean("seekbar", false);
         actionbar = prefs.getBoolean("actionbar", true);
@@ -693,6 +695,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 View header = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_date, parent, false);
                 TextView tvDate = header.findViewById(R.id.tvDate);
                 tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.getTextSize(parent.getContext(), adapter.getZoom()));
+                if (date_bold)
+                    tvDate.setTypeface(Typeface.DEFAULT_BOLD);
 
                 if (cards) {
                     View vSeparatorDate = header.findViewById(R.id.vSeparatorDate);

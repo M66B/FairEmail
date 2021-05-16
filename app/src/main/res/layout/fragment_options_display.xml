@@ -192,6 +192,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swDate" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDateBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_date_bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDateHint"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNavBarColorize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -199,7 +210,7 @@
                     android:text="@string/title_advanced_navbar_colorize"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDateHint"
+                    app:layout_constraintTop_toBottomOf="@id/swDateBold"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
