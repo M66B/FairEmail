@@ -2716,7 +2716,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
 
                     if (icalendar == null ||
-                            icalendar.getMethod() == null ||
                             icalendar.getEvents().size() == 0) {
                         clearCalendar();
                         grpCalendar.setVisibility(View.GONE);
@@ -2780,7 +2779,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvAttendees.setVisibility(attendee.size() == 0 ? View.GONE : View.VISIBLE);
 
                     boolean canRespond =
-                            (icalendar.getMethod().isRequest() &&
+                            (icalendar.getMethod() != null &&
+                                    icalendar.getMethod().isRequest() &&
                                     organizer != null && organizer.getEmail() != null &&
                                     message.to != null && message.to.length > 0);
                     grpCalendarResponse.setVisibility(canRespond ? View.VISIBLE : View.GONE);
@@ -2839,7 +2839,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
 
                                 int status;
-                                if (icalendar.getMethod().isRequest())
+                                if (icalendar.getMethod() == null)
+                                    status = CalendarContract.Events.STATUS_TENTATIVE;
+                                else if (icalendar.getMethod().isRequest())
                                     status = CalendarContract.Events.STATUS_TENTATIVE;
                                 else if (icalendar.getMethod().isCancel())
                                     status = CalendarContract.Events.STATUS_CANCELED;
