@@ -1219,6 +1219,8 @@ The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced
 "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*",
 see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
+The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
+
 When in doubt, you can ask for [support](#user-content-support).
 
 <br />
