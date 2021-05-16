@@ -459,8 +459,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     return search(false, browsable.keywords, protocol, state);
                                 }
                             } catch (Throwable ex) {
-                                ProtocolException pex = new ProtocolException(
-                                        "Search " + account.host, ex);
+                                String msg;
+                                if (ex instanceof ProtocolException)
+                                    msg = context.getString(R.string.title_service_auth, account.host + ": " + ex.getMessage());
+                                else
+                                    msg = "Search " + account.host;
+                                ProtocolException pex = new ProtocolException(msg, ex);
                                 Log.e(pex);
                                 throw pex;
                             }
