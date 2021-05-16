@@ -298,6 +298,7 @@
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi sử dụng kiểu thẻ</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
+    <string name="title_advanced_date_bold">Hiện ngày bằng chữ đậm</string>
     <string name="title_advanced_threading">Chia cuộc hội thoại thành các chủ đề</string>
     <string name="title_advanced_threading_unread">Hiện số thư chưa đọc trong các cuộc hội thoại</string>
     <string name="title_advanced_indentation">Lùi trái/phải các thư đã nhận/đã gửi trong cuộc hội thoại</string>
@@ -812,6 +813,7 @@
     <string name="title_move_to_account">Di chuyển vào %1$s &#8230;</string>
     <string name="title_report_spam">Coi là thư rác</string>
     <string name="title_delete_permanently">Xóa vĩnh viễn</string>
+    <string name="title_no_undo">Tôi hiểu điều này không thể hoàn tác được</string>
     <string name="title_snooze">Đặt báo lại &#8230;</string>
     <string name="title_archive">Lưu trữ</string>
     <string name="title_reply">Trả lời</string>

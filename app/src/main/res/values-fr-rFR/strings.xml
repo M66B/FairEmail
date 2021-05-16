@@ -309,6 +309,7 @@
     <string name="title_advanced_cards_beige">Utiliser un arrière-plan beige pour le style carte</string>
     <string name="title_advanced_cards_shadow">Utiliser une ombre autour des messages non lus pour le style carte</string>
     <string name="title_advanced_date_header">Grouper par date</string>
+    <string name="title_advanced_date_bold">Afficher la date en gras</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_threading_unread">Afficher le nombre de messages non lus dans les conversations</string>
     <string name="title_advanced_indentation">Mettre en retrait vers la gauche/droite les messages reçus/envoyés dans les conversations</string>

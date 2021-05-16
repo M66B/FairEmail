@@ -309,6 +309,7 @@
     <string name="title_advanced_cards_beige">Brûk beige eftergrûn by it brûken fan kaartstyl</string>
     <string name="title_advanced_cards_shadow">Brûk skaad foar ûnlezen berjochten at kaart styl brukt wurd</string>
     <string name="title_advanced_date_header">Groepearje op datum</string>
+    <string name="title_advanced_date_bold">Datum fet sjen litte</string>
     <string name="title_advanced_threading">Oerlis petear</string>
     <string name="title_advanced_threading_unread">Toan net-lêzen berjochten yn petearen</string>
     <string name="title_advanced_indentation">Yndruk links / rjochts ûntfangen / ferstjoerde berjochten yn petearen</string>

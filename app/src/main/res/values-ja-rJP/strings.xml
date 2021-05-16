@@ -297,6 +297,7 @@
     <string name="title_advanced_cards_beige">カードスタイルを使用するときはベージュの背景を使用する</string>
     <string name="title_advanced_cards_shadow">カードスタイルを使用するときに未読メッセージにシャドウを使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
+    <string name="title_advanced_date_bold">太字で日付を表示</string>
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示する</string>
     <string name="title_advanced_indentation">会話の受信/送信メッセージの左/右インデント</string>

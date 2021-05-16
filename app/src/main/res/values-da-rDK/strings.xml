@@ -303,6 +303,7 @@
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_cards_beige">Benyt beige baggrund, når du bruger kortstil</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
+    <string name="title_advanced_date_bold">Vis dato med fed</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>

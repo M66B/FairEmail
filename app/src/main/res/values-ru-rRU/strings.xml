@@ -331,6 +331,7 @@
     <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля</string>
     <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
+    <string name="title_advanced_date_bold">Показывать дату жирным шрифтом</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>

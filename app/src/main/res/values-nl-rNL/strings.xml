@@ -309,6 +309,7 @@
     <string name="title_advanced_cards_beige">Gebruik beige achtergrond bij gebruik van kaartstijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
+    <string name="title_advanced_date_bold">Datum vet weergeven</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
