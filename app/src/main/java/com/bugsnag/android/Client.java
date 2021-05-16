@@ -8,16 +8,13 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.net.ConnectivityManager;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import androidx.preference.PreferenceManager;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -124,18 +121,6 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         connectivity = new ConnectivityCompat(appContext, new Function2<Boolean, String, Unit>() {
             @Override
             public Unit invoke(Boolean hasConnection, String networkState) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(appContext);
-                boolean metered = prefs.getBoolean("metered", true);
-                if (!metered)
-                    try {
-                        ConnectivityManager cm =
-                                (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-                        if (cm != null && cm.isActiveNetworkMetered())
-                            hasConnection = false;
-                    } catch (Throwable ex) {
-                        android.util.Log.e("fairemail", ex + "\n" + android.util.Log.getStackTraceString(ex));
-                    }
-
                 Map<String, Object> data = new HashMap<>();
                 data.put("hasConnection", hasConnection);
                 data.put("networkState", networkState);
