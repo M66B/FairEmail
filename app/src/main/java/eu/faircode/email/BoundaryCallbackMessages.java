@@ -572,6 +572,23 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     private Message[] search(boolean utf8, String[] keywords, IMAPProtocol protocol, State state) throws IOException, MessagingException, ProtocolException {
+        try {
+            return _search(utf8, keywords, protocol, state);
+        } catch (ProtocolException ex) {
+            Response r = ex.getResponse();
+            if (criteria.in_message &&
+                    r != null && r.isNO() &&
+                    "full text search not supported".equals(r.getRest())) {
+                // gmx.net, gmx.com, mail.com, web.de
+                Log.e(ex);
+                criteria.in_message = false;
+                return _search(utf8, keywords, protocol, state);
+            } else
+                throw ex;
+        }
+    }
+
+    private Message[] _search(boolean utf8, String[] keywords, IMAPProtocol protocol, State state) throws IOException, MessagingException, ProtocolException {
         EntityLog.log(context, "Search utf8=" + utf8);
 
         SearchTerm terms = criteria.getTerms(utf8, state.ifolder.getPermanentFlags(), keywords);
