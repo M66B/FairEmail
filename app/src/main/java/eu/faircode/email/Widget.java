@@ -169,6 +169,8 @@ public class Widget extends AppWidgetProvider {
     }
 
     static void update(Context context) {
+        EntityLog.log(context, "Widget update");
+
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         if (appWidgetManager == null) {
             Log.w("No app widget manager"); // Fairphone FP2
