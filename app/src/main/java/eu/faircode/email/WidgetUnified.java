@@ -169,8 +169,7 @@ public class WidgetUnified extends AppWidgetProvider {
     }
 
     static void updateData(Context context) {
-        EntityLog.log(context, "Widget unified update");
-
+        Log.i("Widget unified update");
         if (ActivityBilling.isPro(context)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             if (appWidgetManager == null) {
