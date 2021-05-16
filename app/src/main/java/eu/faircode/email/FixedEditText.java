@@ -71,6 +71,16 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     @Override
+    public boolean onPreDraw() {
+        try {
+            return super.onPreDraw();
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return true;
+        }
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         try {
             super.onDraw(canvas);
