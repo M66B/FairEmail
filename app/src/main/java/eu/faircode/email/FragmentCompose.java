@@ -142,6 +142,8 @@ import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -162,6 +164,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
@@ -205,6 +209,7 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
+import javax.net.ssl.HttpsURLConnection;
 
 import biweekly.Biweekly;
 import biweekly.ICalendar;
@@ -309,6 +314,8 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_PERMISSION = 15;
+
+    private static final int DEEPL_TIMEOUT = 20; // seconds
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
@@ -1452,6 +1459,8 @@ public class FragmentCompose extends FragmentBase {
                 state == State.LOADED && hasPermission(Manifest.permission.READ_CONTACTS));
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setVisible(etBody.hasSelection() && BuildConfig.DEBUG);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
@@ -1481,12 +1490,18 @@ public class FragmentCompose extends FragmentBase {
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
+        String deepl = prefs.getString("deepl", null);
 
         menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
+        menu.findItem(R.id.menu_translate_english).setEnabled(deepl != null);
+        menu.findItem(R.id.menu_translate_french).setEnabled(deepl != null);
+        menu.findItem(R.id.menu_translate_german).setEnabled(deepl != null);
+        menu.findItem(R.id.menu_translate_italian).setEnabled(deepl != null);
+        menu.findItem(R.id.menu_translate_spanish).setEnabled(deepl != null);
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(encrypt))
@@ -1540,6 +1555,24 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_answer_create) {
             onMenuAnswerCreate();
+            return true;
+        } else if (itemId == R.id.menu_translate_key) {
+            onMenuTranslateKey();
+            return true;
+        } else if (itemId == R.id.menu_translate_english) {
+            onMenuTranslate("EN");
+            return true;
+        } else if (itemId == R.id.menu_translate_french) {
+            onMenuTranslate("FR");
+            return true;
+        } else if (itemId == R.id.menu_translate_german) {
+            onMenuTranslate("DE");
+            return true;
+        } else if (itemId == R.id.menu_translate_italian) {
+            onMenuTranslate("IT");
+            return true;
+        } else if (itemId == R.id.menu_translate_spanish) {
+            onMenuTranslate("ES");
             return true;
         } else if (itemId == R.id.menu_clear) {
             StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
@@ -1903,6 +1936,87 @@ public class FragmentCompose extends FragmentBase {
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose:answer");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuTranslateKey() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putString("deepl", "").apply();
+    }
+
+    private void onMenuTranslate(String target) {
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+        Editable edit = etBody.getText();
+
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        while (start > 0 && edit.charAt(start - 1) != '\n')
+            start--;
+
+        // Expand selection at end
+        while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
+            end++;
+
+        final int insert = end;
+
+        String text = edit.subSequence(start, end).toString();
+
+        Bundle args = new Bundle();
+        args.putString("target", target);
+        args.putString("text", text);
+
+        new SimpleTask<String>() {
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                String target = args.getString("target");
+                String text = args.getString("text");
+                String request =
+                        "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
+                                "&target_lang=" + URLEncoder.encode(target, StandardCharsets.UTF_8.name());
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String deepl = prefs.getString("deepl", null);
+
+                URL url = new URL("https://api-free.deepl.com/v2/translate?auth_key=" + deepl);
+                HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setDoOutput(true);
+                connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
+                connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
+                connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                connection.setRequestProperty("Accept", "*/*");
+                connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
+                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                connection.connect();
+
+                try {
+                    connection.getOutputStream().write(request.getBytes());
+                    String response = Helper.readStream(connection.getInputStream());
+
+                    JSONObject jroot = new JSONObject(response);
+                    JSONArray jtranslations = jroot.getJSONArray("translations");
+                    JSONObject jtranslation = (JSONObject) jtranslations.get(0);
+                    return jtranslation.getString("text");
+                } finally {
+                    connection.disconnect();
+                }
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String translated) {
+                edit.insert(insert, "\n" + translated);
+                etBody.setSelection(insert + 1 + translated.length());
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "compose:translate");
     }
 
     private boolean onActionStyle(int action, View anchor) {
