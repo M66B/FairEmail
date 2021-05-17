@@ -4999,7 +4999,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int count = 0;
             int unseen = 0;
             int flagged = 0;
-            int found = 0;
+            int finds = 0;
             TupleMessageEx singleMessage = null;
             TupleMessageEx unseenMessage = null;
             TupleMessageEx flaggedMessage = null;
@@ -5032,8 +5032,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         (message.id.equals(id) || Objects.equals(message.msgid, msgid)))
                     pinnedMessage = message;
 
-                if (!message.duplicate && message.ui_found) {
-                    found++;
+                if (found && !message.duplicate && message.ui_found) {
+                    finds++;
                     if (foundMessage == null)
                         foundMessage = message;
                 }
@@ -5049,8 +5049,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             // - sole message
             if (autoexpand) {
                 TupleMessageEx expand = null;
-                if (found > 0) {
-                    if (found == 1)
+                if (finds > 0) {
+                    if (finds == 1)
                         expand = foundMessage;
                 } else if (pinnedMessage != null)
                     expand = pinnedMessage;
