@@ -64,9 +64,7 @@
     <item
         android:id="@+id/menu_answer_create"
         android:title="@string/title_create_template"
-        app:showAsAction="never">
-        <menu />
-    </item>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_clear"
