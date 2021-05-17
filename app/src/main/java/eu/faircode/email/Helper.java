@@ -749,6 +749,10 @@ public class Helper {
     }
 
     static void viewFAQ(Context context, int question) {
+        viewFAQ(context, question, false);
+    }
+
+    static void viewFAQ(Context context, int question, boolean english) {
         // Redirection is done to prevent text editors from opening the link
         // https://email.faircode.eu/faq -> https://github.com/M66B/FairEmail/blob/master/FAQ.md
         // https://email.faircode.eu/docs -> https://github.com/M66B/FairEmail/tree/master/docs
@@ -756,7 +760,7 @@ public class Helper {
         // https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md#user-content-faq1
 
         String base;
-        String locale = getFAQLocale();
+        String locale = (english ? null : getFAQLocale());
         if (locale == null)
             base = "https://email.faircode.eu/faq";
         else

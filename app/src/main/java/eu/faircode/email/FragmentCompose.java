@@ -6700,7 +6700,7 @@ public class FragmentCompose extends FragmentBase {
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(v.getContext(), 167);
+                    Helper.viewFAQ(v.getContext(), 167, true);
                 }
             });
 
