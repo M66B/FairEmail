@@ -1954,6 +1954,15 @@ public class FragmentCompose extends FragmentBase {
             end = tmp;
         }
 
+        // Trim start
+        while (start < edit.length() - 1 && edit.charAt(start) == '\n')
+            start++;
+
+        // Trim end
+        while (end > 1 && edit.charAt(end - 2) == '\n')
+            end--;
+
+        // Expand selection at start
         while (start > 0 && edit.charAt(start - 1) != '\n')
             start--;
 
