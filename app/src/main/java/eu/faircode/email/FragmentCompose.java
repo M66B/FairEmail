@@ -1474,7 +1474,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
-        menu.findItem(R.id.menu_translate).setVisible(etBody.hasSelection() && BuildConfig.DEBUG);
+        menu.findItem(R.id.menu_translate).setVisible(etBody.hasSelection() && !BuildConfig.PLAY_STORE_RELEASE);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
