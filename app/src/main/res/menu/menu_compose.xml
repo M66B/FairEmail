@@ -72,25 +72,10 @@
         android:title="@string/title_translate"
         app:showAsAction="never">
         <menu>
-            <group>
+            <group android:id="@+id/group_translate">
                 <item
                     android:id="@+id/menu_translate_key"
                     android:title="@string/title_translate_key" />
-                <item
-                    android:id="@+id/menu_translate_english"
-                    android:title="@string/title_translate_english" />
-                <item
-                    android:id="@+id/menu_translate_french"
-                    android:title="@string/title_translate_french" />
-                <item
-                    android:id="@+id/menu_translate_german"
-                    android:title="@string/title_translate_german" />
-                <item
-                    android:id="@+id/menu_translate_italian"
-                    android:title="@string/title_translate_italian" />
-                <item
-                    android:id="@+id/menu_translate_spanish"
-                    android:title="@string/title_translate_spanish" />
             </group>
         </menu>
     </item>

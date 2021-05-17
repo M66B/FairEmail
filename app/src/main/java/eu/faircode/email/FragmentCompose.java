@@ -1444,6 +1444,20 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        try (InputStream is = getContext().getAssets().open("deepl.json")) {
+            String json = Helper.readStream(is);
+            JSONArray jarray = new JSONArray(json);
+
+            for (int i = 0; i < jarray.length(); i++) {
+                JSONObject jlanguage = jarray.getJSONObject(i);
+                SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
+                smenu.add(R.id.group_translate, i + 1, i + 1, jlanguage.getString("name"))
+                        .setIntent(new Intent().putExtra("target", jlanguage.getString("language")));
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -1497,11 +1511,9 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
-        menu.findItem(R.id.menu_translate_english).setEnabled(deepl != null);
-        menu.findItem(R.id.menu_translate_french).setEnabled(deepl != null);
-        menu.findItem(R.id.menu_translate_german).setEnabled(deepl != null);
-        menu.findItem(R.id.menu_translate_italian).setEnabled(deepl != null);
-        menu.findItem(R.id.menu_translate_spanish).setEnabled(deepl != null);
+        SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
+        for (int i = 1; i < smenu.size(); i++)
+            smenu.getItem(i).setEnabled(deepl != null);
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(encrypt))
@@ -1559,20 +1571,8 @@ public class FragmentCompose extends FragmentBase {
         } else if (itemId == R.id.menu_translate_key) {
             onMenuTranslateKey();
             return true;
-        } else if (itemId == R.id.menu_translate_english) {
-            onMenuTranslate("EN");
-            return true;
-        } else if (itemId == R.id.menu_translate_french) {
-            onMenuTranslate("FR");
-            return true;
-        } else if (itemId == R.id.menu_translate_german) {
-            onMenuTranslate("DE");
-            return true;
-        } else if (itemId == R.id.menu_translate_italian) {
-            onMenuTranslate("IT");
-            return true;
-        } else if (itemId == R.id.menu_translate_spanish) {
-            onMenuTranslate("ES");
+        } else if (item.getGroupId() == R.id.group_translate) {
+            onMenuTranslate(item.getIntent().getStringExtra("target"));
             return true;
         } else if (itemId == R.id.menu_clear) {
             StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
