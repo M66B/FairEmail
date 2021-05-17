@@ -3681,6 +3681,15 @@ Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 
+<a name="faq167"></a>
+**(167) How can I use DeepL?**
+
+1. [Subscribe to](https://www.deepl.com/pro#developer) to one of the DeepL API plans (credit card required)
+1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
+1. In the message composer select some text and in the overflow menu select *Translate*, *Enter key* and paste the key
+
+<br />
+
 <h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.

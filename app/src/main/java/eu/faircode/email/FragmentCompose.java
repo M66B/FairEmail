@@ -6693,7 +6693,16 @@ public class FragmentCompose extends FragmentBase {
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final EditText etKey = view.findViewById(R.id.etKey);
+            final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
+
             etKey.setText(prefs.getString("deepl", null));
+
+            ibInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 167);
+                }
+            });
 
             return new AlertDialog.Builder(context)
                     .setView(view)

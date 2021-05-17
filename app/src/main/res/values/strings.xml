@@ -1108,7 +1108,7 @@
     <string name="title_insert_template">Insert template</string>
     <string name="title_create_template">Create template</string>
     <string name="title_translate" translatable="false">Translate</string>
-    <string name="title_translate_key" translatable="false">Enter auth key</string>
+    <string name="title_translate_key" translatable="false">Enter key</string>
     <string name="title_edit_plain_text">Edit as plain text</string>
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
     <string name="title_select_certificate">Select public key</string>
