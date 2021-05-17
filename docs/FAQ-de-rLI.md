@@ -2131,7 +2131,7 @@ After revoking contacts permissions Android does not allow FairEmail access to y
 <a name="faq99"></a>
 **(99) Can you add a rich text or markdown editor?**
 
-FairEmail provides common text formatting (bold, italic, underline, text size and color) via a toolbar that appears after selecting some text.
+FairEmail bietet eine einfache Textformatierung (fett, kursiv, unterstrichen, Textgröße und -farbe) über eine Symbolleiste, die nach der Auswahl eines Textes erscheint.
 
 A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor would not be used by many people on a small mobile device and, more important, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
 

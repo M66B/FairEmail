@@ -330,6 +330,7 @@
     <string name="title_advanced_cards_beige">Użyj beżowego tła, jeśli używasz stylu karty</string>
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
+    <string name="title_advanced_date_bold">Pokaż datę pogrubioną</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w wątkach</string>
     <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony wątków</string>
