@@ -1939,8 +1939,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuTranslateKey() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putString("deepl", "").apply();
+        FragmentDialogDeepL fragment = new FragmentDialogDeepL();
+        fragment.show(getParentFragmentManager(), "deepl");
     }
 
     private void onMenuTranslate(String target) {
@@ -6680,6 +6680,35 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }.execute(this, args, "compose:snooze");
             }
+        }
+    }
+
+    public static class FragmentDialogDeepL extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
+            final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
+            final EditText etKey = view.findViewById(R.id.etKey);
+            etKey.setText(prefs.getString("deepl", null));
+
+            return new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String key = etKey.getText().toString().trim();
+                            if (TextUtils.isEmpty(key))
+                                prefs.edit().remove("deepl").apply();
+                            else
+                                prefs.edit().putString("deepl", key).apply();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
         }
     }
 
