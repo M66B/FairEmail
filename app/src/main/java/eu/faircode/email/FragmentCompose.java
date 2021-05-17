@@ -1448,11 +1448,18 @@ public class FragmentCompose extends FragmentBase {
             String json = Helper.readStream(is);
             JSONArray jarray = new JSONArray(json);
 
+            String pkg = getContext().getPackageName();
             for (int i = 0; i < jarray.length(); i++) {
                 JSONObject jlanguage = jarray.getJSONObject(i);
+                String name = jlanguage.getString("name");
+                String target = jlanguage.getString("language");
                 SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
-                smenu.add(R.id.group_translate, i + 1, i + 1, jlanguage.getString("name"))
-                        .setIntent(new Intent().putExtra("target", jlanguage.getString("language")));
+                MenuItem item = smenu.add(R.id.group_translate, i + 1, i + 1, name)
+                        .setIntent(new Intent().putExtra("target", target));
+                String resname = "language_" + target.toLowerCase().replace('-', '_');
+                int resid = getResources().getIdentifier(resname, "drawable", pkg);
+                if (resid > 0)
+                    item.setIcon(resid);
             }
         } catch (Throwable ex) {
             Log.e(ex);
