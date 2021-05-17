@@ -1350,9 +1350,10 @@
     <string name="title_legend_synchronize_off">Synchronize off</string>
     <string name="title_legend_synchronize_poll">Synchronize periodically</string>
     <string name="title_legend_disconnected">Disconnected</string>
-    <string name="title_legend_backoff">Waiting after failure</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
+    <string name="title_legend_backoff">Waiting after failure</string>
+    <string name="title_legend_quota">Mailbox almost full</string>
     <string name="title_legend_executing">Executing operations</string>
     <string name="title_legend_synchronizing">Synchronizing</string>
     <string name="title_legend_downloading">Downloading</string>

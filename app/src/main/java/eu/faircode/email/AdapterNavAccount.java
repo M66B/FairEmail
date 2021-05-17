@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
@@ -59,6 +60,8 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat TF;
 
+    private static final int QUOTA_WARNING = 95; // percent
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private ImageView ivItem;
@@ -81,11 +84,13 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         private void wire() {
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
+            ivWarning.setOnClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
             view.setOnLongClickListener(null);
+            ivWarning.setOnClickListener(null);
         }
 
         private void bindTo(TupleAccountEx account) {
@@ -115,11 +120,27 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             tvItemExtra.setText(account.last_connected == null ? null : TF.format(account.last_connected));
 
             ivExternal.setVisibility(View.GONE);
-            ivWarning.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
+
+            int percent = Math.round(account.quota_usage * 100f / account.quota_limit);
+            if (account.error != null) {
+                ivWarning.setEnabled(false);
+                ivWarning.setImageResource(R.drawable.twotone_warning_24);
+                ivWarning.setVisibility(View.VISIBLE);
+            } else if (percent > QUOTA_WARNING) {
+                ivWarning.setEnabled(true);
+                ivWarning.setImageResource(R.drawable.twotone_disc_full_24);
+                ivWarning.setVisibility(View.VISIBLE);
+            } else
+                ivWarning.setVisibility(View.GONE);
         }
 
         @Override
         public void onClick(View v) {
+            if (v.getId() == R.id.ivWarning) {
+                ToastEx.makeText(context, R.string.title_legend_quota, Toast.LENGTH_LONG).show();
+                return;
+            }
+
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
