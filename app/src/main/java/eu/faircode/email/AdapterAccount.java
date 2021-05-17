@@ -220,7 +220,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             Integer percent = null;
             if (!settings && account.quota_usage != null && account.quota_limit != null)
-                percent = Math.round((float) account.quota_usage * 100 / account.quota_limit);
+                percent = Math.round(account.quota_usage * 100f / account.quota_limit);
 
             tvUsage.setText(percent == null ? null : NF.format(percent) + "%");
             tvUsage.setVisibility(percent == null ? View.GONE : View.VISIBLE);

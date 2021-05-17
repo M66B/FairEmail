@@ -311,7 +311,7 @@ public class FragmentFolders extends FragmentBase {
                     imap = (account != null && account.protocol == EntityAccount.TYPE_IMAP);
 
                     if (account != null && account.quota_usage != null && account.quota_limit != null) {
-                        int percent = Math.round((float) account.quota_usage * 100 / account.quota_limit);
+                        int percent = Math.round(account.quota_usage * 100f / account.quota_limit);
                         setSubtitle(getString(R.string.title_name_count,
                                 account.name, NF.format(percent) + "%"));
                     } else
