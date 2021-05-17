@@ -1453,9 +1453,15 @@ public class FragmentCompose extends FragmentBase {
                 JSONObject jlanguage = jarray.getJSONObject(i);
                 String name = jlanguage.getString("name");
                 String target = jlanguage.getString("language");
+
+                Locale locale = Locale.forLanguageTag(target);
+                if (locale != null)
+                    name = locale.getDisplayName();
+
                 SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
                 MenuItem item = smenu.add(R.id.group_translate, i + 1, i + 1, name)
                         .setIntent(new Intent().putExtra("target", target));
+
                 String resname = "language_" + target.toLowerCase().replace('-', '_');
                 int resid = getResources().getIdentifier(resname, "drawable", pkg);
                 if (resid > 0)
