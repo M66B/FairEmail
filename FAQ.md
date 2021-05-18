@@ -3690,7 +3690,9 @@ Unfortunately, it is not possible to hide messages on the email server too.
 
 You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
 
-This feature is not available in the Play store version.
+This feature requires an internet connection (host name: *api-free.deepl.com*) and is not available in the Play store version.
+
+The DeepL API Pro plan is currently not supported.
 
 <br />
 
