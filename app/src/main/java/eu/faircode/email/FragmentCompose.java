@@ -1448,17 +1448,27 @@ public class FragmentCompose extends FragmentBase {
         try (InputStream is = getContext().getAssets().open("deepl.json")) {
             String json = Helper.readStream(is);
             JSONArray jarray = new JSONArray(json);
-            List<Pair<String, String>> languages = new ArrayList<>();
 
             String pkg = getContext().getPackageName();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+            List<Pair<String, String>> languages = new ArrayList<>();
+            Map<String, Integer> frequencies = new HashMap<>();
             for (int i = 0; i < jarray.length(); i++) {
                 JSONObject jlanguage = jarray.getJSONObject(i);
                 String name = jlanguage.getString("name");
                 String target = jlanguage.getString("language");
+
                 Locale locale = Locale.forLanguageTag(target);
                 if (locale != null)
                     name = locale.getDisplayName();
+
+                int frequency = prefs.getInt("translated_" + target, 0);
+                if (frequency > 0)
+                    name += " ★";
+
                 languages.add(new Pair<>(name, target));
+                frequencies.put(target, frequency);
             }
 
             Collator collator = Collator.getInstance(Locale.getDefault());
@@ -1466,7 +1476,13 @@ public class FragmentCompose extends FragmentBase {
             Collections.sort(languages, new Comparator<Pair<String, String>>() {
                 @Override
                 public int compare(Pair<String, String> l1, Pair<String, String> l2) {
-                    return collator.compare(l1.first, l2.first);
+                    int freq1 = frequencies.get(l1.second);
+                    int freq2 = frequencies.get(l2.second);
+
+                    if (freq1 == freq2)
+                        return collator.compare(l1.first, l2.first);
+                    else
+                        return -Integer.compare(freq1, freq2);
                 }
             });
 
@@ -2044,8 +2060,17 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, String translated) {
+                // Insert translated text
                 edit.insert(insert, "\n" + translated);
                 etBody.setSelection(insert + 1 + translated.length());
+
+                // Updated frequency
+                String key = "translated_" + args.getString("target");
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                int count = prefs.getInt(key, 0);
+                prefs.edit().putInt(key, count + 1).apply();
+
+                getActivity().invalidateOptionsMenu();
             }
 
             @Override
