@@ -1991,6 +1991,9 @@ public class FragmentCompose extends FragmentBase {
         int end = etBody.getSelectionEnd();
         Editable edit = etBody.getText();
 
+        if (start < 0 || end < 0)
+            return;
+
         if (start > end) {
             int tmp = start;
             start = end;
@@ -2060,6 +2063,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, String translated) {
+                if (insert > edit.length())
+                    return;
+
                 // Insert translated text
                 edit.insert(insert, "\n" + translated);
                 etBody.setSelection(insert + 1 + translated.length());
