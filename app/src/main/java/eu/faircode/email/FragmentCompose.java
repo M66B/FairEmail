@@ -1447,22 +1447,35 @@ public class FragmentCompose extends FragmentBase {
         try (InputStream is = getContext().getAssets().open("deepl.json")) {
             String json = Helper.readStream(is);
             JSONArray jarray = new JSONArray(json);
+            List<Pair<String, String>> languages = new ArrayList<>();
 
             String pkg = getContext().getPackageName();
             for (int i = 0; i < jarray.length(); i++) {
                 JSONObject jlanguage = jarray.getJSONObject(i);
                 String name = jlanguage.getString("name");
                 String target = jlanguage.getString("language");
-
                 Locale locale = Locale.forLanguageTag(target);
                 if (locale != null)
                     name = locale.getDisplayName();
+                languages.add(new Pair<>(name, target));
+            }
 
+            Collator collator = Collator.getInstance(Locale.getDefault());
+            collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+            Collections.sort(languages, new Comparator<Pair<String, String>>() {
+                @Override
+                public int compare(Pair<String, String> l1, Pair<String, String> l2) {
+                    return collator.compare(l1.first, l2.first);
+                }
+            });
+
+            for (int i = 0; i < languages.size(); i++) {
+                Pair<String, String> lang = languages.get(i);
                 SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
-                MenuItem item = smenu.add(R.id.group_translate, i + 1, i + 1, name)
-                        .setIntent(new Intent().putExtra("target", target));
+                MenuItem item = smenu.add(R.id.group_translate, i + 1, i + 1, lang.first)
+                        .setIntent(new Intent().putExtra("target", lang.second));
 
-                String resname = "language_" + target.toLowerCase().replace('-', '_');
+                String resname = "language_" + lang.second.toLowerCase().replace('-', '_');
                 int resid = getResources().getIdentifier(resname, "drawable", pkg);
                 if (resid > 0)
                     item.setIcon(resid);
