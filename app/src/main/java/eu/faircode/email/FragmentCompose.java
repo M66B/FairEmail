@@ -316,6 +316,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_PERMISSION = 15;
 
     private static final int DEEPL_TIMEOUT = 20; // seconds
+    private static final String DEEPL_BASE_URI = "https://api-free.deepl.com/v2/";
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
@@ -2016,7 +2017,7 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String deepl = prefs.getString("deepl", null);
 
-                URL url = new URL("https://api-free.deepl.com/v2/translate?auth_key=" + deepl);
+                URL url = new URL(DEEPL_BASE_URI + "translate?auth_key=" + deepl);
                 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);
