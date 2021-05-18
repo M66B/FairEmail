@@ -121,7 +121,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
             ivExternal.setVisibility(View.GONE);
 
-            int percent = Math.round(account.quota_usage * 100f / account.quota_limit);
+            int percent;
+            if (account.quota_usage == null || account.quota_limit == null)
+                percent = 0;
+            else
+                percent = Math.round(account.quota_usage * 100f / account.quota_limit);
             if (account.error != null) {
                 ivWarning.setEnabled(false);
                 ivWarning.setImageResource(R.drawable.twotone_warning_24);
