@@ -37,7 +37,7 @@
         android:hint="@string/title_translate_key"
         android:imeOptions="actionDone"
         android:inputType="text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDeepL">
