@@ -3684,9 +3684,13 @@ Unfortunately, it is not possible to hide messages on the email server too.
 <a name="faq167"></a>
 **(167) How can I use DeepL?**
 
-1. [Subscribe to](https://www.deepl.com/pro#developer) to one of the DeepL API plans (credit card required)
+1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free plan (credit card required)
 1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
 1. In the message composer select some text and in the overflow menu select *Translate*, *Enter key* and paste the key
+
+You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
+
+This feature is not available in the Play store version.
 
 <br />
 
