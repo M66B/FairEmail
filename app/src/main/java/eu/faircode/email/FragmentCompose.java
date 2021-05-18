@@ -1855,14 +1855,19 @@ public class FragmentCompose extends FragmentBase {
                     if (answer.favorite)
                         continue;
                     order++;
+
+                    String name = answer.name;
+                    if (BuildConfig.DEBUG && answer.applied > 0)
+                        name += " ★";
+
+                    MenuItem item;
                     if (answer.group == null)
-                        main.add(Menu.NONE, order, order++, answer.toString())
-                                .setIntent(new Intent().putExtra("id", answer.id));
+                        item = main.add(Menu.NONE, order, order++, name);
                     else {
                         SubMenu smenu = map.get(answer.group);
-                        smenu.add(Menu.NONE, smenu.size(), smenu.size() + 1, answer.toString())
-                                .setIntent(new Intent().putExtra("id", answer.id));
+                        item = smenu.add(Menu.NONE, smenu.size(), smenu.size() + 1, name);
                     }
+                    item.setIntent(new Intent().putExtra("id", answer.id));
                 }
 
                 for (EntityAnswer answer : favorites)
