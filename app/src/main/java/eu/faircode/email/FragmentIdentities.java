@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -104,7 +105,7 @@ public class FragmentIdentities extends FragmentBase {
         });
 
         animator = ObjectAnimator.ofFloat(fab, "alpha", 0.5f, 1.0f);
-        animator.setDuration(500L);
+        animator.setDuration(750L);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.setRepeatMode(ValueAnimator.REVERSE);
         animator.addUpdateListener(new ObjectAnimator.AnimatorUpdateListener() {
@@ -131,8 +132,11 @@ public class FragmentIdentities extends FragmentBase {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        final Context context = getContext();
+        final DB db = DB.getInstance(context);
+
         // Observe identities
-        DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
+        db.identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 if (identities == null)
@@ -143,11 +147,15 @@ public class FragmentIdentities extends FragmentBase {
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
 
-
-                if (identities.size() == 0)
-                    animator.start();
-                else
-                    animator.end();
+                if (identities.size() == 0) {
+                    fab.setCustomSize(Helper.dp2pixels(context, 3 * 56 / 2));
+                    if (!animator.isStarted())
+                        animator.start();
+                } else {
+                    fab.clearCustomSize();
+                    if (animator.isStarted())
+                        animator.end();
+                }
             }
         });
     }
