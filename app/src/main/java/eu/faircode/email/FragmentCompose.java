@@ -2055,6 +2055,19 @@ public class FragmentCompose extends FragmentBase {
 
                 try {
                     connection.getOutputStream().write(request.getBytes());
+
+                    int status = connection.getResponseCode();
+                    if (status != HttpsURLConnection.HTTP_OK) {
+                        String error;
+                        try {
+                            error = Helper.readStream(connection.getErrorStream());
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                            error = ex.getMessage();
+                        }
+                        throw new FileNotFoundException("Error " + status + ": " + error);
+                    }
+
                     String response = Helper.readStream(connection.getInputStream());
 
                     JSONObject jroot = new JSONObject(response);
