@@ -1170,9 +1170,9 @@
     <string name="title_legend_synchronize_off">Synkronisera av</string>
     <string name="title_legend_synchronize_poll">Synkronisera periodiskt</string>
     <string name="title_legend_disconnected">Frånkopplad</string>
-    <string name="title_legend_backoff">Väntar efter misslyckande</string>
     <string name="title_legend_connecting">Ansluter</string>
     <string name="title_legend_connected">Ansluten</string>
+    <string name="title_legend_backoff">Väntar efter misslyckande</string>
     <string name="title_legend_executing">Utför åtgärder</string>
     <string name="title_legend_synchronizing">Synkroniserar</string>
     <string name="title_legend_downloading">Hämtar</string>

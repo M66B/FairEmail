@@ -47,22 +47,22 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## How to ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* アカウントの名前を変更する：設定 > 手動セットアップをタップする > アカウント(Accounts) をタップする > アカウントをタップする
+* 左に/右にすワイプする標的：設定 > 動作(Behavior)タブ > すワイプの行動
+* パスワードを変更する：設定 > 手動セットアップをタップする > アカウント(Accounts) をタップする > アカウント > パスワードを変更する
+* メールの署名をセットする：設定 > 手動セットアップをタップする > ユーザ情報(Identities) をタップする > アカウントをタップする > 署名を編集する
+* CCアドレスとBCCアドレスを追加する：件名の後にある人々のアイコンをタップする
+* アーカイブ/デリートに次/以前のメセージ：動作(Behavior)タブ > 「自動に会話を閉じる」を無効にする > 「会話を閉じる時」の下に「次/前の会話に移動」を選択する
+* 統合受信トレイフォルダーにフォルダーを追加する：フォルダーリストのフォルダーを長押しして「統合受信トレイに表示」をチェックする
+* ナビゲーションメニューにフォルダーを追加する：フォルダーリストのフォルダーを長押しして「ナビゲーションメニューに表示」をチェックする
+* さらにメセージをロードする：フォルダーリストのフォルダーを長押しして「さらにメッセージを取得」をチェックする
+* メッセージを削除してゴミ箱をスキップする：ゴミ箱のアイコンを長押しする
+* アカウント/ユーザ情報を削除する：設定 > 手動セットアップをタップする > アカウント/ユーザ情報(Accounts/Identities)をタップする > 右上にゴミ箱アイコンをタップする
+* フォルダーを削除する：フォルダーリストのフォルダーを長押しする > プロパティを編集 > 右上のゴミ箱アイコンをたっぷする
+* 送信を元に戻す：送信トレイ > メッセージを左か右かにスワイプする
+* 受信トイレに送信済みを保存する：[このFAQ](#user-content-faq142)を見てください
+* システムフォルダーを変更する：設定 > 手動のセットアップをタップする > アカウントをタップする > 下にアカウントをタップする
+* エクスポートやインポート設定：設定 > ナビゲーションの左手メニュー
 
 <h2><a name="known-problems"></a>Known problem</h2>
 

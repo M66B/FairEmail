@@ -1152,9 +1152,9 @@
     <string name="title_legend_synchronize_off">Sincronização desligada</string>
     <string name="title_legend_synchronize_poll">Sincronizar periodicamente</string>
     <string name="title_legend_disconnected">Desconectado</string>
-    <string name="title_legend_backoff">Aguardando após falha</string>
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>
+    <string name="title_legend_backoff">Aguardando após falha</string>
     <string name="title_legend_executing">Executando operações</string>
     <string name="title_legend_synchronizing">Sincronizando</string>
     <string name="title_legend_downloading">Baixando</string>

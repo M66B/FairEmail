@@ -1173,9 +1173,10 @@
     <string name="title_legend_synchronize_off">同期オフ</string>
     <string name="title_legend_synchronize_poll">定期的に同期</string>
     <string name="title_legend_disconnected">切断されました</string>
-    <string name="title_legend_backoff">失敗後の待機</string>
     <string name="title_legend_connecting">接続中</string>
     <string name="title_legend_connected">接続済み</string>
+    <string name="title_legend_backoff">失敗後の待機</string>
+    <string name="title_legend_quota">メールボックスは満杯に近いです</string>
     <string name="title_legend_executing">操作の実行</string>
     <string name="title_legend_synchronizing">同期する</string>
     <string name="title_legend_downloading">ダウンロード中</string>

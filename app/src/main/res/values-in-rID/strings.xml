@@ -1030,9 +1030,9 @@
     <string name="title_legend_synchronize_off">Sinkronisasi tidak aktif</string>
     <string name="title_legend_synchronize_poll">Sinkronisasi secara berkala</string>
     <string name="title_legend_disconnected">Terputus</string>
-    <string name="title_legend_backoff">Menunggu setelah terjadi kegagalan koneksi</string>
     <string name="title_legend_connecting">Menyambungkan</string>
     <string name="title_legend_connected">Tersambung</string>
+    <string name="title_legend_backoff">Menunggu setelah terjadi kegagalan koneksi</string>
     <string name="title_legend_executing">Menjalankan operasi</string>
     <string name="title_legend_synchronizing">Mengsinkronkan</string>
     <string name="title_legend_downloading">Mendownload</string>

@@ -1048,9 +1048,9 @@
     <string name="title_legend_synchronize_off">Synkronisering av</string>
     <string name="title_legend_synchronize_poll">Synkronisere periodisk</string>
     <string name="title_legend_disconnected">Frakoblet</string>
-    <string name="title_legend_backoff">Venter etter feil</string>
     <string name="title_legend_connecting">Kobler til</string>
     <string name="title_legend_connected">Tilkoblet</string>
+    <string name="title_legend_backoff">Venter etter feil</string>
     <string name="title_legend_executing">Utføre operasjoner</string>
     <string name="title_legend_synchronizing">Synkroniserer</string>
     <string name="title_legend_downloading">Laster ned</string>

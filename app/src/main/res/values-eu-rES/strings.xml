@@ -945,9 +945,9 @@
     <string name="title_legend_synchronize_off">Sinkronizazioa inaktibo</string>
     <string name="title_legend_synchronize_poll">Sinkronizatu aldiro</string>
     <string name="title_legend_disconnected">Deskonektatuta</string>
-    <string name="title_legend_backoff">Hutsegitea eta gero itxaroten</string>
     <string name="title_legend_connecting">Konektatzen</string>
     <string name="title_legend_connected">Konektatuta</string>
+    <string name="title_legend_backoff">Hutsegitea eta gero itxaroten</string>
     <string name="title_legend_executing">Eragiketak exekutatzen</string>
     <string name="title_legend_synchronizing">Sinkronizatzen</string>
     <string name="title_legend_downloading">Deskargatzen</string>

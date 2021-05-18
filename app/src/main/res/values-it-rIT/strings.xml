@@ -1186,9 +1186,10 @@
     <string name="title_legend_synchronize_off">Sincronizzazione disattivata</string>
     <string name="title_legend_synchronize_poll">Sincronizza periodicamente</string>
     <string name="title_legend_disconnected">Disconnesso</string>
-    <string name="title_legend_backoff">Attendi dopo il fallimento</string>
     <string name="title_legend_connecting">Connessione</string>
     <string name="title_legend_connected">Connesso</string>
+    <string name="title_legend_backoff">Attendi dopo il fallimento</string>
+    <string name="title_legend_quota">Casella di posta quasi piena</string>
     <string name="title_legend_executing">Esecuzione operazioni</string>
     <string name="title_legend_synchronizing">Sincronizzazione</string>
     <string name="title_legend_downloading">Scaricando</string>

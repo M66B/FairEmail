@@ -1183,9 +1183,9 @@
     <string name="title_legend_synchronize_off">Syngronisearje út</string>
     <string name="title_legend_synchronize_poll">Syngronisearje periodyk</string>
     <string name="title_legend_disconnected">Verbroken ferbine</string>
-    <string name="title_legend_backoff">Wachtsje nei mislearring</string>
     <string name="title_legend_connecting">Ferbining</string>
     <string name="title_legend_connected">Ferbûn</string>
+    <string name="title_legend_backoff">Wachtsje nei mislearring</string>
     <string name="title_legend_executing">Operaasjes útfiere</string>
     <string name="title_legend_synchronizing">Syngronisearje</string>
     <string name="title_legend_downloading">Ynladen</string>

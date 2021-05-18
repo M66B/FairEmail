@@ -1195,9 +1195,9 @@
     <string name="title_legend_synchronize_off">Синхронізацію вимкнено</string>
     <string name="title_legend_synchronize_poll">Періодична синхронізація</string>
     <string name="title_legend_disconnected">Роз\'єднано</string>
-    <string name="title_legend_backoff">Очікування після збою</string>
     <string name="title_legend_connecting">З’єднання</string>
     <string name="title_legend_connected">Підключено</string>
+    <string name="title_legend_backoff">Очікування після збою</string>
     <string name="title_legend_executing">Виконання операцій</string>
     <string name="title_legend_synchronizing">Синхронізація</string>
     <string name="title_legend_downloading">Завантажується</string>

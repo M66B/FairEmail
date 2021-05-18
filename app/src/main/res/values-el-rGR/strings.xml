@@ -1183,9 +1183,10 @@
     <string name="title_legend_synchronize_off">Συγχρονισμός ανενεργός</string>
     <string name="title_legend_synchronize_poll">Περιοδικός συγχρονισμός</string>
     <string name="title_legend_disconnected">Αποσυνδέθηκε</string>
-    <string name="title_legend_backoff">Αναμονή μετά από μία αποτυχία σύνδεσης</string>
     <string name="title_legend_connecting">Γίνεται σύνδεση</string>
     <string name="title_legend_connected">Συνδέθηκε</string>
+    <string name="title_legend_backoff">Αναμονή μετά από μία αποτυχία σύνδεσης</string>
+    <string name="title_legend_quota">Γραμματοκιβώτιο σχεδόν γεμάτο</string>
     <string name="title_legend_executing">Δραστηριότητες σε εξέλιξη</string>
     <string name="title_legend_synchronizing">Γίνεται συγχρονισμός</string>
     <string name="title_legend_downloading">Κατεβαίνει/-ουν</string>

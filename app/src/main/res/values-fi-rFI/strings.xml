@@ -180,6 +180,7 @@
     <string name="title_setup_still">Vielä tehtävänä</string>
     <string name="title_setup_error">Virhe</string>
     <string name="title_setup_configuring">Määritetään tiliä &#8230;</string>
+    <string name="title_setup_close">Sulje asetukset</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
     <string name="title_setup_export_do">Salasanaa käytetään asetusten salaukseen, ja sitä tarvitaan asetusten tuomiseen uudelleen</string>
@@ -307,6 +308,7 @@
     <string name="title_advanced_cards_beige">Käytä beigeä taustaa korttityylissä</string>
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
+    <string name="title_advanced_date_bold">Näytä päivämäärä lihavoituna</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_threading_unread">Näytä lukemattomien viestien lukumäärä keskusteluissa</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
@@ -435,6 +437,7 @@
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
+    <string name="title_advanced_generic_user_agent">Käytä geneeristä selaimen käyttäjäagenttia</string>
     <string name="title_advanced_disconnect_auto_update">Päivitä listat viikoittain</string>
     <string name="title_advanced_disconnect_links">Käytä listoja seurantalinkeistä varoittamiseksi</string>
     <string name="title_advanced_disconnect_images">Käytä listoja seurantakuvien tunnistamiseksi</string>
@@ -820,6 +823,7 @@
     <string name="title_move_to_account">Siirrä tilillä %1$s &#8230;</string>
     <string name="title_report_spam">Käsittele roskapostina</string>
     <string name="title_delete_permanently">Poista pysyvästi</string>
+    <string name="title_no_undo">Ymmärrän, että tätä ei voi peruuttaa</string>
     <string name="title_snooze">Torkuta &#8230;</string>
     <string name="title_archive">Arkistoi</string>
     <string name="title_reply">Vastaa</string>
@@ -960,6 +964,8 @@
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
     <string name="title_create_template">Luo viestipohja</string>
+    <string name="title_translate">Käännä</string>
+    <string name="title_translate_key">Syötä avain</string>
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>
@@ -1180,9 +1186,10 @@
     <string name="title_legend_synchronize_off">Synkronointi pois käytöstä</string>
     <string name="title_legend_synchronize_poll">Synkronoi väliajoin</string>
     <string name="title_legend_disconnected">Yhteys katkaistu</string>
-    <string name="title_legend_backoff">Odottaa epäonnistumisen jälkeen</string>
     <string name="title_legend_connecting">Yhdistetään</string>
     <string name="title_legend_connected">Yhdistetty</string>
+    <string name="title_legend_backoff">Odottaa epäonnistumisen jälkeen</string>
+    <string name="title_legend_quota">Postilaatikko lähes täynnä</string>
     <string name="title_legend_executing">Suoritetaan toimenpiteitä</string>
     <string name="title_legend_synchronizing">Synkronoidaan</string>
     <string name="title_legend_downloading">Ladataan</string>

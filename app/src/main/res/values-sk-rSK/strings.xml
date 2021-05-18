@@ -1196,9 +1196,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_synchronize_off">Neaktívna synchronizácia</string>
     <string name="title_legend_synchronize_poll">Pravidelne synchronizovať</string>
     <string name="title_legend_disconnected">Odpojené</string>
-    <string name="title_legend_backoff">Čakanie po zlyhaní</string>
     <string name="title_legend_connecting">Pripájanie</string>
     <string name="title_legend_connected">Pripojené</string>
+    <string name="title_legend_backoff">Čakanie po zlyhaní</string>
     <string name="title_legend_executing">Vykonávanie operácií</string>
     <string name="title_legend_synchronizing">Synchronizácia</string>
     <string name="title_legend_downloading">Preberanie</string>

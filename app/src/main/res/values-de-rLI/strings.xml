@@ -966,6 +966,8 @@
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_create_template">Vorlage erstellen</string>
+    <string name="title_translate">Übersetzen</string>
+    <string name="title_translate_key">Schlüssel einfügen</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
@@ -1184,9 +1186,10 @@
     <string name="title_legend_synchronize_off">Synchronisierung aus</string>
     <string name="title_legend_synchronize_poll">periodisch synchronisieren</string>
     <string name="title_legend_disconnected">nicht verbunden</string>
-    <string name="title_legend_backoff">Warten nach einem Fehler</string>
     <string name="title_legend_connecting">Verbindungsvorgang</string>
     <string name="title_legend_connected">Verbunden</string>
+    <string name="title_legend_backoff">Warten nach einem Fehler</string>
+    <string name="title_legend_quota">Postfach fast voll</string>
     <string name="title_legend_executing">Vorgänge werden ausgeführt</string>
     <string name="title_legend_synchronizing">wird synchronisiert</string>
     <string name="title_legend_downloading">wird heruntergeladen</string>

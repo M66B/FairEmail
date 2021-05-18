@@ -1207,9 +1207,9 @@
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
     <string name="title_legend_synchronize_poll">Synchronizuj okresowo</string>
     <string name="title_legend_disconnected">Rozłączony</string>
-    <string name="title_legend_backoff">Oczekiwanie po niepowodzeniu</string>
     <string name="title_legend_connecting">‎Łączenie</string>
     <string name="title_legend_connected">Połączony</string>
+    <string name="title_legend_backoff">Oczekiwanie po niepowodzeniu</string>
     <string name="title_legend_executing">Wykonywanie operacji</string>
     <string name="title_legend_synchronizing">Synchronizowanie</string>
     <string name="title_legend_downloading">Pobieranie</string>

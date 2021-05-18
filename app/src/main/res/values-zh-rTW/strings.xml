@@ -1087,9 +1087,9 @@
     <string name="title_legend_synchronize_off">同步關閉</string>
     <string name="title_legend_synchronize_poll">週期性同步</string>
     <string name="title_legend_disconnected">斷線</string>
-    <string name="title_legend_backoff">失敗後等待</string>
     <string name="title_legend_connecting">連接中</string>
     <string name="title_legend_connected">已連接</string>
+    <string name="title_legend_backoff">失敗後等待</string>
     <string name="title_legend_executing">執行操作</string>
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">正在下載</string>

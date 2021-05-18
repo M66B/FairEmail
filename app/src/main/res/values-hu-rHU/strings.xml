@@ -1137,9 +1137,9 @@
     <string name="title_legend_synchronize_off">Szinkronizálás kikapcsolva</string>
     <string name="title_legend_synchronize_poll">Szinkronizálás periodikusan</string>
     <string name="title_legend_disconnected">Lecsatlakozva</string>
-    <string name="title_legend_backoff">Várakozás hiba után</string>
     <string name="title_legend_connecting">Csatlakozás</string>
     <string name="title_legend_connected">Csatlakozva</string>
+    <string name="title_legend_backoff">Várakozás hiba után</string>
     <string name="title_legend_executing">Műveletek végrehajtása</string>
     <string name="title_legend_synchronizing">Szinkronizálás</string>
     <string name="title_legend_downloading">Letöltés</string>

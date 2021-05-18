@@ -966,6 +966,8 @@
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
     <string name="title_create_template">Maak sjabloon</string>
+    <string name="title_translate">Vertalen</string>
+    <string name="title_translate_key">Sleutel invoeren</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>
@@ -1186,9 +1188,10 @@
     <string name="title_legend_synchronize_off">Synchronisatie uit</string>
     <string name="title_legend_synchronize_poll">Periodiek synchroniseren</string>
     <string name="title_legend_disconnected">Verbinding verbroken</string>
-    <string name="title_legend_backoff">Wachten na fout</string>
     <string name="title_legend_connecting">Verbinding maken</string>
     <string name="title_legend_connected">Verbonden</string>
+    <string name="title_legend_backoff">Wachten na fout</string>
+    <string name="title_legend_quota">Mailbox bijna vol</string>
     <string name="title_legend_executing">Bewerkingen uitvoeren</string>
     <string name="title_legend_synchronizing">Synchroniseren</string>
     <string name="title_legend_downloading">Downloaden</string>

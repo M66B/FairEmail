@@ -944,6 +944,8 @@
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
+    <string name="title_translate">Oversæt</string>
+    <string name="title_translate_key">Angiv nøgle</string>
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_select_certificate">Vælg offentlig nøgle</string>
@@ -1162,9 +1164,10 @@
     <string name="title_legend_synchronize_off">Synkronisering slået fra</string>
     <string name="title_legend_synchronize_poll">Synkronisér periodisk</string>
     <string name="title_legend_disconnected">Afbrudt</string>
-    <string name="title_legend_backoff">Ventetid efter fejl</string>
     <string name="title_legend_connecting">Tilslutter</string>
     <string name="title_legend_connected">Tilsluttet</string>
+    <string name="title_legend_backoff">Ventetid efter fejl</string>
+    <string name="title_legend_quota">Postkasse næsten fuld</string>
     <string name="title_legend_executing">Eksekverer operationer</string>
     <string name="title_legend_synchronizing">Synkroniserer</string>
     <string name="title_legend_downloading">Downloader</string>

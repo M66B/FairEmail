@@ -966,6 +966,8 @@
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_create_template">Créer un modèle</string>
+    <string name="title_translate">Traduire</string>
+    <string name="title_translate_key">Saisir la clé</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_select_certificate">Sélectionner la clé publique</string>
@@ -1186,9 +1188,10 @@
     <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
     <string name="title_legend_synchronize_poll">Synchroniser périodiquement</string>
     <string name="title_legend_disconnected">Déconnecté</string>
-    <string name="title_legend_backoff">Attente après l\'échec</string>
     <string name="title_legend_connecting">Connexion en cours</string>
     <string name="title_legend_connected">Connecté</string>
+    <string name="title_legend_backoff">Attente après l\'échec</string>
+    <string name="title_legend_quota">Boîte aux lettres presque pleine</string>
     <string name="title_legend_executing">Opérations en cours d’exécution</string>
     <string name="title_legend_synchronizing">Synchronisation en cours</string>
     <string name="title_legend_downloading">Téléchargement en cours</string>

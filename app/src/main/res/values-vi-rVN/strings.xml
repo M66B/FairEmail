@@ -954,6 +954,8 @@
     <string name="title_insert_contact_group">Chèn nhóm liên hệ</string>
     <string name="title_insert_template">Chèn mẫu</string>
     <string name="title_create_template">Tạo mẫu</string>
+    <string name="title_translate">Dịch</string>
+    <string name="title_translate_key">Nhập mã khóa</string>
     <string name="title_edit_plain_text">Chỉnh sửa dưới dạng văn bản thường</string>
     <string name="title_edit_formatted_text">Chỉnh sửa dưới dạng văn bản được định dạng lại</string>
     <string name="title_select_certificate">Chọn mã khoá công khai</string>
@@ -1174,9 +1176,10 @@
     <string name="title_legend_synchronize_off">Đồng bộ hóa đang tắt</string>
     <string name="title_legend_synchronize_poll">Đồng bộ hoá định kỳ</string>
     <string name="title_legend_disconnected">Đã ngắt kết nối</string>
-    <string name="title_legend_backoff">Đang đợi sau khi thất bại</string>
     <string name="title_legend_connecting">Đang kết nối</string>
     <string name="title_legend_connected">Đã kết nối</string>
+    <string name="title_legend_backoff">Đang đợi sau khi thất bại</string>
+    <string name="title_legend_quota">Hộp thư sắp đầy</string>
     <string name="title_legend_executing">Đang thực thi các hoạt động</string>
     <string name="title_legend_synchronizing">Đang đồng bộ hóa</string>
     <string name="title_legend_downloading">Đang tải xuống</string>

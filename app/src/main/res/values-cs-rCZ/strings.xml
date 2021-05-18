@@ -1201,9 +1201,9 @@
     <string name="title_legend_synchronize_off">Synchronizace vypnuta</string>
     <string name="title_legend_synchronize_poll">Synchronizovat pravidelně</string>
     <string name="title_legend_disconnected">Odpojeno</string>
-    <string name="title_legend_backoff">Čekání po selhání</string>
     <string name="title_legend_connecting">Připojování</string>
     <string name="title_legend_connected">Připojeno</string>
+    <string name="title_legend_backoff">Čekání po selhání</string>
     <string name="title_legend_executing">Provádění operací</string>
     <string name="title_legend_synchronizing">Probíhá synchronizace</string>
     <string name="title_legend_downloading">Stahování</string>

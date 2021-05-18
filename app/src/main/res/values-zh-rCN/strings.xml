@@ -1170,9 +1170,9 @@
     <string name="title_legend_synchronize_off">同步关闭</string>
     <string name="title_legend_synchronize_poll">定期同步</string>
     <string name="title_legend_disconnected">未连接</string>
-    <string name="title_legend_backoff">连接失败后等待</string>
     <string name="title_legend_connecting">正在连接</string>
     <string name="title_legend_connected">已连接</string>
+    <string name="title_legend_backoff">连接失败后等待</string>
     <string name="title_legend_executing">执行操作</string>
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">下载中</string>

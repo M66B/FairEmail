@@ -988,6 +988,8 @@
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_create_template">Создать шаблон</string>
+    <string name="title_translate">Перевод</string>
+    <string name="title_translate_key">Введите ключ</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>
@@ -1208,9 +1210,10 @@
     <string name="title_legend_synchronize_off">Синхронизация отключена</string>
     <string name="title_legend_synchronize_poll">Периодическая синхронизация</string>
     <string name="title_legend_disconnected">Отключено</string>
-    <string name="title_legend_backoff">Ожидание после ошибки</string>
     <string name="title_legend_connecting">Подключение</string>
     <string name="title_legend_connected">Подключено</string>
+    <string name="title_legend_backoff">Ожидание после ошибки</string>
+    <string name="title_legend_quota">Почтовый ящик почти заполнен</string>
     <string name="title_legend_executing">Выполнение операций</string>
     <string name="title_legend_synchronizing">Синхронизация</string>
     <string name="title_legend_downloading">Загрузка</string>

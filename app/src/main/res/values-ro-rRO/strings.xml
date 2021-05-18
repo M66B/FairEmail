@@ -320,6 +320,7 @@
     <string name="title_advanced_cards_beige">Folosește fundalul bej când folosești stilul carduri</string>
     <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
+    <string name="title_advanced_date_bold">Afișați data marcată cu bold</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
@@ -1196,9 +1197,9 @@
     <string name="title_legend_synchronize_off">Sincronizare dezactivată</string>
     <string name="title_legend_synchronize_poll">Sincronizează periodic</string>
     <string name="title_legend_disconnected">Deconectat</string>
-    <string name="title_legend_backoff">Aşteptare după eşec</string>
     <string name="title_legend_connecting">Conectare în curs</string>
     <string name="title_legend_connected">Conectat</string>
+    <string name="title_legend_backoff">Aşteptare după eşec</string>
     <string name="title_legend_executing">Executare operații</string>
     <string name="title_legend_synchronizing">Sincronizare în curs</string>
     <string name="title_legend_downloading">Descărcare în curs</string>
