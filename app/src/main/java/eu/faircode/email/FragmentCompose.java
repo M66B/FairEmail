@@ -164,8 +164,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
@@ -209,7 +207,6 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
-import javax.net.ssl.HttpsURLConnection;
 
 import biweekly.Biweekly;
 import biweekly.ICalendar;
@@ -314,9 +311,6 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
     private static final int REQUEST_PERMISSION = 15;
-
-    private static final int DEEPL_TIMEOUT = 20; // seconds
-    private static final String DEEPL_BASE_URI = "https://api-free.deepl.com/v2/";
 
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "encrypt");
 
@@ -2034,49 +2028,7 @@ public class FragmentCompose extends FragmentBase {
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 String target = args.getString("target");
                 String text = args.getString("text");
-                String request =
-                        "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
-                                "&target_lang=" + URLEncoder.encode(target, StandardCharsets.UTF_8.name());
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String deepl = prefs.getString("deepl", null);
-
-                URL url = new URL(DEEPL_BASE_URI + "translate?auth_key=" + deepl);
-                HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setDoOutput(true);
-                connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
-                connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
-                connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
-                connection.setRequestProperty("Accept", "*/*");
-                connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
-                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                connection.connect();
-
-                try {
-                    connection.getOutputStream().write(request.getBytes());
-
-                    int status = connection.getResponseCode();
-                    if (status != HttpsURLConnection.HTTP_OK) {
-                        String error;
-                        try {
-                            error = Helper.readStream(connection.getErrorStream());
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                            error = ex.getMessage();
-                        }
-                        throw new FileNotFoundException("Error " + status + ": " + error);
-                    }
-
-                    String response = Helper.readStream(connection.getInputStream());
-
-                    JSONObject jroot = new JSONObject(response);
-                    JSONArray jtranslations = jroot.getJSONArray("translations");
-                    JSONObject jtranslation = (JSONObject) jtranslations.get(0);
-                    return jtranslation.getString("text");
-                } finally {
-                    connection.disconnect();
-                }
+                return DeepL.translate(text, target, context);
             }
 
             @Override
