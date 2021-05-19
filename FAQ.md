@@ -539,6 +539,9 @@ This Google security check is triggered more often with *less secure apps* enabl
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
 Note that an app specific password is required when two factor authentication is enabled.
+After enabling two factor authentication there will be this error message:
+
+*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
 
 <br />
 
