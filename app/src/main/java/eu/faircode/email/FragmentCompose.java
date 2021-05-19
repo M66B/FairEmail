@@ -1999,6 +1999,10 @@ public class FragmentCompose extends FragmentBase {
             end = tmp;
         }
 
+        if (start > 0 &&
+                (start == edit.length() || edit.charAt(start) == '\n'))
+            start--;
+
         // Trim start
         while (start < edit.length() - 1 && edit.charAt(start) == '\n')
             start++;
