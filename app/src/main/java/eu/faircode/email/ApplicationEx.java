@@ -474,6 +474,11 @@ public class ApplicationEx extends Application
         } else if (version < 1558) {
             if (!prefs.contains("button_extra"))
                 editor.putBoolean("button_extra", true);
+        } else if (version < 1598) {
+            if (prefs.contains("deepl")) {
+                String key = prefs.getString("deepl", null);
+                editor.putString("deepl_key", key).remove("deepl");
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

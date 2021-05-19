@@ -38,7 +38,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DeepL {
     private static final int DEEPL_TIMEOUT = 20; // seconds
-    private static final String DEEPL_BASE_URI = "https://api-free.deepl.com/v2/";
 
     public static String translate(String text, String target, Context context) throws IOException, JSONException {
         String request =
@@ -46,9 +45,9 @@ public class DeepL {
                         "&target_lang=" + URLEncoder.encode(target, StandardCharsets.UTF_8.name());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String deepl = prefs.getString("deepl", null);
+        String key = prefs.getString("deepl_key", null);
 
-        URL url = new URL(DEEPL_BASE_URI + "translate?auth_key=" + deepl);
+        URL url = new URL(getBaseUri(context) + "translate?auth_key=" + key);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
@@ -91,9 +90,9 @@ public class DeepL {
 
     public static Integer[] getUsage(Context context) throws IOException, JSONException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String deepl = prefs.getString("deepl", null);
+        String key = prefs.getString("deepl_key", null);
 
-        URL url = new URL(DEEPL_BASE_URI + "usage?auth_key=" + deepl);
+        URL url = new URL(getBaseUri(context) + "usage?auth_key=" + key);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
         connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
@@ -121,5 +120,12 @@ public class DeepL {
         } finally {
             connection.disconnect();
         }
+    }
+
+
+    private static String getBaseUri(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String domain = prefs.getString("deepl_domain", "api-free.deepl.com");
+        return "https://" + domain + "/v2/";
     }
 }

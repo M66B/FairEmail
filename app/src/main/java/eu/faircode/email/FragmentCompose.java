@@ -1541,7 +1541,7 @@ public class FragmentCompose extends FragmentBase {
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
-        String deepl = prefs.getString("deepl", null);
+        String deepl_key = prefs.getString("deepl_key", null);
 
         menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
@@ -1550,7 +1550,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_compact).setChecked(compact);
         SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
         for (int i = 1; i < smenu.size(); i++)
-            smenu.getItem(i).setEnabled(deepl != null);
+            smenu.getItem(i).setEnabled(deepl_key != null);
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(encrypt))
@@ -1982,7 +1982,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuTranslateKey() {
         FragmentDialogDeepL fragment = new FragmentDialogDeepL();
-        fragment.show(getParentFragmentManager(), "deepl");
+        fragment.show(getParentFragmentManager(), "deepl:translate");
     }
 
     private Pair<Integer, Integer> getParagraph() {
@@ -6734,10 +6734,12 @@ public class FragmentCompose extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Context context = getContext();
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String key = prefs.getString("deepl", null);
+            String domain = prefs.getString("deepl_domain", null);
+            String key = prefs.getString("deepl_key", null);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
+            final EditText etDomain = view.findViewById(R.id.etDomain);
             final EditText etKey = view.findViewById(R.id.etKey);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
 
@@ -6748,6 +6750,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
+            etDomain.setText(domain);
             etKey.setText(key);
 
             tvUsage.setVisibility(View.GONE);
@@ -6784,11 +6787,21 @@ public class FragmentCompose extends FragmentBase {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            String domain = etDomain.getText().toString().trim();
                             String key = etKey.getText().toString().trim();
+                            SharedPreferences.Editor editor = prefs.edit();
                             if (TextUtils.isEmpty(key))
-                                prefs.edit().remove("deepl").apply();
-                            else
-                                prefs.edit().putString("deepl", key).apply();
+                                editor
+                                        .remove("deepl_key")
+                                        .remove("deepl_domain");
+                            else {
+                                editor.putString("deepl_key", key);
+                                if (TextUtils.isEmpty(domain))
+                                    editor.remove("deepl_domain");
+                                else
+                                    editor.putString("deepl_domain", domain);
+                            }
+                            editor.apply();
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
