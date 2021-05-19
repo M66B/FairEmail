@@ -1511,7 +1511,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
-        menu.findItem(R.id.menu_translate).setVisible(etBody.hasSelection() && !BuildConfig.PLAY_STORE_RELEASE);
+        menu.findItem(R.id.menu_translate).setVisible(getParagraph() != null && !BuildConfig.PLAY_STORE_RELEASE);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
 
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
@@ -1985,13 +1985,13 @@ public class FragmentCompose extends FragmentBase {
         fragment.show(getParentFragmentManager(), "deepl");
     }
 
-    private void onMenuTranslate(String target) {
+    private Pair<Integer, Integer> getParagraph() {
         int start = etBody.getSelectionStart();
         int end = etBody.getSelectionEnd();
         Editable edit = etBody.getText();
 
         if (start < 0 || end < 0)
-            return;
+            return null;
 
         if (start > end) {
             int tmp = start;
@@ -2015,15 +2015,32 @@ public class FragmentCompose extends FragmentBase {
         while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
             end++;
 
-        final int insert = end;
+        if (start < end)
+            return new Pair(start, end);
 
-        String text = edit.subSequence(start, end).toString();
+        return null;
+    }
+
+    private void onMenuTranslate(String target) {
+        Pair<Integer, Integer> paragraph = getParagraph();
+        if (paragraph == null)
+            return;
+
+        final int insert = paragraph.second;
+
+        Editable edit = etBody.getText();
+        String text = edit.subSequence(paragraph.first, paragraph.second).toString();
 
         Bundle args = new Bundle();
         args.putString("target", target);
         args.putString("text", text);
 
         new SimpleTask<String>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_translating, Toast.LENGTH_SHORT).show();
+            }
+
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 String target = args.getString("target");
