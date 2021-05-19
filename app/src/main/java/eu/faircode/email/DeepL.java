@@ -65,14 +65,13 @@ public class DeepL {
 
             int status = connection.getResponseCode();
             if (status != HttpsURLConnection.HTTP_OK) {
-                String error;
+                String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
-                    error = Helper.readStream(connection.getErrorStream());
+                    error += "\n" + Helper.readStream(connection.getErrorStream());
                 } catch (Throwable ex) {
                     Log.w(ex);
-                    error = ex.getMessage();
                 }
-                throw new FileNotFoundException("Error " + status + ": " + error);
+                throw new FileNotFoundException(error);
             }
 
             String response = Helper.readStream(connection.getInputStream());
