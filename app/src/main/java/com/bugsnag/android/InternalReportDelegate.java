@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.storage.StorageManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +23,8 @@ class InternalReportDelegate implements EventStore.Delegate {
 
     final Logger logger;
     final ImmutableConfig config;
+
+    @Nullable
     final StorageManager storageManager;
 
     final AppDataCollector appDataCollector;
@@ -34,7 +37,7 @@ class InternalReportDelegate implements EventStore.Delegate {
     InternalReportDelegate(Context context,
                            Logger logger,
                            ImmutableConfig immutableConfig,
-                           StorageManager storageManager,
+                           @Nullable StorageManager storageManager,
                            AppDataCollector appDataCollector,
                            DeviceDataCollector deviceDataCollector,
                            SessionTracker sessionTracker,
@@ -72,7 +75,7 @@ class InternalReportDelegate implements EventStore.Delegate {
     }
 
     void recordStorageCacheBehavior(Event event) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (storageManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             File cacheDir = appContext.getCacheDir();
             File errDir = new File(cacheDir, "bugsnag-errors");
 
@@ -113,7 +116,7 @@ class InternalReportDelegate implements EventStore.Delegate {
                         // can only modify headers if DefaultDelivery is in use
                         if (delivery instanceof DefaultDelivery) {
                             Map<String, String> headers = params.getHeaders();
-                            headers.put(HEADER_INTERNAL_ERROR, "true");
+                            headers.put(HEADER_INTERNAL_ERROR, "bugsnag-android");
                             headers.remove(DeliveryHeadersKt.HEADER_API_KEY);
                             DefaultDelivery defaultDelivery = (DefaultDelivery) delivery;
                             defaultDelivery.deliver(params.getEndpoint(), payload, headers);

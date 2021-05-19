@@ -1,10 +1,14 @@
 package com.bugsnag.android
 
+import android.app.ActivityManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.RemoteException
+import android.os.storage.StorageManager
+import java.lang.RuntimeException
 
 /**
  * Calls [Context.registerReceiver] but swallows [SecurityException] and [RemoteException]
@@ -45,3 +49,23 @@ internal fun Context.unregisterReceiverSafe(
         logger?.w("Failed to register receiver", exc)
     }
 }
+
+private inline fun <reified T> Context.safeGetSystemService(name: String): T? {
+    return try {
+        getSystemService(name) as? T
+    } catch (exc: RuntimeException) {
+        null
+    }
+}
+
+@JvmName("getActivityManagerFrom")
+internal fun Context.getActivityManager(): ActivityManager? =
+    safeGetSystemService(Context.ACTIVITY_SERVICE)
+
+@JvmName("getConnectivityManagerFrom")
+internal fun Context.getConnectivityManager(): ConnectivityManager? =
+    safeGetSystemService(Context.CONNECTIVITY_SERVICE)
+
+@JvmName("getStorageManagerFrom")
+internal fun Context.getStorageManager(): StorageManager? =
+    safeGetSystemService(Context.STORAGE_SERVICE)

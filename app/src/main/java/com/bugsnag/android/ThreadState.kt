@@ -5,14 +5,14 @@ import java.io.IOException
 /**
  * Capture and serialize the state of all threads at the time of an exception.
  */
-internal class ThreadState @JvmOverloads constructor(
+internal class ThreadState @Suppress("LongParameterList") @JvmOverloads constructor(
     exc: Throwable?,
     isUnhandled: Boolean,
     sendThreads: ThreadSendPolicy,
     projectPackages: Collection<String>,
     logger: Logger,
     currentThread: java.lang.Thread = java.lang.Thread.currentThread(),
-    stackTraces: MutableMap<java.lang.Thread, Array<StackTraceElement>> = java.lang.Thread.getAllStackTraces()
+    stackTraces: MutableMap<java.lang.Thread, Array<StackTraceElement>>? = null
 ) : JsonStream.Streamable {
 
     internal constructor(
@@ -29,7 +29,7 @@ internal class ThreadState @JvmOverloads constructor(
 
         threads = when {
             recordThreads -> captureThreadTrace(
-                stackTraces,
+                stackTraces ?: java.lang.Thread.getAllStackTraces(),
                 currentThread,
                 exc,
                 isUnhandled,

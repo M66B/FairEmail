@@ -232,7 +232,7 @@ public final class Session implements JsonStream.Streamable, UserAware {
     void serializeSessionInfo(@NonNull JsonStream writer) throws IOException {
         writer.beginObject();
         writer.name("id").value(id);
-        writer.name("startedAt").value(DateUtils.toIso8601(startedAt));
+        writer.name("startedAt").value(startedAt);
         writer.name("user").value(user);
         writer.endObject();
     }

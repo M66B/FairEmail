@@ -11,17 +11,17 @@ internal class ErrorInternal @JvmOverloads internal constructor(
 
     internal companion object {
         fun createError(exc: Throwable, projectPackages: Collection<String>, logger: Logger): MutableList<Error> {
-            val errors = mutableListOf<ErrorInternal>()
+            return exc.safeUnrollCauses()
+                .mapTo(mutableListOf()) { currentEx ->
+                    // Somehow it's possible for stackTrace to be null in rare cases
+                    val stacktrace = currentEx.stackTrace ?: arrayOf<StackTraceElement>()
+                    val trace =
+                        Stacktrace.stacktraceFromJavaTrace(stacktrace, projectPackages, logger)
+                    val errorInternal =
+                        ErrorInternal(currentEx.javaClass.name, currentEx.localizedMessage, trace)
 
-            var currentEx: Throwable? = exc
-            while (currentEx != null) {
-                // Somehow it's possible for stackTrace to be null in rare cases
-                val stacktrace = currentEx.stackTrace ?: arrayOf<StackTraceElement>()
-                val trace = Stacktrace.stacktraceFromJavaTrace(stacktrace, projectPackages, logger)
-                errors.add(ErrorInternal(currentEx.javaClass.name, currentEx.localizedMessage, trace))
-                currentEx = currentEx.cause
-            }
-            return errors.map { Error(it, logger) }.toMutableList()
+                    return@mapTo Error(errorInternal, logger)
+                }
         }
     }
 

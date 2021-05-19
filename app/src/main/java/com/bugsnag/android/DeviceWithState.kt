@@ -42,7 +42,7 @@ class DeviceWithState internal constructor(
         writer.name("orientation").value(orientation)
 
         if (time != null) {
-            writer.name("time").value(DateUtils.toIso8601(time!!))
+            writer.name("time").value(time)
         }
     }
 }

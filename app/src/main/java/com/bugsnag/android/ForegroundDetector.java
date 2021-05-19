@@ -1,20 +1,23 @@
 package com.bugsnag.android;
 
+import static com.bugsnag.android.ContextExtensionsKt.getActivityManagerFrom;
+
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
+
 import androidx.annotation.Nullable;
 
 import java.util.List;
 
 class ForegroundDetector {
 
+    @Nullable
     private final ActivityManager activityManager;
 
     ForegroundDetector(Context context) {
-        this.activityManager =
-            (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        this.activityManager = getActivityManagerFrom(context);
     }
 
     /**
@@ -56,6 +59,10 @@ class ForegroundDetector {
 
     @Nullable
     private ActivityManager.RunningAppProcessInfo getProcessInfoPreApi16() {
+        if (activityManager == null) {
+            return null;
+        }
+
         List<ActivityManager.RunningAppProcessInfo> appProcesses
                 = activityManager.getRunningAppProcesses();
 

@@ -24,9 +24,11 @@ internal class ConnectivityCompat(
     callback: NetworkChangeCallback?
 ) : Connectivity {
 
-    private val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private val cm = context.getConnectivityManager()
+
     private val connectivity: Connectivity =
         when {
+            cm == null -> UnknownConnectivity
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> ConnectivityApi24(cm, callback)
             else -> ConnectivityLegacy(context, cm, callback)
         }
@@ -123,5 +125,23 @@ internal class ConnectivityApi24(
             super.onAvailable(network)
             cb?.invoke(true, retrieveNetworkAccessState())
         }
+    }
+}
+
+/**
+ * Connectivity used in cases where we cannot access the system  ConnectivityManager.
+ * We assume that there is some sort of network and do not attempt to report any network changes.
+ */
+internal object UnknownConnectivity : Connectivity {
+    override fun registerForNetworkChanges() {}
+
+    override fun unregisterForNetworkChanges() {}
+
+    override fun hasNetworkConnection(): Boolean {
+        return true
+    }
+
+    override fun retrieveNetworkAccessState(): String {
+        return "unknown"
     }
 }

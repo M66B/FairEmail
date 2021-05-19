@@ -25,7 +25,7 @@ internal class BreadcrumbInternal internal constructor(
     @Throws(IOException::class)
     override fun toStream(writer: JsonStream) {
         writer.beginObject()
-        writer.name("timestamp").value(DateUtils.toIso8601(timestamp))
+        writer.name("timestamp").value(timestamp)
         writer.name("name").value(message)
         writer.name("type").value(type.toString())
         writer.name("metaData")

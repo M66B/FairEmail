@@ -2,9 +2,11 @@ package com.bugsnag.android;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+
 import androidx.annotation.Nullable;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -87,12 +89,7 @@ class StrictModeHandler {
      * @return the root cause of the throwable
      */
     private Throwable getRootCause(Throwable throwable) {
-        Throwable cause = throwable.getCause();
-
-        if (cause == null) {
-            return throwable;
-        } else {
-            return getRootCause(cause);
-        }
+        List<Throwable> causes = ThrowableUtils.safeUnrollCauses(throwable);
+        return causes.get(causes.size() - 1);
     }
 }
