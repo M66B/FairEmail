@@ -601,6 +601,10 @@ public class ContactInfo {
         connection.connect();
 
         try {
+            int status = connection.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK)
+                throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), scaleToPixels);
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");

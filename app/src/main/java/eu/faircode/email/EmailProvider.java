@@ -355,6 +355,10 @@ public class EmailProvider {
             request.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
             request.connect();
 
+            int status = request.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK)
+                throw new FileNotFoundException("Error " + status + ":" + request.getResponseMessage());
+
             // https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             XmlPullParser xml = factory.newPullParser();

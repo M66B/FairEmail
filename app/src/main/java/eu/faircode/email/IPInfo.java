@@ -27,6 +27,7 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.core.net.MailTo;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URL;
@@ -79,6 +80,10 @@ public class IPInfo {
 
         Organization organization = new Organization();
         try {
+            int status = connection.getResponseCode();
+            if (status != HttpsURLConnection.HTTP_OK)
+                throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+
             String response = Helper.readStream(connection.getInputStream());
             organization.name = response.trim();
             if ("".equals(organization.name) || "undefined".equals(organization.name))
