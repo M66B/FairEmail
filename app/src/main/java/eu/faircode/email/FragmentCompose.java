@@ -2068,7 +2068,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex, false);
             }
         }.execute(this, args, "compose:translate");
     }
@@ -6732,15 +6732,14 @@ public class FragmentCompose extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
             final Context context = getContext();
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String key = prefs.getString("deepl", null);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
-            final EditText etKey = view.findViewById(R.id.etKey);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
-
-            etKey.setText(prefs.getString("deepl", null));
+            final EditText etKey = view.findViewById(R.id.etKey);
+            final TextView tvUsage = view.findViewById(R.id.tvUsage);
 
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -6748,6 +6747,37 @@ public class FragmentCompose extends FragmentBase {
                     Helper.viewFAQ(v.getContext(), 167, true);
                 }
             });
+
+            etKey.setText(key);
+
+            tvUsage.setVisibility(View.GONE);
+
+            if (!TextUtils.isEmpty(key)) {
+                Bundle args = new Bundle();
+                args.putString("key", key);
+
+                new SimpleTask<Integer[]>() {
+                    @Override
+                    protected Integer[] onExecute(Context context, Bundle args) throws Throwable {
+                        String key = args.getString("key");
+                        return DeepL.getUsage(context);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Integer[] usage) {
+                        tvUsage.setText(
+                                Helper.humanReadableByteCount(usage[0]) + "/" +
+                                        Helper.humanReadableByteCount(usage[1]));
+                        tvUsage.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        if (BuildConfig.DEBUG)
+                            Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(this, new Bundle(), "deepl:usage");
+            }
 
             return new AlertDialog.Builder(context)
                     .setView(view)

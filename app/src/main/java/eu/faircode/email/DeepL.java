@@ -78,8 +78,46 @@ public class DeepL {
 
             JSONObject jroot = new JSONObject(response);
             JSONArray jtranslations = jroot.getJSONArray("translations");
+            if (jtranslations.length() == 0)
+                throw new FileNotFoundException();
             JSONObject jtranslation = (JSONObject) jtranslations.get(0);
-            return jtranslation.getString("text");
+            String detected = jtranslation.getString("detected_source_language");
+            String translated = jtranslation.getString("text");
+            return translated;
+        } finally {
+            connection.disconnect();
+        }
+    }
+
+    public static Integer[] getUsage(Context context) throws IOException, JSONException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String deepl = prefs.getString("deepl", null);
+
+        URL url = new URL(DEEPL_BASE_URI + "usage?auth_key=" + deepl);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
+        connection.setConnectTimeout(DEEPL_TIMEOUT * 1000);
+        connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+        connection.connect();
+
+        try {
+            int status = connection.getResponseCode();
+            if (status != HttpsURLConnection.HTTP_OK) {
+                String error = "Error " + status + ": " + connection.getResponseMessage();
+                try {
+                    error += "\n" + Helper.readStream(connection.getErrorStream());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+                throw new FileNotFoundException(error);
+            }
+
+            String response = Helper.readStream(connection.getInputStream());
+
+            JSONObject jroot = new JSONObject(response);
+            int count = jroot.getInt("character_count");
+            int limit = jroot.getInt("character_limit");
+            return new Integer[]{count, limit};
         } finally {
             connection.disconnect();
         }
