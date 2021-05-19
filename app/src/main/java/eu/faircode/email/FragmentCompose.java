@@ -1999,8 +1999,15 @@ public class FragmentCompose extends FragmentBase {
             end = tmp;
         }
 
-        // Create paragraph
+        // Expand selection at start
+        while (start > 0 && edit.charAt(start - 1) != '\n')
+            start--;
+
         if (start == end && end < edit.length())
+            end++;
+
+        // Expand selection at end
+        while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
             end++;
 
         // Trim start
@@ -2010,14 +2017,6 @@ public class FragmentCompose extends FragmentBase {
         // Trim end
         while (end > 1 && edit.charAt(end - 2) == '\n')
             end--;
-
-        // Expand selection at start
-        while (start > 0 && edit.charAt(start - 1) != '\n')
-            start--;
-
-        // Expand selection at end
-        while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
-            end++;
 
         if (start < end)
             return new Pair(start, end);
