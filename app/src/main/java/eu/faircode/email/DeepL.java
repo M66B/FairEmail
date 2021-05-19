@@ -37,7 +37,12 @@ import java.nio.charset.StandardCharsets;
 import javax.net.ssl.HttpsURLConnection;
 
 public class DeepL {
+    // https://www.deepl.com/docs-api/
     private static final int DEEPL_TIMEOUT = 20; // seconds
+
+    // curl https://api-free.deepl.com/v2/languages \
+    //	-d auth_key=42c191db-21ba-9b96-2464-47a9a5e81b4a:fx \
+    //	-d type=target
 
     public static String translate(String text, String target, Context context) throws IOException, JSONException {
         String request =
