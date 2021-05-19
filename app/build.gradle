@@ -235,11 +235,12 @@ configurations.all {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    def startup_version = "1.1.0-beta01"
     def annotation_version = "1.1.0"
-    def core_version = "1.5.0-rc02"
-    def appcompat_version = "1.3.0-rc01"
+    def core_version = "1.5.0"
+    def appcompat_version = "1.3.0"
     def activity_version = "1.2.3"
-    def fragment_version = "1.3.3"
+    def fragment_version = "1.3.4"
     def webkit_version = "1.4.0"
     def recyclerview_version = "1.2.0"
     def coordinatorlayout_version = "1.1.0"
@@ -277,6 +278,9 @@ dependencies {
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
     def apache_poi = "3.17" // Do not update
+
+    // https://developer.android.com/jetpack/androidx/releases/startup
+    implementation "androidx.startup:startup-runtime:$startup_version"
 
     // https://developer.android.com/jetpack/androidx/releases/
     implementation "androidx.annotation:annotation-experimental:$annotation_version"
