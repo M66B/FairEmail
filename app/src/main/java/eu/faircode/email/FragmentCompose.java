@@ -109,6 +109,7 @@ import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -2054,6 +2055,10 @@ public class FragmentCompose extends FragmentBase {
                 if (paragraph.second > edit.length())
                     return;
 
+                FragmentActivity activity = getActivity();
+                if (activity == null)
+                    return;
+
                 // Insert translated text
                 StringBuilder sb = new StringBuilder("\n");
                 if (paragraph.second == edit.length() ||
@@ -2068,7 +2073,7 @@ public class FragmentCompose extends FragmentBase {
                 int count = prefs.getInt(key, 0);
                 prefs.edit().putInt(key, count + 1).apply();
 
-                getActivity().invalidateOptionsMenu();
+                activity.invalidateOptionsMenu();
             }
 
             @Override
