@@ -2142,7 +2142,8 @@ If you want to forward a message, consider to use the move action instead.
 This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
-it is not possible to preview which messages would match a header rule condition.
+it is by default not possible to preview which messages would match a header rule condition.
+You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
 
 Some common header conditions (regex):
 
