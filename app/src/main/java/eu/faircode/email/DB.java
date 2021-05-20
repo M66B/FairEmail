@@ -2020,6 +2020,16 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `answer` ADD COLUMN `applied` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("ALTER TABLE `answer` ADD COLUMN `last_applied` INTEGER");
                     }
+                }).addMigrations(new Migration(197, 198) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("UPDATE account" +
+                                " SET partial_fetch = 0" +
+                                " WHERE host = 'imap.vodafonemail.de'" +
+                                " OR host = 'imap.arcor.de'" +
+                                " OR host = 'imap.nexgo.de'");
+                    }
                 });
     }
 
