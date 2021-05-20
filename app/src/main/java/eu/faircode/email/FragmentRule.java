@@ -1054,13 +1054,6 @@ public class FragmentRule extends FragmentBase {
             JSONObject jcondition = getCondition();
             JSONObject jaction = getAction();
 
-            JSONObject jheader = jcondition.optJSONObject("header");
-            if (jheader != null) {
-                Snackbar.make(view, R.string.title_rule_no_headers, Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true).show();
-                return;
-            }
-
             Bundle args = new Bundle();
             args.putLong("folder", folder);
             args.putString("condition", jcondition.toString());

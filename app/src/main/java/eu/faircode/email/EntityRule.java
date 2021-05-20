@@ -40,6 +40,7 @@ import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -62,6 +63,7 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetHeaders;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -233,12 +235,19 @@ public class EntityRule {
 
             // Header
             JSONObject jheader = jcondition.optJSONObject("header");
-            if (jheader != null && imessage != null) {
+            if (jheader != null) {
                 String value = jheader.getString("value");
                 boolean regex = jheader.getBoolean("regex");
 
                 boolean matches = false;
-                Enumeration<Header> headers = imessage.getAllHeaders();
+                Enumeration<Header> headers;
+                if (imessage != null)
+                    headers = imessage.getAllHeaders();
+                else if (message.headers != null) {
+                    ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
+                    headers = new InternetHeaders(bis).getAllHeaders();
+                } else
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
                 while (headers.hasMoreElements()) {
                     Header header = headers.nextElement();
                     String formatted = header.getName() + ": " + header.getValue();
