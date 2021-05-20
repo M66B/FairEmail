@@ -1606,8 +1606,8 @@ public class FragmentCompose extends FragmentBase {
         } else if (itemId == R.id.menu_answer_create) {
             onMenuAnswerCreate();
             return true;
-        } else if (itemId == R.id.menu_translate_key) {
-            onMenuTranslateKey();
+        } else if (itemId == R.id.menu_translate_configure) {
+            onMenuTranslateConfigure();
             return true;
         } else if (item.getGroupId() == R.id.group_translate) {
             onMenuTranslate(item.getIntent().getStringExtra("target"));
@@ -1981,9 +1981,9 @@ public class FragmentCompose extends FragmentBase {
         fragmentTransaction.commit();
     }
 
-    private void onMenuTranslateKey() {
+    private void onMenuTranslateConfigure() {
         FragmentDialogDeepL fragment = new FragmentDialogDeepL();
-        fragment.show(getParentFragmentManager(), "deepl:translate");
+        fragment.show(getParentFragmentManager(), "deepl:configure");
     }
 
     private Pair<Integer, Integer> getParagraph() {
@@ -2059,6 +2059,9 @@ public class FragmentCompose extends FragmentBase {
                 if (activity == null)
                     return;
 
+                Context context = getContext();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
                 // Insert translated text
                 StringBuilder sb = new StringBuilder("\n");
                 if (paragraph.second == edit.length() ||
@@ -2067,9 +2070,19 @@ public class FragmentCompose extends FragmentBase {
                 edit.insert(paragraph.second, sb + translated);
                 etBody.setSelection(paragraph.second + sb.length() + translated.length());
 
+                boolean small = prefs.getBoolean("deepl_small", false);
+                if (small) {
+                    RelativeSizeSpan[] spans = edit.getSpans(
+                            paragraph.first, paragraph.second, RelativeSizeSpan.class);
+                    for (RelativeSizeSpan span : spans)
+                        edit.removeSpan(span);
+                    edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                            paragraph.first, paragraph.second,
+                            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
+
                 // Updated frequency
                 String key = "translated_" + args.getString("target");
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 int count = prefs.getInt(key, 0);
                 prefs.edit().putInt(key, count + 1).apply();
 
@@ -6746,11 +6759,13 @@ public class FragmentCompose extends FragmentBase {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String domain = prefs.getString("deepl_domain", null);
             String key = prefs.getString("deepl_key", null);
+            boolean small = prefs.getBoolean("deepl_small", false);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
             final EditText etDomain = view.findViewById(R.id.etDomain);
             final EditText etKey = view.findViewById(R.id.etKey);
+            final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
 
             ibInfo.setOnClickListener(new View.OnClickListener() {
@@ -6762,6 +6777,7 @@ public class FragmentCompose extends FragmentBase {
 
             etDomain.setText(domain);
             etKey.setText(key);
+            cbSmall.setChecked(small);
 
             tvUsage.setVisibility(View.GONE);
 
@@ -6772,7 +6788,6 @@ public class FragmentCompose extends FragmentBase {
                 new SimpleTask<Integer[]>() {
                     @Override
                     protected Integer[] onExecute(Context context, Bundle args) throws Throwable {
-                        String key = args.getString("key");
                         return DeepL.getUsage(context);
                     }
 
@@ -6811,6 +6826,7 @@ public class FragmentCompose extends FragmentBase {
                                 else
                                     editor.putString("deepl_domain", domain);
                             }
+                            editor.putBoolean("deepl_small", cbSmall.isChecked());
                             editor.apply();
                         }
                     })

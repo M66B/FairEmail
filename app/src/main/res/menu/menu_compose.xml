@@ -74,8 +74,8 @@
         <menu>
             <group android:id="@+id/group_translate">
                 <item
-                    android:id="@+id/menu_translate_key"
-                    android:title="@string/title_translate_key" />
+                    android:id="@+id/menu_translate_configure"
+                    android:title="@string/title_translate_configure" />
             </group>
         </menu>
     </item>
