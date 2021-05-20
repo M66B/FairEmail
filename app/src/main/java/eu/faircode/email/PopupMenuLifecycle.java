@@ -105,6 +105,8 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
     }
 
     private static void insertIcon(Context context, MenuItem menuItem) {
+        if (menuItem.getItemId() == R.id.menu_zoom)
+            return;
         Drawable icon = menuItem.getIcon();
 
         if (icon == null)
