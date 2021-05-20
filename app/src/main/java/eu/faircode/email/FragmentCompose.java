@@ -2025,11 +2025,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuTranslate(String target) {
-        Pair<Integer, Integer> paragraph = getParagraph();
+        final Pair<Integer, Integer> paragraph = getParagraph();
         if (paragraph == null)
             return;
-
-        final int insert = paragraph.second;
 
         Editable edit = etBody.getText();
         String text = edit.subSequence(paragraph.first, paragraph.second).toString();
@@ -2053,12 +2051,16 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, String translated) {
-                if (insert > edit.length())
+                if (paragraph.second > edit.length())
                     return;
 
                 // Insert translated text
-                edit.insert(insert, "\n" + translated);
-                etBody.setSelection(insert + 1 + translated.length());
+                StringBuilder sb = new StringBuilder("\n");
+                if (paragraph.second == edit.length() ||
+                        edit.charAt(paragraph.second) != '\n')
+                    sb.append('\n');
+                edit.insert(paragraph.second, sb + translated);
+                etBody.setSelection(paragraph.second + sb.length() + translated.length());
 
                 // Updated frequency
                 String key = "translated_" + args.getString("target");
