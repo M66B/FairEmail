@@ -953,6 +953,11 @@
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
     <string name="title_insert_template">テンプレートを挿入</string>
     <string name="title_create_template">テンプレートを作成</string>
+    <string name="title_translate">翻訳する</string>
+    <string name="title_translate_configure">設定 &#8230;</string>
+    <string name="title_translate_key">キーを入力</string>
+    <string name="title_translating">翻訳中 &#8230;</string>
+    <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
     <string name="title_edit_plain_text">プレーンテキストとして編集</string>
     <string name="title_edit_formatted_text">再フォーマットされたテキストとして編集</string>
     <string name="title_select_certificate">公開鍵を選択</string>

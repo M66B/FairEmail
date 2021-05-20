@@ -2,7 +2,7 @@
 
 # Bantuan FairEmail
 
-Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. [Pada bagian bawah](#user-content-get-support), Anda dapat mengetahui bagaimana cara menanyakan pertanyaan lain, meminta fitur baru, dan melaporkan bug.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -291,12 +291,12 @@ The design is based on many discussions and if you like you can discuss about it
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Saya punya pertanyaan lain.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Izin apa saja yang diperlukan dan mengapa dibutuhkan?**
 
-The following Android permissions are needed:
+Di bawah ini adalah izin Android yang diperlukan:
 
 * *memiliki akses internet penuh* (INTERNET): untuk mengirimkan dan menerima pesan
 * *tampilkan koneksi network* (ACCESS_NETWORK_STATE): untuk memonitor perubahan konektivitas internet

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Căutare FairEmail</string>
-    <string name="app_changelog">Jurnal modificări</string>
+    <string name="app_changelog">Jurnal de modificări</string>
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="app_limitations">De exemplu, mesajele sunt reformatate în mod implicit pentru a elimina elemente nesigure și pentru a îmbunătăți lizibilitatea, iar deschiderea de adrese trebuie confirmată pentru siguranță. Ambele pot fi dezactivate dacă nu se doreşte asta.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
@@ -977,6 +977,11 @@
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
     <string name="title_create_template">Creează șablon</string>
+    <string name="title_translate">Traducere</string>
+    <string name="title_translate_configure">Configurați &#8230;</string>
+    <string name="title_translate_key">Introduceți cheia</string>
+    <string name="title_translating">Traducere &#8230;</string>
+    <string name="title_translate_small">Utilizați un font mic pentru textul sursă</string>
     <string name="title_edit_plain_text">Editați ca text simplu</string>
     <string name="title_edit_formatted_text">Editați ca text reformatat</string>
     <string name="title_select_certificate">Selectare cheie publică</string>
@@ -1200,6 +1205,7 @@
     <string name="title_legend_connecting">Conectare în curs</string>
     <string name="title_legend_connected">Conectat</string>
     <string name="title_legend_backoff">Aşteptare după eşec</string>
+    <string name="title_legend_quota">Căsuța poștală aproape plină</string>
     <string name="title_legend_executing">Executare operații</string>
     <string name="title_legend_synchronizing">Sincronizare în curs</string>
     <string name="title_legend_downloading">Descărcare în curs</string>

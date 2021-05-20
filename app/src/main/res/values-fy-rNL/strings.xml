@@ -963,6 +963,11 @@
     <string name="title_insert_contact_group">Kontaktgroep ynfoegje</string>
     <string name="title_insert_template">Sjabloan ynfoegje</string>
     <string name="title_create_template">Sjabloan oanmeitsje</string>
+    <string name="title_translate">Oersette</string>
+    <string name="title_translate_configure">&#8230; ynstelle</string>
+    <string name="title_translate_key">Kaai ynfolle</string>
+    <string name="title_translating">Oersette &#8230;</string>
+    <string name="title_translate_small">Brûk in lyts lettertype foar de boarnetekst</string>
     <string name="title_edit_plain_text">Bewurkje as platte tekst</string>
     <string name="title_edit_formatted_text">Bewurkje as herfoarme tekst</string>
     <string name="title_select_certificate">Selektearje iepenbiere kaai</string>
@@ -1186,6 +1191,7 @@
     <string name="title_legend_connecting">Ferbining</string>
     <string name="title_legend_connected">Ferbûn</string>
     <string name="title_legend_backoff">Wachtsje nei mislearring</string>
+    <string name="title_legend_quota">Emailbus hast fol</string>
     <string name="title_legend_executing">Operaasjes útfiere</string>
     <string name="title_legend_synchronizing">Syngronisearje</string>
     <string name="title_legend_downloading">Ynladen</string>

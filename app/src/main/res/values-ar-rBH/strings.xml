@@ -148,6 +148,7 @@
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
     <string name="title_advanced_caption_list">قائمة</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
+    <string name="title_advanced_date_bold">إظهار التاريخ بخط سميك</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
     <string name="title_advanced_avatars">إظهار صور جهات الاتصال</string>
     <string name="title_advanced_identicons">إظهار أيقونات الهوية</string>
@@ -283,6 +284,9 @@
     <string name="title_attachment_audio">تسجيل صوت</string>
     <string name="title_show_addresses">عرض CC/BCC</string>
     <string name="title_media_toolbar">شريط أدوات الوسائط</string>
+    <string name="title_translate_configure">إعداد &#8230;</string>
+    <string name="title_translating">ترجمة &#8230;</string>
+    <string name="title_translate_small">استخدام خط صغير لنص المصدر</string>
     <string name="title_from_missing">المُرسِل مفقود</string>
     <string name="title_to_missing">المستلِم أو المُرسَل إليه مفقود</string>
     <string name="title_draft_deleted">تم تجاهل المسودة</string>
@@ -329,6 +333,7 @@
     <string name="title_legend_disconnected">غير متصل</string>
     <string name="title_legend_connecting">جارٍ الاتصال</string>
     <string name="title_legend_connected">متصل</string>
+    <string name="title_legend_quota">صندوق الوارد على وشك الإمتلاء</string>
     <string name="title_legend_synchronizing">مزامنة</string>
     <string name="title_legend_downloading">جارٍ التنزيل</string>
     <string name="title_legend_closing">إغلاق</string>

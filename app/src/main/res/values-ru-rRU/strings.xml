@@ -989,7 +989,10 @@
     <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_create_template">Создать шаблон</string>
     <string name="title_translate">Перевод</string>
+    <string name="title_translate_configure">Настроить&#8230;</string>
     <string name="title_translate_key">Введите ключ</string>
+    <string name="title_translating">Перевод&#8230;</string>
+    <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>

@@ -967,7 +967,10 @@
     <string name="title_insert_template">Sjabloon invoegen</string>
     <string name="title_create_template">Maak sjabloon</string>
     <string name="title_translate">Vertalen</string>
+    <string name="title_translate_configure">Configureer &#8230;</string>
     <string name="title_translate_key">Sleutel invoeren</string>
+    <string name="title_translating">Vertalen &#8230;</string>
+    <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>

@@ -955,7 +955,10 @@
     <string name="title_insert_template">Chèn mẫu</string>
     <string name="title_create_template">Tạo mẫu</string>
     <string name="title_translate">Dịch</string>
+    <string name="title_translate_configure">Thiết lập &#8230;</string>
     <string name="title_translate_key">Nhập mã khóa</string>
+    <string name="title_translating">Đang dịch &#8230;</string>
+    <string name="title_translate_small">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
     <string name="title_edit_plain_text">Chỉnh sửa dưới dạng văn bản thường</string>
     <string name="title_edit_formatted_text">Chỉnh sửa dưới dạng văn bản được định dạng lại</string>
     <string name="title_select_certificate">Chọn mã khoá công khai</string>

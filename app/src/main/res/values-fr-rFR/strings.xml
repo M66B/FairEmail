@@ -967,7 +967,10 @@
     <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_create_template">Créer un modèle</string>
     <string name="title_translate">Traduire</string>
+    <string name="title_translate_configure">Configurer&#8230;</string>
     <string name="title_translate_key">Saisir la clé</string>
+    <string name="title_translating">Traduction&#8230;</string>
+    <string name="title_translate_small">Utiliser une petite police de caractères pour le texte source</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_select_certificate">Sélectionner la clé publique</string>

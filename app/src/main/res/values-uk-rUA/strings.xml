@@ -975,6 +975,8 @@
     <string name="title_insert_contact_group">Вставити групу контактів</string>
     <string name="title_insert_template">Вставити шаблон</string>
     <string name="title_create_template">Створити шаблон</string>
+    <string name="title_translate_configure">Налаштувати &#8230;</string>
+    <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
     <string name="title_edit_plain_text">Редагувати як звичайний текст</string>
     <string name="title_edit_formatted_text">Редагувати як переформатований текст</string>
     <string name="title_select_certificate">Виберіть відкритий ключ</string>

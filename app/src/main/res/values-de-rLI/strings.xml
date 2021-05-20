@@ -825,7 +825,7 @@
     <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
-    <string name="title_no_undo">Ich verstehe, das kann nicht rückgängig gemacht werden</string>
+    <string name="title_no_undo">Ich verstehe, dass dies nicht widerrufen werden kann</string>
     <string name="title_snooze">Zurückstellen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
@@ -967,7 +967,10 @@
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_create_template">Vorlage erstellen</string>
     <string name="title_translate">Übersetzen</string>
+    <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>
+    <string name="title_translating">Wird übersetzt &#8230;</string>
+    <string name="title_translate_small">Eine kleine Schriftart für den Quelltext verwenden</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>

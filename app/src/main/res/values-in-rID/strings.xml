@@ -108,6 +108,7 @@
     <string name="title_setup_quick">Pengaturan Cepat</string>
     <string name="title_setup_intro">Melakukan pengaturan akun hanya dengan tiga cara dan setelah itu anda sudah bisa mengirim dan menerima email</string>
     <string name="title_setup_simple">Tidak perlu melakukan perubahan pada opsi lain</string>
+    <string name="title_setup_quick_accounts">Tambah atau ganti akun</string>
     <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
     <string name="title_setup_quick_hint">Pengaturan cepat akan mengambil informasi konfigurasi dari autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
@@ -153,6 +154,7 @@
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
     <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara handal</string>
+    <string name="title_setup_doze_hint">Meskipun mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai untuk aplikasi ini akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
@@ -166,6 +168,7 @@
     <string name="title_setup_still">Masih harus dilakukan</string>
     <string name="title_setup_error">Kesalahan/Error</string>
     <string name="title_setup_configuring">Mengonfigurasi akun &#8230;</string>
+    <string name="title_setup_close">Tutup pengaturan</string>
     <string name="title_setup_export">Ekspor Pengaturan</string>
     <string name="title_setup_import">Impor Pengaturan</string>
     <string name="title_setup_export_do">Kata sandi digunakan untuk mengenkripsi pengaturan dan diperlukan untuk mengimpor pengaturan lagi</string>
@@ -272,6 +275,8 @@
     <string name="title_advanced_download">Unduh pesan dan lampiran secara otomatis pada koneksi terukur hingga</string>
     <string name="title_advanced_roaming">Unduh pesan dan lampiran saat roaming</string>
     <string name="title_advanced_rlah">Berkeliaran seperti di rumah</string>
+    <string name="title_advanced_download_headers">Unduh semua tajuk pesan</string>
+    <string name="title_advanced_download_eml">Unduh file pesan mentah</string>
     <string name="title_advanced_validated">Membutuhkan koneksi yang divalidasi (dicentang)</string>
     <string name="title_advanced_timeout">Batas waktu terhubung (detik)</string>
     <string name="title_advanced_prefer_ip4">Direkomendasikan IPv4 daripada IPv6</string>
@@ -291,6 +296,7 @@
     <string name="title_advanced_cards_beige">Gunakan latar belakang krem ketika menggunakan gaya kartu</string>
     <string name="title_advanced_cards_shadow">Gunakan bayangan untuk pesan yang belum dibaca saat menggunakan gaya kartu</string>
     <string name="title_advanced_date_header">Kelompokkan sesuai tanggal</string>
+    <string name="title_advanced_date_bold">Tebalkan tanggal</string>
     <string name="title_advanced_threading">Obrolan via email yang berlanjut</string>
     <string name="title_advanced_threading_unread">Tampilkan jumlah pesan yang belum dibaca dalam obrolan</string>
     <string name="title_advanced_indentation">Indentasi kiri/kanan menerima/mengirim pesan dalam sebuah obrolan</string>

@@ -945,7 +945,10 @@
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
     <string name="title_translate">Oversæt</string>
+    <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>
+    <string name="title_translating">Oversætter&#8230;</string>
+    <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_select_certificate">Vælg offentlig nøgle</string>

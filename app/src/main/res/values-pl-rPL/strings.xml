@@ -987,6 +987,8 @@
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
     <string name="title_create_template">Utwórz szablon</string>
+    <string name="title_translate">Przetłumacz</string>
+    <string name="title_translate_key">Wprowadź klucz</string>
     <string name="title_edit_plain_text">Edytuj jako zwykły tekst</string>
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>
@@ -1210,6 +1212,7 @@
     <string name="title_legend_connecting">‎Łączenie</string>
     <string name="title_legend_connected">Połączony</string>
     <string name="title_legend_backoff">Oczekiwanie po niepowodzeniu</string>
+    <string name="title_legend_quota">Skrzynka pocztowa jest prawie pełna</string>
     <string name="title_legend_executing">Wykonywanie operacji</string>
     <string name="title_legend_synchronizing">Synchronizowanie</string>
     <string name="title_legend_downloading">Pobieranie</string>

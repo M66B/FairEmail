@@ -2,7 +2,7 @@
 
 # دعم فير ايميل
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+إذا كان لديك سؤال، الرجاء التحقق من الأسئلة الشائعة التالية أولاً. [في الأسفل](#user-content-get-support)، يمكنك معرفة كيفية طرح أسئلة أخرى ، وطلب الميزات ، والإبلاغ عن الأخطاء.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -16,55 +16,55 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [أسئلة مكررة](#user-content-frequently-asked-questions)
 * [Get support](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
+<h2><a name="authorizing-accounts"></a>ترخيص الحسابات</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+في معظم الحالات، سيتمكن معالج الإعداد السريع من ضبط الإعدادات الصحيحة تلقائيا.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+إذا فشل معالج الإعداد السريع ، ستحتاج إلى إعداد الحساب بشكل يدوي (لتلقي البريد الإلكتروني) والهوية (لإرسال البريد الإلكتروني). لهذا ستحتاج إلى عناوين خادم IMAP و SMTP وأرقام المنفذ ، ما إذا كان يجب استخدام SSL/TLS أو STARTTLS واسم المستخدم الخاص بك (غالبا، ولكن ليس دائما، عنوان البريد الإلكتروني الخاص بك) وكلمة المرور الخاصة بك.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+في معظم الحالات البحث عن *IMAP* والمزود يكون كافيا للعثور على المستندات الصحيحة.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+في بعض الحالات، ستحتاج إلى تمكين الوصول الخارجي إلى حسابك و/أو استخدام كلمة مرور (تطبيق) خاصة, على سبيل المثال عندما يتم تمكين المصادقة ذات العاملين.
 
-For authorizing:
+للتحقق:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 14](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148)
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G جناح ، انظر [السؤال 6](#user-content-faq6)
+* التوقعات/ Live / Hotmail، انظر [السؤال 14](#user-content-faq14)
+* تطبيقات اوفيس 365 انظر [ السؤال 14](#user-content-faq156)
+* لبريد مايكروسوفت، انظر [السؤال 8](#user-content-faq8)
+* لبريد ياهو و AOL و سكاي ، انظر [السؤال 88](#user-content-faq88)
+* لاعدادات الايكلاود ، انظر [السؤال 148](#user-content-faq148)
+* لاعدادات Free.fr [ انظر السؤال 157 ](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+يرجى الاطلاع على [هنا](#user-content-faq22) للحصول على رسائل الخطأ والحلول الشائعة.
 
-Related questions:
+الأسئلة ذات صلة:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync not supported?](#user-content-faq133)
+* [هل التوثيق OAuth مدعوم؟](#user-content-faq111)
+* [لماذا ActiveSync ليست مدعومة؟](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## كيفية يمكنني عمل ...؟
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Add CC and BCC addresses: tap the people's icon at the end of the subject
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* تغيير اسم الحساب: الإعدادات، انقر فوق الإعداد اليدوي ، انقر على الحسابات ، انقر على الحساب
+* تغيير هدف السحب يسار/يمين: الإعدادات، سلوك صفحة التبويب، تعيين إجراءات السحب
+* تغيير كلمة المرور: الإعدادات، انقر فوق الإعداد اليدوي،انقر فوق حسابات، تغيير كلمة المرور
+* تعيين توقيع: الإعدادات، انقر على الإعداد اليدوي ، انقر على هويات ، انقر فوق الهوية ، تحرير التوقيع.
+* لاضافة عناوين النسخة الكربونية والنسخة الكربونية المخفية: انقر فوق ايقونة الأشخاص في نهاية عنوان الرسالة
+* انتقل إلى الرسالة التالية/السابقة على الأرشيف/حذف: في إعدادات السلوك تعطيل *إغلاق المحادثات تلقائياً* وحدد *الذهاب إلى المحادثة التالية/السابقة* من أجل *عند إغلاق المحادثة*
+* إضافة مجلد إلى مربع الوارد الموحد: اضغط طويلا على المجلد في قائمة المجلد ووضع علامة *إظهار في مربع الوارد الموحد*
+* إضافة مجلد قائمة الإستعراض: اضغط طويلا على المجلد في قائمة المجلد ووضع علامة *إظهار في القائمة الإستعراض*
+* تحميل المزيد من الرسائل: اضغط مطولاً على مجلد في قائمة المجلدات، حدد *جلب المزيد من الرسائل*
+* حذف رسالة، تخطي سلة المهملات: اضغط لفترة طويلة على أيقونة سلة المهملات
+* حذف الحساب/الهوية: الإعدادات، انقر فوق الإعداد اليدوي، انقر على الحسابات/الهوية، انقر على الحساب/الهوية، رمز سلة المحذوفات أعلى اليمين
+* حذف مجلد: اضغط طويلا على المجلد في قائمة المجلدات، تحرير الخصائص، رمز سلة المهملات في أعلى اليمين
+* التراجع عن الإرسال: علبة البريد الصادر، قم بسحب الرسالة في القائمة لليسار أو لليمين
+* تخزين الرسائل المرسلة في صندوق الوارد: الرجاء [مشاهدة هذه الأسئلة الشائعة](#user-content-faq142)
+* تغيير مجلد النظام: الإعدادات، انقر فوق الإعداد اليدوي،انقر فوق حسابات، انقر فوق الحساب، في الأسفل
+* إعدادات التصدير/الاستيراد: الإعدادات، قائمة الإستعراض (الجانب الأيسر)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>مشكلات معروفة</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
