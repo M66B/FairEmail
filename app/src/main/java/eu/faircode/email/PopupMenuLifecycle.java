@@ -84,7 +84,7 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
         this.dismiss();
     }
 
-    private static void insertIcons(Context context, Menu menu) {
+    static void insertIcons(Context context, Menu menu) {
         for (int i = 0; i < menu.size(); i++) {
             MenuItem item = menu.getItem(i);
             CharSequence title = item.getTitle();

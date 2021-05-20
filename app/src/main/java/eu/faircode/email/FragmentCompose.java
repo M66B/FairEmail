@@ -100,6 +100,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
@@ -1417,6 +1418,8 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_compose, menu);
+
+        PopupMenuLifecycle.insertIcons(getContext(), menu);
 
         menu.findItem(R.id.menu_encrypt).setActionView(R.layout.action_button_text);
         ImageButton ib = menu.findItem(R.id.menu_encrypt).getActionView().findViewById(R.id.button);
