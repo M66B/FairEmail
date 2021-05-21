@@ -116,12 +116,16 @@
     <item
         android:id="@+id/menu_theme"
         android:title="@string/title_setup_theme"
-        app:showAsAction="never" />
+        app:showAsAction="never">
+        <menu />
+    </item>
 
     <item
         android:id="@+id/menu_select_language"
         android:title="@string/title_select_language"
-        app:showAsAction="never" />
+        app:showAsAction="never">
+        <menu />
+    </item>
 
     <item
         android:id="@+id/menu_select_all"
@@ -141,7 +145,9 @@
     <item
         android:id="@+id/menu_sync_more"
         android:title="@string/title_synchronize_more"
-        app:showAsAction="never" />
+        app:showAsAction="never">
+        <menu />
+    </item>
 
     <item
         android:id="@+id/menu_force_sync"
