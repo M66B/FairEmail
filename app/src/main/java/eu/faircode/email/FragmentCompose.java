@@ -143,8 +143,6 @@ import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -1442,47 +1440,9 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        try (InputStream is = getContext().getAssets().open("deepl.json")) {
-            String json = Helper.readStream(is);
-            JSONArray jarray = new JSONArray(json);
-
+        List<Pair<String, String>> languages = DeepL.getTargetLanguages(getContext());
+        if (languages != null) {
             String pkg = getContext().getPackageName();
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-            List<Pair<String, String>> languages = new ArrayList<>();
-            Map<String, Integer> frequencies = new HashMap<>();
-            for (int i = 0; i < jarray.length(); i++) {
-                JSONObject jlanguage = jarray.getJSONObject(i);
-                String name = jlanguage.getString("name");
-                String target = jlanguage.getString("language");
-
-                Locale locale = Locale.forLanguageTag(target);
-                if (locale != null)
-                    name = locale.getDisplayName();
-
-                int frequency = prefs.getInt("translated_" + target, 0);
-                if (frequency > 0)
-                    name += " ★";
-
-                languages.add(new Pair<>(name, target));
-                frequencies.put(target, frequency);
-            }
-
-            Collator collator = Collator.getInstance(Locale.getDefault());
-            collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-            Collections.sort(languages, new Comparator<Pair<String, String>>() {
-                @Override
-                public int compare(Pair<String, String> l1, Pair<String, String> l2) {
-                    int freq1 = frequencies.get(l1.second);
-                    int freq2 = frequencies.get(l2.second);
-
-                    if (freq1 == freq2)
-                        return collator.compare(l1.first, l2.first);
-                    else
-                        return -Integer.compare(freq1, freq2);
-                }
-            });
-
             for (int i = 0; i < languages.size(); i++) {
                 Pair<String, String> lang = languages.get(i);
                 SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
@@ -1494,8 +1454,6 @@ public class FragmentCompose extends FragmentBase {
                 if (resid > 0)
                     item.setIcon(resid);
             }
-        } catch (Throwable ex) {
-            Log.e(ex);
         }
 
         super.onCreateOptionsMenu(menu, inflater);

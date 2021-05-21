@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
@@ -30,9 +31,18 @@ import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -43,6 +53,54 @@ public class DeepL {
     // curl https://api-free.deepl.com/v2/languages \
     //	-d auth_key=42c191db-21ba-9b96-2464-47a9a5e81b4a:fx \
     //	-d type=target
+
+    public static List<Pair<String, String>> getTargetLanguages(Context context) {
+        try (InputStream is = context.getAssets().open("deepl.json")) {
+            String json = Helper.readStream(is);
+            JSONArray jarray = new JSONArray(json);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            List<Pair<String, String>> languages = new ArrayList<>();
+            Map<String, Integer> frequencies = new HashMap<>();
+            for (int i = 0; i < jarray.length(); i++) {
+                JSONObject jlanguage = jarray.getJSONObject(i);
+                String name = jlanguage.getString("name");
+                String target = jlanguage.getString("language");
+
+                Locale locale = Locale.forLanguageTag(target);
+                if (locale != null)
+                    name = locale.getDisplayName();
+
+                int frequency = prefs.getInt("translated_" + target, 0);
+                if (BuildConfig.DEBUG && frequency > 0)
+                    name += " ★";
+
+                languages.add(new Pair<>(name, target));
+                frequencies.put(target, frequency);
+            }
+
+            Collator collator = Collator.getInstance(Locale.getDefault());
+            collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+            Collections.sort(languages, new Comparator<Pair<String, String>>() {
+                @Override
+                public int compare(Pair<String, String> l1, Pair<String, String> l2) {
+                    int freq1 = frequencies.get(l1.second);
+                    int freq2 = frequencies.get(l2.second);
+
+                    if (freq1 == freq2)
+                        return collator.compare(l1.first, l2.first);
+                    else
+                        return -Integer.compare(freq1, freq2);
+                }
+            });
+
+            return languages;
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
 
     public static String translate(String text, String target, Context context) throws IOException, JSONException {
         String request =
