@@ -83,6 +83,8 @@
             <action android:name="android.provider.MediaStore.RECORD_SOUND" />
         </intent>
 
+        <package android:name="com.android.vending" />
+
         <package android:name="org.sufficientlysecure.keychain" />
         <package android:name="org.sufficientlysecure.keychain.debug" />
 
