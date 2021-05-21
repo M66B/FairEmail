@@ -278,6 +278,8 @@ dependencies {
     def appauth_version = "0.7.1"
     def jcharset_version = "2.1"
     def apache_poi = "3.17" // Do not update
+    def reactivestreams_version = "1.0.3"
+    def rxjava2_version = "2.2.21"
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
@@ -450,4 +452,9 @@ dependencies {
     // https://poi.apache.org/components/hmef/index.html
     // https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad
     implementation "org.apache.poi:poi-scratchpad:$apache_poi"
+
+    // https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+    implementation "org.reactivestreams:reactive-streams:$reactivestreams_version"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
 }
