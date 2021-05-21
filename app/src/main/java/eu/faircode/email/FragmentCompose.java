@@ -1976,7 +1976,7 @@ public class FragmentCompose extends FragmentBase {
             start++;
 
         // Trim end
-        while (end > 1 && edit.charAt(end - 2) == '\n')
+        while (end > 0 && edit.charAt(end - 1) == '\n')
             end--;
 
         if (start < end)
@@ -2023,12 +2023,8 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                 // Insert translated text
-                StringBuilder sb = new StringBuilder("\n");
-                if (paragraph.second != edit.length() &&
-                        edit.charAt(paragraph.second) != '\n')
-                    sb.append('\n');
-                edit.insert(paragraph.second, sb + translated);
-                etBody.setSelection(paragraph.second + sb.length() + translated.length());
+                edit.insert(paragraph.second, "\n\n" + translated + "\n");
+                etBody.setSelection(paragraph.second + 2 + translated.length() + 1);
 
                 boolean small = prefs.getBoolean("deepl_small", false);
                 if (small) {
