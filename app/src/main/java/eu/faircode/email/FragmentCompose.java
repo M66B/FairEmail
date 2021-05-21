@@ -2024,7 +2024,7 @@ public class FragmentCompose extends FragmentBase {
 
                 // Insert translated text
                 StringBuilder sb = new StringBuilder("\n");
-                if (paragraph.second == edit.length() ||
+                if (paragraph.second != edit.length() &&
                         edit.charAt(paragraph.second) != '\n')
                     sb.append('\n');
                 edit.insert(paragraph.second, sb + translated);
