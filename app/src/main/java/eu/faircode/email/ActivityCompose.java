@@ -131,20 +131,20 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             }
 
             if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
-                String[] to = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
-                if (to != null)
+                List<String> to = sanitize(intent.getStringArrayExtra(Intent.EXTRA_EMAIL));
+                if (to.size() > 0)
                     args.putString("to", TextUtils.join(", ", to));
             }
 
             if (intent.hasExtra(Intent.EXTRA_CC)) {
-                String[] cc = intent.getStringArrayExtra(Intent.EXTRA_CC);
-                if (cc != null)
+                List<String> cc = sanitize(intent.getStringArrayExtra(Intent.EXTRA_CC));
+                if (cc.size() > 0)
                     args.putString("cc", TextUtils.join(", ", cc));
             }
 
             if (intent.hasExtra(Intent.EXTRA_BCC)) {
-                String[] bcc = intent.getStringArrayExtra(Intent.EXTRA_BCC);
-                if (bcc != null)
+                List<String> bcc = sanitize(intent.getStringArrayExtra(Intent.EXTRA_BCC));
+                if (bcc.size() > 0)
                     args.putString("bcc", TextUtils.join(", ", bcc));
             }
 
@@ -208,6 +208,17 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 Intent.ACTION_SENDTO.equals(action) ||
                 Intent.ACTION_SEND.equals(action) ||
                 Intent.ACTION_SEND_MULTIPLE.equals(action));
+    }
+
+    private List<String> sanitize(String[] addresses) {
+        List<String> result = new ArrayList<>();
+        if (addresses != null)
+            for (String address : addresses) {
+                address = address.replaceAll("\\s+", "");
+                if (!TextUtils.isEmpty(address))
+                    result.add(address);
+            }
+        return result;
     }
 
     static void undoSend(final long id, final Context context, final LifecycleOwner owner, final FragmentManager manager) {
