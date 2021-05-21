@@ -127,7 +127,6 @@ public class DeepL {
         }
     }
 
-
     private static String getBaseUri(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String domain = prefs.getString("deepl_domain", "api-free.deepl.com");

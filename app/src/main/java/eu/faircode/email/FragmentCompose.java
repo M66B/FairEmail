@@ -100,7 +100,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
@@ -6784,7 +6783,8 @@ public class FragmentCompose extends FragmentBase {
 
             tvUsage.setVisibility(View.GONE);
 
-            if (!TextUtils.isEmpty(key)) {
+            if (!TextUtils.isEmpty(key) &&
+                    (domain == null || domain.equals("api-free.deepl.com"))) {
                 Bundle args = new Bundle();
                 args.putString("key", key);
 
@@ -6796,9 +6796,10 @@ public class FragmentCompose extends FragmentBase {
 
                     @Override
                     protected void onExecuted(Bundle args, Integer[] usage) {
-                        tvUsage.setText(
-                                Helper.humanReadableByteCount(usage[0]) + "/" +
-                                        Helper.humanReadableByteCount(usage[1]));
+                        tvUsage.setText(getString(R.string.title_translate_usage,
+                                Helper.humanReadableByteCount(usage[0]),
+                                Helper.humanReadableByteCount(usage[1]),
+                                Math.round(100f * usage[0] / usage[1])));
                         tvUsage.setVisibility(View.VISIBLE);
                     }
 
