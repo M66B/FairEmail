@@ -169,6 +169,7 @@
     <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
+    <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
     <string name="title_setup_export_do">该密码用于加密设置且在导入设置时需要</string>
@@ -296,6 +297,7 @@
     <string name="title_advanced_cards_beige">开启卡片样式 (上面的选项) 时，使用米色背景</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_date_header">按日期分组</string>
+    <string name="title_advanced_date_bold">以粗体显示日期</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
@@ -424,6 +426,7 @@
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
+    <string name="title_advanced_generic_user_agent">使用通用浏览器用户代理</string>
     <string name="title_advanced_disconnect_auto_update">自动每周更新列表</string>
     <string name="title_advanced_disconnect_links">使用列表警告跟踪链接</string>
     <string name="title_advanced_disconnect_images">使用列表来识别跟踪图像</string>
@@ -810,6 +813,7 @@
     <string name="title_move_to_account">移动到 %1$s &#8230;</string>
     <string name="title_report_spam">视为垃圾邮件</string>
     <string name="title_delete_permanently">永久删除</string>
+    <string name="title_no_undo">我知道这不能撤消。</string>
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>
@@ -950,6 +954,11 @@
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_create_template">创建模板</string>
+    <string name="title_translate">翻译</string>
+    <string name="title_translate_configure">配置 &#8230;</string>
+    <string name="title_translate_key">输入密钥</string>
+    <string name="title_translating">正在翻译 &#8230;</string>
+    <string name="title_translate_small">对源文本使用一个小字体</string>
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
     <string name="title_edit_formatted_text">编辑为重新格式化的文本</string>
     <string name="title_select_certificate">选择公钥</string>
@@ -1173,6 +1182,7 @@
     <string name="title_legend_connecting">正在连接</string>
     <string name="title_legend_connected">已连接</string>
     <string name="title_legend_backoff">连接失败后等待</string>
+    <string name="title_legend_quota">邮箱几乎已满</string>
     <string name="title_legend_executing">执行操作</string>
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">下载中</string>

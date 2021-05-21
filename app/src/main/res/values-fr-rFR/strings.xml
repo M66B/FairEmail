@@ -971,6 +971,7 @@
     <string name="title_translate_key">Saisir la clé</string>
     <string name="title_translating">Traduction&#8230;</string>
     <string name="title_translate_small">Utiliser une petite police de caractères pour le texte source</string>
+    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Utilisation : %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_select_certificate">Sélectionner la clé publique</string>

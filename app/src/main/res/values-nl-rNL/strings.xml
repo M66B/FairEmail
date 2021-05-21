@@ -971,6 +971,7 @@
     <string name="title_translate_key">Sleutel invoeren</string>
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
+    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Gebruik: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>

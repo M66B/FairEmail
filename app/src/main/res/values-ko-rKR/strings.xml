@@ -363,6 +363,7 @@
     <string name="title_translate_configure">&#8230; 구성</string>
     <string name="title_translate_key">키 입력</string>
     <string name="title_translate_small">원문을 작은 글씨로 표시</string>
+    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">사용량: %1$s / %2$s (%3$d %%)</string>
     <string name="title_send_plain_text">평문만</string>
     <string name="title_send_dsn">상태 보고서</string>
     <string name="title_from_missing">발신인 누락</string>

@@ -964,8 +964,10 @@
     <string name="title_insert_template">Εισαγωγή προτύπου</string>
     <string name="title_create_template">Δημιουργία προτύπου</string>
     <string name="title_translate">Μετάφραση</string>
+    <string name="title_translate_configure">Ρύθμιση &#8230;</string>
     <string name="title_translate_key">Εισαγωγή κλειδιού</string>
     <string name="title_translating">Μεταφράζεται &#8230;</string>
+    <string name="title_translate_small">Χρήση μιας μικρής γραμματοσειράς για το πηγαίο κείμενο</string>
     <string name="title_edit_plain_text">Επεξεργασία ως απλό κείμενο</string>
     <string name="title_edit_formatted_text">Επεξεργασία ως αναμορφοποιημένο κείμενο</string>
     <string name="title_select_certificate">Επιλογή δημοσίου κλειδιού</string>
