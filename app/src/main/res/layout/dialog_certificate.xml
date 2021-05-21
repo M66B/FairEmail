@@ -106,6 +106,7 @@
             android:layout_height="24dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_info"
+            android:tint="?attr/colorAccent"
             android:tooltipText="@string/title_info"
             app:layout_constraintBottom_toBottomOf="@id/tvSubjectTitle"
             app:layout_constraintEnd_toEndOf="parent"

@@ -30,6 +30,7 @@
             android:contentDescription="@string/title_info"
             android:padding="6dp"
             android:scaleType="fitCenter"
+            android:tint="?attr/colorAccent"
             android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvMessage"

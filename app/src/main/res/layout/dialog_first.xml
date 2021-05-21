@@ -55,14 +55,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSyncNote" />
 
-        <Button
-            android:id="@+id/btnBatteryInfo"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_info"
+        <ImageButton
+            android:id="@+id/ibBatteryInfo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tint="?attr/colorAccent"
+            android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBattery" />
+            app:layout_constraintTop_toBottomOf="@id/tvBattery"
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvReformat"
@@ -73,16 +78,21 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnBatteryInfo" />
+            app:layout_constraintTop_toBottomOf="@id/ibBatteryInfo" />
 
-        <Button
-            android:id="@+id/btnReformatInfo"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_info"
+        <ImageButton
+            android:id="@+id/ibReformatInfo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tint="?attr/colorAccent"
+            android:tooltipText="@string/title_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReformat" />
+            app:layout_constraintTop_toBottomOf="@id/tvReformat"
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvDesign"
@@ -93,7 +103,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnReformatInfo" />
+            app:layout_constraintTop_toBottomOf="@id/ibReformatInfo" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvJunk"
