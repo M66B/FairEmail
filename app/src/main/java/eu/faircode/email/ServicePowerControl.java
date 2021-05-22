@@ -104,7 +104,7 @@ public class ServicePowerControl extends ControlsProviderService {
 
     @Override
     public void performControlAction(@NonNull String controlId, @NonNull ControlAction action, @NonNull Consumer<Integer> consumer) {
-        if (action instanceof BooleanAction) {
+        if (DEVICE_SYNC_TOGGLE.equals(controlId)) {
             consumer.accept(ControlAction.RESPONSE_OK);
 
             boolean enabled = ((BooleanAction) action).getNewState();
