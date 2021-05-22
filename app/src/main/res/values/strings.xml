@@ -536,7 +536,7 @@
     </string>
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>
 
-    <string name="title_advanced_power_menu">Add actions to the power menu</string>
+    <string name="title_advanced_power_menu">Add actions to the Android power menu</string>
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
     <string name="title_advanced_shortcuts">Show frequently used contacts in Android share menu</string>
     <string name="title_advanced_fts">Build search index</string>
@@ -1580,6 +1580,11 @@
     <string name="title_widget_title_count">New message count</string>
     <string name="title_widget_title_list">Message list</string>
     <string name="title_widget_title_sync">Sync on/off</string>
+
+    <string name="title_power_menu_sync">Synchronization</string>
+    <string name="title_power_menu_on">On</string>
+    <string name="title_power_menu_off">Off</string>
+    <string name="title_power_menu_on_off">On/Off</string>
 
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">All</string>
