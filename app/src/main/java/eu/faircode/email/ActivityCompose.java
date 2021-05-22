@@ -92,16 +92,18 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
             Uri uri = intent.getData();
             if (uri != null && "mailto".equalsIgnoreCase(uri.getScheme())) {
+                EntityLog.log(this, "mailto=" + Log.printableString(uri.toString()));
+
                 // https://www.ietf.org/rfc/rfc2368.txt
                 MailTo mailto = MailTo.parse(uri.toString());
 
-                String to = mailto.getTo();
-                if (to != null)
-                    args.putString("to", to);
+                List<String> to = sanitize(new String[]{mailto.getTo()});
+                if (to.size() == 1)
+                    args.putString("to", to.get(0));
 
-                String cc = mailto.getCc();
-                if (cc != null)
-                    args.putString("cc", cc);
+                List<String> cc = sanitize(new String[]{mailto.getCc()});
+                if (cc.size() == 1)
+                    args.putString("cc", cc.get(0));
 
                 String subject = mailto.getSubject();
                 if (subject != null)

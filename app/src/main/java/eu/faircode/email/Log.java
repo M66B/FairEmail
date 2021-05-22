@@ -550,7 +550,7 @@ public class Log {
         return result;
     }
 
-    private static String printableString(String value) {
+    static String printableString(String value) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < value.length(); i++) {
             char kar = value.charAt(i);
