@@ -4167,7 +4167,7 @@ class Core {
                         .setAction("unified" + (notify_remove ? ":" + group : ""));
             content.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             PendingIntent piContent = PendingIntentCompat.getActivity(
-                    context, ActivityView.REQUEST_UNIFIED, content, PendingIntent.FLAG_UPDATE_CURRENT);
+                    context, ActivityView.PI_UNIFIED, content, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
             PendingIntent piClear = PendingIntentCompat.getService(
@@ -4291,7 +4291,7 @@ class Core {
                 thread.putExtra("thread", message.thread);
                 thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
                 piContent = PendingIntentCompat.getActivity(
-                        context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+                        context, ActivityView.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
             }
 
             Intent ignore = new Intent(context, ServiceUI.class).setAction("ignore:" + message.id);
@@ -4721,7 +4721,7 @@ class Core {
         intent.setAction("error");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntentCompat.getActivity(
-                context, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, ActivityView.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         NotificationCompat.Builder builder =

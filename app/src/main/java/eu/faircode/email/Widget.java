@@ -85,7 +85,7 @@ public class Widget extends AppWidgetProvider {
                             view.putExtra("version", version);
                             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             pi = PendingIntentCompat.getActivity(
-                                    context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
+                                    context, ActivityView.PI_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
                         } else {
                             Intent view = new Intent(context, ActivityView.class);
                             view.setAction("folders:" + account);
