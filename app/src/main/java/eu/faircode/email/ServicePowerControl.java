@@ -136,7 +136,10 @@ public class ServicePowerControl extends ControlsProviderService {
         return PendingIntentCompat.getActivity(
                 context,
                 ActivityView.REQUEST_POWER,
-                new Intent(context, ActivityView.class),
+                new Intent(context, ActivitySetup.class)
+                        .setAction("misc")
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("tab", "misc"),
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }
