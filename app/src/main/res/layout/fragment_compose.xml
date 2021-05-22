@@ -297,6 +297,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPlainTextOnly" />
 
+                <ImageButton
+                    android:id="@+id/ibTranslate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="12dp"
+                    android:tint="?attr/colorSeparator"
+                    app:layout_constraintBottom_toBottomOf="@id/vSeparatorBody"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/outline_translate_24" />
+
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoInternet"
                     android:layout_width="wrap_content"

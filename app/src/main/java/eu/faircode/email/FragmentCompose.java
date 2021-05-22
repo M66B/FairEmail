@@ -239,6 +239,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvDsn;
     private TextView tvPlainTextOnly;
     private EditTextCompose etBody;
+    private ImageButton ibTranslate;
     private TextView tvNoInternet;
     private TextView tvSignature;
     private CheckBox cbSignature;
@@ -351,6 +352,7 @@ public class FragmentCompose extends FragmentBase {
         tvDsn = view.findViewById(R.id.tvDsn);
         tvPlainTextOnly = view.findViewById(R.id.tvPlainTextOnly);
         etBody = view.findViewById(R.id.etBody);
+        ibTranslate = view.findViewById(R.id.ibTranslate);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         cbSignature = view.findViewById(R.id.cbSignature);
@@ -696,6 +698,41 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        ibTranslate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getParagraph() == null)
+                    return;
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), v);
+
+                List<Pair<String, String>> languages = DeepL.getTargetLanguages(getContext());
+                if (languages != null) {
+                    String pkg = getContext().getPackageName();
+                    for (int i = 0; i < languages.size(); i++) {
+                        Pair<String, String> lang = languages.get(i);
+                        MenuItem item = popupMenu.getMenu().add(R.id.group_translate, i + 1, i + 1, lang.first)
+                                .setIntent(new Intent().putExtra("target", lang.second));
+
+                        String resname = "language_" + lang.second.toLowerCase().replace('-', '_');
+                        int resid = getResources().getIdentifier(resname, "drawable", pkg);
+                        if (resid > 0)
+                            item.setIcon(resid);
+                    }
+                }
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        onMenuTranslate(item.getIntent().getStringExtra("target"));
+                        return true;
+                    }
+                });
+
+                popupMenu.showWithIcons(getContext(), v);
+            }
+        });
+
         tvSignature.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
         cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -879,6 +916,7 @@ public class FragmentCompose extends FragmentBase {
         grpAttachments.setVisibility(View.GONE);
         tvNoInternet.setVisibility(View.GONE);
         grpBody.setVisibility(View.GONE);
+        ibTranslate.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
