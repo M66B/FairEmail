@@ -2275,6 +2275,7 @@ To enable/disable a specific account:
 ```
 
 Note that disabling an account will hide the account and all associated folders and messages.
+From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
 
 To set the poll interval:
 

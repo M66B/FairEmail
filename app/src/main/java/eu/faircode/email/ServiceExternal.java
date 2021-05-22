@@ -44,8 +44,6 @@ public class ServiceExternal extends Service {
     private static final String ACTION_INTERVAL = BuildConfig.APPLICATION_ID + ".INTERVAL";
     private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
 
-    static final int PI_WIDGET_ENABLE = 1;
-
     // adb shell am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
@@ -192,9 +190,10 @@ public class ServiceExternal extends Service {
             if (account == null)
                 throw new IllegalArgumentException("Account not found name=" + accountName);
 
-            db.account().setAccountSynchronize(account.id, enabled);
-            ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
+            db.account().setAccountOnDemand(account.id, !enabled);
         }
+
+        ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
     }
 
     private static void disconnect(Context context, Intent intent) throws IOException, JSONException {

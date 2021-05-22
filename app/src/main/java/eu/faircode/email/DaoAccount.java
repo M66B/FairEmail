@@ -130,6 +130,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET synchronize = :synchronize WHERE id = :id AND NOT (synchronize IS :synchronize)")
     int setAccountSynchronize(long id, boolean synchronize);
 
+    @Query("UPDATE account SET ondemand = :ondemand WHERE id = :id AND NOT (ondemand IS :ondemand)")
+    int setAccountOnDemand(long id, boolean ondemand);
+
     @Query("UPDATE account SET `primary` = :primary WHERE id = :id AND NOT (`primary` IS :primary)")
     int setAccountPrimary(long id, boolean primary);
 
