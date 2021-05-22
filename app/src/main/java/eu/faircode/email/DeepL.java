@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
@@ -54,14 +53,15 @@ public class DeepL {
     //	-d auth_key=42c191db-21ba-9b96-2464-47a9a5e81b4a:fx \
     //	-d type=target
 
-    public static List<Pair<String, String>> getTargetLanguages(Context context) {
+    public static List<Language> getTargetLanguages(Context context) {
         try (InputStream is = context.getAssets().open("deepl.json")) {
             String json = Helper.readStream(is);
             JSONArray jarray = new JSONArray(json);
 
+            String pkg = context.getPackageName();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-            List<Pair<String, String>> languages = new ArrayList<>();
+            List<Language> languages = new ArrayList<>();
             Map<String, Integer> frequencies = new HashMap<>();
             for (int i = 0; i < jarray.length(); i++) {
                 JSONObject jlanguage = jarray.getJSONObject(i);
@@ -76,20 +76,23 @@ public class DeepL {
                 if (BuildConfig.DEBUG && frequency > 0)
                     name += " ★";
 
-                languages.add(new Pair<>(name, target));
+                String resname = "language_" + target.toLowerCase().replace('-', '_');
+                int resid = context.getResources().getIdentifier(resname, "drawable", pkg);
+
+                languages.add(new Language(name, target, resid == 0 ? null : resid));
                 frequencies.put(target, frequency);
             }
 
             Collator collator = Collator.getInstance(Locale.getDefault());
             collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-            Collections.sort(languages, new Comparator<Pair<String, String>>() {
+            Collections.sort(languages, new Comparator<Language>() {
                 @Override
-                public int compare(Pair<String, String> l1, Pair<String, String> l2) {
-                    int freq1 = frequencies.get(l1.second);
-                    int freq2 = frequencies.get(l2.second);
+                public int compare(Language l1, Language l2) {
+                    int freq1 = frequencies.get(l1.target);
+                    int freq2 = frequencies.get(l2.target);
 
                     if (freq1 == freq2)
-                        return collator.compare(l1.first, l2.first);
+                        return collator.compare(l1.name, l2.name);
                     else
                         return -Integer.compare(freq1, freq2);
                 }
@@ -189,5 +192,17 @@ public class DeepL {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String domain = prefs.getString("deepl_domain", "api-free.deepl.com");
         return "https://" + domain + "/v2/";
+    }
+
+    public static class Language {
+        public String name;
+        public String target;
+        public Integer icon;
+
+        private Language(String name, String target, Integer icon) {
+            this.name = name;
+            this.target = target;
+            this.icon = icon;
+        }
     }
 }

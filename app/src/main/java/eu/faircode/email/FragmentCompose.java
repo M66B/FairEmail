@@ -704,21 +704,18 @@ public class FragmentCompose extends FragmentBase {
                 if (getParagraph() == null)
                     return;
 
+                List<DeepL.Language> languages = DeepL.getTargetLanguages(getContext());
+                if (languages == null)
+                    return;
+
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), v);
 
-                List<Pair<String, String>> languages = DeepL.getTargetLanguages(getContext());
-                if (languages != null) {
-                    String pkg = getContext().getPackageName();
-                    for (int i = 0; i < languages.size(); i++) {
-                        Pair<String, String> lang = languages.get(i);
-                        MenuItem item = popupMenu.getMenu().add(R.id.group_translate, i + 1, i + 1, lang.first)
-                                .setIntent(new Intent().putExtra("target", lang.second));
-
-                        String resname = "language_" + lang.second.toLowerCase().replace('-', '_');
-                        int resid = getResources().getIdentifier(resname, "drawable", pkg);
-                        if (resid > 0)
-                            item.setIcon(resid);
-                    }
+                for (int i = 0; i < languages.size(); i++) {
+                    DeepL.Language lang = languages.get(i);
+                    MenuItem item = popupMenu.getMenu().add(R.id.group_translate, i + 1, i + 1, lang.name)
+                            .setIntent(new Intent().putExtra("target", lang.target));
+                    if (lang.icon != null)
+                        item.setIcon(lang.icon);
                 }
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -1478,19 +1475,15 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        List<Pair<String, String>> languages = DeepL.getTargetLanguages(getContext());
+        List<DeepL.Language> languages = DeepL.getTargetLanguages(getContext());
         if (languages != null) {
-            String pkg = getContext().getPackageName();
+            SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
             for (int i = 0; i < languages.size(); i++) {
-                Pair<String, String> lang = languages.get(i);
-                SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
-                MenuItem item = smenu.add(R.id.group_translate, i + 1, i + 1, lang.first)
-                        .setIntent(new Intent().putExtra("target", lang.second));
-
-                String resname = "language_" + lang.second.toLowerCase().replace('-', '_');
-                int resid = getResources().getIdentifier(resname, "drawable", pkg);
-                if (resid > 0)
-                    item.setIcon(resid);
+                DeepL.Language lang = languages.get(i);
+                MenuItem item = smenu.add(R.id.group_translate, i + 1, i + 1, lang.name)
+                        .setIntent(new Intent().putExtra("target", lang.target));
+                if (lang.icon != null)
+                    item.setIcon(lang.icon);
             }
         }
 
