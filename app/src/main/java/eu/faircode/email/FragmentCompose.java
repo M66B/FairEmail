@@ -2023,8 +2023,8 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                 // Insert translated text
-                edit.insert(paragraph.second, "\n\n" + translated + "\n");
-                etBody.setSelection(paragraph.second + 2 + translated.length() + 1);
+                edit.insert(paragraph.second, "\n\n" + translated);
+                etBody.setSelection(paragraph.second + 2 + translated.length());
 
                 boolean small = prefs.getBoolean("deepl_small", false);
                 if (small) {
