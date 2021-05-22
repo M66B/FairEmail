@@ -223,6 +223,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         if (addresses != null)
             for (String address : addresses) {
                 address = address.replaceAll("\\s+", "");
+                address = address.replaceAll("\u200b", ""); // Discord: zero width space
                 if (!TextUtils.isEmpty(address))
                     result.add(address);
             }
