@@ -508,6 +508,12 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
+        if (EntityOperation.EXISTS.equals(name)) {
+            EntityMessage m = db.message().getMessage(message);
+            if (m != null)
+                queue(context, m, EntityOperation.ADD);
+        }
+
         if (EntityOperation.ATTACHMENT.equals(name))
             try {
                 JSONArray jargs = new JSONArray(args);
