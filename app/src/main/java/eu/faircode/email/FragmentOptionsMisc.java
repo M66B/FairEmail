@@ -82,6 +82,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private boolean resumed = false;
     private List<Pair<String, String>> languages = new ArrayList<>();
 
+    private SwitchCompat swPowerMenu;
     private SwitchCompat swExternalSearch;
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
@@ -188,6 +189,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         // Get controls
 
+        swPowerMenu = view.findViewById(R.id.swPowerMenu);
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swFts = view.findViewById(R.id.swFts);
@@ -245,6 +247,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swPowerMenu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                Helper.enableComponent(getContext(), ServicePowerControl.class, checked);
+            }
+        });
 
         swExternalSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -787,6 +796,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     : R.color.lightColorBackground_cards));
         }
 
+        swPowerMenu.setVisibility(!BuildConfig.PLAY_STORE_RELEASE &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                ? View.VISIBLE : View.GONE);
+
         tvFtsIndexed.setText(null);
 
         DB db = DB.getInstance(getContext());
@@ -920,6 +933,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));

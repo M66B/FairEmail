@@ -63,15 +63,25 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swPowerMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_power_menu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swExternalSearch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:enabled="true"
                     android:text="@string/title_advanced_external_search"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral"
+                    app:layout_constraintTop_toBottomOf="@id/swPowerMenu"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

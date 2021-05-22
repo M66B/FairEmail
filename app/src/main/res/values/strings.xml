@@ -536,6 +536,7 @@
     </string>
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>
 
+    <string name="title_advanced_power_menu">Add actions to the power menu</string>
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
     <string name="title_advanced_shortcuts">Show frequently used contacts in Android share menu</string>
     <string name="title_advanced_fts">Build search index</string>
