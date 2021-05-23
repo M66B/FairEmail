@@ -550,6 +550,10 @@ public class ContactInfo {
 
         List<Future<Bitmap>> futures = new ArrayList<>();
         for (Element img : imgs) {
+            // https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+            if ("dns-prefetch".equals(img.attr("rel"))) // gmx.net
+                continue;
+
             String favicon = ("link".equals(img.tagName())
                     ? img.attr("href")
                     : img.attr("content"));
