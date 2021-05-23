@@ -31,7 +31,6 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,8 +52,6 @@ import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
 import com.android.billingclient.api.ConsumeResponseListener;
 import com.android.billingclient.api.Purchase;
-import com.android.billingclient.api.PurchaseHistoryRecord;
-import com.android.billingclient.api.PurchaseHistoryResponseListener;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
@@ -75,9 +72,10 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     private List<IBillingListener> listeners = new ArrayList<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
-    static final String ACTION_PURCHASE_CHECK = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CHECK";
+    static final String ACTION_PURCHASE_CONSUME = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CONSUME";
     static final String ACTION_PURCHASE_ERROR = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_ERROR";
 
+    private static final String SKU_TEST = "android.test.purchased";
     private final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
     private final static long MAX_SKU_NOACK_DURATION = 24 * 3600 * 1000L; // milliseconds
 
@@ -102,7 +100,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             getSupportFragmentManager().addOnBackStackChangedListener(this);
         }
 
-        if (Helper.isPlayStoreInstall()) {
+        if (Helper.isPlayStoreInstall() || isTesting(this)) {
             Log.i("IAB start");
             billingClient = BillingClient.newBuilder(this)
                     .enablePendingPurchases()
@@ -125,7 +123,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_PURCHASE);
-        iff.addAction(ACTION_PURCHASE_CHECK);
+        iff.addAction(ACTION_PURCHASE_CONSUME);
         iff.addAction(ACTION_PURCHASE_ERROR);
         lbm.registerReceiver(receiver, iff);
 
@@ -152,9 +150,14 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     @NonNull
     static String getSkuPro() {
         if (BuildConfig.DEBUG)
-            return "android.test.purchased";
+            return SKU_TEST;
         else
             return BuildConfig.APPLICATION_ID + ".pro";
+    }
+
+    static boolean isTesting(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return (BuildConfig.DEBUG && prefs.getBoolean("test_iab", false));
     }
 
     private static String getChallenge(Context context) throws NoSuchAlgorithmException {
@@ -206,8 +209,8 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 if (ACTION_PURCHASE.equals(intent.getAction()))
                     onPurchase(intent);
-                else if (ACTION_PURCHASE_CHECK.equals(intent.getAction()))
-                    onPurchaseCheck(intent);
+                else if (ACTION_PURCHASE_CONSUME.equals(intent.getAction()))
+                    onPurchaseConsume(intent);
                 else if (ACTION_PURCHASE_ERROR.equals(intent.getAction()))
                     onPurchaseError(intent);
             }
@@ -215,7 +218,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     };
 
     private void onPurchase(Intent intent) {
-        if (Helper.isPlayStoreInstall()) {
+        if (Helper.isPlayStoreInstall() || isTesting(this)) {
             String sku = getSkuPro();
             Log.i("IAB purchase SKU=" + sku);
 
@@ -255,21 +258,13 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             }
     }
 
-    private void onPurchaseCheck(Intent intent) {
-        billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP, new PurchaseHistoryResponseListener() {
-            @Override
-            public void onPurchaseHistoryResponse(@NonNull BillingResult result, List<PurchaseHistoryRecord> records) {
-                if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                    for (PurchaseHistoryRecord record : records)
-                        Log.i("IAB history=" + record.toString());
-
-                    queryPurchases();
-
-                    ToastEx.makeText(ActivityBilling.this, R.string.title_setup_done, Toast.LENGTH_LONG).show();
-                } else
-                    reportError(result, "IAB history");
-            }
-        });
+    private void onPurchaseConsume(Intent intent) {
+        Purchase.PurchasesResult result = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
+        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+            for (Purchase purchase : result.getPurchasesList())
+                consumePurchase(purchase);
+        } else
+            reportError(result.getBillingResult(), "IAB onPurchaseConsume");
     }
 
     private void onPurchaseError(Intent intent) {
@@ -342,7 +337,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
         void onPurchasePending(String sku);
 
-        void onPurchased(String sku);
+        void onPurchased(String sku, boolean purchased);
 
         void onError(String message);
     }
@@ -396,14 +391,9 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                             " time=" + new Date(time));
                     Log.i("IAB json=" + purchase.getOriginalJson());
 
-                    //if (new Date().getTime() - purchase.getPurchaseTime() > 3 * 60 * 1000L) {
-                    //    consumePurchase(purchase);
-                    //    continue;
-                    //}
-
                     for (IBillingListener listener : listeners)
                         if (isPurchaseValid(purchase))
-                            listener.onPurchased(purchase.getSku());
+                            listener.onPurchased(purchase.getSku(), true);
                         else
                             listener.onPurchasePending(purchase.getSku());
 
@@ -414,7 +404,8 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         Signature sig = Signature.getInstance("SHA1withRSA");
                         sig.initVerify(publicKey);
                         sig.update(purchase.getOriginalJson().getBytes());
-                        if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
+                        if (SKU_TEST.equals(purchase.getSku()) ||
+                                sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
                             Log.i("IAB valid signature");
                             if (getSkuPro().equals(purchase.getSku())) {
                                 if (isPurchaseValid(purchase)) {
@@ -466,14 +457,17 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     }
 
     private void consumePurchase(final Purchase purchase) {
-        Log.i("IAB SKU=" + purchase.getSku() + " consuming");
+        Log.i("IAB consuming SKU=" + purchase.getSku());
         ConsumeParams params = ConsumeParams.newBuilder()
                 .setPurchaseToken(purchase.getPurchaseToken())
                 .build();
         billingClient.consumeAsync(params, new ConsumeResponseListener() {
             @Override
             public void onConsumeResponse(@NonNull BillingResult result, @NonNull String purchaseToken) {
-                if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
+                if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    for (IBillingListener listener : listeners)
+                        listener.onPurchased(purchase.getSku(), false);
+                } else
                     reportError(result, "IAB consumed SKU=" + purchase.getSku());
             }
         });
@@ -496,7 +490,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     editor.apply();
 
                     for (IBillingListener listener : listeners)
-                        listener.onPurchased(purchase.getSku());
+                        listener.onPurchased(purchase.getSku(), true);
 
                     WidgetUnified.updateData(ActivityBilling.this);
                 } else {
@@ -521,6 +515,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     private boolean isPurchaseValid(Purchase purchase) {
         return (isPurchased(purchase) &&
                 (purchase.isAcknowledged() ||
+                        SKU_TEST.equals(purchase.getSku()) ||
                         purchase.getPurchaseTime() + MAX_SKU_NOACK_DURATION > new Date().getTime()));
     }
 

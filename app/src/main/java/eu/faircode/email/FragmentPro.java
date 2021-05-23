@@ -62,7 +62,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
-    private Button btnCheck;
+    private Button btnConsume;
 
     private static final int HIDE_BANNER = 3; // weeks
 
@@ -90,12 +90,13 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
 
-        btnCheck = view.findViewById(R.id.btnCheck);
+        btnConsume = view.findViewById(R.id.btnConsume);
 
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ActivitySetup.class).putExtra("navigate", true));
+                startActivity(new Intent(getContext(), ActivitySetup.class)
+                        .putExtra("navigate", true));
             }
         });
         btnBackup.setVisibility(View.GONE);
@@ -129,8 +130,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
                 lbm.sendBroadcast(new Intent(ActivityBilling.ACTION_PURCHASE));
             }
         });
@@ -161,11 +162,11 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
         });
 
-        btnCheck.setOnClickListener(new View.OnClickListener() {
+        btnConsume.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(new Intent(ActivityBilling.ACTION_PURCHASE_CHECK));
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                lbm.sendBroadcast(new Intent(ActivityBilling.ACTION_PURCHASE_CONSUME));
             }
         });
 
@@ -175,8 +176,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnPurchase.setEnabled(!Helper.isPlayStoreInstall());
         tvPrice.setText(null);
         tvRestoreHint.setVisibility(Helper.isPlayStoreInstall() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        btnCheck.setEnabled(false);
-        btnCheck.setVisibility(Helper.isPlayStoreInstall() && debug ? View.VISIBLE : View.GONE);
+        btnConsume.setEnabled(false);
+        btnConsume.setVisibility(ActivityBilling.isTesting(getContext()) ? View.VISIBLE : View.GONE);
 
         return view;
     }
@@ -188,12 +189,10 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         addBillingListener(new ActivityBilling.IBillingListener() {
             @Override
             public void onConnected() {
-                btnCheck.setEnabled(true);
             }
 
             @Override
             public void onDisconnected() {
-                btnCheck.setEnabled(false);
             }
 
             @Override
@@ -213,10 +212,11 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
 
             @Override
-            public void onPurchased(String sku) {
+            public void onPurchased(String sku, boolean purchased) {
                 if (ActivityBilling.getSkuPro().equals(sku)) {
-                    btnPurchase.setEnabled(false);
+                    btnPurchase.setEnabled(!purchased);
                     tvPending.setVisibility(View.GONE);
+                    btnConsume.setEnabled(purchased);
                 }
             }
 
