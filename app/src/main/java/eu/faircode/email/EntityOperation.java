@@ -481,22 +481,22 @@ public class EntityOperation {
         if (message != null) {
             db.message().setMessageUiHide(message, false);
 
-            if (EntityOperation.SEEN.equals(name)) {
+            if (SEEN.equals(name)) {
                 EntityMessage m = db.message().getMessage(message);
                 if (m != null)
                     db.message().setMessageUiSeen(m.id, m.seen);
             }
 
-            if (EntityOperation.FLAG.equals(name)) {
+            if (FLAG.equals(name)) {
                 EntityMessage m = db.message().getMessage(message);
                 if (m != null)
                     db.message().setMessageUiFlagged(m.id, m.flagged, m.color);
             }
         }
 
-        if (EntityOperation.MOVE.equals(name) ||
-                EntityOperation.ADD.equals(name) ||
-                EntityOperation.RAW.equals(name))
+        if (MOVE.equals(name) ||
+                ADD.equals(name) ||
+                RAW.equals(name))
             try {
                 JSONArray jargs = new JSONArray(args);
                 long tmpid = jargs.optLong(2, -1);
@@ -508,13 +508,13 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
-        if (EntityOperation.EXISTS.equals(name)) {
+        if (EXISTS.equals(name)) {
             EntityMessage m = db.message().getMessage(message);
             if (m != null)
-                queue(context, m, EntityOperation.ADD);
+                queue(context, m, ADD);
         }
 
-        if (EntityOperation.ATTACHMENT.equals(name))
+        if (ATTACHMENT.equals(name))
             try {
                 JSONArray jargs = new JSONArray(args);
                 long id = jargs.getLong(0);
@@ -525,7 +525,7 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
-        if (EntityOperation.SYNC.equals(name))
+        if (SYNC.equals(name))
             db.folder().setFolderSyncState(folder, null);
 
         if (fetch && message != null) {
@@ -537,8 +537,8 @@ public class EntityOperation {
             if (f == null)
                 return;
 
-            if (EntityOperation.FETCH.equals(name))
-                EntityOperation.sync(context, f.id, false);
+            if (FETCH.equals(name))
+                sync(context, f.id, false);
             else
                 queue(context, f, FETCH, m.uid);
         }
