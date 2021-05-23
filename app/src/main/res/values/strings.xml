@@ -1534,7 +1534,7 @@
     <string name="title_pro_feature">This is a pro feature</string>
     <string name="title_pro_list">List of pro features</string>
     <string name="title_pro_purchase">Buy</string>
-    <string name="title_pro_once">Only once</string>
+    <string name="title_pro_one_time">%1$s (one-time purchase)</string>
     <string name="title_pro_info">
         Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
         FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.

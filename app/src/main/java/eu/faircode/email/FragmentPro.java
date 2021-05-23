@@ -57,8 +57,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private CheckBox cbHide;
     private TextView tvList;
     private Button btnPurchase;
-    private TextView tvPrice;
     private ImageView ivExternal;
+    private TextView tvPrice;
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
@@ -84,8 +84,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         cbHide = view.findViewById(R.id.cbHide);
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
-        tvPrice = view.findViewById(R.id.tvPrice);
         ivExternal = view.findViewById(R.id.ivExternal);
+        tvPrice = view.findViewById(R.id.tvPrice);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
@@ -174,7 +174,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvActivated.setVisibility(View.GONE);
         cbHide.setVisibility(View.GONE);
         btnPurchase.setEnabled(!play);
-        tvPrice.setText(null);
+        tvPrice.setVisibility(View.GONE);
         ivExternal.setVisibility(play ? View.GONE : View.VISIBLE);
         tvFamilyHint.setVisibility(play ? View.VISIBLE : View.GONE);
         tvRestoreHint.setVisibility(play ? View.VISIBLE : View.GONE);
@@ -205,7 +205,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             @Override
             public void onSkuDetails(String sku, String price) {
                 if (ActivityBilling.getSkuPro().equals(sku)) {
-                    tvPrice.setText(price);
+                    tvPrice.setText(getString(R.string.title_pro_one_time, price));
+                    tvPrice.setVisibility(View.VISIBLE);
                     btnPurchase.setEnabled(true);
                 }
             }
