@@ -95,6 +95,17 @@
             app:srcCompat="@drawable/twotone_open_in_new_24" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvNoPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_pro_no_play"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPurchase" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +113,7 @@
             android:text="5 euro (once only)"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnPurchase" />
+            app:layout_constraintTop_toBottomOf="@+id/tvNoPlay" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvHint"

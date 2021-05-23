@@ -58,6 +58,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvList;
     private Button btnPurchase;
     private ImageView ivExternal;
+    private TextView tvNoPlay;
     private TextView tvPrice;
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
@@ -85,6 +86,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
         ivExternal = view.findViewById(R.id.ivExternal);
+        tvNoPlay = view.findViewById(R.id.tvNoPlay);
         tvPrice = view.findViewById(R.id.tvPrice);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
@@ -99,15 +101,9 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                         .putExtra("navigate", true));
             }
         });
-        btnBackup.setVisibility(View.GONE);
 
         tvInfo.setText(getString(R.string.title_pro_info)
                 .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
-
-        long now = new Date().getTime();
-        long banner_hidden = prefs.getLong("banner_hidden", 0);
-        cbHide.setChecked(banner_hidden > 0 && now < banner_hidden);
-        cbHide.setText(getString(R.string.title_pro_hide, HIDE_BANNER));
 
         cbHide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -170,12 +166,21 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         boolean play = (Helper.isPlayStoreInstall() || ActivityBilling.isTesting(getContext()));
 
+        long now = new Date().getTime();
+        long banner_hidden = prefs.getLong("banner_hidden", 0);
+        cbHide.setChecked(banner_hidden > 0 && now < banner_hidden);
+        cbHide.setText(getString(R.string.title_pro_hide, HIDE_BANNER));
+
         tvPending.setVisibility(View.GONE);
         tvActivated.setVisibility(View.GONE);
+        btnBackup.setVisibility(View.GONE);
         cbHide.setVisibility(View.GONE);
         btnPurchase.setEnabled(!play);
-        tvPrice.setVisibility(View.GONE);
         ivExternal.setVisibility(play ? View.GONE : View.VISIBLE);
+        tvPrice.setVisibility(View.GONE);
+        tvNoPlay.setVisibility(
+                BuildConfig.PLAY_STORE_RELEASE && !Helper.hasPlayStore(getContext())
+                        ? View.VISIBLE : View.GONE);
         tvFamilyHint.setVisibility(play ? View.VISIBLE : View.GONE);
         tvRestoreHint.setVisibility(play ? View.VISIBLE : View.GONE);
         btnConsume.setEnabled(false);
