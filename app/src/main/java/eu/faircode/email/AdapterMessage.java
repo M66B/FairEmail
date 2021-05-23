@@ -1090,7 +1090,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
-            ivClassified.setVisibility(message.auto_classified || message.hasKeyword("$Classified") ? View.VISIBLE : View.GONE);
+            ivClassified.setVisibility(message.auto_classified ? View.VISIBLE : View.GONE);
 
             int snoozy = (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
                     ? R.drawable.twotone_visibility_off_24
