@@ -72,11 +72,6 @@
         <item quantity="other">%1$d new</item>
     </plurals>
 
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Selected %1$d conversation</item>
-        <item quantity="other">Selected %1$d conversations</item>
-    </plurals>
-
     <plurals name="title_moving_messages">
         <item quantity="one">Move %1$d message?</item>
         <item quantity="other">Move %1$d messages?</item>
