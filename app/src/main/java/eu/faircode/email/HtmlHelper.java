@@ -1622,7 +1622,8 @@ public class HtmlHelper {
 
             sb.append(line);
             if (view ||
-                    (l + 1 == lines.length && text.endsWith("\n")))
+                    l + 1 < lines.length ||
+                    text.endsWith("\n"))
                 sb.append("<br>");
         }
 
