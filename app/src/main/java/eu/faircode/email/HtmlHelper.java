@@ -1571,7 +1571,7 @@ public class HtmlHelper {
         return formatPre(text, true);
     }
 
-    static String formatPre(String text, boolean quote) {
+    static String formatPre(String text, boolean view) {
         int level = 0;
         StringBuilder sb = new StringBuilder();
         String[] lines = text.split("\\r?\\n");
@@ -1581,7 +1581,7 @@ public class HtmlHelper {
 
             // Opening quotes
             // https://tools.ietf.org/html/rfc3676#section-4.5
-            if (quote) {
+            if (view) {
                 int tlevel = 0;
                 while (line.startsWith(">")) {
                     tlevel++;
@@ -1621,7 +1621,9 @@ public class HtmlHelper {
             line = Html.escapeHtml(line);
 
             sb.append(line);
-            sb.append("<br>");
+            if (view ||
+                    (l + 1 == lines.length && text.endsWith("\n")))
+                sb.append("<br>");
         }
 
         // Closing quotes
