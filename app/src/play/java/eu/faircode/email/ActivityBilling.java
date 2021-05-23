@@ -226,11 +226,11 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     private void onPurchase(Intent intent) {
         if (Helper.isPlayStoreInstall() || isTesting(this)) {
-            String sku = getSkuPro();
-            Log.i("IAB purchase SKU=" + sku);
+            String skuPro = getSkuPro();
+            Log.i("IAB purchase SKU=" + skuPro);
 
             SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
-            builder.setSkusList(Arrays.asList(sku));
+            builder.setSkusList(Arrays.asList(skuPro));
             builder.setType(BillingClient.SkuType.INAPP);
             billingClient.querySkuDetailsAsync(builder.build(),
                     new SkuDetailsResponseListener() {
@@ -238,7 +238,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         public void onSkuDetailsResponse(@NonNull BillingResult r, List<SkuDetails> skuDetailsList) {
                             if (r.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                                 if (skuDetailsList.size() == 0)
-                                    reportError(null, "Unknown SKU=" + sku);
+                                    reportError(null, "Unknown SKU=" + skuPro);
                                 else {
                                     SkuDetails skuDetails = skuDetailsList.get(0);
                                     Log.i("IAB purchase details=" + skuDetails);
@@ -310,11 +310,17 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     private void retry(int backoff) {
         Log.i("IAB connect retry in " + backoff + " s");
 
-        new Handler().postDelayed(new Runnable() {
+        getMainHandler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (!billingClient.isReady())
-                    billingClient.startConnection(billingClientStateListener);
+                try {
+                    boolean ready = billingClient.isReady();
+                    Log.i("IAB ready=" + ready);
+                    if (!ready)
+                        billingClient.startConnection(billingClientStateListener);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         }, backoff * 1000L);
     }
@@ -475,7 +481,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     for (IBillingListener listener : listeners)
                         listener.onPurchased(purchase.getSku(), false);
                 } else
-                    reportError(result, "IAB consumed SKU=" + purchase.getSku());
+                    reportError(result, "IAB consuming SKU=" + purchase.getSku());
             }
         });
     }
