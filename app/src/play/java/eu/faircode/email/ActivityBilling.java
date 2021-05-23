@@ -225,7 +225,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             billingClient.querySkuDetailsAsync(builder.build(),
                     new SkuDetailsResponseListener() {
                         @Override
-                        public void onSkuDetailsResponse(BillingResult r, List<SkuDetails> skuDetailsList) {
+                        public void onSkuDetailsResponse(@NonNull BillingResult r, List<SkuDetails> skuDetailsList) {
                             if (r.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                                 if (skuDetailsList.size() == 0)
                                     reportError(null, "Unknown SKU=" + sku);
@@ -258,7 +258,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     private void onPurchaseCheck(Intent intent) {
         billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP, new PurchaseHistoryResponseListener() {
             @Override
-            public void onPurchaseHistoryResponse(BillingResult result, List<PurchaseHistoryRecord> records) {
+            public void onPurchaseHistoryResponse(@NonNull BillingResult result, List<PurchaseHistoryRecord> records) {
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     for (PurchaseHistoryRecord record : records)
                         Log.i("IAB history=" + record.toString());
@@ -452,7 +452,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         billingClient.querySkuDetailsAsync(builder.build(),
                 new SkuDetailsResponseListener() {
                     @Override
-                    public void onSkuDetailsResponse(BillingResult result, List<SkuDetails> skuDetailsList) {
+                    public void onSkuDetailsResponse(@NonNull BillingResult result, List<SkuDetails> skuDetailsList) {
                         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                             for (SkuDetails skuDetail : skuDetailsList) {
                                 Log.i("IAB SKU detail=" + skuDetail);
@@ -472,7 +472,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                 .build();
         billingClient.consumeAsync(params, new ConsumeResponseListener() {
             @Override
-            public void onConsumeResponse(BillingResult result, String purchaseToken) {
+            public void onConsumeResponse(@NonNull BillingResult result, @NonNull String purchaseToken) {
                 if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
                     reportError(result, "IAB consumed SKU=" + purchase.getSku());
             }
@@ -487,7 +487,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         .build();
         billingClient.acknowledgePurchase(params, new AcknowledgePurchaseResponseListener() {
             @Override
-            public void onAcknowledgePurchaseResponse(BillingResult result) {
+            public void onAcknowledgePurchaseResponse(@NonNull BillingResult result) {
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBilling.this);
                     SharedPreferences.Editor editor = prefs.edit();
