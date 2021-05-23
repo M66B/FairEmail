@@ -63,6 +63,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
     private Button btnConsume;
+    private ImageView ivConnected;
 
     private static final int HIDE_BANNER = 3; // weeks
 
@@ -73,7 +74,6 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         setHasOptionsMenu(true);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean debug = prefs.getBoolean("debug", false);
 
         View view = inflater.inflate(R.layout.fragment_pro, container, false);
 
@@ -89,8 +89,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
-
         btnConsume = view.findViewById(R.id.btnConsume);
+        ivConnected = view.findViewById(R.id.ivConnected);
 
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,8 +136,6 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
         });
 
-        ivExternal.setVisibility(Helper.isPlayStoreInstall() ? View.GONE : View.VISIBLE);
-
         tvPriceHint.setPaintFlags(tvPriceHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvPriceHint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,14 +168,19 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             }
         });
 
+        boolean play = (Helper.isPlayStoreInstall() || ActivityBilling.isTesting(getContext()));
+
         tvPending.setVisibility(View.GONE);
         tvActivated.setVisibility(View.GONE);
         cbHide.setVisibility(View.GONE);
-        btnPurchase.setEnabled(!Helper.isPlayStoreInstall());
+        btnPurchase.setEnabled(!play);
         tvPrice.setText(null);
-        tvRestoreHint.setVisibility(Helper.isPlayStoreInstall() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        ivExternal.setVisibility(play ? View.GONE : View.VISIBLE);
+        tvFamilyHint.setVisibility(play ? View.VISIBLE : View.GONE);
+        tvRestoreHint.setVisibility(play ? View.VISIBLE : View.GONE);
         btnConsume.setEnabled(false);
         btnConsume.setVisibility(ActivityBilling.isTesting(getContext()) ? View.VISIBLE : View.GONE);
+        ivConnected.setVisibility(View.GONE);
 
         return view;
     }
@@ -189,10 +192,14 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         addBillingListener(new ActivityBilling.IBillingListener() {
             @Override
             public void onConnected() {
+                ivConnected.setImageResource(R.drawable.twotone_cloud_done_24);
+                ivConnected.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onDisconnected() {
+                ivConnected.setImageResource(R.drawable.twotone_cloud_off_24);
+                ivConnected.setVisibility(View.VISIBLE);
             }
 
             @Override
