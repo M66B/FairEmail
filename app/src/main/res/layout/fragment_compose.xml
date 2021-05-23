@@ -299,13 +299,14 @@
 
                 <ImageButton
                     android:id="@+id/ibTranslate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="6dp"
                     android:background="?attr/selectableItemBackground"
-                    android:padding="12dp"
+                    android:padding="3dp"
                     android:tint="?attr/colorSeparator"
-                    app:layout_constraintBottom_toBottomOf="@id/vSeparatorBody"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etBody"
                     app:srcCompat="@drawable/outline_translate_24" />
 
                 <eu.faircode.email.FixedTextView
@@ -327,7 +328,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etBody" />
+                    app:layout_constraintTop_toBottomOf="@+id/ibTranslate" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSignature"
