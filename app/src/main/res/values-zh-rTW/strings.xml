@@ -48,9 +48,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d 則新郵件</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="other">選擇 %1$d 個會話</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">移動 %1$d 的訊息到？</item>
     </plurals>

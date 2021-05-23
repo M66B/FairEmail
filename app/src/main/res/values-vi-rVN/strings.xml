@@ -49,9 +49,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d mới</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="other">Đã chọn %1$d cuộc hội thoại</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">Di chuyển %1$d thư?</item>
     </plurals>
@@ -447,6 +444,7 @@
     <string name="title_advanced_manage_keys_hint">        Cái này sẽ mở cài đặt bảo mật của Android.
         Các mã khóa và chứng chỉ có thể nói chung được tìm thấy ở Nâng cao - Mã hóa và thông tin xác thực.
     </string>
+    <string name="title_advanced_power_menu">Thêm các hành động vào menu nguồn của Android</string>
     <string name="title_advanced_external_search">Cho phép các ứng dụng khác tìm kiếm trong thư</string>
     <string name="title_advanced_shortcuts">Hiện các liên hệ hay sử dụng trong menu chia sẻ của Android</string>
     <string name="title_advanced_fts">Xây dựng mục lục tìm kiếm</string>
@@ -959,7 +957,7 @@
     <string name="title_translate_key">Nhập mã khóa</string>
     <string name="title_translating">Đang dịch &#8230;</string>
     <string name="title_translate_small">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
-    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Sử dụng: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">Sử dụng: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Chỉnh sửa dưới dạng văn bản thường</string>
     <string name="title_edit_formatted_text">Chỉnh sửa dưới dạng văn bản được định dạng lại</string>
     <string name="title_select_certificate">Chọn mã khoá công khai</string>
@@ -1386,6 +1384,10 @@
     <string name="title_widget_title_count">Số thư mới</string>
     <string name="title_widget_title_list">Danh sách thư</string>
     <string name="title_widget_title_sync">Bật/tắt đồng bộ</string>
+    <string name="title_power_menu_sync">Đồng bộ hóa</string>
+    <string name="title_power_menu_on">Bật</string>
+    <string name="title_power_menu_off">Tắt</string>
+    <string name="title_power_menu_on_off">Bật/Tắt</string>
     <string name="title_widget_account">Tài khoản</string>
     <string name="title_widget_account_all">Tất cả</string>
     <string name="title_widget_folder">Thư mục</string>

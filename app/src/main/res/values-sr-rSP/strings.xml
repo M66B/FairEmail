@@ -53,11 +53,6 @@
         <item quantity="few">%1$d нове</item>
         <item quantity="other">%1$d нових</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Означен %1$d разговор</item>
-        <item quantity="few">Означена %1$d разговора</item>
-        <item quantity="other">Означено %1$d разговора</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Заувек обрисати %1$d поруку?</item>
         <item quantity="few">Заувек обрисати %1$d поруке?</item>

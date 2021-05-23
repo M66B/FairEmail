@@ -56,10 +56,6 @@
         <item quantity="one">%1$d nouveau</item>
         <item quantity="other">%1$d nouveaux</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d conversation sélectionnée</item>
-        <item quantity="other">%1$d conversations sélectionnées</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Déplacer %1$d message?</item>
         <item quantity="other">Déplacer %1$d messages?</item>
@@ -458,6 +454,7 @@
     <string name="title_advanced_manage_keys_hint">        Ceci va vous amener sur les paramètres de sécurité Android.
         Les clés et les certificats peuvent généralement être trouvés sous Avancé – Chiffrement et identifiants.
     </string>
+    <string name="title_advanced_power_menu">Ajouter des actions au menu alimentation d\'Android</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
     <string name="title_advanced_fts">Construire l’index de recherche</string>
@@ -971,7 +968,7 @@
     <string name="title_translate_key">Saisir la clé</string>
     <string name="title_translating">Traduction&#8230;</string>
     <string name="title_translate_small">Utiliser une petite police de caractères pour le texte source</string>
-    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Utilisation : %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">Utilisation : %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_select_certificate">Sélectionner la clé publique</string>
@@ -1398,6 +1395,10 @@
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>
     <string name="title_widget_title_sync">Sync. oui/non</string>
+    <string name="title_power_menu_sync">Synchronisation</string>
+    <string name="title_power_menu_on">Marche</string>
+    <string name="title_power_menu_off">Arrêt</string>
+    <string name="title_power_menu_on_off">Marche/Arrêt</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tous</string>
     <string name="title_widget_folder">Dossier</string>

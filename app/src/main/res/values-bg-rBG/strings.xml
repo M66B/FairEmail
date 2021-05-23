@@ -47,10 +47,6 @@
         <item quantity="one">%1$d ново</item>
         <item quantity="other">%1$d ново</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Маркиран %1$d разговор</item>
-        <item quantity="other">Маркирани %1$d разговори</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Изтъркай %1$d съобщение завинаги?</item>
         <item quantity="other">Изтъркай %1$d съобщения завинаги?</item>

@@ -56,10 +56,6 @@
         <item quantity="one">%1$d ny</item>
         <item quantity="other">%1$d nye</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d konversation valgt</item>
-        <item quantity="other">%1$d konversationer valgt</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flyt %1$d besked?</item>
         <item quantity="other">Flyt %1$d beskeder?</item>
@@ -450,6 +446,7 @@
     <string name="title_advanced_manage_keys_hint">        Dette vil åbne Android-sikkerhedsindstillingerne.
          Nøgler og certifikater kan generelt findes under Avanceret - Kryptering og akkreditiver.
     </string>
+    <string name="title_advanced_power_menu">Føj handlinger til Androids Tænd/Sluk menu</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
@@ -949,6 +946,7 @@
     <string name="title_translate_key">Angiv nøgle</string>
     <string name="title_translating">Oversætter&#8230;</string>
     <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
+    <string name="title_translate_usage">Forbrug: %1$s/%2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_select_certificate">Vælg offentlig nøgle</string>
@@ -1373,6 +1371,10 @@
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>
     <string name="title_widget_title_sync">Synk til/fra</string>
+    <string name="title_power_menu_sync">Synk</string>
+    <string name="title_power_menu_on">Til</string>
+    <string name="title_power_menu_off">Fra</string>
+    <string name="title_power_menu_on_off">Til/Fra</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Mappe</string>

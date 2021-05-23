@@ -58,12 +58,6 @@
         <item quantity="many">%1$d нових</item>
         <item quantity="other">%1$d нові</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Вибрана %1$d розмова</item>
-        <item quantity="few">Вибрано %1$d розмов</item>
-        <item quantity="many">Вибрано %1$d розмов</item>
-        <item quantity="other">Обрано %1$d розмов</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Перемістити %1$d повідомлення?</item>
         <item quantity="few">Перемістити %1$d повідомлень?</item>
@@ -468,6 +462,7 @@
     <string name="title_advanced_manage_keys_hint">        Це дозволить відкрити налаштування безпеки Android.
         Ключі та сертифікати зазвичай можна знайти в розділі Безпека та місцезнаходження - Додатково - Шифрування й облікові дані.
     </string>
+    <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
     <string name="title_advanced_external_search">Дозволити іншим програмам пошук в повідомленнях</string>
     <string name="title_advanced_shortcuts">Показувати, в меню швидкого доступу до Android, найчастіше використовувані контакти</string>
     <string name="title_advanced_fts">Побудувати індекс для пошуку</string>
@@ -977,6 +972,7 @@
     <string name="title_create_template">Створити шаблон</string>
     <string name="title_translate_configure">Налаштувати &#8230;</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
+    <string name="title_translate_usage">Використання: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Редагувати як звичайний текст</string>
     <string name="title_edit_formatted_text">Редагувати як переформатований текст</string>
     <string name="title_select_certificate">Виберіть відкритий ключ</string>
@@ -1402,6 +1398,10 @@
     <string name="title_widget_title_count">Кількість нових повідомлень</string>
     <string name="title_widget_title_list">Список повідомлень</string>
     <string name="title_widget_title_sync">Синхронізацію увімк/вимк</string>
+    <string name="title_power_menu_sync">Синхронізація</string>
+    <string name="title_power_menu_on">Увімкнено</string>
+    <string name="title_power_menu_off">Вимкнено</string>
+    <string name="title_power_menu_on_off">Увімк./Вимк.</string>
     <string name="title_widget_account">Обліковий запис</string>
     <string name="title_widget_account_all">Усі</string>
     <string name="title_widget_folder">Тека</string>

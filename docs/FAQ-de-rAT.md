@@ -205,7 +205,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(78) Wie verwende ich Zeitpläne?](#user-content-faq78)
 * [(79) Wie verwende ich Synchronisieren auf Anfrage (manuell)?](#user-content-faq79)
 * [~~(80) Wie kann ich den Fehler »Unable to load BODYSTRUCTURE« beheben?~~](#user-content-faq80)
-* [~~(81) Könnt ihr den Nachrichtenhintergrund im dunklen Modus dunkel machen?~~](#user-content-faq81)
+* [~~(81) Kann der Hintergrund der ursprünglichen Nachricht im dunklen Modus dunkel gemacht werden?~~](#user-content-faq81)
 * [(82) Was ist ein Nachverfolgungsbild?](#user-content-faq82)
 * [(84) Wozu gibt es lokale Kontakte?](#user-content-faq84)
 * [(85) Warum ist eine Identität nicht verfügbar?](#user-content-faq85)
@@ -858,7 +858,7 @@ Zuallererst: **FairEmail ist grundsätzlich kostenlos zu nutzen** und nur einige
 
 Zuerst: **FairEmail ist grundsätzlich kostenlos**, nur einige erweiterte Funktionen müssen gekauft werden.
 
-Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
+Zunächst einmal ist **FairEmail grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
 
 Bitte sehen Sie sich die Beschreibung der App im PlayStore an oder [siehe hier](https://email.faircode.eu/#pro) für eine vollständige Liste der Pro-Features.
 
@@ -1831,51 +1831,51 @@ FairEmail basiert auf den modernsten [Android-Architekturkomponenten](https://de
 
 In den Empfangseinstellungen können Sie die Terminierung aktivieren und einen Zeitraum und die Wochentage festlegen, an denen *Meldungen **empfangen* werden sollen. Beachten Sie, dass eine Endzeit, die gleich oder früher als die Startzeit ist, als 24 Stunden später angesehen wird.
 
-Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.
+Automatisierung (siehe unten) kann für erweiterte Zeitpläne verwendet werden, zum Beispiel für mehrere Synchronisationszeiträume pro Tag oder unterschiedliche Synchronisationszeiträume für verschiedeneTage.
 
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+FairEmail kann in mehreren Benutzerprofilen, zum Beispiel in einem persönlichen und einem Arbeitsprofil, installiert und in jedem dieser Profile anders konfiguriert werden, was eine weitere Möglichkeit ist, verschiedene Synchronisationspläne zu nutzen und verschidene Konten zu synchronisieren.
 
-Außerdem ist es möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Meldungen bis zum Ende der Zeitbedingung zurückzustellen. Auf diese Weise ist es möglich, dienstliche Nachrichten bis zum Beginn der Arbeitszeit *zurückzustellen*. This also means that the messages will be on your device for when there is (temporarily) no internet connection.
+Außerdem ist es möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Meldungen bis zum Ende der Zeitbedingung zurückzustellen. Auf diese Weise ist es möglich, dienstliche Nachrichten bis zum Beginn der Arbeitszeit *zurückzustellen*. Dies bedeutet auch, dass die Nachrichten auf Ihrem Gerät verfügbar sind, wenn es (vorübergehend) keine Internetverbindung gibt.
 
-Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please [see here](https://support.google.com/android/answer/9069335) for more information.
+Beachten Sie, dass aktuelle Android-Versionen DND (Do Not Disturb) pro Benachrichtigungskanal und pro App überschreiben können, was genutzt werden kann, um bestimmte (geschäftliche) Benachrichtigungen (nicht) zu blockieren. Weitere Informationen finden Sie [hier](https://support.google.com/android/answer/9069335).
 
-For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:
+Für komplexere Schemata können Sie ein oder mehrere Konten auf manuelle Synchronisierung setzen und den folgenden Befehl an FairEmail senden, um nach neuen Nachrichten zu suchen:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-For a specific account:
+Für ein bestimmtes Konto:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
 ```
 
-You can also automate turning receiving messages on and off by sending these commands to FairEmail:
+Sie können auch das Ein- und Ausschalten des Empfangs von Nachrichten automatisieren, indem Sie die folgenden Befehle an FairEmail schicken:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE
 ```
 
-To enable/disable a specific account:
+Um ein bestimmtes Konto zu aktivieren/deaktivieren:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages.
+Beachten Sie, dass das Deaktivieren eines Kontos das Konto und alle zugehörigen Ordner und Nachrichten ausblenden wird.
 
-To set the poll interval:
+Um das Abfrageintervall einzustellen:
 
 ```
 (adb shell) adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes nnn
 ```
 
-Where *nnn* is one of 0, 15, 30, 60, 120, 240, 480, 1440. A value of 0 means push messages.
+Wobei *nnn* einer von diesen ist: 0, 15, 30, 60, 120, 240, 480, 1440. Ein Wert von 0 bedeutet Push-Benachrichtigungen.
 
-You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
+Sie können Befehle automatisch senden, zum Beispiel [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
 
 ```
 Neue Aufgabe: Etwas wiedererkennbares
@@ -1884,22 +1884,22 @@ Aktion: eu.faircode.email.ENABLE
 Ziel: Service
 ```
 
-To enable/disable an account with the name *Gmail*:
+Um ein Konto mit dem Namen *Gmail* zu aktivieren/deaktivieren:
 
 ```
 Extras: Konto:Gmail
 ```
 
-Account names are case sensitive.
+Kontobezeichnung bitte Groß- und Kleinschreibung beachten.
 
-Scheduling is a pro feature.
+Plannung ist eine Pro-Funktion.
 
 <br />
 
 <a name="faq79"></a>
-**(79) How do I use synchronize on demand (manual)?**
+**(79) Wie kann ich bei Bedarf syncronisieren (Handbuch)?**
 
-Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time. If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
+Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn sie nicht wollen, zum Beispiel nicht gestört zu werden oder um Akku zu sparen, deaktivieren sie den Empfang in der Empfangseinstellungen. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 
 You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
 
@@ -1912,31 +1912,31 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq80"></a>
-**~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE' ?~~**
+**~~(80) Wie behebe ich den Fehler »Unable to load BODYSTRUCTURE« ?~~**
 
-~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~ ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
+~~Die Fehlermeldung *Unable to load BODYSTRUCTURE* wird durch Fehler im E-Mail-Server verursacht,~~ ~~Siehe [hier](https://javaee.github.io/javamail/FAQ#imapserverbug) für weitere Details.~~ ~
 
-~~FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.~~
+~~FairEmail versucht bereits, diese Fehler zu umgehen, aber falls das fehlschlägt, müssen Sie Unterstützung von Ihrem Anbieter erbitten. ~~
 
 <br />
 
 <a name="faq81"></a>
-**~~(81) Can you make the background of the original message dark in the dark theme?~~**
+**~~(81) Kann der Hintergrund der ursprünglichen Nachricht im dunklen Modus dunkel gemacht werden?~~**
 
-~~The original message is shown as the sender has sent it, including all colors.~~ ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
+~~Die ursprüngliche Nachricht wird so, wie es der Absender gesendet hat angezeigt, einschließlich aller Farben. ~ ~~~Das Ändern der Hintergrundfarbe würde nicht nur die ursprüngliche Ansicht nicht mehr original machen, sondern kann auch unlesbare Nachrichten verursachen.~~
 
 <br />
 
 <a name="faq82"></a>
-**(82) What is a tracking image?**
+**(82) Was ist ein Verfolgungsbild?**
 
-Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
+Bitte [hier](https://en.wikipedia.org/wiki/Web_beacon) nachsehen, was ein Verfolgungsbild genau ist. In kleinen Verfolgungsbildern wird festgehalten, ob Sie eine Nachricht geöffnet haben.
 
-FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+FairEmail erkennt in den meisten Fällen automatisch Verfolgungsbilder und ersetzt diese durch dieses Symbol:
 
 ![Externes Bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+Die automatische Erkennung von Verfolgungsbildern kann in den Privatsphäreneinstellungen deaktiviert werden.
 
 <br />
 
@@ -2449,7 +2449,7 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
-For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
+Für einige Hintergründe siehe [diesen Wikipedia Artikel](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 

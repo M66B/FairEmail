@@ -47,10 +47,6 @@
         <item quantity="one">%1$d جدید</item>
         <item quantity="other">%1$d جدید</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d گفتگوی انتخاب شده</item>
-        <item quantity="other">%1$d گفتگوی انتخاب شده</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">حذف همیشگی %1$d پیام؟</item>
         <item quantity="other">حذف همیشگی %1$d پیام؟</item>

@@ -122,7 +122,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 <h2><a name="frequently-requested-features"></a>Funcionalidades solicitadas frequentemente</h2>
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+O design é baseado em várias discussões e se voce quiser, pode discutir sobre isso [ nesse fórum ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)também. O objetivo do design é ser minimalista (sem menus ou botões desnecessários, etc) e sem distrações (cores extravagantes, animações, etc). Todas as coisas exibidas devem ser úteis de alguma forma e devem ser cuidadosamente posicionadas para um uso fácil. Fonts, sizes, colors, etc should be material design whenever possible.
 
 <h2><a name="frequently-asked-questions"></a>Perguntas Frequentes (FAQ)</h2>
 
@@ -287,7 +287,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
+* [(164) Você consegue adicionar temas personalizáveis?](#user-content-faq164)
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
@@ -305,10 +305,10 @@ The following Android permissions are needed:
 * *evitar que o dispositivo hiberne* (WAKE_LOCK): para manter o dispositivo ativado durante a sincronização de mensagens
 * *compras no aplicativo* (BILLING): para permitir compras no aplicativo
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
-* Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* Opcional:*leia seus contatos*(READ_CONTACTS): para completar automaticamente os endereços, para exibir fotos dos contatos e [para selecionar contatos](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Opcional:*usar o hardware de impressão digital* (USE_FINGERPRINT) e usar *hardware de biometria* (USE_BIOMETRIC): para usar autenticação biométrica
+* Opcional: *encontre contas no dispositivo*(GET_ACCOUNTS): para selecionar uma conta ao utilizar a configuração rápida do Gmail
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
@@ -342,7 +342,7 @@ FairEmail will keep a list of addresses you receive messages from and send messa
 
 A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+A maioria, se não todos, dos outros aplicativos de email não exibem a notificação com o "efeito secundário" de que novas mensagens não são frequentemente relatadas, ou são relatadas com atraso e que mensagens não são enviadas ou são enviadas com atraso.
 
 Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
@@ -357,7 +357,7 @@ Android 8 Oreo might also show a status bar notification with the text *Apps are
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Se você chegou aqui após clicar na notificação, saiba que o próximo clique irá abrir a caixa de entrada unificada.
 
 <br />
 
@@ -388,7 +388,7 @@ The low priority status bar notification shows the number of pending operations,
 * *regra*: executando uma regra no texto do corpo
 * *expunge*: permanently delete messages
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Operações são processadas somente quando existe uma conexão com o servidor do e-mail ou quando a sincronização é feita manualmente. See also [this FAQ](#user-content-faq16).
 
 <br />
 
@@ -397,11 +397,11 @@ Operations are processed only when there is a connection to the email server or 
 
 *... Untrusted ... not in certificate ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Certificado de segurança inválido (Não é possivel verificar a identidade do servidor)...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
+Isso pode ser causado pelo uso de um nome incorreto do host, então primeiro verifique o nome do host nas configurações avançadas de identidade/conta (toque na configuração manual). Consulte a documentação do provedor do e-mail sobre o nome correto do host.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Voce deve tentar corrigir isso contactando seu provedor ou obtendo um certificado de segurança válido prque certificados de segurança inválidos são inseguros e permitem[ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 
 The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
 
@@ -453,7 +453,7 @@ In the three dot overflow menu you can enable or disable or select:
 * *tamanho do texto*: para três tamanhos de texto diferentes
 * *visualização compacta*: para mensagens mais compactas e uma fonte de mensagem menor
 
-In the display section of the settings you can enable or disable for example:
+Na seção de exibição das configurações você pode habilitar ou desabilitar, por exemplo:
 
 * *Caixa de entrada unificada*: para desativar a caixa de entrada unificada e mostrar pastas distintas no lugar da caixa unificada
 * *Tabular style*: to show a linear list instead of cards

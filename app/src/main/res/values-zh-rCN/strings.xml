@@ -49,9 +49,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d则新邮件</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="other">选定了 %1$d 个会话</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">移动 %1$d 条消息吗？</item>
     </plurals>

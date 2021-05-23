@@ -56,10 +56,6 @@
         <item quantity="one">%1$d neue</item>
         <item quantity="other">%1$d neue</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d Unterhaltung ausgewählt</item>
-        <item quantity="other">%1$d Unterhaltungen ausgewählt</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">%1$d Nachricht verschieben?</item>
         <item quantity="other">%1$d Nachrichten verschieben?</item>
@@ -459,6 +455,7 @@
     <string name="title_advanced_manage_keys_hint">        Hiermit öffnen Sie die Android-Sicherheitseinstellungen.
         Schlüssel und Zertifikate sind in der Regel unter »Sicherheit &amp; Standort« ➜ »Verschlüsselung und Anmeldedaten« zu finden.
     </string>
+    <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
@@ -970,8 +967,8 @@
     <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>
     <string name="title_translating">Wird übersetzt &#8230;</string>
-    <string name="title_translate_small">Eine kleine Schriftart für den Quelltext verwenden</string>
-    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Verwendung: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_small">Kleine Schrift für den Quelltext verwenden</string>
+    <string name="title_translate_usage">Verwendung: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
@@ -1396,6 +1393,10 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
     <string name="title_widget_title_list">Nachrichtenliste</string>
     <string name="title_widget_title_sync">Sync ein/aus</string>
+    <string name="title_power_menu_sync">Synchronisation</string>
+    <string name="title_power_menu_on">Ein</string>
+    <string name="title_power_menu_off">Aus</string>
+    <string name="title_power_menu_on_off">Ein/Aus</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Ordner</string>

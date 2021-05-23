@@ -41,10 +41,6 @@
         <item quantity="one">%1$d নতুন</item>
         <item quantity="other">%1$d নতুন</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d টি নির্বাচিত কথোপকথন</item>
-        <item quantity="other">%1$d গুলো নির্বাচিত কথোপকথন</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">%1$d টি কথোপকথন সরাতে চান?</item>
         <item quantity="other">%1$d গুলো কথোপকথন সরাতে চান?</item>

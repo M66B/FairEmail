@@ -56,10 +56,6 @@
         <item quantity="one">%1$d nij</item>
         <item quantity="other">%1$d nij</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d petear is selekteare</item>
-        <item quantity="other">%1$d petearen selekteare</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Berjocht %1$d ferpleatse?</item>
         <item quantity="other">Berjochten %1$d ferpleatse?</item>

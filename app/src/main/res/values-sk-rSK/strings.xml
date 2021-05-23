@@ -70,12 +70,6 @@
         <item quantity="many">%1$d nových</item>
         <item quantity="other">%1$d nových</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Vybratá %1$d konverzácia</item>
-        <item quantity="few">Vybraté%1$d konverzácie</item>
-        <item quantity="many">Vybratých %1$d konverzácií</item>
-        <item quantity="other">Vybratých %1$d konverzácií</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Presunúť %1$d správu?</item>
         <item quantity="few">Presunúť %1$d správy?</item>

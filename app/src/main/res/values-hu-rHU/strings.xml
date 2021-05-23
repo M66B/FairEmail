@@ -55,10 +55,6 @@
         <item quantity="one">%1$d új</item>
         <item quantity="other">%1$d új</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d beszélgetés kiválasztva</item>
-        <item quantity="other">%1$d beszélgetés kiválasztva</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Áthelyezed a(z) %1$d üzenetet?</item>
         <item quantity="other">Áthelyezed a(z) %1$d üzeneteket?</item>

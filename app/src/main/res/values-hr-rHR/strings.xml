@@ -59,11 +59,6 @@
         <item quantity="few">%1$d nove</item>
         <item quantity="other">%1$d novih</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Odabran %1$d razgovor</item>
-        <item quantity="few">Odabrana %1$d razgovora</item>
-        <item quantity="other">Odabrano %1$d razgovora</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Želite li trajno izbrisati %1$d poruku?</item>
         <item quantity="few">Želite li trajno izbrisati %1$d poruke?</item>

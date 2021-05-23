@@ -51,10 +51,6 @@
         <item quantity="one">%1$d nou</item>
         <item quantity="other">%1$d noves</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">S\'han seleccionat %1$d conversa</item>
-        <item quantity="other">S\'han seleccionat %1$d converses</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Esborrar el missatge %1$d per sempre?</item>
         <item quantity="other">Esborrar els missatges %1$d per sempre?</item>

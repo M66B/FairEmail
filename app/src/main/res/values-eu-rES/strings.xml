@@ -49,10 +49,6 @@
         <item quantity="one">Berri %1$d</item>
         <item quantity="other">%1$d berri</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Elkarrizketa %1$d hautatuta</item>
-        <item quantity="other">%1$d elkarrizketa hautatuta</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Ezabatu mezu %1$d behin betiko?</item>
         <item quantity="other">Ezabatu %1$d mezu behin betiko?</item>

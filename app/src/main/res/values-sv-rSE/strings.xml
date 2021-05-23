@@ -56,10 +56,6 @@
         <item quantity="one">%1$d nytt</item>
         <item quantity="other">%1$d nya</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Vald %1$d konversation</item>
-        <item quantity="other">Valda %1$d konversationer</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flytta %1$d meddelande?</item>
         <item quantity="other">Flytta %1$d meddelanden?</item>

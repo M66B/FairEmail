@@ -35,9 +35,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">새 메일 %1$d건</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="other">%1$d개의 대화 선택됨</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">%1$d개의 메일을 이동하시겠습니까?</item>
     </plurals>
@@ -54,6 +51,8 @@
     <string name="title_block_sender_hint">        발송자 차단 시, 새 메일을 스팸함으로 이동하는 새로운 룰이 생성됩니다
         룰 생성 및 사용은 pro버전에서 사용하실 수 있습니다.
     </string>
+    <string name="title_junk_filter">로컬 스팸 필터 사용</string>
+    <string name="title_junk_filter_hint">배터리 사용량이 증가할 수 있으며 스팸 메일로 잘못 인식할 수도 있습니다.</string>
     <string name="title_notification_sending">메일 전송 중</string>
     <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
     <string name="title_notification_idle">유휴</string>
@@ -61,6 +60,7 @@
     <string name="title_notification_alert">서버 경고: \'%1$s\'</string>
     <string name="title_notification_sending_left">남은 시도 횟수: %1$d</string>
     <string name="title_notification_sending_failed">%1$s에게 전송 실패</string>
+    <string name="title_notification_redacted">수정됨: 생체 및 PIN 인증 활성화됨</string>
     <string name="title_factor_minutes">%1$d분</string>
     <string name="menu_answers">템플릿</string>
     <string name="menu_operations">작업</string>
@@ -90,9 +90,11 @@
     <string name="title_setup">설정</string>
     <string name="title_setup_help">도움말</string>
     <string name="title_setup_quick">빠른 설정</string>
+    <string name="title_setup_quick_accounts">계정 추가 및 변경</string>
     <string name="title_setup_quick_imap">메시지를 수신할 IMAP 서버</string>
     <string name="title_setup_quick_smtp">메시지를 발신할 SMTP 서버</string>
     <string name="title_setup_wizard">마법사</string>
+    <string name="title_setup_wizard_new">새 이메일 주소 받기</string>
     <string name="title_setup_account_remark">이메일 수신</string>
     <string name="title_setup_identity_remark">이메일 발신</string>
     <string name="title_setup_accounts">계정</string>
@@ -101,6 +103,7 @@
     <string name="title_setup_pop3">POP3 계정</string>
     <string name="title_setup_oauth_updated">계정 인증이 갱신되었습니다</string>
     <string name="title_setup_oauth_authorize">인증</string>
+    <string name="title_setup_select_account">계정 선택</string>
     <string name="title_setup_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_setup_manage">관리</string>
     <string name="title_setup_grant">권한 허용</string>
@@ -109,14 +112,22 @@
     <string name="title_setup_free">앱을 무료로 사용할 수 있습니까?</string>
     <string name="title_setup_permissions">권한 부여</string>
     <string name="title_setup_doze">배터리 최적화 비활성화</string>
+    <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
     <string name="title_setup_inbox">받은편지함으로 이동</string>
     <string name="title_setup_go">시작</string>
     <string name="title_setup_to_do">할 일</string>
     <string name="title_setup_done">완료</string>
     <string name="title_setup_still">여전히 해야 할 일</string>
     <string name="title_setup_error">오류</string>
+    <string name="title_setup_close">설정 닫기</string>
     <string name="title_setup_export">설정 내보내기</string>
+    <string name="title_setup_import">설정 불러오기</string>
     <string name="title_setup_password">비밀번호</string>
+    <string name="title_setup_password_repeat">비밀번호 재입력</string>
+    <string name="title_setup_password_missing">비밀번호 누락</string>
+    <string name="title_setup_password_invalid">유효하지 않은 비밀번호</string>
+    <string name="title_setup_exported">설정 내보냄</string>
+    <string name="title_setup_imported">설정 불러옴</string>
     <string name="title_setup_reorder_accounts">계정 정렬</string>
     <string name="title_setup_reorder_folders">폴더 정렬</string>
     <string name="title_reset_order">정렬 초기화</string>
@@ -140,6 +151,9 @@
     <string name="title_setup_theme_more_colors">다른 색으로 설정하고 싶습니다</string>
     <string name="title_setup_advanced">고급 설정</string>
     <string name="title_setup_options">설정</string>
+    <string name="title_setup_defaults">기본값 복원</string>
+    <string name="title_setup_reset_questions">질문 초기화</string>
+    <string name="title_advanced_hint_title">고급 설정 더보기</string>
     <string name="title_advanced_section_main">메인</string>
     <string name="title_advanced_section_synchronize">수신</string>
     <string name="title_advanced_section_send">발신</string>
@@ -148,15 +162,28 @@
     <string name="title_advanced_section_behavior">동작</string>
     <string name="title_advanced_section_privacy">개인정보</string>
     <string name="title_advanced_section_encryption">암호화</string>
+    <string name="title_advanced_section_notifications">알림</string>
     <string name="title_advanced_section_misc">기타</string>
     <string name="title_advanced_when">일시</string>
     <string name="title_advanced_schedule">일정</string>
     <string name="title_advanced_advanced">고급</string>
+    <string name="title_advanced_no_date">날짜 없는 메시지</string>
+    <string name="title_advanced_unseen">모든 읽지 않은 메시지</string>
+    <string name="title_advanced_flagged">모든 즐겨찾기 메시지</string>
+    <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
+    <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
+    <string name="title_advanced_signature_location">서명 위치</string>
+    <string name="title_advanced_signature_reply">답장 시 서명 사용</string>
+    <string name="title_advanced_signature_forward">전달 시 서명 사용</string>
+    <string name="title_advanced_discard_delete">초안이 영구적으로 삭제됩니다</string>
+    <string name="title_advanced_metered">과금 연결 사용</string>
+    <string name="title_advanced_rlah">EU 내 무제한 로밍</string>
     <string name="title_advanced_download_headers">모든 메시지 제목 다운로드</string>
     <string name="title_advanced_prefer_ip4">IPv6보다 IPv4 우선</string>
+    <string name="title_advanced_ssl_harden">강화된 SSL 연결</string>
     <string name="title_advanced_manage_connectivity">연결 관리</string>
     <string name="title_advanced_caption_general">일반</string>
     <string name="title_advanced_caption_list">목록</string>
@@ -164,16 +191,42 @@
     <string name="title_advanced_caption_message">메시지</string>
     <string name="title_advanced_caption_message_header">메시지 제목</string>
     <string name="title_advanced_caption_message_body">메시지 본문</string>
+    <string name="title_advanced_portrait2">세로 모드에서 2행 사용</string>
+    <string name="title_advanced_landscape">가로 모드에서 2열 사용</string>
     <string name="title_advanced_date_header">날짜로 묶기</string>
     <string name="title_advanced_gravatars">그라바타 표시</string>
     <string name="title_advanced_favicons">파비콘 표시</string>
     <string name="title_advanced_identicons">아이덴티콘 표시</string>
+    <string name="title_advanced_circular">둥근 아이콘 표시</string>
     <string name="title_advanced_highlight_color">강조 색</string>
     <string name="title_advanced_flags">즐겨찾기 보기</string>
+    <string name="title_advanced_preview">메시지 미리보기 표시</string>
+    <string name="title_advanced_preview_italic">메시지 미리보기를 기울임꼴로 표시</string>
     <string name="title_advanced_preview_lines">미리보기 줄 수</string>
+    <string name="title_advanced_addresses">주소 상세정보를 기본으로 펼치기</string>
+    <string name="title_advanced_text_color">글씨 색상 사용</string>
+    <string name="title_advanced_text_size">글씨 크기 사용</string>
     <string name="title_advanced_text_font">글꼴 사용</string>
+    <string name="title_advanced_text_align">글자 정렬 사용</string>
+    <string name="title_advanced_text_separators">구분선 사용</string>
+    <string name="title_advanced_parse_classes">CSS 구문 분석</string>
+    <string name="title_advanced_double_back">2번 눌러 종료</string>
+    <string name="title_advanced_conversation_actions">동작 제안 (안드로이드 10 이상)</string>
+    <string name="title_advanced_conversation_actions_replies">답장 내용 제안 (안드로이드 10 이상)</string>
+    <string name="title_advanced_language_detection">메시지 본문 언어 감지</string>
+    <string name="title_advanced_pull_refresh">아래로 당겨 새로고침</string>
     <string name="title_advanced_autoscroll">상단으로 스크롤하여 새 메시지 받기</string>
+    <string name="title_advanced_double_tap">2번 눌러 메시지를 읽음/읽지 않음으로 표시</string>
+    <string name="title_advanced_swipenav">좌우로 밀어 전후 대화로 이동</string>
+    <string name="title_advanced_volumenav">음량 상하 버튼을 눌러 전후 대화로 이동</string>
+    <string name="title_advanced_swipe_close">아래로 밀어 대화 닫기</string>
     <string name="title_advanced_undo">되돌리기 제한 시간</string>
+    <string name="title_advanced_notifications">알림 관리</string>
+    <string name="title_advanced_notifications_default">기본 채널</string>
+    <string name="title_advanced_notifications_service">수신 채널</string>
+    <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
+    <string name="title_advanced_notifications_background">메시지 동기화를 위해 백그라운드 서비스 사용</string>
+    <string name="title_advanced_notifications_background_hint">백그라운드 서비스는 안드로이드에 의해 언제든 중단될 수 있지만, 상태표시줄 알림이 없어도 구동됩니다.</string>
     <string name="title_advanced_notify_actions">알림 동작</string>
     <string name="title_advanced_notify_action_trash">삭제</string>
     <string name="title_advanced_notify_action_junk">스팸</string>
@@ -186,6 +239,14 @@
     <string name="title_advanced_notify_action_hide">숨김</string>
     <string name="title_advanced_notify_action_snooze">미루기</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
+    <string name="title_advanced_autocrypt">Autocrypt 사용</string>
+    <string name="title_advanced_encrypt_subject">제목 암호화</string>
+    <string name="title_advanced_check_certificate">전송 시 공개 키 확인</string>
+    <string name="title_advanced_manage_certificates">공개 키 관리</string>
+    <string name="title_advanced_import_key">개인 키 불러오기</string>
+    <string name="title_advanced_manage_keys">개인 키 관리</string>
+    <string name="title_advanced_power_menu">Android 전원 메뉴에 동작 추가</string>
     <string name="title_advanced_language">언어</string>
     <string name="title_advanced_language_system">시스템</string>
     <string name="title_advanced_cleanup">비우기</string>
@@ -200,9 +261,11 @@
     <string name="title_advanced_notify_action_hint">최대 3개의 동작이 표시됩니다</string>
     <string name="title_advanced_never_favorite">즐겨찾기 등록 차단</string>
     <string name="title_advanced_edit_name">이름 수정</string>
+    <string name="title_select">&#8230; 선택</string>
     <string name="title_identity_name">이름</string>
     <string name="title_optional">선택</string>
     <string name="title_recommended">추천</string>
+    <string name="title_account_linked">연결된 계정</string>
     <string name="title_account_name">계정명</string>
     <string name="title_color">색상</string>
     <string name="title_transparent">투명도</string>
@@ -223,12 +286,16 @@
     <string name="title_primary">최상</string>
     <string name="title_check">확인</string>
     <string name="title_no_name">이름 없음</string>
+    <string name="title_no_account">계정 누락</string>
+    <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_review">검토</string>
+    <string name="title_synchronize_now">지금 동기화</string>
     <string name="title_synchronize_subfolders">하위 폴더</string>
     <string name="title_synchronize_enabled">동기화</string>
     <string name="title_empty_trash">휴지통 비우기</string>
     <string name="title_empty_spam">스팸함 비우기</string>
+    <string name="title_edit_properties">속성 수정</string>
     <string name="title_edit_rules">규칙 수정</string>
     <string name="title_execute_rules">규칙 실행</string>
     <string name="title_insert_contact">주소록에 추가</string>
@@ -263,6 +330,7 @@
     <string name="title_toggle_hide">숨김 상태 전환</string>
     <string name="title_flag">즐겨찾기에 추가</string>
     <string name="title_unflag">즐겨찾기 해제</string>
+    <string name="title_set_importance">중요도 설정</string>
     <string name="title_importance_low">낮음</string>
     <string name="title_importance_normal">보통</string>
     <string name="title_importance_high">높음</string>
@@ -270,14 +338,17 @@
     <string name="title_new_message">새 메시지</string>
     <string name="title_editasnew">다른 이름으로 수정</string>
     <string name="title_share">공유</string>
+    <string name="title_event">달력에 추가</string>
     <string name="title_pin">바로가기 추가</string>
     <string name="title_print">인쇄</string>
     <string name="title_print_header">제목 인쇄</string>
     <string name="title_print_images">사진 인쇄</string>
     <string name="title_show_headers">제목 표시</string>
+    <string name="title_manage_keywords">키워드 관리</string>
     <string name="title_add_keyword">키워드 추가</string>
     <string name="title_download_all">모두 다운로드</string>
     <string name="title_save_all">모두 저장</string>
+    <string name="title_buttons">선택 버튼</string>
     <string name="title_trash">휴지통</string>
     <string name="title_copy">&#8230; 복사</string>
     <string name="title_copy_to">&#8230;으로 복사</string>
@@ -293,12 +364,17 @@
     <string name="title_no_junk">스팸 아님</string>
     <string name="title_move_to">&#8230;으로 이동</string>
     <string name="title_move_to_folder">&#8230;으로 이동</string>
+    <string name="title_report_spam">스팸으로 처리</string>
+    <string name="title_snooze">&#8230; 미루기</string>
     <string name="title_archive">보관처리</string>
     <string name="title_reply">답장</string>
     <string name="title_reply_to_sender">발신인에게 답장</string>
     <string name="title_reply_to_all">전체 회신</string>
+    <string name="title_reply_list">답장 목록</string>
     <string name="title_open_with">연결 프로그램</string>
     <string name="title_no_recorder">적합한 음성 녹음 앱을 찾지 못함</string>
+    <string name="title_ask_save">변경 사항을 저장합니까?</string>
+    <string name="title_ask_discard">초안을 삭제하시겠습니까?</string>
     <string name="title_ask_show_html_dark">어두운 테마 사용</string>
     <string name="title_need_help">도움 요청</string>
     <string name="title_download_message">&#8230; 다운로드 중</string>
@@ -308,6 +384,7 @@
     </string>
     <string name="title_compose">작성</string>
     <string name="title_submitter">발신인:</string>
+    <string name="title_delivered_to">전송됨:</string>
     <string name="title_from">발신:</string>
     <string name="title_to">수신:</string>
     <string name="title_reply_to">답장:</string>
@@ -327,6 +404,7 @@
     <string name="title_send">발신</string>
     <string name="title_send_now">지금 발신</string>
     <string name="title_send_via">전송 방법</string>
+    <string name="title_send_at">&#8230;에서 보내기</string>
     <string name="title_send_encryption">암호화</string>
     <string name="title_send_priority">우선순위</string>
     <string name="title_style">서식</string>
@@ -349,31 +427,37 @@
     <string name="title_style_font_default">기본</string>
     <string name="title_style_blockquote">긴 인용문</string>
     <string name="title_style_strikethrough">취소선</string>
+    <string name="title_style_clear">서식 지우기</string>
     <string name="title_style_link">링크 삽입</string>
     <string name="title_add_image">사진 추가</string>
     <string name="title_add_image_inline">삽입</string>
     <string name="title_add_image_attach">첨부</string>
     <string name="title_add_image_resize">크기 조정</string>
     <string name="title_add_image_select">파일 선택</string>
+    <string name="title_add_attachment">첨부파일 추가</string>
     <string name="title_attachment_file">파일 첨부</string>
     <string name="title_attachment_photo">사진 촬영</string>
     <string name="title_attachment_audio">음성 녹음</string>
     <string name="title_show_addresses">참조/숨은 참조 표시</string>
+    <string name="title_media_toolbar">미디어 도구모음</string>
+    <string name="title_insert_template">템플릿 삽입</string>
     <string name="title_translate">번역</string>
     <string name="title_translate_configure">&#8230; 구성</string>
     <string name="title_translate_key">키 입력</string>
     <string name="title_translate_small">원문을 작은 글씨로 표시</string>
-    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">사용량: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">사용량: %1$s / %2$s (%3$d %%)</string>
     <string name="title_send_plain_text">평문만</string>
     <string name="title_send_dsn">상태 보고서</string>
     <string name="title_from_missing">발신인 누락</string>
     <string name="title_draft_deleted">초안 제거됨</string>
     <string name="title_draft_saved">초안 저장됨</string>
+    <string name="title_queued">메일 전송 중</string>
     <string name="title_sign">서명</string>
     <string name="title_verify">확인</string>
     <string name="title_encrypt">암호화</string>
     <string name="title_decrypt">복호화</string>
     <string name="title_resync">재동기화</string>
+    <string name="title_reset_sign_key">서명 키 초기화</string>
     <string name="title_signature_subject">제목</string>
     <string name="title_signature_validity">유효성</string>
     <string name="title_signature_store">저장</string>
@@ -392,6 +476,7 @@
     <string name="title_search_flag_attachments">첨부파일</string>
     <string name="title_search_flag_notes">노트</string>
     <string name="title_search_flag_invite">초대</string>
+    <string name="title_search_flag_size">크기 &gt; %1$s</string>
     <string name="title_search_in">검색 위치</string>
     <string name="title_sort_on">정렬 기준</string>
     <string name="title_sort_on_time">시간</string>
@@ -420,10 +505,15 @@
     <string name="title_language_all">모두</string>
     <string name="title_previous">이전</string>
     <string name="title_next">다음</string>
+    <string name="title_edit_signature">서명 편집</string>
+    <string name="title_edit_signature_text">서명 문자</string>
     <string name="title_edit_signature_image">사진 삽입</string>
+    <string name="title_answer_caption">템플릿 수정</string>
+    <string name="title_answer_reply">답장 템플릿</string>
     <string name="title_answer_name">템플릿명</string>
     <string name="title_answer_standard">기본값</string>
     <string name="title_answer_favorite">즐겨찾기</string>
+    <string name="title_answer_hide">메뉴에서 숨기기</string>
     <string name="title_answer_text">템플릿 내용</string>
     <string name="title_answer_placeholder">자리표시자</string>
     <string name="title_rule_noop">동작 없음</string>
@@ -443,7 +533,9 @@
     <string name="title_rule_name">이름</string>
     <string name="title_rule_order">정렬</string>
     <string name="title_rule_enabled">켜짐</string>
+    <string name="title_rule_sender">발신인 포함</string>
     <string name="title_rule_attachments">첨부파일</string>
+    <string name="title_rule_header">제목 포함</string>
     <string name="title_rule_regex">정규표현식</string>
     <string name="title_rule_and">그리고</string>
     <string name="title_rule_action">동작</string>
@@ -453,6 +545,7 @@
     <string name="title_rule_template">답장 템플릿</string>
     <string name="title_rule_forward_to">전달</string>
     <string name="title_rule_folder_missing">폴더 없음</string>
+    <string name="title_rule_keyword_missing">키워드 누락</string>
     <string name="title_rule_execute">지금 실행</string>
     <string name="title_rule_check">확인</string>
     <string name="title_rule_tts_ok">설정 완료</string>
@@ -466,6 +559,8 @@
     <string name="title_legend_section_messages">메시지</string>
     <string name="title_legend_section_compose">작성</string>
     <string name="title_legend_section_keyboard">키보드</string>
+    <string name="title_legend_synchronize_on">동기화 켬</string>
+    <string name="title_legend_synchronize_off">동기화 끔</string>
     <string name="title_legend_disconnected">연결 끊김</string>
     <string name="title_legend_connecting">연결 중</string>
     <string name="title_legend_connected">연결함</string>
@@ -479,6 +574,7 @@
     <string name="title_legend_trash">휴지통</string>
     <string name="title_legend_junk">스팸</string>
     <string name="title_legend_primary">최상</string>
+    <string name="title_legend_subscribed">주시 대상</string>
     <string name="title_legend_rule">규칙 있음</string>
     <string name="title_legend_thread">대화</string>
     <string name="title_legend_draft">임시 메일 있음</string>
@@ -493,9 +589,11 @@
     <string name="title_legend_forwarded">전달함</string>
     <string name="title_legend_attachment">첨부파일</string>
     <string name="title_legend_flagged">즐겨찾기</string>
+    <string name="title_legend_contacts">주소록 관리</string>
     <string name="title_legend_view">내용 보기</string>
     <string name="title_legend_hide">내용 숨기기</string>
     <string name="title_legend_download">콘텐츠 다운로드</string>
+    <string name="title_legend_tracking_pixel">사진 추적 중</string>
     <string name="title_legend_broken_image">깨진 사진</string>
     <string name="title_legend_pick">주소록 선택</string>
     <string name="title_legend_cc">참조/숨은 참조 표시</string>
@@ -506,10 +604,12 @@
     <string name="title_legend_audio">음성 녹음</string>
     <string name="title_legend_bold">글자 굵게</string>
     <string name="title_legend_underline">글자에 밑줄</string>
+    <string name="title_legend_text_style">글씨 서식 설정</string>
     <string name="title_legend_roaming">로밍</string>
     <string name="title_legend_expander">펼치기/접기</string>
     <string name="title_legend_avatar">아바타</string>
     <string name="title_legend_show_quotes">인용 표시</string>
+    <string name="title_legend_show_junk">스팸으로 처리</string>
     <string name="title_legend_create_rule">규칙 생성</string>
     <string name="title_legend_show_images">사진 표시</string>
     <string name="title_legend_edit">편집</string>
@@ -523,6 +623,7 @@
     <string name="title_legend_enter">열기</string>
     <string name="title_legend_a">보관처리</string>
     <string name="title_legend_c">작성</string>
+    <string name="title_legend_d">휴지통 (삭제)</string>
     <string name="title_legend_n">다음</string>
     <string name="title_legend_p">이전</string>
     <string name="title_legend_r">답장</string>
@@ -547,6 +648,7 @@
     <string name="title_enabled">켜짐</string>
     <string name="title_executing">실행 중</string>
     <string name="title_completed">완료함</string>
+    <string name="title_default_changed">기본값 변경됨</string>
     <string name="title_ask_what">할 일 물어보기</string>
     <string name="title_1hour">1시간</string>
     <string name="title_1day">1일</string>
@@ -573,6 +675,7 @@
         FairEmail은 이에 대한 알림을 표시하며, Pro 기능을 구매하면 사라집니다.
     </string>
     <string name="title_boundary_retry">재시도</string>
+    <string name="title_unexpected_error">예기치 않은 오류</string>
     <string name="title_log">기록</string>
     <string name="title_auto_scroll">자동 스크롤</string>
     <string name="title_log_clear">지우기</string>
@@ -581,6 +684,10 @@
     <string name="title_debug_info">디버그 정보</string>
     <string name="title_widget_title_list">메시지 목록</string>
     <string name="title_widget_title_sync">동기화 켬/끔</string>
+    <string name="title_power_menu_sync">동기화</string>
+    <string name="title_power_menu_on">켜기</string>
+    <string name="title_power_menu_off">끄기</string>
+    <string name="title_power_menu_on_off">켜기/끄기</string>
     <string name="title_widget_account">계정</string>
     <string name="title_widget_account_all">모두</string>
     <string name="title_widget_folder">폴더</string>
@@ -610,6 +717,8 @@
     <string name="title_accessibility_scroll_down">아래로 스크롤</string>
     <string name="title_accessibility_scroll_up">위로 스크롤</string>
     <string name="title_accessibility_edit">수정</string>
+    <string name="title_accessibility_show_addresses">주소 표시</string>
+    <string name="title_accessibility_hide_addresses">주소 숨김</string>
     <string name="title_accessibility_attachment">첨부파일</string>
     <string name="title_accessibility_from">발신자</string>
     <string name="title_accessibility_to">수신</string>
@@ -634,7 +743,7 @@
     </string-array>
     <string-array name="startupNames">
         <item>통합 받은편지함</item>
-        <item>Unified folders</item>
+        <item>통합된 폴더</item>
         <item>Primary account folders</item>
         <item>계정</item>
     </string-array>
@@ -694,9 +803,14 @@
         <item>보통</item>
         <item>크게</item>
     </string-array>
+    <string-array name="signatureNames">
+        <item>본문 위에</item>
+        <item>본문 밑에</item>
+        <item>하단에</item>
+    </string-array>
     <string-array name="encryptNames">
         <item>없음</item>
-        <item>PGP sign-only</item>
+        <item>PGP 서명만</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>

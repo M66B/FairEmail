@@ -70,12 +70,6 @@
         <item quantity="many">%1$d nowych</item>
         <item quantity="other">%1$d nowych</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Wybrano %1$d okno dialogowe</item>
-        <item quantity="few">Wybrano %1$d okna dialogowe</item>
-        <item quantity="many">Wybrano %1$d okien dialogowych</item>
-        <item quantity="other">Wybrano %1$d okien dialogowych</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Przenieść %1$d wiadomość?</item>
         <item quantity="few">Przenieść %1$d wiadomości?</item>
@@ -479,6 +473,7 @@
     <string name="title_advanced_manage_keys_hint">        To przeniesie Cię do ustawień zabezpieczeń Androida.
         Klucze i certyfikaty można znaleźć w Zaawansowane - Szyfrowanie i uwierzytelnianie.
     </string>
+    <string name="title_advanced_power_menu">Dodaj akcje do menu zasilania Androida</string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
@@ -988,7 +983,11 @@
     <string name="title_insert_template">Wstaw szablon</string>
     <string name="title_create_template">Utwórz szablon</string>
     <string name="title_translate">Przetłumacz</string>
+    <string name="title_translate_configure">Konfiguruj &#8230;</string>
     <string name="title_translate_key">Wprowadź klucz</string>
+    <string name="title_translating">Tłumaczenie &#8230;</string>
+    <string name="title_translate_small">Użyj małej czcionki dla tekstu źródłowego</string>
+    <string name="title_translate_usage">Składnia: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Edytuj jako zwykły tekst</string>
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>
@@ -1414,6 +1413,10 @@
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
     <string name="title_widget_title_list">Lista wiadomości</string>
     <string name="title_widget_title_sync">Synchronizacja wł/wył</string>
+    <string name="title_power_menu_sync">Synchronizacja</string>
+    <string name="title_power_menu_on">Włącz</string>
+    <string name="title_power_menu_off">Wyłącz</string>
+    <string name="title_power_menu_on_off">Wł./Wył</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Wszystkie</string>
     <string name="title_widget_folder">Folder</string>

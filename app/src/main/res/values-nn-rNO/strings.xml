@@ -52,10 +52,6 @@
         <item quantity="one">%1$d ny</item>
         <item quantity="other">%1$d ny</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Valgt %1$d samtale</item>
-        <item quantity="other">Valgte %1$d samtaler</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flyt %1$d melding?</item>
         <item quantity="other">Flyt %1$d meldingar?</item>

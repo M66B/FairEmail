@@ -43,10 +43,6 @@
         <item quantity="one">%1$d புதிது</item>
         <item quantity="other">%1$d புதியவை</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d உரையாடல் தேர்ந்தெடுக்கப்பட்டது</item>
-        <item quantity="other">%1$d உரையாடல்கள் தேர்ந்தெடுக்கப்பட்டது</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">%1$d அஞ்சலை நகர்த்தவா?</item>
         <item quantity="other">%1$d அஞ்சல்களை நகர்த்தவா?</item>

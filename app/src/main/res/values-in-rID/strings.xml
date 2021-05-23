@@ -49,9 +49,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d terbaru</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="other">Memilih %1$d percakapan</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">Pindahkan %1$d pesan ini?</item>
     </plurals>

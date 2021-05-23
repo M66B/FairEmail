@@ -70,12 +70,6 @@
         <item quantity="many">%1$d новых</item>
         <item quantity="other">%1$d новых</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Выбран %1$d диалог</item>
-        <item quantity="few">Выбрано %1$d диалога</item>
-        <item quantity="many">Выбрано %1$d диалогов</item>
-        <item quantity="other">Выбрано %1$d диалогов</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Переместить %1$d сообщение?</item>
         <item quantity="few">Переместить %1$d сообщения?</item>
@@ -480,6 +474,7 @@
     <string name="title_advanced_manage_keys_hint">        Будут открыты настройки безопасности Android.
         Ключи и сертификаты обычно находятся в разделе \"Дополнительно\" - \"Шифрование и учётные данные\".
     </string>
+    <string name="title_advanced_power_menu">Добавить действия в меню питания Android</string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
@@ -993,7 +988,7 @@
     <string name="title_translate_key">Введите ключ</string>
     <string name="title_translating">Перевод&#8230;</string>
     <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
-    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Использование: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>
@@ -1420,6 +1415,10 @@
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>
     <string name="title_widget_title_sync">Синхронизация вкл/выкл</string>
+    <string name="title_power_menu_sync">Синхронизация</string>
+    <string name="title_power_menu_on">Вкл</string>
+    <string name="title_power_menu_off">Откл</string>
+    <string name="title_power_menu_on_off">Вкл/откл</string>
     <string name="title_widget_account">Учётная запись</string>
     <string name="title_widget_account_all">Все</string>
     <string name="title_widget_folder">Папка</string>

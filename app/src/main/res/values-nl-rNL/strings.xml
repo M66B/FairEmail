@@ -56,10 +56,6 @@
         <item quantity="one">Eén nieuw</item>
         <item quantity="other">%1$d nieuw</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Eén gesprek geselecteerd</item>
-        <item quantity="other">%1$d gesprekken geselecteerd</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Één bericht verplaatsen?</item>
         <item quantity="other">%1$d berichten verplaatsen?</item>
@@ -458,6 +454,7 @@
     <string name="title_advanced_manage_keys_hint">        Dit zal navigeren naar de Android-beveiligingsinstellingen.
         Sleutels en certificaten kunnen over het algemeen worden gevonden onder Geavanceerd - Versleuteling en gegevens.
     </string>
+    <string name="title_advanced_power_menu">Acties toevoegen aan het Android power menu</string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
@@ -971,7 +968,7 @@
     <string name="title_translate_key">Sleutel invoeren</string>
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
-    <string name="title_translate_usage" comment="title_translate_usage&#10;&#10;&lt;character count&gt; / &lt;character limit&gt; (percentage)">Gebruik: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>
@@ -1397,6 +1394,10 @@
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>
     <string name="title_widget_title_sync">Sync aan/uit</string>
+    <string name="title_power_menu_sync">Synchronisatie</string>
+    <string name="title_power_menu_on">Aan</string>
+    <string name="title_power_menu_off">Uit</string>
+    <string name="title_power_menu_on_off">Aan/Uit</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>

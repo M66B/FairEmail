@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail-haku</string>
     <string name="app_changelog">Muutosloki</string>
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimia eri tavalla kuin mihin olet tottunut.</string>
-    <string name="app_limitations">Esimerkiksi viestit muotoillaan oletusarvoisesti uudelleen turvattomien elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen on vahvistettava turvallisuuden vuoksi. Molemmat voidaan halutessaan poistaa käytöstä.</string>
+    <string name="app_limitations">Esimerkiksi viestit oletusarvoisesti uudelleenmuotoillaan turvattomien elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen on vahvistettava turvallisuuden vuoksi. Molemmat ominaisuudet voidaan haluttaessa poistaa käytöstä.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="app_cake">Liian vähän tallennustilaa jäljellä</string>
@@ -55,10 +55,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d uusi</item>
         <item quantity="other">%1$d uutta</item>
-    </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Valittuna %1$d keskustelu</item>
-        <item quantity="other">Valittuna %1$d keskustelua</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Siirrä %1$d viesti?</item>
@@ -604,7 +600,7 @@
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
     <string name="title_password_storage">Miten salasanat on tallennettu?</string>
-    <string name="title_case_sensitive">Käyttäjätunnukset ja salasanat ovat yleensä merkkikokoriippuvaisia</string>
+    <string name="title_case_sensitive">Käyttäjätunnukset ja salasanat ovat yleensä aakkoskoosta riippuvaisia</string>
     <string name="title_client_certificate">Asiakasvarmenne</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
@@ -820,7 +816,7 @@
     <string name="title_no_junk">Ei roskaposti</string>
     <string name="title_move_to">Siirrä kansioon &#8230;</string>
     <string name="title_move_to_folder">Siirrä kansioon &#8230;</string>
-    <string name="title_move_to_account">Siirrä tilillä %1$s &#8230;</string>
+    <string name="title_move_to_account">Siirrä tilille %1$s &#8230;</string>
     <string name="title_report_spam">Käsittele roskapostina</string>
     <string name="title_delete_permanently">Poista pysyvästi</string>
     <string name="title_no_undo">Ymmärrän, että tätä ei voi peruuttaa</string>
@@ -965,7 +961,11 @@
     <string name="title_insert_template">Lisää viestipohja</string>
     <string name="title_create_template">Luo viestipohja</string>
     <string name="title_translate">Käännä</string>
+    <string name="title_translate_configure">Määritä &#8230;</string>
     <string name="title_translate_key">Syötä avain</string>
+    <string name="title_translating">Käännetään &#8230;</string>
+    <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
+    <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>

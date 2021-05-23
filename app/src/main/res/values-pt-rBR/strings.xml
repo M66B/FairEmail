@@ -55,10 +55,6 @@
         <item quantity="one">%1$d nova</item>
         <item quantity="other">%1$d novas</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d conversa selecionada</item>
-        <item quantity="other">%1$d conversas selecionadas</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Mover %1$d mensagem?</item>
         <item quantity="other">Mover %1$d mensagens?</item>

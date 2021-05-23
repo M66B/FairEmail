@@ -49,9 +49,6 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d 新しい</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="other">会話 %1$d を選択</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">%1$d 件のメッセージを移動しますか？</item>
     </plurals>
@@ -446,6 +443,7 @@
     <string name="title_advanced_manage_keys_hint">        これは、Android のセキュリティ設定で開かれます。
         キーと証明書は通常、詳細設定-暗号化と認証情報にあります。
     </string>
+    <string name="title_advanced_power_menu">Androidの電源メニューにアクションを追加</string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_shortcuts">頻繁に使用される連絡先をAndroid共有メニューに表示</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
@@ -958,6 +956,7 @@
     <string name="title_translate_key">キーを入力</string>
     <string name="title_translating">翻訳中 &#8230;</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
+    <string name="title_translate_usage">使用方法: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">プレーンテキストとして編集</string>
     <string name="title_edit_formatted_text">再フォーマットされたテキストとして編集</string>
     <string name="title_select_certificate">公開鍵を選択</string>
@@ -1384,6 +1383,10 @@
     <string name="title_widget_title_count">新しいメッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>
     <string name="title_widget_title_sync">同期 オン/オフ</string>
+    <string name="title_power_menu_sync">同期</string>
+    <string name="title_power_menu_on">On</string>
+    <string name="title_power_menu_off">Off</string>
+    <string name="title_power_menu_on_off">On/Off</string>
     <string name="title_widget_account">アカウント</string>
     <string name="title_widget_account_all">全て</string>
     <string name="title_widget_folder">フォルダー</string>

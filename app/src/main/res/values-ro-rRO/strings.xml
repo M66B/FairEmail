@@ -63,11 +63,6 @@
         <item quantity="few">%1$d noi</item>
         <item quantity="other">%1$d noi</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">%1$d conversație selectată</item>
-        <item quantity="few">%1$d conversații selectate</item>
-        <item quantity="other">%1$d de conversații selectate</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Se mută %1$d mesaj?</item>
         <item quantity="few">Se mută %1$d mesaje?</item>
@@ -982,6 +977,7 @@
     <string name="title_translate_key">Introduceți cheia</string>
     <string name="title_translating">Traducere &#8230;</string>
     <string name="title_translate_small">Utilizați un font mic pentru textul sursă</string>
+    <string name="title_translate_usage">Utilizare: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Editați ca text simplu</string>
     <string name="title_edit_formatted_text">Editați ca text reformatat</string>
     <string name="title_select_certificate">Selectare cheie publică</string>

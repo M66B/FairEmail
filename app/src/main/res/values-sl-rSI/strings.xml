@@ -60,12 +60,6 @@
         <item quantity="few">%1$d nova</item>
         <item quantity="other">%1$d novih</item>
     </plurals>
-    <plurals name="title_selected_conversations">
-        <item quantity="one">Izbran je bil %1$d pogovor</item>
-        <item quantity="two">Izbrana sta bila %1$d pogovora</item>
-        <item quantity="few">Izbrani so bili %1$d-je pogovori</item>
-        <item quantity="other">Izbranih je bilo %1$d pogovorov</item>
-    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Trajno izbriši %1$d sporočilo?</item>
         <item quantity="two">Trajno izbriši %1$d sporočili?</item>
