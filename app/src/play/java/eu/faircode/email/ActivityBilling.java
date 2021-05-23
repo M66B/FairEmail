@@ -68,6 +68,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener, FragmentManager.OnBackStackChangedListener {
+    private boolean standalone = false;
     private BillingClient billingClient = null;
     private List<IBillingListener> listeners = new ArrayList<>();
 
@@ -87,6 +88,8 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     protected void onCreate(Bundle savedInstanceState, boolean standalone) {
         super.onCreate(savedInstanceState);
+
+        this.standalone = standalone;
 
         if (standalone) {
             setContentView(R.layout.activity_billing);
@@ -120,12 +123,14 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     protected void onResume() {
         super.onResume();
 
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
-        IntentFilter iff = new IntentFilter();
-        iff.addAction(ACTION_PURCHASE);
-        iff.addAction(ACTION_PURCHASE_CONSUME);
-        iff.addAction(ACTION_PURCHASE_ERROR);
-        lbm.registerReceiver(receiver, iff);
+        if (standalone) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+            IntentFilter iff = new IntentFilter();
+            iff.addAction(ACTION_PURCHASE);
+            iff.addAction(ACTION_PURCHASE_CONSUME);
+            iff.addAction(ACTION_PURCHASE_ERROR);
+            lbm.registerReceiver(receiver, iff);
+        }
 
         if (billingClient != null && billingClient.isReady())
             queryPurchases();
@@ -135,8 +140,10 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     protected void onPause() {
         super.onPause();
 
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
-        lbm.unregisterReceiver(receiver);
+        if (standalone) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+            lbm.unregisterReceiver(receiver);
+        }
     }
 
     @Override
