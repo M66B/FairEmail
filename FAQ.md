@@ -3691,7 +3691,7 @@ Unfortunately, it is not possible to hide messages on the email server too.
 
 1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
 1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
-1. In the message composer, enter some text, and in the overflow menu select *Translate*, *Configure* and paste the key
+1. In the message composer, enter some text, tap on the faint translate button, select *Configure* and paste the key
 
 You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
 

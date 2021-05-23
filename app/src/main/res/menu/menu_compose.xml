@@ -77,20 +77,6 @@
     </item>
 
     <item
-        android:id="@+id/menu_translate"
-        android:icon="@drawable/outline_translate_24"
-        android:title="@string/title_translate"
-        app:showAsAction="never">
-        <menu>
-            <group android:id="@+id/group_translate">
-                <item
-                    android:id="@+id/menu_translate_configure"
-                    android:title="@string/title_translate_configure" />
-            </group>
-        </menu>
-    </item>
-
-    <item
         android:id="@+id/menu_clear"
         android:icon="@drawable/twotone_format_clear_24"
         android:title="@string/title_style_clear"
