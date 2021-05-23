@@ -66,14 +66,12 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener, FragmentManager.OnBackStackChangedListener {
     private BillingClient billingClient = null;
-    private Map<String, SkuDetails> skuDetails = new HashMap<>();
     private List<IBillingListener> listeners = new ArrayList<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
@@ -218,15 +216,34 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     private void onPurchase(Intent intent) {
         if (Helper.isPlayStoreInstall()) {
-            BillingFlowParams.Builder flowParams = BillingFlowParams.newBuilder();
-            if (skuDetails.containsKey(getSkuPro())) {
-                Log.i("IAB purchase SKU=" + skuDetails.get(getSkuPro()));
-                flowParams.setSkuDetails(skuDetails.get(getSkuPro()));
-            }
+            String sku = getSkuPro();
+            Log.i("IAB purchase SKU=" + sku);
 
-            BillingResult result = billingClient.launchBillingFlow(this, flowParams.build());
-            if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
-                reportError(result, "IAB launch billing flow");
+            SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
+            builder.setSkusList(Arrays.asList(sku));
+            builder.setType(BillingClient.SkuType.INAPP);
+            billingClient.querySkuDetailsAsync(builder.build(),
+                    new SkuDetailsResponseListener() {
+                        @Override
+                        public void onSkuDetailsResponse(BillingResult r, List<SkuDetails> skuDetailsList) {
+                            if (r.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                                if (skuDetailsList.size() == 0)
+                                    reportError(null, "Unknown SKU=" + sku);
+                                else {
+                                    SkuDetails skuDetails = skuDetailsList.get(0);
+                                    Log.i("IAB purchase details=" + skuDetails);
+
+                                    BillingFlowParams.Builder flowParams = BillingFlowParams.newBuilder();
+                                    flowParams.setSkuDetails(skuDetails);
+
+                                    BillingResult result = billingClient.launchBillingFlow(ActivityBilling.this, flowParams.build());
+                                    if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
+                                        reportError(result, "IAB launch billing flow");
+                                }
+                            } else
+                                reportError(r, "IAB query SKUs");
+                        }
+                    });
         } else
             try {
                 Uri uri = Uri.parse(BuildConfig.PRO_FEATURES_URI +
@@ -439,7 +456,6 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                             for (SkuDetails skuDetail : skuDetailsList) {
                                 Log.i("IAB SKU detail=" + skuDetail);
-                                skuDetails.put(skuDetail.getSku(), skuDetail);
                                 for (IBillingListener listener : listeners)
                                     listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
                             }
