@@ -704,29 +704,37 @@ public class FragmentCompose extends FragmentBase {
                 if (getParagraph() == null)
                     return;
 
-                List<DeepL.Language> languages = DeepL.getTargetLanguages(getContext());
+                List<DeepL.Language> languages = DeepL.getTargetLanguages(v.getContext());
                 if (languages == null)
                     return;
 
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), v);
+                boolean canTranslate = DeepL.canTranslate(v.getContext());
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), v);
+
+                popupMenu.getMenu().add(Menu.NONE, 1, 1, R.string.title_translate_configure);
 
                 for (int i = 0; i < languages.size(); i++) {
                     DeepL.Language lang = languages.get(i);
-                    MenuItem item = popupMenu.getMenu().add(R.id.group_translate, i + 1, i + 1, lang.name)
+                    MenuItem item = popupMenu.getMenu().add(Menu.NONE, i + 2, i + 2, lang.name)
                             .setIntent(new Intent().putExtra("target", lang.target));
                     if (lang.icon != null)
                         item.setIcon(lang.icon);
+                    item.setEnabled(canTranslate);
                 }
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        onMenuTranslate(item.getIntent().getStringExtra("target"));
+                        if (item.getItemId() == 1)
+                            onMenuTranslateConfigure();
+                        else
+                            onMenuTranslate(item.getIntent().getStringExtra("target"));
                         return true;
                     }
                 });
 
-                popupMenu.showWithIcons(getContext(), v);
+                popupMenu.showWithIcons(v.getContext(), v);
             }
         });
 
@@ -913,7 +921,9 @@ public class FragmentCompose extends FragmentBase {
         grpAttachments.setVisibility(View.GONE);
         tvNoInternet.setVisibility(View.GONE);
         grpBody.setVisibility(View.GONE);
-        ibTranslate.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        ibTranslate.setVisibility(
+                BuildConfig.DEBUG && !BuildConfig.PLAY_STORE_RELEASE
+                        ? View.VISIBLE : View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
@@ -1533,16 +1543,17 @@ public class FragmentCompose extends FragmentBase {
         boolean save_drafts = prefs.getBoolean("save_drafts", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
-        String deepl_key = prefs.getString("deepl_key", null);
 
         menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
         menu.findItem(R.id.menu_image_dialog).setChecked(image_dialog);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
+
+        boolean canTranslate = DeepL.canTranslate(getContext());
         SubMenu smenu = menu.findItem(R.id.menu_translate).getSubMenu();
         for (int i = 1; i < smenu.size(); i++)
-            smenu.getItem(i).setEnabled(deepl_key != null);
+            smenu.getItem(i).setEnabled(canTranslate);
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(encrypt))

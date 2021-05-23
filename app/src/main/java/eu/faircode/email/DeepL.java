@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
 
@@ -152,6 +153,12 @@ public class DeepL {
         } finally {
             connection.disconnect();
         }
+    }
+
+    public static boolean canTranslate(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String deepl_key = prefs.getString("deepl_key", null);
+        return !TextUtils.isEmpty(deepl_key);
     }
 
     public static Integer[] getUsage(Context context) throws IOException, JSONException {
