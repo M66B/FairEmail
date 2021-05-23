@@ -92,8 +92,6 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
             Uri uri = intent.getData();
             if (uri != null && "mailto".equalsIgnoreCase(uri.getScheme())) {
-                EntityLog.log(this, "mailto=" + Log.printableString(uri.toString()));
-
                 // https://www.ietf.org/rfc/rfc2368.txt
                 MailTo mailto = MailTo.parse(uri.toString());
 
