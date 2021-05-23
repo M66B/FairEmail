@@ -253,7 +253,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swPowerMenu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                Helper.enableComponent(getContext(), ServicePowerControl.class, checked);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+                    Helper.enableComponent(getContext(), ServicePowerControl.class, checked);
             }
         });
 
@@ -944,7 +945,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+            swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
         swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
         swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
         swFts.setChecked(prefs.getBoolean("fts", false));
