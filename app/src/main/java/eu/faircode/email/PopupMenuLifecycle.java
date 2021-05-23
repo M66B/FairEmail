@@ -135,7 +135,7 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
         ImageSpan imageSpan = new ImageSpan(icon);
 
         SpannableStringBuilder ssb = new SpannableStringBuilder(menuItem.getTitle());
-        ssb.insert(0, "\uFFFC\u2003");
+        ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
         ssb.setSpan(imageSpan, 0, 1, 0);
         menuItem.setTitle(ssb);
         menuItem.setIcon(null);
