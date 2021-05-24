@@ -1052,7 +1052,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             Helper.humanReadableByteCount(data.nheap)));
 
                     tvStorageUsage.setText(getString(R.string.title_advanced_storage_usage,
-                            Helper.humanReadableByteCount(data.available),
+                            Helper.humanReadableByteCount(data.total - data.available),
                             Helper.humanReadableByteCount(data.total),
                             Helper.humanReadableByteCount(data.used)));
 

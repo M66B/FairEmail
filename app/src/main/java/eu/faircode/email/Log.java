@@ -1579,10 +1579,13 @@ public class Log {
         sb.append(String.format("Memory class: %d/%d MB/%s\r\n",
                 am.getMemoryClass(), am.getLargeMemoryClass(), Helper.humanReadableByteCount(mi.totalMem)));
 
+        long storage_available = Helper.getAvailableStorageSpace();
+        long storage_total = Helper.getTotalStorageSpace();
+        long storage_used = Helper.getSize(context.getFilesDir());
         sb.append(String.format("Storage space: %s/%s App: %s\r\n",
-                Helper.humanReadableByteCount(Helper.getAvailableStorageSpace()),
-                Helper.humanReadableByteCount(Helper.getTotalStorageSpace()),
-                Helper.humanReadableByteCount(Helper.getSize(context.getFilesDir()))));
+                Helper.humanReadableByteCount(storage_total - storage_available),
+                Helper.humanReadableByteCount(storage_total),
+                Helper.humanReadableByteCount(storage_used)));
 
         Runtime rt = Runtime.getRuntime();
         long hused = (rt.totalMemory() - rt.freeMemory()) / 1024L;
