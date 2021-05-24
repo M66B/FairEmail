@@ -1140,4 +1140,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="EWE"
+        domain="ewe\\.net,ewetel\\.net"
+        link="https://service.ewe.de/internet/faq-internet-und-telefon">
+        <imap
+            host="imap.ewe.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.ewe.net"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
