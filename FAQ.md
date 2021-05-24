@@ -2992,6 +2992,10 @@ The bounce address (=*Return-Path* header) is mostly very specific, so the email
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
+*Translate button (version 1.1600+)*
+
+Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
+
 <br />
 
 <a name="faq126"></a>

@@ -1027,7 +1027,8 @@ public class FragmentCompose extends FragmentBase {
         grpAttachments.setVisibility(View.GONE);
         tvNoInternet.setVisibility(View.GONE);
         grpBody.setVisibility(View.GONE);
-        ibTranslate.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        ibTranslate.setVisibility(
+                DeepL.isAvailable(getContext()) ? View.VISIBLE : View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
