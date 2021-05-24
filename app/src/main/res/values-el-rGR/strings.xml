@@ -1355,7 +1355,8 @@
     <string name="title_pro_feature">Αυτό είναι μία δυνατότητα της έκδοσης pro</string>
     <string name="title_pro_list">Κατάλογος δυνατοτήτων έκδοσης pro</string>
     <string name="title_pro_purchase">Αγορά</string>
-    <string name="title_pro_once">Μόνο μία φορά</string>
+    <string name="title_pro_one_time">%1$s (εφάπαξ αγορά)</string>
+    <string name="title_pro_no_play">H εφαρμογή Play Store δεν βρέθηκε</string>
     <string name="title_pro_info">Χρειάστηκαν, κυριολεκτικά, χιλιάδες ώρες για να αναπτυχθεί το FairEmail και, παρόλα αυτά, τα περισσότερα χαρακτηριστικά του προσφέρονται δωρεάν.
         Το FairEmail σέβεται απολύτως το απόρρητό σας και δεν προβάλλει διαφημίσεις ούτε χρησιμοποιεί ιχνηλάτες και αναλύσεις δεδομένων των χρηστών, για να κερδίσει χρήματα.
         Για να παραμείνει ενεργό το FairEmail και να αναπτυχθεί περαιτέρω, ορισμένες διευκολύνσεις και προχωρημένες δυνατότητες δεν προσφέρονται δωρεάν.

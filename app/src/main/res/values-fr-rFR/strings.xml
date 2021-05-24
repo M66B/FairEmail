@@ -1359,7 +1359,8 @@
     <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
     <string name="title_pro_purchase">Acheter</string>
-    <string name="title_pro_once">Une seule fois</string>
+    <string name="title_pro_one_time">%1$s (achat ponctuel)</string>
+    <string name="title_pro_no_play">Application Play Store introuvable</string>
     <string name="title_pro_info">        Développer FairEmail a pris littéralement des milliers d’heures et malgré cela, la plupart des fonctionnalités sont proposées gratuitement.
         FairEmail prend votre vie privée au sérieux, n\'affiche pas de publicités et n\'utilise pas le pistage ni l\'analyse d\'audience pour gagner de l\'argent.
         Pour maintenir et rendre FairEmail durable à long terme, certaines fonctionnalités pratiques et avancées ne sont pas gratuites.

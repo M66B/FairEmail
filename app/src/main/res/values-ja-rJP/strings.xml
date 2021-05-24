@@ -1347,7 +1347,8 @@
     <string name="title_pro_feature">これはプロ機能です</string>
     <string name="title_pro_list">プロ機能のリスト</string>
     <string name="title_pro_purchase">購入</string>
-    <string name="title_pro_once">一度だけです</string>
+    <string name="title_pro_one_time">%1$s (一回限りの支払い)</string>
+    <string name="title_pro_no_play">Playストアが見つかりませんでした</string>
     <string name="title_pro_info">FairEmailの開発には文字通り数千時間かかりましたが、それにもかかわらず、ほとんどの機能は無料で使用できます。
          FairEmailはあなたのプライバシーを真剣に受け止め、広告を表示せず、お金を稼ぐために追跡や分析を使用しません。
          FairEmailを長期的に維持およびサポートするために、いくつかの便利で高度な機能を無料で使用することはできません。

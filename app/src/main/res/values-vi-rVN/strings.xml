@@ -1348,7 +1348,8 @@
     <string name="title_pro_feature">Đây là một tính năng pro</string>
     <string name="title_pro_list">Danh sách tính năng pro</string>
     <string name="title_pro_purchase">Mua</string>
-    <string name="title_pro_once">Chỉ một lần</string>
+    <string name="title_pro_one_time">%1$s (thanh toán một lần)</string>
+    <string name="title_pro_no_play">Không tìm thấy CH Play</string>
     <string name="title_pro_info">        Việc phát triển FairEmail tốn hàng nghìn tiếng và, mặc dù thế, đa số tính năng đều miễn phí để sử dụng.
         FairEmail coi trọng sự riêng tư của bạn và không hiện quảng cáo và không sử dụng việc theo dõi hoặc phân tích để kiếm tiền.
         Để duy trì và hỗ trợ FairEmail trong dài hạn, một số tính năng tiện nghi và nâng cao không miễn phí để sử dụng.

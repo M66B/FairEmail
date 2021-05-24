@@ -1379,7 +1379,8 @@
     <string name="title_pro_feature">Это функция версии Pro</string>
     <string name="title_pro_list">Список функций Pro</string>
     <string name="title_pro_purchase">Купить</string>
-    <string name="title_pro_once">Только один раз</string>
+    <string name="title_pro_one_time">%1$s (разовая покупка)</string>
+    <string name="title_pro_no_play">Приложение Play Маркет не найдено</string>
     <string name="title_pro_info">        Разработка FairEmail занимает буквально тысячи часов и, несмотря на это, большинство функций являются бесплатными для использования.
         FairEmail серьёзно относится к вашей конфиденциальности, не показывает рекламу и не использует отслеживание или аналитику для монетизации.
         Чтобы сделать проект FairEmail устойчивым в долгосрочной перспективе, некоторые удобства и расширенные функции являются платными.

@@ -452,6 +452,7 @@
     <string name="title_advanced_ca">Asennetut CA-sertifikaatit</string>
     <string name="title_advanced_manage_keys_hint">Tämä avaa Androidin turvallisuusasetukset.
         Avaimet ja sertifikaatit löytyvät yleensä edistyneistä asetuksista kohdasta Salaus ja kirjautumistiedot.    </string>
+    <string name="title_advanced_power_menu">Lisää toimintoja Androidin virrankatkaisuvalikkoon</string>
     <string name="title_advanced_external_search">Salli muiden sovellusten hakea viesteistä</string>
     <string name="title_advanced_shortcuts">Näytä usein käytetyt yhteystiedot Androidin jakamisvalikossa</string>
     <string name="title_advanced_fts">Rakenna haun indeksi</string>
@@ -831,7 +832,7 @@
     <string name="title_reply_template">Vastaa viestipohjalla</string>
     <string name="title_move_undo">Siirretään kansioon %1$s (%2$d)</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
-    <string name="title_authentication_failed">%1$s tunnistautuminen epäonnistui</string>
+    <string name="title_authentication_failed">%1$s-tunnistautuminen epäonnistui</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>
     <string name="title_receipt_text">Tämä vastaanottokuittaus tarkoittaa, että viesti on näytetty. Ei ole varmuutta, että vastaanottaja on lukenut viestin sisällön.</string>
     <string name="title_no_answers">Vastausviestipohjia ei ole määritetty</string>
@@ -1356,7 +1357,8 @@
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
     <string name="title_pro_purchase">Osta</string>
-    <string name="title_pro_once">Vain kerran</string>
+    <string name="title_pro_one_time">%1$s (kertaluonteinen osto)</string>
+    <string name="title_pro_no_play">Play Kauppaa ei löytynyt</string>
     <string name="title_pro_info">FairEmailin kehittäminen kesti kirjaimellisesti tuhansia tunteja mutta siitä huolimatta useimmat ominaisuudet ovat ilmaisia käyttää.
         FairEmail ottaa yksityisyytesi tosissaan eikä näytä mainoksia eikä käytä seurantaa tai analytiikkaa tienataakseen rahaa.
         Jotta FairEmailin ylläpitäminen ja tukeminen olisi pitkällä aikavälillä mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
@@ -1392,6 +1394,10 @@
     <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
     <string name="title_widget_title_list">Viestilista</string>
     <string name="title_widget_title_sync">Synkronointi päälle/pois</string>
+    <string name="title_power_menu_sync">Synkronointi</string>
+    <string name="title_power_menu_on">Päällä</string>
+    <string name="title_power_menu_off">Pois päältä</string>
+    <string name="title_power_menu_on_off">Päällä/Pois päältä</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_folder">Kansio</string>

@@ -846,7 +846,6 @@
     <string name="title_pro_feature">Ово је премијум функционалност</string>
     <string name="title_pro_list">Списак премијум функционалности</string>
     <string name="title_pro_purchase">Купи</string>
-    <string name="title_pro_once">Само једном</string>
     <string name="title_pro_hint">Куповина премијум функционалности ће Вам дозволити да користите све тренутне и будуће премијум функције, и бринуће се да се апликација одржава и да буде подржана.</string>
     <string name="title_pro_pending">Куповина на чекању</string>
     <string name="title_pro_activated">Све премијум функционалности су активиране</string>

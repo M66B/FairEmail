@@ -197,6 +197,7 @@
     <string name="title_setup_still">Zbývá dokončit</string>
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_configuring">Probíhá konfigurace účtu &#8230;</string>
+    <string name="title_setup_close">Zavřít nastavení</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
     <string name="title_setup_export_do">Heslo slouží k zašifrování nastavení a je vyžadováno pro jeho zpětný import</string>
@@ -324,6 +325,7 @@
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
+    <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
@@ -471,6 +473,7 @@
     <string name="title_advanced_manage_keys_hint">        Otevře nastavení zabezpečení Androidu.
         Klíče a certifikáty lze obecně najít pod Pokročilé - Šifrování a pověření.
     </string>
+    <string name="title_advanced_power_menu">Přidat akce do menu napájení Androidu</string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
@@ -838,6 +841,7 @@
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
     <string name="title_report_spam">Považovat za nevyžádané</string>
     <string name="title_delete_permanently">Trvale smazat</string>
+    <string name="title_no_undo">Rozumím, že toto nelze vrátit zpět</string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
@@ -977,6 +981,12 @@
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_insert_template">Vložit šablonu</string>
     <string name="title_create_template">Vytvořit šablonu</string>
+    <string name="title_translate">Přeložit</string>
+    <string name="title_translate_configure">Nastavit &#8230;</string>
+    <string name="title_translate_key">Zadejte klíč</string>
+    <string name="title_translating">Překládání &#8230;</string>
+    <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
+    <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Upravit jako prostý text</string>
     <string name="title_edit_formatted_text">Upravit jako přeformátovaný text</string>
     <string name="title_select_certificate">Vybrat veřejný klíč</string>
@@ -1198,6 +1208,7 @@
     <string name="title_legend_connecting">Připojování</string>
     <string name="title_legend_connected">Připojeno</string>
     <string name="title_legend_backoff">Čekání po selhání</string>
+    <string name="title_legend_quota">Poštovní schránka je téměř plná</string>
     <string name="title_legend_executing">Provádění operací</string>
     <string name="title_legend_synchronizing">Probíhá synchronizace</string>
     <string name="title_legend_downloading">Stahování</string>
@@ -1364,7 +1375,8 @@
     <string name="title_pro_feature">Toto je Pro funkce</string>
     <string name="title_pro_list">Seznam Pro funkcí</string>
     <string name="title_pro_purchase">Koupit</string>
-    <string name="title_pro_once">Jen jednou</string>
+    <string name="title_pro_one_time">%1$s (jednorázový nákup)</string>
+    <string name="title_pro_no_play">Obchod Play nebyl nalezen</string>
     <string name="title_pro_info">        Vývoj FairEmailu trval doslova tisíce hodin a i přesto je většina funkcí k dispozici bez omezení.
         FairEmail bere vaše soukromí vážně a nezobrazuje reklamy, ani nepoužívá sledování či analytika pro získávání příjmů.
         Pro učinění FairEmailu dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně přístupné.
@@ -1400,6 +1412,10 @@
     <string name="title_widget_title_count">Počet nových zpráv</string>
     <string name="title_widget_title_list">Seznam zpráv</string>
     <string name="title_widget_title_sync">Synch. zap/vyp</string>
+    <string name="title_power_menu_sync">Synchronizace</string>
+    <string name="title_power_menu_on">Zap.</string>
+    <string name="title_power_menu_off">Vyp.</string>
+    <string name="title_power_menu_on_off">Zap./Vyp.</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všechny</string>
     <string name="title_widget_folder">Složka</string>

@@ -1359,7 +1359,8 @@
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>
     <string name="title_pro_purchase">Koop</string>
-    <string name="title_pro_once">Eenmalig</string>
+    <string name="title_pro_one_time">%1$s (eenmalige aankoop)</string>
+    <string name="title_pro_no_play">Play Store is niet gevonden</string>
     <string name="title_pro_info">         Het ontwikkelen van FairEmail kostte letterlijk duizenden uren en ondanks dat zijn de meeste functies gratis te gebruiken.
          FairEmail neemt uw privacy serieus en toont geen advertenties en gebruikt geen tracking of analyse om geld te verdienen.
          Om FairEmail op de lange termijn te onderhouden en te ondersteunen, zijn sommige gemaks- en geavanceerde functies niet gratis te gebruiken.

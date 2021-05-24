@@ -1335,7 +1335,8 @@
     <string name="title_pro_feature">Dette er en Pro-funktion</string>
     <string name="title_pro_list">Liste over Pro-funktioner</string>
     <string name="title_pro_purchase">Køb</string>
-    <string name="title_pro_once">Kun én gang</string>
+    <string name="title_pro_one_time">%1$s (engangskøb)</string>
+    <string name="title_pro_no_play">Play Butik blev ikke fundet</string>
     <string name="title_pro_info">        Udviklingen af FairEmail tog bogstaveligt talt tusindvis af timer, og på trods heraf, er de fleste af funktionerne gratis at benytte.
          FairEmail tager din datafortrolighed seriøst og viser ikke annoncer og anvender ikke tracking eller analyse mhp. profitformål.
          For at vedligeholde og supportere FairEmail i det lange løb er visse avancerede og bekvemmelighedsfunktioner ikke gratis at benytte.

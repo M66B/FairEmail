@@ -1085,7 +1085,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_pro_feature">Això es una característica Pro</string>
     <string name="title_pro_list">Llista de característiques Pro</string>
     <string name="title_pro_purchase">Comprar</string>
-    <string name="title_pro_once">Només un cop</string>
     <string name="title_pro_hint">Comprar característiques Pro et permet utilitzar tota la funcionalitat Pro actual i futura i mantindrà el desenvolupament de l\'aplicació</string>
     <string name="title_pro_pending">Compra pendent</string>
     <string name="title_pro_activated">Totes les característiques Pro estan activades</string>
