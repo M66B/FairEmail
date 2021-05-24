@@ -19,10 +19,24 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
@@ -53,6 +67,18 @@ public class DeepL {
     // curl https://api-free.deepl.com/v2/languages \
     //	-d auth_key=42c191db-21ba-9b96-2464-47a9a5e81b4a:fx \
     //	-d type=target
+
+    public static boolean isAvailable(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean experiments = prefs.getBoolean("experiments", false);
+        return (experiments && !BuildConfig.PLAY_STORE_RELEASE);
+    }
+
+    public static boolean canTranslate(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String deepl_key = prefs.getString("deepl_key", null);
+        return !TextUtils.isEmpty(deepl_key);
+    }
 
     public static List<Language> getTargetLanguages(Context context) {
         try (InputStream is = context.getAssets().open("deepl.json")) {
@@ -106,6 +132,45 @@ public class DeepL {
         }
     }
 
+    public static Pair<Integer, Integer> getParagraph(EditText etBody) {
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+        Editable edit = etBody.getText();
+
+        if (start < 0 || end < 0)
+            return null;
+
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        // Expand selection at start
+        while (start > 0 && edit.charAt(start - 1) != '\n')
+            start--;
+
+        if (start == end && end < edit.length())
+            end++;
+
+        // Expand selection at end
+        while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
+            end++;
+
+        // Trim start
+        while (start < edit.length() - 1 && edit.charAt(start) == '\n')
+            start++;
+
+        // Trim end
+        while (end > 0 && edit.charAt(end - 1) == '\n')
+            end--;
+
+        if (start < end)
+            return new Pair(start, end);
+
+        return null;
+    }
+
     public static String translate(String text, String target, Context context) throws IOException, JSONException {
         String request =
                 "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
@@ -153,18 +218,6 @@ public class DeepL {
         } finally {
             connection.disconnect();
         }
-    }
-
-    public static boolean isAvailable(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean experiments = prefs.getBoolean("experiments", false);
-        return (experiments && !BuildConfig.PLAY_STORE_RELEASE);
-    }
-
-    public static boolean canTranslate(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String deepl_key = prefs.getString("deepl_key", null);
-        return !TextUtils.isEmpty(deepl_key);
     }
 
     public static Integer[] getUsage(Context context) throws IOException, JSONException {
@@ -216,6 +269,92 @@ public class DeepL {
             this.name = name;
             this.target = target;
             this.icon = icon;
+        }
+    }
+
+    public static class FragmentDialogDeepL extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String domain = prefs.getString("deepl_domain", null);
+            String key = prefs.getString("deepl_key", null);
+            boolean small = prefs.getBoolean("deepl_small", false);
+
+            View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
+            final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
+            final EditText etDomain = view.findViewById(R.id.etDomain);
+            final EditText etKey = view.findViewById(R.id.etKey);
+            final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
+            final TextView tvUsage = view.findViewById(R.id.tvUsage);
+
+            ibInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 167, true);
+                }
+            });
+
+            etDomain.setText(domain);
+            etKey.setText(key);
+            cbSmall.setChecked(small);
+
+            tvUsage.setVisibility(View.GONE);
+
+            if (!TextUtils.isEmpty(key) &&
+                    (domain == null || domain.equals("api-free.deepl.com"))) {
+                Bundle args = new Bundle();
+                args.putString("key", key);
+
+                new SimpleTask<Integer[]>() {
+                    @Override
+                    protected Integer[] onExecute(Context context, Bundle args) throws Throwable {
+                        return DeepL.getUsage(context);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Integer[] usage) {
+                        tvUsage.setText(getString(R.string.title_translate_usage,
+                                Helper.humanReadableByteCount(usage[0]),
+                                Helper.humanReadableByteCount(usage[1]),
+                                Math.round(100f * usage[0] / usage[1])));
+                        tvUsage.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        if (BuildConfig.DEBUG)
+                            Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(this, new Bundle(), "deepl:usage");
+            }
+
+            return new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String domain = etDomain.getText().toString().trim();
+                            String key = etKey.getText().toString().trim();
+                            SharedPreferences.Editor editor = prefs.edit();
+                            if (TextUtils.isEmpty(key))
+                                editor
+                                        .remove("deepl_key")
+                                        .remove("deepl_domain");
+                            else {
+                                editor.putString("deepl_key", key);
+                                if (TextUtils.isEmpty(domain))
+                                    editor.remove("deepl_domain");
+                                else
+                                    editor.putString("deepl_domain", domain);
+                            }
+                            editor.putBoolean("deepl_small", cbSmall.isChecked());
+                            editor.apply();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
         }
     }
 }

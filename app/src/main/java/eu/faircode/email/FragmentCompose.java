@@ -705,7 +705,9 @@ public class FragmentCompose extends FragmentBase {
                 if (languages == null)
                     return;
 
-                boolean canTranslate = (DeepL.canTranslate(getContext()) && getParagraph() != null);
+                boolean canTranslate =
+                        (DeepL.canTranslate(getContext()) &&
+                                DeepL.getParagraph(etBody) != null);
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), v);
 
@@ -724,7 +726,7 @@ public class FragmentCompose extends FragmentBase {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         if (item.getItemId() == 1) {
-                            FragmentDialogDeepL fragment = new FragmentDialogDeepL();
+                            DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
                             fragment.show(getParentFragmentManager(), "deepl:configure");
                         } else {
                             String target = item.getIntent().getStringExtra("target");
@@ -737,47 +739,8 @@ public class FragmentCompose extends FragmentBase {
                 popupMenu.showWithIcons(getContext(), v);
             }
 
-            private Pair<Integer, Integer> getParagraph() {
-                int start = etBody.getSelectionStart();
-                int end = etBody.getSelectionEnd();
-                Editable edit = etBody.getText();
-
-                if (start < 0 || end < 0)
-                    return null;
-
-                if (start > end) {
-                    int tmp = start;
-                    start = end;
-                    end = tmp;
-                }
-
-                // Expand selection at start
-                while (start > 0 && edit.charAt(start - 1) != '\n')
-                    start--;
-
-                if (start == end && end < edit.length())
-                    end++;
-
-                // Expand selection at end
-                while (end > 0 && end < edit.length() && edit.charAt(end - 1) != '\n')
-                    end++;
-
-                // Trim start
-                while (start < edit.length() - 1 && edit.charAt(start) == '\n')
-                    start++;
-
-                // Trim end
-                while (end > 0 && edit.charAt(end - 1) == '\n')
-                    end--;
-
-                if (start < end)
-                    return new Pair(start, end);
-
-                return null;
-            }
-
             private void onMenuTranslate(String target) {
-                final Pair<Integer, Integer> paragraph = getParagraph();
+                final Pair<Integer, Integer> paragraph = DeepL.getParagraph(etBody);
                 if (paragraph == null)
                     return;
 
@@ -6715,92 +6678,6 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }.execute(this, args, "compose:snooze");
             }
-        }
-    }
-
-    public static class FragmentDialogDeepL extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String domain = prefs.getString("deepl_domain", null);
-            String key = prefs.getString("deepl_key", null);
-            boolean small = prefs.getBoolean("deepl_small", false);
-
-            View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
-            final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
-            final EditText etDomain = view.findViewById(R.id.etDomain);
-            final EditText etKey = view.findViewById(R.id.etKey);
-            final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
-            final TextView tvUsage = view.findViewById(R.id.tvUsage);
-
-            ibInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Helper.viewFAQ(v.getContext(), 167, true);
-                }
-            });
-
-            etDomain.setText(domain);
-            etKey.setText(key);
-            cbSmall.setChecked(small);
-
-            tvUsage.setVisibility(View.GONE);
-
-            if (!TextUtils.isEmpty(key) &&
-                    (domain == null || domain.equals("api-free.deepl.com"))) {
-                Bundle args = new Bundle();
-                args.putString("key", key);
-
-                new SimpleTask<Integer[]>() {
-                    @Override
-                    protected Integer[] onExecute(Context context, Bundle args) throws Throwable {
-                        return DeepL.getUsage(context);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Integer[] usage) {
-                        tvUsage.setText(getString(R.string.title_translate_usage,
-                                Helper.humanReadableByteCount(usage[0]),
-                                Helper.humanReadableByteCount(usage[1]),
-                                Math.round(100f * usage[0] / usage[1])));
-                        tvUsage.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (BuildConfig.DEBUG)
-                            Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(this, new Bundle(), "deepl:usage");
-            }
-
-            return new AlertDialog.Builder(context)
-                    .setView(view)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String domain = etDomain.getText().toString().trim();
-                            String key = etKey.getText().toString().trim();
-                            SharedPreferences.Editor editor = prefs.edit();
-                            if (TextUtils.isEmpty(key))
-                                editor
-                                        .remove("deepl_key")
-                                        .remove("deepl_domain");
-                            else {
-                                editor.putString("deepl_key", key);
-                                if (TextUtils.isEmpty(domain))
-                                    editor.remove("deepl_domain");
-                                else
-                                    editor.putString("deepl_domain", domain);
-                            }
-                            editor.putBoolean("deepl_small", cbSmall.isChecked());
-                            editor.apply();
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
         }
     }
 
