@@ -1123,6 +1123,40 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof IllegalArgumentException && ex.getCause() != null) {
+            for (StackTraceElement ste : ex.getCause().getStackTrace())
+                if ("android.view.textclassifier.TextClassifierImpl".equals(ste.getClassName()) &&
+                        "validateInput".equals(ste.getMethodName()))
+                    return false;
+            /*
+                java.lang.RuntimeException: An error occurred while executing doInBackground()
+                        at android.os.AsyncTask$3.done(AsyncTask.java:353)
+                        at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:383)
+                        at java.util.concurrent.FutureTask.setException(FutureTask.java:252)
+                        at java.util.concurrent.FutureTask.run(FutureTask.java:271)
+                        at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:245)
+                        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+                        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+                        at java.lang.Thread.run(Thread.java:764)
+                Caused by: java.lang.IllegalArgumentException
+                at com.android.internal.util.Preconditions.checkArgument(Preconditions.java:33)
+                        at android.view.textclassifier.TextClassifierImpl.validateInput(TextClassifierImpl.java:484)
+                        at android.view.textclassifier.TextClassifierImpl.classifyText(TextClassifierImpl.java:144)
+                        at android.widget.SelectionActionModeHelper$TextClassificationHelper.classifyText(SelectionActionModeHelper.java:465)
+                        at android.widget.SelectionActionModeHelper.-android_widget_SelectionActionModeHelper-mthref-1(SelectionActionModeHelper.java:83)
+                        at android.widget.-$Lambda$tTszxdFZ0V9nXhnBpPsqeBMO0fw$5.$m$0(Unknown:4)
+                        at android.widget.-$Lambda$tTszxdFZ0V9nXhnBpPsqeBMO0fw$5.get(Unknown)
+                        at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.doInBackground(SelectionActionModeHelper.java:366)
+                        at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.doInBackground(SelectionActionModeHelper.java:361)
+                        at android.os.AsyncTask$2.call(AsyncTask.java:333)
+                        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+                        at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:245)
+                        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+                        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+                        at java.lang.Thread.run(Thread.java:764)
+             */
+        }
+
         if (ex instanceof NullPointerException &&
                 stack.length > 0 &&
                 "view.AccessibilityInteractionController".equals(stack[0].getClassName()) &&
