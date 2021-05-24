@@ -111,8 +111,10 @@ public class ContactInfo {
     private static final long CACHE_GRAVATAR_DURATION = 2 * 60 * 60 * 1000L; // milliseconds
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
 
+    // https://css-tricks.com/prefetching-preloading-prebrowsing/
+    // https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
     private static final List<String> REL_EXCLUDE = Collections.unmodifiableList(Arrays.asList(
-            "dns-prefetch", "preconnect", "prefetch", "preload", "prerender"
+            "dns-prefetch", "preconnect", "prefetch", "preload", "prerender", "subresource"
     ));
 
     private ContactInfo() {
@@ -554,7 +556,6 @@ public class ContactInfo {
 
         List<Future<Bitmap>> futures = new ArrayList<>();
         for (Element img : imgs) {
-            // https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
             String rel = img.attr("rel").trim().toLowerCase(Locale.ROOT);
             if (REL_EXCLUDE.contains(rel)) // dns-prefetch: gmx.net
                 continue;
