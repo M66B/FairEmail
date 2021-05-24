@@ -2992,6 +2992,8 @@ The bounce address (=*Return-Path* header) is mostly very specific, so the email
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
 
+<br />
+
 *Translate button (version 1.1600+)*
 
 Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
@@ -3694,6 +3696,7 @@ Unfortunately, it is not possible to hide messages on the email server too.
 <a name="faq167"></a>
 **(167) How can I use DeepL?**
 
+1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
 1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
 1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
 1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
