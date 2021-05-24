@@ -98,6 +98,8 @@ public class Widget extends AppWidgetProvider {
                     }
 
                     TupleMessageStats stats = db.message().getWidgetUnseen(account < 0 ? null : account);
+                    EntityLog.log(context, "Widget account=" + account + " ignore=" + unseen_ignored + " " + stats);
+
                     Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
                     if (unseen == null)
                         unseen = 0;
