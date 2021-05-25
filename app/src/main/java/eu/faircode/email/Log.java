@@ -1098,6 +1098,30 @@ public class Log {
              */
         }
 
+        if (ex instanceof StringIndexOutOfBoundsException) {
+            for (StackTraceElement ste : stack)
+                if ("android.widget.Editor$SuggestionsPopupWindow".equals(ste.getClassName()) &&
+                        "highlightTextDifferences".equals(ste.getMethodName()))
+                    return false;
+            /*
+                Android 7.0 Samsung
+                java.lang.StringIndexOutOfBoundsException: length=175; regionStart=174; regionLength=7
+                  at java.lang.String.substring(String.java:1931)
+                  at android.widget.Editor$SuggestionsPopupWindow.highlightTextDifferences(Editor.java:4002)
+                  at android.widget.Editor$SuggestionsPopupWindow.updateSuggestions(Editor.java:3933)
+                  at android.widget.Editor$SuggestionsPopupWindow.show(Editor.java:3836)
+                  at android.widget.Editor.replace(Editor.java:428)
+                  at android.widget.Editor$3.run(Editor.java:2362)
+                  at android.os.Handler.handleCallback(Handler.java:751)
+                  at android.os.Handler.dispatchMessage(Handler.java:95)
+                  at android.os.Looper.loop(Looper.java:154)
+                  at android.app.ActivityThread.main(ActivityThread.java:6780)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1500)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1390)
+               */
+        }
+
         if (ex instanceof IllegalArgumentException &&
                 stack.length > 0 &&
                 "android.text.method.WordIterator".equals(stack[0].getClassName()) &&
