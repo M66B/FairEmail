@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_help"
-        android:icon="@drawable/twotone_help_24"
-        android:title=""
+        android:id="@+id/menu_info"
+        android:icon="@drawable/twotone_info_24"
+        android:title="@string/title_info"
         app:showAsAction="always" />
 
     <item

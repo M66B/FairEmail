@@ -112,8 +112,8 @@ public class FragmentOperations extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_help) {
-            onMenuHelp();
+        if (itemId == R.id.menu_info) {
+            onMenuInfo();
             return true;
         } else if (itemId == R.id.menu_delete) {
             new FragmentDialogDelete().show(getParentFragmentManager(), "operations:delete");
@@ -122,7 +122,7 @@ public class FragmentOperations extends FragmentBase {
         return super.onOptionsItemSelected(item);
     }
 
-    private void onMenuHelp() {
+    private void onMenuInfo() {
         Helper.viewFAQ(getContext(), 3);
     }
 
