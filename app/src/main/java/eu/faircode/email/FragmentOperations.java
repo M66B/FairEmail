@@ -88,7 +88,8 @@ public class FragmentOperations extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         // Observe folders
-        DB.getInstance(getContext()).operation().liveOperations().observe(getViewLifecycleOwner(), new Observer<List<TupleOperationEx>>() {
+        DB db = DB.getInstance(getContext());
+        db.operation().liveOperations().observe(getViewLifecycleOwner(), new Observer<List<TupleOperationEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleOperationEx> operations) {
                 if (operations == null)
@@ -104,7 +105,7 @@ public class FragmentOperations extends FragmentBase {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_operations, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
