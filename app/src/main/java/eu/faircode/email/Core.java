@@ -2617,7 +2617,7 @@ class Core {
                             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
                 }
             } else {
-                int old = db.message().deleteMessagesBefore(folder.id, keep_time, delete_unseen);
+                int old = db.message().deleteMessagesBefore(folder.id, sync_time, keep_time, delete_unseen);
                 Log.i(folder.name + " local old=" + old);
             }
 

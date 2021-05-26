@@ -862,11 +862,11 @@ public interface DaoMessage {
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
-            " AND received < :before" +
+            " AND received < :keep_time" +
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
-            " AND stored < :before" + // moved, browsed
+            " AND stored < :sync_time" + // moved, browsed
             " AND ui_snoozed IS NULL")
-    int deleteMessagesBefore(long folder, long before, boolean unseen);
+    int deleteMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
 }
