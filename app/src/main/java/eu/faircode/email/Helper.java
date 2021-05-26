@@ -1655,7 +1655,37 @@ public class Helper {
                 }
             });
 
-            dialog.show();
+            try {
+                dialog.show();
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    java.lang.RuntimeException: Unable to start activity ComponentInfo{eu.faircode.email/eu.faircode.email.ActivityMain}: java.lang.RuntimeException: InputChannel is not initialized.
+                      at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:3477)
+                      at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:3620)
+                      at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:83)
+                      at android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:135)
+                      at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:95)
+                      at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2183)
+                      at android.os.Handler.dispatchMessage(Handler.java:107)
+                      at android.os.Looper.loop(Looper.java:241)
+                      at android.app.ActivityThread.main(ActivityThread.java:7604)
+                      at java.lang.reflect.Method.invoke(Native Method)
+                      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:492)
+                      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:941)
+                    Caused by: java.lang.RuntimeException: InputChannel is not initialized.
+                      at android.view.InputEventReceiver.nativeInit(Native Method)
+                      at android.view.InputEventReceiver.<init>(InputEventReceiver.java:71)
+                      at android.view.ViewRootImpl$WindowInputEventReceiver.<init>(ViewRootImpl.java:7758)
+                      at android.view.ViewRootImpl.setView(ViewRootImpl.java:1000)
+                      at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:393)
+                      at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:95)
+                      at android.app.Dialog.show(Dialog.java:342)
+                      at eu.faircode.email.Helper.authenticate(SourceFile:15)
+                      at eu.faircode.email.ActivityMain.onCreate(SourceFile:24)
+                      at android.app.Activity.performCreate(Activity.java:7822)
+                 */
+            }
         }
     }
 
