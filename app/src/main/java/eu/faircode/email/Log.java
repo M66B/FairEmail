@@ -739,6 +739,29 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof IllegalArgumentException &&
+                "Can't interpolate between two incompatible pathData".equals(ex.getMessage()))
+            /*
+                java.lang.IllegalArgumentException: Can't interpolate between two incompatible pathData
+                  at android.animation.AnimatorInflater$PathDataEvaluator.evaluate(AnimatorInflater.java:265)
+                  at android.animation.AnimatorInflater$PathDataEvaluator.evaluate(AnimatorInflater.java:262)
+                  at android.animation.KeyframeSet.getValue(KeyframeSet.java:210)
+                  at android.animation.PropertyValuesHolder.calculateValue(PropertyValuesHolder.java:1018)
+                  at android.animation.ValueAnimator.animateValue(ValueAnimator.java:1341)
+                  at android.animation.ObjectAnimator.animateValue(ObjectAnimator.java:986)
+                  at android.animation.ValueAnimator.animateBasedOnTime(ValueAnimator.java:1258)
+                  at android.animation.ValueAnimator.doAnimationFrame(ValueAnimator.java:1306)
+                  at android.animation.AnimationHandler.doAnimationFrame(AnimationHandler.java:146)
+                  at android.animation.AnimationHandler.-wrap2(AnimationHandler.java)
+                  at android.animation.AnimationHandler$1.doFrame(AnimationHandler.java:54)
+                  at android.view.Choreographer$CallbackRecord.run(Choreographer.java:925)
+                  at android.view.Choreographer.doCallbacks(Choreographer.java:702)
+                  at android.view.Choreographer.doFrame(Choreographer.java:635)
+                  at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:913)
+                  at android.os.Handler.handleCallback(Handler.java:751)
+             */
+            return false;
+
         if (ex instanceof IllegalMonitorStateException)
             /*
                 java.lang.IllegalMonitorStateException
