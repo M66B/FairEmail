@@ -130,6 +130,8 @@ import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SentDateTerm;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
@@ -4072,6 +4074,9 @@ class Core {
                             " sort=" + notification.getSortKey());
                     try {
                         nm.notify(tag, 1, notification);
+                        // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
+                        if (id == 0 && Helper.isXiaomi())
+                            ShortcutBadger.applyNotification(context, notification, current);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
