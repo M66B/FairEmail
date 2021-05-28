@@ -480,7 +480,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                     : R.color.lightColorBackground_cards));
         }
 
-        swAlertOnce.setVisibility(Log.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        swAlertOnce.setVisibility(Helper.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         // https://developer.android.com/training/notify-user/group
         tvNoGrouping.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
