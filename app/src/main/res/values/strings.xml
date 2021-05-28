@@ -1405,6 +1405,8 @@
     <string name="title_legend_view">View content</string>
     <string name="title_legend_hide">Hide content</string>
     <string name="title_legend_download">Download content</string>
+    <string name="title_legend_original">View original message</string>
+    <string name="title_legend_reformatted">View reformatted message</string>
     <string name="title_legend_external_image">External image placeholder</string>
     <string name="title_legend_embedded_image">Embedded image placeholder</string>
     <string name="title_legend_tracking_pixel">Tracking image</string>

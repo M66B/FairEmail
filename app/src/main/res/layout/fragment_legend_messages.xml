@@ -633,13 +633,57 @@
             app:layout_constraintTop_toTopOf="@id/ivUnsubscribe" />
 
         <ImageView
+            android:id="@+id/ivOriginal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_view"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivUnsubscribe"
+            app:srcCompat="@drawable/twotone_fullscreen_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvOriginal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_original"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivOriginal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivOriginal"
+            app:layout_constraintTop_toTopOf="@id/ivOriginal" />
+
+        <ImageView
+            android:id="@+id/ivReformatted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_hide"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivOriginal"
+            app:srcCompat="@drawable/twotone_fullscreen_exit_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvReformatted"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_reformatted"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivReformatted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivReformatted"
+            app:layout_constraintTop_toTopOf="@id/ivReformatted" />
+
+        <ImageView
             android:id="@+id/ivExternalImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_external_image"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivUnsubscribe"
+            app:layout_constraintTop_toBottomOf="@id/ivReformatted"
             app:srcCompat="@drawable/twotone_image_24" />
 
         <eu.faircode.email.FixedTextView
