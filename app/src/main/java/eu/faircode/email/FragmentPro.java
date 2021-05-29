@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -292,10 +293,11 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     }
 
     private void onMenuResponse() {
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_response, null);
+        final Context context = getContext();
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_response, null);
         final EditText etResponse = dview.findViewById(R.id.etResponse);
 
-        new AlertDialog.Builder(getContext())
+        new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -305,13 +307,13 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                             int q = response.indexOf("?response=");
                             if (q > 0)
                                 response = response.substring(q + 10);
-                            if (ActivityBilling.activatePro(getContext(), response))
-                                ToastEx.makeText(getContext(), R.string.title_pro_valid, Toast.LENGTH_LONG).show();
+                            if (ActivityBilling.activatePro(context, response))
+                                ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
                             else
-                                ToastEx.makeText(getContext(), R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                                ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
                         } catch (Throwable ex) {
                             Log.e(ex);
-                            ToastEx.makeText(getContext(), Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                            ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
                         }
                     }
                 })
