@@ -1306,7 +1306,10 @@ public class MessageHelper {
     }
 
     Address[] getSender() throws MessagingException {
-        return getAddressHeader("Sender");
+        Address[] sender = getAddressHeader("X-Google-Original-From");
+        if (sender == null)
+            sender = getAddressHeader("Sender");
+        return sender;
     }
 
     Address[] getFrom() throws MessagingException {
