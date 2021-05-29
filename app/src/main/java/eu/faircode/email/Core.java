@@ -3889,6 +3889,7 @@ class Core {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean badge = prefs.getBoolean("badge", true);
         boolean notify_background_only = prefs.getBoolean("notify_background_only", false);
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
@@ -4075,7 +4076,7 @@ class Core {
                     try {
                         nm.notify(tag, 1, notification);
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
-                        if (id == 0 && Helper.isXiaomi())
+                        if (id == 0 && badge && Helper.isXiaomi())
                             ShortcutBadger.applyNotification(context, notification, current);
                     } catch (Throwable ex) {
                         Log.w(ex);
