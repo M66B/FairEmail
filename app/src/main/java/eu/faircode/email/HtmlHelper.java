@@ -1026,10 +1026,22 @@ public class HtmlHelper {
             if (alt.length() > MAX_ALT)
                 alt = alt.substring(0, MAX_ALT) + "…";
 
-            if (!show_images && !(inline_images && isInline) && !TextUtils.isEmpty(alt))
-                if (TextUtils.isEmpty(tracking))
-                    img.appendText("[" + alt + "]");
-                else {
+            if (!show_images && !(inline_images && isInline))
+                if (TextUtils.isEmpty(tracking)) {
+                    if (TextUtils.isEmpty(alt)) {
+                        boolean linked = false;
+                        Element p = img.parent();
+                        while (p != null && !linked)
+                            if ("a".equals(p.tagName()))
+                                linked = true;
+                            else
+                                p = p.parent();
+                        if (linked)
+                            alt = context.getString(R.string.title_image_link);
+                    }
+                    if (!TextUtils.isEmpty(alt))
+                        img.appendText("[" + alt + "]");
+                } else if (!TextUtils.isEmpty(alt)) {
                     Element a = document.createElement("a");
                     a.attr("href", tracking);
                     a.text("[" + alt + "]");

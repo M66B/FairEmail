@@ -1474,6 +1474,7 @@
     <string name="title_hint_eml">This is a summary of the content of a raw message file. Save the raw message with the save icon in the action bar to view all content.</string>
 
     <string name="title_open_link">Open link</string>
+    <string name="title_image_link">Image link</string>
     <string name="title_different_link">The title and the link address are different</string>
     <string name="title_tracking_link">This website might track you</string>
     <string name="title_suspicious_link">This is a suspicious link</string>
