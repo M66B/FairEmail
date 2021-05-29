@@ -222,19 +222,18 @@ public class MessageHelper {
             String email = ((InternetAddress) message.from[0]).getAddress();
             String name = ((InternetAddress) message.from[0]).getPersonal();
             if (identity != null && identity.sender_extra &&
-                    identity.email.contains("@") &&
-                    email != null &&
-                    email.contains("@") &&
-                    message.extra != null &&
-                    !message.extra.equals(identity.email.split("@")[0])) {
+                    email != null && message.extra != null) {
                 int at = email.indexOf('@');
-                if (message.extra.length() > 1 && message.extra.startsWith("+"))
-                    email = email.substring(0, at) + message.extra + email.substring(at);
-                else
-                    email = message.extra + email.substring(at);
-                if (!identity.sender_extra_name)
-                    name = null;
-                Log.i("extra=" + email);
+                String username = identity.email.split("@")[0];
+                if (at > 0 && !message.extra.equals(username)) {
+                    if (message.extra.length() > 1 && message.extra.startsWith("+"))
+                        email = email.substring(0, at) + message.extra + email.substring(at);
+                    else
+                        email = message.extra + email.substring(at);
+                    if (!identity.sender_extra_name)
+                        name = null;
+                    Log.i("extra=" + email);
+                }
             }
             imessage.setFrom(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
         }
