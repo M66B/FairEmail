@@ -228,7 +228,10 @@ public class MessageHelper {
                     message.extra != null &&
                     !message.extra.equals(identity.email.split("@")[0])) {
                 int at = email.indexOf('@');
-                email = message.extra + email.substring(at);
+                if (message.extra.length() > 1 && message.extra.startsWith("+"))
+                    email = email.substring(0, at) + message.extra + email.substring(at);
+                else
+                    email = message.extra + email.substring(at);
                 if (!identity.sender_extra_name)
                     name = null;
                 Log.i("extra=" + email);
