@@ -20,7 +20,7 @@
         android:id="@+id/subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="middle"
+        android:ellipsize="start"
         android:singleLine="true"
         android:text="Subtitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
