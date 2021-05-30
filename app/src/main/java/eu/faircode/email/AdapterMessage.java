@@ -2029,12 +2029,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         continue;
                     int at = from.indexOf('@');
                     String domain = (at < 0 ? from : from.substring(at));
-                    if (prefs.getBoolean(from + ".show_full", false) ||
+                    if (message.show_full ||
+                            prefs.getBoolean(from + ".show_full", false) ||
                             prefs.getBoolean(domain + ".show_full", false)) {
                         properties.setValue("full", message.id, true);
                         properties.setValue("full_asked", message.id, true);
                     }
-                    if (prefs.getBoolean(from + ".show_images", false) ||
+                    if (message.show_images ||
+                            prefs.getBoolean(from + ".show_images", false) ||
                             prefs.getBoolean(domain + ".show_images", false)) {
                         properties.setValue("images", message.id, true);
                         properties.setValue("images_asked", message.id, true);
@@ -3809,10 +3811,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 properties.setValue(full ? "full" : "images", message.id, !current);
-                if (full)
-                    onShowFullConfirmed(message);
-                else
-                    onShowImagesConfirmed(message);
+                onShowConfirmed(message, full, !current);
+
                 return;
             }
 
@@ -3917,10 +3917,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
                             editor.apply();
 
-                            if (full)
-                                onShowFullConfirmed(message);
-                            else
-                                onShowImagesConfirmed(message);
+                            onShowConfirmed(message, full, true);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
@@ -3947,17 +3944,48 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
         }
 
-        private void onShowFullConfirmed(final TupleMessageEx message) {
-            properties.setSize(message.id, null);
-            properties.setHeight(message.id, null);
-            properties.setPosition(message.id, null);
+        private void onShowConfirmed(final TupleMessageEx message, boolean full, boolean value) {
+            if (full)
+                message.show_full = value;
+            else
+                message.show_images = value;
 
-            setupTools(message, false, false);
-            bindBody(message, false);
-        }
+            if (full) {
+                properties.setSize(message.id, null);
+                properties.setHeight(message.id, null);
+                properties.setPosition(message.id, null);
 
-        private void onShowImagesConfirmed(TupleMessageEx message) {
+                setupTools(message, false, false);
+            }
+
             bindBody(message, false);
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putBoolean("full", full);
+            args.putBoolean("value", value);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    boolean full = args.getBoolean("full");
+                    boolean value = args.getBoolean("value");
+
+                    DB db = DB.getInstance(context);
+                    if (full)
+                        db.message().setMessageShowFull(id, value);
+                    else
+                        db.message().setMessageShowImages(id, value);
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:full");
         }
 
         private void onActionOpenFull(final TupleMessageEx message) {
@@ -5756,6 +5784,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("ui_unsnoozed changed", next.id);
                 }
+                // show_images
+                // show_full
                 if (!Objects.equals(prev.color, next.color)) {
                     same = false;
                     log("color changed", next.id);

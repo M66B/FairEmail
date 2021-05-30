@@ -220,6 +220,10 @@ public class EntityMessage implements Serializable {
     public Long ui_snoozed;
     @NonNull
     public Boolean ui_unsnoozed = false;
+    @NonNull
+    public Boolean show_images = false;
+    @NonNull
+    public Boolean show_full = false;
     public Integer color;
     public Integer revision; // compose
     public Integer revisions; // compose
@@ -552,6 +556,8 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.ui_busy, other.ui_busy) &&
                     Objects.equals(this.ui_snoozed, other.ui_snoozed) &&
                     this.ui_unsnoozed.equals(other.ui_unsnoozed) &&
+                    this.show_images.equals(other.show_images) &&
+                    this.show_full.equals(other.show_full) &&
                     Objects.equals(this.color, other.color) &&
                     Objects.equals(this.revision, other.revision) &&
                     Objects.equals(this.revisions, other.revisions) &&

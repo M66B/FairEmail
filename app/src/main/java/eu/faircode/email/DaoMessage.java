@@ -790,6 +790,12 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_unsnoozed = :unsnoozed WHERE id = :id AND NOT (ui_unsnoozed IS :unsnoozed)")
     int setMessageUnsnoozed(long id, boolean unsnoozed);
 
+    @Query("UPDATE message SET show_images = :show_images WHERE id = :id AND NOT (show_images IS :show_images)")
+    int setMessageShowImages(long id, boolean show_images);
+
+    @Query("UPDATE message SET show_full = :show_full WHERE id = :id AND NOT (show_full IS :show_full)")
+    int setMessageShowFull(long id, boolean show_full);
+
     @Query("UPDATE message SET notifying = 0 WHERE NOT (notifying IS 0)")
     int clearNotifyingMessages();
 
