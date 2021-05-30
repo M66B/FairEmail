@@ -5782,8 +5782,15 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void run() {
                 try {
-                    if (target instanceof EditText && s >= 0)
-                        ((EditText) target).setSelection(s, e < 0 ? s : e);
+                    if (target instanceof EditText) {
+                        EditText et = (EditText) target;
+                        int len = et.length();
+                        if (s >= 0 && s <= len && e <= len)
+                            if (e < 0)
+                                et.setSelection(s);
+                            else
+                                et.setSelection(s, e);
+                    }
 
                     target.requestFocus();
 
