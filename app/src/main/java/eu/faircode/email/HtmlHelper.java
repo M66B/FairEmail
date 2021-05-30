@@ -682,8 +682,7 @@ public class HtmlHelper {
                             if (element.parent() != null && !display_hidden) {
                                 Float s = getFontSize(value, 1.0f);
                                 if (s != null && s == 0) {
-                                    if (!"table".equals(element.tagName()) ||
-                                            !"fixed".equals(kv.get("table-layout"))) {
+                                    if (!"table".equals(element.tagName())) {
                                         Log.i("Removing no height/width " + element.tagName());
                                         element.remove();
                                     }
