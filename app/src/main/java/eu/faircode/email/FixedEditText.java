@@ -201,7 +201,7 @@ public class FixedEditText extends AppCompatEditText {
               at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.doInBackground(SelectionActionModeHelper.java:567)
               at android.os.AsyncTask$2.call(AsyncTask.java:333)
          */
-        if (BuildConfig.DEBUG || Helper.isSamsung())
+        if (BuildConfig.DEBUG /*|| Helper.isSamsung()*/)
             return TextClassifier.NO_OP;
         else
             return super.getTextClassifier();
