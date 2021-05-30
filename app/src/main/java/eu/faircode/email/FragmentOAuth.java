@@ -24,9 +24,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -242,7 +244,18 @@ public class FragmentOAuth extends FragmentBase {
             hideError();
 
             final Context context = getContext();
+            PackageManager pm = context.getPackageManager();
             EmailProvider provider = EmailProvider.getProvider(context, id);
+
+            int flags = PackageManager.GET_RESOLVED_FILTER;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                flags |= PackageManager.MATCH_ALL;
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"));
+            List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
+            EntityLog.log(context, "Browsers=" + (ris == null ? null : ris.size()));
+            if (ris != null)
+                for (ResolveInfo ri : ris)
+                    EntityLog.log(context, "Browser=" + ri.activityInfo.packageName);
 
             AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
                     .setBrowserMatcher(new BrowserMatcher() {
@@ -322,7 +335,7 @@ public class FragmentOAuth extends FragmentBase {
                 Log.e(ex);
                 throw new ActivityNotFoundException("Browser not found");
             }
-            PackageManager pm = context.getPackageManager();
+
             if (authIntent.resolveActivity(pm) == null) // action whitelisted
                 throw new ActivityNotFoundException(authIntent.toString());
             else
