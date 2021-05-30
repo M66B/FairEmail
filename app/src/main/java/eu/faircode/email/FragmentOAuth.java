@@ -241,7 +241,8 @@ public class FragmentOAuth extends FragmentBase {
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
 
-            EmailProvider provider = EmailProvider.getProvider(getContext(), id);
+            final Context context = getContext();
+            EmailProvider provider = EmailProvider.getProvider(context, id);
 
             AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
                     .setBrowserMatcher(new BrowserMatcher() {
@@ -254,7 +255,7 @@ public class FragmentOAuth extends FragmentBase {
                                     VersionRange.atMost("5.3"));
                             boolean accept = (!sbrowser.matches(descriptor) &&
                                     (!"gmail".equals(provider.id) || !descriptor.useCustomTab));
-                            EntityLog.log(getContext(),
+                            EntityLog.log(context,
                                     "Browser=" + descriptor.packageName +
                                             ":" + descriptor.version +
                                             ":" + descriptor.useCustomTab + "" +
@@ -265,14 +266,14 @@ public class FragmentOAuth extends FragmentBase {
                     })
                     .build();
 
-            AuthorizationService authService = new AuthorizationService(getContext(), appAuthConfig);
+            AuthorizationService authService = new AuthorizationService(context, appAuthConfig);
 
             AuthorizationServiceConfiguration serviceConfig = new AuthorizationServiceConfiguration(
                     Uri.parse(provider.oauth.authorizationEndpoint),
                     Uri.parse(provider.oauth.tokenEndpoint));
 
             AuthState authState = new AuthState(serviceConfig);
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
 
             Map<String, String> params = new HashMap<>();
@@ -313,15 +314,15 @@ public class FragmentOAuth extends FragmentBase {
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
-            Log.i("OAuth request provider=" + provider.id + " uri=" + authRequest.toUri());
-            Intent authIntent = null;
+            EntityLog.log(context, "OAuth request provider=" + provider.id + " uri=" + authRequest.toUri());
+            Intent authIntent;
             try {
                 authIntent = authService.getAuthorizationRequestIntent(authRequest);
             } catch (ActivityNotFoundException ex) {
                 Log.e(ex);
-                throw new ActivityNotFoundException("Browser not found: " + ex.getMessage());
+                throw new ActivityNotFoundException("Browser not found");
             }
-            PackageManager pm = getContext().getPackageManager();
+            PackageManager pm = context.getPackageManager();
             if (authIntent.resolveActivity(pm) == null) // action whitelisted
                 throw new ActivityNotFoundException(authIntent.toString());
             else
