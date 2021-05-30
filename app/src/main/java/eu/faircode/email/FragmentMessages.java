@@ -826,13 +826,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        bottom_navigation.findViewById(R.id.action_delete).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                onActionDelete();
-                return true;
-            }
-        });
+        //bottom_navigation.findViewById(R.id.action_delete).setOnLongClickListener(new View.OnLongClickListener() {
+        //    @Override
+        //    public boolean onLongClick(View v) {
+        //        onActionDelete();
+        //        return true;
+        //    }
+        //});
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -5221,6 +5221,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     bottom_navigation.getMenu().findItem(R.id.action_snooze).setVisible(data.snoozable);
                     bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(data.archivable);
                     bottom_navigation.setVisibility(View.VISIBLE);
+
+                    bottom_navigation.findViewById(R.id.action_delete).setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            onActionDelete();
+                            return true;
+                        }
+                    });
                 }
 
                 @Override
