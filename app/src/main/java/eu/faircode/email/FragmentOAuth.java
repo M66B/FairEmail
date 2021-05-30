@@ -318,7 +318,8 @@ public class FragmentOAuth extends FragmentBase {
             try {
                 authIntent = authService.getAuthorizationRequestIntent(authRequest);
             } catch (ActivityNotFoundException ex) {
-                throw new ActivityNotFoundException("Browser not found");
+                Log.e(ex);
+                throw new ActivityNotFoundException("Browser not found: " + ex.getMessage());
             }
             PackageManager pm = getContext().getPackageManager();
             if (authIntent.resolveActivity(pm) == null) // action whitelisted
