@@ -252,8 +252,15 @@ public class FragmentOAuth extends FragmentBase {
                                     Browsers.SBrowser.SIGNATURE_SET,
                                     true,
                                     VersionRange.atMost("5.3"));
-                            return (!sbrowser.matches(descriptor) &&
+                            boolean accept = (!sbrowser.matches(descriptor) &&
                                     (!"gmail".equals(provider.id) || !descriptor.useCustomTab));
+                            EntityLog.log(getContext(),
+                                    "Browser=" + descriptor.packageName +
+                                            ":" + descriptor.version +
+                                            ":" + descriptor.useCustomTab + "" +
+                                            " accept=" + accept +
+                                            " provider=" + provider.id);
+                            return accept;
                         }
                     })
                     .build();
