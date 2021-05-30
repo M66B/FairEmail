@@ -994,6 +994,7 @@
     <string name="title_attachments_incomplete">Some attachments or images were not downloaded and could not be added</string>
     <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_delete">Delete message permanently?</string>
+    <string name="title_ask_delete_accept">I understand that permanently deleting messages is irreversible</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>

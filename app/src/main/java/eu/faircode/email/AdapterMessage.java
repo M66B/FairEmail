@@ -4155,7 +4155,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             aargs.putString("remark", message.getRemark());
             aargs.putLong("id", message.id);
             aargs.putInt("faq", 160);
+            aargs.putString("notagain", "delete_asked");
+            aargs.putString("accept", context.getString(R.string.title_ask_delete_accept));
             aargs.putBoolean("warning", true);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean delete_asked = prefs.getBoolean("delete_asked", false);
+            if (delete_asked) {
+                Intent data = new Intent();
+                data.putExtra("args", aargs);
+                parentFragment.onActivityResult(FragmentMessages.REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                return;
+            }
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(aargs);

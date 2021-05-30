@@ -2353,7 +2353,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putString("remark", message.getRemark());
             args.putLong("id", message.id);
             args.putInt("faq", 160);
+            args.putString("notagain", "delete_asked");
+            args.putString("accept", getString(R.string.title_ask_delete_accept));
             args.putBoolean("warning", true);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean delete_asked = prefs.getBoolean("delete_asked", false);
+            if (delete_asked) {
+                Intent data = new Intent();
+                data.putExtra("args", args);
+                onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                return;
+            }
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);

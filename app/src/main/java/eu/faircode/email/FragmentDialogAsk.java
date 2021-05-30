@@ -47,6 +47,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         String remark = args.getString("remark");
         String confirm = args.getString("confirm");
         String notagain = args.getString("notagain");
+        String accept = args.getString("accept");
         boolean warning = args.getBoolean("warning");
         int faq = args.getInt("faq");
 
@@ -58,6 +59,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
         CheckBox cbConfirm = dview.findViewById(R.id.cbConfirm);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        TextView tvAccept = dview.findViewById(R.id.tvAccept);
         ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
 
         tvMessage.setText(question);
@@ -66,6 +68,8 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         cbConfirm.setText(confirm);
         cbConfirm.setVisibility(confirm == null ? View.GONE : View.VISIBLE);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
+        tvAccept.setText(accept);
+        tvAccept.setVisibility(View.GONE);
         ibInfo.setVisibility(faq == 0 ? View.GONE : View.VISIBLE);
 
         if (warning) {
@@ -80,8 +84,11 @@ public class FragmentDialogAsk extends FragmentDialogBase {
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    prefs.edit().putBoolean(notagain, isChecked).apply();
+                    if (accept == null) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        prefs.edit().putBoolean(notagain, isChecked).apply();
+                    }
+                    tvAccept.setVisibility(isChecked && accept != null ? View.VISIBLE : View.GONE);
                 }
             });
 
@@ -98,9 +105,13 @@ public class FragmentDialogAsk extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (confirm == null || cbConfirm.isChecked())
+                        if (confirm == null || cbConfirm.isChecked()) {
+                            if (notagain != null && accept != null) {
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                prefs.edit().putBoolean(notagain, cbNotAgain.isChecked()).apply();
+                            }
                             sendResult(Activity.RESULT_OK);
-                        else
+                        } else
                             sendResult(Activity.RESULT_CANCELED);
                     }
                 })
