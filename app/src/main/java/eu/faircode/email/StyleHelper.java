@@ -57,8 +57,10 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class StyleHelper {
     static boolean apply(int action, LifecycleOwner owner, View anchor, EditText etBody, Object... args) {
@@ -533,10 +535,15 @@ public class StyleHelper {
 
                 String url = (String) args[0];
 
-                List<Object> spans = new ArrayList<>();
-                for (Object span : edit.getSpans(start, end, Object.class)) {
-                    if (!(span instanceof URLSpan))
+                List<CharacterStyle> spans = new ArrayList<>();
+                Map<CharacterStyle, Pair<Integer, Integer>> ranges = new HashMap<>();
+                Map<CharacterStyle, Integer> flags = new HashMap<>();
+                for (CharacterStyle span : edit.getSpans(start, end, CharacterStyle.class)) {
+                    if (!(span instanceof URLSpan)) {
                         spans.add(span);
+                        ranges.put(span, new Pair<>(edit.getSpanStart(span), edit.getSpanEnd(span)));
+                        flags.put(span, edit.getSpanFlags(span));
+                    }
                     edit.removeSpan(span);
                 }
 
@@ -551,8 +558,11 @@ public class StyleHelper {
                 }
 
                 // Restore other spans
-                for (Object span : spans)
-                    edit.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                for (CharacterStyle span : spans)
+                    edit.setSpan(span,
+                            ranges.get(span).first,
+                            ranges.get(span).second,
+                            flags.get(span));
 
                 etBody.setText(edit);
                 etBody.setSelection(end, end);
