@@ -21,11 +21,14 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.textclassifier.TextClassifier;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatEditText;
 
 public class FixedEditText extends AppCompatEditText {
@@ -167,5 +170,40 @@ public class FixedEditText extends AppCompatEditText {
             Log.w(ex);
             return false;
         }
+    }
+
+    @NonNull
+    @Override
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public TextClassifier getTextClassifier() {
+        /*
+            https://issuetracker.google.com/issues/188103468
+
+            java.lang.RuntimeException: An error occurred while executing doInBackground()
+              at android.os.AsyncTask$3.done(AsyncTask.java:353)
+              at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:383)
+              at java.util.concurrent.FutureTask.setException(FutureTask.java:252)
+              at java.util.concurrent.FutureTask.run(FutureTask.java:271)
+              at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:245)
+              at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1162)
+              at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:636)
+              at java.lang.Thread.run(Thread.java:764)
+            Caused by: java.lang.IllegalArgumentException
+              at com.android.internal.util.Preconditions.checkArgument(Preconditions.java:33)
+              at android.view.textclassifier.TextClassifierImpl.validateInput(TextClassifierImpl.java:520)
+              at android.view.textclassifier.TextClassifierImpl.classifyText(TextClassifierImpl.java:152)
+              at android.widget.SelectionActionModeHelper$TextClassificationHelper.performClassification(SelectionActionModeHelper.java:707)
+              at android.widget.SelectionActionModeHelper$TextClassificationHelper.classifyText(SelectionActionModeHelper.java:655)
+              at android.widget.SelectionActionModeHelper.-android_widget_SelectionActionModeHelper-mthref-1(SelectionActionModeHelper.java:94)
+              at android.widget.-$Lambda$tTszxdFZ0V9nXhnBpPsqeBMO0fw$1.$m$2(Unknown Source:4)
+              at android.widget.-$Lambda$tTszxdFZ0V9nXhnBpPsqeBMO0fw$1.get(Unknown Source:21)
+              at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.doInBackground(SelectionActionModeHelper.java:572)
+              at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.doInBackground(SelectionActionModeHelper.java:567)
+              at android.os.AsyncTask$2.call(AsyncTask.java:333)
+         */
+        if (BuildConfig.DEBUG || Helper.isSamsung())
+            return TextClassifier.NO_OP;
+        else
+            return super.getTextClassifier();
     }
 }

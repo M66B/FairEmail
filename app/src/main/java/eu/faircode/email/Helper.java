@@ -871,6 +871,10 @@ public class Helper {
         return true;
     }
 
+    static boolean isSamsung() {
+        return "Samsung".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
     static boolean isXiaomi() {
         return "Xiaomi".equalsIgnoreCase(Build.MANUFACTURER);
     }
