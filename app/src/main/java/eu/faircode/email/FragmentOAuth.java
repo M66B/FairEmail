@@ -54,6 +54,7 @@ import androidx.preference.PreferenceManager;
 import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
+import net.openid.appauth.AuthorizationManagementActivity;
 import net.openid.appauth.AuthorizationRequest;
 import net.openid.appauth.AuthorizationResponse;
 import net.openid.appauth.AuthorizationService;
@@ -358,14 +359,14 @@ public class FragmentOAuth extends FragmentBase {
             try {
                 authIntent = authService.getAuthorizationRequestIntent(authRequest);
             } catch (ActivityNotFoundException ex) {
-                Log.e(ex);
-                throw new ActivityNotFoundException("Browser not found");
+                Log.w(ex);
+                authIntent =
+                        AuthorizationManagementActivity.createStartForResultIntent(
+                                context, authRequest,
+                                new Intent(Intent.ACTION_VIEW, authRequest.toUri()));
             }
 
-            if (authIntent.resolveActivity(pm) == null) // action whitelisted
-                throw new ActivityNotFoundException(authIntent.toString());
-            else
-                startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
+            startActivityForResult(authIntent, ActivitySetup.REQUEST_OAUTH);
         } catch (Throwable ex) {
             showError(ex);
         }
