@@ -185,6 +185,7 @@ import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Attendee;
 import biweekly.property.Method;
 import biweekly.property.Organizer;
+import biweekly.property.RawProperty;
 import biweekly.util.ICalDate;
 
 import static android.app.Activity.RESULT_OK;
@@ -2733,6 +2734,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
                     String description = (event.getDescription() == null ? null : event.getDescription().getValue());
                     String location = (event.getLocation() == null ? null : event.getLocation().getValue());
+
+                    if (false) {
+                        RawProperty xAltDesc = event.getExperimentalProperty("X-ALT-DESC");
+                        if (xAltDesc != null &&
+                                xAltDesc.getValue() != null &&
+                                "text/html".equals(xAltDesc.getParameter("FMTTYPE")))
+                            description = xAltDesc.getValue();
+                    }
 
                     ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
                     ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
