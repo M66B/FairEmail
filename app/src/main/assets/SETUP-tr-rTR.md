@@ -10,7 +10,7 @@ Hesapları ve kimlikleri ayarlamak için bir internet bağlantısı gereklidir.
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 
-This will work for most email providers.
+Bu, birçok e-posta sağlayıcısı için işe yarar.
 
 If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
@@ -30,11 +30,11 @@ Takma ad kullanma hakkında [bu SSS](https://github.com/M66B/FairEmail/blob/mast
 
 ## Verilen izinler - kişi bilgilerine erişmek için
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Sadece *Verilen izinler*'e dokunun ve *İzin ver*'i seçin.
 
 ## Pil eniyileştirme ayarları - sürekli e-posta almak için
 
-Son Android sürümlerinde batarya kullanımını azaltmak için ekran bir süre kapalı kaldığında uygulamalar uyku moduna geçer. Gecikmesiz yeni e-postalar almak istiyorsanız, FairEmail için pil eniyileştirmelerini devre dışı bırakmalısınız. Tap *Manage* and follow the instructions.
+Son Android sürümlerinde batarya kullanımını azaltmak için ekran bir süre kapalı kaldığında uygulamalar uyku moduna geçer. Gecikmesiz yeni e-postalar almak istiyorsanız, FairEmail için pil eniyileştirmelerini devre dışı bırakmalısınız. Dokun * Yönet * ve talimatları izle.
 
 ## Sorular veya sorunlar
 

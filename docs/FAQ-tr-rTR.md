@@ -2,7 +2,7 @@
 
 # FairEmail Destek
 
-Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [Sayfanın altında](#user-content-get-support) diğer soruları sormayı, özellikleri talep etmeyi ve hata bildirmeyi nasıl yapacağınızı öğrenebilirsiniz.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -14,7 +14,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Planlanan Özellikler](#user-content-planned-features)
 * [Sıkça talep edilen özellikler](#user-content-frequently-requested-features)
 * [Sıkça Sorulan Sorular](#user-content-frequently-asked-questions)
-* [Yardım alın](#user-content-get-support)
+* [Yardım](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Hesap Yetkilendirme</h2>
 

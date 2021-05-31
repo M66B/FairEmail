@@ -181,8 +181,10 @@
     <string name="title_setup_free">Это бесплатное приложение?</string>
     <string name="title_setup_permissions">Предоставить доступ</string>
     <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
+    <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжного получения и отправки электронной почты</string>
+    <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
     <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведёт к сокращению использования заряда батареи</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените «Не оптимизировать» на «Все приложения», выберите это приложение и для него выберите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
@@ -882,6 +884,7 @@
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
     <string name="title_ask_save">Сохранить изменения?</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
+    <string name="title_ask_delete_accept">Я понимаю, что окончательное удаление сообщений необратимо</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
     <string name="title_ask_discard">Удалить черновик?</string>
@@ -927,7 +930,7 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вложение:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_body_hint_style">Вы можете выбрать текст для форматирования</string>
+    <string name="title_body_hint_style">Вы можете выделить текст, чтобы отформатировать его</string>
     <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
@@ -1259,6 +1262,8 @@
     <string name="title_legend_view">Просмотр содержимого</string>
     <string name="title_legend_hide">Скрыть содержимое</string>
     <string name="title_legend_download">Загрузить содержимое</string>
+    <string name="title_legend_original">Просмотр оригинального сообщения</string>
+    <string name="title_legend_reformatted">Просмотр отформатированного сообщения</string>
     <string name="title_legend_external_image">Внешнее изображение</string>
     <string name="title_legend_embedded_image">Встроенное изображение</string>
     <string name="title_legend_tracking_pixel">Отслеживающее изображение</string>
@@ -1320,6 +1325,7 @@
     <string name="title_hint_contact_actions">Длительное нажатие откроет другие действия.</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>
+    <string name="title_image_link">Ссылка на изображение</string>
     <string name="title_different_link">Заголовок и адрес ссылки отличаются</string>
     <string name="title_tracking_link">Этот сайт может отслеживать вас</string>
     <string name="title_suspicious_link">Это подозрительная ссылка</string>

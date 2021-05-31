@@ -161,8 +161,10 @@
     <string name="title_setup_free">Η εφαρμογή αυτή χρησιμοποιείται δωρεάν;</string>
     <string name="title_setup_permissions">Απαιτούμενα δικαιώματα</string>
     <string name="title_setup_permissions_remark">Για πρόσβαση στις πληροφορίες επαφών (προαιρετικό)</string>
+    <string name="title_setup_permissions_explanation">Απαιτείται άδεια πρόσβασης στις επαφές για την αναζήτηση πληροφοριών επικοινωνίας και για προτάσεις επαφών</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
     <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη ηλ. μηνυμάτων</string>
+    <string name="title_setup_doze_explanation">Οι βελτιστοποιήσεις μπαταρίας θα πρέπει να απενεργοποιηθούν για την εφαρμογή, ώστε να διασφαλιστεί η αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
     <string name="title_setup_doze_hint">Αν και μπορεί να ακούγεται αντιφατικό, η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για αυτήν την εφαρμογή, θα έχει ως αποτέλεσμα μικρότερη χρήση μπαταρίας</string>
     <string name="title_setup_doze_instructions">Στο επόμενο παράθυρο διαλόγου του Android αλλάζετε το \"Μη βελτιστοποιημένες\" σε \"Όλες οι εφαρμογές\", επιλέγετε αυτήν την εφαρμογή και επιλέγετε \"Να μην γίνεται βελτιστοποίηση\"</string>
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
@@ -452,6 +454,7 @@
     <string name="title_advanced_ca">Εγκατεστημένα πιστοποιητικά CA</string>
     <string name="title_advanced_manage_keys_hint">        Αυτό θα ανοίξει τις ρυθμίσεις ασφαλείας του Android.
         Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
+    <string name="title_advanced_power_menu">Προσθήκη ενεργειών στο μενού ελέγχου συσκευών του Android</string>
     <string name="title_advanced_external_search">Να επιτρέπεται σε άλλες εφαρμογές να διενεργούν αναζητήσεις στα μηνύματα</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
@@ -858,6 +861,7 @@
     <string name="title_attachments_incomplete">Ορισμένα συνημμένα ή εικόνες δεν κατέβηκαν και δεν μπόρεσαν να προστεθούν</string>
     <string name="title_ask_save">Αποθήκευση των αλλαγών;</string>
     <string name="title_ask_delete">Οριστική διαγραφή του μηνύματος;</string>
+    <string name="title_ask_delete_accept">Κατανοώ πως η μόνιμη διαγραφή μηνυμάτων είναι μη αναστρέψιμη</string>
     <string name="title_ask_delete_answer">Οριστική διαγραφή του προτύπου απάντησης;</string>
     <string name="title_ask_delete_rule">Οριστική διαγραφή του κανόνα;</string>
     <string name="title_ask_discard">Απόρριψη προχείρου;</string>
@@ -1235,6 +1239,8 @@
     <string name="title_legend_view">Προβολή περιεχομένου</string>
     <string name="title_legend_hide">Απόκρυψη περιεχομένου</string>
     <string name="title_legend_download">Κατέβασμα περιεχομένου</string>
+    <string name="title_legend_original">Προβολή αρχικού μηνύματος</string>
+    <string name="title_legend_reformatted">Προβολή αναμορφοποιημένου μηνύματος</string>
     <string name="title_legend_external_image">Θέση κρατημένη για εξωτερική εικόνα</string>
     <string name="title_legend_embedded_image">Θέση κρατημένη για ενσωματωμένη εικόνα</string>
     <string name="title_legend_tracking_pixel">Εικόνα ιχνηλάτησης</string>
@@ -1296,6 +1302,7 @@
     <string name="title_hint_contact_actions">Πατήστε παρατεταμένα για επιλογές</string>
     <string name="title_hint_eml">Αυτό είναι μια σύνοψη του περιεχομένου ενός αρχείου αρχικού μηνύματος. Αποθηκεύστε το αρχικό μήνυμα μέσω του εικονιδίου αποθήκευσης στη γραμμή ενεργειών, για να δείτε όλο το περιεχόμενο.</string>
     <string name="title_open_link">Άνοιγμα συνδέσμου</string>
+    <string name="title_image_link">Σύνδεσμος εικόνας</string>
     <string name="title_different_link">Ο τίτλος και η διεύθυνση του συνδέσμου διαφέρουν μεταξύ τους</string>
     <string name="title_tracking_link">Ο ιστότοπος αυτός μπορεί να σας παρακολουθεί</string>
     <string name="title_suspicious_link">Ο σύνδεσμος αυτός είναι ύποπτος</string>
@@ -1392,6 +1399,10 @@
     <string name="title_widget_title_count">Αριθμός νέων μηνυμάτων</string>
     <string name="title_widget_title_list">Λίστα μηνυμάτων</string>
     <string name="title_widget_title_sync">Συγχ. Εν./Ανεν.</string>
+    <string name="title_power_menu_sync">Συγχρονισμός</string>
+    <string name="title_power_menu_on">Ενεργοποιημένο</string>
+    <string name="title_power_menu_off">Απενεργοποιημένο</string>
+    <string name="title_power_menu_on_off">Ενεργοποιημένο/Απενεργοποιημένο</string>
     <string name="title_widget_account">Λογαριασμός</string>
     <string name="title_widget_account_all">Όλοι</string>
     <string name="title_widget_folder">Φάκελος</string>

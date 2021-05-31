@@ -158,8 +158,10 @@
     <string name="title_setup_identity_what">Hvad er en identitet?</string>
     <string name="title_setup_permissions">Giv tilladelser</string>
     <string name="title_setup_permissions_remark">For at få tilgå kontaktoplysninger (valgfrit)</string>
+    <string name="title_setup_permissions_explanation">Kontakttilladelser kræves for at slå kontaktoplysninger op og foreslå kontaktpersoner</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt</string>
+    <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>
     <string name="title_setup_doze_hint">Selvom dette kan lyde selvmodsigende, vil deaktivering af batterioptimering for denne app resultere i lavere strømforbrug</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
@@ -843,6 +845,7 @@
     <string name="title_attachments_incomplete">Visse vedhæftninger eller billeder blev ikke downloadet og kunne ikke tilføjes</string>
     <string name="title_ask_save">Gem ændringer?</string>
     <string name="title_ask_delete">Slet besked permanent?</string>
+    <string name="title_ask_delete_accept">Det er forstået, at permanent beskedsletning er irreversibel</string>
     <string name="title_ask_delete_answer">Slet svarskabelon permanent?</string>
     <string name="title_ask_delete_rule">Slet regel permanent?</string>
     <string name="title_ask_discard">Kassér kladde?</string>
@@ -1215,6 +1218,8 @@
     <string name="title_legend_view">Vis indhold</string>
     <string name="title_legend_hide">Skjul indhold</string>
     <string name="title_legend_download">Download indhold</string>
+    <string name="title_legend_original">Vis originalbesked</string>
+    <string name="title_legend_reformatted">Vis omformateret besked</string>
     <string name="title_legend_external_image">Pladsholder til eksternt billede</string>
     <string name="title_legend_embedded_image">Pladsholder til indlejret billede</string>
     <string name="title_legend_tracking_pixel">Sporingsbillede</string>
@@ -1276,6 +1281,7 @@
     <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>
+    <string name="title_image_link">Billed-link</string>
     <string name="title_different_link">Titlen og linkadressen er forskellige</string>
     <string name="title_tracking_link">Dette websted sporer dig muligvis</string>
     <string name="title_suspicious_link">Dette er et mistænkeligt link</string>

@@ -1252,15 +1252,15 @@ Wenn das Gerät mit einer PIN, einem Muster oder einem Passwort gesichert ist, k
 <br />
 
 <a name="faq39"></a>
-**(39) Wie kann ich den Akkuverbrauch von FairEmail reduzieren?**
+**(39) Wie kann ich den Akkuverbrauch von FairEmail verringern?**
 
-Aktuelle Android-Versionen melden *App-Nutzung* standardmäßig als Prozentsatz in den Android Batterie-Einstellungen. **Verwirrenderweise ist *App-Nutzung* nicht identisch mit *Akkuverbrauch* und steht nicht einmal in direktem Zusammenhang mit dem Akkuverbrauch!** Die App-Nutzung (während der Verwendung) ist sehr hoch, da FairEmail einen Vordergrund-Service nutzt, der von Android als konstante App-Nutzung angesehen wird. Dies bedeutet jedoch nicht, dass FairEmail ständig Akkuleistung verbraucht. Der tatsächliche Akkuverbrauch kann durch die Navigation auf diesem Bildschirm gesehen werden:
+Aktuelle Android-Versionen melden die *App-Nutzung* standardmäßig als Prozentsatz in den Android-Akkueinstellungen. **Verwirrenderweise ist die *App-Nutzung* nicht identisch mit dem *Akkuverbrauch* und steht nicht einmal im direkten Zusammenhang mit dem Akkuverbrauch!** Die App-Nutzung (während der Verwendung) ist sehr hoch, da FairEmail einen Vordergrunddienst nutzt, der von Android als konstante App-Nutzung angesehen wird. Dies bedeutet jedoch nicht, dass FairEmail ständig Akkuleistung verbraucht. Der tatsächliche Akkuverbrauch kann auf folgendem Bildschirm gesehen werden:
 
-*Android-Einstellungen* -> *Batterie* -> Drei-Punkte-Menü -> *Akkuverbrauch* -> Drei-Punkte-Menü -> *Geräteverbrauch anzeigen*
+*Android-Einstellungen* → *Akku* → Drei-Punkte-Menü → *Akkunutzung* → Drei-Punkte-Menü → *Geräteverbrauch anzeigen*
 
-In der Regel sollte der Akkuverbrauch unter oder in jedem Fall nicht viel höher sein als *Mobilfunkstandby*. Wenn dies nicht der Fall ist, aktivieren Sie bitte *Automatische Optimierung* in den Empfangseinstellungen. Wenn dies nicht hilft, bitten wir [um Unterstützung](https://contact.faircode.eu/?product=fairemailsupport).
+In der Regel sollte der Akkuverbrauch kleiner oder in jedem Fall nicht viel höher sein als *Mobilfunknetz-Standby*. Wenn dies nicht der Fall ist, aktivieren Sie bitte *»Automatische Optimierung«* in den Empfangseinstellungen. Wenn das nicht hilft, bitten [fragen Sie nach Unterstützung](https://contact.faircode.eu/?product=fairemailsupport).
 
-Es ist unvermeidlich, dass das Synchronisieren von Nachrichten Batteriestrom benötigt, da es Netzwerkzugriff und Zugriff auf die Nachrichtendatenbank erfordert.
+Es ist unvermeidlich, dass das Synchronisieren von Nachrichten Akkustrom benötigt, da es Netzwerkzugriff und Zugriff auf die Nachrichtendatenbank erfordert.
 
 Wenn Sie den Akkuverbrauch von FairEmail mit einem anderen E-Mail-Client vergleichen, stellen Sie bitte sicher, dass der andere E-Mail-Client ähnlich eingerichtet ist. Zum Beispiel ist es kein fairer Vergleich, stetige Synchronisation (Push-Nachrichten) und (seltenere) periodische Überprüfungen nach neuen Nachrichten zu vergleichen.
 
@@ -2449,7 +2449,7 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
-Für einige Hintergründe siehe [diesen Wikipedia Artikel](https://en.wikipedia.org/wiki/Bounce_message).
+Für einige Hintergründe siehe [diesen Wikipedia-Artikel](https://en.wikipedia.org/wiki/Bounce_message).
 
 <br />
 

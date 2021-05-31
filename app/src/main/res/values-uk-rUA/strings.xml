@@ -169,8 +169,10 @@
     <string name="title_setup_free">Цей додаток може використовуватися безкоштовно?</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Доступ до контактної інформації (необов\'язково)</string>
+    <string name="title_setup_permissions_explanation">Щоб переглянути контактні дані й запропонувати контакти</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання та надсилання електронної пошти</string>
+    <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
@@ -869,6 +871,7 @@
     <string name="title_attachments_incomplete">Деякі вкладення або зображення не були завантажені і не можуть бути додані</string>
     <string name="title_ask_save">Зберегти зміни?</string>
     <string name="title_ask_delete">Видалити повідомлення остаточно?</string>
+    <string name="title_ask_delete_accept">Я розумію, що назавжди видалені повідомлення не можуть бути відновленні</string>
     <string name="title_ask_delete_answer">Видалити шаблон відповіді остаточно?</string>
     <string name="title_ask_delete_rule">Видалити правило остаточно?</string>
     <string name="title_ask_discard">Відхилити чернетку?</string>
@@ -970,7 +973,10 @@
     <string name="title_insert_contact_group">Вставити групу контактів</string>
     <string name="title_insert_template">Вставити шаблон</string>
     <string name="title_create_template">Створити шаблон</string>
+    <string name="title_translate">Переклад</string>
     <string name="title_translate_configure">Налаштувати &#8230;</string>
+    <string name="title_translate_key">Введіть ключ</string>
+    <string name="title_translating">Переклад &#8230;</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
     <string name="title_translate_usage">Використання: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Редагувати як звичайний текст</string>
@@ -1196,6 +1202,7 @@
     <string name="title_legend_connecting">З’єднання</string>
     <string name="title_legend_connected">Підключено</string>
     <string name="title_legend_backoff">Очікування після збою</string>
+    <string name="title_legend_quota">Поштова скринька майже заповнена</string>
     <string name="title_legend_executing">Виконання операцій</string>
     <string name="title_legend_synchronizing">Синхронізація</string>
     <string name="title_legend_downloading">Завантажується</string>
@@ -1242,6 +1249,8 @@
     <string name="title_legend_view">Переглянути вміст</string>
     <string name="title_legend_hide">Приховати вміст</string>
     <string name="title_legend_download">Завантажити вміст</string>
+    <string name="title_legend_original">Переглянути оригінал повідомлення</string>
+    <string name="title_legend_reformatted">Перегляд переформатованого повідомлення</string>
     <string name="title_legend_external_image">Зовнішній заповнювач зображень</string>
     <string name="title_legend_embedded_image">Вбудований заповнювач зображень</string>
     <string name="title_legend_tracking_pixel">Зображення для відстеження</string>
@@ -1303,6 +1312,7 @@
     <string name="title_hint_contact_actions">Довге натискання для параметрів</string>
     <string name="title_hint_eml">Це короткий виклад вмісту raw повідомлення. Збережіть raw повідомлення зі значком збереження на панелі дій для перегляду всього вмісту.</string>
     <string name="title_open_link">Відкрити посилання</string>
+    <string name="title_image_link">Посилання на зображення</string>
     <string name="title_different_link">Назва та адреса посилання відрізняються</string>
     <string name="title_tracking_link">Цей сайт може відстежувати Вас</string>
     <string name="title_suspicious_link">Це підозріле посилання</string>
@@ -1362,6 +1372,8 @@
     <string name="title_pro_feature">Це функція професійної версії</string>
     <string name="title_pro_list">Перелік функцій Pro</string>
     <string name="title_pro_purchase">Придбати</string>
+    <string name="title_pro_one_time">%1$s (одноразове придбання)</string>
+    <string name="title_pro_no_play">Play Store не знайдено</string>
     <string name="title_pro_info">        Розробка FairEmail зайняла тисячі годин і незважаючи на це, більшість функцій можуть вільно використовуватися.
         FairEmail серйозно охороняє Вашу конфіденційність і не показує рекламу, не використовує відстеження або аналітику, щоб заробити гроші.
         Щоб зберегти і підтримати FairEmail в довгостроковій перспективі, деякі зручності та розширені функції обмеженні.

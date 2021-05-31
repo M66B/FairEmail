@@ -150,8 +150,10 @@
     <string name="title_setup_free">このアプリは無料で使用できますか？</string>
     <string name="title_setup_permissions">アクセス許可を付与</string>
     <string name="title_setup_permissions_remark">連絡先情報にアクセスします(オプション)</string>
+    <string name="title_setup_permissions_explanation">連絡先情報を検索し、連絡先を提案するには連絡先の権限が必要です</string>
     <string name="title_setup_doze">バッテリーの最適化を無効にする</string>
     <string name="title_setup_doze_remark">確実にメールを送受信するために必要です</string>
+    <string name="title_setup_doze_explanation">バックグラウンドでのメッセージの送受信を確実に行うには、アプリのバッテリー最適化を無効にする必要があります</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、このアプリのバッテリー最適化をオフにするとバッテリー使用量が少なくなります</string>
     <string name="title_setup_doze_instructions">次のAndroidダイアログで「最適化されていないアプリ」を「すべてのアプリ」に変更し、このアプリを選択して「最適化しない」を選択します。</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
@@ -1227,6 +1229,8 @@
     <string name="title_legend_view">コンテンツを見る</string>
     <string name="title_legend_hide">コンテンツを隠す</string>
     <string name="title_legend_download">コンテンツをダウンロードする</string>
+    <string name="title_legend_original">元のメッセージを表示</string>
+    <string name="title_legend_reformatted">再フォーマットされたメッセージを表示</string>
     <string name="title_legend_external_image">外部画像プレースホルダー</string>
     <string name="title_legend_embedded_image">埋め込み画像プレースホルダー</string>
     <string name="title_legend_tracking_pixel">アナティリスク追跡画像</string>
@@ -1288,6 +1292,7 @@
     <string name="title_hint_contact_actions">長押しでオプションへ</string>
     <string name="title_hint_eml">これは素のメッセージファイルの内容の要約です。全てのコンテンツを表示するにはアクションバーの保存アイコンで素のメッセージを保存します</string>
     <string name="title_open_link">リンクを開く</string>
+    <string name="title_image_link">画像のリンク</string>
     <string name="title_different_link">タイトルとリンクアドレスが異なります</string>
     <string name="title_tracking_link">このウェブサイトはあなたを追跡するかもしれません</string>
     <string name="title_suspicious_link">これは不審なリンクです</string>

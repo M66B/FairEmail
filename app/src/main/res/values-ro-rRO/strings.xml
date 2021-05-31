@@ -171,8 +171,10 @@
     <string name="title_setup_free">Este această aplicație gratuită?</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
+    <string name="title_setup_permissions_explanation">Permisiunile de contact sunt necesare pentru a căuta informații de contact și pentru a sugera contacte</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a trimite și primi e-mail în mod fiabil</string>
+    <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
     <string name="title_setup_doze_hint">Deși poate părea contradictoriu, dezactivarea optimizărilor bateriei pentru această aplicație va duce la o utilizare mai redusă a bateriei</string>
     <string name="title_setup_doze_instructions">În următorul dialog Android schimbați opțiunea \"Nu se optimizează\" în \"Toate aplicațiile\", selectați această aplicație și selectați \"Nu se optimizează\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
@@ -464,6 +466,7 @@
     <string name="title_advanced_manage_keys_hint">        Se va naviga la setările de securitate Android.
         Cheile și certificatele pot fi găsite în general sub Avansate - Criptare și credențiale.
     </string>
+    <string name="title_advanced_power_menu">Adăugați acțiuni în meniul de alimentare Android</string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
@@ -871,6 +874,7 @@
     <string name="title_attachments_incomplete">Unele atașamente sau imagini nu au fost descărcate și nu s-au putut adăuga</string>
     <string name="title_ask_save">Salvează modificările?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
+    <string name="title_ask_delete_accept">Înțeleg că ștergerea permanentă a mesajelor este ireversibilă</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
@@ -1248,6 +1252,8 @@
     <string name="title_legend_view">Afișare conținut</string>
     <string name="title_legend_hide">Ascunde conținutul</string>
     <string name="title_legend_download">Descărcare conținut</string>
+    <string name="title_legend_original">Vezi mesajul original</string>
+    <string name="title_legend_reformatted">Vezi mesajul reformatat</string>
     <string name="title_legend_external_image">Înlocuitor imagine externă</string>
     <string name="title_legend_embedded_image">Înlocuitor imagine incorporată</string>
     <string name="title_legend_tracking_pixel">Imagine folosită la urmărire</string>
@@ -1309,6 +1315,7 @@
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_eml">Acesta este sumarul conținutului unui fișier cu mesajul original. Salvați mesajul original folosind iconița de salvare din bara de acțiuni pentru a putea vizualiza tot conținutul.</string>
     <string name="title_open_link">Deschide legătura</string>
+    <string name="title_image_link">Legătură imagine</string>
     <string name="title_different_link">Titlul legăturii este diferit de adresa legăturii</string>
     <string name="title_tracking_link">Acest site v-ar putea urmări</string>
     <string name="title_suspicious_link">Aceasta este o legătură suspectă</string>
@@ -1368,6 +1375,8 @@
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>
     <string name="title_pro_purchase">Cumpără</string>
+    <string name="title_pro_one_time">%1$s (achiziție unică)</string>
+    <string name="title_pro_no_play">Magazinul Play nu a fost găsit</string>
     <string name="title_pro_info">        Dezvoltarea FairEmail a durat literalmente mii de ore și în ciuda acestui fapt, majoritatea caracteristicilor se pot folosi gratuit.
         FairEmail ia în serios intimitatea ta și nu afișează reclame și nu folosește tehnici de urmărire sau analiză pentru a câștiga bani.
         Pentru a menține și sprijini FairEmail pe termen lung, unele caracteristici avansate sau ce țin de comoditate nu se pot folosi gratuit.
@@ -1403,6 +1412,10 @@
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>
     <string name="title_widget_title_sync">Sincronizare pornită/oprită</string>
+    <string name="title_power_menu_sync">Sincronizare</string>
+    <string name="title_power_menu_on">Activ</string>
+    <string name="title_power_menu_off">Oprit</string>
+    <string name="title_power_menu_on_off">Pornit/Oprit</string>
     <string name="title_widget_account">Cont</string>
     <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_folder">Dosar</string>

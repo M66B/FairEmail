@@ -161,8 +161,10 @@
     <string name="title_setup_free">¿Esta aplicación es gratuita?</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
+    <string name="title_setup_permissions_explanation">El permiso de contactos es necesario para buscar información de contactos y sugerirlos</string>
     <string name="title_setup_doze">Desactivar las optimizaciones de la batería</string>
     <string name="title_setup_doze_remark">Para enviar y recibir correo electrónico de forma confiable</string>
+    <string name="title_setup_doze_explanation">Las optimizaciones de la batería deben desactivarse para la aplicación para asegurar que el envío y la recepción de mensajes en segundo plano sean confiables</string>
     <string name="title_setup_doze_hint">Aunque esto pueda sonar contradictorio, desactivar las optimizaciones de la batería resultará en un menor uso de la batería</string>
     <string name="title_setup_doze_instructions">En el siguiente cuadro de diálogo de Android cambiar \"Sin optimizar\" a \"Todas las aplicaciones\", seleccione esta aplicación y seleccione \"No optimizar\"</string>
     <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
@@ -1239,6 +1241,8 @@
     <string name="title_legend_view">Ver contenido</string>
     <string name="title_legend_hide">Ocultar contenido</string>
     <string name="title_legend_download">Descargar contenido</string>
+    <string name="title_legend_original">Ver mensaje original</string>
+    <string name="title_legend_reformatted">Ver mensaje reformateado</string>
     <string name="title_legend_external_image">Marcador de posición de imagen externa</string>
     <string name="title_legend_embedded_image">Marcador de posición de imagen incrustada</string>
     <string name="title_legend_tracking_pixel">Imagen de rastreo</string>
@@ -1300,6 +1304,7 @@
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensajes sin procesar. Guarde el mensaje sin procesar con el icono de guardar en la barra de acciones para ver todo el contenido.</string>
     <string name="title_open_link">Abrir enlace</string>
+    <string name="title_image_link">Enlace de imagen</string>
     <string name="title_different_link">El título y la dirección del enlace son diferentes</string>
     <string name="title_tracking_link">Este sitio web podría rastrearle</string>
     <string name="title_suspicious_link">Este es un enlace sospechoso</string>

@@ -64,7 +64,7 @@ Powiązane pytania:
 * Zmień foldery systemowe: Ustawienia, dotknij Ręcznej konfiguracji, dotknij Konta, dotknij konto u dołu
 * Eksport/import ustawień: Ustawienia, menu nawigacyjne (lewa strona)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Znane problemy</h2>
 
 * ~~A [błąd w Androidzie 5.1 i 6](https://issuetracker.google.com/issues/37054851) powoduje, że aplikacje czasami pokazują nieprawidłowy format czasu. Przełączenie ustawienia Androida *Użyj 24-godzinnego formatu* może tymczasowo rozwiązać problem. Dodano obejście. ~~
 * ~~A [błąd w Dysku Google](https://issuetracker.google.com/issues/126362828) powoduje, że pliki eksportowane do Dysku Google są puste. Google naprawił to.~~
@@ -92,19 +92,19 @@ Powiązane pytania:
 * ~~Kopiowanie wiadomości~~
 * ~~Kolorowe gwiazdki~~
 * ~~Ustawienia powiadomień dla folderu~~
-* ~~ Wybierz lokalne obrazy do podpisów ~~ (nie zostanie dodane, ponieważ wymaga zarządzania plikami obrazów oraz ponieważ obrazy i tak nie są wyświetlane domyślnie w większości klientów poczty e-mail)
+* ~~Wybierz lokalne obrazy do podpisów ~~ (nie zostanie dodane, ponieważ wymaga zarządzania plikami obrazów oraz ponieważ obrazy i tak nie są wyświetlane domyślnie w większości klientów poczty e-mail)
 * ~~Pokaż wiadomości dopasowane przez regułę~~
-* ~~[ ManageSieve ](https://tools.ietf.org/html/rfc5804) ~~ (nie ma utrzymywanych bibliotek Java z odpowiednią licencją i bez zależności, a ponadto FairEmail ma własne reguły filtrowania)
+* ~~[ManageSieve ](https://tools.ietf.org/html/rfc5804) ~~ (nie ma utrzymywanych bibliotek Java z odpowiednią licencją i bez zależności, a ponadto FairEmail ma własne reguły filtrowania)
 * ~~Szukaj wiadomości z/bez załączników~~ (nie można tego dodać, ponieważ IMAP nie obsługuje wyszukiwania załączników)
-* ~~ Wyszukaj folder ~~ (problematyczne jest filtrowanie hierarchicznej listy folderów)
+* ~~Wyszukaj folder ~~ (problematyczne jest filtrowanie hierarchicznej listy folderów)
 * Podpowiedzi wyszukiwania
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (sekcja 4. )~~ (IMO nie jest dobrym pomysłem, aby klient poczty elektronicznej obsługiwał wrażliwe klucze szyfrowania do wyjątkowego użytku, podczas gdy OpenKeychain również może eksportować klucze)
-* ~~ Ogólne ujednolicone foldery ~~
+* ~~Ogólne ujednolicone foldery ~~
 * ~~Nowe harmonogramy powiadomień dla każdego konta~~ (zaimplementowane przez dodanie warunku czasowego do reguł, więc wiadomości mogą być odłożone w wybranych okresach)
 * ~~Kopiuj konta i tożsamość~~
-* ~~ Pinch zoom ~~ (nie jest to możliwe w sposób niezawodny na przewijanej liście; zamiast tego można powiększyć pełny widok wiadomości)
+* ~~Pinch zoom ~~ (nie jest to możliwe w sposób niezawodny na przewijanej liście; zamiast tego można powiększyć pełny widok wiadomości)
 * ~~Bardziej kompaktowy widok folderu~~
-* ~~ Utwórz listy i tabele ~~ (wymaga to edytora tekstu sformatowanego, patrz [ to FAQ ](#user-content-faq99))
+* ~~Utwórz listy i tabele ~~ (wymaga to edytora tekstu sformatowanego, patrz [ to FAQ ](#user-content-faq99))
 * ~~Rozmiar tekstu powiększenia ~~
 * ~~Wyświetlanie GIF~~
 * ~~Motywy~~ (dodano szary jasny i ciemny motyw, ponieważ wydaje się, że tego chce większość ludzi)
@@ -113,7 +113,7 @@ Powiązane pytania:
 * ~~Widget dla wybranego konta~~
 * ~~Przypomnij o załączeniu plików~~
 * ~~Wybierz domeny do pokazania zdjęć~~ (będzie to zbyt skomplikowane, aby używać)
-* ~~ Wspólny widok wiadomości oznaczonych gwiazdką ~~ (jest to już specjalne wyszukiwanie)
+* ~~Wspólny widok wiadomości oznaczonych gwiazdką ~~ (jest to już specjalne wyszukiwanie)
 * ~~Move notification action~~
 * ~~Wsparcie S/MIME~~
 * ~~Szukaj ustawień~~
@@ -291,7 +291,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Mam kolejne pytanie.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**

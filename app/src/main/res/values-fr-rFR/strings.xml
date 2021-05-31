@@ -161,8 +161,10 @@
     <string name="title_setup_free">L\'utilisation de cette application est-elle gratuite ?</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations des contacts (facultatif)</string>
+    <string name="title_setup_permissions_explanation">L\'autorisation d\'accès aux contacts est requise pour rechercher des informations de contact et pour suggérer des contacts</string>
     <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour envoyer et recevoir des e-mails de manière fiable</string>
+    <string name="title_setup_doze_explanation">Les optimisations de la batterie doivent être désactivées pour que l\'application assure un envoi et une réception fiables des messages en arrière-plan</string>
     <string name="title_setup_doze_hint">Bien que cela puisse sembler contradictoire, désactiver les optimisations de batterie pour cette application entraînera une diminution de l\'utilisation de la batterie</string>
     <string name="title_setup_doze_instructions">Dans la prochaine fenêtre de dialogue Android, changez « Non optimisées » en « Toutes les applications », sélectionnez cette application et cochez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
@@ -862,6 +864,7 @@
     <string name="title_attachments_incomplete">Certaines pièces jointes ou images n\'ont pas été téléchargées et n\'ont pas pu être ajoutées</string>
     <string name="title_ask_save">Enregistrer les modifications ?</string>
     <string name="title_ask_delete">Supprimer définitivement ce message ?</string>
+    <string name="title_ask_delete_accept">Je comprends que la suppression définitive des messages est irréversible</string>
     <string name="title_ask_delete_answer">Supprimer définitivement ce modèle de réponse ?</string>
     <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>
     <string name="title_ask_discard">Abandonner le brouillon ?</string>
@@ -1239,6 +1242,8 @@
     <string name="title_legend_view">Voir le contenu</string>
     <string name="title_legend_hide">Masquer le contenu</string>
     <string name="title_legend_download">Télécharger le contenu</string>
+    <string name="title_legend_original">Afficher le message original</string>
+    <string name="title_legend_reformatted">Afficher le message reformaté</string>
     <string name="title_legend_external_image">Espace réservé pour une image externe</string>
     <string name="title_legend_embedded_image">Espace réservé pour une image incluse</string>
     <string name="title_legend_tracking_pixel">Image de pistage</string>
@@ -1300,6 +1305,7 @@
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_hint_eml">Ceci est l’aperçu du contenu d’un fichier de message original. Enregistrez le message original au moyen de l’icône de sauvegarde dans la barre d’action pour afficher tout son contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>
+    <string name="title_image_link">Lien de l\'image</string>
     <string name="title_different_link">Le titre et l\'adresse du lien sont différents</string>
     <string name="title_tracking_link">Ce site web pourrait vous pister</string>
     <string name="title_suspicious_link">Ceci est un lien suspect</string>

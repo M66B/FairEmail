@@ -151,8 +151,10 @@
     <string name="title_setup_free">Ứng dụng này có miễn phí để sử dụng không?</string>
     <string name="title_setup_permissions">Cấp quyền</string>
     <string name="title_setup_permissions_remark">Để truy cập thông tin liên hệ (không bắt buộc)</string>
+    <string name="title_setup_permissions_explanation">Quyền danh bạ được yêu cầu để tra cứu thông tin liên hệ và để đề xuất các liên hệ</string>
     <string name="title_setup_doze">Tắt tối ưu hoá pin</string>
     <string name="title_setup_doze_remark">Để gửi và nhận email một cách đáng tin cậy</string>
+    <string name="title_setup_doze_explanation">Tối ưu hoá pin nên được tắt cho ứng dụng này để đảm bảo việc gửi và nhận thư trong nền được đáng tin cậy</string>
     <string name="title_setup_doze_hint">Điều này có thể nghe mâu thuẫn, nhưng việc tắt tối ưu hoá pin cho ứng dụng này sẽ gây ra sử dụng pin ít hơn</string>
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
@@ -851,6 +853,7 @@
     <string name="title_attachments_incomplete">Một số tệp đính kèm hoặc hình ảnh đã không được tải xuống và không thể được thêm</string>
     <string name="title_ask_save">Lưu các thay đổi?</string>
     <string name="title_ask_delete">Xoá thư vĩnh viễn?</string>
+    <string name="title_ask_delete_accept">Tôi hiểu rằng việc xoá thư vĩnh viễn không thể được hoàn tác</string>
     <string name="title_ask_delete_answer">Xoá mẫu trả lời vĩnh viễn?</string>
     <string name="title_ask_delete_rule">Xóa quy tắc vĩnh viễn?</string>
     <string name="title_ask_discard">Bỏ thư nháp?</string>
@@ -1228,6 +1231,8 @@
     <string name="title_legend_view">Xem nội dung</string>
     <string name="title_legend_hide">Ẩn nội dung</string>
     <string name="title_legend_download">Tải xuống nội dung</string>
+    <string name="title_legend_original">Xem thư gốc</string>
+    <string name="title_legend_reformatted">Xem thư đã định dạng lại</string>
     <string name="title_legend_external_image">Giữ chỗ cho hình ảnh ngoài</string>
     <string name="title_legend_embedded_image">Giữ chỗ cho hình ảnh được gắn vào</string>
     <string name="title_legend_tracking_pixel">Hình ảnh theo dõi</string>
@@ -1289,6 +1294,7 @@
     <string name="title_hint_contact_actions">Nhấn giữ để xem các tuỳ chọn</string>
     <string name="title_hint_eml">Đây là tóm tắt của nội dung của một tập tin thư thô. Lưu thư thô bằng biểu tượng lưu trong thanh hành động để xem tất cả nội dung.</string>
     <string name="title_open_link">Mở liên kết</string>
+    <string name="title_image_link">Liên kết hình ảnh</string>
     <string name="title_different_link">Tiêu đề và địa chỉ liên kết khác nhau</string>
     <string name="title_tracking_link">Trang web này có thể sẽ theo dõi bạn</string>
     <string name="title_suspicious_link">Đây là một liên kết đáng nghi</string>

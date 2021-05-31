@@ -181,8 +181,10 @@
     <string name="title_setup_free">Je tato aplikace zdarma?</string>
     <string name="title_setup_permissions">Udělit oprávnění</string>
     <string name="title_setup_permissions_remark">Pro přístup k údajům kontaktů (nepovinné)</string>
+    <string name="title_setup_permissions_explanation">Oprávnění pro přístup ke kontaktům je vyžadováno pro zobrazování kontaktních informací a navrhování kontaktů</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Pro spolehlivé odesílání a příjem e-mailu</string>
+    <string name="title_setup_doze_explanation">Optimalizace baterie by měly být pro aplikaci zakázány, aby bylo zajištěno spolehlivé odesílání a přijímání zpráv na pozadí</string>
     <string name="title_setup_doze_hint">Ačkoli to může znít protichůdně, vypnutí optimalizace výdrže baterie pro tuto aplikaci povede k její menší spotřebě</string>
     <string name="title_setup_doze_instructions">V následujícím Android dialogu změňte \"Neoptimalizováno\" na \"Všechny aplikace\", nalistujte tuto aplikaci a zvolte u ní \"Neoptimalizovat\"</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
@@ -454,6 +456,7 @@
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
+    <string name="title_advanced_generic_user_agent">Použít generického uživatelského agenta prohlížeče</string>
     <string name="title_advanced_disconnect_auto_update">Automaticky týdně aktualizovat seznamy</string>
     <string name="title_advanced_disconnect_links">Použít seznamy k upozornění na sledovací odkazy</string>
     <string name="title_advanced_disconnect_images">Použít seznamy k rozpoznání sledovacích obrázků</string>
@@ -1255,6 +1258,8 @@
     <string name="title_legend_view">Zobrazit obsah</string>
     <string name="title_legend_hide">Skrýt obsah</string>
     <string name="title_legend_download">Stáhnout obsah</string>
+    <string name="title_legend_original">Zobrazit původní zprávu</string>
+    <string name="title_legend_reformatted">Zobrazit přeformátovanou zprávu</string>
     <string name="title_legend_external_image">Zástupce externího obrázku</string>
     <string name="title_legend_embedded_image">Zástupce vloženého obrázku</string>
     <string name="title_legend_tracking_pixel">Sledovací obrázek</string>
@@ -1316,6 +1321,7 @@
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Pro zobrazení celého obsahu uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí.</string>
     <string name="title_open_link">Otevřít odkaz</string>
+    <string name="title_image_link">Odkaz obrázku</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>
     <string name="title_tracking_link">Tato stránka vás může sledovat</string>
     <string name="title_suspicious_link">Toto je podezřelý odkaz</string>

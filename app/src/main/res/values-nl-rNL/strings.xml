@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail zoeken</string>
     <string name="app_changelog">Wijzigingsgeschiedenis</string>
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
-    <string name="app_limitations">Berichten worden bijvoorbeeld standaard geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren, en het openen van links moet voor de veiligheid worden bevestigd. Beide kunnen desgewenst uitgeschakeld worden.</string>
+    <string name="app_limitations">Berichten worden bijvoorbeeld standaard opnieuw opgemaakt om onveilige elementen te verwijderen en de leesbaarheid te verbeteren, en het openen van links moet voor de veiligheid worden bevestigd. Beide kunnen desgewenst uitgeschakeld worden.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="app_cake">Onvoldoende opslagruimte over</string>
@@ -161,8 +161,10 @@
     <string name="title_setup_free">Is deze app gratis te gebruiken?</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
+    <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Om betrouwbaar e-mail te verzenden en ontvangen</string>
+    <string name="title_setup_doze_explanation">Batterij optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
     <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van accuoptimalisaties voor deze app resulteren in minder batterijverbruik</string>
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
@@ -426,7 +428,7 @@
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
     <string name="title_advanced_browse_links">Het openen van links overdragen aan Android</string>
     <string name="title_advanced_confirm_images">Bevestig het tonen van afbeeldingen</string>
-    <string name="title_advanced_confirm_html">Toon standaard opnieuw geformatteerde berichten</string>
+    <string name="title_advanced_confirm_html">Toon standaard opnieuw opgemaakte berichten</string>
     <string name="title_advanced_tracking">Probeer om tracking afbeeldingen te herkennen en uit te schakelen</string>
     <string name="title_advanced_hide_timezone">Berichten verzenden zonder tijdzone data</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
@@ -520,7 +522,7 @@
     <string name="title_advanced_preview_lines_hint">Maximaal %s tekens in totaal</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
-    <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw geformatteerde berichten</string>
+    <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw opgemaakte berichten</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
     <string name="title_advanced_language_detection_hint">Ondersteuning van taaldetectie is afhankelijk van de fabrikant van het apparaat</string>
@@ -849,7 +851,7 @@
     <string name="title_no_format">Het oorspronkelijke ontvangen bericht zal worden opgenomen</string>
     <string name="title_no_image">Afbeelding kon niet gedecodeerd worden</string>
     <string name="title_no_search">Zoeken op server is niet beschikbaar voor dit account</string>
-    <string name="title_too_large">Bericht te groot om volledig opnieuw te formatteren</string>
+    <string name="title_too_large">Bericht te groot om volledig opnieuw op te maken</string>
     <string name="title_truncated">Bericht is te groot om volledig weer te geven</string>
     <string name="title_insufficient_memory">Bericht te groot om in het beschikbare geheugen te passen</string>
     <string name="title_show_full">Toon volledig bericht</string>
@@ -862,6 +864,7 @@
     <string name="title_attachments_incomplete">Sommige bijlagen of afbeeldingen zijn niet gedownload en konden niet worden toegevoegd</string>
     <string name="title_ask_save">Wijzigingen opslaan?</string>
     <string name="title_ask_delete">Verwijder bericht definitief?</string>
+    <string name="title_ask_delete_accept">Ik begrijp dat permanent verwijderen van berichten onomkeerbaar is</string>
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon definitief?</string>
     <string name="title_ask_delete_rule">Verwijder regel definitief?</string>
     <string name="title_ask_discard">Concept verwijderen?</string>
@@ -886,7 +889,7 @@
     <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.
         U kunt op het &#x26F6; pictogram tikken om het originele bericht te bekijken en dit bericht te verbergen.
-        Het opnieuw formatteren van berichten kost enige tijd, afhankelijk van de grootte van het bericht en de snelheid van uw apparaat.
+        Het opnieuw opmaken van berichten kost enige tijd, afhankelijk van de grootte van het bericht en de snelheid van uw apparaat.
     </string>
     <string name="title_compose">Opstellen</string>
     <string name="title_submitter">Verstuurd door:</string>
@@ -970,7 +973,7 @@
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
-    <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
+    <string name="title_edit_formatted_text">Bewerk als opnieuw opgemaakte tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>
     <string name="title_certificate_missing">Geen publieke sleutel voor %1$s</string>
     <string name="title_certificate_invalid">Publieke sleutel van %1$s is ongeldig</string>
@@ -1239,6 +1242,8 @@
     <string name="title_legend_view">Inhoud weergeven</string>
     <string name="title_legend_hide">Inhoud verbergen</string>
     <string name="title_legend_download">Inhoud downloaden</string>
+    <string name="title_legend_original">Bekijk het originele bericht</string>
+    <string name="title_legend_reformatted">Toon opnieuw opgemaakte bericht</string>
     <string name="title_legend_external_image">Plaatshouder externe afbeelding</string>
     <string name="title_legend_embedded_image">Plaatshouder ingesloten afbeelding</string>
     <string name="title_legend_tracking_pixel">Tracking afbeelding</string>
@@ -1294,12 +1299,13 @@
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_sync_note">Standaard worden niet alle berichten gedownload om de opslagruimte en het batterij- en gegevensgebruik te beperken. U kunt dit wijzigen door lang op een map in de mappenlijst te drukken en \'Meer synchroniseren\' te selecteren.</string>
     <string name="title_hint_battery">Aangezien FairEmail standaard altijd berichten ontvangt, meldt Android dat FairEmail altijd actief is. Daarom lijkt het erop dat FairEmail altijd batterijvermogen gebruikt, maar in feite is dit niet het geval.</string>
-    <string name="title_hint_reformat">Standaard formatteert FairEmail berichten opnieuw om privacy- en veiligheidsredenen. Tik op het \'volledig scherm\' pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
+    <string name="title_hint_reformat">Standaard maakt FairEmail berichten opnieuw op om privacy- en veiligheidsredenen. Tik op het \'volledig scherm\' pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
     <string name="title_hint_design">Het ontwerp is opzettelijk niet afleidend, maar zeer functioneel gehouden. Er zijn veel opties om het uiterlijk aan te passen, maar begrijp alsjeblieft dat het onmogelijk is om iedereen tegelijkertijd helemaal gelukkig te maken.</string>
     <string name="title_hint_junk">Spamfiltering zou door de e-mailserver gedaan moeten worden en kan niet op een apparaat met beperkte mogelijkheden betrouwbaar gedaan worden.</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
     <string name="title_open_link">Koppeling openen</string>
+    <string name="title_image_link">Afbeeldingskoppeling</string>
     <string name="title_different_link">De titel en het link-adres zijn verschillend</string>
     <string name="title_tracking_link">Deze website kan je volgen</string>
     <string name="title_suspicious_link">Dit is een verdachte koppeling</string>
