@@ -1004,10 +1004,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             if (name.endsWith(".apk")) {
                                 info.download_url = jasset.optString("browser_download_url");
                                 Log.i("Latest version=" + info.tag_name);
-                                if (BuildConfig.VERSION_NAME.equals(info.tag_name) && !BuildConfig.DEBUG)
-                                    return null;
-                                else
+                                if (BuildConfig.DEBUG)
                                     return info;
+                                try {
+                                    if (Double.parseDouble(info.tag_name) <
+                                            Double.parseDouble(BuildConfig.VERSION_NAME))
+                                        return null;
+                                    else
+                                        return info;
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                    if (BuildConfig.VERSION_NAME.equals(info.tag_name))
+                                        return null;
+                                    else
+                                        return info;
+                                }
                             }
                         }
                     }
