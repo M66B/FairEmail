@@ -1088,6 +1088,18 @@ class Core {
                         newuid = found;
                     else if (!newuid.equals(found)) {
                         Log.w(folder.name + " Added=" + newuid + " found=" + found);
+                        try {
+                            Message iprev = ifolder.getMessageByUID(Math.min(newuid, found));
+                            if (iprev != null) {
+                                iprev.setFlag(Flags.Flag.DELETED, true);
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+                                if (perform_expunge)
+                                    ifolder.expunge();
+                            }
+                        } catch (MessagingException ex) {
+                            Log.w(ex);
+                        }
                         newuid = Math.max(newuid, found);
                     }
             } catch (MessagingException ex) {
