@@ -2766,7 +2766,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvCalendarSummary.setText(summary);
                     tvCalendarSummary.setVisibility(TextUtils.isEmpty(summary) ? View.GONE : View.VISIBLE);
 
-                    tvCalendarDescription.setText(description);
+                    if (description == null)
+                        tvCalendarDescription.setText(description);
+                    else {
+                        Document d = JsoupEx.parse(description);
+                        if (d.selectFirst("html") == null)
+                            tvCalendarDescription.setText(description);
+                        else
+                            tvCalendarDescription.setText(
+                                    HtmlHelper.fromDocument(context, d, null, null));
+                    }
                     tvCalendarDescription.setVisibility(TextUtils.isEmpty(description) ? View.GONE : View.VISIBLE);
 
                     tvCalendarLocation.setText(location);
