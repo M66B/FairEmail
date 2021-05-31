@@ -474,31 +474,30 @@ public class FragmentOAuth extends FragmentBase {
 
                 String username = address;
 
-                if (accessToken != null) {
+                List<String> usernames = new ArrayList<>();
+
+                if (token != null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
-                    String[] segments = accessToken.split("\\.");
+                    String[] segments = token.split("\\.");
                     if (segments.length > 1)
                         try {
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
                             EntityLog.log(context, "token payload=" + payload);
                             JSONObject jpayload = new JSONObject(payload);
+                            if (jpayload.has("preferred_username")) {
+                                String u = jpayload.getString("preferred_username");
+                                if (!usernames.contains(u))
+                                    usernames.add(u);
+                            }
                             if (jpayload.has("unique_name")) {
-                                String unique_name = jpayload.getString("unique_name");
-                                if (!TextUtils.isEmpty(unique_name) && !unique_name.equals(address)) {
-                                    try (EmailService iservice = new EmailService(
-                                            context, aprotocol, null, aencryption, false,
-                                            EmailService.PURPOSE_CHECK, true)) {
-                                        iservice.connect(
-                                                provider.imap.host, provider.imap.port,
-                                                AUTH_TYPE_OAUTH, provider.id,
-                                                unique_name, state,
-                                                null, null);
-                                        username = unique_name;
-                                        Log.i("token unique_name=" + unique_name);
-                                    } catch (Throwable ex) {
-                                        Log.w(ex);
-                                    }
-                                }
+                                String u = jpayload.getString("unique_name");
+                                if (!usernames.contains(u))
+                                    usernames.add(u);
+                            }
+                            if (jpayload.has("upn")) {
+                                String u = jpayload.getString("upn");
+                                if (!usernames.contains(u))
+                                    usernames.add(u);
                             }
                         } catch (Throwable ex) {
                             Log.w(ex);
@@ -513,9 +512,42 @@ public class FragmentOAuth extends FragmentBase {
                             // https://jwt.ms/
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
                             EntityLog.log(context, "jwt payload=" + payload);
+                            JSONObject jpayload = new JSONObject(payload);
+                            if (jpayload.has("preferred_username")) {
+                                String u = jpayload.getString("preferred_username");
+                                if (!usernames.contains(u))
+                                    usernames.add(u);
+                            }
+                            if (jpayload.has("email")) {
+                                String u = jpayload.getString("email");
+                                if (!usernames.contains(u))
+                                    usernames.add(u);
+                            }
+                            if (jpayload.has("unique_name")) {
+                                String u = jpayload.getString("unique_name");
+                                if (!usernames.contains(u))
+                                    usernames.add(u);
+                            }
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
+                }
+
+                for (String alt : usernames) {
+                    if (TextUtils.isEmpty(alt) || alt.equals(username))
+                        continue;
+                    EntityLog.log(context, "Trying username=" + alt);
+                    try (EmailService iservice = new EmailService(
+                            context, aprotocol, null, aencryption, false,
+                            EmailService.PURPOSE_CHECK, true)) {
+                        iservice.connect(
+                                provider.imap.host, provider.imap.port,
+                                AUTH_TYPE_OAUTH, provider.id,
+                                alt, state,
+                                null, null);
+                        EntityLog.log(context, "Using username=" + alt);
+                        username = alt;
+                    }
                 }
 
                 List<Pair<String, String>> identities = new ArrayList<>();
