@@ -77,6 +77,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -254,8 +255,33 @@ public class FragmentOAuth extends FragmentBase {
             List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
             EntityLog.log(context, "Browsers=" + (ris == null ? null : ris.size()));
             if (ris != null)
-                for (ResolveInfo ri : ris)
-                    EntityLog.log(context, "Browser=" + ri.activityInfo.packageName);
+                for (ResolveInfo ri : ris) {
+                    Intent serviceIntent = new Intent();
+                    serviceIntent.setAction("android.support.customtabs.action.CustomTabsService");
+                    serviceIntent.setPackage(ri.activityInfo.packageName);
+                    boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("Browser=").append(ri.activityInfo.packageName);
+                    sb.append(" tabs=").append(tabs);
+                    sb.append(" view=").append(ri.filter.hasAction(Intent.ACTION_VIEW));
+                    sb.append(" browsable=").append(ri.filter.hasCategory(Intent.CATEGORY_BROWSABLE));
+                    sb.append(" authorities=").append(ri.filter.authoritiesIterator() != null);
+                    sb.append(" schemes=");
+
+                    boolean first = true;
+                    Iterator<String> schemeIter = ri.filter.schemesIterator();
+                    while (schemeIter.hasNext()) {
+                        String scheme = schemeIter.next();
+                        if (first)
+                            first = false;
+                        else
+                            sb.append(',');
+                        sb.append(scheme);
+                    }
+
+                    EntityLog.log(context, sb.toString());
+                }
 
             AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
                     .setBrowserMatcher(new BrowserMatcher() {
