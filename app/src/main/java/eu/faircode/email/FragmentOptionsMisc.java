@@ -982,7 +982,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swCheckWeekly.setChecked(prefs.getBoolean("weekly", true));
+        swCheckWeekly.setChecked(prefs.getBoolean("weekly", false));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
