@@ -49,6 +49,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
@@ -155,7 +156,7 @@ public class StyleHelper {
                 SubMenu smenu = popupMenu.getMenu().findItem(R.id.menu_style_font).getSubMenu();
                 for (int i = 0; i < fontNameNames.length; i++) {
                     SpannableStringBuilder ssb = new SpannableStringBuilder(fontNameNames[i]);
-                    ssb.setSpan(new TypefaceSpan(fontNameValues[i]), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    ssb.setSpan(getTypefaceSpan(fontNameValues[i], context), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     smenu.add(R.id.group_style_font, i, 0, ssb);
                 }
                 smenu.add(R.id.group_style_font, fontNameNames.length, 0, R.string.title_style_font_default);
@@ -412,11 +413,12 @@ public class StyleHelper {
                             int f = edit.getSpanFlags(span);
                             edit.removeSpan(span);
                             splitSpan(edit, start, end, s, e, f, false,
-                                    new TypefaceSpan(span.getFamily()), new TypefaceSpan(span.getFamily()));
+                                    getTypefaceSpan(span.getFamily(), context),
+                                    getTypefaceSpan(span.getFamily(), context));
                         }
 
                         if (face != null)
-                            edit.setSpan(new TypefaceSpan(face), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            edit.setSpan(getTypefaceSpan(face, context), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         etBody.setText(edit);
                         etBody.setSelection(start, end);
@@ -759,6 +761,18 @@ public class StyleHelper {
                 }
             }
         }
+    }
+
+    static TypefaceSpan getTypefaceSpan(String family, Context context) {
+        String face = family.toLowerCase(Locale.ROOT);
+        if ("fairemail".equals(face)) {
+            Typeface typeface = ResourcesCompat.getFont(context, R.font.fantasy);
+            return new CustomTypefaceSpan(face, typeface);
+        } else if (face.contains("comic sans")) {
+            Typeface typeface = ResourcesCompat.getFont(context, R.font.opendyslexic);
+            return new CustomTypefaceSpan(face, typeface);
+        } else
+            return new TypefaceSpan(face);
     }
 
     //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");

@@ -31,3 +31,4 @@ FairEmail uses:
 * [Compact Language Detector v3](https://github.com/google/cld3). Copyright 2016 Google Inc. All rights reserved. [Apache License 2.0](https://github.com/google/cld3/blob/master/LICENSE).
 * [POI-HMEF](https://poi.apache.org/components/hmef/index.html). Copyright © 2001-2020 The Apache Software Foundation. [Apache Software License v2](https://poi.apache.org/devel/guidelines.html#The+Licensing).
 * [GoSquared's Flag Icon Set](https://github.com/gosquared/flags). Copyright (c) 2017 Go Squared Ltd. [MIT License](https://github.com/gosquared/flags/blob/master/LICENSE.txt).
+* [OpenDyslexic](https://github.com/antijingoist/opendyslexic). Copyright (c) 12/2012 - 2019. Copyright (c) 2019-07-29, Abbie Gonzalez. [SIL Open Font License 1.1](https://github.com/antijingoist/opendyslexic/blob/master/OFL.txt).

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml -->
+    <font
+        app:font="@font/opendyslexic_normal"
+        app:fontStyle="normal"
+        app:fontWeight="400" />
+    <!-- https://opendyslexic.org/ -->
+</font-family>

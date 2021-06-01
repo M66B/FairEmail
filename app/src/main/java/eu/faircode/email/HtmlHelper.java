@@ -54,7 +54,6 @@ import android.util.Patterns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
@@ -2256,11 +2255,7 @@ public class HtmlHelper {
                                         }
                                     break;
                                 case "font-family":
-                                    String face = value.toLowerCase(Locale.ROOT);
-                                    if ("fairemail".equals(face)) {
-                                        Typeface typeface = ResourcesCompat.getFont(context, R.font.fantasy);
-                                        setSpan(ssb, new CustomTypefaceSpan(face, typeface), start, ssb.length());
-                                    } else if ("wingdings".equals(face)) {
+                                    if ("wingdings".equalsIgnoreCase(value)) {
                                         for (int i = start; i < ssb.length(); i++) {
                                             int kar = ssb.charAt(i);
                                             if (kar >= 0x20 && kar < 0x20 + WINGDING_TO_UNICODE.length) {
@@ -2271,7 +2266,7 @@ public class HtmlHelper {
                                             }
                                         }
                                     } else
-                                        setSpan(ssb, new TypefaceSpan(face), start, ssb.length());
+                                        setSpan(ssb, StyleHelper.getTypefaceSpan(value, context), start, ssb.length());
                                     break;
                                 case "text-decoration":
                                     if ("line-through".equals(value))

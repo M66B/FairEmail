@@ -1891,6 +1891,8 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
+        <item>Fantasy</item>
+        <item>Dyslexia</item>
     </string-array>
 
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
@@ -1900,6 +1902,7 @@
         <item>sans-serif</item>
         <item>monospace</item>
         <item>fantasy</item>
+        <item>comic sans</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
