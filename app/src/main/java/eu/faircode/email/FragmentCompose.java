@@ -867,7 +867,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        etBody.setTypeface(Typeface.create(compose_font, Typeface.NORMAL));
+        etBody.setTypeface(StyleHelper.getTypeface(compose_font, getContext()));
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
         tvReference.setMovementMethod(new ArrowKeyMovementMethod() {

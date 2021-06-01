@@ -769,12 +769,22 @@ public class StyleHelper {
         String face = family.toLowerCase(Locale.ROOT);
         if ("fairemail".equals(face)) {
             Typeface typeface = ResourcesCompat.getFont(context, R.font.fantasy);
-            return new CustomTypefaceSpan(face, typeface);
+            return new CustomTypefaceSpan(family, typeface);
         } else if (face.contains("comic sans")) {
             Typeface typeface = ResourcesCompat.getFont(context, R.font.opendyslexic);
-            return new CustomTypefaceSpan(face, typeface);
+            return new CustomTypefaceSpan(family, typeface);
         } else
-            return new TypefaceSpan(face);
+            return new TypefaceSpan(family);
+    }
+
+    static Typeface getTypeface(String family, Context context) {
+        String face = family.toLowerCase(Locale.ROOT);
+        if ("fairemail".equals(face))
+            return ResourcesCompat.getFont(context, R.font.fantasy);
+        else if (face.contains("comic sans"))
+            return ResourcesCompat.getFont(context, R.font.opendyslexic);
+        else
+            return Typeface.create(family, Typeface.NORMAL);
     }
 
     //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
