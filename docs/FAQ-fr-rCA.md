@@ -827,11 +827,11 @@ S'il y a des messages d'erreur, veuillez consulter [cette FAQ](#user-content-faq
 
 Sur certains appareils, où il y a beaucoup d'applications en concurrence pour la mémoire, Android peut arrêter le service de synchronisation en dernier recours.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Certaines versions d'Android arrêtes les applications et services trop brutalement. Voir [ ce site](https://dontkillmyapp.com/) et [ce ticket Android](https://issuetracker.google.com/issues/122098785) pour plus d'informations.
 
-Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
+Désactiver l'optimisation de la batterie (mis en place à l'étape 3) réduit les chances qu'Android stoppe le service de synchronisation.
 
-In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
+Dans le cas d'erreurs de connexion successives, FairEmail attendra de plus en plus longtemps entre pour réduire l'usage de batterie. Voir [cette FAQ](#user-content-faq123).
 
 <br />
 
@@ -878,9 +878,9 @@ I have been working on FairEmail almost every day for more than two years, so I 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Puis-je obtenir un remboursement ?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. En aucun cas il n'y a de remboursement possible pour tout problème lié aux fonctionnalités gratuites, étant donné que rien a été payé pour les obtenir et parce qu'elles peuvent être évaluées sans aucune limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Si une fonctionnalité pro ne marche pas comme prévu et que ce n'est pas causé par un problème dans les fonctionnalités gratuites et que je ne peux résoudre ce problème rapidement, vous pouvez obtenir un remboursement. Autrement, il n'y a pas de possibilité de remboursement. En aucun cas il n'y a de remboursement possible pour tout problème lié aux fonctionnalités gratuites, étant donné que rien a été payé pour les obtenir et parce qu'elles peuvent être évaluées sans aucune limitation. Je prends ma responsabilité en tant que vendeur de délivrer ce qui a été promis et je pars du principe que vous prenez la responsabilité de vous informer de ce que vous achetez.
 
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**

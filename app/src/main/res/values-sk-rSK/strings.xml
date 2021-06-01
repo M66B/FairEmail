@@ -3,7 +3,7 @@
     <string name="app_search">Hľadanie FairEmail</string>
     <string name="app_changelog">Zoznam zmien</string>
     <string name="app_welcome">FairEmail je opensource aplikácia zameraná na súkromie a bezpečnosť. Z toho dôvodu môžu niektoré vlastnosti fungovať inak, ako ste zvyknutí.</string>
-    <string name="app_limitations">Napríklad, správy sú implicitne preformátované aby sa odstránili nebezpečné elementy a zvýšila čitateľnosť, a otváranie odkazov je potrebné potvrdiť kvôli bezpečnosti. Obe nastavenia sa dajú podľa potreby vypnúť.</string>
+    <string name="app_limitations">Napríklad, správy sú implicitne preformátované aby sa odstránili nebezpečné elementy a zvýšila čitateľnosť, a otváranie odkazov je potrebné potvrdiť kvôli bezpečnosti. Obe nastavenia je možné podľa potreby vypnúť.</string>
     <string name="app_crash">FairEmail nie je podporovaný na tomto zariadení, pretože chyby v systéme spôsobujú pády</string>
     <string name="app_exit">Znova stlačte \"Späť\" pre ukončenie</string>
     <string name="app_cake">Nedostatok voľného miesta na úložisku</string>
@@ -181,8 +181,10 @@
     <string name="title_setup_free">Je možné túto aplikáciu používať bezplatne?</string>
     <string name="title_setup_permissions">Udeliť oprávnenia</string>
     <string name="title_setup_permissions_remark">Prístup k informáciám kontaktov (voliteľné)</string>
+    <string name="title_setup_permissions_explanation">Oprávnenie pristupovať ku kontaktom je potrebné na získavanie informácií o kontaktoch a na návrhy príjemcov</string>
     <string name="title_setup_doze">Vypnite optimalizáciu batérie</string>
     <string name="title_setup_doze_remark">Aby ste mohli spoľahlivo prijímať a odosielať email</string>
+    <string name="title_setup_doze_explanation">Optimalizácie batérie by mali byť zakázané, aby spoľahlivo fungovalo prijímanie a odosielanie správ na pozadí</string>
     <string name="title_setup_doze_hint">Môže sa zdať, že opak je pravdou, no vypnutím optimalizácie ušetríte využitie pri napájaní z batérie</string>
     <string name="title_setup_doze_instructions">V nasledujúsom dialógu systému android zmeňte \"Neoptimalizované\" na \"Všetky aplikácie\", nájdite túto aplikáciu a nastavte \"Neoptimalizovať\"</string>
     <string name="title_setup_doze_battery">Vysoká spotreba batérie?</string>
@@ -197,6 +199,7 @@
     <string name="title_setup_still">Zostáva dokončiť</string>
     <string name="title_setup_error">Chyba</string>
     <string name="title_setup_configuring">Nastavenie účtu &#8230;</string>
+    <string name="title_setup_close">Zavrieť nastavenia</string>
     <string name="title_setup_export">Exportovať nastavenia</string>
     <string name="title_setup_import">Importovať nastavenia</string>
     <string name="title_setup_export_do">Heslo sa použije na zašifrovanie nastavení a bude opäť vyžadované počas importu</string>
@@ -324,6 +327,7 @@
     <string name="title_advanced_cards_beige">Béžové pozadie keď je použitý štýl kariet</string>
     <string name="title_advanced_cards_shadow">Zatieniť neprečítané správy v štýle kariet</string>
     <string name="title_advanced_date_header">Zoradiť podľa dátumu</string>
+    <string name="title_advanced_date_bold">Dátum zobraziť tučným písmom</string>
     <string name="title_advanced_threading">Vlákna konverzácií</string>
     <string name="title_advanced_threading_unread">Zobrazovať počet neprečítaných správ v konverzáciách</string>
     <string name="title_advanced_indentation">Ľavé/pravé odsadenie prijatých/odoslaných správ v konverzáciách</string>
@@ -361,7 +365,7 @@
     <string name="title_advanced_attachments_alt">Zobraziť prílohy za textom správy</string>
     <string name="title_advanced_thumbnails">Zobraziť miniatúry obrázkov za textom správy</string>
     <string name="title_advanced_message_text_zoom">Predvolená úroveň priblíženia textu správy</string>
-    <string name="title_advanced_overview_mode">Zobrazenie pôvodných správ prispôsobiť veľkosti obrazovky</string>
+    <string name="title_advanced_overview_mode">Pôvodné zobrazenie správy prispôsobiť veľkosti obrazovky</string>
     <string name="title_advanced_contrast">Vysoký kontrast pre text správy</string>
     <string name="title_advanced_monospaced">Text správy písmom s pevnou šírkou</string>
     <string name="title_advanced_monospaced_pre">Používať písmo s pevnou šírkou pre predformátovaný text</string>
@@ -452,6 +456,7 @@
     <string name="title_advanced_secure">Skryť FairEmail z obrazovky posledných aplikácií a zabrániť získavaniu screenshotov</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Časový limit pre biometrické overenie</string>
+    <string name="title_advanced_generic_user_agent">Použiť všeobecnú hodnotu user agent (ako vebový prehliadač)</string>
     <string name="title_advanced_disconnect_auto_update">Automaticky aktualizovať zoznamy raz týždenne</string>
     <string name="title_advanced_disconnect_links">Použiť zoznamy pre varovanie pred sledujúcimi odkazmi</string>
     <string name="title_advanced_disconnect_images">Použiť zoznamy pre rozpoznanie sledovacích obrázkov</string>
@@ -471,6 +476,7 @@
     <string name="title_advanced_manage_keys_hint">        Zobrazia sa nastavenia zabezpečenia systému.
         Certifikáty a kľúče sú bežne v časti Rozšírené - Šifrovanie a poverenia.
     </string>
+    <string name="title_advanced_power_menu">Pridať akcie do ponuky zariadení systému Android</string>
     <string name="title_advanced_external_search">Povoliť ďalším aplikáciám hľadať v správach</string>
     <string name="title_advanced_shortcuts">Zobraziť často používané kontakty v menu zdieľania Androidu</string>
     <string name="title_advanced_fts">Zostaviť index pre vyhľadávanie</string>
@@ -549,6 +555,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_display_harmful_hint">Vypnutie tejto možnosti môže narušiť Vaše súkromie</string>
     <string name="title_advanced_display_hidden_hint">Toto môže spôsobiť podivný vzhľad a duplikované texty</string>
     <string name="title_advanced_display_pin_hint">PIN má prednosť pred biometrickou autentifikáciou</string>
+    <string name="title_advanced_safe_browsing_hint">Informácia o vyhľadávaných adresách je uložená na serveroch spoločnosti Google</string>
     <string name="title_advanced_badge_hint">Dostupné len na podporovaných launcheroch</string>
     <string name="title_advanced_notify_action_hint">Budú zobrazené najviac tri činnosti</string>
     <string name="title_advanced_notify_remove_hint">Oznámenia o novej správe budú vždy odstránené, keď ich odmietnete potiahnutím a po označení správy ako prečítanej</string>
@@ -835,6 +842,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_move_to_account">Presunúť do %1$s &#8230;</string>
     <string name="title_report_spam">Označiť ako spam</string>
     <string name="title_delete_permanently">Odstrániť natrvalo</string>
+    <string name="title_no_undo">Rozumiem, že toto nie je možné vrátiť späť</string>
     <string name="title_snooze">Odložiť &#8230;</string>
     <string name="title_archive">Archivovať</string>
     <string name="title_reply">Odpovedať</string>
@@ -873,13 +881,14 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_attachments_incomplete">Niektoré prílohy alebo obrázky neboli prevzaté a nie je možné ich pridať</string>
     <string name="title_ask_save">Uložiť zmeny?</string>
     <string name="title_ask_delete">Natrvalo odstrániť správu?</string>
+    <string name="title_ask_delete_accept">Rozumiem, že vymazanie správ natrvalo je nezvratná operácia</string>
     <string name="title_ask_delete_answer">Natrvalo odstrániť šablónu odpovede?</string>
     <string name="title_ask_delete_rule">Natrvalo odstrániť pravidlo?</string>
     <string name="title_ask_discard">Zahodiť koncept?</string>
-    <string name="title_ask_show_html">Zobrazením pôvodnej správy môže dojsť k úniku citlivých informácií</string>
+    <string name="title_ask_show_html">Pôvodné zobrazenie správy je náchylnejšie na únik citlivých informácií</string>
     <string name="title_ask_show_html_dark">Používať tmavý vzhľad</string>
-    <string name="title_ask_show_html_remark">Pôvodnú správu nie je možné zobraziť na tmavom pozadí, pretože tmavý text a obrázky nemusia byť dostatočne viditeľné</string>
-    <string name="title_ask_show_html_images">Vždy zobraziť obrázky pri zobrazení pôvodných správ</string>
+    <string name="title_ask_show_html_remark">Pôvodné zobrazenie správy nie je možné zobraziť na tmavom pozadí, pretože tmavý text a obrázky nemusia byť dostatočne viditeľné</string>
+    <string name="title_ask_show_html_images">Vždy zobraziť obrázky v pôvodnom zobrazení správy</string>
     <string name="title_ask_show_image">Zobrazením obrázkov môže dojsť k úniku citlivých informácií</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané ako sledovacie nebudú zobrazené</string>
     <string name="title_ask_delete_local">Vymazať lokálne správy? Správy ostanú uložené na servery.</string>
@@ -918,6 +927,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_subject">Predmet:</string>
     <string name="title_attachment">Príloha:</string>
     <string name="title_body_hint">Vaša správa</string>
+    <string name="title_body_hint_style">Po vybratí textu sa sprístupnia formátovacie možnosti</string>
     <string name="title_discard">Zahodiť</string>
     <string name="title_save">Uložiť</string>
     <string name="title_send">Odoslať</string>
@@ -945,6 +955,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_list">Zoznam</string>
     <string name="title_style_list_bullets">Odrážky</string>
     <string name="title_style_list_numbered">Číslovaný</string>
+    <string name="title_style_list_level_increase">Odsadiť</string>
+    <string name="title_style_list_level_decrease">Zrušiť odsadenie</string>
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Predvolené</string>
     <string name="title_style_blockquote">Citácia</string>
@@ -971,6 +983,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_insert_contact_group">Vložiť skupinu kontaktov</string>
     <string name="title_insert_template">Vložiť šablónu</string>
     <string name="title_create_template">Vytvoriť šablónu</string>
+    <string name="title_translate">Preložiť</string>
+    <string name="title_translate_configure">Nastaviť &#8230;</string>
+    <string name="title_translate_key">Zadajte kľúč</string>
+    <string name="title_translating">Preklad &#8230;</string>
+    <string name="title_translate_small">Zdrojový text malým písmom</string>
+    <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Upraviť ako obyčajný text</string>
     <string name="title_edit_formatted_text">Upraviť ako preformátovaný text</string>
     <string name="title_select_certificate">Vybrať verejný kľúč</string>
@@ -1193,6 +1211,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_connecting">Pripájanie</string>
     <string name="title_legend_connected">Pripojené</string>
     <string name="title_legend_backoff">Čakanie po zlyhaní</string>
+    <string name="title_legend_quota">Poštová schránka je takmer plná</string>
     <string name="title_legend_executing">Vykonávanie operácií</string>
     <string name="title_legend_synchronizing">Synchronizácia</string>
     <string name="title_legend_downloading">Preberanie</string>
@@ -1239,6 +1258,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_view">Zobraziť obsah</string>
     <string name="title_legend_hide">Skryť obsah</string>
     <string name="title_legend_download">Prevziať obsah</string>
+    <string name="title_legend_original">Pôvodné zobrazenie správy</string>
+    <string name="title_legend_reformatted">Preformátované zobrazenie správy</string>
     <string name="title_legend_external_image">Náhrada za externý obrázok</string>
     <string name="title_legend_embedded_image">Náhrada za zahrnutý obrázok</string>
     <string name="title_legend_tracking_pixel">Sledovací obrázok</string>
@@ -1264,7 +1285,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_create_rule">Vytvoriť pravidlo</string>
     <string name="title_legend_show_unsubscribe">Odhlásiť sa z odberu</string>
     <string name="title_legend_show_images">Zobraziť obrázky</string>
-    <string name="title_legend_show_full">Zobraziť pôvodnú správu</string>
+    <string name="title_legend_show_full">Pôvodné zobrazenie správy</string>
     <string name="title_legend_edit">Upraviť</string>
     <string name="title_legend_default_color">Predvolená farba</string>
     <string name="title_legend_close_hint">Skryť nápovedu</string>
@@ -1294,12 +1315,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_sync">Preberanie správ zaberie určitý čas v závislosti od rýchlosti poskytovateľa, pripojenia na internet, zariadenia a množstva správ. Počas preberania môže aplikácia reagovať pomalšie.</string>
     <string name="title_hint_sync_note">S cieľom ušetriť úložný priestor, prenos dát a napájanie z batérie sa štandardne nebudú preberať všetky správy. Môžete to zmeniť dlhým stlačením priečinka v zozname a zvolením \'Synchronizovať viac\'.</string>
     <string name="title_hint_battery">Keďže FairEmail v predvolenej konfigurácii neustále prijíma správy, operačný systém bude aplikáciu považovať za vždy aktívnu. Môže sa zdať, že FairEmail neustále vybíja batériu, aj keď v skutočnosti to tak nie je.</string>
-    <string name="title_hint_reformat">V predvolenej konfigurácii FairEmail zobrazuje preformátované správy s cieľom zachovať maximálnu bezpečnosť a chrániť vaše súkromie. Klepnutím na ikonu \'Celá obrazovka\' nad telom textu zobrazíte pôvodnú správu.</string>
+    <string name="title_hint_reformat">V predvolenej konfigurácii FairEmail zobrazuje preformátované správy s cieľom zachovať maximálnu bezpečnosť a chrániť vaše súkromie. Klepnutím na ikonu \'Celá obrazovka\' nad telom textu zobrazíte pôvodné formátovanie správy.</string>
     <string name="title_hint_design">Dizajn je schválne navrhnutý, aby ostal čo možno najlepšie funkčný a bol najmenej vtieravý. Dostupných je množstvo volieb na prispôsobenie vzhľadu, ale pochopte prosím, že nie je možné úplne vyhovieť všetkým.</string>
     <string name="title_hint_junk">Filtrovanie nevyžiadanej pošty by malo byť zabezpečené na servery, pretože filtrovanie na zariadení napájanom z batérie s obmedzenými možnosťami nemusí fungovať dostatočne spoľahlivo.</string>
     <string name="title_hint_contact_actions">Možnosti zobrazíte dlhým stlačením</string>
     <string name="title_hint_eml">Toto je náhľad obsahu surového súboru so správou. Ak chcete zobraziť celý obsah, klepnite na tlačidlo \'Uložiť\' v lište akcií.</string>
     <string name="title_open_link">Otvoriť odkaz</string>
+    <string name="title_image_link">Umiestnenie obrázka</string>
     <string name="title_different_link">Názov a adresa odkazu sú rôzne</string>
     <string name="title_tracking_link">Táto stránka vás môže sledovať</string>
     <string name="title_suspicious_link">Toto je podozrivý odkaz</string>
@@ -1359,6 +1381,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_pro_feature">Toto je pro funkcia</string>
     <string name="title_pro_list">Zoznam pro funkcií</string>
     <string name="title_pro_purchase">Kúpiť</string>
+    <string name="title_pro_one_time">%1$s (jednorázový nákup)</string>
+    <string name="title_pro_no_play">Aplikácia Obchod Play nebola nájdená</string>
     <string name="title_pro_info">        Vývoj FairEmail zaberá tisícky hodín práce a aj napriek tomu je väčšina funkcií k dispozícii zdarma.
         FairEmail berie vaše súkromie vážne, nezobrazuje žiadne reklamy, ani nezískava prostriedky sledovaním a analyzovaním údajov o vás.
         S cieľom pre FairEmail zabezpečiť ďalší vývoj a dlhodobú podporu, niektoré unikátne a rozšírené vlastnosti nie sú zdarma.
@@ -1394,6 +1418,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_title_count">Počet nových správ</string>
     <string name="title_widget_title_list">Zoznam správ</string>
     <string name="title_widget_title_sync">Prepnúť synchronizáciu</string>
+    <string name="title_power_menu_sync">Synchronizácia</string>
+    <string name="title_power_menu_on">Zapnuté</string>
+    <string name="title_power_menu_off">Vypnuté</string>
+    <string name="title_power_menu_on_off">Zapnúť/Vypnúť</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všetko</string>
     <string name="title_widget_folder">Priečinok</string>

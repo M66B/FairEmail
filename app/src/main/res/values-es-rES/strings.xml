@@ -864,6 +864,7 @@
     <string name="title_attachments_incomplete">Algunos adjuntos o imágenes no fueron descargados y no pudieron añadirse</string>
     <string name="title_ask_save">¿Guardar cambios?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
+    <string name="title_ask_delete_accept">Entiendo que la eliminación permanente de mensajes es irreverible</string>
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
