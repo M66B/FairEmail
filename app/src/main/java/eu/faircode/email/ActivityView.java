@@ -1007,7 +1007,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 if (BuildConfig.DEBUG)
                                     return info;
                                 try {
-                                    if (Double.parseDouble(info.tag_name) <
+                                    if (Double.parseDouble(info.tag_name) <=
                                             Double.parseDouble(BuildConfig.VERSION_NAME))
                                         return null;
                                     else
