@@ -4,7 +4,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 class LibraryLoader {
 
-    private AtomicBoolean attemptedLoad = new AtomicBoolean();
+    private final AtomicBoolean attemptedLoad = new AtomicBoolean();
+    private boolean loaded = false;
 
     /**
      * Attempts to load a native library, returning false if the load was unsuccessful.
@@ -21,11 +22,16 @@ class LibraryLoader {
         if (!attemptedLoad.getAndSet(true)) {
             try {
                 System.loadLibrary(name);
+                loaded = true;
                 return true;
             } catch (UnsatisfiedLinkError error) {
                 client.notify(error, callback);
             }
         }
         return false;
+    }
+
+    boolean isLoaded() {
+        return loaded;
     }
 }

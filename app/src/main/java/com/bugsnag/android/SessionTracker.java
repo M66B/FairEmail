@@ -369,21 +369,8 @@ class SessionTracker extends BaseObservable {
         return foregroundDetector.isInForeground();
     }
 
-    //FUTURE:SM This shouldnt be here
-    @Nullable
-    Long getDurationInForegroundMs(long nowMs) {
-        long durationMs = 0;
-        long sessionStartTimeMs = lastEnteredForegroundMs.get();
-
-        Boolean inForeground = isInForeground();
-
-        if (inForeground == null) {
-            return null;
-        }
-        if (inForeground && sessionStartTimeMs != 0) {
-            durationMs = nowMs - sessionStartTimeMs;
-        }
-        return durationMs > 0 ? durationMs : 0;
+    long getLastEnteredForegroundMs() {
+        return lastEnteredForegroundMs.get();
     }
 
     @Nullable

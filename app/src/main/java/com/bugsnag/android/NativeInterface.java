@@ -404,4 +404,24 @@ public class NativeInterface {
     public static Logger getLogger() {
         return getClient().getConfig().getLogger();
     }
+
+    /**
+     * Switches automatic error detection on/off after Bugsnag has initialized.
+     * This is required to support legacy functionality in Unity.
+     *
+     * @param autoNotify whether errors should be automatically detected.
+     */
+    public static void setAutoNotify(boolean autoNotify) {
+        getClient().setAutoNotify(autoNotify);
+    }
+
+    /**
+     * Switches automatic ANR detection on/off after Bugsnag has initialized.
+     * This is required to support legacy functionality in Unity.
+     *
+     * @param autoDetectAnrs whether ANRs should be automatically detected.
+     */
+    public static void setAutoDetectAnrs(boolean autoDetectAnrs) {
+        getClient().setAutoDetectAnrs(autoDetectAnrs);
+    }
 }

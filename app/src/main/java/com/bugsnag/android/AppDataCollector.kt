@@ -6,7 +6,6 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.SystemClock
-import java.util.HashMap
 
 /**
  * Collects various data on the application state
@@ -31,13 +30,19 @@ internal class AppDataCollector(
     private val releaseStage = config.releaseStage
     private val versionName = config.appVersion ?: packageInfo?.versionName
 
-    fun generateApp(): App = App(config, binaryArch, packageName, releaseStage, versionName, codeBundleId)
+    fun generateApp(): App =
+        App(config, binaryArch, packageName, releaseStage, versionName, codeBundleId)
 
-    fun generateAppWithState(): AppWithState = AppWithState(
-        config, binaryArch, packageName, releaseStage, versionName, codeBundleId,
-        getDurationMs(), calculateDurationInForeground(), sessionTracker.isInForeground,
-        launchCrashTracker.isLaunching()
-    )
+    fun generateAppWithState(): AppWithState {
+        val inForeground = sessionTracker.isInForeground
+        val durationInForeground = calculateDurationInForeground(inForeground)
+
+        return AppWithState(
+            config, binaryArch, packageName, releaseStage, versionName, codeBundleId,
+            getDurationMs(), durationInForeground, inForeground,
+            launchCrashTracker.isLaunching()
+        )
+    }
 
     fun getAppDataMetadata(): MutableMap<String, Any?> {
         val map = HashMap<String, Any?>()
@@ -102,9 +107,21 @@ internal class AppDataCollector(
      *
      * @return the duration in ms
      */
-    internal fun calculateDurationInForeground(): Long? {
+    internal fun calculateDurationInForeground(inForeground: Boolean? = sessionTracker.isInForeground): Long? {
+        if (inForeground == null) {
+            return null
+        }
+
         val nowMs = System.currentTimeMillis()
-        return sessionTracker.getDurationInForegroundMs(nowMs)
+        var durationMs: Long = 0
+
+        val sessionStartTimeMs: Long = sessionTracker.lastEnteredForegroundMs
+
+        if (inForeground && sessionStartTimeMs != 0L) {
+            durationMs = nowMs - sessionStartTimeMs
+        }
+
+        return if (durationMs > 0) durationMs else 0
     }
 
     /**

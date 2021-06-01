@@ -6,6 +6,10 @@ internal class ClientObservable : BaseObservable() {
         notifyObservers(StateEvent.UpdateOrientation(orientation))
     }
 
+    fun postMemoryTrimEvent(isLowMemory: Boolean) {
+        notifyObservers(StateEvent.UpdateMemoryTrimEvent(isLowMemory))
+    }
+
     fun postNdkInstall(conf: ImmutableConfig, lastRunInfoPath: String, consecutiveLaunchCrashes: Int) {
         notifyObservers(
             StateEvent.Install(

@@ -23,7 +23,14 @@ class ExceptionHandler implements UncaughtExceptionHandler {
         this.client = client;
         this.logger = logger;
         this.originalHandler = Thread.getDefaultUncaughtExceptionHandler();
+    }
+
+    void install() {
         Thread.setDefaultUncaughtExceptionHandler(this);
+    }
+
+    void uninstall() {
+        Thread.setDefaultUncaughtExceptionHandler(originalHandler);
     }
 
     @Override

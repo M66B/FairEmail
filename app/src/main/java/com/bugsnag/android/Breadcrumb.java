@@ -94,6 +94,11 @@ public class Breadcrumb implements JsonStream.Streamable {
         return impl.getTimestamp();
     }
 
+    @NonNull
+    String getStringTimestamp() {
+        return DateUtils.toIso8601(impl.getTimestamp());
+    }
+
     @Override
     public void toStream(@NonNull JsonStream stream) throws IOException {
         impl.toStream(stream);

@@ -85,8 +85,7 @@ internal class DeviceDataCollector(
 
     fun getDeviceMetadata(): Map<String, Any?> {
         val map = HashMap<String, Any?>()
-        map["batteryLevel"] = getBatteryLevel()
-        map["charging"] = isCharging()
+        populateBatteryInfo(into = map)
         map["locationStatus"] = getLocationStatus()
         map["networkAccess"] = getNetworkAccess()
         map["brand"] = buildInfo.brand
@@ -126,41 +125,31 @@ internal class DeviceDataCollector(
     private fun getScreenDensityDpi(): Int? = displayMetrics?.densityDpi
 
     /**
-     * Get the current battery charge level, eg 0.3
+     * Populate the current Battery Info into the specified MutableMap
      */
-    private fun getBatteryLevel(): Float? {
+    private fun populateBatteryInfo(into: MutableMap<String, Any?>) {
         try {
             val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
             val batteryStatus = appContext.registerReceiverSafe(null, ifilter, logger)
 
             if (batteryStatus != null) {
-                return batteryStatus.getIntExtra(
-                    "level",
-                    -1
-                ) / batteryStatus.getIntExtra("scale", -1).toFloat()
-            }
-        } catch (exception: Exception) {
-            logger.w("Could not get batteryLevel")
-        }
-        return null
-    }
+                val level = batteryStatus.getIntExtra("level", -1)
+                val scale = batteryStatus.getIntExtra("scale", -1)
 
-    /**
-     * Is the device currently charging/full battery?
-     */
-    private fun isCharging(): Boolean? {
-        try {
-            val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-            val batteryStatus = appContext.registerReceiverSafe(null, ifilter, logger)
+                if (level != -1 || scale != -1) {
+                    val batteryLevel: Float = level.toFloat() / scale.toFloat()
+                    into["batteryLevel"] = batteryLevel
+                }
 
-            if (batteryStatus != null) {
                 val status = batteryStatus.getIntExtra("status", -1)
-                return status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
+                val charging =
+                    status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
+
+                into["charging"] = charging
             }
         } catch (exception: Exception) {
-            logger.w("Could not get charging status")
+            logger.w("Could not get battery status")
         }
-        return null
     }
 
     /**

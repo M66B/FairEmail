@@ -42,4 +42,6 @@ sealed class StateEvent {
     class UpdateOrientation(val orientation: String?) : StateEvent()
 
     class UpdateUser(val user: User) : StateEvent()
+
+    class UpdateMemoryTrimEvent(val isLowMemory: Boolean) : StateEvent()
 }
