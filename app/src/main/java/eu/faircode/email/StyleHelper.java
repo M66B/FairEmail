@@ -772,7 +772,7 @@ public class StyleHelper {
             return new CustomTypefaceSpan(family, typeface);
         } else if (face.contains("comic sans")) {
             Typeface typeface = ResourcesCompat.getFont(context, R.font.opendyslexic);
-            return new CustomTypefaceSpan(family, typeface);
+            return new CustomTypefaceSpan("comic sans ms, sans-serif", typeface);
         } else
             return new TypefaceSpan(family);
     }
