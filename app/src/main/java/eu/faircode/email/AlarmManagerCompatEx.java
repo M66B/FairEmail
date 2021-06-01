@@ -33,7 +33,7 @@ public class AlarmManagerCompatEx {
             @NonNull Context context, @NonNull AlarmManager am,
             int type, long trigger, @NonNull PendingIntent pi) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean exact_alarms = prefs.getBoolean("exact_alarms", false);
+        boolean exact_alarms = prefs.getBoolean("exact_alarms", true);
 
         if (exact_alarms)
             AlarmManagerCompat.setExactAndAllowWhileIdle(am, type, trigger, pi);
