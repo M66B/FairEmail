@@ -622,10 +622,12 @@ public class StyleHelper {
             // overlap all
             if (extend)
                 edit.setSpan(span1, start, end, f);
-        } else if (start > s && end < e) {
+        } else if (start >= s && end <= e) {
             // overlap inner
-            edit.setSpan(span1, s, start, f);
-            edit.setSpan(span2, end, e, f);
+            if (s < start)
+                edit.setSpan(span1, s, start, f);
+            if (end < e)
+                edit.setSpan(span2, end, e, f);
         }
     }
 
