@@ -2781,14 +2781,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     if (description == null)
                         tvCalendarDescription.setText(description);
-                    else {
-                        Document d = JsoupEx.parse(description);
-                        if (d.selectFirst("html") == null)
+                    else
+                        try {
+                            tvCalendarDescription.setText(HtmlHelper.fromHtml(description, context));
+                        } catch (Throwable ex) {
+                            Log.w(ex);
                             tvCalendarDescription.setText(description);
-                        else
-                            tvCalendarDescription.setText(
-                                    HtmlHelper.fromDocument(context, d, null, null));
-                    }
+                        }
                     tvCalendarDescription.setVisibility(TextUtils.isEmpty(description) ? View.GONE : View.VISIBLE);
 
                     tvCalendarLocation.setText(location);
