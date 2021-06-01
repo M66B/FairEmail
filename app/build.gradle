@@ -434,7 +434,7 @@ dependencies {
     implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"
 
     // https://github.com/EverythingMe/overscroll-decor
-    // https://mvnrepository.com/artifact/me.everything/overscroll-decor-android
+    // https://search.maven.org/artifact/io.github.everythingme/overscroll-decor-android
     implementation "io.github.everythingme:overscroll-decor-android:$overscroll_version"
 
     // https://www.bouncycastle.org/latest_releases.html
