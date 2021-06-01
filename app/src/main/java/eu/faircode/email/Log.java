@@ -1174,7 +1174,7 @@ public class Log {
             for (StackTraceElement ste : ex.getCause().getStackTrace())
                 if ("android.view.textclassifier.TextClassifierImpl".equals(ste.getClassName()) &&
                         "validateInput".equals(ste.getMethodName()))
-                    return false;
+                    return true;
             /*
                 java.lang.RuntimeException: An error occurred while executing doInBackground()
                         at android.os.AsyncTask$3.done(AsyncTask.java:353)
