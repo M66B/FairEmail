@@ -1580,6 +1580,7 @@
         <item>Sans empattement</item>
         <item>À espacement fixe</item>
         <item>Fantaisie</item>
+        <item>Dyslexia</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

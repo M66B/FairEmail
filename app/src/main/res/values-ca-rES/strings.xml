@@ -1262,6 +1262,7 @@ La creació i l\'ús de regles és una característica professional.    </string
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
+        <item>Dyslexia</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

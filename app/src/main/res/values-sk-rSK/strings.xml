@@ -1598,6 +1598,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Sans-serif</item>
         <item>S pevnou šírkou</item>
         <item>Fantasy</item>
+        <item>Dyslexia</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

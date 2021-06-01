@@ -149,8 +149,10 @@
     <string name="title_setup_free">Apakah aplikasi ini gratis untuk digunakan?</string>
     <string name="title_setup_permissions">Berikan Izin</string>
     <string name="title_setup_permissions_remark">Untuk mengakses informasi kontak (opsional)</string>
+    <string name="title_setup_permissions_explanation">Izin kontak diperlukan untuk mencari info kontak dan menyarankan kontak</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
     <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara handal</string>
+    <string name="title_setup_doze_explanation">Pengoptimalan baterai harus dinonaktifkan untuk aplikasi guna memastikan pengiriman dan penerimaan pesan yang andal di latar belakang aplikasi</string>
     <string name="title_setup_doze_hint">Meskipun mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai untuk aplikasi ini akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
@@ -422,6 +424,8 @@
     <string name="title_advanced_secure">Sembunyikan dari layar aplikasi terbaru dan cegah pengambilan tangkapan layar</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Batas waktu otentikasi sidik jari</string>
+    <string name="title_advanced_generic_user_agent">Gunakan agen pengguna browser generik</string>
+    <string name="title_advanced_disconnect_auto_update">List otomatis update setiap minggu</string>
     <string name="title_advanced_disconnect_links">Pakai daftar untuk memperingatkan tentang pelacakan pada tautan</string>
     <string name="title_advanced_disconnect_images">Pakai daftar untuk mengenali pelacakan pada gambar</string>
     <string name="title_advanced_sign_default">Masuk secara bawaan</string>
@@ -438,6 +442,7 @@
     <string name="title_advanced_manage_keys">Kelola kunci pribadi</string>
     <string name="title_advanced_ca">Memasang sertifikat CA (Certificate Authority)</string>
     <string name="title_advanced_manage_keys_hint">Ini akan membuka pengaturan keamanan Android. Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kredensial.</string>
+    <string name="title_advanced_power_menu">Tambahkan aksi untuk kekuatan menu android</string>
     <string name="title_advanced_external_search">Izinkan aplikasi lain untuk menelusuri pengolah pesan FairMail</string>
     <string name="title_advanced_shortcuts">Tampilkan kontak yang sering digunakan di menu berbagi pada Android</string>
     <string name="title_advanced_fts">Membangun indeks pencarian</string>
@@ -481,6 +486,7 @@
     <string name="title_advanced_metered_hint">Koneksi yang diukur umumnya koneksi data seluler atau hotspot Wi-Fi berbayar</string>
     <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
+    <string name="title_advanced_usage_hint">Akan meningkatkan penggunaan baterai, dan penyimpanan data</string>
     <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat menyebabkan masalah koneksi pada beberapa perangkat</string>
     <string name="title_advanced_validate_hint">Ini dapat mengakibatkan pesan tidak tersinkronasi, contohnya ketika menggunakan VPN, tetapi juga dalam situasi lain</string>
     <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
@@ -510,9 +516,11 @@
     <string name="title_advanced_autoclose_hint">Tutup percakapan secara otomatis ketika seluruh pesan terarsip, terkirim, atau terbuang</string>
     <string name="title_advanced_sender_hint">Kebanyakan penyedia tidak mengizinkan untuk mengubah alamat pengirim</string>
     <string name="title_advanced_bcc_hint">Alamat tidak akan ditampilkan, namun akan ditambahkan ketika mengirim</string>
+    <string name="title_advanced_internal_hint">Akan ada pemberitahuan saat mengirim ke domain lain</string>
     <string name="title_advanced_display_harmful_hint">Menonaktifkan opsi ini akan membahayakan privasi anda</string>
     <string name="title_advanced_display_hidden_hint">Hasil ini akan terlihat aneh dan teks berganda</string>
     <string name="title_advanced_display_pin_hint">PIN memiliki hak lebih tinggi dibandungan autentikasi biometrik</string>
+    <string name="title_advanced_safe_browsing_hint">Sarver Google akan mendeteksi, dan mengetahui alamat yang akan dicari</string>
     <string name="title_advanced_badge_hint">Hanya tersedia di peluncur yang terdukung</string>
     <string name="title_advanced_notify_action_hint">Maksimal tiga aksi akan ditampilkan</string>
     <string name="title_advanced_notify_remove_hint">Notifikasi pesan baru akan selalu dihapuskan ketika digeser dan ketika menandai pesan telah dibaca</string>
@@ -546,6 +554,7 @@
     <string name="title_advanced_sender_name">Gunakan nama ketika alamat pengirim telah di edit</string>
     <string name="title_advanced_sender_regex">Regex untuk mencocokkan nama alamat email yang masuk</string>
     <string name="title_identity_reply_to">Balas ke alamat</string>
+    <string name="title_identity_internal">Nama domain internal ( dipisahkan dengan koma (,) )</string>
     <string name="title_identity_unicode">Menggunakan transportasi Unicode</string>
     <string name="title_identity_unicode_remark">Kebanyakan server tidak support ini</string>
     <string name="title_identity_max_size">Ukuran pesan maksimum (MB)</string>
@@ -615,6 +624,7 @@
     <string name="title_no_drafts">Tidak ada folder draf</string>
     <string name="title_no_junk_folder">Tidak ada folder spam yang dipilih untuk akun ini</string>
     <string name="title_default_composable">Alamat email default ditentukan oleh identitas utama dari akun utama</string>
+    <string name="title_no_composable">Mengirim email memerlukan identitas untuk dikonfigurasi, dan folder konsep harus dipilih di pengaturan akun</string>
     <string name="title_no_standard">Penyedia ini menggunakan protokol surel hak milik dan maka dari itu penggunaan pihak ketiga untuk surel klien tidak memungkinkan</string>
     <string name="title_no_idle">Penyedia ini tidak mendukung pesan push. Hal ini akan menunda penerimaan pesan baru dan meningkatkan penggunaan baterai.</string>
     <string name="title_no_utf8">Penyedia ini tidak mendukung UTF-8</string>
@@ -679,6 +689,8 @@
     <string name="title_delete_contacts">Hapus semua kontak lokal?</string>
     <string name="title_no_operations">Tidak ada operasi yang tertunda</string>
     <string name="title_hint_operations">Menghapus operasi dapat mengakibatkan hilangnya pesan dan masalah sinkronisasi</string>
+    <string name="title_op_title_headers">Mengunduh kepala surat</string>
+    <string name="title_op_title_raw">Mengunduh file pesan</string>
     <string name="title_folder_name">Nama folder</string>
     <string name="title_display_name">Nama yang ditampilkan</string>
     <string name="title_show_folders">Tampilkan folder tersembunyi</string>
@@ -741,6 +753,7 @@
     <string name="title_toggle_seen">Alihkan ke mode baca</string>
     <string name="title_hide">Sembunyikan</string>
     <string name="title_unhide">Tampilkan</string>
+    <string name="title_toggle_hide">Pindah dan simpan</string>
     <string name="title_flag">Tandai bintang</string>
     <string name="title_flag_color">Warna bintang &#8230;</string>
     <string name="title_unflag">Hapus bintang</string>
@@ -771,6 +784,13 @@
     <string name="title_download_all">Unduh semua</string>
     <string name="title_save_all">Simpan semua</string>
     <string name="title_save_eml">Simpan file pesan sebagai bahan</string>
+    <string name="title_raw_remaining">Unduh pesan %1$d</string>
+    <string name="title_ask_raw">Untuk meneruskan pesan, pesan asli perlu diunduh dari server. Ini membutuhkan koneksi internet.</string>
+    <string name="title_buttons">Klik tombol</string>
+    <string name="title_buttons_hint">Tindakan benar yang tersedia bergantung pada jenis dan konfigurasi akun</string>
+    <string name="title_button_search">Cari di dalam pesan</string>
+    <string name="title_button_search_text">Cari dalam teks pesan</string>
+    <string name="title_configure_buttons">Pengaturan tombol</string>
     <string name="title_trash">Sampah</string>
     <string name="title_copy">Salin &#8230;</string>
     <string name="title_copy_to">Salin ke &#8230;</string>
@@ -789,6 +809,7 @@
     <string name="title_move_to_account">Pindahkan ke %1$s&#8230;</string>
     <string name="title_report_spam">Tandai sebagai spam</string>
     <string name="title_delete_permanently">Hapus permanen</string>
+    <string name="title_no_undo">Saya mengerti ini tidak dapat dibatalkan</string>
     <string name="title_snooze">Tunda &#8230;</string>
     <string name="title_archive">Arsip</string>
     <string name="title_reply">Balas</string>
@@ -796,6 +817,7 @@
     <string name="title_reply_to_all">Balas ke semua</string>
     <string name="title_reply_list">Balas berdasarkan daftar</string>
     <string name="title_reply_receipt">Kirim bukti telah dibaca</string>
+    <string name="title_reply_hard_bounce">Kirim pantauan keras</string>
     <string name="title_reply_template">Balas dengan template</string>
     <string name="title_move_undo">Sedang dipindahkan ke %1$s (%2$d)</string>
     <string name="title_open_with">Buka dengan</string>
@@ -807,6 +829,7 @@
     <string name="title_no_recorder">Tidak ada aplikasi perekam suara yang sesuai</string>
     <string name="title_no_camera">Aplikasi kamera tidak sesuai</string>
     <string name="title_no_saf">Akses penyimpanan tidak tersedia</string>
+    <string name="title_no_stream">Mengirim file rusak tidak akan membatalkan jalur file</string>
     <string name="title_no_internet">Tidak ada koneksi internet atau koneksi tidak sesuai</string>
     <string name="title_no_connection">Menghubungkan ke beberapa akun &#8230;</string>
     <string name="title_no_folder">Folder tidak ada</string>
@@ -815,6 +838,7 @@
     <string name="title_no_search">Pencarian di server tidak tersedia untuk akun ini</string>
     <string name="title_too_large">Pesan terlalu besar untuk diformat ulang sepenuhnya</string>
     <string name="title_truncated">Pesan terlalu besar untuk ditampilkan sepenuhnya</string>
+    <string name="title_insufficient_memory">Pesan terlalu besar untuk di simpan</string>
     <string name="title_show_full">Tampilkan pesan penuh</string>
     <string name="title_unused_inline">Gambar sebaris yang tidak digunakan akan dihapus saat dikirim</string>
     <string name="title_accross_remark">Pesan yang dipindahkan ke akun lain akan diunduh lagi sehingga mengakibatkan penggunaan data bertambah</string>
@@ -1344,6 +1368,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
+        <item>Dyslexia</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

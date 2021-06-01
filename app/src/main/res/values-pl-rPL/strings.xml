@@ -180,8 +180,10 @@
     <string name="title_setup_free">Czy ta aplikacja jest darmowa?</string>
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Dostęp do kontaktów (opcjonalnie)</string>
+    <string name="title_setup_permissions_explanation">Uprawnienia dla kontaktu są wymagane, aby wyszukiwać informacje kontaktowe i sugerować kontakty</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
     <string name="title_setup_doze_remark">Dla niezawodnego wysyłania i odbierania wiadomości e-mail</string>
+    <string name="title_setup_doze_explanation">Optymalizacja baterii powinna być wyłączona dla aplikacji, aby zapewnić niezawodne wysyłanie i odbieranie wiadomości w tle</string>
     <string name="title_setup_doze_hint">Chociaż może to brzmieć sprzecznie, wyłączenie optymalizacji baterii dla tej aplikacji spowoduje mniejsze zużycie baterii</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
@@ -881,6 +883,7 @@
     <string name="title_attachments_incomplete">Niektóre załączniki lub obrazy nie zostały pobrane i nie można ich dodać</string>
     <string name="title_ask_save">Zapisać zmiany?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
+    <string name="title_ask_delete_accept">Rozumiem, że trwałe usuwanie wiadomości jest nieodwracalne</string>
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
@@ -1258,6 +1261,8 @@
     <string name="title_legend_view">Zobacz zawartość</string>
     <string name="title_legend_hide">Ukryj zawartość</string>
     <string name="title_legend_download">Pobierz zawartość</string>
+    <string name="title_legend_original">Zobacz oryginalną wiadomość</string>
+    <string name="title_legend_reformatted">Zobacz sformatowaną wiadomość</string>
     <string name="title_legend_external_image">Symbol zastępczy obrazu zewnętrznego</string>
     <string name="title_legend_embedded_image">Symbol zastępczy obrazu wstawionego</string>
     <string name="title_legend_tracking_pixel">Obrazek śledzący</string>
@@ -1319,6 +1324,7 @@
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>
     <string name="title_open_link">Otwórz link</string>
+    <string name="title_image_link">Link do obrazu</string>
     <string name="title_different_link">Tytuł i adres linku są różne</string>
     <string name="title_tracking_link">Ta strona może Cię śledzić</string>
     <string name="title_suspicious_link">To jest podejrzany link</string>
@@ -1594,6 +1600,7 @@
         <item>Bezszeryfowa</item>
         <item>Stała szerokość</item>
         <item>Fantazja</item>
+        <item>Dyslexia</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>
