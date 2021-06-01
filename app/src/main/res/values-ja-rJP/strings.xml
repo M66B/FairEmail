@@ -852,6 +852,7 @@
     <string name="title_attachments_incomplete">一部の添付ファイル又は画像がダウンロードされず、追加出来ませんでした</string>
     <string name="title_ask_save">変更内容を保存しますか？</string>
     <string name="title_ask_delete">メッセージを完全に削除しますか？</string>
+    <string name="title_ask_delete_accept">メッセージを完全に削除すると元に戻せないことを理解しています</string>
     <string name="title_ask_delete_answer">返信テンプレートを完全に削除しますか？</string>
     <string name="title_ask_delete_rule">ルールを完全に削除しますか？</string>
     <string name="title_ask_discard">下書きを破棄しますか？</string>
@@ -1566,7 +1567,7 @@
         <item>サンセリフ</item>
         <item>等幅フォント</item>
         <item>ファンタジー</item>
-        <item>Dyslexia</item>
+        <item comment="fontNameNames&#10;https://opendyslexic.org/">ディスレクシア</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

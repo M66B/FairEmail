@@ -1579,7 +1579,7 @@
         <item>Schreefloos</item>
         <item>Vaste breedte</item>
         <item>Fantasie</item>
-        <item>Dyslexie</item>
+        <item comment="fontNameNames&#10;https://opendyslexic.org/">Dyslexie</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

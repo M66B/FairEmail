@@ -906,14 +906,14 @@ FairEmail will automatically try to connect again after a delay. This delay will
 
 There are general errors and errors specific to Gmail accounts (see below).
 
-**General errors**
+**Erreurs générales**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+L'erreur *... **L'authentification a échoué** ...* ou *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 Si nécessaire, vous pouvez mettre à jour un mot de passe dans les paramètres du compte : menu de navigation (menu latéral), appuyez sur *Paramètres*, appuyez sur *Configuration manuelle*, appuyez sur *Comptes* et appuyez sur le compte. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
-The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
+L'erreur *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password. Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
