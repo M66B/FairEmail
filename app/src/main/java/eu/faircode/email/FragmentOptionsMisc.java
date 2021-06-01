@@ -143,7 +143,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "watchdog", "updates",
+            "language", "watchdog", "updates", "weekly",
             "experiments", "wal", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
             "use_modseq", "perform_expunge",
@@ -982,7 +982,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swCheckWeekly.setChecked(prefs.getBoolean("weekly", false));
+        swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
