@@ -51,6 +51,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.LocaleList;
+import android.os.Parcelable;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Settings;
@@ -282,6 +283,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Map<Long, Integer> keyPosition = new HashMap<>();
     private Map<Integer, Long> positionKey = new HashMap<>();
     private SelectionTracker<Long> selectionTracker = null;
+
+    private RecyclerView rv = null;
+    private Parcelable savedState = null;
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
@@ -5946,6 +5950,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
             @Override
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
+                // https://issuetracker.google.com/issues/70149059
+                if (rv != null && savedState != null)
+                    rv.getLayoutManager().onRestoreInstanceState(savedState);
+                savedState = null;
+
                 if (gotoTop && previousList != null) {
                     if (ascending) {
                         if (currentList != null && currentList.size() > 0) {
@@ -6068,6 +6077,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 message.resolveKeywordColors(context);
             }
         }
+
+        if (rv != null)
+            savedState = rv.getLayoutManager().onSaveInstanceState();
 
         differ.submitList(list);
     }
@@ -6248,6 +6260,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             holder.tvBody.setText(null);
         if (holder.wvBody instanceof WebView)
             ((WebView) holder.wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        rv = recyclerView;
+    }
+
+    @Override
+    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+        rv = null;
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
