@@ -849,10 +849,12 @@
     <string name="title_attachments_incomplete">Beberapa lampiran atau gambar tidak terunduh dan tidak dapat ditambahkan</string>
     <string name="title_ask_save">Menyimpan perubahan?</string>
     <string name="title_ask_delete">Hapus pesan secara permanen?</string>
+    <string name="title_ask_delete_accept">Saya mengerti bahwa menghapus pesan-pesan secara permanen tidak dapat dibatalkan</string>
     <string name="title_ask_delete_answer">Hapus template balasan secara permanen?</string>
     <string name="title_ask_delete_rule">Hapus aturan secara permanen?</string>
     <string name="title_ask_discard">Buang draf?</string>
     <string name="title_ask_show_html">Menampilkan pesan asli dapat membocorkan informasi sensitif privasi</string>
+    <string name="title_ask_show_html_dark">Gunakan tema gelap</string>
     <string name="title_ask_show_html_images">Selalu tampilkan gambar saat menampilkan pesan asli</string>
     <string name="title_ask_show_image">Menampilkan gambar dapat membocorkan informasi sensitif privasi</string>
     <string name="title_ask_show_image_hint">Gambar yang dikenali sebagai gambar pelacakan tidak akan ditampilkan</string>
@@ -864,6 +866,7 @@
     <string name="title_ask_review_rationale">        Selagi Anda menggunakan FairEmail.
         Akan sangat dihargai jika Anda dapat menilai FairEmail di Play Store.
     </string>
+    <string name="title_need_help">Saya butuh bantuan</string>
     <string name="title_ask_once">Pesan ini hanya akan muncul sekali, kecuali Anda memilih \'Nanti\'</string>
     <string name="title_third_party">Anda menggunakan versi pihak ketiga</string>
     <string name="title_expand_warning">Memperluas pesan ini akan mengunduh %1$s</string>
@@ -880,6 +883,7 @@
     <string name="title_via_identity">Melalui:</string>
     <string name="title_sent">Dikirim:</string>
     <string name="title_received">Diterima:</string>
+    <string name="title_date">Tanggal:</string>
     <string name="title_stored">Disimpan:</string>
     <string name="title_size">Ukuran:</string>
     <string name="title_language">Bahasa:</string>
@@ -889,6 +893,7 @@
     <string name="title_discard">Buang</string>
     <string name="title_save">Simpan</string>
     <string name="title_send">Kirim</string>
+    <string name="title_sending">Mengirim &#8230;</string>
     <string name="title_send_now">Kirim sekarang</string>
     <string name="title_send_via">Kirim melalui</string>
     <string name="title_send_at">Kirim pada &#8230;</string>
@@ -907,6 +912,7 @@
     <string name="title_style_align">Format Perataan</string>
     <string name="title_style_align_start">Mulai</string>
     <string name="title_style_align_center">Tengah</string>
+    <string name="title_style_align_end">Akhir</string>
     <string name="title_style_list">Daftar</string>
     <string name="title_style_list_bullets">Bulatan</string>
     <string name="title_style_list_numbered">Penomoran</string>
@@ -932,6 +938,9 @@
     <string name="title_media_toolbar">Tombol media</string>
     <string name="title_insert_contact_group">Sisipkan grup kontak</string>
     <string name="title_insert_template">Sisipkan template</string>
+    <string name="title_translate">Terjemahkan</string>
+    <string name="title_translating">Menerjemahkan &#8230;</string>
+    <string name="title_translate_usage">Penggunaan: %1$s / %2$s (%3$d %%)</string>
     <string name="title_unknown_key">Kunci pribadi tidak cocok dengan kunci enkripsi apa pun</string>
     <string name="title_send_reminder_remark">Pengingat dapat diaktifkan kembali di pengaturan kirim</string>
     <string name="title_send_receipt_remark">Sebagian besar layanan penyedia dan klien email mengabaikan permintaan tanda terima</string>
@@ -1368,7 +1377,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;https://opendyslexic.org/">Tidak ada arti</item>
+        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

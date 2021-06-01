@@ -4,23 +4,23 @@
 
 Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. [Pada bagian bawah](#user-content-get-support), Anda dapat mengetahui bagaimana cara menanyakan pertanyaan lain, meminta fitur baru, dan melaporkan bug.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Jika Anda memiliki pertanyaan, silakan periksa Pertanyaan yang Sering Diajukan (FAQ) di bawah ini terlebih dahulu. [ Di bagian bawah Anda akan menemukan ](#user-content-get-support), bagaimana Anda dapat mengajukan pertanyaan lebih lanjut, meminta fungsi, dan melaporkan kesalahan.
 
 ## Panduan
 
 * [Mengizinkan akun](#user-content-authorizing-accounts)
 * [Bagaimana cara untuk ...?](#user-content-howto)
 * [Kendala yang diketahui](#user-content-known-problems)
-* [Fitur yang direncanakan](#user-content-planned-features)
+* [Perencanaan fitur](#user-content-planned-features)
 * [Fitur yang sering diminta](#user-content-frequently-requested-features)
-* [Pertanyaan yang Sering Diajukan (FAQ)](#user-content-frequently-asked-questions)
-* [Dapatkan bantuan](#user-content-get-support)
+* [Pertanyaan yang Sering Diajukan Faq](#user-content-frequently-asked-questions)
+* [Ambil bantuan](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Mengizinkan akun</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Dalam kebanyakan kasus, wizard pengaturan cepat akan dapat secara otomatis mengidentifikasi pengaturan yang benar.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Jika pengaturan wizard cepat gagal, Anda harus mengatur akun secara manual untuk menerima email dan identitas untuk mengirim email. For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
 Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 

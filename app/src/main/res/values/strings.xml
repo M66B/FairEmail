@@ -1890,8 +1890,8 @@
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace</item>
-        <item>Fantasy</item>
-        <item>Dyslexia</item>
+        <item>Fantasy</item>-
+        <item>OpenDyslexic</item>
     </string-array>
 
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

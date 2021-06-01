@@ -1458,7 +1458,7 @@
         <item>無襯線字體</item>
         <item>等寬字體</item>
         <item>Fantasy</item>
-        <item>Dyslexia</item>
+        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

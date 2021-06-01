@@ -2,7 +2,7 @@
 
 # Hỗ trợ của FairEmail
 
-Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp sau đây trước. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Nếu bạn có câu hỏi, vui lòng kiểm tra các câu hỏi thường gặp sau đây trước. [Ở dưới cùng](#user-content-get-support), bạn có thể tìm ra cách đặt các câu hỏi khác, yêu cầu tính năng, và báo cáo lỗi.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -11,16 +11,16 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Cấp phép tài khoản](#user-content-authorizing-accounts)
 * [Làm thế nào để ...?](#user-content-howto)
 * [Các vấn đề đã biết](#user-content-known-problems)
-* [Các tính năng được lập kế hoạch](#user-content-planned-features)
+* [Các tính năng đã được lên kế hoạch](#user-content-planned-features)
 * [Các tính năng thường được yêu cầu](#user-content-frequently-requested-features)
 * [Các câu hỏi thường gặp](#user-content-frequently-asked-questions)
 * [Nhận hỗ trợ](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Cấp phép tài khoản</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+Trong hầu hết các trường hợp, thiết lập nhanh sẽ có thể tự động xác định cấu hình chính xác.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). Đối với điều này, bạn sẽ cần địa chỉ máy chủ IMAP và SMTP và số cổng, cho dù nên sử dụng SSL / TLS hay STARTTLS và tên người dùng của bạn (hầu hết, nhưng không phải lúc nào, địa chỉ email của bạn) và mật khẩu của bạn.
+Nếu thiết lập nhanh không thành công, bạn sẽ cần thiết lập thủ công tài khoản (để nhận email) và danh tính (để gửi email). Đối với điều này, bạn sẽ cần địa chỉ máy chủ IMAP và SMTP và số cổng, cho dù nên sử dụng SSL / TLS hay STARTTLS và tên người dùng của bạn (hầu hết, nhưng không phải lúc nào, địa chỉ email của bạn) và mật khẩu của bạn.
 
 Việc tìm kiếm *IMAP* và tên nhà cung cấp phần lớn là đủ để tìm tài liệu đúng.
 
