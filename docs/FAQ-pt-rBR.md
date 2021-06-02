@@ -338,20 +338,20 @@ FairEmail will keep a list of addresses you receive messages from and send messa
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) Por que há uma notificação exibida de forma permanente?**
 
 A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
 A maioria, se não todos, dos outros aplicativos de email não exibem a notificação com o "efeito secundário" de que novas mensagens não são frequentemente relatadas, ou são relatadas com atraso e que mensagens não são enviadas ou são enviadas com atraso.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. Na prática, isso significa que a notificação da barra de status não ocupa espaço na barra de status, a não ser que haja espaço disponível.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+A notificação da barra de status pode ser desabilitada por meio das configurações de notificação do FairEmail:
 
 * Android 8 Oreo e posterior: toque no botão *Canal de Recebimento* e desabilite o canal através das configurações do Android (isso não desativará notificações de novas mensagens)
 * Android 7 Nougat e anterior: toque em *Usar o serviço em segundo plano para sincronizar mensagens*, mas lembre-se de ler o comentário abaixo da configuração
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Você pode alternar para a sincronização periódica de mensagens, nas configurações de recebimento, para remover a notificação, mas esteja ciente de que isso pode usar mais a bateria. Veja[aqui](#user-content-faq39)para mais detalhes sobre o uso da bateria.
 
 Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
@@ -407,11 +407,11 @@ The quick, but unsafe solution (not advised), is to enable *Insecure connections
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
-1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
-1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
-1. Check/save the account and identity
-1. Tick the checkbox below the error message and save again
+1. Certifique-se de usar uma conexão de internet confiável (sem redes públicas, etc)
+1. Vá para a tela de configuração pelo menu de navegação (deslize do lado esquerdo para dentro)
+1. Toque na configuração manual, toque em Contas/Identidades e toque na conta e identidade defeituosas
+1. Verificar/salvar a conta e identidade
+1. Marque a caixa de seleção abaixo da mensagem de erro e salve novamente
 
 This will "pin" the server certificate to prevent man-in-the-middle attacks.
 

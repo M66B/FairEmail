@@ -2,63 +2,63 @@
 
 # Bantuan FairEmail
 
-Jika anda memiliki pertanyaan, silahkan terlebih dahulu periksa pertanyaan yang sering diajukan di bawah ini. [Pada bagian bawah](#user-content-get-support), Anda dapat mengetahui bagaimana cara menanyakan pertanyaan lain, meminta fitur baru, dan melaporkan bug.
+Jika ada pertanyaan, periksa pertanyaan yang sering diajukan di bawah ini. Di bagian bawah </a> Anda dapat mengetahui cara mengajukan pertanyaan, meminta fitur, dan melaporkan bug
 
 Jika Anda memiliki pertanyaan, silakan periksa Pertanyaan yang Sering Diajukan (FAQ) di bawah ini terlebih dahulu. [ Di bagian bawah Anda akan menemukan ](#user-content-get-support), bagaimana Anda dapat mengajukan pertanyaan lebih lanjut, meminta fungsi, dan melaporkan kesalahan.
 
-## Panduan
+## Cara, panduan, isi
 
-* [Mengizinkan akun](#user-content-authorizing-accounts)
-* [Bagaimana cara untuk ...?](#user-content-howto)
-* [Kendala yang diketahui](#user-content-known-problems)
+* [Memberi izin akun](#user-content-authorizing-accounts)
+* [Caranya ...?](#user-content-howto)
+* [Permasalahan diketahui](#user-content-known-problems)
 * [Perencanaan fitur](#user-content-planned-features)
-* [Fitur yang sering diminta](#user-content-frequently-requested-features)
+* [Fitur yang selalu diminta](#user-content-frequently-requested-features)
 * [Pertanyaan yang Sering Diajukan Faq](#user-content-frequently-asked-questions)
 * [Ambil bantuan](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Mengizinkan akun</h2>
+<h2><a name="authorizing-accounts"></a>Memberi izin akun</h2>
 
 Dalam kebanyakan kasus, wizard pengaturan cepat akan dapat secara otomatis mengidentifikasi pengaturan yang benar.
 
-Jika pengaturan wizard cepat gagal, Anda harus mengatur akun secara manual untuk menerima email dan identitas untuk mengirim email. For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Jika pengaturan wizard cepat gagal, Anda harus mengatur akun secara manual untuk menerima email dan identitas untuk mengirim email. Untuk ini, Anda memerlukan alamat server dan nomor port IMAP dan SMTP, apakah SSL/TLS atau STARTTLS harus digunakan dan nama pengguna Anda (kebanyakan, tetapi tidak selalu, alamat email Anda) dan kata sandi Anda.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Menelusuri * IMAP * dan nama penyedia sebagian besar sudah cukup untuk menemukan dokumentasi yang tepat.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+Dalam beberapa kasus, Anda harus mengaktifkan akses eksternal ke akun Anda dan/atau menggunakan kata sandi (aplikasi) khusus, misalnya ketika otentikasi dua faktor diaktifkan.
 
-For authorizing:
+Untuk otorisasi:
 
-* Gmail / G suite, lihat [pertanyaan 6](#user-content-faq6)
-* Outlook / Live / Hotmail, lihat [pertanyaan 14](#user-content-faq14)
-* Office 365, lihat [pertanyaan 14](#user-content-faq156)
-* Microsoft Exchange, lihat [pertanyaan 8](#user-content-faq8)
-* Yahoo, AOL dan Sky, lihat [pertanyaan 88](#user-content-faq88)
-* Apple iCloud, lihat [pertanyaan 148](#user-content-faq148)
-* Free.fr, lihat [pertanyaan 157](#user-content-faq157)
+* Gmail / G suite, lihat [ pertanyaan 6](#user-content-faq6)
+* Outlook / Live / Hotmail, lihat [ pertanyaan 14](#user-content-faq14)
+* Office 365, lihat [ pertanyaan 14](#user-content-faq156)
+* Microsoft Exchange, lihat [ pertanyaan 8](#user-content-faq8)
+* Yahoo, AOL dan Sky, lihat [ pertanyaan 88 ](#user-content-faq88)
+* Apple iCloud, lihat [ pertanyaan 148](#user-content-faq148)
+* Free.fr, lihat [ pertanyaan 157 ](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Silakan lihat [ di sini ](#user-content-faq22) untuk pesan kesalahan umum dan solusinya.
 
-Related questions:
+Pertanyaan-pertanyaan Terkait:
 
-* [Apakah OAuth didukung?](#user-content-faq111)
-* [Mengapa ActiveSync tidak didukung?](#user-content-faq133)
+* [Apakah didukung OAuth?](#user-content-faq111)
+* [Mengapa ActiveSync tidak didukung ?](#user-content-faq133)
 
 <a name="howto">
 
-## Bagaimana cara untuk ...?
+## Caranya ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
-* Menambahkan alamat CC dan BCC: klik ikon orang pada akhir subjek
-* Melihat pesan selanjutnya/sebelumnya dalam arsip/sampah: dalam pengaturan perilaku, nonaktifkan *Tutup percakapan secara otomatis* dan pilih *Kunjungi percakapan selanjutnya/sebelumnya* pada *Ketika menutup percakapan*
-* Menambahkan folder ke pesan masuk terpadu: tekan lama folder di daftar folder dan centang *Tampilkan di pesan masuk terpadu*
-* Menambahkan folder di menu navigasi: tekan lama folder di daftar folder dan centang *Tampilkan di menu navigasi*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
+* Ubah nama akun: Pengaturan, klik Pengaturan manual, klik Akun, klik akun
+* Ubah target geser ke kiri / kanan: Pengaturan, tab Perilaku halaman, Atur tindakan geser
+* Ubah kata sandi: Pengaturan, klik Pengaturan manual, klik Akun, klik akun, ubah kata sandi
+* Mengatur tanda tangan: Pengaturan, klik Penyiapan manual, klik Identitas, klik identitas, Edit tanda tangan.
+* Tambahkan alamat CC dan BCC: ketuk ikon orang di akhir subjek
+* Buka pesan berikutnya/sebelumnya pada arsip/hapus: dalam pengaturan perilaku, nonaktifkan * Tutup percakapan secara otomatis * dan pilih * Pergi ke percakapan berikutnya/sebelumnya * untuk * Saat menutup percakapan *
+* Menambahkan folder ke pesan masuk terpadu: tekan lama folder di daftar folder dan centang * Tampilkan di pesan masuk terpadu *
+* Menambahkan folder di menu navigasi: tekan lama folder di daftar folder dan centang * Tampilkan di menu navigasi *
+* Muat lebih banyak pesan: tekan lama sebuah folder dalam daftar folder, pilih * Ambil lebih banyak pesan *
+* Hapus pesan, lewati sampah: tekan lama ikon tempat sampah
+* Hapus akun / identitas: Pengaturan, ketuk Pengaturan manual, ketuk Akun / Identitas, ketuk akun / identitas, ikon tempat sampah di kanan atas
+* Hapus folder: tekan lama folder di daftar folder, Edit properti, ikon tempat sampah di kanan atas
 * Undo send: Outbox, swipe the message in the list left or right
 * Menyimpan pesan terkirim di kotak masuk: mohon [baca FAQ berikut](#user-content-faq142)
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
