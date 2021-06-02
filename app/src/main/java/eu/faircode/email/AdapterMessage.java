@@ -298,6 +298,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
+    private static final int MAX_QUOTE_LEVEL = 3;
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
@@ -4929,6 +4930,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String link = "message://" + BuildConfig.APPLICATION_ID + "/" + message.id;
 
                     Document document = JsoupEx.parse(file);
+                    HtmlHelper.quoteLimit(document, MAX_QUOTE_LEVEL);
 
                     Element a = document.createElement("a");
                     a.text(context.getString(R.string.app_name));
