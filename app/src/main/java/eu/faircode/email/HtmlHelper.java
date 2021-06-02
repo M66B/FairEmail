@@ -1989,6 +1989,20 @@ public class HtmlHelper {
         }
     }
 
+    static void quoteLimit(Document d, int maxLevel) {
+        for (Element bq : d.select("blockquote")) {
+            int level = 1;
+            Element parent = bq.parent();
+            while (parent != null) {
+                if ("blockquote".equals(parent.tagName()))
+                    level++;
+                parent = parent.parent();
+            }
+            if (level >= maxLevel)
+                bq.html("&#8230;");
+        }
+    }
+
     static boolean truncate(Document d, int max) {
         final int[] length = new int[1];
 
