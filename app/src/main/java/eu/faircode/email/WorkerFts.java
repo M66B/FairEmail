@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -80,10 +79,8 @@ public class WorkerFts extends Worker {
 
                     File file = message.getFile(context);
                     String text = HtmlHelper.getFullText(file);
-                    if (TextUtils.isEmpty(text)) {
-                        Log.i("FTS empty");
-                        continue;
-                    }
+                    if (text == null)
+                        text = "";
 
                     boolean fts = prefs.getBoolean("fts", false);
                     if (!fts)
