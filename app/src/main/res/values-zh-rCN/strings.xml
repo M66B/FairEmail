@@ -150,8 +150,10 @@
     <string name="title_setup_free">本应用是否免费？</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
+    <string name="title_setup_permissions_explanation">需要联系人权限来查找联系人信息和推荐联系人</string>
     <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">可靠地发送和接收电子邮件</string>
+    <string name="title_setup_doze_explanation">应禁用针对本应用的电池优化，以确保后台消息的可靠发送和接收。</string>
     <string name="title_setup_doze_hint">虽然这听起来自相矛盾，但对本应用而言关闭电池优化将减少电池用量</string>
     <string name="title_setup_doze_instructions">请在下一页面中，将 \"未优化\" 切换为 \"所有应用\"，然后下拉找到本应用，并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">太耗电？</string>
@@ -851,6 +853,7 @@
     <string name="title_attachments_incomplete">一些附件或图像没有下载，且无法添加</string>
     <string name="title_ask_save">保存更改？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
+    <string name="title_ask_delete_accept">我明白永久删除消息是不可逆的</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_delete_rule">是否永久删除规则？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
@@ -1228,6 +1231,8 @@
     <string name="title_legend_view">查看内容</string>
     <string name="title_legend_hide">隐藏内容</string>
     <string name="title_legend_download">下载内容</string>
+    <string name="title_legend_original">查看原信息</string>
+    <string name="title_legend_reformatted">查看已重新格式的消息</string>
     <string name="title_legend_external_image">外部图像占位符</string>
     <string name="title_legend_embedded_image">嵌入的图像占位符</string>
     <string name="title_legend_tracking_pixel">跟踪图像</string>
@@ -1289,6 +1294,7 @@
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
+    <string name="title_image_link">图片链接</string>
     <string name="title_different_link">标题和链接地址不同</string>
     <string name="title_tracking_link">此网站可能会跟踪你</string>
     <string name="title_suspicious_link">这是一个可疑的链接</string>

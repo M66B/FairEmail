@@ -59,9 +59,9 @@ Pertanyaan-pertanyaan Terkait:
 * Hapus pesan, lewati sampah: tekan lama ikon tempat sampah
 * Hapus akun / identitas: Pengaturan, ketuk Pengaturan manual, ketuk Akun / Identitas, ketuk akun / identitas, ikon tempat sampah di kanan atas
 * Hapus folder: tekan lama folder di daftar folder, Edit properti, ikon tempat sampah di kanan atas
-* Undo send: Outbox, swipe the message in the list left or right
+* Membatalkan pengiriman: di Kotak Keluar, geser pesan ke kiri atau kanan
 * Menyimpan pesan terkirim di kotak masuk: mohon [baca FAQ berikut](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
+* Mengganti folder sistem: Pengaturan, pilih Pengaturan manual, pilih Akun, pilih akun, di bawah
 * Export/import settings: Settings, navigation (left side) menu
 
 <h2><a name="known-problems"></a>Known problem</h2>

@@ -2995,18 +2995,18 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) Wird Android Auto unterstützt?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Ja, Android Auto wird unterstützt, aber nur mit der GitHub Version, bitte [sehen Sie hier](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) nach, warum.
 
-For notification (messaging) support you'll need to enable the following notification options:
+Für die Unterstürzung von Benachrichtigungen (Nachrichten) müssen Sie folgende Benachrichtigungsoptionen aktivieren:
 
-* *Use Android 'messaging style' notification format*
-* Notification actions: *Direct reply* and (mark as) *Read*
+* *Android Benachrichtigungsformat 'Nachrichten-Stil' verwenden*
+* Benachrichtigungsaktionen: *Direkte Antwort* und (Markieren als) *Lesen*
 
-You can enable other notification actions too, if you like, but they are not supported by Android Auto.
+Wenn Sie möchten, können Sie auch andere Benachrichtigungsaktionen aktivieren, aber diese werden von Android Auto nicht unterstützt.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+Die Anleitung für Entwickler ist [hier](https://developer.android.com/training/cars/messaging).
 
 <br />
 
