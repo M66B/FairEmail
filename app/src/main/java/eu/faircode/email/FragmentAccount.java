@@ -695,7 +695,9 @@ public class FragmentAccount extends FragmentBase {
                             certificate, fingerprint);
 
                     result.idle = iservice.hasCapability("IDLE");
-                    result.utf8 = iservice.hasCapability("UTF8=ACCEPT");
+                    result.utf8 =
+                            iservice.hasCapability("UTF8=ACCEPT") ||
+                                    iservice.hasCapability("UTF8=ONLY");
 
                     for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                         // Check folder attributes

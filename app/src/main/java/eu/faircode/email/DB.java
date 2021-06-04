@@ -65,7 +65,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 198,
+        version = 199,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2028,6 +2028,13 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `show_full` INTEGER NOT NULL DEFAULT 0");
                     }
                 }).addMigrations(new Migration(198, 199) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `capability_idle` INTEGER");
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `capability_utf8` INTEGER");
+                    }
+                }).addMigrations(new Migration(199, 200) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
