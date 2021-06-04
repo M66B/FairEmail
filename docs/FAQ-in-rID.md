@@ -62,9 +62,9 @@ Pertanyaan-pertanyaan Terkait:
 * Membatalkan pengiriman: di Kotak Keluar, geser pesan ke kiri atau kanan
 * Menyimpan pesan terkirim di kotak masuk: mohon [baca FAQ berikut](#user-content-faq142)
 * Mengganti folder sistem: Pengaturan, pilih Pengaturan manual, pilih Akun, pilih akun, di bawah
-* Export/import settings: Settings, navigation (left side) menu
+* Ekspor/impor pengaturan: Pengaturan, menu navigasi (sisi kiri)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Masalah yang sudah diketahui</h2>
 
 * ~~ [Gangguan pada Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) yang menyebabkan aplikasi menampilkan format waktu yang salah beberapa kali. Mengubah pengaturan Android *Gunakan format waktu 24 jam* dapat menyelesaikan kendala saat ini. Solusi telah ditambahkan.~~
 * ~~ [Gangguan pada Google Drive](https://issuetracker.google.com/issues/126362828) menyebabkan berkas yang diekspor ke Google Drive kosong. Google telah memperbaikinya.~~
@@ -72,7 +72,7 @@ Pertanyaan-pertanyaan Terkait:
 * ~~[Bug di AndroidX ROOM](https://issuetracker.google.com/issues/138441698) menyebabkan crash dengan "*... Pengecualian saat meghitung database data langsung ... Tidak dapat membaca barisan ...*". Solusi telah ditambahkan.~~
 * [Bug di Android](https://issuetracker.google.com/issues/119872129) menyebabkan FairEmail crash dengan "*... Notifikasi buruk diposkan ...*" dalam beberapa perangkat setelah memperbarui FairEmail dan mengklik notifikasi.
 * [Bug di Android](https://issuetracker.google.com/issues/62427912) beberapa kali menyebabkan crash dengan "*... RekamanAktivitas tidak ditemukan untuk ...*" setelah memperbarui FairEmail. Menginstal ulang ([sumber](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) dapat memperbaiki masalah.
-* [Bug di Android](https://issuetracker.google.com/issues/37018931) beberapa kali menyebabkan crash dengan *... InputChannel is not initialized ...* on some devices.
+* [Bug di Android](https://issuetracker.google.com/issues/37018931) beberapa kali menyebabkan crash dengan *... InputChannel is not initialized ...* di beberapa perangkat.
 * ~~[Bug di LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) beberapa kali menyebabkan crash dengan *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Bug di Nova Launcher dalam Android 5.x menyebabkan FairEmail crash dengan *java.lang.StackOverflowError* ketika Nova Launcher mengakses servis aksesibilitas.
 * ~~Pemilih berkas beberpa kali menampilkan tidak ada berkas dengan alasan yang tidak diketahui. Masalah ini terlihat sudah diperbaiki.~~

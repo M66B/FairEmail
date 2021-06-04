@@ -67,8 +67,8 @@ Zur Autorisierung:
 <h2><a name="known-problems"></a>Bekannte Probleme</h2>
 
 * ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
-* ~~Ein [Bug in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
-* ~~Ein [Bug in AndroidX](https://issuetracker.google.com/issues/78495471) lässt FairEmail bei langem Drücken oder Wischen gelegentlich abstürzen. Google hat dies repariert.~~
+* ~~Ein [Fehler in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
+* ~~Ein [Fehler in AndroidX](https://issuetracker.google.com/issues/78495471) lässt FairEmail bei langem Drücken oder Wischen gelegentlich abstürzen. Google hat dies repariert.~~
 * ~~Ein [Fehler im AndroidX ROOM](https://issuetracker.google.com/issues/138441698) verursacht manchmal einen Absturz mit "*… Ausnahme beim Berechnen der Datenbank Live-Daten ... Konnte Zeile ...*" nicht lesen. Ein Workaround wurde hinzugefügt.~~
 * Ein [Bug im Android](https://issuetracker.google.com/issues/119872129) verursacht manchmal einen FairEmail-Absturz mit "*... Fehlerhafte Benachrichtigung ...*" auf einigen Geräten nach dem Aktualisieren von FairEmail und dem Tippen auf eine Benachrichtigung.
 * Ein [Bug in Android](https://issuetracker.google.com/issues/62427912) verursacht manchmal einen Absturz mit "*... ActivityRecord nicht gefunden für ...*" nach dem Update von FairEmail. Eine Neuinstallation ([quelle](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) könnte das Problem beheben.
@@ -209,7 +209,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(82) Was ist ein Nachverfolgungsbild?](#user-content-faq82)
 * [(84) Wozu gibt es lokale Kontakte?](#user-content-faq84)
 * [(85) Warum ist eine Identität nicht verfügbar?](#user-content-faq85)
-* [~~(86) Was sind »zusätzliche Privatsphärefunktionen«?~~](#user-content-faq86)
+* [~~(86) Was sind »zusätzliche Privatsphärenfunktionen«?~~](#user-content-faq86)
 * [(87) Was bedeutet »ungültige Anmeldedaten«?](#user-content-faq87)
 * [(88) Wie kann ich ein Yahoo-, AOL- oder Sky-Konto verwenden?](#user-content-faq88)
 * [(89) Wie kann ich Nur-Text-Nachrichten senden?](#user-content-faq89)
@@ -1969,9 +1969,9 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq86"></a>
-**~~(86) What are 'extra privacy features'?~~**
+**~~(86) Was sind »zusätzliche Privatsphärenfunktionen«?~~**
 
-~~The advanced option *extra privacy features* enables:~~
+~~Die erweiterte Option *zusätzliche Privatsphärenfunktionen* aktiviert:~~
 
 * ~~Suche nach dem Besitzer der IP-Adresse eines Link~~
 * ~~Erkennung und Entfernung von [Verfolgungsbildern](#user-content-faq82)~~
@@ -2997,12 +2997,12 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <a name="faq165"></a>
 **(165) Wird Android Auto unterstützt?**
 
-Ja, Android Auto wird unterstützt, aber nur mit der GitHub Version, bitte [sehen Sie hier](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) nach, warum.
+Ja, Android Auto wird unterstützt, aber nur mit der GitHub-Version, bitte [hier nachsehen](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) warum.
 
-Für die Unterstürzung von Benachrichtigungen (Nachrichten) müssen Sie folgende Benachrichtigungsoptionen aktivieren:
+Für die Unterstützung von Benachrichtigungen (Meldungen) müssen Sie die folgenden Benachrichtigungsoptionen aktivieren:
 
-* *Android Benachrichtigungsformat 'Nachrichten-Stil' verwenden*
-* Benachrichtigungsaktionen: *Direkte Antwort* und (Markieren als) *Lesen*
+* *Benachrichtigungsformat im Android-Nachrichtenstil verwenden*
+* Benachrichtigungsaktionen: *direkte Antwort* und (markieren als) *gelesen*
 
 Wenn Sie möchten, können Sie auch andere Benachrichtigungsaktionen aktivieren, aber diese werden von Android Auto nicht unterstützt.
 

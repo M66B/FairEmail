@@ -161,8 +161,11 @@
     <string name="title_setup_free">Bu uygulama ücretsiz mi?</string>
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
+    <string name="title_setup_permissions_explanation">Kişi bilgilerini aramak ve kişi önermek için kişi izinleri gerekir</string>
     <string name="title_setup_doze">Pil optimizasyonlarını devre dışı bırak</string>
     <string name="title_setup_doze_remark">Güvenilir bir şekilde e-posta almak için</string>
+    <string name="title_setup_doze_explanation">Arka planda mesajların güvenilir bir şekilde gönderilmesini ve alınmasını sağlamak için uygulamanın pil optimizasyonları devre dışı bırakılmalıdır</string>
+    <string name="title_setup_doze_hint">Bu kulağa çelişkili gelse de, bu uygulama için pil optimizasyonlarını kapatmak daha az pil kullanımına neden olur</string>
     <string name="title_setup_doze_instructions">Bir sonraki Android iletişim kutusunda \"Optimize edilmemiş\" i \"Tüm uygulamalar\" olarak değiştirin, bu uygulamayı seçin ve \"Optimize etme\" yi seçin</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
@@ -304,6 +307,7 @@
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullanın</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
+    <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_threading_unread">Sohbetlerde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
@@ -432,6 +436,8 @@
     <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
+    <string name="title_advanced_generic_user_agent">Genel tarayıcı kullanıcı aracısını kullan</string>
+    <string name="title_advanced_disconnect_auto_update">Listeleri haftalık olarak otomatik güncelle</string>
     <string name="title_advanced_disconnect_links">Takipçi içeren bağlantıları önden uyarabilmek için listeleri kullan</string>
     <string name="title_advanced_disconnect_images">Takipçi içeren görselleri tanımak için listeleri kullan</string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
@@ -450,6 +456,7 @@
     <string name="title_advanced_manage_keys_hint">        Android güvenlik seçeneklerini açar.
         Anahtarlar ve sertifikalar genellikle Gelişmiş -&gt; Şifreleme ve altındaki menülerde bulunur.
     </string>
+    <string name="title_advanced_power_menu">Android güç menüsüne eylemler ekle</string>
     <string name="title_advanced_external_search">Diğer uygulamaların mesajlarda arama yapmasına izin ver</string>
     <string name="title_advanced_shortcuts">Sık kullanılan kişileri Android\'in paylaşma menüsünde göster</string>
     <string name="title_advanced_fts">Arama indeksini oluştur</string>
@@ -524,9 +531,11 @@
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_bcc_hint">Adres gösterilmeyecek, ancak gönderime eklenecek</string>
+    <string name="title_advanced_internal_hint">Başka bir alana gönderirken bir uyarı olacak</string>
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
     <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
+    <string name="title_advanced_safe_browsing_hint">Google sunucusu hangi adreslerin arandığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
@@ -662,6 +671,7 @@
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
     <string name="title_synchronize_subfolders">Alt Klasörler</string>
     <string name="title_synchronize_more">Daha fazla mesaj yükle</string>
+    <string name="title_synchronize_more_hint">Bu, eski mesajların tek bir indirilmesiyle sonuçlanacak, bu nedenle günlük kullanım için daha fazla pil kullanımıyla sonuçlanmayacaktır</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_synchronize_batch_enable">Senkronizasyonunu Etkinleştir</string>
     <string name="title_synchronize_batch_disable">Senkronizasyonunu Devre Dışı Bırak</string>
@@ -671,6 +681,8 @@
     <string name="title_empty_spam">Spam kutusunu temizle</string>
     <string name="title_edit_properties">Özellikleri düzenle</string>
     <string name="title_edit_rules">Kuralları düzenle</string>
+    <string name="title_execute_rules">Kuralları gerçekleştir</string>
+    <string name="title_export_messages">Mesajları dışa aktar</string>
     <string name="title_create_channel">Bildirim kanalı oluştur</string>
     <string name="title_edit_channel">Bildirim kanalını düzenle</string>
     <string name="title_delete_channel">Bildirim kanalını sil</string>
@@ -692,6 +704,8 @@
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
+    <string name="title_op_title_headers">Başlıklar İndiriliyor</string>
+    <string name="title_op_title_raw">Ham mesaj indiriliyor</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
@@ -703,6 +717,7 @@
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
     <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
+    <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
     <string name="title_notify_folder">Yeni iletileri bildir</string>
     <string name="title_auto_classify_source">Bu klasördeki yeni iletileri sınıflandır</string>
@@ -717,6 +732,7 @@
     <string name="title_auto_trash">Eski iletileri otomatik olarak çöpe taşı</string>
     <string name="title_auto_delete">Eski iletileri otomatik olarak kalıcı sil</string>
     <string name="title_auto_delete_hint">Eski mesajlar, artık cihazda tutulmayan mesajlardır</string>
+    <string name="title_auto_delete_archive_hint">Arşiv klasöründen silme işlemine e-posta sunucusu tarafından her zaman izin verilmez</string>
     <string name="title_inbox_root_hint">Bazı sağlayıcılar, gelen kutusunun altında yeni klasörlerin oluşturulmasını gerektirir.
         Bu durumda, klasör listesinde gelen kutusuna uzun süre basabilir ve sonra \"Alt klasör oluştur\" seçeneğini seçebilirsiniz.    </string>
     <string name="title_folder_name_missing">Klasör adı eksik</string>
@@ -737,17 +753,21 @@
     <string name="title_folder_user_only">Sadece kullanıcı klasörleri</string>
     <string name="title_folder_primary">Klasörler birincil hesap</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
+    <string name="title_folder_local_drafts">Yerel Taslaklar</string>
     <string name="title_no_folders">Klasör yok</string>
     <string name="title_no_messages">İleti yok</string>
     <string name="title_filters_active">Bir ya da daha fazla filtre aktif</string>
     <string name="title_duplicate_in">Mesajı %1$s klasörüne kopyala</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
+    <string name="title_subject_reply_alt">Ynt: %1$s</string>
+    <string name="title_subject_forward_alt">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>
     <string name="title_unseen">Okunmadı olarak işaretle</string>
     <string name="title_toggle_seen">Okumayı aç/kapat</string>
     <string name="title_hide">Gizle</string>
     <string name="title_unhide">Göster</string>
+    <string name="title_toggle_hide">Gizlemeyi aç/kapat</string>
     <string name="title_flag">Yıldız Ekle</string>
     <string name="title_flag_color">Renkli yıldız&#8230;</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
@@ -759,11 +779,15 @@
     <string name="title_forward">İlet</string>
     <string name="title_new_message">Yeni ileti</string>
     <string name="title_editasnew">Yeni olarak düzenle</string>
+    <string name="title_edit_notes">Yerel notları düzenle</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>
     <string name="title_pin">Kısayol ekle</string>
     <string name="title_print">Yazdır</string>
+    <string name="title_print_header">Başlığı yazdır</string>
+    <string name="title_print_images">Resimleri yazdır</string>
+    <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
     <string name="title_raw_send">Ek olarak gönder</string>
@@ -774,6 +798,10 @@
     <string name="title_download_all">Tümünü indir</string>
     <string name="title_save_all">Tümünü kaydet</string>
     <string name="title_save_eml">Ham mesaj dosyasını kaydet</string>
+    <string name="title_raw_remaining">İndirilecek ham mesajlar: %1$d</string>
+    <string name="title_ask_raw">Mesajları iletmek için ham (orijinal) mesajların sunucudan indirilmesi gerekir. Bu bir internet bağlantısı gerektirir.</string>
+    <string name="title_buttons">Seçim düğmeleri</string>
+    <string name="title_buttons_hint">Gerçek eylemler, hesap türüne ve yapılandırmaya bağlıdır</string>
     <string name="title_button_search">Mesajlarda ara</string>
     <string name="title_button_search_text">Mesajda ara</string>
     <string name="title_trash">Çöp Kutusu</string>
