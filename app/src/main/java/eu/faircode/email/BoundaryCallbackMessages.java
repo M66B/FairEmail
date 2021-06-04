@@ -729,7 +729,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 if (!utf8) {
                     search = search
                             .replace("ß", "ss") // Eszett
-                            .replace("ĳ", "ij");
+                            .replace("ĳ", "ij")
+                            .replace("ø", "o");
                     search = Normalizer
                             .normalize(search, Normalizer.Form.NFKD)
                             .replaceAll("[^\\p{ASCII}]", "");
