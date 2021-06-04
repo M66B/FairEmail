@@ -732,7 +732,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             .replace("ĳ", "ij");
                     search = Normalizer
                             .normalize(search, Normalizer.Form.NFKD)
-                            .replaceAll("[^\\p{ASCII}]", "?");
+                            .replaceAll("[^\\p{ASCII}]", "");
                 }
 
                 List<String> word = new ArrayList<>();
