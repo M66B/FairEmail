@@ -42,6 +42,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
+import java.nio.charset.CharsetEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -732,8 +733,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             .replace("ß", "ss") // Eszett
                             .replace("ĳ", "ij");
                     search = Normalizer
-                            .normalize(search, Normalizer.Form.NFKD)
-                            .replaceAll("[^\\p{ASCII}]", "");
+                            .normalize(search, Normalizer.Form.NFKD);
+
+                    CharsetEncoder encoder = StandardCharsets.ISO_8859_1.newEncoder();
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < search.length(); i++) {
+                        char c = search.charAt(i);
+                        sb.append(encoder.canEncode(c) ? c : '?');
+                    }
+                    search = sb.toString();
                 }
 
                 List<String> word = new ArrayList<>();
