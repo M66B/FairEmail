@@ -119,20 +119,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     @Override
     public void onZeroItemsLoaded() {
         Log.i("Boundary zero loaded");
-        queue_load(state, null);
+        queue_load(state);
     }
 
     @Override
     public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
-        Long id = (itemAtEnd == null ? null : itemAtEnd.id); // fall-safe
-
-        if (state.end != null && state.end.equals(id)) {
-            Log.i("Boundary at same end=" + id);
-            return;
-        }
-
-        Log.i("Boundary at end=" + id);
-        queue_load(state, id);
+        Log.i("Boundary at end id=" + itemAtEnd.id);
+        queue_load(state);
     }
 
     void retry() {
@@ -142,20 +135,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 close(state, true);
             }
         });
-        queue_load(state, null);
+        queue_load(state);
     }
 
-    private void queue_load(final State state, Long end) {
-        state.end = end;
+    private void queue_load(final State state) {
+        if (state.queued > 1) {
+            Log.i("Boundary queued =" + state.queued);
+            return;
+        }
+        state.queued++;
+        Log.i("Boundary queued +" + state.queued);
 
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                if (end != null && state.end != null && !state.end.equals(end)) {
-                    Log.i("Boundary end=" + state.end + "/" + end);
-                    return;
-                }
-
                 Helper.gc();
 
                 int free = Log.getFreeMemMb();
@@ -163,7 +156,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 crumb.put("free", Integer.toString(free));
                 Log.breadcrumb("Boundary run", crumb);
 
-                Log.i("Boundary run end=" + state.end + "/" + end + " free=" + free);
+                Log.i("Boundary run free=" + free);
 
                 int found = 0;
                 try {
@@ -203,6 +196,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         });
                 } finally {
+                    state.queued--;
+                    Log.i("Boundary queued -" + state.queued);
                     Helper.gc();
 
                     crumb.put("free", Integer.toString(Log.getFreeMemMb()));
@@ -536,14 +531,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     long uid = state.ifolder.getUID(isub[j]);
                     Log.i("Boundary server sync uid=" + uid);
                     EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
-                    if (message == null) {
+                    if (message == null)
                         message = Core.synchronizeMessage(context,
                                 account, browsable,
                                 (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                 true, true,
                                 rules, astate, null);
-                        found++;
-                    }
+                    found++;
                     if (message != null && criteria != null /* browsed */)
                         db.message().setMessageFound(message.id);
                 } catch (MessageRemovedException ex) {
@@ -647,11 +641,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     private static class State {
+        int queued = 0;
         boolean destroyed = false;
         boolean error = false;
         int index = 0;
         int offset = 0;
-        Long end = null;
         List<Long> ids = null;
         List<TupleMatch> matches = null;
 
@@ -661,11 +655,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         void reset() {
             Log.i("Boundary reset");
+            queued = 0;
             destroyed = false;
             error = false;
             index = 0;
             offset = 0;
-            end = null;
             ids = null;
             matches = null;
             iservice = null;
