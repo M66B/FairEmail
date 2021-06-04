@@ -119,20 +119,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     @Override
     public void onZeroItemsLoaded() {
         Log.i("Boundary zero loaded");
-        queue_load(state, null, null);
+        queue_load(state, null);
     }
 
     @Override
     public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
-        Log.i("Boundary at end=" + itemAtEnd.id +
-                " received=" + new Date(itemAtEnd.received));
+        Long id = (itemAtEnd == null ? null : itemAtEnd.id); // fall-safe
 
-        if (state.end != null && state.end.equals(itemAtEnd.id)) {
-            Log.i("Boundary at same end=" + itemAtEnd.id);
+        if (state.end != null && state.end.equals(id)) {
+            Log.i("Boundary at same end=" + id);
             return;
         }
 
-        queue_load(state, itemAtEnd.id, itemAtEnd.received);
+        Log.i("Boundary at end=" + id);
+        queue_load(state, id);
     }
 
     void retry() {
@@ -142,10 +142,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 close(state, true);
             }
         });
-        queue_load(state, null, null);
+        queue_load(state, null);
     }
 
-    private void queue_load(final State state, Long end, Long after) {
+    private void queue_load(final State state, Long end) {
         state.end = end;
 
         executor.submit(new Runnable() {
@@ -179,7 +179,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
                     if (server)
                         try {
-                            found = load_server(state, after);
+                            found = load_server(state);
                         } catch (Throwable ex) {
                             if (state.error || ex instanceof IllegalArgumentException)
                                 throw ex;
@@ -188,7 +188,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             close(state, true);
 
                             // Retry
-                            found = load_server(state, after);
+                            found = load_server(state);
                         }
                     else
                         found = load_device(state);
@@ -340,7 +340,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    private int load_server(final State state, Long after) throws MessagingException, IOException {
+    private int load_server(final State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -487,22 +487,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         List<EntityRule> rules = db.rule().getEnabledRules(browsable.id);
 
         int found = 0;
-        Long last = null;
-        while (state.index >= 0 && !state.destroyed &&
-                (found < pageSize ||
-                        (after != null && last != null && after < last))) {
-            Log.i("Boundary server index=" + state.index +
-                    " found=" + found + "/" + pageSize +
-                    " after=" + new Date(after == null ? 0 : after) +
-                    "/" + new Date(last == null ? 0 : last));
-            int count = (pageSize - found);
-            if (count <= 0)
-                count = pageSize;
-            int from = Math.max(0, state.index - count + 1);
-            Log.i("Boundary " + from + "..." + state.index + " count=" + (state.index - from + 1));
+        while (state.index >= 0 && found < pageSize && !state.destroyed) {
+            Log.i("Boundary server index=" + state.index);
+            int from = Math.max(0, state.index - (pageSize - found) + 1);
             Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
             Arrays.fill(state.imessages, from, state.index + 1, null);
-            state.index -= count;
+            state.index -= (pageSize - found);
 
             FetchProfile fp0 = new FetchProfile();
             fp0.add(UIDFolder.FetchProfileItem.UID);
@@ -541,7 +531,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             }
 
             Core.State astate = new Core.State(ConnectionHelper.getNetworkState(context));
-            for (int j = isub.length - 1; j >= 0 && !state.destroyed && astate.isRecoverable(); j--)
+            for (int j = isub.length - 1; j >= 0 && found < pageSize && !state.destroyed && astate.isRecoverable(); j--)
                 try {
                     long uid = state.ifolder.getUID(isub[j]);
                     Log.i("Boundary server sync uid=" + uid);
@@ -552,16 +542,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                 true, true,
                                 rules, astate, null);
-                    }
-                    if (message != null) {
                         found++;
-                        last = message.received;
-                        if (criteria != null /* browsed */)
-                            db.message().setMessageFound(message.id);
-                        Log.i("Boundary server synced id=" + message.id +
-                                " received=" + new Date(message.received) +
-                                " found=" + found);
                     }
+                    if (message != null && criteria != null /* browsed */)
+                        db.message().setMessageFound(message.id);
                 } catch (MessageRemovedException ex) {
                     Log.w(browsable.name + " boundary server", ex);
                 } catch (FolderClosedException ex) {
@@ -586,13 +570,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             close(state, false);
         }
 
-        Log.i("Boundary server done" +
-                " index=" + state.index +
-                " found=" + found + "/" + pageSize +
-                " after=" + new Date(after == null ? 0 : after) +
-                "/" + new Date(last == null ? 0 : last) +
-                " memory=" + Log.getFreeMemMb());
-
+        Log.i("Boundary server done memory=" + Log.getFreeMemMb());
         return found;
     }
 
