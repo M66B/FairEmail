@@ -554,6 +554,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("protocol", checked).apply();
+                if (!checked)
+                    EntityLog.clear(compoundButton.getContext());
             }
         });
 
