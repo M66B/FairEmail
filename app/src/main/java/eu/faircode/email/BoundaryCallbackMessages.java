@@ -449,12 +449,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                             " folder=" + folder +
                                             " search=" + criteria);
 
-                                    if (protocol.supportsUtf8())
-                                        try {
-                                            return search(true, browsable.keywords, protocol, state);
-                                        } catch (Throwable ex) {
-                                            EntityLog.log(context, ex.toString());
-                                        }
+                                    try {
+                                        return search(true, browsable.keywords, protocol, state);
+                                    } catch (Throwable ex) {
+                                        EntityLog.log(context, ex.toString());
+                                    }
 
                                     return search(false, browsable.keywords, protocol, state);
                                 }
