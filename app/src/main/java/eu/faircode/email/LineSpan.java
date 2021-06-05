@@ -54,7 +54,7 @@ public class LineSpan extends ReplacementSpan {
         paint.setStrokeWidth(strokeWidth);
         if (dashLength != 0)
             paint.setPathEffect(new DashPathEffect(new float[]{dashLength, dashLength}, 0));
-        canvas.drawLine(x, ypos, canvas.getWidth(), ypos, paint);
+        canvas.drawLine(0, ypos, canvas.getWidth(), ypos, paint);
         paint.setColor(c);
         paint.setStrokeWidth(s);
         paint.setPathEffect(p);

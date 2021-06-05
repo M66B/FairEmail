@@ -2375,7 +2375,7 @@ public class HtmlHelper {
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
                                 break;
                             case "hr":
-                                // Suppress succesive lines
+                                // Suppress successive lines
                                 LineSpan[] lines = ssb.getSpans(0, ssb.length(), LineSpan.class);
                                 int last = -1;
                                 if (lines != null)
