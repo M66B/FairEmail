@@ -766,25 +766,27 @@ public class StyleHelper {
     }
 
     static TypefaceSpan getTypefaceSpan(String family, Context context) {
-        String face = family.toLowerCase(Locale.ROOT);
-        if ("fairemail".equals(face)) {
-            Typeface typeface = ResourcesCompat.getFont(context, R.font.fantasy);
-            return new CustomTypefaceSpan(family, typeface);
-        } else if (face.contains("comic sans")) {
-            Typeface typeface = ResourcesCompat.getFont(context, R.font.opendyslexic);
-            return new CustomTypefaceSpan("comic sans ms, sans-serif", typeface);
-        } else
-            return new TypefaceSpan(family);
+        String faces = family.toLowerCase(Locale.ROOT);
+        if (faces.contains("comic sans"))
+            family = "comic sans ms, sans-serif";
+        return new CustomTypefaceSpan(family, getTypeface(family, context));
     }
 
     static Typeface getTypeface(String family, Context context) {
-        String face = family.toLowerCase(Locale.ROOT);
-        if ("fairemail".equals(face))
-            return ResourcesCompat.getFont(context, R.font.fantasy);
-        else if (face.contains("comic sans"))
-            return ResourcesCompat.getFont(context, R.font.opendyslexic);
-        else
-            return Typeface.create(family, Typeface.NORMAL);
+        String faces = family.toLowerCase(Locale.ROOT);
+        for (String face : faces.split(",")) {
+            face = face.trim().replace("\"", "");
+            if ("fairemail".equals(face))
+                return ResourcesCompat.getFont(context, R.font.fantasy);
+            else if (face.contains("comic sans"))
+                return ResourcesCompat.getFont(context, R.font.opendyslexic);
+            else if (face.equals("times new roman") || face.equals("serif"))
+                return Typeface.SERIF;
+            else if (face.equals("arial") || face.equals("sans-serif"))
+                return Typeface.SANS_SERIF;
+        }
+
+        return Typeface.create(family, Typeface.NORMAL);
     }
 
     //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
