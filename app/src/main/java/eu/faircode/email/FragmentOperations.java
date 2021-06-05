@@ -154,7 +154,7 @@ public class FragmentOperations extends FragmentBase {
                             new SimpleTask<Integer>() {
                                 @Override
                                 protected void onPostExecute(Bundle args) {
-                                    ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
