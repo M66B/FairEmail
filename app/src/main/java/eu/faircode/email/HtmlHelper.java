@@ -2517,7 +2517,7 @@ public class HtmlHelper {
                                 setSpan(ssb, new UnderlineSpan(), start, ssb.length());
                                 break;
                             default:
-                                Log.e("Unknown tag=" + element.tagName());
+                                Log.w("Unknown tag=" + element.tagName());
                         }
 
                         if (monospaced_pre &&
