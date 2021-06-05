@@ -1203,28 +1203,6 @@ public class MessageHelper {
         return result;
     }
 
-    String getReceivedFromHost() throws MessagingException {
-        ensureHeaders();
-
-        String[] received = imessage.getHeader("Received");
-        if (received == null || received.length == 0)
-            return null;
-
-        String origin = MimeUtility.unfold(received[received.length - 1]);
-
-        String[] h = origin.split("\\s+");
-        if (h.length > 1 && h[0].equalsIgnoreCase("from")) {
-            String host = h[1];
-            int s = origin.indexOf('[');
-            int e = origin.indexOf(']');
-            if (s > 0 && e > s + 1)
-                host = origin.substring(s + 1, e);
-            return host;
-        }
-
-        return null;
-    }
-
     private String fixEncoding(String name, String header) {
         if (header.trim().startsWith("=?"))
             return header;
