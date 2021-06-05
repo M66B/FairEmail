@@ -106,7 +106,7 @@
     <item
         android:id="@+id/menu_show_headers"
         android:checkable="true"
-        android:icon="@drawable/twotone_info_24"
+        android:icon="@drawable/baseline_code_24"
         android:title="@string/title_show_headers" />
 
     <item
