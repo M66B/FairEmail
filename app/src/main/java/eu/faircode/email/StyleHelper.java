@@ -774,19 +774,20 @@ public class StyleHelper {
 
     static Typeface getTypeface(String family, Context context) {
         String faces = family.toLowerCase(Locale.ROOT);
+
+        if (faces.equals("fairemail"))
+            return ResourcesCompat.getFont(context, R.font.fantasy);
+
+        if (faces.contains("comic sans"))
+            return ResourcesCompat.getFont(context, R.font.opendyslexic);
+
         for (String face : faces.split(",")) {
             face = face.trim().replace("\"", "");
-            if ("fairemail".equals(face))
-                return ResourcesCompat.getFont(context, R.font.fantasy);
-            else if (face.contains("comic sans"))
-                return ResourcesCompat.getFont(context, R.font.opendyslexic);
-            else if (face.equals("times new roman") || face.equals("serif"))
-                return Typeface.SERIF;
-            else if (face.equals("arial") || face.equals("sans-serif"))
-                return Typeface.SANS_SERIF;
+            Typeface tf = Typeface.create(face, Typeface.NORMAL);
+            if (!tf.equals(Typeface.DEFAULT))
+                return tf;
         }
-
-        return Typeface.create(family, Typeface.NORMAL);
+        return Typeface.DEFAULT;
     }
 
     //TextUtils.dumpSpans(text, new LogPrinter(android.util.Log.INFO, "FairEmail"), "afterTextChanged ");
