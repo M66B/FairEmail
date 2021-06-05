@@ -119,7 +119,6 @@ public class FragmentAccount extends FragmentBase {
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
     private TextView tvIdle;
-    private TextView tvUtf8;
 
     private ArrayAdapter<EntityFolder> adapter;
     private Spinner spDrafts;
@@ -226,7 +225,6 @@ public class FragmentAccount extends FragmentBase {
         pbCheck = view.findViewById(R.id.pbCheck);
 
         tvIdle = view.findViewById(R.id.tvIdle);
-        tvUtf8 = view.findViewById(R.id.tvUtf8);
 
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
@@ -273,7 +271,6 @@ public class FragmentAccount extends FragmentBase {
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 tvIdle.setVisibility(View.GONE);
-                tvUtf8.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
                 if (tag != null && (Integer) tag == position)
@@ -529,7 +526,6 @@ public class FragmentAccount extends FragmentBase {
         btnAdvanced.setVisibility(View.GONE);
 
         tvIdle.setVisibility(View.GONE);
-        tvUtf8.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
@@ -629,7 +625,6 @@ public class FragmentAccount extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbCheck.setVisibility(View.VISIBLE);
                 tvIdle.setVisibility(View.GONE);
-                tvUtf8.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
@@ -738,7 +733,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, CheckResult result) {
                 tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
-                tvUtf8.setVisibility(result.utf8 == null || result.utf8 ? View.GONE : View.VISIBLE);
                 if (!result.idle)
                     etInterval.setText(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
 
