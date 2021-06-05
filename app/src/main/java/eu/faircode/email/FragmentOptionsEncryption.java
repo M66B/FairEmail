@@ -75,6 +75,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
     private SwitchCompat swAutoUndoDecrypt;
 
     private Spinner spOpenPgp;
+    private ImageButton ibOpenKeychain;
     private TextView tvOpenPgpStatus;
     private SwitchCompat swAutocrypt;
     private SwitchCompat swAutocryptMutual;
@@ -113,6 +114,7 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
         swAutoUndoDecrypt = view.findViewById(R.id.swAutoUndoDecrypt);
 
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
+        ibOpenKeychain = view.findViewById(R.id.ibOpenKeychain);
         tvOpenPgpStatus = view.findViewById(R.id.tvOpenPgpStatus);
         swAutocrypt = view.findViewById(R.id.swAutocrypt);
         swAutocryptMutual = view.findViewById(R.id.swAutocryptMutual);
@@ -205,6 +207,26 @@ public class FragmentOptionsEncryption extends FragmentBase implements SharedPre
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("openpgp_provider").apply();
+            }
+        });
+
+        ibOpenKeychain.setVisibility(openPgpProvider.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+        ibOpenKeychain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pkg = (String) spOpenPgp.getTag();
+                if (pkg == null)
+                    return;
+
+                PackageManager pm = v.getContext().getPackageManager();
+                if (pm == null)
+                    return;
+
+                Intent intent = pm.getLaunchIntentForPackage(pkg);
+                if (intent == null)
+                    return;
+
+                v.getContext().startActivity(intent);
             }
         });
 

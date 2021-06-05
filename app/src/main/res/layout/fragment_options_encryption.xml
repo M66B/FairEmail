@@ -165,11 +165,23 @@
 
                 <Spinner
                     android:id="@+id/spOpenPgp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:layout_marginEnd="6dp"
+                    app:layout_constraintEnd_toStartOf="@id/ibOpenKeychain"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenPgp" />
+
+                <ImageButton
+                    android:id="@+id/ibOpenKeychain"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/spOpenPgp"
+                    app:srcCompat="@drawable/twotone_open_in_new_24" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvOpenPgpStatus"
