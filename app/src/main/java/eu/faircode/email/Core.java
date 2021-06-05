@@ -4079,6 +4079,7 @@ class Core {
         boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_messaging = prefs.getBoolean("notify_messaging", false);
+        boolean notify_subtext = prefs.getBoolean("notify_subtext", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_preview_all = prefs.getBoolean("notify_preview_all", false);
         boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
@@ -4194,10 +4195,11 @@ class Core {
                     builder.setColor(color);
                     builder.setColorized(true);
                 }
-                if (amessage.folderUnified)
-                    builder.setSubText(amessage.accountName);
-                else
-                    builder.setSubText(amessage.accountName + " · " + amessage.getFolderName(context));
+                if (notify_subtext)
+                    if (amessage.folderUnified && !EntityFolder.INBOX.equals(amessage.folderType))
+                        builder.setSubText(amessage.accountName);
+                    else
+                        builder.setSubText(amessage.accountName + " · " + amessage.getFolderName(context));
             }
 
             Notification pub = builder.build();
@@ -4357,10 +4359,11 @@ class Core {
             Address[] afrom = messageFrom.get(message.id);
             String from = MessageHelper.formatAddresses(afrom, name_email, false);
             mbuilder.setContentTitle(from);
-            if (message.folderUnified && !EntityFolder.INBOX.equals(message.folderType))
-                mbuilder.setSubText(message.accountName + " · " + message.getFolderName(context));
-            else
-                mbuilder.setSubText(message.accountName);
+            if (notify_subtext)
+                if (message.folderUnified && !EntityFolder.INBOX.equals(message.folderType))
+                    mbuilder.setSubText(message.accountName + " · " + message.getFolderName(context));
+                else
+                    mbuilder.setSubText(message.accountName);
 
             DB db = DB.getInstance(context);
 
