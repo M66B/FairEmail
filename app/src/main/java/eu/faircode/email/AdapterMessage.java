@@ -4291,6 +4291,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null ||
                     (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
 
+            popupMenu.getMenu().findItem(R.id.menu_share_as_html).setEnabled(message.content && BuildConfig.DEBUG);
+
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null);
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(message.uid != null);
 
@@ -4370,6 +4372,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_show_headers) {
                         onMenuShowHeaders(message);
+                        return true;
+                    } else if (itemId == R.id.menu_share_as_html) {
+                        onMenuShareHtml(message);
                         return true;
                     } else if (itemId == R.id.menu_raw_save) {
                         onMenuRawSave(message);
@@ -5112,6 +5117,36 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }.execute(context, owner, args, "message:headers");
             }
+        }
+
+        private void onMenuShareHtml(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws IOException {
+                    Long id = args.getLong("id");
+
+                    File file = EntityMessage.getFile(context, id);
+                    Document d = JsoupEx.parse(file);
+
+                    return d.html();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, html);
+                    context.startActivity(intent);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:headers");
         }
 
         private void onMenuRawSave(TupleMessageEx message) {

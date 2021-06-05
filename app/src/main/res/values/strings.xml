@@ -913,6 +913,7 @@
     <string name="title_print_images">Print images</string>
     <string name="title_print_images_remark">Downloading images might take some time</string>
     <string name="title_show_headers">Show headers</string>
+    <string name="title_share_as_html">Share as HTML</string>
     <string name="title_raw_save">Save raw message</string>
     <string name="title_raw_send">Send as attachment</string>
     <string name="title_manage_keywords">Manage keywords</string>
