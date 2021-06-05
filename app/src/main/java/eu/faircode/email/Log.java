@@ -24,6 +24,7 @@ import android.app.ApplicationExitInfo;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.UiModeManager;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -1683,6 +1684,23 @@ public class Log {
                 density,
                 size.x / density, size.y / density,
                 context.getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)));
+
+        int uiMode = context.getResources().getConfiguration().uiMode;
+        sb.append(String.format("UI mode: 0x"))
+                .append(Integer.toHexString(uiMode))
+                .append(" night")
+                .append(" no=").append((uiMode & Configuration.UI_MODE_NIGHT_NO) != 0)
+                .append(" yes=").append((uiMode & Configuration.UI_MODE_NIGHT_YES) != 0)
+                .append("\r\n");
+
+        UiModeManager uim = (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+        int nightMode = uim.getNightMode();
+        sb.append(String.format("Night mode: 0x"))
+                .append(Integer.toHexString(nightMode))
+                .append(" no=").append((nightMode & UiModeManager.MODE_NIGHT_NO) != 0)
+                .append(" yes=").append((nightMode & UiModeManager.MODE_NIGHT_YES) != 0)
+                .append(" custom=").append((nightMode & UiModeManager.MODE_NIGHT_CUSTOM) != 0)
+                .append("\r\n");
 
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");

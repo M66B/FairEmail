@@ -1014,7 +1014,7 @@ public class Helper {
     static boolean isNight(Context context) {
         // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme#configuration_changes
         int uiMode = context.getResources().getConfiguration().uiMode;
-        Log.i("UI mode=" + Integer.toHexString(uiMode));
+        Log.i("UI mode=0x" + Integer.toHexString(uiMode));
         return ((uiMode & Configuration.UI_MODE_NIGHT_YES) != 0);
     }
 
