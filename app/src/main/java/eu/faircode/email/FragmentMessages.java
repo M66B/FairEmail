@@ -5670,7 +5670,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 };
 
-                String title = getString(R.string.title_move_undo, getDisplay(result, true), result.size());
+                String title = getString(R.string.title_move_undo, getNames(result, true), result.size());
                 ((ActivityView) activity).undo(title, args, move, show);
             }
 
@@ -5681,27 +5681,43 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "undo:hide");
     }
 
-    private static String getDisplay(ArrayList<MessageTarget> result, boolean dest) {
+    private static String getNames(ArrayList<MessageTarget> result, boolean dest) {
         boolean across = false;
         for (MessageTarget target : result)
             if (target.isAccross())
                 across = true;
 
-        List<String> displays = new ArrayList<>();
+        Map<String, Integer> nameCount = new HashMap<>();
         for (MessageTarget target : result) {
-            String display = "";
+            String name = "";
             if (across)
-                display += (dest ? target.targetAccount.name : target.sourceAccount.name) + "/";
-            display += (dest ? target.targetFolder.display : target.sourceFolder.display);
-            if (!displays.contains(display))
-                displays.add(display);
+                name += (dest ? target.targetAccount.name : target.sourceAccount.name) + "/";
+            name += (dest ? target.targetFolder.display : target.sourceFolder.display);
+            if (!nameCount.containsKey(name))
+                nameCount.put(name, 0);
+            nameCount.put(name, nameCount.get(name) + 1);
         }
+
+        List<String> keys = new ArrayList(nameCount.keySet());
 
         Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-        Collections.sort(displays, collator);
+        Collections.sort(keys, collator);
 
-        return TextUtils.join(", ", displays);
+        NumberFormat NF = NumberFormat.getNumberInstance();
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < keys.size(); i++) {
+            if (i > 0)
+                sb.append(", ");
+            sb.append(keys.get(i));
+            if (!dest && keys.size() > 0) {
+                int count = nameCount.get(keys.get(i));
+                sb.append('(').append(NF.format(count)).append(')');
+            }
+        }
+
+        return sb.toString();
     }
 
     static String getFilter(String name, String type) {
@@ -8382,8 +8398,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             result.size(), result.size());
 
             tvMessages.setText(question);
-            tvSourceFolders.setText(getDisplay(result, false));
-            tvTargetFolders.setText(getDisplay(result, true));
+            tvSourceFolders.setText(getNames(result, false));
+            tvTargetFolders.setText(getNames(result, true));
 
             List<String> sources = new ArrayList<>();
             List<String> targets = new ArrayList<>();
