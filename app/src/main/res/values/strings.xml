@@ -617,7 +617,7 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
     <string name="title_advanced_gravatars_hint">There might be a privacy risk</string>
-    <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
+    <string name="title_advanced_name_email_hint">Names will only be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_preview_lines_hint">Maximum %s characters in total</string>
     <string name="title_advanced_preview_issue">Scrolling can be slow due to a bug in some Android versions when the number of lines is more than one</string>
@@ -1906,6 +1906,12 @@
         <item>monospace</item>
         <item>fantasy</item>
         <item>comic sans</item>
+    </string-array>
+
+    <string-array name="addressFormatNames">
+        <item>Name only</item>
+        <item>Email only</item>
+        <item>Name and email</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

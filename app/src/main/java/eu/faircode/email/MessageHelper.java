@@ -1499,6 +1499,20 @@ public class MessageHelper {
         }
     }
 
+    enum AddressFormat {NAME_ONLY, EMAIL_ONLY, NAME_EMAIL}
+
+    static AddressFormat getAddressFormat(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean name_email = prefs.getBoolean("name_email", false);
+        int email_format = prefs.getInt("email_format", name_email
+                ? MessageHelper.AddressFormat.NAME_EMAIL.ordinal()
+                : MessageHelper.AddressFormat.NAME_ONLY.ordinal());
+        if (email_format < MessageHelper.AddressFormat.values().length)
+            return MessageHelper.AddressFormat.values()[email_format];
+        else
+            return MessageHelper.AddressFormat.NAME_ONLY;
+    }
+
     static String formatAddresses(Address[] addresses) {
         return formatAddresses(addresses, true, false);
     }
@@ -1515,6 +1529,10 @@ public class MessageHelper {
     }
 
     static String formatAddresses(Address[] addresses, boolean full, boolean compose) {
+        return formatAddresses(addresses, full ? AddressFormat.NAME_EMAIL : AddressFormat.NAME_ONLY, compose);
+    }
+
+    static String formatAddresses(Address[] addresses, AddressFormat format, boolean compose) {
         if (addresses == null || addresses.length == 0)
             return "";
 
@@ -1534,7 +1552,7 @@ public class MessageHelper {
                 String email = address.getAddress();
                 String personal = address.getPersonal();
 
-                if (TextUtils.isEmpty(personal))
+                if (TextUtils.isEmpty(personal) || format == AddressFormat.EMAIL_ONLY)
                     formatted.add(email);
                 else {
                     if (compose) {
@@ -1550,7 +1568,7 @@ public class MessageHelper {
                             personal = "\"" + personal + "\"";
                     }
 
-                    if (full)
+                    if (format == AddressFormat.NAME_EMAIL)
                         formatted.add(personal + " <" + email + ">");
                     else
                         formatted.add(personal);

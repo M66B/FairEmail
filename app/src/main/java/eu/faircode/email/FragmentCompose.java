@@ -6197,7 +6197,7 @@ public class FragmentCompose extends FragmentBase {
             final int send_delayed = prefs.getInt("send_delayed", 0);
             final boolean send_dialog = prefs.getBoolean("send_dialog", true);
             final boolean send_archive = prefs.getBoolean("send_archive", false);
-            final boolean name_email = prefs.getBoolean("name_email", false);
+            final MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(getContext());
 
             final int[] encryptValues = getResources().getIntArray(R.array.encryptValues);
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
@@ -6507,10 +6507,10 @@ public class FragmentCompose extends FragmentBase {
                     Address[] tos = t.toArray(new Address[0]);
 
                     if (extra == 0)
-                        tvTo.setText(MessageHelper.formatAddresses(tos, name_email, false));
+                        tvTo.setText(MessageHelper.formatAddresses(tos, email_format, false));
                     else
                         tvTo.setText(getString(R.string.title_name_plus,
-                                MessageHelper.formatAddresses(tos, name_email, false), extra));
+                                MessageHelper.formatAddresses(tos, email_format, false), extra));
                     tvTo.setTextColor(Helper.resolveColor(context,
                             to + extra > RECIPIENTS_WARNING ? R.attr.colorWarning : android.R.attr.textColorPrimary));
                     if (draft.identityColor != null && draft.identityColor != Color.TRANSPARENT)

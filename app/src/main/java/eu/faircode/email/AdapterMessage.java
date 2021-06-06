@@ -245,7 +245,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean indentation;
     private boolean avatars;
     private boolean color_stripe;
-    private boolean name_email;
+    private MessageHelper.AddressFormat email_format;
     private boolean prefer_contact;
     private boolean only_contact;
     private boolean distinguish_contacts;
@@ -1050,14 +1050,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 ivSigned.clearColorFilter();
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
-            if (show_recipients && recipients != null && recipients.length > 0)
+
+            MessageHelper.AddressFormat format = email_format;
+            if (junk)
+                format = MessageHelper.AddressFormat.NAME_EMAIL;
+
+            if (show_recipients && recipients != null && recipients.length > 0) {
                 tvFrom.setText(context.getString(outgoing && viewType != ViewType.THREAD && compact
                                 ? R.string.title_to_from
                                 : R.string.title_from_to,
-                        MessageHelper.formatAddresses(senders, name_email || junk, false),
-                        MessageHelper.formatAddresses(recipients, name_email || junk, false)));
-            else
-                tvFrom.setText(MessageHelper.formatAddresses(senders, name_email || junk, false));
+                        MessageHelper.formatAddresses(senders, format, false),
+                        MessageHelper.formatAddresses(recipients, format, false)));
+            } else
+                tvFrom.setText(MessageHelper.formatAddresses(senders, format, false));
+
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize));
             tvSize.setVisibility(
@@ -1855,7 +1861,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindAddresses(TupleMessageEx message) {
             boolean show_addresses = properties.getValue("addresses", message.id);
-            boolean full = (show_addresses || name_email || EntityFolder.JUNK.equals(message.folderType));
+            boolean full = (show_addresses ||
+                    email_format == MessageHelper.AddressFormat.NAME_EMAIL ||
+                    EntityFolder.JUNK.equals(message.folderType));
 
             int froms = (message.from == null ? 0 : message.from.length);
             int tos = (message.to == null ? 0 : message.to.length);
@@ -5434,7 +5442,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean junk = EntityFolder.JUNK.equals(message.folderType);
                 Address[] addresses = (EntityFolder.isOutgoing(message.folderType) &&
                         (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
-                String from = MessageHelper.formatAddresses(addresses, name_email || junk, false);
+                MessageHelper.AddressFormat format = email_format;
+                if (junk)
+                    format = MessageHelper.AddressFormat.NAME_EMAIL;
+                String from = MessageHelper.formatAddresses(addresses, format, false);
+
                 // For a11y purpose subject is reported first when: user wishes so or this is a single outgoing message
                 if (subject_top || (outgoing && message.visible == 1)) {
                     result.add(message.subject); // Don't want to ellipsize for a11y
@@ -5564,7 +5576,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
-        this.name_email = prefs.getBoolean("name_email", false);
+        this.email_format = MessageHelper.getAddressFormat(context);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.only_contact = prefs.getBoolean("only_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);

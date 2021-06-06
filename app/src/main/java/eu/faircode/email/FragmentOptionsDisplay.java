@@ -98,7 +98,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SeekBar sbBrightness;
     private TextView tvThreshold;
     private SeekBar sbThreshold;
-    private SwitchCompat swNameEmail;
+    private Spinner spNameEmail;
     private SwitchCompat swPreferContact;
     private SwitchCompat swOnlyContact;
     private SwitchCompat swDistinguishContacts;
@@ -148,7 +148,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
-            "name_email", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
+            "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines",
@@ -207,7 +207,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         sbBrightness = view.findViewById(R.id.sbBrightness);
         tvThreshold = view.findViewById(R.id.tvThreshold);
         sbThreshold = view.findViewById(R.id.sbThreshold);
-        swNameEmail = view.findViewById(R.id.swNameEmail);
+        spNameEmail = view.findViewById(R.id.spNameEmail);
         swPreferContact = view.findViewById(R.id.swPreferContact);
         swOnlyContact = view.findViewById(R.id.swOnlyContact);
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
@@ -555,10 +555,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swNameEmail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spNameEmail.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("name_email", checked).apply();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                prefs.edit().putInt("email_format", position).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("email_format").apply();
             }
         });
 
@@ -976,7 +981,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         sbThreshold.setProgress(threshold);
         sbThreshold.setEnabled(swGeneratedIcons.isChecked());
 
-        swNameEmail.setChecked(prefs.getBoolean("name_email", false));
+        MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(getContext());
+        spNameEmail.setSelection(email_format.ordinal());
         swPreferContact.setChecked(prefs.getBoolean("prefer_contact", false));
         swOnlyContact.setChecked(prefs.getBoolean("only_contact", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));

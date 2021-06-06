@@ -4075,7 +4075,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_newest_first = prefs.getBoolean("notify_newest_first", false);
-        boolean name_email = prefs.getBoolean("name_email", false);
+        MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(context);
         boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_messaging = prefs.getBoolean("notify_messaging", false);
@@ -4215,7 +4215,7 @@ class Core {
                     StringBuilder sb = new StringBuilder();
                     for (EntityMessage message : messages) {
                         Address[] afrom = messageFrom.get(message.id);
-                        String from = MessageHelper.formatAddresses(afrom, name_email, false);
+                        String from = MessageHelper.formatAddresses(afrom, email_format, false);
                         sb.append("<strong>").append(Html.escapeHtml(from)).append("</strong>");
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(": ").append(Html.escapeHtml(message.subject));
@@ -4316,8 +4316,8 @@ class Core {
 
             if (notify_messaging) {
                 // https://developer.android.com/training/cars/messaging
-                String meName = MessageHelper.formatAddresses(message.to, name_email, false);
-                String youName = MessageHelper.formatAddresses(message.from, name_email, false);
+                String meName = MessageHelper.formatAddresses(message.to, email_format, false);
+                String youName = MessageHelper.formatAddresses(message.from, email_format, false);
 
                 // Names cannot be empty
                 if (TextUtils.isEmpty(meName))
@@ -4357,7 +4357,7 @@ class Core {
                 setLightAndSound(mbuilder, light, sound);
 
             Address[] afrom = messageFrom.get(message.id);
-            String from = MessageHelper.formatAddresses(afrom, name_email, false);
+            String from = MessageHelper.formatAddresses(afrom, email_format, false);
             mbuilder.setContentTitle(from);
             if (notify_subtext)
                 if (message.folderUnified && !EntityFolder.INBOX.equals(message.folderType))

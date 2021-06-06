@@ -659,28 +659,40 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvThreshold" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swNameEmail"
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvNameEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_name_email"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbThreshold"
-                    app:switchPadding="12dp" />
+                    app:layout_constraintTop_toBottomOf="@id/sbThreshold" />
+
+                <Spinner
+                    android:id="@+id/spNameEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:entries="@array/addressFormatNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNameEmail" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNameEmailHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_name_email_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNameEmail" />
+                    app:layout_constraintTop_toBottomOf="@id/spNameEmail" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swPreferContact"
