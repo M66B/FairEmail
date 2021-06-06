@@ -198,7 +198,7 @@
     <string name="title_reset_order">Düzeni sıfırla</string>
     <string name="title_setup_authentication">Kimlik doğrulama</string>
     <string name="title_setup_biometrics">Biyometrik doğrulama</string>
-    <string name="title_setup_biometrics_enable">Etkin</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Etkin</string>
     <string name="title_setup_biometrics_disable">Devredışı</string>
     <string name="title_setup_biometrics_unlock">Kilidi Aç</string>
     <string name="title_setup_theme">Tema Seç</string>
@@ -1249,7 +1249,7 @@
     <string name="title_download">İndir</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
-    <string name="title_enable">Etkin</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Etkin</string>
     <string name="title_enabled">Etkin</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
@@ -1478,7 +1478,7 @@
         <item>Sans-serif</item>
         <item>Monospace (sabit genişlikli)</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

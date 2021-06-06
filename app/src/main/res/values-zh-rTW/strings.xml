@@ -178,7 +178,7 @@
     <string name="title_reset_order">重置順序</string>
     <string name="title_setup_authentication">認證</string>
     <string name="title_setup_biometrics">生物認證</string>
-    <string name="title_setup_biometrics_enable">啟用</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">啟用</string>
     <string name="title_setup_biometrics_disable">停用</string>
     <string name="title_setup_biometrics_unlock">解鎖</string>
     <string name="title_setup_theme">選擇主題</string>
@@ -1217,7 +1217,7 @@
     <string name="title_download">下載</string>
     <string name="title_report">報告</string>
     <string name="title_fix">修復</string>
-    <string name="title_enable">啟用</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">啟用</string>
     <string name="title_enabled">已啟用</string>
     <string name="title_executing">執行中</string>
     <string name="title_completed">已完成</string>
@@ -1458,7 +1458,7 @@
         <item>無襯線字體</item>
         <item>等寬字體</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

@@ -145,7 +145,7 @@
     <string name="title_reset_order">Berrezarri ordena</string>
     <string name="title_setup_authentication">Autentifikazioa</string>
     <string name="title_setup_biometrics">Autentifikazio biometrikoa</string>
-    <string name="title_setup_biometrics_enable">Gaitu</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Gaitu</string>
     <string name="title_setup_biometrics_disable">Desgaitu</string>
     <string name="title_setup_biometrics_unlock">Desblokeatu</string>
     <string name="title_setup_theme">Hautatu azala</string>
@@ -1069,7 +1069,7 @@
     <string name="title_download">Deskargatu</string>
     <string name="title_report">Txostena</string>
     <string name="title_fix">Konpondu</string>
-    <string name="title_enable">Gaitu</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Gaitu</string>
     <string name="title_enabled">Gaituta</string>
     <string name="title_executing">Exekutatzen</string>
     <string name="title_completed">Burututa</string>
@@ -1306,7 +1306,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

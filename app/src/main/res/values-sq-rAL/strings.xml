@@ -43,7 +43,7 @@
     <string name="title_setup_password_different">Fjalëkalimet nuk përputhen</string>
     <string name="title_setup_password_invalid">Fjalëkalimi jo i vlefshëm</string>
     <string name="title_setup_reorder_accounts">Rendit llogaritë</string>
-    <string name="title_setup_biometrics_enable">Aktivizo</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivizo</string>
     <string name="title_setup_biometrics_disable">Çaktivizo</string>
     <string name="title_setup_biometrics_unlock">Shkyç</string>
     <string name="title_setup_theme">Zgjidh temë</string>

@@ -217,7 +217,7 @@
     <string name="title_reset_order">Zresetuj kolejność</string>
     <string name="title_setup_authentication">Uwierzytelnianie</string>
     <string name="title_setup_biometrics">Uwierzytelnianie biometryczne</string>
-    <string name="title_setup_biometrics_enable">Włącz</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Włącz</string>
     <string name="title_setup_biometrics_disable">Wyłącz</string>
     <string name="title_setup_biometrics_unlock">Odblokuj</string>
     <string name="title_setup_theme">Wybierz motyw</string>
@@ -1349,7 +1349,7 @@
     <string name="title_download">Pobierz</string>
     <string name="title_report">Zgłoś błąd</string>
     <string name="title_fix">Popraw</string>
-    <string name="title_enable">Włącz</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Włącz</string>
     <string name="title_enabled">Włączone</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
@@ -1600,7 +1600,7 @@
         <item>Bezszeryfowa</item>
         <item>Stała szerokość</item>
         <item>Fantazja</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

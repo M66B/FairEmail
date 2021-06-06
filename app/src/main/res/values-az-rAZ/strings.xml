@@ -118,7 +118,7 @@
     <string name="title_reset_order">Sıralamanı sıfırla</string>
     <string name="title_setup_authentication">Kimlik təsdiqləmə</string>
     <string name="title_setup_biometrics">Biometrik kimlik təsdiqləməsi</string>
-    <string name="title_setup_biometrics_enable">Fəaldır</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Fəaldır</string>
     <string name="title_setup_biometrics_disable">Sıradan çıxarılıb</string>
     <string name="title_setup_biometrics_unlock">Kilidi aç</string>
     <string name="title_setup_theme">Tema seç</string>

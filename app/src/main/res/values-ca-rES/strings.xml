@@ -162,7 +162,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_reset_order">Esborra l\'ordre</string>
     <string name="title_setup_authentication">Autentificació</string>
     <string name="title_setup_biometrics">Autenticació biomètrica</string>
-    <string name="title_setup_biometrics_enable">Habilita</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Habilita</string>
     <string name="title_setup_biometrics_disable">Deshabilita</string>
     <string name="title_setup_biometrics_unlock">Desbloquejar</string>
     <string name="title_setup_theme">Selecció del tema</string>
@@ -1051,7 +1051,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_download">Descarrega</string>
     <string name="title_report">Informa</string>
     <string name="title_fix">Repara</string>
-    <string name="title_enable">Habilita</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Habilita</string>
     <string name="title_enabled">Activat</string>
     <string name="title_executing">Executant</string>
     <string name="title_completed">Acabat</string>
@@ -1262,7 +1262,7 @@ La creació i l\'ús de regles és una característica professional.    </string
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

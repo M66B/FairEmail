@@ -198,7 +198,7 @@
     <string name="title_reset_order">Réinitialiser l’ordre</string>
     <string name="title_setup_authentication">Authentification</string>
     <string name="title_setup_biometrics">Authentification biométrique</string>
-    <string name="title_setup_biometrics_enable">Activer</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Activer</string>
     <string name="title_setup_biometrics_disable">Désactiver</string>
     <string name="title_setup_biometrics_unlock">Déverrouiller</string>
     <string name="title_setup_theme">Choisir le thème</string>
@@ -420,6 +420,7 @@
     <string name="title_advanced_notify_action_snooze">Reporter</string>
     <string name="title_advanced_notify_remove">Supprimer les notifications de nouveaux messages en tapant dessus</string>
     <string name="title_advanced_notify_clear">Supprimer les notifications de nouveaux messages lors de la visualisation de la liste des messages</string>
+    <string name="title_advanced_notify_subtext">Afficher le nom du compte ou du dossier comme sous-texte</string>
     <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux objets connectés</string>
     <string name="title_advanced_notify_messaging">Utiliser le format de notification Android « style message »</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu des notifications lors de l’utilisation de l’authentification biométrique</string>
@@ -790,6 +791,7 @@
     <string name="title_print_images">Imprimer les images</string>
     <string name="title_print_images_remark">Le téléchargement des images peut prendre un certain temps</string>
     <string name="title_show_headers">Afficher l’en-tête</string>
+    <string name="title_share_as_html">Partager en tant que HTML</string>
     <string name="title_raw_save">Enregistrer le message original</string>
     <string name="title_raw_send">Envoyer comme pièce jointe</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
@@ -1330,7 +1332,7 @@
     <string name="title_download">Télécharger</string>
     <string name="title_report">Signaler</string>
     <string name="title_fix">Corriger</string>
-    <string name="title_enable">Activer</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Activer</string>
     <string name="title_enabled">Activé</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
@@ -1580,7 +1582,7 @@
         <item>Sans empattement</item>
         <item>À espacement fixe</item>
         <item>Fantaisie</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

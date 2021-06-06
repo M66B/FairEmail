@@ -198,7 +198,7 @@
     <string name="title_reset_order">Reset volgorde</string>
     <string name="title_setup_authentication">Authenticatie</string>
     <string name="title_setup_biometrics">Biometrische verificatie</string>
-    <string name="title_setup_biometrics_enable">Inschakelen</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Inschakelen</string>
     <string name="title_setup_biometrics_disable">Uitschakelen</string>
     <string name="title_setup_biometrics_unlock">Ontgrendelen</string>
     <string name="title_setup_theme">Selecteer thema</string>
@@ -420,6 +420,7 @@
     <string name="title_advanced_notify_action_snooze">Sluimeren</string>
     <string name="title_advanced_notify_remove">Verwijder melding van nieuw bericht bij het tikken op melding</string>
     <string name="title_advanced_notify_clear">Verwijder meldingen van nieuwe berichten bij het bekijken van een berichtenlijst</string>
+    <string name="title_advanced_notify_subtext">Account- of mapnaam als subtekst weergeven</string>
     <string name="title_advanced_wearable_preview">Stuur alleen meldingen met een berichtvoorbeeld naar wearables</string>
     <string name="title_advanced_notify_messaging">Gebruik Android \'messaging style\' notificatieformaat</string>
     <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
@@ -790,6 +791,7 @@
     <string name="title_print_images">Afbeeldingen afdrukken</string>
     <string name="title_print_images_remark">Afbeeldingen downloaden kan enige tijd duren</string>
     <string name="title_show_headers">Toon koppen</string>
+    <string name="title_share_as_html">Delen als HTML</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>
     <string name="title_manage_keywords">Sleutelwoorden beheren</string>
@@ -1330,8 +1332,10 @@
     <string name="title_download">Downloaden</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
-    <string name="title_enable">Inschakelen</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Inschakelen</string>
     <string name="title_enabled">Ingeschakeld</string>
+    <string name="title_disable" comment="title_disable&#10;Action (verb)">Uitschakelen</string>
+    <string name="title_keep_current" comment="title_keep_current&#10;Keep current (value, state, etc)&#10;">Huidige behouden</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
     <string name="title_default_changed">Standaard gewijzigd</string>
@@ -1579,7 +1583,7 @@
         <item>Schreefloos</item>
         <item>Vaste breedte</item>
         <item>Fantasie</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

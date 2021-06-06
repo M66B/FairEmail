@@ -194,7 +194,7 @@
     <string name="title_reset_order">Återställ ordning</string>
     <string name="title_setup_authentication">Autentisering</string>
     <string name="title_setup_biometrics">Biometrisk autentisering</string>
-    <string name="title_setup_biometrics_enable">Aktivera</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivera</string>
     <string name="title_setup_biometrics_disable">Inaktivera</string>
     <string name="title_setup_biometrics_unlock">Lås upp</string>
     <string name="title_setup_theme">Välj tema</string>
@@ -1300,7 +1300,7 @@
     <string name="title_download">Ladda ned</string>
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
-    <string name="title_enable">Aktivera</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
     <string name="title_executing">Kör</string>
     <string name="title_completed">Slutförd</string>
@@ -1544,7 +1544,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

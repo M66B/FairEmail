@@ -157,7 +157,7 @@
     <string name="title_reset_order">Ponastavi vrstni red</string>
     <string name="title_setup_authentication">Overitev</string>
     <string name="title_setup_biometrics">Biometrična overitev</string>
-    <string name="title_setup_biometrics_enable">Omogoči</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Omogoči</string>
     <string name="title_setup_biometrics_disable">Onemogoči</string>
     <string name="title_setup_biometrics_unlock">Odkleni</string>
     <string name="title_setup_theme">Izberi temo</string>
@@ -966,7 +966,7 @@
     <string name="title_info">Infor.</string>
     <string name="title_report">Poročilo</string>
     <string name="title_fix">Popravi</string>
-    <string name="title_enable">Omogoči</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Omogoči</string>
     <string name="title_enabled">Omogočeno</string>
     <string name="title_executing">Izvajanje</string>
     <string name="title_completed">Dokončano</string>

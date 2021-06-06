@@ -196,7 +196,7 @@
     <string name="title_reset_order">Reset folchoarder</string>
     <string name="title_setup_authentication">Ferifikaasje</string>
     <string name="title_setup_biometrics">Biometrysk ferifikaasje</string>
-    <string name="title_setup_biometrics_enable">Ynskeakele</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Ynskeakele</string>
     <string name="title_setup_biometrics_disable">Utskeakele</string>
     <string name="title_setup_biometrics_unlock">Losmeitsje</string>
     <string name="title_setup_theme">Selektearje tema</string>
@@ -1319,7 +1319,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Melde</string>
     <string name="title_fix">Meitsje</string>
-    <string name="title_enable">Ynskeakele</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Ynskeakele</string>
     <string name="title_enabled">Ynskeakele</string>
     <string name="title_executing">Eksekutearje</string>
     <string name="title_completed">Klear</string>
@@ -1563,7 +1563,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

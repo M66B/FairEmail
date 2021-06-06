@@ -195,7 +195,7 @@
     <string name="title_reset_order">Palauta alkuperäinen järjestys</string>
     <string name="title_setup_authentication">Tunnistautuminen</string>
     <string name="title_setup_biometrics">Biometrinen tunnistautuminen</string>
-    <string name="title_setup_biometrics_enable">Ota käyttöön</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Ota käyttöön</string>
     <string name="title_setup_biometrics_disable">Poista käytöstä</string>
     <string name="title_setup_biometrics_unlock">Poista lukitus</string>
     <string name="title_setup_theme">Valitse teema</string>
@@ -1322,7 +1322,7 @@
     <string name="title_download">Lataa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
-    <string name="title_enable">Ota käyttöön</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Ota käyttöön</string>
     <string name="title_enabled">Käytössä</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
@@ -1572,7 +1572,7 @@
         <item>Sans Serif</item>
         <item>Tasavälinen</item>
         <item>Fantasia</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

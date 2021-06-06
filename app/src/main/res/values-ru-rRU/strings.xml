@@ -41,10 +41,10 @@
     <string name="shortcut_compose">Написать</string>
     <string name="shortcut_setup">Настройки</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Отслеживание %1$d учетной записи</item>
-        <item quantity="few">Отслеживание %1$d учетных записей</item>
-        <item quantity="many">Отслеживание %1$d учетных записей</item>
-        <item quantity="other">Отслеживание %1$d учетных записей</item>
+        <item quantity="one">Отслеживание %1$d учётной записи</item>
+        <item quantity="few">Отслеживание %1$d учётных записей</item>
+        <item quantity="many">Отслеживание %1$d учётных записей</item>
+        <item quantity="other">Отслеживание %1$d учётных записей</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d операция в очереди</item>
@@ -160,7 +160,7 @@
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
     <string name="title_setup_gmail_password">Я хочу авторизоваться в учётной записи паролем</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
-    <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учетной записи %1$s</string>
+    <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_update">Повторная авторизация учётной записи</string>
     <string name="title_setup_oauth_updated">Авторизация учётной записи обновлена</string>
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
@@ -168,11 +168,11 @@
     <string name="title_setup_instructions">Инструкция по установке</string>
     <string name="title_setup_no_settings">Не найдено настроек для домена \"%1$s\"</string>
     <string name="title_setup_no_settings_hint">Попробуйте настроить учётную запись вручную, используя настройки, предоставленные почтовым провайдером</string>
-    <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включен для вашей учетной записи</string>
+    <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
     <string name="title_setup_app_password_hint">Данный провайдер требует пароль для приложения вместо пароля от учётной записи, пожалуйста, ознакомьтесь с его инструкциями</string>
     <string name="title_setup_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_setup_advanced_protection">При регистрации в программе расширенной защиты невозможно использовать стороннее приложение электронной почты. Это ограничение, налагаемое Google.</string>
-    <string name="title_setup_quick_success">Учетная запись успешно добавлена</string>
+    <string name="title_setup_quick_success">Учётная запись успешно добавлена</string>
     <string name="title_setup_manage">Редактировать</string>
     <string name="title_setup_grant">Предоставить</string>
     <string name="title_setup_grant_again">Предоставить необходимые разрешения</string>
@@ -184,8 +184,8 @@
     <string name="title_setup_permissions_explanation">Разрешение на контакты необходимо для поиска и подбора контактов</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжного получения и отправки электронной почты</string>
-    <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надежную отправку и получение сообщений в фоновом режиме</string>
-    <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведет к сокращению использования заряда батареи</string>
+    <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
+    <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведёт к сокращению использования заряда батареи</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените «Не оптимизировать» на «Все приложения», выберите это приложение и для него выберите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
@@ -198,7 +198,7 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_still">Осталось сделать</string>
     <string name="title_setup_error">Ошибка</string>
-    <string name="title_setup_configuring">Настройка учетной записи &#8230;</string>
+    <string name="title_setup_configuring">Настройка учётной записи&#8230;</string>
     <string name="title_setup_close">Выйти из настроек</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
@@ -218,7 +218,7 @@
     <string name="title_reset_order">Изменить порядок</string>
     <string name="title_setup_authentication">Аутентификация</string>
     <string name="title_setup_biometrics">Биометрическая аутентификация</string>
-    <string name="title_setup_biometrics_enable">Включить</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Включить</string>
     <string name="title_setup_biometrics_disable">Отключить</string>
     <string name="title_setup_biometrics_unlock">Разблокировать</string>
     <string name="title_setup_theme">Выбрать тему</string>
@@ -440,6 +440,7 @@
     <string name="title_advanced_notify_action_snooze">Отложить</string>
     <string name="title_advanced_notify_remove">Удалять уведомление о новом сообщении при нажатии на уведомление</string>
     <string name="title_advanced_notify_clear">Удалять уведомления о новых сообщениях при просмотре списка сообщений</string>
+    <string name="title_advanced_notify_subtext">Показывать учётную запись или название папки как подтекст</string>
     <string name="title_advanced_wearable_preview">Отправлять уведомления на носимые устройства только с предпросмотром</string>
     <string name="title_advanced_notify_messaging">Использовать стиль Android уведомления о сообщении</string>
     <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
@@ -533,7 +534,7 @@
     <string name="title_advanced_beige_hint">Только светлые темы</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если используется сортировка по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
-    <string name="title_advanced_split_hint">Это разделит экран на части</string>
+    <string name="title_advanced_split_hint">Экран будет разделён на части</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_highlight_hint">Для подсветки будет использован цвет акцента темы</string>
     <string name="title_advanced_gravatars_hint">Возможен риск нарушения конфиденциальности</string>
@@ -543,7 +544,7 @@
     <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше одной</string>
     <string name="title_advanced_overview_mode_hint">Может привести к очень маленьким шрифтам</string>
     <string name="title_advanced_placeholders_hint">Относится только к изменённым сообщениям</string>
-    <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, включенные в сообщение</string>
+    <string name="title_advanced_inline_hint">Встроенные изображения – это изображения, включённые в сообщение</string>
     <string name="title_advanced_parse_classes_hint">Позволит более точно отображать сообщения, но, возможно, с задержкой</string>
     <string name="title_advanced_language_detection_hint">Поддержка определения языка зависит от производителя устройства</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
@@ -598,11 +599,11 @@
     <string name="title_identity_self_hint">Также предотвращает ответ себе</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_recommended">Рекомендуется</string>
-    <string name="title_account_linked">Связанный аккаунт</string>
-    <string name="title_account_name">Название аккаунта</string>
+    <string name="title_account_linked">Связанная учётная запись</string>
+    <string name="title_account_name">Название учётной записи</string>
     <string name="title_account_name_hint">Используется для разграничения папок</string>
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
-    <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или поврежденных вложений</string>
+    <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
     <string name="title_color">Цвет</string>
     <string name="title_transparent">Прозрачность</string>
     <string name="title_account_ondemand">Синхронизировать вручную</string>
@@ -631,7 +632,7 @@
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>
     <string name="title_ehlo">Пользовательская идентификация HELO/EHLO</string>
     <string name="title_primary">Основная</string>
-    <string name="title_primary_account">Основная (учетная запись по умолчанию)</string>
+    <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_self_identity">Удалять адрес электронной почты при ответе</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
@@ -651,14 +652,14 @@
     <string name="title_email_invalid">Неправильный адрес электронной почты: \"%1$s\"</string>
     <string name="title_address_duplicate">Адрес \"%1$s\" дублируется</string>
     <string name="title_address_parse_error">Адрес \"%1$s\" неправильный: %2$s</string>
-    <string name="title_no_account">Учетная запись отсутствует</string>
+    <string name="title_no_account">Учётная запись отсутствует</string>
     <string name="title_no_host">Отсутствует имя хоста</string>
     <string name="title_no_user">Отсутствует имя пользователя</string>
     <string name="title_no_password">Отсутствует пароль</string>
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_drafts">Нет папки черновиков</string>
     <string name="title_no_junk_folder">Для этой учётной записи не выбрана папка со спамом</string>
-    <string name="title_default_composable">Адрес электронной почты по умолчанию определяется основным идентификатором основной учетной записи</string>
+    <string name="title_default_composable">Адрес электронной почты по умолчанию определяется основным идентификатором основной учётной записи</string>
     <string name="title_no_composable">Отправка писем требует настройки идентификатора, также должна быть выбрана папка черновиков в настройках учётной записи</string>
     <string name="title_no_standard">Этот провайдер использует проприетарный протокол электронной почты, что не позволяет использовать сторонние почтовые клиенты</string>
     <string name="title_no_idle">Данный провайдер не поддерживает push-сообщения. Это задержит получение новых сообщений и увеличит расход заряда батареи.</string>
@@ -667,8 +668,8 @@
     <string name="title_reply_domain">Домены адресов отправителя (%1$s) и для ответа (%2$s) отличаются</string>
     <string name="title_identity_required">Для отправки электронной почты требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки электронной почты требуется папка черновиков</string>
-    <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учетной записи</string>
-    <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
+    <string name="title_drafts_select">Для отправки электронной почты нужно выбрать папку черновиков в настройках учётной записи</string>
+    <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_sign_key">Ключ подписи: %1$s</string>
@@ -687,11 +688,11 @@
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
-    <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развертывании</string>
+    <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_synchronize_subfolders">Подпапки</string>
     <string name="title_synchronize_more">Получать больше сообщений</string>
-    <string name="title_synchronize_more_hint">Это вызовет одноразовую загрузку старых сообщений, поэтому не приведет к большему потреблению заряда батареи на постоянной основе</string>
+    <string name="title_synchronize_more_hint">Это вызовет одноразовую загрузку старых сообщений, поэтому не приведёт к большему потреблению заряда батареи на постоянной основе</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_synchronize_batch_enable">Включить синхронизацию</string>
     <string name="title_synchronize_batch_disable">Отключить синхронизацию</string>
@@ -772,7 +773,7 @@
     <string name="title_folder_system">Система</string>
     <string name="title_folder_user">Пользователь</string>
     <string name="title_folder_user_only">Только папки пользователя</string>
-    <string name="title_folder_primary">Папки основной учетной записи</string>
+    <string name="title_folder_primary">Папки основной учётной записи</string>
     <string name="title_folders_unified">Папки единого почтового ящика</string>
     <string name="title_folder_local_drafts">Локальные черновики</string>
     <string name="title_no_folders">Нет папок</string>
@@ -810,6 +811,7 @@
     <string name="title_print_images">Печать изображений</string>
     <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
     <string name="title_show_headers">Показать заголовки</string>
+    <string name="title_share_as_html">Поделиться как HTML</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
     <string name="title_raw_send">Отправить как вложение</string>
     <string name="title_manage_keywords">Управление ключами (словами)</string>
@@ -822,7 +824,7 @@
     <string name="title_raw_remaining">Исходные сообщения для загрузки: %1$d</string>
     <string name="title_ask_raw">Чтобы переслать сообщения, необходимо загрузить необработанные (исходные) сообщения с сервера. Для этого необходимо подключение к интернету.</string>
     <string name="title_buttons">Выбрать кнопки</string>
-    <string name="title_buttons_hint">Доступные действия зависят от типа учетной записи и конфигурации</string>
+    <string name="title_buttons_hint">Доступные действия зависят от типа учётной записи и конфигурации</string>
     <string name="title_button_search">Поиск в сообщениях</string>
     <string name="title_button_search_text">Поиск в тексте сообщения</string>
     <string name="title_configure_buttons">Настройка кнопок&#8230;</string>
@@ -831,7 +833,7 @@
     <string name="title_copy_to">Копировать в&#8230;</string>
     <string name="title_subscribe">Подписаться</string>
     <string name="title_delete">Удалить</string>
-    <string name="title_more">Еще</string>
+    <string name="title_more">Ещё</string>
     <string name="title_spam">Спам</string>
     <string name="title_move">Переместить</string>
     <string name="title_copy_btn">Копировать</string>
@@ -857,7 +859,7 @@
     <string name="title_move_undo">Перемещение в %1$s (%2$d)</string>
     <string name="title_open_with">Открыть с помощью</string>
     <string name="title_authentication_failed">Ошибка аутентификации %1$s</string>
-    <string name="title_receipt_subject">Отчеты о прочтении: %1$s</string>
+    <string name="title_receipt_subject">Отчёты о прочтении: %1$s</string>
     <string name="title_receipt_text">Это уведомление о прочтении подтверждает только тот факт, что сообщение было открыто. Нет гарантии, что получатель прочёл содержимое сообщения.</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>
     <string name="title_no_viewer">Нет приложения для просмотра %1$s</string>
@@ -878,7 +880,7 @@
     <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
-    <string name="title_attachment_eml">Прикрепленное сообщение</string>
+    <string name="title_attachment_eml">Прикреплённое сообщение</string>
     <string name="title_attachment_saved">Вложение сохранено</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
@@ -894,10 +896,10 @@
     <string name="title_ask_show_html_images">Всегда показывать изображения при показе оригинальных сообщений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
-    <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удаленном сервере.</string>
+    <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
-    <string name="title_reporting_why">Отчеты об ошибках помогут улучшить FairEmail</string>
+    <string name="title_reporting_why">Отчёты об ошибках помогут улучшить FairEmail</string>
     <string name="title_ask_review">Пожалуйста, оцените FairEmail</string>
     <string name="title_ask_review_rationale">        Вы уже пользуетесь FairEmail некоторое время.
         Мы были бы признательны, если бы вы оценили FairEmail в Play Store.
@@ -930,7 +932,7 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Вложение:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_body_hint_style">Вы можете выделить текст, чтобы отформатировать его</string>
+    <string name="title_body_hint_style">Вы можете выбрать текст для форматирования</string>
     <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
@@ -1003,7 +1005,7 @@
     <string name="title_key_missing">Нет ключа для %1$s</string>
     <string name="title_send_reminder_remark">Напоминания можно повторно включить в настройках отправки</string>
     <string name="title_send_plain_text">Только простой текст</string>
-    <string name="title_send_dsn">Отчет о состоянии</string>
+    <string name="title_send_dsn">Отчёт о состоянии</string>
     <string name="title_send_receipt">Запросить уведомление</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
@@ -1021,8 +1023,8 @@
     <string name="title_size_reminder">Сообщение (%1$s) больше, чем лимит сервера (%2$s)</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
     <string name="title_dialog_hint">Этот диалог можно снова включить через верхнее меню трёх точек в панели действий</string>
-    <string name="title_draft_deleted">Черновик отклонен</string>
-    <string name="title_draft_saved">Черновик сохранен</string>
+    <string name="title_draft_deleted">Черновик отклонён</string>
+    <string name="title_draft_saved">Черновик сохранён</string>
     <string name="title_ask_send_via">Отправить сообщение для %1$s через %2$s?</string>
     <string name="title_queued">Отправка сообщения</string>
     <string name="title_queued_at">Сообщение будет отправлено около %1$s</string>
@@ -1116,7 +1118,7 @@
     <string name="title_force_send">Принудительная отправка</string>
     <string name="title_language_all">Все</string>
     <string name="title_previous">Назад</string>
-    <string name="title_next">Следующий</string>
+    <string name="title_next">Вперёд</string>
     <string name="title_edit_signature">Изменить подпись</string>
     <string name="title_edit_signature_text">Текст подписи</string>
     <string name="title_edit_signature_image">Вставить изображение</string>
@@ -1277,7 +1279,7 @@
     <string name="title_legend_audio">Записать аудио</string>
     <string name="title_legend_bold">Выделить текст жирным шрифтом</string>
     <string name="title_legend_italic">Выделить текст курсивом</string>
-    <string name="title_legend_underline">Подчеркнутый текст</string>
+    <string name="title_legend_underline">Подчёркнутый текст</string>
     <string name="title_legend_text_style">Задать стиль текста</string>
     <string name="title_legend_metered">Подключение лимитировано</string>
     <string name="title_legend_unmetered">Подключение безлимитное</string>
@@ -1317,11 +1319,11 @@
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>
     <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
-    <string name="title_hint_sync_note">По умолчанию, не все сообщения будут загружены для ограничения использования места в хранилище, заряда батареи и трафика. Это можно изменить, удерживая папку в списке папок и выбрав «Синхронизировать еще».</string>
+    <string name="title_hint_sync_note">По умолчанию, не все сообщения будут загружены для ограничения использования места в хранилище, заряда батареи и трафика. Это можно изменить, удерживая папку в списке папок и выбрав \"Синхронизировать ещё\".</string>
     <string name="title_hint_battery">Поскольку FairEmail по умолчанию всегда получает сообщения, Android считает его всё время активным. Поэтому может показаться, что FairEmail всегда использует батарею, хотя на самом деле это не так.</string>
     <string name="title_hint_reformat">По умолчанию FairEmail переформатирует сообщения по соображениям конфиденциальности и безопасности. Чтобы просмотреть исходное сообщение, нажмите значок \"полный экран\" над текстом сообщения.</string>
     <string name="title_hint_design">Дизайн преднамеренно не отвлекающий, но сохраняет высокую функциональность. Существует множество вариантов для настройки внешнего вида, но пожалуйста, поймите, что невозможно сделать всех полностью счастливыми одновременно.</string>
-    <string name="title_hint_junk">Фильтрация спама должна выполняться почтовым сервером и не может быть надежно выполнена на устройстве с ограниченными возможностями и питанием от батареи.</string>
+    <string name="title_hint_junk">Фильтрация спама должна выполняться почтовым сервером и не может быть надёжно выполнена на устройстве с ограниченными возможностями и питанием от батареи.</string>
     <string name="title_hint_contact_actions">Длительное нажатие откроет другие действия.</string>
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>
@@ -1348,9 +1350,9 @@
     <string name="title_browse">В браузере</string>
     <string name="title_info">Информация</string>
     <string name="title_download">Загрузить</string>
-    <string name="title_report">Отчет</string>
+    <string name="title_report">Отчёт</string>
     <string name="title_fix">Исправить</string>
-    <string name="title_enable">Включить</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Включить</string>
     <string name="title_enabled">Включено</string>
     <string name="title_executing">Выполнение</string>
     <string name="title_completed">Завершено</string>
@@ -1602,7 +1604,7 @@
         <item>Без засечек</item>
         <item>Моноширинный</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

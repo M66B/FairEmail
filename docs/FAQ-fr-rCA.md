@@ -836,18 +836,18 @@ Dans le cas d'erreurs de connexion successives, FairEmail attendra de plus en pl
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Pourquoi la synchronisation manuelle ne fonctionne-t-elle pas ?~~**
 
-~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
+~~Si le menu *Synchroniser maintenant* est grisé, il n'y a pas de connexion au compte.~~
 
-~~See the previous question for more information.~~
+~~Voir la question précédente pour plus de renseignements.~~
 
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Pourquoi la prévisualisation du message n'est-elle pas toujours affichée ?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+La prévisualisation du texte du message ne peut être affichée si le corps du message n'a pas encore été téléchargé. Voir aussi [cette FAQ](#user-content-faq15).
 
 <br />
 

@@ -163,7 +163,7 @@
     <string name="title_reset_order">Poništite redoslijed</string>
     <string name="title_setup_authentication">Autentifikacija</string>
     <string name="title_setup_biometrics">Biometrijska autentifikacija</string>
-    <string name="title_setup_biometrics_enable">Omogući</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Omogući</string>
     <string name="title_setup_biometrics_disable">Onemogući</string>
     <string name="title_setup_biometrics_unlock">Otključaj</string>
     <string name="title_setup_theme">Odaberi temu</string>
@@ -897,7 +897,7 @@
     <string name="title_info">Informacije</string>
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
-    <string name="title_enable">Omogući</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Omogući</string>
     <string name="title_enabled">Omogućeno</string>
     <string name="title_executing">Izvršava</string>
     <string name="title_completed">Završeno</string>

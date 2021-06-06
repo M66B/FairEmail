@@ -198,7 +198,7 @@
     <string name="title_reset_order">Επαναφορά ταξινόμησης</string>
     <string name="title_setup_authentication">Ταυτοποίηση</string>
     <string name="title_setup_biometrics">Βιομετρική ταυτοποίηση</string>
-    <string name="title_setup_biometrics_enable">Ενεργοποίηση</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Ενεργοποίηση</string>
     <string name="title_setup_biometrics_disable">Απενεργοποίηση</string>
     <string name="title_setup_biometrics_unlock">Ξεκλείδωμα</string>
     <string name="title_setup_theme">Επιλογή θέματος</string>
@@ -420,6 +420,7 @@
     <string name="title_advanced_notify_action_snooze">Αναβολή</string>
     <string name="title_advanced_notify_remove">Να απομακρύνεται η ειδοποίηση για νέο μήνυμα με άγγιγμα στην ειδοποίηση</string>
     <string name="title_advanced_notify_clear">Να απομακρύνεται η ειδοποίηση για νέο μήνυμα με την προβολή της λίστας μηνυμάτων</string>
+    <string name="title_advanced_notify_subtext">Εμφάνιση ονόματος λογαριασμού ή φακέλου ως υπότιτλος</string>
     <string name="title_advanced_wearable_preview">Να αποστέλλονται ειδοποιήσεις μόνον με προεπισκόπηση του μηνύματος στις φορετές συσκευές</string>
     <string name="title_advanced_notify_messaging">Χρήση της μορφής ειδοποιήσεων του Android \"στιλ μηνυμάτων\"</string>
     <string name="title_advanced_biometrics_notify">Προβολή του περιεχομένου των ειδοποιήσεων κατά τη βιομετρική ταυτοποίηση</string>
@@ -787,6 +788,7 @@
     <string name="title_print_images">Εκτύπωση εικόνων</string>
     <string name="title_print_images_remark">Το κατέβασμα των εικόνων μπορεί να πάρει κάποιο χρόνο</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
+    <string name="title_share_as_html">Κοινοποίηση ως HTML</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
     <string name="title_raw_send">Αποστολή ως συνημμένο</string>
     <string name="title_manage_keywords">Διαχείριση λέξεων-κλειδιών</string>
@@ -1327,8 +1329,10 @@
     <string name="title_download">Κατέβασμα</string>
     <string name="title_report">Αποστολή αναφοράς</string>
     <string name="title_fix">Επιδιόρθωση</string>
-    <string name="title_enable">Ενεργοποίηση</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Ενεργοποίηση</string>
     <string name="title_enabled">Ενεργοποιημένο</string>
+    <string name="title_disable" comment="title_disable&#10;Action (verb)">Απενεργοποίηση</string>
+    <string name="title_keep_current" comment="title_keep_current&#10;Keep current (value, state, etc)&#10;">Διατήρηση τρέχοντος</string>
     <string name="title_executing">Εκτελείται</string>
     <string name="title_completed">Ολοκληρώθηκε</string>
     <string name="title_default_changed">Η προεπιλογή έχει αλλάξει</string>
@@ -1577,7 +1581,7 @@
         <item>Sans-serif</item>
         <item>Σταθερού πλάτους</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

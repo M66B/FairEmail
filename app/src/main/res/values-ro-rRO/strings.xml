@@ -208,7 +208,7 @@
     <string name="title_reset_order">Resetare ordine</string>
     <string name="title_setup_authentication">Autentificare</string>
     <string name="title_setup_biometrics">Autentificarea biometrică</string>
-    <string name="title_setup_biometrics_enable">Activează</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Activează</string>
     <string name="title_setup_biometrics_disable">Dezactivează</string>
     <string name="title_setup_biometrics_unlock">Deblocați</string>
     <string name="title_setup_theme">Selectare temă</string>
@@ -800,6 +800,7 @@
     <string name="title_print_images">Imprimare imagini</string>
     <string name="title_print_images_remark">Descărcarea imaginilor ar putea dura ceva timp</string>
     <string name="title_show_headers">Arată antetul</string>
+    <string name="title_share_as_html">Distribuie ca HTML</string>
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
@@ -1340,7 +1341,7 @@
     <string name="title_download">Descărcare</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
-    <string name="title_enable">Activează</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Activează</string>
     <string name="title_enabled">Activat</string>
     <string name="title_executing">Se execută</string>
     <string name="title_completed">Finalizat</string>
@@ -1591,7 +1592,7 @@
         <item>Sans-serif</item>
         <item>Proporțional</item>
         <item>Fantezie</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

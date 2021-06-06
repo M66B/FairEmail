@@ -195,7 +195,7 @@
     <string name="title_reset_order">Nulstil rækkefølge</string>
     <string name="title_setup_authentication">Godkendelse</string>
     <string name="title_setup_biometrics">Biometrisk godkendelse</string>
-    <string name="title_setup_biometrics_enable">Aktivér</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivér</string>
     <string name="title_setup_biometrics_disable">Deaktivér</string>
     <string name="title_setup_biometrics_unlock">Oplås</string>
     <string name="title_setup_theme">Vælg tema</string>
@@ -413,6 +413,7 @@
     <string name="title_advanced_notify_action_snooze">Udsæt</string>
     <string name="title_advanced_notify_remove">Fjern nye beskednotifikationer ved tryk på notifikationen</string>
     <string name="title_advanced_notify_clear">Fjern nye beskednotifikationer ved visning af beskedliste</string>
+    <string name="title_advanced_notify_subtext">Vis konto- eller mappenavn som undertekst</string>
     <string name="title_advanced_wearable_preview">Send kun notifikationer med en beskedforhåndsvisning til wearables</string>
     <string name="title_advanced_notify_messaging">Benyt Android \'beskedstil\' notifikationsformat</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
@@ -775,6 +776,7 @@
     <string name="title_print_header">Udskriv header</string>
     <string name="title_print_images_remark">Download af billeder kan tage lidt tid</string>
     <string name="title_show_headers">Vis overskrifter</string>
+    <string name="title_share_as_html">Del som HTML</string>
     <string name="title_raw_save">Gem besked i råformat</string>
     <string name="title_raw_send">Send som vedhæftning</string>
     <string name="title_manage_keywords">Håndtér stikord</string>
@@ -1306,7 +1308,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
-    <string name="title_enable">Aktivér</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktivér</string>
     <string name="title_enabled">Aktiveret</string>
     <string name="title_executing">Eksekverer</string>
     <string name="title_completed">Fuldført</string>
@@ -1556,7 +1558,7 @@
         <item>Sans-serif</item>
         <item>Monospatieret</item>
         <item>Fantasi</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

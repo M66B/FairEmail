@@ -186,7 +186,7 @@
     <string name="title_reset_order">Atur ulang pengurutan</string>
     <string name="title_setup_authentication">Otentikasi</string>
     <string name="title_setup_biometrics">Otentikasi sidik jari (biometrik)</string>
-    <string name="title_setup_biometrics_enable">Aktifkan</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktifkan</string>
     <string name="title_setup_biometrics_disable">Non-aktifkan</string>
     <string name="title_setup_biometrics_unlock">Buka kunci</string>
     <string name="title_setup_theme">Pilih tema</string>
@@ -775,6 +775,7 @@
     <string name="title_print_images">Mencetak gambar</string>
     <string name="title_print_images_remark">Mengunduh gambar butuh beberapa waktu</string>
     <string name="title_show_headers">Tampilkan Judul</string>
+    <string name="title_share_as_html">Bagikan sebagai HTML</string>
     <string name="title_raw_save">Simpan pesan sebagai bahan</string>
     <string name="title_raw_send">Kirim sebagai lampiran</string>
     <string name="title_manage_keywords">Kelola kata kunci</string>
@@ -1179,7 +1180,7 @@
     <string name="title_download">Unduh</string>
     <string name="title_report">Laporan</string>
     <string name="title_fix">Perbaiki</string>
-    <string name="title_enable">Aktifkan</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktifkan</string>
     <string name="title_enabled">Diaktifkan</string>
     <string name="title_completed">Selesai</string>
     <string name="title_default_changed">Judul Bawaan Diubah</string>
@@ -1377,7 +1378,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

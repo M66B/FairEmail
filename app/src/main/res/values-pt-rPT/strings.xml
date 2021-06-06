@@ -190,7 +190,7 @@
     <string name="title_reset_order">Reverter ordem</string>
     <string name="title_setup_authentication">Autenticação</string>
     <string name="title_setup_biometrics">Autenticação biométrica</string>
-    <string name="title_setup_biometrics_enable">Activar</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Activar</string>
     <string name="title_setup_biometrics_disable">Desactivar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Selecionar tema</string>
@@ -472,7 +472,7 @@
         <item>Sans Serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

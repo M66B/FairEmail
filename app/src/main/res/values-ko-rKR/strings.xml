@@ -134,7 +134,7 @@
     <string name="title_setup_reorder_folders">폴더 정렬</string>
     <string name="title_reset_order">정렬 초기화</string>
     <string name="title_setup_authentication">인증</string>
-    <string name="title_setup_biometrics_enable">사용</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">사용</string>
     <string name="title_setup_biometrics_disable">사용 안 함</string>
     <string name="title_setup_biometrics_unlock">잠금 해제</string>
     <string name="title_setup_theme">테마 선택</string>
@@ -240,6 +240,7 @@
     <string name="title_advanced_notify_action_seen">읽음</string>
     <string name="title_advanced_notify_action_hide">숨김</string>
     <string name="title_advanced_notify_action_snooze">미루기</string>
+    <string name="title_advanced_notify_subtext">부가 텍스트로 계정이나 폴더명 보기</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>
@@ -346,6 +347,7 @@
     <string name="title_print_header">제목 인쇄</string>
     <string name="title_print_images">사진 인쇄</string>
     <string name="title_show_headers">제목 표시</string>
+    <string name="title_share_as_html">HTML로 공유</string>
     <string name="title_manage_keywords">키워드 관리</string>
     <string name="title_add_keyword">키워드 추가</string>
     <string name="title_download_all">모두 다운로드</string>
@@ -649,7 +651,7 @@
     <string name="title_download">다운로드</string>
     <string name="title_report">신고</string>
     <string name="title_fix">수정</string>
-    <string name="title_enable">사용</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">사용</string>
     <string name="title_enabled">켜짐</string>
     <string name="title_executing">실행 중</string>
     <string name="title_completed">완료함</string>
@@ -845,7 +847,7 @@
         <item>고딕체</item>
         <item>고정폭</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

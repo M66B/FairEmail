@@ -144,7 +144,7 @@
     <string name="title_reset_order">Отказване на подреждането</string>
     <string name="title_setup_authentication">Удостоверяване</string>
     <string name="title_setup_biometrics">Биометрично удостоверяване</string>
-    <string name="title_setup_biometrics_enable">Активирай</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Активирай</string>
     <string name="title_setup_biometrics_disable">Деактивирай</string>
     <string name="title_setup_biometrics_unlock">Отключване</string>
     <string name="title_setup_theme">Избор на тема</string>
@@ -1019,7 +1019,7 @@
     <string name="title_info">Инфо</string>
     <string name="title_report">Отчет</string>
     <string name="title_fix">Поправка</string>
-    <string name="title_enable">Активирай</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Активирай</string>
     <string name="title_enabled">Активирано</string>
     <string name="title_executing">Изпълнява</string>
     <string name="title_completed">Завършен</string>
@@ -1247,7 +1247,7 @@
         <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

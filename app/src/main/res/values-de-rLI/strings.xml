@@ -199,7 +199,7 @@
     <string name="title_reset_order">Standard-Reihenfolge</string>
     <string name="title_setup_authentication">Authentifizierung</string>
     <string name="title_setup_biometrics">Biometrische Authentifizierung</string>
-    <string name="title_setup_biometrics_enable">Aktivieren</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivieren</string>
     <string name="title_setup_biometrics_disable">Deaktivieren</string>
     <string name="title_setup_biometrics_unlock">Entsperren</string>
     <string name="title_setup_theme">Design auswählen</string>
@@ -421,6 +421,7 @@
     <string name="title_advanced_notify_action_snooze">Zurückstellen</string>
     <string name="title_advanced_notify_remove">Benachrichtigung über neue Nachrichten durch Tippen auf die Benachrichtigung entfernen</string>
     <string name="title_advanced_notify_clear">Benachrichtigung über neue Nachrichten beim Anzeigen der Nachrichtenliste entfernen</string>
+    <string name="title_advanced_notify_subtext">Konten- oder Ordnername als Untertitel anzeigen</string>
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an tragbare Gerätschaften senden</string>
     <string name="title_advanced_notify_messaging">Androids Benachrichtigungsformat »messaging style« verwenden</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
@@ -790,6 +791,7 @@
     <string name="title_print_images">Bilder drucken</string>
     <string name="title_print_images_remark">Das Herunterladen von Bildern kann einige Zeit dauern</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
+    <string name="title_share_as_html">Als HTML weiterleiten</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_manage_keywords">Stichwörter verwalten</string>
@@ -1328,8 +1330,10 @@
     <string name="title_download">Herunterladen</string>
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
-    <string name="title_enable">Aktivieren</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktivieren</string>
     <string name="title_enabled">Aktiviert</string>
+    <string name="title_disable" comment="title_disable&#10;Action (verb)">Deaktivieren</string>
+    <string name="title_keep_current" comment="title_keep_current&#10;Keep current (value, state, etc)&#10;">Aktuelles behalten</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
     <string name="title_default_changed">Standard geändert</string>
@@ -1578,7 +1582,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Serifenlos</item>
         <item>Festbreitenschrift</item>
         <item>Fantasie</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

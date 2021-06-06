@@ -218,7 +218,7 @@
     <string name="title_reset_order">Obnovit pořadí</string>
     <string name="title_setup_authentication">Ověření</string>
     <string name="title_setup_biometrics">Biometrické ověření</string>
-    <string name="title_setup_biometrics_enable">Zapnout</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Zapnout</string>
     <string name="title_setup_biometrics_disable">Vypnout</string>
     <string name="title_setup_biometrics_unlock">Odemknout</string>
     <string name="title_setup_theme">Vybrat motiv</string>
@@ -1346,7 +1346,7 @@
     <string name="title_download">Stáhnout</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
-    <string name="title_enable">Zapnout</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">Zapnout</string>
     <string name="title_enabled">Zapnuto</string>
     <string name="title_executing">Provádím</string>
     <string name="title_completed">Dokončeno</string>
@@ -1598,7 +1598,7 @@
         <item>Bezpatkové</item>
         <item>Neproporcionální</item>
         <item>Fantasy</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

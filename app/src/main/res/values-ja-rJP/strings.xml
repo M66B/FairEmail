@@ -187,7 +187,7 @@
     <string name="title_reset_order">並び替えのリセット</string>
     <string name="title_setup_authentication">認証</string>
     <string name="title_setup_biometrics">生体認証</string>
-    <string name="title_setup_biometrics_enable">有効</string>
+    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">有効</string>
     <string name="title_setup_biometrics_disable">無効</string>
     <string name="title_setup_biometrics_unlock">ロック解除</string>
     <string name="title_setup_theme">テーマを選択</string>
@@ -409,6 +409,7 @@
     <string name="title_advanced_notify_action_snooze">スヌーズ</string>
     <string name="title_advanced_notify_remove">通知をタップすると新着メッセージ通知を削除</string>
     <string name="title_advanced_notify_clear">メッセージリスト表示時に新着メッセージ通知を削除</string>
+    <string name="title_advanced_notify_subtext">アカウントまたはフォルダ名を隠して表示</string>
     <string name="title_advanced_wearable_preview">プレビュー付き通知のみウェアラブルに送信</string>
     <string name="title_advanced_notify_messaging">Androidの「メッセージ形式」の通知形式を使用する</string>
     <string name="title_advanced_biometrics_notify">生体認証を使用時、通知コンテンツを表示</string>
@@ -778,6 +779,7 @@
     <string name="title_print_images">画像を印刷</string>
     <string name="title_print_images_remark">画像のダウンロードに時間がかかる場合があります</string>
     <string name="title_show_headers">ヘッダーを表示</string>
+    <string name="title_share_as_html">HTMLで共有</string>
     <string name="title_raw_save">素のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
     <string name="title_manage_keywords">キーワードを管理</string>
@@ -1318,7 +1320,7 @@
     <string name="title_download">ダウンロード</string>
     <string name="title_report">報告する</string>
     <string name="title_fix">修正する</string>
-    <string name="title_enable">有効にする</string>
+    <string name="title_enable" comment="title_enable&#10;Action (verb)">有効にする</string>
     <string name="title_enabled">有効化</string>
     <string name="title_executing">実行中</string>
     <string name="title_completed">完成しました</string>
@@ -1567,7 +1569,7 @@
         <item>サンセリフ</item>
         <item>等幅フォント</item>
         <item>ファンタジー</item>
-        <item comment="fontNameNames&#10;&#10;This should not be translated&#10;&#10;https://opendyslexic.org/&#10;">OpenDyslexic</item>
+        <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>
