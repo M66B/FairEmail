@@ -5711,7 +5711,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (i > 0)
                 sb.append(", ");
             sb.append(keys.get(i));
-            if (!dest && keys.size() > 0) {
+            if (!dest && keys.size() > 1) {
                 int count = nameCount.get(keys.get(i));
                 sb.append('(').append(NF.format(count)).append(')');
             }
