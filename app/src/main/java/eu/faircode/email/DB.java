@@ -431,16 +431,16 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments + 1" +
                 "  WHERE message.id = NEW.message" +
-                "  AND (NEW.encryption IS NULL" +
-                "  AND NOT ((NEW.disposition = 'inline' OR NEW.cid IS NOT NULL) AND NEW.type IN (" + images + ")));" +
+                "  AND NEW.encryption IS NULL" +
+                "  AND NOT ((NEW.disposition = 'inline' OR NEW.cid IS NOT NULL) AND NEW.type IN (" + images + "));" +
                 " END");
         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
                 " AFTER DELETE ON attachment" +
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments - 1" +
                 "  WHERE message.id = OLD.message" +
-                "  AND (OLD.encryption IS NULL" +
-                "  AND NOT ((OLD.disposition = 'inline' OR OLD.cid IS NOT NULL) AND OLD.type IN (" + images + ")));" +
+                "  AND OLD.encryption IS NULL" +
+                "  AND NOT ((OLD.disposition = 'inline' OR OLD.cid IS NOT NULL) AND OLD.type IN (" + images + "));" +
                 " END");
     }
 
