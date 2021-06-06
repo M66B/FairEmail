@@ -3659,7 +3659,7 @@ public class FragmentCompose extends FragmentBase {
 
             if (privacy && resize == 0)
                 try {
-                    ExifInterface exif = new ExifInterface(file.getAbsolutePath());
+                    ExifInterface exif = new ExifInterface(file);
 
                     exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, null);
                     exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, null);
@@ -3718,6 +3718,14 @@ public class FragmentCompose extends FragmentBase {
         File file = attachment.getFile(context);
         if (file.exists() /* upload cancelled */ &&
                 ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
+            ExifInterface exifSaved;
+            try {
+                exifSaved = new ExifInterface(file);
+            } catch (Throwable ex) {
+                Log.w(ex);
+                exifSaved = null;
+            }
+
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(file.getAbsolutePath(), options);
@@ -3759,6 +3767,33 @@ public class FragmentCompose extends FragmentBase {
 
                     DB db = DB.getInstance(context);
                     db.attachment().setDownloaded(attachment.id, file.length());
+
+                    if (exifSaved != null)
+                        try {
+                            ExifInterface exif = new ExifInterface(file);
+
+                            // Preserve time
+                            if (exifSaved.hasAttribute(ExifInterface.TAG_DATETIME_ORIGINAL))
+                                exif.setAttribute(ExifInterface.TAG_DATETIME_ORIGINAL,
+                                        exifSaved.getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL));
+                            if (exifSaved.hasAttribute(ExifInterface.TAG_GPS_DATESTAMP))
+                                exif.setAttribute(ExifInterface.TAG_GPS_DATESTAMP,
+                                        exifSaved.getAttribute(ExifInterface.TAG_GPS_DATESTAMP));
+
+                            // Preserve location
+                            double[] latlong = exifSaved.getLatLong();
+                            if (latlong != null)
+                                exif.setLatLong(latlong[0], latlong[1]);
+
+                            // Preserve altitude
+                            if (exifSaved.hasAttribute(ExifInterface.TAG_GPS_ALTITUDE) &&
+                                    exifSaved.hasAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF))
+                                exif.setAltitude(exifSaved.getAltitude(0));
+
+                            exif.saveAttributes();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
                 }
             }
         }
