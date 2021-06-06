@@ -41,6 +41,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -1012,6 +1013,7 @@ public class FragmentFolders extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_all, null);
+            final RadioGroup rgSynchronize = view.findViewById(R.id.rgSynchronize);
             final EditText etSyncDays = view.findViewById(R.id.etSyncDays);
             final EditText etKeepDays = view.findViewById(R.id.etKeepDays);
             final CheckBox cbKeepAll = view.findViewById(R.id.cbKeepAll);
@@ -1031,6 +1033,11 @@ public class FragmentFolders extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Bundle args = getArguments();
+                            int optionId = rgSynchronize.getCheckedRadioButtonId();
+                            if (optionId == R.id.rbEnable)
+                                args.putBoolean("enable", true);
+                            else if (optionId == R.id.rbDisable)
+                                args.putBoolean("enable", false);
                             args.putString("sync", etSyncDays.getText().toString());
                             args.putString("keep", cbKeepAll.isChecked()
                                     ? Integer.toString(Integer.MAX_VALUE)
@@ -1042,6 +1049,9 @@ public class FragmentFolders extends FragmentBase {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) throws Throwable {
                                     long account = args.getLong("account");
+                                    Boolean enable = null;
+                                    if (args.containsKey("enable"))
+                                        enable = args.getBoolean("enable");
                                     String sync = args.getString("sync");
                                     String keep = args.getString("keep");
                                     boolean system = args.getBoolean("system");
@@ -1056,19 +1066,29 @@ public class FragmentFolders extends FragmentBase {
                                     try {
                                         db.beginTransaction();
 
-                                        db.folder().setFolderProperties(
-                                                account,
-                                                Integer.parseInt(sync),
-                                                Integer.parseInt(keep));
-
                                         List<EntityFolder> folders = db.folder().getFolders(account, false, true);
-                                        if (folders != null)
-                                            for (EntityFolder folder : folders)
-                                                if (folder.synchronize && !folder.poll)
-                                                    if (EntityFolder.USER.equals(folder.type)
-                                                            ? user
-                                                            : system && !EntityFolder.INBOX.equals(folder.type))
-                                                        db.folder().setFolderPoll(folder.id, true);
+                                        if (folders == null)
+                                            return null;
+
+                                        for (EntityFolder folder : folders) {
+                                            if (EntityFolder.USER.equals(folder.type)) {
+                                                if (enable != null) {
+                                                    folder.synchronize = enable;
+                                                    db.folder().setFolderSynchronize(folder.id, folder.synchronize);
+                                                }
+
+                                                db.folder().setFolderProperties(
+                                                        folder.id,
+                                                        Integer.parseInt(sync),
+                                                        Integer.parseInt(keep));
+                                            }
+
+                                            if (folder.synchronize && !folder.poll)
+                                                if (EntityFolder.USER.equals(folder.type)
+                                                        ? user
+                                                        : system && !EntityFolder.INBOX.equals(folder.type))
+                                                    db.folder().setFolderPoll(folder.id, true);
+                                        }
 
                                         db.setTransactionSuccessful();
                                     } finally {

@@ -1506,6 +1506,8 @@
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
     <string name="title_enabled">Enabled</string>
+    <string name="title_disable">Disable</string>
+    <string name="title_keep_current">Keep current</string>
     <string name="title_executing">Executing</string>
     <string name="title_completed">Completed</string>
     <string name="title_default_changed">Default changed</string>
