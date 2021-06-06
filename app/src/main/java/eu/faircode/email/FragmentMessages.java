@@ -8423,8 +8423,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
                 if (sourceColor == null)
                     sourceColor = EntityFolder.getDefaultColor(sources.get(0), context);
-            } else
+            } else {
+                source = context.getDrawable(R.drawable.twotone_folders_24);
+                source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
                 sourceColor = null;
+            }
 
             Drawable target = null;
             if (targets.size() == 1) {
