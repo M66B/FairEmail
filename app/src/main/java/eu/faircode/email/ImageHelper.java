@@ -786,7 +786,7 @@ class ImageHelper {
 
     static Matrix getImageRotation(File file) {
         try {
-            ExifInterface exif = new ExifInterface(file.getAbsolutePath());
+            ExifInterface exif = new ExifInterface(file);
             int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
 
             Matrix matrix = new Matrix();
