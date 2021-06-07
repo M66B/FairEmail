@@ -2369,125 +2369,131 @@ public class MessageHelper {
         try {
             ensureStructure();
 
-            MimePart part = imessage;
+            try {
+                MimePart part = imessage;
 
-            if (part.isMimeType("multipart/mixed")) {
-                Object content = part.getContent();
-                if (content instanceof Multipart) {
-                    Multipart mp = (Multipart) content;
-                    for (int i = 0; i < mp.getCount(); i++) {
-                        BodyPart bp = mp.getBodyPart(i);
-                        if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
-                            part = (MimePart) bp;
-                            break;
-                        }
-                    }
-                } else {
-                    String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
-                    Log.e(msg);
-                    throw new MessagingException(msg);
-                }
-            }
-
-            if (part.isMimeType("multipart/signed")) {
-                ContentType ct = new ContentType(part.getContentType());
-                String protocol = ct.getParameter("protocol");
-                if ("application/pgp-signature".equals(protocol) ||
-                        "application/pkcs7-signature".equals(protocol) ||
-                        "application/x-pkcs7-signature".equals(protocol)) {
+                if (part.isMimeType("multipart/mixed")) {
                     Object content = part.getContent();
                     if (content instanceof Multipart) {
-                        Multipart multipart = (Multipart) content;
-                        if (multipart.getCount() == 2) {
-                            getMessageParts(multipart.getBodyPart(0), parts, null);
-                            getMessageParts(multipart.getBodyPart(1), parts,
-                                    "application/pgp-signature".equals(protocol)
-                                            ? EntityAttachment.PGP_SIGNATURE
-                                            : EntityAttachment.SMIME_SIGNATURE);
-
-                            AttachmentPart apart = new AttachmentPart();
-                            apart.disposition = Part.INLINE;
-                            apart.filename = "content.asc";
-                            apart.encrypt = "application/pgp-signature".equals(protocol)
-                                    ? EntityAttachment.PGP_CONTENT
-                                    : EntityAttachment.SMIME_CONTENT;
-                            apart.part = part;
-
-                            apart.attachment = new EntityAttachment();
-                            apart.attachment.disposition = apart.disposition;
-                            apart.attachment.name = apart.filename;
-                            apart.attachment.type = "text/plain";
-                            apart.attachment.size = getSize();
-                            apart.attachment.encryption = apart.encrypt;
-
-                            parts.attachments.add(apart);
-
-                            return parts;
-                        } else {
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(ct);
-                            for (int i = 0; i < multipart.getCount(); i++)
-                                sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
-                            Log.e(sb.toString());
+                        Multipart mp = (Multipart) content;
+                        for (int i = 0; i < mp.getCount(); i++) {
+                            BodyPart bp = mp.getBodyPart(i);
+                            if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
+                                part = (MimePart) bp;
+                                break;
+                            }
                         }
                     } else {
                         String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
                         Log.e(msg);
                         throw new MessagingException(msg);
                     }
-                } else
-                    Log.e(ct.toString());
-            } else if (part.isMimeType("multipart/encrypted")) {
-                ContentType ct = new ContentType(part.getContentType());
-                String protocol = ct.getParameter("protocol");
-                if ("application/pgp-encrypted".equals(protocol) || protocol == null) {
-                    Object content = part.getContent();
-                    if (content instanceof Multipart) {
-                        Multipart multipart = (Multipart) content;
-                        if (multipart.getCount() == 2) {
-                            // Ignore header
-                            getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
-                            return parts;
-                        } else {
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(ct);
-                            for (int i = 0; i < multipart.getCount(); i++)
-                                sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
-                            Log.e(sb.toString());
-                        }
-                    } else {
-                        String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
-                        Log.e(msg);
-                        throw new MessagingException(msg);
-                    }
-                } else
-                    Log.e(ct.toString());
-            } else if (part.isMimeType("application/pkcs7-mime") ||
-                    part.isMimeType("application/x-pkcs7-mime")) {
-                ContentType ct = new ContentType(part.getContentType());
-                String smimeType = ct.getParameter("smime-type");
-                if ("enveloped-data".equalsIgnoreCase(smimeType)) {
-                    getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
-                    return parts;
-                } else if ("signed-data".equalsIgnoreCase(smimeType)) {
-                    getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
-                    return parts;
-                } else {
-                    if (TextUtils.isEmpty(smimeType)) {
-                        String name = ct.getParameter("name");
-                        if ("smime.p7m".equalsIgnoreCase(name)) {
-                            getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
-                            return parts;
-                        } else if ("smime.p7s".equalsIgnoreCase(name)) {
-                            getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
-                            return parts;
-                        }
-                    }
-                    Log.e(ct.toString());
                 }
+
+                if (part.isMimeType("multipart/signed")) {
+                    ContentType ct = new ContentType(part.getContentType());
+                    String protocol = ct.getParameter("protocol");
+                    if ("application/pgp-signature".equals(protocol) ||
+                            "application/pkcs7-signature".equals(protocol) ||
+                            "application/x-pkcs7-signature".equals(protocol)) {
+                        Object content = part.getContent();
+                        if (content instanceof Multipart) {
+                            Multipart multipart = (Multipart) content;
+                            if (multipart.getCount() == 2) {
+                                getMessageParts(multipart.getBodyPart(0), parts, null);
+                                getMessageParts(multipart.getBodyPart(1), parts,
+                                        "application/pgp-signature".equals(protocol)
+                                                ? EntityAttachment.PGP_SIGNATURE
+                                                : EntityAttachment.SMIME_SIGNATURE);
+
+                                AttachmentPart apart = new AttachmentPart();
+                                apart.disposition = Part.INLINE;
+                                apart.filename = "content.asc";
+                                apart.encrypt = "application/pgp-signature".equals(protocol)
+                                        ? EntityAttachment.PGP_CONTENT
+                                        : EntityAttachment.SMIME_CONTENT;
+                                apart.part = part;
+
+                                apart.attachment = new EntityAttachment();
+                                apart.attachment.disposition = apart.disposition;
+                                apart.attachment.name = apart.filename;
+                                apart.attachment.type = "text/plain";
+                                apart.attachment.size = getSize();
+                                apart.attachment.encryption = apart.encrypt;
+
+                                parts.attachments.add(apart);
+
+                                return parts;
+                            } else {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(ct);
+                                for (int i = 0; i < multipart.getCount(); i++)
+                                    sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
+                                Log.e(sb.toString());
+                            }
+                        } else {
+                            String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
+                            Log.e(msg);
+                            throw new MessagingException(msg);
+                        }
+                    } else
+                        Log.e(ct.toString());
+                } else if (part.isMimeType("multipart/encrypted")) {
+                    ContentType ct = new ContentType(part.getContentType());
+                    String protocol = ct.getParameter("protocol");
+                    if ("application/pgp-encrypted".equals(protocol) || protocol == null) {
+                        Object content = part.getContent();
+                        if (content instanceof Multipart) {
+                            Multipart multipart = (Multipart) content;
+                            if (multipart.getCount() == 2) {
+                                // Ignore header
+                                getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                                return parts;
+                            } else {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(ct);
+                                for (int i = 0; i < multipart.getCount(); i++)
+                                    sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
+                                Log.e(sb.toString());
+                            }
+                        } else {
+                            String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
+                            Log.e(msg);
+                            throw new MessagingException(msg);
+                        }
+                    } else
+                        Log.e(ct.toString());
+                } else if (part.isMimeType("application/pkcs7-mime") ||
+                        part.isMimeType("application/x-pkcs7-mime")) {
+                    ContentType ct = new ContentType(part.getContentType());
+                    String smimeType = ct.getParameter("smime-type");
+                    if ("enveloped-data".equalsIgnoreCase(smimeType)) {
+                        getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
+                        return parts;
+                    } else if ("signed-data".equalsIgnoreCase(smimeType)) {
+                        getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                        return parts;
+                    } else {
+                        if (TextUtils.isEmpty(smimeType)) {
+                            String name = ct.getParameter("name");
+                            if ("smime.p7m".equalsIgnoreCase(name)) {
+                                getMessageParts(part, parts, EntityAttachment.SMIME_MESSAGE);
+                                return parts;
+                            } else if ("smime.p7s".equalsIgnoreCase(name)) {
+                                getMessageParts(part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                                return parts;
+                            }
+                        }
+                        Log.e(ct.toString());
+                    }
+                }
+            } catch (ParseException ex) {
+                Log.w(ex);
             }
-        } catch (ParseException | OutOfMemoryError ex) {
-            Log.w(ex);
+
+            getMessageParts(imessage, parts, null);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
             parts.warnings.add(Log.formatThrowable(ex, false));
             /*
                 java.lang.OutOfMemoryError: Failed to allocate a xxx byte allocation with yyy free bytes and zzMB until OOM
@@ -2503,7 +2509,6 @@ public class MessageHelper {
              */
         }
 
-        getMessageParts(imessage, parts, null);
         return parts;
     }
 
