@@ -2366,9 +2366,9 @@ public class MessageHelper {
     MessageParts getMessageParts() throws IOException, MessagingException {
         MessageParts parts = new MessageParts();
 
-        ensureStructure();
-
         try {
+            ensureStructure();
+
             MimePart part = imessage;
 
             if (part.isMimeType("multipart/mixed")) {
@@ -2486,8 +2486,21 @@ public class MessageHelper {
                     Log.e(ct.toString());
                 }
             }
-        } catch (ParseException ex) {
+        } catch (ParseException | OutOfMemoryError ex) {
             Log.w(ex);
+            parts.warnings.add(Log.formatThrowable(ex, false));
+            /*
+                java.lang.OutOfMemoryError: Failed to allocate a xxx byte allocation with yyy free bytes and zzMB until OOM
+                        at java.io.ByteArrayOutputStream.expand(ByteArrayOutputStream.java:91)
+                        at java.io.ByteArrayOutputStream.write(ByteArrayOutputStream.java:201)
+                        at com.sun.mail.util.ASCIIUtility.getBytes(ASCIIUtility:279)
+                        at javax.mail.internet.MimeMessage.parse(MimeMessage:336)
+                        at javax.mail.internet.MimeMessage.<init>(MimeMessage:199)
+                        at eu.faircode.email.MimeMessageEx.<init>(MimeMessageEx:44)
+                        at eu.faircode.email.MessageHelper._ensureMessage(MessageHelper:2732)
+                        at eu.faircode.email.MessageHelper.ensureStructure(MessageHelper:2685)
+                        at eu.faircode.email.MessageHelper.getMessageParts(MessageHelper:2368)
+             */
         }
 
         getMessageParts(imessage, parts, null);
