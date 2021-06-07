@@ -593,8 +593,8 @@ public interface DaoMessage {
             " GROUP BY sender" +
 
             " ORDER BY sender, subject" +
-            " LIMIT 5")
-    Cursor getSuggestions(Long account, Long folder, String query);
+            " LIMIT :limit")
+    Cursor getSuggestions(Long account, Long folder, String query, int limit);
 
     @Query("SELECT language FROM message" +
             " WHERE (:account IS NULL OR message.account = :account)" +

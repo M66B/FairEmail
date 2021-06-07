@@ -57,6 +57,8 @@ import java.util.Calendar;
 import java.util.List;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
+    private static final int MAX_SUGGESTIONS = 3;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -141,7 +143,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 return db.message().getSuggestions(
                         account < 0 ? null : account,
                         folder < 0 ? null : folder,
-                        "%" + query + "%");
+                        "%" + query + "%",
+                        MAX_SUGGESTIONS);
             }
         });
 
