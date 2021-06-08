@@ -206,7 +206,7 @@
     <string name="title_reset_order">Скинути порядок</string>
     <string name="title_setup_authentication">Автентифікація</string>
     <string name="title_setup_biometrics">Біометрична автентифікація</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Увімкнути</string>
+    <string name="title_setup_biometrics_enable">Увімкнути</string>
     <string name="title_setup_biometrics_disable">Вимкнути</string>
     <string name="title_setup_biometrics_unlock">Розблокувати</string>
     <string name="title_setup_theme">Вибрати тему</string>
@@ -524,7 +524,6 @@
     <string name="title_advanced_threading_hint">Групові повідомлення, пов\'язані один з одним</string>
     <string name="title_advanced_highlight_hint">Акцентований колір теми буде використаний для виділення</string>
     <string name="title_advanced_gravatars_hint">Там може бути ризик приватності</string>
-    <string name="title_advanced_name_email_hint">При вимкненні будуть показанні лише імена, якщо вони будуть доступні</string>
     <string name="title_advanced_preview_hint">Доступно тільки коли повідомлення буде завантажено</string>
     <string name="title_advanced_preview_lines_hint">Максимум: %s символів</string>
     <string name="title_advanced_preview_issue">Прокручування може бути повільним через помилку у деяких версіях Android, коли кількість рядків більше одного</string>
@@ -1337,8 +1336,10 @@
     <string name="title_download">Завантаження</string>
     <string name="title_report">Звіт</string>
     <string name="title_fix">Виправлення</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Увімкнути</string>
+    <string name="title_enable">Увімкнути</string>
     <string name="title_enabled">Увімкнено</string>
+    <string name="title_disable">Вимкнути</string>
+    <string name="title_keep_current">Залишити поточне</string>
     <string name="title_executing">Виконання</string>
     <string name="title_completed">Завершено</string>
     <string name="title_default_changed">За замовчуванням змінено</string>

@@ -218,7 +218,7 @@
     <string name="title_reset_order">Obnovit pořadí</string>
     <string name="title_setup_authentication">Ověření</string>
     <string name="title_setup_biometrics">Biometrické ověření</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Zapnout</string>
+    <string name="title_setup_biometrics_enable">Zapnout</string>
     <string name="title_setup_biometrics_disable">Vypnout</string>
     <string name="title_setup_biometrics_unlock">Odemknout</string>
     <string name="title_setup_theme">Vybrat motiv</string>
@@ -440,6 +440,7 @@
     <string name="title_advanced_notify_action_snooze">Odložit</string>
     <string name="title_advanced_notify_remove">Odebrat oznámení o nové zprávě při stisku oznámení</string>
     <string name="title_advanced_notify_clear">Odebrat oznámení nové zprávy při zobrazení seznamu zpráv</string>
+    <string name="title_advanced_notify_subtext">Zobrazit v popisku název účtu nebo složky</string>
     <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
     <string name="title_advanced_notify_messaging">Použít formát oznámení Androidu s polem pro rychlou odpověď</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při použití biometrického ověření</string>
@@ -537,7 +538,7 @@
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_highlight_hint">Pro zvýrazňování bude použita sekundární barva motivu</string>
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
-    <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, budou-li k dispozici</string>
+    <string name="title_advanced_name_email_hint">Názvy budou zobrazeny pouze pokud jsou k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_preview_lines_hint">Maximálně %s znaků celkem</string>
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
@@ -810,6 +811,7 @@
     <string name="title_print_images">Tisknout obrázky</string>
     <string name="title_print_images_remark">Stažení obrázků může chvíli trvat</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
+    <string name="title_share_as_html">Sdílet jako HTML</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
     <string name="title_raw_send">Odeslat jako přílohu</string>
     <string name="title_manage_keywords">Spravovat klíčová slova</string>
@@ -884,6 +886,7 @@
     <string name="title_attachments_incomplete">Některé přílohy nebo obrázky nebyly staženy a nemohly být proto přidány</string>
     <string name="title_ask_save">Uložit změny?</string>
     <string name="title_ask_delete">Trvale smazat zprávu?</string>
+    <string name="title_ask_delete_accept">Beru na vědomí, že trvalé smazání zpráv je nevratné</string>
     <string name="title_ask_delete_answer">Trvale smazat šablonu odpovědi?</string>
     <string name="title_ask_delete_rule">Trvale smazat pravidlo?</string>
     <string name="title_ask_discard">Zahodit koncept?</string>
@@ -1346,7 +1349,7 @@
     <string name="title_download">Stáhnout</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Zapnout</string>
+    <string name="title_enable">Zapnout</string>
     <string name="title_enabled">Zapnuto</string>
     <string name="title_executing">Provádím</string>
     <string name="title_completed">Dokončeno</string>

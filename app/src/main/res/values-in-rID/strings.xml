@@ -186,7 +186,7 @@
     <string name="title_reset_order">Atur ulang pengurutan</string>
     <string name="title_setup_authentication">Otentikasi</string>
     <string name="title_setup_biometrics">Otentikasi sidik jari (biometrik)</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktifkan</string>
+    <string name="title_setup_biometrics_enable">Aktifkan</string>
     <string name="title_setup_biometrics_disable">Non-aktifkan</string>
     <string name="title_setup_biometrics_unlock">Buka kunci</string>
     <string name="title_setup_theme">Pilih tema</string>
@@ -502,7 +502,7 @@
     <string name="title_advanced_threading_hint">Pesan grup terkait satu sama lain</string>
     <string name="title_advanced_highlight_hint">Warna aksen untuk tema ini akan digunakan untuk menyorot</string>
     <string name="title_advanced_gravatars_hint">Mungkin ada risiko privasi</string>
-    <string name="title_advanced_name_email_hint">Ketika dinonaktifkan hanya akan menampilkan nama jika ada</string>
+    <string name="title_advanced_name_email_hint">Nama akan ditampilkan jika tersedia</string>
     <string name="title_advanced_preview_hint">Hanya tersedia jika teks pesan sudah diunduh</string>
     <string name="title_advanced_preview_lines_hint">%s total karakter maksimum</string>
     <string name="title_advanced_preview_issue">Scrolling/menggulir bisa terasa lambat karena bug dalam beberapa versi Android ketika jumlah garis lebih dari satu</string>
@@ -1044,8 +1044,15 @@
     <string name="title_rule_flag">Tambahkan bintang</string>
     <string name="title_rule_importance">Atur sebagai penting</string>
     <string name="title_rule_keyword">Tambah kata kunci</string>
+    <string name="title_rule_move">Pindahkan</string>
+    <string name="title_rule_answer">Balas/teruskan</string>
+    <string name="title_rule_enabled">Diaktifkan</string>
     <string name="title_rule_attachments">Memiliki lampiran</string>
+    <string name="title_rule_regex">Regex</string>
+    <string name="title_rule_and">DAN</string>
+    <string name="title_rule_action">Tindakan</string>
     <string name="title_rule_hours">Jam</string>
+    <string name="title_rule_folder">Folder</string>
     <string name="title_rule_forward_to">Diteruskan kepada</string>
     <string name="title_rule_with_attachments">Dengan lampiran</string>
     <string name="title_rule_tts_data">Pasang data suara</string>
@@ -1115,6 +1122,7 @@
     <string name="title_legend_view">Lihat konten</string>
     <string name="title_legend_hide">Sembunyikan konten</string>
     <string name="title_legend_download">Mengunduh Konten</string>
+    <string name="title_legend_original">Lihat pesan asli</string>
     <string name="title_legend_external_image">Gambar eksternal pada placeholder</string>
     <string name="title_legend_embedded_image">Gambar yang disematkan pada placeholder</string>
     <string name="title_legend_tracking_pixel">Pelacakan gambar</string>
@@ -1163,12 +1171,21 @@
     <string name="title_legend_t">Fokus teks</string>
     <string name="title_hint_folder_actions">Tekan lama pada folder untuk pilihan, seperti menambahkan folder ke menu navigasi untuk akses cepat</string>
     <string name="title_hint_support">Jika Anda memiliki pertanyaan atau masalah, silakan gunakan menu bantuan untuk mendapatkan bantuan</string>
+    <string name="title_hint_message_actions">Geser ke kiri untuk membuang; Geser ke kanan untuk mengarsip (jika tersedia); Tindakan saat digeser dapat dikonfigurasi di pengaturan akun</string>
     <string name="title_hint_important">Penting</string>
     <string name="title_hint_sync">Mendownload pesan dapat memakan waktu lama, tergantung pada kecepatan penyedia layanan, koneksi internet, perangkat dan jumlah pesan. Saat mengunduh pesan, mungkin aplikasi merespons lebih lambat.</string>
     <string name="title_open_link">Buka tautan</string>
+    <string name="title_tracking_link">Situs web ini mungkin akan melacak Anda</string>
+    <string name="title_suspicious_link">Ini tautan yang mencurigakan</string>
     <string name="title_link_http">Lalu lintas tidak akan dienkripsi</string>
     <string name="title_link_https">Lalu lintas akan dienkripsi</string>
+    <string name="title_insecure_link">Tautan ini tidak aman</string>
+    <string name="title_check_owner">Periksa pemilik</string>
+    <string name="title_remark_owner">Informasi diterima dari <a href="https://ipinfo.io/">ipinfo.io</a></string>
+    <string name="title_ip_owner">Alamat IP pemilik</string>
     <string name="title_select_app">Pilih aplikasi</string>
+    <string name="title_updated">Pembaruan ke versi %1$s tersedia</string>
+    <string name="title_issue">Apakah Anda memiliki pertanyaan atau masalah?</string>
     <string name="title_yes">Ya</string>
     <string name="title_no">Tidak</string>
     <string name="title_later">Nanti</string>
@@ -1180,10 +1197,14 @@
     <string name="title_download">Unduh</string>
     <string name="title_report">Laporan</string>
     <string name="title_fix">Perbaiki</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktifkan</string>
+    <string name="title_enable">Aktifkan</string>
     <string name="title_enabled">Diaktifkan</string>
+    <string name="title_disable">Nonaktifkan</string>
     <string name="title_completed">Selesai</string>
     <string name="title_default_changed">Judul Bawaan Diubah</string>
+    <string name="title_clipboard_copy">Salin ke papan klip</string>
+    <string name="title_clipboard_copied">Disalin ke papan klip</string>
+    <string name="title_ask_what">Tanya apa yang harus dilakukan</string>
     <string name="title_no_ask_again">Jangan tanya ini lagi</string>
     <string name="title_no_ask_for_again">Jangan tanya ini lagi untuk %1$s</string>
     <string name="title_via">Melalui: %1$s</string>
@@ -1209,6 +1230,8 @@
     <string name="title_pro_feature">Ini adalah fitur Pro</string>
     <string name="title_pro_list">Daftar fitur pro</string>
     <string name="title_pro_purchase">Beli</string>
+    <string name="title_pro_one_time">%1$s (pembelian satu kali)</string>
+    <string name="title_pro_no_play">Play Store tidak ditemukan</string>
     <string name="title_pro_info">        Mengembangkan FairEmail membutuhkan waktu ribuan jam dan, meskipun demikian, sebagian besar fiturnya gratis untuk digunakan.
         FairEmail menjaga privasi Anda dengan serius serta tidak menampilkan iklan dan tidak menggunakan pelacakan atau analisa untuk menghasilkan uang.
         Untuk mempertahankan dan mendukung FairEmail dalam jangka panjang, beberapa kenyamanan dan fitur-fitur canggih tidak gratis untuk digunakan.
@@ -1217,7 +1240,13 @@
     <string name="title_pro_hide">Sembunyikan pesan kecil selama %1$d minggu</string>
     <string name="title_pro_hint">Membeli fitur pro akan memungkinkan Anda untuk menggunakan semua fitur pro saat ini dan di masa depan, aplikasi ini akan terus dipertahankan, dan didukung.</string>
     <string name="title_pro_price">Mengapa fitur pro sangat mahal?</string>
+    <string name="title_pro_restore">Bagaimana cara saya memulihkan pembelian saya?</string>
+    <string name="title_pro_pending">Pembelian tertunda</string>
+    <string name="title_pro_activated">Semua fitur-fitur pro sudah aktif</string>
+    <string name="title_pro_valid">Semua fitur-fitur pro aktif</string>
     <string name="title_pro_invalid">Respon tidak valid</string>
+    <string name="title_boundary_retry">Coba lagi</string>
+    <string name="title_unexpected_error">Kesalahan tak terduga</string>
     <string name="title_auto_scroll">Gulir otomatis</string>
     <string name="title_log_clear">Bersihkan</string>
     <string name="title_widget_title_list">Daftar pesan</string>
@@ -1298,6 +1327,12 @@
         <item>Biarkan</item>
         <item>Percakapan sebelumnya</item>
         <item>Percakapan selanjutnya</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Kecil</item>
+        <item>Sedang</item>
+        <item>Besar</item>
+        <item>Ekstra besar</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
@@ -1381,4 +1416,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Hanya nama</item>
+        <item>Hanya surel</item>
+        <item>Nama dan surel</item>
+    </string-array>
 </resources>

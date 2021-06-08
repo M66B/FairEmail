@@ -145,7 +145,7 @@
     <string name="title_reset_order">Berrezarri ordena</string>
     <string name="title_setup_authentication">Autentifikazioa</string>
     <string name="title_setup_biometrics">Autentifikazio biometrikoa</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Gaitu</string>
+    <string name="title_setup_biometrics_enable">Gaitu</string>
     <string name="title_setup_biometrics_disable">Desgaitu</string>
     <string name="title_setup_biometrics_unlock">Desblokeatu</string>
     <string name="title_setup_theme">Hautatu azala</string>
@@ -381,7 +381,6 @@
     <string name="title_advanced_threading_hint">Harremana duten mezuak taldekatu</string>
     <string name="title_advanced_highlight_hint">Azalaren azentuatzeko kolorea erabiliko da nabarmentzeko</string>
     <string name="title_advanced_gravatars_hint">Pribatutasun-arriskua egon daiteke</string>
-    <string name="title_advanced_name_email_hint">Desgaituta dagonean erabilgarri dauden izenak bakarrik erakutsiko dira</string>
     <string name="title_advanced_preview_hint">Eskuragarri soilik mezuaren testua deskargatu bada</string>
     <string name="title_advanced_preview_issue">Desplazamendua motela izan daiteke, Android-en bertsio batzuetan errorea gertatu delako linea-kopurua bat baino gehiago denean</string>
     <string name="title_advanced_overview_mode_hint">Honek oso letra tamaina txikiak ekar ditzake</string>
@@ -1069,7 +1068,7 @@
     <string name="title_download">Deskargatu</string>
     <string name="title_report">Txostena</string>
     <string name="title_fix">Konpondu</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Gaitu</string>
+    <string name="title_enable">Gaitu</string>
     <string name="title_enabled">Gaituta</string>
     <string name="title_executing">Exekutatzen</string>
     <string name="title_completed">Burututa</string>

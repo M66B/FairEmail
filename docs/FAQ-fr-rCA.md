@@ -1606,11 +1606,11 @@ If your provider requires an unsupported authentication method, you'll likely ge
 <br />
 
 <a name="faq63"></a>
-**(63) How are images resized for displaying on screens?**
+**(63) Comment les images sont-elles redimensionnées pour l'affichage sur les écrans ?**
 
-Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images will automatically be resized for displaying on screens. This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB. Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %. Images are scaled down using whole number factors to reduce memory usage and to retain image quality. Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
+Les images de grande taille, en liens ou en pièces jointes et au format [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) et [JPEG](https://en.wikipedia.org/wiki/JPEG) seront automatiquement redimensionnées pour être affichées sur les écrans. This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB. Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %. Images are scaled down using whole number factors to reduce memory usage and to retain image quality. Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
 
-If you want to resize images on a case-by-case basis, you can use [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) or a similar app.
+Si vous voulez redimensionner les images au cas par cas, vous pouvez utiliser [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) ou une application similaire.
 
 <br />
 

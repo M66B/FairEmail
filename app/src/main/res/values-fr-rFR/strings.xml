@@ -198,7 +198,7 @@
     <string name="title_reset_order">Réinitialiser l’ordre</string>
     <string name="title_setup_authentication">Authentification</string>
     <string name="title_setup_biometrics">Authentification biométrique</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Activer</string>
+    <string name="title_setup_biometrics_enable">Activer</string>
     <string name="title_setup_biometrics_disable">Désactiver</string>
     <string name="title_setup_biometrics_unlock">Déverrouiller</string>
     <string name="title_setup_theme">Choisir le thème</string>
@@ -518,7 +518,7 @@
     <string name="title_advanced_threading_hint">Grouper les messages liés les uns aux autres</string>
     <string name="title_advanced_highlight_hint">La couleur d’accentuation du thème sera utilisée pour la surbrillance</string>
     <string name="title_advanced_gravatars_hint">Ceci pourrait présenter un risque pour la confidentialité</string>
-    <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
+    <string name="title_advanced_name_email_hint">Les noms ne seront affichés que s\'ils sont disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_preview_lines_hint">Maximum %s caractères au total</string>
     <string name="title_advanced_preview_issue">Le défilement peut être lent lorsqu’il y a plus d’une ligne en raison d’un bogue dans certaines versions d’Android</string>
@@ -1332,8 +1332,10 @@
     <string name="title_download">Télécharger</string>
     <string name="title_report">Signaler</string>
     <string name="title_fix">Corriger</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Activer</string>
+    <string name="title_enable">Activer</string>
     <string name="title_enabled">Activé</string>
+    <string name="title_disable">Désactiver</string>
+    <string name="title_keep_current">Conserver le réglage actuel</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
     <string name="title_default_changed">Valeur par défaut modifiée</string>
@@ -1585,4 +1587,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Nom uniquement</item>
+        <item>E-mail uniquement</item>
+        <item>Nom et e-mail</item>
+    </string-array>
 </resources>

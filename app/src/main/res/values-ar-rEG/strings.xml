@@ -128,7 +128,7 @@
     <string name="title_setup_reorder_folders">ترتيب المجلدات</string>
     <string name="title_reset_order">اعادة الترتيب</string>
     <string name="title_setup_authentication">المصادقة</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">تمكين</string>
+    <string name="title_setup_biometrics_enable">تمكين</string>
     <string name="title_setup_biometrics_disable">تعطيل</string>
     <string name="title_setup_biometrics_unlock">فُتح القفل</string>
     <string name="title_setup_theme">اختر السمة</string>
@@ -377,7 +377,7 @@
     <string name="title_info">معلومات</string>
     <string name="title_report">إبلاغ</string>
     <string name="title_fix">تصليح</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">تمكين</string>
+    <string name="title_enable">تمكين</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
     <string name="title_no_ask_for_again">لا تسألني ثانية عن %1$s</string>
     <string name="title_no_body">لم يتم العثور على أية رسالة نصية</string>

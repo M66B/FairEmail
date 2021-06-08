@@ -187,7 +187,7 @@
     <string name="title_reset_order">重置顺序</string>
     <string name="title_setup_authentication">身份验证</string>
     <string name="title_setup_biometrics">生物认证</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">启用</string>
+    <string name="title_setup_biometrics_enable">启用</string>
     <string name="title_setup_biometrics_disable">禁用</string>
     <string name="title_setup_biometrics_unlock">解锁​​​​</string>
     <string name="title_setup_theme">选择主题</string>
@@ -506,7 +506,6 @@
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
-    <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_lines_hint">总共最多 %s 个字符</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
@@ -1319,7 +1318,7 @@
     <string name="title_download">下载</string>
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">启用</string>
+    <string name="title_enable">启用</string>
     <string name="title_enabled">已启用</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>

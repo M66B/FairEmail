@@ -195,7 +195,7 @@
     <string name="title_reset_order">Reiniciar orde</string>
     <string name="title_setup_authentication">Autenticación</string>
     <string name="title_setup_biometrics">Autenticación biométrica</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Activar</string>
+    <string name="title_setup_biometrics_enable">Activar</string>
     <string name="title_setup_biometrics_disable">Desactivar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Seleccionar un tema</string>
@@ -511,7 +511,6 @@
     <string name="title_advanced_threading_hint">Agrupar mensaxes relacionadas</string>
     <string name="title_advanced_highlight_hint">A cor de resalto do tema será empregada para salientar</string>
     <string name="title_advanced_gravatars_hint">Podería haber un risco de privacidade</string>
-    <string name="title_advanced_name_email_hint">Cando estea desactivado, só se mostrarán os nomes cando estean dispoñibles</string>
     <string name="title_advanced_preview_hint">Soamente estará dispoñible cando o texto da mensaxe estea baixado</string>
     <string name="title_advanced_preview_lines_hint">Maximo de %s caracteres en total</string>
     <string name="title_advanced_preview_issue">O desprazamento pode ser lento por un fallo en algunhas versións de Android cando o número de liñas é máis de un</string>
@@ -1313,7 +1312,7 @@
     <string name="title_download">Descargar</string>
     <string name="title_report">Informar</string>
     <string name="title_fix">Reparar</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Activar</string>
+    <string name="title_enable">Activar</string>
     <string name="title_enabled">Activado</string>
     <string name="title_executing">Executando</string>
     <string name="title_completed">Finalizado</string>

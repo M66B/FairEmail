@@ -188,7 +188,7 @@
     <string name="title_reset_order">Đặt lại thứ tự</string>
     <string name="title_setup_authentication">Xác thực</string>
     <string name="title_setup_biometrics">Xác thực sinh trắc học</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Bật</string>
+    <string name="title_setup_biometrics_enable">Bật</string>
     <string name="title_setup_biometrics_disable">Tắt</string>
     <string name="title_setup_biometrics_unlock">Mở khoá</string>
     <string name="title_setup_theme">Chọn chủ đề</string>
@@ -507,7 +507,7 @@
     <string name="title_advanced_threading_hint">Nhóm các thư liên quan đến nhau</string>
     <string name="title_advanced_highlight_hint">Màu nổi bật của chủ đề sẽ được sử dụng để đánh dấu</string>
     <string name="title_advanced_gravatars_hint">Có thể có rủi ro về sự riêng tư</string>
-    <string name="title_advanced_name_email_hint">Khi được tắt, chỉ có tên sẽ được hiện khi có</string>
+    <string name="title_advanced_name_email_hint">Tên sẽ chỉ được hiện khi có sẵn</string>
     <string name="title_advanced_preview_hint">Chỉ có khi văn bản thư đã được tải xuống</string>
     <string name="title_advanced_preview_lines_hint">Tổng cộng tối đa %s kí tự</string>
     <string name="title_advanced_preview_issue">Việc cuộn có thể chậm do một lỗi trong một số phiên bản Android khi số dòng nhiều hơn một</string>
@@ -1321,8 +1321,10 @@
     <string name="title_download">Tải xuống</string>
     <string name="title_report">Báo cáo</string>
     <string name="title_fix">Sửa</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Bật</string>
+    <string name="title_enable">Bật</string>
     <string name="title_enabled">Đã bật</string>
+    <string name="title_disable">Tắt</string>
+    <string name="title_keep_current">Giữ hiện tại</string>
     <string name="title_executing">Đang thực thi</string>
     <string name="title_completed">Đã hoàn thành</string>
     <string name="title_default_changed">Mặc định đã thay đổi</string>
@@ -1566,4 +1568,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Chỉ tên</item>
+        <item>Chỉ email</item>
+        <item>Tên và email</item>
+    </string-array>
 </resources>

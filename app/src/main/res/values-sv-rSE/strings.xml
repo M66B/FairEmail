@@ -194,7 +194,7 @@
     <string name="title_reset_order">Återställ ordning</string>
     <string name="title_setup_authentication">Autentisering</string>
     <string name="title_setup_biometrics">Biometrisk autentisering</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivera</string>
+    <string name="title_setup_biometrics_enable">Aktivera</string>
     <string name="title_setup_biometrics_disable">Inaktivera</string>
     <string name="title_setup_biometrics_unlock">Lås upp</string>
     <string name="title_setup_theme">Välj tema</string>
@@ -508,7 +508,6 @@
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
     <string name="title_advanced_highlight_hint">Accentfärgen på temat kommer att användas för markering</string>
     <string name="title_advanced_gravatars_hint">Det kan finnas en integritetsrisk</string>
-    <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_preview_lines_hint">Max %s tecken totalt</string>
     <string name="title_advanced_preview_issue">Scrollningen kan vara långsam på grund av en bugg i vissa Android-versioner när antalet rader är mer än en</string>
@@ -1300,7 +1299,7 @@
     <string name="title_download">Ladda ned</string>
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktivera</string>
+    <string name="title_enable">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
     <string name="title_executing">Kör</string>
     <string name="title_completed">Slutförd</string>

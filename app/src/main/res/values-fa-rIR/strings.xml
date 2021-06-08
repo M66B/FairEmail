@@ -148,7 +148,7 @@
     <string name="title_reset_order">بازنشانی ترتیب‌بندی</string>
     <string name="title_setup_authentication">تائید هویت</string>
     <string name="title_setup_biometrics">تایید هویت بیومتریک</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">فعال‌سازی</string>
+    <string name="title_setup_biometrics_enable">فعال‌سازی</string>
     <string name="title_setup_biometrics_disable">غیرفعال‌سازی</string>
     <string name="title_setup_biometrics_unlock">بازکردن</string>
     <string name="title_setup_theme">انتخاب پوسته</string>
@@ -933,7 +933,7 @@
     <string name="title_download">بارگیری</string>
     <string name="title_report">گزارش</string>
     <string name="title_fix">تعمیر</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">فعال‌سازی</string>
+    <string name="title_enable">فعال‌سازی</string>
     <string name="title_enabled">فعال شده</string>
     <string name="title_executing">در حال اجرا</string>
     <string name="title_completed">کامل شده</string>

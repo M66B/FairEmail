@@ -160,8 +160,10 @@
     <string name="title_setup_free">Onko tämän sovelluksen käyttäminen ilmaista?</string>
     <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
+    <string name="title_setup_permissions_explanation">Yhteystietojen käyttöoikeudet tarvitaan yhteystietojen etsimiseen ja ehdottamiseen</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
     <string name="title_setup_doze_remark">Sähköpostien lähettämiseen ja vastaanottamiseen luotettavasti</string>
+    <string name="title_setup_doze_explanation">Akun käytön optimointi tulisi poistaa käytöstä sovellukselle, jotta viestejä voidaan lähettää ja vastaanottaa taustalla luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen tältä sovellukselta vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
@@ -195,7 +197,7 @@
     <string name="title_reset_order">Palauta alkuperäinen järjestys</string>
     <string name="title_setup_authentication">Tunnistautuminen</string>
     <string name="title_setup_biometrics">Biometrinen tunnistautuminen</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Ota käyttöön</string>
+    <string name="title_setup_biometrics_enable">Ota käyttöön</string>
     <string name="title_setup_biometrics_disable">Poista käytöstä</string>
     <string name="title_setup_biometrics_unlock">Poista lukitus</string>
     <string name="title_setup_theme">Valitse teema</string>
@@ -417,6 +419,7 @@
     <string name="title_advanced_notify_action_snooze">Torkuta</string>
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_notify_clear">Poista ilmoitukset uusista viesteistä katsottaessa viestilistaa</string>
+    <string name="title_advanced_notify_subtext">Näytä tilin tai kansion nimi alatekstinä</string>
     <string name="title_advanced_wearable_preview">Lähetä ilmoitukset puettaviin laitteisiin vain esikatselun kanssa</string>
     <string name="title_advanced_notify_messaging">Käytä Androidin viestityylistä ilmoituksen muotoilua</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
@@ -513,7 +516,7 @@
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
-    <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
+    <string name="title_advanced_name_email_hint">Nimet näytetään vain niiden ollessa saatavilla</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_lines_hint">Enintään %s merkkiä</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
@@ -786,6 +789,7 @@
     <string name="title_print_images">Tulosta kuvia</string>
     <string name="title_print_images_remark">Kuvien lataaminen saattaa kestää jonkin aikaa</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
+    <string name="title_share_as_html">Jaa HTML:nä</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>
     <string name="title_manage_keywords">Hallitse avainsanoja</string>
@@ -860,6 +864,7 @@
     <string name="title_attachments_incomplete">Joitakin liitteitä tai kuvia ei ladattu eikä voitu lisätä</string>
     <string name="title_ask_save">Tallenna muutokset?</string>
     <string name="title_ask_delete">Poistetaanko viesti pysyvästi?</string>
+    <string name="title_ask_delete_accept">Ymmärrän, että viestien pysyvästi poistamista ei voi perua</string>
     <string name="title_ask_delete_answer">Poistetaanko vastausviestipohja pysyvästi?</string>
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
@@ -1237,6 +1242,8 @@
     <string name="title_legend_view">Näytä sisältö</string>
     <string name="title_legend_hide">Piilota sisältö</string>
     <string name="title_legend_download">Lataa sisältö</string>
+    <string name="title_legend_original">Näytä alkuperäinen viesti</string>
+    <string name="title_legend_reformatted">Näytä uudelleenmuotoiltu viesti</string>
     <string name="title_legend_external_image">Ulkoisen kuvan paikkamerkki</string>
     <string name="title_legend_embedded_image">Upotetun kuvan paikkamerkki</string>
     <string name="title_legend_tracking_pixel">Seurantakuva</string>
@@ -1298,6 +1305,7 @@
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>
+    <string name="title_image_link">Kuvalinkki</string>
     <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>
     <string name="title_tracking_link">Tämä verkkosivu saattaa seurata sinua</string>
     <string name="title_suspicious_link">Tämä on epäilyttävä linkki</string>
@@ -1322,8 +1330,10 @@
     <string name="title_download">Lataa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Ota käyttöön</string>
+    <string name="title_enable">Ota käyttöön</string>
     <string name="title_enabled">Käytössä</string>
+    <string name="title_disable">Poista käytöstä</string>
+    <string name="title_keep_current">Säilytä nykyinen</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
     <string name="title_default_changed">Oletus muutettu</string>
@@ -1575,4 +1585,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Vain nimi</item>
+        <item>Vain sähköposti</item>
+        <item>Nimi ja sähköposti</item>
+    </string-array>
 </resources>

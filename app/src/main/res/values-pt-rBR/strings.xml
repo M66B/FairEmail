@@ -193,7 +193,7 @@
     <string name="title_reset_order">Redefinir ordem</string>
     <string name="title_setup_authentication">Autenticação</string>
     <string name="title_setup_biometrics">Autenticação biométrica</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Habilitar</string>
+    <string name="title_setup_biometrics_enable">Habilitar</string>
     <string name="title_setup_biometrics_disable">Desabilitar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Selecione um tema</string>
@@ -504,7 +504,6 @@
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_highlight_hint">A cor de destaque do tema será usada para destacar</string>
     <string name="title_advanced_gravatars_hint">Pode haver um risco na privacidade</string>
-    <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_preview_lines_hint">Máximo de %s caracteres no total</string>
     <string name="title_advanced_preview_issue">Rolagem pode ser lenta devido a um bug em algumas versões do Android quando o número de linhas é mais de uma</string>
@@ -1282,8 +1281,10 @@
     <string name="title_download">Baixar</string>
     <string name="title_report">Reportar</string>
     <string name="title_fix">Corrigir</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Habilitar</string>
+    <string name="title_enable">Habilitar</string>
     <string name="title_enabled">Habilitado</string>
+    <string name="title_disable">Desabilitar</string>
+    <string name="title_keep_current">Manter o atual</string>
     <string name="title_executing">Executando</string>
     <string name="title_completed">Concluído</string>
     <string name="title_default_changed">Padrão alterado</string>

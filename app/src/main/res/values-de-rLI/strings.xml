@@ -199,7 +199,7 @@
     <string name="title_reset_order">Standard-Reihenfolge</string>
     <string name="title_setup_authentication">Authentifizierung</string>
     <string name="title_setup_biometrics">Biometrische Authentifizierung</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivieren</string>
+    <string name="title_setup_biometrics_enable">Aktivieren</string>
     <string name="title_setup_biometrics_disable">Deaktivieren</string>
     <string name="title_setup_biometrics_unlock">Entsperren</string>
     <string name="title_setup_theme">Design auswählen</string>
@@ -519,7 +519,7 @@
     <string name="title_advanced_threading_hint">Zusammengehörige Nachrichten gruppieren</string>
     <string name="title_advanced_highlight_hint">Die Akzentfarbe des Designs wird zur Hervorhebung verwendet</string>
     <string name="title_advanced_gravatars_hint">Es könnte ein Datenschutzrisiko geben</string>
-    <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
+    <string name="title_advanced_name_email_hint">Namen werden nur angezeigt, wenn sie verfügbar sind</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
@@ -866,7 +866,7 @@
     <string name="title_attachments_incomplete">Einige Anhänge oder Bilder wurden nicht heruntergeladen und konnten nicht hinzugefügt werden</string>
     <string name="title_ask_save">Änderungen speichern?</string>
     <string name="title_ask_delete">Nachricht dauerhaft löschen?</string>
-    <string name="title_ask_delete_accept">Ich habe verstanden, dass das dauerhafte Löschen von Nachrichten nicht widerrufen werden kann</string>
+    <string name="title_ask_delete_accept">Ich verstehe, dass das Löschen von Nachrichten unwiderruflich ist</string>
     <string name="title_ask_delete_answer">Antwortvorlage dauerhaft löschen?</string>
     <string name="title_ask_delete_rule">Regel dauerhaft löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
@@ -1330,10 +1330,10 @@
     <string name="title_download">Herunterladen</string>
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktivieren</string>
+    <string name="title_enable">Aktivieren</string>
     <string name="title_enabled">Aktiviert</string>
-    <string name="title_disable" comment="title_disable&#10;Action (verb)">Deaktivieren</string>
-    <string name="title_keep_current" comment="title_keep_current&#10;Keep current (value, state, etc)&#10;">Aktuelles behalten</string>
+    <string name="title_disable">Deaktivieren</string>
+    <string name="title_keep_current">Aktuelles behalten</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
     <string name="title_default_changed">Standard geändert</string>
@@ -1585,4 +1585,9 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Nur Name</item>
+        <item>Nur E-Mail-Adresse</item>
+        <item>Name und E-Mail-Adresse</item>
+    </string-array>
 </resources>

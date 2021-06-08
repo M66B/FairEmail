@@ -178,7 +178,7 @@
     <string name="title_reset_order">重置順序</string>
     <string name="title_setup_authentication">認證</string>
     <string name="title_setup_biometrics">生物認證</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">啟用</string>
+    <string name="title_setup_biometrics_enable">啟用</string>
     <string name="title_setup_biometrics_disable">停用</string>
     <string name="title_setup_biometrics_unlock">解鎖</string>
     <string name="title_setup_theme">選擇主題</string>
@@ -470,7 +470,6 @@
     <string name="title_advanced_threading_hint">彼此相關的群組訊息</string>
     <string name="title_advanced_highlight_hint">主題的強調色將用於突出顯示</string>
     <string name="title_advanced_gravatars_hint">可能存在隱私風險</string>
-    <string name="title_advanced_name_email_hint">禁用時，僅顯示名稱（如果可用）</string>
     <string name="title_advanced_preview_hint">僅在消息文本已被下載時可用</string>
     <string name="title_advanced_preview_lines_hint">總計最多 %s 字元</string>
     <string name="title_advanced_preview_issue">由於某些Android版本中的錯誤，當行數超過一時，滾動可能會變慢</string>
@@ -1217,7 +1216,7 @@
     <string name="title_download">下載</string>
     <string name="title_report">報告</string>
     <string name="title_fix">修復</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">啟用</string>
+    <string name="title_enable">啟用</string>
     <string name="title_enabled">已啟用</string>
     <string name="title_executing">執行中</string>
     <string name="title_completed">已完成</string>

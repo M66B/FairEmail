@@ -134,7 +134,7 @@
     <string name="title_setup_reorder_folders">폴더 정렬</string>
     <string name="title_reset_order">정렬 초기화</string>
     <string name="title_setup_authentication">인증</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">사용</string>
+    <string name="title_setup_biometrics_enable">사용</string>
     <string name="title_setup_biometrics_disable">사용 안 함</string>
     <string name="title_setup_biometrics_unlock">잠금 해제</string>
     <string name="title_setup_theme">테마 선택</string>
@@ -651,8 +651,10 @@
     <string name="title_download">다운로드</string>
     <string name="title_report">신고</string>
     <string name="title_fix">수정</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">사용</string>
+    <string name="title_enable">사용</string>
     <string name="title_enabled">켜짐</string>
+    <string name="title_disable">사용 안 함</string>
+    <string name="title_keep_current">현재 상태 유지</string>
     <string name="title_executing">실행 중</string>
     <string name="title_completed">완료함</string>
     <string name="title_default_changed">기본값 변경됨</string>

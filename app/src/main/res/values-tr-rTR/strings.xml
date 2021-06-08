@@ -198,7 +198,7 @@
     <string name="title_reset_order">Düzeni sıfırla</string>
     <string name="title_setup_authentication">Kimlik doğrulama</string>
     <string name="title_setup_biometrics">Biyometrik doğrulama</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Etkin</string>
+    <string name="title_setup_biometrics_enable">Etkin</string>
     <string name="title_setup_biometrics_disable">Devredışı</string>
     <string name="title_setup_biometrics_unlock">Kilidi Aç</string>
     <string name="title_setup_theme">Tema Seç</string>
@@ -517,7 +517,6 @@
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
     <string name="title_advanced_gravatars_hint">Bir gizlilik riski olabilir</string>
-    <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_preview_lines_hint">Toplamda maksimum %s karakter</string>
     <string name="title_advanced_preview_issue">Bazı Android sürümlerindeki bir hata nedeniyle satır sayısı birden fazla olduğunda kaydırma yavaş olabilir</string>
@@ -1249,7 +1248,7 @@
     <string name="title_download">İndir</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Etkin</string>
+    <string name="title_enable">Etkin</string>
     <string name="title_enabled">Etkin</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>

@@ -168,7 +168,7 @@
     <string name="title_reset_order">Tilbakestill rekkefølge</string>
     <string name="title_setup_authentication">Autentisering</string>
     <string name="title_setup_biometrics">Biometrisk autentisering</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktiver</string>
+    <string name="title_setup_biometrics_enable">Aktiver</string>
     <string name="title_setup_biometrics_disable">Deaktiver</string>
     <string name="title_setup_biometrics_unlock">Låse opp</string>
     <string name="title_setup_theme">Velg tema</string>
@@ -447,7 +447,6 @@
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>
     <string name="title_advanced_highlight_hint">Farge på temaet vil bli brukt for å framheve</string>
     <string name="title_advanced_gravatars_hint">Det kan være en personvernrisiko</string>
-    <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
     <string name="title_advanced_preview_issue">Rullingen kan gå tregt på grunn av en feil i noen Android-versjoner når antall linjer er mer enn én</string>
     <string name="title_advanced_overview_mode_hint">Dette kan resultere i veldig liten skrift</string>
@@ -1175,7 +1174,7 @@
     <string name="title_download">Last ned</string>
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktiver</string>
+    <string name="title_enable">Aktiver</string>
     <string name="title_enabled">Aktivert</string>
     <string name="title_executing">Utfører</string>
     <string name="title_completed">Fullført</string>

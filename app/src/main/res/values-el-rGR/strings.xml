@@ -198,7 +198,7 @@
     <string name="title_reset_order">Επαναφορά ταξινόμησης</string>
     <string name="title_setup_authentication">Ταυτοποίηση</string>
     <string name="title_setup_biometrics">Βιομετρική ταυτοποίηση</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Ενεργοποίηση</string>
+    <string name="title_setup_biometrics_enable">Ενεργοποίηση</string>
     <string name="title_setup_biometrics_disable">Απενεργοποίηση</string>
     <string name="title_setup_biometrics_unlock">Ξεκλείδωμα</string>
     <string name="title_setup_theme">Επιλογή θέματος</string>
@@ -515,7 +515,7 @@
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
     <string name="title_advanced_highlight_hint">Το χρώμα επισήμανσης του θέματος θα χρησιμοποιηθεί για έμφαση</string>
     <string name="title_advanced_gravatars_hint">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
-    <string name="title_advanced_name_email_hint">Αν απενεργοποιηθεί, θα προβάλλονται μόνον τα ονόματα εφόσον είναι διαθέσιμα</string>
+    <string name="title_advanced_name_email_hint">Τα ονόματα θα εμφανίζονται μόνον όταν είναι διαθέσιμα</string>
     <string name="title_advanced_preview_hint">Διαθέσιμο μόνον εφόσον το κείμενο του μηνύματος έχει κατέβει</string>
     <string name="title_advanced_preview_lines_hint">Μέγιστο %s χαρακτήρες συνολικά</string>
     <string name="title_advanced_preview_issue">Η κύλιση ενδέχεται να καθυστερεί εξαιτίας ενός σφάλματος σε ορισμένες εκδόσεις του Android, όταν ο αριθμός των σειρών υπερβαίνει τη μία</string>
@@ -1329,10 +1329,10 @@
     <string name="title_download">Κατέβασμα</string>
     <string name="title_report">Αποστολή αναφοράς</string>
     <string name="title_fix">Επιδιόρθωση</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Ενεργοποίηση</string>
+    <string name="title_enable">Ενεργοποίηση</string>
     <string name="title_enabled">Ενεργοποιημένο</string>
-    <string name="title_disable" comment="title_disable&#10;Action (verb)">Απενεργοποίηση</string>
-    <string name="title_keep_current" comment="title_keep_current&#10;Keep current (value, state, etc)&#10;">Διατήρηση τρέχοντος</string>
+    <string name="title_disable">Απενεργοποίηση</string>
+    <string name="title_keep_current">Διατήρηση τρέχοντος</string>
     <string name="title_executing">Εκτελείται</string>
     <string name="title_completed">Ολοκληρώθηκε</string>
     <string name="title_default_changed">Η προεπιλογή έχει αλλάξει</string>
@@ -1584,4 +1584,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Όνομα μόνο</item>
+        <item>Μέιλ μόνο</item>
+        <item>Όνομα και μέιλ</item>
+    </string-array>
 </resources>

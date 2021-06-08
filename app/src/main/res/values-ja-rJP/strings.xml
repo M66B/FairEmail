@@ -187,7 +187,7 @@
     <string name="title_reset_order">並び替えのリセット</string>
     <string name="title_setup_authentication">認証</string>
     <string name="title_setup_biometrics">生体認証</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">有効</string>
+    <string name="title_setup_biometrics_enable">有効</string>
     <string name="title_setup_biometrics_disable">無効</string>
     <string name="title_setup_biometrics_unlock">ロック解除</string>
     <string name="title_setup_theme">テーマを選択</string>
@@ -506,7 +506,7 @@
     <string name="title_advanced_threading_hint">互いに関連するグループメッセージ</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーに強調表示を使用します</string>
     <string name="title_advanced_gravatars_hint">プライバシーリスクが有るかもしれません</string>
-    <string name="title_advanced_name_email_hint">無効にすると利用可能な場合にのみ名前が表示されます</string>
+    <string name="title_advanced_name_email_hint">名前は利用可能な場合にのみ表示されます</string>
     <string name="title_advanced_preview_hint">メッセージテキストがダウンロードされた場合にのみ使用可能</string>
     <string name="title_advanced_preview_lines_hint">合計 %s 文字</string>
     <string name="title_advanced_preview_issue">行数が複数の場合、一部のAndroidバージョンバグの為スクロールが遅くなる可能性が有ります</string>
@@ -1320,8 +1320,10 @@
     <string name="title_download">ダウンロード</string>
     <string name="title_report">報告する</string>
     <string name="title_fix">修正する</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">有効にする</string>
+    <string name="title_enable">有効にする</string>
     <string name="title_enabled">有効化</string>
+    <string name="title_disable">無効</string>
+    <string name="title_keep_current">今の状態を維持</string>
     <string name="title_executing">実行中</string>
     <string name="title_completed">完成しました</string>
     <string name="title_default_changed">デフォルトの変更</string>
@@ -1572,4 +1574,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>名前のみ</item>
+        <item>メールのみ</item>
+        <item>名前とメール</item>
+    </string-array>
 </resources>

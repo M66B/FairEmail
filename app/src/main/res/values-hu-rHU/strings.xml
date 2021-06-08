@@ -192,7 +192,7 @@
     <string name="title_reset_order">Sorrend visszaállítása</string>
     <string name="title_setup_authentication">Azonosítás</string>
     <string name="title_setup_biometrics">Biometrikus azonosítás</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Engedélyezés</string>
+    <string name="title_setup_biometrics_enable">Engedélyezés</string>
     <string name="title_setup_biometrics_disable">Letiltás</string>
     <string name="title_setup_biometrics_unlock">Feloldás</string>
     <string name="title_setup_theme">Téma kiválasztása</string>
@@ -502,7 +502,6 @@
     <string name="title_advanced_threading_hint">Egymáshoz kapcsolódó üzenetek csoportosítása</string>
     <string name="title_advanced_highlight_hint">A téma kiemelőszíne a kiemeléshez lesz használva</string>
     <string name="title_advanced_gravatars_hint">Adatvédelmi szempontból aggályos a használata</string>
-    <string name="title_advanced_name_email_hint">Ha ki van kapcsolva csak nevek fognak megjelenni, ha elérhető</string>
     <string name="title_advanced_preview_hint">Csak az üzenetek szövegének letöltése után elérhető</string>
     <string name="title_advanced_preview_lines_hint">Legfeljebb %s karakter összesen</string>
     <string name="title_advanced_preview_issue">A görgetés bizonyos Android verziók hibája miatt lassú lehet, egynél több sor esetén</string>
@@ -1266,7 +1265,7 @@
     <string name="title_download">Letöltés</string>
     <string name="title_report">Jelentés</string>
     <string name="title_fix">Javítás</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Bekapcsolás</string>
+    <string name="title_enable">Bekapcsolás</string>
     <string name="title_enabled">Bekapcsolva</string>
     <string name="title_executing">Végrehajtás</string>
     <string name="title_completed">Befejezve</string>

@@ -196,7 +196,7 @@
     <string name="title_reset_order">Reset folchoarder</string>
     <string name="title_setup_authentication">Ferifikaasje</string>
     <string name="title_setup_biometrics">Biometrysk ferifikaasje</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Ynskeakele</string>
+    <string name="title_setup_biometrics_enable">Ynskeakele</string>
     <string name="title_setup_biometrics_disable">Utskeakele</string>
     <string name="title_setup_biometrics_unlock">Losmeitsje</string>
     <string name="title_setup_theme">Selektearje tema</string>
@@ -512,7 +512,6 @@
     <string name="title_advanced_threading_hint">Groepberjochten relatearre oan elkoar</string>
     <string name="title_advanced_highlight_hint">Berjochten wurde allinich op datum groepeare as se binne op tiid binne sorteare</string>
     <string name="title_advanced_gravatars_hint">D\'r kin in privacy risiko wêze</string>
-    <string name="title_advanced_name_email_hint">As útskeakele sille allinich nammen werjûn wurde as se beskikber binne</string>
     <string name="title_advanced_preview_hint">Allinich beskikber as berjochttekst is ynladen</string>
     <string name="title_advanced_preview_lines_hint">Maksimum %s karakters yn totaal</string>
     <string name="title_advanced_preview_issue">Scrollen kin stadich wêze fanwegen in flater yn guon Android-ferzjes as it oantal rigels mear dan ien is</string>
@@ -1319,7 +1318,7 @@
     <string name="title_download">Download</string>
     <string name="title_report">Melde</string>
     <string name="title_fix">Meitsje</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Ynskeakele</string>
+    <string name="title_enable">Ynskeakele</string>
     <string name="title_enabled">Ynskeakele</string>
     <string name="title_executing">Eksekutearje</string>
     <string name="title_completed">Klear</string>

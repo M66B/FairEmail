@@ -136,7 +136,7 @@
     <string name="title_reset_order">Ресетуј распоред</string>
     <string name="title_setup_authentication">Провера идентитета</string>
     <string name="title_setup_biometrics">Биометријска провера идентитета</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Укључи</string>
+    <string name="title_setup_biometrics_enable">Укључи</string>
     <string name="title_setup_biometrics_disable">Искључи</string>
     <string name="title_setup_biometrics_unlock">Откључај</string>
     <string name="title_setup_theme">Одабери тему</string>
@@ -287,7 +287,6 @@
     <string name="title_advanced_layout_hint">Пребацивање на компактнији приказ и промена величина текста поруке може да се уради из горње акционе траке у порукама</string>
     <string name="title_advanced_date_hint">Поруке су груписане по датуму само ако су сортиране по времену</string>
     <string name="title_advanced_threading_hint">Групиши међусобно повезане поруке</string>
-    <string name="title_advanced_name_email_hint">Када је искључено, биће приказана само имена ако су доступна</string>
     <string name="title_advanced_preview_hint">Доступно само када се преузме текст поруке</string>
     <string name="title_advanced_inline_hint">Уметнуте слике су слике укључене у поруку</string>
     <string name="title_advanced_autoexpand_hint">Аутоматски отвори поруку када има само једна порука или само једна непрочитана порука у разговору</string>
@@ -817,7 +816,7 @@
     <string name="title_info">Инфо</string>
     <string name="title_report">Извештај</string>
     <string name="title_fix">Поправи</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Укључи</string>
+    <string name="title_enable">Укључи</string>
     <string name="title_enabled">Укључено</string>
     <string name="title_executing">Извршавам</string>
     <string name="title_completed">Завршено</string>

@@ -195,7 +195,7 @@
     <string name="title_reset_order">Nulstil rækkefølge</string>
     <string name="title_setup_authentication">Godkendelse</string>
     <string name="title_setup_biometrics">Biometrisk godkendelse</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Aktivér</string>
+    <string name="title_setup_biometrics_enable">Aktivér</string>
     <string name="title_setup_biometrics_disable">Deaktivér</string>
     <string name="title_setup_biometrics_unlock">Oplås</string>
     <string name="title_setup_theme">Vælg tema</string>
@@ -508,7 +508,7 @@
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
     <string name="title_advanced_gravatars_hint">Der kan være en fortrolighedsrisiko</string>
-    <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
+    <string name="title_advanced_name_email_hint">Navne vises kun, hvis tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_preview_lines_hint">Maks. %s tegn i alt</string>
     <string name="title_advanced_preview_issue">Rulning kan, grundet en fejl i visse Android-versioner, være langsom, når antallet af linjer er flere end én</string>
@@ -1308,8 +1308,10 @@
     <string name="title_download">Download</string>
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Aktivér</string>
+    <string name="title_enable">Aktivér</string>
     <string name="title_enabled">Aktiveret</string>
+    <string name="title_disable">Deaktivér</string>
+    <string name="title_keep_current">Behold aktuelle</string>
     <string name="title_executing">Eksekverer</string>
     <string name="title_completed">Fuldført</string>
     <string name="title_default_changed">Standard ændret</string>
@@ -1561,4 +1563,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Kun navn</item>
+        <item>Kun e-mail</item>
+        <item>Navn eller e-mail</item>
+    </string-array>
 </resources>

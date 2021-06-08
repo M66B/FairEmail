@@ -217,7 +217,7 @@
     <string name="title_reset_order">Zresetuj kolejność</string>
     <string name="title_setup_authentication">Uwierzytelnianie</string>
     <string name="title_setup_biometrics">Uwierzytelnianie biometryczne</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Włącz</string>
+    <string name="title_setup_biometrics_enable">Włącz</string>
     <string name="title_setup_biometrics_disable">Wyłącz</string>
     <string name="title_setup_biometrics_unlock">Odblokuj</string>
     <string name="title_setup_theme">Wybierz motyw</string>
@@ -439,6 +439,7 @@
     <string name="title_advanced_notify_action_snooze">Odłóż</string>
     <string name="title_advanced_notify_remove">Usuń powiadomienie o nowej wiadomości po dotknięciu powiadomienia</string>
     <string name="title_advanced_notify_clear">Usuń powiadomienia o nowych wiadomościach podczas przeglądania listy wiadomości</string>
+    <string name="title_advanced_notify_subtext">Pokaż nazwę konta lub folderu jako podtekst</string>
     <string name="title_advanced_wearable_preview">Powiadomienia z podglądem wiadomości wysyłaj tylko do urządzeń do noszenia</string>
     <string name="title_advanced_notify_messaging">Użyj formatu powiadomień w stylu wiadomości systemu Android</string>
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
@@ -536,7 +537,7 @@
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_highlight_hint">Do podświetlenia zostanie użyty akcent kolorystyczny motywu</string>
     <string name="title_advanced_gravatars_hint">Może istnieć ryzyko naruszenia prywatności</string>
-    <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, jeśli są dostępne</string>
+    <string name="title_advanced_name_email_hint">Nazwy będą wyświetlane tylko wtedy, gdy będą dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_preview_lines_hint">Maksymalnie %s znaków</string>
     <string name="title_advanced_preview_issue">Przewijanie może być powolne z powodu błędu w niektórych wersjach Androida, gdy liczba linii jest większa niż jedna</string>
@@ -809,6 +810,7 @@
     <string name="title_print_images">Drukuj obrazy</string>
     <string name="title_print_images_remark">Pobieranie obrazów może zająć trochę czasu</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
+    <string name="title_share_as_html">Udostępnij jako HTML</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
     <string name="title_raw_send">Wyślij jako załącznik</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
@@ -1349,8 +1351,10 @@
     <string name="title_download">Pobierz</string>
     <string name="title_report">Zgłoś błąd</string>
     <string name="title_fix">Popraw</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Włącz</string>
+    <string name="title_enable">Włącz</string>
     <string name="title_enabled">Włączone</string>
+    <string name="title_disable">Wyłącz</string>
+    <string name="title_keep_current">Zachowaj bieżący</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
     <string name="title_default_changed">Zmieniono wartość domyślną</string>
@@ -1603,4 +1607,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Tylko nazwa</item>
+        <item>Tylko e-mail</item>
+        <item>Nazwa oraz e-mail</item>
+    </string-array>
 </resources>

@@ -163,7 +163,7 @@
     <string name="title_reset_order">Poništite redoslijed</string>
     <string name="title_setup_authentication">Autentifikacija</string>
     <string name="title_setup_biometrics">Biometrijska autentifikacija</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Omogući</string>
+    <string name="title_setup_biometrics_enable">Omogući</string>
     <string name="title_setup_biometrics_disable">Onemogući</string>
     <string name="title_setup_biometrics_unlock">Otključaj</string>
     <string name="title_setup_theme">Odaberi temu</string>
@@ -363,7 +363,6 @@
     <string name="title_advanced_navbar_colorize_hint">Hoće li ovo raditi ovisi o verziji i varijante Androida</string>
     <string name="title_advanced_threading_hint">Grupiranje međusobno povezane poruke</string>
     <string name="title_advanced_gravatars_hint">Može postojati rizik za privatnost</string>
-    <string name="title_advanced_name_email_hint">Kada onemogućeno, samo će imena biti prikazana ako su dostupna</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>
     <string name="title_advanced_preview_issue">Pomicanje može biti sporo zbog pogreške u nekim verzijama Androida kada je broj linija veći od jedan</string>
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>
@@ -897,7 +896,7 @@
     <string name="title_info">Informacije</string>
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Omogući</string>
+    <string name="title_enable">Omogući</string>
     <string name="title_enabled">Omogućeno</string>
     <string name="title_executing">Izvršava</string>
     <string name="title_completed">Završeno</string>

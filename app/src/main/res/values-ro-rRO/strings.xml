@@ -208,7 +208,7 @@
     <string name="title_reset_order">Resetare ordine</string>
     <string name="title_setup_authentication">Autentificare</string>
     <string name="title_setup_biometrics">Autentificarea biometrică</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Activează</string>
+    <string name="title_setup_biometrics_enable">Activează</string>
     <string name="title_setup_biometrics_disable">Dezactivează</string>
     <string name="title_setup_biometrics_unlock">Deblocați</string>
     <string name="title_setup_theme">Selectare temă</string>
@@ -527,7 +527,7 @@
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_highlight_hint">Culoarea de accent a temei va fi folosită pentru evidențiere</string>
     <string name="title_advanced_gravatars_hint">S-ar putea să existe un risc de confidențialitate</string>
-    <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
+    <string name="title_advanced_name_email_hint">Numele vor fi afișate numai atunci când sunt disponibile</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_preview_lines_hint">Maxim %s caractere în total</string>
     <string name="title_advanced_preview_issue">Derularea poate fi lentă din cauza unei erori în unele versiuni de Android atunci când numărul de linii este mare</string>
@@ -1341,8 +1341,10 @@
     <string name="title_download">Descărcare</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Activează</string>
+    <string name="title_enable">Activează</string>
     <string name="title_enabled">Activat</string>
+    <string name="title_disable">Dezactivează</string>
+    <string name="title_keep_current">Țineți la curent</string>
     <string name="title_executing">Se execută</string>
     <string name="title_completed">Finalizat</string>
     <string name="title_default_changed">Implicit modificat</string>
@@ -1595,4 +1597,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Doar numele</item>
+        <item>Doar e-mail</item>
+        <item>Nume și e-mail</item>
+    </string-array>
 </resources>

@@ -218,7 +218,7 @@
     <string name="title_reset_order">Obnoviť poradie</string>
     <string name="title_setup_authentication">Overenie</string>
     <string name="title_setup_biometrics">Biometrické overenie</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Povoliť</string>
+    <string name="title_setup_biometrics_enable">Povoliť</string>
     <string name="title_setup_biometrics_disable">Zakázať</string>
     <string name="title_setup_biometrics_unlock">Odomknúť</string>
     <string name="title_setup_theme">Vybrať motív</string>
@@ -537,7 +537,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_threading_hint">Zoskupiť vzájomne súvisiace správy</string>
     <string name="title_advanced_highlight_hint">Na vysvietenie sa použije farba akcent z použitej témy</string>
     <string name="title_advanced_gravatars_hint">Môže predstavovať potenciálny risk straty súkromia</string>
-    <string name="title_advanced_name_email_hint">Pri vypnutí sa zobrazia iba dostupné mená</string>
     <string name="title_advanced_preview_hint">Dostupné len v prípade, že bol prevzatý text správy</string>
     <string name="title_advanced_preview_lines_hint">Maximálny počet %s znakov</string>
     <string name="title_advanced_preview_issue">Scrollovanie môže byť pomalé kvôli chybe v niektorých verziách Androidu, ak je počet položiek väčší než 1</string>
@@ -1346,7 +1345,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_download">Prevziať</string>
     <string name="title_report">Ohlásiť</string>
     <string name="title_fix">Opraviť</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Zapnúť</string>
+    <string name="title_enable">Zapnúť</string>
     <string name="title_enabled">Zapnuté</string>
     <string name="title_executing">Vykonávanie</string>
     <string name="title_completed">Dokončené</string>

@@ -157,7 +157,7 @@
     <string name="title_reset_order">Ponastavi vrstni red</string>
     <string name="title_setup_authentication">Overitev</string>
     <string name="title_setup_biometrics">Biometrična overitev</string>
-    <string name="title_setup_biometrics_enable" comment="title_setup_biometrics_enable&#10;Action (verb)">Omogoči</string>
+    <string name="title_setup_biometrics_enable">Omogoči</string>
     <string name="title_setup_biometrics_disable">Onemogoči</string>
     <string name="title_setup_biometrics_unlock">Odkleni</string>
     <string name="title_setup_theme">Izberi temo</string>
@@ -363,7 +363,6 @@
     <string name="title_advanced_navbar_colorize_hint">Delovanje tega je odvisno od različice in izvedbe Androida.</string>
     <string name="title_advanced_threading_hint">Združi sporočila, ki so med seboj povezana.</string>
     <string name="title_advanced_gravatars_hint">Vklop te možnosti lahko ogrozi zasebnost.</string>
-    <string name="title_advanced_name_email_hint">Ko je onemogočeno, bodo prikazana samo imena, če so na voljo.</string>
     <string name="title_advanced_preview_hint">Na voljo samo, če je bilo besedilo sporočila prejeto.</string>
     <string name="title_advanced_preview_issue">Pomikanje je lahko počasno zaradi hrošča v nekaterih različicah Androida, kadar je število vrstic večje od ena.</string>
     <string name="title_advanced_inline_hint">Slike v besedilu so vključene v sporočilo.</string>
@@ -966,7 +965,7 @@
     <string name="title_info">Infor.</string>
     <string name="title_report">Poročilo</string>
     <string name="title_fix">Popravi</string>
-    <string name="title_enable" comment="title_enable&#10;Action (verb)">Omogoči</string>
+    <string name="title_enable">Omogoči</string>
     <string name="title_enabled">Omogočeno</string>
     <string name="title_executing">Izvajanje</string>
     <string name="title_completed">Dokončano</string>
