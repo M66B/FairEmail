@@ -3893,6 +3893,7 @@ class Core {
                 if (channelId != null) {
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
                     if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
+                        db.message().setMessageUiIgnored(message.id, true);
                         Log.i("Notify disabled=" + message.id + " channel=" + channelId);
                         continue;
                     }
