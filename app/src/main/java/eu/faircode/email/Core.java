@@ -5033,7 +5033,7 @@ class Core {
                                 groupNotifying.put(group, new ArrayList<>());
 
                             if (id > 0) {
-                                Log.i("Notify restore " + tag + " id=" + id);
+                                EntityLog.log(context, "Notify restore " + tag + " id=" + id);
                                 groupNotifying.get(group).add(id);
                             }
                         }
