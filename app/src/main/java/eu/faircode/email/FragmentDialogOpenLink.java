@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -355,8 +356,16 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // https://developer.android.com/training/basics/intents/sending#AppChooser
                         Uri uri = Uri.parse(etLink.getText().toString());
-                        Helper.view(context, uri, true, true);
+                        Intent view = new Intent(Intent.ACTION_VIEW, uri);
+                        Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
+                        try {
+                            startActivity(chooser);
+                        } catch (ActivityNotFoundException ex) {
+                            Log.w(ex);
+                            Helper.view(context, uri, true, true);
+                        }
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
