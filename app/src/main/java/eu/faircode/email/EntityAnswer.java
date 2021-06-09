@@ -91,7 +91,7 @@ public class EntityAnswer implements Serializable {
                 last = fullName.substring(0, c).trim();
                 first = fullName.substring(c + 1).trim();
             } else {
-                c = fullName.lastIndexOf(' ');
+                c = fullName.indexOf(' ');
                 if (c > 0) {
                     first = fullName.substring(0, c).trim();
                     last = fullName.substring(c + 1).trim();
