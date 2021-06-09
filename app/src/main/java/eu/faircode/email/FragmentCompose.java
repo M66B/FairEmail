@@ -4632,7 +4632,36 @@ public class FragmentCompose extends FragmentBase {
                             if (attachments == null)
                                 attachments = new ArrayList<>();
 
-                            adapter.set(attachments);
+                            List<EntityAttachment> a = new ArrayList<>(attachments);
+                            rvAttachment.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        adapter.set(a);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        /*
+                                            java.lang.IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling androidx.recyclerview.widget.RecyclerView{f9baa84 VFED..... ........ 0,245-720,1445 #7f0a03fd app:id/rvAttachment}, adapter:eu.faircode.email.AdapterAttachment@954026d, layout:androidx.recyclerview.widget.LinearLayoutManager@ed06ea2, context:eu.faircode.email.ActivityCompose@d14c627
+                                              at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll(SourceFile:3)
+                                              at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged(SourceFile:1)
+                                              at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(SourceFile:2)
+                                              at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemRangeChanged(SourceFile:3)
+                                              at androidx.recyclerview.widget.AdapterListUpdateCallback.onChanged(SourceFile:1)
+                                              at androidx.recyclerview.widget.BatchingListUpdateCallback.dispatchLastEvent(SourceFile:2)
+                                              at androidx.recyclerview.widget.DiffUtil$DiffResult.dispatchUpdatesTo(SourceFile:36)
+                                              at eu.faircode.email.AdapterAttachment.set(SourceFile:6)
+                                              at eu.faircode.email.FragmentCompose$38$3.onChanged(SourceFile:3)
+                                              at eu.faircode.email.FragmentCompose$38$3.onChanged(SourceFile:1)
+                                              at androidx.lifecycle.LiveData.considerNotify(SourceFile:6)
+                                              at androidx.lifecycle.LiveData.dispatchingValue(SourceFile:8)
+                                              at androidx.lifecycle.LiveData.setValue(SourceFile:4)
+                                              at androidx.lifecycle.LiveData$1.run(SourceFile:5)
+                                              at android.os.Handler.handleCallback(Handler.java:751)
+                                         */
+                                    }
+                                }
+                            });
+
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
                             boolean downloading = false;

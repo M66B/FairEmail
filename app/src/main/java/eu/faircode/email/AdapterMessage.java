@@ -2665,7 +2665,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         "text/calendar".equals(attachment.getMimeType()))
                     calendar = attachment;
             }
-            adapterAttachment.set(a);
+
+            rvAttachment.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        adapterAttachment.set(a);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
 
             if (calendar != null && bind_extras)
                 bindCalendar(message, calendar);
