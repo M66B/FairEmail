@@ -245,6 +245,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean indentation;
     private boolean avatars;
     private boolean color_stripe;
+    private boolean check_authentication;
+    private boolean check_reply_domain;
+
     private MessageHelper.AddressFormat email_format;
     private boolean prefer_contact;
     private boolean only_contact;
@@ -948,11 +951,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Address[] recipients = ContactInfo.fillIn(
                     reverse && !show_recipients ? message.from : message.recipients, prefer_contact, only_contact);
             boolean authenticated =
-                    !(Boolean.FALSE.equals(message.dkim) ||
-                            Boolean.FALSE.equals(message.spf) ||
-                            Boolean.FALSE.equals(message.dmarc) ||
+                    !((Boolean.FALSE.equals(message.dkim) && check_authentication) ||
+                            (Boolean.FALSE.equals(message.spf) && check_authentication) ||
+                            (Boolean.FALSE.equals(message.dmarc) && check_authentication) ||
                             Boolean.FALSE.equals(message.mx) ||
-                            Boolean.FALSE.equals(message.reply_domain));
+                            (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain));
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
             // Text size
@@ -5586,6 +5589,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
+        this.check_authentication = prefs.getBoolean("check_authentication", true);
+        this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
+
         this.email_format = MessageHelper.getAddressFormat(context);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.only_contact = prefs.getBoolean("only_contact", false);
