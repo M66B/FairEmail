@@ -550,6 +550,15 @@ public class EntityRule {
         boolean cc = jargs.optBoolean("cc");
         boolean attachments = jargs.optBoolean("attachments");
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean prefix_once = prefs.getBoolean("prefix_once", true);
+        boolean alt_re = prefs.getBoolean("alt_re", true);
+        boolean alt_fwd = prefs.getBoolean("alt_fwd", true);
+        boolean separate_reply = prefs.getBoolean("separate_reply", false);
+        boolean extended_reply = prefs.getBoolean("extended_reply", false);
+        boolean quote_reply = prefs.getBoolean("quote_reply", true);
+        boolean quote = (quote_reply && TextUtils.isEmpty(to));
+
         EntityIdentity identity = db.identity().getIdentity(iid);
         if (identity == null)
             throw new IllegalArgumentException("Rule identity not found name=" + rule.name);
@@ -609,9 +618,17 @@ public class EntityRule {
             reply.cc = message.cc;
         reply.unsubscribe = "mailto:" + identity.email;
         reply.auto_submitted = true;
+
+        String subject = (message.subject == null ? "" : message.subject);
+        if (prefix_once)
+            EntityMessage.collapsePrefixes(context, message.language, subject, !TextUtils.isEmpty(to));
+
         reply.subject = context.getString(
-                TextUtils.isEmpty(to) ? R.string.title_subject_reply : R.string.title_subject_forward,
-                message.subject == null ? "" : message.subject);
+                TextUtils.isEmpty(to)
+                        ? (alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply)
+                        : (alt_fwd ? R.string.title_subject_forward_alt : R.string.title_subject_forward),
+                subject);
+
         reply.received = new Date().getTime();
 
         reply.sender = MessageHelper.getSortKey(reply.from);
@@ -619,12 +636,6 @@ public class EntityRule {
         reply.avatar = (lookupUri == null ? null : lookupUri.toString());
 
         reply.id = db.message().insertMessage(reply);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean separate_reply = prefs.getBoolean("separate_reply", false);
-        boolean extended_reply = prefs.getBoolean("extended_reply", false);
-        boolean quote_reply = prefs.getBoolean("quote_reply", true);
-        boolean quote = (quote_reply && TextUtils.isEmpty(to));
 
         String body = answer.getText(message.from);
         Document msg = JsoupEx.parse(body);

@@ -292,10 +292,8 @@ public class ServiceUI extends IntentService {
             throw new IllegalArgumentException("outbox not found");
 
         String subject = (ref.subject == null ? "" : ref.subject);
-        if (prefix_once) {
-            String re = getString(R.string.title_subject_reply, "");
-            subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
-        }
+        if (prefix_once)
+            subject = EntityMessage.collapsePrefixes(this, ref.language, subject, false);
 
         Bundle results = RemoteInput.getResultsFromIntent(intent);
         String body = results.getString("text");

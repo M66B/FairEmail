@@ -181,6 +181,64 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swSuggestFrequently" />
 
+                <RadioGroup
+                    android:id="@+id/rgRe"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLocalContacts">
+
+                    <RadioButton
+                        android:id="@+id/rbRe1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="6dp"
+                        android:text="@string/title_subject_reply"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <RadioButton
+                        android:id="@+id/rbRe2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="6dp"
+                        android:text="@string/title_subject_reply_alt"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgFwd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgRe">
+
+                    <RadioButton
+                        android:id="@+id/rbFwd1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="6dp"
+                        android:text="@string/title_subject_forward"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <RadioButton
+                        android:id="@+id/rbFwd2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="6dp"
+                        android:text="@string/title_subject_forward_alt"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </RadioGroup>
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSendReminders"
                     android:layout_width="0dp"
@@ -190,7 +248,7 @@
                     android:text="@string/title_advanced_send_reminders"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnLocalContacts"
+                    app:layout_constraintTop_toBottomOf="@id/rgFwd"
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView

@@ -264,6 +264,8 @@ public class FragmentCompose extends FragmentBase {
     private AdapterAttachment adapter;
 
     private boolean prefix_once = false;
+    private boolean alt_re = false;
+    private boolean alt_fwd = false;
     private boolean monospaced = false;
     private String compose_font;
     private Integer encrypt = null;
@@ -320,6 +322,8 @@ public class FragmentCompose extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefix_once = prefs.getBoolean("prefix_once", true);
+        alt_re = prefs.getBoolean("alt_re", true);
+        alt_fwd = prefs.getBoolean("alt_fwd", true);
         monospaced = prefs.getBoolean("monospaced", false);
         compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
         media = prefs.getBoolean("compose_media", true);
@@ -4110,8 +4114,11 @@ public class FragmentCompose extends FragmentBase {
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
                             if (prefix_once)
-                                subject = collapsePrefixes(context, ref.language, subject, false);
-                            data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_reply, subject);
+                                subject = EntityMessage.collapsePrefixes(context, ref.language, subject, false);
+                            data.draft.subject = Helper.getString(context,
+                                    ref.language,
+                                    alt_re ? R.string.title_subject_reply_alt : R.string.title_subject_reply,
+                                    subject);
 
                             String t = args.getString("text");
                             if (t != null) {
@@ -4126,8 +4133,11 @@ public class FragmentCompose extends FragmentBase {
                             }
                         } else if ("forward".equals(action)) {
                             if (prefix_once)
-                                subject = collapsePrefixes(context, ref.language, subject, true);
-                            data.draft.subject = Helper.getString(context, ref.language, R.string.title_subject_forward, subject);
+                                subject = EntityMessage.collapsePrefixes(context, ref.language, subject, true);
+                            data.draft.subject = Helper.getString(context,
+                                    ref.language,
+                                    alt_fwd ? R.string.title_subject_forward_alt : R.string.title_subject_forward,
+                                    subject);
                         } else if ("editasnew".equals(action)) {
                             if (ref.from != null && ref.from.length == 1) {
                                 String from = ((InternetAddress) ref.from[0]).getAddress();
@@ -5609,42 +5619,6 @@ public class FragmentCompose extends FragmentBase {
         state = (busy ? State.LOADING : State.LOADED);
         Helper.setViewsEnabled(view, !busy);
         getActivity().invalidateOptionsMenu();
-    }
-
-    private static String collapsePrefixes(Context context, String language, String subject, boolean forward) {
-        List<Pair<String, Boolean>> prefixes = new ArrayList<>();
-        for (String re : Helper.getStrings(context, language, R.string.title_subject_reply, ""))
-            prefixes.add(new Pair<>(re.trim().toLowerCase(), false));
-        for (String re : Helper.getStrings(context, language, R.string.title_subject_reply_alt, ""))
-            prefixes.add(new Pair<>(re.trim().toLowerCase(), false));
-        for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward, ""))
-            prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
-        for (String fwd : Helper.getStrings(context, language, R.string.title_subject_forward_alt, ""))
-            prefixes.add(new Pair<>(fwd.trim().toLowerCase(), true));
-
-        List<Boolean> scanned = new ArrayList<>();
-        subject = subject.trim();
-        while (true) {
-            boolean found = false;
-            for (Pair<String, Boolean> prefix : prefixes)
-                if (subject.toLowerCase().startsWith(prefix.first)) {
-                    found = true;
-                    int count = scanned.size();
-                    if (!prefix.second.equals(count == 0 ? forward : scanned.get(count - 1)))
-                        scanned.add(prefix.second);
-                    subject = subject.substring(prefix.first.length()).trim();
-                    break;
-                }
-            if (!found)
-                break;
-        }
-
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < scanned.size(); i++)
-            result.append(context.getString(scanned.get(i) ? R.string.title_subject_forward : R.string.title_subject_reply, ""));
-        result.append(subject);
-
-        return result.toString();
     }
 
     private static void addSignature(Context context, Document document, EntityMessage message, EntityIdentity identity) {

@@ -35,6 +35,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -47,6 +49,7 @@ import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swKeyboard;
@@ -56,6 +59,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestReceived;
     private SwitchCompat swSuggestFrequently;
     private Button btnLocalContacts;
+    private RadioGroup rgRe;
+    private RadioGroup rgFwd;
     private SwitchCompat swSendReminders;
     private Spinner spSendDelayed;
     private SwitchCompat swSendPending;
@@ -87,6 +92,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently",
+            "alt_re", "alt_fwd",
             "send_reminders", "send_delayed", "send_pending",
             "compose_font", "prefix_once", "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_reply", "signature_forward",
@@ -112,6 +118,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
+        rgRe = view.findViewById(R.id.rgRe);
+        rgFwd = view.findViewById(R.id.rgFwd);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
         swSendPending = view.findViewById(R.id.swSendPending);
@@ -209,6 +217,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS));
+            }
+        });
+
+        rgRe.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                prefs.edit().putBoolean("alt_re", checkedId == R.id.rbRe2).apply();
+            }
+        });
+
+        rgFwd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                prefs.edit().putBoolean("alt_fwd", checkedId == R.id.rbFwd2).apply();
             }
         });
 
@@ -429,6 +451,18 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                     : R.color.lightColorBackground_cards));
         }
 
+        String re1 = getString(R.string.title_subject_reply, "");
+        String re2 = getString(R.string.title_subject_reply_alt, "");
+        ((RadioButton) view.findViewById(R.id.rbRe1)).setText(re1);
+        ((RadioButton) view.findViewById(R.id.rbRe2)).setText(re2);
+        rgRe.setVisibility(Objects.equals(re1, re2) ? View.GONE : View.VISIBLE);
+
+        String fwd1 = getString(R.string.title_subject_forward, "");
+        String fwd2 = getString(R.string.title_subject_forward_alt, "");
+        ((RadioButton) view.findViewById(R.id.rbFwd1)).setText(fwd1);
+        ((RadioButton) view.findViewById(R.id.rbFwd2)).setText(fwd2);
+        rgFwd.setVisibility(Objects.equals(fwd1, fwd2) ? View.GONE : View.VISIBLE);
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -471,6 +505,10 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
         swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+
+        rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
+        rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
+
         swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
