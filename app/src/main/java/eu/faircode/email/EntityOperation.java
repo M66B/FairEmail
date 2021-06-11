@@ -269,6 +269,7 @@ public class EntityOperation {
                     boolean _ui_flagged = message.ui_flagged;
                     Boolean _ui_hide = message.ui_hide;
                     boolean _ui_browsed = message.ui_browsed;
+                    Long ui_busy = message.ui_busy;
                     Integer _color = message.color;
                     String _error = message.error;
 
@@ -295,6 +296,7 @@ public class EntityOperation {
                     }
                     message.ui_hide = false;
                     message.ui_browsed = false;
+                    message.ui_busy = null;
                     message.error = null;
                     message.id = db.message().insertMessage(message);
 
@@ -319,6 +321,7 @@ public class EntityOperation {
                     message.ui_flagged = _ui_flagged;
                     message.ui_hide = _ui_hide;
                     message.ui_browsed = _ui_browsed;
+                    message.ui_busy = ui_busy;
                     message.color = _color;
                     message.error = _error;
 
