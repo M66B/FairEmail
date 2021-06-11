@@ -6676,7 +6676,54 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            return new AlertDialog.Builder(context)
+            final SimpleTask<Void> task = new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    String notes = args.getString("notes");
+                    Integer color = args.getInt("color");
+
+                    if ("".equals(notes.trim()))
+                        notes = null;
+
+                    if (color == Color.TRANSPARENT)
+                        color = null;
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        db.message().setMessageNotes(message.id, notes, color);
+
+                        if (TextUtils.isEmpty(message.msgid))
+                            return null;
+
+                        List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
+                        if (messages == null)
+                            return null;
+
+                        for (EntityMessage m : messages)
+                            db.message().setMessageNotes(m.id, notes, color);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            };
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -6686,56 +6733,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             args.putString("notes", etNotes.getText().toString());
                             args.putInt("color", btnColor.getColor());
 
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    long id = args.getLong("id");
-                                    String notes = args.getString("notes");
-                                    Integer color = args.getInt("color");
-
-                                    if ("".equals(notes.trim()))
-                                        notes = null;
-
-                                    if (color == Color.TRANSPARENT)
-                                        color = null;
-
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
-
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message == null)
-                                            return null;
-
-                                        db.message().setMessageNotes(message.id, notes, color);
-
-                                        if (TextUtils.isEmpty(message.msgid))
-                                            return null;
-
-                                        List<EntityMessage> messages = db.message().getMessagesByMsgId(message.account, message.msgid);
-                                        if (messages == null)
-                                            return null;
-
-                                        for (EntityMessage m : messages)
-                                            db.message().setMessageNotes(m.id, notes, color);
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-
-                                    return null;
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Log.unexpectedError(getParentFragmentManager(), ex);
-                                }
-                            }.execute(getContext(), getActivity(), args, "message:note");
+                            task.execute(getContext(), getActivity(), args, "message:note");
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
+                    .setNegativeButton(android.R.string.cancel, null);
+
+            if (!TextUtils.isEmpty(notes))
+                builder.setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+                        args.putString("notes", "");
+                        args.putInt("color", Color.TRANSPARENT);
+
+                        task.execute(getContext(), getActivity(), args, "message:note");
+                    }
+                });
+
+            return builder.create();
         }
 
         @Override
