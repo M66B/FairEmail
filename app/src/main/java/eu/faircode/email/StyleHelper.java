@@ -95,13 +95,13 @@ public class StyleHelper {
                 StyleSpan[] spans = edit.getSpans(start, end, StyleSpan.class);
                 for (StyleSpan span : spans)
                     if (span.getStyle() == style) {
-                        has = true;
                         int s = edit.getSpanStart(span);
                         int e = edit.getSpanEnd(span);
                         int f = edit.getSpanFlags(span);
                         edit.removeSpan(span);
-                        splitSpan(edit, start, end, s, e, f, true,
-                                new StyleSpan(style), new StyleSpan(style));
+                        if (splitSpan(edit, start, end, s, e, f, true,
+                                new StyleSpan(style), new StyleSpan(style)))
+                            has = true;
                     }
 
                 if (!has)
@@ -117,13 +117,13 @@ public class StyleHelper {
                 boolean has = false;
                 UnderlineSpan[] spans = edit.getSpans(start, end, UnderlineSpan.class);
                 for (UnderlineSpan span : spans) {
-                    has = true;
                     int s = edit.getSpanStart(span);
                     int e = edit.getSpanEnd(span);
                     int f = edit.getSpanFlags(span);
                     edit.removeSpan(span);
-                    splitSpan(edit, start, end, s, e, f, true,
-                            new UnderlineSpan(), new UnderlineSpan());
+                    if (splitSpan(edit, start, end, s, e, f, true,
+                            new UnderlineSpan(), new UnderlineSpan()))
+                        has = true;
                 }
 
                 if (!has)
@@ -440,7 +440,6 @@ public class StyleHelper {
                         boolean has = false;
                         QuoteSpan[] spans = edit.getSpans(paragraph.first, paragraph.second, QuoteSpan.class);
                         for (QuoteSpan span : spans) {
-                            has = true;
                             int s = edit.getSpanStart(span);
                             int e = edit.getSpanEnd(span);
                             int f = edit.getSpanFlags(span);
@@ -458,7 +457,8 @@ public class StyleHelper {
                             else
                                 q2 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
 
-                            splitSpan(edit, paragraph.first, paragraph.second, s, e, f, false, q1, q2);
+                            if (splitSpan(edit, paragraph.first, paragraph.second, s, e, f, false, q1, q2))
+                                has = true;
                         }
 
                         if (!has) {
@@ -482,13 +482,13 @@ public class StyleHelper {
                         boolean has = false;
                         StrikethroughSpan[] spans = edit.getSpans(start, end, StrikethroughSpan.class);
                         for (StrikethroughSpan span : spans) {
-                            has = true;
                             int s = edit.getSpanStart(span);
                             int e = edit.getSpanEnd(span);
                             int f = edit.getSpanFlags(span);
                             edit.removeSpan(span);
-                            splitSpan(edit, start, end, s, e, f, true,
-                                    new StrikethroughSpan(), new StrikethroughSpan());
+                            if (splitSpan(edit, start, end, s, e, f, true,
+                                    new StrikethroughSpan(), new StrikethroughSpan()))
+                                has = true;
                         }
 
                         if (!has)
@@ -589,15 +589,15 @@ public class StyleHelper {
         }
     }
 
-    static void splitSpan(Editable edit, int start, int end, int s, int e, int f, boolean extend, Object span1, Object span2) {
+    static boolean splitSpan(Editable edit, int start, int end, int s, int e, int f, boolean extend, Object span1, Object span2) {
         if (start < 0 || end < 0) {
             Log.e(span1 + " invalid selection=" + start + "..." + end);
-            return;
+            return false;
         }
 
         if (s < 0 || e < 0) {
             Log.e(span1 + " not attached=" + s + "..." + e);
-            return;
+            return false;
         }
 
         if (s > e) {
@@ -612,23 +612,34 @@ public class StyleHelper {
                 edit.setSpan(span1, start, e, f);
             else
                 edit.setSpan(span1, end, e, f);
+            return true;
         } else if (start < e && end > e && start > s) {
             // overlap after
             if (extend)
                 edit.setSpan(span1, s, end, f);
             else
                 edit.setSpan(span1, s, start, f);
+            return true;
         } else if (start < s && end > e) {
             // overlap all
-            if (extend)
+            if (extend) {
                 edit.setSpan(span1, start, end, f);
+                return true;
+            }
         } else if (start >= s && end <= e) {
+            if (start == s && end == e)
+                return true;
+
             // overlap inner
             if (s < start)
                 edit.setSpan(span1, s, start, f);
             if (end < e)
                 edit.setSpan(span2, end, e, f);
+            if (s < start || end < e)
+                return true;
         }
+
+        return false;
     }
 
     static void setSpan(Editable edit, Object span, int start, int end, int flags, Context context) {
