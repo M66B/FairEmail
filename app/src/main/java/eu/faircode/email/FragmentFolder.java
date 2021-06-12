@@ -638,7 +638,7 @@ public class FragmentFolder extends FragmentBase {
                 }
 
                 if (reload)
-                    ServiceSynchronize.reload(context, aid, false, "save folder");
+                    ServiceSynchronize.reload(context, aid, true, "save folder");
                 else
                     ServiceSynchronize.eval(context, "save folder");
 
@@ -705,7 +705,7 @@ public class FragmentFolder extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.reload(context, folder.account, false, "delete folder");
+                ServiceSynchronize.reload(context, folder.account, true, "delete folder");
 
                 return null;
             }
