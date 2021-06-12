@@ -124,6 +124,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         // Get views
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
+        final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
         final TextView tvTitle = dview.findViewById(R.id.tvTitle);
         final ImageButton ibDifferent = dview.findViewById(R.id.ibDifferent);
         final EditText etLink = dview.findViewById(R.id.etLink);
@@ -143,6 +144,13 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
         final Group grpOwner = dview.findViewById(R.id.grpOwner);
+
+        ibInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 35);
+            }
+        });
 
         ibDifferent.setOnClickListener(new View.OnClickListener() {
             @Override
