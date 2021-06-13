@@ -20,9 +20,9 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:indeterminate="true"
-        app:show_delay="750"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+        app:layout_constraintTop_toBottomOf="@id/vSeparator"
+        app:show_delay="750" />
 
     <ImageButton
         android:id="@+id/ibTools"
@@ -42,7 +42,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="3dp"
-        app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibAnswer,ibSeen,ibHide,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibUnsubscribe,ibRule,ibUndo"
+        app:constraint_referenced_ids="ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibAnswer,ibSeen,ibHide,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibUnsubscribe,ibRule,ibUndo"
         app:flow_horizontalBias="0"
         app:flow_horizontalGap="3dp"
         app:flow_horizontalStyle="packed"
@@ -271,6 +271,18 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_print"
         app:srcCompat="@drawable/twotone_print_24"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ibHeaders"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_show_headers"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_show_headers"
+        app:srcCompat="@drawable/baseline_code_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
