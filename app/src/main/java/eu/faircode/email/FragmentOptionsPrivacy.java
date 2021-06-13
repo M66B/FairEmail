@@ -69,6 +69,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnPin;
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
+    private SwitchCompat swClientId;
+    private TextView tvClientId;
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swIncognitoKeyboard;
     private ImageButton ibIncognitoKeyboard;
@@ -90,7 +92,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "confirm_links", "browse_links", "confirm_images", "confirm_html",
             "disable_tracking", "hide_timezone",
             "pin", "biometrics", "biometrics_timeout",
-            "display_hidden", "incognito_keyboard", "secure",
+            "client_id", "display_hidden", "incognito_keyboard", "secure",
             "generic_ua", "safe_browsing",
             "disconnect_auto_update", "disconnect_links", "disconnect_images"
     };
@@ -114,6 +116,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnPin = view.findViewById(R.id.btnPin);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        swClientId = view.findViewById(R.id.swClientId);
+        tvClientId = view.findViewById(R.id.tvClientId);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swIncognitoKeyboard = view.findViewById(R.id.swIncognitoKeyboard);
         ibIncognitoKeyboard = view.findViewById(R.id.ibIncognitoKeyboard);
@@ -229,6 +233,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
+            }
+        });
+
+        swClientId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("client_id", checked).apply();
+                ServiceSynchronize.reload(compoundButton.getContext(), null, false, "id");
             }
         });
 
@@ -354,6 +366,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                     : R.color.lightColorBackground_cards));
         }
 
+        tvClientId.setText(getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -415,6 +429,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swClientId.setChecked(prefs.getBoolean("client_id", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
         swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));

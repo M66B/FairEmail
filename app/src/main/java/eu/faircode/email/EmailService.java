@@ -609,10 +609,14 @@ public class EmailService implements AutoCloseable {
             IMAPStore istore = (IMAPStore) getStore();
             if (istore.hasCapability("ID"))
                 try {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean client_id = prefs.getBoolean("client_id", true);
+
                     Map<String, String> id = new LinkedHashMap<>();
                     id.put("name", context.getString(R.string.app_name));
                     id.put("version", BuildConfig.VERSION_NAME);
-                    Map<String, String> sid = istore.id(id);
+
+                    Map<String, String> sid = istore.id(client_id ? id : null);
                     if (sid != null) {
                         Map<String, String> crumb = new HashMap<>();
                         for (String key : sid.keySet()) {

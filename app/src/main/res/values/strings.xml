@@ -504,6 +504,7 @@
     <string name="title_advanced_confirm_html">Show reformatted messages by default</string>
     <string name="title_advanced_tracking">Attempt to recognize and disable tracking images</string>
     <string name="title_advanced_hide_timezone">Send messages without timezone data</string>
+    <string name="title_advanced_client_id">Send app name and version to email server</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
     <string name="title_advanced_incognito_keyboard">Use incognito keyboard (Android 8+)</string>
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
