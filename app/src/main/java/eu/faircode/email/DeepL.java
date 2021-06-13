@@ -256,7 +256,8 @@ public class DeepL {
 
     private static String getBaseUri(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String domain = prefs.getString("deepl_domain", "api-free.deepl.com");
+        String domain = (prefs.getBoolean("deepl_pro", false)
+                ? "api.deepl.com" : "api-free.deepl.com");
         return "https://" + domain + "/v2/";
     }
 
@@ -278,14 +279,14 @@ public class DeepL {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Context context = getContext();
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            String domain = prefs.getString("deepl_domain", null);
             String key = prefs.getString("deepl_key", null);
+            boolean pro = prefs.getBoolean("deepl_pro", false);
             boolean small = prefs.getBoolean("deepl_small", false);
 
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_deepl, null);
             final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
-            final EditText etDomain = view.findViewById(R.id.etDomain);
             final EditText etKey = view.findViewById(R.id.etKey);
+            final CheckBox cbPro = view.findViewById(R.id.cbPro);
             final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
 
@@ -296,14 +297,13 @@ public class DeepL {
                 }
             });
 
-            etDomain.setText(domain);
             etKey.setText(key);
+            cbPro.setChecked(pro);
             cbSmall.setChecked(small);
 
             tvUsage.setVisibility(View.GONE);
 
-            if (!TextUtils.isEmpty(key) &&
-                    (domain == null || domain.equals("api-free.deepl.com"))) {
+            if (!TextUtils.isEmpty(key)) {
                 Bundle args = new Bundle();
                 args.putString("key", key);
 
@@ -335,20 +335,13 @@ public class DeepL {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            String domain = etDomain.getText().toString().trim();
                             String key = etKey.getText().toString().trim();
                             SharedPreferences.Editor editor = prefs.edit();
                             if (TextUtils.isEmpty(key))
-                                editor
-                                        .remove("deepl_key")
-                                        .remove("deepl_domain");
-                            else {
+                                editor.remove("deepl_key");
+                            else
                                 editor.putString("deepl_key", key);
-                                if (TextUtils.isEmpty(domain))
-                                    editor.remove("deepl_domain");
-                                else
-                                    editor.putString("deepl_domain", domain);
-                            }
+                            editor.putBoolean("deepl_pro", cbPro.isChecked());
                             editor.putBoolean("deepl_small", cbSmall.isChecked());
                             editor.apply();
                         }

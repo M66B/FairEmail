@@ -36,11 +36,11 @@
             app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.EditTextPlain
-            android:id="@+id/etDomain"
+            android:id="@+id/etKey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:hint="api-free.deepl.com"
+            android:hint="@string/title_translate_key"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -51,21 +51,14 @@
             <requestFocus />
         </eu.faircode.email.EditTextPlain>
 
-        <eu.faircode.email.EditTextPlain
-            android:id="@+id/etKey"
-            android:layout_width="0dp"
+        <CheckBox
+            android:id="@+id/cbPro"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="@string/title_translate_key"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="DeepL API Pro"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etDomain">
-
-            <requestFocus />
-        </eu.faircode.email.EditTextPlain>
+            app:layout_constraintTop_toBottomOf="@id/etKey" />
 
         <CheckBox
             android:id="@+id/cbSmall"
@@ -74,7 +67,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_translate_small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etKey" />
+            app:layout_constraintTop_toBottomOf="@id/cbPro" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvUsage"
