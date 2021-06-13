@@ -2160,7 +2160,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
                 onActionSeenSelection(!message.ui_seen, message.id);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
-                onActionFlagSelection(!message.ui_flagged, null, message.id);
+                onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id);
             else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                 if (ActivityBilling.isPro(getContext()))
                     onActionSnooze(message);
@@ -2247,10 +2247,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     onActionSeenSelection(false, message.id);
                                     return true;
                                 } else if (itemId == R.string.title_flag) {
-                                    onActionFlagSelection(true, null, message.id);
+                                    onActionFlagSelection(true, Color.TRANSPARENT, message.id);
                                     return true;
                                 } else if (itemId == R.string.title_unflag) {
-                                    onActionFlagSelection(false, null, message.id);
+                                    onActionFlagSelection(false, Color.TRANSPARENT, message.id);
                                     return true;
                                 } else if (itemId == R.string.title_snooze) {
                                     onMenuSnooze();
@@ -2293,6 +2293,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 args.putLong("id", message.id);
                                 args.putInt("color", message.color == null ? Color.TRANSPARENT : message.color);
                                 args.putString("title", getString(R.string.title_flag_color));
+                                args.putBoolean("reset", true);
 
                                 FragmentDialogColor fragment = new FragmentDialogColor();
                                 fragment.setArguments(args);
@@ -3014,10 +3015,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onHideSelection(false);
                             return true;
                         } else if (itemId == R.string.title_flag) {
-                            onActionFlagSelection(true, null, null);
+                            onActionFlagSelection(true, Color.TRANSPARENT, null);
                             return true;
                         } else if (itemId == R.string.title_unflag) {
-                            onActionFlagSelection(false, null, null);
+                            onActionFlagSelection(false, Color.TRANSPARENT, null);
                             return true;
                         } else if (itemId == R.string.title_flag_color) {
                             onActionFlagColorSelection();
@@ -3219,12 +3220,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:flag");
     }
 
-    private void onActionFlagSelection(boolean flagged, Integer color, Long id) {
+    private void onActionFlagSelection(boolean flagged, int color, Long id) {
         Bundle args = new Bundle();
         args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
         args.putBoolean("flagged", flagged);
-        if (color != null)
-            args.putInt("color", color);
+        args.putInt("color", color);
         args.putBoolean("threading", threading &&
                 (id == null || viewType != AdapterMessage.ViewType.THREAD));
 
@@ -3235,8 +3235,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
                 boolean flagged = args.getBoolean("flagged");
-                Integer color = (args.containsKey("color") ? args.getInt("color") : null);
+                Integer color = args.getInt("color");
                 boolean threading = args.getBoolean("threading");
+
+                if (color == Color.TRANSPARENT)
+                    color = null;
 
                 DB db = DB.getInstance(context);
                 try {
@@ -3275,6 +3278,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Bundle args = new Bundle();
         args.putInt("color", Color.TRANSPARENT);
         args.putString("title", getString(R.string.title_flag_color));
+        args.putBoolean("reset", true);
 
         FragmentDialogColor fragment = new FragmentDialogColor();
         fragment.setArguments(args);
@@ -7507,20 +7511,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(final Context context, Bundle args) {
-                final long id = args.getLong("id");
-                final int color = args.getInt("color");
+                long id = args.getLong("id");
+                Integer color = args.getInt("color");
+
+                if (color == Color.TRANSPARENT)
+                    color = null;
 
                 final DB db = DB.getInstance(context);
-                db.runInTransaction(new Runnable() {
-                    @Override
-                    public void run() {
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
-                            return;
+                try {
+                    db.beginTransaction();
 
-                        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
-                    }
-                });
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 ServiceSynchronize.eval(context, "flag");
 
