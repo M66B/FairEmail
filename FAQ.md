@@ -2780,6 +2780,10 @@ You can read more about this [here](https://www.theregister.com/2019/02/11/googl
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
+The OAuth [jump page](https://oauth.faircode.eu/) exists
+for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations)
+are not available, for example when using a non Play store version of the app, or do not work for some reason.
+
 <br />
 
 <a name="faq112"></a>
