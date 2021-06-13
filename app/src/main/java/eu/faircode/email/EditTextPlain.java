@@ -63,6 +63,29 @@ public class EditTextPlain extends FixedEditText {
             public boolean commitText(CharSequence text, int newCursorPosition) {
                 return super.commitText(text.toString(), newCursorPosition);
             }
+
+            @Override
+            public CharSequence getSelectedText(int flags) {
+                try {
+                    return super.getSelectedText(flags);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return null;
+                    /*
+                        java.lang.IndexOutOfBoundsException: getChars (-1 ... 52) starts before 0
+                          at android.text.SpannableStringBuilder.checkRange(SpannableStringBuilder.java:1314)
+                          at android.text.SpannableStringBuilder.getChars(SpannableStringBuilder.java:1191)
+                          at android.text.TextUtils.getChars(TextUtils.java:100)
+                          at android.text.SpannableStringBuilder.<init>(SpannableStringBuilder.java:67)
+                          at android.text.SpannableStringBuilder.subSequence(SpannableStringBuilder.java:1183)
+                          at android.view.inputmethod.BaseInputConnection.getSelectedText(BaseInputConnection.java:528)
+                          at android.view.inputmethod.InputConnectionWrapper.getSelectedText(InputConnectionWrapper.java:94)
+                          at com.android.internal.view.IInputConnectionWrapper.executeMessage(IInputConnectionWrapper.java:286)
+                          at com.android.internal.view.IInputConnectionWrapper$MyHandler.handleMessage(IInputConnectionWrapper.java:85)
+                          at android.os.Handler.dispatchMessage(Handler.java:106)
+                     */
+                }
+            }
         };
     }
 
