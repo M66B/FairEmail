@@ -920,6 +920,8 @@ Search expressions can be used for searching on the device via the search index 
 but not for searching on the device without search index for performance reasons.
 
 Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Note that you can download as many messages to your device as you like.
+The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
 
 <br />
 
