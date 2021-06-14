@@ -4583,11 +4583,10 @@ class Core {
                 StringBuilder sb = new StringBuilder();
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(message.subject);
-                if (wearable_preview) {
-                    if (sb.length() != 0)
+                if (wearable_preview && !TextUtils.isEmpty(preview)) {
+                    if (sb.length() > 0)
                         sb.append(" - ");
-                    if (!TextUtils.isEmpty(preview))
-                        sb.append(preview);
+                    sb.append(preview);
                 }
                 if (sb.length() > 0)
                     mbuilder.setContentText(sb.toString());
