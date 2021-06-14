@@ -833,6 +833,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
+        swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
         swTestIab.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);

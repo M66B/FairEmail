@@ -23,6 +23,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.AlarmManagerCompat;
@@ -35,9 +36,18 @@ public class AlarmManagerCompatEx {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean exact_alarms = prefs.getBoolean("exact_alarms", true);
 
-        if (exact_alarms)
+        if (exact_alarms && canScheduleExactAlarms(context))
             AlarmManagerCompat.setExactAndAllowWhileIdle(am, type, trigger, pi);
         else
             AlarmManagerCompat.setAndAllowWhileIdle(am, type, trigger, pi);
+    }
+
+    static boolean canScheduleExactAlarms(Context context) {
+        if (Build.VERSION.SDK_INT < 31 /* S */)
+            return true;
+        else
+            return true;
+        //AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        //return am.canScheduleExactAlarms();
     }
 }
