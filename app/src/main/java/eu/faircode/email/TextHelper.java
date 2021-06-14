@@ -32,7 +32,6 @@ import android.view.textclassifier.TextClassifier;
 
 import androidx.preference.PreferenceManager;
 
-import java.text.Normalizer;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -47,6 +46,7 @@ import java.util.Set;
 public class TextHelper {
     private static final int MAX_SAMPLE_SIZE = 8192;
     private static final float MIN_PROBABILITY = 0.80f;
+    private static final String TRANSLITERATOR = "Any-Latin; Latin-ASCII";
 
     static {
         System.loadLibrary("fairemail");
@@ -95,7 +95,7 @@ public class TextHelper {
             return false;
 
         try {
-            Transliterator.getInstance("Any-Latin");
+            Transliterator.getInstance(TRANSLITERATOR);
             return true;
         } catch (Throwable ex) {
             return false;
@@ -112,10 +112,8 @@ public class TextHelper {
             return text;
 
         try {
-            Transliterator t = Transliterator.getInstance("Any-Latin");
-            text = t.transliterate(text);
-            String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
-            text = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+            // http://userguide.icu-project.org/transforms/general
+            return Transliterator.getInstance(TRANSLITERATOR).transliterate(text);
         } catch (Throwable ex) {
             Log.w(ex);
         }
