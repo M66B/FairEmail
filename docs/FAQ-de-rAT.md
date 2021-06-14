@@ -1947,7 +1947,7 @@ Local contact information is based on names and addresses found in incoming and 
 
 The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
 
-Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people. This is also why the number of times contacted and the last time contacted is being recorded and why you can make a contact a favorite or exclude it from favorites by long pressing it.
+Eine weitere Verwendung ist die Erzeugung von [Verknüpfungen](#user-content-faq31) für aktuelle Android-Versionen, um schnell eine Nachricht an häufig kontaktierte Personen zu senden. This is also why the number of times contacted and the last time contacted is being recorded and why you can make a contact a favorite or exclude it from favorites by long pressing it.
 
 The list of contacts is sorted on number of times contacted and the last time contacted.
 

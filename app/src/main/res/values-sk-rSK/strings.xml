@@ -269,6 +269,7 @@
     <string name="title_advanced_sync_folders">Synchronizovať zoznam priečinkov</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovať zoznam spoločných priečinkov</string>
     <string name="title_advanced_subscriptions">Spravovať odoberanie priečinkov</string>
+    <string name="title_advanced_check_authentication">Kontrolovať autentifikáciu správ</string>
     <string name="title_advanced_check_reply_domain">Skontrolovať adresu pre odpoveď počas synchronizácie správ</string>
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
@@ -440,6 +441,7 @@
     <string name="title_advanced_notify_action_snooze">Odložiť</string>
     <string name="title_advanced_notify_remove">Odstrániť oznámenie o novej správe po kliknutí</string>
     <string name="title_advanced_notify_clear">Odstrániť oznámenia o nových správach po zobrazení zoznamu správ</string>
+    <string name="title_advanced_notify_subtext">Zobraziť podnadpis s názvom účtu alebo priečinka</string>
     <string name="title_advanced_wearable_preview">Oznámenia s náhľadom správy posielať len na nositeľné zariadenia</string>
     <string name="title_advanced_notify_messaging">Použiť štýl oznámení správ systému Android</string>
     <string name="title_advanced_biometrics_notify">Zobraziť obsah správy pri použití biometrického overenia</string>
@@ -510,6 +512,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_sync_kept_hint">Zvýši nároky na prenos dát a využívanie batérie, hlavne ak máte v zariadení množstvo správ</string>
     <string name="title_advanced_gmail_thread_hint">Toto platí len pre nové prichádzajúce správy a môže ovplyvniť existujúce skupiny</string>
     <string name="title_advanced_sync_folders_hint">Vypnutím čiastočne ušetríte prenos údajov aj využívanie batérie, ale zároveň zastavíte obnovovanie zoznamu priečinkov</string>
+    <string name="title_advanced_check_authentication_hint">Skontroluje výsledky kontroly autentifikácie DKIM, SPF a DMARC na serveri</string>
     <string name="title_advanced_check_reply_hint">Skontroluje, či sa doména adresy pre odpoveď zhoduje s doménou odosielateľa</string>
     <string name="title_advanced_lookup_mx_hint">Skontroluje, či existujú MX záznamy v systéme DNS</string>
     <string name="title_advanced_sync_delay_hint">Spomalí synchronizáciu správ</string>
@@ -537,6 +540,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_threading_hint">Zoskupiť vzájomne súvisiace správy</string>
     <string name="title_advanced_highlight_hint">Na vysvietenie sa použije farba akcent z použitej témy</string>
     <string name="title_advanced_gravatars_hint">Môže predstavovať potenciálny risk straty súkromia</string>
+    <string name="title_advanced_name_email_hint">Názvy sa zobrazia, len ak budú k dispozícii</string>
     <string name="title_advanced_preview_hint">Dostupné len v prípade, že bol prevzatý text správy</string>
     <string name="title_advanced_preview_lines_hint">Maximálny počet %s znakov</string>
     <string name="title_advanced_preview_issue">Scrollovanie môže byť pomalé kvôli chybe v niektorých verziách Androidu, ak je počet položiek väčší než 1</string>
@@ -807,6 +811,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_print_images">Tlačiť obrázky</string>
     <string name="title_print_images_remark">Prevzatie obrázkov môže chvíľu trvať</string>
     <string name="title_show_headers">Zobraziť hlavičky</string>
+    <string name="title_share_as_html">Zdieľať ako HTML</string>
     <string name="title_raw_save">Uložiť surovú správu</string>
     <string name="title_raw_send">Preposlať ako prílohu</string>
     <string name="title_manage_keywords">Spravovať kľúčové slová</string>
@@ -1320,7 +1325,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_contact_actions">Možnosti zobrazíte dlhým stlačením</string>
     <string name="title_hint_eml">Toto je náhľad obsahu surového súboru so správou. Ak chcete zobraziť celý obsah, klepnite na tlačidlo \'Uložiť\' v lište akcií.</string>
     <string name="title_open_link">Otvoriť odkaz</string>
-    <string name="title_image_link">Umiestnenie obrázka</string>
+    <string name="title_image_link">URL Adresa obrázka</string>
     <string name="title_different_link">Názov a adresa odkazu sú rôzne</string>
     <string name="title_tracking_link">Táto stránka vás môže sledovať</string>
     <string name="title_suspicious_link">Toto je podozrivý odkaz</string>
@@ -1347,6 +1352,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_fix">Opraviť</string>
     <string name="title_enable">Zapnúť</string>
     <string name="title_enabled">Zapnuté</string>
+    <string name="title_disable">Zakázať</string>
+    <string name="title_keep_current">Ponechať bez zmeny</string>
     <string name="title_executing">Vykonávanie</string>
     <string name="title_completed">Dokončené</string>
     <string name="title_default_changed">Predvolený zmenený</string>
@@ -1600,4 +1607,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Len meno</item>
+        <item>Len email</item>
+        <item>Meno aj email</item>
+    </string-array>
 </resources>

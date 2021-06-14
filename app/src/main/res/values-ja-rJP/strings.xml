@@ -238,6 +238,7 @@
     <string name="title_advanced_sync_folders">フォルダーリストの同期</string>
     <string name="title_advanced_sync_shared_folders">共有フォルダリストを同期</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
+    <string name="title_advanced_check_authentication">メッセージ認証を確認</string>
     <string name="title_advanced_check_reply_domain">メッセージの同期時に返信アドレスを確認</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整します</string>
@@ -421,6 +422,7 @@
     <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
     <string name="title_advanced_tracking">トラッキング画像の認識と無効化を試みます</string>
     <string name="title_advanced_hide_timezone">タイムゾーンデータ無しでメッセージを送信</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">アプリ名とバージョンをメールサーバーに送信</string>
     <string name="title_advanced_display_hidden">非表示のメッセージテキストを表示</string>
     <string name="title_advanced_incognito_keyboard">シークレットキーボードを使用 (Android 8+)</string>
     <string name="title_advanced_secure">最近使ったアプリから非表示にしスクリーンショット撮影から守る</string>
@@ -479,6 +481,7 @@
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、多くのデータが転送され電池消費が増えます</string>
     <string name="title_advanced_gmail_thread_hint">これは新しく受信したメッセージにのみ適用され、既存のグループを壊す可能性があります</string>
     <string name="title_advanced_sync_folders_hint">これを無効にするとデータと電池の使用量が多少減りますが、フォルダーのリストの更新も無効になります</string>
+    <string name="title_advanced_check_authentication_hint">メールサーバーで実行されたDKIM、SPF、DMARC認証の結果を確認します</string>
     <string name="title_advanced_check_reply_hint">送信者のドメイン名と返信先のアドレスが同じかどうかを確認します</string>
     <string name="title_advanced_lookup_mx_hint">DNS MXレコードが存在するかどうか確認</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>

@@ -238,6 +238,7 @@
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
+    <string name="title_advanced_check_authentication">检查消息认证</string>
     <string name="title_advanced_check_reply_domain">同步消息时检查回复地址</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
@@ -409,6 +410,7 @@
     <string name="title_advanced_notify_action_snooze">打盹</string>
     <string name="title_advanced_notify_remove">点击通知时移除新的消息通知</string>
     <string name="title_advanced_notify_clear">查看消息列表时移除新消息通知</string>
+    <string name="title_advanced_notify_subtext">显示账户或文件夹名称为子文本</string>
     <string name="title_advanced_wearable_preview">只向可穿戴设备发送有消息预览的通知</string>
     <string name="title_advanced_notify_messaging">使用安卓 \'消息样式\' 通知格式</string>
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
@@ -479,6 +481,7 @@
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
     <string name="title_advanced_gmail_thread_hint">这只适用于新收到的消息，且可能会破坏现有的组</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_check_authentication_hint">这将检查电子邮件服务器执行的DKIM、SPF和DMARC认证的结果</string>
     <string name="title_advanced_check_reply_hint">这会检查发送者的域名和回复地址是否相同</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
@@ -506,6 +509,7 @@
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_gravatars_hint">可能存在隐私风险</string>
+    <string name="title_advanced_name_email_hint">名称仅在可用时显示</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_preview_lines_hint">总共最多 %s 个字符</string>
     <string name="title_advanced_preview_issue">由于某些Android版本中的错误，当行数大于一时，滚动可能会较慢</string>
@@ -778,6 +782,7 @@
     <string name="title_print_images">打印图片</string>
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
     <string name="title_show_headers">显示邮件头</string>
+    <string name="title_share_as_html">以HTML格式分享</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_manage_keywords">关键字管理</string>
@@ -1320,6 +1325,8 @@
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
     <string name="title_enabled">已启用</string>
+    <string name="title_disable">禁用</string>
+    <string name="title_keep_current">保留当前</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_default_changed">默认已更改</string>
@@ -1569,4 +1576,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>只有名字</item>
+        <item>仅电子邮件</item>
+        <item>名字和电子邮箱</item>
+    </string-array>
 </resources>

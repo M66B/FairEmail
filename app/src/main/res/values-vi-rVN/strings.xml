@@ -239,6 +239,7 @@
     <string name="title_advanced_sync_folders">Đồng bộ hoá danh sách thư mục</string>
     <string name="title_advanced_sync_shared_folders">Đồng bộ hoá các danh sách thư mục được chia sẻ</string>
     <string name="title_advanced_subscriptions">Quản lý đăng ký thư mục</string>
+    <string name="title_advanced_check_authentication">Kiểm tra xác thực thư</string>
     <string name="title_advanced_check_reply_domain">Kiểm tra địa chỉ trả lời khi đồng bộ hoá thư</string>
     <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
     <string name="title_advanced_tune_keep_alive">Tự động điều chỉnh khoảng thời gian giữa mỗi lần giữ cho ứng dụng hoạt động</string>
@@ -422,6 +423,7 @@
     <string name="title_advanced_confirm_html">Hiện các thư được định dạng lại theo mặc định</string>
     <string name="title_advanced_tracking">Thử nhận ra và vô hiệu hoá hình ảnh theo dõi</string>
     <string name="title_advanced_hide_timezone">Gửi thư không có dữ liệu múi giờ</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Gửi tên và phiên bản ứng dụng đến máy chủ email</string>
     <string name="title_advanced_display_hidden">Hiển thị văn bản thư ẩn</string>
     <string name="title_advanced_incognito_keyboard">Sử dụng bàn phím ẩn danh (Android 8+)</string>
     <string name="title_advanced_secure">Ẩn khỏi màn hình đa nhiệm và ngăn chặn chụp màn hình</string>
@@ -480,6 +482,7 @@
     <string name="title_advanced_sync_kept_hint">Cái này sẽ truyền thêm dữ liệu và gây hao thêm pin, đặc biệt là nếu có nhiều thư được lưu trữ trên thiết bị</string>
     <string name="title_advanced_gmail_thread_hint">Cái này chỉ áp dụng cho các thư mới nhận và có thể làm hỏng các nhóm đang tồn tại</string>
     <string name="title_advanced_sync_folders_hint">Việc tắt cái này sẽ làm giảm phần nào sử dụng dữ liệu và pin, nhưng cũng sẽ tắt việc cập nhật các thư mục</string>
+    <string name="title_advanced_check_authentication_hint">Cái này sẽ kiểm tra kết quả của xác thực DKIM, SPF và DMARC với tư cách được máy chủ email thực hiện</string>
     <string name="title_advanced_check_reply_hint">Cái này sẽ kiểm tra xem tên miền của người gửi và địa chỉ trả lời có như nhau không</string>
     <string name="title_advanced_lookup_mx_hint">Cái này sẽ kiểm tra xem các bản ghi DNS MX có tồn tại không</string>
     <string name="title_advanced_sync_delay_hint">Cái này sẽ làm chậm việc đồng bộ hóa thư</string>

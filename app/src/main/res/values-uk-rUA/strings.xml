@@ -257,6 +257,7 @@
     <string name="title_advanced_sync_folders">Синхронізувати список тек</string>
     <string name="title_advanced_sync_shared_folders">Синхронізувати спільний список тек</string>
     <string name="title_advanced_subscriptions">Керувати підписками тек</string>
+    <string name="title_advanced_check_authentication">Перевірка автентичності повідомлення</string>
     <string name="title_advanced_check_reply_domain">Перевіряти адреси електронної пошти для відповіді при синхронізації повідомлень</string>
     <string name="title_advanced_check_mx">Перевіряти адреси електронної пошти відправника при синхронізації повідомлень</string>
     <string name="title_advanced_tune_keep_alive">Автоматично налаштовувати інтервал активності</string>
@@ -439,6 +440,7 @@
     <string name="title_advanced_confirm_html">Показати відформатовані повідомлення за замовчуванням</string>
     <string name="title_advanced_tracking">Автоматично розпізнавати та вимикати зображення які використовуються для відстеження</string>
     <string name="title_advanced_hide_timezone">Надсилати повідомлення без даних часового поясу</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Надсилати назву і версію застосунку до поштового серверу</string>
     <string name="title_advanced_display_hidden">Показувати тексти прихованих повідомлень</string>
     <string name="title_advanced_incognito_keyboard">Використовувати incognito клавіатуру (Android 8+)</string>
     <string name="title_advanced_secure">Приховати з екрану останніх програм і не дозволяти робити знімки екрану</string>
@@ -497,6 +499,7 @@
     <string name="title_advanced_sync_kept_hint">Це призведе до передачі додаткових даних та більшого споживання заряду акумулятора, особливо якщо багато повідомлень зберігаються на пристрої</string>
     <string name="title_advanced_gmail_thread_hint">Це відноситься тільки до нових повідомлень і може не стосуватися існуючих груп</string>
     <string name="title_advanced_sync_folders_hint">Вимкнення цього призведе до зменшення споживання даних та використання акумулятора, але також вимкне оновлення списку тек</string>
+    <string name="title_advanced_check_authentication_hint">Це може перевіряти результати перевірок на DKIM, SPF і DMARC які були виконані сервером електронної пошти</string>
     <string name="title_advanced_check_reply_hint">Це перевірить, чи доменне ім\'я відправника та адреса для відповіді співпадають</string>
     <string name="title_advanced_lookup_mx_hint">Це перевірить, чи існують записи DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Це призведе до уповільнення синхронізації повідомлень</string>

@@ -268,6 +268,7 @@
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
     <string name="title_advanced_sync_shared_folders">Synchronizuj listy udostępnionych folderów</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
+    <string name="title_advanced_check_authentication">Sprawdź uwierzytelnianie wiadomości</string>
     <string name="title_advanced_check_reply_domain">Sprawdź adres odpowiedzi podczas synchronizacji wiadomości</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
@@ -451,6 +452,7 @@
     <string name="title_advanced_confirm_html">Domyślnie pokaż ponownie sformatowane wiadomości</string>
     <string name="title_advanced_tracking">Spróbuj rozpoznać i wyłączyć obrazki śledzące</string>
     <string name="title_advanced_hide_timezone">Wysyłanie wiadomości bez informacji o strefie czasowej</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Wyślij nazwę i wersję aplikacji na serwer e-mail</string>
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_incognito_keyboard">Użyj klawiatury incognito (Android 8+)</string>
     <string name="title_advanced_secure">Ukryj z ekranu ostatnich aplikacji i zapobiegaj wykonywaniu zrzutów ekranu</string>
@@ -510,6 +512,7 @@
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_gmail_thread_hint">Dotyczy to tylko nowo odebranych wiadomości i może uszkodzić istniejące grupy</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
+    <string name="title_advanced_check_authentication_hint">Spowoduje to sprawdzenie wyników uwierzytelniania DKIM, SPF i DMARC w sposób wykonywany przez serwer poczty elektronicznej</string>
     <string name="title_advanced_check_reply_hint">Spowoduje to sprawdzenie, czy nazwa domeny nadawcy i adres odpowiedzi są takie same</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>

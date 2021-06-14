@@ -104,7 +104,7 @@
     <string name="title_notification_failed">\"%1$s\" не выполнено</string>
     <string name="title_notification_alert">Предупреждение сервера \"%1$s\"</string>
     <string name="title_notification_sending_left">Оставшиеся попытки: %1$d</string>
-    <string name="title_notification_sending_failed">Отправка для %1$s не удалась</string>
+    <string name="title_notification_sending_failed">Отправка для %1$s не выполнена</string>
     <string name="title_notification_redacted">Отредактировано: включена биометрическая аутентификация или PIN-код</string>
     <string name="title_factor_minutes">%1$d мин.</string>
     <string name="menu_answers">Шаблоны</string>
@@ -269,6 +269,7 @@
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_sync_shared_folders">Синхронизировать списки общих папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
+    <string name="title_advanced_check_authentication">Проверять подлинность сообщения</string>
     <string name="title_advanced_check_reply_domain">Проверять адрес для ответа при синхронизации сообщений</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_tune_keep_alive">Автоматически настраивать интервал keep-alive</string>
@@ -452,6 +453,7 @@
     <string name="title_advanced_confirm_html">Показывать переформатированные сообщения по умолчанию</string>
     <string name="title_advanced_tracking">Пытаться распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_hide_timezone">Отправлять сообщения без данных часового пояса</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Отправлять название и версию приложения на сервер электронной почты</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_incognito_keyboard">Использовать инкогнито-клавиатуру (Android 8+)</string>
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
@@ -511,6 +513,7 @@
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_gmail_thread_hint">Это относится только к вновь полученным сообщениям и может нарушить существующие группы</string>
     <string name="title_advanced_sync_folders_hint">Отключение этой функции уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
+    <string name="title_advanced_check_authentication_hint">Проверка результатов аутентификации DKIM, SPF и DMARC в зависимости от почтового сервера</string>
     <string name="title_advanced_check_reply_hint">Проверка совпадения доменного имени отправителя и адреса для ответа</string>
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Замедлится синхронизация сообщений</string>
@@ -641,8 +644,8 @@
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (мин.)</string>
     <string name="title_server_time">Использовать время получения (сервер)</string>
-    <string name="title_received_header">Использовать заголовок \'Received\'</string>
-    <string name="title_date_header">Использовать заголовок \'Date\' (время отправки)</string>
+    <string name="title_received_header">Использовать заголовок \"Received\"</string>
+    <string name="title_date_header">Использовать заголовок \"Date\" (время отправки)</string>
     <string name="title_date_remark">Изменения будут применены только к новым сообщениям</string>
     <string name="title_related_identity">Добавить связанный идентификатор (сервер SMTP)</string>
     <string name="title_check">Проверить</string>

@@ -259,6 +259,7 @@
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
+    <string name="title_advanced_check_authentication">Verificarea autentificării mesajelor</string>
     <string name="title_advanced_check_reply_domain">Verifică adresa de răspuns la sincronizarea mesajelor</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
@@ -430,6 +431,7 @@
     <string name="title_advanced_notify_action_snooze">Amână</string>
     <string name="title_advanced_notify_remove">Elimina notificarea de mesaj nou dacă se atinge</string>
     <string name="title_advanced_notify_clear">Elimină notificările mesajelor noi când se vizualizează lista de mesaje</string>
+    <string name="title_advanced_notify_subtext">Afișați numele contului sau al dosarului ca subtext</string>
     <string name="title_advanced_wearable_preview">Trimite la portabile doar notificările cu previzualizare mesaj</string>
     <string name="title_advanced_notify_messaging">Utilizaţi formatul de notificare Android \'stil de mesaj\'</string>
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
@@ -500,6 +502,7 @@
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_gmail_thread_hint">Acest lucru se aplică doar la mesajele noi primite și poate strica grupurile existente</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
+    <string name="title_advanced_check_authentication_hint">Aceasta va verifica rezultatele autentificării DKIM, SPF și DMARC efectuate de serverul de e-mail</string>
     <string name="title_advanced_check_reply_hint">Acest lucru va verifica dacă numele de domeniu al expeditorului și adresa de răspuns sunt aceleași</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>

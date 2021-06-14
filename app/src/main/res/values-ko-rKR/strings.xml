@@ -174,6 +174,7 @@
     <string name="title_advanced_flagged">모든 즐겨찾기 메시지</string>
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
+    <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
@@ -241,6 +242,7 @@
     <string name="title_advanced_notify_action_hide">숨김</string>
     <string name="title_advanced_notify_action_snooze">미루기</string>
     <string name="title_advanced_notify_subtext">부가 텍스트로 계정이나 폴더명 보기</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">앱 이름 및 버전을 이메일 서버로 전송</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>

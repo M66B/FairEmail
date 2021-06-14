@@ -249,6 +249,7 @@
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>
     <string name="title_advanced_subscriptions">Gérer les abonnements aux dossiers</string>
+    <string name="title_advanced_check_authentication">Contrôler l\'authentification des messages</string>
     <string name="title_advanced_check_reply_domain">Vérifier l\'adresse de réponse lors de la synchronisation des messages</string>
     <string name="title_advanced_check_mx">Vérifier l’adresse courriel de l’expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
@@ -432,6 +433,7 @@
     <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
     <string name="title_advanced_tracking">Tenter de reconnaître et de désactiver les images de pistage</string>
     <string name="title_advanced_hide_timezone">Envoyer les messages sans les données de fuseau horaire</string>
+    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Envoyer le nom et la version de l\'application au serveur de messagerie</string>
     <string name="title_advanced_display_hidden">Afficher les textes cachés des messages</string>
     <string name="title_advanced_incognito_keyboard">Utiliser le clavier en mode incognito (Android 8+)</string>
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>
@@ -491,6 +493,7 @@
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la pile supplémentaires, surtout s’il y a beaucoup de messages conservés sur l’appareil</string>
     <string name="title_advanced_gmail_thread_hint">Ceci s\'applique uniquement aux messages nouvellement reçus et peut corrompre les groupes existants</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l’utilisation des données et de la pile mais désactivera également la mise à jour de la liste des dossiers</string>
+    <string name="title_advanced_check_authentication_hint">Ceci contrôlera les résultats de l\'authentification DKIM, SPF et DMARC effectuée par le serveur de messagerie</string>
     <string name="title_advanced_check_reply_hint">Ceci vérifiera si le nom de domaine de l\'expéditeur et l\'adresse de réponse sont les mêmes</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_sync_delay_hint">Ceci ralentira la synchronisation des messages</string>

@@ -269,6 +269,7 @@
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovat seznamy sdílených složek</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
+    <string name="title_advanced_check_authentication">Zkontrolovat ověření zprávy</string>
     <string name="title_advanced_check_reply_domain">Kontrolovat adresu pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
@@ -511,6 +512,7 @@
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_gmail_thread_hint">Platí pouze pro nově přijaté zprávy a může ovlivnit existující skupiny</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí částečně sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
+    <string name="title_advanced_check_authentication_hint">Zkontroluje výsledky DKIM, SPF a DMARC ověření prováděného e-mailovým serverem</string>
     <string name="title_advanced_check_reply_hint">Ověří, zda je název domény odesílatele totožný s adresou pro odpověď</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
@@ -538,7 +540,7 @@
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_highlight_hint">Pro zvýrazňování bude použita sekundární barva motivu</string>
     <string name="title_advanced_gravatars_hint">Může dojít k ohrožení soukromí</string>
-    <string name="title_advanced_name_email_hint">Názvy budou zobrazeny pouze pokud jsou k dispozici</string>
+    <string name="title_advanced_name_email_hint">Jména budou zobrazena pouze jsou-li k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_preview_lines_hint">Maximálně %s znaků celkem</string>
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
@@ -1351,6 +1353,8 @@
     <string name="title_fix">Opravit</string>
     <string name="title_enable">Zapnout</string>
     <string name="title_enabled">Zapnuto</string>
+    <string name="title_disable">Zakázat</string>
+    <string name="title_keep_current">Ponechat aktuální</string>
     <string name="title_executing">Provádím</string>
     <string name="title_completed">Dokončeno</string>
     <string name="title_default_changed">Výchozí hodnota změněna</string>
@@ -1604,4 +1608,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Pouze jméno</item>
+        <item>Pouze e-mail</item>
+        <item>Jméno a e-mail</item>
+    </string-array>
 </resources>
