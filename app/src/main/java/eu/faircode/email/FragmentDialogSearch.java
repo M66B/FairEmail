@@ -137,6 +137,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
                 if (TextUtils.isEmpty(typed))
                     return cursor;
+                if (fts && pro)
+                    return cursor;
 
                 String query = "%" + typed + "%";
                 DB db = DB.getInstance(context);
