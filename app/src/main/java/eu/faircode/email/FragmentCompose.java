@@ -4647,7 +4647,8 @@ public class FragmentCompose extends FragmentBase {
                                 @Override
                                 public void run() {
                                     try {
-                                        adapter.set(a);
+                                        if (adapter != null)
+                                            adapter.set(a);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                         /*
