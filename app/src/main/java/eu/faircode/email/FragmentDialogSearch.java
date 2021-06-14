@@ -56,6 +56,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import io.requery.android.database.sqlite.SQLiteDatabase;
+
 public class FragmentDialogSearch extends FragmentDialogBase {
     private static final int MAX_SUGGESTIONS = 3;
 
@@ -137,15 +139,23 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
                 if (TextUtils.isEmpty(typed))
                     return cursor;
-                if (fts && pro)
-                    return cursor;
 
-                String query = "%" + typed + "%";
+                if (cbSearchIndex.isEnabled() && cbSearchIndex.isChecked()) {
+                    SQLiteDatabase db = FtsDbHelper.getInstance(context);
+                    List<String> suggestions = FtsDbHelper.getSuggestions(
+                            db,
+                            typed + "%",
+                            MAX_SUGGESTIONS);
+                    for (int i = 0; i < suggestions.size(); i++)
+                        cursor.addRow(new Object[]{i + 1, suggestions.get(i)});
+                    return cursor;
+                }
+
                 DB db = DB.getInstance(context);
                 return db.message().getSuggestions(
                         account < 0 ? null : account,
                         folder < 0 ? null : folder,
-                        "%" + query + "%",
+                        "%" + typed + "%",
                         MAX_SUGGESTIONS);
             }
         });
