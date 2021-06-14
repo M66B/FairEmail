@@ -3640,7 +3640,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     channel.setGroup("contacts");
                     channel.setDescription(from.getPersonal());
                     channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-                    channel.setBypassDnd(true);
                     channel.enableLights(true);
                     nm.createNotificationChannel(channel);
                     onActionEditChannel();
