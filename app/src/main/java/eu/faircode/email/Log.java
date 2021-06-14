@@ -35,6 +35,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteFullException;
 import android.graphics.Point;
+import android.icu.text.Transliterator;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -99,6 +100,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -1691,6 +1693,15 @@ public class Log {
                 .append(" no=").append((uiMode & Configuration.UI_MODE_NIGHT_NO) != 0)
                 .append(" yes=").append((uiMode & Configuration.UI_MODE_NIGHT_YES) != 0)
                 .append("\r\n");
+
+        if (BuildConfig.DEBUG &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            sb.append("Transliterators:");
+            Enumeration<String> ids = Transliterator.getAvailableIDs();
+            while (ids.hasMoreElements())
+                sb.append(' ').append(ids.nextElement());
+            sb.append("\r\n");
+        }
 
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");

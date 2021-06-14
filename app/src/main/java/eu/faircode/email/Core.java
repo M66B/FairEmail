@@ -4582,11 +4582,11 @@ class Core {
                 // Wearables
                 StringBuilder sb = new StringBuilder();
                 if (!TextUtils.isEmpty(message.subject))
-                    sb.append(message.subject);
+                    sb.append(TextHelper.transliterate(context, message.subject));
                 if (wearable_preview && !TextUtils.isEmpty(preview)) {
                     if (sb.length() > 0)
                         sb.append(" - ");
-                    sb.append(preview);
+                    sb.append(TextHelper.transliterate(context, preview));
                 }
                 if (sb.length() > 0)
                     mbuilder.setContentText(sb.toString());
@@ -4611,7 +4611,7 @@ class Core {
                 }
             } else {
                 if (!TextUtils.isEmpty(message.subject))
-                    mbuilder.setContentText(message.subject);
+                    mbuilder.setContentText(TextHelper.transliterate(context, message.subject));
             }
 
             if (info[0].hasPhoto())

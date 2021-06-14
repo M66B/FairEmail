@@ -91,6 +91,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swNotifyPreview;
     private SwitchCompat swNotifyPreviewAll;
     private SwitchCompat swNotifyPreviewOnly;
+    private SwitchCompat swNotifyTransliterate;
     private ImageButton ibLight;
     private SwitchCompat swWearablePreview;
     private ImageButton ibWearable;
@@ -112,7 +113,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "light", "sound",
             "badge", "unseen_ignored",
             "notify_background_only", "notify_known", "notify_summary", "notify_remove", "notify_clear",
-            "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "wearable_preview",
+            "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate",
+            "wearable_preview",
             "notify_messaging",
             "biometrics_notify",
             "alert_once"
@@ -165,6 +167,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         swNotifyPreviewAll = view.findViewById(R.id.swNotifyPreviewAll);
         swNotifyPreviewOnly = view.findViewById(R.id.swNotifyPreviewOnly);
+        swNotifyTransliterate = view.findViewById(R.id.swNotifyTransliterate);
         ibLight = view.findViewById(R.id.ibLight);
         swWearablePreview = view.findViewById(R.id.swWearablePreview);
         ibWearable = view.findViewById(R.id.ibWearable);
@@ -439,6 +442,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swNotifyTransliterate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_transliterate", checked).apply();
+            }
+        });
+
         ibLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -489,6 +499,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                     : R.color.lightColorBackground_cards));
         }
 
+        swNotifyTransliterate.setVisibility(TextHelper.canTransliterate() ? View.VISIBLE : View.GONE);
         swUnseenIgnored.setVisibility(Helper.isXiaomi() ? View.GONE : View.VISIBLE);
         swAlertOnce.setVisibility(Helper.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
@@ -587,6 +598,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swNotifyPreviewAll.setChecked(prefs.getBoolean("notify_preview_all", false));
         swNotifyPreviewOnly.setChecked(prefs.getBoolean("notify_preview_only", false));
+        swNotifyTransliterate.setChecked(prefs.getBoolean("notify_transliterate", false));
         swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
         swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", true));
