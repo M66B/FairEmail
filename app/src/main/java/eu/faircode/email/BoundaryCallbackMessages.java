@@ -241,8 +241,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 db.beginTransaction();
 
                 for (; state.index < state.ids.size() && found < pageSize && !state.destroyed; state.index++) {
-                    found++;
-                    db.message().setMessageFound(state.ids.get(state.index));
+                    long id = state.ids.get(state.index);
+                    found += db.message().setMessageFound(id);
+                    Log.i("Boundary matched=" + id + " found=" + found);
                 }
                 db.setTransactionSuccessful();
 
@@ -321,9 +322,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 }
 
                 if (matched) {
-                    found++;
-                    Log.i("Boundary matched=" + match.id);
-                    db.message().setMessageFound(match.id);
+                    found += db.message().setMessageFound(match.id);
+                    Log.i("Boundary matched=" + match.id + " found=" + found);
                 }
             }
         }
@@ -537,9 +537,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                 true, true,
                                 rules, astate, null);
-                    found++;
-                    if (message != null && criteria != null /* browsed */)
-                        db.message().setMessageFound(message.id);
+                    if (message != null) // SQLiteConstraintException
+                        if (criteria == null)
+                            found++; // browsed
+                        else
+                            found += db.message().setMessageFound(message.id);
+                    Log.i("Boundary matched=" + (message == null ? null : message.id) + " found=" + found);
                 } catch (MessageRemovedException ex) {
                     Log.w(browsable.name + " boundary server", ex);
                 } catch (FolderClosedException ex) {
