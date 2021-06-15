@@ -479,35 +479,13 @@
             app:layout_constraintTop_toTopOf="@id/ivStarred" />
 
         <ImageView
-            android:id="@+id/ivContacts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_contacts"
-            android:padding="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivStarred"
-            app:srcCompat="@drawable/twotone_import_contacts_24" />
-
-        <eu.faircode.email.FixedTextView
-            android:id="@+id/tvContacts"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
-            android:text="@string/title_legend_contacts"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivContacts"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivContacts"
-            app:layout_constraintTop_toTopOf="@id/ivContacts" />
-
-        <ImageView
             android:id="@+id/ivSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_search"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivContacts"
+            app:layout_constraintTop_toBottomOf="@id/ivStarred"
             app:srcCompat="@drawable/twotone_search_24" />
 
         <eu.faircode.email.FixedTextView
@@ -523,13 +501,57 @@
             app:layout_constraintTop_toTopOf="@id/ivSearch" />
 
         <ImageView
+            android:id="@+id/ivPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_pin"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSearch"
+            app:srcCompat="@drawable/twotone_person_pin_circle_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvPin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_pin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivPin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivPin"
+            app:layout_constraintTop_toTopOf="@id/ivPin" />
+
+        <ImageView
+            android:id="@+id/ivContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_contacts"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPin"
+            app:srcCompat="@drawable/twotone_import_contacts_24" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvContacts"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_contacts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivContacts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivContacts"
+            app:layout_constraintTop_toTopOf="@id/ivContacts" />
+
+        <ImageView
             android:id="@+id/ivView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_view"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSearch"
+            app:layout_constraintTop_toBottomOf="@id/ivContacts"
             app:srcCompat="@drawable/twotone_visibility_24" />
 
         <eu.faircode.email.FixedTextView
