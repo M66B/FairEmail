@@ -1157,7 +1157,7 @@ public class HtmlHelper {
                             }
 
                             boolean email = group.contains("@") && !group.contains(":");
-                            Log.d("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
+                            Log.i("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
                                     " linked=" + linked + " email=" + email + " count=" + links);
 
                             if (linked)
