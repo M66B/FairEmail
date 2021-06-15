@@ -15,4 +15,9 @@ FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/Fa
 
 Error reporting is **opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
 
+*For Gmail accounts (OAuth) only:*<br>
+FairEmail **will not** transfer information to other apps and services
+and therefore adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
+including the Limited Use requirements.
+
 Copyright &copy; 2018-2021 Marcel Bokhorst.
