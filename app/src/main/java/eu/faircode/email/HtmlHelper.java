@@ -89,12 +89,15 @@ import org.w3c.dom.css.CSSRuleList;
 import org.w3c.dom.css.CSSStyleSheet;
 import org.w3c.dom.stylesheets.MediaList;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.text.DateFormat;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -106,6 +109,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.mail.internet.InternetHeaders;
+import javax.mail.internet.MailDateFormat;
+import javax.mail.internet.MimeUtility;
 
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_INDIVIDUAL;
 import static org.w3c.css.sac.Condition.SAC_CLASS_CONDITION;
@@ -1961,8 +1968,9 @@ public class HtmlHelper {
     }
 
     static Spanned highlightHeaders(Context context, String headers) {
-        int colorAccent = Helper.resolveColor(context, android.R.attr.textColorLink);
         SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
+        int colorAccent = Helper.resolveColor(context, android.R.attr.textColorLink);
+
         int index = 0;
         for (String line : headers.split("\n")) {
             if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
@@ -1972,6 +1980,54 @@ public class HtmlHelper {
             }
             index += line.length() + 1;
         }
+
+        try {
+            // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
+            final List<String> words = Collections.unmodifiableList(Arrays.asList(
+                    "from", "by", "via", "with", "id", "for"));
+            final DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
+
+            ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
+            String[] received = new InternetHeaders(bis).getHeader("Received");
+            if (received.length > 0) {
+                ssb.append('\n');
+                for (int i = received.length - 1; i >= 0; i--) {
+                    String h = MimeUtility.unfold(received[i]);
+
+                    int semi = h.lastIndexOf(';');
+                    Date date = null;
+                    if (semi > 0) {
+                        MailDateFormat mdf = new MailDateFormat();
+                        date = mdf.parse(h, new ParsePosition(semi + 1));
+                        h = h.substring(0, semi);
+                    }
+
+                    int s = ssb.length();
+                    ssb.append('#').append(Integer.toString(received.length - i));
+                    if (date != null)
+                        ssb.append(' ').append(DTF.format(date));
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                    ssb.append('\n');
+
+                    int j = 0;
+                    String[] w = h.split("\\s+");
+                    while (j < w.length) {
+                        if (j > 0)
+                            ssb.append(' ');
+
+                        s = ssb.length();
+                        ssb.append(w[j]);
+                        if (words.contains(w[j].toLowerCase(Locale.ROOT)))
+                            ssb.setSpan(new ForegroundColorSpan(colorAccent), s, ssb.length(), 0);
+                        j++;
+                    }
+                    ssb.append("\n\n");
+                }
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
         return ssb;
     }
 
