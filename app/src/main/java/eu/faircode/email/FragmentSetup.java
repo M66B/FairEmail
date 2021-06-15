@@ -209,6 +209,9 @@ public class FragmentSetup extends FragmentBase {
                 ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
                 menu.add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
 
+                menu.add(Menu.NONE, R.string.menu_faq, order++, R.string.menu_faq)
+                        .setIcon(R.drawable.twotone_support_24);
+
                 popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -238,6 +241,9 @@ public class FragmentSetup extends FragmentBase {
                             return true;
                         } else if (itemId == R.string.title_setup_pop3) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
+                            return true;
+                        } else if (itemId == R.string.menu_faq) {
+                            Helper.view(getContext(), Helper.getSupportUri(getContext()), false);
                             return true;
                         }
 
