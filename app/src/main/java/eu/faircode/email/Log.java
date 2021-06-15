@@ -1692,7 +1692,7 @@ public class Log {
                 .append(" yes=").append((uiMode & Configuration.UI_MODE_NIGHT_YES) != 0)
                 .append("\r\n");
 
-        sb.append("Transliterate")
+        sb.append("Transliterate: ")
                 .append(TextHelper.canTransliterate())
                 .append("\r\n");
 
