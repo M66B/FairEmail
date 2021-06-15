@@ -210,7 +210,8 @@ public class FragmentSetup extends FragmentBase {
                 menu.add(Menu.NONE, R.string.title_setup_pop3, order++, ss);
 
                 menu.add(Menu.NONE, R.string.menu_faq, order++, R.string.menu_faq)
-                        .setIcon(R.drawable.twotone_support_24);
+                        .setIcon(R.drawable.twotone_support_24)
+                        .setVisible(false);
 
                 popupMenu.insertIcons(context);
 
