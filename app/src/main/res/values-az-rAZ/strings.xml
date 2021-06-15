@@ -373,10 +373,85 @@
     <string name="title_unexpected_error">Gözlənilməz xəta</string>
     <string name="title_log">Qeyd jurnalı</string>
     <string name="title_auto_scroll">Avto sürüşdürmə</string>
+    <string name="title_rules_delete_all_confirm">Bütün qaydalar silinsin?</string>
+    <string name="title_rules_delete_junk_confirm">Mesajları spam qovluğuna daşıyan bütün qaydalar silinsin?</string>
     <string name="title_debug_info">Sazlama məlumatı</string>
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
+    <string name="title_unexpected_info_remark">Zəhmət olmasa xəta alanda nə etdiyinizi izah edin:</string>
+    <string name="title_widget_title_count">Yeni mesaj sayı</string>
+    <string name="title_widget_title_list">Mesaj siyahısı</string>
+    <string name="title_widget_title_sync">Eyniləşdirmə açıq/bağlı</string>
+    <string name="title_power_menu_sync">Eyniləşdirmə</string>
+    <string name="title_power_menu_on">Açıq</string>
+    <string name="title_power_menu_off">Bağlı</string>
+    <string name="title_power_menu_on_off">Aç/bağla</string>
+    <string name="title_widget_account">Hesab</string>
+    <string name="title_widget_account_all">Hamısı</string>
+    <string name="title_widget_folder">Qovluq</string>
+    <string name="title_widget_folder_unified">Birləşmiş gələn qutusu qovluqları</string>
+    <string name="title_widget_unseen">Yalnız oxunmamış mesajlar</string>
+    <string name="title_widget_flagged">Yalnız ulduzlu mesajlar</string>
+    <string name="title_widget_font_size">Mətn ölçüsü</string>
+    <string name="title_widget_background">Arxaplan rəngi</string>
+    <string name="title_accessibility_collapsed">Yığcamlaşdırılan</string>
+    <string name="title_accessibility_expanded">Genişləndirilən</string>
+    <string name="title_accessibility_seen">Oxunan</string>
+    <string name="title_accessibility_unseen">Oxunmayan</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d mesaj</item>
+        <item quantity="other">%1$d mesaj</item>
+    </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Vacib</string>
+    <string name="title_keyword_label2">İş</string>
+    <string name="title_keyword_label3">Şəxsi</string>
+    <string name="title_keyword_label4">Edilməli</string>
+    <string name="title_keyword_label5">Sonra</string>
+    <string name="title_accessibility_flagged">Ulduzlu</string>
+    <string name="title_accessibility_unflagged">Ulduzlu olmayan</string>
+    <string name="title_accessibility_collapse">Yığcam et</string>
+    <string name="title_accessibility_expand">Genişləndir</string>
+    <string name="title_accessibility_view_contact">Əlaqəyə bax</string>
+    <string name="title_accessibility_show_authentication_result">Kimlik təsdiqləmə nəticəsini göstər</string>
+    <string name="title_accessibility_show_snooze_time">Ertələmə vaxtını göstər</string>
+    <string name="title_accessibility_view_help">Köməyə bax</string>
+    <string name="title_accessibility_selected">Seçildi</string>
+    <string name="title_accessibility_answered">Cavablandı</string>
+    <string name="title_accessibility_scroll_down">Aşağı sürüşdürün</string>
+    <string name="title_accessibility_scroll_up">Yuxarı sürüşdürün</string>
+    <string name="title_accessibility_filter_out_seen">Oxunan mesajlar filtrini aç/bağla</string>
+    <string name="title_accessibility_edit">Düzəliş et</string>
+    <string name="title_accessibility_show_addresses">Ünvanları göstər</string>
+    <string name="title_accessibility_hide_addresses">Ünvanları gizlət</string>
+    <string name="title_accessibility_attachment">Qoşma</string>
+    <string name="title_accessibility_from">Göndərən</string>
+    <string name="title_accessibility_to">Alan</string>
+    <string-array name="pollIntervalNames">
+        <item>Həmişə</item>
+        <item>Hər 15 dəqiqədə</item>
+        <item>Hər 30 dəqiqədə</item>
+        <item>Hər saat</item>
+        <item>Hər 2 saatda</item>
+        <item>Hər 4 saatda</item>
+        <item>Hər 8 saatda</item>
+        <item>Hər gün</item>
+    </string-array>
+    <string-array name="sendDelayedNames">
+        <item>Xeyr</item>
+        <item>15 saniyə</item>
+        <item>30 saniyə</item>
+        <item>1 dəqiqə</item>
+        <item>2 dəqiqə</item>
+        <item>5 dəqiqə</item>
+        <item>10 dəqiqə</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Birləşmiş gələn qutusu</item>
+        <item>Birləşmiş qovluqlar</item>
+        <item>Əsas hesab qovluqları</item>
+        <item>Hesablar</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -393,5 +468,70 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="ellipsizeNames">
+        <item>Başlanğıcda</item>
+        <item>Ortada</item>
+        <item>Sonda</item>
+        <item>Show untruncated</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Aşağı</item>
+        <item>Normal</item>
+        <item>Yüksək</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>İlkin</item>
+        <item>Kiçik</item>
+        <item>Orta</item>
+        <item>Böyük</item>
+    </string-array>
+    <string-array name="receiptNames">
+        <item>Yalnız oxundu bildirişi</item>
+        <item>Yalnız çatdırıldı bildirişi</item>
+        <item>Oxundu+çatdırıldı bildirişi</item>
+    </string-array>
+    <string-array name="signatureNames">
+        <item>Mətnin üstündə</item>
+        <item>Mətnin altında</item>
+        <item>Aşağıda</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Heç biri</item>
+        <item>PGP yalnız imza</item>
+        <item>PGP imza+şifrə</item>
+        <item>S/MIME yalnız imza</item>
+        <item>S/MIME imza+şifrə</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
+    <string-array name="undoNames">
+        <item>Bağlı</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
+    </string-array>
+    <string-array name="fontNameNames">
+        <item>Əl yazısı</item>
+        <item>Şerif</item>
+        <item>Sans-serif</item>
+        <item>Monospace</item>
+        <item>Fantasy</item>
+        <item>OpenDyslexic</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Yalnız ad</item>
+        <item>Yalnız e-poçt</item>
+        <item>Ad və e-poçt</item>
+    </string-array>
 </resources>

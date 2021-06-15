@@ -4,7 +4,7 @@
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. (FAQ) [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 ## Übersicht
 
@@ -2052,11 +2052,11 @@ Recent versions of FairEmail can filter spam to a certain extend using a message
 
 Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 
-Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
+Beachten Sie, dass das POP3-Protokoll nur Zugriff auf den Posteingang gewährt. Es ist also nicht möglich, Spam für POP3-Konten zu melden.
 
-Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to "learn" what spam messages are.
+Beachten Sie, dass Sie Spam-Nachrichten nicht löschen sollten, auch nicht aus dem Spam-Ordner. E-Mail-Server nutzen die Nachrichten im Spam-Ordner, um die Erkennung von zukünftigen Spam-Nachrichten zu trainieren.
 
-If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
+Wenn Sie viele Spam-Nachrichten in Ihrem Posteingang erhalten, sollten Sie den E-Mail-Anbieter kontaktieren und anfragen, ob dessen Spam-Filter verbessert werden könnte.
 
 Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
 
@@ -2071,7 +2071,7 @@ If legitimate messages are failing authentication, you should notify the sender 
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. Siehe auch [hier](https://developer.android.com/guide/topics/data/install-location).
 
 Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
 
@@ -2084,7 +2084,7 @@ If you need to save on storage space, you can limit the number of days messages 
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Siehe auch [diese FAQ](#user-content-faq92).
 
 <br />
 
@@ -2095,7 +2095,7 @@ For privacy and security reasons FairEmail does not have permissions to directly
 
 If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider). If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
 
-Android Q will make it harder and maybe even impossible to directly access files, see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
+Android Q macht es schwieriger und vielleicht sogar unmöglich, direkt auf Dateien zuzugreifen, siehe [hier](https://developer.android.com/preview/privacy/scoped-storage) und [hier](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) für weitere Details.
 
 <br />
 

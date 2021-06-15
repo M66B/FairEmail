@@ -783,7 +783,7 @@ Searching on the device is a free feature, using the search index and searching 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Как создать аккаунт Outlook / Live / Hotmail?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
