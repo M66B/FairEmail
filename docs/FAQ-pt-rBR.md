@@ -2,9 +2,9 @@
 
 # Suporte do FairEmail
 
-Se você tem uma pergunta, verifique primeiro as perguntas mais frequentes. [No final da página](#user-content-get-support), você pode descobrir como fazer outras perguntas, solicitar recursos, e relatar bugs.
+[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Se você tem uma pergunta, verifique primeiro as perguntas mais frequentes. [No final da página](#user-content-get-support), você pode descobrir como fazer outras perguntas, solicitar recursos, e relatar bugs.
 
 ## Índice
 
@@ -30,7 +30,7 @@ Para autorização:
 
 * Gmail / G Suite, veja a [pergunta 6](#user-content-faq6)
 * Outlook / Live / Hotmail, veja a [pergunta 14](#user-content-faq14)
-* Office 365, veja a [pergunta 14](#user-content-faq156)
+* Office 365, see [question 156](#user-content-faq156)
 * Microsoft Exchange, veja a [pergunta 8](#user-content-faq8)
 * Yahoo, AOL e Sky, veja a [pergunta 88](#user-content-faq88)
 * Apple iCloud, veja a [pergunta 148](#user-content-faq148)
@@ -118,11 +118,11 @@ Perguntas relacionadas:
 * ~~Suporte a S/MIME~~
 * ~~Busca por configurações~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Tudo que está nessa lista está em ordem aleatória e *pode* ser adicionado em um futuro próximo.
 
 <h2><a name="frequently-requested-features"></a>Funcionalidades solicitadas frequentemente</h2>
 
-O design é baseado em várias discussões e se voce quiser, pode discutir sobre isso [ nesse fórum ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)também. O objetivo do design é ser minimalista (sem menus ou botões desnecessários, etc) e sem distrações (cores extravagantes, animações, etc). Todas as coisas exibidas devem ser úteis de alguma forma e devem ser cuidadosamente posicionadas para um uso fácil. Fonts, sizes, colors, etc should be material design whenever possible.
+O design é baseado em várias discussões e se voce quiser, pode discutir sobre isso [ nesse fórum ](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)também. O objetivo do design é ser minimalista (sem menus ou botões desnecessários, etc) e sem distrações (cores extravagantes, animações, etc). Todas as coisas exibidas devem ser úteis de alguma forma e devem ser cuidadosamente posicionadas para um uso fácil. Fontes, tamanhos, cores etc devem ser de design simples sempre que possível.
 
 <h2><a name="frequently-asked-questions"></a>Perguntas Frequentes (FAQ)</h2>
 
@@ -231,7 +231,7 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(105) Como a opção roam-like-at-home funciona?](#user-content-faq105)
 * [(106) Quais launcher (inicializadores) podem mostrar um contador com o número de mensagens não lidas?](#user-content-faq106)
 * [(107) Como eu utilizo estrelas coloridas?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [~~(108) Você pode configurar para apagar mensagens permanentemente de qualquer pasta?~~](#user-content-faq108)
 * [~~(109) Porque 'selecionar conta' está disponível apenas nas versões oficiais?~~](#user-content-faq109)
 * [(110) Por que (algumas) mensagems estão vazias e/ou com anexos corrompidos?](#user-content-faq110)
 * [(111) OAuth é suportado?](#user-content-faq111)
@@ -291,12 +291,12 @@ O design é baseado em várias discussões e se voce quiser, pode discutir sobre
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[Eu tenho outra pergunta.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Quais permissões são necessárias e por quê?**
 
-The following Android permissions are needed:
+As seguintes permissões do Android são necessárias:
 
 * *acesso completo à rede* (INTERNET): para enviar e receber e-mails
 * *ver conexões de rede* (ACCESS_NETWORK_STATE): para monitorar mudanças de conectividade com a internet
@@ -306,15 +306,15 @@ The following Android permissions are needed:
 * *compras no aplicativo* (BILLING): para permitir compras no aplicativo
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
 * Opcional:*leia seus contatos*(READ_CONTACTS): para completar automaticamente os endereços, para exibir fotos dos contatos e [para selecionar contatos](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Opcional: *ler o conteúdo do seu cartão de memória* (READ_EXTERNAL_STORAGE): para aceitar mensagens de outros aplicativos desatualizados, veja também [ este FAQ](#user-content-faq49)
 * Opcional:*usar o hardware de impressão digital* (USE_FINGERPRINT) e usar *hardware de biometria* (USE_BIOMETRIC): para usar autenticação biométrica
 * Opcional: *encontre contas no dispositivo*(GET_ACCOUNTS): para selecionar uma conta ao utilizar a configuração rápida do Gmail
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop e anteriores: *usar contas no dispositivo* (USE_CREDENTIALS): para selecionar uma conta quando estiver usando a configuração rápida do Gmail (não é solicitada nas versões posteriores do Android)
+* Android 5.1 Lollipop e anteriores: *Ler perfil* (READ_PROFILE): para ler seu nome quando estiver a configurção rápida do Gmail (não é solicitada nas versões posteriores do Android)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Permissões opcionais](https://developer.android.com/training/permissions/requesting) são concedidas automaticamente apenas no Android 6 Marshmallow e posteriores. Nas versões anteriores do Android você será solicitado a conceder as permissões opcionais ao instalar o FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+As seguintes permissões são necessárias para mostrar a contagem de mensagens não lidas como um ícone (veja também [esse FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -333,18 +333,18 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+O FairEmail manterá uma lista de endereços dos quais você recebe mensagens e para os quais você envia e utilizará essa lista como sugestão de contatos quando a permissão para ler seus contatos não for concedida ao FairEmail. Isso significa que você pode utilizar o FairEmail mesmo sem o provedor de contatos do Android (livro de endereços). Observe que você ainda pode escolher contatos sem conceder a permissão para ler seus contatos. Apenas a sugestão de contatos não irá funcionar sem a concessão dessa permissão.
 
 <br />
 
 <a name="faq2"></a>
 **(2) Por que há uma notificação exibida de forma permanente?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Uma notificação de baixa prioridade com o número de contas monitoradas e o número de operações pendentes (veja a próxima pergunta) é exibida na barra de status de forma permanente para evitar que o Android encerre o serviço que possibilita o contínuo recebimento de e-mails. Isso [ já era necessário](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)) antes, mas com a introdução do [Modo Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) no Android 6 Marshmallow isso se tornou mais necessário do que nunca. O Modo Doze irá fechar todos os aplicativos depois de algum tempo que a tela estiver desligada, a menos que o aplicativo inicie em primeiro plano, o que requer a exibição de uma notificação na barra de status.
 
 A maioria, se não todos, dos outros aplicativos de email não exibem a notificação com o "efeito secundário" de que novas mensagens não são frequentemente relatadas, ou são relatadas com atraso e que mensagens não são enviadas ou são enviadas com atraso.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. Na prática, isso significa que a notificação da barra de status não ocupa espaço na barra de status, a não ser que haja espaço disponível.
+O Android mostra os ícones de alta prioridade primeiro na barra de status e irá esconder o ícone do FairEmail se não houver mais espaço para mostrar ícones. Na prática, isso significa que a notificação da barra de status não ocupa espaço na barra de status, a não ser que haja espaço disponível.
 
 A notificação da barra de status pode ser desabilitada por meio das configurações de notificação do FairEmail:
 
@@ -353,18 +353,18 @@ A notificação da barra de status pode ser desabilitada por meio das configura�
 
 Você pode alternar para a sincronização periódica de mensagens, nas configurações de recebimento, para remover a notificação, mas esteja ciente de que isso pode usar mais a bateria. Veja[aqui](#user-content-faq39)para mais detalhes sobre o uso da bateria.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Ore pode exibir também uma notificação na barra de status com a mensagem * Aplicativos estão sendo executados em segundo plano*. Por favor, veja [aqui](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) sobre como desativar essa notificação.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Algumas pessoas sugeriram o uso do [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) ao invés de um serviço do Android com uma notificação na barra de status, mas isso requer que os provedores de mensagens enviem mensagens FCM ou a existência de um servidor central onde todas as mensagens são coletadas enviando mensagens FCM. A primeira opção não irá acontecer e a última terias implicações significativas em termos de privacidade.
 
 Se você chegou aqui após clicar na notificação, saiba que o próximo clique irá abrir a caixa de entrada unificada.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) O que são operações e por que elas estão pendentes?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+A notificação de baixa prioridade na barra de status mostra o número de operações pendentes, que podem ser:
 
 * *a adicionar*: adicionar mensagens a uma pasta remota
 * *a mover*: mover mensagens para outra pasta remota
@@ -388,20 +388,20 @@ The low priority status bar notification shows the number of pending operations,
 * *regra*: executando uma regra no texto do corpo
 * *expunge*: permanently delete messages
 
-Operações são processadas somente quando existe uma conexão com o servidor do e-mail ou quando a sincronização é feita manualmente. See also [this FAQ](#user-content-faq16).
+Operações são processadas somente quando existe uma conexão com o servidor do e-mail ou quando a sincronização é feita manualmente. Veja também [esse FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Como posso usar um certificado de seguranã inválido / senha em branco / conexão de texto simples?**
 
-*... Untrusted ... not in certificate ...*
+*... Não confiável ... não está no certificado ...*
 <br />
 *... Certificado de segurança inválido (Não é possivel verificar a identidade do servidor)...*
 
 Isso pode ser causado pelo uso de um nome incorreto do host, então primeiro verifique o nome do host nas configurações avançadas de identidade/conta (toque na configuração manual). Consulte a documentação do provedor do e-mail sobre o nome correto do host.
 
-Voce deve tentar corrigir isso contactando seu provedor ou obtendo um certificado de segurança válido prque certificados de segurança inválidos são inseguros e permitem[ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Voce deve tentar corrigir isso contactando seu provedor ou obtendo um certificado de segurança válido prque certificados de segurança inválidos são inseguros e permitem[ataques man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Se dinheiro for um obstáculo, você pode obter certificados de segurança gratuitos no [Let's Encrypt](https://letsencrypt.org).
 
 The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
 
@@ -415,13 +415,13 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 
 This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Observe ainda que versões mais antigas do Android podem não reconhecer as autoridades de certificados mais recentes como o Encrypt, fazendo com que as conexões sejam consideradas inseguras, veja também [aqui](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
-*Trust anchor for certification path not found*
+*Âncora confiável para o caminho de certificação não encontrada*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security,cet.CertPathValidatorException: Trust anchor for certification path not found ...* significa que o gerenciador de confiança padrão do Android não pôde verificar a cadeia de certificados do servidor.
 
 This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
 
@@ -433,22 +433,22 @@ You can pin the certificate too, see above.
 
 <br />
 
-*Empty password*
+*Senha em branco*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
-*Plain text connection*
+*Conexão de texto simples*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Seu nome de usuário, senha e todas as mensagens serão enviadas e recebidas sem criptografia, o que é **muito inseguro** porque um [ataque man-in=the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) é muito fácil em uma conexão não criptografada.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Se ainda assim você quiser utilizar um certificado inválido, uma senha em branco ou uma conexão de texto simples, você precisará habilitar conexões inseguras nas configurações de conta/identidade. O STARTTLS deve ser utilizado para conexões de texto simples. Se você habilitar conexões inseguras, você deve se conectar através de redes privadas e confiáveis e nunca através de redes públicas, como as oferecidas em hóteis, aeroportos etc.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Como posso personalizar a visualização de mensagens?**
 
-In the three dot overflow menu you can enable or disable or select:
+No menu de três pontos você pode ativar, desativar ou selecionar:
 
 * *tamanho do texto*: para três tamanhos de texto diferentes
 * *visualização compacta*: para mensagens mais compactas e uma fonte de mensagem menor
@@ -457,30 +457,30 @@ Na seção de exibição das configurações você pode habilitar ou desabilitar
 
 * *Caixa de entrada unificada*: para desativar a caixa de entrada unificada e mostrar pastas distintas no lugar da caixa unificada
 * *Tabular style*: to show a linear list instead of cards
-* *Group by date*: show date header above messages with the same date
-* *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Agrupar por data*: mostrar cabeçalhos de data acima de mensagens com a mesma data
+* *Junção de conversas*: para dasativar a junção de conversas e mostrar mensagens de forma individual
+* *Barra de ação da conversa*: para desativar a barra de navegação inferior
 * *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
+* *Exibir fotos de contatos*: para ocultar fotos de contatos
+* *Exibit nomes e endereços de e-mail*: para exibir nomes ou exibir nomes e endereços de e-mail
+* *Mostrar assunto em itálico*: para exibir o assunto como um texto normal
+* *Mostrar estrelas*: para ocultar estrelas (marcações)
 * *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Mostrar detalhes do endereço por padrão*: para expandir a seção de endereços por padrão
+* *Exibir automaticamente a mensagem original para contatos conhecidos*: para mostrar automaticamente a mensagem original para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
+* *Exibir automaticamente imagens para contatos conhecidos*: para exibir automaticamente imagens para contatos no seu dispositivo, por favor veja [esse FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Observe que as mensagens só podem ser pre-visualizadas quando o texto delas tiver sido baixado. Mensagens grandes não são baixadas por padrão em redes limitadas (geralmente em dados móveis). You can change this in the connection settings.
 
-Some people ask:
+Algumas pessoas pedem:
 
 * para mostrar o assunto em negrito, mas o negrito já é utilizado para destacar mensagens não lidas
-* to move the star to the left, but it is much easier to operate the star on the right side
+* para mostrar a estrela à esquerda, mas é muito mais fácil utilizar a estrela no lado direito
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Como posso fazer login com Gmail / G Suite?**
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
@@ -492,234 +492,236 @@ If you don't want to use or can't use an on-device Google account, for example o
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Por favor, [veja essa FAQ](#user-content-faq111) sobre o porque apenas contas salvas no dispositivo podem ser usadas.
 
-Note that an app specific password is required when two factor authentication is enabled.
+Observe que uma senha específica do aplicativo é necessário quando a autenticação em duas etapas estiver habilitada. After enabling two factor authentication there will be this error message:
 
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
 
 <br />
 
-*Enable "Less secure apps"*
+*Senha específica do aplicativo*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Veja [aqui](https://support.google.com/accounts/answer/185833) sobre como gerar uma senha específica do aplicativo.
 
 <br />
 
-*General*
+*Habilitar "Aplicativos menos seguros"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Importante**: usar este método não é recomendado porque é menos confiável.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Importante**: Contas do G Suite autorizadas com um nome de usuário/senha irão deixar de funcionar [em um futuro próximo](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Veja [aqui](https://support.google.com/accounts/answer/6010255) sobre como habilitar "aplicativos menos seguros" ou vá [diretamente para as configurações](https://www.google.com/settings/security/lesssecureapps).
+
+Se você utilizar múltiplas contas do Gmail, certifique-se de alterar a configuração "aplicativos menos seguros" na(s) conta(s) correta(s).
+
+Esteja ciente de que você você precisa sair da tela de configuração "aplicativos menos seguros" usando a seta que aponta para trás para aplicar a configuração.
+
+Se você utilizar esse método, você deve usar uma [senha forte](https://en.wikipedia.org/wiki/Password_strength) para sua conta do Gmail, o que de todo modo é uma boa ideia. Observe que utilizar o protocolo IMAP [padrão](https://tools.ietf.org/html/rfc3501) por si só não é menos seguro.
+
+Quando a configuração "aplicativos menos seguros" não estiver habilitada, você receberá a mensagem de erro *Autenticação falhou - credenciais inválidas* para contas (IMAP) e *Usuário ou Senha não aceitos* para identidades (SMTP).
+
+<br />
+
+*Geral*
+
+Talvez você receba o alerta "*Por favor, faça login através de seu navegador*". Isso acontece quando o Google considera que a rede que te conecta à internet (que pode ser uma CPN) não é segura. Isso pode ser evitado utilizando o assistente de configuração rápida do Gmail ou uma senha específica do aplicativo.
+
+Veja [aqui](https://support.google.com/mail/answer/7126229) as instruções do Google e clique [aqui](https://support.google.com/mail/accounts/answer/78754) para buscar a solução de problemas.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Por que as mensagens enviadas não estão aparecendo (diretamente) na pasta enviados?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+As mensagens geralmente são movidas da caixa de saída para a pasta de enviados assim que seu provedor as adiciona à pasta de enviados. Isso requer que você selecione uma pasta de enviados nas configurações da conta e que seja definida uma pasta de enviados a ser sincronizada.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Alguns provedores não acompanham as mensagens enviadas ou o SMTP usado pode não estar relacionado ao provedor. Nesses casos, o FairEmail irá automaticamente adicionar à pasta de enviados as mensagens enviadas ao fazer a sincronização da pasta de enviados, o que irá acontecer após a mensagem ser enviada. Observe que isso resultará em tráfego extra de internet.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Se isso não acontecer, seu provedor talvez não acompanhe as mensagens enviadas ou talvez você esteja utilizando um servidor de SMTP que não tem relação com o provedor.~~ ~~Nesses casos, você pode ativar a configuração avançada de identidade *Armazenar mensagens enviadas* para permitir que o FairEmail adicione mensagens enviadas à pasta de enviados logo após a mensagem ser enviada.~~ ~~Observe que habilitar essa configuração pode resultar em duplicação de mensagens, se o seu provedor por natureza já adicionar as mensagens enviadas à pasta de enviados também.~~ ~~Além disso, saiba que ativar essa configuração irá resultar em maior uso de armazenamento, especialmente quando for feito o envio de mensagens com grandes anexos.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Se as mensagens enviadas presentes na caixa de saída não forem encontradas na pasta de enviados após uma sincronização completa, elas serão movidas da caixa de saída para a caixa de enviados também.~~ ~~Uma sincronização completa acontece quando há uma reconexão com o servidor ou pode acontecer periodicamente e/ou manualmente.~~ ~~Você provavelmente vai querer ativar a configuração avançada *Armazenar mensagens enviadas* ao invés disso, para mover as mensagens para a pasta de enviados mais cedo.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Posso usar uma conta to Microsoft Exchange?**
 
 The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Você pode usar uma conta do Microsoft Exchange se ela for acessível via IMAP, o que normalmente é o caso. Clique [aqui](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) para mais informações.
 
 Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Por favor veja [aqui](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040)o documento da Microsoft sobre como configurar um cliente de e-mail. Há também uma seção sobre os erros de conexão mais comuns e soluções.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Algumas versões antigas de servidores do Exchange têm um problema que faz com as mensagens apareçam vazias e com anexos corrompidos. Por favor, veja [esse FAQ](#user-content-faq110) para obter uma solução alternativa.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Por favor, veja [esse FAQ](#user-content-faq133) sobre o suporte ao ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Por favor, veja [esse FAQ](#user-content-faq111) sobre o suporte ao OAuth.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) O que são identidades / como adicionar apelidos (alias)?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+As identidades representam os endereços de e-mail *dos quais* você está enviando através de um servidor de e-mail (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Alguns provedores permitam que você possua múltiplos apelidos (aliases). Você pode configurá-los definindo o campo do endereço de e-mail de uma identidade adicional como o endereço do alias e definindo o campo do nome de usuário como seu e-mail principal.
 
-Note that you can copy an identity by long pressing it.
+Observe que você pode copiar uma identidade ao tocar e segurar sobre ela.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Como alternativa, você pode ativar *Permitir a edição do endereço do remetente* nas configurações avançadas de uma identidade existente para editar o nome de usuário ao escrever uma nova mensagem, se seu provedor permitir isso.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+O FairEmail irá automaticamente atualizar as senhas de identidades relacionadas quando você atualizar a senha de uma conta associada ou uma identidade relacionada.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Veja [esse FAQ](#user-content-faq33) sobre como editar o nome de usuário de endereços de e-mail.
 
 <br />
 
 <a name="faq10"></a>
-**~~(10) What does 'UIDPLUS not supported' mean?~~**
+**~~(10) O que 'UIDPLUS não suportado' significa?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315). This IMAP extension is required to implement two way synchronization, which is not an optional feature. So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~A mensagem de erro *UIDPLUS não suportado* significa que seu provedor não fornece a [extensão UIDPLUS](https://tools.ietf.org/html/rfc4315) do IMAP. Essa extensão do IMAP é necessária para implementar a sincronização dupla, o que não é um recurso opcional. Então, a menos que seu provedor possa ativar essa extensão, você não poderá utilizar o FairEmail para esse provedor.~~
 
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Por que POP não é suportado?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~Além do fato de que qualquer provedor de e-mail decende suporta [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) hoje em dia,~~ ~~usar [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) resultará em uso extra de bateria e atraso na notificação de novas mensagens.~~ ~~Além disso, POP é incompatível com a sincronização dupla e, mais do que nunca, as pessoas leem e escrevem mensagens em diferentes aparelhos hoje em dia.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~Basicamente, POP suporta apenas o download e a exclusão de mensagens da caixa de entrada.~~ ~~Então, funções simples como definir atributos de mensagens (lido, marcado, respondido etc), adicionar (fazer backup) e mover mensagens não é possível.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Veja também [o que o Google escreve sobre isso ](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~Por exemplo, [o Gmail pode importar mensagens](https://support.google.com/mail/answer/21289) de outra conta POP,~~ ~~o que pode ser usado como uma alternativa para quando o seu provedor não tiver suporte a IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~Resumindo: considere mudar para IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Como funciona a criptografia/descriptografia?**
 
 Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
 <br />
 
-*General*
+*Geral*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Por favor, [veja aqui](https://en.wikipedia.org/wiki/Public-key_cryptography) como funciona a criptografia de chaves públicas/privadas.
 
-Encryption in short:
+Criptografia de forma simples:
 
 * **Mensagens enviadas** são criptografadas com a **chave pública** do destinatário
 * **Mensagens recebidas** são descriptografadas com a **chave privada** do destinatário
 
-Signing in short:
+Assinatura de forma simples:
 
 * **Mensagens enviadas** são assinadas com a **chave privada** do remetente
 * **Mensagens recebidas** são verificadas com a **chave pública** do remetente
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Para assinar/criptografar uma mensagens, basta selecionar o método apropriado na caixa de diálogo de envio. Você pode sempre abrir a caixa de diálogo de envio usando o menu de três pontos, no caso de você ter selecionado *Não mostrar novamente* anteriormente.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Para verificar a assinatura ou descriptografar uma mensagem, abra a mensagem e apenas toque no sinal ou no ícone de cadeado logo abaixo da barra de ação da mensagem.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Na primeira vez que você enviar uma mensagem assinada/criptografada, talvez uma chave de assinatura seja solicitada. O FairEmail irá armazenar automaticamente a chave de assinatura selecionada na identidade utilizada para a próxima vez. Se você precisar redefinir a cgave de assinatura, apenas salve a identidade ou toque e segure a identidade na lista de identidades e selecione *Redefinir chave de assinatura*. A chave de assinatura selecionada é visível na lista de identidades. Se você precisar selecionar chaves diferentes para cada situação, você pode criar múltiplas identidades para a mesma conta com o mesmo endereço de e-mail.
 
 In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+O texto/anexo das mensagens a serem criptografadas e o texto/anexo das mensagens descriptografadas são armazenados apenas localmente e nunca serão adicionados ao servidor remoto. Se você quiser desfazer a descriptografia, você pode utilizar a opção *ressincronizar* no menu de três pontos da barra de ação de mensagens.
 
 <br />
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+Você precisará instalar e configurar o [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) primeiro. O FairEmail foi testado com o OpenKeychain versão 5.4. Versões posteriores provavelmente serão compatíveis, mas versões anteriores podem não ser.
 
-**Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
+**Importante**: O aplicativo OpenKeychain é conhecido por (silenciosamente) falhar quando o aplicativo chamado (FairEmail) não é autorizado ainda e está recebendo uma chave pública existente. Você pode contornar isso tentando enviar uma mensagem assinada/criptografada a um remetente com uma chave pública desconhecida.
 
-**Important**: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
+**Importante**: Se o aplicativo OpenKeychain não conseguir encontrar (mais) uma chave, talvez você precise redefinir uma chave previamente selecionada. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).
 
-**Important**: to let apps like FairEmail reliably connect to the OpenKeychain service to encrypt/decrypt messages, it might be necessary to disable battery optimizations for the OpenKeychain app.
+**Importante**: para permitir que aplicativos como o FairEmail se conectem correttamente com o serviço do OpenKeychain para criptografar/descriptografar mensagens, talvez seja necessário desativar a otimização de bateria do aplicativo OpenKeychain.
 
 **Important**: the OpenKeychain app reportedly needs contacts permission to work correctly.
 
-**Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
+**Importante**: em alguns dispositivos ou versões do Android é necessário ativar *Mostrar popups durante a execução em segundo plano* nas permissões adicionais das configurações do Android para o OpenKeychain. Sem essas permissões, o rascunho será salvo, mas o popup do OpenKeychain para confirmar/selecionar pode não aparecer.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 Although this shouldn't be necessary for most email clients, you can attach your public key to a message and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
 
-All key handling is delegated to the OpenKey chain app for security reasons. This also means that FairEmail does not store PGP keys.
+Toda a manipulação de chaves é delagado ao aplicativo Openkeychain por razões de segurança. Isso também significa que o FairEmail não armazena chaves PGP.
 
-Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+O uso de PGP criptografado embutido em mensagens recebidas é suportado, mas o uso de assinaturas PGP embutidas e PGP embutido em mensagens enviadas não é suportado, veja [aqui](https://josefsson.org/inline-openpgp-considered-harmful.html) porque não.
 
-Signed-only or encrypted-only messages are not a good idea, please see here about why not:
+Mensagens somente assinadas ou somente criptografadas não é uma boa ideia. Por favor, veja aqui porque não:
 
 * [Considerações do OpenPGP - Parte I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [Considerações do OpenPGP - Parte II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [Considerações do OpenPGP - Parte III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+Mensagens somente assinadas são suportadas. Mensagens somente criptografadas não são suportadas.
 
-Common errors:
+Erros comuns:
 
 * *No key*: there is no PGP key available for one of the listed email addresses
-* *Missing key for encryption*: there is probably a key selected in FairEmail that does not exist in the OpenKeychain app anymore. Resetting the key (see above) will probably fix this problem.
+* *Chave ausente para criptografia*: provavelmente há uma chave selecionada no FairEmail que não existe mais no aplicativo do OpenKeychain. Redefinir a chave (veja acima) provavelmente irá corrigir este problema.
 * *Key for signature verification is missing*: the public key for the sender is not available in the OpenKeychain app. This can also be caused by Autocrypt being disabled in the encryption settings or by the Autocrypt header not being sent.
 
 <br />
 
 *S/MIME*
 
-Encrypting a message requires the public key(s) of the recipient(s). Signing a message requires your private key.
+Criptografar uma mensagem requer a(s) chave(s) pública(s) do(s) destinatário(s). Assinar uma mensagem requer sua chave privada.
 
-Private keys are stored by Android and can be imported via the Android advanced security settings. There is a shortcut (button) for this in the encryption settings. Android will ask you to set a PIN, pattern, or password if you didn't before. If you have a Nokia device with Android 9, please [read this first](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Chaves privadas são armazenas pelo Android e podem ser importadas através das configurações avançadas de segurança do Android. There is a shortcut (button) for this in the encryption settings. O Android pedirá que você defina um PIN, padrão ou senha se você ainda não fez antes. Se você tiver um dispositivo da Nokia com Android 9, por favor, [leia isso primeiro](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
-Note that certificates can contains multiple keys for multiple purposes,  for example for authentication, encryption and signing. Android only imports the first key, so to import all the keys, the certificate must first be split. This is not very trivial and you are advised to ask the certificate supplier for support.
+Note que certificados podem conter múltiplas chaves para múltiplas finalidade, como por exemplo autenticação, criptografia e assinatura. O Android apeenas importa a primeira chave, então para importar todas as chaves, o certificado deve ser dividido primeiro. Isso não é muito trivial e recomenda-se pedir apoio ao fornecedor do certificado para obter suporte.
 
 Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
 
-The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
+O método de criptografia padrão é PGP, mas o último método de criptografia utilizado será lembrado para a identidade selecionada da próxima vez. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+Para permitir diferentes chaves privadas para o mesmo endereço de e-mail, o FairEmail irá sempre permitir que você selecione uma chave quando existirem várias identidades com o mesmo endereço de e-mail para a mesma conta.
 
 Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
 
-FairEmail verifies both the signature and the complete certificate chain.
+O FairEmail verifica tanto a assinatura, quando a cadeia completa de certificados.
 
-Common errors:
+Erros comuns:
 
 * *Nenhum certificado encontrado correspondendo ao targetContraints*: isso significa que você está usando uma versão antiga do FairEmail
 * *Não foi possível encontrar um caminho de certificado válido para o alvo requisitado*: basicamente isso significada que um ou mais intermediários ou certificados de raiz não foram encontrados
 * *A chave privada não corresponde a nenhuma chave de criptografia*: a chave selecionada não pode ser usada para descriptografar a mensagem, provavelmente porque ela não é a chave correta
 * *Nenhuma chave privada*: nenhum certificado foi selecionado ou nenhum certificado estava disponível no armazenamento de chaves do Android
 
-In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or "selfSign" is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificates found in the Android key store are marked with "Android".
+No caso de a cadeia de certificados estar incorreta, você pode clicar no pequeno botão de informação para mostrar todos os certificados. Após os detalhes do certificados, o emissor ou "selfSign" é exibido. Um certificado é auto-assinado quando o destinatário e o emissor são os mesmos. Certificados de uma autoridade certificadora (CA) são marcados com "[keyCertSign](https://tools.ietf.org/html/rfc5280#section-4.2.1.3)". Certificados encontrados no armazenamento de chaves do Android são marcadas com "Android".
 
-A valid chain looks like this:
+Uma cadeia válida parece com:
 
 ```
 Seu certificado > zero ou mais certificados intermediários > certificado CA (raiz) marcado com "Android"
 ```
 
-Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.
+Observe que uma cadeia de certificados irá sempre ser inválida quando nenhum certificado de ancoragem puder ser encontrado no armazenamento de chaves do Android, o que é fundamental para a validação de certificados S/MIME.
 
-Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
+Por favor, veja [aqui](https://support.google.com/pixelphone/answer/2844832?hl=en) como você pode importar certificados no armazenamento de chaves do Android.
 
-The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
+O uso de chaves expiradas, mensagens criptografadas/assinadas embutidas e tokens de segurança de hardware não é suportado.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+Se você estiver procurando um certificado S/MIME gratuito (teste), veja aqui [aqui](http://kb.mozillazine.org/Getting_an_SMIME_certificate) as opções. Por favor, certifique-se de [ler isso primeiro](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) se você quiser solicitar um certificado S/MIME Actalis.
 
-How to extract a public key from a S/MIME certificate:
+Como extrair uma chave pública de um certificado S/MIME:
 
 ```
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+Você pode decodificar assinaturas S/MIME etc [aqui](https://lapo.it/asn1js/).
 
 <br />
 
@@ -731,12 +733,12 @@ However, FairEmail can send and receive PGP encrypted messages, which are compat
 
 <br />
 
-S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
+Criptografia/assinatura S/MIME é uma funcionalidade Pro, mas todas as outras operações PGP e S/MIME são gratuitas para serem usadas.
 
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Como funciona a pesquisa no dispositivo/servidor?**
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
 
@@ -778,12 +780,12 @@ This will result in searching like this:
 
 Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Como posso configurar uma conta do Outlook / Live / Hotmail?**
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
 
@@ -796,7 +798,7 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Por que o texto da mensagem continua carregando?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
@@ -811,7 +813,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Por que as mensagens não estão sendo sincronizadas?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -836,7 +838,7 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Por que a sincronização manual não funciona?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -845,14 +847,14 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Por que a pré-visualização da mensagem nem sempre é exibida?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+The preview of the message text cannot be shown if the message body has not been downloaded yet. Veja também [ esse FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Por que os recursos Pro são tão caros?**
 
 First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
 
@@ -878,12 +880,12 @@ I have been working on FairEmail almost every day for more than two years, so I 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Posso pedir um reembolso?**
 
 If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Como posso ativar a notificação com LED (luz da lanterna)?**
 
 Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
@@ -898,7 +900,7 @@ Setting a light color before Android 8 is not supported and on Android 8 and lat
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) O que o erro ... na conta/pasta significa?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
@@ -945,6 +947,8 @@ The error *... connection failure ...* could indicate [Too many simultaneous con
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
+
+The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
 
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
@@ -1000,24 +1004,26 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... A AutenticAção fAlhou ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... A AutenticAção fAlhou ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... A AutenticAção fAlhou ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
+
+The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
 
 When in doubt, you can ask for [support](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Por que recebo o alerta ... ?**
 
-*General*
+*Geral*
 
 Alerts are warning messages sent by email servers.
 
@@ -1047,14 +1053,14 @@ Note that it will take the email server a while to discover broken connections, 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) O que é a procura por mensagens no servidor?**
 
 Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Por que não consigo selecionar/abrir/salvar uma imagem, um anexo ou um arquivo?**
 
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
 
@@ -1073,7 +1079,7 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Posso ajudar a traduzir o FairEmail para meu próprio idioma?**
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
 
@@ -1082,7 +1088,7 @@ If you would like your name or alias to be included in the list of contributors 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Como posso distinguir entre imagens embutidas e imagens externas?**
 
 External image:
 
@@ -1092,16 +1098,16 @@ Embedded image:
 
 ![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Imagem com erros:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Imagem com erros](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Como posso gerenciar as notificações na barra de status?**
 
 In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
@@ -1124,14 +1130,14 @@ See [this FAQ](#user-content-faq21) if your device has a notification light.
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) Como posso receber notificações de novas mensagens para outras pastas?**
 
 Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) Como posso utilizar as configurações rápidas fornecidas?**
 
 There are quick settings (settings tiles) available to:
 
@@ -1143,7 +1149,7 @@ Quick settings require Android 7.0 Nougat or later. The usage of settings tiles 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) Como posso utilizar os atalhos fornecidos?**
 
 There are shortcuts available to compose a new message to a favorite contact.
 
@@ -1154,14 +1160,14 @@ It is also possible to create shortcuts to folders by long pressing a folder in 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) Como posso verificar se a leitura de um e-mail é realmente segura?**
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) Por que os endereços de remetente editados não estão funcionando?**
 
 Most providers accept validated addresses only when sending messages to prevent spam.
 
@@ -1179,7 +1185,7 @@ Note that this is independent of receiving messages.
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Comos as identidades são combinadas?**
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
@@ -1226,12 +1232,12 @@ The Gmail app shows images by default by downloading the images through a Google
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
+If you want to reset the default *Open with* apps, please [see here](https://support.google.com/pixelphone/answer/6271667).
 
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Como os arquivos de configuração são criptografados?**
 
 Short version: AES 256 bit
 
@@ -1331,7 +1337,7 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-See also [this FAQ](#user-content-faq4).
+Veja também [ esse FAQ](#user-content-faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
@@ -1707,12 +1713,12 @@ You can disable a rule and you can stop processing other rules after a rule has 
 The following rule conditions are available:
 
 * Sender contains or sender is contact
-* Recipient contains
-* Subject contains
+* Destinatário contém
+* Assunto contém
 * Has attachments (optional of specific type)
-* Header contains
+* Cabeçalho contém
 * Absolute time (received) between (since version 1.1540)
-* Relative time (received) between
+* Período relativo (recebido entre)
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like *@example.org*
 
@@ -1737,13 +1743,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Hide
-* Suppress notification
-* Snooze
-* Add star
+* Ocultar
+* Suprimir notificação
+* Soneca
+* Adicionar estrela
 * Set importance (local priority)
-* Add keyword
-* Move
+* Adicionar palavra-chave
+* Mover
 * Copy (Gmail: label)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
@@ -1755,7 +1761,7 @@ Rules are applied directly after the message header has been fetched, but before
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
 
 Some common header conditions (regex):
 
@@ -1865,7 +1871,7 @@ To enable/disable a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages.
+Note that disabling an account will hide the account and all associated folders and messages. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
 
 To set the poll interval:
 
@@ -2000,7 +2006,7 @@ To authorize a Yahoo, AOL, or Sky account you will need to create an app passwor
 * [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Por favor, veja [esse FAQ](#user-content-faq111) sobre o suporte ao OAuth.
 
 Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
 
@@ -2084,7 +2090,7 @@ If you need to save on storage space, you can limit the number of days messages 
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Veja também [ esse FAQ](#user-content-faq92).
 
 <br />
 
@@ -2205,7 +2211,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2280,6 +2286,8 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
+
+The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
 <br />
 
@@ -2450,6 +2458,12 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
+
+<br />
+
+*Translate button (version 1.1600+)*
+
+Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 
 <br />
 
@@ -2696,17 +2710,17 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-Account:
+Conta:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-Folder:
+Pasta:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Sender:
+Remetente:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2913,6 +2927,10 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
+Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
+
+Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
+
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
@@ -2950,7 +2968,7 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Veja também [ esse FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
@@ -3023,7 +3041,21 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<a name="faq167"></a>
+**(167) How can I use DeepL?**
+
+1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
+1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
+1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
+1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
+
+You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
+
+This feature requires an internet connection and is not available in the Play store version.
+
+<br />
+
+<h2><a name="get-support"></a>Suporte</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 

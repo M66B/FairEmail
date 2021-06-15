@@ -2,9 +2,9 @@
 
 # Asistență FairEmail
 
-Dacă aveți o nelămurire, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [În partea de jos](#user-content-get-support), puteți afla cum să puneți alte întrebări, să solicitați caracteristici și să raportați erori.
+[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
 
-Dacă aveți o problemă, vă rugăm să consultați mai întâi întrebările frecvente (FAQ) de mai jos. [În partea de jos veți afla](#user-content-get-support), cum să puneți mai multe întrebări, să solicitați caracteristici și să raportați erori.
+Dacă aveți o nelămurire, vă rugăm să consultați mai întâi următoarele întrebări frecvente. [În partea de jos](#user-content-get-support), puteți afla cum să puneți alte întrebări, să solicitați caracteristici și să raportați erori.
 
 ## Index
 
@@ -30,7 +30,7 @@ Pentru autorizare:
 
 * Gmail / G suite, vezi [întrebarea 6](#user-content-faq6)
 * Outlook / Live / Hotmail, vedeți [întrebarea 14](#user-content-faq14)
-* Office 365, consultați [întrebarea 14](#user-content-faq156)
+* Office 365, see [question 156](#user-content-faq156)
 * Microsoft Exchange, consultați [întrebarea 8](#user-content-faq8)
 * Yahoo, AOL și Sky, vezi [întrebarea 88](#user-content-faq88)
 * Apple iCloud, vezi [întrebarea 148](#user-content-faq148)
@@ -494,7 +494,9 @@ Această verificare de securitate Google este declanșată mai des cu *aplicați
 
 Vă rugăm să consultați [acest FAQ](#user-content-faq111) pentru a afla de ce pot fi utilizate doar conturile de pe dispozitiv.
 
-Rețineți că este necesară o parolă specifică aplicației atunci când este activată autentificarea în doi factori.
+Rețineți că este necesară o parolă specifică aplicației atunci când este activată autentificarea în doi factori. After enabling two factor authentication there will be this error message:
+
+*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
 
 <br />
 
@@ -522,7 +524,7 @@ Atunci când opțiunea "Aplicații mai puțin sigure" nu este activată, veți p
 
 <br />
 
-*Informații generale*
+*Generale*
 
 Este posibil să primiți alerta "*Vă rugăm să vă conectați prin intermediul browserului web*". Acest lucru se întâmplă atunci când Google consideră că rețeaua care vă conectează la internet (poate fi un VPN) nu este sigură. Acest lucru poate fi evitat prin utilizarea asistentului de configurare rapidă Gmail sau a unei parole specifice aplicației.
 
@@ -608,7 +610,7 @@ Comunicarea cu serverele de e-mail este întotdeauna criptată, cu excepția caz
 
 <br />
 
-*Informații generale*
+*Generale*
 
 Vă rugăm să [vezi aici](https://en.wikipedia.org/wiki/Public-key_cryptography) despre cum funcționează criptarea cu cheie publică/privată.
 
@@ -711,7 +713,7 @@ Vă rugăm să vedeți [aici](https://support.google.com/pixelphone/answer/28448
 
 Nu se acceptă utilizarea cheilor expirate, a mesajelor criptate/semnate în linie și a token-urilor de securitate hardware.
 
-Dacă sunteți în căutarea unui certificat S/MIME gratuit (de test), consultați [ aici](http://kb.mozillazine.org/Getting_an_SMIME_certificate) pentru opțiuni. Vă rugăm să vă asigurați că [citiți acest lucru mai întâi](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) dacă doriți să solicitați un certificat S/MIME Actalis. Dacă sunteți în căutarea unui certificat S/MIME ieftin, am avut o experiență bună cu [Certum](https://www.certum.eu/en/smime-certificates/).
+Dacă sunteți în căutarea unui certificat S/MIME gratuit (de test), consultați [ aici](http://kb.mozillazine.org/Getting_an_SMIME_certificate) pentru opțiuni. Vă rugăm să vă asigurați că [citiți acest lucru mai întâi](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) dacă doriți să solicitați un certificat S/MIME Actalis.
 
 Cum se extrage o cheie publică dintr-un certificat S/MIME:
 
@@ -778,7 +780,7 @@ Acest lucru va avea ca rezultat o căutare de acest tip:
 
 Expresiile de căutare pot fi utilizate pentru căutarea pe dispozitiv prin intermediul indexului de căutare și pentru căutarea pe serverul de e-mail, dar nu și pentru căutarea pe dispozitiv fără index de căutare, din motive de performanță.
 
-Căutarea pe dispozitiv este o funcție gratuită, utilizarea indexului de căutare și căutarea pe server este o funcție pro.
+Căutarea pe dispozitiv este o funcție gratuită, utilizarea indexului de căutare și căutarea pe server este o funcție pro. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
 
 <br />
 
@@ -946,6 +948,8 @@ Avertismentul *... Codificare neacceptată ...* înseamnă că setul de caracter
 
 Eroarea *... Login Rate Limit Hit ...* înseamnă că au existat prea multe încercări de conectare cu o parolă incorectă. Vă rugăm să verificați de două ori parola sau să autentificați din nou contul cu ajutorul expertului de configurare rapidă (numai OAuth).
 
+Eroarea *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
+
 Vă rugăm să [vezi aici](#user-content-faq4) pentru erorile *... Neîncredere ... nu în certificat ...*, *... Certificat de securitate invalid (Nu se poate verifica identitatea serverului) ...* sau *... Nu s-a găsit ancora de încredere pentru calea de certificare ...*
 
 Vă rugăm să [vezi aici](#user-content-faq127) pentru eroarea *... Argument(e) HELO invalid din punct de vedere sintactic ...*.
@@ -1010,6 +1014,8 @@ Eroarea *... Autentificarea a eșuat ... Credențiale invalide ...* ar putea fi 
 
 Eroarea *... ServiceDisabled ...* ar putea fi cauzată de înscrierea în [Programul de protecție avansată](https://landing.google.com/advancedprotection/): "*Pentru a vă citi e-mailurile, puteți (trebuie) să utilizați Gmail - Nu veți putea utiliza contul Google cu unele (toate) aplicațiile & servicii care necesită acces la date sensibile, cum ar fi e-mailurile dvs *"", a se vedea [aici](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
+The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
+
 Atunci când aveți îndoieli, puteți solicita [sprijin](#user-content-support).
 
 <br />
@@ -1017,7 +1023,7 @@ Atunci când aveți îndoieli, puteți solicita [sprijin](#user-content-support)
 <a name="faq23"></a>
 **(23) De ce primesc alerte... ?**
 
-*Informații generale*
+*Generale*
 
 Alertele sunt mesaje de avertizare trimise de serverele de e-mail.
 
@@ -1226,7 +1232,7 @@ Aplicația Gmail afișează imagini în mod implicit prin descărcarea imaginilo
 
 Puteți afișa imagini și mesaje originale în mod implicit pentru expeditorii de încredere, de la caz la caz, bifând *Nu mai cereți acest lucru pentru ...*.
 
-Dacă doriți să resetați aplicațiile implicite *Deschidere cu*, vă rugăm să [vezi aici](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
+Dacă doriți să resetați aplicațiile implicite *Deschidere cu*, vă rugăm să [vezi aici](https://support.google.com/pixelphone/answer/6271667).
 
 <br />
 
@@ -1333,11 +1339,11 @@ Majoritatea furnizorilor oferă conexiuni criptate folosind diferite porturi, de
 
 A se vedea, de asemenea, [acest FAQ](#user-content-faq4).
 
-Eroarea '*Handshake a eșuat ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' este cauzată fie de o eroare în implementarea protocolului SSL fie de o cheie DH prea scurtă pe serverul de e-mail și, din păcate, nu poate fi reparată de FairEmail.
+Eroarea '*Handshake a eșuat... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' este cauzată fie de o eroare în implementarea protocolului SSL fie de o cheie DH prea scurtă pe serverul de e-mail și, din păcate, nu poate fi reparată de FairEmail.
 
 Eroarea '*Handshake a eșuat... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*" ar putea fi cauzată de faptul că furnizorul folosește încă RC4, care nu mai este acceptat de la [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl).
 
-Eroarea '*Handshake a eșuat ... UNSUPPORTED_PROTOCOL sau TLSV1_ALERT_PROTOCOL_VERSION ...*' ar putea fi cauzată de activarea conexiunilor de întărire în setările de conexiune sau de faptul că Android nu mai acceptă protocoale mai vechi, cum ar fi SSLv3.
+Eroarea '*Handshake a eșuat... UNSUPPORTED_PROTOCOL sau TLSV1_ALERT_PROTOCOL_VERSION ...*' ar putea fi cauzată de activarea conexiunilor de întărire în setările de conexiune sau de faptul că Android nu mai acceptă protocoale mai vechi, cum ar fi SSLv3.
 
 Android 8 Oreo și versiunile ulterioare [nu mai suportă](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3. Nu există nicio modalitate de a rezolva problema lipsei suportului RC4 și SSLv3, deoarece acesta a fost complet eliminat din Android (ceea ce ar trebui să spună ceva).
 
@@ -1751,11 +1757,11 @@ Puteți selecta una dintre aceste acțiuni pentru a le aplica mesajelor corespun
 
 O eroare în condițiile unei reguli poate duce la un dezastru, prin urmare, acțiunile ireversibile nu sunt acceptate.
 
-Regulile se aplică imediat după ce a fost preluat antetul mesajului, dar înainte ca textul mesajului să fie descărcat, astfel încât nu este posibilă aplicarea de condiții la textul mesajului. Rețineți că mesajele text mari sunt descărcate la cerere pe o conexiune contorizată pentru a economisi date.
+Regulile se aplică direct după ce a fost preluat antetul mesajului, dar înainte ca textul mesajului să fie descărcat, astfel încât nu este posibilă aplicarea de condiții la textul mesajului. Rețineți că mesajele text mari sunt descărcate la cerere pe o conexiune contorizată pentru a economisi date.
 
 Dacă doriți să transmiteți un mesaj, luați în considerare utilizarea acțiunii de mutare. Acest lucru va fi mai fiabil decât redirecționarea, deoarece mesajele redirecționate pot fi considerate ca fiind spam.
 
-Deoarece antetele mesajelor nu sunt descărcate și stocate în mod implicit pentru a economisi bateria și datele și pentru a economisi spațiu de stocare. nu este posibilă previzualizarea mesajelor care s-ar potrivi cu o condiție a unei reguli de antet.
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
 
 Câteva condiții comune pentru antet (regex):
 
@@ -1784,7 +1790,7 @@ Nu poate exista decât un singur cont principal și nu poate exista decât o sin
 <a name="faq73"></a>
 **(73) Este deplasarea mesajelor între conturi sigură/eficientă?**
 
-Mutarea mesajelor între conturi este sigură, deoarece mesajele originale, brute, vor fi descărcate și mutate. și pentru că mesajele sursă vor fi șterse numai după ce mesajele țintă au fost adăugate
+Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
 
 Mutarea pe loturi a mesajelor între conturi este eficientă dacă atât dosarul sursă, cât și dosarul țintă sunt setate pentru sincronizare, în caz contrar, FairEmail trebuie să se conecteze la dosarul (dosarele) pentru fiecare mesaj.
 
@@ -1793,7 +1799,7 @@ Mutarea pe loturi a mesajelor între conturi este eficientă dacă atât dosarul
 <a name="faq74"></a>
 **(74) De ce văd mesaje duplicate?**
 
-Unii furnizori, în special Gmail, listează toate mesajele din toate dosarele, cu excepția celor aruncate la gunoi, și în dosarul de arhivă (toate mesajele). FairEmail afișează toate aceste mesaje într-un mod care nu este deranjant pentru a indica faptul că aceste mesaje sunt de fapt același mesaj.
+Unii furnizori, în special Gmail, listează toate mesajele din toate dosarele, cu excepția mesajelor aruncate la gunoi, și în dosarul de arhivă (toate mesajele). FairEmail afișează toate aceste mesaje într-un mod care nu este deranjant pentru a indica faptul că aceste mesaje sunt de fapt același mesaj.
 
 Gmail permite ca un mesaj să aibă mai multe etichete, care sunt prezentate în FairEmail sub formă de dosare. Acest lucru înseamnă că mesajele cu mai multe etichete vor fi afișate de mai multe ori.
 
@@ -1865,7 +1871,7 @@ Pentru a activa/dezactiva un anumit cont:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Rețineți că dezactivarea unui cont va ascunde contul și toate folderele și mesajele asociate.
+Rețineți că dezactivarea unui cont va ascunde contul și toate folderele și mesajele asociate. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
 
 Pentru a seta intervalul de interogare:
 
@@ -1923,7 +1929,7 @@ Probabil că veți dori să dezactivați și [browse on server](#user-content-fa
 <a name="faq81"></a>
 **~~(81) Puteți face fundalul mesajului original întunecat în tema întunecată?~~**
 
-~~ Mesajul original este afișat așa cum l-a trimis expeditorul, inclusiv toate culorile.~~ ~~Modificarea culorii de fundal nu numai că ar face ca vizualizarea originală să nu mai fie originală, dar poate duce și la mesaje ilizibile.~~
+~~The original message is shown as the sender has sent it, including all colors.~~ ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
 
 <br />
 
@@ -1969,7 +1975,7 @@ FairEmail va încerca să selecteze cea mai bună identitate pe baza adresei *to
 <br />
 
 <a name="faq86"></a>
-**~~~(86) Ce sunt 'caracteristici suplimentare de confidențialitate'?~~**
+**~~~(86) Ce sunt "caracteristici suplimentare de confidențialitate"?~~**
 
 ~~Opțiunea avansată *funcții suplimentare de confidențialitate* permite:~~
 
@@ -1979,7 +1985,7 @@ FairEmail va încerca să selecteze cea mai bună identitate pe baza adresei *to
 <br />
 
 <a name="faq87"></a>
-**(87) Ce înseamnă 'acreditări invalide'?**
+**(87) Ce înseamnă "acreditări invalide"?**
 
 Mesajul de eroare *credințe invalide* înseamnă fie că numele de utilizator și/sau parola sunt incorecte, de exemplu, pentru că parola a fost schimbată sau a expirat, fie că autorizația contului a expirat.
 
@@ -2037,14 +2043,14 @@ Rețineți că mesajele originale sunt afișate exact așa cum sunt, ceea ce în
 
 ~~Sincronizarea mesajelor este un proces costisitor deoarece mesajele locale și cele de la distanță trebuie comparate,~~ ~~ deci sincronizarea periodică a mesajelor nu va duce la economisirea energiei bateriei, ci dimpotrivă.~~
 
-~~Vezi [această Întrebări frecvente](#user-content-faq39) despre optimizarea utilizării bateriei~~
+~~Vezi [acest FAQ](#user-content-faq39) despre optimizarea utilizării bateriei.~~
 
 <br />
 
 <a name="faq92"></a>
 **(92) Puteți adăuga filtrarea spam-ului, verificarea semnăturii DKIM și autorizarea SPF?**
 
-Filtrarea spam-ului, verificarea semnăturii [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail). și autorizarea [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) este o sarcină a serverelor de e-mail, nu a unui client de e-mail. În general, serverele au mai multă memorie și putere de calcul, așa că sunt mult mai potrivite pentru această misiune decât dispozitivele alimentate cu baterii. De asemenea, veți dori ca spamul să fie filtrat pentru toți clienții de e-mail, inclusiv pentru e-mailurile web, nu doar pentru un singur client de e-mail. În plus, serverele de e-mail au acces la informații, cum ar fi adresa IP etc. a serverului de conectare, la care un client de e-mail nu are acces.
+Filtrarea spam-ului, verificarea semnăturii [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail). și autorizarea [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) este o sarcină a serverelor de e-mail, nu a unui client de e-mail. În general, serverele au mai multă memorie și putere de calcul, așa că sunt mult mai potrivite pentru această sarcină decât dispozitivele alimentate cu baterii. De asemenea, veți dori ca spamul să fie filtrat pentru toți clienții de e-mail, inclusiv pentru e-mailurile web, nu doar pentru un singur client de e-mail. În plus, serverele de e-mail au acces la informații, cum ar fi adresa IP etc. a serverului de conectare, la care un client de e-mail nu are acces.
 
 Filtrarea spam-ului pe baza antetului mesajelor ar fi putut fi fezabilă, dar, din păcate, această tehnică este [patentată de Microsoft](https://patents.google.com/patent/US7543076).
 
@@ -2058,7 +2064,7 @@ Rețineți că nu trebuie să ștergeți mesajele spam, nici din dosarul de spam
 
 Dacă primiți o mulțime de mesaje spam în căsuța poștală, cel mai bun lucru pe care îl puteți face este să contactați furnizorul de e-mail pentru a întreba dacă filtrarea spam-ului poate fi îmbunătățită.
 
-De asemenea, FairEmail poate afișa un mic steag roșu de avertizare atunci când autentificarea DKIM, SPF sau [DMARC](https://en.wikipedia.org/wiki/DMARC) a eșuat pe serverul destinatar. Puteți activa/dezactiva [verificarea autentificării](https://en.wikipedia.org/wiki/Email_authentication) în setările de afișare.
+De asemenea, FairEmail poate afișa un mic indicator de avertizare atunci când autentificarea DKIM, SPF sau [DMARC](https://en.wikipedia.org/wiki/DMARC) a eșuat pe serverul destinatar. Puteți activa/dezactiva [verificarea autentificării](https://en.wikipedia.org/wiki/Email_authentication) în setările de afișare.
 
 FairEmail poate afișa un steguleț de avertizare dacă numele de domeniu al adresei de e-mail (de răspuns) a expeditorului nu definește o înregistrare MX îndreptată către un server de e-mail. Acest lucru poate fi activat în setările de recepție. Rețineți că acest lucru va încetini semnificativ sincronizarea mesajelor.
 
@@ -2107,7 +2113,7 @@ Setările IMAP fac parte din setările contului (personalizat), iar setările SM
 <br />
 
 <a name="faq97"></a>
-**(97) Ce este 'curățarea'?**
+**(97) Ce este "curățare"?**
 
 Aproximativ la fiecare patru ore FairEmail rulează o sarcină de curățare care:
 
@@ -2157,7 +2163,7 @@ categoria:promoții
 
 Din păcate, acest lucru nu este posibil pentru dosarul de mesaje amânate.
 
-Puteți folosi *Sincronizare forțată* în meniul cu trei puncte din căsuța de primire unificată pentru a permite FairEmail să sincronizeze din nou lista de dosare și puteți apăsa lung pe dosare pentru a activa sincronizarea.
+Puteți folosi *Forța de sincronizare* în meniul cu trei puncte din căsuța de primire unificată pentru a permite FairEmail să sincronizeze din nou lista de dosare și puteți apăsa lung pe dosare pentru a activa sincronizarea.
 
 <br />
 
@@ -2194,7 +2200,7 @@ Rețineți că numai imaginile [JPEG](https://en.wikipedia.org/wiki/JPEG) și [P
 <br />
 
 <a name="faq105"></a>
-**(105) Cum funcționează opțiunea roam-like-at-home?**
+**(105) Cum funcționează opțiunea "roam-like-at-home"?**
 
 FairEmail va verifica dacă codul de țară al cartelei SIM și codul de țară al rețelei se află în țările [EU roam-like-at-home](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent). și presupune că nu există roaming dacă codurile de țară sunt egale și dacă opțiunea avansată roam-like-at-home este activată.
 
@@ -2205,7 +2211,7 @@ Prin urmare, nu trebuie să dezactivați această opțiune dacă nu aveți un SI
 <a name="faq106"></a>
 **(106) Ce lansatoare pot afișa un număr de insigne cu numărul de mesaje necitite?**
 
-Vă rugăm să [vezi aici](https://github.com/leolin310148/ShortcutBadger#supported-launchers) pentru o listă de lansatoare care pot afișa numărul de mesaje necitite.
+Vă rugăm să [vezi aici](https://github.com/leolin310148/ShortcutBadger#supported-launchers) pentru o listă de lansatoare care pot afișa numărul de mesaje necitite. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
 
 Rețineți că Nova Launcher necesită Tesla Unread, care nu mai este [nu mai este acceptat](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2215,9 +2221,9 @@ Se vor număra numai mesajele necitite *noi* din dosarele setate să afișeze no
 
 În funcție de ceea ce doriți, setările de notificare *Lasă numărul de mesaje noi să corespundă cu numărul de notificări* trebuie să fie activate (implicit dezactivate). Atunci când este activată, numărul de insigne va fi același cu numărul de notificări de mesaje noi. Atunci când este dezactivată, numărul de insigne va fi numărul de mesaje necitite, indiferent dacă acestea sunt afișate într-o notificare sau sunt noi.
 
-Această funcție depinde de suportul pe care îl oferă lansatorul dumneavoastră. FairEmail pur și simplu 'difuzează' numărul de mesaje necitite folosind biblioteca ShortcutBadger. Dacă nu funcționează, acest lucru nu poate fi rezolvat prin modificări în FairEmail.
+Această funcție depinde de suportul pe care îl oferă lansatorul dumneavoastră. FairEmail pur și simplu "difuzează" numărul de mesaje necitite folosind biblioteca ShortcutBadger. Dacă nu funcționează, acest lucru nu poate fi rezolvat prin modificări în FairEmail.
 
-Unele lansatoare afișează un punct sau un '1' pentru [notificarea de monitorizare](#user-content-faq2), în ciuda faptului că FairEmail a cerut în mod explicit să nu afișeze un *badge* pentru această notificare. Acest lucru ar putea fi cauzat de o eroare în aplicația de lansare sau în versiunea Android. Vă rugăm să verificați de două ori dacă punctul de notificare (insigna) este dezactivat pentru canalul de notificare a primirii (serviciului). Puteți merge la setările canalului de notificare din dreapta prin intermediul setărilor de notificare din FairEmail. Poate că acest lucru nu este evident, dar puteți apăsa pe numele canalului pentru mai multe setări.
+Unele lansatoare afișează un punct sau un "1" pentru [notificarea de monitorizare](#user-content-faq2), în ciuda faptului că FairEmail a cerut în mod explicit să nu afișeze un *badge* pentru această notificare. Acest lucru ar putea fi cauzat de o eroare în aplicația de lansare sau în versiunea Android. Vă rugăm să verificați de două ori dacă punctul de notificare (insigna) este dezactivat pentru canalul de notificare a primirii (serviciului). Puteți merge la setările canalului de notificare din dreapta prin intermediul setărilor de notificare din FairEmail. Poate că acest lucru nu este evident, dar puteți apăsa pe numele canalului pentru mai multe setări.
 
 FairEmail trimite o nouă intenție de numărare a mesajelor, de asemenea:
 
@@ -2268,7 +2274,7 @@ Mesajele goale și/sau atașamentele corupte sunt probabil cauzate de o eroare �
 
 Setări > Configurare manuală > Conturi > atingeți cont > atingeți avansat > Preluare parțială > debifați
 
-După dezactivarea acestei setări, puteți utiliza meniul "mai multe" (trei puncte) pentru a 'resincroniza' mesajele goale. Alternativ, puteți *Șterge mesajele locale* prin apăsarea lungă a dosarului (dosarelor) din lista de dosare și sincroniza din nou toate mesajele.
+După dezactivarea acestei setări, puteți utiliza meniul "mai multe" (trei puncte) pentru a "resincroniza" mesajele goale. Alternativ, puteți *Șterge mesajele locale* prin apăsarea lungă a dosarului (dosarelor) din lista de dosare și sincroniza din nou toate mesajele.
 
 Dezactivarea *Parțial fetch* va duce la o utilizare mai mare a memoriei.
 
@@ -2280,6 +2286,8 @@ Dezactivarea *Parțial fetch* va duce la o utilizare mai mare a memoriei.
 OAuth pentru Gmail este acceptat prin intermediul expertului de configurare rapidă. Managerul de conturi Android va fi utilizat pentru a prelua și reîmprospăta token-urile OAuth pentru conturile selectate pe dispozitiv. OAuth pentru conturile care nu sunt pe dispozitiv nu este acceptat deoarece Google solicită un [audit de securitate anual](https://support.google.com/cloud/answer/9110914) (între 15.000 și 75.000 de dolari) pentru acest lucru. Puteți citi mai multe despre acest lucru [ aici](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
 OAuth pentru Outlook/Office 365, Yahoo, Mail.ru și Yandex este acceptat prin intermediul expertului de configurare rapidă.
+
+The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
 <br />
 
@@ -2450,6 +2458,12 @@ Trimiteți o notificare [Delivery Status Notification](https://tools.ietf.org/ht
 Restituirile de tip "hard bounces" vor fi de cele mai multe ori procesate automat, deoarece acestea afectează reputația furnizorului de e-mail. Adresa de respingere (=*Return-Path* antet) este de cele mai multe ori foarte specifică, astfel încât serverul de e-mail poate determina contul expeditor.
 
 Pentru câteva informații de fond, a se vedea [acest articol din Wikipedia](https://en.wikipedia.org/wiki/Bounce_message).
+
+<br />
+
+*Translate button (version 1.1600+)*
+
+Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 
 <br />
 
@@ -2913,6 +2927,10 @@ O actualizare o dată pe săptămână va fi probabil suficientă, vă rugăm s�
 
 Ștergerea permanentă înseamnă că mesajele vor fi pierdute *irreversibil* și, pentru a preveni ca acest lucru să se întâmple accidental, acest lucru trebuie să fie confirmat întotdeauna. Chiar și cu o confirmare, m-au contactat niște oameni foarte supărați că au pierdut o parte din mesajele lor din vina lor, ceea ce a fost o experiență destul de neplăcută :-(
 
+Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
+
+Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
+
 Avansat: nu se acceptă indicatorul de ștergere IMAP în combinație cu comanda EXPUNGE. deoarece atât serverele de e-mail, cât și nu toate persoanele pot gestiona acest lucru, existând riscul pierderii neașteptate a mesajelor. Un factor care complică situația este faptul că nu toate serverele de e-mail acceptă [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 Începând cu versiunea 1.1485, este posibil să se activeze temporar modul de depanare în setările diverse pentru a dezactiva ștergerea mesajelor. Rețineți că mesajele cu un steag *\Deleted* nu vor fi afișate în FairEmail.
@@ -3020,6 +3038,20 @@ Anumiți furnizori de e-mail, cum ar fi Gmail, mută mesajele care au fost amân
 Mutarea unui mesaj în alt dosar și înapoi ar putea eșua și ar putea să nu fie posibilă dacă nu există o conexiune la internet. Acest lucru este problematic, deoarece un mesaj poate fi amânat numai după mutarea mesajului.
 
 Pentru a preveni aceste probleme, snoozing-ul se face local pe dispozitiv prin ascunderea mesajului în timpul snoozing-ului. Din păcate, nu este posibilă ascunderea mesajelor și pe serverul de e-mail.
+
+<br />
+
+<a name="faq167"></a>
+**(167) How can I use DeepL?**
+
+1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
+1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
+1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
+1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
+
+You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
+
+This feature requires an internet connection and is not available in the Play store version.
 
 <br />
 

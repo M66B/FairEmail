@@ -2,9 +2,9 @@
 
 # Bantuan FairEmail
 
-Jika ada pertanyaan, periksa pertanyaan yang sering diajukan di bawah ini. Di bagian bawah </a> Anda dapat mengetahui cara mengajukan pertanyaan, meminta fitur, dan melaporkan bug
+[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
 
-Jika Anda memiliki pertanyaan, silakan periksa Pertanyaan yang Sering Diajukan (FAQ) di bawah ini terlebih dahulu. [ Di bagian bawah Anda akan menemukan ](#user-content-get-support), bagaimana Anda dapat mengajukan pertanyaan lebih lanjut, meminta fungsi, dan melaporkan kesalahan.
+Jika ada pertanyaan, periksa pertanyaan yang sering diajukan di bawah ini. Di bagian bawah </a> Anda dapat mengetahui cara mengajukan pertanyaan, meminta fitur, dan melaporkan bug
 
 ## Cara, panduan, isi
 
@@ -30,7 +30,7 @@ Untuk otorisasi:
 
 * Gmail / G suite, lihat [ pertanyaan 6](#user-content-faq6)
 * Outlook / Live / Hotmail, lihat [ pertanyaan 14](#user-content-faq14)
-* Office 365, lihat [ pertanyaan 14](#user-content-faq156)
+* Office 365, see [question 156](#user-content-faq156)
 * Microsoft Exchange, lihat [ pertanyaan 8](#user-content-faq8)
 * Yahoo, AOL dan Sky, lihat [ pertanyaan 88 ](#user-content-faq88)
 * Apple iCloud, lihat [ pertanyaan 148](#user-content-faq148)
@@ -118,11 +118,11 @@ Pertanyaan-pertanyaan Terkait:
 * ~~Dukungan S/MIME~~
 * ~~Pencarian untuk pengaturan~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Apapun yang ada dalam daftar ini disusun secara acak dan *mungkin* akan ditambahkan pada waktu yang akan datang.
 
 <h2><a name="frequently-requested-features"></a>Fitur yang sering diajukan</h2>
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Desain ini bersadarkan dari banyak diskusi dan anda dapat mendiskusikannya [di forum ini](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) jika anda menginginkannya. Tujuan dari desain ini adalah minimalis (tidak ada menu, tombol, dll. yang tidak diperlukan) dan tidak mengganggu (tidak ada warna atau animasi yang mencolok, dsb.). Hal-hal yang ditampilkan disini harus berguna sebagaimanapun dan harus ditempatkan secara tepat untuk penggunaan yang mudah. Font, ukuran, warna dan lainnya harus menggunakan desain material bila memungkinkan.
 
 <h2><a name="frequently-asked-questions"></a>Pertanyaan yang Sering Diajukan (FAQ)</h2>
 
@@ -231,7 +231,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
 * [(106) Peluncur mana yang dapat menampilkan lencana hitungan dengan jumlah pesan yang belum dibaca?](#user-content-faq106)
 * [(107) Bagaimana cara saya menggunakan bintang berwarna?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
+* [~~(108) Apakah anda dapat menghapus pesan secara permanen dari folder apapun?~~](#user-content-faq108)
 * [~~(109) Mengapa 'pilih akun' hanya tersedia di versi resmi saja?~~](#user-content-faq109)
 * [(110) Mengapa terdapat (beberapa) pesan kosong dan/atau lampiran yang rusak?](#user-content-faq110)
 * [(111) Apakah OAuth tersedia?](#user-content-faq111)
@@ -306,15 +306,15 @@ Di bawah ini adalah izin Android yang diperlukan:
 * *penagihan dalam aplikasi* (BILLING): untuk mengizinkan pembelian di dalam aplikasi
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
 * Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
-* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
-* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
-* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* Opsional: *membaca isi dari kartu SD anda* (READ_EXTERNAL_STORAGE): untuk meneruma berkas dari yang lain, aplikasi yang telah kadauwarsa, lihat juga [FAQ ini](#user-content-faq49)
+* Opsional: *gunakan perangkat sidik jari* (USE_FINGERPRINT) dan gunakan *perangkat biometrik* (USE_BIOMETRIC): untuk menggunakan autentikasi biometrik
+* Opsional: *cari akun di perangkat* (GET_ACCOUNTS): untuk memilih akun ketika menggunakan pengaturan cepat Gmail
+* Android 5.1 Lollipop dan sebelumnya: *gunakan akun di perangkat* (USE_CREDENTIALS): untuk memilih akun saat menggunakan pengaturan cepat Gmail (tidak dapat digunakan dalam versi Android yang lebih lama)
+* Android 5.1 Lollipop dan sebelumnya: *membaca profil* (READ_PROFILE): untuk membaca nama saat menggunakan saat menggunakan pengaturan cepat Gmail (tidak dapat digunakan dalam versi Android yang lebih lama)
 
-[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
+[Izin opsional](https://developer.android.com/training/permissions/requesting) hanya terdapat di Android 6 Marshmallow dan sebelumnya. Pada versi Android terbaru, anda akan diminta untuk memberikan izin opsinal untuk menginstal FairEmail.
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+Izin dibawah ini diperlukan untuk menampilkan perhitungan pesan yang belum dibaca sebagai lencana (lihat juga [FAQ ini](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -333,38 +333,38 @@ The following permissions are needed to show the count of unread messages as a b
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
+FairEmail akan menyimpan daftar alamat dari pesan yang anda terima dan pesan yang anda kirim, serta akan menggunakan daftar ini untuk penyaranan kontak ketika tidak ada perizinan kontak yang diberikan untuk FairEmail. Artinya, anda dapat menggunakan FairEmail tanpa adanya penyedia kontak Android (buku alamat). Perhatikan bahwa anda masih tetap dapat memilih kontak tanpa anda memberikan izin kontak ke FairEmail, hanya memberikan saran kontak tidak bekerja tanpa mengizinkan kontak.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Why is there a permanent notification shown?**
+**(2) mengapa terdapat notifikasi yang permanen yang terlihat?**
 
-A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
+Bilah status notifkasi permanen yang berprioritas rendah dengan jumlah akun yang sedang dalam pantauan dan jumlah operasi yang tertunda (lihat pertanyaan selanjutnya) ditampilkan untuk mengindari Android mematikan layanan yang mengerjakan penerimaan surel yang terus menerus. Hal ini [telah menjadi penting](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), namun dengan adanya pengenalan dari [mode doze](https://developer.android.com/training/monitoring-device-state/doze-standby) dalam Android 6 Marshmallow hal in menjadi lebih penting dibandingkan sebelumnya. Mode doze akan menghentikan seluruh aplikasi ketika layar sedang dalam keadaan mati beberapa saat, kecuali ketika aplikasi telah menjalankan layanan latar depan, yang membutuhkan tampilan bilah status notifikasi.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Kebanyakan, namun tidak semua, aplikasi surel lainnya tidak menampilkan notifikasi dengan "efek samping" yaitu pesan baru akan sering tidak atau terlambat diberitahukan dan pesan tersebut tidak atau terlambat dikirimkan.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android menampilkan ikon bilah status notifikasi dengan prioritas tinggi terlebih dahulu dan akan menyembunyikan ikon notifikasi FairEmail jika tidak ada tempat untuk menampilkan ikon lagi. Secara praktis, hal ini berarti bilah status notifikasi tidak mengambil tempat di bilah status kecuali memang ada tempat tersedia.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+Bilah status notifikasi dapat dinonaktifkan lewat pengaturan notifikasi FairEmail:
 
 * Android 8 Oreo sampai yang terbaru: tekan tombol *Penerimaan channel* dan matikan channel tersebut lewat pengaturan Android (hal ini tidak akan menonaktifkan notifikasi pesan baru)
 * Android 7 Nougat dan sebelumnya: aktifkan *Gunakan layanan latar untuk mensingkroniasikan pesan*, namun harap membaca catatan dibawah pengaturan
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Anda dapat mengubah ke singkronisasi pesan secara perodik dalam pengaturan penerimaan untuk menghapus notifikasi, namun waspadalah bahwa hal ini dapat menggunakan daya baterai yang lebih banyak. Lihat [di sini](#user-content-faq39) untuk rincian lebih anjut tentang penggunaan baterai.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo mungkin akan juga menampilkan bilah status notifikasi dengan tulisan *Aplikasi berjalan di background*. Sila lihat [di sini](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) tentang bagaimana cara anda untuk mematikan notifikasi ini.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Beberapa orang memberikan saran untuk menggunakan [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) dibandingkan layanan Android dengan bilah status notifikasi, namun hal ini membutuhkan surel penyedia untuk mengirimkan pesan FCM atau server pusat di mana seluruh pesan dikumpulkan untuk mengirim pesan FCM. Hal yang pertama tidak akan terjadi dan hal yang kedua akan berdampak ke impikasi privasi yang signifikan.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Jika anda datang ke sini dengan menekan notifikasi, anda harus tahu bahwa jika anda tekan berikutnya akan membuka kotak masuk terpadu.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) Apa itu operasi dan mengapa mereka tertunda?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+Bilah status notifikasi prioritas rendah menampilkan sejumlah operasi yang tertunda, yaitu:
 
 * *tambah*: menambahkan pesan ke folder remot
 * *pindah*: memindahkan pesan ke folder remot lainnya
@@ -388,12 +388,12 @@ The low priority status bar notification shows the number of pending operations,
 * *rule*: execute rule on body text
 * *expunge*: permanently delete messages
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Operasi diproses hanya ketika ada koneksi ke servel surel atau tersingkronisasi secara manual. Lihat juga [FAQ ini](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) Bagaimana cara saya menggunakan sertifikat keamanan yang tidak valid / kata sandi kosong / koneksi teks kosong?**
 
 *... Untrusted ... not in certificate ...*
 <br />
@@ -401,11 +401,11 @@ Operations are processed only when there is a connection to the email server or 
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Anda harus mencoba memperbaiki hal ini dengan menghubungu penyedia atau dengan mendapatkan sertifikat keamanan yang valid karena sertifikat keamanan yang tidak valid tersebut tidak aman dan memberikan [ serangan man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Jika dana menjadi kendala, anda dapat mengambil sertifikat keamanan gratis dari [Let’s Encrypt](https://letsencrypt.org).
 
 The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Alternatifnya, Anda dapat menerima sidik jari dari sertifikat server yang tidak valid seperti ini:
 
 1. Pastikan Anda menggunakan koneksi internet tepercaya (tidak di jaringan Wi-Fi publik, dll)
 1. Buka layar pengaturan melalui menu navigasi (geser dari sisi kiri ke dalam)
@@ -415,7 +415,7 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 
 This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Perhatikan juga bahwa versi Android yang lama mungkin tidak mengenal otoritas sertifikasi yang lebih baru seperti Let’s Encrypt akan membuat koneksi dianggap sebagai tidak aman, lihat juga [di sini](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
@@ -433,22 +433,22 @@ You can pin the certificate too, see above.
 
 <br />
 
-*Empty password*
+*Kata sandoi kosong*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
 *Plain text connection*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Nama pengguna dan kata sandi anda serta seluruh pesan yang akan dikirimkan dan diteriima tidak terenkripsi, hal tersebut **sangat tidak aman** karena mudah [terserang man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) dalam koneksi yang tidak terenkripsi.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. Jika anda mengaktifkan koneksi yang tidak aman, anda harus terkoneksi melalui jaringan yang privat dan terpercaya dan jangan pernah terkoneksi melalui jaringan publik seperti yang ditawarkan hotel, bandara, dll.
 
 <br />
 
 <a name="faq5"></a>
-**(5) How can I customize the message view?**
+**(5) Bagaimana cara saya mengatur tampilan pesan?**
 
-In the three dot overflow menu you can enable or disable or select:
+Pada menu overflow titik tiga anda dapat mengaktifkan atau menonaktifkan atau memilih:
 
 * *ukuran teks*: untuk tiga ukuran font yang berbeda
 * *tampilan sederhana*: untuk item pesan yang lebih padat dan ukuran font teks pesan yang kecil
@@ -457,30 +457,30 @@ In the display section of the settings you can enable or disable for example:
 
 * *Unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
 * *Tabular style*: to show a linear list instead of cards
-* *Group by date*: show date header above messages with the same date
+* *Kelompokan berdasarkan tanggal*: tampilkan header tanggal diatas pesan yang memiliki tanggal yang sama
 * *Conversation threading*: to disable conversation threading and to show individual messages instead
-* *Conversation action bar*: to disable the bottom navigation bar
+* *Bilah aksi percakapan*: untuk menonaktifkan bilah navigasi bawah
 * *Highlight color*: to select a color for the sender of unread messages
-* *Show contact photos*: to hide contact photos
-* *Show names and email addresses*: to show names or to show names and email addresses
-* *Show subject italic*: to show the message subject as normal text
-* *Show stars*: to hide stars (favorites)
+* *Tampilkan foto kontak*: untuk menyembunyikan foto kontak
+* *Tampilkan nama dan alamat surel*: untuk menampilkan nama atau menampilkan nama beserta alamat surel
+* *Tampilkan judul dalam cetak miring*: untuk menampilkan judul pesan sebagai teks normal
+* *Tampilkan bintang*: untuk menyembunyikan bintang (favorit)
 * *Show message preview*: to show 1-4 lines of the message text
-* *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Tampilkan rincian alamat secara standar*: untuk memperluas bagian alamat secara standar
+* *Tampilkan pesan orisinil secara otomatis untuk kontak yang telah diketahui*: untuk menampilkan pesan orisinil secara otomatis untuk kontak yang ada di perangkat anda, sila baca [FAQ ini](#user-content-faq35)
+* *Tampilkan gambar secara otomatis untuk kontak yang diketahui*: untuk menampilkan gambar secara otomatis bagi kontak yang dalam perangkat anda, sila baca [FAQ ini](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
+Perhatikan bahwa pesan dapat ditampilkan hanya ketika teks pesan telah diunduh. Teks pesan yang lebih besar tidak terunduh secara otomatis pada jaringan terukur (biasanya perangkat seluler). You can change this in the connection settings.
 
-Some people ask:
+Beberapa orang bertanya:
 
 * untuk menampilkan judul yang dicetak tebal, namun cetak tebal telah digunakan untuk menyoroti pesan yang belum dibaca
-* to move the star to the left, but it is much easier to operate the star on the right side
+* untuk memindahkan bintang ke kiri, namun lebih mudah untuk mengoperasikan bintang di bagian kanan
 
 <br />
 
 <a name="faq6"></a>
-**(6) How can I login to Gmail / G suite?**
+**(6) Bagaimana cara saya masuk ke Gmail / G suite?**
 
 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
@@ -492,90 +492,92 @@ If you don't want to use or can't use an on-device Google account, for example o
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Sila lihat [FAQ ini](#user-content-faq111) untuk mengetahui mengapa hanya akun yang terdapat pada perangkat saja yang dapat digunakan.
 
-Note that an app specific password is required when two factor authentication is enabled.
+Perhatikan bahwa kata sandi khusus aplikasi diharuskan ketika otentikasi dua faktor diaktifkan. After enabling two factor authentication there will be this error message:
 
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
 
 <br />
 
-*Enable "Less secure apps"*
+*Kata sandi khusus aplikasi*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Lihat [disini](https://support.google.com/accounts/answer/185833) tentang bagaimana cara membuat kata sandi khusus aplikasi.
 
 <br />
 
-*General*
+*Aktifkan "Aplikasi yang kurang aman"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Penting**: penggunaan metode ini tidak direkomendasikan karena kurang diandalkan.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Penting**: Akun Gsuite yang diotorisasikan dengan nama pengguna/kata sandi akan berkenti bekerja [dalam masa yang akan datang](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Lihat [di sini](https://support.google.com/accounts/answer/6010255) untuk mengetahui cara mengaktifkan "aplikasi yang kurang aman" atau kunjungi [langsung ke bagian pengaturan](https://www.google.com/settings/security/lesssecureapps).
+
+Jika anda menggunakan akun Gmail lebih dari satu, pastikan anda mengubah pengaturan "aplikasi yang kurang aman" pada akun yang benar.
+
+Pastikan bahwa anda harus meninggalkan pengaturan "aplikasi yang kurang aman" dengan menggunakan tanda panah kembali untuk mengaplikasikan pengaturan tersebut.
+
+Jika anda menggunakan metode ini, anda harus menggunakan [kata sandi yang kuat](https://en.wikipedia.org/wiki/Password_strength) untuk akun Gmail anda, lagipula itu ide yang bagus. Pastikan bahwa dengan menggunakan protokol IMAP [standar](https://tools.ietf.org/html/rfc3501) dengan sendirinya itu kurang aman.
+
+Jika "aplikasi yang kurang aman" tidak diaktifkan, anda akan mendapatkan eror *Otentikasi gagal - kredensial yang tidak valid* untuk akun (IMAP) dan *Nama pengguna dan Kata sandi tidak diterima* untuk identitas (SMTP).
+
+<br />
+
+*Umum*
+
+Anda mungkin mendapatkan peringatan "*Suila masuk lewat web browser anda*". Hal ini terjadi ketika Google menganggap jaringan yang menghubungkan anda ke internet (hal ini bisa jadi VPN) tidak aman. Peringatan ini dapat dicegah dengan menggunakan wizard pengaturan cepat atau kata sandi khusus aplikasi.
+
+Lihat [di sini](https://support.google.com/mail/answer/7126229) untuk instruksi dari Google dan [di sini](https://support.google.com/mail/accounts/answer/78754) untuk penyelesaian masalah.
 
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Mengapa pesan yang terkirimkan tidak nampak (secara langsung) dalam folder terkirim?**
 
-Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
+Pesan yang terkirim normalnya dipindahkan dari pesan keluar ke folder terkirim langsung setelah penyedia anda menambahkan pesan yang terkirim ke folder terkirim. Hal ini membutuhkan folder terkirim yang dipilih dalam pengaturan akun dan folser kirim yang diatur untuk singkronisasi.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
+Beberapa penyedia tidak melacak pesan yang terkirim atau server SMTP yang telah digunakan bisa jadi tidak berhubungan dengan penyedia tersebut. Dalam kasus ini, FairEmail akan menambahkan pesan yang telah terkirim ke folder terkirim secara otomatis dalam mensingkronisasikan folder tersebut, yang akan terjadi setelah pesan telah dikirimkan. Perhatikan bahwa hal ini akan mengakibatkan traffic internet tambahan.
 
-~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~Jika hal ini tidak terjadi, penyedia anda mungkin tidak melacak pesan yang terkirim atau anda mungkin menggunakan server SMTP yang tidak berhubungan dengan penyedia.~~ ~~Dalam kasus ini, anda dapat mengaktifkan pengaturan identitas tingkat lanjut *Simpan pesan yang terkirim* agar FairEmail dapat menambahkan pesan yang terkirim ke dalam folder terkirim langsung setelah anda mengirim pesan.~~ ~~Perhatikan bahwa mengaktifkan pengaturan ini dapat mengaktibatkan pesan ganda jika penyedia anda juga menambahkan pesan yang terkirim ke dalam folder terkirim.~~ ~~Serta, berhati-hatilah bahwa dengan anda mengaktifkan pengaturan ini akan mengakibatkan penggunaan data ekstra, terutama saat mengirimkan pesan dengan lampiran yang besar.~~
 
-~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~ ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~ ~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
+~~Jika pesan yang terkirim di dalam pesan keluar tidak dapat ditemukan di dalam folder terkirim dalam singkronisasi penuh, pesan tersebut akan dipindahkan juga dari pesan keluar ke folser terkirim.~~ ~~Singkronisasi penuh terjadi ketika sedang menyambungkan kembali ke server atau ketika singkronisasi periodik atau manual.~~ ~~Anda mungkin akan perlu untuk mengaktifkan pengaturan tingkat lanjut *Simpan pesan yang terkirim* dibandingkan dengan memindahkan pesan ke dalam folder terkirim sekarang.~~
 
 <br />
 
 <a name="faq8"></a>
-**(8) Can I use a Microsoft Exchange account?**
+**(8) Apakah saya dapat menggunakan akun Microsoft Exchange?**
 
 The Microsoft Exchange Web Services protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055). So, it makes little sense to add this protocol anymore.
 
-You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case. See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
+Anda dapat menggunakan akun Microsoft Exchange jika, selalu dalam kasus ini, dapat diakses melalui IMAP. Lihat [di sini](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) untuk informasi lebih lanjut.
 
 Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
 
-Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for the Microsoft documentation about configuring an email client. There is also a section about common connection errors and solutions.
+Sila lihat [di sini](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) untuk dokumentasi Microsoft mengenai konfigurasi surel klien. Terdapat juga bagian mengenai eror koneksi yang sering terjadi dan solusinya.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Sebagian versi server Exchange yang lama memiliki bug yang akan mengakibatkan pesan kosong dan lampiran yang rusak. Sila lihat [FAQ ini](#user-content-faq110) untuk solusinya.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+Sila lihat [FAQ ini](#user-content-faq133) tentang bantuan ActiveSync.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Sila lihat [FAQ ini](#user-content-faq111) tentang bantuan OAuth.
 
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) Apa itu identitas / bagaimana cara saya menambahkan alias?**
 
-Identities represent email addresses you are sending *from* via an email (SMTP) server.
+Identitas merepresentasikan alamat surel *dari* yang anda kirim melalui server surel (SMTP).
 
-Some providers allow you to have multiple aliases. You can configure these by setting the email address field of an additional identity to the alias address and setting the user name field to your main email address.
+Sebagian penyedia mengizinkan anda untuk memiliki alias lebih dari satu. Anda dapat mengkonfigurasi hal ini dengan mengatur bagian alamat surel dari identitas tambahan ke dalam alamat alias dan atur bagian nama pengguna dengan alamat surel utama anda.
 
-Note that you can copy an identity by long pressing it.
+Perhatikan bahwa anda dapat menyalin identitas dengan menekannya dengan lama.
 
-Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message, if your provider allows this.
+Secara alternatif, anda dapat mengaktifkan *Izinkan penyuntingan alamat pengirim* di pengaturan tingkat lanjut dari identitas yang telah ada untuk menyunting nama pengguna ketika menulis pesan baru, jika penyedia anda mengizinkannya.
 
-FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
+FairEmail akan memperbarui kata sandi dari identitas terkait secara otomatis ketika anda memperbarui kata sandi dari akun yang terasosiasi atau identitas yang terkait.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+Lihat [FAQ ini](#user-content-faq33) untuk cara menyunting nama pengguna dari alamat surel.
 
 <br />
 
@@ -587,50 +589,50 @@ See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 <br />
 
 <a name="faq11"></a>
-**~~(11) Why is POP not supported?~~**
+**~~(11) Mengapa POP tidak terdukung?~~**
 
-~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~ ~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~ ~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
+~~Selain penyedia surel yang mendukung [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) belakangan ini,~~ ~~menggunakan [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) akan mengakibatkan penggunaan baterai ekstra yang tidak penting dan notifikasi pesan baru yang terhambat.~~ ~~Ditambah lagi POP tidak cocok untuk singkronisasi dua arah dan sering kali orang membaca dan menulis pesan di perangkat yang berbeda belakangan ini.~~
 
-~~Basically, POP supports only downloading and deleting messages from the inbox.~~ ~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
+~~Secara singkat, POP hanya mendukung mengunduh dan mengahpus pesan dari kotak masuk.~~ ~~Maka, operasi yang biasa dilakukan seperti mengatur atribut pesan (baca, bintang, balas, dll), menambahkan (back up) dan memindahkan pesan tidak memungkinkan.~~
 
-~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
+~~Lihat juga [apa yang Google tulis tentang POP](https://support.google.com/mail/answer/7104828).~~
 
-~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~ ~~which can be used as a workaround for when your provider doesn't support IMAP.~~
+~~Contohnya, [Gmail dapat mengimpor pesan](https://support.google.com/mail/answer/21289) dari akun POP lainnya,~~ ~~yang dapat digunakan sebagai solusi jika penyedia anda tidak mendukung IMAP.~~
 
-~~tl;dr; consider to switch to IMAP.~~
+~~tl;dr; menyarankan untuk pindah ke IMAP.~~
 
 <br />
 
 <a name="faq12"></a>
-**(12) How does encryption/decryption work?**
+**(12) Bagaimana cara kerja enkripsi / dekripsi?**
 
 Communication with email servers is always encrypted, unless you explicitly turned this off. This question is about optional end-to-end encryption with PGP or S/MIME. The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
 
 <br />
 
-*General*
+*Umum*
 
-Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
+Sila lihat [di sini](https://en.wikipedia.org/wiki/Public-key_cryptography) tentang bagaimana cara kerja enskripsi kunci.
 
-Encryption in short:
+Enkripsi secara singkat:
 
 * Pesan **keluar** terenkripsi dengan **kunci publik** dari penerima
 * Pesan **masuk** terdekripsi dengan **kunci privat** dari penerima
 
-Signing in short:
+Membuat sign secara singkat:
 
 * Pesan **keluar** tersign dengan **kunci privat** dari pengirim
 * Pesan **masuk** diverifikasi dengan **kunci publik** dari pengirim
 
-To sign/encrypt a message, just select the appropriate method in the send dialog. You can always open the send dialog using the three-dots overflow menu in case you selected *Don't show again* before.
+Untuk membuat sign/enkripsi sebuah pesan, anda tinggal memilih metode yang cocok dalam dialog kirim. Anda dapat selalu membuka dialog pengiriman dengan menggunakan menu overflow tiga titik jika anda telah memilik *Jangan tampilkan lagi* sebelumnya.
 
-To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.
+Untuk memverifikasi signature atau mendekripsi pesan yang diterima, buka pesan tersebut dan klik gestur atau ikon gembok yang terletak dibawah bilah aksi pesan.
 
-The first time you send a signed/encrypted message you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+Pertama kali anda mengirim pesan tersign/enkripsi, anda mungkin akan ditanyakan mengenai kunci sign. Untuk berikutnya, FairEmail akan menyimpan secara otomatis kunci sign yang telah dipilih di dalam identitas yang telah digunakan. Jika anda perlu mengatur ulang kunci sign, anda tinggal menyimpan identitas atau tekan lama pada identitas di dalam daftar identitas dan pilih *Atur ulang kunci sign*. Kunci sign yang telah dipilih akan terlihat di daftar identitas. Jika anda perlu untuk memilih kunci berdasarkan kasus per kasus, anda dapat membuat identitas lebih dari satu untuk akun yang sama dengan alamat surel yang sama.
 
 In the encryption settings you can select the default encryption method (PGP or S/MIME), enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.
 
-The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can use the *resync* menu item in the three-dots menu of the message action bar.
+The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. Jika anda ingin mengurungkan dekripsi, anda dapat menggunakan menu *singkronisasi ulang* di dalam menu titik tiga dari bilah aksi pesan.
 
 <br />
 
@@ -711,7 +713,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
 
 How to extract a public key from a S/MIME certificate:
 
@@ -736,67 +738,67 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <br />
 
 <a name="faq13"></a>
-**(13) How does search on device/server work?**
+**(13) Bagaimana cara kerja pencarian dalam perangkat/server?**
 
-You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder. You can also search from any app by selecting *Search email* in the copy/paste popup menu.
+Anda dapat memulai pencarian pesan dalam pengirim (dari), penerima (untuk, cc, bcc), judul, kata kunci atau teks pesandengan menggunakan kaca pembesar di bilah aksi dari folder. Anda juga dapat mencari aplikasi apapun dengan memilik *Cari surel* dalam menu popup salin/unggah.
 
 Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Pesan akan dicari dalam perangkat terlebih dahulu. Akan ada tombol aksi dengan ikon cari lagi di paling bawah untuk meneruskan pencarian di server. Anda dapat memilih folder mana untuk meneruskan pencarian tersebut.
 
-The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
+The IMAP protocol doesn't support searching in more than one folder at the same time. Pencarian dalam server merupakan operasi yang mahal, maka dari itu tidak mungkin bisa memilih lebih dari satu folder.
 
-Searching local messages is case insensitive and on partial text. The message text of local messages will not be searched if the message text was not downloaded yet. Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Searching local messages is case insensitive and on partial text. Teks pesan dari pesan lokal tidak akan dicari jika teks tersebut belum terlebih dahulu diunduh. Pencarian di server mungkin akan menyebabkan sensitif akan kata atau tidak dan mungkin akan pada sebagian teks atau seluruh kata, tergantung dari penyedia.
 
-Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
+Sebagian server tidak dapat menangani pencarian dalam teks pesan jika terdapat pesan dalam jumlah yang banyak. Untuk hal ini, terdapat opsi untuk menonaktifkan pencarian di dalam teks pesan.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Sila [lihat di sini](https://support.google.com/mail/answer/7190) untuk operator pencarian yang memungkinkan. Sebagai contoh:
 
 `
 raw:larger:10M`
 
-Searching through a large number of messages on the device is not very fast because of two limitations:
+Pencarian diantara pesan dengan jumlah yang banyak di dalam perangkat akan memakan waktu yang lama karena dua limitasi:
 
 * [sqlite](https://www.sqlite.org/), mesin database Android memiliki batasan ukuran rekaman yang mencegaj teks pesan disimpan di dalam database
 * Aplikasi Andorid hanya mendapatkan memori yang terbatas untuk bekerja, bahkan ketika peangkat tersebut memiliki banyak memori yang masih tersedia
 
-This means that searching for a message text requires that files containing the message texts need to be opened one by one to check if the searched text is contained in the file, which is a relatively expensive process.
+Hal ini berarti pencarian pesan teks memerlukan berkas tersebut yang memiliki pesan teks harus dibuka satu per satu untuk memeriksa apakah teks yang dicari terdapat di dalam berkas, yang secara relatif merupakan proses yang mahal.
 
-In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device, but be aware that this will increase battery and storage space usage. The search index is based on words, so searching for partial text is not possible. Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange. Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange. Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana). Using the search index is a pro feature.
+Dalam *pengaturan lainnya* anda dapat mengaktifkan *Buat indeks pencarian* untuk meningkatkan kecepatan pencarian dalam perangkat secara signifikan, namun berhati-hatilah bahwa hal ini akan meningkatkan penggunaan bateraidan kapasitas penyimpanan. Pencarian indeks didasarkan oleh kata, maka pencarian untuk sebagian teks tidak memungkinkan. Mencari dengan menggunakan indeks pencarian dilakukan dengan DAN standar, maka pencarian untuk *apel jeruk* akan menghasilkan pencarian untuk apel DAN jeruk. Kata yang dipisahkan dengan koma akan menghasilkan pencarian untuk ATAU, maka contohnya seperti *apel, jeruk* akan menghasilkan pencarian untuk apel ATAU jeruk. Keduanya dapat digabungkan, maka pencarian untuk *apel, jeruk pisang* akan mengahsilkan pencarian untuk apel ATAU (jeruk DAN pisang). Penggunaan indeks pencarian merupakan fitur yang dimiliki pro.
 
-From version 1.1315 it is possible to use search expressions like this:
+Dari versi 1.1315, hal ini memungkinkan untuk menggunakan ekspresi pencarian seperti:
 
 ```
 apel +pisang -ceri ?kacang
 ```
 
-This will result in searching like this:
+Hal ini akan menghasilkan pencarian seperti:
 
 ```
 ("apel" DAN "pisang" DAN TIDAK "ceri") ATAU "kacang"
 ```
 
-Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
+Ekspresi pencarian dapat digunakan untuk mencari dalam perangkat melalui pencarian indeks dan untuk pencarian dalam server surel, namun tidak untuk pencarian dalam perangkat tanpa indeks pencarian untuk alasan performa.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
+Pencarian dalam perangkat adalah fitur gratis, menggunakan indeks pencarian dan mencari dalam server adalah fitur yang dimiliki pro. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
 
 <br />
 
 <a name="faq14"></a>
-**(14) How can I set up an Outlook / Live / Hotmail account?**
+**(14) Bagaimana cara saya mengatur akun Outlook / Live / Hotmail?**
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook*.
+Akun Outlook / Live / Hotmail dapat diatur melalui wizard pengaturan cepat dan pilih *Outlook*.
 
-To use an Outlook, Live or Hotmail account with two factor authentication enabled, you need to create an app password. See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+Untu menggunakan akun Outlook, Live atau Hotmail dengan autentikasi dua faktor yang aktif, anda perlu membuat kata sandi aplikasi. Lihat [di sini](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) untuk lebih lanjut.
 
-See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
+Lihat [di sini](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) untuk instruksi dari Microsoft.
 
-For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
+Untuk mengatur akun Office 365, sila lihat [FAQ ini](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
-**(15) Why does the message text keep loading?**
+**(15) Mengapa teks pesan terus menerus dimuat?**
 
 The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
 
@@ -811,9 +813,9 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Mengapa pesan tidak tersingkronisasi?**
 
-Possible causes of messages not being synchronized (sent or received) are:
+Kemungkinan penyebab yang membuat pesan tidak tersingkronisasi (terkirim atau diterima) adalah:
 
 * Kaun atau folder tidak diatur untuk singkronisasi
 * Jumlah hari untuk mensingkronisasi pesan ditetapkan teralu pendek
@@ -821,38 +823,38 @@ Possible causes of messages not being synchronized (sent or received) are:
 * Server surel yang tidak tersedia pada saat itu
 * Android memberhentikan pelayanan singkronisasi
 
-So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
+Maka, peruka akun dan pengaturan folder anda dan periksa juga apakah folder akun anda terkoneksi (lihat legenda di menu navigasi untuk arti dari ikon-ikon).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+Jika ada pesan eror, sila lihat [FAQ ini](#user-content-faq22).
 
-On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+Dalam beberapa perangkat, yang terdapat banyak aplikasi yang bersaing untuk menggunakan memori, Android akan memberhentikan pelayanan singkronisasi sebagai langkah terakhir.
 
-Some Android versions stop apps and services too aggressively. See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Sebagian versi Andorid mematikan aplikasi dan pelayanan secra agresif. Lihat [situs web khusus ini](https://dontkillmyapp.com/) dan [isu Android ini](https://issuetracker.google.com/issues/122098785) untuk informasi lebih lanjut.
 
-Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
+Menonaktifkan optimisasi baterai (pengaturan langkah 3) akan mengurangi kesempakan Android yang akan memberhentikan layanan singkronisasi.
 
 In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
 <br />
 
 <a name="faq17"></a>
-**~~(17) Why does manual synchronize not work?~~**
+**~~(17) Mengapa singkronisasi manual tidak bekerja?~~**
 
-~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
+~~Jika menu *Singkronisasi sekarang* terlihat redup, maka tidak terdapat koneksi ke akun.~~
 
-~~See the previous question for more information.~~
+~~Sila lihat pertanyaan sebelumnya untuk informasi lebih lanjut.~~
 
 <br />
 
 <a name="faq18"></a>
-**(18) Why is the message preview not always shown?**
+**(18) Mengapa tampilan pesan tidak selalu terlihat?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+Tampilan teks pesan tidak dapat ditampilkan jika isi pesan tersebut belum diunduh. Lihat juga [FAQ ini](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Mengapa fitur pro sangat mahal?**
 
 First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
 
@@ -862,54 +864,54 @@ Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionna
 
 Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
-The right question is "*why are there so many taxes and fees?*":
+Pertanyaan yang benar adalah '*mengapa terdapat banyak pajak dan biaya?*":
 
 * PPN: 25% (tergantung masing-masing negara)
 * Biaya Google: 30 %
 * Pajak penghasilan: 50 %
 * <sub>Biaya PayPal: 5-10 % tergantung dari masing-masing negara/jumlah</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Maka, yang tersisa untuk developer hanya sebagian dari yang anda bayar.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet. There are no privacy violating ads in the app either.
+Perhatikan juga bahwa sebagian besar aplikasi yang gratis akan terlihat tidak berkelanjutan di akhir, sedangkan FairEmail dikelola dan didukung dengan benar, dan aplikasi gratis tersebut mungkin tidak aman, seperti megirimkan informasi sensitif ke internet. There are no privacy violating ads in the app either.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Saya telah mengerjakan FairEmail hampir setiap hai selama lebih dari dua tahun, maka menurut saya harga tersebut masih masuk akal. Untuk alasan ini juga tidak akan ada diskon.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Apakah dana saya dapat dikembalikan?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+Jika fitur pro yang telah dibeli tidak bekerja seperti yang seharusnya dan hal ini tidak disebabkan oleh masalah yang ada di fitur gratis dan saya tidak dapat memperbaiki masalah tersebut secepat mungkin, dana anda akan dikembalikan. Dalam kasus lainnya, mungkin tidak akan ada pengembalian dana. Dalam keadaan apa pun, tidak ada pengembalian dana untuk masalah apa pun yang terkait dengan fitur gratis, karena fitur tersebut tidak memiliki bayaran apa pun dan dapat dievaluasi tanpa batasan apa pun. Saya bertanggung jawab sebagai penjual untuk memberikan apa yang telah saya janjikan dan saya harap anda bertanggung jawab untu mengetahui dengan jelas apa yang anda beli.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Bagaimana cara saya mengaktifkan lampu notifikasi?**
 
 Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
 Android 8 Oreo and later: please see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
 
-Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
+Perhatikan bahwa aplikasi sudah tidak dapat mengubah pengaturan notifikasi, termasuk pengaturan lampu notifikasi, dalam Android 8 Oreo sampai yang terbaru lagi.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround bugs in Android. This might apply to notification sounds and vibrations too.
+Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround bugs in Android. Hal ini juga akan diterapkan ke suara dan getaran notifikasi.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Pengaturan warna lampu tidak terdukung di versi Andorid sebelum Android 8 dan tidak memungkinkan pada versi Andorid 8 sampai yang terbaru.
 
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) Apa yang dimaksud dengan akun/folder eror ... ?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail tidak menyembunyikan eror seperti aplikasi sejenis lainnya, maka mudah untuk anda mendiagnosa masalah yang terjadi.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently. Please see [this FAQ](#user-content-faq123) for more information about this.
+FairEmail akan secara otomatis mencoba untuk menyambungkan lagi setelah menunda. Penundaan ini akan digandakan setelah setiap usaha yang gagal untuk menghindari menghabiskan baterai dan terkunci secara permanen. Please see [this FAQ](#user-content-faq123) for more information about this.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Terdapat eror umum dan spesifik untuk akun Gmail (lihat dibawah).
 
-**General errors**
+**Eror Umum**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Sebagian penyedia mengharapkan nama pengguna anda hanyalah *nama pengguna* dan lainnya adalah alamat surel lengkap anda *namapengguna@contoh.com*. Ketika menyalin/menempel untuk mengisi nama pengguna atau kata sandi, karakter yang tidak terlihat dapat juga tersalin yang akan mengakibatkan masalah ini juga. Beberapa pengelola kata sandi juga terkenal untuk memiliki kesalahan ini. Nama pengguna mungkin sensitif dengan penggunaan huruf, maka coba hanya gunakan huruf kecil saja. Kata sandi hampir selalu sensitif drngan penggunaan huruf. Sebagian penyedia memerlukan pengunaan aplikasi kata sandi dibandingkan dengan kata sandi akun, maka sila periksa dokumentasi dari penyedia tersebut. Terkadang, mengaktifkan akses eksternal (IMAP/SMTP) dalam situs web dari penyedia tersebut terlebih dahulu merupakan hal yang penting. Penyebab lainnya yang mungkin terjadi adalah akun terblokir atau anda telah dilarang secara administratif untuk masuk dalam beberapa hal, seperti contoh ketika hanya mengizinkan untuk masuk dari jaringan / alamat IP tertentu.
 
 If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
@@ -919,7 +921,7 @@ The message *... +OK ...* likely means that a POP3 port (usually port number 995
 
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...* can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
 
-The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Mostly this indicates internet connectivity issues, possibly caused by a VPN or by a firewall app. You can try to increase the connection timeout in the connection settings of FairEmail, for when the email server is really slow.
+The error *... Couldn't connect to host ...* means that there was no response from the email server within a reasonable time (20 seconds by default). Seringkali menandakan adanya masalah sambungan internet, mungkin disebabkan oleh VPN atau aplikasi firewall. Anda dapat meningkatkan waktu habis koneksi pada bagian pengaturan koneksi dari FairEmail, untuk ketika server surel sangat lambat.
 
 The error *... Connection refused ...* means that the email server or something between the email server and the app, like a firewall, actively refused the connection.
 
@@ -927,7 +929,7 @@ The error *... Network unreachable ...* means that the email server was not reac
 
 The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *... No address associated with hostname ...* means that the address of the email server could not be resolved into an IP address. This might be caused by a VPN, ad blocking or an unreachable or not properly working (local) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) server.
 
-The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
+The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. Hal ini dapat terjadi, contohnya, jika sambungan telah tersesat. Contoh yang sering terjadi adalah menyalakan mode pesawat.
 
 The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server or something between the email server and the app, for example a router or a firewall (app), actively terminated an existing connection.
 
@@ -942,9 +944,11 @@ The error *... Unexpected end of zlib input stream ...* means that not all data 
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail akan mengasumsikan ISO-8859-1 (Latin1), yang sering kali akan menghasilkan tampilan pesan dengan benar.
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
+
+The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
 
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
@@ -954,7 +958,7 @@ Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
-Possible causes are:
+Kemungkinan disebabkan karena:
 
 * Firewall atau router memblok koneksi ke server
 * Nama host atau nomor port yang tidak valid
@@ -964,13 +968,13 @@ Possible causes are:
 * Server email menolak untuk menerima pesan, misalnya karena terlalu besar atau berisi tautan yang tidak dapat diterima
 * Ada terlalu banyak koneksi ke server, lihat juga pertanyaan berikutnya
 
-Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.
+Banyak jaringan Wi-Fi publik memblokir surel yang keluar untuk mencegah spam. Terkadang anda dapat menyelesaikan masalah ini dengan menggunakan pory SMTP lainnya. Lihat dokumentasi dari penyedia untuk melihat nomor port yang dapat digunakan.
 
-If you are using a [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), the VPN provider might block the connection because it is too aggressively trying to prevent spam. Note that [Google Fi](https://fi.google.com/) is using a VPN too.
+Jika anda menggunakan [VPN](https://en.wikipedia.org/wiki/Virtual_private_network), penyedia VPN tersebut mungkin memblokir koneksi karena hal tersebut mencoba untuk mengurangi spam secara agresif. Perhatikan bahwa [Google Fi](https://fi.google.com/) juga menggunakan VPN.
 
-**Send errors**
+**Eror Pengiriman**
 
-SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Too large messages and triggering the spam filter of an email server are the most common reasons.
+Server SMTP dapat menolak pesan karena [berbagai alasan](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes). Pesan yang telalu besar dan memicu saringan spam dari server surel adalah alasan yang paling sering ditemukan.
 
 * Batas ukuran lampiran untuk Gmail adalah [25 MB](https://support.google.com/mail/answer/6584)
 * Bata ukuran lampiran untuk Outlook dan Office 365 [adalah 20 MB](https://support.microsoft.com/en-us/help/2813269/attachment-size-exceeds-the-allowable-limit-error-when-you-add-a-large)
@@ -994,51 +998,53 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 
 <br />
 
-**Gmail errors**
+**Eror Gmail**
 
-The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager). This requires contact/account permissions and internet connectivity.
+Pengaturan otorisasi akun Gmail dengan wizard cepat perlu disegarkan secara periodik melalui [pengelola akun Andorid](https://developer.android.com/reference/android/accounts/AccountManager). Hal ini memerlukan izin kontak/akun dan jaringan internet.
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Gagal otentikasi ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Gagal otentikasi ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Gagal otentikasi ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-When in doubt, you can ask for [support](#user-content-support).
+The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
+
+Jika anda ragu, anda dapat bertanya di [bantuan](#user-content-support).
 
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get alert ... ?**
+**(23) Mengapa saya mendapatkan tanda ..?**
 
-*General*
+*Umum*
 
-Alerts are warning messages sent by email servers.
+Alert adalah pesan peringatan yang dikirimkan oleh server surel.
 
-*Too many simultaneous connections* or *Maximum number of connections exceeded*
+*Terlalu banyak koneksi secara serentak* atau *Koneksi maksimum terlampaui*
 
-This alert will be sent when there are too many folder connections for the same email account at the same time.
+Alert ini akan terkirim ketika terdapat terlalu banyak koneksi folder untuk akun surel yang sama secara bersamaan.
 
-Possible causes are:
+Kemungkinan disebabkan karena:
 
-* There are multiple email clients connected to the same account
-* The same email client is connected multiple times to the same account
-* Previous connections were terminated abruptly for example by abruptly losing internet connectivity
+* Terdapat lebih dari satu surel klien yang terhubung dengan akun yang sama
+* Surel klien yang sama terkoneksi lebih dari satu kali ke akun yang sama
+* Koneksi sebelumnya telah diberhentikan secara tiba-tiba karena contohnya tiba-tiba kehilangan jaringan internet
 
-First try to wait some time to see if the problem resolves itself, else:
+Pertama, coba tunggu beberap saat untuk melihat apakah masalah tersebut akan selesai dengan sendirinya, atau:
 
-* either switch to periodically checking for messages in the receive settings, which will result in opening folders one at a time
-* or set some folders to poll instead of synchronize (long press folder in the folder list, edit properties)
+* pindah ke pemeriksaan secara periodik untuk pesan salam pengaturan penerimaan, yang akan menghasilkan folder untuk terbuka satu per satu
+* atau atur beberapa folder untuk pilihan dibandingkan dengan sinkronisasi (tekan dengan lama pada folder dalam daftar folder, sunting properti)
 
 An easy way to configure periodically checking for messages for all folders except the inbox is to use *Apply to all ...* in the three-dots menu of the folder list and to tick the bottom two advanced checkboxes.
 
-The maximum number of simultaneous folder connections for Gmail is 15, so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time. For this reason Gmail *user* folders are set to poll by default instead of synchronize always. When needed or desired, you can change this by long pressing a folder in the folder list and selecting *Edit properties*. See [here](https://support.google.com/mail/answer/7126229) for details.
+Jumlah maksimal koneksi folder secara bersamaan untuk Gmail adalah 15, maka anda dapat mengsingkronkan 15 folder paling banyak secara sekaligus ke *seluruh* perangkat anda dalam waktu yang bersamaan. Karena alasan ini maka folder *pengguna* Gmail telah diatur sebagai pilihan secara otomatis dibandingkan dengan selalu disingkronasi. Jika diperlukan atau diinginkan, anda dapat mengubahnya dengan menekan lama pada folder ddi daftar folder dan pilih *Sunting properti*. Lihat [di sini](https://support.google.com/mail/answer/7126229) untuk lebih lanjut.
 
 When using a Dovecot server, you might want to change the setting [mail_max_userip_connections](https://doc.dovecot.org/settings/dovecot_core_settings/#mail-max-userip-connections).
 
@@ -1047,141 +1053,141 @@ Note that it will take the email server a while to discover broken connections, 
 <br />
 
 <a name="faq24"></a>
-**(24) What is browse messages on the server?**
+**(24) Apa itu telusuri pesan di server?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. Anda dapat menonaktifkan fitur ini dalam pengaturan akun tingkat lanjut.
 
 <br />
 
 <a name="faq25"></a>
-**(25) Why can't I select/open/save an image, attachment or a file?**
+**(25) Mengapa saya tidak dapat memilih/membuka/menyimpan gambar, lampiran atau berkas?**
 
-When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*, the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present. This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Ketika menu item untuk memilih/membuka/menyimpan berkas tidak diaktifkan (redup) atau ketika anda mendapatkan pesan *Framework akses penyimpanan tidak tersedia*, [Framework akses penyimpanan](https://developer.android.com/guide/topics/providers/document-provider), komponen standar dari Andorid, mungkin tidak ada. Hal ini dapat disebabkan karena tidak termasuk ke dalam kustom ROM anda atau karena telah dihapus (dimatikan).
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders. No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+FairEmail tidak meminta izin penyimpanan, maka framework ini akan membutuhkan untuk memilih berkas dan folder. Tidak ada aplikasi, kecuali mungkin pengelola berkas, yang ditargetkan ke Android 4.4 KitKat sampai dengan yang terbaru bertanya yentang izin penyimpanan karena hal ini akan mengizinkan akses ke *seluruh* berkas.
 
 The storage access framework is provided by the package *com.android.documentsui*, which is visible as *Files* app on some Android versions (notable OxygenOS).
 
-You can enable the storage access framework (again) with this adb command:
+Anda dapat mengaktifkan framework akses penyimpanan (kembali) dengan perintah adb:
 
 ```
 pm install -k --user 0 com.android.documentsui
 ```
 
-Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+Secara alternatif, anda dapat mengaktifkan aplikasi *Berkas* kembali menggunakan pengaturan aplikasi Android.
 
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Apakah saya dapat membantu menerjemahkan FairEmail ke dalam bahasa saya?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Iya, anda dapat menerjemahkan teks FairEmail ke dalam bahasa anda [di Crowdin](https://crowdin.com/project/open-source-email). Pendaftaran gratis.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Jika anda menginginkan nama atau alias anda ingin dimasukkan ke dalam daftar kontribusi dalam *Tentang* di aplikasi, sila [hubungi saya](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
 <a name="faq27"></a>
-**(27) How can I distinguish between embedded and external images?**
+**(27) Bagaimana cara saya membedakan gambar yang tertanam dan eksternal?**
 
-External image:
+Gambar eksternal:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Gambar eksternal](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
-Embedded image:
+Gambar tersemat:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Gambar tersemat](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Broken image:
+Gambar rusak:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Gambar rusak](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
-Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+Perhatikan bahwa gambar eksternal yang diunduh dari server jarak jauh dapat digunakan untuk merekam dalam pesan anda lihat, yang anda akan tidak mau jika pesan tersebut adalah spam atau berbahaya.
 
 <br />
 
 <a name="faq28"></a>
-**(28) How can I manage status bar notifications?**
+**(28) Bagaimana cara saya mengelola status bilah notifikasi?**
 
 In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
-On Android 8.0 Oreo and later you can manage the properties of the individual notification channels, for example to set a specific notification sound or to show notifications on the lock screen.
+Pada Android 8.0 Oreo sampai yang terbaru, anda dapat mengelola properti dari channel notifikasi secara individual, sebagai contoh untuk mengatur suara notifikasi secara spesifik atau untuk menampilkan notifikasi di layar kunci.
 
-FairEmail has the following notification channels:
+FairEmail memiliki channel notifikasi seperti dibawah ini:
 
-* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
-* Send: used for the notification of the send service
-* Notifications: used for new message notifications
-* Warning: used for warning notifications
-* Error: used for error notifications
+* Layanan: digunakan untuk notifikasi dari layanan singkronisasi, lihat juga [FAQ ini](#user-content-faq2)
+* Kirim: digunakan untuk notifikasi untuk layanan pengiriman
+* Notifikasi: digunakan untuk notifikasi pesan baru
+* Peringatan: digunakan untuk notifikasi peringatan
+* Eror: digunakan untuk notifikasi eror
 
-See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels. In short: tap on the notification channel name to access the channel settings.
+Lihat [di sini](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) untuk rincian channel notifikasi. Secara singkat: tekan nama notifikasi channel untuk mengakes pengaturan channel.
 
-On Android before Android 8 Oreo you can set the notification sound in the settings.
+Pada Andorid sebelum Android 8 Oreo anda dapat mengatur suara notifikasi di pengaturan.
 
-See [this FAQ](#user-content-faq21) if your device has a notification light.
+Lihat [FAQ ini](#user-content-faq21) jika perangkat anda memiliki lampu notifikasi.
 
 <br />
 
 <a name="faq29"></a>
-**(29) How can I get new message notifications for other folders?**
+**(29) Bagaiman cara saya mendapatkan notifikasi pesan baru dari folder lainnya?**
 
-Just long press a folder, select *Edit properties*, and enable either *Show in unified inbox* or *Notify new messages* (available on Android 7 Nougat and later only) and tap *Save*.
+Hanya perlu menekan folder dengan lama, pilih *Sunting properti*, dan aktifkan *Tampilkan kotak masuk terpadu* atau *Notifikasi pesan baru* (hanya tersedia di Android 7 Nougat sampai yang terbaru) dan tekan *Simpan*.
 
 <br />
 
 <a name="faq30"></a>
-**(30) How can I use the provided quick settings?**
+**(30) bagaimana cara saya menggunakan pengaturan cepat yang tersedia?**
 
-There are quick settings (settings tiles) available to:
+Terdapat pengaturan cepat (menu tile) yang tersedia untuk:
 
-* globally enable/disable synchronization
-* show the number of new messages and marking them as seen (not read)
+* mengaktifkan/menonaktifkan singkronisasi secara global
+* menampilkan jumlah pesan baru dan menandai pesan tersebut sebagai terlihat (bukan dibaca)
 
-Quick settings require Android 7.0 Nougat or later. The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+Pengaturan cepat membutuhkan Android 7.0 Nougat sampai yang terbaru. Penggunaan pengaturan tiles dijelaskan [di sini](https://support.google.com/android/answer/9083864).
 
 <br />
 
 <a name="faq31"></a>
-**(31) How can I use the provided shortcuts?**
+**(31) Bagaimana cara saya menggunakan shortcut yang tersedia?**
 
 There are shortcuts available to compose a new message to a favorite contact.
 
-Shortcuts require Android 7.1 Nougat or later. The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+Jalan pintas membutuhkan Android 7.1 Nougat sampai dengan yang terbaru. Penggunaan jalan pintas dijelaskan [di sini](https://support.google.com/android/answer/2781850).
 
 It is also possible to create shortcuts to folders by long pressing a folder in the folder list of an account and selecting *Add shortcut*.
 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) Bagaimana cara saya memeriksa jika membaca pesan ini aman?**
 
-You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+Anda dapat menggunakan [Penguji Privasi Surel](https://www.emailprivacytester.com/) untuk hal ini.
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) Mengapa alamat pengirim yang telah disunting tidak dapat bekerja?**
 
-Most providers accept validated addresses only when sending messages to prevent spam.
+Kebanyakan provider menerima alamat yang valid hanya ketika megirimkan pesan untuk menghindari spam.
 
-For example Google modifies the message headers like this for *unverified* addresses:
+Contohnya Google memodifikasi header pesan seperti ini untuk alamat *yang tidak terverifikasi*:
 
 ```
 Dari: Seseorang <somebody@example.org>
 X-Google-Orisinal-Dari: Seseorang <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a verified address before sending the message.
+Hal ini berarti alamat pengirim yang telah tersunting telah digantkan secara otomatis dengan alamat yang diverifikasi sebelum mengirim pesan.
 
-Note that this is independent of receiving messages.
+Perhatikan bahwa ini adalah cara menerima pesan yang independen.
 
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) Bagaimana identitas cocok?**
 
-Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
+Indentitas dapat dicocokan seperti yang diharapkan dengan akun. Untuk pesan yang masuk *kepada*, *cc*, *bcc*, *dari* dan *(X-)dikirimkan/pesan/orisinal-ke* alamat akan diperiksa (dengan urutan yang telah disebutkan) dan untuk pesan keluar (draf, pesan keluar dan terkirim) hanya dalam *bentuk* alamat yang akan diperiksa. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
 The matched address will be shown as *via* in the addresses section of received messages (between the message header and message text).
 
@@ -1201,9 +1207,9 @@ If you like to match a catch-all email address, this regex is mostly okay:
 
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:
 
-* Identity: abc@example.com; regex: **(?i)abc**
-* Identity: xyz@example.com; regex: **(?i)xyz**
-* Identity: main@example.com; regex: **^(?i)((?!abc|xyz).)\*$**
+* Identitas: abc@contoh.com; regex: **(?i)abc**
+* Identitas: xyz@contoh.com; regex: **(?i)xyz**
+* Identitas: main@contoh.com; regex: **^(?i)((?!abc|xyz).)\*$**
 
 Matched identities can be used to color code messages. The identity color takes precedence over the folder and account color. Setting identity colors is a pro feature.
 
@@ -1226,16 +1232,16 @@ The Gmail app shows images by default by downloading the images through a Google
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
+If you want to reset the default *Open with* apps, please [see here](https://support.google.com/pixelphone/answer/6271667).
 
 <br />
 
 <a name="faq36"></a>
-**(36) How are settings files encrypted?**
+**(36) Bagaimana pegaturan berkas terenkripsi?**
 
-Short version: AES 256 bit
+Versi singkat: AES 256 bit
 
-Long version:
+Versi panjang:
 
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
@@ -1243,7 +1249,7 @@ Long version:
 <br />
 
 <a name="faq37"></a>
-**(37) How are passwords stored?**
+**(37) Bagaimana kata sandi disimpan?**
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
@@ -1252,7 +1258,7 @@ If the device is secured with a PIN, pattern or password, you can make the accou
 <br />
 
 <a name="faq39"></a>
-**(39) How can I reduce the battery usage of FairEmail?**
+**(39) Bagaimana cara saya mereduksi penggunaan baterai dari FairEmail?**
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen. **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!** The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android. However, this doesn't mean that FairEmail is constantly using battery power. The real battery usage can be seen by navigating to this screen:
 
@@ -1303,7 +1309,7 @@ In addition, the trash and spam folders will be automatically set to checking fo
 <br />
 
 <a name="faq40"></a>
-**(40) How can I reduce the data usage of FairEmail?**
+**(40) Bagaimana cara saya mereduksi penggunaan data dari FairEmail?**
 
 You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
@@ -1331,7 +1337,7 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-See also [this FAQ](#user-content-faq4).
+Lihat juga [FAQ ini](#user-content-faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
@@ -1346,7 +1352,7 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 <br />
 
 <a name="faq42"></a>
-**(42) Can you add a new provider to the list of providers?**
+**(42) Apakah saya dapat menambahkan provider baru dalam daftar provider?**
 
 If the provider is used by more than a few people, yes, with pleasure.
 
@@ -1379,14 +1385,14 @@ See below about how to contact me.
 <br />
 
 <a name="faq43"></a>
-**(43) Can you show the original ... ?**
+**(43) Apakah anda dapat menampilkan yang orisinil ... ?**
 
 Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc. FairEmail does and will not alter this in any way, except for requesting [TEXT_AUTOSIZING](https://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm), which will *attempt* to make small text more readable.
 
 <br />
 
 <a name="faq44"></a>
-**~~(44) Can you show contact photos / identicons in the sent folder?~~**
+**~~(44) Apakah saya dapat menampilkan foto / ikon identitas kontak dari folder terkirim?~~**
 
 ~~Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.~~ ~~Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.~~
 
@@ -1400,7 +1406,7 @@ You'll get the message *This key is not available. To use it, you must import it
 <br />
 
 <a name="faq46"></a>
-**(46) Why does the message list keep refreshing?**
+**(46) Mengapa daftar pesan saya selalu segarkan?**
 
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server. You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
 
@@ -1409,7 +1415,7 @@ The speed of your device and internet connection and the number of days to synch
 <br />
 
 <a name="faq47"></a>
-**(47) How do I solve the error 'No primary account or no drafts folder' ?**
+**(47) Bagaimana cara saya memperbaiki eror 'Tidak ada akun utama atau tidak ada folder draf' ?**
 
 You'll get the error message *No primary account or no drafts folder* when trying to compose a message while there is no account set to be the primary account or when there is no drafts folder selected for the primary account. This can happen for example when you start FairEmail to compose a message from another app. FairEmail needs to know where to store the draft, so you'll need to select one account to be the primary account and/or you'll need to select a drafts folder for the primary account.
 
@@ -1420,7 +1426,7 @@ Please see [this FAQ](#user-content-faq141) for some more information.
 <br />
 
 <a name="faq48"></a>
-**~~(48) How do I solve the error 'No primary account or no archive folder' ?~~**
+**~~(48) Bagaimana cara saya memperbaiki eror 'Tidak ada akun utama atau tidak ada folder arsip' ?~~**
 
 ~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app. FairEmail needs to know where to search, so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.~~
 
@@ -1438,14 +1444,14 @@ See also [question 25](#user-content-faq25) and [what Google writes about it](ht
 <br />
 
 <a name="faq50"></a>
-**(50) Can you add an option to synchronize all messages?**
+**(50) Apakah saya dapat menambahkan opsi singkronisasikan seluruh pesan?**
 
 You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu) and selecting *Synchronize more* in the popup menu.
 
 <br />
 
 <a name="faq51"></a>
-**(51) How are folders sorted?**
+**(51) Bagaimana folder disusun?**
 
 Folders are first sorted on account order (by default on account name) and within an account with special, system folders on top, followed by folders set to synchronize. Within each category the folders are sorted on (display) name. You can set the display name by long pressing a folder in the folder list and selecting *Edit properties*.
 
@@ -1454,7 +1460,7 @@ The navigation (hamburger) menu item *Order folders* in the settings can be used
 <br />
 
 <a name="faq52"></a>
-**(52) Why does it take some time to reconnect to an account?**
+**(52) Mengapa membutuhkan beberapa waktu untuk menghubungkan kembali ke akun?**
 
 There is no reliable way to know if an account connection was terminated gracefully or forcefully. Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems like [too many simultaneous connections](#user-content-faq23) or even the account being blocked. To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
 
@@ -1463,7 +1469,7 @@ You can long press *Settings* in the navigation menu to reconnect immediately.
 <br />
 
 <a name="faq53"></a>
-**(53) Can you stick the message action bar to the top/bottom?**
+**(53) Apakah saya dapat menempelkan bilah aksi pesan ke paling atas/paling bawah?**
 
 The message action bar works on a single message and the bottom action bar works on all the messages in the conversation. Since there is often more than one message in a conversation, this is not possible. Moreover, there are quite some message specific actions, like forwarding.
 
@@ -1474,7 +1480,7 @@ Note that there are not many, if any, email apps that display a conversation as 
 <br />
 
 <a name="faq54"></a>
-**~~(54) How do I use a namespace prefix?~~**
+**~~(54) Bagaimana cara saya menggunakan bagian prefiks nama?~~**
 
 ~~A namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.~~
 
@@ -1489,14 +1495,14 @@ Note that there are not many, if any, email apps that display a conversation as 
 <br />
 
 <a name="faq55"></a>
-**(55) How can I mark all messages as read / move or delete all messages?**
+**(55) Bagaimana cara saya menandai semua pesan telah dibaca / memindahkan atau menghapus seluruh pesan?**
 
 You can use multiple select for this. Long press the first message, don't lift your finger and slide down to the last message. Then use the three dot action button to execute the desired action.
 
 <br />
 
 <a name="faq56"></a>
-**(56) Can you add support for JMAP?**
+**(56) Apakah anda dapat menambahkan dukungan untuk JMAP?**
 
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so it is not worth a lot of effort to add support for this to FairEmail.
 
@@ -1524,29 +1530,29 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 <br />
 
 <a name="faq58"></a>
-**(58) What does an open/closed email icon mean?**
+**(58) Apa yang dimaksud dengan ikon surel buka/tutup?**
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Gambar eksternal](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Gambar eksternal](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
 <br />
 
 <a name="faq59"></a>
-**(59) Can original messages be opened in the browser?**
+**(59) Apakah pesan orisinil dapat dibuka di browser?**
 
 For security reasons the files with the original message texts are not accessible to other apps, so this is not possible. In theory the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) could be used to share these files, but even Google's Chrome cannot handle this.
 
 <br />
 
 <a name="faq60"></a>
-**(60) Did you know ... ?**
+**(60) Tahukah anda ...?**
 
 * Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
@@ -1572,7 +1578,7 @@ For security reasons the files with the original message texts are not accessibl
 <br />
 
 <a name="faq61"></a>
-**(61) Why are some messages shown dimmed?**
+**(61) Mengapa terdapat beberapa pesan yang terlihat redup?**
 
 Messages shown dimmed (grayed) are locally moved messages for which the move is not confirmed by the server yet. This can happen when there is no connection to the server or the account (yet). These messages will be synchronized after a connection to the server and the account has been made or, if this never happens, will be deleted if they are too old to be synchronized.
 
@@ -1606,7 +1612,7 @@ If your provider requires an unsupported authentication method, you'll likely ge
 <br />
 
 <a name="faq63"></a>
-**(63) How are images resized for displaying on screens?**
+**(63) Bagaimana cara mengubah ukuran gambar untuk ditampilkan di layar?**
 
 Large inline or attached [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) and [JPEG](https://en.wikipedia.org/wiki/JPEG) images will automatically be resized for displaying on screens. This is because email messages are limited in size, depending on the provider mostly between 10 and 50 MB. Images will by default be resized to a maximum width and height of about 1440 pixels and saved with a compression ratio of 90 %. Images are scaled down using whole number factors to reduce memory usage and to retain image quality. Automatically resizing of inline and/or attached images and the maximum target image size can be configured in the send settings.
 
@@ -1615,7 +1621,7 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 <br />
 
 <a name="faq64"></a>
-**~~(64) Can you add custom actions for swipe left/right?~~**
+**~~(64) Apakah anda dapat menambahkan aksi tambahan untuk geser kiri/kanan?~~**
 
 ~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~ ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~ ~~You can select the folder to move to in the account settings.~~
 
@@ -1628,14 +1634,14 @@ If you want to resize images on a case-by-case basis, you can use [Send Reduced]
 <br />
 
 <a name="faq65"></a>
-**(65) Why are some attachments shown dimmed?**
+**(65) Mengapa terdapat beberapa lampiran yang terlihat redup?**
 
 Inline (image) attachments are shown dimmed. [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically, but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40), FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
 
 <br />
 
 <a name="faq66"></a>
-**(66) Is FairEmail available in the Google Play Family Library?**
+**(66) Apakah FairEmail tersedia di Google Play Family Library?**
 
 "*You can't share in-app purchases and free apps with your family members.*"
 
@@ -1644,7 +1650,7 @@ See [here](https://support.google.com/googleone/answer/7007852) under "*See if c
 <br />
 
 <a name="faq67"></a>
-**(67) How can I snooze conversations?**
+**(67) Bagaimana cara saya snooze percakapan?**
 
 Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*. Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar. Select the time the conversation(s) should snooze and confirm by tapping OK. The conversations will be hidden for the selected time and shown again afterwards. You will receive a new message notification as reminder.
 
@@ -1661,7 +1667,7 @@ Third party apps do not have access to the Gmail snoozed messages folder.
 <br />
 
 <a name="faq68"></a>
-**~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~**
+**~~(68) Mengapa Adobe Acrobat reader tidak membuka lampiran PDF / aplikasi Microsoft tidak membuka dokumen yang dilampirkan?~~**
 
 ~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~ ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~ ~~to have access to actively shared files only. This is for privacy and security reasons.~~
 
@@ -1670,14 +1676,14 @@ Third party apps do not have access to the Gmail snoozed messages folder.
 <br />
 
 <a name="faq69"></a>
-**(69) Can you add auto scroll up on new message?**
+**(69) Apakah saya dapat menambahkan scroll ke atas otomatis di pesan baru?**
 
 The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh. Always automatically scrolling up on arrival of new messages would interfere with your own scrolling, but if you like you can enable this in the settings.
 
 <br />
 
 <a name="faq70"></a>
-**(70) When will messages be auto expanded?**
+**(70) Kapan pesan akan diperluas secara otomatis?**
 
 When navigation to a conversation one message will be expanded if:
 
@@ -1694,7 +1700,7 @@ Messages will automatically be marked read on expanding, unless this was disable
 <br />
 
 <a name="faq71"></a>
-**(71) How do I use filter rules?**
+**(71) Bagaimana cara saya menggunakan aturan penyaringan?**
 
 You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
 
@@ -1737,13 +1743,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Hide
-* Suppress notification
-* Snooze
-* Add star
+* Sembunyikan
+* Sembunyikan notifikasi
+* Tunda
+* Tambahkan bintang
 * Set importance (local priority)
-* Add keyword
-* Move
+* Tambah kata kunci
+* Pindahkan
 * Copy (Gmail: label)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
@@ -1755,7 +1761,7 @@ Rules are applied directly after the message header has been fetched, but before
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
 
 Some common header conditions (regex):
 
@@ -1771,7 +1777,7 @@ Using rules is a pro feature.
 <br />
 
 <a name="faq72"></a>
-**(72) What are primary accounts/identities?**
+**(72) Apa itu akun/identitas utama?**
 
 The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
 
@@ -1782,7 +1788,7 @@ There can be just one primary account and there can be just one primary identity
 <br />
 
 <a name="faq73"></a>
-**(73) Is moving messages across accounts safe/efficient?**
+**(73) Apakah memindahkan pesan ke berbagai akun aman/efisien?**
 
 Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
 
@@ -1800,21 +1806,21 @@ Gmail allows one message to have multiple labels, which are presented to FairEma
 <br />
 
 <a name="faq75"></a>
-**(75) Can you make an iOS, Windows, Linux, etc version?**
+**(75) Apakah anda dapat membuat versi iOS, Windows, Linux, dan sebagainya?**
 
 A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
 
 <br />
 
 <a name="faq76"></a>
-**(76) What does 'Clear local messages' do?**
+**(76) Apa itu 'Hapus pesan lokal'?**
 
 The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
 
 <br />
 
 <a name="faq77"></a>
-**(77) Why are messages sometimes shown with a small delay?**
+**(77) Mengapa pesan sering ditampilkan sedikit tertunda?**
 
 Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay. FairEmail is designed to dynamically handle a large number of messages without running out of memory. This means that messages needs to be read from a database and that this database needs to be watched for changes, both of which might cause small delays.
 
@@ -1827,7 +1833,7 @@ FairEmail is based on the state-of-the-art [Android architecture components](htt
 <br />
 
 <a name="faq78"></a>
-**(78) How do I use schedules?**
+**(78) Bagaimana cara saya menggunakan jadwal?**
 
 In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*. Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
@@ -1865,7 +1871,7 @@ To enable/disable a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages.
+Note that disabling an account will hide the account and all associated folders and messages. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
 
 To set the poll interval:
 
@@ -1897,7 +1903,7 @@ Scheduling is a pro feature.
 <br />
 
 <a name="faq79"></a>
-**(79) How do I use synchronize on demand (manual)?**
+**(79) Bagaimana cara sama mensinkronisasikan dengan manual?**
 
 Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time. If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 
@@ -1921,27 +1927,27 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq81"></a>
-**~~(81) Can you make the background of the original message dark in the dark theme?~~**
+**~~(81) Apakah saya dapat membuat latar belakang pesan orisinal menjadi gelap di tema gelap?~~**
 
 ~~The original message is shown as the sender has sent it, including all colors.~~ ~~Changing the background color would not only make the original view not original anymore, it can also result in unreadable messages.~~
 
 <br />
 
 <a name="faq82"></a>
-**(82) What is a tracking image?**
+**(82) Apa itu pelacakan gambar?**
 
 Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is. In short tracking images keep track if you opened a message.
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Gambar eksternal](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
 <br />
 
 <a name="faq84"></a>
-**(84) What are local contacts for?**
+**(84) Apakah fungsi dari kontak lokal?**
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
@@ -1956,7 +1962,7 @@ By default only names and addresses to whom you send messages to will be recorde
 <br />
 
 <a name="faq85"></a>
-**(85) Why is an identity not available?**
+**(85) Mengapa identitas tidak tersedia?**
 
 An identity is available for sending a new message or replying or forwarding an existing message only if:
 
@@ -1969,7 +1975,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq86"></a>
-**~~(86) What are 'extra privacy features'?~~**
+**~~(86) Apa itu 'fitur privasi tambahan'?~~**
 
 ~~The advanced option *extra privacy features* enables:~~
 
@@ -1979,7 +1985,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq87"></a>
-**(87) What does 'invalid credentials' mean?**
+**(87) Apa yang dimaksud dengan 'kredensial tidak valid'?**
 
 The error message *invalid credentials* means either that the user name and/or password is incorrect, for example because the password was changed or expired, or that the account authorization has expired.
 
@@ -1990,21 +1996,21 @@ If the account authorization has expired, you will have to select the account ag
 <br />
 
 <a name="faq88"></a>
-**(88) How can I use a Yahoo, AOL or Sky account?**
+**(88) Bagaimana cara saya menggunakan akun Yahoo, AOL or Sky?**
 
-The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
+Mengatur akun Yahoo lebih diutamakan menggunakan pengaturan cepat, yang mana menggunakan OAuth bukan dengan kata sandi oleh karena itu lebih aman (dan juga lebih mudah).
 
-To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
+Untuk mengotorisasi akun Yahoo, AOL, atau Sky, Anda perlu membuat kata sandi aplikasi. Untuk petunjuk, silakan lihat di sini:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Sila lihat [FAQ ini](#user-content-faq111) tentang bantuan OAuth.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+Untuk diperhatikan, bahwa Yahoo, AOL, dan Sky tidak mendukung standar pesan dorong. Aplikasi email Yahoo menggunakan protokol paten dan tidak ada dokumentasi untuk pesan dorong.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+Pesan dorong memerlukan [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) dan server email Yahoo tidak melaporkan IDLE sebagai kapabilitas:
 
 ```
 Y1 CAPABILITY
@@ -2015,9 +2021,9 @@ Y1 OK CAPABILITY completed
 <br />
 
 <a name="faq89"></a>
-**(89) How can I send plain text only messages?**
+**(89) Bagaimana cara saya mengirim pesan hanya teks?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+Secara standar, FairEmail mengirim setiap pesan baik sebagai teks biasa dan teks berformat HTML karena hampir setiap penerima mengharapkan pesan yang diformat saat ini. Jika Anda ingin / perlu mengirim pesan teks biasa saja, Anda dapat mengaktifkannya di opsi identitas lanjutan. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
 
 <br />
 
@@ -2033,7 +2039,7 @@ Note that original messages are shown exactly as they are, which means also that
 <br />
 
 <a name="faq91"></a>
-**~~(91) Can you add periodical synchronization to save battery power?~~**
+**~~(91) Apakah anda dapat menambahkan singkronisasi periodik untuk menghemat tenaga baterai?~~**
 
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
@@ -2069,11 +2075,11 @@ If legitimate messages are failing authentication, you should notify the sender 
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation/data storage on external storage media (sdcard)?**
+**(93) Apakah anda dapat mengizinkan instalasi/penyimpanan data di media penyimpanan eksternal (sdcard)?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. See also [here](https://developer.android.com/guide/topics/data/install-location).
+FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. Lihat juga [di sini](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Pesan, lampiran, dll. yang disimpan di media penyimpanan eksternal, seperti kartu memori, dapat diakses oleh aplikasi lain oleh karena itu tidak aman. Lihat [di sini](https://developer.android.com/training/data-storage) untuk lebih lanjut.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
 
@@ -2082,14 +2088,14 @@ If you need to save on storage space, you can limit the number of days messages 
 <br />
 
 <a name="faq94"></a>
-**(94) What does the red/orange stripe at the end of the header mean?**
+**(94) Apa yang dimaksud dari garis yang berwarna merah/oranye diakhir header?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Lihat juga [FAQ ini](#user-content-faq92).
 
 <br />
 
 <a name="faq95"></a>
-**(95) Why are not all apps shown when selecting an attachment or image?**
+**(95) Mengapa tidak semua aplikasi terlihat saat memilih lampiran atau gambar?**
 
 For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
 
@@ -2100,7 +2106,7 @@ Android Q will make it harder and maybe even impossible to directly access files
 <br />
 
 <a name="faq96"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) Dimana saya dapat menemukan pengaturan IMAP dan SMTP?**
 
 The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
 
@@ -2122,7 +2128,7 @@ Note that the cleanup job will only run when the synchronize service is active.
 <br />
 
 <a name="faq98"></a>
-**(98) Why can I still pick contacts after revoking contacts permissions?**
+**(98) Menngapa saya tetap bisa memilih kontak setelah membatalkan izin kontak?**
 
 After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
 
@@ -2138,7 +2144,7 @@ A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https:
 <br />
 
 <a name="faq100"></a>
-**(100) How can I synchronize Gmail categories?**
+**(100) Bagaimana cara saya mensingkronisasikan kategori Gmail?**
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
 
@@ -2162,7 +2168,7 @@ You can use *Force sync* in the three-dots menu of the unified inbox to let Fair
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Apa yang dimaksud dengan titik yang berwarna biru/oranye yang berada dibawah percakapan?**
 
 The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
 
@@ -2171,7 +2177,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Bagaimana cara saya mengaktifkan rotasi otomatis untuk gambar?**
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
 
@@ -2180,7 +2186,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**(104) Apa yang harus saya ketahui tentang pelaporan eror?**
 
 * Error reports will help improve FairEmail
 * Error reporting is optional and opt-in
@@ -2203,9 +2209,9 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <br />
 
 <a name="faq106"></a>
-**(106) Which launchers can show a badge count with the number of unread messages?**
+**(106) Peluncur mana yang dapat menampilkan lencana hitungan dengan jumlah pesan yang belum dibaca?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2230,7 +2236,7 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 <br />
 
 <a name="faq107"></a>
-**(107) How do I use colored stars?**
+**(107) Bagaimana cara saya menggunakan bintang berwarna?**
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
 
@@ -2241,14 +2247,14 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <br />
 
 <a name="faq108"></a>
-**~~(108) Can you add permanently delete messages from any folder?~~**
+**~~(108) Apakah anda dapat menghapus pesan secara permanen dari folder apapun?~~**
 
 ~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
 
 <br />
 
 <a name="faq109"></a>
-**~~(109) Why is 'select account' available in official versions only?~~**
+**~~(109) Mengapa 'pilih akun' hanya tersedia di versi resmi saja?~~**
 
 ~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
 
@@ -2262,7 +2268,7 @@ Some email clients use IMAP keywords for colors. However, not all servers suppor
 <br />
 
 <a name="faq110"></a>
-**(110) Why are (some) messages empty and/or attachments corrupt?**
+**(110) Mengapa terdapat (beberapa) pesan kosong dan/atau lampiran yang rusak?**
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
 
@@ -2275,16 +2281,18 @@ Disabling *Partial fetch* will result in more memory usage.
 <br />
 
 <a name="faq111"></a>
-**(111) Is OAuth supported?**
+**(111) Apakah OAuth tersedia?**
 
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
+The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
+
 <br />
 
 <a name="faq112"></a>
-**(112) Which email provider do you recommend?**
+**(112) Penyedia surel apa yang anda rekomendasikan?**
 
 FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
 
@@ -2297,7 +2305,7 @@ Using your own (custom) domain name, which is supported by most email providers,
 <br />
 
 <a name="faq113"></a>
-**(113) How does biometric authentication work?**
+**(113) Bagaimana cara kerja autentikasi biometrik?**
 
 If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
 
@@ -2308,7 +2316,7 @@ Biometric authentication is a pro feature.
 <br />
 
 <a name="faq114"></a>
-**(114) Can you add an import for the settings of other email apps?**
+**(114) Apakah anda dapat menambahkan impor untuk pengaturan aplikasi surel lain?**
 
 The format of the settings files of most other email apps is not documented, so this is difficult. Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break. Also, settings are often incompatible. For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages and for the number of days to keep messages, mainly to save on battery usage. Moreover, setting up an account/identity with the quick setup wizard is simple, so it is not really worth the effort.
 
@@ -2328,7 +2336,7 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <br />
 
 <a name="faq116"></a>
-**~~(116) How can I show images in messages from trusted senders by default?~~**
+**~~(116) Bagaimana caranya saya dapat menampilkan gambar dari pengirim yang saya percaya secara otomatis?~~**
 
 ~~You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.~~
 
@@ -2338,7 +2346,7 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 <a name="faq38"></a>
 <a name="faq117"></a>
-**(117) Can you help me restore my purchase?**
+**(117) Apakah anda dapat membantu saya memulihkan pembelian saya?**
 
 First of all, a purchase will be available on all devices logged into the same Google account, *if* the app is installed via the same Google account too. You can select the account in the Play store app.
 
@@ -2349,7 +2357,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
+* Buka FairEmail dan arahkan ke menu fitur pro agar FairEmail memeriksa pembelian; terkadang ada gunanya mengetuk tombol *beli*
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2361,21 +2369,21 @@ Note that:
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
-* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
+* Pembelian Play Store tidak dapat digunakan tanpa Play Store, yang juga tidak diizinkan oleh aturan Play Store.
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
 <br />
 
 <a name="faq118"></a>
-**(118) What does 'Remove tracking parameters' exactly?**
+**(118) Apa sebenarnya yang dimaksud dengan 'Hapus parameter pelacakan'?**
 
 Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
 
 <br />
 
 <a name="faq119"></a>
-**~~(119) Can you add colors to the unified inbox widget?~~**
+**~~(119) Apakah anda dapat menambahkan warna ke dalam widget pesan masuk terpadu?~~**
 
 ~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~ ~~This way the widget will nicely blend in, while still being properly readable.~~
 
@@ -2386,7 +2394,7 @@ Due to Android limitations it is not possible to dynamically set the opacity of 
 <br />
 
 <a name="faq120"></a>
-**(120) Why are new message notifications not removed on opening the app?**
+**(120) Mengapa notifikasi pesan baru tidak terhapus ketika membuka aplikasi?**
 
 New message notifications will be removed on swiping notifications away or on marking the associated messages read. Opening the app will not remove new message notifications. This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
 
@@ -2395,7 +2403,7 @@ On Android 7 Nougat and later new message notifications will be [grouped](https:
 <br />
 
 <a name="faq121"></a>
-**(121) How are messages grouped into a conversation?**
+**(121) Bagaimana pesan dikelompokan kedalam sebuah percakapan?**
 
 By default FairEmail groups messages in conversations. This can be turned of in the display settings.
 
@@ -2404,14 +2412,14 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 <br />
 
 <a name="faq122"></a>
-**~~(122) Why is the recipient name/email address show with a warning color?~~**
+**~~(122) Mengapa nama/alamat surel penerima memiliki warna peringatan?~~**
 
 ~~The recipient name and/or email address in the addresses section will be shown in a warning color~~ ~~when the sender domain name and the domain name of the *to* address do not match.~~ ~~Mostly this indicates that the message was received *via* an account with another email address.~~
 
 <br />
 
 <a name="faq123"></a>
-**(123) What will happen when FairEmail cannot connect to an email server?**
+**(123) Apa yang terjadi ketika FairEmail tidak dapat terhubung dengan server surel?**
 
 If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
@@ -2426,14 +2434,14 @@ Note that sending will not be retried in case of authentication problems and whe
 <br />
 
 <a name="faq124"></a>
-**(124) Why do I get 'Message too large or too complex to display'?**
+**(124) Mengapa saya mendapatkan 'Pesan terlalu besar atau terlalu kompleks untuk ditampilkan'?**
 
 The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message. Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
 
 <br />
 
 <a name="faq125"></a>
-**(125) What are the current experimental features?**
+**(125) Apa saja fitur eksperimental terbaru?**
 
 *Message classification (version 1.1438+)*
 
@@ -2453,8 +2461,14 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 
 <br />
 
+*Translate button (version 1.1600+)*
+
+Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
+
+<br />
+
 <a name="faq126"></a>
-**(126) Can message previews be sent to my wearable?**
+**(126) Apakah tampilan pesan dapat dikirimkan ke perangkat yang dapat saya pakai?**
 
 FairEmail fetches a message in two steps:
 
@@ -2465,7 +2479,7 @@ Directly after the first step new messages will be notified. However, only until
 
 Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
 
-If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables* and if this does not work, you can try to enable the notification option *Show notifications with a preview text only*. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).
+Jika anda rasa sudah cukup, anda dapat mengaktifkan opsi notifikasi *Hanya kirim notifikasi dengan tampilan pesan ke perangkat wearable* dan jika tidak berfungsi, anda dapat mencoba mengaktifkan opsi notifikasi *Tampilkan notifikasi hanya dengan tampilan teks saja*. Perhatikan bahwa hal ini akan diterapkan di perangkat wearable yang juga tidak akan menampilkan tampilan pesan, bahkan ketika aplikasi Android Wear menginformasikan bahwa notifikasi telah dikirimkan (dijembatani).
 
 If you want to have the full message text sent to your wearable, you can enable the notification option *Preview all text*. Note that some wearables are known to crash with this option enabled.
 
@@ -2481,14 +2495,14 @@ The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP s
 <br />
 
 <a name="faq128"></a>
-**(128) How can I reset asked questions, for example to show images?**
+**(128) Bagaimana cara saya mengulang pertanyaan yang ditanyakan, seperti untuk menampilkan gambar?**
 
 You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
 
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) Apakah ProtonMail terdukung Tutanota?**
 
 ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
 
@@ -2497,7 +2511,7 @@ Tutanota uses a proprietary email protocol and [does not support IMAP](https://t
 <br />
 
 <a name="faq130"></a>
-**(130) What does message error ... mean?**
+**(130) Apakah yang dimaksud dengan pesan eror ... ?**
 
 A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
 
@@ -2514,7 +2528,7 @@ Please see [here](#user-content-faq22) for other error messages in the outbox.
 <br />
 
 <a name="faq131"></a>
-**(131) Can you change the direction for swiping to previous/next message?**
+**(131) Apakah anda dapat mengubah arah geser untuk pesan sebelumnya/selanjutnya?**
 
 If you read from left to right, swiping to the left will show the next message. Similarly, if you read from right to left, swiping to the right will show the next message.
 
@@ -2525,7 +2539,7 @@ Anyway, there is a behavior setting to reverse the swipe direction.
 <br />
 
 <a name="faq132"></a>
-**(132) Why are new message notifications silent?**
+**(132) Mengapa notifikasi pesan baru tidak berbunyi?**
 
 Notifications are silent by default on some MIUI versions. Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
 
@@ -2536,7 +2550,7 @@ Android might rate limit the notification sound, which can cause some new messag
 <br />
 
 <a name="faq133"></a>
-**(133) Why is ActiveSync not supported?**
+**(133) Mengapa tidak terdukung ActiveSync?**
 
 The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
 
@@ -2545,7 +2559,7 @@ Note that the desciption of FairEmail starts with the remark that non-standard p
 <br />
 
 <a name="faq134"></a>
-**(134) Can you add deleting local messages?**
+**(134) Apakah anda dapat menambahkan hapus pesan lokal?**
 
 *POP3*
 
@@ -2562,7 +2576,7 @@ Note that it is possible to set the swipe left or right action to hide a message
 <br />
 
 <a name="faq135"></a>
-**(135) Why are trashed messages and drafts shown in conversations?**
+**(135) Mengapa pesan dan draf yang telah dibuang ditampilkan di percakapan?**
 
 Individual messages will rarely be trashed and mostly this happens by accident. Showing trashed messages in conversations makes it easier to find them back.
 
@@ -2573,7 +2587,7 @@ Similarly, drafts are shown in conversations to find them back in the context wh
 <br />
 
 <a name="faq136"></a>
-**(136) How can I delete an account/identity/folder?**
+**(136) Bagaimana cara saya menghapus akun/identitas/folder?**
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
@@ -2586,7 +2600,7 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 <br />
 
 <a name="faq137"></a>
-**(137) How can I reset 'Don't ask again'?**
+**(137) Bagaimana cara saya mengulang 'Jangan bertanya lagi'?**
 
 You can reset all questions set to be not asked again in the miscellaneous settings.
 
@@ -2609,7 +2623,7 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 
 <a name="faq83"></a>
 <a name="faq139"></a>
-**(139) How do I fix 'User is authenticated but not connected'?**
+**(139) Bagaimana cara saya memperbaiki 'Pengguna telah terotentikasi namun tidak terkoneksi'?**
 
 In fact this Microsoft Exchange specific error is an incorrect error message caused by a bug in older Exchange server software.
 
@@ -2633,14 +2647,14 @@ When using a shared mailbox, you'll likely want to enable the option *Synchroniz
 <br />
 
 <a name="faq140"></a>
-**(140) Why does the message text contain strange characters?**
+**(140) Mengapa teks pesan terdapat karakter yang aneh?**
 
 Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software. FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) when no character set or when [US-ASCII](https://en.wikipedia.org/wiki/ASCII) was specified. Other than that there is no way to reliably determine the correct character encoding automatically, so this cannot be fixed by FairEmail. The right action is to complain to the sender.
 
 <br />
 
 <a name="faq141"></a>
-**(141) How can I fix 'A drafts folder is required to send messages'?**
+**(141) Bagaimana cara saya memperbaiki 'Folder draf diperlukan untuk mengirim pesan'?**
 
 To store draft messages a drafts folder is required. In most cases FairEmail will automatically select the drafts folders on adding an account based on [the attributes](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml) the email server sends. However, some email servers are not configured properly and do not send these attributes. In this case FairEmail tries to identify the drafts folder by name, but this might fail if the drafts folder has an unusual name or is not present at all.
 
@@ -2653,7 +2667,7 @@ Quick link for Gmail (will work on a desktop computer only): [https://mail.googl
 <br />
 
 <a name="faq142"></a>
-**(142) How can I store sent messages in the inbox?**
+**(142) Bagaimana cara saya menyimpan pesan yang terkirim di pesan masuk?**
 
 Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
 
@@ -2666,7 +2680,7 @@ If this is not an option, you can [create a rule](#user-content-faq71) to automa
 <br />
 
 <a name="faq143"></a>
-**~~(143) Can you add a trash folder for POP3 accounts?~~**
+**~~(143) Apakah anda dapat menambahkan folder untuk akun POP3?~~**
 
 [POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol. Basically only messages can be downloaded and deleted from the inbox. It is not even possible to mark a message read.
 
@@ -2679,11 +2693,11 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 <br />
 
 <a name="faq144"></a>
-**(144) How can I record voice notes?**
+**(144) Bagaimana cara saya merekam catatan suara?**
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Gambar eksternal](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -2694,9 +2708,9 @@ Voice notes will automatically be attached.
 <br />
 
 <a name="faq145"></a>
-**(145) How can I set a notification sound for an account, folder or sender?**
+**(145) Bagaimana cara saya menyetel suara notifikasi untuk akun, folder dan pengirim?**
 
-Account:
+Akun:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
@@ -2706,7 +2720,7 @@ Folder:
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Sender:
+Pengirim:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2719,7 +2733,7 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <br />
 
 <a name="faq146"></a>
-**(146) How can I fix incorrect message times?**
+**(146) Bagaimana cara saya memperbaiki waktu pesan yang salah?**
 
 Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
 
@@ -2732,7 +2746,7 @@ This will not change the time of already synchronized messages. To solve this, l
 <br />
 
 <a name="faq147"></a>
-**(147) What should I know about third party versions?**
+**(147) Apa yang harus saya ketahui tentang versi pihak ketiga?**
 
 You likely came here because you are using a third party build of FairEmail.
 
@@ -2753,7 +2767,7 @@ If you have a problem with the F-Droid build, please check if there is a newer G
 <br />
 
 <a name="faq148"></a>
-**(148) How can I use an Apple iCloud account?**
+**(148) Bagaimana cara saya menggunakan akun Apple iCloud?**
 
 There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
@@ -2762,7 +2776,7 @@ When using two-factor authentication you might need to use an [app-specific pass
 <br />
 
 <a name="faq149"></a>
-**(149) How does the unread message count widget work?**
+**(149) Bagaimana cara kerja widget penghitung pesan yang belum dibaca?**
 
 The unread message count widget shows the number of unread messages either for all accounts or for a selected account, but only for the folders for which new message notifications are enabled.
 
@@ -2775,7 +2789,7 @@ Tapping on the notification will synchronize all folders for which synchronizati
 <br />
 
 <a name="faq150"></a>
-**(150) Can you add cancelling calendar invites?**
+**(150) Apakah anda dapat menambahkan pembatalan undangan kalender?**
 
 Cancelling calendar invites (removing calendar events) requires write calendar permission, which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
 
@@ -2786,7 +2800,7 @@ Inserting new calendar events can be done without permissions with special [inte
 <br />
 
 <a name="faq151"></a>
-**(151) Can you add backup/restore of messages?**
+**(151) Apakah anda dapat menambahkan backup/restore pesan?**
 
 An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
 
@@ -2801,7 +2815,7 @@ If you want to import an mbox file to an existing email account, you can use Thu
 <br />
 
 <a name="faq152"></a>
-**(152) How can I insert a contact group?**
+**(152) Bagaimana cara saya memasukan kontak ke grup?**
 
 You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
 
@@ -2810,7 +2824,7 @@ You can define contact groups with the Android contacts app, please see [here](h
 <br />
 
 <a name="faq153"></a>
-**(153) Why does permanently deleting Gmail message not work?**
+**(153) Mengapa hapus pesan Gmail secara permanen tidak bekerja?**
 
 You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
 
@@ -2832,14 +2846,14 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 <br />
 
 <a name="faq154"></a>
-**~~(154) Can you add favicons as contact photos?~~**
+**~~(154) Apakah anda dapat menambahkan favicons sebagai foto kontak?~~**
 
 ~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
 
 <br />
 
 <a name="faq155"></a>
-**(155) What is a winmail.dat file?**
+**(155) Apa itu berkas winmail.dat?**
 
 A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
@@ -2850,7 +2864,7 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office 365 account?**
+**(156) Bagaimana cara saya mengatur akun Office 365?**
 
 An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
@@ -2861,7 +2875,7 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Bagaimana cara saya mengatur akun Free.fr?**
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
@@ -2873,7 +2887,7 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Kamera / perekam audio apa yang anda sarankan?**
 
 To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
@@ -2909,9 +2923,13 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Apakah anda dapat menambahkan penghapusan permanen dari pesan tanpa konfirmasi?**
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+
+Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
+
+Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
 
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
@@ -2920,7 +2938,7 @@ From version 1.1485 it is possible to temporarily enable debug mode in the misce
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Apakah anda dapat menambahkan pengaturan untuk mengubah warna utama dan aksen?***
 
 If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 
@@ -2950,7 +2968,7 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Lihat juga [FAQ ini](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
@@ -3001,7 +3019,7 @@ Yes, Android Auto is supported, but only with the GitHub version, please [see he
 
 For notification (messaging) support you'll need to enable the following notification options:
 
-* *Use Android 'messaging style' notification format*
+* *Gunakan format notifikasi 'Gaya pesan' Android*
 * Notification actions: *Direct reply* and (mark as) *Read*
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
@@ -3023,29 +3041,43 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<a name="faq167"></a>
+**(167) How can I use DeepL?**
+
+1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
+1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
+1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
+1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
+
+You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
+
+This feature requires an internet connection and is not available in the Play store version.
+
+<br />
+
+<h2><a name="get-support"></a>Ambil bantuan</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+Hanya versi Play store terbaru dan rilis GitHub terbaru yang terdukung. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. Hal ini juga berarti tidak dapat menurunkan peringkat.
 
 There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Requested features should:
+Fitur yang diminta harus:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* berguna untuk seluruh orang
+* tidak menyusahkan pengguna FairEmail
+* cocok dengan filosofi FairEmail (berorientasi dengan privasi, berfikir keamanan)
+* memenuhi standar umum (IMAP, SMTP, dll)
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+Fitur yang tidak memenuhi persyaratan ini kemungkinan besar akan ditolak. This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub issues are disabled due to frequent misusage.
+Permasalahan GitHub dinonaktifkan karena sering disalahgunakan.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Hak cipta &copy; 2018-2021 Marcel Bokhorst.
