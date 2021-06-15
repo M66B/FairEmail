@@ -2084,7 +2084,7 @@ If you need to save on storage space, you can limit the number of days messages 
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Siehe auch [diese FAQ](#user-content-faq92).
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Siehe auch [diese F&A](#user-content-faq92).
 
 <br />
 
