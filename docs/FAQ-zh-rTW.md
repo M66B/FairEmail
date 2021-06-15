@@ -2,9 +2,9 @@
 
 # FairEmail 支援
 
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
-
 如果你有疑問，請先查閱以下常見問題。 [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## 目錄
 
@@ -30,7 +30,7 @@
 
 * Gmail / G suite，見 [問題 6](#user-content-faq6)
 * Outlook / Live / Hotmail，見 [問題 14](#user-content-faq14)
-* Office 365, see [question 156](#user-content-faq156)
+* Office 365，見 [問題 14](#user-content-faq156)
 * Microsoft Exchange，見 [問題 8](#user-content-faq8)
 * Yahoo, AOL and Sky，見[問題 88](#user-content-faq88)
 * Apple iCloud，見 [問題 148](#user-content-faq148)
@@ -76,7 +76,7 @@
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * 在Android5.x版本中，Nova Launcher有個與*java.lang.StackOverflowError* 有關的錯誤，當Nova Launcher 有無障礙設定存取權時。
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~ This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~ 解決方法已添加。
+* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~ A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. 目前已知在Pebble 2， Fitbit Charge 3， Mi band 3，以及 小米 Amazfit BIP wearables上都能順利進行訊息預覽。 目前已知在Pebble 2， Fitbit Charge 3， Mi band 3，以及 小米 Amazfit BIP wearables上都能順利進行訊息預覽。 參見 [這個常見問題](#user-content-faq126)。
@@ -388,7 +388,7 @@ The low priority status bar notification shows the number of pending operations,
 * *rule*: execute rule on body text
 * *expunge*: permanently delete messages
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16). 參見 [這個常見問題](#user-content-faq16)。
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16). See also [this FAQ](#user-content-faq16).
 
 <br />
 
@@ -433,7 +433,7 @@ You can pin the certificate too, see above.
 
 <br />
 
-*空白的密碼*
+*Empty password*
 
 Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
 
@@ -472,7 +472,7 @@ In the display section of the settings you can enable or disable for example:
 
 Note that messages can be previewed only when the message text was downloaded. Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings. You can change this in the connection settings.
 
-有的人會問:
+Some people ask:
 
 * to show the subject bold, but bold is already being used to highlight unread messages
 * to move the star to the left, but it is much easier to operate the star on the right side
@@ -480,9 +480,9 @@ Note that messages can be previewed only when the message text was downloaded. N
 <br />
 
 <a name="faq6"></a>
-**(6) 我要怎麼登入Gmail / G suite?**
+**(6) How can I login to Gmail / G suite?**
 
-如果你用 Play 商店或 GitHub 版本的 FairEmail, 那麼快速設定精靈可以幫你設定 Gmail 帳號跟身分。 If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
 
 If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
 
@@ -494,15 +494,13 @@ This Google security check is triggered more often with *less secure apps* enabl
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Note that an app specific password is required when two factor authentication is enabled. After enabling two factor authentication there will be this error message:
-
-*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
-*App專用密碼*
+*App specific password*
 
-[這裡](https://support.google.com/accounts/answer/185833) 告訴你如何產生app專用密碼。
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 <br />
 
@@ -524,7 +522,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*一般*
+*General*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password. This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -610,7 +608,7 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*一般*
+*General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -713,7 +711,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/). Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/). Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -780,7 +778,7 @@ This will result in searching like this:
 
 Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -849,7 +847,7 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15). 參見 [這個常見問題](#user-content-faq15)。
+The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15). See also [this FAQ](#user-content-faq15).
 
 <br />
 
@@ -948,11 +946,9 @@ The warning *... The warning *... Unsupported encoding ...* means that the chara
 
 The error *... The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only). Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).</p>
 
-The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
-
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...* Trust anchor for certification path not found ...*
 
-Please [see here](#user-content-faq127) for the error *... Handshake failed ...*. Syntactically invalid HELO argument(s) ...</em>.
+Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
 Please [see here](#user-content-faq41) for the error *... Handshake failed ...*. Handshake failed ...</em>.
 
@@ -1004,17 +1000,15 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... 認證失敗 ... The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.</p>
+The error *... Authentication failed ... The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.</p>
 
-The errors *... 認證失敗 ... The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.</p>
+The errors *... Authentication failed ... The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.</p>
 
 The error *... The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection</p>
 
-The error *... 認證失敗 ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).</p>
-
-The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1023,7 +1017,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <a name="faq23"></a>
 **(23) Why do I get alert ... ?**
 
-*一般*
+*General*
 
 Alerts are warning messages sent by email servers.
 
@@ -1098,9 +1092,9 @@ Embedded image:
 
 ![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-圖像破裂:
+Broken image:
 
-![圖像破裂](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1232,7 +1226,7 @@ The Gmail app shows images by default by downloading the images through a Google
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://support.google.com/pixelphone/answer/6271667).
+If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
@@ -1337,7 +1331,7 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible. If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-參見 [這個常見問題](#user-content-faq4)。
+See also [this FAQ](#user-content-faq4).
 
 The error '*Handshake failed ... The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.</p>
 
@@ -1399,7 +1393,7 @@ Show original, shows the original message as the sender has sent it, including o
 <br />
 
 <a name="faq45"></a>
-**(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?** (45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ? ?</strong>
+**(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?** To use it, you must import it as one of your own!' ?</strong>
 
 You'll get the message *This key is not available. To use it, you must import it as one of your own!* when trying to decrypt a message with a public key. To fix this you'll need to import the private key. To use it, you must import it as one of your own!</em> when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
 
@@ -1713,10 +1707,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 The following rule conditions are available:
 
 * Sender contains or sender is contact
-* 收件者包含
-* 主旨包含
+* Recipient contains
+* Subject contains
 * Has attachments (optional of specific type)
-* 標頭包含
+* Header contains
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
 
@@ -1743,13 +1737,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* 隱藏
-* 禁止通知
-* 打盹
-* 加星號
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* 添加關鍵字
-* 移動
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
@@ -1761,7 +1755,7 @@ Rules are applied directly after the message header has been fetched, but before
 
 If you want to forward a message, consider to use the move action instead. If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
 Some common header conditions (regex):
 
@@ -1871,7 +1865,7 @@ To enable/disable a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
+Note that disabling an account will hide the account and all associated folders and messages.
 
 To set the poll interval:
 
@@ -2090,7 +2084,7 @@ If you need to save on storage space, you can limit the number of days messages 
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92). 參見 [這個常見問題](#user-content-faq92)。
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92). See also [this FAQ](#user-content-faq92).
 
 <br />
 
@@ -2211,7 +2205,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2286,8 +2280,6 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/). The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
-
-The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
 <br />
 
@@ -2458,12 +2450,6 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
-
-<br />
-
-*Translate button (version 1.1600+)*
-
-Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 
 <br />
 
@@ -2710,17 +2696,17 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-帳戶:
+Account:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-資料夾:
+Folder:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-寄件人:
+Sender:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2927,10 +2913,6 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-( Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
-Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
-
-Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
-
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315). A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
@@ -2964,11 +2946,11 @@ IMAP NOTIFY support means that notifications for added, changed or deleted messa
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc. In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-You can enable message classification in the miscellaneous settings. 這僅會開啟「學習」模式。 分類器將會預設自收件夾中的新訊息以及垃圾郵件資料夾中「學習」。 The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved. When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92). Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). 參見 [這個常見問題](#user-content-faq92)。
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92). Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text). Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
@@ -3019,12 +3001,12 @@ Yes, Android Auto is supported, but only with the GitHub version, please [see he
 
 For notification (messaging) support you'll need to enable the following notification options:
 
-* *使用Android「訊息樣式」通知格式*
+* *Use Android 'messaging style' notification format*
 * Notification actions: *Direct reply* and (mark as) *Read*
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-開發者指引請看 [這裡](https://developer.android.com/training/cars/messaging).
+The developers guide is [here](https://developer.android.com/training/cars/messaging).
 
 <br />
 
@@ -3041,20 +3023,6 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<a name="faq167"></a>
-**(167) How can I use DeepL?**
-
-1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
-1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
-1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
-1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
-
-You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
-
-This feature requires an internet connection and is not available in the Play store version.
-
-<br />
-
 <h2><a name="get-support"></a>取得支援</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
@@ -3065,7 +3033,7 @@ There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-請求新增的功能須有下列特質：
+Requested features should:
 
 * 對大部分人來說是好用的
 * 不會讓FairEmail變得複雜
@@ -3074,9 +3042,9 @@ There is no support on building and developing things by yourself.
 
 Features not fulfilling these requirements will likely be rejected. Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-如果您有問題、想要要求新功能，或是回報bug，</strong>請使用[此格式](https://contact.faircode.eu/?product=fairemailsupport)</0>
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub的issues頁面已被關閉由於太頻繁的濫用。
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 

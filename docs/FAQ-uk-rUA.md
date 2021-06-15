@@ -2,9 +2,9 @@
 
 # Підтримка FairEmail
 
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
-
 Якщо у вас виникли питання, будь ласка, спочатку перевірте наступні питання, що часто задавалися. [Знизу](#user-content-get-support), ви можете дізнатися, як ставити інші питання, створювати запити на фукції та повідомити про помилки.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Перелік
 
@@ -18,27 +18,27 @@
 
 <h2><a name="authorizing-accounts"></a>Авторизація облікового акаунту</h2>
 
-У більшості випадків, майстер швидкого налаштування зможе автоматично визначити правильну конфігурацію.
+In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
-Якщо швидкі налаштування не вдалось виконати, Вам потрібно буде вручну створити обліковий запис (для отримання електронної пошти) та посвідчення особи (для надсилання електронної пошти). Для цього Вам знадобляться адреси серверів IMAP, SMTP та номери портів, слід використовувати порти SSL/TLS або STARTTLS також потрібне Ваше ім’я користувача (зазвичай, але не завжди, це Ваша електронна адреса) та Ваш пароль.
+If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Пошуку * IMAP * та імені постачальника здебільшого достатньо, щоб знайти потрібну документацію.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-У деяких випадках вам потрібно буде ввімкнути зовнішній доступ до свого облікового запису та / або використовувати спеціальний (додаток) пароль, наприклад, коли увімкнено двофакторну автентифікацію.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-Для авторизації:
+For authorizing:
 
 * Gmail / G набори, дивіться [питання 6](#user-content-faq6)
 * Outlook / Live / Hotmail, дивіться[питання14](#user-content-faq14)
-* Office 365, see [question 156](#user-content-faq156)
+* Офіс 365, дивіться [питання 14](#user-content-faq156)
 * Microsoft Exchange, див. [питання 8](#user-content-faq8)
 * Yahoo, AOL and Sky, див.[питання 88](#user-content-faq88)
 * Apple iCloud, див. [питання 148](#user-content-faq148)
 * Free.fr, див. [питання 157](#user-content-faq157)
 
-Будь ласка, перегляньте [ тут ](#user-content-faq22), щоб отримати поширені повідомлення про помилки та способи їх усунення.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Інші питання
+Related questions:
 
 * [Чи підтримується OAuth?](#user-content-faq111)
 * [Чому ActiveSync не підтримується?](#user-content-faq133)
@@ -120,11 +120,11 @@
 
 Anything on this list is in random order and *might* be added in the near future.
 
-<h2><a name="frequently-requested-features"></a>Найпопулярніші функції</h2>
+<h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-<h2><a name="frequently-asked-questions"></a>Найбільш поширенні питання</h2>
+<h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -494,9 +494,7 @@ This Google security check is triggered more often with *less secure apps* enabl
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Note that an app specific password is required when two factor authentication is enabled. After enabling two factor authentication there will be this error message:
-
-*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
@@ -713,7 +711,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -780,7 +778,7 @@ This will result in searching like this:
 
 Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -948,8 +946,6 @@ The warning *... Unsupported encoding ...* means that the character set of the m
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
 
-The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
-
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
@@ -1004,17 +1000,15 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Автентифікація не вдалася ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Автентифікація не вдалася ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Автентифікація не вдалася ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
-
-The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1098,9 +1092,9 @@ Embedded image:
 
 ![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Пошкоджене зображення:
+Broken image:
 
-![Пошкоджене зображення](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1232,7 +1226,7 @@ The Gmail app shows images by default by downloading the images through a Google
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://support.google.com/pixelphone/answer/6271667).
+If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
@@ -1713,12 +1707,12 @@ You can disable a rule and you can stop processing other rules after a rule has 
 The following rule conditions are available:
 
 * Sender contains or sender is contact
-* Отримувач містить
-* Тема містить
+* Recipient contains
+* Subject contains
 * Has attachments (optional of specific type)
-* Заголовок містить
+* Header contains
 * Absolute time (received) between (since version 1.1540)
-* Відносний час (отримано) між
+* Relative time (received) between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. Якщо Ви хочете відповідати доменному імені, ви можете використовувати в якості умови щось на зразок *@example.org*
 
@@ -1743,13 +1737,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Приховати
-* Вимкнути сповіщення
-* Відкласти
-* До обраного
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Додати ключове слово
-* Перемістити
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
@@ -1761,7 +1755,7 @@ Rules are applied directly after the message header has been fetched, but before
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
 Some common header conditions (regex):
 
@@ -1871,7 +1865,7 @@ To enable/disable a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
+Note that disabling an account will hide the account and all associated folders and messages.
 
 To set the poll interval:
 
@@ -2211,7 +2205,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2286,8 +2280,6 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
-
-The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
 <br />
 
@@ -2421,7 +2413,7 @@ FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and 
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-Якщо FairEmail не може підключитися до сервера електронної пошти для синхронізації повідомлень, наприклад, якщо погане підключення до Інтернету або брандмауер чи VPN блокує з’єднання, FairEmail повторно спробує підключитися через 8 секунд після очікування пристрою, залишаючи пристрій активним (=використовувати заряд акумулятора). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
+If FairEmail cannot connect to an email server to synchronize messages, for example if the internet connection is bad or a firewall or a VPN is blocking the connection, FairEmail will retry one time after waiting 8 seconds while keeping the device awake (=use battery power). If this fails, FairEmail will schedule an alarm to retry after 15, 30 and eventually every 60 minutes and let the device sleep (=no battery usage).
 
 Note that [Android doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) does not allow to wake the device earlier than after 15 minutes.
 
@@ -2451,19 +2443,13 @@ Since this is an experimental feature, my advice is to start with just one folde
 
 <br />
 
-*Надсилати відмову, жорстку, у повідомлені про стан доставки (версія 1.1477+)*
+*Send hard bounce (version 1.1477+)*
 
-Надішліть [Повідомлення про стан доставки](https://tools.ietf.org/html/rfc3464) (=жорстка відмова) через меню відповідь.
+Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
 
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
-
-<br />
-
-*Translate button (version 1.1600+)*
-
-Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 
 <br />
 
@@ -2710,17 +2696,17 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-Обліковий запис:
+Account:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-Тека:
+Folder:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Відправником:
+Sender:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2927,10 +2913,6 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
 
-Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
-
-Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
-
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
 From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
@@ -3041,21 +3023,7 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<a name="faq167"></a>
-**(167) How can I use DeepL?**
-
-1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
-1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
-1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
-1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
-
-You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
-
-This feature requires an internet connection and is not available in the Play store version.
-
-<br />
-
-<h2><a name="get-support"></a>Отримати підтримку</h2>
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 

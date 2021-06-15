@@ -2,9 +2,9 @@
 
 # FairEmail Destek
 
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
-
 Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [Sayfanın altında](#user-content-get-support) diğer soruları sormayı, özellikleri talep etmeyi ve hata bildirmeyi nasıl yapacağınızı öğrenebilirsiniz.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Dizin
 
@@ -30,7 +30,7 @@ Yetkilendirmek için:
 
 * Gmail / G Suite, [6. soru](#user-content-faq6)ya bakınız
 * Outlook / Live / Hotmail, [14. soru](#user-content-faq14)ya bakınız
-* Office 365, see [question 156](#user-content-faq156)
+* Office 365, [14. soru](#user-content-faq156)ya bakınız
 * Microsoft Exchange, [8. soru](#user-content-faq8)ya bakınız
 * Yahoo, AOL and Sky, [88. soru](#user-content-faq88)ya bakınız
 * Apple iCloud, [148. soru](#user-content-faq148)ya bakınız
@@ -76,7 +76,7 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. Bir geçici çözüm eklendi. ~~
+* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
 * Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 * A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
@@ -291,12 +291,12 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
-[Farklı bir sorum var.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
-Aşağıdaki Android izinleri gereklidir:
+The following Android permissions are needed:
 
 * *have full network access* (INTERNET): to send and receive email
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
@@ -494,9 +494,7 @@ This Google security check is triggered more often with *less secure apps* enabl
 
 Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Note that an app specific password is required when two factor authentication is enabled. After enabling two factor authentication there will be this error message:
-
-*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
@@ -524,7 +522,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*Genel*
+*General*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -713,7 +711,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -780,7 +778,7 @@ This will result in searching like this:
 
 Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -948,8 +946,6 @@ The warning *... Unsupported encoding ...* means that the character set of the m
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
 
-The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
-
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
@@ -1004,17 +1000,15 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Kimlik doğrulama başarısız ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-The errors *... Kimlik doğrulama başarısız ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Kimlik doğrulama başarısız ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
 The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
-
-The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1023,7 +1017,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <a name="faq23"></a>
 **(23) Why do I get alert ... ?**
 
-*Genel*
+*General*
 
 Alerts are warning messages sent by email servers.
 
@@ -1098,9 +1092,9 @@ Embedded image:
 
 ![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Bozuk görüntü:
+Broken image:
 
-![Bozuk görüntü](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1232,7 +1226,7 @@ The Gmail app shows images by default by downloading the images through a Google
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://support.google.com/pixelphone/answer/6271667).
+If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
@@ -1713,10 +1707,10 @@ You can disable a rule and you can stop processing other rules after a rule has 
 The following rule conditions are available:
 
 * Sender contains or sender is contact
-* Alıcı içeriği
-* Konu içeriği
+* Recipient contains
+* Subject contains
 * Has attachments (optional of specific type)
-* Başlık içeriği
+* Header contains
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
 
@@ -1741,15 +1735,15 @@ Note that [dot all mode](https://developer.android.com/reference/java/util/regex
 You can select one of these actions to apply to matching messages:
 
 * No action (useful for *not*)
-* Okundu olarak işaretle
+* Mark as read
 * Mark as unread
-* Gizle
-* Bildirimi gizle
-* Ertele
-* Yıldız Ekle
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Anahtar sözcük ekle
-* Taşı
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
@@ -1761,7 +1755,7 @@ Rules are applied directly after the message header has been fetched, but before
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
 Some common header conditions (regex):
 
@@ -1851,7 +1845,7 @@ For more complex schemes you could set one or more accounts to manual synchroniz
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL
 ```
 
-Spesifik bir hesap için:
+For a specific account:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
@@ -1871,7 +1865,7 @@ To enable/disable a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
+Note that disabling an account will hide the account and all associated folders and messages.
 
 To set the poll interval:
 
@@ -2211,7 +2205,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2286,8 +2280,6 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth for Gmail is supported via the quick setup wizard. The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts. OAuth for non on-device accounts is not supported because Google requires a [yearly security audit](https://support.google.com/cloud/answer/9110914) ($15,000 to $75,000) for this. You can read more about this [here](https://www.theregister.com/2019/02/11/google_gmail_developer/).
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
-
-The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
 <br />
 
@@ -2458,12 +2450,6 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
-
-<br />
-
-*Translate button (version 1.1600+)*
-
-Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 
 <br />
 
@@ -2710,17 +2696,17 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-Hesap:
+Account:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-Klasör:
+Folder:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Gönderen:
+Sender:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2875,26 +2861,26 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) Nasıl Free.fr hesabı kurabilirim?**
+**(157) How can I set up an Free.fr account?**
 
-Lütfen talimatlar için [buraya bakın](https://free.fr/assistance/597.html).
+Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP varsayılan olarak devre dışıdır **, lütfen [ buraya bakın](https://free.fr/assistance/2406.html) nasıl etkinleştirilebileceği hakkında.
+**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
 
-Ayrıntılı bir kılavuz için lütfen [buraya bakın](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr).
+Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
 <br />
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Hangi kamera / ses kaydediciyi önerirsiniz?**
+**(158) Which camera / audio recorder do you recommend?**
 
-Fotoğraf çekmek ve ses kaydetmek için bir kamera ve bir ses kaydedici uygulaması gereklidir. Aşağıdaki uygulamalar açık kaynaklı kameralar ve ses kaydedicilerdir:
+To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
 * [Audio Recorder sürüm 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([ F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-Sesli notları vb. Kaydetmek için ses kaydedicinin desteklemesi gerekir [ MediaStore.Audio.Media.RECORD_SOUND_ACTION ](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). İşin garibi, çoğu ses kaydedici bu standart Android eylemini desteklemiyor gibi görünüyor.
+To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
 
 <br />
 
@@ -2926,10 +2912,6 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 **(160) Can you add permanent deletion of messages without confirmation?**
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
-
-Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
-
-Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
 
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
@@ -3000,58 +2982,44 @@ Message classification is a pro feature, except for the spam folder.
 <br />
 
 <a name="faq164"></a>
-**(164) Özelleştirilebilir temalar ekleyebilir misiniz?**
+**(164) Can you add customizable themes?**
 
-Maalesef Android [dinamik temaları desteklemiyor](https://stackoverflow.com/a/26511725/1794097), yani tüm temaların [önceden hazırlanması](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml) gerekir.
+Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Her tema için açık, koyu ve siyah bir varyant olması gerektiğinden, her renk kombinasyonu için (kelimenin tam anlamıyla milyonlarca) önceden tanımlanmış bir tema eklemek mümkün değildir.
+Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
-Dahası, bir tema birkaç renkten daha fazlasıdır. Örneğin, sarı vurgu rengine sahip temalar, yeterli kontrast için daha koyu bir bağlantı rengi kullanır.
+Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
 
-Tema renkleri, [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten) 'in renk çemberine dayalıdır.
+The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
 <br />
 
 <a name="faq165"></a>
-** (165) Android Auto destekleniyor mu? **
+**(165) Is Android Auto supported?**
 
-Evet, Android Auto desteklenir, ancak yalnızca GitHub sürümüyle, lütfen [buraya bakın](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) nedeniyle ilgili.
+Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
 
-Bildirim (mesajlaşma) desteği için aşağıdaki bildirim seçeneklerini etkinleştirmeniz gerekir:
+For notification (messaging) support you'll need to enable the following notification options:
 
 * *Android 'mesajlaşma stili' bildirim biçimini kullanın*
 * Bildirim eylemleri: * Doğrudan yanıt * ve (şu şekilde işaretle) * Oku *
 
-İsterseniz diğer bildirim eylemlerini de etkinleştirebilirsiniz, ancak bunlar Android Auto tarafından desteklenmez.
+You can enable other notification actions too, if you like, but they are not supported by Android Auto.
 
-Geliştiriciler kılavuzu [burada](https://developer.android.com/training/cars/messaging).
+The developers guide is [here](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Bir mesajı birden çok cihazda erteleyebilir miyim?**
+**(166) Can I snooze a message across multiple devices?**
 
-Her şeyden önce, mesajları ertelemek için bir standart yoktur, bu nedenle tüm erteleme uygulamaları özel çözümlerdir.
+First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
-Gmail gibi bazı e-posta sağlayıcıları, ertelenen iletileri özel bir klasöre taşır. Maalesef, üçüncü taraf uygulamaların bu özel klasöre erişimi yoktur.
+Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
 
-Bir mesajın başka bir klasöre taşınması ve geri alınması başarısız olabilir ve internet bağlantısı yoksa mümkün olmayabilir. Bu sorun teşkil eder çünkü bir mesaj ancak mesaj taşındıktan sonra ertelenebilir.
+Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
 
-Bu sorunları önlemek için, erteleme, erteleme sırasında mesaj gizlenerek cihazda yerel olarak yapılır. Ne yazık ki, e-posta sunucusunda da mesajları gizlemek mümkün değildir.
-
-<br />
-
-<a name="faq167"></a>
-**(167) How can I use DeepL?**
-
-1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
-1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
-1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
-1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
-
-You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
-
-This feature requires an internet connection and is not available in the Play store version.
+To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
 
 <br />
 
@@ -3059,25 +3027,25 @@ This feature requires an internet connection and is not available in the Play st
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
-Yalnızca en son Play Store sürümü ve en son GitHub sürümü desteklenir. F-Droid yapısı yalnızca sürüm numarası en son GitHub sürümünün sürüm numarasıyla aynıysa desteklenir. Bu aynı zamanda eski sürüme geçmenin desteklenmediği anlamına gelir.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
-FairEmail ile doğrudan ilgili olmayan konularda destek yoktur.
+There is no support on things that are not directly related to FairEmail.
 
-Bir şeyleri kendi başınıza inşa etme ve geliştirme konusunda hiçbir destek yoktur.
+There is no support on building and developing things by yourself.
 
-Gelmesini istediğiniz özellikler şunları içermelidir:
+Requested features should:
 
 * çoğu insan için faydalı olması
 * fairEmail kullanımını karmaşıklaştırmaması
 * fairEmail felsefesine uygun (gizlilik odaklı, güvenlik odaklı)
 * ortak standartlarla uyumlu (IMAP, SMTP, vb.)
 
-Bu gereksinimleri karşılamayan özellikler büyük olasılıkla reddedilecektir. Bu aynı zamanda bakım ve desteği uzun vadede mümkün kılmak içindir.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
-Bir sorunuz varsa, bir özellik talep etmek veya bir hata bildirmek istiyorsanız, ** lütfen [ bu formu ](https://contact.faircode.eu/?product=fairemailsupport) ** kullanın.
+If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub sorunları, sık sık yanlış kullanım nedeniyle devre dışı bırakıldı.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Telif hakkı &copy; 2018-2021 M. Bokhorst 'a aittir.
+Copyright &copy; 2018-2021 Marcel Bokhorst.

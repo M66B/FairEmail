@@ -2,9 +2,9 @@
 
 # FairEmail Support
 
-[<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_de.png" /> Deutsch](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-de-rDE.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_fr.png" /> Français](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-fr-rFR.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/app/src/main/resExtra/drawable/language_es.png" /> Español](https://github.com/M66B/FairEmail/blob/master/docs/FAQ-es-rES.md)<br /> [<img src="https://github.com/M66B/FairEmail/raw/master/images/outline_translate_black_24dp.png" /> Other languages](https://github.com/M66B/FairEmail/blob/master/docs/)
-
 Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna först. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Index
 
@@ -20,25 +20,25 @@ Om du har en fråga, vänligen kontrollera de vanligaste ställda frågorna för
 
 I de flesta fall kommer snabbinstallationen att automatiskt kunna identifiera rätt konfiguration.
 
-Om snabbinstallationen misslyckas, måste du manuellt konfigurera ett konto (för att ta emot e-post) och en identitet (för att skicka e-post). För detta behöver du IMAP- och SMTP-server adresser och portnummer, om SSL/TLS eller STARTTLS ska användas och ditt användarnamn (vanligast, men inte alltid, din e-postadress) och ditt lösenord.
+Om snabbinstallationen misslyckas, måste du manuellt konfigurera ett konto (för att ta emot e-post) och en identitet (för att skicka e-post). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
 
-Söker efter *IMAP* och namnet på leverantören är oftast tillräckligt för att hitta rätt dokumentation.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
 
-I vissa fall måste du aktivera extern åtkomst till ditt konto och/eller använda ett speciellt (app) lösenord, till exempel när tvåfaktorsautentisering är aktiverad.
+In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-För auktorisering:
+For authorizing:
 
 * Gmail / G suite, se [fråga 6](#user-content-faq6)
 * Outlook / Live / Hotmail, se [fråga 14](#user-content-faq14)
-* Office 365, see [question 156](#user-content-faq156)
+* Office 365, se [fråga 14](#user-content-faq156)
 * Microsoft Exchange, se [fråga 8](#user-content-faq8)
 * Yahoo, AOL och Sky, se [fråga 88](#user-content-faq88)
 * Apple iCloud, se [fråga 148](#user-content-faq148)
 * Free.fr, se [fråga 157](#user-content-faq157)
 
-Se [här](#user-content-faq22) för vanliga felmeddelanden och lösningar.
+Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Relaterade frågor:
+Related questions:
 
 * [Stöds OAuth?](#user-content-faq111)
 * [Varför stöds inte ActiveSync?](#user-content-faq133)
@@ -118,11 +118,11 @@ Relaterade frågor:
 * ~~Stöd för S/MIME~~
 * ~~Sök efter inställningar~~
 
-Allt på denna lista är i slumpmässig ordning och *kan* läggas till inom en snar framtid.
+Anything on this list is in random order and *might* be added in the near future.
 
 <h2><a name="frequently-requested-features"></a>Tidigare begärda funktioner</h2>
 
-Designen bygger på många diskussioner och om du vill kan du diskutera det [i detta forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) också. Målet med designen är att vara minimalistisk (inga onödiga menyer, knappar, etc) och icke distraherande (inga snygga färger, animationer, etc). Allt som visas ska vara användbara på ett eller annat sätt och bör vara noggrant placerade för enkel användning. Typsnitt, storlekar, färger etc bör vara material design när det är möjligt.
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 <h2><a name="frequently-asked-questions"></a>Vanliga frågor</h2>
 
@@ -291,12 +291,12 @@ Designen bygger på många diskussioner och om du vill kan du diskutera det [i d
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
-[Jag har en annan fråga.](#user-content-support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Vilka behörigheter behövs och varför?**
+**(1) Which permissions are needed and why?**
 
-Följande Android-behörigheter behövs:
+The following Android permissions are needed:
 
 * *har full nätverksåtkomst* (INTERNET): för att skicka och ta emot e-post
 * *visa nätverksanslutningar* (ACCESS_NETWORK_STATE): för att övervaka ändringar av internetanslutningar
@@ -306,15 +306,15 @@ Följande Android-behörigheter behövs:
 * *i-app fakturering* (BILLING): för att tillåta i-app köp
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later)
 * Optional: *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Valfritt: *läs innehållet på ditt SD-kort* (READ_EXTERNAL_STORAGE): för att acceptera filer från andra, ej uppdaterade appar, se även [denna FAQ](#user-content-faq49)
-* Valfritt: *använd maskinvara för fingeravtryck* (USE_FINGERPRINT) och använd *biometrisk hårdvara* (USE_BIOMETRIC): för att använda biometrisk autentisering
-* Valfritt: *hitta konton på enheten* (GET_ACCOUNTS): för att välja ett konto när du använder Gmail snabbinställning
-* Android 5. Lollipop och tidigare: *använda konton på enheten* (USE_CREDENTIALS): för att välja ett konto när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
-* Android 5. Lollipop och tidigare: *Läs profil* (READ_PROFILE): för att läsa ditt namn när du använder Gmail snabbinställning (inte begärt på senare Android-versioner)
+* Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
+* Optional: *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
+* Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
 
-[Valfria behörigheter](https://developer.android.com/training/permissions/requesting) stöds endast på Android 6 Marshmallow och senare. På tidigare Android-versioner kommer du att bli ombedd att bevilja de valfria behörigheterna vid installation av FairEmail.
+[Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only. On earlier Android versions you will be asked to grant the optional permissions on installing FairEmail.
 
-Följande behörigheter behövs för att visa antalet olästa meddelanden som ett märke (se även [denna FAQ](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -333,38 +333,38 @@ Följande behörigheter behövs för att visa antalet olästa meddelanden som et
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
 
-FairEmail kommer att skapa en lista över adresser som du tar emot meddelanden från och skickar meddelanden till och kommer att använda denna lista för kontaktförslag när inga kontaktbehörigheter beviljas till FairEmail. Detta innebär att du kan använda FairEmail utan tillgång till Android-kontakter (adressbok). Observera att du fortfarande kan välja kontakter utan att ge FairEmail tillåtelse att läsa kontakter, endast föreslå kontakter fungerar inte utan behörigheter för kontakter.
+FairEmail will keep a list of addresses you receive messages from and send messages to and will use this list for contact suggestions when no contacts permissions is granted to FairEmail. This means you can use FairEmail without the Android contacts provider (address book). Note that you can still pick contacts without granting contacts permissions to FairEmail, only suggesting contacts won't work without contacts permissions.
 
 <br />
 
 <a name="faq2"></a>
-**(2) Varför visas en permanent avisering?**
+**(2) Why is there a permanent notification shown?**
 
-En avisering med låg prioritet permanent statusfält med antalet konton som övervakas och antalet pågående åtgärder (se nästa fråga) visas för att förhindra Android från att döda tjänsten som tar hand om kontinuerligt mottagande e-post. Detta var [redan nödvändigt](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), men med införandet av [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) i Android 6 Marshmallow är detta mer än någonsin nödvändigt. Doze mode kommer att stoppa alla appar när skärmen är avstängd under en tid, om inte appen startade en förgrundstjänst, vilket kräver att en statusfältsnotis visas.
+A low priority permanent status bar notification with the number of accounts being monitored and the number of operations pending (see the next question) is shown to prevent Android from killing the service that takes care of continuous receiving email. This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary. Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
-De flesta, om inte alla, andra e-postappar visar inte en avisering med "sidoeffekter" att nya meddelanden ofta inte eller är sena att rapporteras och att meddelanden inte eller är sena att skickas.
+Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-Android visar ikoner med hög prioritet statusfältet meddelanden först och kommer att dölja ikonen för FairEmail's aviseringar om det inte finns något utrymme att visa ikoner längre. I praktiken innebär detta att aviseringen i statusfältet inte tar plats i statusfältet, om det inte finns utrymme tillgängligt.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
 
-Aviseringen i statusfältet kan inaktiveras via inställningarna för FairEmail:
+The status bar notification can be disabled via the notification settings of FairEmail:
 
 * Android 8 Oreo och senare: tryck på *Receive channel* -knappen och inaktivera kanalen via Android-inställningarna (detta kommer inte att inaktivera nya meddelanden)
 * Android 7 Nougat och tidigare: aktiverat *Använd bakgrundstjänst för att synkronisera meddelanden*, men se till att läsa anmärkningen under inställningen
 
-Du kan växla till periodisk synkronisering av meddelanden i mottagarinställningarna för att ta bort meddelandet, men var medveten om att detta kan använda mer batteridrift. Se [här](#user-content-faq39) för mer information om batterianvändning.
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
 
-Android 8 Oreo kan också visa ett meddelande i statusfältet med texten *Apps körs i bakgrunden*. Se [här](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) om hur du kan inaktivera detta meddelande.
+Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
 
-Vissa har föreslagit att använda [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) istället för en Android-tjänst med en statusfältsnotis, men detta skulle kräva att e-postleverantörer skickar FCM-meddelanden eller en central server där alla meddelanden samlas in för att skicka FCM-meddelanden. Den första kommer inte att hända och den sista skulle få betydande konsekvenser för integriteten.
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
 
-Om du kom hit genom att klicka på aviseringen, bör du veta att nästa klick kommer att öppna den enhetliga inkorgen.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
 
 <br />
 
 <a name="faq3"></a>
-**(3) Vad är åtgärder och varför väntar de?**
+**(3) What are operations and why are they pending?**
 
-Meddelandet med låg prioritet visar antalet pågående åtgärder, som kan vara:
+The low priority status bar notification shows the number of pending operations, which can be:
 
 * *lägg till*: lägg till meddelande i fjärrmapp
 * *flytta*: flytta meddelande till en annan fjärrmapp
@@ -388,16 +388,16 @@ Meddelandet med låg prioritet visar antalet pågående åtgärder, som kan vara
 * *regel*: exekvera regel på text
 * *expunge*: permanently delete messages
 
-Åtgärder behandlas endast när det finns en anslutning till e-postservern eller vid manuell synkronisering. Se även [denna FAQ](#user-content-faq16).
+Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) Hur kan jag använda ett ogiltigt säkerhetsintyg / tomt lösenord / plain text-anslutning?**
+**(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-*... Obetrodd ... inte i certifikat ...*
+*... Untrusted ... not in certificate ...*
 <br />
-*... Ogiltigt säkerhetscertifikat (Kan inte verifiera serverns identitet) ...*
+*... Invalid security certificate (Can't verify identity of server) ...*
 
 This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
 
@@ -470,7 +470,7 @@ In the display section of the settings you can enable or disable for example:
 * *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
 * *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
 
-Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. Du kan ändra detta i anslutningsinställningarna.
+Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
 Some people ask:
 
@@ -492,11 +492,9 @@ If you don't want to use or can't use an on-device Google account, for example o
 
 This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
 
-Se [denna FAQ](#user-content-faq111) om varför endast konton på enheten kan användas.
+Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
 
-Note that an app specific password is required when two factor authentication is enabled. After enabling two factor authentication there will be this error message:
-
-*[ALERT] Application-specific password required: https://support.google.com/mail/accounts/answer/185833 (Failure)*
+Note that an app specific password is required when two factor authentication is enabled.
 
 <br />
 
@@ -524,7 +522,7 @@ When "less secure apps" is not enabled, you'll get the error *Authentication fai
 
 <br />
 
-*Allmänt*
+*General*
 
 You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
 
@@ -537,7 +535,7 @@ See [here](https://support.google.com/mail/answer/7126229) for Google's instruct
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder. This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. I dessa fall kommer FairEmail, automatiskt lägga till meddelanden till den skickat vid synkronisering av mappen, vilket kommer att hända efter att ett meddelande har skickats. Note that this will result in extra internet traffic.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider. In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent. Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~ ~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~ ~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~ ~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
 
@@ -577,7 +575,7 @@ Alternatively, you can enable *Allow editing sender address* in the advanced set
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-Se [denna FAQ](#user-content-faq33) om hur du redigerar användarnamnet för e-postadresser.
+See [this FAQ](#user-content-faq33) on editing the username of email addresses.
 
 <br />
 
@@ -610,7 +608,7 @@ Communication with email servers is always encrypted, unless you explicitly turn
 
 <br />
 
-*Allmänt*
+*General*
 
 Please [see here](https://en.wikipedia.org/wiki/Public-key_cryptography) about how public/private key encryption works.
 
@@ -650,7 +648,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 **Important**: on some Android versions / devices it is necessary to enable *Show popups while running in background* in the additional permissions of the Android app settings of the OpenKeychain app. Without this permission the draft will be saved, but the OpenKeychain popup to confirm/select might not appear.
 
-FairEmail kommer att skicka [Autocrypt](https://autocrypt.org/) header för användning av andra e-postklienter, men bara för signerade och krypterade meddelanden eftersom för många e-postservrar har problem med det långa Autocrypt header. Observera att det säkraste sättet att starta ett krypterat e-postutbyte är genom att skicka signerade meddelanden först. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
+FairEmail will send the [Autocrypt](https://autocrypt.org/) header for use by other email clients, but only for signed and encrypted messages because too many email servers have problems with the often long Autocrypt header. Note that the most secure way to start an encrypted email exchange is by sending signed messages first. Received Autocrypt headers will be sent to the OpenKeychain app for storage on verifying a signature or decrypting a message.
 
 Although this shouldn't be necessary for most email clients, you can attach your public key to a message and if you use *.key* as extension, the mime type will correctly be *application/pgp-keys*.
 
@@ -684,7 +682,7 @@ Note that certificates can contains multiple keys for multiple purposes,  for ex
 
 Note that S/MIME signing with other algorithms than RSA is supported, but be aware that other email clients might not support this. S/MIME encryption is possible with asymmetric algorithms only, which means in practice using RSA.
 
-Standardkrypteringsmetoden är PGP, men den senast använda krypteringsmetoden kommer att bli ihågkommen för den valda identiteten för nästa gång. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
+The default encryption method is PGP, but the last used encryption method will be remembered for the selected identity for the next time. You can long press on the send button to change the encryption method for an identity. If you use both PGP and S/MIME encryption for the same email address, it might be useful to copy the identity, so you can change the encryption method by selecting one of the two identities. You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
 To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
@@ -713,7 +711,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate.
+If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options. Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) if you want to request an S/MIME Actalis certificate. If you are looking for a cheap S/MIME certificate, I had a good experience with [Certum](https://www.certum.eu/en/smime-certificates/).
 
 How to extract a public key from a S/MIME certificate:
 
@@ -780,7 +778,7 @@ This will result in searching like this:
 
 Search expressions can be used for searching on the device via the search index and for searching on the email server, but not for searching on the device without search index for performance reasons.
 
-Searching on the device is a free feature, using the search index and searching on the server is a pro feature. Note that you can download as many messages to your device as you like. The easiest way is to use the menu item *Fetch more messages* in the three-dots menu of the start screen.
+Searching on the device is a free feature, using the search index and searching on the server is a pro feature.
 
 <br />
 
@@ -833,7 +831,7 @@ Some Android versions stop apps and services too aggressively. See [this dedicat
 
 Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
-Vid flera efterföljande anslutningsfel, FairEmail kommer att vila allt längre för att inte tömma batteriet på din enhet. This is described in [this FAQ](#user-content-faq123).
+In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device. This is described in [this FAQ](#user-content-faq123).
 
 <br />
 
@@ -849,7 +847,7 @@ Vid flera efterföljande anslutningsfel, FairEmail kommer att vila allt längre 
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. Se även [denna FAQ](#user-content-faq15).
+The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
 
 <br />
 
@@ -911,7 +909,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 **General errors**
 
 <a name="authfailed"></a>
-The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Vissa lösenordshanterare är kända för att göra detta felaktigt. Användarnamnet kan vara skiftlägeskänsligt, så försök endast med små bokstäver. Lösenordet är nästan alltid skiftlägeskänsligt. Vissa leverantörer kräver att du använder ett applösenord istället för kontots lösenord, så kontrollera dokumentationen av leverantören. Ibland är det nödvändigt att aktivera extern åtkomst (IMAP/SMTP) på leverantörens webbplats först. Andra möjliga orsaker är att kontot blockeras eller att inloggningen på något sätt har begränsats administrativt. till exempel genom att tillåta inloggning från vissa nätverk/IP-adresser.
+The error *... **Authentication failed** ...* or *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
 
 If needed, you can update a password in the account settings: navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
@@ -931,11 +929,11 @@ The error *... Host is unresolved ...*, *... Unable to resolve host ...* or *...
 
 The error *... Software caused connection abort ...* means that the email server or something between FairEmail and the email server actively terminated an existing connection. This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-Felen *... BYE Logging out ...*, *... Connection reset ...* mean that the email server or something between the email server and the app, for example a router or a firewall (app), actively terminated an existing connection.
+The errors *... BYE Logging out ...*, *... Connection reset ...* mean that the email server or something between the email server and the app, for example a router or a firewall (app), actively terminated an existing connection.
 
 The error *... Connection closed by peer ...* might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-Felen *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 <a name="connectiondropped"></a>
 The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
@@ -947,8 +945,6 @@ The error *... connection failure ...* could indicate [Too many simultaneous con
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
-
-The error *... NO mailbox selected READ-ONLY ...* indicates [this Zimbra problem](https://sebastian.marsching.com/wiki/Network/Zimbra#Mailbox_Selected_READ-ONLY_Error_in_Thunderbird).
 
 Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
@@ -964,7 +960,7 @@ Possible causes are:
 * The host name or port number is invalid
 * Det är problem med internetanslutningen
 * Det är problem med att slå upp domännamn (Yandex: försök att inaktivera privata DNS i Android-inställningarna)
-* E-postservern vägrar att acceptera (externa) anslutningar
+* The email server is refusing to accept (external) connections
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
@@ -985,7 +981,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *554 5.7.1 ... not permitted to relay* means that the email server does not recognize the username/email address. Please double check the host name and username/email address in the identity settings.
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
 * *550 We're sorry, but we can't send your email. Either the subject matter, a link, or an attachment potentially contains spam, or phishing or malware.* means that the email provider considers an outgoing message as harmful.
-* *571 5.7.1 Meddelandet innehåller skräppost eller virus eller en blockerad avsändare ...* det innebär att e-postservern anser att ett utgående meddelande är skräppost. Detta innebär förmodligen att skräppostfiltren på e-postservern är för stränga. Du måste kontakta e-postleverantören för att få support om detta.
+* *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
 * *451 4.7.0 Temporary server error. Please try again later. PRX4 ...*: please [see here](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) or [see here](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 * *571 5.7.1 Relay access denied*: please double check the username and email address in the advanced identity settings (via the manual setup).
 
@@ -1004,17 +1000,15 @@ The authorization of Gmail accounts setup with the quick wizard needs to be peri
 
 In case of errors it is possible to authorize/restore a Gmail account again via the Gmail quick setup wizard.
 
-The error *... Autentisering misslyckades ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
 
-Felen *... Autentisering misslyckades ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+The errors *... Authentication failed ... No token ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
 
 The error *... Authentication failed ... network error ...* means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
 
-The error *... Autentisering misslyckades ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
+The error *... Authentication failed ... Invalid credentials ...* could be caused by changing the account password or by having revoked the required account/contacts permissions. In case the account password was changed, you'll need to authenticate the Google account in the Android account settings again. In case the permissions were revoked, you can start the Gmail quick setup wizard to grant the required permissions again (you don't need to setup the account again).
 
-The eror *... ServiceDisabled ... /0> kan orsakas av inskrivning i [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*För att läsa din e-post, du kan (måste) använda Gmail - Du kommer inte att kunna använda ditt Google-konto med några (alla) appar & tjänster som kräver åtkomst till känsliga data som din e-post*", se [här](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).</p>
-
-The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
+The eror *... ServiceDisabled ...* might be caused by enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/): "*To read your email, you can (must) use Gmail - You won’t be able to use your Google Account with some (all) apps & services that require access to sensitive data like your emails*", see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
 When in doubt, you can ask for [support](#user-content-support).
 
@@ -1023,7 +1017,7 @@ When in doubt, you can ask for [support](#user-content-support).
 <a name="faq23"></a>
 **(23) Why do I get alert ... ?**
 
-*Allmänt*
+*General*
 
 Alerts are warning messages sent by email servers.
 
@@ -1088,7 +1082,7 @@ If you would like your name or alias to be included in the list of contributors 
 <br />
 
 <a name="faq27"></a>
-**(27) Hur kan jag skilja mellan inbäddade och externa bilder?**
+**(27) How can I distinguish between embedded and external images?**
 
 External image:
 
@@ -1098,9 +1092,9 @@ Embedded image:
 
 ![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
-Trasig bild:
+Broken image:
 
-![Trasig bild](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1195,7 +1189,7 @@ Note that identities needs to be enabled to be able to be matched and that ident
 
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages. You could clear local messages by long pressing a folder in the folder list and synchronize the messages again though.
 
-Det är möjligt att konfigurera en [regex](https://en.wikipedia.org/wiki/Regular_expression) i identitetsinställningarna för att matcha **användarnamnet** för en e-postadress (delen före @-tecknet).
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 
@@ -1232,7 +1226,7 @@ The Gmail app shows images by default by downloading the images through a Google
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 
-If you want to reset the default *Open with* apps, please [see here](https://support.google.com/pixelphone/answer/6271667).
+If you want to reset the default *Open with* apps, please [see here](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
@@ -1317,12 +1311,12 @@ It is inevitable that data will be used to synchronize messages.
 
 If the connection to the email server is lost, FairEmail will always synchronize the messages again to make sure no messages were missed. If the connection is unstable, this can result in extra data usage. In this case, it is a good idea to decrease the number of days to synchronize messages to a minimum (see the previous question) or to switch to periodically synchronizing of messages (receive settings).
 
-För att minska dataanvändningen kan du ändra dessa avancerade mottagningsinställningar:
+To reduce data usage, you could change these advanced receive settings:
 
-* Kontrollera om gamla meddelanden har tagits bort från servern: inaktivera
-* Synkronisera (delad) mapplista: inaktivera
+* Check if old messages were removed from the server: disable
+* Synchronize (shared) folder list: disable
 
-Som standard laddar FairEmail inte ned meddelanden och bilagor större än 256 KiB när det inte finns Wi-Fi internetanslutning. Du kan ändra detta i anslutningsinställningarna.
+By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.
 
 <br />
 
@@ -1337,13 +1331,13 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible. If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-Se även [denna FAQ](#user-content-faq4).
+See also [this FAQ](#user-content-faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
 The error '*Handshake failed ... HANDSHAKE_FAILURE_ON_CLIENT_HELLO ...*' might be caused by the provider still using RC4, which isn't supported since [Android 7](https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl) anymore.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL eller TLSV1_ALERT_PROTOCOL_VERSION ...*' kan orsakas av aktivering av härdning av anslutningar i anslutningsinställningarna eller av Android som inte stödjer äldre protokoll längre, som SSLv3.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION ...*' might be caused by enabling hardening connections in the connection settings or by Android not supporting older protocols anymore, like SSLv3.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
@@ -1713,12 +1707,12 @@ You can disable a rule and you can stop processing other rules after a rule has 
 The following rule conditions are available:
 
 * Sender contains or sender is contact
-* Mottagare innehåller
-* Ämnet innehåller
+* Recipient contains
+* Subject contains
 * Has attachments (optional of specific type)
-* Sidhuvud innehåller
+* Header contains
 * Absolute time (received) between (since version 1.1540)
-* Relativ tid (mottagen) mellan
+* Relative time (received) between
 
 All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like *@example.org*
 
@@ -1743,13 +1737,13 @@ You can select one of these actions to apply to matching messages:
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
-* Dölj
-* Dämpa avisering
-* Slumra
-* Lägg till stjärna
+* Hide
+* Suppress notification
+* Snooze
+* Add star
 * Set importance (local priority)
-* Lägg till nyckelord
-* Flytta
+* Add keyword
+* Move
 * Copy (Gmail: label)
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
@@ -1757,11 +1751,11 @@ You can select one of these actions to apply to matching messages:
 
 An error in a rule condition can lead to a disaster, therefore irreversible actions are not supported.
 
-Reglerna tillämpas direkt efter att meddelandehuvudet har hämtats, men innan meddelandetexten har hämtats, så det är inte möjligt att tillämpa villkoren på meddelandetexten. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded, so it is not possible to apply conditions to the message text. Note that large message texts are downloaded on demand on a metered connection to save on data usage.
 
 If you want to forward a message, consider to use the move action instead. This will be more reliable than forwarding as well because forwarded messages might be considered as spam.
 
-Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
+Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is not possible to preview which messages would match a header rule condition.
 
 Some common header conditions (regex):
 
@@ -1871,7 +1865,7 @@ To enable/disable a specific account:
 (adb shell) am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
 ```
 
-Note that disabling an account will hide the account and all associated folders and messages. From version 1.1600 an account will be disabled/enabled by setting the account to manual/automatic sync, so the folders and messages keep being accessible.
+Note that disabling an account will hide the account and all associated folders and messages.
 
 To set the poll interval:
 
@@ -1996,15 +1990,15 @@ If the account authorization has expired, you will have to select the account ag
 <br />
 
 <a name="faq88"></a>
-**(88) Hur kan jag använda ett Yahoo, AOL eller Sky-konto?**
+**(88) How can I use a Yahoo, AOL or Sky account?**
 
 The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
 
 To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
 
 * [for Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [för AOL](https://help.aol.com/articles/Create-and-manage-app-password)
-* [för Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Andra e-postappar*)
+* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password)
+* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
 Please see [this FAQ](#user-content-faq111) about OAuth support.
 
@@ -2090,7 +2084,7 @@ If you need to save on storage space, you can limit the number of days messages 
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Se även [denna FAQ](#user-content-faq92).
+The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. See also [this FAQ](#user-content-faq92).
 
 <br />
 
@@ -2211,7 +2205,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages. Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
+Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
 
 Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
@@ -2287,18 +2281,16 @@ OAuth for Gmail is supported via the quick setup wizard. The Android account man
 
 OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the quick setup wizard.
 
-The OAuth [jump page](https://oauth.faircode.eu/) exists for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations) are not available, for example when using a non Play store version of the app, or do not work for some reason.
-
 <br />
 
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-FairEmail är bara en e-postklient, så du måste ta med din egen e-postadress. Note that this is clearly mentioned in the app description.
+FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
 
-Det finns gott om e-postleverantörer att välja mellan. Vilken e-postleverantör som är bäst för dig beror på dina önskemål/krav. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
 
-Vissa leverantörer, som ProtonMail, Tutanota, använder egenutvecklade e-postprotokoll, vilket gör det omöjligt att använda tredje parts e-postappar. Se [denna FAQ](#user-content-faq129) för mer information.
+Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -2357,7 +2349,7 @@ Google manages all purchases, so as a developer I have little control over purch
 * Make sure you installed FairEmail via the right Google account if you configured multiple Google accounts on your device
 * Make sure the Play store app is up to date, please [see here](https://support.google.com/googleplay/answer/1050566?hl=en)
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
-* Öppna FairEmail och navigera till skärmen pro funktioner för att låta FairEmail kontrollera köpen; ibland hjälper det att trycka på *köpa* -knappen
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it help to tap the *buy* button
 
 You can also try to clear the cache of the Play store app via the Android apps settings. Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
@@ -2369,7 +2361,7 @@ Note that:
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An app like FairEmail cannot select which Google account to use
 * It may take a while until the Play store app has synchronized a purchase to another device
-* Play Store-köp kan inte användas utan Play Store, vilket inte heller är tillåtet enligt Play Store-reglerna
+* Play Store purchases cannot be used without the Play Store, which is also not allowed by Play Store rules
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
@@ -2458,12 +2450,6 @@ Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=har
 Hard bounces will mostly be processed automatically because they affect the reputation of the email provider. The bounce address (=*Return-Path* header) is mostly very specific, so the email server can determine the sending account.
 
 For some background, see for [this Wikipedia article](https://en.wikipedia.org/wiki/Bounce_message).
-
-<br />
-
-*Translate button (version 1.1600+)*
-
-Please see [this FAQ](#user-content-faq167) about how to configure DeepL.
 
 <br />
 
@@ -2609,7 +2595,7 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact/tasks/notes management?**
 
-Calendar, contact, task and note management can better be done by a separate, specialized app. Observera att FairEmail är en specialiserad e-postapp, inte en kontorssvit.
+Calendar, contact, task and note management can better be done by a separate, specialized app. Note that FairEmail is a specialized email app, not an office suite.
 
 Also, I prefer to do a few things very well, instead of many things only half. Moreover, from a security perspective, it is not a good idea to grant many permissions to a single app.
 
@@ -2710,17 +2696,17 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder or sender?**
 
-Konto:
+Account:
 
 * Enable *Separate notifications* in the advanced account settings (Settings, tap Manual setup, tap Accounts, tap account, tap Advanced)
 * Long press the account in the account list (Settings, tap Manual setup, tap Accounts) and select *Edit notification channel* to change the notification sound
 
-Mapp:
+Folder:
 
 * Long press the folder in the folder list and select *Create notification channel*
 * Long press the folder in the folder list and select *Edit notification channel* to change the notification sound
 
-Avsändaren:
+Sender:
 
 * Open a message from the sender and expand it
 * Expand the addresses section by tapping on the down arrow
@@ -2735,11 +2721,11 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-Eftersom det skickade datumet/tiden är valfri och kan manipuleras av avsändaren, FairEmail använder mottagen datum/tid från servern som standard.
+Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
 
-Ibland är mottagen datum/tid från servern felaktig, främst på grund av att meddelanden importerades felaktigt från en annan server och ibland på grund av ett fel i e-postservern.
+Sometimes the server received date/time is incorrect, mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
-I sällsynta fall, är det möjligt att låta FairEmail använda antingen datum/tid från *Datum* headern (skickad tid) eller från headern *Mottaget* som en lösning. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
+In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround. This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
 
 This will not change the time of already synchronized messages. To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
 
@@ -2754,7 +2740,7 @@ There is **only support** on the latest Play store version, the latest GitHub re
 
 F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
 
-The F-Droid version is built from the same source code, but signed differently. Detta innebär att alla funktioner är tillgängliga i F-Droid versionen också, förutom att använda Gmail snabbinstallationsguide eftersom Google är godkänt (och tillåter) endast en app-signatur. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
 
@@ -2762,7 +2748,7 @@ Note that the GitHub version will automatically check for updates. When desired,
 
 Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
 
-Om du har problem med F-Droid build, kontrollera om det finns en nyare GitHub-version först.
+If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 <br />
 
@@ -2800,7 +2786,7 @@ Inserting new calendar events can be done without permissions with special [inte
 <br />
 
 <a name="faq151"></a>
-**(151) Kan du lägga till säkerhetskopiering/återställning av meddelanden?**
+**(151) Can you add backup/restore of messages?**
 
 An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
 
@@ -2870,7 +2856,7 @@ An Office 365 account can be set up via the quick setup wizard and selecting *Of
 
 If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
 
-Om du har aktiverat *säkerhetsstandard* i din organisation kan du behöva aktivera SMTP AUTH-protokollet. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
 
 <br />
 
@@ -2899,26 +2885,26 @@ To record voice notes, etc, the audio recorder needs to support [MediaStore.Audi
 <br />
 
 <a name="faq159"></a>
-**(159) Vad är Disconnect's spårningsskyddslistor?**
+**(159) What are Disconnect's tracker protection lists?**
 
-Se [här](https://disconnect.me/trackerprotection) för mer information om Disconnect's spårarskyddslistor.
+Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 
-Efter att ha laddat ner listorna i sekretessinställningarna kan listorna användas valfritt:
+After downloading the lists in the privacy settings, the lists can optionally be used:
 
-* att varna för spårningslänkar vid öppnande av länkar
-* att känna igen spårningsbilder i meddelanden
+* to warn about tracking links on opening links
+* to recognize tracking images in messages
 
-Spårningsbilder kommer endast att inaktiveras om motsvarande huvudalternativ "inaktiveras" är aktiverat.
+Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
 
-Spårningsbilder kommer inte att kännas igen när domänen är klassificerad som '*Content*', se [här](https://disconnect.me/trackerprotection#trackers-we-dont-block) för mer information.
+Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
 
-Detta kommando kan skickas till FairEmail från en automationsapp för att uppdatera skyddslistorna:
+This command can be sent to FairEmail from an automation app to update the protection lists:
 
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.DISCONNECT.ME
 ```
 
-Uppdatering en gång i veckan kommer förmodligen att räcka, se [här](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) för ändringar i de senaste listorna.
+Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
 <br />
 
@@ -2926,10 +2912,6 @@ Uppdatering en gång i veckan kommer förmodligen att räcka, se [här](https://
 **(160) Can you add permanent deletion of messages without confirmation?**
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
-
-Since version 1.1601 it is possible to disable confirmation of permanent deletion of individual messages.
-
-Note that the POP3 protocol can download messages from the inbox only. So, deleted messages cannot be uploaded to the inbox again. This means that messages can only be permanently deleted when using a POP3 account.
 
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
@@ -2968,7 +2950,7 @@ You can enable message classification in the miscellaneous settings. This will e
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Se även [denna FAQ](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
@@ -3019,7 +3001,7 @@ Yes, Android Auto is supported, but only with the GitHub version, please [see he
 
 For notification (messaging) support you'll need to enable the following notification options:
 
-* *Använd Android 'meddelandestil' aviseringsformat*
+* *Use Android 'messaging style' notification format*
 * Notification actions: *Direct reply* and (mark as) *Read*
 
 You can enable other notification actions too, if you like, but they are not supported by Android Auto.
@@ -3041,42 +3023,28 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<a name="faq167"></a>
-**(167) How can I use DeepL?**
-
-1. Enable [experimental features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq125) in the miscellaneous settings
-1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required)
-1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
-1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
-
-You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
-
-This feature requires an internet connection and is not available in the Play store version.
-
-<br />
-
-<h2><a name="get-support"></a>Få hjälp</h2>
+<h2><a name="get-support"></a>Get support</h2>
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
-Endast den senaste versionen av Play Store och den senaste versionen av GitHub stöds. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. Detta innebär också att nedgradering inte stöds.
+Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
 
 There is no support on things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
-Begärda funktioner bör:
+Requested features should:
 
-* vara användbar för de flesta användare
-* inte komplicera användningen av FairEmail
-* passar in i filosofin i FairEmail (integritetsorienterad, säkerhetsorienterad)
-* följa gemensamma standarder (IMAP, SMTP, etc)
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
+* comply with common standards (IMAP, SMTP, etc)
 
-Funktioner som inte uppfyller dessa krav kommer sannolikt att avvisas. This is also to keep maintenance and support in the long term feasible.
+Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
 
 If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
 
-GitHub-issues är inaktiverade på grund av frekvent missbruk.
+GitHub issues are disabled due to frequent misusage.
 
 <br />
 
