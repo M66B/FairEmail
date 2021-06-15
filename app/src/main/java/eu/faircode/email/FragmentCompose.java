@@ -967,6 +967,11 @@ public class FragmentCompose extends FragmentBase {
         setHasOptionsMenu(true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        boolean cards = prefs.getBoolean("cards", true);
+        if (cards && !Helper.isDarkTheme(getContext()))
+            view.setBackgroundColor(Helper.resolveColor(getContext(), R.attr.colorCardBackground));
+
         //boolean beige = prefs.getBoolean("beige", true);
         //if (beige && !Helper.isDarkTheme(getContext()))
         //    view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
