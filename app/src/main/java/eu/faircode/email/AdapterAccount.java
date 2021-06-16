@@ -381,6 +381,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                 if (!sync) {
                                     db.account().setAccountWarning(id, null);
                                     db.account().setAccountError(id, null);
+                                    db.account().setAccountConnected(id, null);
                                 }
 
                                 db.account().setAccountSynchronize(id, sync);

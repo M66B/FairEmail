@@ -149,7 +149,7 @@ public interface DaoAccount {
     int setAccountPassword(long id, String password);
 
     @Query("UPDATE account SET last_connected = :last_connected WHERE id = :id AND NOT (last_connected IS :last_connected)")
-    int setAccountConnected(long id, long last_connected);
+    int setAccountConnected(long id, Long last_connected);
 
     @Query("UPDATE account SET backoff_until = :backoff_until WHERE id = :id AND NOT (backoff_until IS :backoff_until)")
     int setAccountBackoff(long id, Long backoff_until);
