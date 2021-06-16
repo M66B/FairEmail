@@ -346,11 +346,12 @@ public interface DaoMessage {
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
+            " AND NOT message.folder IN (:exclude)" +
             " GROUP BY message.id" +
             " ORDER BY matched DESC, received DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
-            Long account, Long folder, String find,
+            Long account, Long folder, long[] exclude, String find,
             boolean senders, boolean recipients, boolean subject, boolean keywords, boolean message, boolean notes, boolean headers,
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean with_attachments, boolean with_notes,
             int type_count, String[] types,

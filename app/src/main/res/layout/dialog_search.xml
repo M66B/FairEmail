@@ -470,6 +470,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spMessageSize" />
 
+        <CheckBox
+            android:id="@+id/cbSearchTrash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_in_trash"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
+
+        <CheckBox
+            android:id="@+id/cbSearchJunk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_in_junk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSearchTrash" />
+
         <Button
             android:id="@+id/btnAfter"
             style="?android:attr/buttonStyleSmall"
@@ -480,7 +502,7 @@
             android:text="@string/title_search_with_after"
             app:layout_constraintEnd_toStartOf="@id/btnBefore"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
+            app:layout_constraintTop_toBottomOf="@id/cbSearchJunk" />
 
         <Button
             android:id="@+id/btnBefore"
@@ -492,7 +514,7 @@
             android:text="@string/title_search_with_before"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnAfter"
-            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
+            app:layout_constraintTop_toBottomOf="@id/cbSearchJunk" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAfter"

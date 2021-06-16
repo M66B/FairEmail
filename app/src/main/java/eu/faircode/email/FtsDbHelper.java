@@ -137,7 +137,7 @@ public class FtsDbHelper extends SQLiteOpenHelper {
 
     static List<Long> match(
             SQLiteDatabase db,
-            Long account, Long folder,
+            Long account, Long folder, long[] exclude,
             BoundaryCallbackMessages.SearchCriteria criteria) {
 
         List<String> word = new ArrayList<>();
@@ -200,6 +200,15 @@ public class FtsDbHelper extends SQLiteOpenHelper {
             select += "account = " + account + " AND ";
         if (folder != null)
             select += "folder = " + folder + " AND ";
+        if (exclude.length > 0) {
+            select += "NOT folder IN (";
+            for (int i = 0; i < exclude.length; i++) {
+                if (i > 0)
+                    select += ", ";
+                select += exclude[i];
+            }
+            select += ") AND ";
+        }
         if (criteria.after != null)
             select += "time > " + criteria.after + " AND ";
         if (criteria.before != null)
