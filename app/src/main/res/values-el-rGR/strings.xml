@@ -169,6 +169,8 @@
     <string name="title_setup_doze_instructions">Στο επόμενο παράθυρο διαλόγου του Android αλλάζετε το \"Μη βελτιστοποιημένες\" σε \"Όλες οι εφαρμογές\", επιλέγετε αυτήν την εφαρμογή και επιλέγετε \"Να μην γίνεται βελτιστοποίηση\"</string>
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
+    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Αυτό πιθανόν απαιτείται για αυτήν τη συσκευή</string>
+    <string name="title_setup_doze_android">Αυτό απαιτείται για αυτήν την έκδοση Android</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
     <string name="title_setup_data">Η εξοικονόμηση δεδομένων είναι ενεργή</string>
     <string name="title_setup_advanced_options">Εμφάνιση προηγμένων επιλογών</string>

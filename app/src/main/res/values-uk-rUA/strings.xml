@@ -177,6 +177,8 @@
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
+    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Це, ймовірно, необхідно для цього пристрою</string>
+    <string name="title_setup_doze_android">Це потрібно для даної версії Android</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
     <string name="title_setup_advanced_options">Показати додаткові налаштування</string>
@@ -429,6 +431,7 @@
     <string name="title_advanced_notify_action_snooze">Відкласти</string>
     <string name="title_advanced_notify_remove">Видалити сповіщення про нове повідомлення при натисканні</string>
     <string name="title_advanced_notify_clear">Видалити сповіщення про нове повідомлення при перегляді списку повідомлень</string>
+    <string name="title_advanced_notify_subtext">Показати назву облікового запису чи теки як підтекст</string>
     <string name="title_advanced_wearable_preview">Надсилати сповіщення тільки за допомогою попереднього перегляду повідомлення</string>
     <string name="title_advanced_notify_messaging">Використовувати для сповіщень стиль Android</string>
     <string name="title_advanced_biometrics_notify">Показувати вміст сповіщень під час використання біометричної аутентифікації</string>
@@ -527,6 +530,7 @@
     <string name="title_advanced_threading_hint">Групові повідомлення, пов\'язані один з одним</string>
     <string name="title_advanced_highlight_hint">Акцентований колір теми буде використаний для виділення</string>
     <string name="title_advanced_gravatars_hint">Там може бути ризик приватності</string>
+    <string name="title_advanced_name_email_hint">Імена показуватимуться лише за наявності</string>
     <string name="title_advanced_preview_hint">Доступно тільки коли повідомлення буде завантажено</string>
     <string name="title_advanced_preview_lines_hint">Максимум: %s символів</string>
     <string name="title_advanced_preview_issue">Прокручування може бути повільним через помилку у деяких версіях Android, коли кількість рядків більше одного</string>
@@ -799,6 +803,7 @@
     <string name="title_print_images">Друкувати зображення</string>
     <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
     <string name="title_show_headers">Відображати заголовки</string>
+    <string name="title_share_as_html">Поділитися як HTML</string>
     <string name="title_raw_save">Зберігти raw повідомлення</string>
     <string name="title_raw_send">Надіслати як вкладення</string>
     <string name="title_manage_keywords">Керування ключовими словами</string>
@@ -1590,4 +1595,9 @@
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Тільки ім\'я</item>
+        <item>Тільки електронна адреса</item>
+        <item>Ім\'я та електронна адреса</item>
+    </string-array>
 </resources>
