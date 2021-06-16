@@ -90,6 +90,7 @@
             android:layout_marginTop="6dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
+            android:drawableTint="?attr/colorWarning"
             android:text="@string/title_setup_doze_device"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
