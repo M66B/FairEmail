@@ -695,11 +695,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 if (folder == null)
                                     return null;
 
-                                if (folder.selectable) {
-                                    if (!childs)
-                                        db.folder().setFolderInitialize(folder.id, folder.keep_days);
+                                if (folder.selectable)
                                     EntityOperation.sync(context, folder.id, true, !childs);
-                                }
 
                                 if (childs) {
                                     List<EntityFolder> folders = db.folder().getChildFolders(folder.id);
