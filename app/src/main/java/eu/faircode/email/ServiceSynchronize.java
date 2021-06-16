@@ -129,7 +129,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int FAST_FAIL_THRESHOLD = 75; // percent
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
-    private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
+    private static final long WATCHDOG_INTERVAL = (BuildConfig.DEBUG ? 15 : 60) * 60 * 1000L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
