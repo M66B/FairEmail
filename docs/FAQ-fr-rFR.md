@@ -852,28 +852,28 @@ La prévisualisation du texte du message ne peut être affichée si le corps du 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Pourquoi les fonctionnalités pro sont-elles si chères ?**
 
-First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+Tout d'abord, **FairEmail est essentiellement gratuit** et seules quelques fonctionnalités avancées doivent être achetées.
 
-Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
+Tout d'abord, ** FairEmail est essentiellement gratuit ** et seules certaines fonctionnalités avancées doivent être achetées.
 
 Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
 
-Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
+Veuillez consulter la description du Play Store de l'application ou [voir ici](https://email.faircode.eu/#pro) pour une liste complète des fonctionnalités pro.
 
-The right question is "*why are there so many taxes and fees?*":
+La bonne question est "*pourquoi y a-t-il autant de taxes et de frais ?*":
 
 * TVA : 25 % (selon votre pays)
 * Frais Google : 30 %
 * Impôt sur le revenu: 50 %
 * <sub>Frais Paypal : 5-10 % en fonction du pays/montant</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+Donc, ce qui reste pour le développeur n'est qu'une fraction de ce que vous payez.
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet. There are no privacy violating ads in the app either.
+Notez également que la plupart des applications gratuites ne dureront probablement pas dans le temps, alors que FairEmail est correctement maintenue et soutenu, et que les applications gratuites peuvent avoir des pièges, comme envoyer des informations confidentielles sur Internet. Il n'y a pas de pub qui viole la vie privée dans l'application.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Je travaillé sur FairEmail presque tous les jours depuis plus de deux ans, je pense donc que le prix est plus que raisonnable. Pour cette raison, il n'y aura pas non plus de réductions.
 
 <br />
 
@@ -883,33 +883,33 @@ I have been working on FairEmail almost every day for more than two years, so I 
 Si une fonctionnalité pro ne marche pas comme prévu et que ce n'est pas causé par un problème dans les fonctionnalités gratuites et que je ne peux résoudre ce problème rapidement, vous pouvez obtenir un remboursement. Autrement, il n'y a pas de possibilité de remboursement. En aucun cas il n'y a de remboursement possible pour tout problème lié aux fonctionnalités gratuites, étant donné que rien a été payé pour les obtenir et parce qu'elles peuvent être évaluées sans aucune limitation. Je prends ma responsabilité en tant que vendeur de délivrer ce qui a été promis et je pars du principe que vous prenez la responsabilité de vous informer de ce que vous achetez.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Comment activer le voyant de notification ?**
 
-Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
+Avant Android 8 Oreo : il y a une option avancée dans les paramètres de notification de l'application pour cela.
 
-Android 8 Oreo and later: please see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
+Android 8 Oreo et plus tard : veuillez voir [ici](https://developer.android.com/training/notify-user/channels) comment configurer les canaux de notification. Vous pouvez utiliser le bouton *Canal par défaut* dans les paramètres de notification de l'application pour aller directement dans les paramètres du canal de notification Android.
 
-Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
+Notez que les applications ne peuvent pas modifier les paramètres de notification, y compris les paramètres de lumière de notification, sur Android 8 Oreo et après.
 
-Sometimes it is necessary to disable the setting *Show message preview in notifications* or to enable the settings *Show notifications with a preview text only* to workaround bugs in Android. This might apply to notification sounds and vibrations too.
+Parfois, il est nécessaire de désactiver le paramètre *Afficher l'aperçu du message dans les notifications* ou d'activer les paramètres *Afficher les notifications avec un texte d'aperçu seulement* pour contourner les bugs dans Android. Cela peut également s'appliquer aux sons de notification et aux vibrations.
 
-Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
+Définir une couleur de lumière avant Android 8 n'est pas pris en charge et n'est pas possible sur Android 8 et après.
 
 <br />
 
 <a name="faq22"></a>
-**(22) What does account/folder error ... mean?**
+**(22) Qu'est-ce que l'erreur de compte/dossier ... signifie ?**
 
-FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+FairEmail ne masque pas les erreurs comme les applications similaires le font souvent, il est donc plus facile de diagnostiquer les problèmes.
 
-FairEmail will automatically try to connect again after a delay. This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently. Please see [this FAQ](#user-content-faq123) for more information about this.
+FairEmail essaiera automatiquement de se reconnecter après un délai. Ce délai sera doublé après chaque tentative échouée pour éviter de drainer la batterie et pour éviter d'être bloquée définitivement. Veuillez consulter [cette FAQ](#user-content-faq123) pour plus d'informations à ce sujet.
 
-There are general errors and errors specific to Gmail accounts (see below).
+Il y a des erreurs générales et des erreurs spécifiques aux comptes Gmail (voir ci-dessous).
 
 **Erreurs générales**
 
 <a name="authfailed"></a>
-L'erreur *... **L'authentification a échoué** ...* ou *... AUTHENTICATE failed ...* likely means that your username or password was incorrect. Some providers expect as username just *username* and others your full email address *username@example.com*. When copying/pasting to enter a username or password, invisible characters might be copied, which could cause this problem as well. Some password managers are known to do this incorrectly too. The username might be case sensitive, so try lowercase characters only. The password is almost always case sensitive. Some providers require using an app password instead of the account password, so please check the documentation of the provider. Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first. Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way, for example by allowing to login from certain networks / IP addresses only.
+L'erreur *... **L'authentification a échoué** ...* ou *... CERTIFICATION a échoué...* signifie probablement que votre nom d'utilisateur ou votre mot de passe était incorrect. Certains fournisseurs attendent comme nom d'utilisateur seulement *nom d'utilisateur* et d'autres votre adresse e-mail complète *nom d'utilisateur@exemple.com*. Lors de la copier/coller pour entrer un nom d'utilisateur ou un mot de passe, des caractères invisibles peuvent être copiés, ce qui peut également causer ce problème. Certains gestionnaires de mots de passe dont connus de le faire d'une manière incorrecte. Le nom d'utilisateur peut être sensible à la casse, donc essayez uniquement les minuscules. Le mot de passe est presque toujours sensible à la casse. Certains fournisseurs nécessitent l'utilisation d'un mot de passe d'application au lieu du mot de passe du compte, donc veuillez consulter la documentation du fournisseur. Parfois, il est nécessaire d'activer l'accès externe (IMAP/SMTP) sur le site Web du fournisseur d'abord. D'autres causes possibles sont que le compte est bloqué ou que la connexion a été restreinte administrativement d'une certaine manière, par exemple en permettant de se connecter à partir de certains réseaux / adresses IP seulement.
 
 Si nécessaire, vous pouvez mettre à jour un mot de passe dans les paramètres du compte : menu de navigation (menu latéral), appuyez sur *Paramètres*, appuyez sur *Configuration manuelle*, appuyez sur *Comptes* et appuyez sur le compte. Changing the account password will in most cases automatically change the password of related identities too. If the account was authorized with OAuth via the quick setup wizard instead of with a password, you can run the quick setup wizard again and tick *Authorize existing account again* to authenticate the account again. Note that this requires a recent version of the app.
 
@@ -1119,7 +1119,7 @@ Voir [ici](https://developer.android.com/guide/topics/ui/notifiers/notifications
 
 Sur Android avant Android 8 Oreo vous pouvez définir le son de notification dans les paramètres.
 
-See [this FAQ](#user-content-faq21) if your device has a notification light.
+Consultez [cette FAQ](#user-content-faq21) si votre appareil a un voyant de notification.
 
 <br />
 

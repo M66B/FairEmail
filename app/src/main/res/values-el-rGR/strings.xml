@@ -433,7 +433,7 @@
     <string name="title_advanced_confirm_html">Προβολή αναμορφοποιημένων μηνυμάτων από προεπιλογή</string>
     <string name="title_advanced_tracking">Να γίνεται απόπειρα αναγνώρισης και απενεργοποίησης εικόνων ιχνηλάτησης</string>
     <string name="title_advanced_hide_timezone">Αποστολή μηνυμάτων χωρίς πληροφορίες για τη ζώνη ώρας</string>
-    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Αποστολή ονόματος και έκδοσης εφαρμογής στον διακομιστή ηλ. ταχυδρομείου</string>
+    <string name="title_advanced_client_id">Αποστολή ονόματος και έκδοσης εφαρμογής στον διακομιστή ηλ. ταχυδρομείου</string>
     <string name="title_advanced_display_hidden">Προβολή κρυμμένων κειμένων στα μηνύματα</string>
     <string name="title_advanced_incognito_keyboard">Χρήση πληκτρολογίου ανώνυμης λειτουργίας (Android 8+)</string>
     <string name="title_advanced_secure">Απόκρυψη του FairEmail από τη λίστα των πρόσφατων εφαρμογών και παρεμπόδιση λήψης στιγμιοτύπου οθόνης</string>

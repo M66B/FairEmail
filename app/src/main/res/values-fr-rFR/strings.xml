@@ -169,6 +169,8 @@
     <string name="title_setup_doze_instructions">Dans la prochaine fenêtre de dialogue Android, changez « Non optimisées » en « Toutes les applications », sélectionnez cette application et cochez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée ?</string>
+    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Ceci est probablement requis pour cet appareil</string>
+    <string name="title_setup_doze_android">Ceci est requis pour cette version d\'Android</string>
     <string name="title_setup_background">Les restrictions d\'arrière-plan sont activées</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
     <string name="title_setup_advanced_options">Afficher les options avancées</string>
@@ -433,7 +435,7 @@
     <string name="title_advanced_confirm_html">Afficher les messages reformatés par défaut</string>
     <string name="title_advanced_tracking">Tenter de reconnaître et de désactiver les images de pistage</string>
     <string name="title_advanced_hide_timezone">Envoyer les messages sans les données de fuseau horaire</string>
-    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Envoyer le nom et la version de l\'application au serveur de messagerie</string>
+    <string name="title_advanced_client_id">Envoyer le nom et la version de l\'application au serveur de messagerie</string>
     <string name="title_advanced_display_hidden">Afficher les textes cachés des messages</string>
     <string name="title_advanced_incognito_keyboard">Utiliser le clavier en mode incognito (Android 8+)</string>
     <string name="title_advanced_secure">Masquer FairEmail de la liste des applications récentes et empêcher la prise de captures d’écran</string>

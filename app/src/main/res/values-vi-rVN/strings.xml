@@ -423,7 +423,7 @@
     <string name="title_advanced_confirm_html">Hiện các thư được định dạng lại theo mặc định</string>
     <string name="title_advanced_tracking">Thử nhận ra và vô hiệu hoá hình ảnh theo dõi</string>
     <string name="title_advanced_hide_timezone">Gửi thư không có dữ liệu múi giờ</string>
-    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Gửi tên và phiên bản ứng dụng đến máy chủ email</string>
+    <string name="title_advanced_client_id">Gửi tên và phiên bản ứng dụng đến máy chủ email</string>
     <string name="title_advanced_display_hidden">Hiển thị văn bản thư ẩn</string>
     <string name="title_advanced_incognito_keyboard">Sử dụng bàn phím ẩn danh (Android 8+)</string>
     <string name="title_advanced_secure">Ẩn khỏi màn hình đa nhiệm và ngăn chặn chụp màn hình</string>

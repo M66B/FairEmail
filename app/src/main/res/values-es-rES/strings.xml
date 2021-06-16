@@ -433,7 +433,7 @@
     <string name="title_advanced_confirm_html">Mostrar mensajes reformateados por defecto</string>
     <string name="title_advanced_tracking">Intentar reconocer y deshabilitar imágenes de rastreo</string>
     <string name="title_advanced_hide_timezone">Enviar mensajes sin datos de zona horaria</string>
-    <string name="title_advanced_client_id" comment="title_advanced_client_id&#10;https://datatracker.ietf.org/doc/html/rfc2971">Enviar nombre y versión de la aplicación al servidor de correo electrónico</string>
+    <string name="title_advanced_client_id">Enviar nombre y versión de la aplicación al servidor de correo electrónico</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_incognito_keyboard">Usar teclado incógnito (Android 8+)</string>
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
