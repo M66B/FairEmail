@@ -114,7 +114,8 @@ public class ContactInfo {
     // https://css-tricks.com/prefetching-preloading-prebrowsing/
     // https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
     private static final List<String> REL_EXCLUDE = Collections.unmodifiableList(Arrays.asList(
-            "dns-prefetch", "preconnect", "prefetch", "preload", "prerender", "subresource"
+            "dns-prefetch", "preconnect", "prefetch", "preload", "prerender", "subresource",
+            "respond-redirect"
     ));
 
     private ContactInfo() {
