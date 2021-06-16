@@ -1053,8 +1053,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     long now = new Date().getTime();
                     long[] schedule = ServiceSynchronize.getSchedule(ServiceSynchronize.this);
-                    boolean poll = (schedule == null || (now >= schedule[0] && now < schedule[1]));
-                    schedule(ServiceSynchronize.this, poll, null);
+                    boolean scheduled = (schedule == null || (now >= schedule[0] && now < schedule[1]));
+                    schedule(ServiceSynchronize.this, scheduled, true, null);
 
                     // Prevent service stop
                     eval(ServiceSynchronize.this, "poll");
@@ -1076,7 +1076,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     private void onWatchdog(Intent intent) {
         EntityLog.log(this, "Watchdog");
-        //schedule(this, false);
+        schedule(this, false);
 
         if (lastNetworkState == null || !lastNetworkState.isSuitable())
             updateNetworkState(null, "watchdog");
@@ -2469,7 +2469,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         });
     }
 
-    private static void schedule(Context context, boolean sync) {
+    private static void schedule(Context context, boolean polled) {
         Intent intent = new Intent(context, ServiceSynchronize.class);
         intent.setAction("alarm");
         PendingIntent pi = PendingIntentCompat.getForegroundService(
@@ -2478,34 +2478,34 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
 
-        boolean poll;
+        boolean scheduled;
         Long at = null;
         long[] schedule = getSchedule(context);
         if (schedule == null)
-            poll = true;
+            scheduled = true;
         else {
             long now = new Date().getTime();
             long next = (now < schedule[0] ? schedule[0] : schedule[1]);
-            poll = (now >= schedule[0] && now < schedule[1]);
+            scheduled = (now >= schedule[0] && now < schedule[1]);
 
             Log.i("Schedule now=" + new Date(now));
             Log.i("Schedule start=" + new Date(schedule[0]));
             Log.i("Schedule end=" + new Date(schedule[1]));
             Log.i("Schedule next=" + new Date(next));
-            Log.i("Schedule poll=" + poll);
+            Log.i("Schedule scheduled=" + scheduled);
 
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, pi);
 
-            if (sync & poll) {
+            if (scheduled && polled) {
                 at = now + 30 * 1000L;
                 Log.i("Sync at schedule start=" + new Date(at));
             }
         }
 
-        schedule(context, poll, at);
+        schedule(context, scheduled, polled, at);
     }
 
-    private static void schedule(Context context, boolean poll, Long at) {
+    private static void schedule(Context context, boolean scheduled, boolean polled, Long at) {
         Intent intent = new Intent(context, ServiceSynchronize.class);
         intent.setAction("poll");
         PendingIntent piSync = PendingIntentCompat.getForegroundService(
@@ -2518,11 +2518,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean enabled = prefs.getBoolean("enabled", true);
             int pollInterval = getPollInterval(context);
-            if (poll && enabled && pollInterval > 0) {
+            if (scheduled && enabled && pollInterval > 0) {
                 long now = new Date().getTime();
                 long interval = pollInterval * 60 * 1000L;
                 long next = now - now % interval + interval + 30 * 1000L;
-                if (next < now + interval / 5)
+                if (polled && next < now + interval / 5)
                     next += interval;
 
                 EntityLog.log(context, "Poll next=" + new Date(next));
