@@ -129,7 +129,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int ACCOUNT_ERROR_AFTER_POLL = 4; // times
     private static final int FAST_FAIL_THRESHOLD = 75; // percent
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
-    private static final long WATCHDOG_INTERVAL = (BuildConfig.DEBUG ? 15 : 60) * 60 * 1000L; // milliseconds
+    private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -2521,11 +2521,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (scheduled && enabled && pollInterval > 0) {
                 long now = new Date().getTime();
                 long interval = pollInterval * 60 * 1000L;
-                long next = now - now % interval + interval + 30 * 1000L;
+                long next = now - now % interval + 30 * 1000L;
+                if (polled || next < now)
+                    next += interval;
                 if (polled && next < now + interval / 5)
                     next += interval;
 
-                EntityLog.log(context, "Poll next=" + new Date(next));
+                EntityLog.log(context, "Poll next=" + new Date(next) + " polled=" + polled);
 
                 AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, piSync);
             }
@@ -2648,10 +2650,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         boolean enabled = prefs.getBoolean("enabled", true);
         if (watchdog && enabled) {
             long now = new Date().getTime();
-            long next = now - now % WATCHDOG_INTERVAL + WATCHDOG_INTERVAL;
+            long next = now - now % WATCHDOG_INTERVAL + WATCHDOG_INTERVAL + WATCHDOG_INTERVAL / 4;
             if (next < now + WATCHDOG_INTERVAL / 5)
                 next += WATCHDOG_INTERVAL;
-            Log.i("Sync watchdog at " + new Date(next));
+            EntityLog.log(context, "Watchdog next=" + new Date(next));
             AlarmManagerCompatEx.setAndAllowWhileIdle(context, am, AlarmManager.RTC_WAKEUP, next, pi);
         } else
             am.cancel(pi);
