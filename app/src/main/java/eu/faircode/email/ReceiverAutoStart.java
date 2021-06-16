@@ -24,17 +24,27 @@ import android.content.Context;
 import android.content.Intent;
 
 public class ReceiverAutoStart extends BroadcastReceiver {
+    // https://developer.android.com/reference/android/app/AlarmManager#ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED
+    private final String ACTION_EXACT =
+            "android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED";
+
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||
-                Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
+        String action = intent.getAction();
+        if (ACTION_EXACT.equals(action) ||
+                Intent.ACTION_BOOT_COMPLETED.equals(action) ||
+                Intent.ACTION_MY_PACKAGE_REPLACED.equals(action)) {
             Log.i("Received " + intent);
 
-            if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction()))
+            if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(action))
                 ApplicationEx.upgrade(context);
 
-            ServiceSynchronize.boot(context);
-            ServiceSend.boot(context);
+            if (ACTION_EXACT.equals(action))
+                ServiceSynchronize.reload(context, null, false, action);
+            else {
+                ServiceSynchronize.boot(context);
+                ServiceSend.boot(context);
+            }
         }
     }
 }
