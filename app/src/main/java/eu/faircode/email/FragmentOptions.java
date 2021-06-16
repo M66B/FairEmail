@@ -28,6 +28,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -364,35 +366,55 @@ public class FragmentOptions extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_setup, null);
+            final Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_setup, null);
+            TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);
+            TextView tvDozeAndroid = dview.findViewById(R.id.tvDozeAndroid);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             Group grp2 = dview.findViewById(R.id.grp2);
             Group grp3 = dview.findViewById(R.id.grp3);
 
+            tvDozeDevice.setPaintFlags(tvDozeDevice.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            tvDozeDevice.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(context, Uri.parse(Helper.DONTKILL_URI), true);
+                }
+            });
+
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     prefs.edit().putBoolean("setup_reminder", !isChecked).apply();
                 }
             });
 
-            boolean hasPermissions = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
-            Boolean isIgnoring = Helper.isIgnoringOptimizations(getContext());
+            boolean hasPermissions = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
+            Boolean isIgnoring = Helper.isIgnoringOptimizations(context);
+            boolean isKilling = Helper.isKilling() && !(isIgnoring == null || isIgnoring);
+            boolean isRequired = Helper.isDozeRequired() && !(isIgnoring == null || isIgnoring);
+
+            tvDozeDevice.setVisibility(isKilling && !isRequired ? View.VISIBLE : View.GONE);
+            tvDozeAndroid.setVisibility(isRequired ? View.VISIBLE : View.GONE);
+            cbNotAgain.setVisibility(isRequired ? View.GONE : View.VISIBLE);
 
             grp2.setVisibility(hasPermissions ? View.GONE : View.VISIBLE);
             grp3.setVisibility(isIgnoring == null || isIgnoring ? View.GONE : View.VISIBLE);
 
-            return new AlertDialog.Builder(getContext())
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sendResult(Activity.RESULT_OK);
                         }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
+                    });
+
+            if (!isRequired)
+                builder.setNegativeButton(android.R.string.cancel, null);
+
+            return builder.create();
         }
     }
 
