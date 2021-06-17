@@ -244,7 +244,7 @@ public class ActivityEML extends ActivityBase {
 
                     int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
                     SpannableStringBuilder ssb = new SpannableStringBuilder();
-                    getStructure(context, imessage, ssb, 0, textColorLink);
+                    getStructure(imessage, ssb, 0, textColorLink);
                     result.structure = ssb;
 
                     return result;
@@ -336,7 +336,7 @@ public class ActivityEML extends ActivityBase {
                     Log.unexpectedError(getSupportFragmentManager(), ex, false);
             }
 
-            private void getStructure(Context context, Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
+            private void getStructure(Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
                 try {
                     Enumeration<Header> headers;
                     if (level == 0) {
@@ -393,7 +393,7 @@ public class ActivityEML extends ActivityBase {
                         Multipart multipart = (Multipart) part.getContent();
                         for (int i = 0; i < multipart.getCount(); i++)
                             try {
-                                getStructure(context, multipart.getBodyPart(i), ssb, level + 1, textColorLink);
+                                getStructure(multipart.getBodyPart(i), ssb, level + 1, textColorLink);
                             } catch (Throwable ex) {
                                 Log.w(ex);
                                 ssb.append(ex.toString()).append('\n');
