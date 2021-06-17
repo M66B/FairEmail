@@ -940,6 +940,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " w/notes=" + with_notes +
                     " type=" + (with_types == null ? null : TextUtils.join(",", with_types)) +
                     " size=" + with_size +
+                    " trash=" + in_trash +
+                    " junk=" + in_junk +
                     " after=" + (after == null ? "" : new Date(after)) +
                     " before=" + (before == null ? "" : new Date(before));
         }
