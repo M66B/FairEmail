@@ -146,10 +146,7 @@ public class text_plain extends handler_base {
 	    String charset = ct.getParameter("charset");
 	    if (charset == null)
 		// If the charset parameter is absent, use US-ASCII.
-		charset = "us-ascii";
-		if ("us-ascii".equals(charset) &&
-				"text/html".equalsIgnoreCase(ct.getBaseType()))
-			charset = StandardCharsets.UTF_8.name();
+		charset = StandardCharsets.ISO_8859_1.name();
 	    return MimeUtility.javaCharset(charset);
 	} catch (Exception ex) {
 	    return null;

@@ -1907,8 +1907,11 @@ public class MessageHelper {
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (h.isHtml()) {
-                    // Fix incorrect UTF16
-                    if (charset != null)
+                    if (charset == null) {
+                        if (CharsetHelper.isUTF8(result))
+                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                    } else {
+                        // Fix incorrect UTF16
                         try {
                             Charset c = Charset.forName(charset);
                             if (CHARSET16.contains(c)) {
@@ -1924,6 +1927,7 @@ public class MessageHelper {
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
+                    }
 
                     if (charset == null) {
                         // <meta charset="utf-8" />
