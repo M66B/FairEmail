@@ -471,6 +471,8 @@ public class FragmentOAuth extends FragmentBase {
                 EmailProvider provider = EmailProvider.getProvider(context, id);
                 String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
                 int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
+                String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
+                int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
 
                 String username = address;
 
@@ -537,16 +539,30 @@ public class FragmentOAuth extends FragmentBase {
                 if (usernames.size() > 1)
                     for (String alt : usernames) {
                         EntityLog.log(context, "Trying username=" + alt);
-                        try (EmailService iservice = new EmailService(
-                                context, aprotocol, null, aencryption, false,
-                                EmailService.PURPOSE_CHECK, true)) {
-                            iservice.connect(
-                                    provider.imap.host, provider.imap.port,
-                                    AUTH_TYPE_OAUTH, provider.id,
-                                    alt, state,
-                                    null, null);
+                        try {
+                            try (EmailService aservice = new EmailService(
+                                    context, aprotocol, null, aencryption, false,
+                                    EmailService.PURPOSE_CHECK, true)) {
+                                aservice.connect(
+                                        provider.imap.host, provider.imap.port,
+                                        AUTH_TYPE_OAUTH, provider.id,
+                                        alt, state,
+                                        null, null);
+                            }
+                            try (EmailService iservice = new EmailService(
+                                    context, iprotocol, null, iencryption, false,
+                                    EmailService.PURPOSE_CHECK, true)) {
+                                iservice.connect(
+                                        provider.smtp.host, provider.smtp.port,
+                                        AUTH_TYPE_OAUTH, provider.id,
+                                        alt, state,
+                                        null, null);
+                            }
                             EntityLog.log(context, "Using username=" + alt);
                             username = alt;
+                            break;
+                        } catch (Throwable ex) {
+                            Log.w(ex);
                         }
                     }
 
@@ -595,22 +611,20 @@ public class FragmentOAuth extends FragmentBase {
                 List<EntityFolder> folders;
 
                 Log.i("OAuth checking IMAP provider=" + provider.id);
-                try (EmailService iservice = new EmailService(
+                try (EmailService aservice = new EmailService(
                         context, aprotocol, null, aencryption, false,
                         EmailService.PURPOSE_CHECK, true)) {
-                    iservice.connect(
+                    aservice.connect(
                             provider.imap.host, provider.imap.port,
                             AUTH_TYPE_OAUTH, provider.id,
                             username, state,
                             null, null);
 
-                    folders = iservice.getFolders();
+                    folders = aservice.getFolders();
                 }
 
                 Log.i("OAuth checking SMTP provider=" + provider.id);
                 Long max_size;
-                String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
-                int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
 
                 try (EmailService iservice = new EmailService(
                         context, iprotocol, null, iencryption, false,
