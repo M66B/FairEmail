@@ -24,14 +24,14 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,7 +46,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,12 +60,16 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Flags;
 import javax.mail.Folder;
+import javax.mail.Header;
 import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
@@ -82,6 +85,7 @@ public class ActivityEML extends ActivityBase {
     private View vSeparatorAttachments;
     private RecyclerView rvAttachment;
     private TextView tvBody;
+    private TextView tvStructure;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
@@ -92,9 +96,6 @@ public class ActivityEML extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean monospaced = prefs.getBoolean("monospaced", false);
 
         getSupportActionBar().setSubtitle("EML");
         setContentView(R.layout.activity_eml);
@@ -110,6 +111,7 @@ public class ActivityEML extends ActivityBase {
         vSeparatorAttachments = findViewById(R.id.vSeparatorAttachments);
         rvAttachment = findViewById(R.id.rvAttachment);
         tvBody = findViewById(R.id.tvBody);
+        tvStructure = findViewById(R.id.tvStructure);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
@@ -117,7 +119,6 @@ public class ActivityEML extends ActivityBase {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvAttachment.setLayoutManager(llm);
 
-        tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvBody.setMovementMethod(new ArrowKeyMovementMethod() {
             @Override
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
@@ -225,6 +226,11 @@ public class ActivityEML extends ActivityBase {
                         result.body = HtmlHelper.fromDocument(context, document, null, null);
                     }
 
+                    int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                    getStructure(context, imessage, ssb, 0, textColorLink);
+                    result.structure = ssb;
+
                     return result;
                 }
             }
@@ -301,6 +307,7 @@ public class ActivityEML extends ActivityBase {
                 rvAttachment.setAdapter(adapter);
 
                 tvBody.setText(result.body);
+                tvStructure.setText(result.structure);
                 grpReady.setVisibility(View.VISIBLE);
             }
 
@@ -311,6 +318,37 @@ public class ActivityEML extends ActivityBase {
                             .setGestureInsetBottomIgnored(true).show();
                 else
                     Log.unexpectedError(getSupportFragmentManager(), ex, false);
+            }
+
+            private void getStructure(Context context, Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
+                try {
+                    if (level > 0) {
+                        Enumeration<Header> headers = part.getAllHeaders();
+                        while (headers.hasMoreElements()) {
+                            Header header = headers.nextElement();
+                            for (int i = 0; i < level; i++)
+                                ssb.append("  ");
+                            int start = ssb.length();
+                            ssb.append(header.getName());
+                            ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
+                            ssb.append(": ").append(header.getValue()).append('\n');
+                        }
+                        ssb.append('\n');
+                    } else
+                        ssb.append(part.getContentType()).append("\n\n");
+
+                    if (part.isMimeType("multipart/*")) {
+                        Multipart multipart = (Multipart) part.getContent();
+                        for (int i = 0; i < multipart.getCount(); i++)
+                            try {
+                                getStructure(context, multipart.getBodyPart(i), ssb, level + 1, textColorLink);
+                            } catch (Throwable ex) {
+                                ssb.append(ex.toString()).append('\n');
+                            }
+                    }
+                } catch (Throwable ex) {
+                    ssb.append(ex.toString()).append('\n');
+                }
             }
         }.execute(this, args, "eml:decode");
     }
@@ -511,5 +549,6 @@ public class ActivityEML extends ActivityBase {
         String subject;
         MessageHelper.MessageParts parts;
         Spanned body;
+        Spanned structure;
     }
 }

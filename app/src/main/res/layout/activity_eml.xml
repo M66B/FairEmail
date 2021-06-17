@@ -243,6 +243,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
 
+            <View
+                android:id="@+id/vSeparatorStructure"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+            <eu.faircode.email.FixedTextView
+                android:id="@+id/tvStructure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="monospace"
+                android:text="Structure"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorStructure" />
+
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"
                 android:layout_width="0dp"
@@ -258,7 +281,8 @@
                     tvReceivedTitle,tvReceived,
                     tvSubject,
                     rvAttachment,
-                    vSeparatorBody,tvBody" />
+                    vSeparatorBody,tvBody,
+                    vSeparatorStructure,tvStructure" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ScrollViewEx>
 
