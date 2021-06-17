@@ -1489,7 +1489,7 @@ public class MessageHelper {
         Enumeration<Header> headers = imessage.getAllHeaders();
         while (headers.hasMoreElements()) {
             Header header = headers.nextElement();
-            sb.append(header.getName()).append(": ").append(header.getValue()).append("\n");
+            sb.append(header.getName()).append(": ").append(header.getValue()).append('\n');
         }
         return sb.toString();
     }
