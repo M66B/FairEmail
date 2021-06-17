@@ -1969,14 +1969,14 @@ public class HtmlHelper {
 
     static Spanned highlightHeaders(Context context, String headers) {
         SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
-        int colorAccent = Helper.resolveColor(context, android.R.attr.textColorLink);
+        int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         int index = 0;
         for (String line : headers.split("\n")) {
             if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
                 int colon = line.indexOf(':');
                 if (colon > 0)
-                    ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
+                    ssb.setSpan(new ForegroundColorSpan(textColorLink), index, index + colon, 0);
             }
             index += line.length() + 1;
         }
@@ -2018,7 +2018,7 @@ public class HtmlHelper {
                         s = ssb.length();
                         ssb.append(w[j]);
                         if (words.contains(w[j].toLowerCase(Locale.ROOT)))
-                            ssb.setSpan(new ForegroundColorSpan(colorAccent), s, ssb.length(), 0);
+                            ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
                         j++;
                     }
                     ssb.append("\n\n");
