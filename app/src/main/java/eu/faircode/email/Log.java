@@ -94,6 +94,7 @@ import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.security.cert.CertPathValidatorException;
 import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1828,10 +1829,28 @@ public class Log {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean enabled = prefs.getBoolean("enabled", true);
             int pollInterval = ServiceSynchronize.getPollInterval(context);
+            boolean schedule = prefs.getBoolean("schedule", false);
 
             size += write(os, "accounts=" + accounts.size() +
                     " enabled=" + enabled +
                     " interval=" + pollInterval + "\r\n\r\n");
+
+            if (schedule) {
+                int minuteStart = prefs.getInt("schedule_start", 0);
+                int minuteEnd = prefs.getInt("schedule_end", 0);
+
+                size += write(os, "schedule " +
+                        (minuteStart / 60) + ":" + (minuteStart % 60) + "..." +
+                        (minuteEnd / 60) + ":" + (minuteEnd % 60) + "\r\n");
+
+                String[] daynames = new DateFormatSymbols().getWeekdays();
+                for (int i = 0; i < 7; i++) {
+                    boolean day = prefs.getBoolean("schedule_day" + i, true);
+                    size += write(os, "schedule " + daynames[i + 1] + "=" + day + "\r\n");
+                }
+
+                size += write(os, "\r\n");
+            }
 
             for (EntityAccount account : accounts) {
                 if (account.synchronize) {
