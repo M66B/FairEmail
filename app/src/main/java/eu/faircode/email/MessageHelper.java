@@ -1876,14 +1876,14 @@ public class MessageHelper {
                 if ((TextUtils.isEmpty(charset) || charset.equalsIgnoreCase(StandardCharsets.US_ASCII.name())))
                     charset = null;
 
-                if (h.isPlainText()) {
-                    Charset cs = null;
-                    try {
-                        if (charset != null)
-                            cs = Charset.forName(charset);
-                    } catch (UnsupportedCharsetException ignored) {
-                    }
+                Charset cs = null;
+                try {
+                    if (charset != null)
+                        cs = Charset.forName(charset);
+                } catch (UnsupportedCharsetException ignored) {
+                }
 
+                if (h.isPlainText()) {
                     if (charset == null || StandardCharsets.ISO_8859_1.equals(cs)) {
                         Charset detected = CharsetHelper.detect(result);
                         if (StandardCharsets.ISO_8859_1.equals(cs) &&
@@ -1907,26 +1907,27 @@ public class MessageHelper {
                         result = HtmlHelper.flow(result);
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (h.isHtml()) {
-                    if (charset == null) {
-                        if (CharsetHelper.isUTF8(result))
-                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                    } else {
-                        // Fix incorrect UTF16
-                        try {
-                            Charset c = Charset.forName(charset);
-                            if (CHARSET16.contains(c)) {
-                                Charset detected = CharsetHelper.detect(result);
-                                if (!CHARSET16.contains(detected))
-                                    Log.e(new Throwable("Charset=" + c + " detected=" + detected));
-                                if (StandardCharsets.US_ASCII.equals(detected) ||
-                                        StandardCharsets.UTF_8.equals(detected)) {
-                                    charset = null;
-                                    result = new String(result.getBytes(c), detected);
-                                }
+                    // Conditionally upgrade to UTF8
+                    if ((cs == null ||
+                            StandardCharsets.US_ASCII.equals(cs) ||
+                            StandardCharsets.ISO_8859_1.equals(cs)) &&
+                            CharsetHelper.isUTF8(result))
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+
+                    // Fix incorrect UTF16
+                    try {
+                        if (CHARSET16.contains(cs)) {
+                            Charset detected = CharsetHelper.detect(result);
+                            if (!CHARSET16.contains(detected))
+                                Log.e(new Throwable("Charset=" + cs + " detected=" + detected));
+                            if (StandardCharsets.US_ASCII.equals(detected) ||
+                                    StandardCharsets.UTF_8.equals(detected)) {
+                                charset = null;
+                                result = new String(result.getBytes(cs), detected);
                             }
-                        } catch (Throwable ex) {
-                            Log.w(ex);
                         }
+                    } catch (Throwable ex) {
+                        Log.w(ex);
                     }
 
                     if (charset == null) {
