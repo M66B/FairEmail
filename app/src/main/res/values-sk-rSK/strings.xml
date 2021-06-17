@@ -189,6 +189,8 @@
     <string name="title_setup_doze_instructions">V nasledujúsom dialógu systému android zmeňte \"Neoptimalizované\" na \"Všetky aplikácie\", nájdite túto aplikáciu a nastavte \"Neoptimalizovať\"</string>
     <string name="title_setup_doze_battery">Vysoká spotreba batérie?</string>
     <string name="title_setup_doze_stopped">Zastavila sa synchronizácia?</string>
+    <string name="title_setup_doze_device">Je to vyžadované pre toto zariadenie</string>
+    <string name="title_setup_doze_android">Je to vyžadované pre túto verziu systému android</string>
     <string name="title_setup_background">Obmedzenia spustenia na pozadí sú aktívne</string>
     <string name="title_setup_data">Šetrenie údajov je povolené</string>
     <string name="title_setup_advanced_options">Zobraziť rozšírené možnosti</string>
@@ -453,6 +455,7 @@
     <string name="title_advanced_confirm_html">Predvolene zobraziť preformátované správy</string>
     <string name="title_advanced_tracking">Pokúsiť sa rozpoznať a zakázať sledovacie obrázky</string>
     <string name="title_advanced_hide_timezone">Posielať správy bez informácií o časovom pásme</string>
+    <string name="title_advanced_client_id">Odosielať meno aplikácie a číslo verzie na poštový server</string>
     <string name="title_advanced_display_hidden">Zobrazovať skrytý text správy</string>
     <string name="title_advanced_incognito_keyboard">Inkognito režim klávesnice (Android 8+)</string>
     <string name="title_advanced_secure">Skryť FairEmail z obrazovky posledných aplikácií a zabrániť získavaniu screenshotov</string>
@@ -1076,6 +1079,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_with_encrypted">Zašifrované (len na tomto zariadení)</string>
     <string name="title_search_with_attachments">S prílohamy (len na tomto zariadení)</string>
     <string name="title_search_with_size">Veľkosť správy väčšia než</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">V odstránených</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">V nevyžiadaných</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">neprečítané</string>

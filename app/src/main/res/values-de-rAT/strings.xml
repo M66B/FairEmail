@@ -170,8 +170,8 @@
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
-    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Dies ist wahrscheinlich für dieses Gerät erforderlich</string>
-    <string name="title_setup_doze_android">Dies ist erforderlich für diese Android-Version</string>
+    <string name="title_setup_doze_device">Dies ist möglicherweise für dieses Gerät erforderlich</string>
+    <string name="title_setup_doze_android">Dies ist für diese Android-Version erforderlich</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
     <string name="title_setup_advanced_options">Erweiterte Optionen anzeigen</string>
@@ -1061,6 +1061,8 @@
     <string name="title_search_with_encrypted">Verschlüsselt (nur auf dem Gerät)</string>
     <string name="title_search_with_attachments">Mit Anhängen (nur auf dem Gerät)</string>
     <string name="title_search_with_size">Nachrichtengröße größer als</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Im Papierkorb</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Im Spam-Ordner</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
     <string name="title_search_flag_unseen">Ungelesen</string>

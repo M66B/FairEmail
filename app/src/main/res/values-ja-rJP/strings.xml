@@ -158,6 +158,8 @@
     <string name="title_setup_doze_instructions">次のAndroidダイアログで「最適化されていないアプリ」を「すべてのアプリ」に変更し、このアプリを選択して「最適化しない」を選択します。</string>
     <string name="title_setup_doze_battery">電池消費量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
+    <string name="title_setup_doze_device">これはおそらくこのデバイスに必要です</string>
+    <string name="title_setup_doze_android">このAndroidバージョンには必須です</string>
     <string name="title_setup_background">バックグラウンドの制限は有効です</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
     <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
@@ -1049,6 +1051,8 @@
     <string name="title_search_with_encrypted">暗号化(デバイスのみ)</string>
     <string name="title_search_with_attachments">添付ファイル付き(デバイスのみ)</string>
     <string name="title_search_with_size">メッセージサイズより大きい</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">ごみ箱内</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">迷惑メール内</string>
     <string name="title_search_with_before">前へ</string>
     <string name="title_search_with_after">後で</string>
     <string name="title_search_flag_unseen">未読</string>

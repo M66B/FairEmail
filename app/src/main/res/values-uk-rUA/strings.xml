@@ -177,7 +177,7 @@
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
-    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Це, ймовірно, необхідно для цього пристрою</string>
+    <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
     <string name="title_setup_doze_android">Це потрібно для даної версії Android</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
@@ -1070,6 +1070,8 @@
     <string name="title_search_with_encrypted">Зашифровані (лише на пристрої)</string>
     <string name="title_search_with_attachments">З вкладеннями (лише на пристрої)</string>
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">В корзині</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">У спамі</string>
     <string name="title_search_with_before">До</string>
     <string name="title_search_with_after">Після</string>
     <string name="title_search_flag_unseen">непрочитане</string>

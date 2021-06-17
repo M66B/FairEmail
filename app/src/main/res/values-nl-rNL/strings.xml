@@ -169,7 +169,7 @@
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
-    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Dit is waarschijnlijk nodig voor dit apparaat</string>
+    <string name="title_setup_doze_device">Dit is waarschijnlijk nodig voor dit apparaat</string>
     <string name="title_setup_doze_android">Dit is vereist voor deze Android-versie</string>
     <string name="title_setup_background">Achtergrondbeperkingen zijn ingeschakeld</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
@@ -1063,6 +1063,8 @@
     <string name="title_search_with_encrypted">Versleuteld (alleen op apparaat)</string>
     <string name="title_search_with_attachments">Met bijlagen (alleen op apparaat)</string>
     <string name="title_search_with_size">Berichtgrootte groter dan</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">In prullenbak</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">In spam</string>
     <string name="title_search_with_before">Voor</string>
     <string name="title_search_with_after">Na</string>
     <string name="title_search_flag_unseen">ongelezen</string>

@@ -159,6 +159,8 @@
     <string name="title_setup_doze_instructions">Trong hộp thoại Android tiếp theo, chuyển \"Không được tối ưu hoá\" thành \"Tất cả ứng dụng\", chọn ứng dụng này và chọn \"Không tối ưu hoá\"</string>
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
+    <string name="title_setup_doze_device">Điều này có thể là bắt buộc đối với thiết bị này</string>
+    <string name="title_setup_doze_android">Điều này là bắt buộc đối với phiên bản Android này</string>
     <string name="title_setup_background">Hạn chế trong nền đang bật</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
     <string name="title_setup_advanced_options">Hiện tùy chọn nâng cao</string>

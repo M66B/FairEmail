@@ -169,6 +169,8 @@
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
+    <string name="title_setup_doze_device">Questo è probabilmente necessario per questo dispositivo</string>
+    <string name="title_setup_doze_android">Questo è necessario per questa versione di Android</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
     <string name="title_setup_data">Risparmio dati abilitato</string>
     <string name="title_setup_advanced_options">Mostra le opzioni avanzate</string>
@@ -249,6 +251,7 @@
     <string name="title_advanced_sync_folders">Sincronizza elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
     <string name="title_advanced_subscriptions">Gestisci sottoscrizioni alla cartella</string>
+    <string name="title_advanced_check_authentication">Verifica l\'autenticazione del messaggio</string>
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
@@ -432,6 +435,7 @@
     <string name="title_advanced_confirm_html">Mostra di default i messaggi riformattati</string>
     <string name="title_advanced_tracking">Tenta di riconoscere e disabilitare le immagini di monitoraggio</string>
     <string name="title_advanced_hide_timezone">Invia i messaggi senza fuso orario</string>
+    <string name="title_advanced_client_id">Invia nome e versione dell\'app al server email</string>
     <string name="title_advanced_display_hidden">Mostra i testi dei messaggi nascosti</string>
     <string name="title_advanced_incognito_keyboard">Usa la tastiera in incognito (Android 8+)</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare gli screenshot</string>
@@ -491,6 +495,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia extra della batteria, specialmente se sono memorizzati molti messaggi sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Ciò si applica solo ai messaggi appena ricevuti e può corrompere i gruppi esistenti</string>
     <string name="title_advanced_sync_folders_hint">Disabilitarlo ridurrà in qualche modo l\'uso dei dati e della batteria, ma disabiliterà anche l\'aggiornamento dell\'elenco delle cartelle</string>
+    <string name="title_advanced_check_authentication_hint">Questo controllerà i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguita dal server email</string>
     <string name="title_advanced_check_reply_hint">Questo verificherà se il nome del dominio del mittente e l\'indirizzo di risposta sono uguali</string>
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>

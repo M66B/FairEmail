@@ -169,7 +169,7 @@
     <string name="title_setup_doze_instructions">Dans la prochaine fenêtre de dialogue Android, changez « Non optimisées » en « Toutes les applications », sélectionnez cette application et cochez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la pile?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée?</string>
-    <string name="title_setup_doze_device" comment="title_setup_doze_device&#10;https://dontkillmyapp.com/&#10;">Ceci est probablement nécessaire pour cet appareil</string>
+    <string name="title_setup_doze_device">Ceci est probablement nécessaire pour cet appareil</string>
     <string name="title_setup_doze_android">Ceci est nécessaire pour cette version d\'Android</string>
     <string name="title_setup_background">Les restrictions d\'arrière-plan sont activées</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
@@ -1063,6 +1063,8 @@
     <string name="title_search_with_encrypted">Chiffrés (uniquement sur l’appareil)</string>
     <string name="title_search_with_attachments">Avec des pièces jointes (uniquement sur l’appareil)</string>
     <string name="title_search_with_size">Taille de message supérieure à</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Dans la corbeille</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Dans les indésirables</string>
     <string name="title_search_with_before">Avant</string>
     <string name="title_search_with_after">Après</string>
     <string name="title_search_flag_unseen">non lus</string>
