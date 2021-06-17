@@ -32,7 +32,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
@@ -161,8 +160,6 @@ public class ActivityEML extends ActivityBase {
                 return super.onTouchEvent(widget, buffer, event);
             }
         });
-
-        tvStructure.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Initialize
         if (!Helper.isDarkTheme(this)) {
