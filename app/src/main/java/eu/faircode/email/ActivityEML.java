@@ -32,6 +32,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
@@ -64,6 +65,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
@@ -159,6 +161,8 @@ public class ActivityEML extends ActivityBase {
                 return super.onTouchEvent(widget, buffer, event);
             }
         });
+
+        tvStructure.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Initialize
         if (!Helper.isDarkTheme(this)) {
@@ -337,20 +341,56 @@ public class ActivityEML extends ActivityBase {
 
             private void getStructure(Context context, Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
                 try {
-                    if (level > 0) {
-                        Enumeration<Header> headers = part.getAllHeaders();
-                        while (headers.hasMoreElements()) {
-                            Header header = headers.nextElement();
-                            for (int i = 0; i < level; i++)
-                                ssb.append("  ");
-                            int start = ssb.length();
-                            ssb.append(header.getName());
-                            ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
-                            ssb.append(": ").append(header.getValue()).append('\n');
-                        }
-                        ssb.append('\n');
+                    Enumeration<Header> headers;
+                    if (level == 0) {
+                        List<Header> h = new ArrayList<>();
+
+                        String[] cte = part.getHeader("Content-Transfer-Encoding");
+                        if (cte != null)
+                            for (String header : cte)
+                                h.add(new Header("Content-Transfer-Encoding", header));
+
+                        String[] ct = part.getHeader("Content-Type");
+                        if (ct == null)
+                            h.add(new Header("Content-Type", "text/plain"));
+                        else
+                            for (String header : ct)
+                                h.add(new Header("Content-Type", header));
+
+                        headers = new Enumeration<Header>() {
+                            private int index = -1;
+
+                            @Override
+                            public boolean hasMoreElements() {
+                                return (index + 1 < h.size());
+                            }
+
+                            @Override
+                            public Header nextElement() {
+                                return h.get(++index);
+                            }
+                        };
                     } else
-                        ssb.append(part.getContentType()).append("\n\n");
+                        headers = part.getAllHeaders();
+
+                    while (headers.hasMoreElements()) {
+                        Header header = headers.nextElement();
+                        for (int i = 0; i < level; i++)
+                            ssb.append("  ");
+                        int start = ssb.length();
+                        ssb.append(header.getName());
+                        ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
+                        ssb.append(": ").append(header.getValue()).append('\n');
+                    }
+
+                    for (int i = 0; i < level; i++)
+                        ssb.append("  ");
+                    int size = part.getSize();
+                    ssb.append("Size: ")
+                            .append(size > 0 ? Helper.humanReadableByteCount(size) : "?")
+                            .append('\n');
+
+                    ssb.append('\n');
 
                     if (part.isMimeType("multipart/*")) {
                         Multipart multipart = (Multipart) part.getContent();
@@ -358,10 +398,12 @@ public class ActivityEML extends ActivityBase {
                             try {
                                 getStructure(context, multipart.getBodyPart(i), ssb, level + 1, textColorLink);
                             } catch (Throwable ex) {
+                                Log.w(ex);
                                 ssb.append(ex.toString()).append('\n');
                             }
                     }
                 } catch (Throwable ex) {
+                    Log.w(ex);
                     ssb.append(ex.toString()).append('\n');
                 }
             }
