@@ -285,12 +285,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:fontFamily="monospace"
+                        android:minHeight="30dp"
                         android:text="Structure"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textIsSelectable="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/ibEml"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="3dp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvStructure"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:srcCompat="@drawable/baseline_code_24" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

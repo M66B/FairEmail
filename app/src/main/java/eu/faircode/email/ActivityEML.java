@@ -41,6 +41,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -91,6 +92,7 @@ public class ActivityEML extends ActivityBase {
     private RecyclerView rvAttachment;
     private TextView tvBody;
     private TextView tvStructure;
+    private ImageButton ibEml;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
@@ -119,6 +121,7 @@ public class ActivityEML extends ActivityBase {
         rvAttachment = findViewById(R.id.rvAttachment);
         tvBody = findViewById(R.id.tvBody);
         tvStructure = findViewById(R.id.tvStructure);
+        ibEml = findViewById(R.id.ibEml);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
@@ -158,6 +161,38 @@ public class ActivityEML extends ActivityBase {
                 }
 
                 return super.onTouchEvent(widget, buffer, event);
+            }
+        });
+
+        ibEml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putParcelable("uri", getIntent().getData());
+                new SimpleTask<File>() {
+                    @Override
+                    protected File onExecute(Context context, Bundle args) throws Throwable {
+                        File dir = new File(getCacheDir(), "shared");
+                        if (!dir.exists())
+                            dir.mkdir();
+
+                        File file = new File(dir, "email.eml");
+
+                        Uri uri = args.getParcelable("uri");
+                        Helper.copy(context, uri, file);
+                        return file;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, File file) {
+                        Helper.share(ActivityEML.this, file, "text/plain", file.getName());
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                    }
+                }.execute(ActivityEML.this, args, "eml:share");
             }
         });
 
