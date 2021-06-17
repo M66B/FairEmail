@@ -307,6 +307,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private long primary;
     private boolean connected;
+    private boolean reset = false;
     private boolean initialized = false;
     private boolean loading = false;
     private boolean swiping = false;
@@ -376,8 +377,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             "time", "unread", "starred", "priority"
     ));
 
-    private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(1, "messages");
+    private static ExecutorService executor = Helper.getBackgroundExecutor(1, "decrypt");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -3781,6 +3781,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:reset", reset);
         outState.putBoolean("fair:autoExpanded", autoExpanded);
         outState.putInt("fair:autoCloseCount", autoCloseCount);
 
@@ -3806,6 +3807,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
+            reset = savedInstanceState.getBoolean("fair:reset");
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
             autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
 
@@ -4820,6 +4822,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                 }
             });
+        } else if (viewType == AdapterMessage.ViewType.SEARCH && !reset) {
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    DB.getInstance(context).message().resetSearch();
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    reset = true;
+                    loadMessagesNext(top);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, new Bundle(), "search:reset");
         } else
             loadMessagesNext(top);
     }
@@ -8065,42 +8086,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return;
         }
 
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    DB db = DB.getInstance(context);
-                    db.message().resetSearch();
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
-                    ApplicationEx.getMainHandler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                    manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putLong("folder", folder);
+        args.putBoolean("server", server);
+        args.putSerializable("criteria", criteria);
 
-                                Bundle args = new Bundle();
-                                args.putLong("account", account);
-                                args.putLong("folder", folder);
-                                args.putBoolean("server", server);
-                                args.putSerializable("criteria", criteria);
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(args);
 
-                                FragmentMessages fragment = new FragmentMessages();
-                                fragment.setArguments(args);
-
-                                FragmentTransaction fragmentTransaction = manager.beginTransaction();
-                                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                                fragmentTransaction.commit();
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                        }
-                    });
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+        fragmentTransaction.commit();
     }
 
     private static class ActionData {
