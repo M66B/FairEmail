@@ -353,7 +353,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    private int load_server(final State state) throws MessagingException, IOException {
+    private int load_server(final State state) throws MessagingException, ProtocolException, IOException {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -418,73 +418,79 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     else
                         state.imessages = state.ifolder.search(new AndTerm(and.toArray(new SearchTerm[0])));
                     EntityLog.log(context, "Boundary filter messages=" + state.imessages.length);
-                } else {
-                    Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                        @Override
-                        public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                            try {
-                                // https://tools.ietf.org/html/rfc3501#section-6.4.4
-                                if (criteria.query != null &&
-                                        criteria.query.startsWith("raw:") &&
-                                        protocol.hasCapability("X-GM-EXT-1") &&
-                                        EntityFolder.ARCHIVE.equals(browsable.type)) {
-                                    // https://support.google.com/mail/answer/7190
-                                    // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
-                                    Log.i("Boundary raw search=" + criteria.query);
+                } else
+                    try {
+                        Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                            @Override
+                            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                try {
+                                    // https://tools.ietf.org/html/rfc3501#section-6.4.4
+                                    if (criteria.query != null &&
+                                            criteria.query.startsWith("raw:") &&
+                                            protocol.hasCapability("X-GM-EXT-1") &&
+                                            EntityFolder.ARCHIVE.equals(browsable.type)) {
+                                        // https://support.google.com/mail/answer/7190
+                                        // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
+                                        Log.i("Boundary raw search=" + criteria.query);
 
-                                    Argument arg = new Argument();
-                                    arg.writeAtom("X-GM-RAW");
-                                    arg.writeString(criteria.query.substring(4));
+                                        Argument arg = new Argument();
+                                        arg.writeAtom("X-GM-RAW");
+                                        arg.writeString(criteria.query.substring(4));
 
-                                    Response[] responses = protocol.command("SEARCH", arg);
-                                    if (responses.length == 0)
-                                        throw new ProtocolException("No response");
-                                    if (!responses[responses.length - 1].isOK())
-                                        throw new ProtocolException(
-                                                context.getString(R.string.title_service_auth, responses[responses.length - 1]));
+                                        Response[] responses = protocol.command("SEARCH", arg);
+                                        if (responses.length == 0)
+                                            throw new ProtocolException("No response");
+                                        if (!responses[responses.length - 1].isOK())
+                                            throw new ProtocolException(
+                                                    context.getString(R.string.title_service_auth, responses[responses.length - 1]));
 
-                                    List<Integer> msgnums = new ArrayList<>();
-                                    for (Response response : responses)
-                                        if (((IMAPResponse) response).keyEquals("SEARCH")) {
-                                            int msgnum;
-                                            while ((msgnum = response.readNumber()) != -1)
-                                                msgnums.add(msgnum);
+                                        List<Integer> msgnums = new ArrayList<>();
+                                        for (Response response : responses)
+                                            if (((IMAPResponse) response).keyEquals("SEARCH")) {
+                                                int msgnum;
+                                                while ((msgnum = response.readNumber()) != -1)
+                                                    msgnums.add(msgnum);
+                                            }
+
+                                        Message[] imessages = new Message[msgnums.size()];
+                                        for (int i = 0; i < msgnums.size(); i++)
+                                            imessages[i] = state.ifolder.getMessage(msgnums.get(i));
+
+                                        return imessages;
+                                    } else {
+                                        EntityLog.log(context, "Boundary server" +
+                                                " account=" + account +
+                                                " folder=" + folder +
+                                                " search=" + criteria);
+
+                                        try {
+                                            return search(true, browsable.keywords, protocol, state);
+                                        } catch (Throwable ex) {
+                                            EntityLog.log(context, ex.toString());
                                         }
 
-                                    Message[] imessages = new Message[msgnums.size()];
-                                    for (int i = 0; i < msgnums.size(); i++)
-                                        imessages[i] = state.ifolder.getMessage(msgnums.get(i));
-
-                                    return imessages;
-                                } else {
-                                    EntityLog.log(context, "Boundary server" +
-                                            " account=" + account +
-                                            " folder=" + folder +
-                                            " search=" + criteria);
-
-                                    try {
-                                        return search(true, browsable.keywords, protocol, state);
-                                    } catch (Throwable ex) {
-                                        EntityLog.log(context, ex.toString());
+                                        return search(false, browsable.keywords, protocol, state);
                                     }
-
-                                    return search(false, browsable.keywords, protocol, state);
+                                } catch (Throwable ex) {
+                                    String msg;
+                                    if (ex instanceof ProtocolException)
+                                        msg = context.getString(R.string.title_service_auth, account.host + ": " + ex.getMessage());
+                                    else
+                                        msg = "Search " + account.host;
+                                    ProtocolException pex = new ProtocolException(msg, ex);
+                                    Log.e(pex);
+                                    throw pex;
                                 }
-                            } catch (Throwable ex) {
-                                String msg;
-                                if (ex instanceof ProtocolException)
-                                    msg = context.getString(R.string.title_service_auth, account.host + ": " + ex.getMessage());
-                                else
-                                    msg = "Search " + account.host;
-                                ProtocolException pex = new ProtocolException(msg, ex);
-                                Log.e(pex);
-                                throw pex;
                             }
-                        }
-                    });
+                        });
 
-                    state.imessages = (Message[]) result;
-                }
+                        state.imessages = (Message[]) result;
+                    } catch (MessagingException ex) {
+                        if (ex.getCause() instanceof ProtocolException)
+                            throw (ProtocolException) ex.getCause();
+                        else
+                            throw ex;
+                    }
                 EntityLog.log(context, "Boundary found messages=" + state.imessages.length);
 
                 state.index = state.imessages.length - 1;
