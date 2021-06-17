@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-class CharsetHelper {
+public class CharsetHelper {
     private static final int MAX_SAMPLE_SIZE = 8192;
     private static String CHINESE = new Locale("zh").getLanguage();
     private static final List<String> COMMON = Collections.unmodifiableList(Arrays.asList(
@@ -62,7 +62,7 @@ class CharsetHelper {
         }
     }
 
-    static Charset detect(String text) {
+    public static Charset detect(String text) {
         try {
             byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
 
