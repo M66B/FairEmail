@@ -188,7 +188,7 @@
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
-    <string name="title_setup_doze_device">To jest prawdopodobnie wymagane dla tego urządzenia</string>
+    <string name="title_setup_doze_device">Prawdopodobnie jest to wymagane dla tego urządzenia</string>
     <string name="title_setup_doze_android">To jest wymagane dla tej wersji Androida</string>
     <string name="title_setup_background">Ograniczenia w tle są włączone</string>
     <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
@@ -1082,6 +1082,8 @@
     <string name="title_search_with_encrypted">Zaszyfrowane (tylko na urządzeniu)</string>
     <string name="title_search_with_attachments">Z załącznikami (tylko na urządzeniu)</string>
     <string name="title_search_with_size">Rozmiar wiadomości większy niż</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">W folderze Kosz</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">W folderze Spam</string>
     <string name="title_search_with_before">Przed</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">nieprzeczytane</string>

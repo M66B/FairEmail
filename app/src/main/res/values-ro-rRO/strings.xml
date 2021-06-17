@@ -1072,6 +1072,8 @@
     <string name="title_search_with_encrypted">Criptat (doar pe dispozitiv)</string>
     <string name="title_search_with_attachments">Cu atașamente (doar pe dispozitiv)</string>
     <string name="title_search_with_size">Dimensiune mesaj mai mare decât</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">În coșul de gunoi</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">În spam</string>
     <string name="title_search_with_before">Înainte de</string>
     <string name="title_search_with_after">După</string>
     <string name="title_search_flag_unseen">necitit</string>

@@ -157,6 +157,7 @@
     <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
+    <string name="title_setup_doze_android">Ini dibutuhkan untuk versi Android ini</string>
     <string name="title_setup_background">Pembatasan pada latar belakang telah diaktifkan</string>
     <string name="title_setup_data">Penghemat kuota diaktifkan</string>
     <string name="title_setup_advanced_options">Tampilkan opsi lanjutan</string>
@@ -987,6 +988,8 @@
     <string name="title_search_with_encrypted">Dienkripsi (hanya di perangkat)</string>
     <string name="title_search_with_attachments">Memiliki lampiran (hanya di perangkat)</string>
     <string name="title_search_with_size">Ukuran pesan lebih besar dari</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Di tempat sampah</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Di spam</string>
     <string name="title_search_with_before">Sebelum</string>
     <string name="title_search_with_after">Sesudah</string>
     <string name="title_search_flag_unseen">belum dibaca</string>
