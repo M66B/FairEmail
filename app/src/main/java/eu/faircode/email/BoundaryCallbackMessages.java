@@ -913,6 +913,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.with_notes == other.with_notes &&
                         Arrays.equals(this.with_types, other.with_types) &&
                         Objects.equals(this.with_size, other.with_size) &&
+                        this.in_trash == other.in_trash &&
+                        this.in_junk == other.in_junk &&
                         Objects.equals(this.after, other.after) &&
                         Objects.equals(this.before, other.before));
             } else
