@@ -227,7 +227,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         cbHeaders.setVisibility(View.VISIBLE);
                         cbHtml.setVisibility(View.VISIBLE);
                     }
-                    if (account < 0) {
+                    if (folder < 0) {
                         cbSearchTrash.setVisibility(View.VISIBLE);
                         cbSearchJunk.setVisibility(View.VISIBLE);
                     }

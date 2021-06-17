@@ -225,7 +225,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 " matches=" + (state.matches == null ? null : state.matches.size()));
 
         long[] exclude = new long[0];
-        if (account == null) {
+        if (folder == null) {
             List<Long> folders = new ArrayList<>();
             if (!criteria.in_trash) {
                 List<EntityFolder> trash = db.folder().getFoldersByType(EntityFolder.TRASH);
