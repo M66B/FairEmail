@@ -1033,6 +1033,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         try {
             Log.i("Update usage");
 
+            Bundle args = new Bundle();
+
             new SimpleTask<StorageData>() {
                 @Override
                 protected StorageData onExecute(Context context, Bundle args) throws Throwable {
@@ -1071,7 +1073,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 protected void onException(Bundle args, Throwable ex) {
                     Log.e(ex);
                 }
-            }.execute(this, null, "usage");
+            }.execute(this, args, "usage");
         } catch (Throwable ex) {
             Log.e(ex);
         }
