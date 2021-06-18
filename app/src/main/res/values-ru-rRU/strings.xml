@@ -1062,6 +1062,12 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_for_hint">Введите текст</string>
+    <string name="title_search_hint">        Поиск изначально ищет сообщения, хранящиеся на вашем устройстве.
+        Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
+    </string>
+    <string name="title_search_index_hint">        Поиск по индексу быстрый, но находит только целые слова.
+        Параметры ниже для продолжения поиска по серверу электронной почты.
+    </string>
     <string name="title_search_text_hint">Поиск содержащих определённый текст сообщений при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_size_hint">Поиск сообщений по размеру при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_more">Дополнительные параметры</string>

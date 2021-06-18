@@ -1042,6 +1042,10 @@
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_for_hint">Text eingeben</string>
+    <string name="title_search_hint">Zuerst wird Ihr Gerät durchsucht.
+Um auch auf dem Server zu suchen, tippen Sie auf die Schaltfläche „Erneut suchen”.    </string>
+    <string name="title_search_index_hint">Das Suchen über den Suchindex ist schnell, findet aber nur ganze Wörter.
+Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fortsetzen.    </string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_size_hint">Die Nachrichtensuche nach Größe funktioniert, bei einer großen Anzahl von Nachrichten, auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_more">Weitere Optionen</string>

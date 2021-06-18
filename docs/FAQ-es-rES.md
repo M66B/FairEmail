@@ -742,7 +742,7 @@ You can start searching for messages on sender (from), recipient (to, cc, bcc), 
 
 Searching in the unified inbox will search in all folders of all accounts, searching in the folder list will search in the associated account only and searching in a folder will search in that folder only.
 
-Messages will be searched for on the device first. There will be an action button with a search again icon at the bottom to continue searching on the server. You can select in which folder to continue the search.
+Messages will be searched for on the device first. Habrá un botón de acción con un icono de buscar de nuevo en la parte inferior para continuar la búsqueda en el servidor. You can select in which folder to continue the search.
 
 The IMAP protocol doesn't support searching in more than one folder at the same time. Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
 
