@@ -158,6 +158,8 @@
     <string name="title_setup_doze_instructions">请在下一页面中，将 \"未优化\" 切换为 \"所有应用\"，然后下拉找到本应用，并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
+    <string name="title_setup_doze_device">对此设备来说，这可能是必需的</string>
+    <string name="title_setup_doze_android">这是此 Android 版本所需的</string>
     <string name="title_setup_background">已启用后台限制</string>
     <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_advanced_options">显示高级选项</string>
@@ -422,6 +424,7 @@
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
     <string name="title_advanced_tracking">尝试识别和禁用跟踪图像</string>
     <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
+    <string name="title_advanced_client_id">将应用名称和版本发送到电子邮件服务器</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_incognito_keyboard">使用隐身键盘 (Android 8+)</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
@@ -1049,6 +1052,8 @@
     <string name="title_search_with_encrypted">加密邮件 (仅设备)</string>
     <string name="title_search_with_attachments">带附件的邮件 (仅设备)</string>
     <string name="title_search_with_size">消息大小大于</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">在回收站</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">在垃圾邮件箱</string>
     <string name="title_search_with_before">早于</string>
     <string name="title_search_with_after">晚于</string>
     <string name="title_search_flag_unseen">未读</string>

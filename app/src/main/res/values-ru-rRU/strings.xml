@@ -190,7 +190,7 @@
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
     <string name="title_setup_doze_device">Вероятно, это необходимо для вашего устройства</string>
-    <string name="title_setup_doze_android">Это необходимо для этой версии Android</string>
+    <string name="title_setup_doze_android">Необходимо для этой версии Android</string>
     <string name="title_setup_background">Фоновые ограничения включены</string>
     <string name="title_setup_data">Сохранение данных включено</string>
     <string name="title_setup_advanced_options">Дополнительно</string>
@@ -1083,8 +1083,8 @@
     <string name="title_search_with_encrypted">Зашифровано (только на устройстве)</string>
     <string name="title_search_with_attachments">С вложениями (только на устройстве)</string>
     <string name="title_search_with_size">Размер сообщения больше</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">В Корзине</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">В Спаме</string>
+    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">В корзине</string>
+    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">В спаме</string>
     <string name="title_search_with_before">Перед</string>
     <string name="title_search_with_after">После</string>
     <string name="title_search_flag_unseen">не прочитано</string>
