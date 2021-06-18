@@ -1406,43 +1406,39 @@ class Core {
             boolean download = db.folder().getFolderDownload(folder.id);
             List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
-            try {
-                FetchProfile fp = new FetchProfile();
-                fp.add(FetchProfile.Item.ENVELOPE);
-                fp.add(FetchProfile.Item.FLAGS);
-                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-                //fp.add(UIDFolder.FetchProfileItem.UID);
-                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-                //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-                fp.add(FetchProfile.Item.SIZE);
-                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                if (account.isGmail()) {
-                    fp.add(GmailFolder.FetchProfileItem.THRID);
-                    fp.add(GmailFolder.FetchProfileItem.LABELS);
-                }
-                ifolder.fetch(new Message[]{imessage}, fp);
-
-                EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state, stats);
-                if (message != null) {
-                    if (account.isGmail() && EntityFolder.USER.equals(folder.type))
-                        try {
-                            JSONArray jlabel = new JSONArray();
-                            jlabel.put(0, folder.name);
-                            jlabel.put(1, true);
-                            onLabel(context, jlabel, folder, message, istore, ifolder, state);
-                        } catch (Throwable ex1) {
-                            Log.e(ex1);
-                        }
-
-                    if (download)
-                        downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
-                }
-
-                if (!stats.isEmpty())
-                    EntityLog.log(context, account.name + "/" + folder.name + " fetch stats " + stats);
-            } finally {
-                ((IMAPMessage) imessage).invalidateHeaders();
+            FetchProfile fp = new FetchProfile();
+            fp.add(FetchProfile.Item.ENVELOPE);
+            fp.add(FetchProfile.Item.FLAGS);
+            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+            //fp.add(UIDFolder.FetchProfileItem.UID);
+            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            fp.add(FetchProfile.Item.SIZE);
+            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+            if (account.isGmail()) {
+                fp.add(GmailFolder.FetchProfileItem.THRID);
+                fp.add(GmailFolder.FetchProfileItem.LABELS);
             }
+            ifolder.fetch(new Message[]{imessage}, fp);
+
+            EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state, stats);
+            if (message != null) {
+                if (account.isGmail() && EntityFolder.USER.equals(folder.type))
+                    try {
+                        JSONArray jlabel = new JSONArray();
+                        jlabel.put(0, folder.name);
+                        jlabel.put(1, true);
+                        onLabel(context, jlabel, folder, message, istore, ifolder, state);
+                    } catch (Throwable ex1) {
+                        Log.e(ex1);
+                    }
+
+                if (download)
+                    downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, stats);
+            }
+
+            if (!stats.isEmpty())
+                EntityLog.log(context, account.name + "/" + folder.name + " fetch stats " + stats);
         } catch (MessageRemovedException | MessageRemovedIOException ex) {
             Log.i(ex);
 
@@ -2981,7 +2977,7 @@ class Core {
                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                         } finally {
                             // Free memory
-                            ((IMAPMessage) isub[j]).invalidateHeaders();
+                            isub[j] = null;
                         }
                 }
             }
@@ -3051,7 +3047,6 @@ class Core {
                         } finally {
                             // Free memory
                             isub[j] = null;
-                            //((IMAPMessage) isub[j]).invalidateHeaders();
                         }
                 }
             }

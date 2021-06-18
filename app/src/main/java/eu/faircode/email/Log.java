@@ -1410,12 +1410,6 @@ public class Log {
                 return null;
 
             if (ex instanceof MessagingException &&
-                    ex.getMessage() != null &&
-                    ex.getMessage().contains("invalid message sequence number"))
-                // invalid message sequence number: message is probably expunged
-                return null;
-
-            if (ex instanceof MessagingException &&
                     ex.getCause() instanceof ConnectionException &&
                     ex.getCause().getMessage() != null &&
                     (ex.getCause().getMessage().contains("Read error") ||

@@ -582,7 +582,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                 } finally {
                     isub[j] = null;
-                    //((IMAPMessage) isub[j]).invalidateHeaders();
                 }
         }
 
