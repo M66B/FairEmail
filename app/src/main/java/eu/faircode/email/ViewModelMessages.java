@@ -54,7 +54,7 @@ public class ViewModelMessages extends ViewModel {
         public Model put(AdapterMessage.ViewType key, Model value) {
             Model existing = this.get(key);
             if (existing != null && existing.boundary != null)
-                existing.boundary.destroy();
+                existing.boundary.destroy(existing.boundary.getState());
             return super.put(key, value);
         }
 
@@ -63,7 +63,7 @@ public class ViewModelMessages extends ViewModel {
         public Model remove(@Nullable Object key) {
             Model existing = this.get(key);
             if (existing != null && existing.boundary != null)
-                existing.boundary.destroy();
+                existing.boundary.destroy(existing.boundary.getState());
             return super.remove(key);
         }
     };
@@ -518,12 +518,12 @@ public class ViewModelMessages extends ViewModel {
 
         void setCallback(LifecycleOwner owner, BoundaryCallbackMessages.IBoundaryCallbackMessages callback) {
             if (boundary != null) {
-                boundary.setCallback(callback);
+                BoundaryCallbackMessages.State state = boundary.setCallback(callback);
 
                 owner.getLifecycle().addObserver(new LifecycleObserver() {
                     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                     public void onDestroyed() {
-                        boundary.destroy();
+                        boundary.destroy(state);
                     }
                 });
             }

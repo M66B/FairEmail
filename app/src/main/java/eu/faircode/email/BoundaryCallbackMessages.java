@@ -111,9 +111,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.pageSize = pageSize;
     }
 
-    void setCallback(IBoundaryCallbackMessages intf) {
+    State setCallback(IBoundaryCallbackMessages intf) {
         this.intf = intf;
         this.state = new State();
+        return this.state;
     }
 
     @Override
@@ -160,8 +161,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 int found = 0;
                 try {
-                    if (state.destroyed || state.error)
+                    if (state.destroyed || state.error) {
+                        Log.i("Boundary was destroyed");
                         return;
+                    }
+                    if (!Objects.equals(state, BoundaryCallbackMessages.this.state)) {
+                        Log.i("Boundary changed state");
+                        return;
+                    }
 
                     if (intf != null)
                         ApplicationEx.getMainHandler().post(new Runnable() {
@@ -631,16 +638,18 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return imessages;
     }
 
-    void destroy() {
-        final State old = this.state;
-        old.destroyed = true;
+    State getState() {
+        return this.state;
+    }
 
-        this.state = new State();
+    void destroy(State state) {
+        state.destroyed = true;
+        Log.i("Boundary destroy");
 
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                close(old, true);
+                close(state, true);
             }
         });
     }
@@ -666,7 +675,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             state.reset();
     }
 
-    private static class State {
+    static class State {
         int queued = 0;
         boolean destroyed = false;
         boolean error = false;
