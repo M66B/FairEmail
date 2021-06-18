@@ -1546,7 +1546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvExpand.setVisibility(View.GONE);
             else {
                 tvExpand.setText(context.getString(R.string.title_expand_warning,
-                        message.size == null ? "?" : Helper.humanReadableByteCount(message.size)));
+                        message.size == null ? "? kB" : Helper.humanReadableByteCount(message.size)));
                 tvExpand.setVisibility(View.VISIBLE);
             }
         }
