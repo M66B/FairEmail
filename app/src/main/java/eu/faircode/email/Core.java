@@ -1397,16 +1397,10 @@ class Core {
                 throw new MessageRemovedException("removed uid=" + uid);
             }
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-
             MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
             if (imessage == null)
                 throw new MessageRemovedException(folder.name + " fetch not found uid=" + uid);
-            if (imessage.isExpunged())
-                throw new MessageRemovedException(folder.name + " fetch expunged uid=" + uid);
-            if (perform_expunge && imessage.isSet(Flags.Flag.DELETED))
-                throw new MessageRemovedException(folder.name + " fetch deleted uid=" + uid);
+            // synchronizeMessage will check expunged/deleted
 
             SyncStats stats = new SyncStats();
             boolean download = db.folder().getFolderDownload(folder.id);
