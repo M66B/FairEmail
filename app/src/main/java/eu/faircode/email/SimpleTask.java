@@ -56,6 +56,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private long started;
     private boolean reported;
     private boolean interrupted;
+    private Lifecycle.State state;
     private Future<?> future;
     private ExecutorService localExecutor;
 
@@ -181,7 +182,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 ApplicationEx.getMainHandler().post(new Runnable() {
                     @Override
                     public void run() {
-                        Lifecycle.State state = owner.getLifecycle().getCurrentState();
+                        state = owner.getLifecycle().getCurrentState();
                         if (state.equals(Lifecycle.State.DESTROYED)) {
                             // No delivery
                             cleanup(context);
@@ -195,7 +196,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             owner.getLifecycle().addObserver(new LifecycleObserver() {
                                 @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
                                 public void onAny() {
-                                    Lifecycle.State state = owner.getLifecycle().getCurrentState();
+                                    state = owner.getLifecycle().getCurrentState();
                                     if (state.equals(Lifecycle.State.DESTROYED)) {
                                         Log.i("Destroyed task " + name);
                                         owner.getLifecycle().removeObserver(this);
@@ -275,22 +276,26 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void updateTaskCount(Context context) {
+        // Check tasks
         long now = new Date().getTime();
         synchronized (tasks) {
-            for (SimpleTask task : tasks) {
-                long elapsed = now - task.started;
-                if (elapsed > CANCEL_AFTER && !task.interrupted && task.started > 0) {
-                    task.interrupted = true;
-                    if (task.future != null && !task.future.isDone())
-                        task.future.cancel(true);
-                } else if (elapsed > REPORT_AFTER && !task.reported) {
-                    task.reported = true;
-                    Log.e("Long running task " + task.name +
-                            " elapsed=" + (task.started == 0 ? null : elapsed / 1000) +
-                            " done=" + (task.future == null ? null : task.future.isDone()) +
-                            " cancelled=" + (task.future == null ? null : task.future.isCancelled()));
+            for (SimpleTask task : tasks)
+                if (!BuildConfig.PLAY_STORE_RELEASE ||
+                        (task.future != null && !task.future.isDone())) {
+                    long elapsed = now - task.started;
+                    if (elapsed > CANCEL_AFTER && !task.interrupted) {
+                        task.interrupted = true;
+                        if (task.future != null && !task.future.isDone()) {
+                            Log.e("Interrupting task " + task +
+                                    " tasks=" + getCountLocked() + "/" + tasks.size());
+                            task.future.cancel(true);
+                        }
+                    } else if (elapsed > REPORT_AFTER && !task.reported) {
+                        task.reported = true;
+                        Log.e("Long running task " + task +
+                                " tasks=" + getCountLocked() + "/" + tasks.size());
+                    }
                 }
-            }
         }
 
         int executing = getCount();
@@ -319,17 +324,22 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         return name +
                 " elapsed=" + (started == 0 ? null : elapsed / 1000) +
                 " done=" + (future == null ? null : future.isDone()) +
-                " cancelled=" + (future == null ? null : future.isCancelled());
+                " cancelled=" + (future == null ? null : future.isCancelled() +
+                " state=" + state);
     }
 
     static int getCount() {
-        int executing = 0;
         synchronized (tasks) {
-            for (SimpleTask task : tasks)
-                if (task.count &&
-                        task.future != null && !task.future.isDone())
-                    executing++;
+            return getCountLocked();
         }
+    }
+
+    private static int getCountLocked() {
+        int executing = 0;
+        for (SimpleTask task : tasks)
+            if (task.count &&
+                    task.future != null && !task.future.isDone())
+                executing++;
         return executing;
     }
 
