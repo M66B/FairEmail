@@ -540,23 +540,24 @@ public class FragmentOAuth extends FragmentBase {
                             }
 
                             if (jpayload.has("verified_primary_email")) {
-                                String u = jpayload.getString("verified_primary_email");
-                                if (!TextUtils.isEmpty(u) && !usernames.contains(u))
-                                    usernames.add(u);
+                                JSONArray jsecondary =
+                                        jpayload.getJSONArray("verified_primary_email");
+                                for (int i = 0; i < jsecondary.length(); i++) {
+                                    String u = jsecondary.getString(i);
+                                    if (!TextUtils.isEmpty(u) && !usernames.contains(u))
+                                        usernames.add(u);
+                                }
                             }
 
-                            if (jpayload.has("verified_secondary_email"))
-                                try {
-                                    JSONArray jsecondary =
-                                            jpayload.getJSONArray("verified_secondary_email");
-                                    for (int i = 0; i < jsecondary.length(); i++) {
-                                        String u = jsecondary.getString(i);
-                                        if (!TextUtils.isEmpty(u) && !usernames.contains(u))
-                                            usernames.add(u);
-                                    }
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
+                            if (jpayload.has("verified_secondary_email")) {
+                                JSONArray jsecondary =
+                                        jpayload.getJSONArray("verified_secondary_email");
+                                for (int i = 0; i < jsecondary.length(); i++) {
+                                    String u = jsecondary.getString(i);
+                                    if (!TextUtils.isEmpty(u) && !usernames.contains(u))
+                                        usernames.add(u);
                                 }
+                            }
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
