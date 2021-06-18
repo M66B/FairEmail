@@ -71,6 +71,7 @@ import net.openid.appauth.browser.Browsers;
 import net.openid.appauth.browser.VersionRange;
 import net.openid.appauth.browser.VersionedBrowserMatcher;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
@@ -487,16 +488,19 @@ public class FragmentOAuth extends FragmentBase {
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
                             EntityLog.log(context, "token payload=" + payload);
                             JSONObject jpayload = new JSONObject(payload);
+
                             if (jpayload.has("preferred_username")) {
                                 String u = jpayload.getString("preferred_username");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
                                     usernames.add(u);
                             }
+
                             if (jpayload.has("unique_name")) {
                                 String u = jpayload.getString("unique_name");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
                                     usernames.add(u);
                             }
+
                             if (jpayload.has("upn")) {
                                 String u = jpayload.getString("upn");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
@@ -516,21 +520,43 @@ public class FragmentOAuth extends FragmentBase {
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
                             EntityLog.log(context, "jwt payload=" + payload);
                             JSONObject jpayload = new JSONObject(payload);
+
                             if (jpayload.has("preferred_username")) {
                                 String u = jpayload.getString("preferred_username");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
                                     usernames.add(u);
                             }
+
                             if (jpayload.has("email")) {
                                 String u = jpayload.getString("email");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
                                     usernames.add(u);
                             }
+
                             if (jpayload.has("unique_name")) {
                                 String u = jpayload.getString("unique_name");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
                                     usernames.add(u);
                             }
+
+                            if (jpayload.has("verified_primary_email")) {
+                                String u = jpayload.getString("verified_primary_email");
+                                if (!TextUtils.isEmpty(u) && !usernames.contains(u))
+                                    usernames.add(u);
+                            }
+
+                            if (jpayload.has("verified_secondary_email"))
+                                try {
+                                    JSONArray jsecondary =
+                                            jpayload.getJSONArray("verified_secondary_email");
+                                    for (int i = 0; i < jsecondary.length(); i++) {
+                                        String u = jsecondary.getString(i);
+                                        if (!TextUtils.isEmpty(u) && !usernames.contains(u))
+                                            usernames.add(u);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
