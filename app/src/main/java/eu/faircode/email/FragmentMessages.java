@@ -4822,25 +4822,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                 }
             });
-        } else if (viewType == AdapterMessage.ViewType.SEARCH && !reset) {
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    DB.getInstance(context).message().resetSearch();
-                    return null;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Void data) {
-                    reset = true;
-                    loadMessagesNext(top);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getParentFragmentManager(), ex);
-                }
-            }.execute(this, new Bundle(), "search:reset");
         } else
             loadMessagesNext(top);
     }
