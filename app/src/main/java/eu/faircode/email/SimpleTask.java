@@ -53,7 +53,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean count = true;
 
     private String name;
-    private long created;
     private long started;
     private boolean reported;
     private boolean interrupted;
@@ -69,10 +68,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static final int CANCEL_AFTER = MAX_WAKELOCK; // milliseconds
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
-
-    public SimpleTask() {
-        created = new Date().getTime();
-    }
 
     public SimpleTask<T> setLog(boolean log) {
         this.log = log;
@@ -280,17 +275,15 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         long now = new Date().getTime();
         synchronized (tasks) {
             for (SimpleTask task : tasks) {
-                long pending = now - task.created;
                 long elapsed = now - task.started;
                 if (elapsed > CANCEL_AFTER && !task.interrupted && task.started > 0) {
                     task.interrupted = true;
                     if (task.future != null && !task.future.isDone())
                         task.future.cancel(true);
-                } else if (pending > REPORT_AFTER && !task.reported) {
+                } else if (elapsed > REPORT_AFTER && !task.reported) {
                     task.reported = true;
                     Log.e("Long running task " + task.name +
-                            " pending=" + (pending / 1000) +
-                            " elapsed=" + (elapsed / 1000) +
+                            " elapsed=" + (task.started == 0 ? null : elapsed / 1000) +
                             " done=" + (task.future == null ? null : task.future.isDone()) +
                             " cancelled=" + (task.future == null ? null : task.future.isCancelled()));
                 }
@@ -319,11 +312,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     @Override
     public String toString() {
         long now = new Date().getTime();
-        long pending = now - created;
-        long elapsed = now - started;
-        return name +
-                " pending=" + (pending / 1000) + "s" +
-                " elapsed=" + (elapsed / 1000) + "s";
+        return name + " elapsed=" +
+                (started == 0 ? null : (now - started) / 1000) + "s";
     }
 
     static int getCount() {
