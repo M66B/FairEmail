@@ -3563,7 +3563,7 @@ public class FragmentCompose extends FragmentBase {
 
 
         Log.i("Run execute id=" + working + " reason=" + reason);
-        actionLoader.execute(this, args, "compose:action:" + action);
+        actionLoader.execute(this, args, "compose:action:" + getActionName(action));
     }
 
     private static EntityAttachment addAttachment(
@@ -5575,23 +5575,6 @@ public class FragmentCompose extends FragmentBase {
             }
         }
 
-        private String getActionName(int id) {
-            if (id == R.id.action_delete) {
-                return "delete";
-            } else if (id == R.id.action_undo) {
-                return "undo";
-            } else if (id == R.id.action_redo) {
-                return "redo";
-            } else if (id == R.id.action_save) {
-                return "save";
-            } else if (id == R.id.action_check) {
-                return "check";
-            } else if (id == R.id.action_send) {
-                return "send";
-            }
-            return Integer.toString(id);
-        }
-
         private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {
             if (addresses == null)
                 return;
@@ -5620,6 +5603,23 @@ public class FragmentCompose extends FragmentBase {
                 DnsHelper.checkMx(context, addresses);
         }
     };
+
+    private String getActionName(int id) {
+        if (id == R.id.action_delete) {
+            return "delete";
+        } else if (id == R.id.action_undo) {
+            return "undo";
+        } else if (id == R.id.action_redo) {
+            return "redo";
+        } else if (id == R.id.action_save) {
+            return "save";
+        } else if (id == R.id.action_check) {
+            return "check";
+        } else if (id == R.id.action_send) {
+            return "send";
+        }
+        return Integer.toString(id);
+    }
 
     private void setBusy(boolean busy) {
         state = (busy ? State.LOADING : State.LOADED);
