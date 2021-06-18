@@ -342,29 +342,29 @@ FairEmail mantendrá una lista de direcciones de las que recibe y a las que env�
 
 Una notificación permanente de baja prioridad con el número de cuentas monitoreadas y el número de operaciones pendientes (ver la siguiente pregunta) se muestra para evitar que Android mate el servicio que se encarga de recibir correo electrónico continuamente. Esto [ya era necesario](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)), pero con la introducción de [modo doze](https://developer.android.com/training/monitoring-device-state/doze-standby) en Android 6 Marshmallow esto es más necesario que nunca. El modo Doze detendrá todas las aplicaciones cuando la pantalla esté apagada por algún tiempo a menos que la aplicación inicie un servicio de primer plano, lo que requiere mostrar una notificación en la barra de estado.
 
-Most, if not all, other email apps don't show a notification with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+La mayoría, si no todas, de las demás aplicaciones de correo no muestran una notificación con el "efecto secundario" de que los mensajes nuevos a menudo no son reportados o lo hacen en forma tardía y lo mismo ocurre con los envíos.
 
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore. In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+Android muestra primero los iconos de las notificaciones de la barra de estado de alta prioridad y ocultará el icono de la notificación de FairEmail si ya no hay espacio para mostrar los iconos. En la práctica esto significa que la notificación de la barra de estado no ocupa espacio en la barra de estado, a menos que haya espacio disponible.
 
-The status bar notification can be disabled via the notification settings of FairEmail:
+La notificación de la barra de estado se puede desactivar a través de la configuración de notificación de FairEmail:
 
 * Android 8 Oreo y posteriores: toque el botón *Canal de recepción* y desactive el canal a través de la configuración de Android (esto no deshabilitará las notificaciones de nuevos mensajes)
 * Android 7 Nougat y antes: habilite *Usa el servicio de segundo plano para sincronizar mensajes*, pero asegúrese de leer el comentario debajo de la configuración
 
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See [here](#user-content-faq39) for more details about battery usage.
+Puede cambiar a sincronización periódica de mensajes en la configuración de recepción para eliminar la notificación, pero tenga en cuenta que esto podría aumentar el uso de batería. Vea [aquí](#user-content-faq39) para más detalles sobre el uso de la batería.
 
-Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*. Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
+Android 8 Oreo también podría mostrar una notificación de barra de estado con el texto *Las aplicaciones se están ejecutando en segundo plano*. Por favor, consulte [aquí](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) sobre cómo puede desactivar esta notificación.
 
-Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification, but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages. The first is not going to happen and the last would have significant privacy implications.
+Algunas personas sugirieron usar [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) en lugar de un servicio Android con una notificación en la barra de estado, pero esto requeriría que los proveedores de correo enviaran mensajes FCM o un servidor central donde todos los mensajes sean recogidos enviando mensajes FCM. La primera no va a suceder y la última tendría importantes implicaciones en materia de privacidad.
 
-If you came here by clicking on the notification, you should know that the next click will open the unified inbox.
+Si vino aquí haciendo clic en la notificación, debe saber que el siguiente clic abrirá la bandeja de entrada unificada.
 
 <br />
 
 <a name="faq3"></a>
-**(3) What are operations and why are they pending?**
+**(3) ¿Qué son las operaciones y por qué están pendientes?**
 
-The low priority status bar notification shows the number of pending operations, which can be:
+La notificación de la barra de estado de baja prioridad muestra el número de operaciones pendientes, que pueden ser:
 
 * *añadir*: añadir mensaje a la carpeta remota
 * *mover*: mover mensaje a otra carpeta remota
@@ -386,20 +386,20 @@ The low priority status bar notification shows the number of pending operations,
 * *enviar*: enviar mensaje
 * *existe*: comprueba si el mensaje existe
 * *regla*: ejecutar regla en el cuerpo del texto
-* *expunge*: permanently delete messages
+* *eliminar*: borrar mensajes permanentemente
 
-Operations are processed only when there is a connection to the email server or when manually synchronizing. See also [this FAQ](#user-content-faq16).
+Las operaciones sólo se procesan cuando hay una conexión al servidor de correo electrónico o cuando se sincroniza manualmente. Vea también [estas Preguntas Frecuentes](#user-content-faq16).
 
 <br />
 
 <a name="faq4"></a>
-**(4) How can I use an invalid security certificate / empty password / plain text connection?**
+**(4) ¿Cómo puedo utilizar un certificado de seguridad inválido / contraseña vacía / conexión de texto plano?**
 
-*... Untrusted ... not in certificate ...*
+*... No confiable ... no en el certificado ...*
 <br />
-*... Invalid security certificate (Can't verify identity of server) ...*
+*... Certificado de seguridad inválido (no se puede verificar la identidad del servidor) ...*
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap Manual setup). Please see the documentation of the email provider about the right host name.
+Esto puede ser causado por el uso de un nombre de host incorrecto, así que primero compruebe el nombre de host en la configuración avanzada de la identidad/cuenta (pulse Configuración manual). Please see the documentation of the email provider about the right host name.
 
 You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 

@@ -1059,10 +1059,6 @@
     <string name="title_signature_store">Uložit</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_for_hint">Zadejte text</string>
-    <string name="title_search_hint">        Hledání se zpočátku zaměří na zprávy uložené ve vašem zařízení.
-        Pro hledání i na serveru, stiskněte tlačítko „Hledat znovu“.
-    </string>
-    <string name="title_search_index_hint">Hledání s pomocí indexu vyhledávání je rychlé, ale najde pouze celá slova</string>
     <string name="title_search_text_hint">Hledání textu ve zprávách, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_size_hint">Vyhledávání zpráv podle velikosti, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_more">Více možností</string>

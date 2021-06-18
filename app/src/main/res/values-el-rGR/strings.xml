@@ -1039,10 +1039,6 @@
     <string name="title_signature_store">Αποθήκευση</string>
     <string name="title_search">Αναζήτηση</string>
     <string name="title_search_for_hint">Εισαγωγή κειμένου</string>
-    <string name="title_search_hint">        Η αναζήτηση αρχικά θα ψάξει μηνύματα που είναι αποθηκευμένα στη συσκευή.
-        Για να ψάξετε και μηνύματα στο διακομιστή, πατήστε το κουμπί \'επανάληψη αναζήτησης\'.
-    </string>
-    <string name="title_search_index_hint">Η αναζήτηση μέσω του ευρετηρίου είναι γρήγορη, αλλά θα βρει μόνον ολόκληρες λέξεις</string>
     <string name="title_search_text_hint">Η αναζήτηση κειμένου μέσα σε μηνύματα μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>
     <string name="title_search_size_hint">Η αναζήτηση μηνυμάτων με βάση το μέγεθος μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>
     <string name="title_search_more">Περισσότερες επιλογές</string>
@@ -1060,8 +1056,8 @@
     <string name="title_search_with_encrypted">Κρυπτογραφημένα (μόνο στη συσκευή)</string>
     <string name="title_search_with_attachments">Με συνημμένα (μόνο στη συσκευή)</string>
     <string name="title_search_with_size">Μέγεθος μηνύματος μεγαλύτερο από</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Στον κάδο απορριμμάτων</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Στα ανεπιθύμητα</string>
+    <string name="title_search_in_trash">Στον κάδο απορριμμάτων</string>
+    <string name="title_search_in_junk">Στα ανεπιθύμητα</string>
     <string name="title_search_with_before">Πριν από</string>
     <string name="title_search_with_after">Μετά από</string>
     <string name="title_search_flag_unseen">μη αναγνωσμένα</string>

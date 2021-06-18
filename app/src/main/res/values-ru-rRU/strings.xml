@@ -1062,10 +1062,6 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_for_hint">Введите текст</string>
-    <string name="title_search_hint">        Поиск изначально ищет сообщения, хранящиеся на вашем устройстве.
-        Чтобы также выполнить поиск на сервере, нажмите кнопку \"Новый поиск\".
-    </string>
-    <string name="title_search_index_hint">Индексированный поиск быстрый, но ищет только целые слова</string>
     <string name="title_search_text_hint">Поиск содержащих определённый текст сообщений при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_size_hint">Поиск сообщений по размеру при большом их количестве может не работать на некоторых серверах</string>
     <string name="title_search_more">Дополнительные параметры</string>
@@ -1083,8 +1079,8 @@
     <string name="title_search_with_encrypted">Зашифровано (только на устройстве)</string>
     <string name="title_search_with_attachments">С вложениями (только на устройстве)</string>
     <string name="title_search_with_size">Размер сообщения больше</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">В корзине</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">В спаме</string>
+    <string name="title_search_in_trash">В корзине</string>
+    <string name="title_search_in_junk">В спаме</string>
     <string name="title_search_with_before">Перед</string>
     <string name="title_search_with_after">После</string>
     <string name="title_search_flag_unseen">не прочитано</string>

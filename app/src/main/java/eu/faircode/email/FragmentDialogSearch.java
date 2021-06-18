@@ -106,14 +106,14 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
         final CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
         final CheckBox cbHtml = dview.findViewById(R.id.cbHtml);
+        final CheckBox cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
+        final CheckBox cbSearchJunk = dview.findViewById(R.id.cbSearchJunk);
         final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
         final CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
         final CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
         final CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
         final Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
-        final CheckBox cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
-        final CheckBox cbSearchJunk = dview.findViewById(R.id.cbSearchJunk);
         final Button btnBefore = dview.findViewById(R.id.btnBefore);
         final Button btnAfter = dview.findViewById(R.id.btnAfter);
         final TextView tvBefore = dview.findViewById(R.id.tvBefore);
@@ -242,16 +242,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                cbSenders.setEnabled(!isChecked);
-                cbRecipients.setEnabled(!isChecked);
-                cbSubject.setEnabled(!isChecked);
-                cbKeywords.setEnabled(!isChecked);
-                cbMessage.setEnabled(!isChecked);
                 cbNotes.setEnabled(!isChecked);
                 cbHeaders.setEnabled(!isChecked);
                 cbHtml.setEnabled(!isChecked);
-                cbUnseen.setEnabled(!isChecked);
-                cbFlagged.setEnabled(!isChecked);
                 cbHidden.setEnabled(!isChecked);
                 cbEncrypted.setEnabled(!isChecked);
                 cbAttachments.setEnabled(!isChecked);
@@ -301,6 +294,20 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        cbSearchTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_trash", isChecked).apply();
+            }
+        });
+
+        cbSearchJunk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_junk", isChecked).apply();
+            }
+        });
+
         spMessageSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -315,20 +322,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
-            }
-        });
-
-        cbSearchTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("last_search_trash", isChecked).apply();
-            }
-        });
-
-        cbSearchJunk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("last_search_junk", isChecked).apply();
             }
         });
 

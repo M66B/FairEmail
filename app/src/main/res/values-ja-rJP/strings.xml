@@ -1030,10 +1030,6 @@
     <string name="title_signature_store">署名保存</string>
     <string name="title_search">検索</string>
     <string name="title_search_for_hint">テキストを入力</string>
-    <string name="title_search_hint">        お使いのデバイスに保存されているメッセージを検索します。
-        サーバーも検索するには「もう一度検索」ボタンをタップします
-    </string>
-    <string name="title_search_index_hint">検索インデックスを介した検索は高速ですが単語全体しか検索されません</string>
     <string name="title_search_text_hint">メッセージ内のテキストを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります。</string>
     <string name="title_search_size_hint">サイズ別にメッセージを検索しています。メッセージが多い場合、一部のサーバーでは動作しない可能性があります。</string>
     <string name="title_search_more">その他のオプション</string>
@@ -1051,8 +1047,8 @@
     <string name="title_search_with_encrypted">暗号化(デバイスのみ)</string>
     <string name="title_search_with_attachments">添付ファイル付き(デバイスのみ)</string>
     <string name="title_search_with_size">メッセージサイズより大きい</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">ごみ箱内</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">迷惑メール内</string>
+    <string name="title_search_in_trash">ごみ箱内</string>
+    <string name="title_search_in_junk">迷惑メール内</string>
     <string name="title_search_with_before">前へ</string>
     <string name="title_search_with_after">後で</string>
     <string name="title_search_flag_unseen">未読</string>

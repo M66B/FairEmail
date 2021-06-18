@@ -1061,10 +1061,6 @@
     <string name="title_signature_store">Zachowaj</string>
     <string name="title_search">Szukaj</string>
     <string name="title_search_for_hint">Wprowadź tekst</string>
-    <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
-        Aby wyszukiwanie objęło również serwer, dotknij przycisku \'Szukaj ponownie\'.
-    </string>
-    <string name="title_search_index_hint">Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdzie tylko całe słowa</string>
     <string name="title_search_text_hint">Wyszukiwanie tekstu w wiadomościach może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_size_hint">Wyszukiwanie wiadomości według rozmiaru może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_more">Więcej opcji</string>
@@ -1082,8 +1078,8 @@
     <string name="title_search_with_encrypted">Zaszyfrowane (tylko na urządzeniu)</string>
     <string name="title_search_with_attachments">Z załącznikami (tylko na urządzeniu)</string>
     <string name="title_search_with_size">Rozmiar wiadomości większy niż</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">W folderze Kosz</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">W folderze Spam</string>
+    <string name="title_search_in_trash">W folderze Kosz</string>
+    <string name="title_search_in_junk">W folderze Spam</string>
     <string name="title_search_with_before">Przed</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">nieprzeczytane</string>

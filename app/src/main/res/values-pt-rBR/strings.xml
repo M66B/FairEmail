@@ -1010,10 +1010,6 @@
     <string name="title_signature_store">Loja</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_for_hint">Digite o texto</string>
-    <string name="title_search_hint">        A pesquisa procurará inicialmente as mensagens salvas no seu dispositivo.
-        Para pesquisar também no servidor, clique no botão \'buscar novamente\'.
-    </string>
-    <string name="title_search_index_hint">Pesquisar no indexador de pesquisa é mais rápido, mas só serão encontradas palavras inteiras</string>
     <string name="title_search_text_hint">Pesquisar por textos em mensagens, quando há um grande número delas, pode não funcionar em alguns servidores</string>
     <string name="title_search_size_hint">Pesquisar por mensagens pelo tamanho, quando há um grande número delas, pode não funcionar em alguns servidores</string>
     <string name="title_search_more">Mais opções</string>

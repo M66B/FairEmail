@@ -1042,8 +1042,6 @@
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_for_hint">Text eingeben</string>
-    <string name="title_search_hint">Bei der Suche werden zunächst die auf Ihrem Gerät gespeicherten Nachrichten durchsucht. Um auch die Nachrichten auf dem Server zu durchsuchen, tippen Sie auf die Schaltfläche „Erneut suchen“.    </string>
-    <string name="title_search_index_hint">Die Suche über den Suchindex ist schnell, wird aber nur für ganze Wörter durchgeführt</string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_size_hint">Die Nachrichtensuche nach Größe funktioniert, bei einer großen Anzahl von Nachrichten, auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_more">Weitere Optionen</string>
@@ -1061,8 +1059,8 @@
     <string name="title_search_with_encrypted">Verschlüsselt (nur auf dem Gerät)</string>
     <string name="title_search_with_attachments">Mit Anhängen (nur auf dem Gerät)</string>
     <string name="title_search_with_size">Nachrichtengröße größer als</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Im Papierkorb</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Im Spam-Ordner</string>
+    <string name="title_search_in_trash">Im Papierkorb</string>
+    <string name="title_search_in_junk">Im Spam-Ordner</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
     <string name="title_search_flag_unseen">Ungelesen</string>

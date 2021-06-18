@@ -1049,10 +1049,6 @@
     <string name="title_signature_store">Збереження</string>
     <string name="title_search">Пошук</string>
     <string name="title_search_for_hint">Введіть текст</string>
-    <string name="title_search_hint">        Пошук з початку дивиться на повідомлення, збережені на пристрої.
-        Для пошуку також і на сервері, натисніть на кнопку \'Шукати знову\'.
-    </string>
-    <string name="title_search_index_hint">Пошук за допомогою індексу пошуку швидкий, але знайде лише цілі слова</string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_size_hint">Пошук повідомлень за розміром, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_more">Більше опцій</string>
@@ -1070,8 +1066,8 @@
     <string name="title_search_with_encrypted">Зашифровані (лише на пристрої)</string>
     <string name="title_search_with_attachments">З вкладеннями (лише на пристрої)</string>
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">В корзині</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">У спамі</string>
+    <string name="title_search_in_trash">В корзині</string>
+    <string name="title_search_in_junk">У спамі</string>
     <string name="title_search_with_before">До</string>
     <string name="title_search_with_after">Після</string>
     <string name="title_search_flag_unseen">непрочитане</string>

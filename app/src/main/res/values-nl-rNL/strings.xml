@@ -1042,10 +1042,10 @@
     <string name="title_signature_store">Opslaan</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_for_hint">Voer tekst in</string>
-    <string name="title_search_hint">        Zoeken zal in eerste instantie berichten bekijken die op uw apparaat zijn opgeslagen.
-        Tik op de \'Opnieuw zoeken\' knop om ook op de server te zoeken.
-    </string>
-    <string name="title_search_index_hint">Zoeken via de zoekindex is snel, maar zal alleen hele woorden vinden</string>
+    <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.
+Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
+    <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.
+ De onderstaande opties zijn om door te gaan met zoeken op de e-mailserver.</string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
     <string name="title_search_size_hint">Zoeken naar berichten op grootte werkt mogelijk niet op sommige servers als er een groot aantal berichten is</string>
     <string name="title_search_more">Meer opties</string>
@@ -1063,8 +1063,8 @@
     <string name="title_search_with_encrypted">Versleuteld (alleen op apparaat)</string>
     <string name="title_search_with_attachments">Met bijlagen (alleen op apparaat)</string>
     <string name="title_search_with_size">Berichtgrootte groter dan</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">In prullenbak</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">In spam</string>
+    <string name="title_search_in_trash">In prullenbak</string>
+    <string name="title_search_in_junk">In spam</string>
     <string name="title_search_with_before">Voor</string>
     <string name="title_search_with_after">Na</string>
     <string name="title_search_flag_unseen">ongelezen</string>

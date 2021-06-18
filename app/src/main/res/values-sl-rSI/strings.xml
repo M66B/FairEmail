@@ -728,10 +728,6 @@
     <string name="title_signature_store">Shramba</string>
     <string name="title_search">Išči</string>
     <string name="title_search_for_hint">Vnesite besedilo</string>
-    <string name="title_search_hint">        Iskanje bo na začetku iskalo po sporočilih, shranjenih na vaši napravi.
-        Če želite iskati tudi na strežniku, se dotaknite gumba \'Ponovno išči\'.
-    </string>
-    <string name="title_search_index_hint">Iskanje preko kazala je hitro, vendar pa bo našlo samo cele besede.</string>
     <string name="title_search_more">Več možnosti</string>
     <string name="title_search_use_index">Uporabi iskalno kazalo</string>
     <string name="title_search_in_senders">Med pošiljatelji (Od)</string>

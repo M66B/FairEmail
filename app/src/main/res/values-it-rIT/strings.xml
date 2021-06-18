@@ -1042,10 +1042,6 @@
     <string name="title_signature_store">Memorizza</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_for_hint">Inserisci testo</string>
-    <string name="title_search_hint">        La ricerca inizialmente cercherà i messaggi memorizzati sul tuo dispositivo.
-        Per cercare anche sul server, tocca il pulsante \'cerca di nuovo\'.
-    </string>
-    <string name="title_search_index_hint">La ricerca tramite l\'indice di ricerca è veloce, ma troverà solo parole intere</string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_size_hint">La ricerca dei messaggi per dimensione, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_more">Altre opzioni</string>

@@ -795,10 +795,6 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търсене</string>
     <string name="title_search_for_hint">Въведете текст</string>
-    <string name="title_search_hint">        Първоначално търсенето ще прегледа съобщенията, съхранявани на вашето устройство.
-        За да търсите и в сървъра, натиснете бутона „търсене отново“.
-    </string>
-    <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но ще намери само цели думи</string>
     <string name="title_search_text_hint">Търсене на текст в съобщения, когато има голям брой съобщения, може да не работи на някои сървъри</string>
     <string name="title_search_size_hint">Търсене на съобщения по размер, когато има голям брой съобщения, може да не работи на някои сървъри</string>
     <string name="title_search_more">Още опции</string>

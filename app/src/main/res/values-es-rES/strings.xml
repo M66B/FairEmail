@@ -1042,10 +1042,6 @@
     <string name="title_signature_store">Almacenar</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_for_hint">Ingrese texto</string>
-    <string name="title_search_hint">        La búsqueda comenzará por los mensajes almacenados en su dispositivo.
-        Para buscar también en el servidor, toque el botón \'Buscar de nuevo\'.
-    </string>
-    <string name="title_search_index_hint">Buscar a través del índice de búsqueda es rápido, pero sólo encontrará palabras completas</string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_size_hint">Buscar mensajes por tamaño puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_more">Más opciones</string>
@@ -1063,8 +1059,8 @@
     <string name="title_search_with_encrypted">Cifrado (en el dispositivo solamente)</string>
     <string name="title_search_with_attachments">Con archivos adjuntos (sólo en el dispositivo)</string>
     <string name="title_search_with_size">Tamaño del mensaje mayor que</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">En la papelera</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">En spam</string>
+    <string name="title_search_in_trash">En la papelera</string>
+    <string name="title_search_in_junk">En spam</string>
     <string name="title_search_with_before">Antes de</string>
     <string name="title_search_with_after">Después de</string>
     <string name="title_search_flag_unseen">no leído</string>

@@ -898,10 +898,6 @@
     <string name="title_signature_store">Lagre</string>
     <string name="title_search">Søk</string>
     <string name="title_search_for_hint">Skriv inn tekst</string>
-    <string name="title_search_hint">        Søk vil først gå gjennom meldinger som er lagret på enheten din.
-        For å søke på tjeneren i tillegg, trykk på \'Søk igjen\'.
-    </string>
-    <string name="title_search_index_hint">Søk via søkeindeksen er raskt, men finner bare hele ord</string>
     <string name="title_search_text_hint">Søk etter tekst i meldinger, når det er et stort antall meldinger, vil kanskje ikke fungere på noen tjenere</string>
     <string name="title_search_size_hint">Søk på meldinger etter størrelse, når det er et stort antall meldinger, vil kanskje ikke fungere på noen tjenere</string>
     <string name="title_search_more">Flere alternativer</string>

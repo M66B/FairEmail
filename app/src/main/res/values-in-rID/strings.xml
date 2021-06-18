@@ -971,9 +971,6 @@
     <string name="title_signature_store">Sumber</string>
     <string name="title_search">Pencarian</string>
     <string name="title_search_for_hint">Masukkan teks</string>
-    <string name="title_search_hint">Pencarian pertamakali akan melihat pesan yang disimpan di perangkat Anda.
-        Untuk mencari di server juga, ketuk tombol \'cari lagi\'.    </string>
-    <string name="title_search_index_hint">Pencarian melalui indeks lebih cepat, tetapi akan menemukan kata secara keseluruhan</string>
     <string name="title_search_more">Pilihan lainnya</string>
     <string name="title_search_use_index">Gunakan indeks pencarian</string>
     <string name="title_search_in_senders">Di pengirim (dari)</string>
@@ -988,8 +985,8 @@
     <string name="title_search_with_encrypted">Dienkripsi (hanya di perangkat)</string>
     <string name="title_search_with_attachments">Memiliki lampiran (hanya di perangkat)</string>
     <string name="title_search_with_size">Ukuran pesan lebih besar dari</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Di tempat sampah</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Di spam</string>
+    <string name="title_search_in_trash">Di tempat sampah</string>
+    <string name="title_search_in_junk">Di spam</string>
     <string name="title_search_with_before">Sebelum</string>
     <string name="title_search_with_after">Sesudah</string>
     <string name="title_search_flag_unseen">belum dibaca</string>

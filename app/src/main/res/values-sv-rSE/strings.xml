@@ -1008,10 +1008,6 @@
     <string name="title_signature_store">Spara</string>
     <string name="title_search">Sök</string>
     <string name="title_search_for_hint">Ange text</string>
-    <string name="title_search_hint">        Sökning kommer initialt att titta på meddelanden som lagras på din enhet.
-        För att söka på servern också, tryck på knappen \"Sök igen\".
-    </string>
-    <string name="title_search_index_hint">Sökning via index är snabbt, men kommer bara att hitta hela ord</string>
     <string name="title_search_text_hint">Sökning efter text i meddelanden, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
     <string name="title_search_size_hint">Sökning efter meddelanden efter storlek, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
     <string name="title_search_more">Fler alternativ</string>

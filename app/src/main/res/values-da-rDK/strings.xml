@@ -1017,10 +1017,6 @@
     <string name="title_signature_store">Gem</string>
     <string name="title_search">Søg</string>
     <string name="title_search_for_hint">Angiv tekst</string>
-    <string name="title_search_hint">        Søgning sker indledningsvis efter beskeder gemt på din enhed.
-         For også at søge på serveren, tryk på knappen \'søg igen\'.
-    </string>
-    <string name="title_search_index_hint">Søgning via søgeindekset er hurtig, men vil kun finde hele ord</string>
     <string name="title_search_text_hint">Søgning efter tekst i beskeder, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
     <string name="title_search_size_hint">Søgning efter beskeder efter størrelse, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
     <string name="title_search_more">Flere valgmuligheder</string>
@@ -1037,8 +1033,8 @@
     <string name="title_search_with_encrypted">Krypteret (kun på enheden)</string>
     <string name="title_search_with_attachments">Med vedhæftninger (kun på enheden)</string>
     <string name="title_search_with_size">Beskedstørrelse over</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">I papirkurven</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">I Spam</string>
+    <string name="title_search_in_trash">I papirkurven</string>
+    <string name="title_search_in_junk">I Spam</string>
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Efter</string>
     <string name="title_search_flag_unseen">ulæst</string>

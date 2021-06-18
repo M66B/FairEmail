@@ -1051,10 +1051,6 @@
     <string name="title_signature_store">Stocare</string>
     <string name="title_search">Caută</string>
     <string name="title_search_for_hint">Introduceți textul</string>
-    <string name="title_search_hint">        Căutarea se va face inițial în mesajele stocate pe dispozitivul dumneavoastră.
-        Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
-    </string>
-    <string name="title_search_index_hint">Căutarea prin indexul de căutare este rapidă, dar va găsi doar cuvinte întregi</string>
     <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_size_hint">Căutarea mesajelor după mărime, când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_more">Mai multe opțiuni</string>
@@ -1072,8 +1068,8 @@
     <string name="title_search_with_encrypted">Criptat (doar pe dispozitiv)</string>
     <string name="title_search_with_attachments">Cu atașamente (doar pe dispozitiv)</string>
     <string name="title_search_with_size">Dimensiune mesaj mai mare decât</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">În coșul de gunoi</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">În spam</string>
+    <string name="title_search_in_trash">În coșul de gunoi</string>
+    <string name="title_search_in_junk">În spam</string>
     <string name="title_search_with_before">Înainte de</string>
     <string name="title_search_with_after">După</string>
     <string name="title_search_flag_unseen">necitit</string>

@@ -1035,10 +1035,6 @@
     <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
     <string name="title_search_for_hint">Syötä teksti</string>
-    <string name="title_search_hint">Haku etsii aluksi laitteella olevista viesteistä.
-        Palvelimelta hakeaksesi näpäytä uudelleenhakupainiketta.
-    </string>
-    <string name="title_search_index_hint">Hakuindeksin kautta etsiminen on nopeampaa, mutta se löytää vain kokonaisia sanoja</string>
     <string name="title_search_text_hint">Tekstin haku viesteistä ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>
     <string name="title_search_size_hint">Viestien haku koon perusteella ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>
     <string name="title_search_more">Lisää asetuksia</string>

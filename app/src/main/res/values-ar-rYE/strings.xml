@@ -345,7 +345,7 @@
     <string name="title_decrypt">فك التعمية</string>
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
     <string name="title_search">بحث</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">في القمامة</string>
+    <string name="title_search_in_trash">في القمامة</string>
     <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>
     <string name="title_sort_on_unread">غير مقروءة</string>

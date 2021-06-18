@@ -1042,10 +1042,6 @@
     <string name="title_signature_store">Enregistrer</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_for_hint">Saisir le texte</string>
-    <string name="title_search_hint">        La recherche affichera initialement les messages stockés sur votre appareil.
-        Pour rechercher également sur le serveur, appuyez sur le bouton « Rechercher de nouveau ».
-    </string>
-    <string name="title_search_index_hint">La recherche via l’index de recherche est rapide mais ne trouvera que des mots entiers</string>
     <string name="title_search_text_hint">La recherche de texte dans les messages peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
     <string name="title_search_size_hint">La recherche de messages par taille peut ne pas fonctionner sur certains serveurs lorsqu’il y a un grand nombre de messages</string>
     <string name="title_search_more">Plus d\'options</string>
@@ -1063,8 +1059,8 @@
     <string name="title_search_with_encrypted">Chiffrés (uniquement sur l\'appareil)</string>
     <string name="title_search_with_attachments">Avec des pièces jointes (uniquement sur l\'appareil)</string>
     <string name="title_search_with_size">Taille de message supérieure à</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">Dans la corbeille</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">Dans les indésirables</string>
+    <string name="title_search_in_trash">Dans la corbeille</string>
+    <string name="title_search_in_junk">Dans les indésirables</string>
     <string name="title_search_with_before">Avant le</string>
     <string name="title_search_with_after">Après le</string>
     <string name="title_search_flag_unseen">non lus</string>

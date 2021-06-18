@@ -1021,10 +1021,6 @@
     <string name="title_signature_store">Almacén</string>
     <string name="title_search">Procurar</string>
     <string name="title_search_for_hint">Inserir texto</string>
-    <string name="title_search_hint">        A procura mirará primeiro ás mensaxes almacenadas no seu dispositivo.
-        Para ampliar tamén ao servidor, toque no botón \'procurar de novo\'.
-    </string>
-    <string name="title_search_index_hint">A procura polo índice de busca é rápida, pero só atopará palabras completas</string>
     <string name="title_search_text_hint">Procurar texto nas mensaxes, cando hai un grande número deles, podería non funcionar nalgúns servidores</string>
     <string name="title_search_size_hint">Procurar as mensaxes por tamaño, cando hai un grande número deles, podería non funcionar nalgúns servidores</string>
     <string name="title_search_more">Máis opcións</string>

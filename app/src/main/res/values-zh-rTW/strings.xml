@@ -933,9 +933,6 @@
     <string name="title_signature_store">商店</string>
     <string name="title_search">搜尋</string>
     <string name="title_search_for_hint">輸入文字</string>
-    <string name="title_search_hint">        搜尋將先查詢儲存在裝置上的訊息。
-         如需搜尋伺服器，請點擊 “再次搜尋” 按鈕。    </string>
-    <string name="title_search_index_hint">通過搜尋索引進行搜尋的速度很快，但只會找到整個單詞</string>
     <string name="title_search_text_hint">當郵件數量很多時，在郵件中搜尋內文可能無法在某些伺服器上進行</string>
     <string name="title_search_size_hint">當郵件數量很多時，按大小搜尋郵件可能在某些伺服器上不起作用</string>
     <string name="title_search_more">更多選項</string>

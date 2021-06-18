@@ -1026,10 +1026,6 @@
     <string name="title_signature_store">Bewarje</string>
     <string name="title_search">Sykje</string>
     <string name="title_search_for_hint">Tekst ynfiere</string>
-    <string name="title_search_hint">        Sykje sil earst sjen nei berjochten dy\'t op jo apparaat binne opslein.
-        Om de server ek te sykjen, tikje op \'e knop\' opnij sykje \'.
-    </string>
-    <string name="title_search_index_hint">Sykje fia de sykindeks is fluch, mar sil allinich hiele wurden fine</string>
     <string name="title_search_text_hint">Sykje nei tekst yn berjochten, as d\'r in grut oantal berjochten binne, wurket miskien net op guon servers</string>
     <string name="title_search_size_hint">Sykje nei berjochten op grutte, as d\'r in grut oantal berjochten binne, wurket miskien net op guon servers</string>
     <string name="title_search_more">Mear opsjes</string>

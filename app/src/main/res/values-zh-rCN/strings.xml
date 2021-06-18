@@ -1031,10 +1031,6 @@
     <string name="title_signature_store">保存</string>
     <string name="title_search">搜索</string>
     <string name="title_search_for_hint">输入搜索内容</string>
-    <string name="title_search_hint">        搜索将首先查看存储在您的设备上的消息
-        若也要搜索服务器上的内容，请点击“再次搜索”按钮
-    </string>
-    <string name="title_search_index_hint">通过搜索索引搜索很快，但只能找到整个单词</string>
     <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上正常运作</string>
     <string name="title_search_size_hint">消息数量很多时，通过大小搜索消息可能在某些服务器上无法正常运作</string>
     <string name="title_search_more">更多选项</string>
@@ -1052,8 +1048,8 @@
     <string name="title_search_with_encrypted">加密邮件 (仅设备)</string>
     <string name="title_search_with_attachments">带附件的邮件 (仅设备)</string>
     <string name="title_search_with_size">消息大小大于</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">在回收站</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">在垃圾邮件箱</string>
+    <string name="title_search_in_trash">在回收站</string>
+    <string name="title_search_in_junk">在垃圾邮件箱</string>
     <string name="title_search_with_before">早于</string>
     <string name="title_search_with_after">晚于</string>
     <string name="title_search_flag_unseen">未读</string>

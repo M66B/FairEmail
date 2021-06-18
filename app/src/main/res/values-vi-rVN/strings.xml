@@ -1031,10 +1031,6 @@
     <string name="title_signature_store">Lưu trữ</string>
     <string name="title_search">Tìm kiếm</string>
     <string name="title_search_for_hint">Nhập văn bản</string>
-    <string name="title_search_hint">        Ban đầu, việc tìm kiếm sẽ tìm các thư được lưu trữ trên thiết bị của bạn.
-        Để cũng tìm kiếm máy chủ, nhấn vào nút \'tìm kiếm lại\'.
-    </string>
-    <string name="title_search_index_hint">Việc tìm kiếm qua mục lục tìm kiếm rất nhanh, nhưng sẽ chỉ tìm các từ toàn thể</string>
     <string name="title_search_text_hint">Việc tìm kiếm văn bản trong thư khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_size_hint">Việc tìm kiếm thư theo kích cỡ khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_more">Thêm tuỳ chọn</string>

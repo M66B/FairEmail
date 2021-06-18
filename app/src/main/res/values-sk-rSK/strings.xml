@@ -1058,10 +1058,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_signature_store">Uložiť</string>
     <string name="title_search">Hľadať</string>
     <string name="title_search_for_hint">Zadajte text</string>
-    <string name="title_search_hint">        Vyhľadávanie začne prehľadávaním správ vo vašom zariadení.
-        Ak chcete prehľadať aj správy uložené na servery, klepnite na tlačidlo \'Hľadať znovu\'.
-    </string>
-    <string name="title_search_index_hint">Prehľadávanie indexu vyhľadávania je veľmi rýchle, ale hľadanie je obmedzené na celé slová</string>
     <string name="title_search_text_hint">Vyhľadávanie v tele správy nemusí na všetkých serveroch fungovať správne, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_size_hint">Hľadanie správ podľa veľkosti nemusí správne fungovať na niektorých serveroch, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_more">Ďalšie možnosti</string>
@@ -1079,8 +1075,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_with_encrypted">Zašifrované (len na tomto zariadení)</string>
     <string name="title_search_with_attachments">S prílohamy (len na tomto zariadení)</string>
     <string name="title_search_with_size">Veľkosť správy väčšia než</string>
-    <string name="title_search_in_trash" comment="title_search_in_trash&#10;Title for option to enable/disable searching in the trash folder&#10;">V odstránených</string>
-    <string name="title_search_in_junk" comment="title_search_in_junk&#10;Title for option to enable/disable searching in the spam folder&#10;">V nevyžiadaných</string>
+    <string name="title_search_in_trash">V odstránených</string>
+    <string name="title_search_in_junk">V nevyžiadaných</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">neprečítané</string>

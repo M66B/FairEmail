@@ -251,7 +251,6 @@
             android:id="@+id/cbSenders"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_search_in_senders"
@@ -264,7 +263,6 @@
             android:id="@+id/cbRecipients"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_search_in_recipients"
@@ -277,7 +275,6 @@
             android:id="@+id/cbSubject"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_search_in_subject"
@@ -290,7 +287,6 @@
             android:id="@+id/cbKeywords"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_in_keywords"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -302,7 +298,6 @@
             android:id="@+id/cbMessage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_search_in_message"
@@ -315,7 +310,6 @@
             android:id="@+id/tvSearchTextHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="6dp"
             android:text="@string/title_search_text_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -328,7 +322,6 @@
             android:id="@+id/cbNotes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:checked="true"
             android:text="@string/title_search_in_notes"
@@ -341,7 +334,6 @@
             android:id="@+id/cbHeaders"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_in_headers"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -353,7 +345,6 @@
             android:id="@+id/cbHtml"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_in_html"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -361,22 +352,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHeaders" />
 
+        <CheckBox
+            android:id="@+id/cbSearchTrash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_search_in_trash"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbHtml" />
+
+        <CheckBox
+            android:id="@+id/cbSearchJunk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_search_in_junk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSearchTrash" />
+
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbHtml" />
+            app:layout_constraintTop_toBottomOf="@id/cbSearchJunk" />
 
         <CheckBox
             android:id="@+id/cbUnseen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_unseen"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -388,7 +401,6 @@
             android:id="@+id/cbFlagged"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_flagged"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -400,7 +412,6 @@
             android:id="@+id/cbHidden"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_hidden"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -412,7 +423,6 @@
             android:id="@+id/cbEncrypted"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_encrypted"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -424,7 +434,6 @@
             android:id="@+id/cbAttachments"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_attachments"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -436,7 +445,6 @@
             android:id="@+id/tvMessageSize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_search_with_size"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -449,7 +457,6 @@
             android:id="@+id/spMessageSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
             android:entries="@array/sizeNames"
             android:visibility="gone"
@@ -460,7 +467,6 @@
             android:id="@+id/tvSizeHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="6dp"
             android:text="@string/title_search_size_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -469,28 +475,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spMessageSize" />
-
-        <CheckBox
-            android:id="@+id/cbSearchTrash"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_search_in_trash"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
-
-        <CheckBox
-            android:id="@+id/cbSearchJunk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_search_in_junk"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSearchTrash" />
 
         <Button
             android:id="@+id/btnAfter"
@@ -502,7 +486,7 @@
             android:text="@string/title_search_with_after"
             app:layout_constraintEnd_toStartOf="@id/btnBefore"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSearchJunk" />
+            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
 
         <Button
             android:id="@+id/btnBefore"
@@ -514,7 +498,7 @@
             android:text="@string/title_search_with_before"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnAfter"
-            app:layout_constraintTop_toBottomOf="@id/cbSearchJunk" />
+            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvAfter"

@@ -980,10 +980,6 @@
     <string name="title_signature_store">Áruház</string>
     <string name="title_search">Keresés</string>
     <string name="title_search_for_hint">Írjon be szöveget</string>
-    <string name="title_search_hint">        A keresés alapból csak az eszközön lévő üzeneteket keres.
-        Ahhoz hogy a szervert is keresse, koppintson a \'keresés újra\' gombra.
-    </string>
-    <string name="title_search_index_hint">Keresés a keresési indexen keresztül gyors, de csak teljes szavakat fog találni</string>
     <string name="title_search_text_hint">Magas üzenetszám esetén lehetséges, hogy néhány szerveren az üzenetekben való szövegkeresés nem működik megfelelően</string>
     <string name="title_search_size_hint">Magas üzenetszám esetén lehetséges, hogy néhány szerveren az üzenetek sorba rakása méret szerint nem működik</string>
     <string name="title_search_more">Több opció</string>
