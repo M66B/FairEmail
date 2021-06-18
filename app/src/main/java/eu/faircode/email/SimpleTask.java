@@ -263,6 +263,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void cleanup(Context context) {
+        started = 0;
+        reported = false;
+        interrupted = false;
         future = null;
         synchronized (tasks) {
             tasks.remove(this);
