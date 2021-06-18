@@ -315,15 +315,19 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     @Override
     public String toString() {
         long now = new Date().getTime();
-        return name + " elapsed=" +
-                (started == 0 ? null : (now - started) / 1000) + "s";
+        long elapsed = now - started;
+        return name +
+                " elapsed=" + (started == 0 ? null : elapsed / 1000) +
+                " done=" + (future == null ? null : future.isDone()) +
+                " cancelled=" + (future == null ? null : future.isCancelled());
     }
 
     static int getCount() {
         int executing = 0;
         synchronized (tasks) {
             for (SimpleTask task : tasks)
-                if (task.started > 0 && task.count)
+                if (task.count &&
+                        task.future != null && !task.future.isDone())
                     executing++;
         }
         return executing;
