@@ -1542,11 +1542,12 @@ public class Log {
             attachNetworkInfo(context, draft.id, 3);
             attachLog(context, draft.id, 4);
             attachOperations(context, draft.id, 5);
-            attachLogcat(context, draft.id, 6);
+            attachTasks(context, draft.id, 6);
+            attachLogcat(context, draft.id, 7);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                attachNotificationInfo(context, draft.id, 7);
+                attachNotificationInfo(context, draft.id, 8);
             //if (MessageClassifier.isEnabled(context))
-            //    attachClassifierData(context, draft.id, 8);
+            //    attachClassifierData(context, draft.id, 9);
 
             EntityOperation.queue(context, draft, EntityOperation.ADD);
 
@@ -2056,6 +2057,30 @@ public class Log {
                         op.args,
                         op.state,
                         op.error));
+            }
+        }
+
+        db.attachment().setDownloaded(attachment.id, size);
+    }
+
+    private static void attachTasks(Context context, long id, int sequence) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "tasks.txt";
+        attachment.type = "text/plain";
+        attachment.disposition = Part.ATTACHMENT;
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
+
+        long size = 0;
+        File file = attachment.getFile(context);
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            for (SimpleTask task : SimpleTask.getList()) {
+                size += write(os, String.format("%s\r\n", task.toString()));
             }
         }
 
