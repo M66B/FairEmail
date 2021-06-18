@@ -191,10 +191,10 @@ public class FragmentSetup extends FragmentBase {
                     if (provider.oauth != null &&
                             (provider.oauth.enabled || BuildConfig.DEBUG)) {
                         MenuItem item = menu
-                                .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.name))
+                                .add(Menu.NONE, -1, order++, getString(R.string.title_setup_oauth, provider.description))
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
-                                        .putExtra("name", provider.name)
+                                        .putExtra("name", provider.description)
                                         .putExtra("askAccount", provider.oauth.askAccount));
                         int resid = context.getResources()
                                 .getIdentifier("provider_" + provider.id, "drawable", context.getPackageName());

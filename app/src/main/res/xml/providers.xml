@@ -77,7 +77,8 @@
             starttls="true" />
     </provider>
     <provider
-        name="Outlook/Office 365"
+        name="Outlook"
+        description="Outlook/Office 365"
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="5"

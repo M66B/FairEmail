@@ -53,6 +53,7 @@ import java.util.concurrent.Future;
 public class EmailProvider {
     public String id;
     public String name;
+    public String description;
     public boolean enabled;
     public List<String> domain;
     public int order;
@@ -131,6 +132,9 @@ public class EmailProvider {
                         provider = new EmailProvider();
                         provider.id = xml.getAttributeValue(null, "id");
                         provider.name = xml.getAttributeValue(null, "name");
+                        provider.description = xml.getAttributeValue(null, "description");
+                        if (provider.description == null)
+                            provider.description = name;
                         provider.enabled = xml.getAttributeBooleanValue(null, "enabled", true);
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
