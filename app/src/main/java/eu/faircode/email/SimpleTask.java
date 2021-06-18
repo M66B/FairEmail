@@ -320,7 +320,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         int executing = 0;
         synchronized (tasks) {
             for (SimpleTask task : tasks)
-                if (task.count)
+                if (task.started > 0 && task.count)
                     executing++;
         }
         return executing;
