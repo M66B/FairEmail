@@ -144,6 +144,7 @@ public class EntityMessage implements Serializable {
     public Boolean spf;
     public Boolean dmarc;
     public Boolean mx;
+    public Boolean blocklist;
     public Boolean reply_domain; // differs from 'from'
     public String avatar; // lookup URI from sender
     public String sender; // sort key: from email address
@@ -542,6 +543,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.spf, other.spf) &&
                     Objects.equals(this.dmarc, other.dmarc) &&
                     Objects.equals(this.mx, other.mx) &&
+                    Objects.equals(this.blocklist, other.blocklist) &&
                     Objects.equals(this.reply_domain, other.reply_domain) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     Objects.equals(this.sender, other.sender) &&

@@ -246,6 +246,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean avatars;
     private boolean color_stripe;
     private boolean check_authentication;
+    private boolean check_mx;
+    private boolean check_blocklist;
     private boolean check_reply_domain;
 
     private MessageHelper.AddressFormat email_format;
@@ -958,7 +960,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !((Boolean.FALSE.equals(message.dkim) && check_authentication) ||
                             (Boolean.FALSE.equals(message.spf) && check_authentication) ||
                             (Boolean.FALSE.equals(message.dmarc) && check_authentication) ||
-                            Boolean.FALSE.equals(message.mx) ||
+                            (Boolean.FALSE.equals(message.mx) && check_mx) ||
+                            (Boolean.TRUE.equals(message.blocklist) && check_blocklist) ||
                             (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain));
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
@@ -3436,6 +3439,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (result.size() > 0)
                 sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
 
+            if (Boolean.TRUE.equals(message.blocklist)) {
+                if (sb.length() > 0)
+                    sb.append('\n');
+                sb.append(context.getString(R.string.title_on_blocklist));
+            }
+
             if (Boolean.FALSE.equals(message.reply_domain)) {
                 if (sb.length() > 0)
                     sb.append('\n');
@@ -5605,6 +5614,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.check_authentication = prefs.getBoolean("check_authentication", true);
+        this.check_mx = prefs.getBoolean("check_mx", false);
+        this.check_blocklist = prefs.getBoolean("check_blocklist", false);
         this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
 
         this.email_format = MessageHelper.getAddressFormat(context);
@@ -5726,6 +5737,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.mx, next.mx)) {
                     same = false;
                     log("mx changed", next.id);
+                }
+                if (!Objects.equals(prev.blocklist, next.blocklist)) {
+                    same = false;
+                    log("blocklist changed", next.id);
                 }
                 if (!Objects.equals(prev.reply_domain, next.reply_domain)) {
                     same = false;

@@ -3332,6 +3332,24 @@ class Core {
                     message.warning = Log.formatThrowable(ex, false);
                 }
 
+            boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
+            if (check_blocklist) {
+                List<Address> senders = new ArrayList<>();
+                if (message.from != null)
+                    senders.addAll(Arrays.asList(message.from));
+                if (message.reply != null)
+                    senders.addAll(Arrays.asList(message.reply));
+                boolean blocklist = false;
+                for (Address sender : senders) {
+                    String email = ((InternetAddress) sender).getAddress();
+                    if (DnsBlockList.isJunk(email)) {
+                        blocklist = true;
+                        break;
+                    }
+                }
+                message.blocklist = blocklist;
+            }
+
             try {
                 db.beginTransaction();
 

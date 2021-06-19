@@ -308,6 +308,7 @@
     <string name="title_advanced_check_authentication">Check message authentication</string>
     <string name="title_advanced_check_reply_domain">Check reply address on synchronizing messages</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
+    <string name="title_advanced_check_blocklist">Check if the sender\'s domain name is on a spam block list</string>
     <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
@@ -970,6 +971,7 @@
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_open_with">Open with</string>
     <string name="title_authentication_failed">%1$s authentication failed</string>
+    <string name="title_on_blocklist">On blocklist</string>
 
     <string name="title_receipt_subject">Read receipt: %1$s</string>
     <string name="title_receipt_text">This read receipt only acknowledges that the message was displayed. There is no guarantee that the recipient has read the message contents.</string>
