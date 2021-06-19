@@ -3922,7 +3922,11 @@ class Core {
             if (!groupMessages.containsKey(group))
                 groupMessages.put(group, new ArrayList<>());
 
-            if (message.notifying != 0) {
+            if (message.notifying == 0) {
+                // Handle clear notifying on boot/update
+                data.groupNotifying.get(group).remove(message.id);
+                data.groupNotifying.get(group).remove(-message.id);
+            } else {
                 long id = message.id * message.notifying;
                 if (!data.groupNotifying.get(group).contains(id) &&
                         !data.groupNotifying.get(group).contains(-id)) {
