@@ -34,7 +34,7 @@ public class ReceiverAutoStart extends BroadcastReceiver {
         if (ACTION_EXACT.equals(action) ||
                 Intent.ACTION_BOOT_COMPLETED.equals(action) ||
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(action)) {
-            Log.i("Received " + intent);
+            EntityLog.log(context, "Received " + intent);
 
             if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(action))
                 ApplicationEx.upgrade(context);
