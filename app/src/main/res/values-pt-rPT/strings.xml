@@ -440,12 +440,89 @@
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
+    <string name="title_password">Palavra-passe</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
+    <string name="title_no_password">Palavra-passe ausente</string>
+    <string name="title_no_inbox">Caixa de entrada não encontrada</string>
+    <string name="title_synchronize_enabled">Sincronizar</string>
+    <string name="title_months_all">Todos</string>
+    <string name="title_folder_all">Arquivar</string>
+    <string name="title_folder_trash">Lixo</string>
+    <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_system">Sistema</string>
     <string name="title_duplicate_in">Mensagem duplicada em %1$s</string>
+    <string name="title_hide">Esconder</string>
+    <string name="title_unhide">Mostrar</string>
+    <string name="title_trash">Lixo</string>
+    <string name="title_delete">Eliminar</string>
+    <string name="title_spam">Spam</string>
+    <string name="title_move">Mover</string>
+    <string name="title_archive">Arquivar</string>
+    <string name="title_reply">Responder</string>
+    <string name="title_ask_reporting">Enviar relatórios de erro?</string>
+    <string name="title_compose">Compor</string>
+    <string name="title_language">Idioma:</string>
+    <string name="title_send">Enviar</string>
+    <string name="title_send_encryption">Encriptação</string>
+    <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
+    <string name="title_search">Pesquisar</string>
+    <string name="title_search_more">Mais opções</string>
+    <string name="title_filter_seen">Lida</string>
     <string name="title_filter_duplicates">Duplicados</string>
+    <string name="title_language_all">Todos</string>
+    <string name="title_rule_hide">Esconder</string>
+    <string name="title_rule_snooze">Adiar</string>
+    <string name="title_rule_move">Mover</string>
+    <string name="title_rule_enabled">Ativado</string>
+    <string name="title_legend_section_synchronize">Sincronizar</string>
+    <string name="title_legend_section_folders">Pastas</string>
+    <string name="title_legend_section_messages">Mensagens</string>
+    <string name="title_legend_section_compose">Compor</string>
+    <string name="title_legend_archive">Arquivar</string>
+    <string name="title_legend_trash">Lixo</string>
+    <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_thread">Conversa</string>
+    <string name="title_legend_audio">Gravar áudio</string>
+    <string name="title_legend_delete">Eliminar</string>
+    <string name="title_legend_a">Arquivar</string>
+    <string name="title_legend_c">Compor</string>
+    <string name="title_legend_r">Responder</string>
+    <string name="title_add">Adicionar</string>
+    <string name="title_fix">Corrigir</string>
+    <string name="title_enable">Activar</string>
+    <string name="title_enabled">Ativado</string>
+    <string name="title_reset">Repor</string>
+    <string name="title_snooze_now">Adiar</string>
+    <string name="title_pro_feature">Esta é uma funcionalidade da versão pro</string>
+    <string name="title_pro_purchase">Comprar</string>
+    <string name="title_log_clear">Limpar</string>
+    <string name="title_debug_info_remark">Por favor descreva o problema e indique quando ocorreu:</string>
+    <string name="title_widget_account_all">Todos</string>
+    <string name="title_accessibility_seen">Lida</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label4">Pendente</string>
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>Contas</item>
+    </string-array>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>4 MB</item>
+        <item>8 MB</item>
+        <item>16 MB</item>
+        <item>∞</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="sizeNames">

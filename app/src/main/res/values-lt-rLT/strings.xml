@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="shortcut_refresh">Atnaujinti</string>
+    <string name="shortcut_setup">Nustatymai</string>
+    <string name="menu_setup">Nustatymai</string>
+    <string name="menu_legend">Legenda</string>
+    <string name="menu_faq">Pagalba</string>
+    <string name="menu_about">Apie</string>
+    <string name="menu_pro">Pro funkcijos</string>
+    <string name="title_agree">Sutinku</string>
+    <string name="title_disagree">Nesutinku</string>
+    <string name="title_setup">Nustatymai</string>
+    <string name="title_setup_export">Nustatymų kopija</string>
+    <string name="title_setup_import">Įkelti nustatymus</string>
+    <string name="title_setup_options">Nustatymai</string>
+    <string name="title_advanced_caption_general">Bendra</string>
+    <string name="title_advanced_cleanup">Atstatyti</string>
+    <string name="title_delete">Ištrinti</string>
+    <string name="title_rule_enabled">Įjungta</string>
+    <string name="title_legend_delete">Ištrinti</string>
+    <string name="title_add">Pridėti</string>
+    <string name="title_enabled">Įjungta</string>
+    <string name="title_reset">Atstatyti</string>
+    <string name="title_pro_feature">Tai PRO funkcija</string>
+    <string name="title_pro_purchase">Įsigyti</string>
+    <string name="title_log_clear">Valyti</string>
+    <string name="title_debug_info_remark">Aprašykite sutrikimą ir nurodykite sutrikimo atsiradimo laiką:</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

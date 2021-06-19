@@ -199,6 +199,7 @@
     <string name="title_advanced_portrait2">세로 모드에서 2행 사용</string>
     <string name="title_advanced_landscape">가로 모드에서 2열 사용</string>
     <string name="title_advanced_date_header">날짜로 묶기</string>
+    <string name="title_advanced_threading">대화 스레딩</string>
     <string name="title_advanced_gravatars">그라바타 표시</string>
     <string name="title_advanced_favicons">파비콘 표시</string>
     <string name="title_advanced_identicons">아이덴티콘 표시</string>
@@ -294,6 +295,7 @@
     <string name="title_check">확인</string>
     <string name="title_no_name">이름 없음</string>
     <string name="title_no_account">계정 누락</string>
+    <string name="title_no_password">비밀번호 누락</string>
     <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_edit_html">HTML 편집</string>
     <string name="title_review">검토</string>
@@ -680,6 +682,7 @@
     <string name="title_icalendar_decline">거부</string>
     <string name="title_icalendar_maybe">아마</string>
     <string name="title_icalendar_calendar">달력</string>
+    <string name="title_pro_feature">PRO 기능입니다</string>
     <string name="title_pro_purchase">구매</string>
     <string name="title_pro_one_time">%1$s (1회 구매)</string>
     <string name="title_pro_no_play">Play Store를 찾을 수 없음</string>
@@ -696,6 +699,7 @@
     <string name="title_rules_export">규칙 내보내기</string>
     <string name="title_rules_import">규칙 불러오기</string>
     <string name="title_debug_info">디버그 정보</string>
+    <string name="title_debug_info_remark">문제와 문제 발생 시점에 대해 설명해주십시오:</string>
     <string name="title_widget_title_list">메시지 목록</string>
     <string name="title_widget_title_sync">동기화 켬/끔</string>
     <string name="title_power_menu_sync">동기화</string>

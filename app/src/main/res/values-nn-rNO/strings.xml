@@ -781,7 +781,7 @@
     <string name="title_bcc">Blindkopi:</string>
     <string name="title_recipients">%1$d mottakere</string>
     <string name="title_via_identity">Via:</string>
-    <string name="title_sent">Sent:</string>
+    <string name="title_sent">Sendt:</string>
     <string name="title_received">Mottatt:</string>
     <string name="title_stored">Lagret:</string>
     <string name="title_size">Størrelse:</string>
@@ -917,7 +917,7 @@
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Etter</string>
     <string name="title_search_flag_unseen">ulest</string>
-    <string name="title_search_flag_flagged">stjernemerket</string>
+    <string name="title_search_flag_flagged">stjernemerkede</string>
     <string name="title_search_flag_hidden">skjult</string>
     <string name="title_search_flag_encrypted">kryptert</string>
     <string name="title_search_flag_attachments">vedlegg</string>
@@ -1259,7 +1259,7 @@
     <string name="title_keyword_label1">Viktig</string>
     <string name="title_keyword_label2">Arbeid</string>
     <string name="title_keyword_label3">Personlig</string>
-    <string name="title_keyword_label4">Oppgave</string>
+    <string name="title_keyword_label4">Gjøremål</string>
     <string name="title_keyword_label5">Senere</string>
     <string name="title_accessibility_flagged">Stjernemerkede</string>
     <string name="title_accessibility_unflagged">Ikke med stjerne</string>
@@ -1328,7 +1328,7 @@
     </string-array>
     <string-array name="resizeNames">
         <item>Liten</item>
-        <item>Medium</item>
+        <item>Middels</item>
         <item>Stor</item>
         <item>Ekstra stor</item>
     </string-array>
@@ -1367,7 +1367,7 @@
     <string-array name="fontSizeNames">
         <item>Standard</item>
         <item>Liten</item>
-        <item>Medium</item>
+        <item>Middels</item>
         <item>Stor</item>
     </string-array>
     <string-array name="receiptNames">

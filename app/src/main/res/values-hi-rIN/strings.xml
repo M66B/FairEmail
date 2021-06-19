@@ -33,6 +33,52 @@
         <item quantity="one">%1$d नया संदेश</item>
         <item quantity="other">%1$d नया संदेशें</item>
     </plurals>
+    <string name="menu_setup">सेटिंग्स</string>
+    <string name="menu_legend">किंवदंती</string>
+    <string name="menu_faq">सहायता</string>
+    <string name="menu_about">के बारे में</string>
+    <string name="menu_pro">प्रो सुविधाएँ</string>
+    <string name="title_agree">मैं सहमत हूँ</string>
+    <string name="title_disagree">मैं असहमत हूं</string>
+    <string name="title_setup">सेटिंग्स</string>
+    <string name="title_setup_help">सहायता</string>
+    <string name="title_setup_export">सेटिंग्स निर्यात</string>
+    <string name="title_setup_import">सेटिंग्स आयात करें</string>
+    <string name="title_setup_options">विकल्प</string>
+    <string name="title_advanced_section_synchronize">प्राप्त करें</string>
+    <string name="title_advanced_section_send">भेजें</string>
+    <string name="title_advanced_section_notifications">सूचनाएँ</string>
+    <string name="title_advanced_caption_general">सामान्य</string>
+    <string name="title_advanced_caption_conversation">वार्तालाप</string>
+    <string name="title_advanced_caption_message">संदेश</string>
+    <string name="title_advanced_cleanup">Depending on the Android version, tethering may work or may not work. Tethered traffic cannot be filtered.</string>
+    <string name="title_synchronize_enabled">तुल्यकालित करें</string>
+    <string name="title_months_all">सभी</string>
+    <string name="title_unhide">दिखाएँ</string>
+    <string name="title_delete">मिटाए</string>
+    <string name="title_compose">लिखें</string>
+    <string name="title_send">भेजें</string>
+    <string name="title_attachment_audio">ध्वनि रिकॉर्ड करना</string>
+    <string name="title_search">खोजें</string>
+    <string name="title_language_all">सभी</string>
+    <string name="title_rule_enabled">सक्षम</string>
+    <string name="title_legend_section_synchronize">तुल्यकालित करें</string>
+    <string name="title_legend_section_folders">फ़ोल्डर्स</string>
+    <string name="title_legend_section_messages">संदेशों</string>
+    <string name="title_legend_section_compose">लिखें</string>
+    <string name="title_legend_thread">वार्तालाप</string>
+    <string name="title_legend_audio">ध्वनि रिकॉर्ड करना</string>
+    <string name="title_legend_delete">मिटाए</string>
+    <string name="title_legend_c">लिखें</string>
+    <string name="title_add">जोड़ें</string>
+    <string name="title_fix">ठीक करें</string>
+    <string name="title_enabled">सक्षम</string>
+    <string name="title_reset">रीसेट</string>
+    <string name="title_pro_feature">यह एक प्रो फीचर है</string>
+    <string name="title_pro_purchase">ख़रीदें</string>
+    <string name="title_log_clear">खाली करें</string>
+    <string name="title_debug_info_remark">कृपया समस्या का वर्णन करें और समस्या के समय से संकेत मिलता है:</string>
+    <string name="title_widget_account_all">सभी</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

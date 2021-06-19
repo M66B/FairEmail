@@ -133,20 +133,26 @@
     <string name="title_setup_biometrics_unlock">فُتح القفل</string>
     <string name="title_setup_theme">اختر السمة</string>
     <string name="title_setup_theme_blue_orange">أزرق/برتقالي</string>
+    <string name="title_setup_theme_black_background">خلفية سوداء</string>
     <string name="title_setup_advanced">الإعدادات المتقدمة</string>
     <string name="title_setup_options">الخيارات</string>
     <string name="title_setup_defaults">استعادة الأوضاع الافتراضية</string>
+    <string name="title_advanced_section_synchronize">إستلام</string>
     <string name="title_advanced_section_send">إرسال</string>
     <string name="title_advanced_section_connection">اتصال</string>
     <string name="title_advanced_section_display">إظهار</string>
     <string name="title_advanced_section_behavior">السلوك</string>
+    <string name="title_advanced_section_privacy">الخصوصية</string>
     <string name="title_advanced_section_notifications">الاشعارات</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
     <string name="title_advanced_when">متى</string>
     <string name="title_advanced_schedule">برمجة</string>
+    <string name="title_advanced_advanced">الإعدادات المتقدمة</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
+    <string name="title_advanced_caption_general">الاعدادات العامة</string>
     <string name="title_advanced_caption_list">قائمة</string>
+    <string name="title_advanced_caption_conversation">المحادثة</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_date_bold">إظهار التاريخ بخط سميك</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
@@ -158,13 +164,19 @@
     <string name="title_advanced_pull_refresh">اسحب لأسفل للتحديث</string>
     <string name="title_advanced_autoexpand">توسيع محتوى الرسائل تلقائيًا</string>
     <string name="title_advanced_autoclose">غلق المحادثات تلقائيا</string>
+    <string name="title_advanced_notifications">إدارة الإشعارات</string>
     <string name="title_advanced_notify_preview">إظهار معاينة للرسائل في الإشعارات</string>
     <string name="title_advanced_notify_action_trash">سلّة المهملات</string>
+    <string name="title_advanced_notify_action_junk">البريد المزعج</string>
+    <string name="title_advanced_notify_action_archive">أرشيف</string>
+    <string name="title_advanced_notify_action_move">نقل</string>
     <string name="title_advanced_notify_action_reply">رد</string>
     <string name="title_advanced_light">استخدم الإشعار الضوئي</string>
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_generic_user_agent">استخدام اعدادات المستخدم العامة في المتصفح</string>
+    <string name="title_advanced_encrypt_default">تشفير بشكل افتراضي</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
+    <string name="title_advanced_cleanup">تنظيف</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
     <string name="title_advanced_browse_hint">جلب المزيد من الرسائل عند التمرير إلى أسفل</string>
     <string name="title_identity_name">إسمك</string>
@@ -197,8 +209,10 @@
     <string name="title_no_host">اسم المضيف مفقود</string>
     <string name="title_no_user">اسم المستخدم مفقود</string>
     <string name="title_no_password">كلمة المرور مفقودة</string>
+    <string name="title_no_inbox">صندوق الوارد غير موجود</string>
     <string name="title_account_delete">حذف هذا الحساب نهائيا؟</string>
     <string name="title_identity_delete">حذف هذه الهوية نهائيا؟</string>
+    <string name="title_edit_html">تعديل كـ HTML</string>
     <string name="title_last_connected">آخر ربط: %1$s</string>
     <string name="title_advanced_browse">تصفح الرسائل على الخادم</string>
     <string name="title_synchronize_now">زامن الآن</string>
@@ -216,6 +230,7 @@
     <string name="title_keep_all">الإبقاء على كافة الرسائل</string>
     <string name="title_folder_name_missing">اسم المجلد مفقود</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
+    <string name="title_months_all">الكل</string>
     <string name="title_folder_unified">علبة وارد موحدة</string>
     <string name="title_folder_inbox">البريد الوارد</string>
     <string name="title_folder_outbox">البريد الصادر</string>
@@ -232,6 +247,7 @@
     <string name="title_subject_forward">إعادة توجيه: %1$s</string>
     <string name="title_seen">علامة كـ مقروء</string>
     <string name="title_unseen">وضع علامة كغير مقروء</string>
+    <string name="title_unhide">إظهار</string>
     <string name="title_flag">إضافة نجمة</string>
     <string name="title_unflag">إزالة نجمة</string>
     <string name="title_forward">إعادة توجيه</string>
@@ -249,6 +265,7 @@
     <string name="title_move">نقل</string>
     <string name="title_archive">أرشيف</string>
     <string name="title_reply">رد</string>
+    <string name="title_reply_to_all">الرد على الكل</string>
     <string name="title_open_with">افتح باستخدام</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
     <string name="title_no_folder">المجلد غير موجود</string>
@@ -259,6 +276,7 @@
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
     <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
+    <string name="title_ask_reporting">إرسال تقارير الأخطاء?</string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">مِن:</string>
     <string name="title_to">إلى:</string>
@@ -266,9 +284,11 @@
     <string name="title_cc">نسخة كربونية:</string>
     <string name="title_bcc">نسخة مخفية:</string>
     <string name="title_via_identity">عبر:</string>
+    <string name="title_sent">البريد المرسَل:</string>
     <string name="title_received">تاريخ الاستلام:</string>
     <string name="title_size">الحجم:</string>
     <string name="title_subject">الموضوع:</string>
+    <string name="title_attachment">المرفق:</string>
     <string name="title_body_hint">نص رسالتك</string>
     <string name="title_discard">تجاهل</string>
     <string name="title_save">حفظ</string>
@@ -296,8 +316,10 @@
     <string name="title_encrypt">تعمية</string>
     <string name="title_decrypt">فك التعمية</string>
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
+    <string name="title_signature_subject">الموضوع</string>
     <string name="title_search">بحث</string>
     <string name="title_search_in_trash">في القمامة</string>
+    <string name="title_search_server">البحث في الخادم</string>
     <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>
     <string name="title_sort_on_unread">غير مقروءة</string>
@@ -309,9 +331,16 @@
     <string name="title_select_all">اختيار الكل</string>
     <string name="title_previous">السابق</string>
     <string name="title_next">التالي</string>
+    <string name="title_edit_signature_text">نص التوقيع</string>
+    <string name="title_edit_signature_image">إرفاق صورة</string>
     <string name="title_answer_reply">نموذج الرد</string>
     <string name="title_answer_name">اسم النموذج</string>
     <string name="title_answer_text">نص النموذج</string>
+    <string name="title_rule_seen">علامة كـ مقروء</string>
+    <string name="title_rule_unseen">وضع علامة كغير مقروء</string>
+    <string name="title_rule_flag">إضافة نجمة</string>
+    <string name="title_rule_keyword">إضافة كلمة مفتاحية</string>
+    <string name="title_rule_move">نقل</string>
     <string name="title_rule_name">الإسم</string>
     <string name="title_rule_order">الترتيب</string>
     <string name="title_rule_enabled">تم تفعيله</string>
@@ -324,10 +353,14 @@
     <string name="title_rule_hours">ساعات</string>
     <string name="title_rule_folder">المجلد</string>
     <string name="title_rule_identity">الهوية</string>
+    <string name="title_rule_template">نموذج الرد</string>
     <string name="title_rule_name_missing">اسم القاعدة مفقود</string>
     <string name="title_rule_condition_missing">الشرط مفقود</string>
+    <string name="title_rule_check">تحقق</string>
+    <string name="title_legend_section_synchronize">المزامنة</string>
     <string name="title_legend_section_folders">المجلدات</string>
     <string name="title_legend_section_messages">الرسائل</string>
+    <string name="title_legend_section_compose">تحرير</string>
     <string name="title_legend_download_on">تنزيل محتوى الرسائل تلقائيا</string>
     <string name="title_legend_synchronize_on">المزامنة مشغّلة</string>
     <string name="title_legend_synchronize_off">المزامنة معطّلة</string>
@@ -340,9 +373,11 @@
     <string name="title_legend_closing">إغلاق</string>
     <string name="title_legend_inbox">صندوق البريد الوارد</string>
     <string name="title_legend_drafts">المسودات</string>
+    <string name="title_legend_sent">البريد المرسَل</string>
     <string name="title_legend_archive">الأرشيف</string>
     <string name="title_legend_trash">سلة المهملات</string>
     <string name="title_legend_junk">البريد المزعج</string>
+    <string name="title_legend_notify">أخبرني لدى ورود رسائل جديدة</string>
     <string name="title_legend_thread">المحادثة</string>
     <string name="title_legend_zoom">تغيير حجم النص</string>
     <string name="title_legend_draft">لديه مسودة</string>
@@ -363,26 +398,38 @@
     <string name="title_legend_italic">جعل النص مائلا</string>
     <string name="title_legend_metered">الشبكة مقاسة</string>
     <string name="title_legend_unmetered">الشبكة غير مقاسة</string>
+    <string name="title_legend_show_images">إظهار الصور</string>
     <string name="title_legend_edit">تعديل</string>
     <string name="title_legend_default_color">اللون الافتراضي</string>
     <string name="title_legend_save">حفظ</string>
     <string name="title_legend_delete">حذف</string>
     <string name="title_legend_folder_type">نوع المجلد</string>
+    <string name="title_legend_a">أرشيف</string>
+    <string name="title_legend_c">تحرير</string>
+    <string name="title_legend_n">التالي</string>
+    <string name="title_legend_p">السابق</string>
+    <string name="title_legend_r">رد</string>
+    <string name="title_hint_contact_actions">اضغط مطولاً للمزيد من الخيارات</string>
     <string name="title_open_link">افتح الرابط</string>
+    <string name="title_select_app">اختر تطبيقا</string>
     <string name="title_updated">هناك إصدار جديد متوفر %1$s</string>
     <string name="title_issue">هل عندك تساؤل أو صادفتَ مشكلة؟</string>
     <string name="title_yes">نعم</string>
     <string name="title_no">لا</string>
     <string name="title_undo">التراجع عن</string>
     <string name="title_add">إضافة</string>
+    <string name="title_browse">افتح باستخدام</string>
     <string name="title_info">معلومات</string>
     <string name="title_report">إبلاغ</string>
     <string name="title_fix">تصليح</string>
     <string name="title_enable">تمكين</string>
+    <string name="title_enabled">ممكن</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
     <string name="title_no_ask_for_again">لا تسألني ثانية عن %1$s</string>
     <string name="title_no_body">لم يتم العثور على أية رسالة نصية</string>
     <string name="title_via">عبر: %1$s</string>
+    <string name="title_reset">إعادة تعيين</string>
+    <string name="title_hours">ساعات</string>
     <string name="title_icalendar_accept">موافقة</string>
     <string name="title_icalendar_decline">رفض</string>
     <string name="title_icalendar_maybe">ربما</string>
@@ -395,7 +442,16 @@
     <string name="title_unexpected_error">لقد حدث خطأ غير متوقع</string>
     <string name="title_log">السجل</string>
     <string name="title_auto_scroll">تمرير تلقائي</string>
+    <string name="title_log_clear">محو</string>
+    <string name="title_debug_info_remark">الرجاء أوصف المشكلة وبيّن وقت المشكلة</string>
+    <string name="title_widget_account_all">الكل</string>
+    <string name="title_widget_folder">المجلد</string>
+    <string name="title_accessibility_unseen">غير مقروءة</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_flagged">مميّزة بنجمة</string>
+    <string name="title_accessibility_edit">تعديل</string>
+    <string name="title_accessibility_attachment">المرفق</string>
+    <string name="title_accessibility_from">المُرسِل</string>
     <string-array name="pollIntervalNames">
         <item>دائماً</item>
         <item>كل 15 دقيقة</item>
@@ -415,6 +471,12 @@
         <item>5 دقائق</item>
         <item>10 دقائق</item>
     </string-array>
+    <string-array name="startupNames">
+        <item>علبة وارد موحدة</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>الحسابات</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 كيلوبايت</item>
         <item>32 كيلوبايت</item>
@@ -431,5 +493,17 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>إلى</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>One minute</item>
+        <item>دقيقتان</item>
+        <item>5 دقائق</item>
+        <item>10 دقائق</item>
+        <item>20 دقائق</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail е-мејл апликација отвореног кода са фокусом на приватност и безбедност. Могуће је да ће из ових разлога неке функционалности бити другачије него што сте навикли.</string>
     <string name="app_crash">FairEmail није подржан на овом уређају пошто Андроид грешке изазивају рушења апликације</string>
     <string name="app_exit">За излаз још једном притисните „назад“</string>
+    <string name="channel_service">Примање</string>
     <string name="channel_send">Пошаљи</string>
     <string name="channel_update">Ажурирања</string>
     <string name="channel_warning">Упозорења</string>
@@ -374,6 +375,8 @@
     <string name="title_synchronize_enabled">Синхронизуј</string>
     <string name="title_delete_local">Избриши локалне поруке</string>
     <string name="title_delete_browsed">Избриши прегледане/претражене</string>
+    <string name="title_empty_trash">Испразни отпад</string>
+    <string name="title_empty_spam">Испразни нежељене</string>
     <string name="title_edit_properties">Измени својства</string>
     <string name="title_edit_rules">Измени правила</string>
     <string name="title_create_channel">Направи канал за обавештавање</string>
@@ -545,6 +548,7 @@
     <string name="title_add_image_inline">Убаци</string>
     <string name="title_add_image_attach">Прикачи</string>
     <string name="title_add_image_resize">Промени величину</string>
+    <string name="title_add_resize_pixels">&lt; %1$d пиксела</string>
     <string name="title_add_image_select">Изабери датотеку</string>
     <string name="title_add_attachment">Додај прилог</string>
     <string name="title_attachment_file">Закачи фајл</string>
@@ -767,6 +771,7 @@
     <string name="title_legend_expander">Проширење</string>
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Прикажи цитирања</string>
+    <string name="title_legend_show_junk">Сматрај непожељним</string>
     <string name="title_legend_show_unsubscribe">Одјави се са листе</string>
     <string name="title_legend_show_images">Прикажи слике</string>
     <string name="title_legend_show_full">Прикажи оригиналну поруку</string>
@@ -993,6 +998,17 @@
         <item>PGP потпис+шифровање</item>
         <item>S/MIME само потпис</item>
         <item>S/MIME потпис+шифровање</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

@@ -55,6 +55,7 @@
     <string name="title_setup_theme_dark">E errët</string>
     <string name="title_setup_theme_black_background">Sfond i errët</string>
     <string name="title_setup_theme_more_colors">Unë kërkoj më shumë ngjyra</string>
+    <string name="title_advanced_section_send">Dërgo</string>
     <string name="title_advanced_section_notifications">Njoftimet</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Biseda</string>
@@ -81,7 +82,29 @@
     <string name="title_advanced_schedule_hint">Prek për të vendosur një orar</string>
     <string name="title_advanced_edit_name">Ndrysho emrin</string>
     <string name="title_identity_name">Emri juaj</string>
+    <string name="title_password">Fjalëkalimi</string>
+    <string name="title_no_password">Fjalëkalimi mungon</string>
+    <string name="title_folder_all">Arkiva</string>
+    <string name="title_move">Zhvendos</string>
+    <string name="title_archive">Arkiva</string>
+    <string name="title_reply">Përgjigju</string>
+    <string name="title_send">Dërgo</string>
+    <string name="title_filter_seen">Lexo</string>
+    <string name="title_rule_move">Zhvendos</string>
+    <string name="title_legend_section_messages">Mesazhet</string>
+    <string name="title_legend_archive">Arkiva</string>
+    <string name="title_legend_thread">Biseda</string>
+    <string name="title_legend_a">Arkiva</string>
+    <string name="title_legend_r">Përgjigju</string>
+    <string name="title_enable">Aktivizo</string>
+    <string name="title_accessibility_seen">Lexo</string>
     <!-- Thunderbird -->
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>Llogaritë</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

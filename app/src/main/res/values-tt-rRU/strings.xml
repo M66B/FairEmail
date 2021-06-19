@@ -12,6 +12,7 @@
     </plurals>
     <string name="page_folders">Папкалар</string>
     <string name="shortcut_refresh">Яңарту</string>
+    <string name="shortcut_setup">Көйләүләр</string>
     <string name="menu_setup">Көйләүләр</string>
     <string name="menu_privacy">Хосусыйлык</string>
     <string name="menu_about">Хакында</string>
@@ -26,6 +27,7 @@
     <string name="title_setup_theme_black">Кара</string>
     <string name="title_setup_theme_light">Ачык</string>
     <string name="title_setup_theme_dark">Караңгы</string>
+    <string name="title_setup_advanced">Киңәйтелгән</string>
     <string name="title_advanced_section_send">Җибәрү</string>
     <string name="title_advanced_section_privacy">Хосусыйлык</string>
     <string name="title_advanced_section_encryption">Шифрлау</string>
@@ -43,11 +45,22 @@
     <string name="title_months_all">Бөтенесе</string>
     <string name="title_folder_junk">Спам</string>
     <string name="title_folder_sent">Җибәрелгән</string>
+    <string name="title_folder_system">Система</string>
     <string name="title_share">Уртаклашу</string>
     <string name="title_delete">Бетерү</string>
     <string name="title_spam">Спам</string>
+    <string name="title_move">Күчермәләү</string>
+    <string name="title_sent">Җибәрелгән:</string>
+    <string name="title_language">Тел:</string>
+    <string name="title_send">Җибәрү</string>
+    <string name="title_send_encryption">Шифрлау</string>
     <string name="title_language_all">Бөтенесе</string>
+    <string name="title_rule_move">Күчермәләү</string>
+    <string name="title_rule_folder">Папка</string>
     <string name="title_legend_section_folders">Папкалар</string>
+    <string name="title_legend_section_messages">Хәбәрләр</string>
+    <string name="title_legend_sent">Җибәрелгән</string>
+    <string name="title_legend_junk">Спам</string>
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_delete">Бетерү</string>
     <string name="title_yes">Әйе</string>
@@ -58,6 +71,21 @@
     <string name="title_widget_account_all">Бөтенесе</string>
     <string name="title_widget_folder">Папка</string>
     <!-- Thunderbird -->
+    <string-array name="sendDelayedNames">
+        <item>Юк</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+    </string-array>
+    <string-array name="startupNames">
+        <item>Unified inbox</item>
+        <item>Unified folders</item>
+        <item>Primary account folders</item>
+        <item>Хисап язмалар</item>
+    </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>

@@ -139,10 +139,12 @@
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntü</string>
     <string name="title_advanced_section_behavior">Davranış</string>
+    <string name="title_advanced_section_privacy">Gizlilik</string>
     <string name="title_advanced_section_notifications">Bildirişlər</string>
     <string name="title_advanced_section_misc">Qarışıq</string>
     <string name="title_advanced_when">Nə vaxt</string>
     <string name="title_advanced_schedule">Cədvəl</string>
+    <string name="title_advanced_advanced">Qabaqcıl</string>
     <string name="title_advanced_unseen">Bütün oxunmamış mesajlar</string>
     <string name="title_advanced_flagged">Bütün ulduzlu mesajlar</string>
     <string name="title_advanced_kept_removed">Köhnə mesajların serverlərdən silinib silinmədiyini yoxlayın</string>
@@ -154,6 +156,9 @@
     <string name="title_advanced_roaming">Roaminqdə olarkən mesajları və qoşmaları endir</string>
     <string name="title_advanced_rlah">Evdə olduğu kimi gəz</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
+    <string name="title_advanced_caption_general">Ümumi</string>
+    <string name="title_advanced_caption_conversation">Söhbət</string>
+    <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_date_header">Tarixə görə qrup</string>
     <string name="title_advanced_threading">Danışıq sırası</string>
@@ -172,9 +177,17 @@
     <string name="title_advanced_autoexpand">Mesajları avtomatik genişləndir</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_autoread">Hərəkətli mesajlarda oxunan mesajları avtomatik işarələ</string>
+    <string name="title_advanced_notifications">Bildirişləri idarə et</string>
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja ön baxışı göstər</string>
+    <string name="title_advanced_notify_action_trash">Tullantı</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
+    <string name="title_advanced_notify_action_archive">Arxivlə</string>
+    <string name="title_advanced_notify_action_move">Köçürt</string>
+    <string name="title_advanced_notify_action_reply">Cavabla</string>
+    <string name="title_advanced_notify_action_seen">Oxunan</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsi seç</string>
+    <string name="title_advanced_cleanup">Təmizlik</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_schedule_hint">Bir vaxt tənzimləmək üçün vaxta toxun</string>
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>
@@ -190,6 +203,7 @@
     <string name="title_account_linked">Birləşdirilmiş hesablar</string>
     <string name="title_account_name">Hesab adı</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
+    <string name="title_color">Rəng</string>
     <string name="title_account_notify">Ayrı bildirişlər</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Tənzimləmələri al</string>
@@ -212,12 +226,15 @@
     <string name="title_no_idle">Bu təchizatçı ani mesajları dəstəkləmir. Bu, yeni mesajların alınmasını gecikdirəcək və batareyanın istifadəsini artıracaq.</string>
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
+    <string name="title_edit_html">HTML kimi düzəliş et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
+    <string name="title_synchronize_enabled">Eyniləşdirmə</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
+    <string name="title_show_folders">Gizli qovluqları göstər</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
     <string name="title_poll_folder">Davamlı eyniləşdirmə əvəzinə vaxtaşırı yoxlayın</string>
@@ -230,6 +247,7 @@
     <string name="title_folder_name_missing">Qovluq adı buraxılıb</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
     <string name="title_folder_delete">Bu qovluq və onu ehtiva edən mesajlar birdəfəlik silinsin?</string>
+    <string name="title_months_all">Hamısı</string>
     <string name="title_folder_unified">Birləşmiş gələn qutusu</string>
     <string name="title_folder_inbox">Gələn qutusu</string>
     <string name="title_folder_outbox">Gedən qutusu</string>
@@ -247,8 +265,12 @@
     <string name="title_subject_forward">Ynlndr: %1$s</string>
     <string name="title_seen">Oxundu kimi işarələ</string>
     <string name="title_unseen">Oxunmadı kimi işarələ</string>
+    <string name="title_unhide">Göstər</string>
     <string name="title_flag">Ulduz əlavə et</string>
     <string name="title_unflag">Ulduzu çıxart</string>
+    <string name="title_importance_low">Aşağı</string>
+    <string name="title_importance_normal">Normal</string>
+    <string name="title_importance_high">Yüksək</string>
     <string name="title_forward">Yönləndir</string>
     <string name="title_share">Paylaş</string>
     <string name="title_show_headers">Başlıqları göstər</string>
@@ -263,6 +285,7 @@
     <string name="title_move">Köçürt</string>
     <string name="title_archive">Arxivlə</string>
     <string name="title_reply">Cavabla</string>
+    <string name="title_reply_to_all">Hamısını cavabla</string>
     <string name="title_open_with">Bununla aç</string>
     <string name="title_no_answers">Heç bir cavab şablonu təyin edilmədi</string>
     <string name="title_no_viewer">%1$s üçün heç bir görüntüləmə tətbiqi yoxdur</string>
@@ -270,6 +293,7 @@
     <string name="title_no_stream">Köhnə bir tətbiq, fayl axını əvəzinə fayl yolu göndərdi</string>
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
     <string name="title_attachments_saved">Qoşma saxlanıldı</string>
+    <string name="title_ask_save">Dəyişikliklər saxlanılsın?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
@@ -282,9 +306,11 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Vasitəsilə:</string>
+    <string name="title_sent">Göndərildi:</string>
     <string name="title_received">Qəbul edildi:</string>
     <string name="title_size">Həcmi:</string>
     <string name="title_subject">Mövzu:</string>
+    <string name="title_attachment">Qoşma:</string>
     <string name="title_body_hint">Mesajınız</string>
     <string name="title_discard">Sil</string>
     <string name="title_save">Saxla</string>
@@ -292,9 +318,11 @@
     <string name="title_send_at">&#8230; göndər</string>
     <string name="title_style_bold">Qalın</string>
     <string name="title_style_italic">Meyilli</string>
+    <string name="title_style_size">Həcmi</string>
     <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
+    <string name="title_attachment_audio">Səs yaz</string>
     <string name="title_show_addresses">CC/BCC göstər</string>
     <string name="title_from_missing">Göndərən əskikdir</string>
     <string name="title_to_missing">Alıcı əskikdir</string>
@@ -306,20 +334,32 @@
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
+    <string name="title_signature_subject">Mövzu</string>
     <string name="title_search">Axtar</string>
+    <string name="title_search_server">Serverdə axtar</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Vaxt</string>
     <string name="title_sort_on_unread">Oxunmadı</string>
     <string name="title_sort_on_starred">Ulduzlu</string>
     <string name="title_sort_on_sender">Göndərən</string>
     <string name="title_sort_on_subject">Mövzu</string>
+    <string name="title_sort_on_size">Həcmi</string>
+    <string name="title_filter_seen">Oxunan</string>
+    <string name="title_filter_unflagged">Ulduzlu olmayan</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
+    <string name="title_edit_signature_text">İmza mətni</string>
+    <string name="title_edit_signature_image">Təsvir daxil et</string>
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>
     <string name="title_answer_text">Şablon mətni</string>
+    <string name="title_rule_seen">Oxundu kimi işarələ</string>
+    <string name="title_rule_unseen">Oxunmadı kimi işarələ</string>
+    <string name="title_rule_flag">Ulduz əlavə et</string>
+    <string name="title_rule_keyword">Açarsöz əlavə et</string>
+    <string name="title_rule_move">Köçürt</string>
     <string name="title_rule_name">Ad</string>
     <string name="title_rule_order">Sifariş</string>
     <string name="title_rule_enabled">Fəallaşdırıldı</string>
@@ -329,6 +369,13 @@
     <string name="title_rule_regex">Müntəzəm ifadə</string>
     <string name="title_rule_and">VƏ</string>
     <string name="title_rule_action">Hərəkət</string>
+    <string name="title_rule_folder">Qovluq</string>
+    <string name="title_rule_template">Cavab şablonu</string>
+    <string name="title_rule_check">Yoxla</string>
+    <string name="title_legend_section_synchronize">Eyniləşdirmə</string>
+    <string name="title_legend_section_folders">Qovluqlar</string>
+    <string name="title_legend_section_messages">Mesaj</string>
+    <string name="title_legend_section_compose">Yaz</string>
     <string name="title_legend_download_on">Mesaj məzmununu avtomatik endir</string>
     <string name="title_legend_download_off">Tələb olunan mesaj məzmununu endirin </string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>
@@ -340,29 +387,52 @@
     <string name="title_legend_downloading">Endirilir</string>
     <string name="title_legend_closing">Bağlanır</string>
     <string name="title_legend_inbox">Gələn qutusu</string>
+    <string name="title_legend_drafts">Qaralamalar</string>
+    <string name="title_legend_sent">Göndərilən</string>
     <string name="title_legend_archive">Arxiv</string>
     <string name="title_legend_trash">Tullantı</string>
+    <string name="title_legend_junk">Spam</string>
     <string name="title_legend_notify">Yeni mesajları bildir</string>
     <string name="title_legend_sync_keep">Mesajları eyniləşdirmək / saxlamaq üçün gün sayı</string>
     <string name="title_legend_thread">Söhbət</string>
     <string name="title_legend_view">Məzmuna bax</string>
     <string name="title_legend_download">Məzmunu endir</string>
     <string name="title_legend_broken_image">Zədələnmiş təsvir</string>
+    <string name="title_legend_cc">CC/BCC göstər</string>
+    <string name="title_legend_link">Bağlantı daxil et</string>
+    <string name="title_legend_audio">Səs yaz</string>
     <string name="title_legend_metered">Bağlantı ölçülür</string>
     <string name="title_legend_unmetered">Bağlantı ölçülmür</string>
+    <string name="title_legend_show_images">Təsvirləri göstər</string>
+    <string name="title_legend_edit">Düzəliş et</string>
+    <string name="title_legend_save">Saxla</string>
+    <string name="title_legend_delete">Sil</string>
+    <string name="title_legend_a">Arxivlə</string>
+    <string name="title_legend_c">Yaz</string>
+    <string name="title_legend_n">Növbəti</string>
+    <string name="title_legend_p">Əvvəlki</string>
+    <string name="title_legend_r">Cavabla</string>
     <string name="title_hint_folder_sync">Batereya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
+    <string name="title_hint_important">Vacib</string>
     <string name="title_hint_sync">Mesajların endirilməsi təchizatçınızın sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq biraz vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
+    <string name="title_hint_contact_actions">Variantlar üçün uzun basın</string>
     <string name="title_open_link">Bağlantını aç</string>
+    <string name="title_select_app">Tətbiq seç</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>
+    <string name="title_later">Sonra</string>
     <string name="title_undo">Geri qaytar</string>
     <string name="title_add">Əlavə et</string>
+    <string name="title_browse">Bununla aç</string>
     <string name="title_report">Bildir</string>
     <string name="title_fix">Düzəlt</string>
+    <string name="title_enable">Fəaldır</string>
+    <string name="title_enabled">Fəallaşdırıldı</string>
     <string name="title_no_ask_again">Bunu bir də soruşma</string>
+    <string name="title_reset">Sıfırla</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>
     <string name="title_pro_purchase">Satın al</string>
@@ -373,6 +443,7 @@
     <string name="title_unexpected_error">Gözlənilməz xəta</string>
     <string name="title_log">Qeyd jurnalı</string>
     <string name="title_auto_scroll">Avto sürüşdürmə</string>
+    <string name="title_log_clear">Təmizlə</string>
     <string name="title_rules_delete_all_confirm">Bütün qaydalar silinsin?</string>
     <string name="title_rules_delete_junk_confirm">Mesajları spam qovluğuna daşıyan bütün qaydalar silinsin?</string>
     <string name="title_debug_info">Sazlama məlumatı</string>
@@ -466,8 +537,26 @@
         <item>16 MB</item>
         <item>∞</item>
     </string-array>
+    <string-array name="resizeNames">
+        <item>Kiçik</item>
+        <item>Orta</item>
+        <item>Böyük</item>
+        <item>Extra large</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="targetNames">
+        <item>Alıcı</item>
+        <item>Cc</item>
+        <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>One minute</item>
+        <item>2 dəqiqə</item>
+        <item>5 dəqiqə</item>
+        <item>10 dəqiqə</item>
+        <item>20 dəqiqə</item>
+    </string-array>
     <string-array name="ellipsizeNames">
         <item>Başlanğıcda</item>
         <item>Ortada</item>

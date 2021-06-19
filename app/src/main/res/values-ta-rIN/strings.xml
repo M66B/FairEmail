@@ -70,6 +70,44 @@
     <string name="title_notification_alert">\'%1$s\' சேவையக எச்சரிக்கை</string>
     <string name="title_notification_sending_left">மீதமுள்ள முயற்சிகள்: %1$d</string>
     <string name="title_notification_sending_failed">%1$s-க்கு அனுப்புதல் தோல்வியுற்றது</string>
+    <string name="menu_setup">அமைப்புகள்</string>
+    <string name="menu_legend">Legend</string>
+    <string name="menu_faq">ஆதரவு</string>
+    <string name="menu_about">பற்றி</string>
+    <string name="menu_pro">ப்ரோ அம்சங்கள்</string>
+    <string name="title_agree">நான் ஏற்கிறேன்</string>
+    <string name="title_disagree">நான் மறுக்கிறேன்</string>
+    <string name="title_setup">அமைப்புகள்</string>
+    <string name="title_setup_export">ஏற்றுமதி அமைப்புகள்</string>
+    <string name="title_setup_import">இறக்குமதி அமைப்புகள்</string>
+    <string name="title_setup_options">விருப்பங்கள்</string>
+    <string name="title_advanced_section_synchronize">பெறுபவை</string>
+    <string name="title_advanced_section_send">அனுப்புபவை</string>
+    <string name="title_advanced_section_notifications">அறிவிப்புகள்</string>
+    <string name="title_advanced_caption_general">பொது</string>
+    <string name="title_advanced_caption_conversation">உரையாடல்</string>
+    <string name="title_advanced_caption_message">அஞ்சல்</string>
+    <string name="title_advanced_cleanup">சுத்தமாக்கு</string>
+    <string name="title_synchronize_enabled">ஒத்திசைத்தல்</string>
+    <string name="title_delete">அழி</string>
+    <string name="title_copy_btn">நகலெடு</string>
+    <string name="title_compose">இயற்றுக</string>
+    <string name="title_send">அனுப்புபவை</string>
+    <string name="title_rule_enabled">வாங்கப்பட்டது</string>
+    <string name="title_legend_section_synchronize">ஒத்திசைத்தல்</string>
+    <string name="title_legend_section_folders">கோப்புறைகள்</string>
+    <string name="title_legend_section_messages">அஞ்சல்கள்</string>
+    <string name="title_legend_section_compose">இயற்றுக</string>
+    <string name="title_legend_thread">உரையாடல்</string>
+    <string name="title_legend_delete">அழி</string>
+    <string name="title_legend_c">இயற்றுக</string>
+    <string name="title_add">சேர்</string>
+    <string name="title_enabled">வாங்கப்பட்டது</string>
+    <string name="title_reset">மீட்டமை</string>
+    <string name="title_pro_feature">இது ஒரு சார்பு அம்சமாகும்</string>
+    <string name="title_pro_purchase">வாங்கு</string>
+    <string name="title_log_clear">அகற்று</string>
+    <string name="title_debug_info_remark">தயவுசெய்து சிக்கலை விளக்க மற்றும் பிரச்சினையின் நேரம் என்பதை குறிப்பிடவும்:</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

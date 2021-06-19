@@ -177,7 +177,7 @@
     <string name="title_setup_advanced_options">Erweiterte Optionen anzeigen</string>
     <string name="title_setup_inbox">Zum Posteingang</string>
     <string name="title_setup_go">Los</string>
-    <string name="title_setup_to_do">Nicht erledigt</string>
+    <string name="title_setup_to_do">Offene Punkte</string>
     <string name="title_setup_done">Fertig</string>
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
@@ -412,8 +412,8 @@
     <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
-    <string name="title_advanced_notify_action_trash">Löschen</string>
-    <string name="title_advanced_notify_action_junk">Spam</string>
+    <string name="title_advanced_notify_action_trash">Papierkorb</string>
+    <string name="title_advanced_notify_action_junk">Spam-Ordner</string>
     <string name="title_advanced_notify_action_archive">Archivieren</string>
     <string name="title_advanced_notify_action_move">Verschieben</string>
     <string name="title_advanced_notify_action_reply">Antworten</string>
@@ -750,9 +750,9 @@
     <string name="title_folder_unified">Sammeleingang</string>
     <string name="title_folder_inbox">Posteingang</string>
     <string name="title_folder_outbox">Postausgang</string>
-    <string name="title_folder_all">Archiv</string>
+    <string name="title_folder_all">Archivieren</string>
     <string name="title_folder_drafts">Entwürfe</string>
-    <string name="title_folder_trash">Papierkorb</string>
+    <string name="title_folder_trash">Löschen</string>
     <string name="title_folder_junk">Spam-Ordner</string>
     <string name="title_folder_sent">Gesendet</string>
     <string name="title_folder_system">System</string>
@@ -765,11 +765,11 @@
     <string name="title_no_messages">Keine Nachrichten</string>
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
-    <string name="title_subject_reply">Re: %1$s</string>
-    <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply">AW: %1$s</string>
+    <string name="title_subject_forward">Wg: %1$s</string>
     <string name="title_subject_reply_alt">AW: %1$s</string>
     <string name="title_subject_forward_alt">Wg: %1$s</string>
-    <string name="title_seen">Gelesen</string>
+    <string name="title_seen">Gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_toggle_seen">Gelesen/Ungelesen</string>
     <string name="title_hide">Ausblenden</string>
@@ -813,13 +813,13 @@
     <string name="title_button_search">In Nachrichten suchen</string>
     <string name="title_button_search_text">Im Nachrichtentext suchen</string>
     <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
-    <string name="title_trash">Löschen</string>
+    <string name="title_trash">Papierkorb</string>
     <string name="title_copy">Kopieren &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
     <string name="title_more">Mehr</string>
-    <string name="title_spam">Spam</string>
+    <string name="title_spam">Spam-Ordner</string>
     <string name="title_move">Verschieben</string>
     <string name="title_copy_btn">Kopieren</string>
     <string name="title_keywords_btn">Stichwörter</string>
@@ -833,7 +833,7 @@
     <string name="title_delete_permanently">Dauerhaft löschen</string>
     <string name="title_no_undo">Ich verstehe, dass dies nicht widerrufen werden kann</string>
     <string name="title_snooze">Zurückstellen &#8230;</string>
-    <string name="title_archive">Archivieren</string>
+    <string name="title_archive">Archiv</string>
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Dem Absender antworten</string>
     <string name="title_reply_to_all">Allen antworten</string>
@@ -952,7 +952,7 @@
     <string name="title_style_blockquote">Zitatblock</string>
     <string name="title_style_strikethrough">Durchgestrichen</string>
     <string name="title_style_clear">Formatierung entfernen</string>
-    <string name="title_style_link">Link einfügen</string>
+    <string name="title_style_link">Link hinzufügen</string>
     <string name="title_add_image">Bild hinzufügen</string>
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
@@ -1104,8 +1104,8 @@ Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fort
     <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
     <string name="title_language_all">Alle</string>
-    <string name="title_previous">Vorherige</string>
-    <string name="title_next">Nächste</string>
+    <string name="title_previous">Zurück</string>
+    <string name="title_next">Weiter</string>
     <string name="title_edit_signature">Signatur bearbeiten</string>
     <string name="title_edit_signature_text">Signaturtext</string>
     <string name="title_edit_signature_image">Bild einfügen</string>
@@ -1124,14 +1124,14 @@ Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fort
     <string name="title_answer_placeholder_firstname">Vorname des Absenders</string>
     <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>
     <string name="title_rule_noop">Keine Aktion</string>
-    <string name="title_rule_seen">Gelesen kennzeichnen</string>
+    <string name="title_rule_seen">Gelesen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_rule_hide">Ausblenden</string>
-    <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
+    <string name="title_rule_ignore">Benachrichtigung unterdrücken</string>
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Stern hinzufügen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
-    <string name="title_rule_keyword">Schlagwort hinzufügen</string>
+    <string name="title_rule_keyword">Stichwort hinzufügen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kopieren (Label)</string>
     <string name="title_rule_answer">Antworten/Weiterleiten</string>
@@ -1213,9 +1213,9 @@ Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fort
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_drafts">Entwürfe</string>
     <string name="title_legend_sent">Gesendet</string>
-    <string name="title_legend_archive">Archiv</string>
+    <string name="title_legend_archive">Archivieren</string>
     <string name="title_legend_trash">Papierkorb</string>
-    <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_junk">Spam-Ordner</string>
     <string name="title_legend_primary">Primär</string>
     <string name="title_legend_subscribed">Abonniert</string>
     <string name="title_legend_rule">Enthält Regeln</string>
@@ -1256,10 +1256,10 @@ Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fort
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
     <string name="title_legend_tracking_pixel">Verfolgungsbild</string>
-    <string name="title_legend_broken_image">Defekte Bilddatei</string>
+    <string name="title_legend_broken_image">Defektes Bild</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
-    <string name="title_legend_link">Link hinzufügen</string>
+    <string name="title_legend_link">Link einfügen</string>
     <string name="title_legend_file">Anhang hinzufügen</string>
     <string name="title_legend_picture">Bild hinzufügen</string>
     <string name="title_legend_photo">Foto aufnehmen</string>
@@ -1294,8 +1294,8 @@ Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fort
     <string name="title_legend_c">Verfassen</string>
     <string name="title_legend_d">Papierkorb (löschen)</string>
     <string name="title_legend_m">Menü (Mehrfachauswahl)</string>
-    <string name="title_legend_n">Weiter</string>
-    <string name="title_legend_p">Zurück</string>
+    <string name="title_legend_n">Nächste</string>
+    <string name="title_legend_p">Vorherige</string>
     <string name="title_legend_r">Antworten</string>
     <string name="title_legend_s">Aus-/Abwählen</string>
     <string name="title_legend_t">Text fokussieren</string>
@@ -1439,7 +1439,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
     <string name="title_keyword_label1">Wichtig</string>
     <string name="title_keyword_label2">Arbeit</string>
     <string name="title_keyword_label3">Persönlich</string>
-    <string name="title_keyword_label4">Offene Punkte</string>
+    <string name="title_keyword_label4">Nicht erledigt</string>
     <string name="title_keyword_label5">Später</string>
     <string name="title_accessibility_flagged">Markiert</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
@@ -1561,7 +1561,7 @@ Zur Erinnerung daran zeigt FairEmail einen kleinen Hinweis an, dieser verschwind
         <item>Ganz unten</item>
     </string-array>
     <string-array name="encryptNames">
-        <item>Keine Verschlüsselung</item>
+        <item>Keine</item>
         <item>PGP nur signieren</item>
         <item>PGP signieren + verschlüsseln</item>
         <item>S/MIME nur signieren</item>

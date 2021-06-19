@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">البحث في فيرميل</string>
-    <string name="app_changelog">سجل التغييرات</string>
-    <string name="app_welcome">فيرميل هو تطبيق بريد إلكتروني مفتوح المصدر يركز على الخصوصية والأمان. لهذا السبب ، قد تعمل بعض الميزات بشكل مختلف عن ما اعتدت عليه.</string>
+    <string name="app_changelog">سِجل التغييرات</string>
+    <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
     <string name="app_limitations">على سبيل المثال، يتم إعادة تنسيق الرسائل بشكل افتراضي لإزالة العناصر غير الآمنة وتحسين إمكانية القراءة، كما ويجب تأكيد فتح الروابط من أجل السلامة. وكلاهما يمكن أن يُعطلا إذا رُغب في ذلك.</string>
-    <string name="app_crash">فيرميل غير متوافق مع هذا الجهاز وقد تتسبب الأخطاء في حدوث أعطال</string>
-    <string name="app_exit">أنقر مرة أخرى للخروج من التطبيق</string>
+    <string name="app_crash">فيرميل ليس مدعومًا على هذا الجهاز لأن أخطاء في نظام الأندرويد تسبب تعطّلات</string>
+    <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
     <string name="app_cake">مساحة تخزين غير كافية</string>
     <string name="app_updated">آخر تحديث: %1$s</string>
     <string name="channel_service">إستلام</string>
@@ -16,81 +16,33 @@
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="channel_alert">تنبيهات الخادم</string>
-    <string name="channel_group_contacts">جهات الاتصال</string>
+    <string name="channel_group_contacts">المُراسِلون</string>
     <string name="channel_service_description">مزامنة ومراقبة الحسابات</string>
     <string name="channel_send_description">جارٍ إرسال الرسائل</string>
     <string name="channel_notification_description">إشعارات الرسائل الجديدة</string>
     <string name="channel_progress_description">اشعارات لحظية عن العمليات التي تأخذ وقت طويل</string>
-    <plurals name="page_conversation">
-        <item quantity="zero">محادثة</item>
-        <item quantity="one">محادثة</item>
-        <item quantity="two">محادثات</item>
-        <item quantity="few">محادثات</item>
-        <item quantity="many">محادثات</item>
-        <item quantity="other">محادثات</item>
-    </plurals>
-    <plurals name="page_message">
-        <item quantity="zero">رسالة</item>
-        <item quantity="one">رسالة</item>
-        <item quantity="two">رسائل</item>
-        <item quantity="few">رسائل</item>
-        <item quantity="many">الرسائل</item>
-        <item quantity="other">الرسائل</item>
-    </plurals>
-    <string name="page_folders">المجلدات</string>
-    <string name="page_compose">تحرير</string>
-    <string name="tile_synchronize">مزامنة</string>
+    <string name="page_folders">الملفات</string>
+    <string name="page_compose">إنشاء</string>
+    <string name="tile_synchronize">المزامنة</string>
     <string name="tile_unseen">رسائل جديدة</string>
     <string name="shortcut_refresh">تحديث</string>
     <string name="shortcut_compose">تحرير</string>
     <string name="shortcut_setup">الإعدادات</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="zero">مزامنة %1$d حساب</item>
-        <item quantity="one">مزامنة %1$d حساب</item>
-        <item quantity="two">مزامنة %1$d من الحسابات</item>
-        <item quantity="few">مزامنة %1$d حسابات</item>
-        <item quantity="many">مزامنة %1$d حسابات</item>
-        <item quantity="other">مزامنة %1$d حسابات</item>
-    </plurals>
-    <plurals name="title_notification_operations">
-        <item quantity="zero">%1$d لا يوجد عمليات معلقة</item>
-        <item quantity="one">%1$d عملية معلقة</item>
-        <item quantity="two">%1$d من العمليات معلقة</item>
-        <item quantity="few">%1$d عمليات معلقة</item>
-        <item quantity="many">%1$d عمليات معلقة</item>
-        <item quantity="other">%1$d عمليات معلقة</item>
-    </plurals>
     <plurals name="title_notification_unseen">
-        <item quantity="zero">%1$d لا يوجد رسائل جديدة</item>
+        <item quantity="zero">%1$d رسائل جديدة</item>
         <item quantity="one">%1$d رسالة جديدة</item>
-        <item quantity="two">%1$d رسائل جديدة</item>
-        <item quantity="few">%1$d رسائل جديدة</item>
+        <item quantity="two">%1$d رسالتين جديدتين</item>
+        <item quantity="few">%1$d رسالة جديدة</item>
         <item quantity="many">%1$d رسائل جديدة</item>
         <item quantity="other">%1$d رسائل جديدة</item>
-    </plurals>
-    <plurals name="title_notification_unsent">
-        <item quantity="zero">%1$d رسائل ليتم إرسالها</item>
-        <item quantity="one">%1$d رسائل ليتم إرسالها</item>
-        <item quantity="two">%1$d رسائل ليتم إرسالها</item>
-        <item quantity="few">%1$d رسائل ليتم إرسالها</item>
-        <item quantity="many">%1$d رسائل ليتم إرسالها</item>
-        <item quantity="other">%1$d رسائل ليتم إرسالها</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="zero">%1$d جديدة</item>
         <item quantity="one">%1$d جديدة</item>
-        <item quantity="two">%1$d جديدة</item>
+        <item quantity="two">%1$d جديدتين</item>
         <item quantity="few">%1$d جديدة</item>
         <item quantity="many">%1$d جديدة</item>
         <item quantity="other">%1$d جديدة</item>
-    </plurals>
-    <plurals name="title_deleting_messages">
-        <item quantity="zero">حذف %1$d رسائل إلى الأبد؟</item>
-        <item quantity="one">هل تريد حذف %1$d رسالة بشكل دائم؟</item>
-        <item quantity="two">هل تريد حذف %1$d رسائل بشكل دائم؟</item>
-        <item quantity="few">هل تريد حذف %1$d رسائل بشكل دائم؟</item>
-        <item quantity="many">هل تريد حذف %1$d رسائل بشكل دائم؟</item>
-        <item quantity="other">هل تريد حذف %1$d رسائل بشكل دائم؟</item>
     </plurals>
     <string name="title_ask_spam_who">جعل الرسالة من %1$s كرسالة غير مرغوب فيها؟</string>
     <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك مسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل موثوق.</string>
@@ -198,10 +150,9 @@
     <string name="title_advanced_advanced">الإعدادات المتقدمة</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
-    <string name="title_advanced_caption_general">الاعدادات العامة</string>
+    <string name="title_advanced_caption_general">الإعدادات العامة</string>
     <string name="title_advanced_caption_list">قائمة</string>
     <string name="title_advanced_caption_conversation">المحادثة</string>
-    <string name="title_advanced_caption_message">رسالة</string>
     <string name="title_advanced_date_header">تجميع بحسب التاريخ</string>
     <string name="title_advanced_date_bold">إظهار التاريخ بخط سميك</string>
     <string name="title_advanced_threading">مؤشر ترابط المحادثة</string>
@@ -406,7 +357,7 @@
     <string name="title_rule_name_missing">اسم القاعدة مفقود</string>
     <string name="title_rule_condition_missing">الشرط مفقود</string>
     <string name="title_rule_check">تحقق</string>
-    <string name="title_legend_section_synchronize">مزامنة</string>
+    <string name="title_legend_section_synchronize">المزامنة</string>
     <string name="title_legend_section_folders">المجلدات</string>
     <string name="title_legend_section_messages">الرسائل</string>
     <string name="title_legend_section_compose">تحرير</string>
@@ -426,7 +377,6 @@
     <string name="title_legend_archive">الأرشيف</string>
     <string name="title_legend_trash">سلة المهملات</string>
     <string name="title_legend_junk">البريد المزعج</string>
-    <string name="title_legend_notify">أخبرني لدى ورود رسائل جديدة</string>
     <string name="title_legend_thread">المحادثة</string>
     <string name="title_legend_zoom">تغيير حجم النص</string>
     <string name="title_legend_draft">لديه مسودة</string>
@@ -472,7 +422,7 @@
     <string name="title_report">إبلاغ</string>
     <string name="title_fix">تصليح</string>
     <string name="title_enable">تمكين</string>
-    <string name="title_enabled">ممكن</string>
+    <string name="title_enabled">مفعل</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
     <string name="title_no_ask_for_again">لا تسألني ثانية عن %1$s</string>
     <string name="title_no_body">لم يتم العثور على أية رسالة نصية</string>

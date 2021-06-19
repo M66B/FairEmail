@@ -466,6 +466,7 @@
     <string name="title_synchronize_enabled">Sinkroniziraj</string>
     <string name="title_delete_local">Izbrišite lokalne poruke</string>
     <string name="title_delete_browsed">Brisanje pregledanih / pretraženih poruka</string>
+    <string name="title_empty_trash">Isprazni Otpad</string>
     <string name="title_empty_spam">Isprazni neželjenu poštu</string>
     <string name="title_edit_properties">Uredi svojstva</string>
     <string name="title_edit_rules">Uredi pravila</string>
@@ -473,6 +474,10 @@
     <string name="title_edit_channel">Uredi kanal obavijesti</string>
     <string name="title_delete_channel">Izbriši kanal obavijesti</string>
     <string name="title_create_sub_folder">Stvori podmapu</string>
+    <string name="title_empty_trash_ask">Želite li trajno izbrisati sve poruke u otpadu?</string>
+    <string name="title_empty_spam_ask">Želite li trajno izbrisati sve poruke označene kao spam?</string>
+    <string name="title_empty_trash_all_ask">Želite li trajno izbrisati sve poruke u otpadu svih računa?</string>
+    <string name="title_empty_spam_all_ask">Trajno izbrisati sve neželjene poruke svih računa?</string>
     <string name="title_delete_contacts">Želite li izbrisati sve lokalne kontakte?</string>
     <string name="title_no_operations">Nema operacija na čekanju</string>
     <string name="title_hint_operations">Brisanje operacija može rezultirati nestankom poruka i problemima sa sinkronizacijom</string>
@@ -497,6 +502,7 @@
     <string name="title_folder_name_missing">Nedostaje naziv mape</string>
     <string name="title_folder_exists">Postoji mapa %1$s</string>
     <string name="title_folder_delete">Trajno izbrisati ovu mapu i sve poruke koje sadrži?</string>
+    <string name="title_months_all">Sve</string>
     <string name="title_folder_unified">Objedinjeni ulazni spremnik</string>
     <string name="title_folder_inbox">Ulazni spremnik</string>
     <string name="title_folder_outbox">Odlazni spremnik</string>
@@ -623,6 +629,7 @@
     <string name="title_sent">Poslano:</string>
     <string name="title_received">Primljeno:</string>
     <string name="title_size">Veličina:</string>
+    <string name="title_language">Jezik:</string>
     <string name="title_subject">Predmet:</string>
     <string name="title_attachment">Prilog:</string>
     <string name="title_body_hint">Vaša poruka</string>
@@ -641,6 +648,7 @@
     <string name="title_style_size">Veličina</string>
     <string name="title_style_clear">Očisti sva oblikovanja</string>
     <string name="title_style_link">Umetni vezu</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixela</string>
     <string name="title_add_attachment">Dodaj prilog</string>
     <string name="title_attachment_file">Priloži datoteku</string>
     <string name="title_attachment_photo">Uslikaj fotografiju</string>
@@ -698,6 +706,8 @@
     <string name="title_signature_outdated">Ovaj javni ključ trenutno nije valjan</string>
     <string name="title_signature_store">Pohraniti</string>
     <string name="title_search">Pretraživanje</string>
+    <string name="title_search_with_unseen">Nepročitano</string>
+    <string name="title_search_with_flagged">Označeno</string>
     <string name="title_search_server">Traži na poslužitelju</string>
     <string name="title_search_in">Traži u</string>
     <string name="title_sort_on">Poredaj na</string>
@@ -722,6 +732,7 @@
     <string name="title_select_all">Odaberi sve</string>
     <string name="title_select_found">Odaberi pronađene poruke</string>
     <string name="title_force_sync">Prisili sinkroniziranje</string>
+    <string name="title_language_all">Sve</string>
     <string name="title_previous">Prethodno</string>
     <string name="title_next">Sljedeće</string>
     <string name="title_edit_signature">Uredi potpis</string>
@@ -864,6 +875,11 @@
     <string name="title_legend_delete">Izbriši</string>
     <string name="title_legend_count">Brojač</string>
     <string name="title_legend_folder_type">Vrsta mape</string>
+    <string name="title_legend_a">Arhiva</string>
+    <string name="title_legend_c">Sastavi</string>
+    <string name="title_legend_n">Sljedeće</string>
+    <string name="title_legend_p">Prethodno</string>
+    <string name="title_legend_r">Odgovor</string>
     <string name="title_hint_folder_actions">Dugo pritisnite mapu za opcije, poput dodavanja mape navigacijskom izborniku za brzi pristup</string>
     <string name="title_hint_folder_sync">Da biste ograničili korištenje baterije i mreže prema zadanim postavkama neće se sve mape i sve poruke biti sinkronizirane</string>
     <string name="title_hint_support">Ako imate pitanje ili problem, upotrijebite izbornik za podršku da biste dobili pomoć</string>
@@ -957,6 +973,9 @@
         <item quantity="other">%1$d poruka</item>
     </plurals>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Važno</string>
+    <string name="title_keyword_label4">Za napraviti</string>
+    <string name="title_keyword_label5">Kasnije</string>
     <string name="title_accessibility_flagged">Sa zvjezdicom</string>
     <string name="title_accessibility_unflagged">Bez zvjezdice</string>
     <string name="title_accessibility_collapse">Sažmi</string>

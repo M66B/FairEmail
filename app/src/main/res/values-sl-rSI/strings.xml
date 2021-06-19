@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail je odprtokodni program za e-pošto, ki se osredotoča na zasebnost in varnost.  Zaradi tega lahko nekatere značilnosti delujejo drugače, kot ste navajeni.</string>
     <string name="app_crash">FairEmail na tej napravi ni podprt, ker hrošči v Androidu povzročajo sesutja.</string>
     <string name="app_exit">Za izhod še enkrat pritisnite \'Nazaj\'.</string>
+    <string name="channel_service">Prejemanje</string>
     <string name="channel_send">Pošlji</string>
     <string name="channel_update">Posodobitve</string>
     <string name="channel_warning">Opozorila</string>
@@ -656,6 +657,10 @@
     <string name="title_style_italic">Ležeče</string>
     <string name="title_style_underline">Podčrtaj</string>
     <string name="title_style_size">Velikost</string>
+    <string name="title_style_size_small">Majhna</string>
+    <string name="title_style_size_medium">Srednja</string>
+    <string name="title_style_size_large">Velika</string>
+    <string name="title_style_font_default">Privzeta</string>
     <string name="title_style_clear">Počisti oblikovanje</string>
     <string name="title_style_link">Vstavi povezavo</string>
     <string name="title_add_image">Dodaj sliko</string>
@@ -1159,6 +1164,17 @@
         <item>Podpiši in šifriraj (PGP)</item>
         <item>Samo podpiši (S/MIME)</item>
         <item>Podpiši in šifriraj (S/MIME)</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 kB</item>
+        <item>512 kB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
         <item>Off</item>

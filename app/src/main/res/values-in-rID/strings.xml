@@ -1057,8 +1057,10 @@
     <string name="title_rule_action">Tindakan</string>
     <string name="title_rule_hours">Jam</string>
     <string name="title_rule_folder">Folder</string>
+    <string name="title_rule_template">Balas dengan template</string>
     <string name="title_rule_forward_to">Diteruskan kepada</string>
     <string name="title_rule_with_attachments">Dengan lampiran</string>
+    <string name="title_rule_check">Periksa</string>
     <string name="title_rule_tts_data">Pasang data suara</string>
     <string name="title_rule_tts_prefix">Pesan baru</string>
     <string name="title_rule_tts_from">Dari</string>
@@ -1253,6 +1255,7 @@
     <string name="title_unexpected_error">Kesalahan tak terduga</string>
     <string name="title_auto_scroll">Gulir otomatis</string>
     <string name="title_log_clear">Bersihkan</string>
+    <string name="title_debug_info_remark">Silakan jelaskan masalahnya dan waktu terjadinya masalah:</string>
     <string name="title_widget_title_list">Daftar pesan</string>
     <string name="title_widget_title_sync">Sinkronisasi aktif/nonaktif</string>
     <string name="title_power_menu_sync">Sinkronisasi</string>
@@ -1279,6 +1282,7 @@
     <string name="title_keyword_label1">Penting</string>
     <string name="title_keyword_label2">Kerja</string>
     <string name="title_keyword_label3">Pribadi</string>
+    <string name="title_keyword_label4">Yang perlu dilakukan</string>
     <string name="title_keyword_label5">Nanti</string>
     <string name="title_accessibility_flagged">Dibintangi</string>
     <string name="title_accessibility_unflagged">Tidak berbintang</string>
