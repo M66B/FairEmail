@@ -5,6 +5,7 @@
     <string name="app_welcome">תוכנת fairmail בנויה על קוד פתוח ונותנת חשיבות רבה לפרטיות ואבטחת המשתמש. מתוך כך, יתכן ומספר מאפיינים של התוכנה יעבדו באופן שונה מהמקובל.</string>
     <string name="app_crash">אפליקצית fairmail אינה נתמכת במכשיר זה בגלל בעיות במערכת ההפעלה של אנדרואיד הגורמת לאפליקציה לקרוס</string>
     <string name="app_exit">לחץ \'חזור\' שוב כדי לצאת</string>
+    <string name="channel_service">קבל</string>
     <string name="channel_send">שלח</string>
     <string name="channel_update">עדכונים</string>
     <string name="channel_warning">אזהרות</string>
@@ -116,6 +117,8 @@
     <string name="title_setup_quick_imap">IMAP שרת לקבל מיילים</string>
     <string name="title_setup_quick_smtp">SMTP שרת למסור מיילים</string>
     <string name="title_setup_wizard">אוטומטי</string>
+    <string name="title_setup_accounts">חשבונות</string>
+    <string name="title_setup_identities">זהויות</string>
     <string name="title_setup_other">ספקים אחרים</string>
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא שמך</string>
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, למסור, ולמחוק המיילים שלך. Fairmail לעולם לא ימחוק בלי הסכמתך</string>
@@ -178,6 +181,7 @@
     <string name="title_advanced_notify_action_reply_direct">השב כאן</string>
     <string name="title_advanced_notify_action_flag">סימן</string>
     <string name="title_advanced_notify_action_seen">נקראה</string>
+    <string name="title_advanced_notify_action_hide">הסתר</string>
     <string name="title_advanced_notify_action_snooze">נודניק</string>
     <string name="title_advanced_notify_remove">הסר ההתראה על הודעה חדשה בדפיקה על ההתראה</string>
     <string name="title_advanced_notify_clear">הסר ההתראה על הודעה חדשה כשצופה ברשימת ההודעות</string>
@@ -186,11 +190,14 @@
     <string name="title_advanced_confirm_links">אשר פתיחת קישור</string>
     <string name="title_advanced_confirm_images">הצג התמונות</string>
     <string name="title_advanced_pin">קוד אישי</string>
+    <string name="title_advanced_language">שפה</string>
+    <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_cleanup">ניקוי</string>
     <string name="title_identity_name">שמך</string>
     <string name="title_identity_email">כתובת אימייל שלך</string>
     <string name="title_color">צבע</string>
     <string name="title_provider">ספק</string>
+    <string name="title_encryption">הצפנה</string>
     <string name="title_no_email">כתובת הדוא\"ל ריקה</string>
     <string name="title_email_invalid">הכתובת הדוא\"ל שגוייה :  \'%1$s\'</string>
     <string name="title_address_parse_error">הכתובת \'%1$s\'  שגוייה : %2$s</string>
@@ -227,6 +234,7 @@
     <string name="title_delete">מחק</string>
     <string name="title_spam">ספאם</string>
     <string name="title_move">הזז</string>
+    <string name="title_copy_btn">העתק</string>
     <string name="title_no_junk">לא ספאם</string>
     <string name="title_move_to">עבור אל &#8230;</string>
     <string name="title_move_to_folder">עבור אל &#8230;</string>
@@ -239,6 +247,7 @@
     <string name="title_no_folder">התיק אינו קיים!</string>
     <string name="title_show_full">הצג ההודעה השלמה</string>
     <string name="title_ask_save">לשמור את השינויים?</string>
+    <string name="title_ask_show_html_dark">השתמש בערכת נושא כהה</string>
     <string name="title_compose">חבר הודעה</string>
     <string name="title_submitter">נשלח מאת:</string>
     <string name="title_delivered_to">נמסר ל:</string>
@@ -262,6 +271,7 @@
     <string name="title_style_italic">נטוי</string>
     <string name="title_style_underline">קו תחתון</string>
     <string name="title_style_size">גודל</string>
+    <string name="title_style_list">רשימה</string>
     <string name="title_style_link">הכנס קישור</string>
     <string name="title_add_image">הוסף תמונה</string>
     <string name="title_add_image_inline">הזן</string>
@@ -286,6 +296,7 @@
     <string name="title_rule_importance">הגדר חשיבות</string>
     <string name="title_rule_move">הזז</string>
     <string name="title_rule_enabled">מופעל</string>
+    <string name="title_rule_tts_subject">נושא</string>
     <string name="title_legend_section_synchronize">סנכרון</string>
     <string name="title_legend_section_folders">תיקיות</string>
     <string name="title_legend_section_messages">הודעות</string>

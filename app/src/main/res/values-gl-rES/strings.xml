@@ -1310,6 +1310,7 @@
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
     <string name="title_enabled">Activado</string>
+    <string name="title_disable">Desactivar</string>
     <string name="title_executing">Executando</string>
     <string name="title_completed">Finalizado</string>
     <string name="title_default_changed">Cambiados axustes por omisión</string>
@@ -1378,6 +1379,7 @@
     <string name="title_widget_title_count">Número de novas mensaxes</string>
     <string name="title_widget_title_list">Lista de mensaxes</string>
     <string name="title_widget_title_sync">Act./Des. sincr.</string>
+    <string name="title_power_menu_off">Apagado</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todo</string>
     <string name="title_widget_folder">Cartafol</string>

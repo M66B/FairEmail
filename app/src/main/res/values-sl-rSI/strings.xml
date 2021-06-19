@@ -117,6 +117,8 @@
     <string name="title_setup_quick_imap">Strežnik IMAP za prejemanje sporočil</string>
     <string name="title_setup_quick_smtp">Strežnik SMTP za pošiljanje sporočil</string>
     <string name="title_setup_wizard">Čarovnik</string>
+    <string name="title_setup_accounts">Računi</string>
+    <string name="title_setup_identities">Identitete</string>
     <string name="title_setup_other">Drug ponudnik</string>
     <string name="title_setup_gmail_support">Overjanje računov Google bo delovalo samo v uradnih različicah, ker Android preveri podpis programa.</string>
     <string name="title_setup_gmail_rationale">Odobrite dovoljenja za izbiro računa in branje vašega imena.</string>
@@ -128,6 +130,7 @@
     <string name="title_setup_instructions">Navodila za nastavitev</string>
     <string name="title_setup_no_settings">Nastavitev za domeno \'%1$s\' ni bilo mogoče najti.</string>
     <string name="title_setup_no_auth_hint">Preverite e-poštni naslov in geslo in se prepričajte, da je za vaš račun omogočen zunanji dostop (IMAP/SMTP).</string>
+    <string name="title_setup_no_inbox">Mapa \'Prejeto\' ni bila najdena.</string>
     <string name="title_setup_manage">Upravljaj</string>
     <string name="title_setup_grant">Odobri</string>
     <string name="title_setup_grant_again">Odobri zahtevana dovoljenja</string>
@@ -268,6 +271,7 @@
     <string name="title_advanced_parse_classes">Razčleni slogovne predloge</string>
     <string name="title_advanced_authentication">Prikaži opozorilo, kadar dohodni strežnik ne more overiti sporočila</string>
     <string name="title_advanced_double_back">Dvojni \'Nazaj\' za izhod</string>
+    <string name="title_advanced_language_detection">Zaznaj jezik besedila sporočila</string>
     <string name="title_advanced_pull_refresh">Povleci dol za osvežitev</string>
     <string name="title_advanced_autoscroll">Ob prejemanju novih sporočil se pomakni na vrh</string>
     <string name="title_advanced_double_tap">Dvojni dotik za označevanje sporočil kot prebranih/neprebranih</string>
@@ -304,6 +308,7 @@
     <string name="title_advanced_notify_action_reply_direct">Neposr. odgovor</string>
     <string name="title_advanced_notify_action_flag">Zvezdica</string>
     <string name="title_advanced_notify_action_seen">Prebrano</string>
+    <string name="title_advanced_notify_action_hide">Skrij</string>
     <string name="title_advanced_notify_action_snooze">Dremež</string>
     <string name="title_advanced_notify_remove">Ob dotiku obvestila odstrani obvestilo o novem sporočilu</string>
     <string name="title_advanced_notify_clear">Ob ogledu seznama sporočil odstrani obvestilo o novem sporočilu</string>
@@ -333,6 +338,8 @@
     <string name="title_advanced_shortcuts">V Androidovem meniju za deljenje prikaži pogosto uporabljene stike</string>
     <string name="title_advanced_fts">Zgradi iskalno kazalo</string>
     <string name="title_advanced_fts_indexed">V kazalo je bilo dodanih %1$d/%2$d sporočil (%3$s)</string>
+    <string name="title_advanced_language">Jezik</string>
+    <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_watchdog">Občasno preveri, ali je FairEmail še vedno dejaven</string>
     <string name="title_advanced_experiments">Preizkusne značilnosti</string>
     <string name="title_advanced_crash_reports">Pošiljaj poročila o napakah</string>
@@ -363,6 +370,7 @@
     <string name="title_advanced_date_hint">Sporočila bodo združena po datumu samo, če so razvrščena po času.</string>
     <string name="title_advanced_navbar_colorize_hint">Delovanje tega je odvisno od različice in izvedbe Androida.</string>
     <string name="title_advanced_threading_hint">Združi sporočila, ki so med seboj povezana.</string>
+    <string name="title_advanced_highlight_hint">Odtenek barve teme se bo uporabil za poudarjanje.</string>
     <string name="title_advanced_gravatars_hint">Vklop te možnosti lahko ogrozi zasebnost.</string>
     <string name="title_advanced_preview_hint">Na voljo samo, če je bilo besedilo sporočila prejeto.</string>
     <string name="title_advanced_preview_issue">Pomikanje je lahko počasno zaradi hrošča v nekaterih različicah Androida, kadar je število vrstic večje od ena.</string>
@@ -422,6 +430,8 @@
     <string name="title_provider">Ponudnik</string>
     <string name="title_custom">Po meri</string>
     <string name="title_host">Ime gostitelja</string>
+    <string name="title_encryption">Šifriranje</string>
+    <string name="title_encryption_none">Brez</string>
     <string name="title_allow_insecure">Dovoli nezanesljive povezave</string>
     <string name="title_insecure_remark">Nezanesljive povezave dovolite samo v zaupanja vrednih omrežjih ni ne v javnih omrežjih.</string>
     <string name="title_port">Število vrat</string>
@@ -534,6 +544,8 @@
     <string name="title_duplicate_in">Podvoji sporočilo v %1$s</string>
     <string name="title_subject_reply">Odg.: %1$s</string>
     <string name="title_subject_forward">Posr.: %1$s</string>
+    <string name="title_subject_reply_alt">Odg.: %1$s</string>
+    <string name="title_subject_forward_alt">Posr.: %1$s</string>
     <string name="title_seen">Označi kot prebrano</string>
     <string name="title_unseen">Označi kot neprebrano</string>
     <string name="title_hide">Skrij</string>
@@ -616,6 +628,7 @@
     <string name="title_ask_delete_rule">Trajno izbriši pravilo?</string>
     <string name="title_ask_discard">Zavrzi osnutek?</string>
     <string name="title_ask_show_html">Prikaz izvirnega sporočila lahko razkrije občutljive zasebne podatke.</string>
+    <string name="title_ask_show_html_dark">Uporabi temno temo</string>
     <string name="title_ask_show_html_remark">Izvirnega sporočila ni mogoče prikazati s temnim ozadjem, ker lahko povzroči nevidna temna besedila in slike.</string>
     <string name="title_ask_show_html_images">Vedno prikaži slike ob prikazu izvirnih sporočil</string>
     <string name="title_ask_show_image">Prikaz slik lahko razkrije občutljive zasebne podatke.</string>
@@ -660,6 +673,7 @@
     <string name="title_style_size_small">Majhna</string>
     <string name="title_style_size_medium">Srednja</string>
     <string name="title_style_size_large">Velika</string>
+    <string name="title_style_list">Seznam</string>
     <string name="title_style_font_default">Privzeta</string>
     <string name="title_style_clear">Počisti oblikovanje</string>
     <string name="title_style_link">Vstavi povezavo</string>
@@ -788,6 +802,7 @@
     <string name="title_answer_caption">Uredi predlogo</string>
     <string name="title_answer_reply">Predloga za odgovor</string>
     <string name="title_answer_name">Ime predloge</string>
+    <string name="title_answer_standard">Privzeta</string>
     <string name="title_answer_favorite">Priljubljeno</string>
     <string name="title_answer_hide">Skrij v menijih</string>
     <string name="title_answer_text">Besedilo predloge</string>
@@ -835,6 +850,9 @@
     <string name="title_rule_no_headers">Pogojev za glave ni mogoče preveriti.</string>
     <string name="title_rule_matched">Ujemajoča se sporočila</string>
     <string name="title_rule_no_matches">Ni ujemajočih se sporočil.</string>
+    <string name="title_rule_tts_prefix">Novo sporočilo</string>
+    <string name="title_rule_tts_from">Od</string>
+    <string name="title_rule_tts_subject">Zadevi</string>
     <string name="title_legend_section_synchronize">Sinhroniziraj</string>
     <string name="title_legend_section_folders">Mape</string>
     <string name="title_legend_section_messages">Sporočila</string>
@@ -968,6 +986,7 @@
     <string name="title_fix">Popravi</string>
     <string name="title_enable">Omogoči</string>
     <string name="title_enabled">Omogočeno</string>
+    <string name="title_disable">Onemogoči</string>
     <string name="title_executing">Izvajanje</string>
     <string name="title_completed">Dokončano</string>
     <string name="title_clipboard_copy">Kopiraj na odložišče</string>
@@ -1022,6 +1041,7 @@
     <string name="title_widget_folder_unified">Poenotene mape \'Prejeto\'</string>
     <string name="title_widget_unseen">Samo neprebrana sporočila</string>
     <string name="title_widget_flagged">Samo sporočila z zvezdico</string>
+    <string name="title_widget_font_size">Velikost besedila</string>
     <string name="title_widget_semi_transparent">Polprosojno ozadje</string>
     <string name="title_accessibility_collapsed">Strnjeno</string>
     <string name="title_accessibility_expanded">Razširjeno</string>

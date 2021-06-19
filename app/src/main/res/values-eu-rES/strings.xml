@@ -101,6 +101,8 @@
     <string name="title_setup_quick_imap">IMAP zerbitzaria mezuak jasotzeko</string>
     <string name="title_setup_quick_smtp">SMTP zerbitzaria mezuak igortzeko</string>
     <string name="title_setup_wizard">Morroia</string>
+    <string name="title_setup_accounts">Kontuak</string>
+    <string name="title_setup_identities">Identitateak</string>
     <string name="title_setup_other">Beste hornitzaile bat</string>
     <string name="title_setup_gmail_support">Google kontuak autorizatzea bertsio ofizialetan besterik ez dabil Androidek aplikazioaren sinadura egiaztatzen duelako</string>
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
@@ -114,6 +116,7 @@
     <string name="title_setup_no_settings">Ez da \'%1$s\' domeinuarentzat ezarpenik aurkitu</string>
     <string name="title_setup_no_auth_hint">Egiaztatu zure helbide elektronikoa eta pasahitza eta ziurtatu kanpoko sarbidea (IMAP / SMTP) gaituta dagoela zure konturako</string>
     <string name="title_setup_app_password_hint">Hornitzaile honek aplikazio-pasahitza eskatzen du kontu-pasahitzaren ordez, egiaztatu zure hornitzailearen argibideak</string>
+    <string name="title_setup_no_inbox">Ez da sarrera ontzia aurkitu</string>
     <string name="title_setup_manage">Kudeatu</string>
     <string name="title_setup_grant">Eman</string>
     <string name="title_setup_grant_again">Eman eskatzen dituen baimenak</string>
@@ -272,6 +275,7 @@
     <string name="title_advanced_parse_classes">Erabili estilo orria</string>
     <string name="title_advanced_authentication">Erakutsi abisua zerbitzari jasotzaileak ezin izan badu mezua autentifikatu</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
+    <string name="title_advanced_language_detection">Detektatu mezuen testuaren hizkuntza</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>
     <string name="title_advanced_autoscroll">Korritu gora mezu berriak jasotzean</string>
     <string name="title_advanced_double_tap">Sakatu birritan mezua irakurrita/irakurri gabeko gisa markatzeko</string>
@@ -311,6 +315,7 @@
     <string name="title_advanced_notify_action_reply_direct">Erantzun zuzena</string>
     <string name="title_advanced_notify_action_flag">Izarra</string>
     <string name="title_advanced_notify_action_seen">Irakurri</string>
+    <string name="title_advanced_notify_action_hide">Ezkutatu</string>
     <string name="title_advanced_notify_action_snooze">Atzeratu</string>
     <string name="title_advanced_notify_remove">Mezu berriaren jakinarazpena ezabatu jakinarazpenaren gainean sakatzean</string>
     <string name="title_advanced_notify_clear">Kendu mezuen berrien jakinarazpenak mezuen zerrenda ikustean</string>
@@ -342,6 +347,7 @@
     <string name="title_advanced_shortcuts">Erakutsi maiz erabilitako kontaktuak Android partekatzeko menuan</string>
     <string name="title_advanced_fts">Sortu bilaketa-indizea</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mezu indexatuak (%3$s)</string>
+    <string name="title_advanced_language">Hizkuntza</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_watchdog">Aldiro egiaztatu FairEmail aktibo dagoen</string>
     <string name="title_advanced_updates">Egiaztatu GitHub-eko eguneratzeak</string>
@@ -578,6 +584,8 @@
     <string name="title_duplicate_in">Mezu bikoiztua %1$s-(a)n</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Markatu irakurria</string>
     <string name="title_unseen">Markatu irakurri gabeko gisa</string>
     <string name="title_hide">Ezkutatu</string>
@@ -666,6 +674,7 @@
     <string name="title_ask_delete_rule">Ezabatu araua behin betiko?</string>
     <string name="title_ask_discard">Baztertu zirriborroa?</string>
     <string name="title_ask_show_html">Jatorrizko mezua erakusteak informazio pribatua agerira ekar lezake</string>
+    <string name="title_ask_show_html_dark">Erabili azal iluna</string>
     <string name="title_ask_show_html_remark">Ezin da jatorrizko mezua atzealde ilunean erakutsi testu eta irudi batzuk ikusezinak bihurtu litezkelako</string>
     <string name="title_ask_show_html_images">Beti erakutsi irudiak jatorrizko mezuak erakustean</string>
     <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>
@@ -1066,6 +1075,7 @@
     <string name="title_fix">Konpondu</string>
     <string name="title_enable">Gaitu</string>
     <string name="title_enabled">Gaituta</string>
+    <string name="title_disable">Desgaitu</string>
     <string name="title_executing">Exekutatzen</string>
     <string name="title_completed">Burututa</string>
     <string name="title_clipboard_copy">Kopiatu arbelera</string>
@@ -1127,6 +1137,7 @@
     <string name="title_unexpected_info_remark">Azaldu zer egiten ari zinen errorea jasotzean:</string>
     <string name="title_widget_title_count">Mezu berrien kopurua</string>
     <string name="title_widget_title_list">Mezuen zerrenda</string>
+    <string name="title_power_menu_off">Itzalita</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>
     <string name="title_widget_folder">Karpeta</string>

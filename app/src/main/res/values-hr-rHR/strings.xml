@@ -118,6 +118,8 @@
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_wizard_new">Trebam novu email adresu</string>
+    <string name="title_setup_accounts">Korisnički Računi</string>
+    <string name="title_setup_identities">Identiteti</string>
     <string name="title_setup_other">Drugi davatelj usluga</string>
     <string name="title_setup_pop3">POP3 račun</string>
     <string name="title_setup_gmail_support">Autoriziranje Google računa funkcionirati će u službenim verzijama samo zato što Android provjerava signaturu aplikacije</string>
@@ -304,6 +306,7 @@
     <string name="title_advanced_notify_action_reply_direct">Izravni odgovor</string>
     <string name="title_advanced_notify_action_flag">Zvijezda</string>
     <string name="title_advanced_notify_action_seen">Pročitaj</string>
+    <string name="title_advanced_notify_action_hide">Sakrij</string>
     <string name="title_advanced_notify_action_snooze">Utišaj</string>
     <string name="title_advanced_notify_remove">Uklonite novu obavijest o poruci dodirom na obavijest</string>
     <string name="title_advanced_notify_clear">Ukloni nove obavijesti pri pregledavanju popisa poruka</string>
@@ -417,6 +420,7 @@
     <string name="title_provider">Davatelj usluga</string>
     <string name="title_custom">Prilagođeno</string>
     <string name="title_host">Naziv računala</string>
+    <string name="title_encryption">Šifriranje</string>
     <string name="title_encryption_none">Nijedan</string>
     <string name="title_allow_insecure">Dopustiti nesigurne veze</string>
     <string name="title_insecure_remark">Nesigurne veze trebaju biti dopuštene samo na pouzdanim mrežama, a nikad na javnim mrežama</string>
@@ -522,6 +526,8 @@
     <string name="title_duplicate_in">Dvostruka poruka u %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Npr: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Npr: %1$s</string>
     <string name="title_seen">Označi pročitano</string>
     <string name="title_unseen">Označi nepročitano</string>
     <string name="title_hide">Sakrij</string>
@@ -557,6 +563,7 @@
     <string name="title_more">Više</string>
     <string name="title_spam">Neželjena pošta</string>
     <string name="title_move">Premjesti</string>
+    <string name="title_copy_btn">Kopiraj</string>
     <string name="title_no_junk">Nije neželjena pošta</string>
     <string name="title_move_to">Premjestiti na &#8230;</string>
     <string name="title_move_to_folder">Premjestiti na &#8230;</string>
@@ -602,6 +609,7 @@
     <string name="title_ask_delete_rule">Želite li trajno izbrisati pravilo?</string>
     <string name="title_ask_discard">Odbaciti skicu?</string>
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
+    <string name="title_ask_show_html_dark">Koristi tamnu temu</string>
     <string name="title_ask_show_html_remark">Prikazivanje izvorne poruke na tamnoj pozadini nije moguće jer može uzrokovati nevidljive tamne tekstove i slike</string>
     <string name="title_ask_show_html_images">Uvijek prikažite slike pri prikazivanju originalnih poruka</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
@@ -646,6 +654,11 @@
     <string name="title_style_italic">Kurziv</string>
     <string name="title_style_underline">Naglasi</string>
     <string name="title_style_size">Veličina</string>
+    <string name="title_style_size_small">Maleno</string>
+    <string name="title_style_size_medium">Srednje</string>
+    <string name="title_style_size_large">Veliko</string>
+    <string name="title_style_list">Popis</string>
+    <string name="title_style_font_default">Zadano</string>
     <string name="title_style_clear">Očisti sva oblikovanja</string>
     <string name="title_style_link">Umetni vezu</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixela</string>
@@ -706,8 +719,14 @@
     <string name="title_signature_outdated">Ovaj javni ključ trenutno nije valjan</string>
     <string name="title_signature_store">Pohraniti</string>
     <string name="title_search">Pretraživanje</string>
+    <string name="title_search_more">Više opcija</string>
     <string name="title_search_with_unseen">Nepročitano</string>
     <string name="title_search_with_flagged">Označeno</string>
+    <string name="title_search_flag_unseen">nepročitano</string>
+    <string name="title_search_flag_flagged">označeno</string>
+    <string name="title_search_flag_hidden">skriveno</string>
+    <string name="title_search_flag_encrypted">šifrirano</string>
+    <string name="title_search_flag_attachments">prilozi</string>
     <string name="title_search_server">Traži na poslužitelju</string>
     <string name="title_search_in">Traži u</string>
     <string name="title_sort_on">Poredaj na</string>
@@ -741,6 +760,7 @@
     <string name="title_answer_caption">Uredi predložak</string>
     <string name="title_answer_reply">Predložak odgovora</string>
     <string name="title_answer_name">Naziv predloška</string>
+    <string name="title_answer_standard">Zadano</string>
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_hide">Sakriti iz izbornika</string>
     <string name="title_answer_text">Tekst predloška</string>
@@ -788,6 +808,9 @@
     <string name="title_rule_no_headers">Uvjeti zaglavlja ne mogu se provjeriti</string>
     <string name="title_rule_matched">Odgovarajuće poruke</string>
     <string name="title_rule_no_matches">Nema odgovarajućih poruka</string>
+    <string name="title_rule_tts_prefix">Nova poruka</string>
+    <string name="title_rule_tts_from">Od</string>
+    <string name="title_rule_tts_subject">Predmet</string>
     <string name="title_legend_section_synchronize">Sinkroniziraj</string>
     <string name="title_legend_section_folders">Mape</string>
     <string name="title_legend_section_messages">Poruke</string>
@@ -891,6 +914,7 @@
     <string name="title_hint_contact_actions">Dugo pritisni za opcije</string>
     <string name="title_hint_eml">Ovo je sažetak sadržaja neobrađene datoteke poruke. Spremite neobrađenu poruku s ikonom za spremanje na radnoj traci da biste pregledali sav sadržaj.</string>
     <string name="title_open_link">Otvori link</string>
+    <string name="title_image_link">Link slike</string>
     <string name="title_different_link">Naslov i adresa veze su različiti</string>
     <string name="title_link_http">Promet neće biti šifriran</string>
     <string name="title_link_https">Promet će biti šifriran</string>
@@ -914,6 +938,7 @@
     <string name="title_fix">Popravi</string>
     <string name="title_enable">Omogući</string>
     <string name="title_enabled">Omogućeno</string>
+    <string name="title_disable">Onemogući</string>
     <string name="title_executing">Izvršava</string>
     <string name="title_completed">Završeno</string>
     <string name="title_clipboard_copy">Kopiraj u međuspremnik</string>
@@ -963,6 +988,7 @@
     <string name="title_widget_folder_unified">Mape objedinjenog ulaznog spremnika</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_flagged">Samo poruke označene zvjezdicom</string>
+    <string name="title_widget_font_size">Veličina teksta</string>
     <string name="title_accessibility_collapsed">Sažeto</string>
     <string name="title_accessibility_expanded">Prošireno</string>
     <string name="title_accessibility_seen">Pročitano</string>
@@ -1101,6 +1127,17 @@
         <item>PGP potpis + šifriranje</item>
         <item>S/MIME samo za potpis</item>
         <item>S/MIME potpis + šifriranje</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
         <item>Off</item>

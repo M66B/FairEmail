@@ -1316,6 +1316,7 @@
     <string name="title_fix">Meitsje</string>
     <string name="title_enable">Ynskeakele</string>
     <string name="title_enabled">Ynskeakele</string>
+    <string name="title_disable">Utskeakele</string>
     <string name="title_executing">Eksekutearje</string>
     <string name="title_completed">Klear</string>
     <string name="title_default_changed">Standert feroare</string>
@@ -1384,6 +1385,7 @@
     <string name="title_widget_title_count">Nije berjochten tellen</string>
     <string name="title_widget_title_list">Berjochtlist</string>
     <string name="title_widget_title_sync">Sync oan/út</string>
+    <string name="title_power_menu_off">Út</string>
     <string name="title_widget_account">Akkount</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>

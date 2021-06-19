@@ -946,6 +946,7 @@
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
     <string name="title_create_template">Skapa mall</string>
+    <string name="title_translate">Översätt</string>
     <string name="title_edit_plain_text">Redigera som oformaterad text</string>
     <string name="title_edit_formatted_text">Redigera som formaterad text</string>
     <string name="title_select_certificate">Välj publik nyckel</string>
@@ -1271,6 +1272,7 @@
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_hint_eml">Detta är en sammanfattning av innehållet i en raw-meddelandefil. Spara raw-meddelandet med ikonen spara i åtgärdsfältet för att visa allt innehåll.</string>
     <string name="title_open_link">Öppna länken</string>
+    <string name="title_image_link">Bildlänk</string>
     <string name="title_different_link">Titeln och länkadressen är olika</string>
     <string name="title_tracking_link">Denna webbplats kan spåra dig</string>
     <string name="title_suspicious_link">Detta är en misstänkt länk</string>
@@ -1297,6 +1299,7 @@
     <string name="title_fix">Åtgärda</string>
     <string name="title_enable">Aktivera</string>
     <string name="title_enabled">Aktiverad</string>
+    <string name="title_disable">Inaktivera</string>
     <string name="title_executing">Kör</string>
     <string name="title_completed">Slutförd</string>
     <string name="title_default_changed">Standard ändrad</string>
@@ -1365,6 +1368,7 @@
     <string name="title_widget_title_count">Antal nya meddelanden</string>
     <string name="title_widget_title_list">Meddelandelista</string>
     <string name="title_widget_title_sync">Synk på/av</string>
+    <string name="title_power_menu_off">Av</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alla</string>
     <string name="title_widget_folder">Mapp</string>

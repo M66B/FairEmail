@@ -1273,6 +1273,7 @@
     <string name="title_hint_contact_actions">Mantenha pressionado para mais opções</string>
     <string name="title_hint_eml">Este é um resumo do conteúdo de um arquivo de mensagem crua. Salve a mensagem bruta com o ícone de salvar na barra de ação para ver todo o conteúdo.</string>
     <string name="title_open_link">Abrir link</string>
+    <string name="title_image_link">Link da imagem</string>
     <string name="title_different_link">O título e o endereço do link são diferentes</string>
     <string name="title_tracking_link">Este site pode rastrear você</string>
     <string name="title_suspicious_link">Esse link é suspeito</string>
@@ -1369,6 +1370,7 @@
     <string name="title_widget_title_count">Nova contagem de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagem</string>
     <string name="title_widget_title_sync">Sinc. lig./desl.</string>
+    <string name="title_power_menu_off">Desl.</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todos</string>
     <string name="title_widget_folder">Pasta</string>

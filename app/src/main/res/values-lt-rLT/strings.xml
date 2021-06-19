@@ -16,6 +16,8 @@
     <string name="title_advanced_caption_general">Bendra</string>
     <string name="title_advanced_cleanup">Atstatyti</string>
     <string name="title_delete">Ištrinti</string>
+    <string name="title_copy_btn">Kopijuoti</string>
+    <string name="title_ask_show_html_dark">Naudoti tamsią temą</string>
     <string name="title_rule_enabled">Įjungta</string>
     <string name="title_legend_delete">Ištrinti</string>
     <string name="title_add">Pridėti</string>

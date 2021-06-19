@@ -243,6 +243,7 @@
     <string name="title_advanced_check_authentication">メッセージ認証を確認</string>
     <string name="title_advanced_check_reply_domain">メッセージの同期時に返信アドレスを確認</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
+    <string name="title_advanced_check_blocklist">送信者のドメイン名が迷惑メールブロックリストにあるかどうかを確認します</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整します</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
@@ -832,6 +833,7 @@
     <string name="title_move_undo">%1$s に移動中 (%2$d)</string>
     <string name="title_open_with">開く</string>
     <string name="title_authentication_failed">%1$sの認証に失敗しました</string>
+    <string name="title_on_blocklist">ブロックリスト</string>
     <string name="title_receipt_subject">開封確認: %1$s</string>
     <string name="title_receipt_text">この開封確認メッセージはメッセージが表示されたことをお知らせするものです。受信者がメッセージの内容を読んだという保証はありません</string>
     <string name="title_no_answers">返信テンプレートが定義されていません</string>

@@ -91,6 +91,7 @@
     <string name="title_synchronize_enabled">ஒத்திசைத்தல்</string>
     <string name="title_delete">அழி</string>
     <string name="title_copy_btn">நகலெடு</string>
+    <string name="title_ask_show_html_dark">கருத்த கருப்பொருளை உபயோகி</string>
     <string name="title_compose">இயற்றுக</string>
     <string name="title_send">அனுப்புபவை</string>
     <string name="title_rule_enabled">வாங்கப்பட்டது</string>

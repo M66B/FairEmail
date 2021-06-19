@@ -351,6 +351,7 @@
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recepção não puder autenticar a mensagem</string>
     <string name="title_advanced_sync_on_launch">Sincronizar no início</string>
     <string name="title_advanced_double_back">Duplo \'voltar\' para sair</string>
+    <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
     <string name="title_advanced_pull_refresh">Arrastar para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Voltar ao topo quando recebe novas mensagens</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar a mensagem como lida/não lida</string>
@@ -440,6 +441,7 @@
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
+    <string name="title_encryption">Encriptação</string>
     <string name="title_password">Palavra-passe</string>
     <string name="title_no_email">Endereço de correio eletrónico ausente</string>
     <string name="title_email_invalid">Endereço de correio eletrónico inválido: \'%1$s\'</string>
@@ -458,13 +460,17 @@
     <string name="title_delete">Eliminar</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
+    <string name="title_copy_btn">Copiar</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
+    <string name="title_ask_show_html_dark">Usar tema escuro</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_compose">Compor</string>
     <string name="title_language">Idioma:</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_encryption">Encriptação</string>
+    <string name="title_style_align_start">Iniciar</string>
+    <string name="title_style_list">Lista</string>
     <string name="title_attachment_audio">Gravar áudio</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_search">Pesquisar</string>
@@ -493,12 +499,14 @@
     <string name="title_fix">Corrigir</string>
     <string name="title_enable">Activar</string>
     <string name="title_enabled">Ativado</string>
+    <string name="title_disable">Desactivar</string>
     <string name="title_reset">Repor</string>
     <string name="title_snooze_now">Adiar</string>
     <string name="title_pro_feature">Esta é uma funcionalidade da versão pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_log_clear">Limpar</string>
     <string name="title_debug_info_remark">Por favor descreva o problema e indique quando ocorreu:</string>
+    <string name="title_power_menu_off">Desligado</string>
     <string name="title_widget_account_all">Todos</string>
     <string name="title_accessibility_seen">Lida</string>
     <!-- Thunderbird -->

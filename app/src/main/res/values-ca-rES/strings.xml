@@ -301,6 +301,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_parse_classes">Analitza els fulls d\'estil</string>
     <string name="title_advanced_authentication">Mostra un avís quan el servidor receptor no ha pogut autenticar el missatge</string>
     <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
+    <string name="title_advanced_language_detection">Detecta el llenguatge de text del missatge</string>
     <string name="title_advanced_pull_refresh">Arrossegueu avall per actualitzar</string>
     <string name="title_advanced_autoscroll">Desplaceu-vos cap amunt per rebre nous missatges</string>
     <string name="title_advanced_double_tap">Toca dues vegades per marcar el missatge llegit/sense llegir</string>
@@ -341,6 +342,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_notify_action_reply_direct">Resposta directa</string>
     <string name="title_advanced_notify_action_flag">Destacat</string>
     <string name="title_advanced_notify_action_seen">Llegir</string>
+    <string name="title_advanced_notify_action_hide">Amaga</string>
     <string name="title_advanced_notify_action_snooze">Posposa</string>
     <string name="title_advanced_notify_remove">Esborra notificacions de nous missatges en tocar les notificacions</string>
     <string name="title_advanced_notify_clear">Esborra la notificació de nou missatge en veure la llista de missatges</string>
@@ -410,6 +412,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_date_hint">Els missatges només s\'agruparan per data si s\'ordena per ordre temporal</string>
     <string name="title_advanced_navbar_colorize_hint">Si això funciona depèn de la versió i la versió d\'Android</string>
     <string name="title_advanced_threading_hint">Agrupa missatges relacionats entre ells</string>
+    <string name="title_advanced_highlight_hint">El color de l’accent del tema s’utilitzarà per ressaltar</string>
     <string name="title_advanced_gravatars_hint">Pot haver-hi un risc de privadesa</string>
     <string name="title_advanced_preview_hint">Només disponible quan s\'ha descarregat el text del missatge</string>
     <string name="title_advanced_preview_issue">El desplaçament pot ser lent a causa d\'un error en algunes versions d\'Android quan el nombre de línies és superior a una</string>
@@ -592,6 +595,8 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_duplicate_in">Missatge duplicat a %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>
     <string name="title_unseen">Marca com a no llegit</string>
     <string name="title_hide">Amaga</string>
@@ -863,6 +868,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_answer_caption">Editar la plantilla</string>
     <string name="title_answer_reply">Respondre plantilla</string>
     <string name="title_answer_name">Nom de la plantilla</string>
+    <string name="title_answer_standard">Per defecte</string>
     <string name="title_answer_favorite">Preferit</string>
     <string name="title_answer_hide">Amaga dels menús</string>
     <string name="title_answer_text">Text de la plantilla</string>
@@ -1028,6 +1034,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_hint_contact_actions">Pulsació llarga per opcions</string>
     <string name="title_hint_eml">Aquest és un resum del contingut d\'un fitxer de missatges sense processar. Desa el missatge sense processar amb la icona de desar a la barra d\'accions per a veure tot el contingut.</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
+    <string name="title_image_link">Enllaç a la imatge</string>
     <string name="title_different_link">El títol i la direcció de l\'enllaç són diferents</string>
     <string name="title_link_http">El tràfic no serà xifrat</string>
     <string name="title_link_https">El tràfic serà xifrat</string>
@@ -1052,6 +1059,7 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_fix">Repara</string>
     <string name="title_enable">Habilita</string>
     <string name="title_enabled">Activat</string>
+    <string name="title_disable">Deshabilita</string>
     <string name="title_executing">Executant</string>
     <string name="title_completed">Acabat</string>
     <string name="title_clipboard_copy">Copia al porta-retalls</string>
@@ -1098,11 +1106,13 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_rules_import">Importa regles</string>
     <string name="title_rules_delete_all">Esborra totes les regles</string>
     <string name="title_rules_delete_junk">Esborra totes les regles d\'SPAM</string>
+    <string name="title_rules_delete_all_confirm">Esborra totes les regles?</string>
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>
     <string name="title_crash_info_remark">Per favor descriu què estaves fent quan l\'aplicació va fallar:</string>
     <string name="title_widget_title_count">Nou recompte de missatges</string>
     <string name="title_widget_title_list">Llista de missatges</string>
+    <string name="title_power_menu_off">Desactivat</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tots</string>
     <string name="title_widget_folder">Carpeta</string>

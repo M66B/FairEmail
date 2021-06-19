@@ -115,6 +115,8 @@
     <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
     <string name="title_setup_wizard">Veiviser</string>
     <string name="title_setup_wizard_new">Jeg trenger en ny e-postadresse</string>
+    <string name="title_setup_accounts">Kontoer</string>
+    <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_other">Annen leverandør</string>
     <string name="title_setup_pop3">POP3-konto</string>
     <string name="title_setup_oauth_permission">E-postleverandøren har bare godkjent OAuth for offisielle versjoner av appen</string>
@@ -189,6 +191,7 @@
     <string name="title_setup_defaults">Gjenopprett standarder</string>
     <string name="title_setup_reset_questions">Tilbakestill spørsmål</string>
     <string name="title_advanced_hint_title">Mer avanserte alternativer</string>
+    <string name="title_advanced_section_main">Hoved</string>
     <string name="title_advanced_section_synchronize">Motta</string>
     <string name="title_advanced_section_send">Send</string>
     <string name="title_advanced_section_connection">Forbindelse</string>
@@ -315,6 +318,7 @@
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_sync_on_launch">Synkroniser ved start</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
+    <string name="title_advanced_language_detection">Oppdag meldings tekstspråk</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
@@ -361,6 +365,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direkte svar</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Les</string>
+    <string name="title_advanced_notify_action_hide">Skjul</string>
     <string name="title_advanced_notify_action_snooze">Utsett</string>
     <string name="title_advanced_notify_remove">Fjern varsel om ny melding når du trykker på varslingen</string>
     <string name="title_advanced_notify_clear">Fjern nye meldingsvarsler i visning av meldingsliste</string>
@@ -663,6 +668,8 @@
     <string name="title_duplicate_in">Dupliser melding i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Videresend: %1$s</string>
+    <string name="title_subject_reply_alt">Sv: %1$s</string>
+    <string name="title_subject_forward_alt">Videresend: %1$s</string>
     <string name="title_seen">Merk som lest</string>
     <string name="title_unseen">Merk som ulest</string>
     <string name="title_toggle_seen">Skru av/på \"lest\"</string>
@@ -755,6 +762,7 @@
     <string name="title_ask_delete_rule">Slett regel permanent?</string>
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
+    <string name="title_ask_show_html_dark">Bruk mørkt tema</string>
     <string name="title_ask_show_html_remark">Det er ikke mulig å vise den opprinnelige meldingen med mørk bakgrunn fordi den kan forårsake usynlige mørke tekster og bilder</string>
     <string name="title_ask_show_html_images">Vis alltid bilder når du viser originale meldinger</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
@@ -1147,6 +1155,7 @@
     <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
     <string name="title_hint_eml">Dette er et sammendrag av innholdet i en rå meldingsfil. Lagre råmeldingen med lagringsikonet i handlingslinjen for å se alt innhold.</string>
     <string name="title_open_link">Åpne link</string>
+    <string name="title_image_link">Bildelink</string>
     <string name="title_different_link">Tittelen og linkadressen er forskjellige</string>
     <string name="title_tracking_link">Dette nettstedet kan spore deg</string>
     <string name="title_link_http">Trafikk blir ikke kryptert</string>
@@ -1172,6 +1181,7 @@
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
     <string name="title_enabled">Aktivert</string>
+    <string name="title_disable">Deaktiver</string>
     <string name="title_executing">Utfører</string>
     <string name="title_completed">Fullført</string>
     <string name="title_default_changed">Standard endret</string>
@@ -1237,6 +1247,7 @@
     <string name="title_unexpected_info_remark">Vennligst beskriv hva du gjorde når du fikk feilen:</string>
     <string name="title_widget_title_count">Ny melding teller</string>
     <string name="title_widget_title_list">Meldingsliste</string>
+    <string name="title_power_menu_off">Av</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Mappe</string>

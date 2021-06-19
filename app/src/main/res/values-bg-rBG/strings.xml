@@ -103,6 +103,8 @@
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
     <string name="title_setup_wizard">Помощник</string>
+    <string name="title_setup_accounts">Профили</string>
+    <string name="title_setup_identities">Самоличности</string>
     <string name="title_setup_other">Друг доставчик</string>
     <string name="title_setup_gmail_support">Оторизацията на профила в Google работи само в официални версии, защото Android проверява подписа на приложението</string>
     <string name="title_setup_gmail_rationale">Моля, дайте разрешения за избор на профил</string>
@@ -284,6 +286,7 @@
     <string name="title_advanced_parse_classes">Листове за избор на стилове</string>
     <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
     <string name="title_advanced_double_back">Двойно назад за изход</string>
+    <string name="title_advanced_language_detection">Разпознаване езика на текста на съобщението</string>
     <string name="title_advanced_pull_refresh">Плъзни надолу за опресняване</string>
     <string name="title_advanced_autoscroll">Превърти в началото при нови съобщения</string>
     <string name="title_advanced_double_tap">Двойно натискане за маркиране на съобщението прочетено/непрочетено</string>
@@ -391,6 +394,7 @@
     <string name="title_advanced_date_hint">Съобщенията са групирани по дата само ако са сортирани по време</string>
     <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
+    <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
     <string name="title_advanced_gravatars_hint">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>
     <string name="title_advanced_preview_issue">Превъртането може да е бавно поради грешка в някои версии на Android, когато броят на линиите е повече от един</string>
@@ -575,6 +579,8 @@
     <string name="title_duplicate_in">Дублиращо съобщение в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Отбелязвам като прочетено</string>
     <string name="title_unseen">Отбелязвам като непрочетено</string>
     <string name="title_hide">Скриване</string>
@@ -716,6 +722,7 @@
     <string name="title_style_size_medium">Среден</string>
     <string name="title_style_size_large">Голям</string>
     <string name="title_style_color">Цвят &#8230;</string>
+    <string name="title_style_list">Списък</string>
     <string name="title_style_list_numbered">Номерирано</string>
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">По подразбиране</string>
@@ -858,6 +865,7 @@
     <string name="title_answer_caption">Ред. шаблон</string>
     <string name="title_answer_reply">Отговор с шаблони</string>
     <string name="title_answer_name">Име на шаблон</string>
+    <string name="title_answer_standard">По подразбиране</string>
     <string name="title_answer_favorite">Любими</string>
     <string name="title_answer_hide">Скриване в менюто</string>
     <string name="title_answer_text">Шаблон текст</string>
@@ -906,6 +914,7 @@
     <string name="title_rule_no_headers">Условията на заглавката не могат да бъдат проверени</string>
     <string name="title_rule_matched">Съвпадащи съобщения</string>
     <string name="title_rule_no_matches">Няма съвпадащи съобщения</string>
+    <string name="title_rule_tts_prefix">Ново съобщение</string>
     <string name="title_rule_tts_from">От</string>
     <string name="title_rule_tts_subject">Тема</string>
     <string name="title_rule_tts_content">Текст</string>
@@ -1047,6 +1056,7 @@
     <string name="title_fix">Поправка</string>
     <string name="title_enable">Активирай</string>
     <string name="title_enabled">Активирано</string>
+    <string name="title_disable">Деактивирай</string>
     <string name="title_executing">Изпълнява</string>
     <string name="title_completed">Завършен</string>
     <string name="title_clipboard_copy">Копиране в клипборда</string>
@@ -1096,6 +1106,7 @@
     <string name="title_log">Лог</string>
     <string name="title_auto_scroll">Автоматично превъртане</string>
     <string name="title_log_clear">Изчисти</string>
+    <string name="title_rules_delete_all">Изтривате ли всички правила</string>
     <string name="title_rules_delete_all_confirm">Изтривате ли всички правила?</string>
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>

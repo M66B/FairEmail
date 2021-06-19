@@ -863,6 +863,7 @@
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
+    <string name="title_ask_show_html_dark">Karanlık tema kullan</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
@@ -1111,6 +1112,7 @@
     <string name="title_rule_no_headers">Başlık koşulları denetlenemedi</string>
     <string name="title_rule_matched">İletiler eşleştiriliyor</string>
     <string name="title_rule_no_matches">Eşleşen ileti yok</string>
+    <string name="title_rule_tts_prefix">Yeni ileti</string>
     <string name="title_rule_tts_from">Gönderen</string>
     <string name="title_rule_tts_subject">Konu</string>
     <string name="title_rule_tts_content">Metin</string>
@@ -1226,6 +1228,7 @@
     <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
     <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir. Tüm içeriği görüntülemek için ham iletiyi işlem çubuğundaki kaydet simgesiyle kaydedin.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
+    <string name="title_image_link">Görsel bağlantısı</string>
     <string name="title_different_link">Başlık ve link adresi farklı</string>
     <string name="title_tracking_link">Bu web sitesi sizi takip edebilir</string>
     <string name="title_link_http">Trafik şifrelenmeyecek</string>
@@ -1251,6 +1254,7 @@
     <string name="title_fix">Düzelt</string>
     <string name="title_enable">Etkin</string>
     <string name="title_enabled">Etkin</string>
+    <string name="title_disable">Devredışı</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
     <string name="title_clipboard_copy">Panoya kopyala</string>
@@ -1304,6 +1308,7 @@
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
     <string name="title_widget_title_count">Yeni mesaj sayısı</string>
     <string name="title_widget_title_list">Mesaj listesi</string>
+    <string name="title_power_menu_off">Kapalı</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_folder">Klasör</string>

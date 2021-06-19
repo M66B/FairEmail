@@ -56,6 +56,8 @@
     <string name="title_months_all">सभी</string>
     <string name="title_unhide">दिखाएँ</string>
     <string name="title_delete">मिटाए</string>
+    <string name="title_copy_btn">कॉपी करें</string>
+    <string name="title_ask_show_html_dark">डार्क थीम का इस्तेमाल करें</string>
     <string name="title_compose">लिखें</string>
     <string name="title_send">भेजें</string>
     <string name="title_attachment_audio">ध्वनि रिकॉर्ड करना</string>

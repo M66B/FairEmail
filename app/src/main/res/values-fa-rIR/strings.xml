@@ -103,6 +103,8 @@
     <string name="title_setup_quick_smtp">سرور SMTP برای ارسال پیام‌ها</string>
     <string name="title_setup_wizard">جادوگر</string>
     <string name="title_setup_wizard_new">من به یک نشانی‌های ایمیل تازه نیاز دارم</string>
+    <string name="title_setup_accounts">حساب‌ها</string>
+    <string name="title_setup_identities">هویت‌ها</string>
     <string name="title_setup_other">فراهم کننده دیگر</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های رسمی مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
@@ -116,6 +118,7 @@
     <string name="title_setup_no_settings">برای دامنه \'%1$s\' هیچ تنظیماتی یافت نشد</string>
     <string name="title_setup_no_auth_hint">لطفا نشانی ایمیل و گذرواژه خود را دوباره بررسی کنید و اطمینان یابید که دسترسی بیرونی (IMAP/SMTP) برای حسابتان فعال می‌باشد</string>
     <string name="title_setup_app_password_hint">فراهم‌کننده به‌جای گذرواژه حساب نیاز به گذرواژه برنامه دارد، لطفا دستورات فراهم‌کننده خود را دنبال کنید</string>
+    <string name="title_setup_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_setup_manage">مدیریت</string>
     <string name="title_setup_grant">دادن</string>
     <string name="title_setup_grant_again">مجوزهای مورد نیاز را اعطا کنید</string>
@@ -265,6 +268,7 @@
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
     <string name="title_advanced_navbar_colorize">رنگ آمیزی نوار جهت‎یابی اندروید</string>
     <string name="title_advanced_double_back">برای خروج دوبار \'بازگشت\' را بزنید</string>
+    <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
     <string name="title_advanced_swipenav">کشیدن به چپ/راست برای رفتن به مکالمه بعدی/قبلی</string>
     <string name="title_advanced_volumenav">بالا/پایین بردن صدا برای رفتن به گفتگوی بعدی/قبلی</string>
@@ -294,6 +298,7 @@
     <string name="title_advanced_notify_action_reply_direct">پاسخ مستقیم</string>
     <string name="title_advanced_notify_action_flag">ستاره</string>
     <string name="title_advanced_notify_action_seen">خواندن</string>
+    <string name="title_advanced_notify_action_hide">پنهان کردن</string>
     <string name="title_advanced_notify_action_snooze">تعویق</string>
     <string name="title_advanced_notify_clear">اعلان‌های پیام جدید را هنگام مشاهده فهرست پیام حذف کن</string>
     <string name="title_advanced_wearable_preview">تنها اعلان با پیش‌نمایش پیام را به پوشیدنی‌ها بفرست</string>
@@ -496,6 +501,8 @@
     <string name="title_duplicate_in">پیام را در %1$s تکثیر کن</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
     <string name="title_subject_forward">هدایت: %1$s</string>
+    <string name="title_subject_reply_alt">پاسخ: %1$s</string>
+    <string name="title_subject_forward_alt">هدایت: %1$s</string>
     <string name="title_seen">علامت زدن به عنوان خوانده شده</string>
     <string name="title_unseen">علامت زدن به عنوان خوانده نشده</string>
     <string name="title_hide">پنهان کردن</string>
@@ -578,6 +585,7 @@
     <string name="title_ask_delete_rule">دستور به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_discard">پیش‌نویس‌ کنار گذاشته شود؟</string>
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
+    <string name="title_ask_show_html_dark">استفاده از پوسته تیره</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
     <string name="title_ask_show_image_hint">تصاویری که به عنوان تصاویر ردیاب شناخته شده‌اند نشان داده نخواهند شد</string>
     <string name="title_ask_delete_local">پیام‌های محلی حذف شوند؟ پیام‌ها روی سرور راه دور باقی خواهند ماند.</string>
@@ -623,6 +631,7 @@
     <string name="title_style_size_large">بزرگ</string>
     <string name="title_style_color">رنگ &#8230;</string>
     <string name="title_style_align_start">آغاز</string>
+    <string name="title_style_list">فهرست</string>
     <string name="title_style_font">فونت</string>
     <string name="title_style_font_default">پیش‌فرض</string>
     <string name="title_style_clear">پاک کردن شکل‌بندی</string>
@@ -755,6 +764,7 @@
     <string name="title_answer_caption">ویرایش قالب</string>
     <string name="title_answer_reply">الگوی پاسخ</string>
     <string name="title_answer_name">نام الگو</string>
+    <string name="title_answer_standard">پیش‌فرض</string>
     <string name="title_answer_favorite">مورد پسند</string>
     <string name="title_answer_hide">پنهان کردن از فهرست‌ها</string>
     <string name="title_answer_text">متن الگو</string>
@@ -935,6 +945,7 @@
     <string name="title_fix">تعمیر</string>
     <string name="title_enable">فعال‌سازی</string>
     <string name="title_enabled">فعال شده</string>
+    <string name="title_disable">غیرفعال‌سازی</string>
     <string name="title_executing">در حال اجرا</string>
     <string name="title_completed">کامل شده</string>
     <string name="title_clipboard_copy">کپی به کلیپ‌بورد</string>
@@ -989,6 +1000,7 @@
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
     <string name="title_widget_title_count">شمار پیام جدید</string>
     <string name="title_widget_title_list">لیست پیام‌ها</string>
+    <string name="title_power_menu_off">خاموش</string>
     <string name="title_widget_account">حساب</string>
     <string name="title_widget_account_all">همه</string>
     <string name="title_widget_folder">پوشه</string>
@@ -1066,9 +1078,9 @@
         <item>512 کیلوبایت</item>
         <item>1 مگابایت</item>
         <item>2 مگابایت</item>
-        <item>4 MB</item>
-        <item>8 MB</item>
-        <item>16 MB</item>
+        <item>4 مگابایت</item>
+        <item>8 مگابایت</item>
+        <item>16 مگابایت</item>
         <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">

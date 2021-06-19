@@ -1076,6 +1076,8 @@
     <string name="title_search_with_encrypted">Šifrováno (pouze v zařízení)</string>
     <string name="title_search_with_attachments">S přílohami (pouze v zařízení)</string>
     <string name="title_search_with_size">Velikost zprávy větší než</string>
+    <string name="title_search_in_trash">V koši</string>
+    <string name="title_search_in_junk">V nevyžádaných</string>
     <string name="title_search_with_before">Před</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_flag_unseen">nepřečteno</string>

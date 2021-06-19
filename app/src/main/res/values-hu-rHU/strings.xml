@@ -1263,6 +1263,7 @@
     <string name="title_fix">Javítás</string>
     <string name="title_enable">Bekapcsolás</string>
     <string name="title_enabled">Bekapcsolva</string>
+    <string name="title_disable">Letiltás</string>
     <string name="title_executing">Végrehajtás</string>
     <string name="title_completed">Befejezve</string>
     <string name="title_default_changed">Alapértelmezett megváltozott</string>
@@ -1330,6 +1331,7 @@
     <string name="title_widget_title_count">Új üzenetek számláló</string>
     <string name="title_widget_title_list">Üzenet lista</string>
     <string name="title_widget_title_sync">Szink. be/ki</string>
+    <string name="title_power_menu_off">Ki</string>
     <string name="title_widget_account">Fiók</string>
     <string name="title_widget_account_all">Mind</string>
     <string name="title_widget_folder">Mappa</string>

@@ -88,6 +88,7 @@
     <string name="title_setup_manual">خيارات الحساب والاعدادات يدويا</string>
     <string name="title_setup_identity_remark">ارسل بريد</string>
     <string name="title_setup_accounts">الحسابات</string>
+    <string name="title_setup_identities">الهويات</string>
     <string name="title_setup_other">مزود اخر</string>
     <string name="title_setup_gmail_rationale">الرجاء منح الصلاحيات لتحديد الحساب وقراءة اسمك</string>
     <string name="title_setup_gmail_permissions">جوجل سوف تطلب موافقتك لقراءة, تأليف, أرسال وحذف نهائي لكل الرسائل. فيرميل لن يمسح رسائلك ابدا بدون موافقتك.</string>
@@ -175,6 +176,7 @@
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_generic_user_agent">استخدام اعدادات المستخدم العامة في المتصفح</string>
     <string name="title_advanced_encrypt_default">تشفير بشكل افتراضي</string>
+    <string name="title_advanced_language_system">النظام</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
     <string name="title_advanced_cleanup">تنظيف</string>
     <string name="title_advanced_debug">وضع التصحيح</string>
@@ -218,6 +220,7 @@
     <string name="title_synchronize_now">زامن الآن</string>
     <string name="title_synchronize_enabled">مزامنة</string>
     <string name="title_delete_local">حذف الرسائل المحلية</string>
+    <string name="title_empty_trash">إفراغ سلّة المهملات</string>
     <string name="title_edit_properties">تعديل الخصائص</string>
     <string name="title_edit_rules">تعديل القواعد</string>
     <string name="title_folder_name">إسم المجلد</string>
@@ -245,6 +248,8 @@
     <string name="title_no_messages">لا توجد رسائل</string>
     <string name="title_subject_reply">رد: %1$s</string>
     <string name="title_subject_forward">إعادة توجيه: %1$s</string>
+    <string name="title_subject_reply_alt">رد: %1$s</string>
+    <string name="title_subject_forward_alt">إعادة توجيه: %1$s</string>
     <string name="title_seen">علامة كـ مقروء</string>
     <string name="title_unseen">وضع علامة كغير مقروء</string>
     <string name="title_unhide">إظهار</string>
@@ -263,6 +268,7 @@
     <string name="title_more">المزيد</string>
     <string name="title_spam">البريد المزعج</string>
     <string name="title_move">نقل</string>
+    <string name="title_copy_btn">نسخ</string>
     <string name="title_archive">أرشيف</string>
     <string name="title_reply">رد</string>
     <string name="title_reply_to_all">الرد على الكل</string>
@@ -276,6 +282,7 @@
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
     <string name="title_ask_delete_rule">حذف القاعدة بشكل دائم؟</string>
     <string name="title_ask_discard">إلغاء المسودة؟</string>
+    <string name="title_ask_show_html_dark">استخدام الثيم الداكن</string>
     <string name="title_ask_reporting">إرسال تقارير الأخطاء?</string>
     <string name="title_compose">تحرير</string>
     <string name="title_from">مِن:</string>
@@ -297,6 +304,7 @@
     <string name="title_style_bold">غليظ</string>
     <string name="title_style_italic">مائل</string>
     <string name="title_style_size">الحجم</string>
+    <string name="title_style_list">قائمة</string>
     <string name="title_style_link">إدراج رابط</string>
     <string name="title_add_attachment">إضافة مرفق</string>
     <string name="title_attachment_file">إرفاق ملف</string>
@@ -318,7 +326,12 @@
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
     <string name="title_signature_subject">الموضوع</string>
     <string name="title_search">بحث</string>
+    <string name="title_search_with_unseen">غير مقروءة</string>
+    <string name="title_search_with_flagged">مميّزة بنجمة</string>
     <string name="title_search_in_trash">في القمامة</string>
+    <string name="title_search_flag_unseen">غير مقروءة</string>
+    <string name="title_search_flag_flagged">مميّزة بنجمة</string>
+    <string name="title_search_device">البحث في الجهاز</string>
     <string name="title_search_server">البحث في الخادم</string>
     <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>
@@ -329,6 +342,7 @@
     <string name="title_sort_on_size">الحجم</string>
     <string name="title_zoom">حجم النص</string>
     <string name="title_select_all">اختيار الكل</string>
+    <string name="title_language_all">الكل</string>
     <string name="title_previous">السابق</string>
     <string name="title_next">التالي</string>
     <string name="title_edit_signature_text">نص التوقيع</string>
@@ -357,6 +371,8 @@
     <string name="title_rule_name_missing">اسم القاعدة مفقود</string>
     <string name="title_rule_condition_missing">الشرط مفقود</string>
     <string name="title_rule_check">تحقق</string>
+    <string name="title_rule_tts_from">مِن</string>
+    <string name="title_rule_tts_subject">الموضوع</string>
     <string name="title_legend_section_synchronize">المزامنة</string>
     <string name="title_legend_section_folders">المجلدات</string>
     <string name="title_legend_section_messages">الرسائل</string>
@@ -410,6 +426,7 @@
     <string name="title_legend_r">رد</string>
     <string name="title_hint_contact_actions">اضغط مطولاً للمزيد من الخيارات</string>
     <string name="title_open_link">افتح الرابط</string>
+    <string name="title_image_link">رابط الصورة</string>
     <string name="title_select_app">اختر تطبيقا</string>
     <string name="title_updated">هناك إصدار جديد متوفر %1$s</string>
     <string name="title_issue">هل عندك تساؤل أو صادفتَ مشكلة؟</string>
@@ -423,6 +440,7 @@
     <string name="title_fix">تصليح</string>
     <string name="title_enable">تمكين</string>
     <string name="title_enabled">مفعل</string>
+    <string name="title_disable">تعطيل</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
     <string name="title_no_ask_for_again">لا تسألني ثانية عن %1$s</string>
     <string name="title_no_body">لم يتم العثور على أية رسالة نصية</string>
@@ -445,8 +463,10 @@
     <string name="title_debug_info_remark">الرجاء أوصف المشكلة وبيّن وقت المشكلة</string>
     <string name="title_widget_account_all">الكل</string>
     <string name="title_widget_folder">المجلد</string>
+    <string name="title_widget_font_size">حجم النص</string>
     <string name="title_accessibility_unseen">غير مقروءة</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label4">للانجاز</string>
     <string name="title_accessibility_flagged">مميّزة بنجمة</string>
     <string name="title_accessibility_edit">تعديل</string>
     <string name="title_accessibility_attachment">المرفق</string>
@@ -485,9 +505,9 @@
         <item>512 كيلوبايت</item>
         <item>1 ميغابايت</item>
         <item>2 ميغابايت</item>
-        <item>4 MB</item>
-        <item>8 MB</item>
-        <item>16 MB</item>
+        <item>4 ميغابايت</item>
+        <item>8 ميغابايت</item>
+        <item>16 ميغابايت</item>
         <item>∞</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
@@ -503,6 +523,17 @@
         <item>5 دقائق</item>
         <item>10 دقائق</item>
         <item>20 دقائق</item>
+    </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 كيلوبايت</item>
+        <item>512 كيلوبايت</item>
+        <item>1 ميغابايت</item>
+        <item>2 ميغابايت</item>
+        <item>5 ميغابايت</item>
+        <item>10 ميغابايت</item>
+        <item>20 ميغابايت</item>
+        <item>50 ميغابايت</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
 </resources>

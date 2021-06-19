@@ -5,6 +5,7 @@
     <string name="app_welcome">FairEmail, gizlilik və təhlükəsizliyə fokuslanmış bir açıq mənbə e-poçt tətbiqidir. Buna görə də bəzi xüsusiyyətlər, istifadə etdiyinizdən fərqli şəkildə işləyə bilər.</string>
     <string name="app_crash">FairEmail, Android-in çökmə səbəbli xətalarına görə bu cihazda dəstəklənmir</string>
     <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
+    <string name="channel_service">Gələn</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_update">Yenilənmələr</string>
     <string name="channel_warning">Xəbərdarlıqlar</string>
@@ -88,6 +89,8 @@
     <string name="title_setup_quick_imap">Mesaj almaq üçün IMAP serveri</string>
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
     <string name="title_setup_wizard">Sehrbaz</string>
+    <string name="title_setup_accounts">Hesablar</string>
+    <string name="title_setup_identities">Kimliklər</string>
     <string name="title_setup_other">Digər təchizatçı</string>
     <string name="title_setup_select_account">Hesab seç</string>
     <string name="title_setup_instructions">Quraşdırma təlimatları</string>
@@ -96,6 +99,7 @@
     <string name="title_setup_grant">İcazə ver</string>
     <string name="title_setup_permissions">Verilən icazələr</string>
     <string name="title_setup_permissions_remark">Şəxs məlumatlarına müraciət (məcburi deyil)</string>
+    <string name="title_setup_doze">Batereya optimizasiyalarını ləğv et</string>
     <string name="title_setup_doze_battery">Yüksək batereya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Eyniləşdirmə dayandırılsın?</string>
     <string name="title_setup_data">Verilənlərə qənaət fəallaşdırıldı</string>
@@ -187,6 +191,7 @@
     <string name="title_advanced_notify_action_seen">Oxunan</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsi seç</string>
+    <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_cleanup">Təmizlik</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_schedule_hint">Bir vaxt tənzimləmək üçün vaxta toxun</string>
@@ -210,6 +215,7 @@
     <string name="title_provider">Təchizatçı</string>
     <string name="title_custom">Xüsusi</string>
     <string name="title_host">Host adı</string>
+    <string name="title_encryption_none">Heç biri</string>
     <string name="title_allow_insecure">Təhlükəsiz olmayan bağlantılara icazə ver</string>
     <string name="title_port">Bağlantı nöqtəsi nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>
@@ -231,7 +237,9 @@
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_synchronize_enabled">Eyniləşdirmə</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
+    <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>
+    <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
     <string name="title_show_folders">Gizli qovluqları göstər</string>
@@ -263,6 +271,8 @@
     <string name="title_no_messages">Mesaj yoxdur</string>
     <string name="title_subject_reply">Cvb: %1$s</string>
     <string name="title_subject_forward">Ynlndr: %1$s</string>
+    <string name="title_subject_reply_alt">Cvb: %1$s</string>
+    <string name="title_subject_forward_alt">Ynlndr: %1$s</string>
     <string name="title_seen">Oxundu kimi işarələ</string>
     <string name="title_unseen">Oxunmadı kimi işarələ</string>
     <string name="title_unhide">Göstər</string>
@@ -283,6 +293,7 @@
     <string name="title_more">Daha çox</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Köçürt</string>
+    <string name="title_copy_btn">Kopyala</string>
     <string name="title_archive">Arxivlə</string>
     <string name="title_reply">Cavabla</string>
     <string name="title_reply_to_all">Hamısını cavabla</string>
@@ -298,6 +309,7 @@
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
+    <string name="title_ask_show_html_dark">Tünd temanı işlət</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
     <string name="title_compose">Yaz</string>
     <string name="title_from">Göndərən:</string>
@@ -319,8 +331,13 @@
     <string name="title_style_bold">Qalın</string>
     <string name="title_style_italic">Meyilli</string>
     <string name="title_style_size">Həcmi</string>
+    <string name="title_style_size_small">Kiçik</string>
+    <string name="title_style_size_medium">Orta</string>
+    <string name="title_style_size_large">Böyük</string>
+    <string name="title_style_font_default">İlkin</string>
     <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>
+    <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
     <string name="title_attachment_audio">Səs yaz</string>
     <string name="title_show_addresses">CC/BCC göstər</string>
@@ -336,6 +353,11 @@
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
     <string name="title_signature_subject">Mövzu</string>
     <string name="title_search">Axtar</string>
+    <string name="title_search_with_unseen">Oxunmadı</string>
+    <string name="title_search_with_flagged">Ulduzlu</string>
+    <string name="title_search_flag_unseen">oxunmadı</string>
+    <string name="title_search_flag_flagged">ulduzlu</string>
+    <string name="title_search_device">Cihazda axtar</string>
     <string name="title_search_server">Serverdə axtar</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Vaxt</string>
@@ -348,12 +370,14 @@
     <string name="title_filter_unflagged">Ulduzlu olmayan</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
+    <string name="title_language_all">Hamısı</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
     <string name="title_edit_signature_text">İmza mətni</string>
     <string name="title_edit_signature_image">Təsvir daxil et</string>
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>
+    <string name="title_answer_standard">İlkin</string>
     <string name="title_answer_text">Şablon mətni</string>
     <string name="title_rule_seen">Oxundu kimi işarələ</string>
     <string name="title_rule_unseen">Oxunmadı kimi işarələ</string>
@@ -372,6 +396,8 @@
     <string name="title_rule_folder">Qovluq</string>
     <string name="title_rule_template">Cavab şablonu</string>
     <string name="title_rule_check">Yoxla</string>
+    <string name="title_rule_tts_from">Göndərən</string>
+    <string name="title_rule_tts_subject">Mövzu</string>
     <string name="title_legend_section_synchronize">Eyniləşdirmə</string>
     <string name="title_legend_section_folders">Qovluqlar</string>
     <string name="title_legend_section_messages">Mesaj</string>
@@ -431,6 +457,7 @@
     <string name="title_fix">Düzəlt</string>
     <string name="title_enable">Fəaldır</string>
     <string name="title_enabled">Fəallaşdırıldı</string>
+    <string name="title_disable">Sıradan çıxarılıb</string>
     <string name="title_no_ask_again">Bunu bir də soruşma</string>
     <string name="title_reset">Sıfırla</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
@@ -444,6 +471,7 @@
     <string name="title_log">Qeyd jurnalı</string>
     <string name="title_auto_scroll">Avto sürüşdürmə</string>
     <string name="title_log_clear">Təmizlə</string>
+    <string name="title_rules_delete_all">Bütün qaydalar silinsin</string>
     <string name="title_rules_delete_all_confirm">Bütün qaydalar silinsin?</string>
     <string name="title_rules_delete_junk_confirm">Mesajları spam qovluğuna daşıyan bütün qaydalar silinsin?</string>
     <string name="title_debug_info">Sazlama məlumatı</string>

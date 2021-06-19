@@ -383,6 +383,7 @@
     <string name="title_advanced_notify_action_reply_direct">直接回覆</string>
     <string name="title_advanced_notify_action_flag">加星號</string>
     <string name="title_advanced_notify_action_seen">已讀</string>
+    <string name="title_advanced_notify_action_hide">隱藏</string>
     <string name="title_advanced_notify_action_snooze">延後</string>
     <string name="title_advanced_notify_remove">點擊通知後移除新郵件通知</string>
     <string name="title_advanced_notify_clear">察看郵件列表後移除新郵件通知</string>
@@ -581,6 +582,7 @@
     <string name="title_no_drafts">沒有草稿文件夾</string>
     <string name="title_no_junk_folder">沒有為此帳戶選擇垃圾郵件文件夾</string>
     <string name="title_default_composable">主身分的主帳號是電子郵件的預設地址</string>
+    <string name="title_no_composable">發送電子郵件需要配置身份，並在帳戶設置中選擇草稿文件夾</string>
     <string name="title_no_standard">該提供者使用專有的電子郵件協議，因此無法使用第三方電子郵件客戶端</string>
     <string name="title_no_idle">該提供商不支持推送消息。 這將延遲接收新消息並增加電池使用量。</string>
     <string name="title_no_utf8">該提供商不支援UTF-8</string>
@@ -690,6 +692,8 @@
     <string name="title_duplicate_in">消息重複 %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">正向： %1$s</string>
+    <string name="title_subject_reply_alt">Re: %1$s</string>
+    <string name="title_subject_forward_alt">正向： %1$s</string>
     <string name="title_seen">標記為已讀</string>
     <string name="title_unseen">標記為未讀</string>
     <string name="title_toggle_seen">切換閱讀</string>
@@ -1215,6 +1219,7 @@
     <string name="title_fix">修復</string>
     <string name="title_enable">啟用</string>
     <string name="title_enabled">已啟用</string>
+    <string name="title_disable">停用</string>
     <string name="title_executing">執行中</string>
     <string name="title_completed">已完成</string>
     <string name="title_default_changed">預設值已變更</string>
@@ -1281,6 +1286,7 @@
     <string name="title_widget_title_count">新郵件數</string>
     <string name="title_widget_title_list">留言清單</string>
     <string name="title_widget_title_sync">同步處理開/關</string>
+    <string name="title_power_menu_off">關</string>
     <string name="title_widget_account">帳戶</string>
     <string name="title_widget_account_all">所有</string>
     <string name="title_widget_folder">資料夾</string>
