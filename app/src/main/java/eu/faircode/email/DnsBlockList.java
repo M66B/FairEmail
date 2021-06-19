@@ -48,6 +48,9 @@ public class DnsBlockList {
                     // https://www.spamcop.net/fom-serve/cache/291.html
                     "127.0.0.2"
             })
+            //new BlockList("b.barracudacentral.org", new String[]{
+            //        // https://www.barracudacentral.org/rbl/how-to-use
+            //})
     ));
 
     private static final long CACHE_EXPIRY_AFTER = 3600 * 1000L; // milliseconds
@@ -87,10 +90,10 @@ public class DnsBlockList {
 
     private static boolean isJunk(String domain, BlockList blocklist) {
         try {
-            long before = new Date().getTime();
+            long start = new Date().getTime();
             InetAddress[] addresses = InetAddress.getAllByName(domain);
-            Log.i("isJunk resolved=" + domain +
-                    " elapse=" + (new Date().getTime() - before) + " ms");
+            long elapsed = new Date().getTime() - start;
+            Log.i("isJunk resolved=" + domain + " elapse=" + elapsed + " ms");
             for (InetAddress addr : addresses)
                 try {
                     StringBuilder lookup = new StringBuilder();
@@ -109,7 +112,7 @@ public class DnsBlockList {
 
                     lookup.append(blocklist.address);
 
-                    long start = new Date().getTime();
+                    start = new Date().getTime();
                     InetAddress result;
                     try {
                         // Possibly blocked
@@ -118,22 +121,22 @@ public class DnsBlockList {
                         // Not blocked
                         result = null;
                     }
-                    long elapsed = new Date().getTime() - start;
+                    elapsed = new Date().getTime() - start;
 
-                    if (result != null) {
-                        boolean found = false;
+                    if (result != null && blocklist.responses.length > 0) {
+                        boolean blocked = false;
                         for (InetAddress response : blocklist.responses)
                             if (response.equals(result)) {
-                                found = true;
+                                blocked = true;
                                 break;
                             }
-                        if (!found) {
-                            result = null;
+                        if (!blocked) {
                             Log.w("isJunk" +
                                     " addr=" + addr +
                                     " lookup=" + lookup +
                                     " result=" + result +
                                     " elapsed=" + elapsed);
+                            result = null;
                         }
                     }
 
