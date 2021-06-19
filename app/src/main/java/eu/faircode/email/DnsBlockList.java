@@ -25,44 +25,74 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 public class DnsBlockList {
-    // https://www.spamhaus.org/zen/
-    static String[] DEFAULT_BLOCKLISTS = new String[]{"zen.spamhaus.org"};
+    static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
+            new BlockList("zen.spamhaus.org", new String[]{
+                    //https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
+                    "127.0.0.2", // SBL Spamhaus SBL Data
+                    "127.0.0.3", // SBL Spamhaus SBL CSS Data
+                    "127.0.0.4", // XBL CBL Data
+                    "127.0.0.9" // SBL Spamhaus DROP/EDROP Data
+                    //127.0.0.10 PBL ISP Maintained
+                    //127.0.0.11 PBL Spamhaus Maintained
+            }),
+            new BlockList("bl.spamcop.net", new String[]{
+                    // https://www.spamcop.net/fom-serve/cache/291.html
+                    "127.0.0.2"
+            })
+    ));
+
     private static final long CACHE_EXPIRY_AFTER = 3600 * 1000L; // milliseconds
-    private static final Map<InetAddress, CacheEntry> cache = new Hashtable<>();
+    private static final Map<String, CacheEntry> cache = new Hashtable<>();
 
     static boolean isJunk(String email) {
-        return isJunk(email, DEFAULT_BLOCKLISTS);
-    }
-
-    static boolean isJunk(String email, String[] blocklists) {
         if (TextUtils.isEmpty(email))
             return false;
+
         int at = email.indexOf('@');
         if (at < 0)
             return false;
-        String domain = email.substring(at + 1);
-        for (String blocklist : blocklists)
-            if (isJunk(domain, blocklist))
-                return true;
-        return false;
+
+        return isJunk(email.substring(at + 1), BLOCKLISTS);
     }
 
-    private static boolean isJunk(String domain, String blocklist) {
-        boolean blocked = false;
-        try {
-            for (InetAddress addr : InetAddress.getAllByName(domain))
-                try {
-                    synchronized (cache) {
-                        CacheEntry cached = cache.get(addr);
-                        if (cached != null && !cached.isExpired())
-                            return cached.isJunk();
-                    }
+    private static boolean isJunk(String domain, List<BlockList> blocklists) {
+        synchronized (cache) {
+            CacheEntry entry = cache.get(domain);
+            if (entry != null && !entry.isExpired())
+                return entry.isJunk();
+        }
 
+        boolean blocked = false;
+        for (BlockList blocklist : blocklists)
+            if (isJunk(domain, blocklist)) {
+                blocked = true;
+                break;
+            }
+
+        synchronized (cache) {
+            cache.put(domain, new CacheEntry(blocked));
+        }
+
+        return blocked;
+    }
+
+    private static boolean isJunk(String domain, BlockList blocklist) {
+        try {
+            long before = new Date().getTime();
+            InetAddress[] addresses = InetAddress.getAllByName(domain);
+            Log.i("isJunk resolved=" + domain +
+                    " elapse=" + (new Date().getTime() - before) + " ms");
+            for (InetAddress addr : addresses)
+                try {
                     StringBuilder lookup = new StringBuilder();
                     if (addr instanceof Inet4Address) {
                         byte[] a = addr.getAddress();
@@ -77,55 +107,42 @@ public class DnsBlockList {
                         }
                     }
 
-                    lookup.append(blocklist);
+                    lookup.append(blocklist.address);
 
+                    long start = new Date().getTime();
                     InetAddress result;
                     try {
+                        // Possibly blocked
                         result = InetAddress.getByName(lookup.toString());
-                        if (result instanceof Inet4Address) {
-                            /*
-                                https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
-
-                                127.0.0.2	SBL	Spamhaus SBL Data
-                                127.0.0.3	SBL	Spamhaus SBL CSS Data
-                                127.0.0.4	XBL	CBL Data
-                                127.0.0.9	SBL	Spamhaus DROP/EDROP Data (in addition to 127.0.0.2, since 01-Jun-2016)
-                                127.0.0.10	PBL	ISP Maintained
-                                127.0.0.11	PBL	Spamhaus Maintained
-                             */
-
-                            byte[] a = result.getAddress();
-                            int statusClass = a[1] & 0xFF;
-                            int statusCode = a[3] & 0xFF;
-                            if (statusClass != 0 ||
-                                    (statusCode != 2 &&
-                                            statusCode != 3 &&
-                                            statusCode != 4 &&
-                                            statusCode != 9)) {
-                                Log.w("isJunk" +
-                                        " addr=" + addr +
-                                        " lookup=" + lookup +
-                                        " result=" + result +
-                                        " status=" + statusClass + "/" + statusCode);
-                                result = null;
-                            }
-                        } else {
-                            Log.w("isJunk result=" + result);
-                            result = null;
-                        }
                     } catch (UnknownHostException ignored) {
                         // Not blocked
                         result = null;
                     }
+                    long elapsed = new Date().getTime() - start;
 
-                    Log.i("isJunk " + addr + " " + lookup + "=" + (result == null ? "false" : result));
-
-                    synchronized (cache) {
-                        cache.put(addr, new CacheEntry(result));
+                    if (result != null) {
+                        boolean found = false;
+                        for (InetAddress response : blocklist.responses)
+                            if (response.equals(result)) {
+                                found = true;
+                                break;
+                            }
+                        if (!found) {
+                            result = null;
+                            Log.w("isJunk" +
+                                    " addr=" + addr +
+                                    " lookup=" + lookup +
+                                    " result=" + result +
+                                    " elapsed=" + elapsed);
+                        }
                     }
 
+                    Log.i("isJunk " + addr +
+                            " " + lookup + "=" + (result == null ? "false" : result) +
+                            " elapsed=" + elapsed);
+
                     if (result != null)
-                        blocked = true;
+                        return true;
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -133,16 +150,16 @@ public class DnsBlockList {
             Log.w(ex);
         }
 
-        return blocked;
+        return false;
     }
 
     private static class CacheEntry {
         private final long time;
-        private final InetAddress result;
+        private final boolean blocked;
 
-        CacheEntry(InetAddress result) {
+        CacheEntry(boolean blocked) {
             this.time = new Date().getTime();
-            this.result = result;
+            this.blocked = blocked;
         }
 
         boolean isExpired() {
@@ -150,7 +167,24 @@ public class DnsBlockList {
         }
 
         boolean isJunk() {
-            return (this.result != null);
+            return blocked;
+        }
+    }
+
+    static class BlockList {
+        String address;
+        InetAddress[] responses;
+
+        BlockList(String address, String[] responses) {
+            this.address = address;
+            List<InetAddress> r = new ArrayList<>();
+            for (String response : responses)
+                try {
+                    r.add(InetAddress.getByName(response));
+                } catch (UnknownHostException ex) {
+                    Log.e(ex);
+                }
+            this.responses = r.toArray(new InetAddress[0]);
         }
     }
 }
