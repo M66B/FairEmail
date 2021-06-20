@@ -426,7 +426,6 @@
     <string name="title_style_size_small">작게</string>
     <string name="title_style_size_medium">보통</string>
     <string name="title_style_size_large">크게</string>
-    <string name="title_style_color">색 &#8230;</string>
     <string name="title_style_align">정렬</string>
     <string name="title_style_align_start">시작</string>
     <string name="title_style_align_center">가운데</string>

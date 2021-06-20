@@ -154,6 +154,7 @@
     <string name="title_setup_no_inbox">Postvak in niet gevonden</string>
     <string name="title_setup_advanced_protection">Wanneer u bent ingeschreven voor het geavanceerde beveiligingsprogramma, is het niet mogelijk om een e-mailapp van derden te gebruiken. Dit is een door Google opgelegde beperking.</string>
     <string name="title_setup_quick_success">Een account is succesvol toegevoegd</string>
+    <string name="title_setup_quick_configure">Om de naam, kleur, veeg acties, etc te bewerken</string>
     <string name="title_setup_manage">Beheer</string>
     <string name="title_setup_grant">Verlenen</string>
     <string name="title_setup_grant_again">Verleen de vereiste machtigingen</string>
@@ -940,7 +941,6 @@
     <string name="title_style_size_small">Klein</string>
     <string name="title_style_size_medium">Middelgroot</string>
     <string name="title_style_size_large">Groot</string>
-    <string name="title_style_color">Kleur &#8230;</string>
     <string name="title_style_align">Uitlijnen</string>
     <string name="title_style_align_start">Begin</string>
     <string name="title_style_align_center">Midden</string>

@@ -3038,7 +3038,7 @@ Angefragte Funktionen sollten:
 * für die meisten Menschen nützlich sein
 * die Nutzung von FairEmail nicht verkomplizieren
 * zur Philosophie von FairEmail passen (privatsphären- und sicherheitsorientiert)
-* den gängigen Standards entsprechen (IMAP, SMTP, etc)
+* den gängigen Standards entsprechen (IMAP, SMTP usw.)
 
 Funktionen, die diese Anforderungen nicht erfüllen, werden wahrscheinlich abgelehnt. Das soll auch langfristig die Wartung und Unterstützung ermöglichen.
 
