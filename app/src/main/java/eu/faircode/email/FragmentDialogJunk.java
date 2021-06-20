@@ -162,33 +162,36 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onExecute(Context context, Bundle args) throws Throwable {
-                        long account = args.getLong("account");
+                        long aid = args.getLong("account");
+                        long fid = args.getLong("folder");
                         boolean filter = args.getBoolean("filter");
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                         DB db = DB.getInstance(context);
 
-                        EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
-                        if (inbox == null)
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder == null)
                             return null;
 
-                        EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
+                        EntityFolder junk = db.folder().getFolderByType(aid, EntityFolder.JUNK);
                         if (junk == null)
                             return null;
 
                         try {
                             db.beginTransaction();
 
-                            db.folder().setFolderDownload(
-                                    inbox.id, inbox.download || filter);
-                            db.folder().setFolderAutoClassify(
-                                    inbox.id, inbox.auto_classify_source || filter, inbox.auto_classify_target);
+                            db.folder().setFolderDownload(folder.id,
+                                    folder.download || filter);
+                            db.folder().setFolderAutoClassify(folder.id,
+                                    folder.auto_classify_source || filter,
+                                    folder.auto_classify_target);
 
-                            db.folder().setFolderDownload(
-                                    junk.id, junk.download || filter);
-                            db.folder().setFolderAutoClassify(
-                                    junk.id, junk.auto_classify_source || filter, filter);
+                            db.folder().setFolderDownload(junk.id,
+                                    junk.download || filter);
+                            db.folder().setFolderAutoClassify(junk.id,
+                                    junk.auto_classify_source || filter,
+                                    filter);
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -251,22 +254,23 @@ public class FragmentDialogJunk extends FragmentDialogBase {
 
             @Override
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
-                long account = args.getLong("account");
+                long aid = args.getLong("account");
+                long fid = args.getLong("folder");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean classification = prefs.getBoolean("classification", false);
 
                 DB db = DB.getInstance(context);
-                EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
-                if (inbox == null)
-                    return false;
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder == null)
+                    return null;
 
-                EntityFolder junk = db.folder().getFolderByType(account, EntityFolder.JUNK);
+                EntityFolder junk = db.folder().getFolderByType(aid, EntityFolder.JUNK);
                 if (junk == null)
-                    return false;
+                    return null;
 
                 return (classification &&
-                        inbox.download && inbox.auto_classify_source &&
+                        folder.download && folder.auto_classify_source &&
                         junk.download && junk.auto_classify_source && junk.auto_classify_target);
             }
 
