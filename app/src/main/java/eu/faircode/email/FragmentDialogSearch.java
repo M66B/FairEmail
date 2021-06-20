@@ -236,7 +236,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         };
 
         ibMore.setOnClickListener(onMore);
-
         tvMore.setOnClickListener(onMore);
 
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
