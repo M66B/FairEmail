@@ -3731,8 +3731,10 @@ gmail.com ->
 	172.217.168.229
 DNS lookup 229.168.217.172.zen.spamhaus.org ->
 	127.0.0.2: spam
-	not found: not spam
+	NXDOMAIN: not spam
 ```
+
+NXDOMAIN = no such domain
 
 For more information, please see [this article](https://en.wikipedia.org/wiki/Domain_Name_System-based_blackhole_list).
 
