@@ -467,7 +467,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvSmtpFingerprint.setText(args.getString("smtp_fingerprint"));
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
-                    FragmentReview fragment = new FragmentReview();
+                    FragmentDialogAccount fragment = new FragmentDialogAccount();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentQuickSetup.this, ActivitySetup.REQUEST_DONE);
                     fragment.show(getParentFragmentManager(), "quick:review");

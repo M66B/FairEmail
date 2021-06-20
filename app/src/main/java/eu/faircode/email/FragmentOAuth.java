@@ -775,7 +775,7 @@ public class FragmentOAuth extends FragmentBase {
                     finish();
                     ToastEx.makeText(getContext(), R.string.title_setup_oauth_updated, Toast.LENGTH_LONG).show();
                 } else {
-                    FragmentReview fragment = new FragmentReview();
+                    FragmentDialogAccount fragment = new FragmentDialogAccount();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentOAuth.this, ActivitySetup.REQUEST_DONE);
                     fragment.show(getParentFragmentManager(), "oauth:review");
