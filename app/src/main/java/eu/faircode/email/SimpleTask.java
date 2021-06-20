@@ -65,7 +65,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
     private static final int MAX_WAKELOCK = 30 * 60 * 1000; // milliseconds
-    private static final int REPORT_AFTER = 5 * 60 * 1000; // milliseconds
+    private static final int REPORT_AFTER = 15 * 60 * 1000; // milliseconds
     private static final int CANCEL_AFTER = MAX_WAKELOCK; // milliseconds
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
