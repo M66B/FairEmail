@@ -273,6 +273,7 @@
     <string name="title_advanced_check_authentication">Sprawdź uwierzytelnianie wiadomości</string>
     <string name="title_advanced_check_reply_domain">Sprawdź adres odpowiedzi podczas synchronizacji wiadomości</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
+    <string name="title_advanced_check_blocklist">Sprawdź, czy nazwa domeny nadawcy znajduje się na liście spamu</string>
     <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_keyboard_no_fullscreen">Blokuj klawiaturę pełnoekranową</string>
@@ -1061,6 +1062,12 @@
     <string name="title_signature_store">Zachowaj</string>
     <string name="title_search">Szukaj</string>
     <string name="title_search_for_hint">Wprowadź tekst</string>
+    <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
+        Aby wyszukać również na serwerze, dotknij przycisku \'Szukaj ponownie\'.
+    </string>
+    <string name="title_search_index_hint">        Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajdują tylko całe słowa.
+        Poniższe opcje pozwalają kontynuować wyszukiwanie serwera e-mail.
+    </string>
     <string name="title_search_text_hint">Wyszukiwanie tekstu w wiadomościach może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_size_hint">Wyszukiwanie wiadomości według rozmiaru może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_more">Więcej opcji</string>

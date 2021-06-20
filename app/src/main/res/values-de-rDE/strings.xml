@@ -79,6 +79,7 @@
     </string>
     <string name="title_junk_filter">Lokalen Spam-Filter verwenden</string>
     <string name="title_junk_filter_hint">Das kann den Akkuverbrauch erhöhen und Nachrichten fälschlicherweise als Spam kennzeichnen</string>
+    <string name="title_junk_blocklist">Spam-Sperrlisten verwenden</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
@@ -845,7 +846,7 @@
     <string name="title_move_undo">Wird nach »%1$s« verschoben (%2$d)</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_authentication_failed">%1$s-Authentifizierung fehlgeschlagen</string>
-    <string name="title_on_blocklist">Auf Sperrliste</string>
+    <string name="title_on_blocklist">In Spam-Sperrliste enthalten</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
     <string name="title_receipt_text">Diese Lesebestätigung bestätigt nur, dass die Nachricht angezeigt wurde. Es gibt keine Garantie, dass der Empfänger den Nachrichteninhalt gelesen hat.</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
@@ -1044,10 +1045,13 @@
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_for_hint">Text eingeben</string>
-    <string name="title_search_hint">Zuerst wird Ihr Gerät durchsucht.
-Um auch auf dem Server zu suchen, tippen Sie auf die Schaltfläche „Erneut suchen”.    </string>
-    <string name="title_search_index_hint">Das Suchen über den Suchindex ist schnell, findet aber nur ganze Wörter.
-Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fortsetzen.    </string>
+    <string name="title_search_hint">        Zuerst wird das Gerät durchsucht.
+        Um auch auf dem Server zu suchen,
+        tippen Sie auf »Erneut suchen«.
+    </string>
+    <string name="title_search_index_hint">        Das Suchen über den Suchindex ist schnell, findet aber nur ganze Wörter.
+        Mit den folgenden Einstellungen können Sie die Suche auf dem E-Mail-Server fortsetzen.
+    </string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_size_hint">Die Nachrichtensuche nach Größe funktioniert, bei einer großen Anzahl von Nachrichten, auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_more">Weitere Optionen</string>

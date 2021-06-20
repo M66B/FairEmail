@@ -68,6 +68,7 @@
     </string>
     <string name="title_junk_filter">Dùng bộ lọc thư rác cục bộ</string>
     <string name="title_junk_filter_hint">Cái này có thể tăng sử dụng pin và đánh dấu thư là thư rác một cách không chính xác</string>
+    <string name="title_junk_blocklist">Sử dụng các danh sách chặn thư rác</string>
     <string name="title_notification_sending">Đang gửi thư</string>
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_idle">Rảnh</string>
@@ -244,6 +245,7 @@
     <string name="title_advanced_check_authentication">Kiểm tra xác thực thư</string>
     <string name="title_advanced_check_reply_domain">Kiểm tra địa chỉ trả lời khi đồng bộ hoá thư</string>
     <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
+    <string name="title_advanced_check_blocklist">Kiểm tra xem tên miền của người gửi có ở trong một danh sách chặn thư rác không</string>
     <string name="title_advanced_tune_keep_alive">Tự động điều chỉnh khoảng thời gian giữa mỗi lần giữ cho ứng dụng hoạt động</string>
     <string name="title_advanced_keyboard">Hiện bàn phím theo mặc định</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ngăn chặn bàn phím toàn màn hình</string>
@@ -833,6 +835,7 @@
     <string name="title_move_undo">Đang di chuyển đến %1$s (%2$d)</string>
     <string name="title_open_with">Mở bằng</string>
     <string name="title_authentication_failed">%1$s xác thực thất bại</string>
+    <string name="title_on_blocklist">Ở trong danh sách chặn thư rác</string>
     <string name="title_receipt_subject">Xác nhận đã đọc: %1$s</string>
     <string name="title_receipt_text">Xác nhận đã đọc này chỉ biết rằng thư đã được hiển thị. Không có đảm bảo rằng người nhận đã đọc nội dung thư.</string>
     <string name="title_no_answers">Không có mẫu trả lời nào được định nghĩa</string>
@@ -1031,6 +1034,12 @@
     <string name="title_signature_store">Lưu trữ</string>
     <string name="title_search">Tìm kiếm</string>
     <string name="title_search_for_hint">Nhập văn bản</string>
+    <string name="title_search_hint">Ban đầu, việc tìm kiếm được thực hiện trên thiết bị.
+        Để cũng tìm kiếm máy chủ, nhấn nút \'tìm kiếm lại\'.
+    </string>
+    <string name="title_search_index_hint">        Việc tìm kiếm qua mục lục tìm kiếm là nhanh, nhưng chỉ tìm kiếm các từ toàn bộ.
+        Các tuỳ chọn ở dưới là để tiếp tục tìm kiếm máy chủ email.
+    </string>
     <string name="title_search_text_hint">Việc tìm kiếm văn bản trong thư khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_size_hint">Việc tìm kiếm thư theo kích cỡ khi có nhiều thư có thể không được trên một số máy chủ</string>
     <string name="title_search_more">Thêm tuỳ chọn</string>
@@ -1048,6 +1057,8 @@
     <string name="title_search_with_encrypted">Đã mã hoá (chỉ ở trên thiết bị)</string>
     <string name="title_search_with_attachments">Có tệp đính kèm (chỉ ở trên thiết bị)</string>
     <string name="title_search_with_size">Kích cỡ thư lớn hơn</string>
+    <string name="title_search_in_trash">Trong thùng rác</string>
+    <string name="title_search_in_junk">Trong thư rác</string>
     <string name="title_search_with_before">Trước</string>
     <string name="title_search_with_after">Sau</string>
     <string name="title_search_flag_unseen">chưa đọc</string>

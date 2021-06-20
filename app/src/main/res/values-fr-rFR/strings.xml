@@ -78,6 +78,7 @@
     </string>
     <string name="title_junk_filter">Utiliser le filtre de spam local</string>
     <string name="title_junk_filter_hint">Ceci peut augmenter l\'utilisation de la batterie et marquer par erreur des messages comme indésirables</string>
+    <string name="title_junk_blocklist">Utiliser des listes de blocage de spam</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>
@@ -845,6 +846,7 @@
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec&#8230;</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
+    <string name="title_on_blocklist">Sur la liste de blocage des spams</string>
     <string name="title_receipt_subject">Confirmation de lecture : %1$s</string>
     <string name="title_receipt_text">Cette confirmation atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>

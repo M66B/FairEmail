@@ -4,7 +4,7 @@
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. (FAQ) [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
 ## Übersicht
 
@@ -214,7 +214,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(88) Wie kann ich ein Yahoo-, AOL- oder Sky-Konto verwenden?](#user-content-faq88)
 * [(89) Wie kann ich Nur-Text-Nachrichten senden?](#user-content-faq89)
 * [(90) Warum sind einige Texte als Link formatiert, ohne ein gültiger Link zu sein?](#user-content-faq90)
-* [~~(91) Gibt es eine periodische Synchronisierung, um Akkuleistung zu sparen?~~](#user-content-faq91)
+* [~~(91) Können Sie eine periodische Synchronisierung hinzufügen, um den Akku zu schonen?~~](#user-content-faq91)
 * [(92) Können Sie Spamfilter, Überprüfung der DKIM-Signatur und SPF-Legitimierung hinzufügen?](#user-content-faq92)
 * [(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (sdcard) möglich?](#user-content-faq93)
 * [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Nachrichtenkopfes?](#user-content-faq94)
@@ -1899,15 +1899,15 @@ Plannung ist eine Pro-Funktion.
 <a name="faq79"></a>
 **(79) Wie kann ich bei Bedarf syncronisieren (Handbuch)?**
 
-Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn sie nicht wollen, zum Beispiel nicht gestört zu werden oder um Akku zu sparen, deaktivieren sie den Empfang in der Empfangseinstellungen. This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
+Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn sie nicht wollen, zum Beispiel nicht gestört zu werden oder um Akku zu sparen, deaktivieren sie den Empfang in der Empfangseinstellungen. Dadurch wird der Hintergrunddienst, der sich um die automatische Synchronisierung kümmert, gestoppt; sowie die zugehörige Benachrichtigung entfernt.
 
-You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
+Sie können auch die *manuelle Synchronisierung* in den erweiterten Kontoeinstellungen aktivieren, wenn sie bestimmte Konten nur manull synchronisieren wollen.
 
-You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
+Sie können in einer Nachrichtenliste herunterziehen oder im Ordnermenü auf *Jetzt synchronisieren* tippen, um die Nachrichten manuell zu synchronisieren.
 
-If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
+Wenn sie einige oder alle Ordner eines Kontos manuell synchronisieren möchten, deakrivieren Sie einfach die manuelle Synchronisation für die jeweiligen Ordner, aber nicht für das gesamte Konto.
 
-You'll likely want to disabled [browse on server](#user-content-faq24) too.
+Vermutlich möchten Sie auch [den Server](#user-content-faq24) nicht mehr durchsuchen.
 
 <br />
 
@@ -1941,30 +1941,30 @@ Die automatische Erkennung von Verfolgungsbildern kann in den Privatsphäreneins
 <br />
 
 <a name="faq84"></a>
-**(84) What are local contacts for?**
+**(84) Wofür gibt es lokale Kontakte?**
 
-Local contact information is based on names and addresses found in incoming and outgoing messages.
+Lokale Kontaktinformationen basieren auf Namen und Adressen in eingehenden und ausgehenden Nachrichten.
 
-The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
+Die Hauptnutzung von lokalen Kontakten besteht darin, die automatische Vervollständigung auch dann anzubieten, wenn FairEmail kein Zugriff auf die Android-Kontakte erteilt wurde.
 
-Eine weitere Verwendung ist die Erzeugung von [Verknüpfungen](#user-content-faq31) für aktuelle Android-Versionen, um schnell eine Nachricht an häufig kontaktierte Personen zu senden. This is also why the number of times contacted and the last time contacted is being recorded and why you can make a contact a favorite or exclude it from favorites by long pressing it.
+Eine weitere Verwendung ist die Erzeugung von [Verknüpfungen](#user-content-faq31) für aktuelle Android-Versionen, um schnell eine Nachricht an häufig kontaktierte Personen zu senden. Dies ist auch der Grund, warum die Anzahl der Kontakte sowie das letzte Mal, als diese kontaktiert wurden, aufgezeichnet werden; und, warum Sie einen Kontakt zu einem Favoriten machen oder ihn durch langes Drücken von Favoriten ausschließen können.
 
-The list of contacts is sorted on number of times contacted and the last time contacted.
+Die Kontaktliste ist nach der Anzahl der Nachrichten und der letzten Kontaktierung sortiert.
 
-By default only names and addresses to whom you send messages to will be recorded. You can change this in the send settings.
+Standardmäßig werden nur Namen und Adressen aufgezeichnet, an die Sie Nachrichten senden. Dies können Sie in dern Sende-Einstelungen ändern.
 
 <br />
 
 <a name="faq85"></a>
-**(85) Why is an identity not available?**
+**(85) Warum ist eine Identität nicht verfügbar?**
 
-An identity is available for sending a new message or replying or forwarding an existing message only if:
+Eine Identität (zur Versendung einer Nachricht oder zum Antworten) ist nur verfügbar, wenn:
 
 * die Identität ist zum synchronisieren gesetzt (Nachrichten senden)
 * das zugeordnete Konto wird synchronisiert (Nachrichten empfangen)
 * das zugehörige Konto hat einen Entwürfe-Ordner
 
-FairEmail will try to select the best identity based on the *to* address of the message replied to / being forwarded.
+FairEmail versucht die passendste Identität, basierend auf der *Empfänger*-Adresse der Nachricht, auf die geantwortet oder die weitergeleitet weden soll, zu finden.
 
 <br />
 
@@ -1979,32 +1979,32 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq87"></a>
-**(87) What does 'invalid credentials' mean?**
+**(87) Was bedeutet "ungültige Anmeldedaten"?**
 
-The error message *invalid credentials* means either that the user name and/or password is incorrect, for example because the password was changed or expired, or that the account authorization has expired.
+Die Fehlermeldung *ungültige Anmeldedaten* bedeutet, dass der Benutzername und/oder das Passwort falsch sind. Zum Beispiel könnte das Passwort geändert worden oder abgelaufen sein, oder die Konto-Autorisierung ist abgelaufen.
 
-If the password is incorrect/expired, you will have to update the password in the account and/or identity settings.
+Wenn das Paswort falsch bzw. abgelaufen ist, müssen Sie es in den Account- und/oder in den Identitätseinstellungen aktualisieren.
 
-If the account authorization has expired, you will have to select the account again. You will likely need to save the associated identity again as well.
+Wenn die Autorisierung des Kontos abgelaufen ist, müssen Sie das Konto erneut auswählen. Warcheinlich müssen sie auch die zugehörige Identität wieder speichern.
 
 <br />
 
 <a name="faq88"></a>
-**(88) How can I use a Yahoo, AOL or Sky account?**
+**(88) Wie kann ich ein Yahoo, AOL oder Sky-Konto verwenden?**
 
-The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).
+Die bevorzugte Art, ein Yahoo-Konto einzurichten, ist der Schnelleinrichtungsassistent, der OAuth anstatt eines Passworts verwendet, was sicherer (und einfacher) ist.
 
-To authorize a Yahoo, AOL, or Sky account you will need to create an app password. For instructions, please see here:
+Um ein Yahoo-, AOL- oder Sky-Konto zu autorisieren, müssen Sie ein App-Passwort erstellen. Für Anweisungen siehe hier:
 
 * [für Yahoo](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
 * [für AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [für Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (unter *anderen E-Mail-Apps*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq111) zu OAuth Support.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+Beachten Sie, dass Yahoo, AOL und Sky keine Standard Push-Benachrichtigungen unterstützen. Die Yahoo-Mailapp verwendet ein proprietäres, nicht dokumentiertes Protokoll für Push-Nachrichten.
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+Push-Benachritigungen erfordern [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE), aber der Yahoo-Mailserver meldet IDLE nicht als nutzbar:
 
 ```
 Y1 CAPABILITY
@@ -2015,42 +2015,42 @@ Y1 OK CAPABILITY completed
 <br />
 
 <a name="faq89"></a>
-**(89) How can I send plain text only messages?**
+**(89) Wie kann ich Reintext-Nachrichten senden?**
 
-By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days. If you want/need to send plain text messages only, you can enable this in the advanced identity options. You might want to create a new identity for this if you want/need to select sending plain text messages on a case-by-case basis.
+Standardmäßig sendet FairEmail jede Nachricht sowohl als Klartext als auch als HTML formatierten Text, da fast jeder Empfänger heutzutage formatierte Nachrichten erwartet. Wenn Sie nur reine Textnachrichten senden möchten, können Sie dies in den erweiterten Identitätsoptionen aktivieren. Wenn Sie von Fall zu Fall zu reinen Text-Nachrichten wechseln wollen, sollten Sie dafür ein neues Profil anlegen.
 
 <br />
 
 <a name="faq90"></a>
-**(90) Why are some texts linked while not being a link?**
+**(90) Warum sind einige Texte als Link formatiert, auch wenn Sie kein Link sind?**
 
-FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience. However, texts and links are not easily distinguished, especially not with lots of [top level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) being words. This is why texts with dots are sometimes incorrectly recognized as links, which is better than not recognizing some links.
+FairEmail formatiert zu Ihrer Bequemlichkeit automatisch nicht verlinkte URLs (http & https) und Email-Adressen (mailto). Texte und Links sind jedoch nicht leicht zu unterscheiden, besonders nicht mit vielen [Top-Level-Domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains) als Worte. Deshalb werden Texte mit Punkten manchmal fehlerhaft als Links erkannt, was besser ist, als wenn einige Links gar nicht erkannt werden.
 
-Links for the tel, geo, rtsp and xmpp protocols will be recognized too, but links for less usual or less safe protocols like telnet and ftp will not be recognized. The regex to recognize links is already *very* complex and adding more protocols will make it only slower and possibly cause errors.
+Links für das tel, geo, rtsp und xmpp Protokoll werden ebenfalls erkannt, aber Links für weniger übliche oder weniger sichere Protokolle wie Telnet und ftp nicht. Das Regex zur Erkennung von Links ist bereits *sehr* kompliziert, das Hinzufügen weiterer Protokolle würde es langsamer und fehleranfälliger machen.
 
-Note that original messages are shown exactly as they are, which means also that links are not automatically added.
+Beachten Sie, dass Originalnachrichten genau so angezeigt werden, wie sie empfangen wurden, was auch bedeutet, dass Links nicht automatisch hinzugefügt werden.
 
 <br />
 
 <a name="faq91"></a>
-**~~(91) Can you add periodical synchronization to save battery power?~~**
+**~~(91) Können Sie eine periodische Synchronisierung hinzufügen, um den Akku zu schonen?~~**
 
-~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~ ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
+~~Synchronisieren von Nachrichten ist ein ressourcenaufwändiger Prozess, denn die lokal gespeicherten Nachrichten müssen mit den Nachrichten auf dem Server verglichen werden,~~ ~~daher würde eine periodische Synchronisierung keine Akkuleistung sparen, sondern eher zum Gegenteil führen.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~Siehe [diese F&A](#user-content-faq39) über die Optimierung der Akkunutzung~~
 
 <br />
 
 <a name="faq92"></a>
-**(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
+**(92) Können Sie Spamfilter, Überprüfung der DKIM-Signatur und SPF-Autorisierung hinzufügen?**
 
-Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client. Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices. Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client. Außerdem haben E-Mail-Server Zugriff auf Informationen des verbindenden Servers, wie der IP-Adresse usw., auf die ein E-Mail-Programm keinen Zugriff hat.
+Spamfilter, Überprüfung der [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail)-Signatur und [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework)-Autorisierung ist eine Aufgabe von E-Mail-Servern, nicht die eines E-Mail-Clients. Server verfügen im Allgemeinen über mehr Speicher- und Rechenleistung, daher sind sie wesentlich besser für diese Aufgabe geeignet als batteriebetriebene Geräte. Außerdem möchten Sie, dass Spam für alle Ihre E-Mail-Clients und möglicherweise auch für Web-E-Mails gefiltert wird, nicht nur für einen E-Mail-Client. Außerdem haben E-Mail-Server Zugriff auf Informationen des verbindenden Servers, wie der IP-Adresse usw., auf die ein E-Mail-Programm keinen Zugriff hat.
 
-Spam filtering based on message headers might have been feasible, but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
+Spam-Filterung, die auf Nachrichten-Kopfzeilen basiert, wäre möglich gewesen, aber leider ist diese Technik [von Microsoft patentiert](https://patents.google.com/patent/US7543076).
 
-Recent versions of FairEmail can filter spam to a certain extend using a message classifier. Please see [this FAQ](#user-content-faq163) for more information about this.
+Neueste Versionen von FairEmail können Spam mit Hilfe eines Nachrichtenklassifikators erweitert filtern. Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq163) für mehr Informationen.
 
-Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with [filter rules](#user-content-faq71) too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
+Natürlich können Sie Nachrichten als Spam mit FairEmail melden, wodurch die gemeldeten Nachrichten in den Spam-Ordner verschoben werden und SIe und den Spam-Filter ihres Providers trainieren. Dieser Vorgang kann auch mit [Filterregeln](#user-content-faq71) automatisiert werden. Das Blockieren des Absenders erstellt eine Filterregel, die zukünftige Nachrichten dieses Absenders automatisch in den Spam-Ordner verschiebt.
 
 Beachten Sie, dass das POP3-Protokoll nur Zugriff auf den Posteingang gewährt. Es ist also nicht möglich, Spam für POP3-Konten zu melden.
 
@@ -2058,20 +2058,20 @@ Beachten Sie, dass Sie Spam-Nachrichten nicht löschen sollten, auch nicht aus d
 
 Wenn Sie viele Spam-Nachrichten in Ihrem Posteingang erhalten, sollten Sie den E-Mail-Anbieter kontaktieren und anfragen, ob dessen Spam-Filter verbessert werden könnte.
 
-Also, FairEmail can show a small red warning flag when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server. You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
+FairEmail kann auch eine kleine rote Warnmeldung anzeigen, wenn eine DKIM, SPF oder [DMARC](https://en.wikipedia.org/wiki/DMARC) Authentifizierung auf dem Empfangsserver fehlgeschlagen ist. Sie können diese [Authentifizierungsüberprüfung](https://en.wikipedia.org/wiki/Email_authentication) in den Anzeigeeinstellungen aktivieren bzw. deaktivieren.
 
-FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server. This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
+FairEmail kann auch ein Warnzeichen anzeigen, wenn für den Domänennamen der (Antwort-) E-Mail-Adresse des Absenders keinen MX-Eintrag hinterlegt ist, mit dem auf einen E-Mail-Server verwiesen wird. Dies kann in den Empfangseinstellungen aktiviert werden. Beachten Sie, dass dies die Synchronisierung von Nachrichten erheblich verlangsamt.
 
-If the domain name of the sender and the domain name of the reply address differ, the warning flag will be shown too because this is most often the case with phishing messages. If desired, this can be disabled in the receive settings (from version 1.1506).
+Wenn sich der Domainname des Absenders und der Domainname der Antwortadresse unterscheiden, wird ebenfalls das Warnsymbol angezeigt, da dies am häufigsten bei Phishing-Nachrichten der Fall ist. Falls gewünscht, kann dies (ab Version 1.1506). in den Empfangseinstellungen deaktiviert werden.
 
-If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder. Moreover, without proper authentication there is a risk the sender will be impersonated. The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
+Wenn bei legitimen Nachrichten die Authentifizierung fehlschlägt, sollten Sie den Absender benachrichtigen, da dies mit hoher Wahrscheinlichkeit dazu führen kann, dass Nachrichten im Spam-Ordner landen. Darüber hinaus besteht ohne ordnungsgemäße Authentifizierung das Risiko, dass die Identität des Absenders vorgetäuscht werden kann. Der Absender könnte [dieses Werkzeug](https://www.mail-tester.com/) verwenden, um die Authentifizierung und weitere Punkte zu überprüfen.
 
 <br />
 
 <a name="faq93"></a>
-**(93) Can you allow installation/data storage on external storage media (sdcard)?**
+**(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (SD-Karte) möglich?**
 
-FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start, so it is not possible to store the app on external storage media, like an sdcard. Siehe auch [hier](https://developer.android.com/guide/topics/data/install-location).
+FairEmail nutzt Dienste und Alarme, bietet Widgets und achtet darauf, dass das Gerät komplett gebootet hat, damit die App beim Start geöffnet werden kann. Deshalb ist es nicht möglich, die App auf einem externen Speichermedium, wie einer SD-Karte, zu speichern. Siehe auch [hier](https://developer.android.com/guide/topics/data/install-location).
 
 Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
 

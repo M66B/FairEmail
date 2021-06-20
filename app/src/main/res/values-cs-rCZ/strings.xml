@@ -98,6 +98,7 @@
     </string>
     <string name="title_junk_filter">Použít lokální filtr nevyžádané pošty</string>
     <string name="title_junk_filter_hint">Může zvýšit využití baterie a nesprávně označovat zprávy jako nevyžádané</string>
+    <string name="title_junk_blocklist">Použít seznam blokovaných adres</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -862,6 +863,7 @@
     <string name="title_move_undo">Přesouvání do %1$s (%2$d)</string>
     <string name="title_open_with">Otevřít v aplikaci</string>
     <string name="title_authentication_failed">%1$s ověření se nezdařilo</string>
+    <string name="title_on_blocklist">Na seznamu blokovaných adres</string>
     <string name="title_receipt_subject">Potvrzení o přečtení: %1$s</string>
     <string name="title_receipt_text">Potvrzení o přečtení potvrzuje pouze zobrazení zprávy. Nelze zaručit, že si příjemce přečetl obsah zprávy.</string>
     <string name="title_no_answers">Nebyly definovány žádné šablony odpovědi</string>
