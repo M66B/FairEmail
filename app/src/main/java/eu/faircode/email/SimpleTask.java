@@ -280,8 +280,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         long now = new Date().getTime();
         synchronized (tasks) {
             for (SimpleTask task : tasks)
-                if (!BuildConfig.PLAY_STORE_RELEASE ||
-                        (task.future != null && !task.future.isDone())) {
+                if (task.future != null && !task.future.isDone()) {
                     long elapsed = now - task.started;
                     if (elapsed > CANCEL_AFTER && !task.interrupted) {
                         task.interrupted = true;
