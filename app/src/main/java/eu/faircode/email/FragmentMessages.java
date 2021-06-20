@@ -2342,7 +2342,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             aargs.putBoolean("inJunk", EntityFolder.JUNK.equals(message.folderType));
             aargs.putBoolean("canBlock", canBlock);
 
-            AdapterMessage.FragmentDialogJunk ask = new AdapterMessage.FragmentDialogJunk();
+            FragmentDialogJunk ask = new FragmentDialogJunk();
             ask.setArguments(aargs);
             ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_JUNK);
             ask.show(getParentFragmentManager(), "swipe:junk");
