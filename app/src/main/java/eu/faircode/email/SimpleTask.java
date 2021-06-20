@@ -139,8 +139,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             tasks.add(this);
         }
 
-        updateTaskCount(context);
-
         try {
             onPreExecute(args);
         } catch (Throwable ex) {
@@ -253,6 +251,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 });
             }
         });
+
+        updateTaskCount(context);
     }
 
     void cancel(Context context) {
