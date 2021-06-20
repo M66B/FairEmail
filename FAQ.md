@@ -3721,12 +3721,24 @@ This feature requires an internet connection and is not available in the Play st
 
 A spam block list is basically a list of domain names which have been used to send spam or to spread malware.
 
+The domain name will be resolved into an IP address and after that the IP address will be looked up:
+
+```
+example@gmail.com ->
+	gmail.com
+gmail.com ->
+	172.217.168.229
+DNS lookup 229.168.217.172.zen.spamhaus.org ->
+	127.0.0.2: spam
+	not found: not spam
+```
+
 For more information, please see [this article](https://en.wikipedia.org/wiki/Domain_Name_System-based_blackhole_list).
 
 FairEmail currently uses the following block lists:
 
-* [Spamhaus zen](https://www.spamhaus.org/zen/) - [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/)
-* [Spamcop](https://www.spamcop.net/) - [Legal info](https://www.spamcop.net/fom-serve/cache/297.html)
+* [Spamhaus zen](https://www.spamhaus.org/zen/) - [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/) - [Privacy policy](https://www.spamhaus.org/organization/privacy/)
+* [Spamcop](https://www.spamcop.net/) - [Legal info](https://www.spamcop.net/fom-serve/cache/297.html) - [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 
 <br />
 
