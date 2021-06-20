@@ -3377,8 +3377,10 @@ class Core {
                                 "@" + new Date(message.received) +
                                 ":" + message.subject);
                         EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                        if (junk != null)
+                        if (junk != null) {
                             EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id, false);
+                            message.ui_hide = true;
+                        }
                     }
                 }
 
