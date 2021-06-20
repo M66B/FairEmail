@@ -3367,6 +3367,21 @@ class Core {
                 }
 
                 runRules(context, imessage, account, folder, message, rules);
+
+                if (message.blocklist != null && message.blocklist) {
+                    boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
+                    if (use_blocklist) {
+                        EntityLog.log(context, "Block list" +
+                                " folder=" + folder.name +
+                                " message=" + message.id +
+                                "@" + new Date(message.received) +
+                                ":" + message.subject);
+                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                        if (junk != null)
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id, false);
+                    }
+                }
+
                 if (download && !message.ui_hide &&
                         MessageClassifier.isEnabled(context) && folder.auto_classify_source)
                     db.message().setMessageUiHide(message.id, true); // keep local value

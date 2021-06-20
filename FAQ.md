@@ -300,6 +300,8 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(164) Can you add customizable themes?](#user-content-faq164)
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(167) How can I use DeepL?](#user-content-faq168)
+* [(168) What is a spam block list?](#user-content-faq167)
 
 [I have another question.](#user-content-support)
 
@@ -3711,6 +3713,20 @@ Unfortunately, it is not possible to hide messages on the email server too.
 You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
 
 This feature requires an internet connection and is not available in the Play store version.
+
+<br />
+
+<a name="faq168"></a>
+**(168) What is a spam block list?**
+
+A spam block list is basically a list of domain names which have been used to send spam or to spread malware.
+
+For more information, please see [this article](https://en.wikipedia.org/wiki/Domain_Name_System-based_blackhole_list).
+
+FairEmail currently uses the following block lists:
+
+* [Spamhaus zen](https://www.spamhaus.org/zen/) - [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/)
+* [Spamcop](https://www.spamcop.net/) - [Legal info](https://www.spamcop.net/fom-serve/cache/297.html)
 
 <br />
 

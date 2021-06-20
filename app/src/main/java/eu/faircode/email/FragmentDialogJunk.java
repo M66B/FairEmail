@@ -54,7 +54,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final boolean inJunk = args.getBoolean("inJunk");
         final boolean canBlock = args.getBoolean("canBlock");
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_junk, null);
+        final Context context = getContext();
+        final View view = LayoutInflater.from(context).inflate(R.layout.dialog_junk, null);
         final TextView tvMessage = view.findViewById(R.id.tvMessage);
         final ImageButton ibInfoProvider = view.findViewById(R.id.ibInfoProvider);
         final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
@@ -64,8 +65,14 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final Button btnEditRules = view.findViewById(R.id.btnEditRules);
         final CheckBox cbJunkFilter = view.findViewById(R.id.cbJunkFilter);
         final ImageButton ibInfoFilter = view.findViewById(R.id.ibInfoFilter);
+        final CheckBox cbBlocklist = view.findViewById(R.id.cbBlocklist);
+        final ImageButton ibInfoBlocklist = view.findViewById(R.id.ibInfoBlocklist);
         final Group grpInJunk = view.findViewById(R.id.grpInJunk);
         final Group grpMore = view.findViewById(R.id.grpMore);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
+        boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
 
         // Wire controls
 
@@ -119,7 +126,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
 
                         @Override
                         protected void onExecuted(Bundle args, EntityFolder inbox) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                             lbm.sendBroadcast(
                                     new Intent(ActivityView.ACTION_EDIT_RULES)
                                             .putExtra("account", account)
@@ -135,7 +142,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                         }
                     }.execute(FragmentDialogJunk.this, args, "junk:rules");
                 } else {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_RULES)
                                     .putExtra("account", account)
@@ -208,13 +215,31 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         });
 
+        cbBlocklist.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit()
+                        .putBoolean("check_blocklist", isChecked)
+                        .putBoolean("use_blocklist", isChecked)
+                        .apply();
+            }
+        });
+
+        ibInfoBlocklist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 168, true);
+            }
+        });
+
         // Initialize
         tvMessage.setText(inJunk
                 ? getString(R.string.title_folder_junk)
                 : getString(R.string.title_ask_spam_who, from));
-        cbBlockSender.setEnabled(canBlock && ActivityBilling.isPro(getContext()));
+        cbBlockSender.setEnabled(canBlock && ActivityBilling.isPro(context));
         cbBlockDomain.setEnabled(false);
         ibMore.setImageLevel(1);
+        cbBlocklist.setChecked(check_blocklist && use_blocklist);
         grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
         grpMore.setVisibility(inJunk ? View.VISIBLE : View.GONE);
 
@@ -259,7 +284,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         }.execute(FragmentDialogJunk.this, args, "junk:filter");
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(view)
                 .setNegativeButton(android.R.string.cancel, null);
 

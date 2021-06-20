@@ -99,6 +99,7 @@
 
     <string name="title_junk_filter">Use local spam filter</string>
     <string name="title_junk_filter_hint">This can increase battery usage and incorrectly mark messages as spam</string>
+    <string name="title_junk_blocklist">Use spam block lists</string>
 
     <string name="title_notification_sending">Sending messages</string>
     <string name="title_notification_waiting">Waiting for suitable connection</string>
@@ -971,7 +972,7 @@
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_open_with">Open with</string>
     <string name="title_authentication_failed">%1$s authentication failed</string>
-    <string name="title_on_blocklist">On blocklist</string>
+    <string name="title_on_blocklist">On spam block list</string>
 
     <string name="title_receipt_subject">Read receipt: %1$s</string>
     <string name="title_receipt_text">This read receipt only acknowledges that the message was displayed. There is no guarantee that the recipient has read the message contents.</string>
