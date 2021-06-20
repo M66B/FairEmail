@@ -136,6 +136,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET `primary` = :primary WHERE id = :id AND NOT (`primary` IS :primary)")
     int setAccountPrimary(long id, boolean primary);
 
+    @Query("UPDATE account SET color = :color WHERE id = :id AND NOT (color IS :color)")
+    int setAccountColor(long id, Integer color);
+
     @Query("UPDATE account SET thread = :thread WHERE id = :id AND NOT (thread IS :thread)")
     int setAccountThread(long id, Long thread);
 

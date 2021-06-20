@@ -324,6 +324,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     .setCheckable(true).setChecked(account.synchronize);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, 2, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_color, 3, R.string.title_color);
 
             if (account.notify &&
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -331,14 +332,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 NotificationChannel channel = nm.getNotificationChannel(channelId);
                 if (channel != null)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 3, R.string.title_edit_channel);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 4, R.string.title_edit_channel);
             }
 
             if (account.protocol == EntityAccount.TYPE_IMAP && settings)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 5, R.string.title_copy);
 
             if (debug)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 5, R.string.title_reset);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 6, R.string.title_reset);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -350,6 +351,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
                         return true;
+                    } else if (itemId == R.string.title_color) {
+                        onActionColor();
                     } else if (itemId == R.string.title_edit_channel) {
                         onActionEditChannel();
                         return true;
@@ -435,6 +438,19 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "account:primary");
+                }
+
+                private void onActionColor() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+                    args.putInt("color", account.color == null ? Color.TRANSPARENT : account.color);
+                    args.putString("title", context.getString(R.string.title_color));
+                    args.putBoolean("reset", true);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, FragmentAccounts.REQUEST_ACCOUNT_COLOR);
+                    fragment.show(parentFragment.getParentFragmentManager(), "account:color");
                 }
 
                 @TargetApi(Build.VERSION_CODES.O)
