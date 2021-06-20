@@ -162,6 +162,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvJunkFilterHint" />
 
         <eu.faircode.email.FixedTextView
+            android:id="@+id/tvBlocklist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="blocklists"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbBlocklist" />
+
+        <eu.faircode.email.FixedTextView
             android:id="@+id/tvBlocklistHint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -172,7 +184,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/ibInfoFilter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbBlocklist" />
+            app:layout_constraintTop_toBottomOf="@id/tvBlocklist" />
 
         <ImageButton
             android:id="@+id/ibInfoBlocklist"
@@ -203,6 +215,6 @@
             app:constraint_referenced_ids="
             btnEditRules,
             cbJunkFilter,tvJunkFilterHint,ibInfoFilter,
-            cbBlocklist,tvBlocklistHint,ibInfoBlocklist" />
+            cbBlocklist,tvBlocklist,tvBlocklistHint,ibInfoBlocklist" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

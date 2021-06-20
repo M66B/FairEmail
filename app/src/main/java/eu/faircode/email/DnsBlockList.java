@@ -34,8 +34,8 @@ import java.util.List;
 import java.util.Map;
 
 public class DnsBlockList {
-    static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
-            new BlockList("zen.spamhaus.org", new String[]{
+    private static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
+            new BlockList("Spamhaus/zen", "zen.spamhaus.org", new String[]{
                     //https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
                     "127.0.0.2", // SBL Spamhaus SBL Data
                     "127.0.0.3", // SBL Spamhaus SBL CSS Data
@@ -44,7 +44,7 @@ public class DnsBlockList {
                     //127.0.0.10 PBL ISP Maintained
                     //127.0.0.11 PBL Spamhaus Maintained
             }),
-            new BlockList("bl.spamcop.net", new String[]{
+            new BlockList("Spamcop", "bl.spamcop.net", new String[]{
                     // https://www.spamcop.net/fom-serve/cache/291.html
                     "127.0.0.2"
             })
@@ -55,6 +55,13 @@ public class DnsBlockList {
 
     private static final long CACHE_EXPIRY_AFTER = 3600 * 1000L; // milliseconds
     private static final Map<String, CacheEntry> cache = new Hashtable<>();
+
+    static List<String> getNames() {
+        List<String> names = new ArrayList<>();
+        for (BlockList blocklist : BLOCKLISTS)
+            names.add(blocklist.name);
+        return names;
+    }
 
     static boolean isJunk(String email) {
         if (TextUtils.isEmpty(email))
@@ -175,10 +182,12 @@ public class DnsBlockList {
     }
 
     static class BlockList {
+        String name;
         String address;
         InetAddress[] responses;
 
-        BlockList(String address, String[] responses) {
+        BlockList(String name, String address, String[] responses) {
+            this.name = name;
             this.address = address;
             List<InetAddress> r = new ArrayList<>();
             for (String response : responses)

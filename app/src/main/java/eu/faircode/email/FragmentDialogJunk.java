@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -66,6 +67,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final CheckBox cbJunkFilter = view.findViewById(R.id.cbJunkFilter);
         final ImageButton ibInfoFilter = view.findViewById(R.id.ibInfoFilter);
         final CheckBox cbBlocklist = view.findViewById(R.id.cbBlocklist);
+        final TextView tvBlocklist = view.findViewById(R.id.tvBlocklist);
         final ImageButton ibInfoBlocklist = view.findViewById(R.id.ibInfoBlocklist);
         final Group grpInJunk = view.findViewById(R.id.grpInJunk);
         final Group grpMore = view.findViewById(R.id.grpMore);
@@ -243,6 +245,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         cbBlockDomain.setEnabled(false);
         ibMore.setImageLevel(1);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
+        tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNames()));
         grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
         grpMore.setVisibility(inJunk ? View.VISIBLE : View.GONE);
 

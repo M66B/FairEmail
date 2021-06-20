@@ -371,10 +371,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
-        List<String> blocklists = new ArrayList<>();
-        for (DnsBlockList.BlockList blocklist : DnsBlockList.BLOCKLISTS)
-            blocklists.add(blocklist.address);
-        tvCheckBlocklistHint.setText(TextUtils.join(", ", blocklists));
+        tvCheckBlocklistHint.setText(TextUtils.join(", ", DnsBlockList.getNames()));
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
