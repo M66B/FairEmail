@@ -7448,7 +7448,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            startActivity(new Intent(getContext(), ActivitySetup.class));
+                            Intent intent = new Intent(getContext(), ActivitySetup.class)
+                                    .putExtra("target", "accounts");
+                            startActivity(intent);
                         }
                     });
                     snackbar.show();
