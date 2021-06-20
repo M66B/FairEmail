@@ -1349,6 +1349,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onDebugInfo() {
         new SimpleTask<Long>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(ActivityView.this, "Debug info ...", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
                 return Log.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
             }
