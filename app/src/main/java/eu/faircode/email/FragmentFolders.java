@@ -1005,7 +1005,7 @@ public class FragmentFolders extends FragmentBase {
             }
 
 
-        }.execute(this, args, "folder:export");
+        }.setInterruptable(false).execute(this, args, "folder:export");
     }
 
     public static class FragmentDialogApply extends FragmentDialogBase {
