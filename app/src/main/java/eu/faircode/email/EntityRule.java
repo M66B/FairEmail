@@ -552,8 +552,8 @@ public class EntityRule {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean prefix_once = prefs.getBoolean("prefix_once", true);
-        boolean alt_re = prefs.getBoolean("alt_re", true);
-        boolean alt_fwd = prefs.getBoolean("alt_fwd", true);
+        boolean alt_re = prefs.getBoolean("alt_re", false);
+        boolean alt_fwd = prefs.getBoolean("alt_fwd", false);
         boolean separate_reply = prefs.getBoolean("separate_reply", false);
         boolean extended_reply = prefs.getBoolean("extended_reply", false);
         boolean quote_reply = prefs.getBoolean("quote_reply", true);

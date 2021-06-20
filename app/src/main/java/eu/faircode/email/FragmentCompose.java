@@ -322,8 +322,8 @@ public class FragmentCompose extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefix_once = prefs.getBoolean("prefix_once", true);
-        alt_re = prefs.getBoolean("alt_re", true);
-        alt_fwd = prefs.getBoolean("alt_fwd", true);
+        alt_re = prefs.getBoolean("alt_re", false);
+        alt_fwd = prefs.getBoolean("alt_fwd", false);
         monospaced = prefs.getBoolean("monospaced", false);
         compose_font = prefs.getString("compose_font", monospaced ? "monospace" : "sans-serif");
         media = prefs.getBoolean("compose_media", true);
