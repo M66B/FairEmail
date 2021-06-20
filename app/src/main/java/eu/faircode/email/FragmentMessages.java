@@ -7444,7 +7444,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE);
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
+                            .setGestureInsetBottomIgnored(true);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
