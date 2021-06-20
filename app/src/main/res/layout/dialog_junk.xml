@@ -78,6 +78,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbBlockDomain" />
 
+        <ImageButton
+            android:id="@+id/ibMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBlockHint"
+            app:srcCompat="@drawable/expander" />
+
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvMore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingStart="6dp"
+            android:text="@string/title_search_more"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/ibMore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ibMore"
+            app:layout_constraintTop_toTopOf="@+id/ibMore" />
+
         <Button
             android:id="@+id/btnEditRules"
             style="?android:attr/buttonStyleSmall"
@@ -86,7 +110,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_edit_rules"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBlockHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvMore" />
 
         <CheckBox
             android:id="@+id/cbJunkFilter"
@@ -131,7 +155,15 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            tvMessage,tvJunkHint,ibInfoProvider,
-            cbJunkFilter,ibInfoFilter" />
+            tvBlockHint,cbBlockSender,cbBlockDomain,
+            ibMore,tvMore" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpMore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
+            btnEditRules,
+            cbJunkFilter,tvJunkFilterHint,ibInfoFilter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

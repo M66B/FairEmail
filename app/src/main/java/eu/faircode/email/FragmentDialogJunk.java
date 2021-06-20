@@ -59,12 +59,15 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final ImageButton ibInfoProvider = view.findViewById(R.id.ibInfoProvider);
         final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
         final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
+        final ImageButton ibMore = view.findViewById(R.id.ibMore);
+        final TextView tvMore = view.findViewById(R.id.tvMore);
         final Button btnEditRules = view.findViewById(R.id.btnEditRules);
         final CheckBox cbJunkFilter = view.findViewById(R.id.cbJunkFilter);
         final ImageButton ibInfoFilter = view.findViewById(R.id.ibInfoFilter);
         final Group grpInJunk = view.findViewById(R.id.grpInJunk);
+        final Group grpMore = view.findViewById(R.id.grpMore);
 
-        tvMessage.setText(getString(R.string.title_ask_spam_who, from));
+        // Wire controls
 
         ibInfoProvider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,15 +76,28 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         });
 
-        cbBlockSender.setEnabled(canBlock && ActivityBilling.isPro(getContext()));
-        cbBlockDomain.setEnabled(false);
-
         cbBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbBlockDomain.setEnabled(isChecked);
             }
         });
+
+        View.OnClickListener onMore = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (grpMore.getVisibility() == View.VISIBLE) {
+                    ibMore.setImageLevel(1);
+                    grpMore.setVisibility(View.GONE);
+                } else {
+                    ibMore.setImageLevel(0);
+                    grpMore.setVisibility(View.VISIBLE);
+                }
+            }
+        };
+
+        ibMore.setOnClickListener(onMore);
+        tvMore.setOnClickListener(onMore);
 
         btnEditRules.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +208,15 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         });
 
+        // Initialize
+        tvMessage.setText(inJunk
+                ? getString(R.string.title_folder_junk)
+                : getString(R.string.title_ask_spam_who, from));
+        cbBlockSender.setEnabled(canBlock && ActivityBilling.isPro(getContext()));
+        cbBlockDomain.setEnabled(false);
+        ibMore.setImageLevel(1);
         grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
+        grpMore.setVisibility(inJunk ? View.VISIBLE : View.GONE);
 
         new SimpleTask<Boolean>() {
             @Override
@@ -235,17 +259,20 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             }
         }.execute(FragmentDialogJunk.this, args, "junk:filter");
 
-        return new AlertDialog.Builder(getContext())
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                 .setView(view)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
-                        getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
-                        sendResult(Activity.RESULT_OK);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .create();
+                .setNegativeButton(android.R.string.cancel, null);
+
+        if (!inJunk)
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    getArguments().putBoolean("block_sender", cbBlockSender.isChecked());
+                    getArguments().putBoolean("block_domain", cbBlockDomain.isChecked());
+                    sendResult(Activity.RESULT_OK);
+                }
+            });
+
+        return builder.create();
     }
 }
