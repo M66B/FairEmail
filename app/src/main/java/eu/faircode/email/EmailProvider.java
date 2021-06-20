@@ -134,7 +134,7 @@ public class EmailProvider {
                         provider.name = xml.getAttributeValue(null, "name");
                         provider.description = xml.getAttributeValue(null, "description");
                         if (provider.description == null)
-                            provider.description = name;
+                            provider.description = provider.name;
                         provider.enabled = xml.getAttributeBooleanValue(null, "enabled", true);
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
