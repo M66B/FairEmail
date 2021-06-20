@@ -55,7 +55,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentAccounts extends FragmentBase {
@@ -77,7 +76,6 @@ public class FragmentAccounts extends FragmentBase {
     private AdapterAccount adapter;
 
     private static final int REQUEST_IMPORT_OAUTH = 1;
-    static final int REQUEST_ACCOUNT_COLOR = 2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -338,25 +336,6 @@ public class FragmentAccounts extends FragmentBase {
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        try {
-            switch (requestCode) {
-                case REQUEST_ACCOUNT_COLOR:
-                    if (resultCode == RESULT_OK && data != null) {
-                        if (ActivityBilling.isPro(getContext()))
-                            onAccountColor(data.getBundleExtra("args"));
-                        else
-                            startActivity(new Intent(getContext(), ActivityBilling.class));
-                    }
-                    break;
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -364,29 +343,6 @@ public class FragmentAccounts extends FragmentBase {
         if (requestCode == REQUEST_IMPORT_OAUTH)
             if (Helper.hasPermissions(getContext(), permissions))
                 ServiceSynchronize.reload(getContext(), null, false, "Permissions regranted");
-    }
-
-    private void onAccountColor(Bundle args) {
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Integer color = args.getInt("color");
-
-                if (color == Color.TRANSPARENT)
-                    color = null;
-
-                DB db = DB.getInstance(context);
-                db.account().setAccountColor(id, color);
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "account:color");
     }
 
     private void onSwipeRefresh() {
