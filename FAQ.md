@@ -3721,7 +3721,8 @@ This feature requires an internet connection and is not available in the Play st
 
 A spam block list is basically a list of domain names which have been used to send spam or to spread malware.
 
-The domain name will be resolved into an IP address and after that the IP address will be looked up:
+A spam block list is checked by resolving the domain name of an email address into an IP address
+and looking up the IP address with a DNS request:
 
 ```
 example@gmail.com ->
