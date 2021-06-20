@@ -48,6 +48,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         final Context context = getContext();
 
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_review_account, null);
+        final TextView tvName = dview.findViewById(R.id.tvName);
         final TextView tvInbox = dview.findViewById(R.id.tvInbox);
         final TextView tvDrafts = dview.findViewById(R.id.tvDrafts);
         final TextView tvSent = dview.findViewById(R.id.tvSent);
@@ -71,8 +72,9 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         tvJunk.setCompoundDrawablesRelative(null, null, null, null);
         tvArchive.setCompoundDrawablesRelative(null, null, null, null);
 
-        tvLeft.setText("");
-        tvRight.setText("");
+        tvName.setText(null);
+        tvLeft.setText(null);
+        tvRight.setText(null);
 
         Bundle args = getArguments();
         final long account = args.getLong("account");
@@ -90,6 +92,14 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         });
 
         DB db = DB.getInstance(context);
+
+        db.account().liveAccount(account).observe(this, new Observer<EntityAccount>() {
+            @Override
+            public void onChanged(EntityAccount account) {
+                tvName.setText(account.name);
+            }
+        });
+
         db.account().liveAccountSwipes(account).observe(this, new Observer<List<TupleAccountSwipes>>() {
             @Override
             public void onChanged(List<TupleAccountSwipes> swipes) {
