@@ -90,6 +90,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.security.cert.CertPathValidatorException;
@@ -100,6 +103,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -1979,6 +1983,26 @@ public class Log {
                 size += write(os, " props=" + props + "\r\n");
 
                 size += write(os, "\r\n");
+            }
+
+            try {
+                Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                while (interfaces != null && interfaces.hasMoreElements()) {
+                    NetworkInterface ni = interfaces.nextElement();
+                    size += write(os, "Interface=" + ni + "\r\n");
+                    for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                        InetAddress addr = iaddr.getAddress();
+                        size += write(os, " addr=" + addr +
+                                (addr.isLoopbackAddress() ? " loopback" : "") +
+                                (addr.isSiteLocalAddress() ? " site local (LAN)" : "") +
+                                (addr.isLinkLocalAddress() ? " link local (device)" : "") +
+                                (addr.isAnyLocalAddress() ? " any local" : "") +
+                                (addr.isMulticastAddress() ? " multicast" : "") + "\r\n");
+                    }
+                    size += write(os, "\r\n");
+                }
+            } catch (Throwable ex) {
+                size += write(os, ex.getMessage() + "\r\n");
             }
 
             size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n\r\n");
