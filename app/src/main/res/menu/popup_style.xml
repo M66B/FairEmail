@@ -22,14 +22,15 @@
         </menu>
     </item>
 
-    <group
-        android:id="@+id/group_style_color"
-        android:orderInCategory="2">
-        <item
-            android:id="@+id/menu_style_color"
-            android:icon="@drawable/twotone_palette_24"
-            android:title="@string/title_style_color" />
-    </group>
+    <item
+        android:id="@+id/menu_style_color"
+        android:icon="@drawable/twotone_palette_24"
+        android:orderInCategory="2"
+        android:title="@string/title_color">
+        <menu>
+            <group android:id="@+id/group_style_color" />
+        </menu>
+    </item>
 
     <item
         android:id="@+id/menu_style_font"

@@ -178,9 +178,10 @@ public class StyleHelper {
                     public boolean onMenuItemClick(MenuItem item) {
                         try {
                             int groupId = item.getGroupId();
+                            int itemId = item.getItemId();
                             if (groupId == R.id.group_style_size) {
                                 return setSize(item);
-                            } else if (groupId == R.id.group_style_color) {
+                            } else if (itemId == R.id.menu_style_color) {
                                 return setColor(item);
                             } else if (groupId == R.id.group_style_font) {
                                 return setFont(item);
