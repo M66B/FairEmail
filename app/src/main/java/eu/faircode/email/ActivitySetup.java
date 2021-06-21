@@ -725,7 +725,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 ex instanceof SecurityException);
                 Log.unexpectedError(getSupportFragmentManager(), ex, !expected);
             }
-        }.execute(this, args, "setup:export");
+        }.setInterruptable(false).execute(this, args, "setup:export");
     }
 
     private void handleImport(Intent data, String password) {
@@ -1115,7 +1115,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     Log.unexpectedError(getSupportFragmentManager(), ex, !expected);
                 }
             }
-        }.execute(this, args, "setup:import");
+        }.setInterruptable(false).execute(this, args, "setup:import");
     }
 
     private void handleImportCertificate(Intent data) {

@@ -67,6 +67,7 @@
 ルールの作成と使用はプロ機能です。</string>
     <string name="title_junk_filter">ローカルのスパムフィルターを使用</string>
     <string name="title_junk_filter_hint">これにより、バッテリー使用量が増加、そしてメッセージをスパムとして誤ってマークする可能性があります。</string>
+    <string name="title_junk_blocklist">迷惑メールブロックリストを使用する</string>
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機中</string>
     <string name="title_notification_idle">待機</string>
@@ -142,6 +143,7 @@
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
     <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
     <string name="title_setup_quick_success">アカウントが追加されました</string>
+    <string name="title_setup_quick_configure">名前、色、スワイプアクションなどを編集する</string>
     <string name="title_setup_manage">管理する</string>
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与する</string>
@@ -833,6 +835,7 @@
     <string name="title_move_undo">%1$s に移動中 (%2$d)</string>
     <string name="title_open_with">開く</string>
     <string name="title_authentication_failed">%1$sの認証に失敗しました</string>
+    <string name="title_on_blocklist">迷惑メールブロックリストにあります</string>
     <string name="title_receipt_subject">開封確認: %1$s</string>
     <string name="title_receipt_text">この開封確認メッセージはメッセージが表示されたことをお知らせするものです。受信者がメッセージの内容を読んだという保証はありません</string>
     <string name="title_no_answers">返信テンプレートが定義されていません</string>
@@ -926,7 +929,6 @@
     <string name="title_style_size_small">小</string>
     <string name="title_style_size_medium">標準</string>
     <string name="title_style_size_large">大</string>
-    <string name="title_style_color">カラー &#8230;</string>
     <string name="title_style_align">配置</string>
     <string name="title_style_align_start">先頭</string>
     <string name="title_style_align_center">中央</string>

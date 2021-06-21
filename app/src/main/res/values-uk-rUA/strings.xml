@@ -944,7 +944,6 @@
     <string name="title_style_size_small">Малий</string>
     <string name="title_style_size_medium">Середній</string>
     <string name="title_style_size_large">Великий</string>
-    <string name="title_style_color">Колір &#8230;</string>
     <string name="title_style_align">Вирівнювання</string>
     <string name="title_style_align_start">Початок</string>
     <string name="title_style_align_center">По центру</string>

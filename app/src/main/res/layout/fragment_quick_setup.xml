@@ -78,6 +78,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_case_sensitive"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCharacters" />
@@ -157,6 +158,7 @@
             android:layout_marginTop="6dp"
             android:text="@string/title_setup_quick_support"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
@@ -212,6 +214,7 @@
             android:text="imap.domain.tld:993"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
+            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvImapTitle" />
 
@@ -222,6 +225,7 @@
             android:text="fingerprint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvImap" />
 
@@ -242,6 +246,7 @@
             android:text="smtp.domain.tld:993"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
+            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSmtpTitle" />
 
@@ -252,6 +257,7 @@
             android:text="fingerprint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
 
@@ -282,8 +288,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             tvImapTitle,tvImap,tvImapFingerprint,tvSmtpTitle,
-            tvSmtp,tvSmtpFingerprint,
-            btnSave" />
+            tvSmtp,tvSmtpFingerprint" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpError"

@@ -191,6 +191,7 @@ public class FragmentQuickSetup extends FragmentBase {
         btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        btnSave.setVisibility(View.GONE);
         grpSetup.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
@@ -241,6 +242,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
+                btnSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
             }
 
@@ -279,12 +281,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 EmailProvider provider = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
-                args.putBoolean("appPassword", provider.appPassword);
-
-                if (provider.link != null)
-                    args.putString("link", provider.link);
-                if (provider.documentation != null)
-                    args.putString("documentation", provider.documentation.toString());
+                args.putSerializable("provider", provider);
 
                 int at = email.indexOf('@');
                 String username = email.substring(0, at);
@@ -459,12 +456,11 @@ public class FragmentQuickSetup extends FragmentBase {
             protected void onExecuted(Bundle args, EmailProvider result) {
                 boolean check = args.getBoolean("check");
                 if (check) {
-                    tvImap.setText(result == null ? null
-                            : result.imap.host + ":" + result.imap.port + (result.imap.starttls ? " starttls" : " ssl"));
+                    tvImap.setText(result == null ? null : result.imap.toString());
                     tvImapFingerprint.setText(args.getString("imap_fingerprint"));
-                    tvSmtp.setText(result == null ? null
-                            : result.smtp.host + ":" + result.smtp.port + (result.smtp.starttls ? " starttls" : " ssl"));
+                    tvSmtp.setText(result == null ? null : result.smtp.toString());
                     tvSmtpFingerprint.setText(args.getString("smtp_fingerprint"));
+                    btnSave.setVisibility(result == null ? View.GONE : View.VISIBLE);
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
                     FragmentDialogAccount fragment = new FragmentDialogAccount();
@@ -477,12 +473,12 @@ public class FragmentQuickSetup extends FragmentBase {
             @Override
             protected void onException(final Bundle args, Throwable ex) {
                 Log.e(ex);
+                EmailProvider provider = (EmailProvider) args.getSerializable("provider");
 
                 if (ex instanceof AuthenticationFailedException) {
-                    boolean appPassword = args.getBoolean("appPassword");
                     String message = getString(R.string.title_setup_no_auth_hint);
-                    if (appPassword)
-                        message += "\n" + getString(R.string.title_setup_app_password_hint);
+                    if (provider != null && provider.appPassword)
+                        message += "\n\n" + getString(R.string.title_setup_app_password_hint);
                     tvErrorHint.setText(message);
                 } else
                     tvErrorHint.setText(R.string.title_setup_no_settings_hint);
@@ -501,21 +497,30 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
 
-                    if (args.containsKey("link")) {
-                        Uri uri = Uri.parse(args.getString("link"));
+                    if (provider != null && provider.link != null) {
+                        Uri uri = Uri.parse(provider.link);
                         btnHelp.setTag(uri);
                         btnHelp.setVisibility(View.VISIBLE);
                     }
 
-                    if (args.containsKey("documentation")) {
-                        tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation"), getContext()));
+                    if (provider != null && provider.documentation != null) {
+                        tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString(), getContext()));
                         tvInstructions.setVisibility(View.VISIBLE);
+                    }
+
+                    if (provider != null &&
+                            provider.imap != null && provider.smtp != null) {
+                        tvImap.setText(provider.imap.toString());
+                        tvImapFingerprint.setText(null);
+                        tvSmtp.setText(provider.smtp.toString());
+                        tvSmtpFingerprint.setText(null);
+                        grpSetup.setVisibility(View.VISIBLE);
                     }
 
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
-                            if (args.containsKey("documentation"))
+                            if (provider != null && provider.documentation != null)
                                 scroll.smoothScrollTo(0, tvInstructions.getBottom());
                             else
                                 scroll.smoothScrollTo(0, btnSupport.getBottom());

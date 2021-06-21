@@ -47,7 +47,6 @@
     <string name="title_trash">Delete</string>
     <string name="title_compose">Compose</string>
     <string name="title_send">Send</string>
-    <string name="title_style_color">Colour &#8230;</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_section_folders">Folders</string>
     <string name="title_legend_section_messages">Messages</string>

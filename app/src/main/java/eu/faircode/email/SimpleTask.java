@@ -51,6 +51,7 @@ import java.util.concurrent.Future;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean log = true;
     private boolean count = true;
+    private boolean interruptable = true;
 
     private String name;
     private long started;
@@ -79,6 +80,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
+        return this;
+    }
+
+    public SimpleTask<T> setInterruptable(boolean interruptable) {
+        this.interruptable = interruptable;
         return this;
     }
 
@@ -138,8 +144,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         synchronized (tasks) {
             tasks.add(this);
         }
-
-        updateTaskCount(context);
 
         try {
             onPreExecute(args);
@@ -253,6 +257,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 });
             }
         });
+
+        updateTaskCount(context);
     }
 
     void cancel(Context context) {
@@ -280,12 +286,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         long now = new Date().getTime();
         synchronized (tasks) {
             for (SimpleTask task : tasks)
-                if (!BuildConfig.PLAY_STORE_RELEASE ||
-                        (task.future != null && !task.future.isDone())) {
+                if (task.future != null && !task.future.isDone()) {
                     long elapsed = now - task.started;
                     if (elapsed > CANCEL_AFTER && !task.interrupted) {
                         task.interrupted = true;
-                        if (task.future != null && !task.future.isDone()) {
+                        if (task.interruptable &&
+                                task.future != null && !task.future.isDone()) {
                             Log.e("Interrupting task " + task +
                                     " tasks=" + getCountLocked() + "/" + tasks.size());
                             task.future.cancel(true);
