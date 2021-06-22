@@ -3973,6 +3973,7 @@ class Core {
         }
 
         // Difference
+        boolean flash = false;
         for (long group : groupMessages.keySet()) {
             List<Long> add = new ArrayList<>();
             List<Long> update = new ArrayList<>();
@@ -4001,8 +4002,10 @@ class Core {
                             update.add(id);
                         }
                         remove.remove(-id);
-                    } else
+                    } else {
+                        flash = true;
                         add.add(id);
+                    }
                     Log.i("Notify adding=" + id + " existing=" + existing);
                 }
             }
@@ -4083,15 +4086,15 @@ class Core {
                     }
                 }
             }
+        }
 
-            if (notify_screen_on && notifications.size() > 0) {
-                Log.i("Notify screen on");
-                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-                PowerManager.WakeLock wakeLock = pm.newWakeLock(
-                        PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
-                        BuildConfig.APPLICATION_ID + ":notification");
-                wakeLock.acquire(SCREEN_ON_DURATION);
-            }
+        if (notify_screen_on && flash) {
+            Log.i("Notify screen on");
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            PowerManager.WakeLock wakeLock = pm.newWakeLock(
+                    PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
+                    BuildConfig.APPLICATION_ID + ":notification");
+            wakeLock.acquire(SCREEN_ON_DURATION);
         }
     }
 
