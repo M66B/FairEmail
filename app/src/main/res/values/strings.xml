@@ -499,6 +499,7 @@
     <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
+    <string name="title_advanced_notify_screen_on">Briefly turn on the screen for new message notifications</string>
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
 
     <string name="title_advanced_caption_pgp" translatable="false">PGP</string>

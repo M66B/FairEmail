@@ -32,6 +32,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.OperationCanceledException;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
 import android.text.Html;
@@ -137,6 +138,7 @@ import static javax.mail.Folder.READ_WRITE;
 class Core {
     private static final int MAX_NOTIFICATION_DISPLAY = 10; // per group
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
+    private static final long SCREEN_ON_DURATION = 3000L; // milliseconds
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
@@ -3888,6 +3890,7 @@ class Core {
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_preview_only = prefs.getBoolean("notify_preview_only", false);
+        boolean notify_screen_on = prefs.getBoolean("notify_screen_on", false);
         boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
@@ -4081,6 +4084,15 @@ class Core {
                         Log.w(ex);
                     }
                 }
+            }
+
+            if (notify_screen_on && notifications.size() > 0) {
+                Log.i("Notify screen on");
+                PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                PowerManager.WakeLock wakeLock = pm.newWakeLock(
+                        PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
+                        BuildConfig.APPLICATION_ID + ":notification");
+                wakeLock.acquire(SCREEN_ON_DURATION);
             }
         }
     }

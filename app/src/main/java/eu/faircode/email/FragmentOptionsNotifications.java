@@ -77,6 +77,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private TextView tvNotifyActionsPro;
     private SwitchCompat swLight;
     private Button btnSound;
+    private SwitchCompat swNotifyScreenOn;
 
     private SwitchCompat swBadge;
     private ImageButton ibBadge;
@@ -110,7 +111,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_trash", "notify_junk", "notify_block_sender", "notify_archive", "notify_move",
             "notify_reply", "notify_reply_direct",
             "notify_flag", "notify_seen", "notify_hide", "notify_snooze",
-            "light", "sound",
+            "light", "sound", "notify_screen_on",
             "badge", "unseen_ignored",
             "notify_background_only", "notify_known", "notify_summary", "notify_remove", "notify_clear",
             "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate",
@@ -153,6 +154,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
+        swNotifyScreenOn = view.findViewById(R.id.swNotifyScreenOn);
 
         swBadge = view.findViewById(R.id.swBadge);
         ibBadge = view.findViewById(R.id.ibBadge);
@@ -335,6 +337,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("light", checked).apply();
+            }
+        });
+
+        swNotifyScreenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_screen_on", checked).apply();
             }
         });
 
@@ -586,6 +595,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionHide.setChecked(prefs.getBoolean("notify_hide", false) && pro);
         cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) && pro);
         swLight.setChecked(prefs.getBoolean("light", false));
+        swNotifyScreenOn.setChecked(prefs.getBoolean("notify_screen_on", false));
 
         swBadge.setChecked(prefs.getBoolean("badge", true));
         swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
