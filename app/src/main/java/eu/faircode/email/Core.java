@@ -2254,11 +2254,11 @@ class Core {
             EntityLog.log(context, folder.name + " POP capabilities= " + caps.keySet());
 
             Message[] imessages = ifolder.getMessages();
-            EntityLog.log(context, folder.name + " POP messages=" + imessages.length);
-
-            if (account.max_messages != null && imessages.length > account.max_messages)
-                imessages = Arrays.copyOfRange(imessages,
-                        imessages.length - account.max_messages, imessages.length);
+            int max = (account.max_messages == null ? imessages.length : Math.max(account.max_messages * 2, 100));
+            EntityLog.log(context, folder.name + " POP messages=" + imessages.length +
+                    " max=" + max + "/" + account.max_messages);
+            if (imessages.length > max)
+                imessages = Arrays.copyOfRange(imessages, imessages.length - max, imessages.length);
 
             boolean hasUidl = caps.containsKey("UIDL");
             if (hasUidl) {
@@ -2315,7 +2315,13 @@ class Core {
                 }
             }
 
-            for (Message imessage : imessages)
+            for (int i = 0; i < imessages.length; i++) {
+                if (account.max_messages != null && i >= account.max_messages) {
+                    EntityLog.log(context, folder.name + " POP reached max=" + account.max_messages);
+                    break;
+                }
+
+                Message imessage = imessages[i];
                 try {
                     if (!state.isRunning())
                         return;
@@ -2504,6 +2510,7 @@ class Core {
                 } finally {
                     ((POP3Message) imessage).invalidate(true);
                 }
+            }
 
             db.folder().setFolderLastSync(folder.id, new Date().getTime());
             EntityLog.log(context, folder.name + " POP done");
