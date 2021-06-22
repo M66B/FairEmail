@@ -2256,16 +2256,18 @@ class Core {
             EntityLog.log(context, folder.name + " POP capabilities= " + caps.keySet());
 
             Message[] imessages = ifolder.getMessages();
-            int max = (account.max_messages == null ? imessages.length : Math.max(account.max_messages * 2, 100));
+            int max;
+            if (account.max_messages == null)
+                max = imessages.length;
+            else
+                max = Math.min(imessages.length, Math.max(account.max_messages * 2, 100));
             EntityLog.log(context, folder.name + " POP messages=" + imessages.length +
                     " max=" + max + "/" + account.max_messages);
-            if (imessages.length > max)
-                imessages = Arrays.copyOfRange(imessages, imessages.length - max, imessages.length);
 
             boolean hasUidl = caps.containsKey("UIDL");
             if (hasUidl) {
                 FetchProfile ifetch = new FetchProfile();
-                ifetch.add(UIDFolder.FetchProfileItem.UID);
+                ifetch.add(UIDFolder.FetchProfileItem.UID); // This will fetch all UIDs
                 ifolder.fetch(imessages, ifetch);
             }
 
@@ -2303,7 +2305,8 @@ class Core {
                         if (id.msgid != null)
                             known.put(id.msgid, id);
 
-                    for (Message imessage : imessages) {
+                    for (int i = imessages.length - max; i < imessages.length; i++) {
+                        Message imessage = imessages[i];
                         MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
                         String msgid = helper.getMessageID(); // expensive!
                         if (!TextUtils.isEmpty(msgid))
@@ -2317,12 +2320,7 @@ class Core {
                 }
             }
 
-            for (int i = 0; i < imessages.length; i++) {
-                if (account.max_messages != null && i >= account.max_messages) {
-                    EntityLog.log(context, folder.name + " POP reached max=" + account.max_messages);
-                    break;
-                }
-
+            for (int i = imessages.length - max; i < imessages.length; i++) {
                 Message imessage = imessages[i];
                 try {
                     if (!state.isRunning())
