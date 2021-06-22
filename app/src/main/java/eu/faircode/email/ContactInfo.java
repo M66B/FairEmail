@@ -540,6 +540,12 @@ public class ContactInfo {
                 if (i != 0)
                     return -i;
 
+                int t1 = (img1.attr("href").toLowerCase(Locale.ROOT).endsWith("ico") ? 1 : -1);
+                int t2 = (img2.attr("href").toLowerCase(Locale.ROOT).endsWith("ico") ? 1 : -1);
+                int t = Integer.compare(t1, t2);
+                if (t != 0)
+                    return t;
+
                 String[] s1 = img1.attr("sizes").split("[x|X]");
                 String[] s2 = img2.attr("sizes").split("[x|X]");
                 Integer w1 = Helper.parseInt(s1.length == 2 ? s1[0] : null);
