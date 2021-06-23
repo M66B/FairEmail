@@ -229,7 +229,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                                 return null;
 
                             db.operation().deleteOperation(operation.id);
+
                             db.folder().setFolderError(operation.folder, null);
+                            if (operation.message != null)
+                                db.message().setMessageError(operation.message, null);
+
                             return null;
                         }
 
