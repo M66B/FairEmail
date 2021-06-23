@@ -48,6 +48,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
@@ -139,6 +140,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swParseClasses;
     private SwitchCompat swAuthentication;
+
+    private Group grpGravatars;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -245,6 +248,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swThumbnails = view.findViewById(R.id.swThumbnails);
         swParseClasses = view.findViewById(R.id.swParseClasses);
         swAuthentication = view.findViewById(R.id.swAuthentication);
+
+        grpGravatars = view.findViewById(R.id.grpGravatars);
 
         setOptions();
 
@@ -876,6 +881,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                     ? R.color.lightColorBackground_cards_beige
                     : R.color.lightColorBackground_cards));
         }
+
+        grpGravatars.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

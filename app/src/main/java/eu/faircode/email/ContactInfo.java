@@ -287,7 +287,7 @@ public class ContactInfo {
         }
 
         // Gravatar
-        if (info.bitmap == null && gravatars) {
+        if (info.bitmap == null && gravatars && !BuildConfig.PLAY_STORE_RELEASE) {
             if (!TextUtils.isEmpty(info.email)) {
                 String gkey = info.email.toLowerCase(Locale.ROOT);
                 boolean lookup;
@@ -300,7 +300,7 @@ public class ContactInfo {
                     HttpURLConnection urlConnection = null;
                     try {
                         String hash = Helper.md5(gkey.getBytes());
-                        URL url = new URL("https://www.gravatar.com/avatar/" + hash + "?d=404");
+                        URL url = new URL(BuildConfig.GRAVATAR_URI + hash + "?d=404");
                         Log.i("Gravatar key=" + gkey + " url=" + url);
 
                         urlConnection = (HttpURLConnection) url.openConnection();

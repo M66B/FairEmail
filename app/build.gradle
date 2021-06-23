@@ -136,6 +136,7 @@ android {
             buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
+            buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
         }
         fdroid {
             dimension "all"
@@ -145,6 +146,7 @@ android {
             buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
+            buildConfigField "String", "GRAVATAR_URI", "\"https://www.gravatar.com/avatar/\""
         }
         play {
             dimension "all"
@@ -155,6 +157,7 @@ android {
             buildConfigField "String", "CHANGELOG", "\"\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"\""
             buildConfigField "String", "GITHUB_LATEST_URI", "\"\""
+            buildConfigField "String", "GRAVATAR_URI", "\"\""
         }
     }
 
