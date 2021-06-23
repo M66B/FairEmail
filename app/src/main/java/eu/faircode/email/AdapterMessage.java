@@ -1849,7 +1849,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String personal = address.getPersonal();
 
                     if (TextUtils.isEmpty(personal)) {
-                        if (email != null) {
+                        if (!TextUtils.isEmpty(email)) {
                             int start = ssb.length();
                             ssb.append(email);
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
@@ -1857,7 +1857,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         if (full) {
                             ssb.append(personal).append(" <");
-                            if (email != null) {
+                            if (!TextUtils.isEmpty(email)) {
                                 int start = ssb.length();
                                 ssb.append(email);
                                 ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
