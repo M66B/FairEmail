@@ -1183,8 +1183,9 @@ class Core {
             throw new IllegalArgumentException("not selectable type=" + target.type);
 
         // De-classify
-        for (EntityMessage message : messages)
-            MessageClassifier.classify(message, folder, target, context);
+        if (!copy)
+            for (EntityMessage message : messages)
+                MessageClassifier.classify(message, folder, target, context);
 
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
