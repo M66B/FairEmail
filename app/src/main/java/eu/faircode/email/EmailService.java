@@ -134,6 +134,9 @@ public class EmailService implements AutoCloseable {
     private final static int POOL_SIZE = 1; // connections
     private final static int POOL_TIMEOUT = 60 * 1000; // milliseconds, default 45 sec
 
+    private final static int MAX_IPV4 = 2;
+    private final static int MAX_IPV6 = 1;
+
     private final static int TCP_KEEP_ALIVE_INTERVAL = 9 * 60; // seconds
 
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
@@ -498,8 +501,8 @@ public class EmailService implements AutoCloseable {
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
                     InetAddress[] iaddrs = InetAddress.getAllByName(host);
-                    boolean ip4 = (main instanceof Inet4Address);
-                    boolean ip6 = (main instanceof Inet6Address);
+                    int ip4 = (main instanceof Inet4Address ? 1 : 0);
+                    int ip6 = (main instanceof Inet6Address ? 1 : 0);
 
                     boolean has4 = false;
                     boolean has6 = false;
@@ -520,8 +523,8 @@ public class EmailService implements AutoCloseable {
 
                     EntityLog.log(context, "Address main=" + main +
                             " count=" + iaddrs.length +
-                            " ip4=" + ip4 + "/" + has4 +
-                            " ip6=" + ip6 + "/" + has6);
+                            " ip4=" + ip4 + " max4=" + MAX_IPV4 + " has4=" + has4 +
+                            " ip6=" + ip6 + " max6=" + MAX_IPV6 + " has6=" + has6);
 
                     for (InetAddress iaddr : iaddrs) {
                         EntityLog.log(context, "Address resolved=" + iaddr);
@@ -530,15 +533,15 @@ public class EmailService implements AutoCloseable {
                             continue;
 
                         if (iaddr instanceof Inet4Address) {
-                            if (!has4 || ip4)
+                            if (!has4 || ip4 >= MAX_IPV4)
                                 continue;
-                            ip4 = true;
+                            ip4++;
                         }
 
                         if (iaddr instanceof Inet6Address) {
-                            if (!has6 || ip6)
+                            if (!has6 || ip6 >= MAX_IPV6)
                                 continue;
-                            ip6 = true;
+                            ip6++;
                         }
 
                         try {
