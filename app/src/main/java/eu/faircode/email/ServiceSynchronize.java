@@ -969,8 +969,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
 
                             db.message().setMessageSnoozed(message.id, null);
-                            db.message().setMessageUnsnoozed(message.id, true);
-                            EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEEN, false, false);
+                            if (!message.ui_ignored) {
+                                db.message().setMessageUnsnoozed(message.id, true);
+                                EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEEN, false, false);
+                            }
                         }
 
                         db.setTransactionSuccessful();
