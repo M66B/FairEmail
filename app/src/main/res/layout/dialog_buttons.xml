@@ -33,183 +33,236 @@
 
         <CheckBox
             android:id="@+id/cbJunk"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_report_problem_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_spam"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHint" />
 
         <CheckBox
             android:id="@+id/cbTrash"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_delete_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_trash"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbJunk" />
 
         <CheckBox
             android:id="@+id/cbArchive"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_archive_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_archive"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbTrash" />
 
         <CheckBox
             android:id="@+id/cbMove"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_drive_file_move_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_move"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbArchive" />
 
         <CheckBox
             android:id="@+id/cbCopy"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_file_copy_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_copy_btn"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbMove" />
 
         <CheckBox
             android:id="@+id/cbKeywords"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_label_important_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_keywords_btn"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbCopy" />
 
         <CheckBox
             android:id="@+id/cbNotes"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_sticky_note_2_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_edit_notes"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbKeywords" />
 
         <CheckBox
             android:id="@+id/cbSeen"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_mail_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_toggle_seen"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotes" />
 
         <CheckBox
             android:id="@+id/cbHide"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_visibility_off_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_toggle_hide"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSeen" />
 
         <CheckBox
             android:id="@+id/cbSearch"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_search_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_button_search"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHide" />
 
         <CheckBox
             android:id="@+id/cbSearchText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_manage_search_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_button_search_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSearch" />
 
         <CheckBox
             android:id="@+id/cbEvent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_event_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_event"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSearchText" />
 
         <CheckBox
             android:id="@+id/cbShare"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_share_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_share"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbEvent" />
 
         <CheckBox
             android:id="@+id/cbPin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/baseline_push_pin_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_pin"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbShare" />
 
         <CheckBox
             android:id="@+id/cbPrint"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_print_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_print"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPin" />
 
         <CheckBox
             android:id="@+id/cbHeaders"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/baseline_code_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_show_headers"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPrint" />
 
         <CheckBox
             android:id="@+id/cbUnsubscribe"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_unsubscribe_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_unsubscribe"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHeaders" />
 
         <CheckBox
             android:id="@+id/cbRule"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_filter_alt_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_message_rule"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbUnsubscribe" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
