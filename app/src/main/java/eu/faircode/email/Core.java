@@ -395,11 +395,11 @@ class Core {
                                     List<EntityMessage> messages = new ArrayList<>();
                                     messages.add(message);
                                     messages.addAll(similar.values());
-                                    onMove(context, jargs, false, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onMove(context, jargs, false, account, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.COPY:
-                                    onMove(context, jargs, true, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onMove(context, jargs, true, account, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.FETCH:
@@ -1162,7 +1162,7 @@ class Core {
         }
     }
 
-    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, List<EntityMessage> messages, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -1190,6 +1190,7 @@ class Core {
 
         // Get source messages
         Map<Message, EntityMessage> map = new HashMap<>();
+        Map<EntityMessage, String> msgids = new HashMap<>();
         for (EntityMessage message : messages)
             try {
                 if (message.uid == null)
@@ -1208,7 +1209,8 @@ class Core {
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
-        if (draft) {
+        boolean duplicate = (copy && !account.isGmail());
+        if (draft || duplicate) {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
             List<Message> icopies = new ArrayList<>();
@@ -1225,7 +1227,13 @@ class Core {
 
                 Message icopy;
                 try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                    icopy = new MimeMessage(isession, is);
+                    if (duplicate) {
+                        String msgid = EntityMessage.generateMessageId();
+                        msgids.put(message, msgid);
+                        icopy = new MimeMessageEx(isession, is, msgid);
+                        icopy.saveChanges();
+                    } else
+                        icopy = new MimeMessage(isession, is);
                 }
 
                 file.delete();
@@ -1287,10 +1295,14 @@ class Core {
                 boolean sync = false;
                 for (EntityMessage message : map.values())
                     try {
-                        if (TextUtils.isEmpty(message.msgid))
+                        String msgid = msgids.get(message);
+                        if (msgid == null)
+                            msgid = message.msgid;
+
+                        if (TextUtils.isEmpty(msgid))
                             throw new IllegalArgumentException("move: msgid missing");
 
-                        Long uid = findUid(context, itarget, message.msgid, false);
+                        Long uid = findUid(context, itarget, msgid, false);
                         if (uid == null)
                             throw new IllegalArgumentException("move: uid not found");
 
