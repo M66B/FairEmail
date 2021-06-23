@@ -3149,7 +3149,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putLong("time", 0);
         }
 
-        onSnooze(args);
+        onSnoozeOrHide(args);
     }
 
     private void onActionHide(TupleMessageEx message) {
@@ -3161,7 +3161,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("time", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
         args.putBoolean("hide", true);
 
-        onSnooze(args);
+        onSnoozeOrHide(args);
     }
 
     private void onActionSnoozeSelection() {
@@ -6167,7 +6167,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_MESSAGE_SNOOZE:
                     if (resultCode == RESULT_OK && data != null)
-                        onSnooze(data.getBundleExtra("args"));
+                        onSnoozeOrHide(data.getBundleExtra("args"));
                     break;
                 case REQUEST_MESSAGES_SNOOZE:
                     if (resultCode == RESULT_OK && data != null)
@@ -7528,7 +7528,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "message:color");
     }
 
-    private void onSnooze(Bundle args) {
+    private void onSnoozeOrHide(Bundle args) {
         long duration = args.getLong("duration");
         long time = args.getLong("time");
         args.putLong("wakeup", duration == 0 ? -1 : time);
@@ -7559,14 +7559,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             account, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageUnsnoozed(threaded.id, false);
-                        db.message().setMessageSnoozed(threaded.id, wakeup);
-                        if (threaded.id.equals(id))
-                            EntityOperation.queue(context, threaded, EntityOperation.SEEN, true, wakeup == null);
-                        else
-                            db.message().setMessageUiIgnored(threaded.id, true);
-                        if (!hide && flag_snoozed && threaded.folder.equals(message.folder))
-                            EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
-                        EntityMessage.snooze(context, threaded.id, wakeup);
+                        db.message().setMessageUiIgnored(threaded.id, true);
+                        if (hide) {
+                            db.message().setMessageSnoozed(threaded.id, wakeup);
+                            EntityMessage.snooze(context, threaded.id, wakeup);
+                        } else {
+                            if (threaded.id.equals(id)) {
+                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                if (wakeup != null)
+                                    EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                            } else {
+                                db.message().setMessageSnoozed(threaded.id, wakeup == null ? null : Long.MAX_VALUE); // show/hide
+                                EntityMessage.snooze(context, threaded.id, null);
+                            }
+                            if (flag_snoozed && threaded.folder.equals(message.folder))
+                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
+                        }
                     }
 
                     db.setTransactionSuccessful();
@@ -7627,14 +7636,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading ? null : id, null);
                         for (EntityMessage threaded : messages) {
                             db.message().setMessageUnsnoozed(threaded.id, false);
-                            db.message().setMessageSnoozed(threaded.id, wakeup);
-                            if (threaded.id.equals(id))
-                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, true, wakeup == null);
-                            else
-                                db.message().setMessageUiIgnored(threaded.id, true);
+                            db.message().setMessageUiIgnored(threaded.id, true);
+                            if (threaded.id.equals(id)) {
+                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                if (wakeup != null)
+                                    EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                            } else {
+                                db.message().setMessageSnoozed(threaded.id, wakeup == null ? null : Long.MAX_VALUE); // show/hide
+                                EntityMessage.snooze(context, threaded.id, null);
+                            }
                             if (flag_snoozed && threaded.folder.equals(message.folder))
                                 EntityOperation.queue(context, threaded, EntityOperation.FLAG, wakeup != null);
-                            EntityMessage.snooze(context, threaded.id, wakeup);
                         }
                     }
 

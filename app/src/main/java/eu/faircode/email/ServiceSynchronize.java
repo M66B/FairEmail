@@ -968,11 +968,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                             }
 
-                            db.message().setMessageSnoozed(message.id, null);
-                            if (!message.ui_ignored) {
-                                db.message().setMessageUnsnoozed(message.id, true);
-                                EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEEN, false, false);
-                            }
+                            // Show thread
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                            boolean threading = prefs.getBoolean("threading", true);
+                            List<EntityMessage> messages = db.message().getMessagesByThread(
+                                    message.account, message.thread, threading ? null : message.id, null);
+                            for (EntityMessage threaded : messages)
+                                db.message().setMessageSnoozed(threaded.id, null);
+
+                            db.message().setMessageUnsnoozed(message.id, true);
+                            EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEEN, false, false);
                         }
 
                         db.setTransactionSuccessful();
