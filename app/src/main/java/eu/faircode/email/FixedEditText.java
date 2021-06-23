@@ -74,6 +74,32 @@ public class FixedEditText extends AppCompatEditText {
     }
 
     @Override
+    public void setText(CharSequence text, BufferType type) {
+        try {
+            super.setText(text, type);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IndexOutOfBoundsException: charAt: -1 < 0
+                  at android.text.SpannableStringBuilder.charAt(SpannableStringBuilder.java:122)
+                  at java.lang.Character.codePointBefore(Character.java:5002)
+                  at android.widget.SpellChecker.spellCheck(SpellChecker.java:287)
+                  at android.widget.SpellChecker.access$1000(SpellChecker.java:48)
+                  at android.widget.SpellChecker$SpellParser.parse(SpellChecker.java:741)
+                  at android.widget.SpellChecker$SpellParser.parse(SpellChecker.java:520)
+                  at android.widget.SpellChecker.spellCheck(SpellChecker.java:245)
+                  at android.widget.Editor.updateSpellCheckSpans(Editor.java:775)
+                  at android.widget.Editor.sendOnTextChanged(Editor.java:1470)
+                  at android.widget.TextView.sendOnTextChanged(TextView.java:10576)
+                  at android.widget.TextView.setText(TextView.java:6299)
+                  at android.widget.TextView.setText(TextView.java:6124)
+                  at android.widget.EditText.setText(EditText.java:122)
+                  at android.widget.TextView.setText(TextView.java:6076)
+             */
+        }
+    }
+
+    @Override
     public boolean onPreDraw() {
         try {
             return super.onPreDraw();
