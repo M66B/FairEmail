@@ -145,6 +145,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final TextView tvHost = dview.findViewById(R.id.tvHost);
         final TextView tvOwner = dview.findViewById(R.id.tvOwner);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        final Button btnMore = dview.findViewById(R.id.btnMore);
         final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
         final Group grpOwner = dview.findViewById(R.id.grpOwner);
 
@@ -258,6 +259,17 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean(uri.getHost() + ".confirm_link", !isChecked).apply();
+            }
+        });
+
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent privacy = new Intent(v.getContext(), ActivitySetup.class)
+                        .setAction("privacy")
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("tab", "privacy");
+                v.getContext().startActivity(privacy);
             }
         });
 
