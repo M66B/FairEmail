@@ -5769,6 +5769,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                 return false;
 
+            if (event.isCtrlPressed() || event.isAltPressed())
+                return false;
+
             boolean up = (event.getAction() == ACTION_UP);
             boolean down = (event.getAction() == ACTION_DOWN);
 
