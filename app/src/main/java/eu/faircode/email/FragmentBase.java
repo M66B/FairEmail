@@ -29,6 +29,7 @@ import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -129,7 +131,10 @@ public class FragmentBase extends Fragment {
         scroll.post(new Runnable() {
             @Override
             public void run() {
-                scroll.scrollTo(0, child.getTop());
+                Rect rect = new Rect();
+                child.getDrawingRect(rect);
+                scroll.offsetDescendantRectToMyCoords(child, rect);
+                scroll.scrollTo(0, rect.top - scroll.getPaddingTop());
             }
         });
     }
