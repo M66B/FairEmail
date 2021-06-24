@@ -11,7 +11,7 @@
     <item
         android:id="@+id/menu_unified"
         android:icon="@drawable/twotone_all_inbox_24"
-        android:title="@string/title_folders_unified"
+        android:title="@string/title_folder_unified"
         app:showAsAction="always" />
 
     <item
