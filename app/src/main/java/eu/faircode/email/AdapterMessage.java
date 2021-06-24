@@ -830,6 +830,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             float factor = detector.getScaleFactor();
                             float size = tvBody.getTextSize() * factor;
                             float scale = (textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
+                            if (scale > 10)
+                                return true;
 
                             // Text size
                             properties.setSize(message.id, size);
