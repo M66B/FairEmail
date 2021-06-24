@@ -1120,10 +1120,13 @@ public class FragmentCompose extends FragmentBase {
 
                     String glob = "*" +
                             typed.toString().toLowerCase()
-                                    .replaceAll("[aáàäâã]", "\\[aáàäâã\\]")
+                                    .replaceAll("[aáàäâãåæ]", "\\[aáàäâãåæ\\]")
+                                    .replaceAll("[bß]", "\\[bß\\]")
+                                    .replaceAll("[cç]", "\\[cç\\]")
                                     .replaceAll("[eéèëê]", "\\[eéèëê\\]")
-                                    .replaceAll("[iíìî]", "\\[iíìî\\]")
-                                    .replaceAll("[oóòöôõ]", "\\[oóòöôõ\\]")
+                                    .replaceAll("[iíìïî]", "\\[iíìïî\\]")
+                                    .replaceAll("[nñ]", "\\[nñ\\]")
+                                    .replaceAll("[oóòöôõøœ]", "\\[oóòöôõøœ\\]")
                                     .replaceAll("[uúùüû]", "\\[uúùüû\\]")
                                     .replace("*", "[*]")
                                     .replace("?", "[?]") +
