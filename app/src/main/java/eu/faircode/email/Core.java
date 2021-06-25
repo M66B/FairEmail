@@ -2265,26 +2265,28 @@ class Core {
         try {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
+            // Get capabilities
             Map<String, String> caps = istore.capabilities();
             boolean hasUidl = caps.containsKey("UIDL");
             EntityLog.log(context, folder.name + " POP capabilities= " + caps.keySet());
 
+            // Get messages
             Message[] imessages = ifolder.getMessages();
-            int max;
-            if (account.max_messages == null)
-                max = imessages.length;
-            else
-                max = Math.min(imessages.length, Math.max(account.max_messages * 2, 100));
-            int count = (account.max_messages == null ? imessages.length : account.max_messages);
-
             List<TupleUidl> ids = db.message().getUidls(folder.id);
+            int max = (account.max_messages == null ? imessages.length : account.max_messages);
 
             EntityLog.log(context, folder.name + " POP" +
                     " device=" + ids.size() +
                     " server=" + imessages.length +
-                    " count=" + count +
                     " max=" + max + "/" + account.max_messages +
                     " uidl=" + hasUidl);
+
+            // Index IDs
+            Map<String, String> uidlMsgId = new HashMap<>();
+            for (TupleUidl id : ids) {
+                if (id.uidl != null && id.msgid != null)
+                    uidlMsgId.put(id.uidl, id.msgid);
+            }
 
             // Fetch UIDLs
             if (hasUidl) {
@@ -2292,12 +2294,6 @@ class Core {
                 ifetch.add(UIDFolder.FetchProfileItem.UID); // This will fetch all UIDs
                 ifolder.fetch(imessages, ifetch);
             }
-
-            // Index UIDLs
-            Map<String, String> uidlMsgId = new HashMap<>();
-            for (TupleUidl id : ids)
-                if (id.uidl != null && id.msgid != null)
-                    uidlMsgId.put(id.uidl, id.msgid);
 
             if (!account.leave_on_device) {
                 if (hasUidl) {
@@ -2340,7 +2336,7 @@ class Core {
             }
 
             boolean _new = true;
-            for (int i = imessages.length - 1; i >= imessages.length - count; i--) {
+            for (int i = imessages.length - 1; i >= imessages.length - max; i--) {
                 Message imessage = imessages[i];
                 try {
                     if (!state.isRunning())
