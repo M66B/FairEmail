@@ -8162,6 +8162,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return this;
         }
 
+        boolean isAccross() {
+            return (sourceAccount.id != targetAccount.id);
+        }
+
         protected MessageTarget(Parcel in) {
             id = in.readLong();
             sourceAccount = (Account) in.readSerializable();
@@ -8179,10 +8183,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             dest.writeSerializable(targetAccount);
             dest.writeSerializable(targetFolder);
             dest.writeInt(copy ? 1 : 0);
-        }
-
-        boolean isAccross() {
-            return (sourceAccount.id != targetAccount.id);
         }
 
         @Override
