@@ -875,6 +875,7 @@
     <string name="title_attachments_incomplete">Alguns anexos ou imagens não foram baixados e não puderam ser adicionados</string>
     <string name="title_ask_save">Salvar alterações?</string>
     <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
+    <string name="title_ask_delete_accept">Entendo que deletar mensagens permanentemente é irreversível</string>
     <string name="title_ask_delete_answer">Excluir modelo de resposta permanentemente?</string>
     <string name="title_ask_delete_rule">Excluir regra permanentemente?</string>
     <string name="title_ask_discard">Descartar rascunho?</string>
@@ -897,6 +898,10 @@
     <string name="title_third_party">Você está usando uma versão de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensagem irá baixar %1$s</string>
     <string name="title_download_message">Baixando &#8230;</string>
+    <string name="title_reformatted">        Isto é a visualização da mensagem reformatada.
+        Você pode clicar no ícone &#x26F6; para visualizar a mensagem original e para ocultar esta mensagem.
+        A reformatação leva algum tempo, dependendo do tamanho da mensagem e da velocidade do seu dispositivo.
+    </string>
     <string name="title_compose">Escrever</string>
     <string name="title_submitter">Enviado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
@@ -916,9 +921,11 @@
     <string name="title_subject">Assunto:</string>
     <string name="title_attachment">Anexo:</string>
     <string name="title_body_hint">Sua mensagem</string>
+    <string name="title_body_hint_style">Você pode selecionar o texto para formatação</string>
     <string name="title_discard">Descartar</string>
     <string name="title_save">Salvar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_sending">Enviando &#8230;</string>
     <string name="title_send_now">Envie agora</string>
     <string name="title_send_via">Enviar via</string>
     <string name="title_send_at">Enviar em &#8230;</string>
@@ -941,9 +948,12 @@
     <string name="title_style_list">Lista</string>
     <string name="title_style_list_bullets">Marcadores</string>
     <string name="title_style_list_numbered">Numerado</string>
+    <string name="title_style_list_level_increase">Aumentar recuo</string>
+    <string name="title_style_list_level_decrease">Diminuir recuo</string>
     <string name="title_style_font">Fonte</string>
     <string name="title_style_font_default">Padrão</string>
     <string name="title_style_blockquote">Citação em bloco</string>
+    <string name="title_style_strikethrough">Riscar</string>
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_add_image">Adicionar imagem</string>
@@ -966,6 +976,11 @@
     <string name="title_insert_contact_group">Inserir grupo de contato</string>
     <string name="title_insert_template">Inserir modelo</string>
     <string name="title_create_template">Criar modelo</string>
+    <string name="title_translate">Traduzir</string>
+    <string name="title_translate_configure">Configurar &#8230;</string>
+    <string name="title_translating">Traduzindo &#8230;</string>
+    <string name="title_translate_small">Usar uma fonte pequena para o texto original</string>
+    <string name="title_translate_usage">Utilização: %1$s / %2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Editar como texto simples</string>
     <string name="title_edit_formatted_text">Editar como texto reformatado</string>
     <string name="title_select_certificate">Selecione a chave pública</string>
@@ -977,6 +992,7 @@
     <string name="title_key_missing">Nenhuma chave para %1$s</string>
     <string name="title_send_reminder_remark">Os lembretes podem ser ativados novamente nas configurações de envio</string>
     <string name="title_send_plain_text">Somente texto simples</string>
+    <string name="title_send_dsn">Relatório de status</string>
     <string name="title_send_receipt">Solicitar recibo</string>
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
     <string name="title_from_missing">Remetente faltante</string>
