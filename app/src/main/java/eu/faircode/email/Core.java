@@ -2266,6 +2266,7 @@ class Core {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
             Map<String, String> caps = istore.capabilities();
+            boolean hasUidl = caps.containsKey("UIDL");
             EntityLog.log(context, folder.name + " POP capabilities= " + caps.keySet());
 
             Message[] imessages = ifolder.getMessages();
@@ -2274,18 +2275,23 @@ class Core {
                 max = imessages.length;
             else
                 max = Math.min(imessages.length, Math.max(account.max_messages * 2, 100));
-            EntityLog.log(context, folder.name + " POP messages=" + imessages.length +
-                    " max=" + max + "/" + account.max_messages);
+            int count = (account.max_messages == null ? imessages.length : account.max_messages);
 
-            boolean hasUidl = caps.containsKey("UIDL");
+            List<TupleUidl> ids = db.message().getUidls(folder.id);
+
+            EntityLog.log(context, folder.name + " POP" +
+                    " device=" + ids.size() +
+                    " server=" + imessages.length +
+                    " count=" + count +
+                    " max=" + max + "/" + account.max_messages +
+                    " uidl=" + hasUidl);
+
+            // Fetch UIDLs
             if (hasUidl) {
                 FetchProfile ifetch = new FetchProfile();
                 ifetch.add(UIDFolder.FetchProfileItem.UID); // This will fetch all UIDs
                 ifolder.fetch(imessages, ifetch);
             }
-
-            List<TupleUidl> ids = db.message().getUidls(folder.id);
-            EntityLog.log(context, folder.name + " POP existing=" + ids.size() + " uidl=" + hasUidl);
 
             // Index UIDLs
             Map<String, String> uidlMsgId = new HashMap<>();
@@ -2333,7 +2339,7 @@ class Core {
                 }
             }
 
-            for (int i = imessages.length - max; i < imessages.length; i++) {
+            for (int i = imessages.length - count; i < imessages.length; i++) {
                 Message imessage = imessages[i];
                 try {
                     if (!state.isRunning())
