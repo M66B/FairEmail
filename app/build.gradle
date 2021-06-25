@@ -3,7 +3,7 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 
 def getVersionCode = { -> return 1624 }
-def getReleaseName = { -> return "\"Rahiolisaurus\"" }
+def getReleaseName = { -> return "\"Sciurumimus\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
