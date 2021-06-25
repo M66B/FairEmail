@@ -1,6 +1,6 @@
 # Kurulum yardımı
 
-FairEmail'i kurmak oldukça basittir. E-posta almak için en az bir hesap, e-posta göndermek istiyorsanız en az bir kimlik eklemeniz gerekir. The quick setup will add an account and an identity in one go for most major providers.
+FairEmail'i kurmak oldukça basittir. E-posta almak için en az bir hesap, e-posta göndermek istiyorsanız en az bir kimlik eklemeniz gerekir. Hızlı kurulum, çoğu büyük sağlayıcı için tek seferde bir hesap ve kimlik ekleyecektir.
 
 ## Gereksinimler
 
@@ -8,29 +8,29 @@ Hesapları ve kimlikleri ayarlamak için bir internet bağlantısı gereklidir.
 
 ## Hızlı Kurulum
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Sadece uygun sağlayıcıyı veya *Diğer sağlayıcı* seçin ve adınızı, e-posta adresinizi ve şifrenizi girin ve *Kontrol Et*'e dokunun.
 
 Bu, birçok e-posta sağlayıcısı için işe yarar.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Hızlı kurulum işe yaramazsa, manuel olarak bir hesap ve kimlik oluşturmanız gerekir, talimatlar için aşağıya bakın.
 
 ## Hesap kurulumu - e-posta almak için
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Listeden bir sağlayıcı seçin, çoğunlukla e-posta adresiniz olan kullanıcı adını ve şifrenizi girin. FairEmail'in e-posta sunucusuna bağlanmasını ve sistem klasörlerinin bir listesini almasını sağlamak için *Denetle* düğmesine dokunun. Sistem klasörü seçimini inceledikten sonra *Kaydet* düğmesine dokunarak hesabı ekleyebilirsiniz.
+Bir hesap eklemek için *Manuel kurulum ve diğer seçenekler*'e dokunun, *Hesaplar*'a dokunun ve alttaki 'artı' düğmesine dokunun ve IMAP'yi (veya POP3) seçin. Listeden bir sağlayıcı seçin, çoğunlukla e-posta adresiniz olan kullanıcı adını ve şifrenizi girin. FairEmail'in e-posta sunucusuna bağlanmasını ve sistem klasörlerinin bir listesini almasını sağlamak için *Denetle* düğmesine dokunun. Sistem klasörü seçimini inceledikten sonra *Kaydet* düğmesine dokunarak hesabı ekleyebilirsiniz.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Alan adını girin, örneğin *gmail.com* ve *Ayarları al* düğmesine dokunun. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Bunun hakkında daha fazlası için lütfen [burada](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)'ya bakın.
+Sağlayıcınız sağlayıcılar listesinde yoksa binlerce sağlayıcı vardır, *Özel*'i seçin. Alan adını girin, örneğin *gmail.com* ve *Ayarları al* düğmesine dokunun. Sağlayıcınız [otomatik bulmayı](https://tools.ietf.org/html/rfc6186) destekliyorsa, FairEmail ana bilgisayar adını ve bağlantı noktası numarasını doldurur, aksi takdirde doğru IMAP ana bilgisayar adı, bağlantı noktası numarası ve şifreleme protokolü (SSL/TLS veya STARTTLS) için sağlayıcınızın kurulum talimatlarını kontrol edin. Bunun hakkında daha fazlası için lütfen [burada](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)'ya bakın.
 
 ## Kimlik kurulumu - e-posta göndermek için
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Göndermek istediğiniz e-posta adresinden karşıda görünmesini istediğiniz adı girin ve bağlı bir hesap seçin. Kimliği eklemek için *Kaydet*'e dokunun.
+Benzer şekilde, bir kimlik eklemek için *Manuel kurulum ve diğer seçenekler*'e dokunun, *Kimlikler*'e dokunun ve alttaki 'artı' düğmesine dokunun. Göndermek istediğiniz e-posta adresinden karşıda görünmesini istediğiniz adı girin ve bağlı bir hesap seçin. Kimliği eklemek için *Kaydet*'e dokunun.
 
-Hesap elle yapılandırıldıysa, kimliği de elle yapılandırmanız gerekir. Alan adını girin, örneğin *gmail.com* ve *Ayarları al* düğmesine dokunun. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+Hesap elle yapılandırıldıysa, kimliği de elle yapılandırmanız gerekir. Alan adını girin, örneğin *gmail.com* ve *Ayarları al* düğmesine dokunun. Sağlayıcınız [otomatik bulmayı](https://tools.ietf.org/html/rfc6186) destekliyorsa, FairEmail ana bilgisayar adını ve bağlantı noktası numarasını doldurur, aksi takdirde doğru SMTP ana bilgisayar adı, bağlantı noktası numarası ve şifreleme protokolü (SSL/TLS veya STARTTLS) için sağlayıcınızın kurulum talimatlarını kontrol edin.
 
 Takma ad kullanma hakkında [bu SSS](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9)'a bakın.
 
 ## Verilen izinler - kişi bilgilerine erişmek için
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Sadece *Verilen izinler*'e dokunun ve *İzin ver*'i seçin.
+E-posta adreslerini aramak, iletişim fotoğraflarının gösterilmesini vb. istiyorsanız, FairEmail'e iletişim bilgilerini okumak için izin vermeniz gerekir. Sadece *Verilen izinler*'e dokunun ve *İzin ver*'i seçin.
 
 ## Pil eniyileştirme ayarları - sürekli e-posta almak için
 

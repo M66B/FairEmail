@@ -997,8 +997,10 @@
     <string name="title_send_receipt_remark">A maioria dos provedores e clientes de e-mail ignoram as solicitações de confirmação</string>
     <string name="title_from_missing">Remetente faltante</string>
     <string name="title_pgp_reminder">Chaves PGP disponíveis</string>
+    <string name="title_smime_reminder">Chaves S/MIME disponíveis</string>
     <string name="title_to_missing">Destinatário faltante</string>
     <string name="title_extra_missing">Nome de usuário ausente</string>
+    <string name="title_external_reminder">Enviando para um endereço externo</string>
     <string name="title_subject_reminder">Assunto está vazio</string>
     <string name="title_text_reminder">A mensagem está em branco</string>
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluídos</string>
@@ -1042,6 +1044,12 @@
     <string name="title_signature_store">Loja</string>
     <string name="title_search">Pesquisar</string>
     <string name="title_search_for_hint">Digite o texto</string>
+    <string name="title_search_hint">        Inicialmente, a pesquisa é efetuada no dispositivo.
+        Para pesquisar também no servidor, toque no botão \"pesquisar novamente\".
+    </string>
+    <string name="title_search_index_hint">        A pesquisa pelo índice de pesquisa é rápida, mas apenas encontra palavras inteiras.
+        As opções abaixo são para continuar a pesquisa no servidor de e-mail.
+    </string>
     <string name="title_search_text_hint">Pesquisar por textos em mensagens, quando há um grande número delas, pode não funcionar em alguns servidores</string>
     <string name="title_search_size_hint">Pesquisar por mensagens pelo tamanho, quando há um grande número delas, pode não funcionar em alguns servidores</string>
     <string name="title_search_more">Mais opções</string>
@@ -1059,6 +1067,8 @@
     <string name="title_search_with_encrypted">Criptografadas (apenas no dispositivo)</string>
     <string name="title_search_with_attachments">Com anexos (apenas no dispositivo)</string>
     <string name="title_search_with_size">Tamanho da mensagem maior que</string>
+    <string name="title_search_in_trash">Na lixeira</string>
+    <string name="title_search_in_junk">Nos spam</string>
     <string name="title_search_with_before">Antes de</string>
     <string name="title_search_with_after">Após</string>
     <string name="title_search_flag_unseen">não lido</string>
@@ -1198,6 +1208,7 @@
     <string name="title_legend_connecting">Conectando</string>
     <string name="title_legend_connected">Conectado</string>
     <string name="title_legend_backoff">Aguardando após falha</string>
+    <string name="title_legend_quota">A caixa de entrada está quase cheia</string>
     <string name="title_legend_executing">Executando operações</string>
     <string name="title_legend_synchronizing">Sincronizando</string>
     <string name="title_legend_downloading">Baixando</string>
@@ -1244,6 +1255,8 @@
     <string name="title_legend_view">Ver conteúdo</string>
     <string name="title_legend_hide">Ocultar conteúdo</string>
     <string name="title_legend_download">Baixar conteúdo</string>
+    <string name="title_legend_original">Ver mensagem original</string>
+    <string name="title_legend_reformatted">Ver mensagem reformatada</string>
     <string name="title_legend_external_image">Espaço reservado a uma imagem externa</string>
     <string name="title_legend_embedded_image">Espaço reservado a uma imagem embutida</string>
     <string name="title_legend_tracking_pixel">Imagem de rastreamento</string>
@@ -1367,6 +1380,8 @@
     <string name="title_pro_feature">Esta é uma funcionalidade Pro</string>
     <string name="title_pro_list">Lista de recursos Pro</string>
     <string name="title_pro_purchase">Comprar</string>
+    <string name="title_pro_one_time">%1$s (compra única)</string>
+    <string name="title_pro_no_play">Play Store não encontrada</string>
     <string name="title_pro_info">        O desenvolvimento do FairEmail levou literalmente milhares de horas e, apesar disso, a maioria dos recursos é gratuita.
         O FairEmail leva sua privacidade a sério e não mostra propagandas nem usa rastreadores ou análises para ganhar dinheiro.
         Para tornar o FairEmail sustentável a longo prazo, algumas conveniências e recursos avançados não são gratuitos.
@@ -1402,7 +1417,9 @@
     <string name="title_widget_title_count">Nova contagem de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagem</string>
     <string name="title_widget_title_sync">Sinc. lig./desl.</string>
+    <string name="title_power_menu_sync">Sincronização</string>
     <string name="title_power_menu_off">Desl.</string>
+    <string name="title_power_menu_on_off">Liga/Desliga</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todos</string>
     <string name="title_widget_folder">Pasta</string>

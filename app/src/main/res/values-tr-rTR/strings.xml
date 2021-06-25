@@ -78,6 +78,7 @@
     </string>
     <string name="title_junk_filter">Yerel spam filtreleri</string>
     <string name="title_junk_filter_hint">Bu, pil kullanımını artırabilir ve iletileri yanlış olarak spam işaretleyebilir</string>
+    <string name="title_junk_blocklist">Spam engelleme listelerini kullan</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
@@ -153,6 +154,7 @@
     <string name="title_setup_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_setup_advanced_protection">Gelişmiş koruma programına dahil olduğunuzda, üçüncü parti bir e-posta istemcisi kullanamazsınız. Bu, Google\'ın bir kısıtlamasıdır.</string>
     <string name="title_setup_quick_success">Bir hesap başarıyla eklendi</string>
+    <string name="title_setup_quick_configure">Adı, rengi, kaydırma işlemlerini vb. düzenlemek için</string>
     <string name="title_setup_manage">Yönet</string>
     <string name="title_setup_grant">İzin</string>
     <string name="title_setup_grant_again">Gerekli izinleri ver</string>
@@ -169,6 +171,8 @@
     <string name="title_setup_doze_instructions">Bir sonraki Android iletişim kutusunda \"Optimize edilmemiş\" i \"Tüm uygulamalar\" olarak değiştirin, bu uygulamayı seçin ve \"Optimize etme\" yi seçin</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
+    <string name="title_setup_doze_device">Bu muhtemelen bu cihaz için gereklidir</string>
+    <string name="title_setup_doze_android">Bu, bu Android sürümü için gereklidir</string>
     <string name="title_setup_background">Arka plan kısıtlamaları etkinleştirildi</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
     <string name="title_setup_advanced_options">Gelişmiş seçenekleri göster</string>
@@ -249,8 +253,10 @@
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
+    <string name="title_advanced_check_authentication">Mesaj kimlik doğrulamasını kontrol et</string>
     <string name="title_advanced_check_reply_domain">Mesajları senkronize ederken yanıt adresini kontrol edin</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
+    <string name="title_advanced_check_blocklist">Gönderenin alan adının spam engelleme listesinde olup olmadığını kontrol et</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klavyeyi önleyin, gizleyin</string>
@@ -420,17 +426,20 @@
     <string name="title_advanced_notify_action_snooze">Ertele</string>
     <string name="title_advanced_notify_remove">Bildirimin üzerine dokunulduğunda yeni mesaj bildirimini kaldır</string>
     <string name="title_advanced_notify_clear">Mesaj listesini görüntülerken yeni mesaj bildirimlerini kaldır</string>
+    <string name="title_advanced_notify_subtext">Hesap veya klasör adını alt metin olarak göster</string>
     <string name="title_advanced_wearable_preview">Sadece mesaj önizlemesi olan bildirimleri giyilebilirler cihazlara gönderin</string>
     <string name="title_advanced_notify_messaging">Android \'mesajlaşma stili\' bildirim biçimini kullanın</string>
     <string name="title_advanced_biometrics_notify">Biyometrik kimlik doğrulamayı kullanırken bildirim içeriğini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
+    <string name="title_advanced_notify_screen_on">Yeni mesaj bildirimleri için ekranı kısaca aç</string>
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
     <string name="title_advanced_browse_links">Android\'i bağlantıları açması için görevlendir</string>
     <string name="title_advanced_confirm_images">Görüntüleri göstermeyi onayla</string>
     <string name="title_advanced_confirm_html">Yeniden formatlanmış mesajları varsayılan olarak göster</string>
     <string name="title_advanced_tracking">Takip resimlerini tanımaya ve devre dışı bırakmaya çalışın</string>
     <string name="title_advanced_hide_timezone">İletileri saat dilimi verisi olmadan gönder</string>
+    <string name="title_advanced_client_id">Uygulama adını ve sürümünü e-posta sunucusuna gönder</string>
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
     <string name="title_advanced_incognito_keyboard">Gizli klavye kullan (Android 8+)</string>
     <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
@@ -490,6 +499,7 @@
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_gmail_thread_hint">Bu yalnızca yeni alınan mesajlar için geçerlidir ve mevcut grupları bozabilir</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
+    <string name="title_advanced_check_authentication_hint">Bu, e-posta sunucusu tarafından gerçekleştirilen DKIM, SPF ve DMARC kimlik doğrulamasının sonuçlarını kontrol edecektir</string>
     <string name="title_advanced_check_reply_hint">Bu, gönderenin alan adının ve yanıt adresinin aynı olup olmadığını kontrol edecektir</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
@@ -517,6 +527,7 @@
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
     <string name="title_advanced_gravatars_hint">Bir gizlilik riski olabilir</string>
+    <string name="title_advanced_name_email_hint">Adlar yalnızca uygun olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_preview_lines_hint">Toplamda maksimum %s karakter</string>
     <string name="title_advanced_preview_issue">Bazı Android sürümlerindeki bir hata nedeniyle satır sayısı birden fazla olduğunda kaydırma yavaş olabilir</string>
@@ -788,6 +799,7 @@
     <string name="title_print_images">Resimleri yazdır</string>
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
     <string name="title_show_headers">Başlıkları Göster</string>
+    <string name="title_share_as_html">HTML olarak paylaş</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
     <string name="title_raw_send">Ek olarak gönder</string>
     <string name="title_manage_keywords">Anahtar sözcükleri yönet</string>
@@ -803,6 +815,7 @@
     <string name="title_buttons_hint">Gerçek eylemler, hesap türüne ve yapılandırmaya bağlıdır</string>
     <string name="title_button_search">Mesajlarda ara</string>
     <string name="title_button_search_text">Mesajda ara</string>
+    <string name="title_configure_buttons">Düğme &#8230; yapılandır</string>
     <string name="title_trash">Çöp Kutusu</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">&#8230;\'ya kopyala</string>
@@ -821,6 +834,7 @@
     <string name="title_move_to_account">%1$s&#8230; taşı</string>
     <string name="title_report_spam">Spam olarak işaretle</string>
     <string name="title_delete_permanently">Kalıcı olarak sil</string>
+    <string name="title_no_undo">Bunun geri alınamayacağını anlıyorum</string>
     <string name="title_snooze">Ertele &#8230;</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
@@ -828,6 +842,7 @@
     <string name="title_reply_to_all">Tümünü yanıtla</string>
     <string name="title_reply_list">Listeyi yanıtla</string>
     <string name="title_reply_receipt">Okundu bilgisi gönder</string>
+    <string name="title_reply_hard_bounce">Sert sıçrama gönder</string>
     <string name="title_reply_template">Şablonla yanıtla</string>
     <string name="title_move_undo">%1$s\'a taşınıyor (%2$d)</string>
     <string name="title_open_with">Birlikte aç</string>
