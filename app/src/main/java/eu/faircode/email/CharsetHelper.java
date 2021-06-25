@@ -48,11 +48,13 @@ public class CharsetHelper {
     static boolean isUTF8(String text) {
         // Get extended ASCII characters
         byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
+        return isUTF8(octets);
+    }
 
+    static boolean isUTF8(byte[] octets) {
         CharsetDecoder utf8Decoder = StandardCharsets.UTF_8.newDecoder()
                 .onMalformedInput(CodingErrorAction.REPORT)
                 .onUnmappableCharacter(CodingErrorAction.REPORT);
-
         try {
             utf8Decoder.decode(ByteBuffer.wrap(octets));
             return true;
