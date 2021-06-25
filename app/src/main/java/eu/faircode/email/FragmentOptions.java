@@ -29,10 +29,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.DynamicDrawableSpan;
+import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -461,41 +464,52 @@ public class FragmentOptions extends FragmentBase {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            CharSequence title = getTitle(position);
-            if (position == 0)
-                return title;
-
-            SpannableStringBuilder ssb = new SpannableStringBuilder(title);
-            ssb.setSpan(new RelativeSizeSpan(0.85f), 0, ssb.length(), 0);
-            return ssb;
-        }
-
-        @NonNull
-        private CharSequence getTitle(int position) {
             switch (position) {
                 case 0:
-                    return getString(R.string.title_advanced_section_main);
+                    return getTitle(R.string.title_advanced_section_main, R.drawable.twotone_home_24, position);
                 case 1:
-                    return getString(R.string.title_advanced_section_synchronize);
+                    return getTitle(R.string.title_advanced_section_synchronize, R.drawable.twotone_sync_24, position);
                 case 2:
-                    return getString(R.string.title_advanced_section_send);
+                    return getTitle(R.string.title_advanced_section_send, R.drawable.twotone_send_24, position);
                 case 3:
-                    return getString(R.string.title_advanced_section_connection);
+                    return getTitle(R.string.title_advanced_section_connection, R.drawable.twotone_cloud_24, position);
                 case 4:
-                    return getString(R.string.title_advanced_section_display);
+                    return getTitle(R.string.title_advanced_section_display, R.drawable.twotone_monitor_24, position);
                 case 5:
-                    return getString(R.string.title_advanced_section_behavior);
+                    return getTitle(R.string.title_advanced_section_behavior, R.drawable.twotone_psychology_24, position);
                 case 6:
-                    return getString(R.string.title_advanced_section_privacy);
+                    return getTitle(R.string.title_advanced_section_privacy, R.drawable.twotone_account_circle_24, position);
                 case 7:
-                    return getString(R.string.title_advanced_section_encryption);
+                    return getTitle(R.string.title_advanced_section_encryption, R.drawable.twotone_lock_24, position);
                 case 8:
-                    return getString(R.string.title_advanced_section_notifications);
+                    return getTitle(R.string.title_advanced_section_notifications, R.drawable.twotone_notifications_24, position);
                 case 9:
-                    return getString(R.string.title_advanced_section_misc);
+                    return getTitle(R.string.title_advanced_section_misc, R.drawable.twotone_more_24, position);
                 default:
                     throw new IllegalArgumentException();
             }
+        }
+
+        private CharSequence getTitle(int titleid, int iconid, int position) {
+            Drawable icon = getResources().getDrawable(iconid);
+
+            int iconSize = getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
+            if (position > 0)
+                iconSize = Math.round(iconSize * 0.85f);
+            icon.setBounds(0, 0, iconSize, iconSize);
+
+            int color = Helper.resolveColor(getContext(), R.attr.colorAccent);
+            icon.setTint(color);
+
+            ImageSpan imageSpan = new ImageSpan(icon, DynamicDrawableSpan.ALIGN_BOTTOM);
+
+            SpannableStringBuilder ssb = new SpannableStringBuilder(getString(titleid));
+            if (position > 0)
+                ssb.setSpan(new RelativeSizeSpan(0.85f), 0, ssb.length(), 0);
+            ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
+            ssb.setSpan(imageSpan, 0, 1, 0);
+
+            return ssb;
         }
 
         @Override
