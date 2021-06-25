@@ -2339,7 +2339,8 @@ class Core {
                 }
             }
 
-            for (int i = imessages.length - count; i < imessages.length; i++) {
+            boolean _new = true;
+            for (int i = imessages.length - 1; i >= imessages.length - count; i--) {
                 Message imessage = imessages[i];
                 try {
                     if (!state.isRunning())
@@ -2362,6 +2363,7 @@ class Core {
                             if (TextUtils.isEmpty(msgid))
                                 msgid = uidl;
                         } else {
+                            _new = false;
                             Log.i(folder.name + " POP having uidl=" + uidl);
                             continue;
                         }
@@ -2378,6 +2380,7 @@ class Core {
                         }
 
                         if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
+                            _new = false;
                             Log.i(folder.name + " POP having msgid=" + msgid);
                             continue;
                         }
@@ -2389,8 +2392,6 @@ class Core {
                     }
 
                     try {
-                        Log.i(folder.name + " POP sync=" + uidl + "/" + msgid);
-
                         Long sent = helper.getSent();
                         Long received = helper.getReceivedHeader();
                         if (received == null)
@@ -2398,7 +2399,9 @@ class Core {
                         if (received == null)
                             received = 0L;
 
-                        boolean seen = (received <= account.created);
+                        boolean seen = (!_new || received <= account.created);
+                        Log.i(folder.name + " POP sync=" + uidl + "/" + msgid +
+                                " new=" + _new + " seen=" + seen);
 
                         String[] authentication = helper.getAuthentication();
                         MessageHelper.MessageParts parts = helper.getMessageParts();
