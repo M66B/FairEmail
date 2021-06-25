@@ -174,6 +174,7 @@
     <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
     <string name="title_setup_quick_success">Účet byl úspěšně přidán</string>
+    <string name="title_setup_quick_configure">Pro úpravu názvu, barvy, akcí přejetím atd.</string>
     <string name="title_setup_manage">Spravovat</string>
     <string name="title_setup_grant">Udělit</string>
     <string name="title_setup_grant_again">Udělit požadovaná oprávnění</string>

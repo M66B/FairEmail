@@ -67,6 +67,7 @@
         创建和使用规则属于专业版功能</string>
     <string name="title_junk_filter">使用本地垃圾邮件过滤器</string>
     <string name="title_junk_filter_hint">这可能会增加耗电量并误标为垃圾邮件</string>
+    <string name="title_junk_blocklist">使用垃圾邮件拦截列表</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_idle">空闲</string>
@@ -142,6 +143,7 @@
     <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
     <string name="title_setup_quick_success">帐户已成功添加</string>
+    <string name="title_setup_quick_configure">编辑名称、颜色、滑动动动作等</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
     <string name="title_setup_grant_again">授予所需权限</string>
@@ -243,6 +245,7 @@
     <string name="title_advanced_check_authentication">检查消息认证</string>
     <string name="title_advanced_check_reply_domain">同步消息时检查回复地址</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
+    <string name="title_advanced_check_blocklist">检查发送者的域名是否在垃圾邮件拦截列表中</string>
     <string name="title_advanced_tune_keep_alive">自动调整保持活动时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
@@ -418,6 +421,7 @@
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
+    <string name="title_advanced_notify_screen_on">短暂打开屏幕以获取新消息通知</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
     <string name="title_advanced_browse_links">授权打开到 Android的链接</string>
     <string name="title_advanced_confirm_images">确认显示图像</string>
@@ -833,6 +837,7 @@
     <string name="title_move_undo">正移动到 %1$s(%2$d)</string>
     <string name="title_open_with">打开方式</string>
     <string name="title_authentication_failed">%1$s 验证失败</string>
+    <string name="title_on_blocklist">关于垃圾邮件拦截列表</string>
     <string name="title_receipt_subject">已读回执: %1$s</string>
     <string name="title_receipt_text">此已读回执仅确认已显示该邮件。不能保证收件人已阅读邮件内容。</string>
     <string name="title_no_answers">未定义回复模板</string>
@@ -1030,6 +1035,12 @@
     <string name="title_signature_store">保存</string>
     <string name="title_search">搜索</string>
     <string name="title_search_for_hint">输入搜索内容</string>
+    <string name="title_search_hint">        最初，搜索在设备上执行。
+        要搜索服务器，点击“再次搜索”按钮。
+    </string>
+    <string name="title_search_index_hint">        通过搜索索引搜索很快，但只能找到整个单词。
+        下面的选项是继续搜索电子邮件服务器。
+    </string>
     <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上正常运作</string>
     <string name="title_search_size_hint">消息数量很多时，通过大小搜索消息可能在某些服务器上无法正常运作</string>
     <string name="title_search_more">更多选项</string>

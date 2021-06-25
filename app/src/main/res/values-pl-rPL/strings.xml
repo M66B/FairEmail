@@ -97,6 +97,7 @@
         Tworzenie i używanie reguł jest funkcją Pro.    </string>
     <string name="title_junk_filter">Użyj lokalnego filtra spamu</string>
     <string name="title_junk_filter_hint">Może to zwiększyć zużycie baterii i niepoprawnie oznaczać wiadomości jako spam</string>
+    <string name="title_junk_blocklist">Użyj list blokowanego spamu</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_idle">Bezczynny</string>
@@ -172,6 +173,7 @@
     <string name="title_setup_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_setup_advanced_protection">Po zarejestrowaniu się w programie ochrony zaawansowanej nie można korzystać z aplikacji poczty e-mail innej firmy. Jest to ograniczenie nałożone przez Google.</string>
     <string name="title_setup_quick_success">Konto zostało pomyślnie dodane</string>
+    <string name="title_setup_quick_configure">Aby edytować nazwę, kolor, akcje przesuwania itp</string>
     <string name="title_setup_manage">Zarządzaj</string>
     <string name="title_setup_grant">Zezwól</string>
     <string name="title_setup_grant_again">Udziel wymaganych uprawnień</string>
@@ -449,6 +451,7 @@
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
+    <string name="title_advanced_notify_screen_on">Włącz ekran na chwilę, aby uzyskać powiadomienia o nowych wiadomościach</string>
     <string name="title_advanced_confirm_links">Potwierdź otwieranie linków</string>
     <string name="title_advanced_browse_links">Deleguj otwieranie linków do Androida</string>
     <string name="title_advanced_confirm_images">Potwierdź wyświetlanie obrazów</string>
@@ -864,6 +867,7 @@
     <string name="title_move_undo">Przenoszę do %1$s (%2$d)</string>
     <string name="title_open_with">Otwórz za pomocą</string>
     <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>
+    <string name="title_on_blocklist">Na liście blokowanego spamu</string>
     <string name="title_receipt_subject">Potwierdzenie: %1$s</string>
     <string name="title_receipt_text">To potwierdzenie odczytu potwierdza tylko, że wiadomość została wyświetlona. Nie ma gwarancji, że odbiorca przeczytał treść wiadomości.</string>
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>

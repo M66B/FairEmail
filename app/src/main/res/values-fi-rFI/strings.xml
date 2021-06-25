@@ -77,6 +77,7 @@
         Sääntöjen luominen ja käyttö ovat pro-ominaisuuksia.    </string>
     <string name="title_junk_filter">Käytä paikallista roskapostisuodinta</string>
     <string name="title_junk_filter_hint">Tämä voi lisätä akun käyttöä ja merkitä viestit virheellisesti roskapostiksi</string>
+    <string name="title_junk_blocklist">Käytä roskapostin estolistoja</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_idle">Toimeton</string>
@@ -114,7 +115,7 @@
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
     <string name="title_setup_quick">Pika-asennus</string>
-    <string name="title_setup_intro">Tilin asettaminen sisältää vain kolme vaihetta, joiden jälkeen voit lähettää ja vastaanottaa sähköpostia</string>
+    <string name="title_setup_intro">Tili asetetaan kolmessa vaiheessa, joiden jälkeen voit lähettää ja vastaanottaa sähköpostia</string>
     <string name="title_setup_simple">Muita valintoja ei tarvitse muuttaa</string>
     <string name="title_setup_quick_accounts">Lisää tai muuta tilejä</string>
     <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
@@ -152,6 +153,7 @@
     <string name="title_setup_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
     <string name="title_setup_quick_success">Tili on onnistuneesti lisätty</string>
+    <string name="title_setup_quick_configure">Nimen, värin, pyyhkäisyeleiden, jne. muokkaamiseksi</string>
     <string name="title_setup_manage">Muokkaa</string>
     <string name="title_setup_grant">Myönnä</string>
     <string name="title_setup_grant_again">Myönnä vaaditut oikeudet</string>
@@ -162,12 +164,14 @@
     <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_permissions_explanation">Yhteystietojen käyttöoikeudet tarvitaan yhteystietojen etsimiseen ja ehdottamiseen</string>
     <string name="title_setup_doze">Ota akun käytön optimointi pois käytöstä</string>
-    <string name="title_setup_doze_remark">Sähköpostien lähettämiseen ja vastaanottamiseen luotettavasti</string>
+    <string name="title_setup_doze_remark">Vaaditaan, että sähköpostien lähettäminen ja vastaanottaminen toimii luotettavasti</string>
     <string name="title_setup_doze_explanation">Akun käytön optimointi tulisi poistaa käytöstä sovellukselle, jotta viestejä voidaan lähettää ja vastaanottaa taustalla luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen tältä sovellukselta vähentää akun käyttöä</string>
     <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
     <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
+    <string name="title_setup_doze_device">Tämä todennäköisesti tarvitaan tälle laitteelle</string>
+    <string name="title_setup_doze_android">Tämä tarvitaan tälle Android-versiolle</string>
     <string name="title_setup_background">Taustarajoitukset ovat käytössä</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
     <string name="title_setup_advanced_options">Näytä lisäasetukset</string>
@@ -248,8 +252,10 @@
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
     <string name="title_advanced_sync_shared_folders">Synkronoi jaettujen kansioiden lista</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
+    <string name="title_advanced_check_authentication">Tarkista viestin todennus</string>
     <string name="title_advanced_check_reply_domain">Tarkista vastaussähköpostiosoite viestejä synkronoitaessa</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
+    <string name="title_advanced_check_blocklist">Tarkista, onko lähettäjän verkkotunnus roskapostin estolistalla</string>
     <string name="title_advanced_tune_keep_alive">Säädä ylläpitokyselyn aikaväli automaattisesti</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
     <string name="title_advanced_keyboard_no_fullscreen">Estä koko näytön näppäimistö</string>
@@ -431,6 +437,7 @@
     <string name="title_advanced_confirm_html">Näytä oletuksena uudelleenmuotoillut viestit</string>
     <string name="title_advanced_tracking">Yritä tunnistaa ja poistaa käytöstä seurantakuvat</string>
     <string name="title_advanced_hide_timezone">Lähetä viestit ilman aikavyöhyketietoja</string>
+    <string name="title_advanced_client_id">Lähetä sovelluksen nimi ja versio sähköpostipalvelimelle</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_incognito_keyboard">Käytä näppäimistön yksityisyystilaa (Android 8+)</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
@@ -489,6 +496,7 @@
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_gmail_thread_hint">Tämä koskee vain uusia vastaanotettuja viestejä ja voi rikkoa olemassa olevia ryhmiä</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
+    <string name="title_advanced_check_authentication_hint">Tämä tarkistaa sähköpostipalvelimen suorittamien DKIM-, SPF- ja DMARC-todennusten tulokset</string>
     <string name="title_advanced_check_reply_hint">Tämä tarkistaa, onko lähetys- ja vastaussähköpostiosoitteen verkkotunnus identtinen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
@@ -837,6 +845,7 @@
     <string name="title_move_undo">Siirretään kansioon %1$s (%2$d)</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
     <string name="title_authentication_failed">%1$s-tunnistautuminen epäonnistui</string>
+    <string name="title_on_blocklist">Roskapostin estolistalla</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>
     <string name="title_receipt_text">Tämä vastaanottokuittaus tarkoittaa, että viesti on näytetty. Ei ole varmuutta, että vastaanottaja on lukenut viestin sisällön.</string>
     <string name="title_no_answers">Vastausviestipohjia ei ole määritetty</string>
@@ -1034,6 +1043,12 @@
     <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
     <string name="title_search_for_hint">Syötä teksti</string>
+    <string name="title_search_hint">        Aluksi haku suoritetaan laitteessa.
+        Myös palvelimelta hakeaksesi näpäytä \'hae uudelleen\'-painiketta.
+    </string>
+    <string name="title_search_index_hint">        Hakuindeksin käyttö tekee hausta nopean, mutta löytää vain kokonaiset sanat.
+        Alla olevat valinnat ovat sähköpostipalvelimelta hakemista varten.
+    </string>
     <string name="title_search_text_hint">Tekstin haku viesteistä ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>
     <string name="title_search_size_hint">Viestien haku koon perusteella ei välttämättä toimi joillakin palvelimilla, kun viestejä on paljon</string>
     <string name="title_search_more">Lisää asetuksia</string>
@@ -1051,6 +1066,8 @@
     <string name="title_search_with_encrypted">Salattu (vain laitteessa)</string>
     <string name="title_search_with_attachments">Sisältää liitteen (vain laitteessa)</string>
     <string name="title_search_with_size">Viestin koko suurempi kuin</string>
+    <string name="title_search_in_trash">Roskakorista</string>
+    <string name="title_search_in_junk">Roskapostista</string>
     <string name="title_search_with_before">Ennen</string>
     <string name="title_search_with_after">Jälkeen</string>
     <string name="title_search_flag_unseen">lukematon</string>

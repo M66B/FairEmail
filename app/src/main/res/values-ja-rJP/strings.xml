@@ -421,6 +421,7 @@
     <string name="title_advanced_biometrics_notify">生体認証を使用時、通知コンテンツを表示</string>
     <string name="title_advanced_light">通知ライトを使用</string>
     <string name="title_advanced_sound">通知音を選択</string>
+    <string name="title_advanced_notify_screen_on">新着メッセージの通知画面を短時間でオンにする</string>
     <string name="title_advanced_confirm_links">リンクを開く事を確認</string>
     <string name="title_advanced_browse_links">Androidへのリンクを開いて下さい</string>
     <string name="title_advanced_confirm_images">画像表示を確認</string>

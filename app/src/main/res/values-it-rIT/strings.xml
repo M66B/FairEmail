@@ -78,6 +78,7 @@
     </string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
+    <string name="title_junk_blocklist">Usa liste di blocco spam</string>
     <string name="title_notification_sending">Inviando i messaggi</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
@@ -153,6 +154,7 @@
     <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando iscritto al programma di protezione avanzata è impossibile usare un\'app email di terze parti. Questa è una restrizione imposta da Google.</string>
     <string name="title_setup_quick_success">Un profilo è stato aggiunto correttamente</string>
+    <string name="title_setup_quick_configure">Per modificare il nome, il colore, le azioni di scorrimento, ecc.</string>
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_grant_again">Concedi le autorizzazioni necessarie</string>
@@ -254,6 +256,7 @@
     <string name="title_advanced_check_authentication">Verifica l\'autenticazione del messaggio</string>
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_check_blocklist">Controlla se il nome del dominio del mittente è in una lista di blocco dello spam</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
     <string name="title_advanced_keyboard">Mostra la tastiera di default</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
@@ -844,6 +847,7 @@
     <string name="title_move_undo">Spostando in %1$s (%2$d)</string>
     <string name="title_open_with">Apri con</string>
     <string name="title_authentication_failed">Autenticazione %1$s fallita</string>
+    <string name="title_on_blocklist">Nella lista di blocco spam</string>
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>
     <string name="title_receipt_text">Questa conferma di lettura riconosce solo che il messaggio è stato visualizzato. Non esiste garanzia che il destinatario ne abbia letti i contenuti.</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>

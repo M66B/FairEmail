@@ -98,6 +98,7 @@
     </string>
     <string name="title_junk_filter">Použiť lokálny spam filter</string>
     <string name="title_junk_filter_hint">Môže zvýšiť spotrebu batérie a nesprávne označovať správy ako nevyžiadané</string>
+    <string name="title_junk_blocklist">Používať zoznami na blokovanie nevyžiadanej pošty</string>
     <string name="title_notification_sending">Správy sa odosielajú</string>
     <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
@@ -173,6 +174,7 @@
     <string name="title_setup_no_inbox">Priečinok s doručenou poštou nebol nájdený</string>
     <string name="title_setup_advanced_protection">Ak využívate program rozšírenej ochrany Google, nie je možné používať emailových klientov tretích strán. Toto je obmedzenie stanovené samotným Googlom.</string>
     <string name="title_setup_quick_success">Účet bol úspešne pridaný</string>
+    <string name="title_setup_quick_configure">Môžete upraviť názov, farbu, akcie pri potiahnutí a pod</string>
     <string name="title_setup_manage">Spravovať</string>
     <string name="title_setup_grant">Udeliť</string>
     <string name="title_setup_grant_again">Udeliť požadované oprávnenia</string>
@@ -274,6 +276,7 @@
     <string name="title_advanced_check_authentication">Kontrolovať autentifikáciu správ</string>
     <string name="title_advanced_check_reply_domain">Skontrolovať adresu pre odpoveď počas synchronizácie správ</string>
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
+    <string name="title_advanced_check_blocklist">Skontrolovať, či doména odosielateľa je na zozname blokovaných podozrivích z rozosielania nevižiadanej pošty</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
     <string name="title_advanced_keyboard">Predvolene zobrazovať klávesnicu</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabrániť zobrazeniu klávesnice na celú obrazovku</string>
@@ -861,6 +864,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_move_undo">Presunúť do %1$s (%2$d)</string>
     <string name="title_open_with">Otvoriť použitím</string>
     <string name="title_authentication_failed">%1$s overenie zlyhalo</string>
+    <string name="title_on_blocklist">Na zozname blokovaných</string>
     <string name="title_receipt_subject">Potvrdenie o prečítaní: %1$s</string>
     <string name="title_receipt_text">Potvrdenie o prečítaní odzrkadľuje len zobrazenie správy. Nie je možné garantovať, že príjemca si naozaj prečítal jej obsah.</string>
     <string name="title_no_answers">Nie sú definované žiadne šablóny odpovedí</string>
@@ -1057,6 +1061,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_signature_store">Uložiť</string>
     <string name="title_search">Hľadať</string>
     <string name="title_search_for_hint">Zadajte text</string>
+    <string name="title_search_hint">        Prvotné vyhľadávanie prebieha priamo na zariadení.
+        Ak chcete prehľadať aj server, klepnite na tlačidlo hľadať znovu.
+    </string>
+    <string name="title_search_index_hint">        Vyhľadávanie použitím indexu je veľmi rýchle, ale nájde len celé slová.
+        Možnosti nižšie vám umožnia pokračovať v hľadaní na servery.
+    </string>
     <string name="title_search_text_hint">Vyhľadávanie v tele správy nemusí na všetkých serveroch fungovať správne, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_size_hint">Hľadanie správ podľa veľkosti nemusí správne fungovať na niektorých serveroch, hlavne ak je na servery uložených veľa správ</string>
     <string name="title_search_more">Ďalšie možnosti</string>

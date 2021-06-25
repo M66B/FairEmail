@@ -256,7 +256,7 @@
     <string name="title_advanced_check_authentication">Contrôler l\'authentification des messages</string>
     <string name="title_advanced_check_reply_domain">Vérifier l\'adresse de réponse lors de la synchronisation des messages</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse e-mail de l\'expéditeur lors de la synchronisation des messages</string>
-    <string name="title_advanced_check_blocklist">Vérifier si le nom de domaine de l\'expéditeur est sur une liste de blocage de spam</string>
+    <string name="title_advanced_check_blocklist">Vérifier si le nom de domaine de l\'expéditeur est sur une liste de blocage de courrier indésirable</string>
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
@@ -432,6 +432,7 @@
     <string name="title_advanced_biometrics_notify">Afficher le contenu des notifications lors de l’utilisation de l’authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant lumineux pour les notifications</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
+    <string name="title_advanced_notify_screen_on">Allumer brièvement l\'écran lors des nouvelles notifications de message</string>
     <string name="title_advanced_confirm_links">Confirmer l\'ouverture des liens</string>
     <string name="title_advanced_browse_links">Déléguer l\'ouverture des liens à Android</string>
     <string name="title_advanced_confirm_images">Confirmer l\'affichage des images</string>
@@ -847,7 +848,7 @@
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_open_with">Ouvrir avec&#8230;</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
-    <string name="title_on_blocklist">Sur la liste de blocage des spams</string>
+    <string name="title_on_blocklist">Sur la liste de blocage des indésirables</string>
     <string name="title_receipt_subject">Confirmation de lecture : %1$s</string>
     <string name="title_receipt_text">Cette confirmation atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>

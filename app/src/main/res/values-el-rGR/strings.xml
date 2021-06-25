@@ -432,6 +432,7 @@
     <string name="title_advanced_biometrics_notify">Προβολή του περιεχομένου των ειδοποιήσεων κατά τη βιομετρική ταυτοποίηση</string>
     <string name="title_advanced_light">Χρήση φωτεινής ένδειξης ειδοποιήσεων</string>
     <string name="title_advanced_sound">Επιλογή ήχου ειδοποιήσεων</string>
+    <string name="title_advanced_notify_screen_on">Να ανάβει σύντομα η οθόνη κατά τις ειδοποιήσεις νέων μηνυμάτων</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
     <string name="title_advanced_browse_links">Ανάθεση του ανοίγματος των συνδέσμων στο Android</string>
     <string name="title_advanced_confirm_images">Επιβεβαίωση προβολής των εικόνων</string>

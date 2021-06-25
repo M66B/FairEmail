@@ -422,6 +422,7 @@
     <string name="title_advanced_biometrics_notify">Hiện nội dung thông báo khi sử dụng xác thực sinh trắc học</string>
     <string name="title_advanced_light">Sử dụng đèn thông báo</string>
     <string name="title_advanced_sound">Chọn âm thanh thông báo</string>
+    <string name="title_advanced_notify_screen_on">Bật màn hình một lúc ngắn khi có thông báo thư mới</string>
     <string name="title_advanced_confirm_links">Xác nhận mở các liên kết</string>
     <string name="title_advanced_browse_links">Giao việc mở các liên kết cho Android</string>
     <string name="title_advanced_confirm_images">Xác nhận hiện các hình ảnh</string>

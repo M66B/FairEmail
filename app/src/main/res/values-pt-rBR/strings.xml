@@ -77,6 +77,7 @@
     </string>
     <string name="title_junk_filter">Usar filtro de spam local</string>
     <string name="title_junk_filter_hint">Isso pode aumentar o uso de bateria e incorretamente marcar mensagens como spam</string>
+    <string name="title_junk_blocklist">Usar listas de bloqueio por spam</string>
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_idle">Ocioso</string>
@@ -152,6 +153,7 @@
     <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de proteção não é possível usar um aplicativo de e-mail de terceiros. Esta é uma restrição imposta pelo Google.</string>
     <string name="title_setup_quick_success">Uma conta foi adicionada com sucesso</string>
+    <string name="title_setup_quick_configure">Editar o nome, cor, ações de arraste etc</string>
     <string name="title_setup_manage">Configurar</string>
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_grant_again">Conceder permissões necessárias</string>
@@ -253,6 +255,7 @@
     <string name="title_advanced_check_authentication">Verificar autenticação da mensagem</string>
     <string name="title_advanced_check_reply_domain">Verifique o endereço do remetente ao sincronizar mensagens</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
+    <string name="title_advanced_check_blocklist">Verificar se o nome de domínio do remetente se encontra em uma lista de bloqueio por spam</string>
     <string name="title_advanced_tune_keep_alive">Sintonizar automaticamente o intervalo de manutenção de vida</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_keyboard_no_fullscreen">Desativar o teclado em tela cheia</string>
@@ -289,6 +292,7 @@
     <string name="title_advanced_roaming">Fazer o download de mensagens e anexos de roaming</string>
     <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_download_headers">Baixar todos os cabeçalhos das mensagens</string>
+    <string name="title_advanced_download_eml">Baixar arquivos de mensagem brutas</string>
     <string name="title_advanced_validated">Exigir uma conexão validada (verificada)</string>
     <string name="title_advanced_timeout">Conexão expira em (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 ao invés de IPv6</string>
@@ -427,6 +431,7 @@
     <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
+    <string name="title_advanced_notify_screen_on">Ligar a tela brevemente para notificações de novas mensagens</string>
     <string name="title_advanced_confirm_links">Confirmar abertura de links</string>
     <string name="title_advanced_browse_links">Delegar abertura de links ao Android</string>
     <string name="title_advanced_confirm_images">Confirmar a exibição de imagens</string>
@@ -573,6 +578,7 @@
     <string name="title_advanced_sender_name">Usar o nome quando o endereço do remetente for editado</string>
     <string name="title_advanced_sender_regex">Regex para corresponder ao nome de usuário de endereços de e-mail recebidos</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
+    <string name="title_identity_internal">Nomes de domínio internos (separados por vírgula)</string>
     <string name="title_identity_unicode">Usar transporte Unicode</string>
     <string name="title_identity_unicode_remark">A maioria dos servidores não suporta isso</string>
     <string name="title_identity_max_size">Tamanho máximo da mensagem (MB)</string>
@@ -708,6 +714,7 @@
     <string name="title_no_operations">Nenhuma operação pendente</string>
     <string name="title_hint_operations">Excluir operações pode resultar no desaparecimento de mensagens e problemas de sincronização</string>
     <string name="title_op_title_headers">Baixando cabeçalho</string>
+    <string name="title_op_title_raw">Baixando mensagem bruta</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>
     <string name="title_show_folders">Mostrar pastas ocultas</string>
@@ -734,6 +741,7 @@
     <string name="title_auto_trash">Mover automaticamente mensagens antigas para lixeira</string>
     <string name="title_auto_delete">Excluir permanentemente mensagens antigas</string>
     <string name="title_auto_delete_hint">Mensagens antigas são mensagens que não são mais mantidas no dispositivo</string>
+    <string name="title_auto_delete_archive_hint">A exclusão na pasta de arquivamento nem sempre é permitida pelo servidor de e-mail</string>
     <string name="title_inbox_root_hint">        Alguns provedores exigem que novas pastas sejam criadas abaixo da caixa de entrada.
         Neste caso, você pode pressionar longamente a caixa de entrada na lista de pastas e selecionar \'Criar subpasta\'.
     </string>
@@ -791,6 +799,7 @@
     <string name="title_print_images">Imprimir imagens</string>
     <string name="title_print_images_remark">Baixar imagens pode demorar certo tempo</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
+    <string name="title_share_as_html">Compartilhar como arquivo HTML</string>
     <string name="title_raw_save">Salvar imagem raw</string>
     <string name="title_raw_send">Enviar como anexo</string>
     <string name="title_manage_keywords">Gerenciar palavras-chave</string>
@@ -800,8 +809,13 @@
     <string name="title_download_all">Baixar todos</string>
     <string name="title_save_all">Salvar todos</string>
     <string name="title_save_eml">Salvar arquivo de mensagem bruta</string>
+    <string name="title_raw_remaining">Mensagens brutas para baixar: %1$d</string>
+    <string name="title_ask_raw">Para o encaminhamento, as mensagens brutas (originais) precisam ser baixadas do servidor. Uma conexão de internet é necessária para isso.</string>
     <string name="title_buttons">Selecionar botões</string>
+    <string name="title_buttons_hint">As ações disponíveis dependem do tipo de conta e configuração</string>
     <string name="title_button_search">Buscar nas mensagens</string>
+    <string name="title_button_search_text">Pesquisar no texto da mensagem</string>
+    <string name="title_configure_buttons">Configurar botões &#8230;</string>
     <string name="title_trash">Lixeira</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar para &#8230;</string>
@@ -820,6 +834,7 @@
     <string name="title_move_to_account">Mover para %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Apagar permanentemente</string>
+    <string name="title_no_undo">Isto não pode ser desfeito</string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
@@ -827,10 +842,12 @@
     <string name="title_reply_to_all">Responder a todos</string>
     <string name="title_reply_list">Responder à lista</string>
     <string name="title_reply_receipt">Enviar confirmação de leitura</string>
+    <string name="title_reply_hard_bounce">Erro, endereço incorreto ou não existe mais</string>
     <string name="title_reply_template">Modelo de resposta</string>
     <string name="title_move_undo">Movendo para %1$s (%2$d)</string>
     <string name="title_open_with">Abrir com</string>
     <string name="title_authentication_failed">%1$s a autenticação falhou</string>
+    <string name="title_on_blocklist">Na lista de bloqueio por spam</string>
     <string name="title_receipt_subject">Confirmação se leitura: %1$s</string>
     <string name="title_receipt_text">Esta confirmação de leitura só reconhece que a mensagem foi exibida. Não há garantia de que o destinatário tenha lido o conteúdo da mensagem.</string>
     <string name="title_no_answers">Nenhum modelo de resposta definido</string>

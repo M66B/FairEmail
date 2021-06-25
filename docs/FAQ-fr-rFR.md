@@ -2,7 +2,7 @@
 
 # Assistance FairEmail
 
-Si vous avez une question, veuillez d'abord consulter les questions fréquemment posées suivantes. [En bas de](#user-content-get-support), vous pourrez trouver comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
+Si vous avez une question, veuillez d'abord consulter ci-dessous la liste des questions fréquemment posées. [En bas de](#user-content-get-support), vous pourrez trouver comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
 
 Si vous avez une question, veuillez d'abord consulter la Foire aux questions (FAQ) ci-dessous. [ Tout en bas ](#user-content-get-support), vous pourrez trouver comment poser d'autres questions, demander des fonctionnalités et signaler des erreurs.
 
