@@ -2273,7 +2273,9 @@ class Core {
             // Get messages
             Message[] imessages = ifolder.getMessages();
             List<TupleUidl> ids = db.message().getUidls(folder.id);
-            int max = (account.max_messages == null ? imessages.length : account.max_messages);
+            int max = (account.max_messages == null
+                    ? imessages.length
+                    : Math.min(imessages.length, account.max_messages));
 
             EntityLog.log(context, folder.name + " POP" +
                     " device=" + ids.size() +
