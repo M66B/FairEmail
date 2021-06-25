@@ -281,7 +281,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 EmailProvider provider = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
-                args.putSerializable("provider", provider);
+                args.putParcelable("provider", provider);
 
                 int at = email.indexOf('@');
                 String username = email.substring(0, at);
@@ -473,7 +473,7 @@ public class FragmentQuickSetup extends FragmentBase {
             @Override
             protected void onException(final Bundle args, Throwable ex) {
                 Log.e(ex);
-                EmailProvider provider = (EmailProvider) args.getSerializable("provider");
+                EmailProvider provider = args.getParcelable("provider");
 
                 if (ex instanceof AuthenticationFailedException) {
                     String message = getString(R.string.title_setup_no_auth_hint);
