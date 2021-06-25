@@ -1884,22 +1884,19 @@ public class MessageHelper {
                 }
 
                 if (h.isPlainText()) {
-                    if (charset == null || StandardCharsets.ISO_8859_1.equals(cs)) {
+                    if (StandardCharsets.ISO_8859_1.equals(cs) && CharsetHelper.isUTF8(result)) {
+                        Log.i("Charset upgrade=UTF8");
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+                    } else if (charset == null) {
                         Charset detected = CharsetHelper.detect(result);
-                        if (StandardCharsets.ISO_8859_1.equals(cs) &&
-                                StandardCharsets.UTF_8.equals(detected)) {
-                            Log.i("Charset upgrade=UTF8");
-                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                        } else {
-                            if (detected == null) {
-                                if (CharsetHelper.isUTF8(result)) {
-                                    Log.i("Charset plain=UTF8");
-                                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                                }
-                            } else {
-                                Log.i("Charset plain=" + detected.name());
-                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
+                        if (detected == null) {
+                            if (CharsetHelper.isUTF8(result)) {
+                                Log.i("Charset plain=UTF8");
+                                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                             }
+                        } else {
+                            Log.i("Charset plain=" + detected.name());
+                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), detected);
                         }
                     }
 
