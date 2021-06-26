@@ -376,6 +376,18 @@
                     app:layout_constraintTop_toBottomOf="@id/btnSound"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvNotifyScreenOnHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_navbar_colorize_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swNotifyScreenOn" />
+
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpChannel"
                     android:layout_width="0dp"
