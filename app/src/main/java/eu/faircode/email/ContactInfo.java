@@ -385,14 +385,14 @@ public class ContactInfo {
                             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                                 @Override
                                 public Bitmap call() throws Exception {
-                                    return getFavicon(new URL(base, "favicon.ico"), scaleToPixels, context);
+                                    return getFavicon(new URL(base, "favicon.ico"), null, scaleToPixels, context);
                                 }
                             }));
 
                             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                                 @Override
                                 public Bitmap call() throws Exception {
-                                    return getFavicon(new URL(www, "favicon.ico"), scaleToPixels, context);
+                                    return getFavicon(new URL(www, "favicon.ico"), null, scaleToPixels, context);
                                 }
                             }));
 
@@ -577,7 +577,7 @@ public class ContactInfo {
             futures.add(executorFavicon.submit(new Callable<Bitmap>() {
                 @Override
                 public Bitmap call() throws Exception {
-                    return getFavicon(url, scaleToPixels, context);
+                    return getFavicon(url, img.attr("type"), scaleToPixels, context);
                 }
             }));
         }
@@ -597,7 +597,7 @@ public class ContactInfo {
     }
 
     @NonNull
-    private static Bitmap getFavicon(URL url, int scaleToPixels, Context context) throws IOException {
+    private static Bitmap getFavicon(URL url, String type, int scaleToPixels, Context context) throws IOException {
         Log.i("GET favicon " + url);
 
         if (!"https".equals(url.getProtocol()))
@@ -621,6 +621,9 @@ public class ContactInfo {
             int status = connection.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK)
                 throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+
+            if ("image/svg+xml".equals(type) || url.getPath().endsWith(".svg"))
+                ; // Android does not support SVG
 
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), scaleToPixels);
             if (bitmap == null)
