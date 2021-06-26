@@ -27,11 +27,13 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
+import android.text.style.SuggestionSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -304,6 +306,12 @@ public class FragmentAnswer extends FragmentBase {
 
     private void onActionSave() {
         etText.clearComposingText();
+
+        // Prevent splitting placeholders
+        Editable edit = etText.getText();
+        SuggestionSpan[] suggestions = edit.getSpans(0, etText.length(), SuggestionSpan.class);
+        for (SuggestionSpan suggestion : suggestions)
+            edit.removeSpan(suggestion);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
