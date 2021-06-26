@@ -245,7 +245,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         cbBlockDomain.setEnabled(false);
         ibMore.setImageLevel(1);
         cbBlocklist.setChecked(check_blocklist && use_blocklist);
-        tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNames()));
+        tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNames(context)));
         grpInJunk.setVisibility(inJunk ? View.GONE : View.VISIBLE);
         grpMore.setVisibility(inJunk ? View.VISIBLE : View.GONE);
 

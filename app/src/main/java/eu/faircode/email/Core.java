@@ -3373,7 +3373,7 @@ class Core {
                 boolean blocklist = false;
                 for (Address sender : senders) {
                     String email = ((InternetAddress) sender).getAddress();
-                    if (DnsBlockList.isJunk(email)) {
+                    if (DnsBlockList.isJunk(context, email)) {
                         blocklist = true;
                         break;
                     }

@@ -19,7 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -34,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DnsBlockList {
-    private static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
+    static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
             // https://www.spamhaus.org/zen/
             new BlockList(true, "Spamhaus/zen", "zen.spamhaus.org", true, new String[]{
                     // https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
@@ -73,15 +77,29 @@ public class DnsBlockList {
     private static final long CACHE_EXPIRY_AFTER = 3600 * 1000L; // milliseconds
     private static final Map<String, CacheEntry> cache = new Hashtable<>();
 
-    static List<String> getNames() {
+    static void setEnabled(Context context, BlockList blocklist, boolean enabled) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean("blocklist." + blocklist.name, enabled).apply();
+
+        synchronized (cache) {
+            cache.clear();
+        }
+    }
+
+    static boolean isEnabled(Context context, BlockList blocklist) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("blocklist." + blocklist.name, blocklist.enabled);
+    }
+
+    static List<String> getNames(Context context) {
         List<String> names = new ArrayList<>();
         for (BlockList blocklist : BLOCKLISTS)
-            if (blocklist.enabled)
+            if (isEnabled(context, blocklist))
                 names.add(blocklist.name);
         return names;
     }
 
-    static boolean isJunk(String email) {
+    static boolean isJunk(Context context, String email) {
         if (TextUtils.isEmpty(email))
             return false;
 
@@ -89,10 +107,10 @@ public class DnsBlockList {
         if (at < 0)
             return false;
 
-        return isJunk(email.substring(at + 1), BLOCKLISTS);
+        return isJunk(context, email.substring(at + 1), BLOCKLISTS);
     }
 
-    private static boolean isJunk(String domain, List<BlockList> blocklists) {
+    private static boolean isJunk(Context context, String domain, List<BlockList> blocklists) {
         synchronized (cache) {
             CacheEntry entry = cache.get(domain);
             if (entry != null && !entry.isExpired())
@@ -101,7 +119,7 @@ public class DnsBlockList {
 
         boolean blocked = false;
         for (BlockList blocklist : blocklists)
-            if (blocklist.enabled && isJunk(domain, blocklist)) {
+            if (isEnabled(context, blocklist) && isJunk(domain, blocklist)) {
                 blocked = true;
                 break;
             }
@@ -212,13 +230,17 @@ public class DnsBlockList {
     }
 
     static class BlockList {
+        int id;
         boolean enabled;
         String name;
         String address;
         boolean numeric;
         InetAddress[] responses;
 
+        private static int nextid = 1;
+
         BlockList(boolean enabled, String name, String address, boolean numeric, String[] responses) {
+            this.id = nextid++;
             this.enabled = enabled;
             this.name = name;
             this.address = address;
