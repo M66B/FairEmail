@@ -666,17 +666,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swCheckBlocklist" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvBlocklist"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCheckBlocklistWarning" />
-
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUseBlocklist"
                     android:layout_width="0dp"
@@ -686,8 +675,19 @@
                     android:text="@string/title_junk_blocklist"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rvBlocklist"
+                    app:layout_constraintTop_toBottomOf="@id/tvCheckBlocklistWarning"
                     app:switchPadding="12dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBlocklist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swUseBlocklist" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTuneKeepAlive"
@@ -698,7 +698,7 @@
                     android:text="@string/title_advanced_tune_keep_alive"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swUseBlocklist"
+                    app:layout_constraintTop_toBottomOf="@id/rvBlocklist"
                     app:switchPadding="12dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

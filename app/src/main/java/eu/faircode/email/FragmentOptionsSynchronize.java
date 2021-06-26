@@ -85,8 +85,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swCheckReply;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckBlocklist;
-    private RecyclerView rvBlocklist;
     private SwitchCompat swUseBlocklist;
+    private RecyclerView rvBlocklist;
     private SwitchCompat swTuneKeepAlive;
     private Group grpExempted;
 
@@ -143,8 +143,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swCheckReply = view.findViewById(R.id.swCheckReply);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckBlocklist = view.findViewById(R.id.swCheckBlocklist);
-        rvBlocklist = view.findViewById(R.id.rvBlocklist);
         swUseBlocklist = view.findViewById(R.id.swUseBlocklist);
+        rvBlocklist = view.findViewById(R.id.rvBlocklist);
         swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
         grpExempted = view.findViewById(R.id.grpExempted);
 
@@ -348,17 +348,17 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
-        rvBlocklist.setHasFixedSize(false);
-        rvBlocklist.setLayoutManager(new LinearLayoutManager(getContext()));
-        AdapterBlocklist badapter = new AdapterBlocklist(getContext(), DnsBlockList.BLOCKLISTS);
-        rvBlocklist.setAdapter(badapter);
-
         swUseBlocklist.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("use_blocklist", checked).apply();
             }
         });
+
+        rvBlocklist.setHasFixedSize(false);
+        rvBlocklist.setLayoutManager(new LinearLayoutManager(getContext()));
+        AdapterBlocklist badapter = new AdapterBlocklist(getContext(), DnsBlockList.BLOCKLISTS);
+        rvBlocklist.setAdapter(badapter);
 
         swTuneKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -411,7 +411,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_default) {
-            FragmentOptions.reset(getContext(), RESET_OPTIONS);
+            FragmentOptions.reset(getContext(), RESET_OPTIONS, new Runnable() {
+                @Override
+                public void run() {
+                    DnsBlockList.reset(getContext());
+                    rvBlocklist.getAdapter().notifyDataSetChanged();
+                }
+            });
             return true;
         }
         return super.onOptionsItemSelected(item);

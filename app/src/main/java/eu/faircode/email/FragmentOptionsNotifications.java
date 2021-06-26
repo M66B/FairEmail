@@ -570,7 +570,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_default) {
-            FragmentOptions.reset(getContext(), RESET_OPTIONS);
+            FragmentOptions.reset(getContext(), RESET_OPTIONS, null);
             return true;
         }
         return super.onOptionsItemSelected(item);

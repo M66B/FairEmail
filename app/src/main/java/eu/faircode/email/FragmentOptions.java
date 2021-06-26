@@ -348,7 +348,7 @@ public class FragmentOptions extends FragmentBase {
         }
     }
 
-    static void reset(Context context, String[] options) {
+    static void reset(Context context, String[] options, Runnable confirmed) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.title_setup_defaults)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -359,6 +359,9 @@ public class FragmentOptions extends FragmentBase {
                         for (String option : options)
                             editor.remove(option);
                         editor.apply();
+
+                        if (confirmed != null)
+                            confirmed.run();
 
                         ToastEx.makeText(context, R.string.title_setup_done, Toast.LENGTH_LONG).show();
                     }

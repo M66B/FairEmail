@@ -886,7 +886,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_default) {
-            FragmentOptions.reset(getContext(), RESET_OPTIONS);
+            FragmentOptions.reset(getContext(), RESET_OPTIONS, null);
             return true;
         }
         return super.onOptionsItemSelected(item);

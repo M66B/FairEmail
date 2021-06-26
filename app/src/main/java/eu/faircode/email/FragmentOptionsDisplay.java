@@ -913,8 +913,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_default) {
-            FragmentOptions.reset(getContext(), RESET_OPTIONS);
-            setNavigationBarColor(Color.BLACK);
+            FragmentOptions.reset(getContext(), RESET_OPTIONS, new Runnable() {
+                @Override
+                public void run() {
+                    setNavigationBarColor(Color.BLACK);
+                }
+            });
             return true;
         }
         return super.onOptionsItemSelected(item);

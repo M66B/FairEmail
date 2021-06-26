@@ -79,7 +79,10 @@ public class DnsBlockList {
 
     static void setEnabled(Context context, BlockList blocklist, boolean enabled) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().putBoolean("blocklist." + blocklist.name, enabled).apply();
+        if (blocklist.enabled == enabled)
+            prefs.edit().remove("blocklist." + blocklist.name).apply();
+        else
+            prefs.edit().putBoolean("blocklist." + blocklist.name, enabled).apply();
 
         synchronized (cache) {
             cache.clear();
@@ -89,6 +92,18 @@ public class DnsBlockList {
     static boolean isEnabled(Context context, BlockList blocklist) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean("blocklist." + blocklist.name, blocklist.enabled);
+    }
+
+    static void reset(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        for (BlockList blocklist : BLOCKLISTS)
+            editor.remove("blocklist." + blocklist.name);
+        editor.apply();
+
+        synchronized (cache) {
+            cache.clear();
+        }
     }
 
     static List<String> getNames(Context context) {
