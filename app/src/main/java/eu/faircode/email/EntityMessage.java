@@ -300,6 +300,10 @@ public class EntityMessage implements Serializable {
         return false;
     }
 
+    boolean isForwarded() {
+        return hasKeyword(MessageHelper.FLAG_FORWARDED);
+    }
+
     String checkReplyDomain(Context context) {
         if (from == null || from.length == 0)
             return null;

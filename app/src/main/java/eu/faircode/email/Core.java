@@ -870,7 +870,7 @@ class Core {
             throw new IllegalArgumentException("keyword/uid");
 
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
-            if ("$Forwarded".equals(keyword) && false) {
+            if (MessageHelper.FLAG_FORWARDED.equals(keyword) && false) {
                 JSONArray janswered = new JSONArray();
                 janswered.put(true);
                 onAnswered(context, janswered, folder, message, ifolder);
@@ -1031,10 +1031,21 @@ class Core {
 
             imessage.saveChanges();
 
-            imessage.setFlag(Flags.Flag.SEEN, message.ui_seen);
-            imessage.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
-            imessage.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
-            imessage.setFlag(Flags.Flag.DELETED, message.ui_deleted);
+            if (flags.contains(Flags.Flag.SEEN))
+                imessage.setFlag(Flags.Flag.SEEN, message.ui_seen);
+            if (flags.contains(Flags.Flag.ANSWERED))
+                imessage.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
+            if (flags.contains(Flags.Flag.FLAGGED))
+                imessage.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
+            if (flags.contains(Flags.Flag.DELETED))
+                imessage.setFlag(Flags.Flag.DELETED, message.ui_deleted);
+
+            if (flags.contains(Flags.Flag.USER)) {
+                if (message.isForwarded()) {
+                    Flags fwd = new Flags(MessageHelper.FLAG_FORWARDED);
+                    imessage.setFlags(new Flags(fwd), true);
+                }
+            }
         }
 
         db.message().setMessageRaw(message.id, true);

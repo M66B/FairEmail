@@ -121,6 +121,7 @@ public class MessageHelper {
     static final int SMALL_MESSAGE_SIZE = 192 * 1024; // bytes
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
+    static final String FLAG_FORWARDED = "$Forwarded";
 
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
