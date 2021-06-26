@@ -195,6 +195,7 @@ public class FragmentSetup extends FragmentBase {
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
                                         .putExtra("name", provider.description)
+                                        .putExtra("privacy", provider.oauth.privacy)
                                         .putExtra("askAccount", provider.oauth.askAccount));
                         int resid = context.getResources()
                                 .getIdentifier("provider_" + provider.id, "drawable", context.getPackageName());

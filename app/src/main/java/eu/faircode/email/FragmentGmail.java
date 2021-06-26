@@ -32,6 +32,7 @@ import android.database.Cursor;
 import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
@@ -66,6 +67,8 @@ public class FragmentGmail extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
 
+    private TextView tvTitle;
+    private TextView tvPrivacy;
     private Button btnGrant;
     private TextView tvGranted;
     private EditText etName;
@@ -80,6 +83,8 @@ public class FragmentGmail extends FragmentBase {
 
     private Group grpError;
 
+    private static final String PRIVACY_URI = "https://policies.google.com/privacy";
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -90,6 +95,8 @@ public class FragmentGmail extends FragmentBase {
         scroll = view.findViewById(R.id.scroll);
 
         // Get controls
+        tvTitle = view.findViewById(R.id.tvTitle);
+        tvPrivacy = view.findViewById(R.id.tvPrivacy);
         btnGrant = view.findViewById(R.id.btnGrant);
         tvGranted = view.findViewById(R.id.tvGranted);
         etName = view.findViewById(R.id.etName);
@@ -105,6 +112,14 @@ public class FragmentGmail extends FragmentBase {
         grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
+
+        tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(PRIVACY_URI), false);
+            }
+        });
 
         btnGrant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +185,7 @@ public class FragmentGmail extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+        tvTitle.setText(getString(R.string.title_setup_oauth_rationale, "Gmail"));
         pbSelect.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 

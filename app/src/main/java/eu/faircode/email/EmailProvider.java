@@ -172,6 +172,7 @@ public class EmailProvider implements Parcelable {
                         provider.oauth.authorizationEndpoint = xml.getAttributeValue(null, "authorizationEndpoint");
                         provider.oauth.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
                         provider.oauth.redirectUri = xml.getAttributeValue(null, "redirectUri");
+                        provider.oauth.privacy = xml.getAttributeValue(null, "privacy");
                     } else
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
@@ -802,5 +803,6 @@ public class EmailProvider implements Parcelable {
         String authorizationEndpoint;
         String tokenEndpoint;
         String redirectUri;
+        String privacy;
     }
 }

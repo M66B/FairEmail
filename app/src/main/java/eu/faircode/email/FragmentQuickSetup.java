@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -60,6 +61,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
 
+    private TextView tvPrivacy;
     private EditText etName;
     private EditText etEmail;
     private TextInputLayout tilPassword;
@@ -83,6 +85,8 @@ public class FragmentQuickSetup extends FragmentBase {
     private Group grpSetup;
     private Group grpError;
 
+    private static final String PRIVACY_URI = "https://www.mozilla.org/privacy/";
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -93,6 +97,7 @@ public class FragmentQuickSetup extends FragmentBase {
         scroll = view.findViewById(R.id.scroll);
 
         // Get controls
+        tvPrivacy = view.findViewById(R.id.tvPrivacy);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -117,6 +122,14 @@ public class FragmentQuickSetup extends FragmentBase {
         grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
+
+        tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(PRIVACY_URI), false);
+            }
+        });
 
         tilPassword.setHintEnabled(false);
 

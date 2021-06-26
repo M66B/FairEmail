@@ -144,6 +144,7 @@
     <string name="title_disagree">I disagree</string>
 
     <string name="title_version">Version %1$s</string>
+    <string name="title_privacy_policy">Privacy policy</string>
 
     <string name="title_list_accounts">Accounts</string>
     <string name="title_list_identities">Identities</string>

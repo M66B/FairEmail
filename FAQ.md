@@ -3740,8 +3740,8 @@ For more information, please see [this article](https://en.wikipedia.org/wiki/Do
 
 FairEmail currently uses the following block lists:
 
-* [Spamhaus zen](https://www.spamhaus.org/zen/) - [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/) - [Privacy policy](https://www.spamhaus.org/organization/privacy/)
-* [Spamcop](https://www.spamcop.net/) - [Legal info](https://www.spamcop.net/fom-serve/cache/297.html) - [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
+* [Spamhaus zen](https://www.spamhaus.org/zen/) &#8211; [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/) &#8212; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
+* [Spamcop](https://www.spamcop.net/) &#8211; [Legal info](https://www.spamcop.net/fom-serve/cache/297.html) &#8212; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 
 <br />
 

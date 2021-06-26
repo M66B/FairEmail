@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -92,12 +93,14 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 public class FragmentOAuth extends FragmentBase {
     private String id;
     private String name;
+    private String privacy;
     private boolean askAccount;
 
     private ViewGroup view;
     private ScrollView scroll;
 
-    private TextView tvGrantHint;
+    private TextView tvTitle;
+    private TextView tvPrivacy;
     private EditText etName;
     private EditText etEmail;
     private CheckBox cbUpdate;
@@ -122,6 +125,7 @@ public class FragmentOAuth extends FragmentBase {
         Bundle args = getArguments();
         id = args.getString("id");
         name = args.getString("name");
+        privacy = args.getString("privacy");
         askAccount = args.getBoolean("askAccount", false);
     }
 
@@ -135,7 +139,8 @@ public class FragmentOAuth extends FragmentBase {
         scroll = view.findViewById(R.id.scroll);
 
         // Get controls
-        tvGrantHint = view.findViewById(R.id.tvGrantHint);
+        tvTitle = view.findViewById(R.id.tvTitle);
+        tvPrivacy = view.findViewById(R.id.tvPrivacy);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         cbUpdate = view.findViewById(R.id.cbUpdate);
@@ -153,6 +158,15 @@ public class FragmentOAuth extends FragmentBase {
 
         // Wire controls
 
+        tvPrivacy.setVisibility(TextUtils.isEmpty(privacy) ? View.GONE : View.VISIBLE);
+        tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(privacy), false);
+            }
+        });
+
         btnOAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,7 +182,7 @@ public class FragmentOAuth extends FragmentBase {
         });
 
         // Initialize
-        tvGrantHint.setText(getString(R.string.title_setup_oauth_rationale, name));
+        tvTitle.setText(getString(R.string.title_setup_oauth_rationale, name));
         etName.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         etEmail.setVisibility(askAccount ? View.VISIBLE : View.GONE);
         pbOAuth.setVisibility(View.GONE);

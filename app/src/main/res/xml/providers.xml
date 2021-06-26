@@ -97,6 +97,7 @@
             clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
             clientSecret="r=o4@SlzU:MA6MlXM6mPG[44i4gYPq[@"
             enabled="true"
+            privacy="https://privacy.microsoft.com/privacystatement"
             redirectUri="https://oauth.faircode.eu/"
             scopes="openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
             tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token" />
@@ -139,6 +140,7 @@
             clientSecret="261a91fbbdb2852c4e80fdd3d1db4a8ebfa4c42b"
             enabled="true"
             pcke="true"
+            privacy="https://www.verizonmedia.com/policies/us/en/verizonmedia/privacy/index.html"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail-w"
             tokenEndpoint="https://api.login.yahoo.com/oauth2/get_token" />
@@ -327,6 +329,7 @@
             clientId="a41b1a433d5041c39edebda5b866d2fc"
             clientSecret="03e6fb9c27374d5b81c612add522f6a0"
             enabled="true"
+            privacy="https://yandex.com/legal/confidential/"
             redirectUri="https://oauth.faircode.eu/"
             scopes="mail:imap_full,mail:smtp"
             tokenEndpoint="https://oauth.yandex.com/token" />
@@ -501,6 +504,7 @@
             clientId="ce54d27dc1574b3a8b50e6789cd1a44a"
             clientSecret="5f1525783e1d4defb3bc9c2c4b7d0c54"
             enabled="true"
+            privacy="https://help.mail.ru/legal/terms/common/privacy"
             redirectUri="https://oauth.faircode.eu/"
             scopes="userinfo mail.imap"
             tokenEndpoint="https://oauth.mail.ru/token" />
