@@ -57,7 +57,7 @@ public class MessageClassifier {
 
     private static final int MAX_WORDS = 1000;
 
-    static void classify(EntityMessage message, EntityFolder folder, EntityFolder target, Context context) {
+    static synchronized void classify(EntityMessage message, EntityFolder folder, EntityFolder target, Context context) {
         try {
             if (!isEnabled(context))
                 return;
