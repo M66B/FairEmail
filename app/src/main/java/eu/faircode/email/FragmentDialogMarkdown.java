@@ -35,6 +35,7 @@ import androidx.annotation.Nullable;
 import java.io.InputStream;
 
 import io.noties.markwon.Markwon;
+import io.noties.markwon.html.HtmlPlugin;
 
 public class FragmentDialogMarkdown extends FragmentDialogBase {
     @NonNull
@@ -84,7 +85,9 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
                             "https://github.com/M66B/FairEmail/blob/master/FAQ.md",
                             "https://github.com/M66B/FairEmail/blob/master/docs/FAQ-" + locale + ".md");
 
-                Markwon markwon = Markwon.create(context);
+                Markwon markwon = Markwon.builder(context)
+                        .usePlugin(HtmlPlugin.create())
+                        .build();
                 return markwon.toMarkdown(markdown);
             }
 

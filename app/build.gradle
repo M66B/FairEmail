@@ -432,6 +432,7 @@ dependencies {
     // https://github.com/noties/Markwon
     // https://mvnrepository.com/artifact/io.noties.markwon/core
     implementation "io.noties.markwon:core:$markwon_version"
+    implementation "io.noties.markwon:html:$markwon_version"
 
     // // https://github.com/QuadFlask/colorpicker
     implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"
