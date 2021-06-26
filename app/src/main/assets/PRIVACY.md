@@ -26,6 +26,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Spamhaus](https://www.spamhaus.org/) &#8211; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
 * [Spamcop](https://www.spamcop.net/) &#8211; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
+* [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 * [Thunderbird autoconfiguration](https://developer.mozilla.org/docs/Mozilla/Thunderbird/Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
 
 FairEmail **can access** the websites at the domain names of email addresses

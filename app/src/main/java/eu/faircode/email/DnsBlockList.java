@@ -67,11 +67,11 @@ public class DnsBlockList {
             new BlockList(true, "Spamcop", "bl.spamcop.net", true, new String[]{
                     // https://www.spamcop.net/fom-serve/cache/291.html
                     "127.0.0.2",
-            })
+            }),
 
-            //new BlockList(false, "Barracuda", "b.barracudacentral.org", true, new String[]{
-            //        // https://www.barracudacentral.org/rbl/how-to-use
-            //})
+            new BlockList(false, "Barracuda", "b.barracudacentral.org", true, new String[]{
+                    // https://www.barracudacentral.org/rbl/how-to-use
+            })
     ));
 
     private static final long CACHE_EXPIRY_AFTER = 3600 * 1000L; // milliseconds
