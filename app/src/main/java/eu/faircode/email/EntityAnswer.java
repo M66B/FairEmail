@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.text.Html;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -113,10 +115,10 @@ public class EntityAnswer implements Serializable {
             }
         }
 
-        text = text.replace("$name$", fullName == null ? "" : fullName);
-        text = text.replace("$firstname$", first == null ? "" : first);
-        text = text.replace("$lastname$", last == null ? "" : last);
-        text = text.replace("$email$", email == null ? "" : email);
+        text = text.replace("$name$", fullName == null ? "" : Html.escapeHtml(fullName));
+        text = text.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
+        text = text.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
+        text = text.replace("$email$", email == null ? "" : Html.escapeHtml(email));
 
         return text;
     }
