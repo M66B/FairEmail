@@ -969,7 +969,9 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         boolean cards = prefs.getBoolean("cards", true);
-        if (cards && !Helper.isDarkTheme(getContext()))
+        String theme = prefs.getString("theme", null);
+        if (cards &&
+                (!Helper.isDarkTheme(getContext())) || "solarized".equals(theme))
             view.setBackgroundColor(Helper.resolveColor(getContext(), R.attr.colorCardBackground));
 
         //boolean beige = prefs.getBoolean("beige", true);

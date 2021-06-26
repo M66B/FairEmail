@@ -397,6 +397,26 @@
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
+    <style name="AppThemeSolarized" parent="AppThemeBaseDark">
+        <item name="themeName">black</item>
+        <item name="colorPrimary">@color/solarizedPrimary</item>
+        <item name="colorPrimaryDark">@color/solarizedPrimaryDark</item>
+        <item name="colorAccent">@color/solarizedAccent</item>
+
+        <item name="colorUnreadHighlight">@color/solarizedAccent</item>
+
+        <item name="colorFabBackground">@color/solarizedAccent</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/solarizedPrimary</item>
+
+        <item name="android:textColorLink">@color/solarizedAccent</item>
+
+        <item name="colorCardBackground">@color/solarizedPrimaryDark</item>
+        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="colorDrawerBackground">@color/black</item>
+    </style>
+
     <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
         <item name="android:background">@color/transparent</item>
         <item name="android:windowNoTitle">true</item>

@@ -63,6 +63,14 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
+                android:id="@+id/rbThemeSolarized"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_theme_solarized"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
                 android:id="@+id/rbThemeBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
