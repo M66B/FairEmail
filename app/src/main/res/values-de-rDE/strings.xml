@@ -109,6 +109,7 @@
     <string name="title_agree">Ich stimme zu</string>
     <string name="title_disagree">Ich stimme nicht zu</string>
     <string name="title_version">Version %1$s</string>
+    <string name="title_privacy_policy">Datenschutzerklärung</string>
     <string name="title_list_accounts">Konten</string>
     <string name="title_list_identities">Identitäten</string>
     <string name="title_edit_account">Konto bearbeiten</string>

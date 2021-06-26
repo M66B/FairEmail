@@ -97,6 +97,7 @@
     <string name="title_agree">同意する</string>
     <string name="title_disagree">同意しない</string>
     <string name="title_version">バージョン %1$s</string>
+    <string name="title_privacy_policy">プライバシーポリシー</string>
     <string name="title_list_accounts">アカウント</string>
     <string name="title_list_identities">ユーザ情報</string>
     <string name="title_edit_account">アカウントを編集</string>

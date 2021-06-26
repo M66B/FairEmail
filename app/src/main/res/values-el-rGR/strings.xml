@@ -108,6 +108,7 @@
     <string name="title_agree">Συμφωνώ</string>
     <string name="title_disagree">Διαφωνώ</string>
     <string name="title_version">Έκδοση %1$s</string>
+    <string name="title_privacy_policy">Πολιτική απορρήτου</string>
     <string name="title_list_accounts">Λογαριασμοί</string>
     <string name="title_list_identities">Ταυτότητες</string>
     <string name="title_edit_account">Επεξεργασία λογαριασμού</string>

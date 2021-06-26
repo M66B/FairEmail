@@ -128,6 +128,7 @@
     <string name="title_agree">Принимаю</string>
     <string name="title_disagree">Не принимаю</string>
     <string name="title_version">Версия %1$s</string>
+    <string name="title_privacy_policy">Политика конфиденциальности</string>
     <string name="title_list_accounts">Учётные записи</string>
     <string name="title_list_identities">Идентификаторы</string>
     <string name="title_edit_account">Изменить учётную запись</string>

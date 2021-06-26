@@ -9,7 +9,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 ## Dizin
 
 * [Hesap Yetkilendirme](#user-content-authorizing-accounts)
-* [Nasıl yapılır ...?](#user-content-howto)
+* [Nasıl yapılır?](#user-content-howto)
 * [Bilinen hatalar](#user-content-known-problems)
 * [Planlanan Özellikler](#user-content-planned-features)
 * [Sıkça talep edilen özellikler](#user-content-frequently-requested-features)
@@ -45,7 +45,7 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 
 <a name="howto">
 
-## Nasıl yapılır ...?
+## Nasıl yapılır?
 
 * Hesap adını değiştirme: Ayarlar, Elle kurulum ve daha fazla seçeneğe dokunun, Hesaplar'a dokunun, hesaba dokunun
 * Sağa/sola kaydırma hareketlerini değiştirme: Ayarlar, Sayfa Davranışına dokun, Kaydırma hareketlerini ayarla
@@ -62,16 +62,16 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 * Göndermeyi geri al: Giden kutusu, listedeki mesajı sola veya sağa kaydırın
 * Gönderilen mesajları gelen kutusunda saklama: lütfen [SSS'ı inceleyin](#user-content-faq142)
 * Sistem klasörlerini değiştirme: Ayarlar, Manuel kurulum'a dokunun, Hesaplar'a dokunun, altta hesaba dokunun
-* Ayarları dışa / içe aktarma: Ayarlar, gezinme (sol taraf) menüsü
+* Ayarları dışa/içe aktarma: Ayarlar, gezinme (sol taraf) menüsü
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Bilinen sorun</h2>
 
-* ~~ Android 5.1 ve 6'daki bir [ hata ](https://issuetracker.google.com/issues/37054851), uygulamaların bazen yanlış bir saat biçimi göstermesine neden oluyor. Android ayarını değiştirmek * 24 saatlik biçimi kullanın * sorunu geçici olarak çözebilir. Bir geçici çözüm eklendi. ~~
+* ~~ Android 5.1 ve 6'daki bir [ hata](https://issuetracker.google.com/issues/37054851), uygulamaların bazen yanlış bir saat biçimi göstermesine neden oluyor. Android ayarını, * 24 saatlik biçimi kullan* olarak ayarlamak sorunu geçici olarak çözebilir. Bir geçici çözüm eklendi.~~
 * ~~ Google Drive'daki bir [ hata ](https://issuetracker.google.com/issues/126362828), Google Drive'a dışa aktarılan dosyaların boş olmasına neden oluyor. Google bunu düzeltti. ~~
 * ~~ AndroidX'teki bir [ hata ](https://issuetracker.google.com/issues/78495471), FairEmail'in bazen uzun basma veya kaydırma sırasında çökmesine neden oluyor. Google bunu düzeltti. ~~
 * ~~ AndroidX ROOM'daki bir [ hatası ](https://issuetracker.google.com/issues/138441698), bazen çökmeye sebep oluyor "*... Veritabanı canlı verilerini hesaplarken istisna ... Satır okunamadı ... * ". Bir geçici çözüm eklendi. ~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
+* Bir [Android'deki bir hata](https://issuetracker.google.com/issues/119872129) FairEmail'in "* ile çökmesine neden oluyor... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
+* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) yeniden yükleme sorunu çözebilir.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
@@ -148,22 +148,22 @@ Tasarım birçok tartışmaya dayanıyor ve isterseniz bunu [ bu forumda ](https
 * [(20) Geri ödeme alabilir miyim?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
+* [(23) Neden alarm alıyorum? ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
+* [(26) Fairemail'i kendi dilimde çevirmeye yardımcı olabilir miyim?](#user-content-faq26)
+* [(27) Gömülü ve harici görüntüleri nasıl ayırt edebilirim?](#user-content-faq27)
+* [(28) Durum çubuğu bildirimlerini nasıl yönetebilirim?](#user-content-faq28)
+* [(29) Diğer klasörler için yeni mesaj bildirimleri nasıl alabilirim?](#user-content-faq29)
+* [(30) Verilen hızlı ayarları nasıl kullanabilirim?](#user-content-faq30)
+* [(31) Verilen kısayolları nasıl kullanabilirim?](#user-content-faq31)
 * [(32) E-posta okumanın gerçekten güvenli olup olmadığını nasıl kontrol edebilirim?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
-* [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
-* [(36) How are settings files encrypted?](#user-content-faq36)
-* [(37) How are passwords stored?](#user-content-faq37)
-* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
+* [(33) Neden düzenlenmiş gönderen adresleri çalışmıyor?](#user-content-faq33)
+* [(34) Kimlikler nasıl eşleşiyor?](#user-content-faq34)
+* [(35) Neden görüntüleri, ekleri, orijinal mesajı ve açılış bağlantılarını görüntüleme konusunda dikkatli olmalıyım?](#user-content-faq35)
+* [(36) Ayarlar dosyaları nasıl şifrelenir?](#user-content-faq36)
+* [(37) Şifreler nasıl saklanıyor?](#user-content-faq37)
+* [(39) Fairemail'in pil kullanımını nasıl azaltabilirim?](#user-content-faq39)
 * [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
 * [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
 * [(42) Can you add a new provider to the list of providers?](#user-content-faq42)

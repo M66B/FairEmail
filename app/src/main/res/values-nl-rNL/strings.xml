@@ -108,6 +108,7 @@
     <string name="title_agree">Ik ga akkoord</string>
     <string name="title_disagree">Ik ga niet akkoord</string>
     <string name="title_version">Versie %1$s</string>
+    <string name="title_privacy_policy">Privacybeleid</string>
     <string name="title_list_accounts">Accounts</string>
     <string name="title_list_identities">Identiteiten</string>
     <string name="title_edit_account">Bewerk account</string>

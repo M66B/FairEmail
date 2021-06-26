@@ -108,6 +108,7 @@
     <string name="title_agree">Acepto</string>
     <string name="title_disagree">Rechazo</string>
     <string name="title_version">Versión %1$s</string>
+    <string name="title_privacy_policy">Política de Privacidad</string>
     <string name="title_list_accounts">Cuentas</string>
     <string name="title_list_identities">Identidades</string>
     <string name="title_edit_account">Editar cuenta</string>

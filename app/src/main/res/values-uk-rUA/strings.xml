@@ -116,6 +116,7 @@
     <string name="title_agree">Я погоджуюся</string>
     <string name="title_disagree">Не погоджуюся</string>
     <string name="title_version">Версія: %1$s</string>
+    <string name="title_privacy_policy">Політика конфіденційності</string>
     <string name="title_list_accounts">Облікові записи</string>
     <string name="title_list_identities">Особисті дані</string>
     <string name="title_edit_account">Редагувати обліковий запис</string>

@@ -108,6 +108,7 @@
     <string name="title_agree">Kabul ediyorum</string>
     <string name="title_disagree">Kabul etmiyorum</string>
     <string name="title_version">Sürüm %1$s</string>
+    <string name="title_privacy_policy">Gizlilik Politikası</string>
     <string name="title_list_accounts">Hesaplar</string>
     <string name="title_list_identities">Kimlikler</string>
     <string name="title_edit_account">Hesabı Düzenle</string>
@@ -847,6 +848,7 @@
     <string name="title_move_undo">%1$s\'a taşınıyor (%2$d)</string>
     <string name="title_open_with">Birlikte aç</string>
     <string name="title_authentication_failed">%1$s kimlik doğrulama başarısız</string>
+    <string name="title_on_blocklist">Spam engelleme listesinde</string>
     <string name="title_receipt_subject">Okundu bilgisi:%1$s</string>
     <string name="title_receipt_text">Bu okundu bilgisi yalnızca iletinin görüntülendiğini onaylar. Alıcının ileti içeriğini okuduğu garanti edilmez.</string>
     <string name="title_no_answers">Tanımlanmış yanıt kalıbı yok</string>
@@ -874,6 +876,7 @@
     <string name="title_attachments_incomplete">Bazı ekler veya resimler indirilemedi ve eklenemedi</string>
     <string name="title_ask_save">Değişiklikler kaydedilsin mi?</string>
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
+    <string name="title_ask_delete_accept">İletileri kalıcı olarak silmenin geri alınamayacağını anlıyorum</string>
     <string name="title_ask_delete_answer">Yanıt kalıbı kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>
@@ -891,10 +894,15 @@
     <string name="title_ask_review_rationale">        FairEmail\'ı bir süredir kullanıyorsunuz.
         Eğer FairEmail\'ı Play Store\'da değerlendirirseniz çok mutlu oluruz.
     </string>
+    <string name="title_need_help">Yardıma ihtiyacım var</string>
     <string name="title_ask_once">Daha sonra\'yı seçmezseniz bu mesaj sadece bir kere görünecek</string>
     <string name="title_third_party">Üçüncü parti bir sürüm kullanıyorsunuz</string>
     <string name="title_expand_warning">Bu mesajı genişletmek %1$s indirecektir</string>
     <string name="title_download_message">İndiriliyor &#8230;</string>
+    <string name="title_reformatted">        Bu, yeniden biçimlendirilmiş ileti görünümüdür.
+        Orijinal mesajı görüntülemek ve bu mesajı gizlemek için &#x26F6; simgesine dokunun
+        Mesajların yeniden biçimlendirilmesi, mesajın boyutuna ve cihazınızın hızına bağlı olarak biraz zaman alabilir.
+    </string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_submitter">Gönderen:</string>
     <string name="title_delivered_to">Teslim edilen:</string>
@@ -907,17 +915,22 @@
     <string name="title_via_identity">Şu yol ile:</string>
     <string name="title_sent">Gönderildi:</string>
     <string name="title_received">Gelen:</string>
+    <string name="title_date">Tarih:</string>
+    <string name="title_stored">Depolandı:</string>
     <string name="title_size">Boyut:</string>
     <string name="title_language">Dil:</string>
     <string name="title_subject">Konu:</string>
     <string name="title_attachment">Ek:</string>
     <string name="title_body_hint">İletiniz</string>
+    <string name="title_body_hint_style">Biçimlendirmek için metni seçebilirsiniz</string>
     <string name="title_discard">Sil</string>
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
+    <string name="title_sending">Gönderiliyor&#8230;</string>
     <string name="title_send_now">Şimdi gönder</string>
     <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
+    <string name="title_send_auto_archive">Yanıtlanan iletiyi arşivle</string>
     <string name="title_send_encryption">Şifreleme</string>
     <string name="title_send_priority">Öncelik</string>
     <string name="title_no_server">%1$s\'de sunucu bulunamadı</string>
@@ -936,6 +949,8 @@
     <string name="title_style_list">Liste</string>
     <string name="title_style_list_bullets">Numarasız liste</string>
     <string name="title_style_list_numbered">Numaralı liste</string>
+    <string name="title_style_list_level_increase">Girintiyi artır</string>
+    <string name="title_style_list_level_decrease">Girintiyi azalt</string>
     <string name="title_style_font">Yazı tipi</string>
     <string name="title_style_font_default">Varsayılan</string>
     <string name="title_style_blockquote">Alıntıyı Engelle/Blokla</string>
@@ -961,6 +976,13 @@
     <string name="title_media_toolbar">Medya araç çubuğu</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
+    <string name="title_create_template">Şablon oluştur</string>
+    <string name="title_translate">Tercüme et</string>
+    <string name="title_translate_configure">Yapılandır&#8230;</string>
+    <string name="title_translate_key">Anahtarı gir</string>
+    <string name="title_translating">Tercüme ediliyor&#8230;</string>
+    <string name="title_translate_small">Kaynak metin için küçük bir yazı tipi kullan</string>
+    <string name="title_translate_usage">Kullanım: %1$s/%2$s (%3$d %%)</string>
     <string name="title_edit_plain_text">Düz metin olarak düzenle</string>
     <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
     <string name="title_select_certificate">Genel anahtar seç</string>
@@ -972,18 +994,24 @@
     <string name="title_key_missing">%1$s için anahtar yok</string>
     <string name="title_send_reminder_remark">Hatırlatıcılar gönderme ayarları üzerinden tekrar etkinleştirilebilir</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
+    <string name="title_send_dsn">Durum raporu</string>
+    <string name="title_send_receipt">Makbuz iste</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_pgp_reminder">PGP anahtarı var</string>
+    <string name="title_smime_reminder">S/MIME anahtarları mevcut</string>
     <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_extra_missing">Kullanıcı adı eksik</string>
+    <string name="title_external_reminder">Harici adrese gönder</string>
     <string name="title_subject_reminder">Konu boş</string>
     <string name="title_text_reminder">İleti boş</string>
     <string name="title_attachment_keywords">eklendi,ek,ekler,dahil edildi</string>
     <string name="title_attachment_reminder">Bir ek eklemek niyetinde misiniz?</string>
     <string name="title_plain_reminder">Tüm biçimlendirme kaybolacak</string>
+    <string name="title_dsn_reminder">Sert zıplama, orijinal gönderenin e-posta itibarına zarar verir!</string>
     <string name="title_size_reminder">İleti (%1$s) sunucu sınırından (%2$s) yüksek</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
+    <string name="title_dialog_hint">Bu iletişim kutusu, üst işlem çubuğundaki üç nokta menüsü üzerinden tekrar etkinleştirilebilir</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
     <string name="title_ask_send_via">%1$s\'e %2$s üzerinden ileti gönderilsin mi?</string>
@@ -1018,16 +1046,31 @@
     <string name="title_signature_store">Sakla</string>
     <string name="title_search">Ara</string>
     <string name="title_search_for_hint">Metin giriniz</string>
+    <string name="title_search_hint">        Başlangıçta, arama cihazda gerçekleştirilir.
+        Sunucuyu da aramak için \'Tekrar Ara\' düğmesine dokunun.
+    </string>
+    <string name="title_search_index_hint">        Arama dizini aracılığıyla arama yapmak hızlıdır, ancak sadece tüm kelimeleri bulur.
+        Aşağıdaki seçenekler e-posta sunucusunu aramaya devam etmektir.
+    </string>
+    <string name="title_search_text_hint">Mesajlarda metin arama, çok sayıda mesaj varken, bazı sunucularda çalışmayabilir</string>
+    <string name="title_search_size_hint">Boyutlara göre mesaj aramak, çok sayıda mesaj olduğunda, bazı sunucularda çalışmayabilir</string>
     <string name="title_search_more">Daha fazla seçenek</string>
+    <string name="title_search_use_index">Arama fihristini kullan</string>
     <string name="title_search_in_senders">Gönderenlerde (kimden)</string>
     <string name="title_search_in_recipients">Alıcılarda (alıcı, cc)</string>
     <string name="title_search_in_subject">Konu içinde</string>
     <string name="title_search_in_keywords">Anahtar kelimelerle (eğer destekleniyorsa)</string>
     <string name="title_search_in_message">İleti metnindeki</string>
+    <string name="title_search_in_notes">Yerel notlarda</string>
+    <string name="title_search_with">Aramayı sınırla</string>
     <string name="title_search_with_unseen">Okunmamış</string>
     <string name="title_search_with_flagged">Yıldızlanmış</string>
     <string name="title_search_with_hidden">Gizli (sadece cihazda)</string>
     <string name="title_search_with_encrypted">Şifrelenmiş (sadece cihazda)</string>
+    <string name="title_search_with_attachments">Eklerle (yalnızca cihazda)</string>
+    <string name="title_search_with_size">Mesaj boyutu daha büyük</string>
+    <string name="title_search_in_trash">Çöp içinde</string>
+    <string name="title_search_in_junk">Spam içinde</string>
     <string name="title_search_with_before">Önce</string>
     <string name="title_search_with_after">Sonra</string>
     <string name="title_search_flag_unseen">okunmamış</string>
@@ -1035,6 +1078,7 @@
     <string name="title_search_flag_hidden">gizli</string>
     <string name="title_search_flag_encrypted">şifrelenmiş</string>
     <string name="title_search_flag_attachments">ekler</string>
+    <string name="title_search_flag_notes">notlar</string>
     <string name="title_search_flag_invite">davetiye</string>
     <string name="title_search_flag_size">boyut &gt; %1$s</string>
     <string name="title_search_device">Cihazda ara</string>
@@ -1074,10 +1118,17 @@
     <string name="title_answer_caption">Kalıbı Düzenle</string>
     <string name="title_answer_reply">Yanıt kalıbı</string>
     <string name="title_answer_name">Kalıp adı</string>
+    <string name="title_answer_group">Şablon grubu (isteğe bağlı)</string>
     <string name="title_answer_standard">Varsayılan</string>
     <string name="title_answer_favorite">Favori</string>
+    <string name="title_answer_receipt">Okuma makbuzu olarak kullan</string>
     <string name="title_answer_hide">Menülerden gizle</string>
     <string name="title_answer_text">Kalıp metni</string>
+    <string name="title_answer_placeholder">Yer tutucu</string>
+    <string name="title_answer_placeholder_name">Gönderenin tam adı</string>
+    <string name="title_answer_placeholder_email">Gönderenin e-posta adresi</string>
+    <string name="title_answer_placeholder_firstname">Gönderenin ilk adı</string>
+    <string name="title_answer_placeholder_lastname">Gönderenin soyadı</string>
     <string name="title_rule_noop">Eylem yok</string>
     <string name="title_rule_seen">Okundu olarak işaretle</string>
     <string name="title_rule_unseen">Okunmadı olarak işaretle</string>
@@ -1089,6 +1140,8 @@
     <string name="title_rule_keyword">Anahtar sözcük ekle</string>
     <string name="title_rule_move">Taşı</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>
+    <string name="title_rule_answer">Cevapla/İleri</string>
+    <string name="title_rule_tts">Konuşma metni</string>
     <string name="title_rule_automation">Özdevinim</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
@@ -1102,6 +1155,10 @@
     <string name="title_rule_subject">Konu içeriği</string>
     <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
+    <string name="title_rule_time_abs">Kesin zaman aralığı (alındı)</string>
+    <string name="title_rule_time_after">Alındıktan sonra</string>
+    <string name="title_rule_time_before">Alınmadan önce</string>
+    <string name="title_rule_time_rel">İle arasındaki göreceli zaman (alındı)</string>
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
     <string name="title_rule_action">Eylem</string>
@@ -1115,10 +1172,13 @@
     <string name="title_rule_forward_to">İlet</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
     <string name="title_rule_with_attachments">Eklerle Birlikte</string>
+    <string name="title_rule_answer_remark">Cevap döngülerinden kaçınmak için herhangi bir konuşma için yalnızca bir cevap gönderilecektir</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
     <string name="title_rule_condition_missing">Koşul kayıp</string>
     <string name="title_rule_folder_missing">Kayıp dosya</string>
     <string name="title_rule_identity_missing">Eksik kimlik</string>
+    <string name="title_rule_answer_missing">Şablon eksik</string>
+    <string name="title_rule_keyword_missing">Anahtar kelime eksik</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
     <string name="title_rule_execute">Şimdi çalıştır</string>
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
@@ -1126,6 +1186,9 @@
     <string name="title_rule_no_headers">Başlık koşulları denetlenemedi</string>
     <string name="title_rule_matched">İletiler eşleştiriliyor</string>
     <string name="title_rule_no_matches">Eşleşen ileti yok</string>
+    <string name="title_rule_tts_ok">Kurulum tamam</string>
+    <string name="title_rule_tts_setup">Kurulumu kontrol et</string>
+    <string name="title_rule_tts_data">Ses verisini kur</string>
     <string name="title_rule_tts_prefix">Yeni ileti</string>
     <string name="title_rule_tts_from">Gönderen</string>
     <string name="title_rule_tts_subject">Konu</string>
@@ -1136,13 +1199,18 @@
     <string name="title_legend_section_compose">Eposta Oluştur</string>
     <string name="title_legend_section_keyboard">Klavye</string>
     <string name="title_legend_oauth">OAuth yetkilendirmesi</string>
+    <string name="title_legend_folder_connected">Klasör bağlandı</string>
+    <string name="title_legend_folder_disconnected">Klasör bağlantısı kesildi</string>
     <string name="title_legend_download_on">İleti içeriğini otomatik olarak indir</string>
     <string name="title_legend_download_off">İleti içeriğini istendiğinde indir</string>
     <string name="title_legend_synchronize_on">Eşzamanlama açık</string>
     <string name="title_legend_synchronize_off">Eşzamanlama kapalı</string>
+    <string name="title_legend_synchronize_poll">Periyodik olarak senkronize et</string>
     <string name="title_legend_disconnected">Bağlantı kesildi</string>
     <string name="title_legend_connecting">Bağlanıyor</string>
     <string name="title_legend_connected">Bağlandı</string>
+    <string name="title_legend_backoff">Başarısızlıktan sonra bekle</string>
+    <string name="title_legend_quota">Posta kutusu neredeyse dolu</string>
     <string name="title_legend_executing">İşlemler uygulanıyor</string>
     <string name="title_legend_synchronizing">Eşzamanlama yapılıyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
@@ -1163,6 +1231,7 @@
     <string name="title_legend_download_fetch">İndirilen iletilerin / alınan başlıkların sayısı</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_thread">Söyleşi</string>
+    <string name="title_legend_bookmark">Son açılan konuşma</string>
     <string name="title_legend_zoom">Metin boyutunu değiştir</string>
     <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_priority">Yüksek önceliğe sahip</string>
@@ -1173,12 +1242,14 @@
     <string name="title_legend_encrypted">Şifrelenmiş</string>
     <string name="title_legend_auth">Kimlik doğrulama başarısız</string>
     <string name="title_legend_found">Bulundu</string>
+    <string name="title_legend_classified">Otomatik olarak sınıflandırıldı</string>
     <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_browsed">Gözatılmış ve aranmış</string>
     <string name="title_legend_answered">Yanıtlandı</string>
     <string name="title_legend_forwarded">İletildi</string>
     <string name="title_legend_plain_only">Sadece düz metin mi</string>
     <string name="title_legend_receipt">Alındı belgesi istendi</string>
+    <string name="title_legend_auto_submitted">Otomatik olarak gönderildi</string>
     <string name="title_legend_attachment">Eki var</string>
     <string name="title_legend_flagged">Sık kullanılan</string>
     <string name="title_legend_contacts">Rehberi yönet</string>
@@ -1186,6 +1257,8 @@
     <string name="title_legend_view">İçeriği görüntüle</string>
     <string name="title_legend_hide">İçeriği gizle</string>
     <string name="title_legend_download">İçeriği indir</string>
+    <string name="title_legend_original">Orijinal mesajı görüntüle</string>
+    <string name="title_legend_reformatted">Yeniden biçimlendirilmiş mesajı görüntüle</string>
     <string name="title_legend_external_image">Harici resim vekili</string>
     <string name="title_legend_embedded_image">İliştirilmiş resim vekili</string>
     <string name="title_legend_tracking_pixel">İzleme görseli</string>
@@ -1200,6 +1273,7 @@
     <string name="title_legend_bold">Metni kalın harf yap</string>
     <string name="title_legend_italic">Metni eğik yazı yap</string>
     <string name="title_legend_underline">Tetnin altını çiz</string>
+    <string name="title_legend_text_style">Metin tarzı ayarla</string>
     <string name="title_legend_metered">Bağlantı ölçülü</string>
     <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_legend_roaming">Gezeleme</string>
@@ -1238,13 +1312,18 @@
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
     <string name="title_hint_important">Önemli</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
+    <string name="title_hint_sync_note">Varsayılan olarak, tüm mesajlar depolama alanını, batarya ve veri kullanımını sınırlamak için indirilemez. Bunu, klasör listesinde bir klasöre uzun basarak ve \'Daha fazlasını senkronize et\' seçerek değiştirebilirsiniz.</string>
     <string name="title_hint_battery">FairEmail varsayılan olarak her zaman mesaj aldığından, Android FairEmail\'in her zaman etkin olduğunu bildirecektir. Bu nedenle, FairEmail sürekli pil gücünü kullanıyor gibi görünebilir, ancak aslında durum böyle değildir.</string>
+    <string name="title_hint_reformat">Varsayılan olarak, FairEmail gizlilik ve güvenlik nedeniyle mesajları yeniden biçimlendirir. Orijinal mesajı görüntülemek için, mesaj metninin üstündeki \'tam ekran\' simgesine dokunun.</string>
+    <string name="title_hint_design">Tasarım kasıtlı olarak rahatsız edici değil, ancak çok işlevsel tutulur. Görünüşü özelleştirmek için birçok seçenek vardır, ancak lütfen herkesi aynı anda mutlu etmenin imkansız olduğunu anlayın.</string>
+    <string name="title_hint_junk">Spam filtreleme e-posta sunucusu tarafından yapılmalıdır ve sınırlı özelliklere sahip pille çalışan bir cihazda güvenilir bir şekilde yapılamaz.</string>
     <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
     <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir. Tüm içeriği görüntülemek için ham iletiyi işlem çubuğundaki kaydet simgesiyle kaydedin.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_image_link">Görsel bağlantısı</string>
     <string name="title_different_link">Başlık ve link adresi farklı</string>
     <string name="title_tracking_link">Bu web sitesi sizi takip edebilir</string>
+    <string name="title_suspicious_link">Bu bağlantı şüpheli</string>
     <string name="title_link_http">Trafik şifrelenmeyecek</string>
     <string name="title_link_https">Trafik şifrelenecek</string>
     <string name="title_sanitize_link">İzleme etkenlerini kaldır</string>
@@ -1269,8 +1348,10 @@
     <string name="title_enable">Etkin</string>
     <string name="title_enabled">Etkin</string>
     <string name="title_disable">Devredışı</string>
+    <string name="title_keep_current">Güncel tut</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
+    <string name="title_default_changed">Varsayılan değişti</string>
     <string name="title_clipboard_copy">Panoya kopyala</string>
     <string name="title_clipboard_copied">Panoya kopyalandı</string>
     <string name="title_ask_what">Ne yapılacağını sor</string>
@@ -1301,28 +1382,47 @@
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>
     <string name="title_pro_purchase">Satın al</string>
+    <string name="title_pro_one_time">%1$s (bir kerelik satın alma)</string>
+    <string name="title_pro_no_play">Play Store bulunamadı</string>
+    <string name="title_pro_info">        FairEmail\'i geliştirmek, kelimenin tam anlamıyla binlerce saat sürdü ve buna rağmen, özelliklerin çoğu kullanımı özgürdür.
+        Fairemail gizliliğinizi ciddiye alır ve reklamlar göstermez ve para kazanmak için izleme veya analitik kullanmaz.
+        Fairemail\'i uzun vadede korumak ve desteklemek için, bazı kolaylıklar ve gelişmiş özellikler kullanmakta ücretsizdir.
+        FairEmail, Pro özelliklerini satın alırsanız, bunu hatırlatmak için küçük bir mesajı gösterir.
+    </string>
+    <string name="title_pro_hide">%1$d hafta küçük mesajı gizle</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
     <string name="title_pro_price">Pro sürümleri neden bu kadar pahalı?</string>
+    <string name="title_pro_family">Google Play Aile Kütüphanesini kullanabilir miyim?</string>
     <string name="title_pro_restore">Satın alım işlemlerimi nasıl geri yüklerim?</string>
     <string name="title_pro_pending">Satın alma beklemede</string>
     <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_invalid">Geçersiz yanıt</string>
+    <string name="title_pro_support">FairEmail\'in yardımına ihtiyacı var. Projeyi devam ettirmek veya bu mesajı kapatmak için Pro özelliklerini satın almak için dokunun.</string>
     <string name="title_boundary_error">Posta sunucusundan mesajlar indirilirken hata oluştu</string>
     <string name="title_boundary_retry">Tekrar deneyiniz</string>
     <string name="title_unexpected_error">Beklenmedik hata</string>
     <string name="title_log">Kayıt defteri</string>
     <string name="title_auto_scroll">Otomatik kaydırma</string>
     <string name="title_log_clear">Temizle</string>
+    <string name="title_rules_search_hint">Arama adı veya durumu</string>
+    <string name="title_rules_export">Dışa aktarma kuralları</string>
+    <string name="title_rules_import">İçe aktarma kuralları</string>
     <string name="title_rules_delete_all">Kuralları sil</string>
     <string name="title_rules_delete_junk">Spam kurallarını sil</string>
     <string name="title_rules_delete_all_confirm">Tüm kuralları sil?</string>
+    <string name="title_rules_delete_junk_confirm">Spam klasöründeki tüm mesaj taşıma kuralları silinsin mi?</string>
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
+    <string name="title_unexpected_info_remark">Lütfen hatayı aldığınızda ne yaptığınızı açıklayın:</string>
     <string name="title_widget_title_count">Yeni mesaj sayısı</string>
     <string name="title_widget_title_list">Mesaj listesi</string>
+    <string name="title_widget_title_sync">Snkr aç/kapat</string>
+    <string name="title_power_menu_sync">Senkronizasyon</string>
+    <string name="title_power_menu_on">Açık</string>
     <string name="title_power_menu_off">Kapalı</string>
+    <string name="title_power_menu_on_off">Aç/Kapat</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_folder">Klasör</string>
@@ -1436,7 +1536,7 @@
         <item>Başlangıçta</item>
         <item>Ortada</item>
         <item>Sonunda</item>
-        <item>Show untruncated</item>
+        <item>Gazileyen göster</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Düşük</item>
@@ -1458,8 +1558,8 @@
     </string-array>
     <string-array name="receiptNames">
         <item>Sadece okundu bilgisi</item>
-        <item>Delivery receipt only</item>
-        <item>Read+delivery receipt</item>
+        <item>Yalnızca teslimat makbuzu</item>
+        <item>Okuma+Teslimat Makbuzu</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Metnin üstünde</item>
@@ -1496,8 +1596,13 @@
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace (sabit genişlikli)</item>
-        <item>Fantasy</item>
+        <item>Fantezi</item>
         <item>OpenDyslexic</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Yalnızca isim</item>
+        <item>Sadece e-posta</item>
+        <item>İsim ve e-posta</item>
+    </string-array>
 </resources>

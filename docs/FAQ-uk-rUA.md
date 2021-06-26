@@ -4,7 +4,7 @@
 
 Якщо у вас виникли питання, будь ласка, спочатку перевірте наступні питання, що часто задавалися. [Знизу](#user-content-get-support), ви можете дізнатися, як ставити інші питання, створювати запити на фукції та повідомити про помилки.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Якщо у вас є запитання, спершу ознайомтесь із найпоширенішими запитаннями. [ Нижче ви можете знайти ](#user-content-get-support), як можна задавати подальші запитання, запитувати функції та повідомляти про помилки.
 
 ## Перелік
 
@@ -18,15 +18,15 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 <h2><a name="authorizing-accounts"></a>Авторизація облікового акаунту</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+У більшості випадків, майстер швидкого налаштування зможе автоматично визначити правильну конфігурацію.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Якщо швидкі налаштування не вдалось виконати, Вам потрібно буде вручну створити обліковий запис (для отримання електронної пошти) та посвідчення особи (для надсилання електронної пошти). Для цього Вам знадобляться адреси серверів IMAP, SMTP та номери портів, слід використовувати порти SSL/TLS або STARTTLS також потрібне Ваше ім’я користувача (зазвичай, але не завжди, це Ваша електронна адреса) та Ваш пароль.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Пошук *IMAP* і ім'я постачальника переважно достатньо для пошуку потрібної документації.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+У деяких випадках вам потрібно буде ввімкнути зовнішній доступ до свого облікового запису та/або використовувати спеціальний (додаток) пароль, наприклад, коли увімкнено двофакторну автентифікацію.
 
-For authorizing:
+Для авторизації:
 
 * Gmail / G набори, дивіться [питання 6](#user-content-faq6)
 * Outlook / Live / Hotmail, дивіться[питання14](#user-content-faq14)
@@ -36,7 +36,7 @@ For authorizing:
 * Apple iCloud, див. [питання 148](#user-content-faq148)
 * Free.fr, див. [питання 157](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Будь ласка, перегляньте [ тут ](#user-content-faq22), щоб отримати поширені повідомлення про помилки та способи їх усунення.
 
 Related questions:
 

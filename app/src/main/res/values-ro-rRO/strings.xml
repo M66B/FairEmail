@@ -118,6 +118,7 @@
     <string name="title_agree">Sunt de acord</string>
     <string name="title_disagree">Nu sunt de acord</string>
     <string name="title_version">Versiunea %1$s</string>
+    <string name="title_privacy_policy">Politica de confidențialitate</string>
     <string name="title_list_accounts">Conturi</string>
     <string name="title_list_identities">Identități</string>
     <string name="title_edit_account">Editare cont</string>
