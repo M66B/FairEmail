@@ -3159,6 +3159,7 @@ class Core {
         // Find message by Message-ID (slow, headers required)
         // - messages in inbox have same id as message sent to self
         // - messages in archive have same id as original
+        boolean have = false;
         Integer color = null;
         String notes = null;
         Integer notes_color = null;
@@ -3171,6 +3172,9 @@ class Core {
                 Log.i(folder.name + " found as id=" + dup.id + "/" + dup.uid +
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                         " msgid=" + dup.msgid + " thread=" + dup.thread);
+
+                if (!EntityFolder.JUNK.equals(dfolder.type))
+                    have = true;
 
                 if (dup.folder.equals(folder.id)) {
                     String thread = helper.getThreadId(context, account.id, uid);
@@ -3395,7 +3399,7 @@ class Core {
 
                 runRules(context, imessage, account, folder, message, rules);
 
-                if (message.blocklist != null && message.blocklist) {
+                if (!have && message.blocklist != null && message.blocklist) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
                     if (use_blocklist) {
                         EntityLog.log(context, "Block list" +
