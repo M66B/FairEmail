@@ -203,27 +203,24 @@ public class DnsBlockList {
         }
         long elapsed = new Date().getTime() - start;
 
+        boolean blocked = false;
         if (result != null && responses.length > 0) {
-            boolean blocked = false;
             for (InetAddress response : responses)
                 if (response.equals(result)) {
                     blocked = true;
                     break;
                 }
-            if (!blocked) {
-                Log.w("isJunk" +
-                        " lookup=" + lookup +
-                        " result=" + result +
-                        " elapsed=" + elapsed);
+            if (!blocked)
                 result = null;
-            }
         }
 
-        Log.i("isJunk" +
-                " " + lookup + "=" + (result == null ? "false" : result) +
+        Log.w("isJunk" +
+                " lookup=" + lookup +
+                " result=" + (result == null ? null : result.getHostAddress()) +
+                " blocked=" + blocked +
                 " elapsed=" + elapsed);
 
-        return (result != null);
+        return blocked;
     }
 
     private static class CacheEntry {
