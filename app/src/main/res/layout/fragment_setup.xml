@@ -96,7 +96,6 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:contentDescription="1"
-                    android:tint="?attr/colorAccent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/twotone_looks_one_24" />
@@ -461,7 +460,6 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:contentDescription="2"
-                    android:tint="?attr/colorAccent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/twotone_looks_two_24" />
@@ -536,7 +534,6 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:contentDescription="3"
-                    android:tint="?attr/colorAccent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/twotone_looks_3_24" />
