@@ -345,7 +345,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("check_blocklist", checked).apply();
                 swUseBlocklist.setEnabled(checked);
-                rvBlocklist.setVisibility(checked ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -457,7 +456,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swCheckReply.setChecked(prefs.getBoolean("check_reply_domain", true));
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
         swCheckBlocklist.setChecked(prefs.getBoolean("check_blocklist", false));
-        rvBlocklist.setVisibility(swCheckBlocklist.isChecked() ? View.VISIBLE : View.GONE);
         swUseBlocklist.setChecked(prefs.getBoolean("use_blocklist", false));
         swUseBlocklist.setEnabled(swCheckBlocklist.isChecked());
         swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
