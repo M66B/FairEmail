@@ -24,7 +24,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 
 * [ipinfo.io](https://ipinfo.io/) &#8211; [Privacy policy](https://ipinfo.io/privacy-policy)
 * [Gravatar](https://gravatar.com/) &#8211; [Privacy policy](https://automattic.com/privacy/)
-* [Spamhaus zen](https://www.spamhaus.org/zen/) &#8211; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
+* [Spamhaus](https://www.spamhaus.org/) &#8211; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
 * [Spamcop](https://www.spamcop.net/) &#8211; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
 * [Thunderbird autoconfiguration](https://developer.mozilla.org/docs/Mozilla/Thunderbird/Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
 
