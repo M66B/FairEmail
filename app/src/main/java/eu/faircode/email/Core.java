@@ -4561,6 +4561,8 @@ class Core {
                 actionReply.addRemoteInput(input.build())
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionReply.build());
+
+                wactions.add(actionReply.build());
             }
 
             if (notify_flag) {
