@@ -1295,6 +1295,8 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void convertRef(boolean plain) {
+                etBody.clearComposingText();
+
                 Bundle args = new Bundle();
                 args.putLong("id", working);
                 args.putBoolean("plain", plain);
@@ -1379,6 +1381,8 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void deleteRef() {
+                etBody.clearComposingText();
+
                 Bundle extras = new Bundle();
                 extras.putString("html", HtmlHelper.toHtml(etBody.getText(), getContext()));
                 extras.putBoolean("show", true);
@@ -2039,6 +2043,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuAnswerCreate() {
+        etBody.clearComposingText();
+
         Bundle args = new Bundle();
         args.putString("subject", etSubject.getText().toString());
         args.putString("html", HtmlHelper.toHtml(etBody.getText(), getContext()));
@@ -2553,6 +2559,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAddAttachment(List<Uri> uris, boolean image, int resize, boolean privacy) {
+        etBody.clearComposingText();
+
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelableArrayList("uris", new ArrayList<>(uris));
