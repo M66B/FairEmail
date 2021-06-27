@@ -2131,13 +2131,12 @@ public class HtmlHelper {
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
-        final int dp3 = Helper.dp2pixels(context, 3);
-        final int dp6 = Helper.dp2pixels(context, 6);
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
         int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
         int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
         int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
         int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
+        int line_dash_length = context.getResources().getDimensionPixelSize(R.dimen.line_dash_length);
 
         int message_zoom = prefs.getInt("message_zoom", 100);
         float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
@@ -2456,7 +2455,7 @@ public class HtmlHelper {
 
                                 boolean dashed = "true".equals(element.attr("x-dashed"));
                                 float stroke = context.getResources().getDisplayMetrics().density;
-                                float dash = (dashed ? dp3 : 0f);
+                                float dash = (dashed ? line_dash_length : 0f);
                                 ssb.append(LINE);
                                 setSpan(ssb, new LineSpan(colorSeparator, stroke, dash), start, ssb.length());
                                 break;
