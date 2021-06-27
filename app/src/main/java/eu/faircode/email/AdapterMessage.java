@@ -305,6 +305,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
     private static final int MAX_QUOTE_LEVEL = 3;
+    private static final int MAX_TRANSLATABLE_TEXT_SIZE = 50 * 1024;
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
@@ -6679,6 +6680,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String html = Helper.readText(file);
                     Document d = HtmlHelper.sanitizeCompose(context, html, false);
                     d.select("blockquote").remove();
+                    HtmlHelper.truncate(d, MAX_TRANSLATABLE_TEXT_SIZE);
                     SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
                     return ssb.toString()
                             .replace("\uFFFC", "") // Object replacement character
