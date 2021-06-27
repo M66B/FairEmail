@@ -597,16 +597,11 @@ public class ContactInfo {
                 if (t != 0)
                     return t;
 
-                // TODO: multiple sizes
-                String[] s1 = img1.attr("sizes").split("[x|X]");
-                String[] s2 = img2.attr("sizes").split("[x|X]");
-                Integer w1 = Helper.parseInt(s1.length == 2 ? s1[0] : null);
-                Integer h1 = Helper.parseInt(s1.length == 2 ? s1[1] : null);
-                Integer w2 = Helper.parseInt(s2.length == 2 ? s2[0] : null);
-                Integer h2 = Helper.parseInt(s2.length == 2 ? s2[1] : null);
+                int s1 = getSize(img1.attr("sizes"));
+                int s2 = getSize(img2.attr("sizes"));
                 return Integer.compare(
-                        Math.abs(Math.min(w1 == null ? 0 : w1, h1 == null ? 0 : h1) - scaleToPixels),
-                        Math.abs(Math.min(w2 == null ? 0 : w2, h2 == null ? 0 : h2) - scaleToPixels));
+                        Math.abs(s1 - scaleToPixels),
+                        Math.abs(s2 - scaleToPixels));
             }
         });
 
@@ -646,6 +641,25 @@ public class ContactInfo {
             }
 
         return null;
+    }
+
+    private static int getSize(String sizes) {
+        int max = 0;
+        for (String size : sizes.split(" ")) {
+            int min = Integer.MAX_VALUE;
+            for (String p : size.trim().split("[x|X]"))
+                try {
+                    int x = Integer.parseInt(p);
+                    if (x < min)
+                        min = x;
+                } catch (NumberFormatException ex) {
+                    Log.w(ex);
+                }
+            if (min != Integer.MAX_VALUE && min > max)
+                max = min;
+        }
+
+        return max;
     }
 
     @NonNull
