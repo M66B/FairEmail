@@ -6745,10 +6745,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     SpannableStringBuilder ssb = new SpannableStringBuilder(tvText.getText());
                                     int start = ssb.getSpanStart(mark);
                                     int end = ssb.getSpanEnd(mark);
+                                    int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+
                                     ssb.removeSpan(mark);
+
                                     ssb = ssb.replace(start, end, translation.translated_text);
-                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC),
-                                            start, start + translation.translated_text.length(), 0);
+                                    end = start + translation.translated_text.length();
+
+                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, end, 0);
+                                    ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, end, 0);
+
                                     tvText.setText(ssb);
                                 }
 
