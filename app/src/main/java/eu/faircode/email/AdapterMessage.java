@@ -70,6 +70,7 @@ import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
+import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -6655,14 +6656,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Context context = getContext();
             final View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate, null);
-            final TextView tvTranslated = view.findViewById(R.id.tvTranslated);
-            final TextView tvLanguage = view.findViewById(R.id.tvLanguage);
+            final TextView tvText = view.findViewById(R.id.tvText);
             final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
 
-            tvTranslated.setText(null);
-            tvLanguage.setText(null);
+            tvText.setText(null);
 
-            new SimpleTask<DeepL.Translation>() {
+            new SimpleTask<String>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
                     pbWait.setVisibility(View.VISIBLE);
@@ -6674,28 +6673,93 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @Override
-                protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                protected String onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
 
                     File file = EntityMessage.getFile(context, id);
                     Document d = JsoupEx.parse(file);
-                    HtmlHelper.truncate(d, MAX_TRANSLATE);
-
-                    String text = d.text();
-                    String language = DeepL.getCurrentLanguage(context);
-                    return DeepL.translate(text, language, context);
+                    d.select("blockquote").remove();
+                    return HtmlHelper.getText(context, d.html());
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, DeepL.Translation translation) {
-                    tvTranslated.setText(translation.translated_text);
-                    tvLanguage.setText(getString(R.string.title_from_to,
-                            translation.detected_language, translation.target_language));
+                protected void onExecuted(Bundle args, String text) {
+                    tvText.setText(text);
+                    tvText.setMovementMethod(new ArrowKeyMovementMethod() {
+                        private boolean running = false;
+
+                        @Override
+                        public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+                            if (event.getAction() == MotionEvent.ACTION_UP && !running)
+                                translate(widget, buffer, event);
+                            return super.onTouchEvent(widget, buffer, event);
+                        }
+
+                        private void translate(TextView widget, Spannable buffer, MotionEvent event) {
+                            int off = Helper.getOffset(widget, buffer, event);
+
+                            int start = off;
+                            while (start > 0 && buffer.charAt(start - 1) != '\n')
+                                start--;
+
+                            int end = off;
+                            while (end < buffer.length() && buffer.charAt(end) != '\n')
+                                end++;
+
+                            if (end <= start)
+                                return;
+
+                            StyleSpan[] spans = buffer.getSpans(start, end, StyleSpan.class);
+                            if (spans != null && spans.length > 0)
+                                return;
+
+                            Bundle args = new Bundle();
+                            args.putInt("start", start);
+                            args.putInt("end", end);
+                            args.putString("text", buffer.subSequence(start, end).toString());
+
+                            new SimpleTask<DeepL.Translation>() {
+                                @Override
+                                protected void onPreExecute(Bundle args) {
+                                    running = true;
+                                    pbWait.setVisibility(View.VISIBLE);
+                                }
+
+                                @Override
+                                protected void onPostExecute(Bundle args) {
+                                    running = false;
+                                    pbWait.setVisibility(View.GONE);
+                                }
+
+                                @Override
+                                protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                                    String text = args.getString("text");
+                                    String language = DeepL.getCurrentLanguage(context);
+                                    return DeepL.translate(text, language, context);
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, DeepL.Translation translation) {
+                                    int start = args.getInt("start");
+                                    int end = args.getInt("end");
+                                    SpannableStringBuilder ssb = new SpannableStringBuilder(buffer);
+                                    ssb = ssb.replace(start, end, translation.translated_text);
+                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, start + translation.translated_text.length(), 0);
+                                    tvText.setText(ssb);
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    tvText.setText(ex.toString());
+                                }
+                            }.execute(FragmentDialogTranslate.this, args, "paragraph:translate");
+                        }
+                    });
                 }
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    tvTranslated.setText(ex.toString());
+                    tvText.setText(ex.toString());
                 }
             }.execute(this, getArguments(), "message:translate");
 
