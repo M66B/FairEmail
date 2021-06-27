@@ -7260,7 +7260,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     String[] xpep = imessage.getHeader("X-pEp-Wrapped-Message-Info");
-                    if (xpep == null || xpep.length == 0 && !"INNER".equalsIgnoreCase(xpep[0]))
+                    if (xpep == null || xpep.length == 0 || !"INNER".equalsIgnoreCase(xpep[0]))
                         continue;
 
                     MessageHelper helper = new MessageHelper(imessage, context);
