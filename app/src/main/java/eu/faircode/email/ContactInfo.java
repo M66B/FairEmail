@@ -647,7 +647,9 @@ public class ContactInfo {
         int max = 0;
         for (String size : sizes.split(" ")) {
             int min = Integer.MAX_VALUE;
-            for (String p : size.trim().split("[x|X]"))
+            for (String p : size.trim().split("[x|X]")) {
+                if (TextUtils.isEmpty(p))
+                    continue;
                 try {
                     int x = Integer.parseInt(p);
                     if (x < min)
@@ -655,6 +657,7 @@ public class ContactInfo {
                 } catch (NumberFormatException ex) {
                     Log.w(ex);
                 }
+            }
             if (min != Integer.MAX_VALUE && min > max)
                 max = min;
         }
