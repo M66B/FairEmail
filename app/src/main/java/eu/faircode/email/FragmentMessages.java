@@ -4205,6 +4205,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean filter_snoozed = prefs.getBoolean(getFilter("snoozed", type), true);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", true);
         boolean language_detection = prefs.getBoolean("language_detection", false);
+        String filter_language = prefs.getString("filter_language", null);
         boolean compact = prefs.getBoolean("compact", false);
         boolean quick_filter = prefs.getBoolean("quick_filter", false);
 
@@ -4216,7 +4217,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 (viewType == AdapterMessage.ViewType.UNIFIED ||
                         (viewType == AdapterMessage.ViewType.FOLDER && !outbox));
 
-        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown);
+        boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
+                (language_detection && !TextUtils.isEmpty(filter_language)));
         MenuItem menuFilter = menu.findItem(R.id.menu_filter);
         menuFilter.setShowAsAction(folder && filter_active
                 ? MenuItem.SHOW_AS_ACTION_ALWAYS
@@ -4283,12 +4285,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
         menu.findItem(R.id.menu_filter_unknown).setChecked(filter_unknown);
         menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
+        menu.findItem(R.id.menu_filter_language).setVisible(language_detection && folder);
         menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
 
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
-        menu.findItem(R.id.menu_select_language).setVisible(language_detection && folder);
         menu.findItem(R.id.menu_select_all).setVisible(folder);
         menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
@@ -4374,6 +4376,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         } else if (itemId == R.id.menu_filter_snoozed) {
             onMenuFilter(getFilter("snoozed", type), !item.isChecked());
             return true;
+        } else if (itemId == R.id.menu_filter_language) {
+            onMenuFilterLanguage();
+            return true;
         } else if (itemId == R.id.menu_filter_duplicates) {
             onMenuFilterDuplicates(!item.isChecked());
             return true;
@@ -4385,9 +4390,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return true;
         } else if (itemId == R.id.menu_theme) {
             onMenuTheme();
-            return true;
-        } else if (itemId == R.id.menu_select_language) {
-            onMenuSelectLanguage();
             return true;
         } else if (itemId == R.id.menu_select_all || itemId == R.id.menu_select_found) {
             onMenuSelectAll();
@@ -4482,48 +4484,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         loadMessages(true);
     }
 
-    private void onMenuFilterDuplicates(boolean filter) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("filter_duplicates", filter).apply();
-        getActivity().invalidateOptionsMenu();
-        adapter.setFilterDuplicates(filter);
-    }
-
-    private void onMenuZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
-        zoom = ++zoom % 3;
-        prefs.edit().putInt("view_zoom", zoom).apply();
-        clearMeasurements();
-        adapter.setZoom(zoom);
-    }
-
-    private void onMenuCompact() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = !prefs.getBoolean("compact", false);
-        prefs.edit().putBoolean("compact", compact).apply();
-
-        int zoom = (compact ? 0 : 1);
-        prefs.edit().putInt("view_zoom", zoom).apply();
-
-        adapter.setCompact(compact);
-        adapter.setZoom(zoom);
-        clearMeasurements();
-        getActivity().invalidateOptionsMenu();
-    }
-
-    private void onMenuTheme() {
-        new FragmentDialogTheme().show(getParentFragmentManager(), "messages:theme");
-    }
-
-    private void clearMeasurements() {
-        sizes.clear();
-        heights.clear();
-        positions.clear();
-    }
-
-    private void onMenuSelectLanguage() {
+    private void onMenuFilterLanguage() {
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putLong("folder", folder);
@@ -4571,6 +4532,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (activity != null)
                             activity.invalidateOptionsMenu();
 
+                        if (selectionTracker != null)
+                            selectionTracker.clearSelection();
+
                         loadMessages(true);
 
                         return true;
@@ -4584,6 +4548,47 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "menu:language");
+    }
+
+    private void onMenuFilterDuplicates(boolean filter) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("filter_duplicates", filter).apply();
+        getActivity().invalidateOptionsMenu();
+        adapter.setFilterDuplicates(filter);
+    }
+
+    private void onMenuZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
+        zoom = ++zoom % 3;
+        prefs.edit().putInt("view_zoom", zoom).apply();
+        clearMeasurements();
+        adapter.setZoom(zoom);
+    }
+
+    private void onMenuCompact() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = !prefs.getBoolean("compact", false);
+        prefs.edit().putBoolean("compact", compact).apply();
+
+        int zoom = (compact ? 0 : 1);
+        prefs.edit().putInt("view_zoom", zoom).apply();
+
+        adapter.setCompact(compact);
+        adapter.setZoom(zoom);
+        clearMeasurements();
+        getActivity().invalidateOptionsMenu();
+    }
+
+    private void onMenuTheme() {
+        new FragmentDialogTheme().show(getParentFragmentManager(), "messages:theme");
+    }
+
+    private void clearMeasurements() {
+        sizes.clear();
+        heights.clear();
+        positions.clear();
     }
 
     private void onMenuSelectAll() {

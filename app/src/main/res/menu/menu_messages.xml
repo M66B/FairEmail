@@ -95,6 +95,12 @@
                 android:title="@string/title_filter_hidden" />
 
             <item
+                android:id="@+id/menu_filter_language"
+                android:title="@string/title_select_language">
+                <menu />
+            </item>
+
+            <item
                 android:id="@+id/menu_filter_duplicates"
                 android:checkable="true"
                 android:title="@string/title_filter_duplicates" />
@@ -116,13 +122,6 @@
     <item
         android:id="@+id/menu_theme"
         android:title="@string/title_setup_theme"
-        app:showAsAction="never">
-        <menu />
-    </item>
-
-    <item
-        android:id="@+id/menu_select_language"
-        android:title="@string/title_select_language"
         app:showAsAction="never">
         <menu />
     </item>
