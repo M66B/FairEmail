@@ -305,7 +305,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
     private static final int MAX_QUOTE_LEVEL = 3;
-    private static final int MAX_TRANSLATE = 1000; // characters
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
@@ -6677,20 +6676,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     long id = args.getLong("id");
 
                     File file = EntityMessage.getFile(context, id);
-                    Document d = JsoupEx.parse(file);
+                    String html = Helper.readText(file);
+                    Document d = HtmlHelper.sanitizeCompose(context, html, false);
                     d.select("blockquote").remove();
-                    return HtmlHelper.getText(context, d.html());
+                    SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
+                    return ssb.toString()
+                            .replace("\uFFFC", "") // Object replacement character
+                            .replaceAll("\n\\s+\n", "\n")
+                            .replaceAll("\n+", "\n\n");
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, String text) {
                     tvText.setText(text);
-                    tvText.setMovementMethod(new ArrowKeyMovementMethod() {
-                        private boolean running = false;
 
+                    tvText.setMovementMethod(new ArrowKeyMovementMethod() {
                         @Override
                         public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
-                            if (event.getAction() == MotionEvent.ACTION_UP && !running)
+                            if (event.getAction() == MotionEvent.ACTION_UP)
                                 translate(widget, buffer, event);
                             return super.onTouchEvent(widget, buffer, event);
                         }
@@ -6703,7 +6706,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 start--;
 
                             int end = off;
-                            while (end < buffer.length() && buffer.charAt(end) != '\n')
+                            while (end < buffer.length() && buffer.charAt(end - 1) != '\n')
                                 end++;
 
                             if (end <= start)
@@ -6713,21 +6716,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (spans != null && spans.length > 0)
                                 return;
 
+                            final StyleSpan mark = new StyleSpan(Typeface.ITALIC);
+                            buffer.setSpan(mark, start, end, 0);
+
                             Bundle args = new Bundle();
-                            args.putInt("start", start);
-                            args.putInt("end", end);
                             args.putString("text", buffer.subSequence(start, end).toString());
 
                             new SimpleTask<DeepL.Translation>() {
                                 @Override
                                 protected void onPreExecute(Bundle args) {
-                                    running = true;
                                     pbWait.setVisibility(View.VISIBLE);
                                 }
 
                                 @Override
                                 protected void onPostExecute(Bundle args) {
-                                    running = false;
                                     pbWait.setVisibility(View.GONE);
                                 }
 
@@ -6740,11 +6742,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onExecuted(Bundle args, DeepL.Translation translation) {
-                                    int start = args.getInt("start");
-                                    int end = args.getInt("end");
-                                    SpannableStringBuilder ssb = new SpannableStringBuilder(buffer);
+                                    SpannableStringBuilder ssb = new SpannableStringBuilder(tvText.getText());
+                                    int start = ssb.getSpanStart(mark);
+                                    int end = ssb.getSpanEnd(mark);
+                                    ssb.removeSpan(mark);
                                     ssb = ssb.replace(start, end, translation.translated_text);
-                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, start + translation.translated_text.length(), 0);
+                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC),
+                                            start, start + translation.translated_text.length(), 0);
                                     tvText.setText(ssb);
                                 }
 
@@ -6765,7 +6769,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(view)
-                    .setPositiveButton(android.R.string.ok, null);
+                    .setPositiveButton(android.R.string.cancel, null);
 
             return builder.create();
         }
