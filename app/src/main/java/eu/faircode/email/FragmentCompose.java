@@ -755,21 +755,21 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("target", target);
                 args.putString("text", text);
 
-                new SimpleTask<String>() {
+                new SimpleTask<DeepL.Translation>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ToastEx.makeText(getContext(), R.string.title_translating, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
-                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                    protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
                         String target = args.getString("target");
                         String text = args.getString("text");
                         return DeepL.translate(text, target, context);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, String translated) {
+                    protected void onExecuted(Bundle args, DeepL.Translation translation) {
                         if (paragraph.second > edit.length())
                             return;
 
@@ -781,8 +781,8 @@ public class FragmentCompose extends FragmentBase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
                         // Insert translated text
-                        edit.insert(paragraph.second, "\n\n" + translated);
-                        etBody.setSelection(paragraph.second + 2 + translated.length());
+                        edit.insert(paragraph.second, "\n\n" + translation.translated_text);
+                        etBody.setSelection(paragraph.second + 2 + translation.translated_text.length());
 
                         boolean small = prefs.getBoolean("deepl_small", false);
                         if (small) {

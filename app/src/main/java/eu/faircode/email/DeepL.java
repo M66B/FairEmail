@@ -62,10 +62,12 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DeepL {
     // https://www.deepl.com/docs-api/
+    private static JSONArray jlanguages = null;
+
     private static final int DEEPL_TIMEOUT = 20; // seconds
 
     // curl https://api-free.deepl.com/v2/languages \
-    //	-d auth_key=42c191db-21ba-9b96-2464-47a9a5e81b4a:fx \
+    //	-d auth_key=... \
     //	-d type=target
 
     public static boolean isAvailable(Context context) {
@@ -81,17 +83,16 @@ public class DeepL {
     }
 
     public static List<Language> getTargetLanguages(Context context) {
-        try (InputStream is = context.getAssets().open("deepl.json")) {
-            String json = Helper.readStream(is);
-            JSONArray jarray = new JSONArray(json);
+        try {
+            ensureLanguages(context);
 
             String pkg = context.getPackageName();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             List<Language> languages = new ArrayList<>();
             Map<String, Integer> frequencies = new HashMap<>();
-            for (int i = 0; i < jarray.length(); i++) {
-                JSONObject jlanguage = jarray.getJSONObject(i);
+            for (int i = 0; i < jlanguages.length(); i++) {
+                JSONObject jlanguage = jlanguages.getJSONObject(i);
                 String name = jlanguage.getString("name");
                 String target = jlanguage.getString("language");
 
@@ -129,6 +130,36 @@ public class DeepL {
         } catch (Throwable ex) {
             Log.e(ex);
             return null;
+        }
+    }
+
+    public static String getCurrentLanguage(Context context) {
+        try {
+            ensureLanguages(context);
+
+            Locale locale = Locale.getDefault();
+            for (int i = 0; i < jlanguages.length(); i++) {
+                JSONObject jlanguage = jlanguages.getJSONObject(i);
+                String language = jlanguage.getString("language");
+                if (language.equalsIgnoreCase(locale.toLanguageTag()) ||
+                        language.equalsIgnoreCase(locale.getLanguage())) {
+                    return language;
+                }
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        return null;
+    }
+
+    private static void ensureLanguages(Context context) throws IOException, JSONException {
+        if (jlanguages != null)
+            return;
+
+        try (InputStream is = context.getAssets().open("deepl.json")) {
+            String json = Helper.readStream(is);
+            jlanguages = new JSONArray(json);
         }
     }
 
@@ -171,7 +202,7 @@ public class DeepL {
         return null;
     }
 
-    public static String translate(String text, String target, Context context) throws IOException, JSONException {
+    public static Translation translate(String text, String target, Context context) throws IOException, JSONException {
         String request =
                 "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
                         "&target_lang=" + URLEncoder.encode(target, StandardCharsets.UTF_8.name());
@@ -212,9 +243,12 @@ public class DeepL {
             if (jtranslations.length() == 0)
                 throw new FileNotFoundException();
             JSONObject jtranslation = (JSONObject) jtranslations.get(0);
-            String detected = jtranslation.getString("detected_source_language");
-            String translated = jtranslation.getString("text");
-            return translated;
+
+            Translation result = new Translation();
+            result.target_language = target;
+            result.detected_language = jtranslation.getString("detected_source_language");
+            result.translated_text = jtranslation.getString("text");
+            return result;
         } finally {
             connection.disconnect();
         }
@@ -273,6 +307,12 @@ public class DeepL {
         }
     }
 
+    public static class Translation {
+        public String detected_language;
+        public String target_language;
+        public String translated_text;
+    }
+
     public static class FragmentDialogDeepL extends FragmentDialogBase {
         @NonNull
         @Override
@@ -324,8 +364,8 @@ public class DeepL {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        if (BuildConfig.DEBUG)
-                            Log.unexpectedError(getParentFragmentManager(), ex);
+                        tvUsage.setText(Log.formatThrowable(ex, false));
+                        tvUsage.setVisibility(View.VISIBLE);
                     }
                 }.execute(this, new Bundle(), "deepl:usage");
             }

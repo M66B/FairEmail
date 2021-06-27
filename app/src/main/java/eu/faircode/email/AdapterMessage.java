@@ -304,6 +304,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
     private static final int MAX_QUOTE_LEVEL = 3;
+    private static final int MAX_TRANSLATE = 1000; // characters
 
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
@@ -443,6 +444,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibEvent;
         private ImageButton ibSearchText;
         private ImageButton ibSearch;
+        private ImageButton ibTranslate;
         private ImageButton ibHide;
         private ImageButton ibSeen;
         private ImageButton ibAnswer;
@@ -675,6 +677,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibEvent = vsBody.findViewById(R.id.ibEvent);
             ibSearchText = vsBody.findViewById(R.id.ibSearchText);
             ibSearch = vsBody.findViewById(R.id.ibSearch);
+            ibTranslate = vsBody.findViewById(R.id.ibTranslate);
             ibHide = vsBody.findViewById(R.id.ibHide);
             ibSeen = vsBody.findViewById(R.id.ibSeen);
             ibAnswer = vsBody.findViewById(R.id.ibAnswer);
@@ -784,6 +787,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibEvent.setOnClickListener(this);
                 ibSearchText.setOnClickListener(this);
                 ibSearch.setOnClickListener(this);
+                ibTranslate.setOnClickListener(this);
+                ibTranslate.setOnLongClickListener(this);
                 ibHide.setOnClickListener(this);
                 ibSeen.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
@@ -905,6 +910,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibEvent.setOnClickListener(null);
                 ibSearchText.setOnClickListener(null);
                 ibSearch.setOnClickListener(null);
+                ibTranslate.setOnClickListener(null);
+                ibTranslate.setOnLongClickListener(null);
                 ibHide.setOnClickListener(null);
                 ibSeen.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
@@ -1382,6 +1389,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibEvent.setVisibility(View.GONE);
             ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
+            ibTranslate.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1591,6 +1599,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibEvent.setVisibility(View.GONE);
             ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
+            ibTranslate.setVisibility(View.GONE);
             ibHide.setVisibility(View.GONE);
             ibSeen.setVisibility(View.GONE);
             ibAnswer.setVisibility(View.GONE);
@@ -1774,6 +1783,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_notes = prefs.getBoolean("button_notes", false);
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_hide = prefs.getBoolean("button_hide", false);
+                    boolean button_translate = prefs.getBoolean("button_translate", false);
                     boolean button_search = prefs.getBoolean("button_search", false);
                     boolean button_search_text = prefs.getBoolean("button_search_text", false);
                     boolean button_event = prefs.getBoolean("button_event", false);
@@ -1801,6 +1811,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
                     ibSearchText.setVisibility(tools && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) && !outbox ? View.VISIBLE : View.GONE);
+                    ibTranslate.setVisibility(tools && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibAnswer.setVisibility(!tools || outbox || (!expand_all && expand_one) ? View.GONE : View.VISIBLE);
@@ -3187,6 +3198,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onSearchText(message);
                 } else if (id == R.id.ibSearch) {
                     onSearchContact(message);
+                } else if (id == R.id.ibTranslate) {
+                    if (DeepL.canTranslate(context))
+                        onActionTranslate(message);
+                    else {
+                        DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
+                        fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
+                    }
                 } else if (id == R.id.ibAnswer) {
                     onActionAnswer(message, ibAnswer);
                 } else if (id == R.id.ibNotes) {
@@ -3343,6 +3361,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return true;
             } else if (id == R.id.ibNotes) {
                 onActionCopyNote(message);
+                return true;
+            } else if (id == R.id.ibTranslate) {
+                DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
+                fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
                 return true;
             } else if (id == R.id.ibFull) {
                 onActionOpenFull(message);
@@ -4829,6 +4851,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogNotes fragment = new FragmentDialogNotes();
             fragment.setArguments(args);
             fragment.show(parentFragment.getParentFragmentManager(), "edit:notes");
+        }
+
+        private void onActionTranslate(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            FragmentDialogTranslate fragment = new FragmentDialogTranslate();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getParentFragmentManager(), "message:translate");
         }
 
         private void onSearchText(TupleMessageEx message) {
@@ -6618,6 +6649,64 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
+    public static class FragmentDialogTranslate extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final Context context = getContext();
+            final View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate, null);
+            final TextView tvTranslated = view.findViewById(R.id.tvTranslated);
+            final TextView tvLanguage = view.findViewById(R.id.tvLanguage);
+            final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
+
+            tvTranslated.setText(null);
+            tvLanguage.setText(null);
+
+            new SimpleTask<DeepL.Translation>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    pbWait.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbWait.setVisibility(View.GONE);
+                }
+
+                @Override
+                protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    File file = EntityMessage.getFile(context, id);
+                    Document d = JsoupEx.parse(file);
+                    HtmlHelper.truncate(d, MAX_TRANSLATE);
+
+                    String text = d.text();
+                    String language = DeepL.getCurrentLanguage(context);
+                    return DeepL.translate(text, language, context);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, DeepL.Translation translation) {
+                    tvTranslated.setText(translation.translated_text);
+                    tvLanguage.setText(getString(R.string.title_from_to,
+                            translation.detected_language, translation.target_language));
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    tvTranslated.setText(ex.toString());
+                }
+            }.execute(this, getArguments(), "message:translate");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, null);
+
+            return builder.create();
+        }
+    }
+
     public static class FragmentDialogKeywordManage extends FragmentDialogBase {
         @NonNull
         @Override
@@ -6931,6 +7020,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbHide = dview.findViewById(R.id.cbHide);
             final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
             final CheckBox cbSearchText = dview.findViewById(R.id.cbSearchText);
+            final CheckBox cbTranslate = dview.findViewById(R.id.cbTranslate);
             final CheckBox cbEvent = dview.findViewById(R.id.cbEvent);
             final CheckBox cbShare = dview.findViewById(R.id.cbShare);
             final CheckBox cbPin = dview.findViewById(R.id.cbPin);
@@ -6939,6 +7029,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbUnsubscribe = dview.findViewById(R.id.cbUnsubscribe);
             final CheckBox cbRule = dview.findViewById(R.id.cbRule);
 
+            cbTranslate.setVisibility(DeepL.isAvailable(context) &&
+                    DeepL.getCurrentLanguage(context) != null
+                    ? View.VISIBLE : View.GONE);
             cbPin.setVisibility(Shortcuts.can(context) ? View.VISIBLE : View.GONE);
 
             cbJunk.setChecked(prefs.getBoolean("button_junk", true));
@@ -6952,6 +7045,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbHide.setChecked(prefs.getBoolean("button_hide", false));
             cbSearch.setChecked(prefs.getBoolean("button_search", false));
             cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
+            cbTranslate.setChecked(prefs.getBoolean("button_translate", false));
             cbEvent.setChecked(prefs.getBoolean("button_event", false));
             cbShare.setChecked(prefs.getBoolean("button_share", false));
             cbPin.setChecked(prefs.getBoolean("button_pin", false));
@@ -6977,6 +7071,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             editor.putBoolean("button_hide", cbHide.isChecked());
                             editor.putBoolean("button_search", cbSearch.isChecked());
                             editor.putBoolean("button_search_text", cbSearchText.isChecked());
+                            editor.putBoolean("button_translate", cbTranslate.isChecked());
                             editor.putBoolean("button_event", cbEvent.isChecked());
                             editor.putBoolean("button_share", cbShare.isChecked());
                             editor.putBoolean("button_pin", cbPin.isChecked());
