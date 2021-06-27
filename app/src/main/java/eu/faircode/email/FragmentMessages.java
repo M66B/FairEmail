@@ -60,6 +60,7 @@ import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainException;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.style.ForegroundColorSpan;
@@ -69,6 +70,7 @@ import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -4489,30 +4491,53 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("account", account);
         args.putLong("folder", folder);
 
-        new SimpleTask<List<String>>() {
+        new SimpleTask<List<Locale>>() {
             @Override
-            protected List<String> onExecute(Context context, Bundle args) {
+            protected List<Locale> onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
                 long folder = args.getLong("folder");
 
                 DB db = DB.getInstance(context);
-                return db.message().getLanguages(account < 0 ? null : account, folder < 0 ? null : folder);
+                List<String> languages = db.message().getLanguages(
+                        account < 0 ? null : account,
+                        folder < 0 ? null : folder);
+
+                List<Locale> locales = new ArrayList<>();
+                for (String language : languages)
+                    locales.add(new Locale(language));
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(locales, new Comparator<Locale>() {
+                    @Override
+                    public int compare(Locale l1, Locale l2) {
+                        return collator.compare(l1.getDisplayLanguage(), l2.getDisplayLanguage());
+                    }
+                });
+
+                return locales;
             }
 
             @Override
-            protected void onExecuted(Bundle args, List<String> languages) {
+            protected void onExecuted(Bundle args, List<Locale> locales) {
                 final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 String current = prefs.getString("filter_language", null);
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
 
-                String all = getString(R.string.title_language_all) + (current == null ? " ★" : "");
+                SpannableStringBuilder all = new SpannableStringBuilder(getString(R.string.title_language_all));
+                if (current == null)
+                    all.setSpan(new StyleSpan(Typeface.BOLD), 0, all.length(), 0);
+
                 popupMenu.getMenu().add(Menu.NONE, 0, 0, all);
 
-                for (int i = 0; i < languages.size(); i++) {
-                    String language = languages.get(i);
-                    Locale locale = new Locale(language);
-                    String title = locale.getDisplayLanguage() + (language.equals(current) ? " ★" : "");
+                for (int i = 0; i < locales.size(); i++) {
+                    Locale locale = locales.get(i);
+                    String language = locale.getLanguage();
+                    SpannableStringBuilder title = new SpannableStringBuilder(locale.getDisplayLanguage());
+                    if (language.equals(current))
+                        title.setSpan(new StyleSpan(Typeface.BOLD), 0, title.length(), 0);
                     popupMenu.getMenu()
                             .add(Menu.NONE, i + 1, i + 1, title)
                             .setIntent(new Intent().putExtra("locale", locale));

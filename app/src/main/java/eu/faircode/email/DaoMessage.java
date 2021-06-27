@@ -602,8 +602,7 @@ public interface DaoMessage {
             " AND (:folder IS NULL OR message.folder = :folder)" +
             " AND NOT message.ui_hide" +
             " AND NOT message.language IS NULL" +
-            " GROUP BY language" +
-            " ORDER BY COUNT(*) DESC")
+            " GROUP BY language")
     List<String> getLanguages(Long account, Long folder);
 
     @Insert
