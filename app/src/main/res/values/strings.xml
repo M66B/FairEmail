@@ -375,7 +375,8 @@
     <string name="title_advanced_landscape3">Show navigation menu in landscape mode by default</string>
     <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_cards">Use card style instead of tabular style</string>
-    <string name="title_advanced_cards_beige">Use beige background when using card style</string>
+    <string name="title_advanced_cards_beige">Use beige background when using card style (light themes only)</string>
+    <string name="title_advanced_tabular_background">Use card color as background color when using tabular style</string>
     <string name="title_advanced_cards_shadow">Use shadow for unread messages when using card style</string>
     <string name="title_advanced_date_header">Group by date</string>
     <string name="title_advanced_date_bold">Show date in bold</string>
@@ -622,7 +623,6 @@
 
     <string name="title_advanced_layout_hint">Switching to a more compact layout and changing the message text size can be done in the top action bar menu in the message view</string>
     <string name="title_advanced_startup_hint">Long press any folder in the folder list to add or remove it from the list of unified folders</string>
-    <string name="title_advanced_beige_hint">Light themes only</string>
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
     <string name="title_advanced_navbar_colorize_hint">Whether this works depends on the Android version and variant</string>
     <string name="title_advanced_split_hint">This will split the screen into parts</string>

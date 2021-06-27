@@ -255,18 +255,24 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean cards = prefs.getBoolean("cards", true);
         boolean beige = prefs.getBoolean("beige", true);
+        boolean tabular_card_bg = prefs.getBoolean("tabular_card_bg", false);
         String theme = prefs.getString("theme", "blue_orange_system");
         boolean dark = Helper.isDarkTheme(context);
         boolean solarized = (theme != null && theme.startsWith("solarized"));
 
-        if (compose) {
-            if (cards && (!dark || solarized))
-                view.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
+        if (cards) {
+            if (compose) {
+                if (!dark || solarized)
+                    view.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
+            } else {
+                if (!dark && !solarized)
+                    view.setBackgroundColor(ContextCompat.getColor(context, beige
+                            ? R.color.lightColorBackground_cards_beige
+                            : R.color.lightColorBackground_cards));
+            }
         } else {
-            if (cards && !dark && !solarized)
-                view.setBackgroundColor(ContextCompat.getColor(context, beige
-                        ? R.color.lightColorBackground_cards_beige
-                        : R.color.lightColorBackground_cards));
+            if (tabular_card_bg)
+                view.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
         }
     }
 }

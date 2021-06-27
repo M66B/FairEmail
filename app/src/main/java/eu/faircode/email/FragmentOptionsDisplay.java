@@ -64,6 +64,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Spinner spStartup;
     private SwitchCompat swCards;
     private SwitchCompat swBeige;
+    private SwitchCompat swTabularBackground;
     private SwitchCompat swShadow;
     private SwitchCompat swDate;
     private SwitchCompat swDateBold;
@@ -145,7 +146,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "cards", "beige", "shadow_unread",
+            "theme", "startup", "cards", "beige", "tabular_card_bg", "shadow_unread",
             "date", "date_bold", "navbar_colorize", "portrait2", "landscape", "landscape3",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
@@ -175,6 +176,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spStartup = view.findViewById(R.id.spStartup);
         swCards = view.findViewById(R.id.swCards);
         swBeige = view.findViewById(R.id.swBeige);
+        swTabularBackground = view.findViewById(R.id.swTabularCardBackground);
         swShadow = view.findViewById(R.id.swShadow);
         swDate = view.findViewById(R.id.swDate);
         swDateBold = view.findViewById(R.id.swDateBold);
@@ -281,6 +283,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("cards", checked).apply();
                 swBeige.setEnabled(checked);
+                swTabularBackground.setEnabled(!checked);
                 swShadow.setEnabled(checked);
                 swIndentation.setEnabled(checked);
             }
@@ -291,6 +294,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 getActivity().getIntent().putExtra("tab", "display");
                 prefs.edit().putBoolean("beige", checked).apply();
+            }
+        });
+
+        swTabularBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("tabular_card_bg", checked).apply();
             }
         });
 
@@ -933,8 +943,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swCards.setChecked(prefs.getBoolean("cards", true));
         swBeige.setChecked(prefs.getBoolean("beige", true));
+        swTabularBackground.setChecked(prefs.getBoolean("tabular_card_bg", false));
         swShadow.setChecked(prefs.getBoolean("shadow_unread", false));
         swBeige.setEnabled(swCards.isChecked());
+        swTabularBackground.setEnabled(!swCards.isChecked());
         swShadow.setEnabled(swCards.isChecked());
         swDate.setChecked(prefs.getBoolean("date", true));
         swDateBold.setChecked(prefs.getBoolean("date_bold", false));

@@ -136,6 +136,7 @@
                     android:id="@+id/swBeige"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:checked="true"
                     android:text="@string/title_advanced_cards_beige"
@@ -144,28 +145,29 @@
                     app:layout_constraintTop_toBottomOf="@id/swCards"
                     app:switchPadding="12dp" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvBeigeHint"
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swTabularCardBackground"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_beige_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_tabular_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swBeige" />
+                    app:layout_constraintTop_toBottomOf="@id/swBeige"
+                    app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swShadow"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:checked="true"
                     android:text="@string/title_advanced_cards_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvBeigeHint"
+                    app:layout_constraintTop_toBottomOf="@id/swTabularCardBackground"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
