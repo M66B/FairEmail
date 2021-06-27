@@ -300,8 +300,8 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(164) Can you add customizable themes?](#user-content-faq164)
 * [(165) Is Android Auto supported?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
-* [(167) How can I use DeepL?](#user-content-faq168)
-* [(168) What is a spam block list?](#user-content-faq167)
+* [(167) How can I use DeepL?](#user-content-faq167)
+* [(168) What is a spam block list?](#user-content-faq168)
 
 [I have another question.](#user-content-support)
 
@@ -3744,6 +3744,7 @@ FairEmail currently uses the following block lists:
 
 * [Spamhaus](https://www.spamhaus.org/) &#8211; [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/) &#8212; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
 * [Spamcop](https://www.spamcop.net/) &#8211; [Legal info](https://www.spamcop.net/fom-serve/cache/297.html) &#8212; [Privacy policy](https://www.spamcop.net/fom-serve/cache/168.html)
+* [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Request Access](https://www.barracudacentral.org/account/register) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 
 From version 1.1627 it is possible to enable/disable individual blocklists in the receive settings of the app.
 
