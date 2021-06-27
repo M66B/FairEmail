@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -87,6 +88,7 @@ public class DeepL {
             ensureLanguages(context);
 
             String pkg = context.getPackageName();
+            Resources res = context.getResources();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             List<Language> languages = new ArrayList<>();
@@ -105,7 +107,7 @@ public class DeepL {
                     name += " ★";
 
                 String resname = "language_" + target.toLowerCase().replace('-', '_');
-                int resid = context.getResources().getIdentifier(resname, "drawable", pkg);
+                int resid = res.getIdentifier(resname, "drawable", pkg);
 
                 languages.add(new Language(name, target, resid == 0 ? null : resid));
                 frequencies.put(target, frequency);
