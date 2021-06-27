@@ -311,7 +311,8 @@
     <string name="title_advanced_landscape3">Navigatiemenu standaard in liggende modus weergeven</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
-    <string name="title_advanced_cards_beige">Gebruik beige achtergrond bij gebruik van kaartstijl</string>
+    <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
+    <string name="title_advanced_tabular_background">Gebruik kaart kleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_date_bold">Datum vet weergeven</string>
@@ -521,7 +522,6 @@
     <string name="title_advanced_browse_hint">Meer berichten ophalen bij het naar beneden scrollen</string>
     <string name="title_advanced_layout_hint">Overschakelen naar een compactere layout en het wijzigen van de berichttekst grootte kan worden gedaan in het menu van de top actiebalk in het berichtweergave</string>
     <string name="title_advanced_startup_hint">Druk lang op een map in de mappenlijst om deze toe te voegen of te verwijderen uit de lijst van gecombineerde mappen</string>
-    <string name="title_advanced_beige_hint">Alleen lichte thema\'s</string>
     <string name="title_advanced_date_hint">Berichten worden alleen op datum gegroepeerd als ze op tijd zijn gesorteerd</string>
     <string name="title_advanced_navbar_colorize_hint">Of dit werkt hangt af van de Android-versie en -variant</string>
     <string name="title_advanced_split_hint">Dit zal het scherm opsplitsen in delen</string>

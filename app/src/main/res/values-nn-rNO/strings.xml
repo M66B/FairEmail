@@ -263,7 +263,6 @@
     <string name="title_advanced_landscape3">Vis navigasjonsmenyen i liggende modus som standard</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
     <string name="title_advanced_cards">Bruk kortstil i stedet for tabellstil</string>
-    <string name="title_advanced_cards_beige">Bruk beige bakgrunn når du bruker kortstil</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
     <string name="title_advanced_threading_unread">Vis antall uleste meldinger i samtaler</string>
@@ -446,7 +445,6 @@
     <string name="title_advanced_browse_hint">Hent flere meldinger når du ruller ned</string>
     <string name="title_advanced_layout_hint">Å bytte til en mer kompakt layout og endre meldingens tekststørrelse kan gjøres i den øverste handlingslinje menyen i meldingsvisningen</string>
     <string name="title_advanced_startup_hint">Trykk lenge på en hvilken som helst mappe i mappelisten for å legge til eller fjerne den fra listen over enhetlige mapper</string>
-    <string name="title_advanced_beige_hint">Kun lyse tema</string>
     <string name="title_advanced_date_hint">Meldinger grupperes bare etter dato hvis de er sortert etter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Om dette fungerer avhenger av Android-versjonen og varianten</string>
     <string name="title_advanced_threading_hint">Gruppemeldinger knyttet til hverandre</string>

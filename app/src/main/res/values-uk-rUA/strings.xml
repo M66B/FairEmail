@@ -319,7 +319,6 @@
     <string name="title_advanced_landscape3">Показувати меню навігації в ландшафтному режимі за замовчуванням</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
-    <string name="title_advanced_cards_beige">Використовувати бежевий фон при використанні стилю картки</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
     <string name="title_advanced_date_bold">Показувати дату в жирному шрифті</string>
@@ -528,7 +527,6 @@
     <string name="title_advanced_browse_hint">Завантажувати більше повідомлень при прокручуванні вниз</string>
     <string name="title_advanced_layout_hint">Перемикання на більш компактний макет і зміну розміру тексту повідомлень можна зробити у верхньому меню панелі повідомлень</string>
     <string name="title_advanced_startup_hint">Довго натисніть будь-яку теку в списку тек щоб додати або видалити її зі списку об\'єднаних тек</string>
-    <string name="title_advanced_beige_hint">Лише світлі теми</string>
     <string name="title_advanced_date_hint">Повідомлення групуються тільки за датою при сортуванні їх за часом</string>
     <string name="title_advanced_navbar_colorize_hint">В цілому робота залежить від версії Android та її модифікації</string>
     <string name="title_advanced_split_hint">Це розділить екран на частини</string>

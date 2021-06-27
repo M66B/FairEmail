@@ -310,7 +310,6 @@
     <string name="title_advanced_landscape3">Mostra il menu di navigazione in modalità orizzontale di default</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
-    <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
@@ -519,7 +518,6 @@
     <string name="title_advanced_browse_hint">Recupera altri messaggi scorrendo in giù</string>
     <string name="title_advanced_layout_hint">Passare a un layout più compatto e cambiare la dimensione del testo del messaggio si può fare nel menu della barra d\'azione superiore nella visualizzazione del messaggio</string>
     <string name="title_advanced_startup_hint">Tieni premuta qualsiasi cartella nell\'elenco delle cartelle per aggiungerla o rimuoverla dall\'elenco delle cartelle unificate</string>
-    <string name="title_advanced_beige_hint">Solo temi chiari</string>
     <string name="title_advanced_date_hint">I messaggi sono raggruppati solo per data se ordinati cronologicamente</string>
     <string name="title_advanced_navbar_colorize_hint">Se funziona, dipende dalla versione e la variante di Android</string>
     <string name="title_advanced_split_hint">Questo dividerà lo schermo in parti</string>

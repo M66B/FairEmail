@@ -331,7 +331,8 @@
     <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
-    <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля</string>
+    <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля (только для светлых тем)</string>
+    <string name="title_advanced_tabular_background">Использовать цвет карточки в качестве цвета фона при использовании табличного стиля</string>
     <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_date_bold">Показывать дату жирным шрифтом</string>
@@ -541,7 +542,6 @@
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
     <string name="title_advanced_startup_hint">Длительное нажатие на любую папку в списке позволит добавить или удалить её из списка единых папок</string>
-    <string name="title_advanced_beige_hint">Только светлые темы</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если используется сортировка по времени</string>
     <string name="title_advanced_navbar_colorize_hint">Работает в зависимости от версии и варианта Android</string>
     <string name="title_advanced_split_hint">Экран будет разделён на части</string>

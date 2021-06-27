@@ -309,7 +309,6 @@
     <string name="title_advanced_landscape3">Mostrar menu de navegação no modo paisagem por padrão</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
-    <string name="title_advanced_cards_beige">Usar plano de fundo bege quando estiver utilizando estilo de cartão</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_bold">Exibir a data em negrito</string>
@@ -519,7 +518,6 @@
     <string name="title_advanced_browse_hint">Obter mais mensagens ao rolar para baixo</string>
     <string name="title_advanced_layout_hint">Mudar para um layout mais compacto e alterar o tamanho do texto da mensagem pode ser feito no menu da barra de ação superior na exibição de mensagem</string>
     <string name="title_advanced_startup_hint">Pressione qualquer pasta da lista de pastas para adicioná-la ou removê-la da lista de pastas unificadas</string>
-    <string name="title_advanced_beige_hint">Apenas temas claros</string>
     <string name="title_advanced_date_hint">As mensagens são agrupadas apenas por data se forem ordenadas por tempo</string>
     <string name="title_advanced_navbar_colorize_hint">Se isso funciona depende da versão e variante do Android</string>
     <string name="title_advanced_split_hint">Isso irá dividir a tela em partes</string>

@@ -38,7 +38,7 @@
 
 Будь ласка, перегляньте [ тут ](#user-content-faq22), щоб отримати поширені повідомлення про помилки та способи їх усунення.
 
-Related questions:
+Пов'язані запитання:
 
 * [Чи підтримується OAuth?](#user-content-faq111)
 * [Чому ActiveSync не підтримується?](#user-content-faq133)
@@ -47,24 +47,24 @@ Related questions:
 
 ## Як ...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Змінити ім'я облікового запису: Налаштування, Головне, розгорніть: Налаштування вручну ..., виберіть Облікові записи, торкніться облікового запису
+* Змінення цілі проведення пальцем вліво/вправо: Налаштування, Поведінка, Установити дії на свайп
+* Змінити пароль: Налаштування, Головне, розгорніть: Налаштування вручну ..., виберіть Облікові записи, торкніться облікового запису, змініть пароль
+* Установити підпис: Налаштування, Головне, розгорніть: Налаштування вручну ..., Особисті дані, торкніться облікового запису, Редагувати підпис.
 * Додайте адреси CC та BCC: торкніться значка людей у кінці теми
 * Перехід до наступного / попереднього повідомлення про архівування / видалення: у налаштуваннях поведінки вимкніть * Автоматично закривати бесіди * та виберіть * Перейти до наступної / попередньої бесіди * для * При закритті бесіди</li>
 * Додайте папку до уніфікованої папки "Вхідні": натисніть і утримуйте папку у списку папок і поставте галочку * Показати в уніфікованій папці "Вхідні" *
 * Додайте папку в меню навігації: натисніть і утримуйте папку у списку папок і поставте галочку * Показати в меню навігації *
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* Завантажити більше повідомлень: довге натискання на теку в списку тек, оберіть *Отримати більше повідомлень*
+* Видалити повідомлення оминаючи смітник: довго натисніть значок смітника
+* Видалення облікового запису/особистих даних: Налаштування, Головне, розгорніть: Налаштування вручну ..., облікові записи/особисті дані, торкніться облікового запису, натисніть на іконку "смітника" у правому верхньому кутку
+* Видалення теки: тривале натискання теки зі списку тек, Редагувати властивості, іконка смітника у правому верхньому кутку
+* Скасувати надсилання: перемістити повідомлення пальцем ліворуч або праворуч
 * Зберігайте надіслані повідомлення у папці "Вхідні": [ див. Цей FAQ ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu</ul>
+* Змінити системні теки: Налаштування, Головне, розгорніть: Налаштування вручну ..., виберіть Облікові записи, торкніться облікового запису, гортайте до низу
+* Експорт/імпорт налаштувань: Налаштування, меню навігації (зверху, ліворуч)</ul>
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Відома проблема</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -99,24 +99,24 @@ Related questions:
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
+* ~~Спільні уніфіковані теки~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
-* ~~Display GIFs~~
+* ~~відображення GIF~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* ~~Send as attachment~~
-* ~~Widget for selected account~~
-* ~~Remind to attach files~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
+* ~~Надіслати як вкладення~~
+* ~~Віджет для вибраного облікового запису~~
+* ~~Нагадування вкласти файли ~~
+* ~~Виберіть домени, щоб показати зображення для~~ (це буде занадто складно для використання)
+* ~~Об'єднані повідомлення з зірочкою~~ (тут вже є спеціальний пошук для цього)
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~Підтримка S/MIME ~~
+* ~~Пошук налаштувань~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -148,16 +148,16 @@ The design is based on many discussions and if you like you can discuss about it
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert .. ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
+* [(23) Чому я отримую попередження.. ?](#user-content-faq23)
+* [(24) Що являє собою перегляд повідомлень на сервері?](#user-content-faq24)
+* [(25) Чому я не можу вибрати/відкрити/зберегти зображення, вкладення чи файл?](#user-content-faq25)
+* [(26) Чи можу я допомогти в перекладі FairEmail своєю власною мовою?](#user-content-faq26)
+* [(27) Як я можу розрізняти вбудовані та зовнішні зображення?](#user-content-faq27)
+* [(28) Як можна керувати сповіщеннями у рядку стану?](#user-content-faq28)
+* [(29) Як я можу отримати нові повідомлення для інших тек?](#user-content-faq29)
+* [(30) Як можна використовувати швидкі налаштування?](#user-content-faq30)
+* [(31) Як можна використовувати швидкі налаштування?](#user-content-faq31)
+* [(32) Як я можу перевірити, чи є читання електронної пошти дійсно безпечне?](#user-content-faq32)
 * [(33) Why are edited sender addresses not working?](#user-content-faq33)
 * [(34) How are identities matched?](#user-content-faq34)
 * [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
@@ -169,9 +169,9 @@ The design is based on many discussions and if you like you can discuss about it
 * [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
 * [(43) Can you show the original ... ?](#user-content-faq43)
 * [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
-* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
-* [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
+* [(45) How can I fix 'This key is not available. Щоб використовувати це, ви повинні імпортувати його як один із власних користувачів!' ?](#user-content-faq45)
+* [(46) Чому список повідомлень постійно оновлюється?](#user-content-faq46)
+* [(47) Як мені вирішити помилку 'Немає основного облікового запису або немає теки для чернетки' ?](#user-content-faq47)
 * [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
 * [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
@@ -410,7 +410,7 @@ Alternatively, you can accept the fingerprint of invalid server certificates lik
 1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
 1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
 1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
-1. Check/save the account and identity
+1. Перевірити/зберегти обліковий запис та особисті дані
 1. Tick the checkbox below the error message and save again
 
 This will "pin" the server certificate to prevent man-in-the-middle attacks.
@@ -472,9 +472,9 @@ In the display section of the settings you can enable or disable for example:
 
 Note that messages can be previewed only when the message text was downloaded. Larger message texts are not downloaded by default on metered (generally mobile) networks. You can change this in the connection settings.
 
-Some people ask:
+Деякі питають:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
+* показати тему жирним шрифтом, але жирний шрифт вже використовується для виділення непрочитаних повідомлень
 * to move the star to the left, but it is much easier to operate the star on the right side
 
 <br />
@@ -482,51 +482,51 @@ Some people ask:
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.
+If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. Gmail швидкий майстер встановлення не доступний для сторонніх збірок, таких як збірка F-Droid, тому що Google затвердив використання OAuth лише для офіційних збірок.
 
-If you don't want to use or can't use an on-device Google account, for example on recent Huawei devices, you can either enable access for "less secure apps" and use your account password (not advised) or enable two factor authentication and use an app specific password. To use a password you'll need to set up an account and identity via the manual setup instead of via the quick setup wizard.
+Якщо ви не хочете використовувати або не можете використовувати обліковий запис на пристрої Google, наприклад на останніх пристроях Huawei, Ви можете активувати доступ до "менш безпечних додатків" і використовувати пароль облікового запису (не рекомендовано) або ввімкнути двофакторну аутентифікацію і використовувати конкретний пароль програми. Для використання пароля вам потрібно буде налаштувати обліковий запис та самоідентифікацію через ручне налаштування замість майстра швидкого налаштування.
 
-**Important**: sometimes Google issues this alert:
+**Важливо**: іноді посилання на проблему з Google:
 
-*[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
+*[ALERT] Будь ласка, увійдіть в систему через ваш браузер: https://support.google.com/mail/accounts/answer/78754 (збій)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+Ця перевірка безпеки Google спрацьовує частіше, коли увімкнено з *менш безпечних програм*, менше з паролем додатку, і важко уявити собі при використовуванні облікового запису на пристрої (OAuth).
 
-Please see [this FAQ](#user-content-faq111) on why only on-device accounts can be used.
+Будь ласка перегляньте, [цей ЧАП](#user-content-faq111) чому можна використовувати тільки на пристрої.
 
-Note that an app specific password is required when two factor authentication is enabled.
-
-<br />
-
-*App specific password*
-
-See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
+Зверніть увагу, що для додатку потрібен конкретний пароль, коли активовано двофакторну автентифікацію.
 
 <br />
 
-*Enable "Less secure apps"*
+*Специфічний пароль додатку*
 
-**Important**: using this method is not recommended because it is less reliable.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working [in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-
-See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps" or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-
-If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
-
-Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
-
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway. Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
-
-When "less secure apps" is not enabled, you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP) and *Username and Password not accepted* for identities (SMTP).
+Дивіться [тут](https://support.google.com/accounts/answer/185833) про те, як створити специфічний пароль додатку.
 
 <br />
 
-*General*
+*Увімкнути "Менш безпечні додатки"*
 
-You might get the alert "*Please log in via your web browser*". This happens when Google considers the network that connects you to the internet (this could be a VPN) to be unsafe. This can be prevented by using the Gmail quick setup wizard or an app specific password.
+**Важливо**: використання цього методу не рекомендовано, оскільки він є менш надійним.
 
-See [here](https://support.google.com/mail/answer/7126229) for Google's instructions and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+**Важливо**: облікові записи Gsuite авторизовані через ім'я користувача/пароль перестануть працювати [найближчим часом](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+
+Перегляньте [тут](https://support.google.com/accounts/answer/6010255) про те, як увімкнути "менш захищені програми" або перейти до [прямо до налаштування](https://www.google.com/settings/security/lesssecureapps).
+
+Якщо ви використовуєте декілька облікових записів Gmail, переконайтеся, що ви змінили налаштування "менш безпечних додатків" для правильних облікових записів.
+
+Майте на увазі, що вам потрібно залишити екран налаштувань "менш безпечні додатки", використовуючи стрілку назад для застосування налаштувань.
+
+Якщо ви використовуєте цей метод, ви повинні використовувати [сильний пароль](https://en.wikipedia.org/wiki/Password_strength) для свого облікового запису Gmail, що є хорошою ідеєю. Зверніть увагу, що використання [стандартного](https://tools.ietf.org/html/rfc3501) протоколу IMAP в собі не є менш безпечним.
+
+Коли «менш безпечні програми» не увімкнено, Ви отримаєте помилку *Автентифікація не вдалася - облікові дані* для облікових записів (IMAP) і *ім'я користувача і пароль не приймаються* для ідентифікації (SMTP).
+
+<br />
+
+*Загальні налаштування*
+
+Ви можете отримати застереження"*, будь ласка, увійдіть за допомогою веб-браузера*". Це відбувається, коли Google вважає мережу, яка з'єднує вас з інтернетом (це може бути VPN) небезпечною. Це може бути заборонено за допомогою майстра швидких налаштувань Gmail, або специфічним паролем додатку.
+
+Дивіться [тут](https://support.google.com/mail/answer/7126229) на інструкції Google і [тут](https://support.google.com/mail/accounts/answer/78754) для усунення несправностей.
 
 <br />
 

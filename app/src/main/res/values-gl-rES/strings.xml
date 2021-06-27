@@ -301,7 +301,6 @@
     <string name="title_advanced_landscape3">Mostrar o menú de navegación por defecto no modo horizontal</string>
     <string name="title_advanced_startup">Mostrar na pantalla de inicio</string>
     <string name="title_advanced_cards">Usar o estilo de carta no canto do estilo de lapelas</string>
-    <string name="title_advanced_cards_beige">Usar unha cor de fondo beixe cando se estea a empregar o estilo de carta</string>
     <string name="title_advanced_cards_shadow">Usar sombras para as mensaxes sen ler cando se estea a usar o estilo de carta</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Conversacións en fíos</string>
@@ -504,7 +503,6 @@
     <string name="title_advanced_browse_hint">Coller máis mensaxes cando se baixe a lista</string>
     <string name="title_advanced_layout_hint">Pódese cambiar a unha representación máis compacta e cambiar o tamaño de letra das mensaxes na barra superior de menús na vista de mensaxes</string>
     <string name="title_advanced_startup_hint">Pulsación longa en calquera cartafol na lista de cartafoles para engadilo ou quitalo da lista unificada de cartafoles</string>
-    <string name="title_advanced_beige_hint">So cores claras</string>
     <string name="title_advanced_date_hint">As mensaxes soamente se agrupan por data se están ordenadas temporalmente</string>
     <string name="title_advanced_navbar_colorize_hint">Se isto funciona ou non depende da versión e variante de Android</string>
     <string name="title_advanced_split_hint">Isto divide a pantalla en varias partes</string>

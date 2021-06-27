@@ -312,7 +312,8 @@
     <string name="title_advanced_landscape3">Navigationsmenü standardmäßig im Querformat anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
-    <string name="title_advanced_cards_beige">Beigefarbenen Hintergrund bei Kartendarstellung verwenden</string>
+    <string name="title_advanced_cards_beige">Verwende beige Hintergrund, wenn Kartenstil verwendet wird (nur helle Designs)</string>
+    <string name="title_advanced_tabular_background">Kartenfarbe als Hintergrundfarbe verwenden, wenn Tabellenstil verwendet wird</string>
     <string name="title_advanced_cards_shadow">Schatten für ungelesene Nachrichten verwenden, wenn Kartenstil verwendet wird</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_date_bold">Datum fett anzeigen</string>
@@ -522,7 +523,6 @@
     <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
     <string name="title_advanced_layout_hint">Das Wechseln zu einer kompakteren Darstellung und Ändern der Nachrichtentextgröße kann im oberen Aktionsleistenmenü in der Nachrichtenansicht vorgenommen werden.</string>
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
-    <string name="title_advanced_beige_hint">Nur helle Designs</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
     <string name="title_advanced_navbar_colorize_hint">Ob das funktioniert, hängt von der Android-Version und -Variante ab</string>
     <string name="title_advanced_split_hint">Dadurch wird der Bildschirm in Teile aufgeteilt</string>

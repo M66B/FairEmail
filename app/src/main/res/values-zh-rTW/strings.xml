@@ -276,7 +276,6 @@
     <string name="title_advanced_landscape3">在螢幕橫向時預設顯示導航選單</string>
     <string name="title_advanced_startup">起使畫面</string>
     <string name="title_advanced_cards">使用卡片樣式而不是表格樣式</string>
-    <string name="title_advanced_cards_beige">使用卡片樣式時採用米色背景</string>
     <string name="title_advanced_date_header">以日期分組</string>
     <string name="title_advanced_threading">將會話串起</string>
     <string name="title_advanced_threading_unread">在會話中顯示未讀訊息的數量</string>
@@ -464,7 +463,6 @@
     <string name="title_advanced_browse_hint">向下拉時擷取更多郵件</string>
     <string name="title_advanced_layout_hint">可以在消息視圖的頂部操作欄菜單中切換到更緊湊的佈局並更改消息文本大小</string>
     <string name="title_advanced_startup_hint">長按資料夾列表中的任何資料夾可以從整合收件匣列表中新增或刪除</string>
-    <string name="title_advanced_beige_hint">僅使用淺色主題</string>
     <string name="title_advanced_date_hint">如果郵件按時間排序，則僅按日期分組</string>
     <string name="title_advanced_navbar_colorize_hint">這是否可行取決於Android版本和變量</string>
     <string name="title_advanced_split_hint">這將會把螢幕分隔為幾個畫面</string>

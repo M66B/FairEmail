@@ -302,7 +302,6 @@
     <string name="title_advanced_landscape3">Toan standert menu yn lânskipsmodus</string>
     <string name="title_advanced_startup">Sjoch op it startskerm</string>
     <string name="title_advanced_cards">Brûk kaartstyl ynstee fan tabelstyl</string>
-    <string name="title_advanced_cards_beige">Brûk beige eftergrûn by it brûken fan kaartstyl</string>
     <string name="title_advanced_cards_shadow">Brûk skaad foar ûnlezen berjochten at kaart styl brukt wurd</string>
     <string name="title_advanced_date_header">Groepearje op datum</string>
     <string name="title_advanced_date_bold">Datum fet sjen litte</string>
@@ -505,7 +504,6 @@
     <string name="title_advanced_browse_hint">Helje mear berjochten as jo omleech scrollen</string>
     <string name="title_advanced_layout_hint">Wikselje nei in kompakter yndieling en it feroarjen fan de tekstgrutte fan it berjocht kinne wurde dien yn it menu fan \'e boppeste aksjebalke yn\' e berjochtwerjefte</string>
     <string name="title_advanced_startup_hint">Druk lang op elke map yn \'e maplist om dizze ta te foegjen of te ferwiderjen út\' e list mei unifoarme mappen</string>
-    <string name="title_advanced_beige_hint">Allinich ljochte tema\'s</string>
     <string name="title_advanced_date_hint">Berjochten wurde allinich op datum groepeare as se op tiid binne sorteare</string>
     <string name="title_advanced_navbar_colorize_hint">Oft dit wurket hinget ôf fan \'e Android-ferzje en fariant</string>
     <string name="title_advanced_split_hint">Dit sil it skerm yn dielen diele</string>

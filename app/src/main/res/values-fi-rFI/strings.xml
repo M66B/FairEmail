@@ -309,7 +309,6 @@
     <string name="title_advanced_landscape3">Näytä navigointivalikko vaakatilassa oletusarvoisesti</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
-    <string name="title_advanced_cards_beige">Käytä beigeä taustaa korttityylissä</string>
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_date_bold">Näytä päivämäärä lihavoituna</string>
@@ -517,7 +516,6 @@
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
     <string name="title_advanced_layout_hint">Tiiviimpään näkymään vaihtaminen ja viestin tekstin koon vaihtaminen voidaan tehdä viestinäkymän yläreunan toimintopalkista</string>
     <string name="title_advanced_startup_hint">Paina pitkään mitä tahansa kansiota kansiolistauksessa lisätäksesi tai poistaaksesi sen yhdistettyjen kansioiden listasta</string>
-    <string name="title_advanced_beige_hint">Ainoastaan vaaleat teemat</string>
     <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_navbar_colorize_hint">Tämän toimivuus riippuu Android-versiosta ja -muunnelmasta</string>
     <string name="title_advanced_split_hint">Tämä jakaa näytön osiin</string>

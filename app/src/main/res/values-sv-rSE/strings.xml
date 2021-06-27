@@ -299,7 +299,6 @@
     <string name="title_advanced_landscape3">Visa navigeringsmenyn i liggande läge som standard</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
-    <string name="title_advanced_cards_beige">Använd beige bakgrund när du använder kort stil</string>
     <string name="title_advanced_cards_shadow">Använd skugga för olästa meddelanden när du använder kort-stil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
@@ -501,7 +500,6 @@
     <string name="title_advanced_browse_hint">Hämta fler meddelanden när du rullar ner</string>
     <string name="title_advanced_layout_hint">Växla till en mer kompakt layout och ändra meddelandetextstorleken kan göras i menyn högst upp i meddelandevyn</string>
     <string name="title_advanced_startup_hint">Långtryck på valfri mapp i mapplistan för att lägga till eller ta bort den från listan över enhetliga mappar</string>
-    <string name="title_advanced_beige_hint">Endast ljusa teman</string>
     <string name="title_advanced_date_hint">Meddelanden grupperas endast efter datum om de sorteras efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Om detta fungerar beror på Android-versionen och varianten</string>
     <string name="title_advanced_split_hint">Detta kommer att dela upp skärmen i delar</string>

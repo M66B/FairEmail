@@ -321,7 +321,6 @@
     <string name="title_advanced_landscape3">Afișează implicit meniul de navigare în modul peisaj</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
-    <string name="title_advanced_cards_beige">Folosește fundalul bej când folosești stilul carduri</string>
     <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_date_bold">Afișați data marcată cu bold</string>
@@ -530,7 +529,6 @@
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_layout_hint">Selectarea unui aspect mai compact și mărimea textului se poate face din meniul paginii de mesaje</string>
     <string name="title_advanced_startup_hint">Apăsați lung pe orice dosar dis listă pentru a-l adăuga sau elimina din lista de dosare unificate</string>
-    <string name="title_advanced_beige_hint">Doar temele luminoase</string>
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_navbar_colorize_hint">Depinde de versiunea de Android și de variantă dacă va funcționa</string>
     <string name="title_advanced_split_hint">Aceasta va împărţi ecranul în mai multe părți</string>

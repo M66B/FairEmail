@@ -108,6 +108,7 @@
     <string name="title_agree">Jeg accepterer</string>
     <string name="title_disagree">Jeg accepterer ikke</string>
     <string name="title_version">Version %1$s</string>
+    <string name="title_privacy_policy">Fortrolighedspolitik</string>
     <string name="title_list_accounts">Konti</string>
     <string name="title_list_identities">Identiteter</string>
     <string name="title_edit_account">Redigér konto</string>
@@ -303,7 +304,6 @@
     <string name="title_advanced_landscape3">Vis som standard navigeringsmenu i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
-    <string name="title_advanced_cards_beige">Benyt beige baggrund, når du bruger kortstil</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_date_bold">Vis dato med fed</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
@@ -509,7 +509,6 @@
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
     <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>
     <string name="title_advanced_startup_hint">Langt tryk på en vilkårlig mappe på mappelisten for at tilføje/fjerne den fra listen over samlede mapper</string>
-    <string name="title_advanced_beige_hint">Kun lyse temaer</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_navbar_colorize_hint">Hvorvidt dette fungerer afhænger af Android-version og -variant</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>

@@ -300,7 +300,8 @@
     <string name="title_advanced_landscape3">デフォルトでランドスケープモードでナビゲーションメニューを表示する</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
-    <string name="title_advanced_cards_beige">カードスタイルを使用するときはベージュの背景を使用する</string>
+    <string name="title_advanced_cards_beige">カードスタイルを使用するときはベージュの背景を使用します（ライトテーマのみ）</string>
+    <string name="title_advanced_tabular_background">表形式の場合は背景色にカードの色を使用する</string>
     <string name="title_advanced_cards_shadow">カードスタイルを使用するときに未読メッセージにシャドウを使用</string>
     <string name="title_advanced_date_header">日付毎にグループ化</string>
     <string name="title_advanced_date_bold">太字で日付を表示</string>
@@ -509,7 +510,6 @@
     <string name="title_advanced_browse_hint">下にスクロール時に、更にメッセージを取得</string>
     <string name="title_advanced_layout_hint">よりコンパクトなレイアウトへの切り替えとメッセージのテキストサイズの変更はメッセージビューの上部アクションバーメニューで行えます</string>
     <string name="title_advanced_startup_hint">フォルダーリストの任意のフォルダーを長押して統合フォルダーのリストに追加又は削除します</string>
-    <string name="title_advanced_beige_hint">ライトテーマのみ</string>
     <string name="title_advanced_date_hint">時間で並び替えをしている場合にのみ、メッセージは日付でグループ化されます</string>
     <string name="title_advanced_navbar_colorize_hint">これが機能するかはAndroidのバージョンとバリアントによって異なります</string>
     <string name="title_advanced_split_hint">画面をパーツごとに分割します</string>

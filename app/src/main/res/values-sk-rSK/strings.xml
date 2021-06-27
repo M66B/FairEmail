@@ -330,7 +330,6 @@
     <string name="title_advanced_landscape3">Predvolene zobrazovať navigačné menu v režime na šírku</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>
-    <string name="title_advanced_cards_beige">Béžové pozadie keď je použitý štýl kariet</string>
     <string name="title_advanced_cards_shadow">Zatieniť neprečítané správy v štýle kariet</string>
     <string name="title_advanced_date_header">Zoradiť podľa dátumu</string>
     <string name="title_advanced_date_bold">Dátum zobraziť tučným písmom</string>
@@ -539,7 +538,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_browse_hint">Načítať viac správ pri posúvaní dolu</string>
     <string name="title_advanced_layout_hint">Úspornejšie rozloženie a veľkosť textu si môžete nastaviť v hornej ponuke akcií zobrazenia správ</string>
     <string name="title_advanced_startup_hint">Ak chcete pridať/odstrániť priečinok zo zoznamu spoločných priečinkov, dlhšie pridržte položku v zozname priečinkov</string>
-    <string name="title_advanced_beige_hint">Len svetlé témy</string>
     <string name="title_advanced_date_hint">Správy sú zoskupené podľa dátumu len ak je zoznam zotriedený podľa času</string>
     <string name="title_advanced_navbar_colorize_hint">Či to bude fungovať záleží od verzie a variantu systému Android</string>
     <string name="title_advanced_split_hint">Rozdelí obrazovku na časti</string>

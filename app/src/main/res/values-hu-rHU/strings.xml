@@ -296,7 +296,6 @@
     <string name="title_advanced_landscape3">Navigációs menü mutatósa fekvő módban alapértelmezésként</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
-    <string name="title_advanced_cards_beige">Beige háttér használata a névjegyekhez</string>
     <string name="title_advanced_cards_shadow">Árnyék használata olvasatlan üzenetekhez kártya-stílus használata esetén</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
     <string name="title_advanced_threading">Beszélgetések összefűzése</string>
@@ -495,7 +494,6 @@
     <string name="title_advanced_browse_hint">Több üzenet letöltése lefelé görgetéssel</string>
     <string name="title_advanced_layout_hint">Váltás egy kompaktabb elrendezésre és az üzenet szövegméret módosítása elvégezhető a felső műveletsáv menüjében az üzenet nézetben</string>
     <string name="title_advanced_startup_hint">Nyomja hosszan bármelyik mappát a mappalistában hogy hozzáadja vagy eltávolítsa az összesített mappák listájából</string>
-    <string name="title_advanced_beige_hint">Csak világos témák</string>
     <string name="title_advanced_date_hint">Az üzenetek dátum szerinti csoportosítása csak idő szerinti rendezéskor aktív</string>
     <string name="title_advanced_navbar_colorize_hint">Az hogy ez működik-e az Android verziótól és variánstól függ</string>
     <string name="title_advanced_split_hint">Ez el fogja osztani a képernyőt részekre</string>

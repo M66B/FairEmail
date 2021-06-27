@@ -300,7 +300,6 @@
     <string name="title_advanced_landscape3">Hiện menu điều hướng ở chế độ hướng ngang theo mặc định</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
-    <string name="title_advanced_cards_beige">Sử dụng nền màu be khi sử dụng kiểu thẻ</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
     <string name="title_advanced_date_bold">Hiện ngày bằng chữ đậm</string>
@@ -509,7 +508,6 @@
     <string name="title_advanced_browse_hint">Lấy nhiều thư hơn khi cuộn xuống</string>
     <string name="title_advanced_layout_hint">Việc chuyển đến một bố cục nhỏ gọn hơn và thay đổi kích cỡ văn bản thư có thể được làm trong menu thanh hành động trong màn hình xem thư</string>
     <string name="title_advanced_startup_hint">Nhấn giữ bất kỳ thư mục nào trong danh sách thư mục để xoá nó khỏi danh sách các thư mục hợp nhất</string>
-    <string name="title_advanced_beige_hint">Chỉ dành cho các chủ đề sáng</string>
     <string name="title_advanced_date_hint">Thư chỉ được nhóm theo ngày khi chúng được sắp xếp theo thời gian</string>
     <string name="title_advanced_navbar_colorize_hint">Cái này hoạt động hay không còn tuỳ vào phiên bản và biến thể Android</string>
     <string name="title_advanced_split_hint">Cái này sẽ tách màn hình thành các phần</string>

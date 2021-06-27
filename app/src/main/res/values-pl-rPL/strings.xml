@@ -329,7 +329,6 @@
     <string name="title_advanced_landscape3">Domyślnie pokaż menu nawigacji w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
-    <string name="title_advanced_cards_beige">Użyj beżowego tła, jeśli używasz stylu karty</string>
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_date_bold">Pokaż datę pogrubioną</string>
@@ -539,7 +538,6 @@
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>
     <string name="title_advanced_startup_hint">Naciśnij długo dowolny folder na liście folderów, aby dodać lub usunąć go z listy wspólnych folderów</string>
-    <string name="title_advanced_beige_hint">Tylko jasne motywy</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_navbar_colorize_hint">Czy to zadziała zależy od wersji i wariantu Androida</string>
     <string name="title_advanced_split_hint">Spowoduje to podzielenie ekranu na części</string>

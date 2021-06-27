@@ -293,7 +293,6 @@
     <string name="title_advanced_landscape3">Tampilkan menu navigasi dalam mode lanskap secara bawaan</string>
     <string name="title_advanced_startup">Tampilkan pada layar terkunci</string>
     <string name="title_advanced_cards">Pakai gaya kartu seperti gaya tabel</string>
-    <string name="title_advanced_cards_beige">Gunakan latar belakang krem ketika menggunakan gaya kartu</string>
     <string name="title_advanced_cards_shadow">Gunakan bayangan untuk pesan yang belum dibaca saat menggunakan gaya kartu</string>
     <string name="title_advanced_date_header">Kelompokkan sesuai tanggal</string>
     <string name="title_advanced_date_bold">Tebalkan tanggal</string>
@@ -496,7 +495,6 @@
     <string name="title_advanced_browse_hint">Ambil lebih banyak pesan saat menggulir ke bawah</string>
     <string name="title_advanced_layout_hint">Beralih ke tata letak yang lebih kompak dan mengubah ukuran teks, ukuran teks bisa dirubah pada menu bilah aksi atas di tampilan pesan</string>
     <string name="title_advanced_startup_hint">Tekan lama folder apa pun di daftar folder untuk menambah atau menghapusnya dari daftar folder terpadu</string>
-    <string name="title_advanced_beige_hint">Hanya tema terang</string>
     <string name="title_advanced_date_hint">Pesan hanya dikelompokkan berdasarkan tanggal jika mereka diurutkan berdasarkan waktu</string>
     <string name="title_advanced_navbar_colorize_hint">Apakah karya ini tergantung pada versi Android dan variannya</string>
     <string name="title_advanced_split_hint">Ini akan membagi layar menjadi beberapa bagian</string>

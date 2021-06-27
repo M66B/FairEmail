@@ -293,7 +293,6 @@
     <string name="title_advanced_landscape3">Mostrar menu de navegação no modo paisagem por omissão</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
-    <string name="title_advanced_cards_beige">Use fundo beige ao usar estilo de cartão</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>

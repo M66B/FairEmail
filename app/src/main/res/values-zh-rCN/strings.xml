@@ -299,7 +299,6 @@
     <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
-    <string name="title_advanced_cards_beige">开启卡片样式 (上面的选项) 时，使用米色背景</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
@@ -509,7 +508,6 @@
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
     <string name="title_advanced_startup_hint">长按文件夹列表中的任何文件夹，可将其从添加到或移除出聚合文件夹列表</string>
-    <string name="title_advanced_beige_hint">仅限浅色主题</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
     <string name="title_advanced_split_hint">这将把屏幕分割成几部分</string>

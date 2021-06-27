@@ -311,7 +311,6 @@
     <string name="title_advanced_landscape3">Yatay modda varsayılan olarak menüyü göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
-    <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullanın</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
@@ -521,7 +520,6 @@
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırdığında daha çok ileti getirir</string>
     <string name="title_advanced_layout_hint">Daha kompakt bir yerleşime geçmek ve mesaj metin boyutunu değiştirmek, mesaj görünümündeki üst eylem çubuğu menüsünden yapılabilir</string>
     <string name="title_advanced_startup_hint">Birleştirilmiş klasörler listesine eklemek veya listeden çıkarmak için klasör listesindeki herhangi bir klasöre uzun basın</string>
-    <string name="title_advanced_beige_hint">Yalnızca açık temalar</string>
     <string name="title_advanced_date_hint">Eğer zamana göre sıralanmışlarsa mesajlar sadece tarihe göre gruplanacaktır</string>
     <string name="title_advanced_navbar_colorize_hint">Bunun işe yarayıp yaramadığı Android sürümüne ve değişkenine bağlıdır</string>
     <string name="title_advanced_split_hint">Bu, ekranı parçalara böler</string>

@@ -381,7 +381,6 @@
     <string name="title_advanced_browse_hint">Bilatu mezu gehiago korritzerakoan</string>
     <string name="title_advanced_layout_hint">Diseinua trinkotzea eta mezuaren testuaren tamaina alda daiteke mezuen ikuspegiko goiko ekintza-barran</string>
     <string name="title_advanced_startup_hint">Sakatu luze karpetako zerrendako edozein karpeta, karpeta bateratuen zerrendatik gehitu edo kentzeko</string>
-    <string name="title_advanced_beige_hint">Azal argiak besterik ez</string>
     <string name="title_advanced_date_hint">Mezuak dataren arabera multzokatzen dira soilik denboraren arabera ordenatuta badaude</string>
     <string name="title_advanced_navbar_colorize_hint">Hau funtzionatzea Android bertsioa eta aldaeraren araberakoa da</string>
     <string name="title_advanced_threading_hint">Harremana duten mezuak taldekatu</string>

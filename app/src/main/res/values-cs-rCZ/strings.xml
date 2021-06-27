@@ -327,7 +327,6 @@
     <string name="title_advanced_landscape3">Automaticky zobrazit navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
-    <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
@@ -536,7 +535,6 @@
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
     <string name="title_advanced_layout_hint">Přepnutí na kompaktnější rozvržení a změnu velikosti textu lze provést v zobrazení zprávy skrze menu v horním panelu akcí</string>
     <string name="title_advanced_startup_hint">Podržením na libovolné složce v seznamu složek ji přidáte nebo odeberete ze seznamu sjednocených složek</string>
-    <string name="title_advanced_beige_hint">Pouze světlé motivy</string>
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_navbar_colorize_hint">Zda volba funguje, závisí na verzi a variantě Androidu</string>
     <string name="title_advanced_split_hint">Rozdělí obrazovku na více částí</string>
