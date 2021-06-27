@@ -32,6 +32,8 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 FairEmail **can access** the websites at the domain names of email addresses
 if [favicons](https://en.wikipedia.org/wiki/Favicon) are explicitly enabled (off by default).
 
+FairEmail **will** obvously access the configured email servers.
+
 <br />
 
 Copyright &copy; 2018-2021 Marcel Bokhorst.
