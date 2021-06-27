@@ -79,6 +79,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swExpandOne;
     private SwitchCompat swAutoClose;
     private TextView tvAutoSeenHint;
+    private TextView tvOnClose;
     private Spinner spOnClose;
     private Spinner spUndoTimeout;
     private SwitchCompat swCollapseMultiple;
@@ -132,6 +133,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapseMultiple = view.findViewById(R.id.swCollapseMultiple);
         tvAutoSeenHint = view.findViewById(R.id.tvAutoSeenHint);
         swAutoClose = view.findViewById(R.id.swAutoClose);
+        tvOnClose = view.findViewById(R.id.tvOnClose);
         spOnClose = view.findViewById(R.id.spOnClose);
         spUndoTimeout = view.findViewById(R.id.spUndoTimeout);
         swAutoRead = view.findViewById(R.id.swAutoRead);
@@ -337,6 +339,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoclose", checked).apply();
+                tvOnClose.setEnabled(!checked);
                 spOnClose.setEnabled(!checked);
             }
         });
@@ -490,6 +493,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
                 break;
             }
 
+        tvOnClose.setEnabled(!swAutoClose.isChecked());
         spOnClose.setEnabled(!swAutoClose.isChecked());
 
         int undo_timeout = prefs.getInt("undo_timeout", 5000);

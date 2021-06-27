@@ -962,7 +962,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swThreadingUnread.setChecked(prefs.getBoolean("threading_unread", false));
         swThreadingUnread.setEnabled(swThreading.isChecked());
         swIndentation.setChecked(prefs.getBoolean("indentation", false));
-        swIndentation.setEnabled(swCards.isChecked());
+        swIndentation.setEnabled(swCards.isChecked() && swThreading.isChecked());
         swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
         swActionbarColor.setChecked(prefs.getBoolean("actionbar_color", false));

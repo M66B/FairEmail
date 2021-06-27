@@ -540,6 +540,7 @@
                     android:id="@+id/swSyncSharedFolders"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_sync_shared_folders"
                     app:layout_constraintEnd_toEndOf="parent"
