@@ -291,37 +291,37 @@
 
     <style name="AppThemeBlueOrangeBlack" parent="AppThemeBlueOrangeDark">
         <item name="themeName">black</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemeOrangeBlueBlack" parent="AppThemeOrangeBlueDark">
         <item name="themeName">black</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemeYellowPurpleBlack" parent="AppThemeYellowPurpleDark">
         <item name="themeName">black</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemePurpleYellowBlack" parent="AppThemePurpleYellowDark">
         <item name="themeName">black</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemeRedGreenBlack" parent="AppThemeRedGreenDark">
         <item name="themeName">black</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemeGreenRedBlack" parent="AppThemeGreenRedDark">
         <item name="themeName">black</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
@@ -336,7 +336,7 @@
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/blackPrimary</item>
 
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
@@ -393,27 +393,46 @@
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/greyPrimary</item>
 
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeSolarized" parent="AppThemeBaseDark">
-        <item name="themeName">black</item>
-        <item name="colorPrimary">@color/solarizedPrimary</item>
-        <item name="colorPrimaryDark">@color/solarizedPrimaryDark</item>
-        <item name="colorAccent">@color/solarizedAccent</item>
+    <style name="AppThemeSolarizedLight" parent="AppThemeBaseLight">
+        <item name="colorPrimary">@color/darkSolarizedPrimary</item>
+        <item name="colorPrimaryDark">@color/darkSolarizedPrimaryDark</item>
+        <item name="colorAccent">@color/darkSolarizedAccent</item>
 
-        <item name="colorUnreadHighlight">@color/solarizedAccent</item>
+        <item name="colorUnreadHighlight">@color/darkSolarizedAccent</item>
 
-        <item name="colorFabBackground">@color/solarizedAccent</item>
+        <item name="colorFabBackground">@color/darkSolarizedAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
-        <item name="colorInfoBackground">@color/solarizedPrimary</item>
+        <item name="colorInfoBackground">@color/darkSolarizedAccent</item>
 
-        <item name="android:textColorLink">@color/solarizedAccent</item>
+        <item name="android:textColorLink">@color/darkSolarizedAccent</item>
 
-        <item name="colorCardBackground">@color/solarizedPrimaryDark</item>
-        <item name="android:windowBackground">@drawable/black_background</item>
+        <item name="colorCardBackground">@color/lightSolarizedPaper</item>
+        <item name="android:windowBackground">@drawable/background_white</item>
+        <item name="colorDrawerBackground">@color/white</item>
+    </style>
+
+    <style name="AppThemeSolarizedDark" parent="AppThemeBaseDark">
+        <item name="themeName">black</item>
+        <item name="colorPrimary">@color/darkSolarizedPrimary</item>
+        <item name="colorPrimaryDark">@color/darkSolarizedPrimaryDark</item>
+        <item name="colorAccent">@color/darkSolarizedAccent</item>
+
+        <item name="colorUnreadHighlight">@color/darkSolarizedAccent</item>
+
+        <item name="colorFabBackground">@color/darkSolarizedAccent</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/darkSolarizedAccent</item>
+
+        <item name="android:textColorLink">@color/darkSolarizedAccent</item>
+
+        <item name="colorCardBackground">@color/darkSolarizedPrimaryDark</item>
+        <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 

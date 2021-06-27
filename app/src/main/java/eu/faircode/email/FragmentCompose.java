@@ -965,19 +965,9 @@ public class FragmentCompose extends FragmentBase {
 
         // Initialize
         setHasOptionsMenu(true);
+        FragmentDialogTheme.setBackground(getContext(), view, true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        boolean cards = prefs.getBoolean("cards", true);
-        String theme = prefs.getString("theme", null);
-        if (cards &&
-                (!Helper.isDarkTheme(getContext())) || "solarized".equals(theme))
-            view.setBackgroundColor(Helper.resolveColor(getContext(), R.attr.colorCardBackground));
-
-        //boolean beige = prefs.getBoolean("beige", true);
-        //if (beige && !Helper.isDarkTheme(getContext()))
-        //    view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards_beige));
-
         boolean keyboard_no_fullscreen = prefs.getBoolean("keyboard_no_fullscreen", false);
         if (keyboard_no_fullscreen) {
             // https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_FULLSCREEN

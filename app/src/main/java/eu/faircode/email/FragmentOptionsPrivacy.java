@@ -50,7 +50,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewFeature;
@@ -359,13 +358,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext())) {
-            boolean beige = prefs.getBoolean("beige", true);
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
-                    ? R.color.lightColorBackground_cards_beige
-                    : R.color.lightColorBackground_cards));
-        }
-
+        FragmentDialogTheme.setBackground(getContext(), view, false);
         tvClientId.setText(getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);

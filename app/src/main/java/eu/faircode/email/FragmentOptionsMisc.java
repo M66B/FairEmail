@@ -55,7 +55,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -801,12 +800,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext())) {
-            boolean beige = prefs.getBoolean("beige", true);
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
-                    ? R.color.lightColorBackground_cards_beige
-                    : R.color.lightColorBackground_cards));
-        }
+        FragmentDialogTheme.setBackground(getContext(), view, false);
 
         swPowerMenu.setVisibility(!BuildConfig.PLAY_STORE_RELEASE &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.R

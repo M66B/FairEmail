@@ -1,6 +1,7 @@
 package eu.faircode.email;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 public class FragmentDialogTheme extends FragmentDialogBase {
@@ -28,19 +30,20 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private void eval() {
         int checkedId = rgTheme.getCheckedRadioButtonId();
         boolean grey = (checkedId == R.id.rbThemeGrey);
-        boolean colored = (grey ||
+        boolean solarized = (checkedId == R.id.rbThemeSolarized);
+        boolean colored = (grey || solarized ||
                 checkedId == R.id.rbThemeBlueOrange ||
                 checkedId == R.id.rbThemeRedGreen ||
                 checkedId == R.id.rbThemeYellowPurple);
         int optionId = rgThemeOptions.getCheckedRadioButtonId();
 
-        swReverse.setEnabled(colored && !grey);
+        swReverse.setEnabled(colored && !grey && !solarized);
 
         rgThemeOptions.setEnabled(colored);
         for (int i = 0; i < rgThemeOptions.getChildCount(); i++)
             rgThemeOptions.getChildAt(i).setEnabled(colored);
 
-        swBlack.setEnabled(colored && !grey && optionId != R.id.rbThemeLight);
+        swBlack.setEnabled(colored && !grey && !solarized && optionId != R.id.rbThemeLight);
 
         tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
     }
@@ -154,6 +157,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 break;
 
             case "solarized":
+            case "solarized_light":
+            case "solarized_dark":
+            case "solarized_system":
                 rgTheme.check(R.id.rbThemeSolarized);
                 break;
 
@@ -227,7 +233,11 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                                 editor.putString("theme",
                                         "grey" + (dark ? "_dark" : "_light")).apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeSolarized) {
-                            editor.putString("theme", "solarized").apply();
+                            if (system)
+                                editor.putString("theme", "solarized_system").apply();
+                            else
+                                editor.putString("theme",
+                                        "solarized" + (dark ? "_dark" : "_light")).apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeBlack) {
                             editor.putString("theme", "black").apply();
                         } else if (checkedRadioButtonId == R.id.rbThemeBlackAndWhite) {
@@ -239,5 +249,24 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
+    }
+
+    static void setBackground(Context context, View view, boolean compose) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean cards = prefs.getBoolean("cards", true);
+        boolean beige = prefs.getBoolean("beige", true);
+        String theme = prefs.getString("theme", "blue_orange_system");
+        boolean dark = Helper.isDarkTheme(context);
+        boolean solarized = (theme != null && theme.startsWith("solarized"));
+
+        if (compose) {
+            if (cards && (!dark || solarized))
+                view.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
+        } else {
+            if (cards && !dark && !solarized)
+                view.setBackgroundColor(ContextCompat.getColor(context, beige
+                        ? R.color.lightColorBackground_cards_beige
+                        : R.color.lightColorBackground_cards));
+        }
     }
 }

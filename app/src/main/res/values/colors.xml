@@ -134,9 +134,10 @@
     <color name="greyAccentLight">#c1d5e0</color>
 
     <!-- https://github.com/altercation/solarized -->
-    <color name="solarizedPrimary">#073642</color>
-    <color name="solarizedPrimaryDark">#002b36</color>
-    <color name="solarizedAccent">#268bd2</color>
+    <color name="darkSolarizedPrimary">#073642</color>
+    <color name="darkSolarizedPrimaryDark">#002b36</color>
+    <color name="darkSolarizedAccent">#268bd2</color>
+    <color name="lightSolarizedPaper">#fdf6e3</color>
 
     <!-- default: #323232 -->
     <color name="design_snackbar_background_color" tools:override="true">#222</color>

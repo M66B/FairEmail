@@ -52,7 +52,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -432,13 +431,7 @@ public class FragmentSetup extends FragmentBase {
         });
 
         // Initialize
-        if (!Helper.isDarkTheme(getContext())) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean beige = prefs.getBoolean("beige", true);
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
-                    ? R.color.lightColorBackground_cards_beige
-                    : R.color.lightColorBackground_cards));
-        }
+        FragmentDialogTheme.setBackground(getContext(), view, false);
 
         tvNoInternet.setVisibility(View.GONE);
         btnIdentity.setEnabled(false);

@@ -98,7 +98,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuItemCompat;
@@ -288,7 +287,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private OpenPgpServiceConnection pgpService;
 
     private boolean cards;
-    private boolean beige;
     private boolean date;
     private boolean date_bold;
     private boolean threading;
@@ -407,7 +405,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         swipenav = prefs.getBoolean("swipenav", true);
         cards = prefs.getBoolean("cards", true);
-        beige = prefs.getBoolean("beige", true);
         date = prefs.getBoolean("date", true);
         date_bold = prefs.getBoolean("date_bold", false);
         threading = prefs.getBoolean("threading", true);
@@ -1146,12 +1143,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         addKeyPressedListener(onBackPressedListener);
 
         // Initialize
-
-        if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
-                    ? R.color.lightColorBackground_cards_beige
-                    : R.color.lightColorBackground_cards));
-
+        FragmentDialogTheme.setBackground(getContext(), view, false);
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
         sbThread.setVisibility(View.GONE);

@@ -39,7 +39,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
@@ -61,7 +60,6 @@ public class FragmentAccounts extends FragmentBase {
     private boolean settings;
 
     private boolean cards;
-    private boolean beige;
 
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
@@ -86,7 +84,6 @@ public class FragmentAccounts extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
-        beige = prefs.getBoolean("beige", true);
     }
 
     @Override
@@ -213,11 +210,7 @@ public class FragmentAccounts extends FragmentBase {
         });
 
         // Initialize
-
-        if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
-                    ? R.color.lightColorBackground_cards_beige
-                    : R.color.lightColorBackground_cards));
+        FragmentDialogTheme.setBackground(getContext(), view, false);
 
         if (settings) {
             fab.show();

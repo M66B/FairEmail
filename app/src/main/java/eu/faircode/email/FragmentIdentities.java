@@ -31,7 +31,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
@@ -46,7 +45,6 @@ import java.util.List;
 
 public class FragmentIdentities extends FragmentBase {
     private boolean cards;
-    private boolean beige;
 
     private RecyclerView rvIdentity;
     private ContentLoadingProgressBar pbWait;
@@ -62,7 +60,6 @@ public class FragmentIdentities extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
-        beige = prefs.getBoolean("beige", true);
     }
 
     @Override
@@ -116,12 +113,7 @@ public class FragmentIdentities extends FragmentBase {
         });
 
         // Initialize
-
-        if (cards && !Helper.isDarkTheme(getContext()))
-            view.setBackgroundColor(ContextCompat.getColor(getContext(), beige
-                    ? R.color.lightColorBackground_cards_beige
-                    : R.color.lightColorBackground_cards));
-
+        FragmentDialogTheme.setBackground(getContext(), view, false);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
