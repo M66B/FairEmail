@@ -38,6 +38,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -523,6 +525,55 @@ public class ContactInfo {
         imgs.addAll(doc.head().select("link[href~=.+\\.(ico|png|gif|svg)]"));
         imgs.addAll(doc.head().select("meta[itemprop=image]"));
 
+        // https://developer.mozilla.org/en-US/docs/Web/Manifest/icons
+        if (imgs.size() == 0 || BuildConfig.DEBUG)
+            for (Element manifest : doc.head().select("link[rel=manifest]"))
+                try {
+                    String href = manifest.attr("href");
+                    if (TextUtils.isEmpty(href))
+                        continue;
+
+                    URL url = new URL(base, href);
+                    Log.i("GET favicon manifest " + url);
+
+                    HttpsURLConnection m = (HttpsURLConnection) url.openConnection();
+                    m.setRequestMethod("GET");
+                    m.setReadTimeout(FAVICON_READ_TIMEOUT);
+                    m.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
+                    m.setInstanceFollowRedirects(true);
+                    m.setHostnameVerifier(new HostnameVerifier() {
+                        @Override
+                        public boolean verify(String hostname, SSLSession session) {
+                            return true;
+                        }
+                    });
+                    m.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                    m.connect();
+
+                    try {
+                        String json = Helper.readStream(m.getInputStream());
+                        JSONObject jroot = new JSONObject(json);
+                        JSONArray jicons = jroot.getJSONArray("icons");
+                        for (int i = 0; i < jicons.length(); i++) {
+                            JSONObject jicon = jicons.getJSONObject(i);
+                            String src = jicon.getString("src");
+                            String sizes = jicon.optString("sizes", "");
+                            String type = jicon.optString("type", "");
+                            if (!TextUtils.isEmpty(src)) {
+                                Element img = doc.createElement("link")
+                                        .attr("href", src)
+                                        .attr("sizes", sizes)
+                                        .attr("type", type);
+                                imgs.add(img);
+                            }
+                        }
+                    } finally {
+                        m.disconnect();
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+
         Collections.sort(imgs, new Comparator<Element>() {
             @Override
             public int compare(Element img1, Element img2) {
@@ -546,6 +597,7 @@ public class ContactInfo {
                 if (t != 0)
                     return t;
 
+                // TODO: multiple sizes
                 String[] s1 = img1.attr("sizes").split("[x|X]");
                 String[] s2 = img2.attr("sizes").split("[x|X]");
                 Integer w1 = Helper.parseInt(s1.length == 2 ? s1[0] : null);
