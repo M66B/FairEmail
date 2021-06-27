@@ -3667,6 +3667,8 @@ For example themes with a yellow accent color use a darker link color for enough
 
 The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
 
+The *Solarized* theme is described in [this article](https://en.wikipedia.org/wiki/Solarized_(color_scheme)).
+
 <br />
 
 <a name="faq165"></a>
