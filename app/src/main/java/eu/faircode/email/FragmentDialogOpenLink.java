@@ -67,6 +67,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             // https://en.wikipedia.org/wiki/UTM_parameters
+            "awt_a", // AWeber
+            "awt_l", // AWeber
+            "awt_m", // AWeber
+
             "icid", // Adobe
             "gclid", // Google
             "gclsrc", // Google ads
