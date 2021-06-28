@@ -3354,6 +3354,7 @@ class Core {
                         self = true;
                         break;
                     }
+
             if (!self) {
                 String warning = message.checkReplyDomain(context);
                 message.reply_domain = (warning == null);
@@ -3362,8 +3363,9 @@ class Core {
             boolean check_mx = prefs.getBoolean("check_mx", false);
             if (check_mx)
                 try {
-                    Address[] addresses = (message.reply == null || message.reply.length == 0
-                            ? message.from : message.reply);
+                    Address[] addresses =
+                            (message.reply == null || message.reply.length == 0
+                                    ? message.from : message.reply);
                     DnsHelper.checkMx(context, addresses);
                     message.mx = true;
                 } catch (UnknownHostException ex) {
@@ -3375,7 +3377,7 @@ class Core {
                 }
 
             boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
-            if (check_blocklist) {
+            if (check_blocklist && !self) {
                 List<Address> senders = new ArrayList<>();
                 if (message.from != null)
                     senders.addAll(Arrays.asList(message.from));
