@@ -20,6 +20,7 @@
     <string name="channel_service_description">帳號同步及監控</string>
     <string name="channel_send_description">訊息的寄送</string>
     <string name="channel_notification_description">新訊息通知</string>
+    <string name="channel_progress_description">長期運行時的進度通知</string>
     <plurals name="page_conversation">
         <item quantity="other">會話</item>
     </plurals>
@@ -67,6 +68,7 @@
     </string>
     <string name="title_junk_filter">使用本機垃圾信過濾器</string>
     <string name="title_junk_filter_hint">這可能增加電池使用量且不正確地將某些訊息標示為垃圾信</string>
+    <string name="title_junk_blocklist">開啟垃圾郵件封鎖清單</string>
     <string name="title_notification_sending">寄送訊息中</string>
     <string name="title_notification_waiting">正在等待合適的網路連線</string>
     <string name="title_notification_idle">閒置</string>
@@ -96,6 +98,7 @@
     <string name="title_agree">我同意</string>
     <string name="title_disagree">我不同意</string>
     <string name="title_version">版本 %1$s</string>
+    <string name="title_privacy_policy">隱私權政策</string>
     <string name="title_list_accounts">帳號</string>
     <string name="title_list_identities">身份</string>
     <string name="title_edit_account">編輯帳號</string>
@@ -114,8 +117,10 @@
     <string name="title_setup_wizard">精靈</string>
     <string name="title_setup_wizard_multiple">這個安裝精靈可以讓您新增多個帳號</string>
     <string name="title_setup_wizard_new">我需要一個新的 email 地址。</string>
+    <string name="title_setup_manual">手動設置及帳戶選項</string>
     <string name="title_setup_account_remark">接收電郵</string>
     <string name="title_setup_identity_remark">發送電子郵件</string>
+    <string name="title_setup_account_identity_hint">您可以在帳戶設置中設定名稱、顏色和滑動操作方式，並在身份設置中設置簽名</string>
     <string name="title_setup_accounts">帳號</string>
     <string name="title_setup_identities">身份</string>
     <string name="title_setup_other">其他服務商</string>
@@ -140,6 +145,7 @@
     <string name="title_setup_no_inbox">收件箱未找到</string>
     <string name="title_setup_advanced_protection">當參與進階保護項目時，使用第三方email應用是不可能的。這是Google設置的一項限制。</string>
     <string name="title_setup_quick_success">成功新增一個帳號</string>
+    <string name="title_setup_quick_configure">編輯名稱、顏色、滑動操作等</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">獲取</string>
     <string name="title_setup_grant_again">取得必須的權限</string>
@@ -148,10 +154,17 @@
     <string name="title_setup_free">這個app是免費使用的嗎?</string>
     <string name="title_setup_permissions">取得權限</string>
     <string name="title_setup_permissions_remark">取用聯絡人資訊（可選）</string>
+    <string name="title_setup_permissions_explanation">需要權限來搜尋聯絡訊息和聯絡人</string>
     <string name="title_setup_doze">停用電池最佳化</string>
     <string name="title_setup_doze_remark">為了穩定的接收及發送email</string>
+    <string name="title_setup_doze_explanation">請關閉電池最佳化功能，以確保應用程式能順利地在後台發送和接收消息</string>
+    <string name="title_setup_doze_hint">雖然這聽起來有些矛盾，但關閉此應用的電池最佳化會減少電池使用量</string>
+    <string name="title_setup_doze_instructions">在下一個 Android 對話框中將\"未最佳化\"更改為\"所有應用\"，選擇此應用並選擇\"不進行最佳化\"</string>
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
+    <string name="title_setup_doze_device">這可能是此設備所必需的</string>
+    <string name="title_setup_doze_android">這是此 Android 版本所必需的</string>
+    <string name="title_setup_background">限制背景運行已啟用</string>
     <string name="title_setup_data">已啟用節省流量</string>
     <string name="title_setup_advanced_options">顯示進階選項</string>
     <string name="title_setup_inbox">回到收件匣</string>
@@ -161,8 +174,10 @@
     <string name="title_setup_still">請繼續完成</string>
     <string name="title_setup_error">錯誤</string>
     <string name="title_setup_configuring">設置帳號 &#8230; 中</string>
+    <string name="title_setup_close">關閉設定</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
+    <string name="title_setup_export_do">密碼用於加密你的裝置。當你再次導入裝置時，系統會要求你重新輸入密碼</string>
     <string name="title_setup_import_do">匯入的帳號不會覆蓋任何現有帳號</string>
     <string name="title_setup_password">密碼</string>
     <string name="title_setup_password_chars">密碼包含空白字元</string>
@@ -203,6 +218,7 @@
     <string name="title_advanced_hint_message">        你正在瀏覽進階選項。
         所有的預設值都可以依照您的喜好進行修改。
     </string>
+    <string name="title_advanced_section_main">主要設定</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">寄送</string>
     <string name="title_advanced_section_connection">連線</string>
@@ -227,6 +243,7 @@
     <string name="title_advanced_sync_folders">同步資料夾清單</string>
     <string name="title_advanced_sync_shared_folders">同步分享的資料夾清單</string>
     <string name="title_advanced_subscriptions">管理資料夾訂閱</string>
+    <string name="title_advanced_check_authentication">檢查訊息驗證</string>
     <string name="title_advanced_check_reply_domain">在同步訊息時檢查回覆 email 的地址。</string>
     <string name="title_advanced_check_mx">在同步訊息時檢查發送者的email地址。</string>
     <string name="title_advanced_tune_keep_alive">自動調整保持活躍的間隔</string>
@@ -435,6 +452,7 @@
     <string name="title_advanced_app">應用程式設定</string>
     <string name="title_advanced_more">更多選項</string>
     <string name="title_advanced_protocol">紀錄協定日誌</string>
+    <string name="title_advanced_log_info">日誌記錄</string>
     <string name="title_advanced_debug">除錯模式</string>
     <string name="title_advanced_query_threads">限制資料庫平行存取</string>
     <string name="title_advanced_manual_hint">如果停用了接收郵件，仍然可以下拉郵件列表來手動接收郵件</string>
@@ -453,6 +471,7 @@
     <string name="title_advanced_suggest_local_hint">除了 Android 提供的聯絡人。 僅在啟用後，聯絡人資料將被儲存以用於新寄送或接收的郵件。</string>
     <string name="title_advanced_usenet_hint">在文字和簽名之間插入 “--”</string>
     <string name="title_advanced_send_reminders_hint">當郵件內文或主旨為空或可能缺少附件時顯示警告</string>
+    <string name="title_advanced_reply_move_hint">電子郵件服務器仍然可以將郵件添加到\"已發送郵件\"的文件夾</string>
     <string name="title_advanced_metered_hint">計量網路通常是行動網路或付費 Wi-Fi 熱點</string>
     <string name="title_advanced_metered_warning">停用這個選項將停用在行動網路下接收和寄送郵件。</string>
     <string name="title_advanced_rlah_hint">假設在歐盟境內不漫遊</string>
@@ -469,6 +488,7 @@
     <string name="title_advanced_threading_hint">彼此相關的群組訊息</string>
     <string name="title_advanced_highlight_hint">主題的強調色將用於突出顯示</string>
     <string name="title_advanced_gravatars_hint">可能存在隱私風險</string>
+    <string name="title_advanced_name_email_hint">名稱僅在可用時顯示</string>
     <string name="title_advanced_preview_hint">僅在消息文本已被下載時可用</string>
     <string name="title_advanced_preview_lines_hint">總計最多 %s 字元</string>
     <string name="title_advanced_preview_issue">由於某些Android版本中的錯誤，當行數超過一時，滾動可能會變慢</string>

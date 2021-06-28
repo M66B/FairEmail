@@ -78,7 +78,7 @@
     </string>
     <string name="title_junk_filter">Usa filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
-    <string name="title_junk_blocklist">Usa liste di blocco spam</string>
+    <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
     <string name="title_notification_sending">Inviando i messaggi</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
@@ -108,6 +108,7 @@
     <string name="title_agree">Acconsento</string>
     <string name="title_disagree">Nego il consenso</string>
     <string name="title_version">Versione %1$s</string>
+    <string name="title_privacy_policy">Informativa sulla privacy</string>
     <string name="title_list_accounts">Profili</string>
     <string name="title_list_identities">Identità</string>
     <string name="title_edit_account">Modifica profilo</string>
@@ -310,6 +311,8 @@
     <string name="title_advanced_landscape3">Mostra il menu di navigazione in modalità orizzontale di default</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
+    <string name="title_advanced_cards_beige">Usa lo sfondo beige quando si utilizza lo stile carta (solo per temi chiari)</string>
+    <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo quando si utilizza lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
@@ -431,6 +434,7 @@
     <string name="title_advanced_biometrics_notify">Mostra il contenuto della notifica usando l\'autenticazione biometrica</string>
     <string name="title_advanced_light">Usa il LED di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
+    <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per la notifica di nuovi messaggi</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
     <string name="title_advanced_browse_links">Delega l\'apertura dei link ad Android</string>
     <string name="title_advanced_confirm_images">Conferma la visualizzazione dei messaggi</string>
@@ -980,6 +984,7 @@
     <string name="title_translating">Traducendo&#8230;</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Tocca il testo che deve essere tradotto</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>

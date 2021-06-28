@@ -2,9 +2,9 @@
 
 # FairEmail 支援
 
-如果你有疑問，請先查閱以下常見問題。 [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+如果你有疑問，請先查閱以下常見問題。 [在本頁下方](#user-content-get-support), 你可以了解如何問其他問題、要求新增功能、以及回報錯誤。
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+. .
 
 ## 目錄
 
@@ -49,20 +49,20 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 * 更改帳戶名稱：設置＞點擊 "手動設置和更多選項"＞點擊 "帳戶(Accounts)"＞點擊 "帳戶(account)"
 * 變更 左/右 滑動動作：點選設定＞行為＞設置滑動動作
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
+* 更改密碼：設置＞點擊手動設置＞點擊“帳戶(Account)”＞點擊“帳戶(account)”＞更改密碼
 * 設置簽名：設置>點擊"手動設置和更多選項">點擊"身份">點擊"身份">"編輯簽名"。
 * 新增副本和密件副本郵件地址：輕觸主旨後方的人像圖標
-* Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* 在存檔/刪除時轉到下一條/上一條消息：在行為設置中禁用*自動關閉對話*並選擇*轉到下一條/上一條對話*以選擇*關閉對話 *
+* 將文件夾添加到統一收件箱：長按文件夾列表中的文件夾並勾選*在統一收件箱中顯示*
+* 將文件夾添加到導航菜單：長按文件夾列表中的文件夾並勾選*在導航菜單中顯示*
+* 加載更多消息：長按文件夾列表中的文件夾，選擇*獲取更多消息*
+* 不放進垃圾桶，直接刪除消息：長按垃圾桶圖標
+* 刪除帳戶/身份：設置>點按手動設置>點按帳戶/身份>點按帳戶/身份>右上角的垃圾桶圖標
+* 刪除文件夾：長按文件夾列表中的文件夾>編輯屬性>右上角的垃圾桶圖標
+* 撤銷發送：寄件箱>將列表中的消息向左或向右滑動
 * 將已發送的郵件存儲在收件箱中：請[參閱此常見問題解答](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* 更改系統文件夾：設置，點按手動設置，點按帳戶，點按底部的帳戶
+* 導出/導入設置：設置、導航（左側）菜單
 
 <h2><a name="known-problems"></a>Known problem</h2>
 
@@ -1086,15 +1086,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![外部圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![內嵌圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![損壞的圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1528,11 +1528,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![外部圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![外部圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1934,7 +1934,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![外部圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2683,7 +2683,7 @@ Version 1.1082 added a local trash folder. Version 1.1082 added a local trash fo
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![外部圖片](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -3025,27 +3025,27 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <h2><a name="get-support"></a>取得支援</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+僅 Android 手機和平板電腦以及 ChromeOS 支持 FairEmail。
 
-Only the latest Play store version and latest GitHub release are supported. Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported. This also means that downgrading is not supported.
+Only the latest Play store version and latest GitHub release are supported. 僅當版本號與最新 GitHub 版本的版本號相同時，才支持 F-Droid 構建。 亦即，我們不支援版本降級。
 
-There is no support on things that are not directly related to FairEmail.
+我們不支援與 FairEmail 沒有直接關聯的事情。
 
-There is no support on building and developing things by yourself.
+我們不支援用戶自行創建和開發。
 
-Requested features should:
+請求新增的功能須有下列特質：
 
 * 對大部分人來說是好用的
 * 不會讓FairEmail變得複雜
 * 符合FairEmail重視隱私及安全性的原則
 * 與常見標準相容(如：IMAP、SMTP等等)
 
-Features not fulfilling these requirements will likely be rejected. Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+不符合這些標準的請求很可能會被拒絕。 以確保我們能長期地進行維護和支援。
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+如果您有問題、想要請求功能或報告錯誤，**請使用[此表單](https://contact.faircode.eu/?product=fairemailsupport)**。
 
-GitHub issues are disabled due to frequent misusage.
+由於過度的濫用，GitHub的issues頁面已被關閉。
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+版權所有 &copy; 2018-2021 Marcel Bokhorst.

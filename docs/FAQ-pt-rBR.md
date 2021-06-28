@@ -4,7 +4,7 @@
 
 Se você tem uma pergunta, verifique primeiro as perguntas mais frequentes. [No final da página](#user-content-get-support), você pode descobrir como fazer outras perguntas, solicitar recursos, e relatar bugs.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Se você tiver alguma dúvida, verifique primeiro as Perguntas frequentes (FAQ) abaixo. [Na parte inferior, você encontrará](#user-content-get-support), como você pode fazer mais perguntas, solicitar funções e relatar erros.
 
 ## Índice
 

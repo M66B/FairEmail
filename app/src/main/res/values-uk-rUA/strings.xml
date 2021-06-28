@@ -319,6 +319,8 @@
     <string name="title_advanced_landscape3">Показувати меню навігації в ландшафтному режимі за замовчуванням</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
+    <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання стилю карт (тільки для світлої теми)</string>
+    <string name="title_advanced_tabular_background">Використовувати колір картки як тло під час використання табличного стилю</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
     <string name="title_advanced_date_bold">Показувати дату в жирному шрифті</string>
@@ -989,6 +991,7 @@
     <string name="title_translating">Переклад &#8230;</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
     <string name="title_translate_usage">Використання: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Торкніться тексту для перекладу</string>
     <string name="title_edit_plain_text">Редагувати як звичайний текст</string>
     <string name="title_edit_formatted_text">Редагувати як переформатований текст</string>
     <string name="title_select_certificate">Виберіть відкритий ключ</string>

@@ -984,6 +984,7 @@
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Tik op de te vertalen text</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als opnieuw opgemaakte tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>

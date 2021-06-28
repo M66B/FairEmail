@@ -8,7 +8,7 @@
 
 ## 快速設定
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+只需選擇適當的服務商或*其他服務商*，然後輸入您的姓名、電子郵件地址和密碼，然後點按*檢查*。
 
 這適用於大部分的電子郵件服務商。
 
@@ -16,17 +16,17 @@ Just select the appropriate provider or *Other provider* and enter your name, em
 
 ## 設定帳戶以接收電子郵件
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). 從列表中選擇一個提供商，輸入用戶名（主要是您的電子郵件地址）並輸入密碼。 點擊*檢查*，以使FairEmail連接到電子郵件服務器並獲取系統文件夾列表。 查看系統文件夾選擇後，您可以通過點擊*保存*添加帳戶。
+若要添加帳戶，請點按*手動設置和更多選項*，點按*帳戶*，然後點按底部的"加號"按鈕，然後選擇 IMAP（或 POP3）。 從列表中選擇一個提供商，輸入用戶名（主要是您的電子郵件地址）並輸入密碼。 點擊*檢查*，以使FairEmail連接到電子郵件服務器並獲取系統文件夾列表。 查看系統文件夾選擇後，您可以通過點擊*保存*添加帳戶。
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+這裡有數千個服務商可供選擇，若您的服務商未在列表中，請選擇*自定*。 輸入域名，例如 *gmail.com*，然後點按*獲取設置*。 如果您的提供商支持[自動發現](https://tools.ietf.org/html/rfc6186)功能，FairEmail 將幫你填入主機名和端口號；否則，請查看您的服務商的設置說明以獲取正確的 IMAP 主機名、端口號和加密協議（SSL/TLS 或 STARTTLS）。 點擊[這裡](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)查看更多相關內容
 
 ## 設置顯示名稱 - 寄送電子郵件
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. 輕觸 *保存* 完成新增顯示名稱。
+若要添加身份，請點按*手動設置和更多選項*，點按*身份*，然後點按底部的"加號"按鈕。 輸入您想顯示的寄件者名稱，然後選擇一個帳戶進行連結。 輕觸 *保存* 完成新增顯示名稱。
 
-如果帳號為手動設定，您也需要手動設定顯示名稱。 輸入網域名稱，例如 *gmail.com* 之後輕觸 *設定*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+如果帳號為手動設定，您也需要手動設定顯示名稱。 輸入網域名稱，例如 *gmail.com* 之後輕觸 *設定*. 如果您的提供商支持[自動發現](https://tools.ietf.org/html/rfc6186)功能，FairEmail 將幫你填入主機名和端口號；否則，請查看您的服務商的設置說明以獲取正確的 SMTP 主機名、端口號和加密協議（SSL/TLS 或 STARTTLS）。
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+若要使用別名，請參閱[常見問答](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9)。
 
 ## 取得權限 - 存取聯絡人資訊
 

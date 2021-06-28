@@ -321,6 +321,8 @@
     <string name="title_advanced_landscape3">Afișează implicit meniul de navigare în modul peisaj</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
+    <string name="title_advanced_cards_beige">Utilizați un fundal bej atunci când folosiți stilul de card (numai pentru teme luminoase)</string>
+    <string name="title_advanced_tabular_background">Utilizați culoarea cardului ca și culoare de fundal atunci când folosiți stilul tabular</string>
     <string name="title_advanced_cards_shadow">Utilizează umbra pentru mesajele necitite când se folosește stilul card</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_date_bold">Afișați data marcată cu bold</string>
@@ -991,6 +993,7 @@
     <string name="title_translating">Traducere &#8230;</string>
     <string name="title_translate_small">Utilizați un font mic pentru textul sursă</string>
     <string name="title_translate_usage">Utilizare: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Atingeți ușor textul care urmează să fie tradus</string>
     <string name="title_edit_plain_text">Editați ca text simplu</string>
     <string name="title_edit_formatted_text">Editați ca text reformatat</string>
     <string name="title_select_certificate">Selectare cheie publică</string>

@@ -1004,6 +1004,7 @@
     <string name="title_translating">Перевод&#8230;</string>
     <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Нажмите на текст для перевода</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_select_certificate">Выбор публичного ключа</string>

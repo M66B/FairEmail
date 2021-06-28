@@ -311,6 +311,8 @@
     <string name="title_advanced_landscape3">Προβολή μενού πλοήγησης κατά τον οριζόντιο προσανατολισμό από προεπιλογή</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
+    <string name="title_advanced_cards_beige">Μπεζ φόντο κατά τη χρήση του στιλ κάρτας (ανοιχτόχρωμα θέματα μόνο)</string>
+    <string name="title_advanced_tabular_background">Να χρησιμοποιείται το χρώμα της κάρτας ως χρώμα φόντου κατά τη χρήση του στιλ πίνακα</string>
     <string name="title_advanced_cards_shadow">Σκίαση μη αναγνωσμένων μηνυμάτων κατά τη χρήση στιλ κάρτας</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
     <string name="title_advanced_date_bold">Προβολή ημερομηνίας με έντονους χαρακτήρες</string>
