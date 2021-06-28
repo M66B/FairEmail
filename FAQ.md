@@ -302,6 +302,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 * [(167) How can I use DeepL?](#user-content-faq167)
 * [(168) What is a spam block list?](#user-content-faq168)
+* [(169) Why does the app not start automatically?](#user-content-faq169)
 
 [I have another question.](#user-content-support)
 
@@ -3747,6 +3748,19 @@ FairEmail currently uses the following block lists:
 * [Barracuda](https://www.barracudacentral.org/rbl/how-to-use) &#8211; [Request Access](https://www.barracudacentral.org/account/register) &#8211; [Privacy policy](https://www.barracuda.com/company/legal/trust-center/data-privacy/privacy-policy)
 
 From version 1.1627 it is possible to enable/disable individual blocklists in the receive settings of the app.
+
+<br />
+
+<a name="faq169"></a>
+**(169) Why does the app not start automatically?**
+
+FairEmail requests Android to start the app when the device starts up.
+Obviously, this depends on Android as the app cannot start itself.
+
+Some Android versions, such as EMUI, have settings to enable or disable auto starting apps.
+So, if the app isn't started automatically, please check the Android settings.
+
+For example for Huawei/EMUI, please [see here](https://dontkillmyapp.com/huawei) for a guide.
 
 <br />
 
