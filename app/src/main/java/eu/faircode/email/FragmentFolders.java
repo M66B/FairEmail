@@ -303,12 +303,16 @@ public class FragmentFolders extends FragmentBase {
                 public void onChanged(@Nullable EntityAccount account) {
                     imap = (account != null && account.protocol == EntityAccount.TYPE_IMAP);
 
-                    if (account != null && account.quota_usage != null && account.quota_limit != null) {
-                        int percent = Math.round(account.quota_usage * 100f / account.quota_limit);
-                        setSubtitle(getString(R.string.title_name_count,
-                                account.name, NF.format(percent) + "%"));
-                    } else
-                        setSubtitle(account == null ? null : account.name);
+                    if (account == null)
+                        setSubtitle(null);
+                    else {
+                        Integer percent = account.getQuotaPercentage();
+                        if (percent == null)
+                            setSubtitle(account.name);
+                        else
+                            setSubtitle(getString(R.string.title_name_count,
+                                    account.name, NF.format(percent) + "%"));
+                    }
 
                     if (account != null && account.error != null)
                         fabError.show();

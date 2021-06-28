@@ -1311,7 +1311,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     db.account().setAccountMaxSize(account.id, iservice.getMaxSize());
                     if (istore instanceof IMAPStore)
-                        updateQuota(((IMAPStore) iservice.getStore()), account);
+                        updateQuota(this, ((IMAPStore) iservice.getStore()), account);
 
                     // Listen for folder events
                     iservice.getStore().addFolderListener(new FolderAdapter() {
@@ -2183,22 +2183,24 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     }
 
-    private void updateQuota(IMAPStore istore, EntityAccount account) {
+    private void updateQuota(Context context, IMAPStore istore, EntityAccount account) {
         DB db = DB.getInstance(this);
         try {
             if (istore.hasCapability("QUOTA")) {
-                // https://tools.ietf.org/id/draft-melnikov-extra-quota-00.html
+                // https://datatracker.ietf.org/doc/html/rfc2087
                 Quota[] quotas = istore.getQuota("INBOX");
                 if (quotas != null) {
-                    long usage = 0;
-                    long limit = 0;
+                    Long usage = null;
+                    Long limit = null;
                     for (Quota quota : quotas)
                         if (quota.resources != null)
                             for (Quota.Resource resource : quota.resources) {
-                                Log.i("Quota " + resource.name + " " + resource.usage + "/" + resource.limit);
+                                EntityLog.log(context, "Quota " + resource.name + " " + resource.usage + "/" + resource.limit);
                                 if ("STORAGE".equalsIgnoreCase(resource.name)) {
-                                    usage += resource.usage * 1024;
-                                    limit = Math.max(limit, resource.limit * 1024);
+                                    if (resource.usage >= 0)
+                                        usage = (usage == null ? 0L : usage) + resource.usage * 1024;
+                                    if (resource.limit > 0)
+                                        limit = Math.max(limit == null ? 0L : limit, resource.limit * 1024);
                                 }
                             }
                     db.account().setAccountQuota(account.id, usage, limit);

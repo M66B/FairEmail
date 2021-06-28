@@ -205,6 +205,14 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return id;
     }
 
+    Integer getQuotaPercentage() {
+        if (quota_usage == null || quota_limit == null)
+            return null;
+
+        int percent = Math.round(quota_usage * 100f / quota_limit);
+        return (percent > 100 ? null : percent);
+    }
+
     @Override
     String[] getSortTitle(Context context) {
         return new String[]{name, null};

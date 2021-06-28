@@ -218,10 +218,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     account.backoff_until == null ? "-" : DTF.format(account.backoff_until)));
             tvBackoff.setVisibility(account.backoff_until == null || !settings ? View.GONE : View.VISIBLE);
 
-            Integer percent = null;
-            if (!settings && account.quota_usage != null && account.quota_limit != null)
-                percent = Math.round(account.quota_usage * 100f / account.quota_limit);
-
+            Integer percent = (settings ? null : account.getQuotaPercentage());
             tvUsage.setText(percent == null ? null : NF.format(percent) + "%");
             tvUsage.setVisibility(percent == null ? View.GONE : View.VISIBLE);
             tvQuota.setText(context.getString(R.string.title_storage_quota,
