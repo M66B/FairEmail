@@ -7751,7 +7751,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (copy)
                     ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                 else
-                    moveAsk(result, false, !autoclose && onclose == null);
+                    moveAsk(result, true, !autoclose && onclose == null);
             }
 
             @Override
