@@ -546,6 +546,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             message += " " + stage;
         }
 
+        Log.e(message);
         EntityLog.log(this, message);
 
         if (result != null) {

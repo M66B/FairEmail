@@ -60,8 +60,6 @@ import java.util.Set;
 
 public class ActivityBilling extends ActivityBase implements PurchasingListener, FragmentManager.OnBackStackChangedListener {
     private boolean standalone = false;
-    private String currentUserId;
-    private String currentMarketplace;
     private List<IBillingListener> listeners = new ArrayList<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
@@ -202,12 +200,16 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
     };
 
     private void onPurchase(Intent intent) {
-        if (Helper.isAmazonInstall() || isTesting(this)) {
-            String skuPro = getSkuPro();
-            Log.i("IAB purchase SKU=" + skuPro);
-            RequestId requestId = PurchasingService.purchase(skuPro);
-            Log.i("IAB request=" + requestId);
-        } else
+        if (Helper.isAmazonInstall() || isTesting(this))
+            try {
+                String skuPro = getSkuPro();
+                Log.i("IAB purchase SKU=" + skuPro);
+                RequestId requestId = PurchasingService.purchase(skuPro);
+                Log.i("IAB request=" + requestId);
+            } catch (Throwable ex) {
+                reportError(ex.toString(), "onPurchase");
+            }
+        else
             try {
                 Uri uri = Uri.parse(BuildConfig.PRO_FEATURES_URI +
                         "?challenge=" + getChallenge(this) +
@@ -247,15 +249,14 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
 
         switch (response.getRequestStatus()) {
             case SUCCESSFUL:
-                Log.i("IAB user=" + response.getUserData().toString().replace('\n', '|'));
-                currentUserId = response.getUserData().getUserId();
-                currentMarketplace = response.getUserData().getMarketplace();
+                Log.i("IAB user=" + response.getUserData()
+                        .toString().replace('\n', '|'));
                 for (IBillingListener listener : listeners)
                     listener.onConnected();
                 break;
 
-            case FAILED:
-            case NOT_SUPPORTED:
+            default:
+                reportError(response.getRequestStatus().toString(), "onUserDataResponse");
                 break;
         }
     }
@@ -267,13 +268,13 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
         switch (response.getRequestStatus()) {
             case SUCCESSFUL:
                 for (Receipt receipt : response.getReceipts())
-                    handle(receipt);
-
+                    handleReceipt(receipt);
                 if (response.hasMore())
                     PurchasingService.getPurchaseUpdates(false);
                 break;
 
-            case FAILED:
+            default:
+                reportError(response.getRequestStatus().toString(), "onPurchaseUpdatesResponse");
                 break;
         }
     }
@@ -284,11 +285,10 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
 
         switch (response.getRequestStatus()) {
             case SUCCESSFUL:
-                for (final String sku : response.getUnavailableSkus())
+                for (String sku : response.getUnavailableSkus())
                     Log.i("IAB unavailable sku=" + sku);
-
                 Map<String, Product> products = response.getProductData();
-                for (final String key : products.keySet()) {
+                for (String key : products.keySet()) {
                     Product product = products.get(key);
                     Log.i("IAB product=" + product.toString().replace('\n', '|'));
                     if (getSkuPro().equals(product.getSku()))
@@ -297,7 +297,8 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
                 }
                 break;
 
-            case FAILED:
+            default:
+                reportError(response.getRequestStatus().toString(), "onProductDataResponse");
                 break;
         }
     }
@@ -308,15 +309,16 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
 
         switch (response.getRequestStatus()) {
             case SUCCESSFUL:
-                handle(response.getReceipt());
+                handleReceipt(response.getReceipt());
                 break;
 
-            case FAILED:
+            default:
+                reportError(response.getRequestStatus().toString(), "onPurchaseResponse");
                 break;
         }
     }
 
-    private void handle(Receipt receipt) {
+    private void handleReceipt(Receipt receipt) {
         Log.i("IAB receipt=" + receipt.toString().replace('\n', '|') +
                 " canceled=" + receipt.isCanceled() + "/" + receipt.getCancelDate());
 
@@ -335,6 +337,15 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
             for (IBillingListener listener : listeners)
                 listener.onPurchased(receipt.getSku(), !receipt.isCanceled());
         }
+    }
+
+    private void reportError(String status, String stage) {
+        String message = status + " " + stage;
+        Log.e(message);
+        EntityLog.log(this, message);
+
+        for (IBillingListener listener : listeners)
+            listener.onError(message);
     }
 
     interface IBillingListener {
