@@ -6897,7 +6897,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             break;
                     }
 
-                    if (result == null)
+                    if (result == null && !args.containsKey("reason"))
                         args.putString("reason", matching
                                 ? "Signature could not be verified"
                                 : "Certificates and signatures do not match");
