@@ -692,7 +692,10 @@ class ImageHelper {
                         at android.graphics.ImageDecoder.decodeDrawableImpl(ImageDecoder.java:1758)
                         at android.graphics.ImageDecoder.decodeDrawable(ImageDecoder.java:1751)
              */
-            d = new BitmapDrawable(context.getResources(), file.getAbsolutePath());
+            Bitmap bm = _decodeImage(file, scaleToPixels);
+            if (bm == null)
+                throw new FileNotFoundException(file.getAbsolutePath());
+            d = new BitmapDrawable(context.getResources(), bm);
         }
 
         d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
