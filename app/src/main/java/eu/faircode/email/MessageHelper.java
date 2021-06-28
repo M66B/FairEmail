@@ -2146,7 +2146,7 @@ public class MessageHelper {
 
                 String c = parts[1]
                         .replaceAll(" +$", "") // trim trailing spaces
-                        .replace("\\r?\\n", "\\r\\n"); // normalize new lines
+                        .replaceAll("\\r?\\n", "\r\n"); // normalize new lines
                 try (OutputStream os = new FileOutputStream(file)) {
                     os.write(c.getBytes());
                 }
