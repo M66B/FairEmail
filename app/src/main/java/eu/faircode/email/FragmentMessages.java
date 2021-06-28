@@ -70,7 +70,6 @@ import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -914,7 +913,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                        moveAsk(result, false, !autoclose && onclose == null);
+                        moveAsk(result, false);
                     }
 
                     @Override
@@ -1843,7 +1842,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                    moveAsk(result, false, !autoclose && onclose == null);
+                    moveAsk(result, false);
                 }
 
                 @Override
@@ -3458,7 +3457,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (EntityFolder.JUNK.equals(type))
                     moveAskConfirmed(result);
                 else
-                    moveAsk(result, true, true);
+                    moveAsk(result, true);
             }
 
             @Override
@@ -3642,7 +3641,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (copy)
                     moveAskConfirmed(result);
                 else
-                    moveAsk(result, true, true);
+                    moveAsk(result, true);
             }
 
             @Override
@@ -5467,11 +5466,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:navigate");
     }
 
-    private void moveAsk(final ArrayList<MessageTarget> result, boolean undo, boolean canUndo) {
+    private void moveAsk(final ArrayList<MessageTarget> result, boolean undo) {
         if (result.size() == 0)
             return;
-
-        canUndo = true;
 
         if (undo) {
             moveUndo(result);
@@ -5482,10 +5479,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean(key, false)) {
-            if (canUndo)
-                moveUndo(result);
-            else
-                moveAskConfirmed(result);
+            moveUndo(result);
             return;
         }
 
@@ -7751,7 +7745,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (copy)
                     ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                 else
-                    moveAsk(result, true, !autoclose && onclose == null);
+                    moveAsk(result, true);
             }
 
             @Override
