@@ -11,8 +11,8 @@ buildscript {
         // https://github.com/bugsnag/bugsnag-android-gradle-plugin
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:5.7.6'
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.5.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.5.20"
     }
 }
 
