@@ -411,7 +411,6 @@
 
         <item name="android:textColorLink">@color/darkSolarizedAccent</item>
 
-        <item name="colorSeparator">@color/lightSolarizedSeparator</item>
         <item name="colorCardBackground">@color/lightSolarizedPaper</item>
         <item name="android:windowBackground">@drawable/background_white</item>
         <item name="colorDrawerBackground">@color/white</item>
@@ -432,7 +431,6 @@
 
         <item name="android:textColorLink">@color/darkSolarizedAccent</item>
 
-        <item name="colorSeparator">@color/darkSolarizedSeparator</item>
         <item name="colorCardBackground">@color/darkSolarizedPrimaryDark</item>
         <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
