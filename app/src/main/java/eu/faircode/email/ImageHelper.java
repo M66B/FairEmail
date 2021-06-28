@@ -335,27 +335,10 @@ class ImageHelper {
                     Uri uri = Uri.parse(a.source);
                     Log.i("Loading image source=" + uri);
 
-                    BitmapFactory.Options options;
-                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
-                        options = new BitmapFactory.Options();
-                        options.inJustDecodeBounds = true;
-                        BitmapFactory.decodeStream(is, null, options);
-                    }
-
-                    int scaleToPixels = res.getDisplayMetrics().widthPixels;
-                    int factor = 1;
-                    while (options.outWidth / factor > scaleToPixels)
-                        factor *= 2;
-
                     Bitmap bm;
+                    int scaleToPixels = res.getDisplayMetrics().widthPixels;
                     try (InputStream is = context.getContentResolver().openInputStream(uri)) {
-                        if (factor > 1) {
-                            options.inJustDecodeBounds = false;
-                            options.inSampleSize = factor;
-                            bm = BitmapFactory.decodeStream(is, null, options);
-                        } else
-                            bm = BitmapFactory.decodeStream(is);
-
+                        bm = getScaledBitmap(is, a.source, scaleToPixels);
                         if (bm == null)
                             throw new FileNotFoundException(a.source);
                     }
