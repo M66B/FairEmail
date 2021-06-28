@@ -132,3 +132,8 @@
 -keep class org.commonmark.** {*;}
 -keepnames class io.noties.markwon.** {*;}
 -keepnames class org.commonmark.** {*;}
+
+#Amazon IAP
+-dontwarn com.amazon.**
+-keep class com.amazon.** {*;}
+-keepattributes *Annotation*

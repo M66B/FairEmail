@@ -471,6 +471,10 @@ public class Helper {
         return BuildConfig.PLAY_STORE_RELEASE;
     }
 
+    static boolean isAmazonInstall() {
+        return BuildConfig.AMAZON_RELEASE;
+    }
+
     static boolean hasPlayStore(Context context) {
         if (hasPlayStore == null)
             try {

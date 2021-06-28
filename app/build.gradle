@@ -132,6 +132,7 @@ android {
             dimension "all"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "boolean", "AMAZON_RELEASE", "false"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
             buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
@@ -142,6 +143,7 @@ android {
             dimension "all"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "boolean", "AMAZON_RELEASE", "false"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
             buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
@@ -153,6 +155,19 @@ android {
             //minSdkVersion 23
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
+            buildConfigField "boolean", "AMAZON_RELEASE", "false"
+            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
+            buildConfigField "String", "CHANGELOG", "\"\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
+            buildConfigField "String", "GITHUB_LATEST_URI", "\"\""
+            buildConfigField "String", "GRAVATAR_URI", "\"\""
+        }
+        amazon {
+            dimension "all"
+            //minSdkVersion 23
+            buildConfigField "boolean", "BETA_RELEASE", "true"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "boolean", "AMAZON_RELEASE", "true"
             buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/#pro\""
             buildConfigField "String", "CHANGELOG", "\"\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"\""
@@ -166,7 +181,7 @@ android {
         // Builds: release, debug
         // Flavors: github, fdroid, play
         if (variant.buildType.name == "debug" &&
-                (flavors.contains("fdroid") || flavors.contains("play"))) {
+                (flavors.contains("fdroid") || flavors.contains("play") || flavors.contains("_amazon"))) {
             setIgnore(true)
         }
     }
@@ -236,7 +251,7 @@ configurations.all {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def startup_version = "1.1.0-beta01"
     def annotation_version = "1.1.0"
@@ -379,6 +394,9 @@ dependencies {
     // https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html
     githubImplementation "com.android.billingclient:billing:$billingclient_version"
     playImplementation "com.android.billingclient:billing:$billingclient_version"
+
+    // https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html
+    amazonImplementation files('lib/in-app-purchasing-2.0.76.jar')
 
     // https://javaee.github.io/javamail/
     // https://projects.eclipse.org/projects/ee4j.javamail
