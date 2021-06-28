@@ -285,6 +285,28 @@
                     app:layout_constraintTop_toBottomOf="@id/spLanguage" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDeepL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_deepl"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLanguageHint"
+                    app:switchPadding="12dp" />
+
+                <ImageButton
+                    android:id="@+id/ibDeepL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDeepL"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWatchdog"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -293,7 +315,7 @@
                     android:text="@string/title_advanced_watchdog"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLanguageHint"
+                    app:layout_constraintTop_toBottomOf="@id/ibDeepL"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -512,6 +534,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swDebug" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpDeepL"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swDeepL,ibDeepL" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

@@ -479,6 +479,10 @@ public class ApplicationEx extends Application
                 String key = prefs.getString("deepl", null);
                 editor.putString("deepl_key", key).remove("deepl");
             }
+        } else if (version < 1630) {
+            boolean experiments = prefs.getBoolean("experiments", false);
+            if (experiments)
+                editor.putBoolean("deepl_enabled", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

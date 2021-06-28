@@ -95,6 +95,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsPro;
     private Spinner spLanguage;
     private ImageButton ibResetLanguage;
+    private SwitchCompat swDeepL;
+    private ImageButton ibDeepL;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swCheckWeekly;
@@ -132,6 +134,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnCiphers;
     private Button btnFiles;
 
+    private Group grpDeepL;
     private Group grpUpdates;
     private CardView cardDebug;
 
@@ -142,7 +145,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "language", "watchdog", "updates", "weekly",
+            "language", "deepl_enabled", "watchdog", "updates", "weekly",
             "experiments", "wal", "query_threads", "crash_reports", "cleanup_attachments",
             "protocol", "debug", "log_level",
             "use_modseq", "perform_expunge",
@@ -203,6 +206,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
         ibResetLanguage = view.findViewById(R.id.ibResetLanguage);
+        swDeepL = view.findViewById(R.id.swDeepL);
+        ibDeepL = view.findViewById(R.id.ibDeepL);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swCheckWeekly = view.findViewById(R.id.swWeekly);
@@ -240,6 +245,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
 
+        grpDeepL = view.findViewById(R.id.grpDeepL);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         cardDebug = view.findViewById(R.id.cardDebug);
 
@@ -412,6 +418,20 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 prefs.edit().remove("language").commit(); // apply won't work here
+            }
+        });
+
+        swDeepL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("deepl_enabled", checked).apply();
+            }
+        });
+
+        ibDeepL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 167, true);
             }
         });
 
@@ -825,6 +845,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        grpDeepL.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+
+        grpUpdates.setVisibility(!BuildConfig.DEBUG &&
+                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
+                ? View.GONE : View.VISIBLE);
+
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
@@ -977,13 +1003,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if (selected >= 0)
             spLanguage.setSelection(selected);
 
+        swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
-        grpUpdates.setVisibility(!BuildConfig.DEBUG &&
-                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
-                ? View.GONE : View.VISIBLE);
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         tvUuid.setText(prefs.getString("uuid", null));
