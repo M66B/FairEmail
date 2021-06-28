@@ -59,6 +59,7 @@ import androidx.preference.PreferenceManager;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -313,7 +314,9 @@ class ImageHelper {
             // Data URI
             if (data && (show || inline || a.tracking))
                 try {
-                    Bitmap bm = getDataBitmap(a.source);
+                    int scaleToPixels = res.getDisplayMetrics().widthPixels;
+                    ByteArrayInputStream bis = getDataUriStream(source);
+                    Bitmap bm = getScaledBitmap(bis, source, scaleToPixels);
                     if (bm == null)
                         throw new IllegalArgumentException("decode byte array failed");
 
@@ -527,12 +530,24 @@ class ImageHelper {
         }
     }
 
-    static Bitmap getDataBitmap(String source) {
+    static String getDataUriType(String source) {
+        int colon = source.indexOf(':');
+        if (colon < 0)
+            return null;
+        int semi = source.indexOf(';');
+        if (semi < 0)
+            return null;
+
+        return source.substring(colon + 1, semi);
+    }
+
+    static ByteArrayInputStream getDataUriStream(String source) {
         // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
         // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
         // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
         // "5ErkJggg==\" alt=\"Red dot\" />";
 
+        // https://en.wikipedia.org/wiki/Data_URI_scheme
         int comma = source.indexOf(',');
         if (comma < 0)
             return null;
@@ -540,7 +555,7 @@ class ImageHelper {
         String base64 = source.substring(comma + 1);
         byte[] bytes = Base64.decode(base64.getBytes(), 0);
 
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        return new ByteArrayInputStream(bytes);
     }
 
     private static Drawable getCachedImage(Context context, long id, String source) {

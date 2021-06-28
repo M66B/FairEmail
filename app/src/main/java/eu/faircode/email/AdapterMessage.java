@@ -40,7 +40,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -149,6 +148,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -4626,13 +4626,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         long id = args.getLong("id");
                         String source = args.getString("source");
 
-                        Bitmap bm = ImageHelper.getDataBitmap(source);
-                        if (bm == null)
-                            return null;
+                        String type = ImageHelper.getDataUriType(source);
+                        args.putString("type", type == null ? "application/octet-stream" : type);
 
-                        File file = ImageHelper.getCacheFile(context, id, source, ".png");
+                        String extention = Helper.guessExtension(type);
+                        extention = "." + (extention == null ? "" : extention);
+
+                        ByteArrayInputStream bis = ImageHelper.getDataUriStream(source);
+                        File file = ImageHelper.getCacheFile(context, id, source, extention);
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+                            Helper.copy(bis, os);
                         }
 
                         return file;
@@ -4640,8 +4643,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onExecuted(Bundle args, File file) {
-                        if (file != null)
-                            Helper.share(context, file, "image/png", file.getName());
+                        if (file == null)
+                            return;
+                        String type = args.getString("type");
+                        Helper.share(context, file, type, file.getName());
                     }
 
                     @Override
