@@ -3410,7 +3410,10 @@ class Core {
 
                 runRules(context, imessage, account, folder, message, rules);
 
-                if (!have && message.blocklist != null && message.blocklist) {
+                if (!have &&
+                        !EntityFolder.TRASH.equals(folder.type) &&
+                        !EntityFolder.JUNK.equals(folder.type) &&
+                        message.blocklist != null && message.blocklist) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
                     if (use_blocklist) {
                         EntityLog.log(context, "Block list" +
