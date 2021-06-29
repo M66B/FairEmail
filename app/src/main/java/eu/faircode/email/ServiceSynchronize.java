@@ -2196,10 +2196,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (quota.resources != null)
                             for (Quota.Resource resource : quota.resources) {
                                 EntityLog.log(context, "Quota " + resource.name + " " + resource.usage + "/" + resource.limit);
+                                // (STORAGE nnnnn 9999999999999999)
                                 if ("STORAGE".equalsIgnoreCase(resource.name)) {
-                                    if (resource.usage >= 0)
+                                    if (resource.usage * 1024 >= 0)
                                         usage = (usage == null ? 0L : usage) + resource.usage * 1024;
-                                    if (resource.limit > 0)
+                                    if (resource.limit * 1024 > 0)
                                         limit = Math.max(limit == null ? 0L : limit, resource.limit * 1024);
                                 }
                             }
