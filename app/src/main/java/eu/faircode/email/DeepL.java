@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -66,6 +68,7 @@ public class DeepL {
     private static JSONArray jlanguages = null;
 
     private static final int DEEPL_TIMEOUT = 20; // seconds
+    private static final String PRIVACY_URI = "https://www.deepl.com/privacy/";
 
     // curl https://api-free.deepl.com/v2/languages \
     //	-d auth_key=... \
@@ -315,11 +318,20 @@ public class DeepL {
             final CheckBox cbPro = view.findViewById(R.id.cbPro);
             final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
+            final TextView tvPrivacy = view.findViewById(R.id.tvPrivacy);
 
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Helper.viewFAQ(v.getContext(), 167, true);
+                }
+            });
+
+            tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            tvPrivacy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.view(v.getContext(), Uri.parse(PRIVACY_URI), false);
                 }
             });
 
