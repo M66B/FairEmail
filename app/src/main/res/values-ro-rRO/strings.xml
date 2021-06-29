@@ -95,6 +95,7 @@
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_notification_alert">Alertă server %1$s</string>
     <string name="title_notification_sending_left">Încercări rămase: %1$d</string>
+    <string name="title_notification_sending_retry">Trimiterea va fi reîncercată la modificările conexiunii la internet sau la tragerea în jos în mesaje de trimis</string>
     <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
     <string name="title_notification_redacted">Cenzurat: autentificare biometrică sau PIN activată</string>
     <string name="title_factor_minutes">%1$d minute</string>
@@ -278,7 +279,7 @@
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
-    <string name="title_advanced_send_pending">Arată pictograma non-obtrusive de trimitere întârziată</string>
+    <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_compose_font">Font prestabilit</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_separate_reply">Introduceți o linie orizontală înaintea unui antet răspuns/forward</string>
@@ -451,6 +452,7 @@
     <string name="title_advanced_confirm_html">Arată implicit mesajele reformatate</string>
     <string name="title_advanced_tracking">Încearcă să detectezi și dezactivezi în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_hide_timezone">Trimite mesajele fără date despre fusul orar</string>
+    <string name="title_advanced_client_id">Trimite numele aplicației și versiunea la serverul de e-mail</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_incognito_keyboard">Utilizați tastatura incognito (Android 8+)</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
@@ -1058,6 +1060,12 @@
     <string name="title_signature_store">Stocare</string>
     <string name="title_search">Caută</string>
     <string name="title_search_for_hint">Introduceți textul</string>
+    <string name="title_search_hint">        Inițial, căutarea se efectuează pe dispozitiv.
+        Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
+    </string>
+    <string name="title_search_index_hint">        Căutarea pe indexul de căutare este rapidă, dar găsește doar cuvinte întregi.
+        Opțiunile de mai jos sunt pentru continuarea căutării pe serverul de e-mail.
+    </string>
     <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_size_hint">Căutarea mesajelor după mărime, când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_more">Mai multe opțiuni</string>

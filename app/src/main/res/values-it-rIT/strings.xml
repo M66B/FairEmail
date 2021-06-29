@@ -85,6 +85,7 @@
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
+    <string name="title_notification_sending_retry">L\'invio verrà riprovato in caso di modifiche alla connessione internet o di aggiornamento della posta in uscita</string>
     <string name="title_notification_sending_failed">Invio a %1$s fallito</string>
     <string name="title_notification_redacted">Redatto: autenticazione biometrica o PIN abilitata</string>
     <string name="title_factor_minutes">%1$d minuti</string>

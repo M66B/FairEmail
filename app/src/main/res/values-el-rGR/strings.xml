@@ -85,6 +85,7 @@
     <string name="title_notification_failed">\'%1$s\' απέτυχε</string>
     <string name="title_notification_alert">\'%1$s\' ειδοποίηση διακομιστή</string>
     <string name="title_notification_sending_left">Προσπάθειες που απομένουν: %1$d</string>
+    <string name="title_notification_sending_retry">Η αποστολή θα επιχειρηθεί εκ νέου όταν μεταβληθεί η σύνδεση στο διαδίκτυο ή όταν τραβήξετε προς τα κάτω στα εξερχόμενα</string>
     <string name="title_notification_sending_failed">Η αποστολή σε %1$s απέτυχε</string>
     <string name="title_notification_redacted">Αφαιρέθηκε: Ενεργοποίηση ταυτοποίησης με PIN ή βιομετρικά στοιχεια</string>
     <string name="title_factor_minutes">%1$d λεπτά</string>

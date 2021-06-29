@@ -105,6 +105,7 @@
     <string name="title_notification_failed">\"%1$s\" не выполнено</string>
     <string name="title_notification_alert">Предупреждение сервера \"%1$s\"</string>
     <string name="title_notification_sending_left">Оставшиеся попытки: %1$d</string>
+    <string name="title_notification_sending_retry">Повторная отправка будет произведена при изменении интернет-подключения или жесте «потянуть вниз» в исходящей папке</string>
     <string name="title_notification_sending_failed">Отправка для %1$s не выполнена</string>
     <string name="title_notification_redacted">Отредактировано: включена биометрическая аутентификация или PIN-код</string>
     <string name="title_factor_minutes">%1$d мин.</string>
