@@ -71,6 +71,7 @@ public class DnsBlockList {
 
             new BlockList(false, "Barracuda", "b.barracudacentral.org", true, new String[]{
                     // https://www.barracudacentral.org/rbl/how-to-use
+                    "127.0.0.2",
             })
     ));
 
