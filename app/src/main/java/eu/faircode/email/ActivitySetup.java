@@ -271,7 +271,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuPrivacy();
             }
-        }));
+        }).setExternal(true));
 
         menus.add(new NavMenuItem(R.drawable.twotone_info_24, R.string.menu_about, new Runnable() {
             @Override
@@ -520,11 +520,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onMenuPrivacy() {
-        Bundle args = new Bundle();
-        args.putString("name", "PRIVACY.md");
-        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
-        fragment.setArguments(args);
-        fragment.show(getSupportFragmentManager(), "privacy");
+        Helper.view(this, Uri.parse(Helper.PRIVACY_URI), false);
     }
 
     private void onMenuAbout() {

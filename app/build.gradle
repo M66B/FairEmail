@@ -224,7 +224,6 @@ task copyMarkdown(type: Copy) {
     from "${rootDir}"
     into "src/main/assets"
     include "SETUP.md"
-    include "PRIVACY.md"
     include "ATTRIBUTION.md"
 }
 preBuild.dependsOn copyMarkdown
