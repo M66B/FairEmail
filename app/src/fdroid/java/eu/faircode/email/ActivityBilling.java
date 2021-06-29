@@ -547,7 +547,8 @@ public class ActivityBilling extends ActivityBase implements /*PurchasesUpdatedL
             message += " " + stage;
         }
 
-        Log.e(message);
+        if (BuildConfig.PLAY_STORE_RELEASE)
+            Log.e(message);
         EntityLog.log(this, message);
 
         if (result != null) {
