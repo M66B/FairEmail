@@ -245,8 +245,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             builder.setContentText(Log.formatThrowable(ex, false))
                     .setStyle(new NotificationCompat.BigTextStyle()
                             .bigText(Log.formatThrowable(ex, "\n", false)));
-        } else
-            builder.setContentText(getString(R.string.title_notification_sending_left, tries_left));
+        } else {
+            String msg = getString(R.string.title_notification_sending_left, tries_left);
+            builder.setContentText(msg)
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(msg + "\n" + getString(R.string.title_notification_sending_retry)));
+        }
+
         return builder;
     }
 
