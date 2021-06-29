@@ -123,6 +123,7 @@ public class MessageHelper {
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final String FLAG_FORWARDED = "$Forwarded";
 
+    private static final int MAX_HEADER_LENGTH = 998;
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
     private static final int MAX_META_EXCERPT = 1024; // characters
@@ -203,11 +204,11 @@ public class MessageHelper {
         // References
         if (message.references != null) {
             // https://tools.ietf.org/html/rfc5322#section-2.1.1
-            // Each line of characters MUST be no more than 998 characters
+            // Each line of characters MUST be no more than 998 characters ... , excluding the CRLF.
             String references = message.references;
-            int hlen = "References: ".length();
+            int maxlen = MAX_HEADER_LENGTH - "References: ".length();
             int sp = references.indexOf(' ');
-            while (references.length() > 998 - hlen && sp > 0) {
+            while (references.length() > maxlen && sp > 0) {
                 Log.i("Dropping reference=" + references.substring(0, sp));
                 references = references.substring(sp);
                 sp = references.indexOf(' ');
@@ -248,8 +249,12 @@ public class MessageHelper {
         if (message.bcc != null && message.bcc.length > 0)
             imessage.setRecipients(Message.RecipientType.BCC, convertAddress(message.bcc, identity));
 
-        if (message.subject != null)
+        if (message.subject != null) {
+            int maxlen = MAX_HEADER_LENGTH - "Subject: ".length();
+            if (message.subject.length() > maxlen)
+                message.subject = message.subject.substring(0, maxlen - 4) + " ...";
             imessage.setSubject(message.subject);
+        }
 
         // Send message
         if (identity != null) {
