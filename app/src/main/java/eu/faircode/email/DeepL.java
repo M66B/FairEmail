@@ -140,11 +140,25 @@ public class DeepL {
             ensureLanguages(context);
 
             Locale locale = Locale.getDefault();
+            String tag = locale.toLanguageTag(); // en-US
+            String lang = locale.getLanguage(); // en
+
+            if ("en".equalsIgnoreCase(lang))
+                if ("EN-GB".equalsIgnoreCase(tag) || "EN-US".equalsIgnoreCase(tag))
+                    lang = tag;
+                else
+                    lang = "EN-US";
+
+            if ("pt".equalsIgnoreCase(lang))
+                if ("PT-BR".equalsIgnoreCase(tag) || "PT-PT".equalsIgnoreCase(tag))
+                    lang = tag;
+                else
+                    lang = "PT-PT";
+
             for (int i = 0; i < jlanguages.length(); i++) {
                 JSONObject jlanguage = jlanguages.getJSONObject(i);
                 String language = jlanguage.getString("language");
-                if (language.equalsIgnoreCase(locale.toLanguageTag()) ||
-                        language.equalsIgnoreCase(locale.getLanguage())) {
+                if (language.equalsIgnoreCase(lang)) {
                     return language;
                 }
             }
