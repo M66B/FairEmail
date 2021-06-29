@@ -39,6 +39,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -6669,7 +6670,39 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
 
             List<DeepL.Language> languages = DeepL.getTargetLanguages(context);
-            ArrayAdapter<DeepL.Language> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, android.R.id.text1, languages);
+            ArrayAdapter<DeepL.Language> adapter = new ArrayAdapter<DeepL.Language>(context, android.R.layout.simple_spinner_item, android.R.id.text1, languages) {
+                @NonNull
+                @Override
+                public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                    return _getView(position, super.getView(position, convertView, parent));
+                }
+
+                @Override
+                public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                    return _getView(position, super.getDropDownView(position, convertView, parent));
+                }
+
+                private View _getView(int position, View view) {
+                    DeepL.Language language = getItem(position);
+                    if (language != null) {
+                        TextView tv = view.findViewById(android.R.id.text1);
+
+                        Resources res = context.getResources();
+                        Drawable icon = res.getDrawable(language.icon);
+                        int iconSize = res.getDimensionPixelSize(R.dimen.menu_item_icon_size);
+                        icon.setBounds(0, 0, iconSize, iconSize);
+                        ImageSpan imageSpan = new CenteredImageSpan(icon);
+
+                        SpannableStringBuilder ssb = new SpannableStringBuilder(language.name);
+                        ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
+                        ssb.setSpan(imageSpan, 0, 1, 0);
+
+                        tv.setText(ssb);
+                    }
+
+                    return view;
+                }
+            };
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spLanguage.setAdapter(adapter);
 

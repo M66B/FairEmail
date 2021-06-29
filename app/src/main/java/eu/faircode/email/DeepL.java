@@ -121,7 +121,7 @@ public class DeepL {
                     int freq1 = frequencies.get(l1.target);
                     int freq2 = frequencies.get(l2.target);
 
-                    if (freq1 == freq2)
+                    if (freq1 == freq2 || !BuildConfig.DEBUG)
                         return collator.compare(l1.name, l2.name);
                     else
                         return -Integer.compare(freq1, freq2);
