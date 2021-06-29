@@ -93,6 +93,7 @@
     <string name="title_notification_failed">\'%1$s\' не вдалося</string>
     <string name="title_notification_alert">\'%1$s\' Попередження від сервера</string>
     <string name="title_notification_sending_left">Залишилось спроб: %1$d</string>
+    <string name="title_notification_sending_retry">Буде повторна спроба відправлення при зміні підключення до Інтернету або при перевірці пошти</string>
     <string name="title_notification_sending_failed">Відправлення до %1$s не вдалося</string>
     <string name="title_notification_redacted">Змінено: біометрична або автентифікація за допомогою PIN-коду ввімкнена</string>
     <string name="title_factor_minutes">%1$d хвилин</string>
