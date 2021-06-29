@@ -96,6 +96,8 @@ import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -103,6 +105,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -6661,8 +6664,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final Context context = getContext();
             final View view = LayoutInflater.from(context).inflate(R.layout.dialog_translate, null);
+            final Spinner spLanguage = view.findViewById(R.id.spLanguage);
             final TextView tvText = view.findViewById(R.id.tvText);
             final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
+
+            List<DeepL.Language> languages = DeepL.getTargetLanguages(context);
+            ArrayAdapter<DeepL.Language> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, android.R.id.text1, languages);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spLanguage.setAdapter(adapter);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String current = prefs.getString("deepl_target", null);
+
+            for (int pos = 0; pos < languages.size(); pos++)
+                if (languages.get(pos).target.equals(current)) {
+                    spLanguage.setSelection(pos);
+                    break;
+                }
+
+            spLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    prefs.edit().putString("deepl_target", languages.get(position).target).apply();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    prefs.edit().remove("deepl_target").apply();
+                }
+            });
 
             tvText.setText(null);
 
@@ -6726,7 +6756,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             final StyleSpan mark = new StyleSpan(Typeface.ITALIC);
                             buffer.setSpan(mark, start, end, 0);
 
+                            DeepL.Language language = (DeepL.Language) spLanguage.getSelectedItem();
+                            if (language == null)
+                                return;
+
                             Bundle args = new Bundle();
+                            args.putString("target", language.target);
                             args.putString("text", buffer.subSequence(start, end).toString());
 
                             new SimpleTask<DeepL.Translation>() {
@@ -6743,8 +6778,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 @Override
                                 protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
                                     String text = args.getString("text");
-                                    String language = DeepL.getCurrentLanguage(context);
-                                    return DeepL.translate(text, language, context);
+                                    String target = args.getString("target");
+                                    return DeepL.translate(text, target, context);
                                 }
 
                                 @Override
@@ -7110,9 +7145,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbUnsubscribe = dview.findViewById(R.id.cbUnsubscribe);
             final CheckBox cbRule = dview.findViewById(R.id.cbRule);
 
-            cbTranslate.setVisibility(DeepL.isAvailable(context) &&
-                    DeepL.getCurrentLanguage(context) != null
-                    ? View.VISIBLE : View.GONE);
+            cbTranslate.setVisibility(DeepL.isAvailable(context) ? View.VISIBLE : View.GONE);
             cbPin.setVisibility(Shortcuts.can(context) ? View.VISIBLE : View.GONE);
 
             cbJunk.setChecked(prefs.getBoolean("button_junk", true));

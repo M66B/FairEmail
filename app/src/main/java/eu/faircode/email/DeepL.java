@@ -135,40 +135,6 @@ public class DeepL {
         }
     }
 
-    public static String getCurrentLanguage(Context context) {
-        try {
-            ensureLanguages(context);
-
-            Locale locale = Locale.getDefault();
-            String tag = locale.toLanguageTag(); // en-US
-            String lang = locale.getLanguage(); // en
-
-            if ("en".equalsIgnoreCase(lang))
-                if ("EN-GB".equalsIgnoreCase(tag) || "EN-US".equalsIgnoreCase(tag))
-                    lang = tag;
-                else
-                    lang = "EN-US";
-
-            if ("pt".equalsIgnoreCase(lang))
-                if ("PT-BR".equalsIgnoreCase(tag) || "PT-PT".equalsIgnoreCase(tag))
-                    lang = tag;
-                else
-                    lang = "PT-PT";
-
-            for (int i = 0; i < jlanguages.length(); i++) {
-                JSONObject jlanguage = jlanguages.getJSONObject(i);
-                String language = jlanguage.getString("language");
-                if (language.equalsIgnoreCase(lang)) {
-                    return language;
-                }
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        return null;
-    }
-
     private static void ensureLanguages(Context context) throws IOException, JSONException {
         if (jlanguages != null)
             return;
@@ -320,6 +286,11 @@ public class DeepL {
             this.name = name;
             this.target = target;
             this.icon = icon;
+        }
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 
