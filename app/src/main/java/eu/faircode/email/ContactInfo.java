@@ -156,7 +156,7 @@ public class ContactInfo {
     }
 
     static boolean canGravatars() {
-        return true;
+        return !BuildConfig.PLAY_STORE_RELEASE;
     }
 
     static void cleanup(Context context) {
