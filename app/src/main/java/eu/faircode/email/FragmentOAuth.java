@@ -301,19 +301,20 @@ public class FragmentOAuth extends FragmentBase {
 
             AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
                     .setBrowserMatcher(new BrowserMatcher() {
+                        final BrowserMatcher SBROWSER = new VersionedBrowserMatcher(
+                                Browsers.SBrowser.PACKAGE_NAME,
+                                Browsers.SBrowser.SIGNATURE_SET,
+                                true,
+                                VersionRange.atMost("5.3"));
+
                         @Override
                         public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                            BrowserMatcher sbrowser = new VersionedBrowserMatcher(
-                                    Browsers.SBrowser.PACKAGE_NAME,
-                                    Browsers.SBrowser.SIGNATURE_SET,
-                                    true,
-                                    VersionRange.atMost("5.3"));
-                            boolean accept = (!sbrowser.matches(descriptor) &&
-                                    (!"gmail".equals(provider.id) || !descriptor.useCustomTab));
+                            boolean accept =
+                                    (!SBROWSER.matches(descriptor) && !descriptor.useCustomTab);
                             EntityLog.log(context,
                                     "Browser=" + descriptor.packageName +
                                             ":" + descriptor.version +
-                                            ":" + descriptor.useCustomTab + "" +
+                                            " tabs=" + descriptor.useCustomTab + "" +
                                             " accept=" + accept +
                                             " provider=" + provider.id);
                             return accept;
