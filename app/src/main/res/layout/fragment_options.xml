@@ -15,9 +15,9 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
-            style="@style/tabLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabInlineLabel="true"
             app:tabMode="scrollable" />
     </androidx.viewpager.widget.ViewPager>
 </androidx.constraintlayout.widget.ConstraintLayout>
