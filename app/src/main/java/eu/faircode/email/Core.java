@@ -3377,22 +3377,13 @@ class Core {
                 }
 
             boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
-            if (check_blocklist && !self) {
-                List<Address> senders = new ArrayList<>();
-                if (message.from != null)
-                    senders.addAll(Arrays.asList(message.from));
-                if (message.reply != null)
-                    senders.addAll(Arrays.asList(message.reply));
-                boolean blocklist = false;
-                for (Address sender : senders) {
-                    String email = ((InternetAddress) sender).getAddress();
-                    if (DnsBlockList.isJunk(context, email)) {
-                        blocklist = true;
-                        break;
-                    }
+            if (check_blocklist && !EntityFolder.isOutgoing(folder.type))
+                try {
+                    message.blocklist = DnsBlockList.isJunk(
+                            context, imessage.getHeader("Received"));
+                } catch (Throwable ex) {
+                    Log.w(folder.name, ex);
                 }
-                message.blocklist = blocklist;
-            }
 
             try {
                 db.beginTransaction();

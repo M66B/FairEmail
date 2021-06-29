@@ -35,7 +35,10 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import javax.mail.internet.MimeUtility;
 
 public class DnsBlockList {
     static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
@@ -115,46 +118,61 @@ public class DnsBlockList {
         return names;
     }
 
-    static boolean isJunk(Context context, String email) {
-        if (TextUtils.isEmpty(email))
-            return false;
+    static Boolean isJunk(Context context, String[] received) {
+        if (received == null || received.length == 0)
+            return null;
 
-        int at = email.indexOf('@');
-        if (at < 0)
-            return false;
+        String h = MimeUtility.unfold(received[received.length - 1]);
+        String[] words = h.split("\\s+");
+        for (int i = 0; i < words.length - 1; i++)
+            if ("from".equalsIgnoreCase(words[i])) {
+                String host = words[i + 1].toLowerCase(Locale.ROOT);
+                if (!TextUtils.isEmpty(host))
+                    return isJunk(context, host, BLOCKLISTS);
+            }
 
-        return isJunk(context, email.substring(at + 1), BLOCKLISTS);
+        return null;
     }
 
-    private static boolean isJunk(Context context, String domain, List<BlockList> blocklists) {
+    private static boolean isJunk(Context context, String host, List<BlockList> blocklists) {
         synchronized (cache) {
-            CacheEntry entry = cache.get(domain);
+            CacheEntry entry = cache.get(host);
             if (entry != null && !entry.isExpired())
                 return entry.isJunk();
         }
 
         boolean blocked = false;
         for (BlockList blocklist : blocklists)
-            if (isEnabled(context, blocklist) && isJunk(domain, blocklist)) {
+            if (isEnabled(context, blocklist) && isJunk(host, blocklist)) {
                 blocked = true;
                 break;
             }
 
         synchronized (cache) {
-            cache.put(domain, new CacheEntry(blocked));
+            cache.put(host, new CacheEntry(blocked));
         }
 
         return blocked;
     }
 
-    private static boolean isJunk(String domain, BlockList blocklist) {
+    private static boolean isJunk(String host, BlockList blocklist) {
+        boolean numeric = host.startsWith("[") && host.endsWith("]");
+        if (numeric)
+            host = host.substring(1, host.length() - 1);
         try {
             if (blocklist.numeric) {
                 long start = new Date().getTime();
-                InetAddress[] addresses = InetAddress.getAllByName(domain);
+                InetAddress[] addresses = InetAddress.getAllByName(host);
                 long elapsed = new Date().getTime() - start;
-                Log.i("isJunk resolved=" + domain + " elapse=" + elapsed + " ms");
-                for (InetAddress addr : addresses)
+                Log.i("isJunk resolved=" + host + " elapse=" + elapsed + " ms");
+                for (InetAddress addr : addresses) {
+                    if (addr.isLoopbackAddress() ||
+                            addr.isLinkLocalAddress() ||
+                            addr.isSiteLocalAddress() ||
+                            addr.isMulticastAddress()) {
+                        Log.i("isJunk local=" + addr);
+                        continue;
+                    }
                     try {
                         StringBuilder lookup = new StringBuilder();
                         if (addr instanceof Inet4Address) {
@@ -177,9 +195,10 @@ public class DnsBlockList {
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
-            } else {
+                }
+            } else if (!numeric) {
                 long start = new Date().getTime();
-                String lookup = domain + "." + blocklist.address;
+                String lookup = host + "." + blocklist.address;
                 boolean junk = isJunk(lookup, blocklist.responses);
                 long elapsed = new Date().getTime() - start;
                 Log.i("isJunk" + " " + lookup + "=" + junk + " elapsed=" + elapsed);
