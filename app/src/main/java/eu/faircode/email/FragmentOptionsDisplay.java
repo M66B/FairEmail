@@ -885,7 +885,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
-        grpGravatars.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpGravatars.setVisibility(ContactInfo.canGravatars() ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

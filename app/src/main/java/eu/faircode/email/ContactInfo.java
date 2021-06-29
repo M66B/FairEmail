@@ -155,6 +155,10 @@ public class ContactInfo {
         return (new Date().getTime() - time > CACHE_CONTACT_DURATION);
     }
 
+    static boolean canGravatars() {
+        return true;
+    }
+
     static void cleanup(Context context) {
         long now = new Date().getTime();
 
@@ -289,7 +293,7 @@ public class ContactInfo {
         }
 
         // Gravatar
-        if (info.bitmap == null && gravatars && !BuildConfig.PLAY_STORE_RELEASE) {
+        if (info.bitmap == null && gravatars && canGravatars()) {
             if (!TextUtils.isEmpty(info.email)) {
                 String gkey = info.email.toLowerCase(Locale.ROOT);
                 boolean lookup;
