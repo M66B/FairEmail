@@ -3725,15 +3725,15 @@ This feature requires an internet connection.
 
 A spam block list is basically a list of domain names which have been used to send spam or to spread malware.
 
-A spam block list is checked by resolving the domain name of an email address into an IP address
+A spam block list is checked by resolving the server name from the last *Received* header into an IP address
 and looking up the IP address with a DNS request:
 
 ```
-example@gmail.com ->
-	gmail.com
-gmail.com ->
-	172.217.168.229
-DNS lookup 229.168.217.172.zen.spamhaus.org ->
+Received:
+	... from smtp.gmail.com ...
+smtp.gmail.com ->
+	142.250.27.108
+DNS lookup 108.27.250.142.zen.spamhaus.org ->
 	127.0.0.2: spam
 	NXDOMAIN: not spam
 ```
