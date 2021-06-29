@@ -497,6 +497,7 @@
     <string name="title_advanced_class_min_difference">Минимальная разница между классами: %1$s %%</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
+    <string name="title_advanced_deepl">Интеграция с DeepL</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверять обновления на GitHub</string>
     <string name="title_advanced_check_weekly">Еженедельная проверка вместо ежедневной</string>

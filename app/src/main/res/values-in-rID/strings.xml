@@ -452,6 +452,7 @@
     <string name="title_advanced_class_min_difference">Minimum perbedaan kelas: %1$s %%</string>
     <string name="title_advanced_language">Bahasa</string>
     <string name="title_advanced_language_system">Sistem</string>
+    <string name="title_advanced_deepl">Integrasi DeepL</string>
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
     <string name="title_advanced_updates">Periksa pembaruan di GitHub</string>
     <string name="title_advanced_check_weekly">Periksa setiap minggu daripada setiap hari</string>

@@ -78,11 +78,11 @@ Pertanyaan-pertanyaan Terkait:
 * ~~Pemilih berkas beberpa kali menampilkan tidak ada berkas dengan alasan yang tidak diketahui. Masalah ini terlihat sudah diperbaiki.~~
 * ~~[Bug di AndroidX](https://issuetracker.google.com/issues/64729576) menyebabkan kesulitan untuk menekan scroll cepat. Solusi telah ditambahkan.~~
 * ~~Enkripsi menggunakan YubiKey mengakibaykan putaran yang terus menerus. Hal ini disebabkan karena sebuah [bug di OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
+* Menggulir ke lokasi yang ditautkan secara internal dalam pesan asli tidak berfungsi. Ini tidak dapat diperbaiki karena tampilan pesan asli mengandung tampilan bergulir.
 * Tampilan teks pesan tidak (selalu) terlihat pada jam Samsung karena [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) sepertinya dihindari. Tampilan teks pesan diketahui dapat ditampilkan dengan benar pada perangkat wearable Pebble 2, Fitbit Charge 3, Mi band 3, dan Xiaomi Amazfit BIP. Lihat juga [FAQ ini](#user-content-faq126).
 * [Bug idi Android 6.0](https://issuetracker.google.com/issues/37068143) menyebabkan crash dengan *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Bug ini telah diperbaiki dalam Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). Hal ini merupakan limitasi Android yang tidak dapat diperbaiki atau di buat bekerja.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
+* Pendeteksi bahasa [ tidak dapat berfungsi ](https://issuetracker.google.com/issues/173337263) pada perangkat Pixel dengan (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
 <h2><a name="planned-features"></a>Fitur yang Direncanakan</h2>

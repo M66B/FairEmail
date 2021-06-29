@@ -467,6 +467,7 @@
     <string name="title_advanced_class_min_difference">Minimumsklassedifferens: %1$s %%</string>
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
+    <string name="title_advanced_deepl">DeepL-integration</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Tjek for GitHub-opdateringer</string>
     <string name="title_advanced_check_weekly">Tjek ugentligt i stedet for dagligt</string>

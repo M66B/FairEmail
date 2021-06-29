@@ -85,6 +85,7 @@
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="title_notification_alert">\'%1$s\' servermelding</string>
     <string name="title_notification_sending_left">Resterende pogingen: %1$d</string>
+    <string name="title_notification_sending_retry">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de internetverbinding of het naar beneden trekken van de outbox</string>
     <string name="title_notification_sending_failed">Verzenden naar %1$s mislukt</string>
     <string name="title_notification_redacted">Redactie: biometrische of pincodeverificatie ingeschakeld</string>
     <string name="title_factor_minutes">%1$d minuten</string>
@@ -477,6 +478,7 @@
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
+    <string name="title_advanced_deepl">DeepL integratie</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
     <string name="title_advanced_check_weekly">Controleer wekelijks in plaats van dagelijks</string>
@@ -984,7 +986,7 @@
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>
-    <string name="title_translate_tap">Tik op de te vertalen text</string>
+    <string name="title_translate_tap">Tik op de te vertalen tekst</string>
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als opnieuw opgemaakte tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>

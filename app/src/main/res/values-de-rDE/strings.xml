@@ -435,7 +435,7 @@
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
-    <string name="title_advanced_notify_screen_on">Bildschirm kurz einschalten, für Benachrichtigungen über neue Nachrichten</string>
+    <string name="title_advanced_notify_screen_on">Kurzes Einschalten des Bildschirms für Benachrichtigungen über neue Nachrichten</string>
     <string name="title_advanced_confirm_links">Hyperlinks beim Öffnen bestätigen</string>
     <string name="title_advanced_browse_links">Hyperlinks an Android übertragen</string>
     <string name="title_advanced_confirm_images">Bilder anzeigen bestätigen</string>
@@ -478,6 +478,7 @@
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
+    <string name="title_advanced_deepl">DeepL-Einbindung</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
     <string name="title_advanced_check_weekly">Wöchentlich statt täglich prüfen</string>

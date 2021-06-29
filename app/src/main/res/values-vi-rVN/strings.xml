@@ -98,6 +98,7 @@
     <string name="title_agree">Tôi đồng ý</string>
     <string name="title_disagree">Tôi không đồng ý</string>
     <string name="title_version">Phiên bản %1$s</string>
+    <string name="title_privacy_policy">Chính sách riêng tư</string>
     <string name="title_list_accounts">Tài khoản</string>
     <string name="title_list_identities">Danh tính</string>
     <string name="title_edit_account">Chỉnh sửa tài khoản</string>
@@ -300,6 +301,8 @@
     <string name="title_advanced_landscape3">Hiện menu điều hướng ở chế độ hướng ngang theo mặc định</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
+    <string name="title_advanced_cards_beige">Sử dụng nền màu be khi dùng kiểu thẻ (chỉ chủ đề sáng)</string>
+    <string name="title_advanced_tabular_background">Sử dụng màu thẻ làm màu nền khi dùng kiểu tab</string>
     <string name="title_advanced_cards_shadow">Sử dụng cái bóng cho thư chưa đọc khi dùng kiểu thẻ</string>
     <string name="title_advanced_date_header">Nhóm theo ngày</string>
     <string name="title_advanced_date_bold">Hiện ngày bằng chữ đậm</string>
@@ -464,6 +467,7 @@
     <string name="title_advanced_class_min_difference">Sự khác biệt tối thiểu của class: %1$s %%</string>
     <string name="title_advanced_language">Ngôn ngữ</string>
     <string name="title_advanced_language_system">Hệ thống</string>
+    <string name="title_advanced_deepl">Tích hợp DeepL</string>
     <string name="title_advanced_watchdog">Kiểm tra định kỳ xem FairEmail vẫn hoạt động hay không</string>
     <string name="title_advanced_updates">Kiểm tra cập nhật trên GitHub</string>
     <string name="title_advanced_check_weekly">Kiểm tra hàng tuần thay vì hàng ngày</string>
@@ -970,6 +974,7 @@
     <string name="title_translating">Đang dịch &#8230;</string>
     <string name="title_translate_small">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
     <string name="title_translate_usage">Sử dụng: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Nhấn văn bản để được dịch</string>
     <string name="title_edit_plain_text">Chỉnh sửa dưới dạng văn bản thường</string>
     <string name="title_edit_formatted_text">Chỉnh sửa dưới dạng văn bản được định dạng lại</string>
     <string name="title_select_certificate">Chọn mã khoá công khai</string>
