@@ -492,6 +492,14 @@
         <item name="android:fadeScrollbars">false</item>
     </style>
 
+    <style name="tabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/tabLayoutStyleTextAppearance</item>
+    </style>
+
+    <style name="tabLayoutStyleTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
     <style name="fullScreenDialog" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">false</item>

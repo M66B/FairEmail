@@ -495,6 +495,7 @@ public class FragmentOptions extends FragmentBase {
         }
 
         private CharSequence getTitle(int titleid, int iconid, int position) {
+            String title = getString(titleid).toUpperCase();
             Drawable icon = getResources().getDrawable(iconid);
 
             int iconSize = getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
@@ -507,7 +508,7 @@ public class FragmentOptions extends FragmentBase {
 
             ImageSpan imageSpan = new ImageSpan(icon, DynamicDrawableSpan.ALIGN_BOTTOM);
 
-            SpannableStringBuilder ssb = new SpannableStringBuilder(getString(titleid));
+            SpannableStringBuilder ssb = new SpannableStringBuilder(title);
             if (position > 0)
                 ssb.setSpan(new RelativeSizeSpan(0.85f), 0, ssb.length(), 0);
             ssb.insert(0, "\uFFFC\u2002"); // object replacement character, en space
