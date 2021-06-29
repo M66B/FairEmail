@@ -74,6 +74,7 @@
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">%1$s サーバアラート</string>
     <string name="title_notification_sending_left">残りの試行回数: %1$d</string>
+    <string name="title_notification_sending_retry">送信はインターネット接続の変更または送信トレイをプルダウンすると再試行されます</string>
     <string name="title_notification_sending_failed">%1$s への送信に失敗</string>
     <string name="title_notification_redacted">削除済み：生体認証またはPIN認証の有効化</string>
     <string name="title_factor_minutes">%1$d 分</string>

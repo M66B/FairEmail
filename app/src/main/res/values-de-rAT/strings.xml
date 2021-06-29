@@ -86,7 +86,7 @@
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="title_notification_alert">Server-Warnung von \'%1$s\'</string>
     <string name="title_notification_sending_left">Verbleibende Versuche: %1$d</string>
-    <string name="title_notification_sending_retry">Das Senden wird bei Änderungen der Internetverbindung erneut ausprobiert oder wenn im Posteingang heruntergezogen wird</string>
+    <string name="title_notification_sending_retry">Das Senden wird erneut versucht, wenn sich die Internetverbindung ändert oder der Ausgangskorb heruntergezogen wird</string>
     <string name="title_notification_sending_failed">Senden an %1$s fehlgeschlagen</string>
     <string name="title_notification_redacted">Geschwärzt: biometrische oder PIN-Authentifizierung aktiviert</string>
     <string name="title_factor_minutes">%1$d Minuten</string>
