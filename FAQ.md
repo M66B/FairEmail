@@ -3743,6 +3743,8 @@ NXDOMAIN = no such domain
 
 For more information, please see [this article](https://en.wikipedia.org/wiki/Domain_Name_System-based_blackhole_list).
 
+You can check common block lists for example [here](https://mxtoolbox.com/blacklists.aspx).
+
 FairEmail currently uses the following block lists:
 
 * [Spamhaus](https://www.spamhaus.org/) &#8211; [Terms of Use](https://www.spamhaus.org/organization/dnsblusage/) &#8212; [Privacy policy](https://www.spamhaus.org/organization/privacy/)
