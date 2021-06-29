@@ -3714,10 +3714,9 @@ Unfortunately, it is not possible to hide messages on the email server too.
 1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
 1. In the message composer tap on the faint translate button (文A), select *Configure* and paste the key
 
-
 You might want to read the [privacy policy](https://www.deepl.com/privacy/) of DeepL.
 
-This feature requires an internet connection and is not available in the Play store version.
+This feature requires an internet connection.
 
 <br />
 

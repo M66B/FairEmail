@@ -73,8 +73,7 @@ public class DeepL {
 
     public static boolean isAvailable(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean deepl_enabled = prefs.getBoolean("deepl_enabled", false);
-        return (deepl_enabled && !BuildConfig.PLAY_STORE_RELEASE);
+        return prefs.getBoolean("deepl_enabled", false);
     }
 
     public static boolean canTranslate(Context context) {
