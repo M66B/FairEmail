@@ -68,7 +68,7 @@
         <item quantity="one">Traiter %1$d message comme indésirable ?</item>
         <item quantity="other">Traiter %1$d messages comme indésirables ?</item>
     </plurals>
-    <string name="title_ask_spam_who">Traiter le message de %1$s comme spam ?</string>
+    <string name="title_ask_spam_who">Traiter le message de %1$s comme indésirable ?</string>
     <string name="title_junk_hint">Votre fournisseur de messagerie est responsable du filtrage des messages indésirables. Une application de messagerie ne dispose pas de toutes les données nécessaires pour le faire de façon fiable.</string>
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
@@ -76,9 +76,9 @@
     <string name="title_block_sender_hint">        Le blocage d’un expéditeur créera une règle qui déplacera automatiquement les futurs messages vers le dossier « Indésirables ».
         La création et l’utilisation des règles sont des fonctionnalités Pro.
     </string>
-    <string name="title_junk_filter">Utiliser le filtre de spam local</string>
+    <string name="title_junk_filter">Utiliser le filtre local des indésirables</string>
     <string name="title_junk_filter_hint">Ceci peut augmenter l\'utilisation de la batterie et marquer par erreur des messages comme indésirables</string>
-    <string name="title_junk_blocklist">Utiliser des listes de blocage de spam</string>
+    <string name="title_junk_blocklist">Utiliser des listes de blocage des indésirables</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>
@@ -650,7 +650,7 @@
     <string name="title_no_password">Mot de passe manquant</string>
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
-    <string name="title_no_junk_folder">Il n\'y a aucun dossier spam sélectionné pour ce compte</string>
+    <string name="title_no_junk_folder">Il n\'y a aucun dossier « Indésirables » sélectionné pour ce compte</string>
     <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée par l\'identité principale du compte principal</string>
     <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier brouillons dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
@@ -760,7 +760,7 @@
     <string name="title_folder_all">Archives</string>
     <string name="title_folder_drafts">Brouillons</string>
     <string name="title_folder_trash">Corbeille</string>
-    <string name="title_folder_junk">Spam</string>
+    <string name="title_folder_junk">Indésirables</string>
     <string name="title_folder_sent">Envoyés</string>
     <string name="title_folder_system">Système</string>
     <string name="title_folder_user">Utilisateur</string>
@@ -826,7 +826,7 @@
     <string name="title_subscribe">S\'abonner</string>
     <string name="title_delete">Supprimer</string>
     <string name="title_more">Plus</string>
-    <string name="title_spam">Spam</string>
+    <string name="title_spam">Indésirables</string>
     <string name="title_move">Déplacer</string>
     <string name="title_copy_btn">Copier</string>
     <string name="title_keywords_btn">Mots-clés</string>
@@ -1320,7 +1320,7 @@
     <string name="title_hint_battery">Étant donné que FairEmail reçoit toujours des messages par défaut, Android signalera FairEmail comme étant toujours actif. Ceci peut donner l’impression que FairEmail utilise de la batterie en permanence alors que ce n’est pas le cas.</string>
     <string name="title_hint_reformat">FairEmail reformate par défaut les messages pour des raisons de confidentialité et de sécurité. Pour afficher le message original, appuyez sur l’icône « plein écran » au-dessus du texte du message.</string>
     <string name="title_hint_design">La conception est intentionnellement peu agrémentée mais elle reste très fonctionnelle. Il y a beaucoup d\'options pour personnaliser l\'apparence mais s\'il vous plaît, comprenez qu\'il est impossible de satisfaire pleinement tout le monde à la fois.</string>
-    <string name="title_hint_junk">Le filtrage des spams devrait être effectué par le serveur de messagerie et ne peut pas être réalisé de manière fiable sur un appareil alimenté par une batterie et ayant des capacités limitées.</string>
+    <string name="title_hint_junk">Le filtrage du courrier indésirable devrait être effectué par le serveur de messagerie et ne peut pas être réalisé de manière fiable sur un appareil alimenté par une batterie et ayant des capacités limitées.</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_hint_eml">Ceci est l’aperçu du contenu d’un fichier de message original. Enregistrez le message original au moyen de l’icône de sauvegarde dans la barre d’action pour afficher tout son contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>
@@ -1415,7 +1415,7 @@
     <string name="title_rules_delete_all">Supprimer toutes les règles</string>
     <string name="title_rules_delete_junk">Supprimer les règles de spam</string>
     <string name="title_rules_delete_all_confirm">Supprimer toutes les règles ?</string>
-    <string name="title_rules_delete_junk_confirm">Supprimer toutes les règles qui déplacent les messages dans le dossier spam ?</string>
+    <string name="title_rules_delete_junk_confirm">Supprimer toutes les règles qui déplacent des messages dans le dossier « Indésirables » ?</string>
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
