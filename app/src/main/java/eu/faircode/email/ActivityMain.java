@@ -249,8 +249,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 setTheme(R.style.AppThemeBlueOrangeDark);
             else
                 setTheme(R.style.AppThemeBlueOrangeLight);
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentEula()).addToBackStack("eula");
