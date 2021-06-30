@@ -316,6 +316,8 @@ public class Log {
                 if (Helper.hasValidFingerprint(context)) {
                     if (BuildConfig.PLAY_STORE_RELEASE)
                         type = "play";
+                    else if (BuildConfig.AMAZON_RELEASE)
+                        type = "amazon";
                     else
                         type = "full";
                 } else {
