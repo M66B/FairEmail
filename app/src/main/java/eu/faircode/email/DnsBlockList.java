@@ -54,7 +54,7 @@ public class DnsBlockList {
             }),
 
             // https://www.spamhaus.org/dbl/
-            new BlockList(true, "Spamhaus/DBL", "dbl.spamhaus.org", false, new String[]{
+            new BlockList(false, "Spamhaus/DBL", "dbl.spamhaus.org", false, new String[]{
                     // https://www.spamhaus.org/faq/section/Spamhaus%20DBL#291
                     "127.0.1.2", // spam domain
                     "127.0.1.4", // phish domain
