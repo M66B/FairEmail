@@ -32,9 +32,6 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -209,30 +206,6 @@ public class FragmentQuickSetup extends FragmentBase {
         grpError.setVisibility(View.GONE);
 
         return view;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_quick_setup, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_help) {
-            onMenuHelp();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void onMenuHelp() {
-        Bundle args = new Bundle();
-        args.putString("name", "SETUP.md");
-
-        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
-        fragment.setArguments(args);
-        fragment.show(getChildFragmentManager(), "help");
     }
 
     private void onSave(boolean check) {

@@ -35,9 +35,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -191,30 +188,6 @@ public class FragmentOAuth extends FragmentBase {
         hideError();
 
         return view;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_quick_setup, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_help) {
-            onMenuHelp();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void onMenuHelp() {
-        Bundle args = new Bundle();
-        args.putString("name", "SETUP.md");
-
-        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
-        fragment.setArguments(args);
-        fragment.show(getChildFragmentManager(), "help");
     }
 
     @Override
