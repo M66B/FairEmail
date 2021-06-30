@@ -506,7 +506,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         if (host != null) {
             int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
             int index = text.indexOf(host);
-            ssb.setSpan(new ForegroundColorSpan(textColorLink), index, index + host.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            if (index >= 0)
+                ssb.setSpan(new ForegroundColorSpan(textColorLink),
+                        index, index + host.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         return ssb;
     }
