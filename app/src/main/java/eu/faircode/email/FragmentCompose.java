@@ -4894,7 +4894,7 @@ public class FragmentCompose extends FragmentBase {
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
                     else {
                         EntityOperation.queue(context, draft, EntityOperation.ADD);
-                        EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id, true);
+                        EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
                     }
 
                     getMainHandler().post(new Runnable() {
