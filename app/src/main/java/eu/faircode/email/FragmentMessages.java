@@ -2975,7 +2975,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     SpannableString ss = new SpannableString(title);
                     if (account.name != null && account.color != null) {
                         int i = title.indexOf(account.name);
-                        ss.setSpan(new ForegroundColorSpan(account.color), i, i + 1, 0);
+                        int first = title.codePointAt(i);
+                        int count = Character.charCount(first);
+                        ss.setSpan(new ForegroundColorSpan(account.color), i, i + count, 0);
                     }
                     MenuItem item = popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_account, order++, ss)
                             .setIcon(R.drawable.twotone_drive_file_move_24);
