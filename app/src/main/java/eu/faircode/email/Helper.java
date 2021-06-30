@@ -1599,11 +1599,14 @@ public class Helper {
 
     static boolean hasValidFingerprint(Context context) {
         if (hasValidFingerprint == null) {
+            hasValidFingerprint = false;
+
             String signed = getFingerprint(context);
             String[] fingerprints = new String[]{
                     context.getString(R.string.fingerprint),
                     context.getString(R.string.fingerprint_amazon)
             };
+
             for (String fingerprint : fingerprints)
                 if (Objects.equals(signed, fingerprint)) {
                     hasValidFingerprint = true;
