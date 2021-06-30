@@ -1318,9 +1318,9 @@ class Core {
                         if (uid == null)
                             throw new IllegalArgumentException("move: uid not found");
 
-                        if (draft) {
+                        if (draft || duplicate) {
                             Message icopy = itarget.getMessageByUID(uid);
-                            if (icopy != null)
+                            if (icopy == null)
                                 throw new IllegalArgumentException("move: gone uid=" + uid);
 
                             // Mark read

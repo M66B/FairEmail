@@ -196,9 +196,6 @@ public class EntityOperation {
                     jargs.remove(2);
                 }
 
-                jargs.put(1, autoread);
-                jargs.put(3, autounflag);
-
                 EntityFolder source = db.folder().getFolder(message.folder);
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
                 if (source == null || target == null || source.id.equals(target.id))
@@ -207,6 +204,9 @@ public class EntityOperation {
                 if (EntityFolder.DRAFTS.equals(source.type) &&
                         EntityFolder.TRASH.equals(target.type))
                     autoread = true;
+
+                jargs.put(1, autoread);
+                jargs.put(3, autounflag);
 
                 EntityLog.log(context, "Move message=" + message.id +
                         "@" + new Date(message.received) +
