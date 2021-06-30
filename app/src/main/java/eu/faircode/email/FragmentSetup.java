@@ -62,6 +62,8 @@ import java.util.List;
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
+    private TextView tvPrivacy;
+
     private TextView tvNoInternet;
     private ImageButton ibHelp;
     private Button btnQuick;
@@ -128,6 +130,8 @@ public class FragmentSetup extends FragmentBase {
 
         // Get controls
 
+        tvPrivacy = view.findViewById(R.id.tvPrivacy);
+
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         ibHelp = view.findViewById(R.id.ibHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
@@ -163,6 +167,14 @@ public class FragmentSetup extends FragmentBase {
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
         // Wire controls
+
+        tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.PRIVACY_URI), false);
+            }
+        });
 
         ibHelp.setOnClickListener(new View.OnClickListener() {
             @Override
