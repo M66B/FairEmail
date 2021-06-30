@@ -4526,8 +4526,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
 
                 SpannableStringBuilder all = new SpannableStringBuilder(getString(R.string.title_language_all));
-                if (current == null)
+                if (current == null) {
                     all.setSpan(new StyleSpan(Typeface.BOLD), 0, all.length(), 0);
+                    all.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, all.length(), 0);
+                }
 
                 popupMenu.getMenu().add(Menu.NONE, 0, 0, all);
 
@@ -4535,8 +4537,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Locale locale = locales.get(i);
                     String language = locale.getLanguage();
                     SpannableStringBuilder title = new SpannableStringBuilder(locale.getDisplayLanguage());
-                    if (language.equals(current))
+                    if (language.equals(current)) {
                         title.setSpan(new StyleSpan(Typeface.BOLD), 0, title.length(), 0);
+                        title.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE), 0, title.length(), 0);
+                    }
                     popupMenu.getMenu()
                             .add(Menu.NONE, i + 1, i + 1, title)
                             .setIntent(new Intent().putExtra("locale", locale));
