@@ -1268,6 +1268,13 @@ class Core {
                 // Remove star
                 if (unflag && imessage.isSet(Flags.Flag.FLAGGED) && flags.contains(Flags.Flag.FLAGGED))
                     imessage.setFlag(Flags.Flag.FLAGGED, false);
+
+                // Mark not spam
+                if (EntityFolder.JUNK.equals(folder.type)
+                        && ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+                    Flags notJunk = new Flags("$NotJunk");
+                    imessage.setFlags(notJunk, true);
+                }
             }
 
             // https://tools.ietf.org/html/rfc6851
@@ -3406,7 +3413,8 @@ class Core {
                 if (!have &&
                         !EntityFolder.TRASH.equals(folder.type) &&
                         !EntityFolder.JUNK.equals(folder.type) &&
-                        message.blocklist != null && message.blocklist) {
+                        message.blocklist != null && message.blocklist &&
+                        !Arrays.asList(message.keywords).contains("$NotJunk")) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
                     if (use_blocklist) {
                         EntityLog.log(context, "Block list" +
