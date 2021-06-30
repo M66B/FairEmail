@@ -40,7 +40,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -484,7 +483,20 @@ public class ServiceUI extends IntentService {
     }
 
     static void sync(Context context, Long account) {
-        context.startService(new Intent(context, ServiceUI.class)
-                .setAction(account == null ? "sync" : "sync:" + account));
+        try {
+            context.startService(new Intent(context, ServiceUI.class)
+                    .setAction(account == null ? "sync" : "sync:" + account));
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.IllegalStateException: Not allowed to start service Intent { act=sync cmp=eu.faircode.email/.ServiceUI }: app is in background uid UidRecord{ac095c9 u0a94 CEM  bg:+9d20h57m50s144ms idle change:cached procs:1 seq(0,0,0)}
+                        at android.app.ContextImpl.startServiceCommon(ContextImpl.java:1715)
+                        at android.app.ContextImpl.startService(ContextImpl.java:1670)
+                        at android.content.ContextWrapper.startService(ContextWrapper.java:720)
+                        at eu.faircode.email.ServiceUI.sync(ServiceUI:487)
+                        at eu.faircode.email.ServiceTileUnseen.onClick(ServiceTileUnseen:103)
+                        at android.service.quicksettings.TileService$H.handleMessage(TileService.java:449)
+             */
+        }
     }
 }
