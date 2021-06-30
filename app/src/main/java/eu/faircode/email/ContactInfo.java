@@ -349,8 +349,10 @@ public class ContactInfo {
             String domain = (at < 0 ? null : info.email.substring(at + 1).toLowerCase(Locale.ROOT));
 
             if (domain != null) {
-                if ("gmail.com".equals(domain) || "googlemail.com".equals(domain))
-                    domain = "google.com";
+                if ("google.com".equals(domain) ||
+                        "gmail.com".equals(domain) ||
+                        "googlemail.com".equals(domain))
+                    domain = "support.google.com";
 
                 File dir = new File(context.getCacheDir(), "favicons");
                 if (!dir.exists())
