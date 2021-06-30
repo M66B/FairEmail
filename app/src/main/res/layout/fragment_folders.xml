@@ -140,10 +140,10 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
         android:contentDescription="@string/title_add"
-        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_add"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/twotone_create_new_folder_24" />
+        app:srcCompat="@drawable/twotone_create_new_folder_24"
+        app:tint="?attr/colorFabForeground" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCompose"
@@ -152,10 +152,10 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
         android:contentDescription="@string/title_compose"
-        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/twotone_edit_24" />
+        app:srcCompat="@drawable/twotone_edit_24"
+        app:tint="?attr/colorFabForeground" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabError"
@@ -164,8 +164,8 @@
         android:layout_gravity="center_horizontal|bottom"
         android:layout_margin="@dimen/fab_padding"
         android:contentDescription="@string/title_compose"
-        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="?attr/colorWarning"
-        app:srcCompat="@drawable/twotone_warning_24" />
+        app:srcCompat="@drawable/twotone_warning_24"
+        app:tint="?attr/colorFabForeground" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

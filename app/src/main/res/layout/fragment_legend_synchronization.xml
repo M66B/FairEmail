@@ -293,10 +293,10 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_backoff"
             android:padding="12dp"
-            android:tint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivBackoff"
-            app:srcCompat="@drawable/twotone_disc_full_24" />
+            app:srcCompat="@drawable/twotone_disc_full_24"
+            app:tint="?attr/colorWarning" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvQuota"

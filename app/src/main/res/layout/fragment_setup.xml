@@ -150,12 +150,12 @@
                     android:contentDescription="@string/title_setup_help"
                     android:padding="6dp"
                     android:scaleType="fitCenter"
-                    android:tint="?attr/colorAccent"
                     android:tooltipText="@string/title_setup_help"
                     app:layout_constraintBottom_toBottomOf="@id/btnQuick"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/btnQuick"
-                    app:srcCompat="@drawable/twotone_help_24" />
+                    app:srcCompat="@drawable/twotone_help_24"
+                    app:tint="?attr/colorAccent" />
 
                 <Button
                     android:id="@+id/btnQuick"
@@ -211,10 +211,10 @@
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_legend_expander"
                     android:scaleType="centerCrop"
-                    android:tint="?attr/colorAccent"
                     app:layout_constraintStart_toStartOf="@+id/tvManual"
                     app:layout_constraintTop_toBottomOf="@id/tvQuickNew"
-                    app:srcCompat="@drawable/dropdown" />
+                    app:srcCompat="@drawable/dropdown"
+                    app:tint="?attr/colorAccent" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvManual"

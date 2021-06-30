@@ -1338,11 +1338,11 @@
                     android:layout_width="21dp"
                     android:layout_height="21dp"
                     android:contentDescription="@string/title_legend_auth"
-                    android:tint="?attr/colorWarning"
                     app:layout_constraintBottom_toBottomOf="@+id/swAuthentication"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/swAuthentication"
-                    app:srcCompat="@drawable/twotone_flag_24" />
+                    app:srcCompat="@drawable/twotone_flag_24"
+                    app:tint="?attr/colorWarning" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAuthentication"

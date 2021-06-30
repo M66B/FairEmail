@@ -121,10 +121,10 @@
         android:contentDescription="@string/title_trash"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tint="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/twotone_delete_24" />
+        app:srcCompat="@drawable/twotone_delete_24"
+        app:tint="?attr/colorSeparator" />
 
     <ImageButton
         android:id="@+id/ibArchiveBottom"
@@ -135,10 +135,10 @@
         android:contentDescription="@string/title_archive"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tint="?attr/colorSeparator"
         app:layout_constraintStart_toEndOf="@id/ibTrashBottom"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/twotone_archive_24" />
+        app:srcCompat="@drawable/twotone_archive_24"
+        app:tint="?attr/colorSeparator" />
 
     <ImageButton
         android:id="@+id/ibSeenBottom"
@@ -148,11 +148,11 @@
         android:contentDescription="@string/title_toggle_seen"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tint="?attr/colorSeparator"
         android:tooltipText="@string/title_toggle_seen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wvBody"
-        app:srcCompat="@drawable/twotone_mail_24" />
+        app:srcCompat="@drawable/twotone_mail_24"
+        app:tint="?attr/colorSeparator" />
 
     <include
         android:id="@+id/InAction"

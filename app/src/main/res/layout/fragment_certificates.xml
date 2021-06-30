@@ -46,8 +46,8 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
         android:contentDescription="@string/title_add"
-        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_add"
         app:backgroundTint="?attr/colorFabBackground"
-        app:srcCompat="@drawable/twotone_add_24" />
+        app:srcCompat="@drawable/twotone_add_24"
+        app:tint="?attr/colorFabForeground" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

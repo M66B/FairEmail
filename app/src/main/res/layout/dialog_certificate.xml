@@ -106,11 +106,11 @@
             android:layout_height="24dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/title_info"
-            android:tint="?attr/colorAccent"
             android:tooltipText="@string/title_info"
             app:layout_constraintBottom_toBottomOf="@id/tvSubjectTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/twotone_info_24" />
+            app:srcCompat="@drawable/twotone_info_24"
+            app:tint="?attr/colorAccent" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSubject"

@@ -309,10 +309,10 @@
                     android:layout_marginEnd="6dp"
                     android:background="?attr/selectableItemBackground"
                     android:padding="3dp"
-                    android:tint="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/etBody"
-                    app:srcCompat="@drawable/outline_translate_24" />
+                    app:srcCompat="@drawable/outline_translate_24"
+                    app:tint="?attr/colorSeparator" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoInternet"

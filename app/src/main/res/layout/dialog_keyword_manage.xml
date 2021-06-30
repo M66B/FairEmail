@@ -37,13 +37,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/title_add"
-        android:tint="?attr/colorFabForeground"
         app:backgroundTint="?attr/colorFabBackground"
         app:elevation="0dp"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/twotone_add_24" />
+        app:srcCompat="@drawable/twotone_add_24"
+        app:tint="?attr/colorFabForeground" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

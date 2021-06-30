@@ -63,11 +63,11 @@
         android:layout_marginStart="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_auth"
-        android:tint="?attr/colorWarning"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ibAvatar"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/twotone_flag_24" />
+        app:srcCompat="@drawable/twotone_flag_24"
+        app:tint="?attr/colorWarning" />
 
     <ImageView
         android:id="@+id/ivPriorityHigh"
@@ -75,11 +75,11 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_priority"
-        android:tint="?attr/colorAccent"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ibAuth"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/twotone_priority_high_24" />
+        app:srcCompat="@drawable/twotone_priority_high_24"
+        app:tint="?attr/colorAccent" />
 
     <ImageView
         android:id="@+id/ivPriorityLow"
@@ -402,10 +402,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:tint="?attr/colorWarning"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
         app:layout_constraintTop_toTopOf="@id/tvError"
-        app:srcCompat="@drawable/twotone_info_24" />
+        app:srcCompat="@drawable/twotone_info_24"
+        app:tint="?attr/colorWarning" />
 
     <View
         android:id="@+id/paddingEnd"
