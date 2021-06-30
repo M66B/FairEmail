@@ -4767,9 +4767,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Get name
         String name;
         if (viewType == AdapterMessage.ViewType.UNIFIED)
-            if (type == null)
-                name = getString(R.string.title_folder_unified);
-            else
+            if (type == null) {
+                name = (folders.size() == 1 ? folders.get(0).accountName : null);
+                if (name == null)
+                    name = getString(R.string.title_folder_unified);
+            } else
                 name = EntityFolder.localizeType(getContext(), type);
         else {
             name = (folders.size() > 0 ? folders.get(0).getDisplayName(getContext()) : "");
