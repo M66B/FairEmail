@@ -409,6 +409,8 @@
 
         <item name="colorUnreadHighlight">@color/darkSolarizedAccent</item>
 
+        <item name="colorActionBackground">@color/lightSolarizedActionBackground</item>
+
         <item name="colorFabBackground">@color/darkSolarizedAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
@@ -428,6 +430,8 @@
         <item name="colorAccent">@color/darkSolarizedAccent</item>
 
         <item name="colorUnreadHighlight">@color/darkSolarizedAccent</item>
+
+        <item name="colorActionBackground">@color/darkSolarizedActionBackground</item>
 
         <item name="colorFabBackground">@color/darkSolarizedAccent</item>
 
