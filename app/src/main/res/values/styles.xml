@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <attr name="themeName" format="string" />
     <attr name="colorRead" format="reference" />
     <attr name="colorUnread" format="reference" />
@@ -105,6 +105,11 @@
         <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
         <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
         <item name="android:scrollbarFadeDuration">5000</item>
+
+        <item name="colorBackgroundFloating">@color/material_grey_850</item>
+        <item name="android:colorBackgroundFloating" tools:targetApi="23">
+            @color/material_grey_850
+        </item>
     </style>
 
     <!-- Light -->
