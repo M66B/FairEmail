@@ -1576,12 +1576,16 @@ public class Helper {
     }
 
     static String getFingerprint(Context context) {
+        return getFingerprint(context, "SHA1");
+    }
+
+    static String getFingerprint(Context context, String hash) {
         try {
             PackageManager pm = context.getPackageManager();
             String pkg = context.getPackageName();
             PackageInfo info = pm.getPackageInfo(pkg, PackageManager.GET_SIGNATURES);
             byte[] cert = info.signatures[0].toByteArray();
-            MessageDigest digest = MessageDigest.getInstance("SHA1");
+            MessageDigest digest = MessageDigest.getInstance(hash);
             byte[] bytes = digest.digest(cert);
             StringBuilder sb = new StringBuilder();
             for (byte b : bytes)
@@ -1596,8 +1600,15 @@ public class Helper {
     static boolean hasValidFingerprint(Context context) {
         if (hasValidFingerprint == null) {
             String signed = getFingerprint(context);
-            String expected = context.getString(R.string.fingerprint);
-            hasValidFingerprint = Objects.equals(signed, expected);
+            String[] fingerprints = new String[]{
+                    context.getString(R.string.fingerprint),
+                    context.getString(R.string.fingerprint_amazon)
+            };
+            for (String fingerprint : fingerprints)
+                if (Objects.equals(signed, fingerprint)) {
+                    hasValidFingerprint = true;
+                    break;
+                }
         }
         return hasValidFingerprint;
     }
