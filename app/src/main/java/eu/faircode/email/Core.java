@@ -4273,18 +4273,20 @@ class Core {
                     builder.setSound(null);
             }
 
-            if (pro && group != 0 && messages.size() > 0) {
+            if (group != 0 && messages.size() > 0) {
                 TupleMessageEx amessage = messages.get(0);
                 Integer color = getColor(amessage);
-                if (color != null) {
+                if (pro && color != null) {
                     builder.setColor(color);
                     builder.setColorized(true);
                 }
-                if (notify_subtext)
-                    if (amessage.folderUnified && !EntityFolder.INBOX.equals(amessage.folderType))
+
+                // Disabled to show number of new messages
+                if (notify_subtext && false)
+                    if (group < 0) // folder
+                        builder.setSubText(amessage.accountName + " - " + amessage.getFolderName(context));
+                    else if (group > 0) // account
                         builder.setSubText(amessage.accountName);
-                    else
-                        builder.setSubText(amessage.accountName + " · " + amessage.getFolderName(context));
             }
 
             Notification pub = builder.build();
@@ -4445,10 +4447,10 @@ class Core {
             String from = MessageHelper.formatAddresses(afrom, email_format, false);
             mbuilder.setContentTitle(from);
             if (notify_subtext)
-                if (message.folderUnified && !EntityFolder.INBOX.equals(message.folderType))
-                    mbuilder.setSubText(message.accountName + " · " + message.getFolderName(context));
-                else
+                if (message.folderUnified && EntityFolder.INBOX.equals(message.folderType))
                     mbuilder.setSubText(message.accountName);
+                else
+                    mbuilder.setSubText(message.accountName + " - " + message.getFolderName(context));
 
             DB db = DB.getInstance(context);
 
