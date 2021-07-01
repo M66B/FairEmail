@@ -82,16 +82,21 @@ public class DnsBlockList {
     private static final long CACHE_EXPIRY_AFTER = 3600 * 1000L; // milliseconds
     private static final Map<String, CacheEntry> cache = new Hashtable<>();
 
+    static void clearCache() {
+        Log.i("isJunk clear cache");
+        synchronized (cache) {
+            cache.clear();
+        }
+    }
+
     static void setEnabled(Context context, BlockList blocklist, boolean enabled) {
+        Log.i("isJunk " + blocklist.name + "=" + enabled);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (blocklist.enabled == null || blocklist.enabled == enabled)
             prefs.edit().remove("blocklist." + blocklist.name).apply();
         else
             prefs.edit().putBoolean("blocklist." + blocklist.name, enabled).apply();
-
-        synchronized (cache) {
-            cache.clear();
-        }
+        clearCache();
     }
 
     static boolean isEnabled(Context context, BlockList blocklist) {
@@ -101,15 +106,13 @@ public class DnsBlockList {
     }
 
     static void reset(Context context) {
+        Log.i("isJunk reset");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
         for (BlockList blocklist : BLOCK_LISTS)
             editor.remove("blocklist." + blocklist.name);
         editor.apply();
-
-        synchronized (cache) {
-            cache.clear();
-        }
+        clearCache();
     }
 
     static List<BlockList> getLists() {

@@ -212,6 +212,10 @@ public class ApplicationEx extends Application
             case "schedule_day6":
                 ServiceSynchronize.reschedule(this);
                 break;
+            case "check_blocklist":
+            case "use_blocklist":
+                DnsBlockList.clearCache();
+                break;
             case "watchdog":
                 ServiceSynchronize.scheduleWatchdog(this);
                 break;
