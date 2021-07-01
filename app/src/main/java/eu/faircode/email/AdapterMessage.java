@@ -326,8 +326,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ibFlagged;
         private ImageButton ibAvatar;
         private ImageButton ibAuth;
-        private ImageView ivPriorityHigh;
-        private ImageView ivPriorityLow;
+        private ImageButton ibPriority;
         private ImageView ivImportance;
         private ImageView ivSigned;
         private ImageView ivEncrypted;
@@ -499,8 +498,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
             ibAvatar = itemView.findViewById(R.id.ibAvatar);
             ibAuth = itemView.findViewById(R.id.ibAuth);
-            ivPriorityHigh = itemView.findViewById(R.id.ivPriorityHigh);
-            ivPriorityLow = itemView.findViewById(R.id.ivPriorityLow);
+            ibPriority = itemView.findViewById(R.id.ibPriority);
             ivImportance = itemView.findViewById(R.id.ivImportance);
             ivSigned = itemView.findViewById(R.id.ivSigned);
             ivEncrypted = itemView.findViewById(R.id.ivEncrypted);
@@ -735,6 +733,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibAvatar.setOnClickListener(this);
             ibAuth.setOnClickListener(this);
+            ibPriority.setOnClickListener(this);
             ibSnoozed.setOnClickListener(this);
             ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD)
@@ -858,6 +857,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibAvatar.setOnClickListener(null);
             ibAuth.setOnClickListener(null);
+            ibPriority.setOnClickListener(null);
             ibSnoozed.setOnClickListener(null);
             ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD)
@@ -981,8 +981,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAvatar.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivPriorityHigh.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivPriorityLow.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivImportance.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivSigned.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivEncrypted.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -1034,18 +1033,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Line 1
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
-            ivPriorityHigh.setVisibility(
-                    EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)
-                            ? View.VISIBLE : View.GONE);
-            ivPriorityLow.setVisibility(
-                    EntityMessage.PRIORITIY_LOW.equals(message.ui_priority)
-                            ? View.VISIBLE : View.GONE);
-            ivImportance.setImageLevel(
-                    EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance) ? 0 : 1);
-            ivImportance.setVisibility(
-                    EntityMessage.PRIORITIY_LOW.equals(message.ui_importance) ||
-                            EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance)
-                            ? View.VISIBLE : View.GONE);
+
+            if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)) {
+                ibPriority.setImageLevel(0);
+                ibPriority.setVisibility(View.VISIBLE);
+            } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_priority)) {
+                ibPriority.setImageLevel(1);
+                ibPriority.setVisibility(View.VISIBLE);
+            } else
+                ibPriority.setVisibility(View.GONE);
+
+            if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance)) {
+                ivImportance.setImageLevel(0);
+                ivImportance.setVisibility(View.VISIBLE);
+            } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_importance)) {
+                ivImportance.setImageLevel(1);
+                ivImportance.setVisibility(View.VISIBLE);
+            } else
+                ivImportance.setVisibility(View.GONE);
+
             ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             if (message.verified)
                 ivSigned.setColorFilter(colorEncrypt);
@@ -3113,6 +3119,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onViewContact(message);
             else if (view.getId() == R.id.ibAuth)
                 onShowAuth(message);
+            else if (view.getId() == R.id.ibPriority)
+                onShowPriority(message);
             else if (view.getId() == R.id.ibSnoozed)
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ibFlagged)
@@ -3462,6 +3470,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             ToastEx.makeText(context, sb.toString(), Toast.LENGTH_LONG).show();
+        }
+
+        private void onShowPriority(TupleMessageEx message) {
+            if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority))
+                ToastEx.makeText(context, R.string.title_legend_priority, Toast.LENGTH_LONG).show();
+            else
+                ToastEx.makeText(context, R.string.title_legend_priority_low, Toast.LENGTH_LONG).show();
         }
 
         private void onShowSnoozed(TupleMessageEx message) {

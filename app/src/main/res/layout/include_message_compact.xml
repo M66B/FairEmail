@@ -70,39 +70,28 @@
         app:srcCompat="@drawable/twotone_flag_24"
         app:tint="?attr/colorWarning" />
 
-    <ImageView
-        android:id="@+id/ivPriorityHigh"
+    <ImageButton
+        android:id="@+id/ibPriority"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_priority"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ibAuth"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/twotone_priority_high_24"
+        app:srcCompat="@drawable/priority"
         app:tint="?attr/colorAccent" />
-
-    <ImageView
-        android:id="@+id/ivPriorityLow"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_priority_low"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ivPriorityHigh"
-        app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/twotone_low_priority_24" />
 
     <ImageView
         android:id="@+id/ivImportance"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_priority_low"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
+        app:layout_constraintStart_toEndOf="@id/ibPriority"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/importance" />
+        app:srcCompat="@drawable/importance"
+        app:tint="?attr/colorAccent" />
 
     <ImageView
         android:id="@+id/ivSigned"
