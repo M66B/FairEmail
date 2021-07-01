@@ -59,10 +59,14 @@ import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainException;
+import android.text.Editable;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.format.DateUtils;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
@@ -82,6 +86,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -243,6 +249,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
+    private TextViewAutoCompleteAction etSearch;
     private TextView tvNoEmail;
     private TextView tvNoEmailHint;
     private FixedRecyclerView rvMessage;
@@ -282,6 +289,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private String msgid;
     private BoundaryCallbackMessages.SearchCriteria criteria = null;
     private boolean pane;
+
+    private int searchIndex = 0;
+    private TextView searchView = null;
 
     private WebView printWebView = null;
 
@@ -462,6 +472,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
+        etSearch = view.findViewById(R.id.etSearch);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         tvNoEmailHint = view.findViewById(R.id.tvNoEmailHint);
         rvMessage = view.findViewById(R.id.rvMessage);
@@ -534,6 +545,49 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             public void onClick(View v) {
                 prefs.edit().putBoolean("message_select", true).apply();
                 grpHintSelect.setVisibility(View.GONE);
+            }
+        });
+
+        etSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus)
+                    endSearch();
+            }
+        });
+
+        etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    endSearch();
+                    return true;
+                } else
+                    return false;
+            }
+        });
+
+        etSearch.setActionRunnable(new Runnable() {
+            @Override
+            public void run() {
+                performSearch(true);
+            }
+        });
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                performSearch(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
             }
         });
 
@@ -1147,6 +1201,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         FragmentDialogTheme.setBackground(getContext(), view, false);
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
+        etSearch.setVisibility(View.GONE);
         sbThread.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
@@ -1855,6 +1910,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @Override
         public void reply(TupleMessageEx message, String selected, View anchor) {
             onReply(message, selected, anchor);
+        }
+
+        public void startSearch(TextView view) {
+            FragmentMessages.this.startSearch(view);
+        }
+
+        public void endSearch() {
+            FragmentMessages.this.endSearch();
         }
 
         @Override
@@ -5782,6 +5845,89 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         } finally {
             db.endTransaction();
         }
+    }
+
+    private void startSearch(TextView view) {
+        searchView = view;
+
+        etSearch.setText(null);
+        etSearch.setVisibility(View.VISIBLE);
+        etSearch.requestFocus();
+
+        InputMethodManager imm =
+                (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null)
+            imm.showSoftInput(etSearch, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    private void endSearch() {
+        Helper.hideKeyboard(etSearch);
+        etSearch.setVisibility(View.GONE);
+        clearSearch();
+        searchView = null;
+    }
+
+    private void performSearch(boolean next) {
+        clearSearch();
+
+        if (searchView == null)
+            return;
+
+        searchIndex = (next ? searchIndex + 1 : 1);
+        String query = etSearch.getText().toString().toLowerCase();
+        String text = searchView.getText().toString().toLowerCase();
+
+        int pos = -1;
+        for (int i = 0; i < searchIndex; i++)
+            pos = (pos < 0 ? text.indexOf(query) : text.indexOf(query, pos + 1));
+
+        // Wrap around
+        if (pos < 0 && searchIndex > 1) {
+            searchIndex = 1;
+            pos = text.indexOf(query);
+        }
+
+        // Scroll to found text
+        if (pos >= 0) {
+            int color = Helper.resolveColor(searchView.getContext(), R.attr.colorHighlight);
+            SpannableString ss = new SpannableString(searchView.getText());
+            ss.setSpan(new BackgroundColorSpan(color),
+                    pos, pos + query.length(),
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE | Spannable.SPAN_COMPOSING);
+            searchView.setText(ss);
+
+            int line = searchView.getLayout().getLineForOffset(pos);
+            int y = searchView.getLayout().getLineTop(line);
+            int dy = searchView.getContext().getResources()
+                    .getDimensionPixelSize(R.dimen.search_in_text_margin);
+
+            View itemView = rvMessage.findContainingItemView(searchView);
+            if (itemView != null) {
+                Rect rect = new Rect();
+                searchView.getDrawingRect(rect);
+
+                RecyclerView.ViewHolder holder = rvMessage.getChildViewHolder(itemView);
+                ((ViewGroup) itemView).offsetDescendantRectToMyCoords(searchView, rect);
+
+                iProperties.scrollTo(holder.getAdapterPosition(), rect.top + y - dy);
+            }
+        }
+
+        boolean hasNext = (pos >= 0 &&
+                (text.indexOf(query) != pos ||
+                        text.indexOf(query, pos + 1) >= 0));
+        etSearch.setActionEnabled(hasNext);
+    }
+
+    private void clearSearch() {
+        if (searchView == null)
+            return;
+
+        SpannableString ss = new SpannableString(searchView.getText());
+        for (BackgroundColorSpan span : ss.getSpans(0, ss.length(), BackgroundColorSpan.class))
+            if ((ss.getSpanFlags(span) & Spannable.SPAN_COMPOSING) != 0)
+                ss.removeSpan(span);
+        searchView.setText(ss);
     }
 
     private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {

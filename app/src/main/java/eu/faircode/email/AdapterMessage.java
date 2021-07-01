@@ -55,18 +55,14 @@ import android.os.Parcelable;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Settings;
-import android.text.Editable;
 import android.text.Html;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.LinkMovementMethod;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -75,7 +71,6 @@ import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -93,7 +88,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.inputmethod.InputMethodManager;
 import android.view.textclassifier.ConversationAction;
 import android.view.textclassifier.ConversationActions;
 import android.webkit.WebSettings;
@@ -106,7 +100,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -196,7 +189,7 @@ import biweekly.property.RawProperty;
 import biweekly.util.ICalDate;
 
 import static android.app.Activity.RESULT_OK;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static androidx.webkit.WebSettingsCompat.FORCE_DARK_OFF;
 import static androidx.webkit.WebSettingsCompat.FORCE_DARK_ON;
 
@@ -289,7 +282,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean gotoTop = false;
     private Integer gotoPos = null;
     private boolean firstClick = false;
-    private int searchResult = 0;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private Map<Long, Integer> keyPosition = new HashMap<>();
     private Map<Integer, Long> positionKey = new HashMap<>();
@@ -2043,6 +2035,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setTag(message.id);
                 tvBody.setText(null);
             }
+            properties.endSearch();
             clearActions();
 
             ibSeenBottom.setImageResource(message.ui_seen
@@ -4867,108 +4860,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onSearchText(TupleMessageEx message) {
-            LayoutInflater inflater = LayoutInflater.from(context);
-            View dview = inflater.inflate(R.layout.popup_search_in_text, null, false);
-            EditText etSearch = dview.findViewById(R.id.etSearch);
-            ImageButton ibNext = dview.findViewById(R.id.ibNext);
-
-            etSearch.setText(null);
-            ibNext.setEnabled(false);
-
-            etSearch.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    // Do nothing
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    searchResult = find(s.toString(), 1);
-                    ibNext.setEnabled(searchResult > 0);
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    // Do nothing
-                }
-            });
-
-            ibNext.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    searchResult = find(etSearch.getText().toString(), ++searchResult);
-                }
-            });
-
-            PopupWindow pw = new PopupWindow(dview, WRAP_CONTENT, WRAP_CONTENT);
-            pw.setFocusable(true);
-            pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                @Override
-                public void onDismiss() {
-                    SpannableString ss = new SpannableString(tvBody.getText());
-                    for (BackgroundColorSpan span : ss.getSpans(0, ss.length(), BackgroundColorSpan.class))
-                        ss.removeSpan(span);
-                    tvBody.setText(ss);
-                }
-            });
-            pw.showAtLocation(parentFragment.getView(), Gravity.TOP | Gravity.END, 0, 0);
-
-            final InputMethodManager imm =
-                    (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null)
-                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
-        }
-
-        private int find(String query, int result) {
-            query = query.toLowerCase();
-
-            SpannableString ss = new SpannableString(tvBody.getText());
-            for (BackgroundColorSpan span : ss.getSpans(0, ss.length(), BackgroundColorSpan.class))
-                ss.removeSpan(span);
-
-            int p = -1;
-            String text = tvBody.getText().toString().toLowerCase();
-            for (int i = 0; i < result; i++)
-                p = (p < 0 ? text.indexOf(query) : text.indexOf(query, p + 1));
-
-            if (p < 0 && result > 1) {
-                result = 1;
-                p = text.indexOf(query);
-            }
-            if (p < 0)
-                result = 0;
-
-            final int pos = p;
-            if (pos > 0) {
-                int color = Helper.resolveColor(context, R.attr.colorHighlight);
-                ss.setSpan(new BackgroundColorSpan(color), pos, pos + query.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                tvBody.setText(ss);
-
-                final int apos = getAdapterPosition();
-
-                tvBody.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            int line = tvBody.getLayout().getLineForOffset(pos);
-                            int y = tvBody.getLayout().getLineTop(line);
-
-                            int dy = Helper.dp2pixels(context, 48);
-
-                            Rect rect = new Rect();
-                            tvBody.getDrawingRect(rect);
-                            ((ViewGroup) itemView).offsetDescendantRectToMyCoords(tvBody, rect);
-
-                            properties.scrollTo(apos, rect.top + y - dy);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
-                    }
-                });
-            } else
-                tvBody.setText(ss, TextView.BufferType.SPANNABLE);
-
-            return result;
+            properties.startSearch(tvBody);
         }
 
         private void onMenuCreateRule(TupleMessageEx message) {
@@ -6496,6 +6388,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         void reply(TupleMessageEx message, String selected, View anchor);
 
+        void startSearch(TextView view);
+
+        void endSearch();
+
         void lock(long id);
 
         void refresh();
@@ -7040,9 +6936,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             super.onStart();
             Dialog dialog = getDialog();
             if (dialog != null)
-                dialog.getWindow().setLayout(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT);
+                dialog.getWindow().setLayout(MATCH_PARENT, MATCH_PARENT);
         }
 
         @Override

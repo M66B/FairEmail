@@ -135,6 +135,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintSelect" />
 
+            <eu.faircode.email.TextViewAutoCompleteAction
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorSeparator"
+                android:completionThreshold="2"
+                android:hint="@string/title_search_for_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="6dp"
+                app:end_drawable="@drawable/twotone_fast_forward_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+
             <eu.faircode.email.ViewTextDelayed
                 android:id="@+id/tvNoEmail"
                 android:layout_width="wrap_content"
@@ -173,7 +189,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+                app:layout_constraintTop_toBottomOf="@id/etSearch" />
 
             <View
                 android:id="@+id/vwAnchor"
