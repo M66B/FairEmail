@@ -1727,11 +1727,8 @@ public class Log {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
             sb.append(String.format("Background restricted: %b\r\n", am.isBackgroundRestricted()));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
-            sb.append(String.format("Data saving: %b\r\n", saving));
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            sb.append(String.format("Data saving: %b\r\n", ConnectionHelper.isDataSaving(context)));
 
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));

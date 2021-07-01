@@ -416,6 +416,23 @@ public class ConnectionHelper {
                 message.contains("requires valid address");
     }
 
+    static boolean isDataSaving(Context context) {
+        // https://developer.android.com/training/basics/network-ops/data-saver.html
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            return false;
+
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return false;
+
+        // RESTRICT_BACKGROUND_STATUS_DISABLED: Data Saver is disabled.
+        // RESTRICT_BACKGROUND_STATUS_ENABLED: The user has enabled Data Saver for this app. (Globally)
+        // RESTRICT_BACKGROUND_STATUS_WHITELISTED: The user has enabled Data Saver but the app is allowed to bypass it.
+        int status = cm.getRestrictBackgroundStatus();
+        return (status == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
+    }
+
     static boolean vpnActive(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)

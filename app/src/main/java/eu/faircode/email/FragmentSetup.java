@@ -559,20 +559,14 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring == null || ignoring ? check : null, null, null, null);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-            grpBackgroundRestricted.setVisibility(am.isBackgroundRestricted() ? View.VISIBLE : View.GONE);
+            ActivityManager am =
+                    (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            grpBackgroundRestricted.setVisibility(am.isBackgroundRestricted()
+                    ? View.VISIBLE : View.GONE);
         }
 
-        // https://developer.android.com/training/basics/network-ops/data-saver.html
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (cm != null) {
-                int status = cm.getRestrictBackgroundStatus();
-                grpDataSaver.setVisibility(
-                        status == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED
-                                ? View.VISIBLE : View.GONE);
-            }
-        }
+        grpDataSaver.setVisibility(ConnectionHelper.isDataSaving(getContext())
+                ? View.VISIBLE : View.GONE);
     }
 
     @Override
