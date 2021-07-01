@@ -42,7 +42,7 @@ import java.util.Map;
 import javax.mail.internet.MimeUtility;
 
 public class DnsBlockList {
-    static final List<BlockList> BLOCK_LISTS = Collections.unmodifiableList(Arrays.asList(
+    private static final List<BlockList> BLOCK_LISTS = Collections.unmodifiableList(Arrays.asList(
             // https://www.spamhaus.org/zen/
             new BlockList(true, "Spamhaus/zen", "zen.spamhaus.org", true, new String[]{
                     // https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
@@ -100,9 +100,10 @@ public class DnsBlockList {
     }
 
     static boolean isEnabled(Context context, BlockList blocklist) {
-        boolean def = (blocklist.enabled != null && blocklist.enabled);
+        if (blocklist.enabled == null)
+            return false;
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("blocklist." + blocklist.name, def);
+        return prefs.getBoolean("blocklist." + blocklist.name, blocklist.enabled);
     }
 
     static void reset(Context context) {
@@ -115,7 +116,7 @@ public class DnsBlockList {
         clearCache();
     }
 
-    static List<BlockList> getLists() {
+    static List<BlockList> getListsAvailable() {
         List<BlockList> result = new ArrayList<>();
         for (BlockList blockList : BLOCK_LISTS)
             if (blockList.enabled != null)
@@ -123,7 +124,7 @@ public class DnsBlockList {
         return result;
     }
 
-    static List<String> getNames(Context context) {
+    static List<String> getNamesEnabled(Context context) {
         List<String> names = new ArrayList<>();
         for (BlockList blocklist : BLOCK_LISTS)
             if (isEnabled(context, blocklist))

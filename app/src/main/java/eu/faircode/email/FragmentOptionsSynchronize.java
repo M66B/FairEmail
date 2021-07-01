@@ -356,7 +356,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         rvBlocklist.setHasFixedSize(false);
         rvBlocklist.setLayoutManager(new LinearLayoutManager(getContext()));
-        AdapterBlocklist badapter = new AdapterBlocklist(getContext(), DnsBlockList.getLists());
+        AdapterBlocklist badapter = new AdapterBlocklist(getContext(), DnsBlockList.getListsAvailable());
         rvBlocklist.setAdapter(badapter);
 
         swTuneKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
