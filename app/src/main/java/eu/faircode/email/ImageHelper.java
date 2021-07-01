@@ -327,7 +327,7 @@ class ImageHelper {
                         fitDrawable(d, a, scale, view);
                     return d;
                 } catch (IllegalArgumentException ex) {
-                    Log.w(ex);
+                    Log.i(ex);
                     Drawable d = context.getDrawable(R.drawable.twotone_broken_image_24);
                     d.setBounds(0, 0, px, px);
                     return d;
@@ -548,14 +548,18 @@ class ImageHelper {
         // "5ErkJggg==\" alt=\"Red dot\" />";
 
         // https://en.wikipedia.org/wiki/Data_URI_scheme
-        int comma = source.indexOf(',');
-        if (comma < 0)
-            return null;
+        try {
+            int comma = source.indexOf(',');
+            if (comma < 0)
+                throw new IllegalArgumentException("Comma missing");
 
-        String base64 = source.substring(comma + 1);
-        byte[] bytes = Base64.decode(base64.getBytes(), 0);
-
-        return new ByteArrayInputStream(bytes);
+            String base64 = source.substring(comma + 1);
+            byte[] bytes = Base64.decode(base64.getBytes(), 0);
+            return new ByteArrayInputStream(bytes);
+        } catch (IllegalArgumentException ex) {
+            String excerpt = source.substring(0, Math.min(100, source.length()));
+            throw new IllegalArgumentException(excerpt, ex);
+        }
     }
 
     private static Drawable getCachedImage(Context context, long id, String source) {
