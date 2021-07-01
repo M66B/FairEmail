@@ -34,7 +34,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -83,7 +82,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
-        final AutoCompleteTextView etQuery = dview.findViewById(R.id.etQuery);
+        final TextViewAutoCompleteAction etQuery = dview.findViewById(R.id.etQuery);
         final TextView tvSearch1 = dview.findViewById(R.id.tvSearch1);
         final TextView tvSearch2 = dview.findViewById(R.id.tvSearch2);
         final TextView tvSearch3 = dview.findViewById(R.id.tvSearch3);
@@ -170,6 +169,14 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 return cursor.getString(cursor.getColumnIndex("suggestion"));
             }
         });
+
+        etQuery.setActionRunnable(new Runnable() {
+            @Override
+            public void run() {
+                etQuery.setText(null);
+            }
+        });
+        etQuery.setActionEnabled(true);
 
         etQuery.setAdapter(adapter);
 

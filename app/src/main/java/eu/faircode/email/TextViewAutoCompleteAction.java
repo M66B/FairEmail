@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -31,39 +32,48 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 
-public class TextViewAutoCompleteClearable extends AppCompatAutoCompleteTextView {
+public class TextViewAutoCompleteAction extends AppCompatAutoCompleteTextView {
     private Drawable drawable = null;
+    private Runnable action = null;
+    private boolean enabled = false;
 
-    public TextViewAutoCompleteClearable(@NonNull Context context) {
+    public TextViewAutoCompleteAction(@NonNull Context context) {
         super(context);
-        init();
+        init(context, null);
     }
 
-    public TextViewAutoCompleteClearable(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public TextViewAutoCompleteAction(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context, attrs);
     }
 
-    public TextViewAutoCompleteClearable(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TextViewAutoCompleteAction(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context, attrs);
     }
 
-    public void init() {
-        drawable = getContext().getDrawable(R.drawable.twotone_close_24);
+    public void init(Context context, AttributeSet attrs) {
+        if (attrs == null)
+            drawable = getContext().getDrawable(R.drawable.twotone_warning_24);
+        else {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextViewAutoCompleteAction, 0, 0);
+            drawable = a.getDrawable(R.styleable.TextViewAutoCompleteAction_end_drawable);
+        }
         drawable.setTint(getCurrentTextColor());
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
 
         setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                if (!enabled)
+                    return false;
                 if (getCompoundDrawables()[2] == null)
                     return false;
                 if (event.getAction() != MotionEvent.ACTION_UP)
                     return false;
                 if (event.getX() > getWidth() - getPaddingRight() - drawable.getIntrinsicWidth()) {
-                    setText("");
-                    setCompoundDrawables(null, null, null, null);
+                    if (action != null)
+                        action.run();
                 }
                 return false;
             }
@@ -77,7 +87,7 @@ public class TextViewAutoCompleteClearable extends AppCompatAutoCompleteTextView
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                setCompoundDrawablesRelative(null, null, s.length() > 0 ? drawable : null, null);
+                setActionEnabled(enabled);
             }
 
             @Override
@@ -85,5 +95,15 @@ public class TextViewAutoCompleteClearable extends AppCompatAutoCompleteTextView
                 // Do nothing
             }
         });
+    }
+
+    public void setActionRunnable(Runnable action) {
+        this.action = action;
+    }
+
+    public void setActionEnabled(boolean enabled) {
+        this.enabled = enabled;
+        Drawable d = (enabled && getText().length() > 0 ? drawable : null);
+        setCompoundDrawablesRelative(null, null, d, null);
     }
 }

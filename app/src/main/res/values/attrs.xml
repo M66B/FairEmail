@@ -3,4 +3,7 @@
     <declare-styleable name="ContentLoadingProgressBar">
         <attr name="show_delay" format="integer" />
     </declare-styleable>
+    <declare-styleable name="TextViewAutoCompleteAction">
+        <attr name="end_drawable" format="reference" />
+    </declare-styleable>
 </resources>

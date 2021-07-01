@@ -110,7 +110,7 @@
             app:srcCompat="@drawable/twotone_sticky_note_2_24"
             tools:ignore="MissingConstraints" />
 
-        <eu.faircode.email.TextViewAutoCompleteClearable
+        <eu.faircode.email.TextViewAutoCompleteAction
             android:id="@+id/etQuery"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -120,12 +120,13 @@
             android:imeOptions="actionGo"
             android:inputType="text"
             android:maxLines="1"
+            app:end_drawable="@drawable/twotone_close_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibFlow">
 
             <requestFocus />
-        </eu.faircode.email.TextViewAutoCompleteClearable>
+        </eu.faircode.email.TextViewAutoCompleteAction>
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvSearch1"
