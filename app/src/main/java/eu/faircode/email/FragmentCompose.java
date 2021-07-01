@@ -5599,7 +5599,7 @@ public class FragmentCompose extends FragmentBase {
                     address.validate();
                 } catch (AddressException ex) {
                     throw new AddressException(context.getString(R.string.title_address_parse_error,
-                            MessageHelper.formatAddressesCompose(addresses), ex.getMessage()));
+                            MessageHelper.formatAddressesCompose(new Address[]{address}), ex.getMessage()));
                 }
         }
 
