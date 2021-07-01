@@ -5892,8 +5892,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int color = Helper.resolveColor(searchView.getContext(), R.attr.colorHighlight);
             SpannableString ss = new SpannableString(searchView.getText());
             ss.setSpan(new BackgroundColorSpan(color),
-                    pos, pos + query.length(),
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE | Spannable.SPAN_COMPOSING);
+                    pos, pos + query.length(), Spannable.SPAN_COMPOSING);
+            ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE),
+                    pos, pos + query.length(), Spannable.SPAN_COMPOSING);
             searchView.setText(ss);
 
             int line = searchView.getLayout().getLineForOffset(pos);
@@ -5920,14 +5921,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void clearSearch() {
-        if (searchView == null)
-            return;
-
-        SpannableString ss = new SpannableString(searchView.getText());
-        for (BackgroundColorSpan span : ss.getSpans(0, ss.length(), BackgroundColorSpan.class))
-            if ((ss.getSpanFlags(span) & Spannable.SPAN_COMPOSING) != 0)
-                ss.removeSpan(span);
-        searchView.setText(ss);
+        if (searchView != null)
+            searchView.clearComposingText();
     }
 
     private ActivityBase.IKeyPressedListener onBackPressedListener = new ActivityBase.IKeyPressedListener() {
