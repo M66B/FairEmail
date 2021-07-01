@@ -16,11 +16,19 @@
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="channel_alert">تنبيهات الخادم</string>
-    <string name="channel_group_contacts">المُراسِلون</string>
+    <string name="channel_group_contacts">جهات الاتصال</string>
     <string name="channel_service_description">مزامنة ومراقبة الحسابات</string>
-    <string name="channel_send_description">جارٍ إرسال الرسائل</string>
+    <string name="channel_send_description">جاري إرسال الرسائل</string>
     <string name="channel_notification_description">إشعارات الرسائل الجديدة</string>
-    <string name="channel_progress_description">اشعارات لحظية عن العمليات التي تأخذ وقت طويل</string>
+    <string name="channel_progress_description">اشعارات التقدم عن العمليات التي تأخذ وقت طويل</string>
+    <plurals name="page_conversation">
+        <item quantity="zero">محادثة</item>
+        <item quantity="one">المحادثة</item>
+        <item quantity="two">محادثتين</item>
+        <item quantity="few">محادثات</item>
+        <item quantity="many">محادثات</item>
+        <item quantity="other">محادثات</item>
+    </plurals>
     <plurals name="page_message">
         <item quantity="zero">رسالة</item>
         <item quantity="one">رسالة</item>
@@ -31,38 +39,92 @@
     </plurals>
     <string name="page_folders">المجلدات</string>
     <string name="page_compose">إنشاء</string>
-    <string name="tile_synchronize">المزامنة</string>
+    <string name="tile_synchronize">مزامنة</string>
     <string name="tile_unseen">رسائل جديدة</string>
     <string name="shortcut_refresh">تحديث</string>
     <string name="shortcut_compose">تحرير</string>
     <string name="shortcut_setup">الإعدادات</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="zero">مراقبة %1$d حساب</item>
+        <item quantity="one">مراقبة %1$d حساب</item>
+        <item quantity="two">مراقبة %1$d حساب</item>
+        <item quantity="few">مراقبة %1$d حسابات</item>
+        <item quantity="many">مراقبة %1$d حسابات</item>
+        <item quantity="other">مراقبة %1$d حسابات</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="zero">%1$d عملية معلقة</item>
+        <item quantity="one">%1$d عملية معلقة</item>
+        <item quantity="two">%1$d عملية معلقة</item>
+        <item quantity="few">%1$d عمليات معلقة</item>
+        <item quantity="many">%1$d عمليات معلقة</item>
+        <item quantity="other">%1$d عمليات معلقة</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="zero">%1$d رسالة جديدة</item>
         <item quantity="one">%1$d رسالة جديدة</item>
         <item quantity="two">%1$d رسالة جديدة</item>
-        <item quantity="few">%1$d رسالة جديدة</item>
-        <item quantity="many">%1$d رسالة جديدة</item>
-        <item quantity="other">%1$d رسالة جديدة</item>
+        <item quantity="few">%1$d رسائل جديدة</item>
+        <item quantity="many">%1$d رسائل جديدة</item>
+        <item quantity="other">%1$d رسائل جديدة</item>
+    </plurals>
+    <plurals name="title_notification_unsent">
+        <item quantity="zero">%1$d رسالة سيتم إرسالها</item>
+        <item quantity="one">%1$d رسالة سيتم إرسالها</item>
+        <item quantity="two">%1$d رسالة سيتم إرسالها</item>
+        <item quantity="few">%1$d رسائل سيتم إرسالها</item>
+        <item quantity="many">%1$d رسائل سيتم إرسالها</item>
+        <item quantity="other">%1$d رسائل سيتم إرسالها</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="zero">%1$d جديدتين</item>
-        <item quantity="one">%1$d جديدتين</item>
-        <item quantity="two">%1$d جديدتين</item>
-        <item quantity="few">%1$d جديدتين</item>
-        <item quantity="many">%1$d جديدتين</item>
-        <item quantity="other">%1$d جديدتين</item>
+        <item quantity="zero">%1$d جديد</item>
+        <item quantity="one">%1$d جديد</item>
+        <item quantity="two">%1$d جديد</item>
+        <item quantity="few">%1$d جديد</item>
+        <item quantity="many">%1$d جديد</item>
+        <item quantity="other">%1$d جديد</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="zero">نقل %1$d رسالة إلى ؟</item>
+        <item quantity="one">نقل %1$d رسالة إلى ؟</item>
+        <item quantity="two">نقل %1$d رسالة إلى ؟</item>
+        <item quantity="few">نقل %1$d رسائل إلى ؟</item>
+        <item quantity="many">نقل %1$d رسائل إلى ؟</item>
+        <item quantity="other">نقل %1$d رسائل إلى ؟</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="zero">حذف %1$d رسالة إلى الأبد؟</item>
+        <item quantity="one">حذف %1$d رسالة إلى الأبد؟</item>
+        <item quantity="two">حذف %1$d رسالة إلى الأبد؟</item>
+        <item quantity="few">حذف %1$d رسائل إلى الأبد؟</item>
+        <item quantity="many">حذف %1$d رسائل إلى الأبد؟</item>
+        <item quantity="other">حذف %1$d رسائل إلى الأبد؟</item>
+    </plurals>
+    <plurals name="title_ask_spam">
+        <item quantity="zero">معاملة %1$d كرسالة غير مرغوب فيها؟</item>
+        <item quantity="one">معاملة %1$d كرسالة غير مرغوب فيها؟</item>
+        <item quantity="two">معاملة %1$d كرسالة غير مرغوب فيها؟</item>
+        <item quantity="few">معاملة %1$d كرسائل غير مرغوب فيها؟</item>
+        <item quantity="many">معاملة %1$d كرسائل غير مرغوب فيها؟</item>
+        <item quantity="other">معاملة %1$d كرسائل غير مرغوب فيها؟</item>
     </plurals>
     <string name="title_ask_spam_who">جعل الرسالة من %1$s كرسالة غير مرغوب فيها؟</string>
-    <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك مسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل موثوق.</string>
+    <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك هو المسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل يُعتمد عليه.</string>
     <string name="title_block">حظر %1$s</string>
     <string name="title_block_sender">حظر المرسل</string>
     <string name="title_block_domain">حظر نطاق المرسل</string>
     <string name="title_block_sender_hint">حظر المرسل سيقوم لتحويل جميع رسائله المستقبلية الى صندوق البريد المزعج. يمكنك الحصول على هذه الخاصية باستخدام نسخة البرنامج الاحترافية.    </string>
-    <string name="title_junk_filter">استخدام فلتر البريد المزعج محليا</string>
+    <string name="title_junk_filter">استخدام عامل تصفية البريد المزعج المحلي</string>
+    <string name="title_junk_filter_hint">هذا يمكن أن يزيد من استخدام البطارية ويضع علامة على الرسائل ما يجعلها كغير مرغوب فيها</string>
+    <string name="title_junk_blocklist">استخدام قوائم حظر البريد المزعج</string>
     <string name="title_notification_sending">جارٍ إرسال الرسالة</string>
     <string name="title_notification_waiting">في انتظار اتصال مناسب</string>
     <string name="title_notification_idle">خامل</string>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
+    <string name="title_notification_alert">تنبيه الخادم \'%1$s\'</string>
+    <string name="title_notification_sending_left">المحاولات المتبقية: %1$d</string>
+    <string name="title_notification_sending_retry">سيتم إعادة الإرسال عند تغيير الاتصال بالإنترنت أو السحب للأسفل على صندوق الصادر</string>
+    <string name="title_notification_sending_failed">فشل الإرسال إلى %1$s</string>
     <string name="title_factor_minutes">%1$d دقيقة</string>
     <string name="menu_answers">النماذج</string>
     <string name="menu_operations">الإجراءات</string>

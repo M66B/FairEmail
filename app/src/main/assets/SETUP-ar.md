@@ -1,6 +1,6 @@
 # مساعدة في الإعدادات
 
-انشاء البريد المرضي سهل للغاية. You'll need to add at least one account to receive email and at least one identity if you want to send email. سيضيف الإعداد السريع حساباً وستذهب هوية في واحد لمعظم مقدمي الخدمات الرئيسيين.
+إعداد FairEmail سهل للغاية. You'll need to add at least one account to receive email and at least one identity if you want to send email. سيضيف الإعداد السريع حساباً وستذهب هوية في واحد لمعظم مقدمي الخدمات الرئيسيين.
 
 ## المتطلبات
 
