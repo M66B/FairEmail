@@ -65,6 +65,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
+import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
@@ -612,6 +613,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywordsEx = vsBody.findViewById(R.id.tvKeywordsEx);
 
             tvHeaders = vsBody.findViewById(R.id.tvHeaders);
+            tvHeaders.setMovementMethod(LinkMovementMethod.getInstance());
             ibCopyHeaders = vsBody.findViewById(R.id.ibCopyHeaders);
             ibCloseHeaders = vsBody.findViewById(R.id.ibCloseHeaders);
             pbHeaders = vsBody.findViewById(R.id.pbHeaders);
@@ -2007,7 +2009,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (show_headers && message.headers != null) {
-                tvHeaders.setText(HtmlHelper.highlightHeaders(context, message.headers));
+                tvHeaders.setText(HtmlHelper.highlightHeaders(context,
+                        message.headers, message.blocklist != null && message.blocklist));
                 ibCopyHeaders.setVisibility(View.VISIBLE);
             } else {
                 tvHeaders.setText(null);

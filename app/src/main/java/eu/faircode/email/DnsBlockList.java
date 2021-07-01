@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
@@ -131,16 +132,8 @@ public class DnsBlockList {
         if (received == null || received.length == 0)
             return null;
 
-        String h = MimeUtility.unfold(received[received.length - 1]);
-        String[] words = h.split("\\s+");
-        for (int i = 0; i < words.length - 1; i++)
-            if ("from".equalsIgnoreCase(words[i])) {
-                String host = words[i + 1].toLowerCase(Locale.ROOT);
-                if (!TextUtils.isEmpty(host))
-                    return isJunk(context, host, BLOCK_LISTS);
-            }
-
-        return null;
+        String host = getFromHost(MimeUtility.unfold(received[received.length - 1]));
+        return (host == null ? null : isJunk(context, host, BLOCK_LISTS));
     }
 
     private static boolean isJunk(Context context, String host, List<BlockList> blocklists) {
@@ -250,6 +243,34 @@ public class DnsBlockList {
                 " elapsed=" + elapsed);
 
         return blocked;
+    }
+
+    private static String getFromHost(String received) {
+        String[] words = received.split("\\s+");
+        for (int i = 0; i < words.length - 1; i++)
+            if ("from".equalsIgnoreCase(words[i])) {
+                String host = words[i + 1].toLowerCase(Locale.ROOT);
+                if (!TextUtils.isEmpty(host))
+                    return host;
+            }
+        return null;
+    }
+
+    static void show(Context context, String received) {
+        String host = DnsBlockList.getFromHost(MimeUtility.unfold(received));
+        if (host == null)
+            return;
+
+        if (host.startsWith("[") && host.endsWith("]"))
+            host = host.substring(1, host.length() - 1);
+
+        Uri uri = Uri.parse(BuildConfig.MXTOOLBOX_URI)
+                .buildUpon()
+                .appendPath("/SuperTool.aspx")
+                .appendQueryParameter("action", "blacklist:" + host)
+                .appendQueryParameter("run", "toolpage")
+                .build();
+        Helper.view(context, uri, true);
     }
 
     private static class CacheEntry {

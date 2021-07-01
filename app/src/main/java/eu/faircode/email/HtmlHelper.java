@@ -37,6 +37,7 @@ import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
 import android.text.style.BulletSpan;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
@@ -50,6 +51,7 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1967,7 +1969,7 @@ public class HtmlHelper {
         return ssb.toString();
     }
 
-    static Spanned highlightHeaders(Context context, String headers) {
+    static Spanned highlightHeaders(Context context, String headers, boolean blocklist) {
         SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
@@ -2007,6 +2009,31 @@ public class HtmlHelper {
                     if (date != null)
                         ssb.append(' ').append(DTF.format(date));
                     ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+
+                    if (blocklist && i == received.length - 1) {
+                        Drawable d = context.getDrawable(R.drawable.twotone_flag_24);
+
+                        int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
+                        d.setBounds(0, 0, iconSize, iconSize);
+
+                        int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+                        d.setTint(colorWarning);
+
+                        ssb.append(" \uFFFC"); // Object replacement character
+                        ssb.setSpan(new ImageSpan(d), ssb.length() - 1, ssb.length(), 0);
+
+                        if (!TextUtils.isEmpty(BuildConfig.MXTOOLBOX_URI)) {
+                            final String header = received[i];
+                            ClickableSpan click = new ClickableSpan() {
+                                @Override
+                                public void onClick(@NonNull View widget) {
+                                    DnsBlockList.show(widget.getContext(), header);
+                                }
+                            };
+                            ssb.setSpan(click, ssb.length() - 1, ssb.length(), 0);
+                        }
+                    }
+
                     ssb.append('\n');
 
                     int j = 0;

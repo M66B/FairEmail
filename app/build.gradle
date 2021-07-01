@@ -187,8 +187,13 @@ android {
     }
 
     // https://stackoverflow.com/questions/28948538/
-    // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
     applicationVariants.all { variant ->
+        if (variant.buildType.name == "debug")
+            variant.buildConfigField "String", "MXTOOLBOX_URI", "\"https://mxtoolbox.com\""
+        else
+            variant.buildConfigField "String", "MXTOOLBOX_URI", "\"\""
+
+        // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
         if (variant.getBuildType().isMinifyEnabled())
             variant.assembleProvider.get().doLast {
                 for (file in variant.getMappingFileProvider().get().files)
