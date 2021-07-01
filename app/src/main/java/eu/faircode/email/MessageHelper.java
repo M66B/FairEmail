@@ -121,7 +121,6 @@ public class MessageHelper {
     static final int SMALL_MESSAGE_SIZE = 192 * 1024; // bytes
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
-    static final String FLAG_FORWARDED = "$Forwarded";
 
     private static final int MAX_HEADER_LENGTH = 998;
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
@@ -133,6 +132,34 @@ public class MessageHelper {
             StandardCharsets.UTF_16,
             StandardCharsets.UTF_16BE,
             StandardCharsets.UTF_16LE
+    ));
+
+    static final String FLAG_FORWARDED = "$Forwarded";
+    static final String FLAG_NOT_JUNK = "$NotJunk";
+
+    // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
+    // Not black listed: Gmail $Phishing
+    private static final List<String> FLAG_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
+            MessageHelper.FLAG_FORWARDED,
+            MessageHelper.FLAG_NOT_JUNK,
+            "$MDNSent", // https://tools.ietf.org/html/rfc3503
+            "$SubmitPending",
+            "$Submitted",
+            "$Junk",
+            "Junk",
+            "NonJunk",
+            "$recent",
+            "DTAG_document",
+            "DTAG_image",
+            "$X-Me-Annot-1",
+            "$X-Me-Annot-2",
+            "\\Unseen", // Mail.ru
+            "$sent", // Kmail
+            "$attachment", // Kmail
+            "$signed", // Kmail
+            "$encrypted", // Kmail
+            "$HasNoAttachment",
+            "$Classified" // FairEmail
     ));
 
     // https://tools.ietf.org/html/rfc4021
@@ -913,6 +940,18 @@ public class MessageHelper {
         List<String> keywords = Arrays.asList(imessage.getFlags().getUserFlags());
         Collections.sort(keywords);
         return keywords.toArray(new String[0]);
+    }
+
+    static boolean showKeyword(String keyword) {
+        if (BuildConfig.DEBUG)
+            return true;
+
+        int len = FLAG_BLACKLIST.size();
+        for (int i = 0; i < len; i++)
+            if (FLAG_BLACKLIST.get(i).equalsIgnoreCase(keyword))
+                return false;
+
+        return true;
     }
 
     String getMessageID() throws MessagingException {

@@ -311,30 +311,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final int MAX_QUOTE_LEVEL = 3;
     private static final int MAX_TRANSLATABLE_TEXT_SIZE = 50 * 1024;
 
-    // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
-    private static final List<String> IMAP_KEYWORDS_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
-            MessageHelper.FLAG_FORWARDED.toLowerCase(Locale.ROOT),
-            "$MDNSent".toLowerCase(Locale.ROOT), // https://tools.ietf.org/html/rfc3503
-            "$SubmitPending".toLowerCase(Locale.ROOT),
-            "$Submitted".toLowerCase(Locale.ROOT),
-            "$Junk".toLowerCase(Locale.ROOT),
-            "$NotJunk".toLowerCase(Locale.ROOT),
-            "Junk".toLowerCase(Locale.ROOT),
-            "NonJunk".toLowerCase(Locale.ROOT),
-            "$recent".toLowerCase(Locale.ROOT),
-            "DTAG_document".toLowerCase(Locale.ROOT),
-            "DTAG_image".toLowerCase(Locale.ROOT),
-            "$X-Me-Annot-1".toLowerCase(Locale.ROOT),
-            "$X-Me-Annot-2".toLowerCase(Locale.ROOT),
-            "\\Unseen".toLowerCase(Locale.ROOT), // Mail.ru
-            "$sent".toLowerCase(Locale.ROOT), // Kmail
-            "$attachment".toLowerCase(Locale.ROOT), // Kmail
-            "$signed".toLowerCase(Locale.ROOT), // Kmail
-            "$encrypted".toLowerCase(Locale.ROOT), // Kmail
-            "$Classified".toLowerCase(Locale.ROOT),
-            "$HasNoAttachment".toLowerCase(Locale.ROOT)
-    ));
-
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
             View.OnLongClickListener,
@@ -5332,8 +5308,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private SpannableStringBuilder getKeywords(TupleMessageEx message) {
             SpannableStringBuilder keywords = new SpannableStringBuilder();
             for (int i = 0; i < message.keywords.length; i++) {
-                String k = message.keywords[i].toLowerCase(Locale.ROOT);
-                if (!IMAP_KEYWORDS_BLACKLIST.contains(k)) {
+                if (MessageHelper.showKeyword(message.keywords[i])) {
                     if (keywords.length() > 0)
                         keywords.append(" ");
 

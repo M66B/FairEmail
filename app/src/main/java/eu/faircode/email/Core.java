@@ -1272,7 +1272,7 @@ class Core {
                 // Mark not spam
                 if (EntityFolder.JUNK.equals(folder.type)
                         && ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
-                    Flags notJunk = new Flags("$NotJunk");
+                    Flags notJunk = new Flags(MessageHelper.FLAG_NOT_JUNK);
                     imessage.setFlags(notJunk, true);
                 }
             }
@@ -3414,7 +3414,7 @@ class Core {
                         !EntityFolder.TRASH.equals(folder.type) &&
                         !EntityFolder.JUNK.equals(folder.type) &&
                         message.blocklist != null && message.blocklist &&
-                        !Arrays.asList(message.keywords).contains("$NotJunk")) {
+                        !Arrays.asList(message.keywords).contains(MessageHelper.FLAG_NOT_JUNK)) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
                     if (use_blocklist) {
                         EntityLog.log(context, "Block list" +
