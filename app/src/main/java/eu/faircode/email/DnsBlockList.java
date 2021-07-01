@@ -41,7 +41,7 @@ import java.util.Map;
 import javax.mail.internet.MimeUtility;
 
 public class DnsBlockList {
-    static final List<BlockList> BLOCKLISTS = Collections.unmodifiableList(Arrays.asList(
+    static final List<BlockList> BLOCK_LISTS = Collections.unmodifiableList(Arrays.asList(
             // https://www.spamhaus.org/zen/
             new BlockList(true, "Spamhaus/zen", "zen.spamhaus.org", true, new String[]{
                     // https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
@@ -54,7 +54,7 @@ public class DnsBlockList {
             }),
 
             // https://www.spamhaus.org/dbl/
-            new BlockList(false, "Spamhaus/DBL", "dbl.spamhaus.org", false, new String[]{
+            new BlockList(null, "Spamhaus/DBL", "dbl.spamhaus.org", false, new String[]{
                     // https://www.spamhaus.org/faq/section/Spamhaus%20DBL#291
                     "127.0.1.2", // spam domain
                     "127.0.1.4", // phish domain
@@ -83,7 +83,7 @@ public class DnsBlockList {
 
     static void setEnabled(Context context, BlockList blocklist, boolean enabled) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (blocklist.enabled == enabled)
+        if (blocklist.enabled == null || blocklist.enabled == enabled)
             prefs.edit().remove("blocklist." + blocklist.name).apply();
         else
             prefs.edit().putBoolean("blocklist." + blocklist.name, enabled).apply();
@@ -94,14 +94,15 @@ public class DnsBlockList {
     }
 
     static boolean isEnabled(Context context, BlockList blocklist) {
+        boolean def = (blocklist.enabled != null && blocklist.enabled);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("blocklist." + blocklist.name, blocklist.enabled);
+        return prefs.getBoolean("blocklist." + blocklist.name, def);
     }
 
     static void reset(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
-        for (BlockList blocklist : BLOCKLISTS)
+        for (BlockList blocklist : BLOCK_LISTS)
             editor.remove("blocklist." + blocklist.name);
         editor.apply();
 
@@ -110,9 +111,17 @@ public class DnsBlockList {
         }
     }
 
+    static List<BlockList> getLists() {
+        List<BlockList> result = new ArrayList<>();
+        for (BlockList blockList : BLOCK_LISTS)
+            if (blockList.enabled != null)
+                result.add(blockList);
+        return result;
+    }
+
     static List<String> getNames(Context context) {
         List<String> names = new ArrayList<>();
-        for (BlockList blocklist : BLOCKLISTS)
+        for (BlockList blocklist : BLOCK_LISTS)
             if (isEnabled(context, blocklist))
                 names.add(blocklist.name);
         return names;
@@ -128,7 +137,7 @@ public class DnsBlockList {
             if ("from".equalsIgnoreCase(words[i])) {
                 String host = words[i + 1].toLowerCase(Locale.ROOT);
                 if (!TextUtils.isEmpty(host))
-                    return isJunk(context, host, BLOCKLISTS);
+                    return isJunk(context, host, BLOCK_LISTS);
             }
 
         return null;
@@ -263,7 +272,7 @@ public class DnsBlockList {
 
     static class BlockList {
         int id;
-        boolean enabled;
+        Boolean enabled;
         String name;
         String address;
         boolean numeric;
@@ -271,7 +280,7 @@ public class DnsBlockList {
 
         private static int nextid = 1;
 
-        BlockList(boolean enabled, String name, String address, boolean numeric, String[] responses) {
+        BlockList(Boolean enabled, String name, String address, boolean numeric, String[] responses) {
             this.id = nextid++;
             this.enabled = enabled;
             this.name = name;
