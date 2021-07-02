@@ -5933,6 +5933,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         etSearch.setActionEnabled(hasNext);
     }
 
+    private boolean isSearching() {
+        return (searchView != null);
+    }
+
     private void clearSearch() {
         if (searchView != null)
             searchView.clearComposingText();
@@ -6013,6 +6017,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public boolean onBackPressed() {
+            if (isSearching()) {
+                endSearch();
+                return true;
+            }
+
             if (selectionTracker != null && selectionTracker.hasSelection()) {
                 selectionTracker.clearSelection();
                 return true;
