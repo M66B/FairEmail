@@ -62,14 +62,9 @@ public class DnsHelper {
 
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
-            if (email == null)
+            String domain = UriHelper.getEmailDomain(email);
+            if (domain == null)
                 continue;
-
-            int d = email.lastIndexOf("@");
-            if (d < 0)
-                continue;
-
-            String domain = email.substring(d + 1);
 
             boolean found = true;
             try {

@@ -4112,7 +4112,7 @@ public class FragmentCompose extends FragmentBase {
                                     }
                                     if (preferred != null) {
                                         String from = ((InternetAddress) preferred).getAddress();
-                                        data.draft.extra = from.substring(0, from.indexOf("@"));
+                                        data.draft.extra = UriHelper.getEmailUser(from);
                                     }
                                 }
                             }
@@ -5229,14 +5229,8 @@ public class FragmentCompose extends FragmentBase {
                                 String[] internals = identity.internal.split(",");
                                 for (Address recipient : recipients) {
                                     String email = ((InternetAddress) recipient).getAddress();
-                                    if (TextUtils.isEmpty(email))
-                                        continue;
-
-                                    int at = email.lastIndexOf('@');
-                                    if (at < 0)
-                                        continue;
-                                    String domain = email.substring(at + 1).trim();
-                                    if (TextUtils.isEmpty(domain))
+                                    String domain = UriHelper.getEmailDomain(email);
+                                    if (domain == null)
                                         continue;
 
                                     boolean found = false;

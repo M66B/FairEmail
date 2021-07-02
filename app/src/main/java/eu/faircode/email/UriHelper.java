@@ -31,6 +31,17 @@ public class UriHelper {
         return host;
     }
 
+    static String getEmailUser(String address) {
+        if (address == null)
+            return null;
+
+        int at = address.indexOf('@');
+        if (at > 0)
+            return address.substring(0, at);
+
+        return null;
+    }
+
     static String getEmailDomain(String address) {
         if (address == null)
             return null;
@@ -39,6 +50,6 @@ public class UriHelper {
         if (at > 0)
             return address.substring(at + 1);
 
-        return address;
+        return null;
     }
 }

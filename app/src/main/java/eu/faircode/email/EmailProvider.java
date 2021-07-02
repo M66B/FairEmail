@@ -219,7 +219,7 @@ public class EmailProvider implements Parcelable {
 
     @NonNull
     static EmailProvider fromEmail(Context context, String email, Discover discover) throws IOException {
-        int at = email.indexOf("@");
+        int at = email.indexOf('@');
         String domain = (at < 0 ? email : email.substring(at + 1));
         if (at < 0)
             email = "someone@" + domain;
