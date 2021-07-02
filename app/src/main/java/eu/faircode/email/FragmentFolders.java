@@ -999,9 +999,7 @@ public class FragmentFolders extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-
-
-        }.setInterruptable(false).execute(this, args, "folder:export");
+        }.execute(this, args, "folder:export");
     }
 
     public static class FragmentDialogApply extends FragmentDialogBase {

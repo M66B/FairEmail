@@ -51,12 +51,10 @@ import java.util.concurrent.Future;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean log = true;
     private boolean count = true;
-    private boolean interruptable = true;
 
     private String name;
     private long started;
     private boolean reported;
-    private boolean interrupted;
     private Lifecycle.State state;
     private Future<?> future;
     private ExecutorService localExecutor;
@@ -67,7 +65,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static final int MAX_WAKELOCK = 30 * 60 * 1000; // milliseconds
     private static final int REPORT_AFTER = 15 * 60 * 1000; // milliseconds
-    private static final int CANCEL_AFTER = MAX_WAKELOCK; // milliseconds
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
 
@@ -80,11 +77,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
-        return this;
-    }
-
-    public SimpleTask<T> setInterruptable(boolean interruptable) {
-        this.interruptable = interruptable;
         return this;
     }
 
@@ -272,7 +264,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private void cleanup(Context context) {
         started = 0;
         reported = false;
-        interrupted = false;
         future = null;
         synchronized (tasks) {
             tasks.remove(this);
@@ -288,15 +279,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             for (SimpleTask task : tasks)
                 if (task.future != null && !task.future.isDone()) {
                     long elapsed = now - task.started;
-                    if (elapsed > CANCEL_AFTER && !task.interrupted) {
-                        task.interrupted = true;
-                        if (task.interruptable &&
-                                task.future != null && !task.future.isDone()) {
-                            Log.e("Interrupting task " + task +
-                                    " tasks=" + getCountLocked() + "/" + tasks.size());
-                            task.future.cancel(true);
-                        }
-                    } else if (elapsed > REPORT_AFTER && !task.reported) {
+                    if (elapsed > REPORT_AFTER && !task.reported) {
                         task.reported = true;
                         Log.e("Long running task " + task +
                                 " tasks=" + getCountLocked() + "/" + tasks.size());
