@@ -315,8 +315,8 @@ class ImageHelper {
             if (data && (show || inline || a.tracking))
                 try {
                     int scaleToPixels = res.getDisplayMetrics().widthPixels;
-                    ByteArrayInputStream bis = getDataUriStream(source);
-                    Bitmap bm = getScaledBitmap(bis, source, scaleToPixels);
+                    ByteArrayInputStream bis = getDataUriStream(a.source);
+                    Bitmap bm = getScaledBitmap(bis, a.source, scaleToPixels);
                     if (bm == null)
                         throw new IllegalArgumentException("decode byte array failed");
 
