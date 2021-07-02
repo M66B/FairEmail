@@ -63,6 +63,7 @@ public class ActivitySignature extends ActivityBase {
     private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
 
+    private boolean loaded = false;
     private boolean dirty = false;
 
     private static final int REQUEST_IMAGE = 1;
@@ -101,7 +102,7 @@ public class ActivitySignature extends ActivityBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (count != s.length())
+                if (loaded)
                     dirty = true;
             }
 
@@ -180,14 +181,17 @@ public class ActivitySignature extends ActivityBase {
 
         setResult(RESULT_CANCELED, new Intent());
 
-        load();
+        load(getIntent().getStringExtra("html"));
+        dirty = false;
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        load();
+
+        load(getIntent().getStringExtra("html"));
+        dirty = false;
     }
 
     @Override
@@ -229,8 +233,8 @@ public class ActivitySignature extends ActivityBase {
         }
     }
 
-    private void load() {
-        String html = getIntent().getStringExtra("html");
+    private void load(String html) {
+        loaded = false;
         if (html == null)
             etText.setText(null);
         else if (etText.isRaw())
@@ -244,7 +248,7 @@ public class ActivitySignature extends ActivityBase {
                     return ImageHelper.decodeImage(ActivitySignature.this, -1, source, true, 0, 1.0f, etText);
                 }
             }, null, this));
-        dirty = false;
+        loaded = true;
     }
 
     private void delete() {
@@ -262,16 +266,14 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private void html(boolean raw) {
-        String html = getHtml();
+        String html = (dirty
+                ? getHtml()
+                : getIntent().getStringExtra("html"));
         etText.setRaw(raw);
-
-        if (!raw || dirty)
-            getIntent().putExtra("html", html);
+        load(html);
 
         if (raw)
             style_bar.setVisibility(View.GONE);
-
-        load();
     }
 
     private String getHtml() {
