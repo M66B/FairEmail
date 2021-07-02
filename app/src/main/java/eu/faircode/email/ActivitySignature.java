@@ -174,15 +174,15 @@ public class ActivitySignature extends ActivityBase {
             }
         }, this);
 
-        if (savedInstanceState != null)
-            etText.setRaw(savedInstanceState.getBoolean("fair:raw"));
-
         style_bar.setVisibility(View.GONE);
 
         setResult(RESULT_CANCELED, new Intent());
 
-        load(getIntent().getStringExtra("html"));
-        dirty = false;
+        if (savedInstanceState == null) {
+            load(getIntent().getStringExtra("html"));
+            dirty = false;
+        } else
+            dirty = savedInstanceState.getBoolean("fair:dirty");
     }
 
     @Override
@@ -196,7 +196,7 @@ public class ActivitySignature extends ActivityBase {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("fair:raw", etText.isRaw());
+        outState.putBoolean("fair:dirty", dirty);
         super.onSaveInstanceState(outState);
     }
 
