@@ -316,7 +316,7 @@ class ImageHelper {
                 try {
                     int scaleToPixels = res.getDisplayMetrics().widthPixels;
                     ByteArrayInputStream bis = getDataUriStream(a.source);
-                    Bitmap bm = getScaledBitmap(bis, a.source, scaleToPixels);
+                    Bitmap bm = getScaledBitmap(bis, "data:" + getDataUriType(a.source), scaleToPixels);
                     if (bm == null)
                         throw new IllegalArgumentException("decode byte array failed");
 
