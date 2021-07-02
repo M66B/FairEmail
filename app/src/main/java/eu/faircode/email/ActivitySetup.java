@@ -151,6 +151,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         setContentView(view);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.action_bar);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
