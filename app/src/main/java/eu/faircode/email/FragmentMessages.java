@@ -60,6 +60,7 @@ import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainException;
 import android.text.Editable;
+import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -5911,20 +5912,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
             searchView.setText(ss);
 
-            int line = searchView.getLayout().getLineForOffset(pos);
-            int y = searchView.getLayout().getLineTop(line);
-            int dy = searchView.getContext().getResources()
-                    .getDimensionPixelSize(R.dimen.search_in_text_margin);
+            Layout layout = searchView.getLayout();
+            if (layout != null) {
+                int line = layout.getLineForOffset(pos);
+                int y = layout.getLineTop(line);
+                int dy = searchView.getContext().getResources()
+                        .getDimensionPixelSize(R.dimen.search_in_text_margin);
 
-            View itemView = rvMessage.findContainingItemView(searchView);
-            if (itemView != null) {
-                Rect rect = new Rect();
-                searchView.getDrawingRect(rect);
+                View itemView = rvMessage.findContainingItemView(searchView);
+                if (itemView != null) {
+                    Rect rect = new Rect();
+                    searchView.getDrawingRect(rect);
 
-                RecyclerView.ViewHolder holder = rvMessage.getChildViewHolder(itemView);
-                ((ViewGroup) itemView).offsetDescendantRectToMyCoords(searchView, rect);
+                    RecyclerView.ViewHolder holder = rvMessage.getChildViewHolder(itemView);
+                    ((ViewGroup) itemView).offsetDescendantRectToMyCoords(searchView, rect);
 
-                iProperties.scrollTo(holder.getAdapterPosition(), rect.top + y - dy);
+                    iProperties.scrollTo(holder.getAdapterPosition(), rect.top + y - dy);
+                }
             }
         }
 
