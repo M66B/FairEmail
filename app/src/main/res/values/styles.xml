@@ -345,7 +345,8 @@
         <item name="colorDrawerBackground">@color/black</item>
     </style>
 
-    <style name="AppThemeBlackAndWhite" parent="AppThemeBlack">
+    <style name="AppThemeBlackAndWhite" parent="AppThemeBaseDark">
+        <item name="themeName">black</item>
         <item name="colorPrimary">@color/blackAndWhitePrimary</item>
         <item name="colorPrimaryDark">@color/blackAndWhitePrimaryDark</item>
         <item name="colorAccent">@color/white</item>
@@ -365,6 +366,12 @@
 
         <item name="colorFabForeground">@color/white</item>
         <item name="colorFabBackground">@color/blackAndWhitePrimaryLight</item>
+
+        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoBackground">@color/blackPrimary</item>
+
+        <item name="android:windowBackground">@drawable/background_black</item>
+        <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemeGreySteelBlueLight" parent="AppThemeBaseLight">
