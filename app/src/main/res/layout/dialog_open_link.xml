@@ -157,6 +157,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_http_24"
+            android:drawablePadding="6dp"
             android:text="@string/title_link_http"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"

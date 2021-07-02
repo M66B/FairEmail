@@ -191,6 +191,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
                 cbSecure.setText(
                         secure ? R.string.title_link_https : R.string.title_link_http);
+                cbSecure.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        0, 0, secure ? 0 : R.drawable.twotone_http_24, 0);
                 cbSecure.setTextColor(Helper.resolveColor(context,
                         secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
                 cbSecure.setTypeface(
