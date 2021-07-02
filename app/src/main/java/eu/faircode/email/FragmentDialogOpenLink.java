@@ -54,6 +54,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
@@ -502,14 +503,26 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     private Spanned format(Uri uri, Context context) {
         String text = uri.toString();
         SpannableStringBuilder ssb = new SpannableStringBuilder(text);
-        String host = uri.getHost();
-        if (host != null) {
-            int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
-            int index = text.indexOf(host);
-            if (index >= 0)
-                ssb.setSpan(new ForegroundColorSpan(textColorLink),
-                        index, index + host.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        try {
+            String host = uri.getHost();
+
+            if (host == null && "mailto".equals(uri.getScheme())) {
+                MailTo email = MailTo.parse(uri.toString());
+                host = UriHelper.getEmailDomain(email.getTo());
+            }
+
+            if (host != null) {
+                int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+                int index = text.indexOf(host);
+                if (index >= 0)
+                    ssb.setSpan(new ForegroundColorSpan(textColorLink),
+                            index, index + host.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
+
         return ssb;
     }
 }

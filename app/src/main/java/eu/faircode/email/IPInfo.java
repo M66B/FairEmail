@@ -45,10 +45,9 @@ public class IPInfo {
     static Pair<String, Organization> getOrganization(@NonNull Uri uri, Context context) throws IOException, ParseException {
         if ("mailto".equalsIgnoreCase(uri.getScheme())) {
             MailTo email = MailTo.parse(uri.toString());
-            String to = email.getTo();
-            if (to == null || !to.contains("@"))
+            String domain = UriHelper.getEmailDomain(email.getTo());
+            if (domain == null)
                 throw new UnknownHostException();
-            String domain = to.substring(to.indexOf('@') + 1);
             InetAddress address = DnsHelper.lookupMx(context, domain);
             if (address == null)
                 throw new UnknownHostException();

@@ -227,15 +227,6 @@ public class DnsHelper {
         }
     }
 
-    static String getParentDomain(String host) {
-        if (host != null) {
-            String[] h = host.split("\\.");
-            if (h.length >= 2)
-                return h[h.length - 2] + "." + h[h.length - 1];
-        }
-        return host;
-    }
-
     private static String getDnsServer(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)
