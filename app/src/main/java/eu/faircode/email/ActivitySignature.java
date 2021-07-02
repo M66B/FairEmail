@@ -270,6 +270,7 @@ public class ActivitySignature extends ActivityBase {
                 ? getHtml()
                 : getIntent().getStringExtra("html"));
         etText.setRaw(raw);
+        etText.setTypeface(raw ? Typeface.MONOSPACE : Typeface.DEFAULT);
         load(html);
 
         if (raw)
