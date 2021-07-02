@@ -139,6 +139,7 @@
                 android:id="@+id/etSearch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 android:background="?attr/colorSeparator"
                 android:completionThreshold="2"
                 android:hint="@string/title_search_for_hint"
