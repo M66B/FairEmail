@@ -5850,6 +5850,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void startSearch(TextView view) {
         searchView = view;
 
+        searchView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
+                // Do nothing
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+                v.removeOnAttachStateChangeListener(this);
+                endSearch();
+            }
+        });
+
         etSearch.setText(null);
         etSearch.setVisibility(View.VISIBLE);
         etSearch.requestFocus();
