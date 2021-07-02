@@ -63,6 +63,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FragmentDialogOpenLink extends FragmentDialogBase {
     // https://github.com/newhouse/url-tracking-stripper
@@ -508,6 +510,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         try {
             String host = uri.getHost();
+            int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
             if (host == null && "mailto".equals(uri.getScheme())) {
                 MailTo email = MailTo.parse(uri.toString());
@@ -515,11 +518,19 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             }
 
             if (host != null) {
-                int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
                 int index = text.indexOf(host);
                 if (index >= 0)
                     ssb.setSpan(new ForegroundColorSpan(textColorLink),
                             index, index + host.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+            for (String name : uri.getQueryParameterNames()) {
+                Pattern pattern = Pattern.compile("[?&]" + Pattern.quote(name) + "=");
+                Matcher matcher = pattern.matcher(text);
+                while (matcher.find()) {
+                    ssb.setSpan(new ForegroundColorSpan(textColorLink),
+                            matcher.start() + 1, matcher.end() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
             }
         } catch (Throwable ex) {
             Log.e(ex);
