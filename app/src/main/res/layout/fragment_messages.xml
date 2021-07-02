@@ -135,23 +135,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintSelect" />
 
-            <eu.faircode.email.TextViewAutoCompleteAction
-                android:id="@+id/etSearch"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:background="?attr/colorSeparator"
-                android:completionThreshold="2"
-                android:hint="@string/title_search_for_hint"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:maxLines="1"
-                android:padding="6dp"
-                app:end_drawable="@drawable/twotone_fast_forward_24"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
-
             <eu.faircode.email.ViewTextDelayed
                 android:id="@+id/tvNoEmail"
                 android:layout_width="wrap_content"
@@ -190,7 +173,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etSearch" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
 
             <View
                 android:id="@+id/vwAnchor"
@@ -258,7 +241,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/title_folder_outbox"
                 android:padding="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/twotone_schedule_send_24"
                 app:tint="?attr/colorSeparator" />
@@ -282,7 +265,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/title_accessibility_filter_out_seen"
                 android:padding="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintEnd_toStartOf="@id/ibUnflagged"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
@@ -296,7 +279,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/title_accessibility_filter_out_unflagged"
                 android:padding="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintEnd_toStartOf="@+id/ibSnoozed"
                 app:layout_constraintStart_toEndOf="@id/ibSeen"
                 app:srcCompat="@drawable/baseline_star_24"
@@ -309,7 +292,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/title_accessibility_filter_out_snoozed"
                 android:padding="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ibUnflagged"
                 app:srcCompat="@drawable/twotone_timelapse_24"
@@ -319,7 +302,23 @@
                 android:id="@+id/sbThread"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/etSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <eu.faircode.email.TextViewAutoCompleteAction
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorSeparator"
+                android:completionThreshold="2"
+                android:hint="@string/title_search_for_hint"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="6dp"
+                app:end_drawable="@drawable/twotone_fast_forward_24"
+                app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
