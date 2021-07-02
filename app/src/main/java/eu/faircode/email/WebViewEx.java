@@ -37,6 +37,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
@@ -116,7 +117,9 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             forced = true;
         }
 
-        setBackgroundColor(dark && !forced ? Color.WHITE : Color.TRANSPARENT);
+        setBackgroundColor(dark && !forced
+                ? Color.WHITE
+                : ColorUtils.setAlphaComponent(Color.WHITE, 127));
 
         float fontSize = 16f /* Default */ * message_zoom / 100f;
         if (zoom == 0 /* small */)
