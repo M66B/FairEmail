@@ -1766,6 +1766,7 @@ public class HtmlHelper {
 
     static void setViewport(Document document, boolean overview) {
         // https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+        // https://drafts.csswg.org/css-device-adapt/#viewport-meta
         Elements meta = document.select("meta").select("[name=viewport]");
         // Note that the browser will recognize meta elements in the body too
         if (overview) // fit width
@@ -1777,7 +1778,10 @@ public class HtmlHelper {
                 for (int i = 0; i < param.length; i++) {
                     String[] kv = param[i].split("=");
                     if (kv.length == 2) {
-                        switch (kv[0].replace(" ", "").toLowerCase(Locale.ROOT)) {
+                        String key = kv[0]
+                                .replaceAll("\\s+", "")
+                                .toLowerCase(Locale.ROOT);
+                        switch (key) {
                             case "user-scalable":
                                 kv[1] = "yes";
                                 param[i] = TextUtils.join("=", kv);
@@ -1790,7 +1794,7 @@ public class HtmlHelper {
                         }
                     }
                 }
-                meta.attr("content", TextUtils.join(", ", param));
+                meta.attr("content", TextUtils.join(",", param));
             } else {
                 meta.remove();
                 document.head().prependElement("meta")
@@ -1799,7 +1803,8 @@ public class HtmlHelper {
             }
         }
 
-        Log.d(document.head().html());
+        if (BuildConfig.DEBUG)
+            Log.i(document.head().html());
     }
 
     static String getLanguage(Context context, String subject, String text) {
