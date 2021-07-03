@@ -499,11 +499,11 @@
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvGravatarsHint"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
-                    android:drawableTint="?android:attr/textColorLink"
+                    android:drawableTint="?attr/colorWarning"
                     android:text="@string/title_advanced_gravatars_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
@@ -523,13 +523,14 @@
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvFaviconsHint"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
                     android:text="@string/title_advanced_gravatars_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swFavicons" />
 

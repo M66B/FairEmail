@@ -87,6 +87,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvGravatarsHint;
     private SwitchCompat swGravatars;
     private SwitchCompat swFavicons;
+    private TextView tvFaviconsHint;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
@@ -199,6 +200,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swGravatars = view.findViewById(R.id.swGravatars);
         tvGravatarsHint = view.findViewById(R.id.tvGravatarsHint);
         swFavicons = view.findViewById(R.id.swFavicons);
+        tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
@@ -467,6 +469,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        tvGravatarsHint.getPaint().setUnderlineText(true);
+        tvGravatarsHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
+            }
+        });
+
         swFavicons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -475,11 +485,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        tvGravatarsHint.getPaint().setUnderlineText(true);
-        tvGravatarsHint.setOnClickListener(new View.OnClickListener() {
+        tvFaviconsHint.getPaint().setUnderlineText(true);
+        tvFaviconsHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.GRAVATAR_PRIVACY_URI), true);
+                Helper.view(v.getContext(), Uri.parse(Helper.FAVICON_PRIVACY_URI), true);
             }
         });
 
