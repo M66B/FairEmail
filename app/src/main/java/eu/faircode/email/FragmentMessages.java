@@ -314,6 +314,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private int colorPrimary;
     private int colorAccent;
+    private int colorSeparator;
+    private int colorWarning;
 
     private long primary;
     private boolean connected;
@@ -431,6 +433,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
+        colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
+        colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
 
         if (criteria == null)
             if (thread == null) {
@@ -3998,16 +4002,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 break;
         }
 
-        if (send_pending &&
-                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER))
-            db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+        if (!EntityFolder.OUTBOX.equals(type) &&
+                (viewType == AdapterMessage.ViewType.UNIFIED ||
+                        viewType == AdapterMessage.ViewType.FOLDER))
+            db.message().liveOutboxPending().observe(getViewLifecycleOwner(), new Observer<TupleOutboxStats>() {
                 @Override
-                public void onChanged(Integer pending) {
-                    if (pending != null && pending > 10)
+                public void onChanged(TupleOutboxStats stats) {
+                    int pending = (stats == null || stats.pending == null ? 0 : stats.pending);
+                    int errors = (stats == null || stats.errors == null ? 0 : stats.errors);
+
+                    int count = (send_pending ? pending : errors);
+                    if (count > 10)
                         tvOutboxCount.setText("+");
                     else
-                        tvOutboxCount.setText(pending == null || pending == 0 ? null : NF.format(pending));
-                    grpOutbox.setVisibility(pending == null || pending == 0 ? View.GONE : View.VISIBLE);
+                        tvOutboxCount.setText(count == 0 ? null : NF.format(count));
+
+                    int color = (errors == 0 ? colorSeparator : colorWarning);
+                    ibOutbox.setImageTintList(ColorStateList.valueOf(color));
+                    tvOutboxCount.setTextColor(color);
+
+                    grpOutbox.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
                 }
             });
 

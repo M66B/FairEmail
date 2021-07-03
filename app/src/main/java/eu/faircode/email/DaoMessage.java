@@ -245,11 +245,12 @@ public interface DaoMessage {
             boolean filter_archive,
             boolean ascending, boolean debug);
 
-    @Query("SELECT COUNT(*) FROM message" +
+    @Query("SELECT COUNT(*) AS pending, SUM(message.error IS NOT NULL) AS errors" +
+            " FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE " + is_outbox +
-            " AND NOT ui_snoozed IS NULL")
-    LiveData<Integer> liveOutboxPending();
+            " AND (NOT message.ui_snoozed IS NULL OR message.error IS NOT NULL)")
+    LiveData<TupleOutboxStats> liveOutboxPending();
 
     @Query("SELECT account.name AS accountName" +
             ", COUNT(message.id) AS count" +
