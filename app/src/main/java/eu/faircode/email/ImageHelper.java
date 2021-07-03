@@ -881,6 +881,10 @@ class ImageHelper {
             return this.source;
         }
 
+        public boolean isTracking() {
+            return this.tracking;
+        }
+
         String getAnnotated() {
             return (width == 0 && height == 0
                     ? source

@@ -4507,9 +4507,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                     if (image.length > 0) {
-                        String source = image[0].getSource();
+                        ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
+                        String source = a.getSource();
                         if (!TextUtils.isEmpty(source)) {
-                            onOpenImage(message.id, source);
+                            if (!a.isTracking())
+                                onOpenImage(message.id, source);
                             return true;
                         }
                     }
