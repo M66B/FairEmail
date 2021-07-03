@@ -109,17 +109,7 @@ public class FragmentSetup extends FragmentBase {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
 
-        if (savedInstanceState == null) {
-            FragmentActivity activity = getActivity();
-            if (activity != null) {
-                Intent intent = activity.getIntent();
-                if (intent.hasExtra("manual")) {
-                    manual = intent.getBooleanExtra("manual", false);
-                    intent.removeExtra("manual");
-                    activity.setIntent(intent);
-                }
-            }
-        } else
+        if (savedInstanceState != null)
             manual = savedInstanceState.getBoolean("fair:manual");
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
@@ -298,8 +288,7 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 manual = !manual;
-                ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
-                grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
+                updateManual();
             }
         });
 
@@ -312,8 +301,7 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
-        grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
+        updateManual();
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -534,6 +522,8 @@ public class FragmentSetup extends FragmentBase {
     public void onResume() {
         super.onResume();
 
+        updateManual();
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             cm.registerDefaultNetworkCallback(networkCallback);
@@ -577,6 +567,21 @@ public class FragmentSetup extends FragmentBase {
             ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             cm.unregisterNetworkCallback(networkCallback);
         }
+    }
+
+    private void updateManual() {
+        FragmentActivity activity = getActivity();
+        if (activity != null) {
+            Intent intent = activity.getIntent();
+            if (intent.hasExtra("manual")) {
+                manual = intent.getBooleanExtra("manual", false);
+                intent.removeExtra("manual");
+                activity.setIntent(intent);
+            }
+        }
+
+        ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
+        grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
     }
 
     @Override

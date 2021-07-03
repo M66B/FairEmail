@@ -43,6 +43,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -440,6 +441,8 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EmailProvider result) {
+                setManual(false);
+
                 boolean check = args.getBoolean("check");
                 if (check) {
                     tvImap.setText(result == null ? null : result.imap.toString());
@@ -459,6 +462,7 @@ public class FragmentQuickSetup extends FragmentBase {
             @Override
             protected void onException(final Bundle args, Throwable ex) {
                 Log.e(ex);
+                setManual(true);
                 EmailProvider provider = args.getParcelable("provider");
 
                 if (ex instanceof AuthenticationFailedException) {
@@ -513,6 +517,18 @@ public class FragmentQuickSetup extends FragmentBase {
                         }
                     });
                 }
+            }
+
+            private void setManual(boolean manual) {
+                FragmentActivity activity = getActivity();
+                if (activity == null)
+                    return;
+
+                Intent intent = activity.getIntent();
+                if (intent == null)
+                    return;
+
+                intent.putExtra("manual", manual);
             }
         }.execute(this, args, "setup:quick");
     }
