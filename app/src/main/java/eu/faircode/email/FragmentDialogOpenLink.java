@@ -59,6 +59,7 @@ import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
 import java.net.IDN;
+import java.net.InetAddress;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -296,7 +297,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 Bundle args = new Bundle();
                 args.putParcelable("uri", uri);
 
-                new SimpleTask<Pair<String, IPInfo.Organization>>() {
+                new SimpleTask<Pair<InetAddress, IPInfo.Organization>>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         btnOwner.setEnabled(false);
@@ -312,14 +313,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     }
 
                     @Override
-                    protected Pair<String, IPInfo.Organization> onExecute(Context context, Bundle args) throws Throwable {
+                    protected Pair<InetAddress, IPInfo.Organization> onExecute(Context context, Bundle args) throws Throwable {
                         Uri uri = args.getParcelable("uri");
                         return IPInfo.getOrganization(uri, context);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Pair<String, IPInfo.Organization> data) {
-                        tvHost.setText(data.first);
+                    protected void onExecuted(Bundle args, Pair<InetAddress, IPInfo.Organization> data) {
+                        tvHost.setText(data.first.toString());
                         tvOwner.setText(data.second.name == null ? "?" : data.second.name);
                         ApplicationEx.getMainHandler().post(new Runnable() {
                             @Override
