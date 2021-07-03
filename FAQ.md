@@ -1864,6 +1864,15 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
  </pre>
 ```
 
+If you want to resize an image, you could do it like this:
+
+```
+<img src="..." width="..." height="...">
+```
+
+The recipient of your message might not like large images in messages,
+so it is better to resize images with an image editor first.
+
 <br />
 
 <a name="faq58"></a>

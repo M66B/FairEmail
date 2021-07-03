@@ -209,12 +209,20 @@ public class ActivitySignature extends ActivityBase {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_edit_html) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_help) {
+            onMenuHelp();
+            return true;
+        } else if (itemId == R.id.menu_edit_html) {
             item.setChecked(!item.isChecked());
             html(item.isChecked());
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onMenuHelp() {
+        Helper.viewFAQ(this, 57);
     }
 
     @Override
