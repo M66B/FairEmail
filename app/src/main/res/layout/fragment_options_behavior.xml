@@ -265,6 +265,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_swipe_24"
+                    android:drawablePadding="6dp"
                     android:tag="disable"
                     android:text="@string/title_advanced_swipe_actions"
                     app:layout_constraintStart_toStartOf="parent"

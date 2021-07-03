@@ -69,6 +69,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_settings_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_notifications"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCaptionGeneral" />
@@ -91,6 +93,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_notifications_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_notifications_default"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManageHint" />
@@ -123,6 +127,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_compare_arrows_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_notifications_service"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManageDefaultHint" />
@@ -361,6 +367,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_audiotrack_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_sound"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swLight" />

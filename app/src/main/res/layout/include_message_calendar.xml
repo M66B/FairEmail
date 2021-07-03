@@ -115,6 +115,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
+        android:drawableEnd="@drawable/twotone_check_24"
+        android:drawablePadding="6dp"
         android:text="@string/title_icalendar_accept"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAttendees" />
@@ -126,6 +128,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:drawableEnd="@drawable/twotone_close_24"
+        android:drawablePadding="6dp"
         android:text="@string/title_icalendar_decline"
         app:layout_constraintStart_toEndOf="@id/btnCalendarAccept"
         app:layout_constraintTop_toBottomOf="@id/tvAttendees" />
@@ -137,6 +141,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:drawableEnd="@drawable/twotone_help_outline_24"
+        android:drawablePadding="6dp"
         android:text="@string/title_icalendar_maybe"
         app:layout_constraintStart_toEndOf="@id/btnCalendarDecline"
         app:layout_constraintTop_toBottomOf="@id/tvAttendees" />

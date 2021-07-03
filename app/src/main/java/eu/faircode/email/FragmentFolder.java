@@ -36,6 +36,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -71,7 +72,7 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbAutoClassifySource;
     private CheckBox cbAutoClassifyTarget;
     private TextView tvAutoClassifyPro;
-    private Button btnInfo;
+    private ImageButton ibInfo;
     private EditText etSyncDays;
     private EditText etKeepDays;
     private CheckBox cbKeepAll;
@@ -136,7 +137,7 @@ public class FragmentFolder extends FragmentBase {
         cbAutoClassifySource = view.findViewById(R.id.cbAutoClassifySource);
         cbAutoClassifyTarget = view.findViewById(R.id.cbAutoClassifyTarget);
         tvAutoClassifyPro = view.findViewById(R.id.tvAutoClassifyPro);
-        btnInfo = view.findViewById(R.id.btnInfo);
+        ibInfo = view.findViewById(R.id.ibInfo);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
         cbKeepAll = view.findViewById(R.id.cbKeepAll);
@@ -204,7 +205,7 @@ public class FragmentFolder extends FragmentBase {
 
         Helper.linkPro(tvAutoClassifyPro);
 
-        btnInfo.setOnClickListener(new View.OnClickListener() {
+        ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 39);

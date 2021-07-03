@@ -257,19 +257,19 @@
             android:text="@string/title_sync_days_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/btnInfo"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSyncDays" />
 
-        <Button
-            android:id="@+id/btnInfo"
-            style="?android:attr/buttonStyleSmall"
+        <ImageButton
+            android:id="@+id/ibInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_info"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSyncDaysRemark"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@id/tvSyncDaysRemark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvSyncDaysRemark" />
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etSyncDays"
@@ -281,7 +281,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnInfo" />
+            app:layout_constraintTop_toBottomOf="@id/tvSyncDaysRemark" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvKeepDays"
@@ -301,7 +301,7 @@
             android:text="@string/title_keep_days_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/btnInfo"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvKeepDays" />
 
@@ -362,6 +362,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_save_24"
+            android:drawablePadding="6dp"
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
@@ -407,7 +409,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             cbSynchronize,cbPoll,cbDownload,
-            tvSyncDays,tvSyncDaysRemark,btnInfo,etSyncDays,
+            tvSyncDays,tvSyncDaysRemark,ibInfo,etSyncDays,
             tvKeepDays,tvKeepDaysRemark,etKeepDays,cbKeepAll" />
 
         <androidx.constraintlayout.widget.Group

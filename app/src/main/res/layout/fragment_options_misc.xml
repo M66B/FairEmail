@@ -397,6 +397,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_close_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_setup_reset_questions"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvUuid" />
@@ -430,6 +432,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_delete_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_cleanup"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvCleanupAttachmentsHint" />
@@ -462,6 +466,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_settings_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_app"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
@@ -472,6 +478,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_more_horiz_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_more"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnApp" />

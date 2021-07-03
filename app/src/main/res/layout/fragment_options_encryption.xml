@@ -282,6 +282,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_settings_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_manage_certificates"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swCheckCertificate" />
@@ -292,6 +294,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_add_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_import_key"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnManageCertificates" />
@@ -302,6 +306,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_settings_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_manage_keys"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
@@ -324,6 +330,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_info_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_ca"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManageKeysHint" />

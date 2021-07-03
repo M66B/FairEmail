@@ -177,6 +177,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_people_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_setup_manage"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swSuggestFrequently" />
@@ -484,6 +486,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_gesture_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_edit_signature"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swSignatureForward" />

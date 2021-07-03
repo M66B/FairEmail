@@ -193,6 +193,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/twotone_fingerprint_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_setup_biometrics_enable"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBiometrics" />
@@ -203,15 +205,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:drawablePadding="6dp"
                     android:text="@string/title_advanced_pin"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvBiometrics" />
+                    app:layout_constraintBottom_toBottomOf="@id/btnBiometrics"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvPinHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_display_pin_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -453,6 +455,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/twotone_get_app_24"
+                    android:drawablePadding="6dp"
                     android:text="@string/title_download"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDisconnectBlacklist" />

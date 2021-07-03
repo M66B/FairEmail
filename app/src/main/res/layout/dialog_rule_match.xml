@@ -35,6 +35,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/twotone_play_arrow_24"
+        android:drawablePadding="6dp"
         android:padding="12dp"
         android:text="@string/title_rule_execute"
         app:layout_constraintBottom_toBottomOf="parent"
