@@ -158,7 +158,8 @@ public class MessageHelper {
             "$attachment", // Kmail
             "$signed", // Kmail
             "$encrypted", // Kmail
-            "$HasNoAttachment",
+            "$HasAttachment", // Dovecot
+            "$HasNoAttachment", // Dovecot
             "$Classified" // FairEmail
     ));
 
