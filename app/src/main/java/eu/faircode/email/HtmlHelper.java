@@ -2389,6 +2389,9 @@ public class HtmlHelper {
                                         case "end":
                                             alignment = (rtl ? Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE);
                                             break;
+                                        case "justify":
+                                            // Not supported by Android
+                                            break;
                                     }
                                     if (alignment != null)
                                         setSpan(ssb, new AlignmentSpan.Standard(alignment), start, ssb.length());
