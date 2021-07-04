@@ -610,7 +610,7 @@ public class EntityRule {
         } else {
             reply.wasforwardedfrom = message.msgid;
             reply.thread = reply.msgid; // new thread
-            reply.to = InternetAddress.parseHeader(to, false);
+            reply.to = MessageHelper.parseAddresses(context, to);
         }
 
         reply.from = from;

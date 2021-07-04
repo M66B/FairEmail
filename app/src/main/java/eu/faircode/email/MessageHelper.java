@@ -2884,6 +2884,23 @@ public class MessageHelper {
         return email;
     }
 
+    static InternetAddress[] parseAddresses(Context context, String text) throws AddressException {
+        if (TextUtils.isEmpty(text))
+            return null;
+
+        InternetAddress[] addresses = InternetAddress.parseHeader(text, false);
+        if (addresses.length == 0)
+            return null;
+
+        for (InternetAddress address : addresses) {
+            String email = address.getAddress();
+            if (email != null)
+                address.setAddress(email.replace(" ", ""));
+        }
+
+        return addresses;
+    }
+
     static boolean isRemoved(Throwable ex) {
         while (ex != null) {
             if (ex instanceof MessageRemovedException ||

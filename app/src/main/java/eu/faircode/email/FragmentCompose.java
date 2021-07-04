@@ -1974,7 +1974,7 @@ public class FragmentCompose extends FragmentBase {
 
                                 InternetAddress[] to = null;
                                 try {
-                                    to = InternetAddress.parseHeader(etTo.getText().toString(), false);
+                                    to = MessageHelper.parseAddresses(getContext(), etTo.getText().toString());
                                 } catch (AddressException ignored) {
                                 }
 
@@ -3994,21 +3994,21 @@ public class FragmentCompose extends FragmentBase {
 
                         try {
                             String to = args.getString("to");
-                            data.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parseHeader(to, false));
+                            data.draft.to = MessageHelper.parseAddresses(context, to);
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
                             String cc = args.getString("cc");
-                            data.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parseHeader(cc, false));
+                            data.draft.cc = MessageHelper.parseAddresses(context, cc);
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
                             String bcc = args.getString("bcc");
-                            data.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parseHeader(bcc, false));
+                            data.draft.bcc = MessageHelper.parseAddresses(context, bcc);
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
@@ -4953,9 +4953,9 @@ public class FragmentCompose extends FragmentBase {
 
                     // Get data
                     InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())});
-                    InternetAddress[] ato = (TextUtils.isEmpty(to) ? null : InternetAddress.parseHeader(to, false));
-                    InternetAddress[] acc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parseHeader(cc, false));
-                    InternetAddress[] abcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parseHeader(bcc, false));
+                    InternetAddress[] ato = MessageHelper.parseAddresses(context, to);
+                    InternetAddress[] acc = MessageHelper.parseAddresses(context, cc);
+                    InternetAddress[] abcc = MessageHelper.parseAddresses(context, bcc);
 
                     // Safe guard
                     if (action == R.id.action_send) {
