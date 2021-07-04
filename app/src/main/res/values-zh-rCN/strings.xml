@@ -74,6 +74,7 @@
     <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
     <string name="title_notification_sending_left">剩余尝试次数: %1$d</string>
+    <string name="title_notification_sending_retry">发送将在网络连接更改时或在下拉发件箱时重试</string>
     <string name="title_notification_sending_failed">发送至 %1$s 失败</string>
     <string name="title_notification_redacted">已编辑：启用了生物识别或PIN身份验证</string>
     <string name="title_factor_minutes">%1$d分钟</string>
@@ -97,6 +98,7 @@
     <string name="title_agree">同意</string>
     <string name="title_disagree">拒绝</string>
     <string name="title_version">版本 %1$s</string>
+    <string name="title_privacy_policy">隐私政策</string>
     <string name="title_list_accounts">账户</string>
     <string name="title_list_identities">身份</string>
     <string name="title_edit_account">编辑账户</string>
@@ -299,10 +301,12 @@
     <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
+    <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
+    <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
-    <string name="title_advanced_threading">会话线程</string>
+    <string name="title_advanced_threading">邮件会话</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
@@ -463,6 +467,7 @@
     <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
     <string name="title_advanced_language">语言</string>
     <string name="title_advanced_language_system">系统</string>
+    <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
     <string name="title_advanced_check_weekly">每周而不是每天检查</string>
@@ -525,7 +530,7 @@
     <string name="title_advanced_language_detection_hint">是否支持语言检测取决于设备制造商</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autoseen_hint">在每个帐户的高级帐户设置中可以禁用展开消息时自动将其标记为已读</string>
-    <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
+    <string name="title_advanced_autoclose_hint">所有邮件已存档、发送或删除时自动关闭邮件会话</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
     <string name="title_advanced_internal_hint">发送到另一个域时会有警告</string>
@@ -970,6 +975,7 @@
     <string name="title_translating">正在翻译 &#8230;</string>
     <string name="title_translate_small">对源文本使用一个小字体</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">点击要翻译的文本</string>
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
     <string name="title_edit_formatted_text">编辑为重新格式化的文本</string>
     <string name="title_select_certificate">选择公钥</string>

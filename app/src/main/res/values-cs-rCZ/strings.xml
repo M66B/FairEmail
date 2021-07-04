@@ -128,6 +128,7 @@
     <string name="title_agree">Souhlasím</string>
     <string name="title_disagree">Nesouhlasím</string>
     <string name="title_version">Verze %1$s</string>
+    <string name="title_privacy_policy">Zásady ochrany soukromí</string>
     <string name="title_list_accounts">Účty</string>
     <string name="title_list_identities">Identity</string>
     <string name="title_edit_account">Upravit účet</string>
@@ -191,6 +192,7 @@
     <string name="title_setup_doze_instructions">V následujícím Android dialogu změňte \"Neoptimalizováno\" na \"Všechny aplikace\", nalistujte tuto aplikaci a zvolte u ní \"Neoptimalizovat\"</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
+    <string name="title_setup_doze_android">Vyžadováno pro tuto verzi Androidu</string>
     <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
     <string name="title_setup_advanced_options">Zobrazit rozšířené možnosti</string>
@@ -490,6 +492,7 @@
     <string name="title_advanced_class_min_difference">Minimální rozdíl pro klasifikaci: %1$s %%</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
+    <string name="title_advanced_deepl">DeepL integrace</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>
     <string name="title_advanced_check_weekly">Kontrolovat týdně, místo denně</string>
@@ -1059,6 +1062,9 @@
     <string name="title_signature_store">Uložit</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_for_hint">Zadejte text</string>
+    <string name="title_search_index_hint">        Hledání přes vyhledávací index je rychlé, ale najde pouze celá slova.
+        Volby níže jsou pro pokračování v hledání na e-mailovém serveru.
+    </string>
     <string name="title_search_text_hint">Hledání textu ve zprávách, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_size_hint">Vyhledávání zpráv podle velikosti, při velkém počtu zpráv, nemusí fungovat na některých serverech</string>
     <string name="title_search_more">Více možností</string>

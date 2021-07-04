@@ -2,41 +2,39 @@
 
 # FairEmail 支持文档
 
-如果有问题，请先检查下列常见问题。 [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
-
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+如遇疑问，请先阅读下列的常见问题。 [本文档末尾列有：](#user-content-get-support) 如何询问未列出的问题、请求功能，以及报告遇到的问题。
 
 ## 索引
 
 * [账户授权](#user-content-authorizing-accounts)
-* [如何操作 ...?](#user-content-howto)
+* [怎样来...？](#user-content-howto)
 * [已知问题](#user-content-known-problems)
 * [计划添加的功能](#user-content-planned-features)
-* [常见请求添加的功能](#user-content-frequently-requested-features)
+* [常被要求添加的功能](#user-content-frequently-requested-features)
 * [常见问题解答](#user-content-frequently-asked-questions)
-* [支持](#user-content-get-support)
+* [获取支持](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>账户授权</h2>
 
 大多数情况下，快速配置向导能够自动识别正确的配置。
 
-如果快速配置向导失败了，您需要手动配置一个账户（来接受电子邮件）和一个身份（来发送电子邮件）。 为此，您需要知道 IMAP 和 SMTP 服务器地址和它们的端口号、是否应该使用 SSL/TLS 或 STARTTLS 加密，以及您的用户名（多数情况下还需要要您的电子邮件地址，但并不总是这样），还有您的密码。
+如果快速配置向导未成功，您需要手动配置一个账户（用于接收电子邮件）和一个身份（用于发送电子邮件）。 为此，您需要为此了解 IMAP 和 SMTP 服务器的地址及端口号、是否应该使用 SSL/TLS 或 STARTTLS 加密，以及您的用户名（多数情况下这是您的电子邮件地址，但也可能不是），以及您的密码。
 
-搜索 *IMAP* 和服务提供商的名称通常足以找到正确的文档。
+搜索 *IMAP* 加邮件服务提供商的名称，通常能找到合适的文档。
 
-某些情况下，您需要启用对账户的外部访问并/或使用特殊的（应用）密码， 例如当启用了双因素认证（2FA）时。
+某些情况下，您需要启用对账户的外部访问并/或使用应用专用密码， 例如当已启用两步验证（双因素验证、2FA）。
 
-关于认证问题：
+如果授权受阻：
 
-* Gmail / G 套件，见[问题6](#user-content-faq6)
+* Gmail / G suite，见[问题6](#user-content-faq6)
 * Outlook / Live / Hotmail，见[问题14](#user-content-faq14)
 * Office 365，见[问题14](#user-content-faq156)
-* 微软Exchange, 见 [问题 8](#user-content-faq8)
-* 雅虎、AOL和Sky，见 [问题88](#user-content-faq88)
+* 微软 Exchange，见 [问题 8](#user-content-faq8)
+* 雅虎、AOL 和 Sky，见 [问题88](#user-content-faq88)
 * 苹果 iCloud，见[问题148](#user-content-faq148)
-* Free.fr, 见 [问题157](#user-content-faq157)
+* Free.fr，见 [问题157](#user-content-faq157)
 
-请参阅[此处](#user-content-faq22)获取常见错误信息和解决方法。
+常见的错误信息和解决方法[详见这里](#user-content-faq22)。
 
 相关问题：
 
@@ -48,28 +46,28 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 ## 如何 ...?
 
 * 更改账户名称：“设置”，点击 “手动配置“，点击 ”账户“，然后再点击账户。
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* 更改向左/右滑动的目标：设置、标签页行为、设定滑动操作
+* 更改密码：设置，点按手动设置，点按帐户，点按你的帐户，更改密码
+* 设置签名：设置，点手动设置，点身份，点你的身份，编辑签名。
 * 添加抄送和密送地址：点击主题末尾的联系人图标
 * 归档/删除后转到下/上一条消息: 在行为设置中禁用 *自动关闭会话* 并且在 *关闭会话时* 中选择 *转到下/上一个会话*
 * 将文件夹添加到统一的收件箱中：长按文件夹列表中的文件夹，然后勾选 *在统一的收件箱中显示*
 * 将文件夹添加到导航菜单中：长按文件夹列表中的文件夹，然后勾选 *在导航菜单中显示*
 * 加载更多消息：长按文件夹列表中的文件夹，选择 *同步更多消息*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
+* 删除消息且不放入回收站：长按回收站图标
+* 删除帐户/身份: 设置，点手动设置，点帐户/身份，点你的帐户/身份，右上的回收站图标
+* 删除文件夹：长按文件夹列表中的文件夹，编辑属性，右上的删除图标
+* 撤消发送：发件箱，列表中将邮件向左或右滑动
 * 将发送的消息存储在收件箱中：请 [查看此常见问题](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* 更改系统文件夹: 设置，点手动设置，点帐户，点你的帐户，底部即是
+* 导出/导入设置：设置，左侧的导航菜单
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>已知问题</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~ 将安卓设置切换到 *使用24小时格式* 可能可以暂时解决这个问题。 A workaround was added.~~
+* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~ 将安卓设置切换到 *使用24小时格式* 可能可以暂时解决这个问题。 已加入一个替代方法。~~
 * ~~一个 [Google Drive 的 bug](https://issuetracker.google.com/issues/126362828) 导致导出到 Google Drive 的文件为空。 谷歌已将其修复。~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~ 谷歌已将其修复。~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ 计算数据库实时数据时出现异常... 无法读取行...</em>"。 A workaround was added.~~
+* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~ 计算数据库实时数据时出现异常... 无法读取行...</em>"。 已加入一个替代方法。~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification. Bad notification posted ...</em>" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.</li>
@@ -87,38 +85,38 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 <h2><a name="planned-features"></a>计划添加的功能</h2>
 
-* ~~Synchronize on demand (manual)~~
+* ~~按需同步（手动）~~
 * ~~~半自动加密~~
-* ~~Copy message~~
+* ~~复制消息~~
 * ~~多彩星标~~
-* ~~Notification settings per folder~~
+* ~~各文件夹有不同的通知设置~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~显示规则匹配的消息~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
+* ~~搜索一个文件夹~~（过滤一个有层次的文件夹列表目前有问题）
 * ~~搜索建议~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* ~~Generic unified folders~~
+* ~~通用统一文件夹~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
 * ~~复制帐户和身份~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
-* ~~More compact folder view~~
+* ~~更紧凑的文件夹视图~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
-* ~~Pinch zoom text size~~
+* ~~捏合手势缩放文字大小~~
 * ~~显示GIF~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~作为附件发送~~
-* ~~Widget for selected account~~
+* ~~呈现选定账户的小部件~~
 * ~~~~提醒附加文件~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
-* ~~Unified starred messages view~~ (there is already a special search for this)
+* ~~统一的已加星标邮件视图~~（已有专用的搜索）
 * ~~Move notification action~~
-* ~~S/MIME support~~
-* ~~Search for settings~~
+* ~~支持S/MIME~~
+* ~~搜索“设置”~~
 
-Anything on this list is in random order and *might* be added in the near future.
+此列表的内容不分次序，*可能*在未来加入。
 
 <h2><a name="frequently-requested-features"></a>常见请求添加的功能</h2>
 

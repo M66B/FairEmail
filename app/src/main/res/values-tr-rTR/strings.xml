@@ -311,6 +311,8 @@
     <string name="title_advanced_landscape3">Yatay modda varsayılan olarak menüyü göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
+    <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
+    <string name="title_advanced_tabular_background">Tablo stilini kullanırken kart rengini arka plan rengi olarak kullan</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
