@@ -2244,16 +2244,26 @@ public class HtmlHelper {
                             (i == 0 || endsWithSpace(block.get(i - 1).text())))
                         text = text.substring(1);
 
-                    // Conditionally remove trailing whitespace
-                    if (i == block.size() - 1 && endsWithSpace(text))
-                        text = text.substring(0, text.length() - 1);
-
                     tnode.text(text);
 
                     if (TextUtils.isEmpty(text))
                         block.remove(i);
                     else
                         i++;
+                }
+
+                // Remove trailing whitespace
+                while (block.size() > 0) {
+                    tnode = block.get(block.size() - 1);
+                    text = tnode.getWholeText();
+                    if (endsWithSpace(text)) {
+                        text = text.substring(0, text.length() - 1);
+                        tnode.text(text);
+                    }
+                    if (TextUtils.isEmpty(text))
+                        block.remove(block.size() - 1);
+                    else
+                        break;
                 }
 
                 // Remove all blank blocks
