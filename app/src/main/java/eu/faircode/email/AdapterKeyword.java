@@ -24,13 +24,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -49,6 +54,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+    private SharedPreferences prefs;
     private boolean pro;
 
     private long id;
@@ -57,32 +63,48 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
         private View view;
         private CheckBox cbKeyword;
+        private ImageButton ibEdit;
+        private EditText etKeyword;
+        private ImageButton ibSave;
         private ViewButtonColor btnColor;
+        private Group grpNotEdit;
+        private Group grpEdit;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             view = itemView.findViewById(R.id.clItem);
             cbKeyword = itemView.findViewById(R.id.cbKeyword);
+            ibEdit = itemView.findViewById(R.id.ibEdit);
+            etKeyword = itemView.findViewById(R.id.etKeyword);
+            ibSave = itemView.findViewById(R.id.ibSave);
             btnColor = itemView.findViewById(R.id.btnColor);
+            grpNotEdit = itemView.findViewById(R.id.grpNotEdit);
+            grpEdit = itemView.findViewById(R.id.grpEdit);
         }
 
         private void wire() {
             cbKeyword.setOnCheckedChangeListener(this);
+            ibEdit.setOnClickListener(this);
+            ibSave.setOnClickListener(this);
             btnColor.setOnClickListener(this);
         }
 
         private void unwire() {
             cbKeyword.setOnCheckedChangeListener(null);
+            ibEdit.setOnClickListener(null);
+            ibSave.setOnClickListener(null);
             btnColor.setOnClickListener(null);
         }
 
         private void bindTo(TupleKeyword keyword) {
-            cbKeyword.setText(EntityMessage.getKeywordAlias(context, keyword.name));
+            cbKeyword.setText(getTitle(keyword.name));
             cbKeyword.setChecked(keyword.selected);
             cbKeyword.setEnabled(pro);
             btnColor.setColor(keyword.color);
             btnColor.setEnabled(pro);
+            grpNotEdit.setVisibility(View.VISIBLE);
+            grpEdit.setVisibility(View.GONE);
         }
 
         @Override
@@ -132,44 +154,87 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
 
             final TupleKeyword keyword = all.get(pos);
 
-            int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+            int itemId = view.getId();
+            if (itemId == R.id.ibEdit) {
+                String key = "kwtitle." + keyword.name;
+                etKeyword.setText(prefs.getString(key, null));
+                etKeyword.setHint(keyword.name);
+                grpNotEdit.setVisibility(View.GONE);
+                grpEdit.setVisibility(View.VISIBLE);
+                etKeyword.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        etKeyword.requestFocus();
+                        InputMethodManager imm =
+                                (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                        if (imm != null)
+                            imm.showSoftInput(etKeyword, InputMethodManager.SHOW_IMPLICIT);
+                    }
+                });
+            } else if (itemId == R.id.ibSave) {
+                updateTitle(keyword, etKeyword.getText().toString().trim());
+                Helper.hideKeyboard(etKeyword);
+                grpNotEdit.setVisibility(View.VISIBLE);
+                grpEdit.setVisibility(View.GONE);
+            } else if (itemId == R.id.btnColor) {
+                int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
 
-            ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
-                    .with(context)
-                    .setTitle(context.getString(R.string.title_color))
-                    .showColorEdit(true)
-                    .setColorEditTextColor(editTextColor)
-                    .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                    .density(6)
-                    .lightnessSliderOnly()
-                    .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            update(keyword, null);
-                        }
-                    })
-                    .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                            update(keyword, selectedColor);
-                        }
-                    });
+                ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                        .with(context)
+                        .setTitle(context.getString(R.string.title_color))
+                        .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(6)
+                        .lightnessSliderOnly()
+                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                updateColor(keyword, null);
+                            }
+                        })
+                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                updateColor(keyword, selectedColor);
+                            }
+                        });
 
-            if (keyword.color != null)
-                builder.initialColor(keyword.color);
+                if (keyword.color != null)
+                    builder.initialColor(keyword.color);
 
-            builder.build().show();
+                builder.build().show();
+            }
         }
 
-        private void update(TupleKeyword keyword, Integer color) {
+        private String getTitle(String keyword) {
+            String keyTitle = "kwtitle." + keyword;
+            String def = TupleKeyword.getDefaultKeywordAlias(context, keyword);
+            return prefs.getString(keyTitle, def);
+        }
+
+        private void updateTitle(TupleKeyword keyword, String title) {
+            String key = "kwtitle." + keyword.name;
+            if (TextUtils.isEmpty(title))
+                prefs.edit().remove(key).apply();
+            else
+                prefs.edit().putString(key, title).apply();
+
+            cbKeyword.setText(getTitle(keyword.name));
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(new Intent(FragmentMessages.ACTION_KEYWORDS));
+        }
+
+        private void updateColor(TupleKeyword keyword, Integer color) {
             btnColor.setColor(color);
             keyword.color = color;
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String key = "kwcolor." + keyword.name;
             if (color == null)
-                prefs.edit().remove("keyword." + keyword.name).apply();
+                prefs.edit().remove(key).apply();
             else
-                prefs.edit().putInt("keyword." + keyword.name, keyword.color).apply();
+                prefs.edit().putInt(key, keyword.color).apply();
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(new Intent(FragmentMessages.ACTION_KEYWORDS));
@@ -180,6 +245,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.pro = ActivityBilling.isPro(context);
 
         setHasStableIds(false);

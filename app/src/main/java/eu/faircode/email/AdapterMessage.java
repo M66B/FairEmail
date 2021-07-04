@@ -5216,27 +5216,31 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private SpannableStringBuilder getKeywords(TupleMessageEx message) {
-            SpannableStringBuilder keywords = new SpannableStringBuilder();
+            SpannableStringBuilder ssb = new SpannableStringBuilder();
+
+            if (message.keyword_titles == null || message.keyword_colors == null) {
+                ssb.append("Keywords missing!");
+                return ssb;
+            }
+
             for (int i = 0; i < message.keywords.length; i++) {
                 if (MessageHelper.showKeyword(message.keywords[i])) {
-                    if (keywords.length() > 0)
-                        keywords.append(" ");
+                    if (ssb.length() > 0)
+                        ssb.append(' ');
 
-                    // Thunderbird
-                    String keyword = EntityMessage.getKeywordAlias(context, message.keywords[i]);
-                    keywords.append(keyword);
+                    String keyword = message.keyword_titles[i];
+                    ssb.append(keyword);
 
-                    if (message.keyword_colors != null &&
-                            message.keyword_colors[i] != null) {
-                        int len = keywords.length();
-                        keywords.setSpan(
+                    if (message.keyword_colors[i] != null) {
+                        int len = ssb.length();
+                        ssb.setSpan(
                                 new ForegroundColorSpan(message.keyword_colors[i]),
                                 len - keyword.length(), len,
                                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
                 }
             }
-            return keywords;
+            return ssb;
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
@@ -6795,6 +6799,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, null)
                     .create();
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            Dialog dialog = getDialog();
+            dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+            //dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
     }
 

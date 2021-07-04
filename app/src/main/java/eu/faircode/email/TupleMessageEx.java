@@ -68,6 +68,8 @@ public class TupleMessageEx extends EntityMessage {
 
     @Ignore
     public Integer[] keyword_colors;
+    @Ignore
+    public String[] keyword_titles;
 
     String getFolderName(Context context) {
         return (folderDisplay == null
@@ -77,17 +79,28 @@ public class TupleMessageEx extends EntityMessage {
 
     void resolveKeywordColors(Context context) {
         List<Integer> color = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         for (int i = 0; i < this.keywords.length; i++) {
-            String key = "keyword." + this.keywords[i];
-            if (prefs.contains(key))
-                color.add(prefs.getInt(key, Color.GRAY));
+            String keyword = this.keywords[i];
+
+            String keyColor1 = "kwcolor." + keyword;
+            String keyColor2 = "keyword." + keyword; // legacy
+            if (prefs.contains(keyColor1))
+                color.add(prefs.getInt(keyColor1, Color.GRAY));
+            else if (prefs.contains(keyColor2))
+                color.add(prefs.getInt(keyColor2, Color.GRAY));
             else
                 color.add(null);
+
+            String keyTitle = "kwtitle." + keyword;
+            String def = TupleKeyword.getDefaultKeywordAlias(context, keyword);
+            titles.add(prefs.getString(keyTitle, def));
         }
 
         this.keyword_colors = color.toArray(new Integer[0]);
+        this.keyword_titles = titles.toArray(new String[0]);
     }
 
     String getRemark() {

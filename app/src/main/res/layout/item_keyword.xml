@@ -18,19 +18,76 @@
             android:text="Keyword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@+id/btnColor"
-            app:layout_constraintEnd_toStartOf="@+id/btnColor"
+            app:layout_constraintEnd_toStartOf="@+id/ibEdit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnColor" />
+
+        <ImageButton
+            android:id="@+id/ibEdit"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_edit"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:tooltipText="@string/title_legend_edit"
+            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintStart_toEndOf="@id/cbKeyword"
+            app:layout_constraintTop_toTopOf="@+id/btnColor"
+            app:srcCompat="@drawable/twotone_edit_24" />
+
+        <EditText
+            android:id="@+id/etKeyword"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:text="Title"
+            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintEnd_toStartOf="@+id/ibSave"
+            app:layout_constraintStart_toEndOf="@id/ibEdit"
+            app:layout_constraintTop_toTopOf="@+id/btnColor" />
+
+        <ImageButton
+            android:id="@+id/ibSave"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_save"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_save"
+            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintStart_toEndOf="@id/etKeyword"
+            app:layout_constraintTop_toTopOf="@+id/btnColor"
+            app:srcCompat="@drawable/twotone_save_24" />
 
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:paddingHorizontal="6dp"
             android:text="@string/title_select"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cbKeyword"
+            app:layout_constraintStart_toEndOf="@+id/ibSave"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpNotEdit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="cbKeyword,ibEdit" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpEdit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:constraint_referenced_ids="etKeyword,ibSave" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

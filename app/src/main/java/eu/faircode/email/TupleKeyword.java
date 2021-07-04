@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
@@ -81,13 +82,33 @@ public class TupleKeyword {
             k.name = keyword;
             k.selected = Arrays.asList(data.selected).contains(keyword);
 
-            String c = "keyword." + keyword;
-            if (prefs.contains(c))
-                k.color = prefs.getInt(c, -1);
+            String c1 = "kwcolor." + keyword;
+            String c2 = "keyword." + keyword; // legacy
+            if (prefs.contains(c1))
+                k.color = prefs.getInt(c1, Color.GRAY);
+            else if (prefs.contains(c2))
+                k.color = prefs.getInt(c2, Color.GRAY);
 
             result.add(k);
         }
 
         return result;
+    }
+
+    static String getDefaultKeywordAlias(Context context, String keyword) {
+        switch (keyword) {
+            case "$label1": // Important
+                return context.getString(R.string.title_keyword_label1);
+            case "$label2": // Work
+                return context.getString(R.string.title_keyword_label2);
+            case "$label3": // Personal
+                return context.getString(R.string.title_keyword_label3);
+            case "$label4": // To do
+                return context.getString(R.string.title_keyword_label4);
+            case "$label5": // Later
+                return context.getString(R.string.title_keyword_label5);
+            default:
+                return keyword;
+        }
     }
 }
