@@ -550,16 +550,23 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     }
 
     private Spanned format(Uri uri, Context context) {
+        String scheme = uri.getScheme();
+        String host = uri.getHost();
         String text = uri.toString();
         SpannableStringBuilder ssb = new SpannableStringBuilder(text);
 
         try {
-            String host = uri.getHost();
             int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
-            if (host == null && "mailto".equals(uri.getScheme())) {
-                MailTo email = MailTo.parse(uri.toString());
-                host = UriHelper.getEmailDomain(email.getTo());
+            if ("tel".equals(scheme)) {
+                // tel://+123%2045%20678%123456
+                host = Uri.decode(host);
+                text = "tel://" + host;
+            } else if ("mailto".equals(scheme)) {
+                if (host != null) {
+                    MailTo email = MailTo.parse(uri.toString());
+                    host = UriHelper.getEmailDomain(email.getTo());
+                }
             }
 
             if (host != null) {
