@@ -360,6 +360,7 @@
     <string name="title_advanced_monospaced">Festbreitenschriftarten standardmäßig für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced_pre">Festbreitenschriftart für vorformatierten Text verwenden</string>
     <string name="title_advanced_text_color">Textfarben verwenden</string>
+    <string name="title_advanced_background_color">Hintergrundfarben verwenden</string>
     <string name="title_advanced_text_size">Textgrößen verwenden</string>
     <string name="title_advanced_text_font">Schriftarten verwenden</string>
     <string name="title_advanced_text_align">Textausrichtung verwenden</string>

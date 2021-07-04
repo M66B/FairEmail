@@ -379,6 +379,7 @@
     <string name="title_advanced_monospaced">По умолчанию использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>
     <string name="title_advanced_text_color">Использовать цвета текста</string>
+    <string name="title_advanced_background_color">Использовать цвета фона</string>
     <string name="title_advanced_text_size">Использовать размер текста</string>
     <string name="title_advanced_text_font">Использовать шрифты</string>
     <string name="title_advanced_text_align">Использовать выравнивание текста</string>

@@ -359,6 +359,7 @@
     <string name="title_advanced_monospaced">Usa di default caratteri monospaziati per il testo del messaggio</string>
     <string name="title_advanced_monospaced_pre">Usa caratteri monospaziati per il testo preformattato</string>
     <string name="title_advanced_text_color">Usa i colori del testo</string>
+    <string name="title_advanced_background_color">Usa i colori di sfondo</string>
     <string name="title_advanced_text_size">Usa le dimensioni del testo</string>
     <string name="title_advanced_text_font">Usa i caratteri</string>
     <string name="title_advanced_text_align">Usa l\'allineamento testo</string>

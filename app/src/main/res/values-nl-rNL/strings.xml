@@ -359,6 +359,7 @@
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_monospaced_pre">Gebruik vaste breedte lettertype voor vooraf opgemaakte tekst</string>
     <string name="title_advanced_text_color">Gebruik tekstkleuren</string>
+    <string name="title_advanced_background_color">Gebruik achtergrond kleuren</string>
     <string name="title_advanced_text_size">Gebruik tekstgrootte</string>
     <string name="title_advanced_text_font">Gebruik lettertypen</string>
     <string name="title_advanced_text_align">Gebruik tekst uitlijning</string>

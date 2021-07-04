@@ -348,6 +348,7 @@
     <string name="title_advanced_monospaced">デフォルトでメッセージテキストに等幅フォントを使用する</string>
     <string name="title_advanced_monospaced_pre">書式設定済みテキストに等幅フォントを使用する</string>
     <string name="title_advanced_text_color">テキストの色を使用する</string>
+    <string name="title_advanced_background_color">背景色を使用</string>
     <string name="title_advanced_text_size">テキストのサイズを使用する</string>
     <string name="title_advanced_text_font">フォントを使用する</string>
     <string name="title_advanced_text_align">テキストの配置を使用</string>

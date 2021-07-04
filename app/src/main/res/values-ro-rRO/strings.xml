@@ -369,6 +369,7 @@
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_monospaced_pre">Folosește fontul proporțional pentru textul preformatat</string>
     <string name="title_advanced_text_color">Folosește culori text</string>
+    <string name="title_advanced_background_color">Utilizați culori de fundal</string>
     <string name="title_advanced_text_size">Folosește mărimi text</string>
     <string name="title_advanced_text_font">Folosește fonturi</string>
     <string name="title_advanced_text_align">Folosește alinierea textului</string>

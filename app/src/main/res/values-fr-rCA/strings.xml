@@ -359,6 +359,7 @@
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_monospaced_pre">Utiliser une police à espacement fixe pour le texte préformaté</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
+    <string name="title_advanced_background_color">Utiliser des couleurs d\'arrière-plan</string>
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
     <string name="title_advanced_text_align">Utiliser l\'alignement du texte</string>
