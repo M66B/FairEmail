@@ -249,6 +249,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE " + is_outbox +
+            " AND NOT message.ui_hide" +
             " AND (NOT message.ui_snoozed IS NULL OR message.error IS NOT NULL)")
     LiveData<TupleOutboxStats> liveOutboxPending();
 
