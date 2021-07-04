@@ -880,6 +880,7 @@ public class HtmlHelper {
             for (Element row : table.children()) {
                 row.tagName("div");
 
+                Element separate = null;
                 List<Node> merge = new ArrayList<>();
                 for (Element col : row.children()) {
                     Element next = col.nextElementSibling();
@@ -952,15 +953,18 @@ public class HtmlHelper {
                     //}
                     if (TextUtils.isEmpty(align) ||
                             "left".equals(align) ||
-                            "start".equals(align))
+                            "start".equals(align)) {
                         col.removeAttr("x-block");
-                    else {
+                        if (separate != null)
+                            separate.attr("x-column", "true");
+                        separate = col;
+                    } else {
+                        separate = null;
                         if ("true".equals(col.attr("x-line-before")))
                             col.removeAttr("x-line-before");
                     }
 
-                    col.tagName("div")
-                            .attr("x-column", "true");
+                    col.tagName("div");
                 }
 
                 if (merge.size() != 0)
