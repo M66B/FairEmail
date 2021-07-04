@@ -23,9 +23,19 @@
     </item>
 
     <item
+        android:id="@+id/menu_style_background"
+        android:icon="@drawable/twotone_format_paint_24"
+        android:orderInCategory="2"
+        android:title="@string/title_background">
+        <menu>
+            <group android:id="@+id/group_style_background" />
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/menu_style_color"
         android:icon="@drawable/twotone_palette_24"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         android:title="@string/title_color">
         <menu>
             <group android:id="@+id/group_style_color" />
@@ -35,7 +45,7 @@
     <item
         android:id="@+id/menu_style_font"
         android:icon="@drawable/twotone_text_format_24"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         android:title="@string/title_style_font">
         <menu>
             <group android:id="@+id/group_style_font" />
@@ -45,7 +55,7 @@
     <item
         android:id="@+id/menu_style_align"
         android:icon="@drawable/twotone_format_align_center_24"
-        android:orderInCategory="4"
+        android:orderInCategory="5"
         android:title="@string/title_style_align">
         <menu>
             <group android:id="@+id/group_style_align">
@@ -70,7 +80,7 @@
     <item
         android:id="@+id/menu_style_list"
         android:icon="@drawable/twotone_format_list_bulleted_24"
-        android:orderInCategory="5"
+        android:orderInCategory="6"
         android:title="@string/title_style_list">
         <menu>
             <group android:id="@+id/group_style_list">
@@ -96,7 +106,7 @@
 
     <group
         android:id="@+id/group_style_blockquote"
-        android:orderInCategory="6">
+        android:orderInCategory="7">
         <item
             android:id="@+id/menu_style_blockquote"
             android:icon="@drawable/twotone_format_quote_24"
@@ -105,7 +115,7 @@
 
     <group
         android:id="@+id/group_style_strikethrough"
-        android:orderInCategory="7">
+        android:orderInCategory="8">
         <item
             android:id="@+id/menu_style_strikethrough"
             android:icon="@drawable/twotone_format_strikethrough_24"
@@ -114,7 +124,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="8">
+        android:orderInCategory="9">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"

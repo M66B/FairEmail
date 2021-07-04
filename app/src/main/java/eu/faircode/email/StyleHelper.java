@@ -30,6 +30,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
@@ -181,6 +182,8 @@ public class StyleHelper {
                             int itemId = item.getItemId();
                             if (groupId == R.id.group_style_size) {
                                 return setSize(item);
+                            } else if (itemId == R.id.menu_style_background) {
+                                return setBackground(item);
                             } else if (itemId == R.id.menu_style_color) {
                                 return setColor(item);
                             } else if (groupId == R.id.group_style_font) {
@@ -236,6 +239,59 @@ public class StyleHelper {
                         etBody.setSelection(start, end);
 
                         return true;
+                    }
+
+                    private boolean setBackground(MenuItem item) {
+                        Helper.hideKeyboard(etBody);
+
+                        Context context = etBody.getContext();
+                        int editTextColor = Helper.resolveColor(context, android.R.attr.editTextColor);
+
+                        ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
+                                .with(context)
+                                .setTitle(R.string.title_background)
+                                .showColorEdit(true)
+                                .setColorEditTextColor(editTextColor)
+                                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                                .density(6)
+                                .lightnessSliderOnly()
+                                .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                        _setBackground(selectedColor);
+                                    }
+                                })
+                                .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        _setBackground(null);
+                                    }
+                                });
+
+                        builder.build().show();
+
+                        return true;
+                    }
+
+                    private void _setBackground(Integer color) {
+                        Log.breadcrumb("style", "action", "background");
+
+                        BackgroundColorSpan spans[] = edit.getSpans(start, end, BackgroundColorSpan.class);
+                        for (BackgroundColorSpan span : spans) {
+                            int s = edit.getSpanStart(span);
+                            int e = edit.getSpanEnd(span);
+                            int f = edit.getSpanFlags(span);
+                            edit.removeSpan(span);
+                            splitSpan(edit, start, end, s, e, f, false,
+                                    new BackgroundColorSpan(span.getBackgroundColor()),
+                                    new BackgroundColorSpan(span.getBackgroundColor()));
+                        }
+
+                        if (color != null)
+                            edit.setSpan(new BackgroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(edit);
+                        etBody.setSelection(start, end);
                     }
 
                     private boolean setColor(MenuItem item) {
