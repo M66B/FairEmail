@@ -3905,7 +3905,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
-            Button btnMore = dview.findViewById(R.id.btnMore);
 
             if (message.from == null || message.from.length == 0) {
                 cbNotAgain.setVisibility(View.GONE);
@@ -3931,17 +3930,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     cbNotAgainDomain.setEnabled(isChecked);
-                }
-            });
-
-            btnMore.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent privacy = new Intent(v.getContext(), ActivitySetup.class)
-                            .setAction("privacy")
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            .putExtra("tab", "privacy");
-                    v.getContext().startActivity(privacy);
                 }
             });
 
@@ -4018,6 +4006,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
+                    .setNeutralButton(R.string.title_setup, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent privacy = new Intent(context, ActivitySetup.class)
+                                    .setAction("privacy")
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .putExtra("tab", "privacy");
+                            context.startActivity(privacy);
+                        }
+                    })
                     .create();
 
             owner.getLifecycle().addObserver(new LifecycleObserver() {
