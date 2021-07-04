@@ -124,7 +124,7 @@ public class FragmentOptions extends FragmentBase {
             "keywords_header", "labels_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines",
             "message_zoom", "overview_mode", "addresses", "button_extra", "attachments_alt", "thumbnails",
             "contrast", "monospaced", "monospaced_pre",
-            "text_color", "text_size", "text_font", "text_align", "text_separators",
+            "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images",
             "seekbar", "actionbar", "actionbar_color", "navbar_colorize",
             "autoscroll", "swipenav", "swipe_close", "swipe_move", "autoexpand", "autoclose", "onclose",

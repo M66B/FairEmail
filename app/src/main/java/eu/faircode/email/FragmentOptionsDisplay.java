@@ -127,6 +127,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
     private SwitchCompat swMonospacedPre;
+    private SwitchCompat swBackgroundColor;
     private SwitchCompat swTextColor;
     private SwitchCompat swTextSize;
     private SwitchCompat swTextFont;
@@ -158,7 +159,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "preview", "preview_italic", "preview_lines",
             "addresses",
             "message_zoom", "overview_mode", "contrast", "monospaced", "monospaced_pre",
-            "text_color", "text_size", "text_font", "text_align", "text_separators",
+            "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra", "attachments_alt", "thumbnails",
             "parse_classes", "authentication"
     };
@@ -238,6 +239,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swMonospacedPre = view.findViewById(R.id.swMonospacedPre);
+        swBackgroundColor = view.findViewById(R.id.swBackgroundColor);
         swTextColor = view.findViewById(R.id.swTextColor);
         swTextSize = view.findViewById(R.id.swTextSize);
         swTextFont = view.findViewById(R.id.swTextFont);
@@ -799,15 +801,24 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        String theme = prefs.getString("theme", "blue_orange_system");
+        boolean bw = "black_and_white".equals(theme);
+
+        swBackgroundColor.setEnabled(!bw);
+        swBackgroundColor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("background_color", checked).apply();
+            }
+        });
+
+        swTextColor.setEnabled(!bw);
         swTextColor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("text_color", checked).apply();
             }
         });
-
-        String theme = prefs.getString("theme", "blue_orange_system");
-        swTextColor.setEnabled(!"black_and_white".equals(theme));
 
         swTextSize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -1061,6 +1072,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swMonospacedPre.setChecked(prefs.getBoolean("monospaced_pre", false));
+        swBackgroundColor.setChecked(prefs.getBoolean("background_color", false));
         swTextColor.setChecked(prefs.getBoolean("text_color", true));
         swTextSize.setChecked(prefs.getBoolean("text_size", true));
         swTextFont.setChecked(prefs.getBoolean("text_font", true));

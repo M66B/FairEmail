@@ -36,7 +36,9 @@ import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.text.style.AlignmentSpan;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
+import android.text.style.CharacterStyle;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -357,7 +359,9 @@ public class HtmlHelper {
     private static Document sanitize(Context context, Document parsed, boolean view, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = prefs.getString("theme", "blue_orange_system");
-        boolean text_color = (!view || (prefs.getBoolean("text_color", true) && !"black_and_white".equals(theme)));
+        boolean bw = "black_and_white".equals(theme);
+        boolean background_color = (!view || (!bw && prefs.getBoolean("background_color", false)));
+        boolean text_color = (!view || (!bw && prefs.getBoolean("text_color", true)));
         boolean text_size = (!view || prefs.getBoolean("text_size", true));
         boolean text_font = (!view || prefs.getBoolean("text_font", true));
         boolean text_align = prefs.getBoolean("text_align", true);
@@ -367,8 +371,6 @@ public class HtmlHelper {
         boolean inline_images = prefs.getBoolean("inline_images", false);
         boolean text_separators = prefs.getBoolean("text_separators", true);
         boolean image_placeholders = prefs.getBoolean("image_placeholders", true);
-
-        int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
 
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
@@ -575,31 +577,37 @@ public class HtmlHelper {
                     String value = kv.get(key);
                     switch (key) {
                         case "color":
+                        case "background-color":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/color
-                            if (!text_color)
+                            if ("color".equals(key) && !text_color)
+                                continue;
+                            if ("background-color".equals(key) && !background_color)
                                 continue;
 
                             Integer color = parseColor(value);
 
-                            if (color != null && !view && Helper.isDarkTheme(context)) {
+                            if (color != null && !view && dark) {
                                 float lum = (float) ColorUtils.calculateLuminance(color);
                                 if (lum < 0.1f)
                                     color = null;
                             }
 
-                            if (color == null)
-                                element.removeAttr("color");
-                            else {
-                                if (view)
-                                    color = adjustColor(dark, textColorPrimary, color);
+                            if (color != null && view)
+                                if ("color".equals(key))
+                                    color = adjustColor(dark, color);
+                                else
+                                    color = adjustColor(!dark, color);
 
-                                // fromHtml does not support transparency
-                                String c = String.format("#%06x", color);
-                                sb.append("color:").append(c).append(";");
-                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-                                    element.attr("color", c);
+                            if (color == null) {
+                                element.removeAttr(key);
+                                continue;
                             }
 
+                            // fromHtml does not support transparency
+                            String c = String.format("#%06x", color);
+                            sb.append(key).append(':').append(c).append(";");
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+                                element.attr(key, c);
                             break;
 
                         case "font-size":
@@ -1549,15 +1557,14 @@ public class HtmlHelper {
         return color;
     }
 
-    private static Integer adjustColor(boolean dark, int textColorPrimary, Integer color) {
+    private static Integer adjustColor(boolean dark, Integer color) {
         int r = Color.red(color);
         int g = Color.green(color);
         int b = Color.blue(color);
         if (r == g && r == b && (dark ? 255 - r : r) < GRAY_THRESHOLD)
-            color = textColorPrimary;
-        else
-            color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
+            return null;
 
+        color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
         return (color & 0xFFFFFF);
     }
 
@@ -2347,10 +2354,16 @@ public class HtmlHelper {
                             String value = param.substring(semi + 1);
                             switch (key) {
                                 case "color":
+                                case "background-color":
                                     if (!TextUtils.isEmpty(value))
                                         try {
                                             int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
-                                            setSpan(ssb, new ForegroundColorSpan(color), start, ssb.length());
+                                            CharacterStyle span;
+                                            if ("color".equals(key))
+                                                span = new ForegroundColorSpan(color);
+                                            else
+                                                span = new BackgroundColorSpan(color);
+                                            setSpan(ssb, span, start, ssb.length());
                                         } catch (NumberFormatException ex) {
                                             Log.i(ex);
                                         }
