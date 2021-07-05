@@ -539,6 +539,9 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         else {
             message = getBillingResponseText(result);
 
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.BILLING_UNAVAILABLE)
+                message += " Is the Play Store app logged into the account used to install the app?";
+
             String debug = result.getDebugMessage();
             if (!TextUtils.isEmpty(debug))
                 message += " " + debug;
