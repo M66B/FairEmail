@@ -602,6 +602,8 @@ public class HtmlHelper {
                                         e = e.parent();
 
                                 if (!bg) {
+                                    // Special case:
+                                    //   external draft / dark background / dark font
                                     if (color != null && !view && dark) {
                                         float lum = (float) ColorUtils.calculateLuminance(color);
                                         if (lum < 0.1f)
