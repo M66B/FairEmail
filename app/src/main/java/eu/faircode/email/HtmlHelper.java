@@ -372,6 +372,10 @@ public class HtmlHelper {
         boolean text_separators = prefs.getBoolean("text_separators", true);
         boolean image_placeholders = prefs.getBoolean("image_placeholders", true);
 
+        boolean dark = Helper.isDarkTheme(context);
+        int textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+        int textColorPrimaryInverse = Helper.resolveColor(context, android.R.attr.textColorPrimaryInverse);
+
         // https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css
 
         // <!--[if ...]><!--> ... <!--<![endif]-->
@@ -453,8 +457,6 @@ public class HtmlHelper {
             whitelist.addProtocols("img", "src", "content");
 
         final Document document = new Cleaner(whitelist).clean(parsed);
-
-        boolean dark = Helper.isDarkTheme(context);
 
         // Remove tracking pixels
         if (disable_tracking)
@@ -592,11 +594,12 @@ public class HtmlHelper {
                                     color = null;
                             }
 
+                            // TODO: take into account background colors
                             if (color != null && view)
                                 if ("color".equals(key))
-                                    color = adjustColor(dark, color);
+                                    color = adjustColor(dark, textColorPrimary, color);
                                 else
-                                    color = adjustColor(!dark, color);
+                                    color = adjustColor(!dark, textColorPrimaryInverse, color);
 
                             if (color == null) {
                                 element.removeAttr(key);
@@ -1561,14 +1564,15 @@ public class HtmlHelper {
         return color;
     }
 
-    private static Integer adjustColor(boolean dark, Integer color) {
+    private static Integer adjustColor(boolean dark, int textColorPrimary, Integer color) {
         int r = Color.red(color);
         int g = Color.green(color);
         int b = Color.blue(color);
         if (r == g && r == b && (dark ? 255 - r : r) < GRAY_THRESHOLD)
-            return null;
+            color = textColorPrimary;
+        else
+            color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
 
-        color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
         return (color & 0xFFFFFF);
     }
 
