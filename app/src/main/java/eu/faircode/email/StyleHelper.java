@@ -254,7 +254,7 @@ public class StyleHelper {
                                 .setColorEditTextColor(editTextColor)
                                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                                 .density(6)
-                                .lightnessSliderOnly()
+                                //.lightnessSliderOnly()
                                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
@@ -307,7 +307,7 @@ public class StyleHelper {
                                 .setColorEditTextColor(editTextColor)
                                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                                 .density(6)
-                                .lightnessSliderOnly()
+                                //.lightnessSliderOnly()
                                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {

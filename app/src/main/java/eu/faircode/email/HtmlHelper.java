@@ -592,6 +592,10 @@ public class HtmlHelper {
 
                             Integer color = parseColor(value);
 
+                            // fromHtml does not support transparency
+                            //if (color != null)
+                            //    color = (0xFFFFFF & color);
+
                             if ("color".equals(key)) {
                                 boolean bg = false;
                                 Element e = element;
@@ -601,6 +605,7 @@ public class HtmlHelper {
                                     else
                                         e = e.parent();
 
+                                // Keep color as-is when background set
                                 if (!bg) {
                                     // Special case:
                                     //   external draft / dark background / dark font
@@ -613,13 +618,31 @@ public class HtmlHelper {
                                     if (color != null && view)
                                         color = adjustColor(dark, textColorPrimary, color);
                                 }
-                            } else {
+
+                                if (color != null)
+                                    element.attr("x-color", "true");
+                            } else /* background */ {
                                 if (color != null && !hasColor(color))
                                     continue;
 
-                                if (color != null) {
-                                    String hex = String.format("#%06X", (0xFFFFFF & color));
-                                    element.attr("x-background", hex);
+                                if (color != null)
+                                    element.attr("x-background", "true");
+
+                                if (dark) {
+                                    boolean fg = (parseColor(kv.get("color")) != null);
+                                    Element e = element;
+                                    while (e != null && !fg)
+                                        if (e.hasAttr("x-color"))
+                                            fg = true;
+                                        else
+                                            e = e.parent();
+
+                                    // Force foreground color
+                                    if (!fg)
+                                        sb.append("color")
+                                                .append(':')
+                                                .append(encodeWebColor(textColorPrimaryInverse))
+                                                .append(";");
                                 }
                             }
 
@@ -628,8 +651,7 @@ public class HtmlHelper {
                                 continue;
                             }
 
-                            // fromHtml does not support transparency
-                            String c = String.format("#%06x", color);
+                            String c = encodeWebColor(color);
                             sb.append(key).append(':').append(c).append(";");
                             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
                                 element.attr(key, c);
@@ -1514,7 +1536,10 @@ public class HtmlHelper {
         }
     }
 
-    private static Integer parseColor(@NonNull String value) {
+    private static Integer parseColor(String value) {
+        if (TextUtils.isEmpty(value))
+            return null;
+
         // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
         String c = value
                 .replace("null", "")
@@ -1530,6 +1555,7 @@ public class HtmlHelper {
                 .replaceAll("#+", "#");
 
         Integer color = null;
+        boolean hasAlpha = false;
         try {
             if (TextUtils.isEmpty(c))
                 return null;
@@ -1538,8 +1564,10 @@ public class HtmlHelper {
                     String code = c.substring(1);
                     if (x11ColorMap.containsKey(code)) // workaround
                         color = x11ColorMap.get(code);
-                    else
-                        color = parseWebColor(code);
+                    else {
+                        color = parseWebColor(c);
+                        hasAlpha = true;
+                    }
                 }
             } else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                 int s = c.indexOf("(");
@@ -1565,14 +1593,25 @@ public class HtmlHelper {
                                 Float.parseFloat(component[0]),
                                 Integer.parseInt(component[1]) / 100f,
                                 Integer.parseInt(component[2]) / 100f});
+
+                    if (color != null && component.length >= 4) {
+                        int alpha = Math.round(Float.parseFloat(component[3]) * 255);
+                        color = ColorUtils.setAlphaComponent(color, alpha);
+                        hasAlpha = true;
+                    }
                 }
             } else if (x11ColorMap.containsKey(c))
                 color = x11ColorMap.get(c);
-            else
+            else {
                 color = parseWebColor(c);
+                hasAlpha = true;
+            }
+
+            if (color != null && !hasAlpha)
+                color = ColorUtils.setAlphaComponent(color, 255);
 
             if (BuildConfig.DEBUG)
-                Log.i("Color " + c + "=" + (color == null ? null : Long.toHexString(color)));
+                Log.i("Color " + c + "=" + (color == null ? null : encodeWebColor(color)));
 
         } catch (Throwable ex) {
             Log.i("Color=" + c + ": " + ex);
@@ -1581,28 +1620,55 @@ public class HtmlHelper {
         return color;
     }
 
-    private static int parseWebColor(String value) {
-        if (value.length() == 3 || value.length() == 6 || value.length() == 8) {
-            if (value.length() == 3)
-                value = "" +
-                        value.charAt(0) + value.charAt(0) +
-                        value.charAt(1) + value.charAt(1) +
-                        value.charAt(2) + value.charAt(2);
-            return (int) Long.parseLong(value, 16);
-        } else
+    private static int parseWebColor(@NonNull String value) {
+        if (value.startsWith("#"))
+            value = value.substring(1);
+
+        if (value.length() == 3)
+            value = "FF" +
+                    value.charAt(0) + value.charAt(0) +
+                    value.charAt(1) + value.charAt(1) +
+                    value.charAt(2) + value.charAt(2);
+        else if (value.length() == 6)
+            value = "FF" + value;
+        else if (value.length() == 8)
+            value = value.substring(6, 8) + value.substring(0, 6);
+        else
             throw new IllegalArgumentException("Unknown color=" + value);
+
+        return (int) Long.parseLong(value, 16);
+    }
+
+    static String encodeWebColor(int color) {
+        int alpha = Color.alpha(color);
+        int rgb = 0xFFFFFF & color;
+        if (alpha == 0)
+            return String.format("#%06X", rgb);
+        else
+            return String.format("#%06X%02X", rgb, alpha);
     }
 
     private static Integer adjustColor(boolean dark, int textColorPrimary, Integer color) {
+        // Special case:
+        //   shades of gray
         int r = Color.red(color);
         int g = Color.green(color);
         int b = Color.blue(color);
-        if (r == g && r == b && (dark ? 255 - r : r) < GRAY_THRESHOLD)
+        float a = Color.alpha(color) / 255f;
+        if (r == g && r == b && (dark ? 255 - r : r) * a < GRAY_THRESHOLD)
             color = textColorPrimary;
-        else
-            color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
 
-        return (color & 0xFFFFFF);
+        return adjustLuminance(color, dark, MIN_LUMINANCE);
+    }
+
+    static int adjustLuminance(int color, boolean dark, float min) {
+        int c = ColorUtils.compositeColors(color, dark ? Color.BLACK : Color.WHITE);
+        float lum = (float) ColorUtils.calculateLuminance(c);
+        if (dark ? lum < min : lum > 1 - min)
+            color = ColorUtils.blendARGB(color,
+                    dark ? Color.WHITE : Color.BLACK,
+                    dark ? min - lum : lum - (1 - min));
+        return color;
     }
 
     private static boolean hasColor(int color) {
@@ -2413,7 +2479,7 @@ public class HtmlHelper {
                                 case "background-color":
                                     if (!TextUtils.isEmpty(value))
                                         try {
-                                            int color = Integer.parseInt(value.substring(1), 16) | 0xFF000000;
+                                            int color = parseWebColor(value);
                                             CharacterStyle span;
                                             if ("color".equals(key))
                                                 span = new ForegroundColorSpan(color);
@@ -2775,6 +2841,7 @@ public class HtmlHelper {
     static void clearAnnotations(Document d) {
         d.select("*")
                 .removeAttr("x-background")
+                .removeAttr("x-color")
                 .removeAttr("x-block")
                 .removeAttr("x-inline")
                 .removeAttr("x-paragraph")

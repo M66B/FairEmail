@@ -399,12 +399,16 @@ public class HtmlEx {
                 }
                 if (style[j] instanceof ForegroundColorSpan) {
                     int color = ((ForegroundColorSpan) style[j]).getForegroundColor();
-                    out.append(String.format("<span style=\"color:#%06X;\">", 0xFFFFFF & color));
+                    //out.append(String.format("<span style=\"color:#%06X;\">", 0xFFFFFF & color));
+                    out.append(String.format("<span style=\"color:%s;\">",
+                            eu.faircode.email.HtmlHelper.encodeWebColor(color)));
                 }
                 if (style[j] instanceof BackgroundColorSpan) {
                     int color = ((BackgroundColorSpan) style[j]).getBackgroundColor();
-                    out.append(String.format("<span style=\"background-color:#%06X;\">",
-                            0xFFFFFF & color));
+                    //out.append(String.format("<span style=\"background-color:#%06X;\">",
+                    //        0xFFFFFF & color));
+                    out.append(String.format("<span style=\"background-color:%s;\">",
+                            eu.faircode.email.HtmlHelper.encodeWebColor(color)));
                 }
             }
 
