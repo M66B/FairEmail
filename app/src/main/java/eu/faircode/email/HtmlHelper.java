@@ -1537,7 +1537,7 @@ public class HtmlHelper {
                     if (x11ColorMap.containsKey(code)) // workaround
                         color = x11ColorMap.get(code);
                     else
-                        color = Long.decode(c).intValue();
+                        color = parseWebColor(code);
                 }
             } else if (c.startsWith("rgb") || c.startsWith("hsl")) {
                 int s = c.indexOf("(");
@@ -1567,12 +1567,7 @@ public class HtmlHelper {
             } else if (x11ColorMap.containsKey(c))
                 color = x11ColorMap.get(c);
             else
-                try {
-                    color = Color.parseColor(c);
-                } catch (IllegalArgumentException ex) {
-                    // Workaround
-                    color = Long.decode("#" + c).intValue();
-                }
+                color = parseWebColor(c);
 
             if (BuildConfig.DEBUG)
                 Log.i("Color " + c + "=" + (color == null ? null : Long.toHexString(color)));
@@ -1582,6 +1577,18 @@ public class HtmlHelper {
         }
 
         return color;
+    }
+
+    private static int parseWebColor(String value) {
+        if (value.length() == 3 || value.length() == 6 || value.length() == 8) {
+            if (value.length() == 3)
+                value = "" +
+                        value.charAt(0) + value.charAt(0) +
+                        value.charAt(1) + value.charAt(1) +
+                        value.charAt(2) + value.charAt(2);
+            return (int) Long.parseLong(value, 16);
+        } else
+            throw new IllegalArgumentException("Unknown color=" + value);
     }
 
     private static Integer adjustColor(boolean dark, int textColorPrimary, Integer color) {
