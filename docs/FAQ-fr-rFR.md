@@ -936,7 +936,7 @@ L'erreur *... Connexion fermée par le pair ...* peut être causée par un serve
 L'erreur *... Read error ...*, *... Write error ...*, *... La lecture a expiré ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 <a name="connectiondropped"></a>
-L'erreur *... Connexion interrompue par le serveur? ...* signifie que le serveur de messagerie a interrompu la connexion de façon inattendue. This sometimes happen when there were too many connections in a too short time or when a wrong password was used for too many times. In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again. If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
+L'erreur *... Connexion interrompue par le serveur? ...* signifie que le serveur de messagerie a interrompu la connexion de façon inattendue. Cela se produit lorsqu'il y a trop de tentatives de connexion dans un court laps de temps ou quand un mauvais mot de passe est utilisé trop de fois. Vérifiez que votre mot de passe est correct et désactivez la réception de message dans l'onglet "réception" des paramètres pendant 30 minutes puis réessayez. Si besoin, reportez-vous [à cette FAQ](#user-content-faq23) sur comment réduire le nombre de connexions.
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 

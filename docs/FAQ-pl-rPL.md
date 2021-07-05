@@ -82,8 +82,8 @@ Powiązane pytania:
 * Podgląd tekstu wiadomości nie (zawsze) pojawia się na zegarku Samsung, ponieważ [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wydaje się być ignorowany. Wiadomo, że podglądy wiadomości są wyświetlane poprawnie na Pebble 2, Fitbit Charge 3, Mi band 3 i Xiaomi Amazfit BIP. Zobacz również [ten FAQ](#user-content-faq126).
 * [błąd w Android 6.0](https://issuetracker.google.com/issues/37068143) powoduje awarię z *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. Ten błąd został naprawiony w Androidzie 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). Jest to ograniczenie Androida, które nie może być naprawione.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* Wykrywanie języków [już nie działa](https://issuetracker.google.com/issues/173337263) na urządzeniach Pixel z sytemem (ulepszono do?) Android 11
+* [błąd w OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) powoduje nieprawidłowe podpisy PGP podczas używania tokenu sprzętowego.
 
 <h2><a name="planned-features"></a>Planowane funkcje</h2>
 
@@ -118,11 +118,11 @@ Powiązane pytania:
 * ~~Wsparcie S/MIME~~
 * ~~Szukaj ustawień~~
 
-Anything on this list is in random order and *might* be added in the near future.
+Wszystko na tej liście jest w losowej kolejności i * może * zostać dodane w najbliższej przyszłości.
 
 <h2><a name="frequently-requested-features"></a>Często żądane funkcje</h2>
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+Projekt opiera się na wielu dyskusjach i jeśli chcesz, możesz o nim dyskutować również [na tym forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168). The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
 <h2><a name="frequently-asked-questions"></a>Najczęściej zadawane pytania (FAQ)</h2>
 
@@ -261,7 +261,7 @@ The design is based on many discussions and if you like you can discuss about it
 * [(135) Dlaczego w rozmowach pokazywane są usunięte wiadomości i wersje robocze?](#user-content-faq135)
 * [(136) Jak mogę usunąć konto/tożsamość/folder?](#user-content-faq136)
 * [(137) Jak mogę zresetować 'Nie pytaj ponownie'?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
+* [(138) Czy mogę dodać zarządzanie kalendarzem/kontaktem/zadaniami/notatkami?](#user-content-faq138)
 * [(139) Jak naprawić błąd „Użytkownik jest uwierzytelniony, ale nie ma połączenia”?](#user-content-faq139)
 * [(140) Dlaczego tekst wiadomości zawiera dziwne znaki?](#user-content-faq140)
 * [(141) Jak mogę naprawić „Folder szkiców jest wymagany do wysyłania wiadomości”?](#user-content-faq141)
@@ -288,13 +288,13 @@ The design is based on many discussions and if you like you can discuss about it
 * [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
 * [(163) What is message classification?](#user-content-faq163)
 * [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
+* [(165) Czy Android Auto jest obsługiwany?](#user-content-faq165)
 * [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
 
 [Mam kolejne pytanie.](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) Jakie uprawnienia są potrzebne i dlaczego**
 
 The following Android permissions are needed:
 

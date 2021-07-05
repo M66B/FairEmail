@@ -1507,7 +1507,7 @@ There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so
 
 Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML). In the signature editor you can switch to HTML mode via the three-dots menu.
 
-Note that if you switch back to the text editor that not all HTML might be rendered as-is because the Android text editor is not able to render all HTML. Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
+Tenga en cuenta que si vuelve al editor de texto, puede que no todo el HTML sea renderizado como es porque el editor de texto de Android no es capaz de renderizar todo el HTML. Similarly, if you use the text editor, the HTML might be altered in unexpected ways.
 
 If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/wiki/ASCII_art), you should wrap the text in a *pre* element, like this:
 

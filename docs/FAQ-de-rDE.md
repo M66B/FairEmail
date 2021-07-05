@@ -2073,43 +2073,43 @@ Wenn bei legitimen Nachrichten die Authentifizierung fehlschlägt, sollten Sie d
 
 FairEmail nutzt Dienste und Alarme, bietet Widgets und achtet darauf, dass das Gerät komplett gebootet hat, damit die App beim Start geöffnet werden kann. Deshalb ist es nicht möglich, die App auf einem externen Speichermedium, wie einer SD-Karte, zu speichern. Siehe auch [hier](https://developer.android.com/guide/topics/data/install-location).
 
-Messages, attachments, etc stored on external storage media, like an sdcard, can be accessed by other apps and is therefore not safe. See [here](https://developer.android.com/training/data-storage) for the details.
+Nachrichten, Anhänge usw., die auf externen Speichermedien, wie einer SD-Karte, gespeichert sind, können von anderen Apps abgerufen werden und sind daher nicht sicher. Siehe [hier](https://developer.android.com/training/data-storage) für Details.
 
-When needed you can save (raw) messages via the three-dots menu just above the message text and save attachments by tapping on the floppy icon.
+Bei Bedarf können Sie (Roh-)Nachrichten über das Drei-Punkte-Menü direkt über dem Nachrichtentext speichern und Anhänge speichern, indem Sie auf das Diskettensymbol tippen.
 
-If you need to save on storage space, you can limit the number of days messages are being synchronized and kept for. You can change these settings by long pressing a folder in the folder list and selecting *Edit properties*.
+Wenn Sie Speicherplatz sparen müssen, können Sie die Anzahl der Tage begrenzen, für die Nachrichten synchronisiert und aufbewahrt werden. Sie können diese Einstellungen ändern, indem Sie lange auf einen Ordner in der Ordnerliste drücken und *Eigenschaften bearbeiten* auswählen.
 
 <br />
 
 <a name="faq94"></a>
-**(94) What does the red/orange stripe at the end of the header mean?**
+**(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Headers?**
 
-The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed. Siehe auch [diese F&A](#user-content-faq92).
+Der rot-orangefarbene Streifen auf der linken Seite des Headers bedeutet, dass die Authentifizierung von DKIM, SPF oder DMARC fehlgeschlagen ist. Siehe auch [diese F&A](#user-content-faq92).
 
 <br />
 
 <a name="faq95"></a>
-**(95) Why are not all apps shown when selecting an attachment or image?**
+**(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?**
 
-For privacy and security reasons FairEmail does not have permissions to directly access files, instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
+Aus Datenschutz- und Sicherheitsgründen hat FairEmail keine Berechtigungen, um auf Dateien direkt zuzugreifen. Für diesen Zweck wird das Storage Access Framework verwendet und empfohlen, das seit Android 4.4 KitKat (veröffentlicht 2013) verfügbar ist.
 
-If an app is listed depends on if the app implements a [document provider](https://developer.android.com/guide/topics/providers/document-provider). If the app is not listed, you might need to ask the developer of the app to add support for the Storage Access Framework.
+Ob eine App aufgelistet ist, hängt davon ab, ob die App einen [Dokumentenanbieter](https://developer.android.com/guide/topics/providers/document-provider) implementiert. Wenn die App nicht aufgelistet ist, müssen Sie den Entwickler der App bitten, Unterstützung für das Storage Access Framework hinzuzufügen.
 
 Android Q macht es schwieriger und vielleicht sogar unmöglich, direkt auf Dateien zuzugreifen, siehe [hier](https://developer.android.com/preview/privacy/scoped-storage) und [hier](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) für weitere Details.
 
 <br />
 
 <a name="faq96"></a>
-**(96) Where can I find the IMAP and SMTP settings?**
+**(96) Wo finde ich die IMAP-und SMTP-Einstellungen?**
 
-The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
+Die IMAP-Einstellungen sind Teil der (benutzerdefinierten) Kontoeinstellungen und die SMTP-Einstellungen sind Teil der Identitätseinstellungen.
 
 <br />
 
 <a name="faq97"></a>
-**(97) What is 'cleanup' ?**
+**(97) Was ist 'Bereinigen' ?**
 
-About each four hours FairEmail runs a cleanup job that:
+Ungefähr alle vier Stunden führt FairEmail eine Bereinigung durch, der:
 
 * alte Nachrichten entfernt
 * alte Anhänge entfernt
@@ -2117,36 +2117,36 @@ About each four hours FairEmail runs a cleanup job that:
 * alte lokale Kontakte entfernt
 * alte Logeinträge entfernt
 
-Note that the cleanup job will only run when the synchronize service is active.
+Beachten Sie, dass die Bereinigung nur durchgeführt wird, wenn der Synchronisierungsdienst aktiv ist.
 
 <br />
 
 <a name="faq98"></a>
-**(98) Why can I still pick contacts after revoking contacts permissions?**
+**(98) Warum kann ich immer noch Kontakte auswählen, wenn ich Kontaktberechtigungen widerrufen habe?**
 
-After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore. However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
+Nach dem Widerrufen der Kontaktberechtigungen erlaubt Android FairEmail keinen Zugriff mehr auf Ihre Kontakte. Das Aussuchen von Kontakten wird jedoch an Android delegiert und nicht durch FairEmail, so dass dies ohne Kontaktberechtigungen möglich ist.
 
 <br />
 
 <a name="faq99"></a>
-**(99) Can you add a rich text or markdown editor?**
+**(99) Kannst du einen Rich-Text oder Markdown-Editor hinzufügen?**
 
 FairEmail bietet eine einfache Textformatierung (fett, kursiv, unterstrichen, Textgröße und -farbe) über eine Symbolleiste, die nach der Auswahl eines Textes erscheint.
 
-A [Rich text](https://en.wikipedia.org/wiki/Formatted_text) or [Markdown](https://en.wikipedia.org/wiki/Markdown) editor would not be used by many people on a small mobile device and, more important, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned. See [here](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) for some more details about this.
+Ein [Rich-Text](https://en.wikipedia.org/wiki/Formatted_text) oder [Markdown](https://en.wikipedia.org/wiki/Markdown) Editor würde nicht von vielen Leuten auf einem kleinen mobilen Gerät verwendet werden und, wichtiger, Android unterstützt keinen Rich-Text-Editor und die meisten Rich Text-Editor Open-Source-Projekte wurden aufgegeben. Siehe [hier](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) für weitere Details darüber.
 
 <br />
 
 <a name="faq100"></a>
-**(100) How can I synchronize Gmail categories?**
+**(100) Wie kann ich Google-Mail-Kategorien synchronisieren?**
 
-You can synchronize Gmail categories by creating filters to label categorized messages:
+Sie können Google-Mail-Kategorien synchronisieren, indem Sie Filter erstellen, um kategorisierte Nachrichten zu kennzeichnen:
 
 * Erstellen Sie einen neuen Filter über Google Mail > Einstellungen (Rad) > Filter und blockierte Adressen > Erstellen Sie einen neuen Filter
-* Enter a category search (see below) in the *Has the words* field and click *Create filter*
-* Check *Apply the label* and select a label and click *Create filter*
+* Geben Sie eine Kategoriesuche (siehe unten) in das Feld *Hat die Wörter* ein und klicken Sie auf *Filter erstellen*
+* Überprüfen Sie *Beschriftung anwenden* und wählen Sie eine Beschriftung aus und klicken Sie auf *Filter erstellen*
 
-Possible categories:
+Mögliche Kategorien:
 
 ```
 category:social
@@ -2157,30 +2157,30 @@ category:promotions
 
 Leider ist das für den Ordner »Zurückgestellte Nachrichten« nicht möglich.
 
-You can use *Force sync* in the three-dots menu of the unified inbox to let FairEmail synchronize the folder list again and you can long press the folders to enable synchronization.
+Sie können *Synchronisation erzwingen* im Drei-Punkte-Menü des Sammeleingangs verwenden, um FairEmail erneut die Ordnerliste synchronisieren zu lassen und Sie können einen Ordner lange drücken, um die Synchronisierung zu aktivieren.
 
 <br />
 
 <a name="faq101"></a>
-**(101) What does the blue/orange dot at the bottom of the conversations mean?**
+**(101) Was bedeutet der blaue/orangefarbene Punkt am unteren Ende der Unterhaltung?**
 
-The dot shows the relative position of the conversation in the message list. The dot will be show orange when the conversation is the first or last in the message list, else it will be blue. The dot is meant as an aid when swiping left/right to go to the previous/next conversation.
+Der Punkt zeigt die relative Position der Unterhaltung in der Nachrichtenliste an. Der Punkt wird orange angezeigt, wenn die Unterhaltung der erste oder letzte in der Nachrichtenliste ist. Andernfalls ist er blau. Der Punkt ist als Hilfsmittel gedacht, wenn man links/rechts wischt, um zur vorherigen/nächsten Unterhaltung zu gelangen.
 
-The dot is disabled by default and can be enabled with the display settings *Show relative conversation position with a dot*.
+Der Punkt ist standardmäßig deaktiviert und kann mit den Anzeigeeinstellungen *relative Konversationsposition mit einem Punkt anzeigen* aktiviert werden.
 
 <br />
 
 <a name="faq102"></a>
-**(102) How can I enable auto rotation of images?**
+**(102) Wie kann ich die automatische Drehung von Bildern aktivieren?**
 
-Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default). However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct, which is not always the case. Particularly not when taking a photo with a camara app from FairEmail.
+Bilder werden automatisch gedreht, wenn die automatische Größe der Bilder in den Einstellungen aktiviert ist (standardmäßig aktiviert). Jedoch hängt die automatische Drehung von den [Exif-](https://en.wikipedia.org/wiki/Exif)Informationen ab, welche vorhanden und richtig sein müssen, was nicht immer der Fall ist. Insbesondere nicht beim Fotografieren mit einer Kamara-App aus FairEmail.
 
-Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) images can contain Exif information.
+Bitte beachten Sie, dass nur [JPEG-](https://en.wikipedia.org/wiki/JPEG) und [PNG-](https://en.wikipedia.org/wiki/Portable_Network_Graphics)Bilder Exif-Informationen enthalten können.
 
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**(104) Was muss ich über Fehlerberichte wissen?**
 
 * Fehlerberichte helfen FairEmail zu verbessern
 * Fehlermeldung ist optional und opt-in
@@ -2194,26 +2194,26 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <br />
 
 <a name="faq105"></a>
-**(105) How does the roam-like-at-home option work?**
+**(105) Wie funktioniert die roam-like-at-home-Option?**
 
-FairEmail will check if the country code of the SIM card and the country code of the network are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) and assumes no roaming if the country codes are equal and the advanced roam-like-at-home option is enabled.
+FairEmail prüft, ob der Ländercode der SIM-Karte und der Ländercode des Netzes in den [EU-Roam-like-at-home-Ländern](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent) liegen und nimmt kein Roaming an, wenn die Ländercodes gleich sind und die erweiterte Roam-like-at-home-Option aktiviert ist.
 
-So, you don't have to disable this option if you don't have an EU SIM or are not connected to an EU network.
+Sie müssen diese Option also nicht deaktivieren, wenn Sie keine EU-SIM-Karte haben oder nicht mit einem EU-Netzwerk verbunden sind.
 
 <br />
 
 <a name="faq106"></a>
-**(106) Which launchers can show a badge count with the number of unread messages?**
+**(106) Welche Launcher können die Anzahl ungelesener Nachrichten als Badge anzeigen?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
+[Finden Sie hier](https://github.com/leolin310148/ShortcutBadger#supported-launchers) eine Liste von Launchern, die die Anzahl der ungelesenen Nachrichten anzeigen können.
 
-Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+Beachten Sie, dass Nova Launcher „TeslaUnread” benötigt, was [nicht mehr unterstützt wird](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
-Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+Beachten Sie, dass die Benachrichtigungseinstellung *Startsymbol mit Anzahl der neuen Nachrichten anzeigen* aktiviert sein muss (Standard aktiviert).
 
-Only *new* unread messages in folders set to show new message notifications will be counted, so messages marked unread again and messages in folders set to not show new message notification will not be counted.
+Nur *neue* ungelesene Nachrichten in Ordnern, die für die Anzeige neuer Nachrichten gesetzt sind, werden gezählt, so dass Nachrichten, die erneut als ungelesen markiert werden und Nachrichten in Ordnern, die auf keine neue Nachrichtenbenachrichtigung eingestellt sind, nicht gezählt werden.
 
-Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled (default disabled). When enabled the badge count will be the same as the number of new message notifications. When disabled the badge count will be the number of unread messages, independent if they are shown in a notification or are new.
+Je nachdem, was Sie wollen, muss die Benachrichtigungseinstellungen *Lassen Sie die Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen* übereinstimmen (Standard deaktiviert) gesetzt werden. Wenn diese Funktion aktiviert ist, entspricht die Zahl der Kennzeichnung der Anzahl der Benachrichtigungen über neue Nachrichten. Wenn diese Funktion deaktiviert ist, wird die Anzahl der ungelesenen Nachrichten angezeigt, unabhängig davon, ob sie in einer Benachrichtigung angezeigt werden oder neu sind.
 
 This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
 

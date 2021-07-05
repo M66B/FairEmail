@@ -359,6 +359,7 @@
     <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>
     <string name="title_advanced_monospaced_pre">Χρήση γραμματοσειράς σταθερού πλάτους για προ-μορφοποιημένο κείμενο</string>
     <string name="title_advanced_text_color">Χρήση των χρωμάτων του κειμένου</string>
+    <string name="title_advanced_background_color">Χρήση χρωμάτων φόντου</string>
     <string name="title_advanced_text_size">Χρήση των μεγεθών του κειμένου</string>
     <string name="title_advanced_text_font">Χρήση των γραμματοσειρών</string>
     <string name="title_advanced_text_align">Χρήση της στοίχισης του κειμένου</string>

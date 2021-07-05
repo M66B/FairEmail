@@ -85,7 +85,7 @@
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
-    <string name="title_notification_sending_retry">L\'invio verrà riprovato in caso di modifiche alla connessione internet o di aggiornamento della posta in uscita</string>
+    <string name="title_notification_sending_retry">L\'invio sarà riprovato in caso di modifiche alla connessione Internet o aggiornando la posta in uscita</string>
     <string name="title_notification_sending_failed">Invio a %1$s fallito</string>
     <string name="title_notification_redacted">Redatto: autenticazione biometrica o PIN abilitata</string>
     <string name="title_factor_minutes">%1$d minuti</string>
@@ -109,7 +109,7 @@
     <string name="title_agree">Acconsento</string>
     <string name="title_disagree">Nego il consenso</string>
     <string name="title_version">Versione %1$s</string>
-    <string name="title_privacy_policy">Informativa sulla privacy</string>
+    <string name="title_privacy_policy">Politica sulla privacy</string>
     <string name="title_list_accounts">Profili</string>
     <string name="title_list_identities">Identità</string>
     <string name="title_edit_account">Modifica profilo</string>
@@ -312,8 +312,8 @@
     <string name="title_advanced_landscape3">Mostra il menu di navigazione in modalità orizzontale di default</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
-    <string name="title_advanced_cards_beige">Usa lo sfondo beige quando si utilizza lo stile carta (solo per temi chiari)</string>
-    <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo quando si utilizza lo stile tabulare</string>
+    <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>
+    <string name="title_advanced_tabular_background">Usa il colore della carta come colore di sfondo usando lo stile tabulare</string>
     <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi non letti usando lo stile della carta</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
@@ -359,7 +359,7 @@
     <string name="title_advanced_monospaced">Usa di default caratteri monospaziati per il testo del messaggio</string>
     <string name="title_advanced_monospaced_pre">Usa caratteri monospaziati per il testo preformattato</string>
     <string name="title_advanced_text_color">Usa i colori del testo</string>
-    <string name="title_advanced_background_color">Usa i colori di sfondo</string>
+    <string name="title_advanced_background_color">Usa i colori dello sfondo</string>
     <string name="title_advanced_text_size">Usa le dimensioni del testo</string>
     <string name="title_advanced_text_font">Usa i caratteri</string>
     <string name="title_advanced_text_align">Usa l\'allineamento testo</string>
@@ -430,13 +430,13 @@
     <string name="title_advanced_notify_action_snooze">Posticipa</string>
     <string name="title_advanced_notify_remove">Rimuovi la notifica del nuovo messaggio al tocco di una notifica</string>
     <string name="title_advanced_notify_clear">Rimuovi le notifiche dei nuovi messaggi alla visualizzazione dell\'elenco dei messaggi</string>
-    <string name="title_advanced_notify_subtext">Mostra il nome del profilo o della cartella come sotto-testo</string>
+    <string name="title_advanced_notify_subtext">Mostra il nome del profilo o della cartella come testo secondario</string>
     <string name="title_advanced_wearable_preview">Invia solo le notifiche con un\'anteprima del messaggio agli indossabili</string>
     <string name="title_advanced_notify_messaging">Usa il formato di notifica \'stile di messagistica\' di Android</string>
     <string name="title_advanced_biometrics_notify">Mostra il contenuto della notifica usando l\'autenticazione biometrica</string>
     <string name="title_advanced_light">Usa il LED di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
-    <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per la notifica di nuovi messaggi</string>
+    <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per le notifiche dei nuovi messaggi</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
     <string name="title_advanced_browse_links">Delega l\'apertura dei link ad Android</string>
     <string name="title_advanced_confirm_images">Conferma la visualizzazione dei messaggi</string>
@@ -852,7 +852,7 @@
     <string name="title_move_undo">Spostando in %1$s (%2$d)</string>
     <string name="title_open_with">Apri con</string>
     <string name="title_authentication_failed">Autenticazione %1$s fallita</string>
-    <string name="title_on_blocklist">Nella lista di blocco spam</string>
+    <string name="title_on_blocklist">Sull\'elenco di blocco spam</string>
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>
     <string name="title_receipt_text">Questa conferma di lettura riconosce solo che il messaggio è stato visualizzato. Non esiste garanzia che il destinatario ne abbia letti i contenuti.</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
@@ -987,7 +987,7 @@
     <string name="title_translating">Traducendo&#8230;</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
-    <string name="title_translate_tap">Tocca il testo che deve essere tradotto</string>
+    <string name="title_translate_tap">Tocca il testo da tradurre</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>
@@ -1051,11 +1051,11 @@
     <string name="title_signature_store">Memorizza</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_for_hint">Inserisci testo</string>
-    <string name="title_search_hint">        Per comminciare, la ricerca viene eseguita sul dispositivo.
-        Per cercare anche il server, tocca il pulsante Ricerca di nuovo.
+    <string name="title_search_hint">        Inizialmente, la ricerca è eseguita sul dispositivo.
+        Per cercare anche nel server, tocca il pulsante \'cerca di nuovo\'.
     </string>
-    <string name="title_search_index_hint">        La ricerca tramite l\'indice di ricerca è veloce, ma trova solo parole intere.
-        Le opzioni qui sotto permettono di continuare la ricerca sul server di posta elettronica.
+    <string name="title_search_index_hint">        La ricerca tramite indice di ricerca è veloce, ma trova solo parole intere.
+        Le opzioni seguenti servono a continuare la ricerca nel server email.
     </string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_size_hint">La ricerca dei messaggi per dimensione, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>

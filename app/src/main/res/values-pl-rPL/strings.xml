@@ -378,6 +378,7 @@
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced_pre">Użyj czcionki o stałej szerokości dla tekstu sformatowanego</string>
     <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
+    <string name="title_advanced_background_color">Użyj kolorów tła</string>
     <string name="title_advanced_text_size">Użyj rozmiarów tekstu</string>
     <string name="title_advanced_text_font">Użyj czcionek</string>
     <string name="title_advanced_text_align">Użyj wyrównania tekstu</string>
