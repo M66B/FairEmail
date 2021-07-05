@@ -2173,6 +2173,7 @@ public class HtmlHelper {
 
         final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
         final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
         int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
@@ -2460,9 +2461,9 @@ public class HtmlHelper {
                                     ssb.append("\n");
 
                                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                    setSpan(ssb, new QuoteSpan(colorPrimary), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                    setSpan(ssb, new QuoteSpan(colorBlockquote), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 else
-                                    setSpan(ssb, new QuoteSpan(colorPrimary, quoteStripe, quoteGap), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                    setSpan(ssb, new QuoteSpan(colorBlockquote, quoteStripe, quoteGap), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                                 break;
                             case "br":
                                 ssb.append('\n');

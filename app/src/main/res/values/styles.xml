@@ -3,6 +3,7 @@
     <attr name="colorRead" format="reference" />
     <attr name="colorUnread" format="reference" />
     <attr name="colorUnreadHighlight" format="reference" />
+    <attr name="colorBlockquote" format="reference" />
     <attr name="colorHighlight" format="reference" />
     <attr name="colorEncrypt" format="reference" />
     <attr name="colorSeparator" format="reference" />
@@ -437,6 +438,7 @@
         <item name="colorAccent">@color/darkSolarizedAccent</item>
 
         <item name="colorUnreadHighlight">@color/darkSolarizedAccent</item>
+        <item name="colorBlockquote">@color/darkSolarizedAccent</item>
 
         <item name="colorActionBackground">@color/darkSolarizedActionBackground</item>
 

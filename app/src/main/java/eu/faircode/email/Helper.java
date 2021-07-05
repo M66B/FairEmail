@@ -1035,9 +1035,13 @@ public class Helper {
     }
 
     static int resolveColor(Context context, int attr) {
+        return resolveColor(context, attr, 0xFF0000);
+    }
+
+    static int resolveColor(Context context, int attr, int def) {
         int[] attrs = new int[]{attr};
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs);
-        int color = a.getColor(0, 0xFF0000);
+        int color = a.getColor(0, def);
         a.recycle();
         return color;
     }

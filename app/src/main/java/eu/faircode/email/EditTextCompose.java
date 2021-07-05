@@ -151,6 +151,7 @@ public class EditTextCompose extends FixedEditText {
                     html = h;
 
                 final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
                 final int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
                 final int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
 
@@ -176,9 +177,9 @@ public class EditTextCompose extends FixedEditText {
                                 for (QuoteSpan span : spans) {
                                     QuoteSpan q;
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        q = new QuoteSpan(colorPrimary);
+                                        q = new QuoteSpan(colorBlockquote);
                                     else
-                                        q = new QuoteSpan(colorPrimary, quoteStripe, quoteGap);
+                                        q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
                                     ssb.setSpan(q,
                                             ssb.getSpanStart(span),
                                             ssb.getSpanEnd(span),
