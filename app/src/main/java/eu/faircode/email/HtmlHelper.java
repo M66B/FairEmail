@@ -129,6 +129,7 @@ public class HtmlHelper {
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
+    private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
     private static final float MIN_LUMINANCE = 0.7f;
     private static final int TAB_SIZE = 2;
     private static final int MAX_ALT = 250;
@@ -575,7 +576,10 @@ public class HtmlHelper {
                     kv.put(key, value);
                 }
 
-                for (String key : kv.keySet()) {
+                List<String> keys = new ArrayList<>(kv.keySet());
+                Collections.sort(keys); // background-color first
+
+                for (String key : keys) {
                     String value = kv.get(key);
                     switch (key) {
                         case "color":
@@ -588,18 +592,34 @@ public class HtmlHelper {
 
                             Integer color = parseColor(value);
 
-                            if (color != null && !view && dark) {
-                                float lum = (float) ColorUtils.calculateLuminance(color);
-                                if (lum < 0.1f)
-                                    color = null;
-                            }
+                            if ("color".equals(key)) {
+                                boolean bg = false;
+                                Element e = element;
+                                while (e != null && !bg)
+                                    if (e.hasAttr("x-background"))
+                                        bg = true;
+                                    else
+                                        e = e.parent();
 
-                            // TODO: take into account background colors
-                            if (color != null && view)
-                                if ("color".equals(key))
-                                    color = adjustColor(dark, textColorPrimary, color);
-                                else
-                                    color = adjustColor(!dark, textColorPrimaryInverse, color);
+                                if (!bg) {
+                                    if (color != null && !view && dark) {
+                                        float lum = (float) ColorUtils.calculateLuminance(color);
+                                        if (lum < 0.1f)
+                                            color = null;
+                                    }
+
+                                    if (color != null && view)
+                                        color = adjustColor(dark, textColorPrimary, color);
+                                }
+                            } else {
+                                if (color != null && !hasColor(color))
+                                    continue;
+
+                                if (color != null) {
+                                    String hex = String.format("#%06X", (0xFFFFFF & color));
+                                    element.attr("x-background", hex);
+                                }
+                            }
 
                             if (color == null) {
                                 element.removeAttr(key);
@@ -1574,6 +1594,14 @@ public class HtmlHelper {
             color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
 
         return (color & 0xFFFFFF);
+    }
+
+    private static boolean hasColor(int color) {
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        return (Math.abs(r - g) >= COLOR_THRESHOLD ||
+                Math.abs(r - b) >= COLOR_THRESHOLD);
     }
 
     // https://tools.ietf.org/html/rfc3676
@@ -2737,6 +2765,7 @@ public class HtmlHelper {
 
     static void clearAnnotations(Document d) {
         d.select("*")
+                .removeAttr("x-background")
                 .removeAttr("x-block")
                 .removeAttr("x-inline")
                 .removeAttr("x-paragraph")
