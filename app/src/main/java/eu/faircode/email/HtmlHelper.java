@@ -592,20 +592,19 @@ public class HtmlHelper {
 
                             Integer color = parseColor(value);
 
-                            // fromHtml does not support transparency
-                            //if (color != null)
-                            //    color = (0xFFFFFF & color);
-
                             if ("color".equals(key)) {
                                 boolean bg = false;
-                                Element e = element;
-                                while (e != null && !bg)
-                                    if (e.hasAttr("x-background"))
-                                        bg = true;
-                                    else
-                                        e = e.parent();
+                                if (background_color) {
+                                    Element e = element;
+                                    while (e != null && !bg)
+                                        if (e.hasAttr("x-background"))
+                                            bg = true;
+                                        else
+                                            e = e.parent();
+                                }
 
-                                // Keep color as-is when background set
+                                // Background color set:
+                                //   keep text color as-is
                                 if (!bg) {
                                     // Special case:
                                     //   external draft / dark background / dark font
@@ -629,15 +628,19 @@ public class HtmlHelper {
                                     element.attr("x-background", "true");
 
                                 if (dark) {
-                                    boolean fg = (parseColor(kv.get("color")) != null);
-                                    Element e = element;
-                                    while (e != null && !fg)
-                                        if (e.hasAttr("x-color"))
-                                            fg = true;
-                                        else
-                                            e = e.parent();
+                                    boolean fg = false;
+                                    if (text_color) {
+                                        fg = (parseColor(kv.get("color")) != null);
+                                        Element e = element;
+                                        while (e != null && !fg)
+                                            if (e.hasAttr("x-color"))
+                                                fg = true;
+                                            else
+                                                e = e.parent();
+                                    }
 
-                                    // Force foreground color
+                                    // Dark theme, background color with no text color:
+                                    //   force text color
                                     if (!fg)
                                         sb.append("color")
                                                 .append(':')
