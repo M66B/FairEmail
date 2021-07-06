@@ -3384,7 +3384,13 @@ class Core {
                 }
 
             boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
-            if (check_blocklist && !EntityFolder.isOutgoing(folder.type))
+            if (check_blocklist &&
+                    !have &&
+                    !EntityFolder.isOutgoing(folder.type) &&
+                    !EntityFolder.ARCHIVE.equals(folder.type) &&
+                    !EntityFolder.TRASH.equals(folder.type) &&
+                    !EntityFolder.JUNK.equals(folder.type) &&
+                    !Arrays.asList(message.keywords).contains(MessageHelper.FLAG_NOT_JUNK))
                 try {
                     message.blocklist = DnsBlockList.isJunk(
                             context, imessage.getHeader("Received"));
@@ -3410,11 +3416,7 @@ class Core {
 
                 runRules(context, imessage, account, folder, message, rules);
 
-                if (!have &&
-                        !EntityFolder.TRASH.equals(folder.type) &&
-                        !EntityFolder.JUNK.equals(folder.type) &&
-                        message.blocklist != null && message.blocklist &&
-                        !Arrays.asList(message.keywords).contains(MessageHelper.FLAG_NOT_JUNK)) {
+                if (message.blocklist != null && message.blocklist) {
                     boolean use_blocklist = prefs.getBoolean("use_blocklist", false);
                     if (use_blocklist) {
                         EntityLog.log(context, "Block list" +
