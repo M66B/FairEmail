@@ -29,6 +29,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
@@ -36,8 +37,14 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
+import org.bouncycastle.asn1.x509.GeneralName;
+
 import java.io.IOException;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -454,5 +461,48 @@ public class ConnectionHelper {
     static boolean airplaneMode(Context context) {
         return Settings.Global.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+    }
+
+    static List<String> getDnsNames(X509Certificate certificate) throws CertificateParsingException {
+        List<String> result = new ArrayList<>();
+
+        Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
+        if (altNames == null)
+            return result;
+
+        for (List altName : altNames)
+            if (altName.get(0).equals(GeneralName.dNSName))
+                result.add((String) altName.get(1));
+
+        return result;
+    }
+
+     static boolean matches(String server, List<String> names) {
+        for (String name : names)
+            if (matches(server, name)) {
+                Log.i("Trusted server=" + server + " name=" + name);
+                return true;
+            }
+        return false;
+    }
+
+    private static boolean matches(String server, String name) {
+        if (name.startsWith("*.")) {
+            // Wildcard certificate
+            String domain = name.substring(2);
+            if (TextUtils.isEmpty(domain))
+                return false;
+
+            int dot = server.indexOf(".");
+            if (dot < 0)
+                return false;
+
+            String cdomain = server.substring(dot + 1);
+            if (TextUtils.isEmpty(cdomain))
+                return false;
+
+            return domain.equalsIgnoreCase(cdomain);
+        } else
+            return server.equalsIgnoreCase(name);
     }
 }

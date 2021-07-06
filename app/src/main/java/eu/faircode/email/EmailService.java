@@ -38,7 +38,6 @@ import com.sun.mail.util.SocketConnectException;
 
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
 
 import java.io.ByteArrayOutputStream;
@@ -60,11 +59,9 @@ import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
-import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -835,12 +832,9 @@ public class EmailService implements AutoCloseable {
                             }
 
                             // Check host name
-                            List<String> names = getDnsNames(certificate);
-                            for (String name : names)
-                                if (matches(server, name)) {
-                                    Log.i("Trusted server=" + server + " name=" + name);
-                                    return;
-                                }
+                            List<String> names = ConnectionHelper.getDnsNames(certificate);
+                            if (ConnectionHelper.matches(server, names))
+                                return;
 
                             String error = server + " not in certificate: " + TextUtils.join(",", names);
                             Log.i(error);
@@ -968,40 +962,6 @@ public class EmailService implements AutoCloseable {
         @Override
         public String[] getSupportedCipherSuites() {
             return factory.getSupportedCipherSuites();
-        }
-
-        private static boolean matches(String server, String name) {
-            if (name.startsWith("*.")) {
-                // Wildcard certificate
-                String domain = name.substring(2);
-                if (TextUtils.isEmpty(domain))
-                    return false;
-
-                int dot = server.indexOf(".");
-                if (dot < 0)
-                    return false;
-
-                String cdomain = server.substring(dot + 1);
-                if (TextUtils.isEmpty(cdomain))
-                    return false;
-
-                return domain.equalsIgnoreCase(cdomain);
-            } else
-                return server.equalsIgnoreCase(name);
-        }
-
-        private static List<String> getDnsNames(X509Certificate certificate) throws CertificateParsingException {
-            List<String> result = new ArrayList<>();
-
-            Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
-            if (altNames == null)
-                return result;
-
-            for (List altName : altNames)
-                if (altName.get(0).equals(GeneralName.dNSName))
-                    result.add((String) altName.get(1));
-
-            return result;
         }
 
         private static boolean matches(X509Certificate certificate, @NonNull String trustedFingerprint) {
