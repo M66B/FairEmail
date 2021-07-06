@@ -39,7 +39,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -6580,9 +6579,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (language != null) {
                         TextView tv = view.findViewById(android.R.id.text1);
 
-                        Resources res = context.getResources();
-                        Drawable icon = res.getDrawable(language.icon);
-                        int iconSize = res.getDimensionPixelSize(R.dimen.menu_item_icon_size);
+                        Drawable icon = context.getDrawable(language.icon);
+                        int iconSize = context.getResources()
+                                .getDimensionPixelSize(R.dimen.menu_item_icon_size);
                         icon.setBounds(0, 0, iconSize, iconSize);
                         ImageSpan imageSpan = new CenteredImageSpan(icon);
 

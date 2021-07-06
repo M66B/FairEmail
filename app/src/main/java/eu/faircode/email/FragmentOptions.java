@@ -26,7 +26,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.graphics.Paint;
@@ -203,10 +202,10 @@ public class FragmentOptions extends FragmentBase {
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
 
-        Resources res = getResources();
-        int colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
+        final Context context = getContext();
+        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            Drawable d = res.getDrawable(PAGE_ICONS[i]);
+            Drawable d = context.getDrawable(PAGE_ICONS[i]);
             d.setColorFilter(colorAccent, PorterDuff.Mode.SRC_ATOP);
             SpannableStringBuilder title = new SpannableStringBuilder(getString(PAGE_TITLES[i]));
             if (i > 0)
