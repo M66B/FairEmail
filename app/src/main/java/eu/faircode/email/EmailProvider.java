@@ -40,6 +40,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,6 +53,9 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 public class EmailProvider implements Parcelable {
     public String id;
@@ -610,11 +615,20 @@ public class EmailProvider implements Parcelable {
             imaps.add(new Server(context, domain, "mx", 143));
             imaps.add(new Server(context, domain, null, 143));
 
-            for (Server server : imaps)
-                if (server.reachable.get()) {
+            Server untrusted = null;
+            for (Server server : imaps) {
+                Boolean result = server.reachable.get();
+                if (result == null) {
+                    if (untrusted == null)
+                        untrusted = server;
+                } else if (result) {
                     imap = server;
                     break;
                 }
+            }
+
+            if (imap == null)
+                imap = untrusted;
 
             if (imap == null)
                 throw new UnknownHostException(domain + " template");
@@ -634,11 +648,20 @@ public class EmailProvider implements Parcelable {
             smtps.add(new Server(context, domain, "mx", 465));
             smtps.add(new Server(context, domain, null, 465));
 
-            for (Server server : smtps)
-                if (server.reachable.get()) {
+            Server untrusted = null;
+            for (Server server : smtps) {
+                Boolean result = server.reachable.get();
+                if (result == null) {
+                    if (untrusted == null)
+                        untrusted = server;
+                } else if (result) {
                     smtp = server;
                     break;
                 }
+            }
+
+            if (smtp == null)
+                smtp = untrusted;
 
             if (smtp == null)
                 throw new UnknownHostException(domain + " template");
@@ -768,6 +791,36 @@ public class EmailProvider implements Parcelable {
                     try {
                         for (InetAddress iaddr : InetAddress.getAllByName(host)) {
                             InetSocketAddress address = new InetSocketAddress(iaddr, Server.this.port);
+
+                            if (BuildConfig.DEBUG) {
+                                SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                                try (SSLSocket socket = (SSLSocket) factory.createSocket()) {
+                                    Log.i("SSL connecting to " + address);
+                                    socket.setSoTimeout(SCAN_TIMEOUT);
+                                    socket.connect(address);
+                                    try {
+                                        socket.startHandshake();
+                                        Log.i("SSL connected " + address);
+                                        Certificate[] certs = socket.getSession().getPeerCertificates();
+                                        for (Certificate cert : certs)
+                                            if (cert instanceof X509Certificate) {
+                                                List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
+                                                if (ConnectionHelper.matches(host, names))
+                                                    return true;
+                                            }
+                                        Log.i("SSL untrusted " + address);
+                                        return null;
+                                    } catch (Throwable ex) {
+                                        // Port 143
+                                        // javax.net.ssl.SSLException: Unable to parse TLS packet header
+                                        Log.i("SSL handshake " + address + ": " + Log.formatThrowable(ex));
+                                        return true;
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.i("SSL unreachable " + address + ": " + Log.formatThrowable(ex));
+                                }
+                            }
+
                             try (Socket socket = new Socket()) {
                                 Log.i("Connecting to " + address);
                                 socket.connect(address, SCAN_TIMEOUT);
