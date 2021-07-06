@@ -2704,9 +2704,6 @@ public class FragmentCompose extends FragmentBase {
                 if (identity == null)
                     throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
-                if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction()))
-                    data.putExtra(OpenPgpApi.EXTRA_USER_ID, identity.email.toLowerCase(Locale.ROOT));
-
                 // Create files
                 File tmp = new File(context.getFilesDir(), "encryption");
                 if (!tmp.exists())
