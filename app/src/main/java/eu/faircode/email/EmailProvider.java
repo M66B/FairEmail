@@ -37,7 +37,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.cert.Certificate;
@@ -786,53 +785,57 @@ public class EmailProvider implements Parcelable {
 
             Log.i("Scanning " + host + ":" + port);
             this.reachable = executor.submit(new Callable<Boolean>() {
+                // Returns:
+                //   false: closed
+                //   true: listening
+                //   null: untrusted
                 @Override
                 public Boolean call() {
                     try {
                         for (InetAddress iaddr : InetAddress.getAllByName(host)) {
                             InetSocketAddress address = new InetSocketAddress(iaddr, Server.this.port);
 
-                            if (BuildConfig.DEBUG) {
-                                SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-                                try (SSLSocket socket = (SSLSocket) factory.createSocket()) {
-                                    Log.i("SSL connecting to " + address);
-                                    socket.setSoTimeout(SCAN_TIMEOUT);
-                                    socket.connect(address);
-                                    try {
-                                        socket.startHandshake();
-                                        Log.i("SSL connected " + address);
-                                        Certificate[] certs = socket.getSession().getPeerCertificates();
-                                        for (Certificate cert : certs)
-                                            if (cert instanceof X509Certificate) {
-                                                List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
-                                                if (ConnectionHelper.matches(host, names))
-                                                    return true;
-                                            }
-                                        Log.i("SSL untrusted " + address);
-                                        return null;
-                                    } catch (Throwable ex) {
-                                        // Port 143
-                                        // javax.net.ssl.SSLException: Unable to parse TLS packet header
-                                        Log.i("SSL handshake " + address + ": " + Log.formatThrowable(ex));
-                                        return true;
-                                    }
-                                } catch (Throwable ex) {
-                                    Log.i("SSL unreachable " + address + ": " + Log.formatThrowable(ex));
-                                }
-                            }
-
-                            try (Socket socket = new Socket()) {
-                                Log.i("Connecting to " + address);
+                            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                            try (SSLSocket socket = (SSLSocket) factory.createSocket()) {
+                                EntityLog.log(context, "Connecting to " + address);
                                 socket.connect(address, SCAN_TIMEOUT);
+
+                                try {
+                                    EntityLog.log(context, "Connected " + address);
+                                    socket.setSoTimeout(SCAN_TIMEOUT);
+                                    socket.startHandshake();
+                                    Certificate[] certs = socket.getSession().getPeerCertificates();
+                                    for (Certificate cert : certs)
+                                        if (cert instanceof X509Certificate) {
+                                            List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
+                                            if (ConnectionHelper.matches(host, names)) {
+                                                EntityLog.log(context, "Trusted " + address);
+                                                return true;
+                                            }
+                                        }
+                                    EntityLog.log(context, "Untrusted " + address);
+                                    return null;
+                                } catch (Throwable ex) {
+                                    // Typical:
+                                    //   javax.net.ssl.SSLException: Unable to parse TLS packet header
+                                    EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
+                                }
+
                                 EntityLog.log(context, "Reachable " + address);
                                 return true;
                             } catch (Throwable ex) {
-                                Log.i("Unreachable " + address + ": " + Log.formatThrowable(ex));
+                                // Typical:
+                                //   java.net.ConnectException: failed to connect to ...
+                                //     android.system.ErrnoException: isConnected failed: ECONNREFUSED (Connection refused)
+                                EntityLog.log(context, "Unreachable " + address + ": " + Log.formatThrowable(ex));
                             }
                         }
                         return false;
                     } catch (Throwable ex) {
-                        Log.w(ex);
+                        // Typical:
+                        //   java.net.UnknownHostException: Unable to resolve host
+                        //     android.system.GaiException: android_getaddrinfo failed: EAI_NODATA (No address associated with hostname)
+                        EntityLog.log(context, "Error " + host + ": " + Log.formatThrowable(ex));
                         return false;
                     }
                 }
