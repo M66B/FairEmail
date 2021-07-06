@@ -66,6 +66,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private TextView tvCharacters;
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
+    private TextView tvPatience;
 
     private TextView tvError;
     private TextView tvErrorHint;
@@ -102,6 +103,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvCharacters = view.findViewById(R.id.tvCharacters);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
+        tvPatience = view.findViewById(R.id.tvPatience);
 
         tvError = view.findViewById(R.id.tvError);
         tvErrorHint = view.findViewById(R.id.tvErrorHint);
@@ -198,6 +200,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvImapFingerprint.setText(null);
         tvSmtpFingerprint.setText(null);
         pbCheck.setVisibility(View.GONE);
+        tvPatience.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
@@ -225,6 +228,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 Helper.setViewsEnabled(view, false);
                 pbCheck.setVisibility(check ? View.VISIBLE : View.GONE);
+                tvPatience.setVisibility(check ? View.VISIBLE : View.GONE);
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
@@ -237,6 +241,7 @@ public class FragmentQuickSetup extends FragmentBase {
             protected void onPostExecute(Bundle args) {
                 Helper.setViewsEnabled(view, true);
                 pbCheck.setVisibility(View.GONE);
+                tvPatience.setVisibility(View.GONE);
                 pbSave.setVisibility(View.GONE);
             }
 

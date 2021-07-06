@@ -162,6 +162,7 @@
     <string name="title_setup_quick_accounts">Add or change accounts</string>
     <string name="title_setup_quick_support">Some providers make it difficult to add an account. Please do not blame FairEmail for this, but ask for support instead.</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Please be patient &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server to receive messages</string>0
     <string name="title_setup_quick_smtp">SMTP server to send messages</string>0
     <string name="title_setup_wizard">Wizard</string>
