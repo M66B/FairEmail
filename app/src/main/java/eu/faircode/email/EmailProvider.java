@@ -620,7 +620,7 @@ public class EmailProvider implements Parcelable {
 
             Server untrusted = null;
             for (Server server : imaps) {
-                Boolean result = server.reachable.get();
+                Boolean result = server.isReachable.get();
                 if (result == null) {
                     if (untrusted == null)
                         untrusted = server;
@@ -653,7 +653,7 @@ public class EmailProvider implements Parcelable {
 
             Server untrusted = null;
             for (Server server : smtps) {
-                Boolean result = server.reachable.get();
+                Boolean result = server.isReachable.get();
                 if (result == null) {
                     if (untrusted == null)
                         untrusted = server;
@@ -778,7 +778,7 @@ public class EmailProvider implements Parcelable {
         public int port;
         public boolean starttls;
 
-        private Future<Boolean> reachable;
+        private Future<Boolean> isReachable;
 
         private Server() {
         }
@@ -788,7 +788,7 @@ public class EmailProvider implements Parcelable {
             this.port = port;
 
             Log.i("Scanning " + host + ":" + port);
-            this.reachable = executor.submit(new Callable<Boolean>() {
+            this.isReachable = executor.submit(new Callable<Boolean>() {
                 // Returns:
                 //   false: closed
                 //   true: listening
