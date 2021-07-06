@@ -351,6 +351,9 @@ public class StyleHelper {
                         Log.breadcrumb("style", "action", "alignment");
 
                         Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
+                        if (paragraph == null)
+                            return false;
+
                         int s = paragraph.first;
                         int e = paragraph.second;
 
@@ -421,6 +424,9 @@ public class StyleHelper {
                         float textSize = Helper.getTextSize(context, 0) * message_zoom / 100f;
 
                         Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
+                        if (paragraph == null)
+                            return false;
+
                         int s = paragraph.first;
                         int e = paragraph.second;
 
@@ -494,6 +500,8 @@ public class StyleHelper {
                         int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
 
                         Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
+                        if (paragraph == null)
+                            return false;
 
                         QuoteSpan q;
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
@@ -680,6 +688,8 @@ public class StyleHelper {
         else if (span instanceof QuoteSpan) {
             ParagraphStyle ps = (ParagraphStyle) span;
             Pair<Integer, Integer> p = ensureParagraph(edit, start, end);
+            if (p == null)
+                return;
             edit.setSpan(clone(span, ps.getClass(), context), p.first, p.second, flags);
         }
     }
