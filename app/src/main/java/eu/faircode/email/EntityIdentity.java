@@ -157,12 +157,12 @@ public class EntityIdentity {
         if (cother.length != 2 || cemail.length != 2)
             return false;
 
-        // Domain
-        if (!cother[1].equalsIgnoreCase(cemail[1]))
-            return false;
-
-        // User
         if (TextUtils.isEmpty(sender_extra_regex)) {
+            // Domain
+            if (!cother[1].equalsIgnoreCase(cemail[1]))
+                return false;
+
+            // User
             int plus = cother[0].indexOf('+');
             String user = (plus < 0 ? cother[0] : cother[0].substring(0, plus));
             if (user.equalsIgnoreCase(cemail[0]))

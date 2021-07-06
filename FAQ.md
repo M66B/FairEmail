@@ -1440,6 +1440,7 @@ It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expr
 to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
+Since version 1.1640 it is possible to match the full email address with a regex, which can be useful for matching alias domain names.
 
 If you like to match a catch-all email address, this regex is mostly okay:
 
