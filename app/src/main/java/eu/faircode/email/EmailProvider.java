@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.system.ErrnoException;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -55,6 +57,8 @@ import java.util.concurrent.Future;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+
+import static android.system.OsConstants.ECONNREFUSED;
 
 public class EmailProvider implements Parcelable {
     public String id;
@@ -828,6 +832,12 @@ public class EmailProvider implements Parcelable {
                                 //   java.net.ConnectException: failed to connect to ...
                                 //     android.system.ErrnoException: isConnected failed: ECONNREFUSED (Connection refused)
                                 EntityLog.log(context, "Unreachable " + address + ": " + Log.formatThrowable(ex));
+
+                                // Skip other addresses
+                                if (ex instanceof ConnectException &&
+                                        ex.getCause() instanceof ErrnoException &&
+                                        ((ErrnoException) ex.getCause()).errno == ECONNREFUSED)
+                                    return false;
                             }
                         }
                         return false;
