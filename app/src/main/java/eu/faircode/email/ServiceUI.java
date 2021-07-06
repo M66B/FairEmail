@@ -187,7 +187,7 @@ public class ServiceUI extends IntentService {
             cleared = db.message().ignoreAll(null, -group);
         else
             cleared = db.message().ignoreAll(group == 0 ? null : group, null);
-        Log.i("Cleared=" + cleared);
+        EntityLog.log(this, "Notify clear group=" + group + " cleared=" + cleared);
     }
 
     private void cancel(long group, long id) {
