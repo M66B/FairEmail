@@ -495,38 +495,12 @@ public class StyleHelper {
 
                         Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
 
-                        boolean has = false;
-                        QuoteSpan[] spans = edit.getSpans(paragraph.first, paragraph.second, QuoteSpan.class);
-                        for (QuoteSpan span : spans) {
-                            int s = edit.getSpanStart(span);
-                            int e = edit.getSpanEnd(span);
-                            int f = edit.getSpanFlags(span);
-                            edit.removeSpan(span);
-
-                            QuoteSpan q1;
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                q1 = new QuoteSpan(span.getColor());
-                            else
-                                q1 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
-
-                            QuoteSpan q2;
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                q2 = new QuoteSpan(span.getColor());
-                            else
-                                q2 = new QuoteSpan(span.getColor(), span.getStripeWidth(), span.getGapWidth());
-
-                            if (splitSpan(edit, paragraph.first, paragraph.second, s, e, f, false, q1, q2))
-                                has = true;
-                        }
-
-                        if (!has) {
-                            QuoteSpan q;
-                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                q = new QuoteSpan(colorBlockquote);
-                            else
-                                q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
-                            edit.setSpan(q, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                        }
+                        QuoteSpan q;
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                            q = new QuoteSpan(colorBlockquote);
+                        else
+                            q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
+                        edit.setSpan(q, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
                         etBody.setText(edit);
                         etBody.setSelection(paragraph.first, paragraph.second);
