@@ -3220,6 +3220,7 @@ The error *User is authenticated but not connected* might occur if:
 * The account password was changed: changing it in FairEmail too should fix the problem
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
+* IMAP was administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) how an administrator can enable it again
 
 The shared mailbox alias will mostly be the email address of the shared account, like this:
 
