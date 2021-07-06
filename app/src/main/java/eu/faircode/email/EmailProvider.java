@@ -607,16 +607,16 @@ public class EmailProvider implements Parcelable {
         if (discover == Discover.ALL || discover == Discover.IMAP) {
             List<Server> imaps = new ArrayList<>();
             // SSL
-            imaps.add(new Server(context, domain, "imap", 993));
-            imaps.add(new Server(context, domain, "imaps", 993));
-            imaps.add(new Server(context, domain, "mail", 993));
-            imaps.add(new Server(context, domain, "mx", 993));
-            imaps.add(new Server(context, domain, null, 993));
+            imaps.add(new Server(context, domain, "imap", 993, false));
+            imaps.add(new Server(context, domain, "imaps", 993, false));
+            imaps.add(new Server(context, domain, "mail", 993, false));
+            imaps.add(new Server(context, domain, "mx", 993, false));
+            imaps.add(new Server(context, domain, null, 993, false));
             // STARTTLS
-            imaps.add(new Server(context, domain, "imap", 143));
-            imaps.add(new Server(context, domain, "mail", 143));
-            imaps.add(new Server(context, domain, "mx", 143));
-            imaps.add(new Server(context, domain, null, 143));
+            imaps.add(new Server(context, domain, "imap", 143, true));
+            imaps.add(new Server(context, domain, "mail", 143, true));
+            imaps.add(new Server(context, domain, "mx", 143, true));
+            imaps.add(new Server(context, domain, null, 143, true));
 
             Server untrusted = null;
             for (Server server : imaps) {
@@ -640,16 +640,16 @@ public class EmailProvider implements Parcelable {
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             List<Server> smtps = new ArrayList<>();
             // STARTTLS
-            smtps.add(new Server(context, domain, "smtp", 587));
-            smtps.add(new Server(context, domain, "mail", 587));
-            smtps.add(new Server(context, domain, "mx", 587));
-            smtps.add(new Server(context, domain, null, 587));
+            smtps.add(new Server(context, domain, "smtp", 587, true));
+            smtps.add(new Server(context, domain, "mail", 587, true));
+            smtps.add(new Server(context, domain, "mx", 587, true));
+            smtps.add(new Server(context, domain, null, 587, true));
             // SSL
-            smtps.add(new Server(context, domain, "smtp", 465));
-            smtps.add(new Server(context, domain, "smtps", 465));
-            smtps.add(new Server(context, domain, "mail", 465));
-            smtps.add(new Server(context, domain, "mx", 465));
-            smtps.add(new Server(context, domain, null, 465));
+            smtps.add(new Server(context, domain, "smtp", 465, false));
+            smtps.add(new Server(context, domain, "smtps", 465, false));
+            smtps.add(new Server(context, domain, "mail", 465, false));
+            smtps.add(new Server(context, domain, "mx", 465, false));
+            smtps.add(new Server(context, domain, null, 465, false));
 
             Server untrusted = null;
             for (Server server : smtps) {
@@ -674,17 +674,11 @@ public class EmailProvider implements Parcelable {
         EmailProvider provider = new EmailProvider();
         provider.name = domain;
 
-        if (imap != null) {
-            provider.imap.host = imap.host;
-            provider.imap.port = imap.port;
-            provider.imap.starttls = (imap.port == 143);
-        }
+        if (imap != null)
+            provider.imap = imap;
 
-        if (smtp != null) {
-            provider.smtp.host = smtp.host;
-            provider.smtp.port = smtp.port;
-            provider.smtp.starttls = (smtp.port == 587);
-        }
+        if (smtp != null)
+            provider.smtp = smtp;
 
         provider.log(context);
         return provider;
@@ -700,8 +694,8 @@ public class EmailProvider implements Parcelable {
     }
 
     private void log(Context context) {
-        EntityLog.log(context, "imap=" + imap.host + ":" + imap.port + ":" + imap.starttls);
-        EntityLog.log(context, "smtp=" + smtp.host + ":" + smtp.port + ":" + smtp.starttls);
+        EntityLog.log(context, "imap=" + imap);
+        EntityLog.log(context, "smtp=" + smtp);
     }
 
     protected EmailProvider(Parcel in) {
@@ -783,11 +777,12 @@ public class EmailProvider implements Parcelable {
         private Server() {
         }
 
-        private Server(Context context, String domain, String prefix, int port) {
+        private Server(Context context, String domain, String prefix, int port, boolean starttls) {
             this.host = (prefix == null ? "" : prefix + ".") + domain;
             this.port = port;
+            this.starttls = starttls;
 
-            Log.i("Scanning " + host + ":" + port);
+            Log.i("Scanning " + this);
             this.isReachable = executor.submit(new Callable<Boolean>() {
                 // Returns:
                 //   false: closed
@@ -803,27 +798,28 @@ public class EmailProvider implements Parcelable {
                             try (SSLSocket socket = (SSLSocket) factory.createSocket()) {
                                 EntityLog.log(context, "Connecting to " + address);
                                 socket.connect(address, SCAN_TIMEOUT);
+                                EntityLog.log(context, "Connected " + address);
 
-                                try {
-                                    EntityLog.log(context, "Connected " + address);
-                                    socket.setSoTimeout(SCAN_TIMEOUT);
-                                    socket.startHandshake();
-                                    Certificate[] certs = socket.getSession().getPeerCertificates();
-                                    for (Certificate cert : certs)
-                                        if (cert instanceof X509Certificate) {
-                                            List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
-                                            if (ConnectionHelper.matches(host, names)) {
-                                                EntityLog.log(context, "Trusted " + address);
-                                                return true;
+                                if (!starttls)
+                                    try {
+                                        socket.setSoTimeout(SCAN_TIMEOUT);
+                                        socket.startHandshake();
+                                        Certificate[] certs = socket.getSession().getPeerCertificates();
+                                        for (Certificate cert : certs)
+                                            if (cert instanceof X509Certificate) {
+                                                List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
+                                                if (ConnectionHelper.matches(host, names)) {
+                                                    EntityLog.log(context, "Trusted " + address);
+                                                    return true;
+                                                }
                                             }
-                                        }
-                                    EntityLog.log(context, "Untrusted " + address);
-                                    return null;
-                                } catch (Throwable ex) {
-                                    // Typical:
-                                    //   javax.net.ssl.SSLException: Unable to parse TLS packet header
-                                    EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
-                                }
+                                        EntityLog.log(context, "Untrusted " + address);
+                                        return null;
+                                    } catch (Throwable ex) {
+                                        // Typical:
+                                        //   javax.net.ssl.SSLException: Unable to parse TLS packet header
+                                        EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
+                                    }
 
                                 EntityLog.log(context, "Reachable " + address);
                                 return true;
@@ -845,7 +841,7 @@ public class EmailProvider implements Parcelable {
                         // Typical:
                         //   java.net.UnknownHostException: Unable to resolve host
                         //     android.system.GaiException: android_getaddrinfo failed: EAI_NODATA (No address associated with hostname)
-                        EntityLog.log(context, "Error " + host + ": " + Log.formatThrowable(ex));
+                        EntityLog.log(context, "Error " + this + ": " + Log.formatThrowable(ex));
                         return false;
                     }
                 }
