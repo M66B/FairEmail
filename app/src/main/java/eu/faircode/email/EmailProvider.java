@@ -820,10 +820,15 @@ public class EmailProvider implements Parcelable {
 
                                 socket.setSoTimeout(SCAN_TIMEOUT);
 
-                                try (SSLSocket sslSocket = starttls
-                                        ? starttls(socket, context)
-                                        : (SSLSocket) socket) {
+                                SSLSocket sslSocket = null;
+                                try {
+                                    if (starttls)
+                                        sslSocket = starttls(socket, context);
+                                    else
+                                        sslSocket = (SSLSocket) socket;
+
                                     sslSocket.startHandshake();
+
                                     Certificate[] certs = sslSocket.getSession().getPeerCertificates();
                                     for (Certificate cert : certs)
                                         if (cert instanceof X509Certificate) {
@@ -842,6 +847,13 @@ public class EmailProvider implements Parcelable {
                                     // Typical:
                                     //   javax.net.ssl.SSLException: Unable to parse TLS packet header
                                     EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
+                                } finally {
+                                    try {
+                                        if (sslSocket != null)
+                                            sslSocket.close();
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
                                 }
 
                                 EntityLog.log(context, "Reachable " + address);
