@@ -126,6 +126,8 @@ public class HtmlHelper {
 
     static final float FONT_SMALL = 0.8f;
     static final float FONT_LARGE = 1.25f;
+    static final String QUOTE_STYLE = "border-left:3px solid #ccc; padding-left:3px;";
+
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
@@ -140,6 +142,7 @@ public class HtmlHelper {
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final String LINE = "----------------------------------------";
+
     private static final HashMap<String, Integer> x11ColorMap = new HashMap<>();
 
     static {
@@ -808,7 +811,6 @@ public class HtmlHelper {
                             }
                             break;
 
-                        case "border":
                         case "border-left":
                         case "border-right":
                             if (value != null) {
@@ -2031,9 +2033,13 @@ public class HtmlHelper {
                         if (prev != null &&
                                 "blockquote".equals(prev.tagName()) && hasBorder(prev))
                             return FilterResult.REMOVE;
-                        level++;
+                        else {
+                            level++;
+                            element.html("&#8230;");
+                        }
                     }
                 }
+
                 return FilterResult.CONTINUE;
             }
 
@@ -2041,11 +2047,10 @@ public class HtmlHelper {
             public FilterResult tail(Node node, int depth) {
                 if ("blockquote".equals(node.nodeName()))
                     level--;
+
                 return FilterResult.CONTINUE;
             }
         });
-
-        document.select("blockquote").html("&#8230;");
     }
 
     static String truncate(String text, int at) {

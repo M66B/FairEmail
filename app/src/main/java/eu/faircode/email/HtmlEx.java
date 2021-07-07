@@ -144,7 +144,7 @@ public class HtmlEx {
 
             for (Object quote : quotes) {
                 if (quote instanceof QuoteSpan)
-                    out.append("<blockquote style=\"border:3px solid #ccc; padding-left: 3px;\">");
+                    out.append("<blockquote style=\"" + eu.faircode.email.HtmlHelper.QUOTE_STYLE +"\">");
                 else
                     out.append("<blockquote>");
             }

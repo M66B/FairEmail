@@ -646,7 +646,14 @@ public class EntityRule {
         div.appendChild(p);
 
         Document answering = JsoupEx.parse(message.getFile(context));
-        div.appendChild(answering.body().tagName(quote ? "blockquote" : "p"));
+        Element e = answering.body();
+        if (quote) {
+            String style = e.attr("style");
+            style = HtmlHelper.mergeStyles(style, HtmlHelper.QUOTE_STYLE);
+            e.tagName("blockquote").attr("style", style);
+        } else
+            e.tagName("p");
+        div.appendChild(e);
 
         msg.body().appendChild(div);
 

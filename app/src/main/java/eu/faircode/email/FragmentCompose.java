@@ -4360,7 +4360,12 @@ public class FragmentCompose extends FragmentBase {
                             boolean quote = (quote_reply &&
                                     ("reply".equals(action) || "reply_all".equals(action) || "list".equals(action)));
 
-                            e.tagName(quote ? "blockquote" : "p");
+                            if (quote) {
+                                String style = e.attr("style");
+                                style = HtmlHelper.mergeStyles(style, HtmlHelper.QUOTE_STYLE);
+                                e.tagName("blockquote").attr("style", style);
+                            } else
+                                e.tagName("p");
                             reply.appendChild(e);
 
                             if (write_below)
