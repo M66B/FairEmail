@@ -234,175 +234,190 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/ibManual" />
 
-                <View
-                    android:id="@+id/vSeparatorManualTop"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:background="?attr/colorSeparator"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardManual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    app:cardBackgroundColor="@color/background_warning"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibManual" />
+                    app:layout_constraintTop_toBottomOf="@id/ibManual">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline_center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.5" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="6dp">
 
-                <Button
-                    android:id="@+id/btnAccount"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_account_circle_24"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_setup_accounts"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_center"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vSeparatorManualTop" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline_center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvAccount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:text="@string/title_setup_account_remark"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_center"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnAccount" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/classic"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_setup_classic"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvImap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_imap"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toStartOf="@+id/tvPop"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+                        <Button
+                            android:id="@+id/btnAccount"
+                            style="?android:attr/buttonStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:drawableEnd="@drawable/twotone_account_circle_24"
+                            android:drawablePadding="6dp"
+                            android:text="@string/title_setup_accounts"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/classic" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvPop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/title_pop3"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline_center"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/tvImap"
-                    app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:text="@string/title_setup_account_remark"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/btnAccount" />
 
-                <Button
-                    android:id="@+id/btnIdentity"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_person_24"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_setup_identities"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guideline_center"
-                    app:layout_constraintTop_toBottomOf="@id/vSeparatorManualTop" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvImap"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_imap"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toStartOf="@+id/tvPop"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvIdentity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:text="@string/title_setup_identity_remark"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/guideline_center"
-                    app:layout_constraintTop_toBottomOf="@id/btnIdentity" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvPop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="@string/title_pop3"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toEndOf="@id/tvImap"
+                            app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvSmtp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_smtp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toStartOf="@+id/tvAliases"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/guideline_center"
-                    app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
+                        <Button
+                            android:id="@+id/btnIdentity"
+                            style="?android:attr/buttonStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:drawableEnd="@drawable/twotone_person_24"
+                            android:drawablePadding="6dp"
+                            android:text="@string/title_setup_identities"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/guideline_center"
+                            app:layout_constraintTop_toBottomOf="@id/classic" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvAliases"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/title_aliases"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/tvSmtp"
-                    app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvIdentity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:text="@string/title_setup_identity_remark"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/guideline_center"
+                            app:layout_constraintTop_toBottomOf="@id/btnIdentity" />
 
-                <androidx.constraintlayout.widget.Barrier
-                    android:id="@+id/barrier_manual"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:barrierDirection="bottom"
-                    app:constraint_referenced_ids="tvImap,tvPop,tvSmtp,tvAliases" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvSmtp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_smtp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toStartOf="@+id/tvAliases"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toEndOf="@id/guideline_center"
+                            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvAccountIdentity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_setup_account_identity_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/barrier_manual" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvAliases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="@string/title_aliases"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toEndOf="@id/tvSmtp"
+                            app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvExchangeSupport"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_open_in_new_12"
-                    android:drawablePadding="6dp"
-                    android:drawableTint="?android:attr/textColorLink"
-                    android:text="@string/title_setup_exchange_support"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorLink"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAccountIdentity" />
+                        <androidx.constraintlayout.widget.Barrier
+                            android:id="@+id/barrier_manual"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="bottom"
+                            app:constraint_referenced_ids="tvImap,tvPop,tvSmtp,tvAliases" />
 
-                <eu.faircode.email.FixedTextView
-                    android:id="@+id/tvIdentityWhat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_open_in_new_12"
-                    android:drawablePadding="6dp"
-                    android:drawableTint="?android:attr/textColorLink"
-                    android:text="@string/title_setup_identity_what"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorLink"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvExchangeSupport" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvAccountIdentity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/title_setup_account_identity_hint"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/barrier_manual" />
 
-                <View
-                    android:id="@+id/vSeparatorManualBottom"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="12dp"
-                    android:background="?attr/colorSeparator"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvIdentityWhat" />
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvExchangeSupport"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:drawableEnd="@drawable/twotone_open_in_new_12"
+                            android:drawablePadding="6dp"
+                            android:drawableTint="?android:attr/textColorLink"
+                            android:text="@string/title_setup_exchange_support"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="?android:attr/textColorLink"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvAccountIdentity" />
+
+                        <eu.faircode.email.FixedTextView
+                            android:id="@+id/tvIdentityWhat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:drawableEnd="@drawable/twotone_open_in_new_12"
+                            android:drawablePadding="6dp"
+                            android:drawableTint="?android:attr/textColorLink"
+                            android:text="@string/title_setup_identity_what"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="?android:attr/textColorLink"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvExchangeSupport" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoComposable"
@@ -413,7 +428,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vSeparatorManualBottom" />
+                    app:layout_constraintTop_toBottomOf="@id/cardManual" />
 
                 <Button
                     android:id="@+id/btnInbox"
@@ -442,17 +457,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnInbox" />
-
-                <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpManual"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:constraint_referenced_ids="
-                        vSeparatorManualTop,
-                        btnAccount,tvAccount,tvImap,tvPop,
-                        btnIdentity,tvIdentity,tvSmtp,tvAliases,
-                        tvAccountIdentity,tvExchangeSupport,tvIdentityWhat,
-                        vSeparatorManualBottom" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

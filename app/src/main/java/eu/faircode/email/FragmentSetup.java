@@ -51,6 +51,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
@@ -71,6 +72,7 @@ public class FragmentSetup extends FragmentBase {
 
     private ImageButton ibManual;
     private TextView tvManual;
+    private CardView cardManual;
 
     private Button btnAccount;
 
@@ -94,7 +96,6 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnInbox;
 
-    private Group grpManual;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
 
@@ -129,6 +130,7 @@ public class FragmentSetup extends FragmentBase {
 
         ibManual = view.findViewById(R.id.ibManual);
         tvManual = view.findViewById(R.id.tvManual);
+        cardManual = view.findViewById(R.id.cardManual);
 
         btnAccount = view.findViewById(R.id.btnAccount);
 
@@ -152,7 +154,6 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
-        grpManual = view.findViewById(R.id.grpManual);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
@@ -581,7 +582,7 @@ public class FragmentSetup extends FragmentBase {
         }
 
         ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
-        grpManual.setVisibility(manual ? View.VISIBLE : View.GONE);
+        cardManual.setVisibility(manual ? View.VISIBLE : View.GONE);
     }
 
     @Override
