@@ -2292,7 +2292,7 @@ public class HtmlHelper {
             public FilterResult tail(Node node, int depth) {
                 return FilterResult.CONTINUE;
             }
-        }, d);
+        }, d.body());
 
         Log.i("Message size=" + length[0]);
         return (length[0] > max);
@@ -2303,7 +2303,7 @@ public class HtmlHelper {
         for (String t : texts)
             condition.put(t, false);
 
-        for (Element elm : d.select("*"))
+        for (Element elm : d.body().select("*"))
             for (Node child : elm.childNodes()) {
                 if (child instanceof TextNode) {
                     TextNode tnode = ((TextNode) child);
