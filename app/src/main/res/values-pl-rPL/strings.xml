@@ -142,6 +142,7 @@
     <string name="title_setup_quick_accounts">Dodaj lub zmień konta</string>
     <string name="title_setup_quick_support">Niektórzy dostawcy utrudniają dodanie konta. To nie jest wina FairEmail. W razie problemów poproś o pomoc.</string>
     <string name="title_setup_quick_hint">Szybka konfiguracja pobierze informacje o ustawieniach z autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Proszę o cierpliwość &#8230;</string>
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_wizard">Kreator</string>
@@ -377,8 +378,8 @@
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced_pre">Użyj czcionki o stałej szerokości dla tekstu sformatowanego</string>
-    <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
     <string name="title_advanced_background_color">Użyj kolorów tła</string>
+    <string name="title_advanced_text_color">Użyj kolorów tekstu</string>
     <string name="title_advanced_text_size">Użyj rozmiarów tekstu</string>
     <string name="title_advanced_text_font">Użyj czcionek</string>
     <string name="title_advanced_text_align">Użyj wyrównania tekstu</string>
@@ -617,6 +618,7 @@
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_color">Kolor</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Tło</string>
     <string name="title_transparent">Przeźroczysty</string>
     <string name="title_account_ondemand">Synchronizuj ręcznie</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>

@@ -347,8 +347,8 @@
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
     <string name="title_advanced_monospaced_pre">对预格式化的文本使用等宽字体</string>
-    <string name="title_advanced_text_color">使用文本颜色</string>
     <string name="title_advanced_background_color">使用背景颜色</string>
+    <string name="title_advanced_text_color">使用文本颜色</string>
     <string name="title_advanced_text_size">使用文本大小</string>
     <string name="title_advanced_text_font">使用字体</string>
     <string name="title_advanced_text_align">使用文本对齐</string>
@@ -618,7 +618,7 @@
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_self_identity">回复时去掉邮件地址</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
-    <string name="title_leave_deleted">将删除的消息保留在服务器上</string>
+    <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
     <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
@@ -1342,7 +1342,7 @@
     <string name="title_enable">启用</string>
     <string name="title_enabled">已启用</string>
     <string name="title_disable">禁用</string>
-    <string name="title_keep_current">保留当前</string>
+    <string name="title_keep_current">保持不变</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_default_changed">默认已更改</string>

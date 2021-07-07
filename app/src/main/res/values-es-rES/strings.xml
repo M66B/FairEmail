@@ -123,6 +123,7 @@
     <string name="title_setup_quick_accounts">Añadir o cambiar cuentas</string>
     <string name="title_setup_quick_support">Algunos proveedores hacen difícil añadir una cuenta. Por favor, no culpe a FairEmail por esto, en su lugar pida ayuda.</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Por favor, sea paciente &#8230;</string>
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_wizard">Asistente</string>
@@ -358,8 +359,8 @@
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
     <string name="title_advanced_monospaced_pre">Usar fuente monoespaciada para texto preformateado</string>
-    <string name="title_advanced_text_color">Usar colores de texto</string>
     <string name="title_advanced_background_color">Usar colores de fondo</string>
+    <string name="title_advanced_text_color">Usar colores de texto</string>
     <string name="title_advanced_text_size">Usar tamaños de texto</string>
     <string name="title_advanced_text_font">Usar fuentes</string>
     <string name="title_advanced_text_align">Usar alineación de texto</string>
@@ -598,6 +599,7 @@
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_color">Color</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Fondo</string>
     <string name="title_transparent">Transparente</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificaciones separadas</string>

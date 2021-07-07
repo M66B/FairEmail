@@ -123,6 +123,7 @@
     <string name="title_setup_quick_accounts">Ajouter ou modifier des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L’assistant récupérera les informations de configuration de autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Veuillez patienter&#8230;</string>
     <string name="title_setup_quick_imap">Serveur IMAP pour la réception des messages</string>
     <string name="title_setup_quick_smtp">Serveur SMTP pour l’envoi des messages</string>
     <string name="title_setup_wizard">Assistant</string>
@@ -358,8 +359,8 @@
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_monospaced_pre">Utiliser une police à espacement fixe pour le texte préformaté</string>
-    <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_background_color">Utiliser les couleurs d\'arrière-plan</string>
+    <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>
     <string name="title_advanced_text_align">Utiliser l\'alignement du texte</string>
@@ -598,6 +599,7 @@
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou fréquence de vérification des nouveaux messages</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_color">Couleur</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Arrière-plan</string>
     <string name="title_transparent">Transparent</string>
     <string name="title_account_ondemand">Synchroniser manuellement</string>
     <string name="title_account_notify">Notifications séparées</string>

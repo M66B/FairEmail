@@ -123,6 +123,7 @@
     <string name="title_setup_quick_accounts">Aggiungi o cambia profili</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un profilo. Sei pregato di non incolpare FairEmail per questo, ma piuttosto di chiedere supporto.</string>
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Sei pregato di pazientare&#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere i messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare i messaggi</string>
     <string name="title_setup_wizard">Procedura Guidata</string>
@@ -358,8 +359,8 @@
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa di default caratteri monospaziati per il testo del messaggio</string>
     <string name="title_advanced_monospaced_pre">Usa caratteri monospaziati per il testo preformattato</string>
-    <string name="title_advanced_text_color">Usa i colori del testo</string>
     <string name="title_advanced_background_color">Usa i colori dello sfondo</string>
+    <string name="title_advanced_text_color">Usa i colori del testo</string>
     <string name="title_advanced_text_size">Usa le dimensioni del testo</string>
     <string name="title_advanced_text_font">Usa i caratteri</string>
     <string name="title_advanced_text_align">Usa l\'allineamento testo</string>
@@ -598,6 +599,7 @@
     <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
     <string name="title_account_partial_fetch_hint">Disabilitalo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_color">Colore</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Sfondo</string>
     <string name="title_transparent">Trasparente</string>
     <string name="title_account_ondemand">Sincronizza manualmente</string>
     <string name="title_account_notify">Notifiche separate</string>

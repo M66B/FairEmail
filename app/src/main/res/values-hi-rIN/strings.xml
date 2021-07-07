@@ -3,10 +3,15 @@
     <string name="app_search">फेयारमेल से ढुंडे</string>
     <string name="app_changelog">परिवर्तन लॉग</string>
     <string name="app_welcome">फेयारमेल एक खुला स्रोत आप है जो एकांत(प्राइभेसी) और सुरक्षा को ध्यान रखता है।इसी कारण से इसी के कुछ लक्षण आप के पूर्व परिचित रूप से अलग ब्यबहार कर सकता है।</string>
+    <string name="app_limitations">उदाहरण के लिए, असुरक्षित तत्वों को हटाने और पठनीयता में सुधार के लिए संदेशों को डिफ़ॉल्ट रूप से पुन: स्वरूपित किया जाता है, और सुरक्षा के लिए लिंक खोलने की पुष्टि की जानी चाहिए। यदि वांछित हो तो दोनों को अक्षम किया जा सकता है.</string>
+    <string name="app_crash">फेयरईमेल इस डिवाइस पर समर्थित नहीं है क्योंकि एंड्रॉइड में बग क्रैश का कारण बनते हैं</string>
     <string name="app_exit">बाहर निकलने के लिए फिर से \'वापस\' पर क्लिक करें।</string>
     <string name="app_cake">नाकाफी स्टोरेज 	जगह</string>
+    <string name="app_updated">अंतिम अपडेट: %1$s</string>
     <string name="channel_service">प्राप्त करें</string>
     <string name="channel_send">भेजें</string>
+    <string name="channel_notification">ईमेल</string>
+    <string name="channel_progress">प्रगति</string>
     <string name="channel_update">अद्यतन</string>
     <string name="channel_warning">चेतावनी</string>
     <string name="channel_error">त्रुटियाँ</string>

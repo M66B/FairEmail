@@ -113,6 +113,7 @@
     <string name="title_setup_quick_accounts">Thêm hoặc đổi tài khoản</string>
     <string name="title_setup_quick_support">Một số nhà cung cấp làm cho việc thêm tài khoản khó khăn. Xin đừng đổ lỗi cho FairEmail vì việc này, mà hãy hỏi xin được hỗ trợ.</string>
     <string name="title_setup_quick_hint">Thiết lập nhanh sẽ lấy thông tin thiết lập từ autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Vui lòng kiên nhẫn &#8230;</string>
     <string name="title_setup_quick_imap">Máy chủ IMAP để nhận thư</string>
     <string name="title_setup_quick_smtp">Máy chủ SMTP để gửi thư</string>
     <string name="title_setup_wizard">Trình hướng dẫn</string>
@@ -348,8 +349,8 @@
     <string name="title_advanced_contrast">Sử dụng độ tương phản cao cho văn bản thư</string>
     <string name="title_advanced_monospaced">Sử dụng phông chữ đơn cách cho văn bản thư theo mặc định</string>
     <string name="title_advanced_monospaced_pre">Sử dụng phông chữ đơn cách cho văn bản đã định dạng trước</string>
-    <string name="title_advanced_text_color">Sử dụng màu sắc văn bản</string>
     <string name="title_advanced_background_color">Sử dụng màu nền</string>
+    <string name="title_advanced_text_color">Sử dụng màu sắc văn bản</string>
     <string name="title_advanced_text_size">Sử dụng kích cỡ văn bản</string>
     <string name="title_advanced_text_font">Sử dụng phông chữ</string>
     <string name="title_advanced_text_align">Sử dụng căn chỉnh văn bản</string>
@@ -587,6 +588,7 @@
     <string name="title_account_interval_hint">Tần số làm mới kết nối để nhận thông báo đẩy hoặc tần số kiểm tra thư mới</string>
     <string name="title_account_partial_fetch_hint">Chỉ tắt cái này trong trường hợp có thư trống hoặc tệp đính kèm bị hỏng</string>
     <string name="title_color">Màu săc</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Nền</string>
     <string name="title_transparent">Trong suốt</string>
     <string name="title_account_ondemand">Đồng bộ hoá thủ công</string>
     <string name="title_account_notify">Thông báo riêng</string>

@@ -112,6 +112,7 @@
     <string name="title_setup_quick_accounts">アカウントの追加または変更</string>
     <string name="title_setup_quick_support">一部のプロバイダはアカウントを追加しにくくしています。FairEmailを非難せずに、代わりにサポートを依頼してください。</string>
     <string name="title_setup_quick_hint">クイックセットアップはautoconfig.thunderbird.netから構成情報を取得します</string>
+    <string name="title_setup_quick_patience">しばらくお待ちください &#8230;</string>
     <string name="title_setup_quick_imap">メッセージを受信する為のIMAPサーバ</string>
     <string name="title_setup_quick_smtp">メッセージを送信する為のSMTPサーバ</string>
     <string name="title_setup_wizard">ウィザード</string>
@@ -347,8 +348,8 @@
     <string name="title_advanced_contrast">メッセージテキストにハイコントラストを使用</string>
     <string name="title_advanced_monospaced">デフォルトでメッセージテキストに等幅フォントを使用する</string>
     <string name="title_advanced_monospaced_pre">書式設定済みテキストに等幅フォントを使用する</string>
-    <string name="title_advanced_text_color">テキストの色を使用する</string>
     <string name="title_advanced_background_color">背景色を使用</string>
+    <string name="title_advanced_text_color">テキストの色を使用する</string>
     <string name="title_advanced_text_size">テキストのサイズを使用する</string>
     <string name="title_advanced_text_font">フォントを使用する</string>
     <string name="title_advanced_text_align">テキストの配置を使用</string>
@@ -586,6 +587,7 @@
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度又は新しいメッセージを確認する頻度</string>
     <string name="title_account_partial_fetch_hint">空のメッセージ又は破損した添付ファイルの場合にのみ無効</string>
     <string name="title_color">カラー</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">背景</string>
     <string name="title_transparent">透過</string>
     <string name="title_account_ondemand">手動で同期</string>
     <string name="title_account_notify">個別の通知</string>

@@ -131,6 +131,7 @@
     <string name="title_setup_quick_accounts">Додавання/зміна облікових записів</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
     <string name="title_setup_quick_hint">Швидке налаштування дасть інформацію про конфігурацію з autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Будь ласка, будьте терплячі &#8230;</string>
     <string name="title_setup_quick_imap">Сервер IMAP для отримання повідомлень</string>
     <string name="title_setup_quick_smtp">Сервер SMTP для надсилання повідомлень</string>
     <string name="title_setup_wizard">Майстер встановлення</string>
@@ -366,6 +367,7 @@
     <string name="title_advanced_contrast">Використовувати високо-контрастний текст для повідомленнь</string>
     <string name="title_advanced_monospaced">Використовувати моноширинний шрифт для тексту повідомлень за замовчуванням</string>
     <string name="title_advanced_monospaced_pre">Використовувати моноширинний шрифт для попередньо форматуванного тексту</string>
+    <string name="title_advanced_background_color">Колір тла</string>
     <string name="title_advanced_text_color">Використовувати кольори для тексту</string>
     <string name="title_advanced_text_size">Використовувати розмір тексту</string>
     <string name="title_advanced_text_font">Використовувати шрифти</string>
@@ -604,6 +606,7 @@
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
     <string name="title_color">Колір</string>
+    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Тло</string>
     <string name="title_transparent">Прозорість</string>
     <string name="title_account_ondemand">Синхронізувати вручну</string>
     <string name="title_account_notify">Окремі сповіщення</string>
