@@ -2376,21 +2376,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             args.putParcelable("actions", getConversationActions(message, document, context));
 
                         // Collapse quotes
-                        if (!show_quotes) {
-                            List<Element> successive = new ArrayList<>();
-                            for (Element quote : document.select("blockquote"))
-                                if (HtmlHelper.hasBorder(quote)) {
-                                    Element next = quote.nextElementSibling();
-                                    if (next != null &&
-                                            "blockquote".equals(next.tagName()) &&
-                                            HtmlHelper.hasBorder(next))
-                                        successive.add(quote);
-                                    else
-                                        quote.html("&#8230;");
-                                }
-                            for (Element quote : successive)
-                                quote.remove();
-                        }
+                        if (!show_quotes)
+                            HtmlHelper.collapseQuotes(document);
 
                         // Draw images
                         SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new Html.ImageGetter() {

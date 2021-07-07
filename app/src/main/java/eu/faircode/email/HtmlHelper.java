@@ -2018,6 +2018,39 @@ public class HtmlHelper {
         return "true".equals(e.attr("x-border"));
     }
 
+    static void collapseQuotes(Document document) {
+        document.body().filter(new NodeFilter() {
+            private int level = 0;
+
+            @Override
+            public FilterResult head(Node node, int depth) {
+                if (level > 0)
+                    return FilterResult.REMOVE;
+
+                if (node instanceof Element) {
+                    Element element = (Element) node;
+                    if ("blockquote".equals(element.tagName()) && hasBorder(element)) {
+                        Element prev = element.previousElementSibling();
+                        if (prev != null &&
+                                "blockquote".equals(prev.tagName()) && hasBorder(prev))
+                            return FilterResult.REMOVE;
+                        level++;
+                    }
+                }
+                return FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                if ("blockquote".equals(node.nodeName()))
+                    level--;
+                return FilterResult.CONTINUE;
+            }
+        });
+
+        document.select("blockquote").html("&#8230;");
+    }
+
     static String truncate(String text, int at) {
         if (text.length() < at)
             return text;
