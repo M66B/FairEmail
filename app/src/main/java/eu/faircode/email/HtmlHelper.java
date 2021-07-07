@@ -2006,10 +2006,7 @@ public class HtmlHelper {
         truncate(d, MAX_FULL_TEXT_SIZE);
 
         for (Element bq : d.select("blockquote"))
-            if (hasBorder(bq)) {
-                bq.prependChild(new TextNode("["));
-                bq.appendChild(new TextNode("]"));
-            }
+            bq.prependChild(new TextNode("> "));
 
         return d.text();
     }
