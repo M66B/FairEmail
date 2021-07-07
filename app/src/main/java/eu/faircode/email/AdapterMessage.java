@@ -2377,15 +2377,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         // Collapse quotes
                         if (!show_quotes) {
-                            List<Element> succesive = new ArrayList<>();
-                            for (Element quote : document.select("blockquote")) {
-                                Element next = quote.nextElementSibling();
-                                if (next != null && "blockquote".equals(next.tagName()))
-                                    succesive.add(quote);
-                                else
-                                    quote.html("&#8230;");
-                            }
-                            for (Element quote : succesive)
+                            List<Element> successive = new ArrayList<>();
+                            for (Element quote : document.select("blockquote"))
+                                if (HtmlHelper.hasBorder(quote)) {
+                                    Element next = quote.nextElementSibling();
+                                    if (next != null &&
+                                            "blockquote".equals(next.tagName()) &&
+                                            HtmlHelper.hasBorder(next))
+                                        successive.add(quote);
+                                    else
+                                        quote.html("&#8230;");
+                                }
+                            for (Element quote : successive)
                                 quote.remove();
                         }
 

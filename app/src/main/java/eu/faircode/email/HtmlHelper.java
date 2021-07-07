@@ -807,6 +807,17 @@ public class HtmlHelper {
                                 sb.append(key).append(':').append(value).append(';');
                             }
                             break;
+
+                        case "border":
+                        case "border-left":
+                        case "border-right":
+                            if (value != null) {
+                                // 1px solid rgb(204,204,204)
+                                Float border = getFontSize(value.trim().split("\\s+")[0], 1.0f);
+                                if (border != null && border > 0)
+                                    element.attr("x-border", "true");
+                            }
+                            break;
                     }
                 }
 
@@ -1989,12 +2000,17 @@ public class HtmlHelper {
     private static String _getText(Document d) {
         truncate(d, MAX_FULL_TEXT_SIZE);
 
-        for (Element bq : d.select("blockquote")) {
-            bq.prependChild(new TextNode("["));
-            bq.appendChild(new TextNode("]"));
-        }
+        for (Element bq : d.select("blockquote"))
+            if (hasBorder(bq)) {
+                bq.prependChild(new TextNode("["));
+                bq.appendChild(new TextNode("]"));
+            }
 
         return d.text();
+    }
+
+    static boolean hasBorder(Element e) {
+        return "true".equals(e.attr("x-border"));
     }
 
     static String truncate(String text, int at) {
@@ -2206,7 +2222,8 @@ public class HtmlHelper {
             int level = 1;
             Element parent = bq.parent();
             while (parent != null) {
-                if ("blockquote".equals(parent.tagName()))
+                if ("blockquote".equals(parent.tagName()) &&
+                        hasBorder(parent))
                     level++;
                 parent = parent.parent();
             }
@@ -2291,6 +2308,7 @@ public class HtmlHelper {
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
         int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
         int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
+        int intentSize = context.getResources().getDimensionPixelSize(R.dimen.indent_size);
         int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
         int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
         int line_dash_length = context.getResources().getDimensionPixelSize(R.dimen.line_dash_length);
@@ -2573,10 +2591,13 @@ public class HtmlHelper {
                                 if (ssb.length() == 0 || ssb.charAt(ssb.length() - 1) != '\n')
                                     ssb.append("\n");
 
-                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                    setSpan(ssb, new QuoteSpan(colorBlockquote), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                                else
-                                    setSpan(ssb, new QuoteSpan(colorBlockquote, quoteStripe, quoteGap), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                if (hasBorder(element)) {
+                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                                        setSpan(ssb, new QuoteSpan(colorBlockquote), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                    else
+                                        setSpan(ssb, new QuoteSpan(colorBlockquote, quoteStripe, quoteGap), start, ssb.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                                } else
+                                    setSpan(ssb, new IndentSpan(intentSize), start, ssb.length());
                                 break;
                             case "br":
                                 ssb.append('\n');
@@ -2858,7 +2879,8 @@ public class HtmlHelper {
                 .removeAttr("x-align")
                 .removeAttr("x-column")
                 .removeAttr("x-dashed")
-                .removeAttr("x-tracking");
+                .removeAttr("x-tracking")
+                .removeAttr("x-border");
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {

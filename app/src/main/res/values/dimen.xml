@@ -8,6 +8,7 @@
     <dimen name="bullet_gap_size">6dp</dimen>
     <dimen name="bullet_radius_size">3dp</dimen>
     <dimen name="bullet_indent_size">24dp</dimen>
+    <dimen name="indent_size">24dp</dimen>
     <dimen name="quote_gap_size">6dp</dimen>
     <dimen name="quote_stripe_width">3dp</dimen>
     <dimen name="line_dash_length">3dp</dimen>
