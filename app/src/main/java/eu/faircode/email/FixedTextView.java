@@ -357,6 +357,17 @@ public class FixedTextView extends AppCompatTextView {
             return super.onTextContextMenuItem(id);
         } catch (Throwable ex) {
             Log.e(ex);
+            /*
+                java.lang.RuntimeException: PARAGRAPH span must start at paragraph boundary
+                        at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:683)
+                        at android.text.SpannableStringBuilder.change(SpannableStringBuilder.java:423)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:534)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:492)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:34)
+                        at android.widget.TextView.paste(TextView.java:9761)
+                        at android.widget.TextView.onTextContextMenuItem(TextView.java:9434)
+                        at android.widget.Editor$TextActionModeCallback.onActionItemClicked(Editor.java:3303)
+             */
             return false;
         }
     }

@@ -246,7 +246,7 @@
                 app:srcCompat="@drawable/twotone_schedule_send_24"
                 app:tint="?attr/colorSeparator" />
 
-            <TextView
+            <eu.faircode.email.FixedTextView
                 android:id="@+id/tvOutboxCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -386,7 +386,7 @@
         app:srcCompat="@drawable/twotone_more_vert_24"
         app:tint="?attr/colorFabForeground" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/tvSelectedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

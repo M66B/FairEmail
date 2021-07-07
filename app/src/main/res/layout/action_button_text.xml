@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_lock_24" />
 
-    <TextView
+    <eu.faircode.email.FixedTextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
