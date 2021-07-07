@@ -2257,8 +2257,7 @@ public class HtmlHelper {
             int level = 1;
             Element parent = bq.parent();
             while (parent != null) {
-                if ("blockquote".equals(parent.tagName()) &&
-                        hasBorder(parent))
+                if ("blockquote".equals(parent.tagName())) // TODO: indentation
                     level++;
                 parent = parent.parent();
             }
