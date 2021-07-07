@@ -648,6 +648,18 @@ public class FragmentCompose extends FragmentBase {
                             etBody.setSelection(added);
                         }
 
+                        // Escape indent at end
+                        IndentSpan[] indents = text.getSpans(added + 1, added + 1, IndentSpan.class);
+                        for (IndentSpan indent : indents) {
+                            int s = text.getSpanStart(indent);
+                            int e = text.getSpanEnd(indent);
+                            int f = text.getSpanFlags(indent);
+                            if (e - 1 > s && added + 2 == e) {
+                                text.removeSpan(indent);
+                                text.setSpan(new IndentSpan(indent.getLeadingMargin(true)), s, e - 1, f);
+                            }
+                        }
+
                         boolean renum = false;
                         BulletSpan[] bullets = text.getSpans(added + 1, added + 1, BulletSpan.class);
                         for (BulletSpan span : bullets) {

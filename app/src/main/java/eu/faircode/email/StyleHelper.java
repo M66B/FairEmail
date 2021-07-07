@@ -169,11 +169,22 @@ public class StyleHelper {
                         level = ((NumberSpan) span).getLevel();
                     else if (span instanceof BulletSpanEx)
                         level = ((BulletSpanEx) span).getLevel();
+
                 popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setVisible(level >= 0);
                 popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setVisible(level > 0);
 
+                boolean decrease = false;
                 IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
-                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
+                for (IndentSpan indent : indents) {
+                    int s = edit.getSpanStart(indent);
+                    int e = edit.getSpanEnd(indent);
+                    if (s >= start && e <= end) {
+                        decrease = true;
+                        break;
+                    }
+                }
+
+                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(decrease);
 
                 popupMenu.insertIcons(context);
 
@@ -541,8 +552,12 @@ public class StyleHelper {
 
                         if (item.getItemId() == R.id.menu_style_indentation_decrease) {
                             IndentSpan[] indents = edit.getSpans(paragraph.first, paragraph.second, IndentSpan.class);
-                            if (indents.length > 0)
-                                edit.removeSpan(indents[0]);
+                            for (IndentSpan indent : indents) {
+                                int s = edit.getSpanStart(indent);
+                                int e = edit.getSpanEnd(indent);
+                                if (s >= start && e <= end)
+                                    edit.removeSpan(indent);
+                            }
                         } else {
                             Context context = etBody.getContext();
                             int intentSize = context.getResources().getDimensionPixelSize(R.dimen.indent_size);
