@@ -1101,9 +1101,12 @@ public class HtmlHelper {
                         boolean linked = false;
                         Element p = img.parent();
                         while (p != null && !linked)
-                            if ("a".equals(p.tagName()))
+                            if ("a".equals(p.tagName())) {
+                                String href = p.attr("href");
+                                if (TextUtils.isEmpty(href) || href.equals("#"))
+                                    break;
                                 linked = true;
-                            else
+                            } else
                                 p = p.parent();
                         if (linked)
                             alt = context.getString(R.string.title_image_link);
