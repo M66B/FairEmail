@@ -563,7 +563,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 host = Uri.decode(host);
                 text = "tel://" + host;
             } else if ("mailto".equals(scheme)) {
-                if (host != null) {
+                if (host == null) {
                     MailTo email = MailTo.parse(uri.toString());
                     host = UriHelper.getEmailDomain(email.getTo());
                 }
