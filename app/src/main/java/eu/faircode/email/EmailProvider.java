@@ -28,10 +28,13 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import com.sun.mail.util.LineInputStream;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,6 +42,8 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.cert.Certificate;
@@ -55,6 +60,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
+import javax.net.SocketFactory;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
@@ -237,6 +243,16 @@ public class EmailProvider implements Parcelable {
 
         if (PROPRIETARY.contains(domain))
             throw new IllegalArgumentException(context.getString(R.string.title_no_standard));
+
+        if (BuildConfig.DEBUG && false)
+            try {
+                // Scan ports
+                Log.i("Provider from template domain=" + domain);
+                return fromTemplate(context, domain, discover);
+            } catch (Throwable ex) {
+                Log.w(ex);
+                throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
+            }
 
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
@@ -794,32 +810,39 @@ public class EmailProvider implements Parcelable {
                         for (InetAddress iaddr : InetAddress.getAllByName(host)) {
                             InetSocketAddress address = new InetSocketAddress(iaddr, Server.this.port);
 
-                            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-                            try (SSLSocket socket = (SSLSocket) factory.createSocket()) {
+                            SocketFactory factory = (starttls
+                                    ? SocketFactory.getDefault()
+                                    : SSLSocketFactory.getDefault());
+                            try (Socket socket = factory.createSocket()) {
                                 EntityLog.log(context, "Connecting to " + address);
                                 socket.connect(address, SCAN_TIMEOUT);
                                 EntityLog.log(context, "Connected " + address);
 
-                                if (!starttls)
-                                    try {
-                                        socket.setSoTimeout(SCAN_TIMEOUT);
-                                        socket.startHandshake();
-                                        Certificate[] certs = socket.getSession().getPeerCertificates();
-                                        for (Certificate cert : certs)
-                                            if (cert instanceof X509Certificate) {
-                                                List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
-                                                if (ConnectionHelper.matches(host, names)) {
-                                                    EntityLog.log(context, "Trusted " + address);
-                                                    return true;
-                                                }
+                                socket.setSoTimeout(SCAN_TIMEOUT);
+
+                                try (SSLSocket sslSocket = starttls
+                                        ? starttls(socket, context)
+                                        : (SSLSocket) socket) {
+                                    sslSocket.startHandshake();
+                                    Certificate[] certs = sslSocket.getSession().getPeerCertificates();
+                                    for (Certificate cert : certs)
+                                        if (cert instanceof X509Certificate) {
+                                            List<String> names = ConnectionHelper.getDnsNames((X509Certificate) cert);
+                                            EntityLog.log(context, "Certificate " + address +
+                                                    " " + TextUtils.join(",", names));
+                                            if (ConnectionHelper.matches(host, names)) {
+                                                EntityLog.log(context, "Trusted " + address);
+                                                return true;
                                             }
-                                        EntityLog.log(context, "Untrusted " + address);
-                                        return null;
-                                    } catch (Throwable ex) {
-                                        // Typical:
-                                        //   javax.net.ssl.SSLException: Unable to parse TLS packet header
-                                        EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
-                                    }
+                                        }
+
+                                    EntityLog.log(context, "Untrusted " + address);
+                                    return null;
+                                } catch (Throwable ex) {
+                                    // Typical:
+                                    //   javax.net.ssl.SSLException: Unable to parse TLS packet header
+                                    EntityLog.log(context, "Handshake " + address + ": " + Log.formatThrowable(ex));
+                                }
 
                                 EntityLog.log(context, "Reachable " + address);
                                 return true;
@@ -846,6 +869,74 @@ public class EmailProvider implements Parcelable {
                     }
                 }
             });
+        }
+
+        private SSLSocket starttls(Socket socket, Context context) throws IOException {
+            String response;
+            String command;
+            boolean has = false;
+
+            LineInputStream lis =
+                    new LineInputStream(
+                            new BufferedInputStream(
+                                    socket.getInputStream()));
+
+            if (port == 587) {
+                do {
+                    response = lis.readLine();
+                    if (response != null)
+                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                } while (response != null && !response.startsWith("220 "));
+
+                command = "EHLO " + EmailService.getDefaultEhlo() + "\n";
+                EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
+                socket.getOutputStream().write(command.getBytes());
+
+                do {
+                    response = lis.readLine();
+                    if (response != null) {
+                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                        if (response.contains("STARTTLS"))
+                            has = true;
+                    }
+                } while (response != null &&
+                        response.length() >= 4 && response.charAt(3) == '-');
+
+                if (has) {
+                    command = "STARTTLS\n";
+                    EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
+                    socket.getOutputStream().write(command.getBytes());
+                }
+            } else if (port == 143) {
+                do {
+                    response = lis.readLine();
+                    if (response != null) {
+                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                        if (response.contains("STARTTLS"))
+                            has = true;
+                    }
+                } while (response != null &&
+                        !response.startsWith("* OK"));
+
+                if (has) {
+                    command = "A001 STARTTLS\n";
+                    EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
+                    socket.getOutputStream().write(command.getBytes());
+                }
+            }
+
+            if (has) {
+                do {
+                    response = lis.readLine();
+                    if (response != null)
+                        EntityLog.log(context, socket.getRemoteSocketAddress() + " <" + response);
+                } while (response != null &&
+                        !(response.startsWith("A001 OK") || response.startsWith("220 ")));
+
+                SSLSocketFactory sslFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                return (SSLSocket) sslFactory.createSocket(socket, host, port, false);
+            } else
+                throw new SocketException("No STARTTLS");
         }
 
         @NonNull
