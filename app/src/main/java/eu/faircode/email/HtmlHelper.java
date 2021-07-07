@@ -126,7 +126,6 @@ public class HtmlHelper {
 
     static final float FONT_SMALL = 0.8f;
     static final float FONT_LARGE = 1.25f;
-    static final String QUOTE_STYLE = "border-left:3px solid #ccc; padding-left:3px;";
 
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
@@ -2011,6 +2010,22 @@ public class HtmlHelper {
             bq.prependChild(new TextNode("> "));
 
         return d.text();
+    }
+
+    static String getQuoteStyle(Element e) {
+        CharSequence text = e.text();
+        return getQuoteStyle(text, 0, text.length());
+    }
+
+    static String getQuoteStyle(CharSequence quoted, int start, int end) {
+        try {
+            if (TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(quoted, start, end))
+                return "border-right:3px solid #ccc; padding-left:3px;";
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        return "border-left:3px solid #ccc; padding-left:3px;";
     }
 
     static boolean hasBorder(Element e) {
