@@ -172,6 +172,9 @@ public class StyleHelper {
                 popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setVisible(level >= 0);
                 popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setVisible(level > 0);
 
+                IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
+                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
+
                 popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -198,6 +201,8 @@ public class StyleHelper {
                                     return setList(item);
                             } else if (groupId == R.id.group_style_blockquote) {
                                 return setBlockQuote(item);
+                            } else if (groupId == R.id.group_style_indentation) {
+                                return setIndentation(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
                             } else if (groupId == R.id.group_style_clear) {
@@ -503,12 +508,52 @@ public class StyleHelper {
                         if (paragraph == null)
                             return false;
 
+                        QuoteSpan[] quotes = edit.getSpans(paragraph.first, paragraph.second, QuoteSpan.class);
+                        for (QuoteSpan quote : quotes)
+                            edit.removeSpan(quote);
+
+                        if (quotes.length == 1)
+                            return true;
+
+                        IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
+                        for (IndentSpan indent : indents)
+                            edit.removeSpan(indent);
+
                         QuoteSpan q;
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                             q = new QuoteSpan(colorBlockquote);
                         else
                             q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
                         edit.setSpan(q, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+                        etBody.setText(edit);
+                        etBody.setSelection(paragraph.first, paragraph.second);
+
+                        return true;
+                    }
+
+                    private boolean setIndentation(MenuItem item) {
+                        Log.breadcrumb("style", "action", "indent");
+
+                        Pair<Integer, Integer> paragraph = ensureParagraph(edit, start, end);
+                        if (paragraph == null)
+                            return false;
+
+                        if (item.getItemId() == R.id.menu_style_indentation_decrease) {
+                            IndentSpan[] indents = edit.getSpans(paragraph.first, paragraph.second, IndentSpan.class);
+                            if (indents.length > 0)
+                                edit.removeSpan(indents[0]);
+                        } else {
+                            Context context = etBody.getContext();
+                            int intentSize = context.getResources().getDimensionPixelSize(R.dimen.indent_size);
+
+                            QuoteSpan[] quotes = edit.getSpans(start, end, QuoteSpan.class);
+                            for (QuoteSpan quote : quotes)
+                                edit.removeSpan(quote);
+
+                            IndentSpan is = new IndentSpan(intentSize);
+                            edit.setSpan(is, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                        }
 
                         etBody.setText(edit);
                         etBody.setSelection(paragraph.first, paragraph.second);

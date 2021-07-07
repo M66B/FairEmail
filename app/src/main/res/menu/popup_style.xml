@@ -113,9 +113,28 @@
             android:title="@string/title_style_blockquote" />
     </group>
 
+    <item
+        android:id="@+id/menu_style_indentation"
+        android:icon="@drawable/twotone_format_indent_increase_24"
+        android:orderInCategory="8"
+        android:title="@string/title_style_indentation">
+        <menu>
+            <group android:id="@+id/group_style_indentation">
+                <item
+                    android:id="@+id/menu_style_indentation_increase"
+                    android:icon="@drawable/twotone_format_indent_increase_24"
+                    android:title="@string/title_style_list_level_increase" />
+                <item
+                    android:id="@+id/menu_style_indentation_decrease"
+                    android:icon="@drawable/twotone_format_indent_decrease_24"
+                    android:title="@string/title_style_list_level_decrease" />
+            </group>
+        </menu>
+    </item>
+
     <group
         android:id="@+id/group_style_strikethrough"
-        android:orderInCategory="8">
+        android:orderInCategory="9">
         <item
             android:id="@+id/menu_style_strikethrough"
             android:icon="@drawable/twotone_format_strikethrough_24"
@@ -124,7 +143,7 @@
 
     <group
         android:id="@+id/group_style_clear"
-        android:orderInCategory="9">
+        android:orderInCategory="10">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"

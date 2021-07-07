@@ -814,8 +814,13 @@ public class HtmlHelper {
                             if (value != null) {
                                 // 1px solid rgb(204,204,204)
                                 Float border = getFontSize(value.trim().split("\\s+")[0], 1.0f);
-                                if (border != null && border > 0)
+                                if (border != null && border > 0) {
                                     element.attr("x-border", "true");
+                                    if (!view) {
+                                        sb.append("border-left").append(':').append("3px solid #ccc").append(';');
+                                        sb.append("padding-left").append(':').append("3px").append(';');
+                                    }
+                                }
                             }
                             break;
                     }
@@ -2950,6 +2955,8 @@ public class HtmlHelper {
             if (last != null && "br".equals(last.tagName()))
                 last.remove();
         }
+
+        Log.i("MMM " + doc.html());
 
         return doc.html();
     }

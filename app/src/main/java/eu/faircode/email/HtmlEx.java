@@ -136,16 +136,22 @@ public class HtmlEx {
                                   int option) {
         int next;
         for (int i = start; i < end; i = next) {
-            next = text.nextSpanTransition(i, end, QuoteSpan.class);
-            QuoteSpan[] quotes = text.getSpans(i, next, QuoteSpan.class);
+            int n1 = text.nextSpanTransition(i, end, QuoteSpan.class);
+            int n2 = text.nextSpanTransition(i, end, eu.faircode.email.IndentSpan.class);
+            Class type = (n1 < n2 ? QuoteSpan.class : eu.faircode.email.IndentSpan.class);
+            next = Math.min(n1, n2);
+            Object[] quotes = text.getSpans(i, next, type);
 
-            for (QuoteSpan quote : quotes) {
-                out.append("<blockquote>");
+            for (Object quote : quotes) {
+                if (quote instanceof QuoteSpan)
+                    out.append("<blockquote style=\"border:3px solid #ccc; padding-left: 3px;\">");
+                else
+                    out.append("<blockquote>");
             }
 
             withinBlockquote(out, text, i, next, option);
 
-            for (QuoteSpan quote : quotes) {
+            for (Object quote : quotes) {
                 out.append("</blockquote>\n");
             }
         }
