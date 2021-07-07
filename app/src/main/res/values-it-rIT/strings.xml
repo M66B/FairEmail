@@ -599,7 +599,7 @@
     <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
     <string name="title_account_partial_fetch_hint">Disabilitalo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_color">Colore</string>
-    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Sfondo</string>
+    <string name="title_background">Sfondo</string>
     <string name="title_transparent">Trasparente</string>
     <string name="title_account_ondemand">Sincronizza manualmente</string>
     <string name="title_account_notify">Notifiche separate</string>

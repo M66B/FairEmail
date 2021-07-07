@@ -588,7 +588,7 @@
     <string name="title_account_interval_hint">Tần số làm mới kết nối để nhận thông báo đẩy hoặc tần số kiểm tra thư mới</string>
     <string name="title_account_partial_fetch_hint">Chỉ tắt cái này trong trường hợp có thư trống hoặc tệp đính kèm bị hỏng</string>
     <string name="title_color">Màu săc</string>
-    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Nền</string>
+    <string name="title_background">Nền</string>
     <string name="title_transparent">Trong suốt</string>
     <string name="title_account_ondemand">Đồng bộ hoá thủ công</string>
     <string name="title_account_notify">Thông báo riêng</string>

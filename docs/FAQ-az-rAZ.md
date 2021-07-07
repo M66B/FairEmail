@@ -66,9 +66,9 @@ Zəhmət olmasa ümumi səhv mesajları və həlləri üçün [ buraya ](#user-c
 
 <h2><a name="known-problems"></a>Məlum problem</h2>
 
-* ~~ Android 5.1 və 6 </a> bir
+* ~~Android 5.1 və 6 </a> bir
 
- səhv, tətbiqlərin bəzən səhv bir zaman formatı göstərməsinə səbəb olur. Android ayarı * 24 saatlıq format istifadə edin * problemi müvəqqəti həll edə bilər. Keçid yolu əlavə edildi. ~~</li> 
+ səhv, tətbiqlərin bəzən səhv bir zaman formatı göstərməsinə səbəb olur. Android ayarı * 24 saatlıq format istifadə edin * problemi müvəqqəti həll edə bilər. Keçid yolu əlavə edildi.~~</li> 
   
   * ~~ Google Diskdəki bir [ səhv ](https://issuetracker.google.com/issues/126362828), Google Drive-a ixrac olunan faylların boş olmasına səbəb olur. Google bunu düzəltdi. ~~
 * ~~ AndroidX-də bir [ səhv ](https://issuetracker.google.com/issues/78495471) FairEmail-in bəzən uzun müddət basarkən və ya sürüşdürərkən qəzaya səbəb olur. Google bunu düzəltdi. ~~
@@ -98,7 +98,7 @@ Zəhmət olmasa ümumi səhv mesajları və həlləri üçün [ buraya ](#user-c
 * ~~ Rəngli ulduzlar ~~
 * ~~ Qovluq başına bildiriş parametrləri ~~
 * ~~ İmza üçün yerli şəkilləri seçin ~~ (bu şəkil faylının idarə edilməsini tələb etdiyi üçün və şəkillərin əksər e-poçt müştərilərində varsayılan olaraq göstərilmədiyi üçün əlavə olunmayacaq)
-* ~~ Bir qayda ilə uyğunlaşdırılmış mesajları göstərin
+* ~~Bir qayda ilə uyğunlaşdırılmış mesajları göstərin~~
 * ~~[ ManageSieve ](https://tools.ietf.org/html/rfc5804) ~~ (uyğun bir lisenziyaya sahib və asılılığı olmayan Java kitabxanaları mövcud deyil və bundan başqa FairEmail-in öz filtr qaydaları var)
 * ~~ Əlavələri olan / olmayan mesajları axtarın ~~ (bu əlavə edilə bilməz, çünki IMAP qoşmaların axtarışını dəstəkləmir)
 * ~~ Bir qovluq axtarın ~~ (hiyerarşik bir qovluq siyahısının süzülməsi problemlidir)
@@ -110,14 +110,14 @@ Zəhmət olmasa ümumi səhv mesajları və həlləri üçün [ buraya ](#user-c
 * ~~ Çimdik böyüt ~~ (sürüşmə siyahısında etibarlı bir şəkildə mümkün deyil; bunun əvəzinə tam mesaj görünüşü yaxınlaşdırıla bilər)
 * ~~ Daha kompakt qovluq görünüşü ~~
 * ~~ Siyahılar və cədvəllər düzəldin ~~ (bunun üçün zəngin bir mətn redaktoru lazımdır, bax [ bu Suallar ](#user-content-faq99))
-* ~~ Zoom mətn ölçüsünü çimdik
+* ~~Zoom mətn ölçüsünü çimdik~~
 * ~~ GIF'ləri göstər ~~
 * ~~ Temalar ~~ (boz rəngli və qaranlıq bir mövzu əlavə edildi, çünki əksər insanların istədiyi budur)
 * ~~ Hər hansı bir gün vaxtı vəziyyəti ~~ (hər gün həqiqətən tarixdən / tarixə uyğun deyil)
 * ~~ Əlavə olaraq göndərin ~~
 * ~~ Seçilmiş hesab üçün Widget ~~
-* ~~ Faylları əlavə etməyi xatırlat ~ ~
-* ~~ üçün şəkillər göstərmək üçün domenləri seçin (bu istifadə üçün çox çətin olacaq)
+* ~~Faylları əlavə etməyi xatırlat~~
+* ~~üçün şəkillər göstərmək üçün domenləri seçin~~ (bu istifadə üçün çox çətin olacaq)
 * ~~ Birləşdirilmiş ulduzlu mesajlara baxmaq ~~ (bunun üçün artıq xüsusi bir axtarış var)
 * ~~ Bildiriş əməliyyatını köçürün ~~
 * ~~ S / MIME dəstəyi ~~

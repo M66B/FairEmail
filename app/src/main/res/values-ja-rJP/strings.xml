@@ -119,6 +119,8 @@
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます。</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得したい場合</string>
     <string name="title_setup_manual">手動でのセットアップとアカウントのオプション</string>
+    <string name="title_setup_classic">クラシックな構成</string>
+    <string name="title_setup_documentation">正しいメールサーバー設定については、メールプロバイダーのドキュメントを参照してください</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
     <string name="title_setup_account_identity_hint">アカウント設定で名前、色、スワイプ操作を設定でき、またID設定で署名を設定することができます。</string>
@@ -587,7 +589,7 @@
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度又は新しいメッセージを確認する頻度</string>
     <string name="title_account_partial_fetch_hint">空のメッセージ又は破損した添付ファイルの場合にのみ無効</string>
     <string name="title_color">カラー</string>
-    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">背景</string>
+    <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
     <string name="title_account_ondemand">手動で同期</string>
     <string name="title_account_notify">個別の通知</string>
@@ -948,6 +950,7 @@
     <string name="title_style_font">フォント</string>
     <string name="title_style_font_default">デフォルト</string>
     <string name="title_style_blockquote">ブロック引用</string>
+    <string name="title_style_indentation" comment="title_style_indentation&#10;Title for style menu item to ident text">インデント</string>
     <string name="title_style_strikethrough">取り消し線</string>
     <string name="title_style_clear">書式をクリア</string>
     <string name="title_style_link">リンクを挿入</string>

@@ -2,7 +2,7 @@
 
 # FairEmail support
 
-If you have a question, please check the following frequently asked questions first. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+Als u een vraag hebt, controleer dan eerst de veelgestelde vragen. [Onderaan](#user-content-get-support), kun je ontdekken hoe je andere vragen kunt stellen zoals het aanvragen van functies en het melden van fouten.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -14,19 +14,19 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * [Geplande functies](#user-content-planned-features)
 * [Veelgevraagde functies](#user-content-frequently-requested-features)
 * [Veelgestelde vragen](#user-content-frequently-asked-questions)
-* [Get support](#user-content-get-support)
+* [Krijg ondersteuning](#user-content-get-support)
 
 <h2><a name="authorizing-accounts"></a>Account autoriseren</h2>
 
-In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
+In de meeste gevallen kan de snelle installatiewizard automatisch de juiste configuratie vinden.
 
-If the quick setup wizard fails, you'll need to manually set up an account (to receive email) and an identity (to send email). For this you'll need the IMAP and SMTP server addresses and port numbers, whether SSL/TLS or STARTTLS should be used and your username (mostly, but not always, your email address) and your password.
+Als de snelle installatie mislukt, moet u handmatig een account instellen (om e-mail te kunnen ontvangen) en een identiteit (om e-mail te kunnen verzenden). Hiervoor heb je de IMAP- en SMTP-serveradressen en poort nummers nodig, je moet weten of SSL/TLS of STARTTLS gebruikt moet worden en je moet je gebruikersnaam (meestal is dit u e-mail adres) en wachtwoord weten.
 
-Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+Zoeken naar *IMAP* en de naam van de provider is meestal genoeg om de juiste documentatie te vinden.
 
-In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
+In sommige gevallen moet je externe toegang tot je account en/of een speciaal (app) wachtwoord aanmaken, bijvoorbeeld wanneer tweefactorauthenticatie aan staat.
 
-For authorizing:
+Voor autorisatie:
 
 * Gmail / G suite, zie [ vraag 6 ](#user-content-faq6)
 * Outlook / Live / Hotmail, zie [ vraag 14 ](#user-content-faq14)
@@ -36,9 +36,9 @@ For authorizing:
 * Apple iCloud, zie [ vraag 148 ](#user-content-faq148)
 * Free.fr, zie [ vraag 157 ](#user-content-faq157)
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Kijk [hier](#user-content-faq22) voor veelvoorkomende foutmeldingen en oplossingen.
 
-Related questions:
+Gerelateerde vragen:
 
 * [Wordt OAuth ondersteund?](#user-content-faq111)
 * [Waarom wordt ActiveSync niet ondersteund?](#user-content-faq133)
@@ -47,49 +47,49 @@ Related questions:
 
 ## Hoe kan ik...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* Verander de account naam: Instellingen, klik op Handmatige setup, klik op Accounts, klik op account
+* Verander de naar links/rechts veeg actie: Instellingen, klik op Behavior, Stel veeg acties in
+* Verander wachtwoord: Instellingen, klik op Handmatige setup, klik op Accounts, klik op account, verander wachtwoord
+* Stel een handtekening in: Instellingen, klik op Handmatige setup, klik op Identiteiten, klik op identiteit, Pas handtekening aan.
 * CC- en BCC-adressen toevoegen: tik op het mensenpictogram aan het einde van het onderwerp
 * Ga naar het volgende / vorige bericht bij archiveren / verwijderen: schakel in de gedragsinstellingen * Conversaties automatisch sluiten * uit en selecteer * Ga naar volgend / vorig gesprek * voor * Bij het sluiten van een gesprek *
-* Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
-* Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
-* Load more messages: long press a folder in the folder list, select *Fetch more messages*
-* Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
-* Undo send: Outbox, swipe the message in the list left or right
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
-* Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: Settings, navigation (left side) menu
+* Voeg een map toe aan het gecombineerde postvak: houd de map lang ingedrukt in de mappenlijst en klik op *Toon in het gecombineerde postvak*
+* Voeg een map toe aan het navigatie menu: houd de map lang ingedrukt in de mappenlijst en klik op *Toon in het navigatie menu*
+* Laad meer berichten in: Houd de map lang ingedrukt in de mappenlijst, selecteer *Meer berichten ophalen*
+* Verwijder een bericht en sla de prullenbak over: houd het prullenbak icoon ingedrukt
+* Verwijder een account/identiteit: Instellingen, klik op Handmatige setup, klik op Accounts/Identiteiten, klik op de account/indentiteit, klik op het prullenbak icoon rechts boven
+* Verwijder een map: houd de map ingedrukt in de mappenlijst, klik op Bewerk eigenschappen, klik op het prullenbak icoon rechtsboven
+* Verzenden ongedaan maken: Outbox, veeg het bericht in de lijst naar links of naar rechts
+* Sla verzonden berichten op in de inbox: [bekijk deze FAQ](#user-content-faq142)
+* Systeemmappen wijzigen: Instellingen, klik op Handmatige setup, klik op Accounts, klik op account
+* Instellingen exporteren/importeren: Instellingen, navigatie menu (linkerkant)
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Bekende problemen</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
-* ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
-* Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
-* A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
+* ~~Een [bug in Android 5.1 en 6](https://issuetracker.google.com/issues/37054851) zorgt er voor dat apps soms een verkeerd tijdformaat laten zien. Het uitschakelen van de Android-instelling *Gebruik 24-uurs formaat* kan het probleem tijdelijk oplossen. Een oplossing is toegevoegd.~~
+* ~~Een [bug in Google Drive](https://issuetracker.google.com/issues/126362828) zorgt ervoor dat bestanden die zijn geëxporteerd naar Google Drive leeg zijn. Google heeft dit opgelost.~~
+* ~~Een [bug in AndroidX](https://issuetracker.google.com/issues/78495471) zorgt ervoor dat FairEmail af en toe crasht bij lang drukken of vegen. Google heeft dit opgelost.~~
+* ~~Een [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) veroorzaakt soms een crash met "*... Exception while computing database live data ... Couldn't read row ...*". Een oplossing is toegevoegd.~~
+* Een [bug in Android](https://issuetracker.google.com/issues/119872129) zorgt ervoor dat FairEmail crasht met "*... Verkeerde melding geplaast ...*" op sommige apparaten, één keer na het bijwerken van FairEmail en het tikken op een melding.
+* Een [bug in Android](https://issuetracker.google.com/issues/62427912) veroorzaakt soms een crash met "*... ActivityRecord not found for ...*" na het bijwerken van FairEmail. Opnieuw installeren ([bron](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) kan het probleem oplossen.
+* Een [bug in Android](https://issuetracker.google.com/issues/37018931) veroorzaakt soms een crash met *... InputChannel is not initialized ...* op sommige apparaten.
+* ~~Een [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) veroorzaakt soms een crash met *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=...*.~~
+* Een bug in Nova Launcher op Android 5.x zorgt ervoor dat FairEmail crasht met een *java.lang. tackOverflowError* wanneer Nova Launcher toegang heeft tot de toegankelijkheidsservice.
+* ~~Het mapselector toont soms geen mappen om nog onbekende redenen. Dit lijkt opgelost te zijn.~~
+* ~~Een [bug in AndroidX](https://issuetracker.google.com/issues/64729576) maakt het moeilijk om de snelle scroller te registreren.~~ Een oplossing is toegevoegd.~~
+* ~~Encryptie met YubiKey resulteert in een oneindige lus. Dit lijkt te worden veroorzaakt door een [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
+* Scrollen naar een interne gekoppelde locatie in het oorspronkelijke bericht werkt niet. Dit kan niet worden opgelost omdat de oorspronkelijke berichtweergave zich in een scrollmodus bevindt.
+* Een voorbeeld van een berichttekst wordt niet (altijd) op Samsung horloges weergegeven omdat [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) lijkt te worden genegeerd. Voorvertoningsteksten van berichten zijn bekend te werken op Pebble 2, Fitbit Charge 3, Mi band 3 en Xiaomi Amazfit BIP wearables. Zie ook [deze FAQ](#user-content-faq126).
+* Een [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) veroorzaakt een crash met *... Invalid offset: ... Valid range is...* wanneer tekst is geselecteerd en buiten de geselecteerde tekst wordt geklikt. Deze bug is opgelost in Android 6.0.1.
+* Interne (anchor) links werken niet omdat originele berichten worden getoond in een ingesloten WebView in een scrollende weergave (de gesprekslijst). Dit is een Android limitatie die niet kan worden opgelost of omheen kan worden gewerkt.
+* Taaldetectie [werkt niet meer](https://issuetracker.google.com/issues/173337263) op Pixel-apparaten bijgewerkt naar Android 11
+* Een [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) veroorzaakt ongeldige PGP-handtekeningen bij het gebruik van een hardware token.
 
 <h2><a name="planned-features"></a>Geplande functies</h2>
 
-* ~~Synchronize on demand (manual)~~
-* ~~Semi-automatic encryption~~
-* ~~Copy message~~
+* ~~Synchroniseren op aanvraag (handmatig)~~
+* ~~Semi-automatische encryptie~~
+* ~~Bericht kopiëren~~
 * ~~Colored stars~~
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)

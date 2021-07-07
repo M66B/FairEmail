@@ -130,6 +130,8 @@
     <string name="title_setup_wizard_multiple">El asistente puede utilizarse varias veces para configurar múltiples cuentas</string>
     <string name="title_setup_wizard_new">Necesito una nueva dirección de correo electrónico</string>
     <string name="title_setup_manual">Configuración manual y opciones de cuenta</string>
+    <string name="title_setup_classic">Configuración clásica</string>
+    <string name="title_setup_documentation">Por favor vea la documentación de su proveedor de correo electrónico para la correcta configuración del servidor de correo</string>
     <string name="title_setup_account_remark">Recibir correo electrónico</string>
     <string name="title_setup_identity_remark">Enviar correo electrónico</string>
     <string name="title_setup_account_identity_hint">Puede configurar el nombre, color y acciones de deslizamiento en la configuración de la cuenta, y configurar una firma en los ajustes de identidad</string>
@@ -599,7 +601,7 @@
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_color">Color</string>
-    <string name="title_background" comment="title_background&#10;Background (color)&#10;Please do not add &quot;color&quot; to the translation">Fondo</string>
+    <string name="title_background">Fondo</string>
     <string name="title_transparent">Transparente</string>
     <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificaciones separadas</string>
@@ -960,6 +962,7 @@
     <string name="title_style_font">Fuente</string>
     <string name="title_style_font_default">Por defecto</string>
     <string name="title_style_blockquote">Citar en bloque</string>
+    <string name="title_style_indentation" comment="title_style_indentation&#10;Title for style menu item to ident text">Sangría</string>
     <string name="title_style_strikethrough">Tachado</string>
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
