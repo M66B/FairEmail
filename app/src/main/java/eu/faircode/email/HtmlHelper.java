@@ -2755,7 +2755,8 @@ public class HtmlHelper {
                                 if (level > 0)
                                     level--;
 
-                                if (list == null || "ul".equals(list.tagName())) {
+                                if (list == null || ("ul".equals(list.tagName()) &&
+                                        !(ltype != null && ltype.startsWith("decimal")))) {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
                                     Object ul;
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
