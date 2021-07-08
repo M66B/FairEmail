@@ -71,7 +71,10 @@ public class BulletSpanEx extends BulletSpan {
     public int getLeadingMargin(boolean first) {
         // https://issuetracker.google.com/issues/36956124
         // This is called before drawLeadingMargin to justify the text
-        return indentWidth * (level + 1) + super.getLeadingMargin(first);
+        int margin = indentWidth * (level + 1);
+        if (!"none".equals(ltype))
+            margin += super.getLeadingMargin(first);
+        return margin;
     }
 
     @Override
