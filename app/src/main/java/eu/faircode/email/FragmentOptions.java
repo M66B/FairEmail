@@ -260,7 +260,7 @@ public class FragmentOptions extends FragmentBase {
 
                     pager.setCurrentItem(tab);
                     FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
-                    fragment.scrollTo(resid);
+                    fragment.scrollTo(resid, -48);
                     menuSearch.collapseActionView();
 
                     // Blink found text

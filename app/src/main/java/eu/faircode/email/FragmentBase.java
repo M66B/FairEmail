@@ -38,7 +38,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -76,7 +75,8 @@ public class FragmentBase extends Fragment {
     private boolean finished = false;
     private String requestKey = null;
 
-    private int scrollTo = 0;
+    private int scrollToResid = 0;
+    private int scrollToOffset = 0;
 
     private static int requestSequence = 0;
 
@@ -105,13 +105,14 @@ public class FragmentBase extends Fragment {
         updateSubtitle();
     }
 
-    void scrollTo(int resid) {
-        scrollTo = resid;
+    void scrollTo(int resid, int offset) {
+        scrollToResid = resid;
+        scrollToOffset = offset;
         scrollTo();
     }
 
     private void scrollTo() {
-        if (scrollTo == 0)
+        if (scrollToResid == 0)
             return;
 
         View view = getView();
@@ -122,11 +123,12 @@ public class FragmentBase extends Fragment {
         if (scroll == null)
             return;
 
-        final View child = scroll.findViewById(scrollTo);
+        final View child = scroll.findViewById(scrollToResid);
         if (child == null)
             return;
 
-        scrollTo = 0;
+        scrollToResid = 0;
+        final int dy = Helper.dp2pixels(scroll.getContext(), scrollToOffset);
 
         scroll.post(new Runnable() {
             @Override
@@ -134,7 +136,10 @@ public class FragmentBase extends Fragment {
                 Rect rect = new Rect();
                 child.getDrawingRect(rect);
                 scroll.offsetDescendantRectToMyCoords(child, rect);
-                scroll.scrollTo(0, rect.top - scroll.getPaddingTop());
+                int y = rect.top - scroll.getPaddingTop() + dy;
+                if (y < 0)
+                    y = 0;
+                scroll.scrollTo(0, y);
             }
         });
     }
