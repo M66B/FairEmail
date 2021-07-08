@@ -460,6 +460,12 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             changed = true;
             url = Uri.parse(uri.getQueryParameter("url"));
         } else if ("https".equals(uri.getScheme()) &&
+                "smex-ctp.trendmicro.com".equals(uri.getHost()) &&
+                "/wis/clicktime/v1/query".equals(uri.getPath()) &&
+                !TextUtils.isEmpty(uri.getQueryParameter("url"))) {
+            changed = true;
+            url = Uri.parse(uri.getQueryParameter("url"));
+        } else if ("https".equals(uri.getScheme()) &&
                 "www.google.com".equals(uri.getHost()) &&
                 uri.getPath() != null &&
                 uri.getPath().startsWith("/amp/")) {
