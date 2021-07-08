@@ -2979,6 +2979,9 @@ public class FragmentCompose extends FragmentBase {
                             input.delete();
                             db.identity().setIdentitySignKey(identity.id, null);
                             OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                            if (error != null &&
+                                    error.getErrorId() == 0 && error.getMessage() == null)
+                                error.setMessage("General error");
                             throw new IllegalArgumentException(
                                     "OpenPgp" +
                                             " error " + (error == null ? "?" : error.getErrorId()) +
