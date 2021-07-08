@@ -550,24 +550,30 @@ public class StyleHelper {
                         if (paragraph == null)
                             return false;
 
-                        if (item.getItemId() == R.id.menu_style_indentation_decrease) {
-                            IndentSpan[] indents = edit.getSpans(paragraph.first, paragraph.second, IndentSpan.class);
-                            for (IndentSpan indent : indents) {
-                                int s = edit.getSpanStart(indent);
-                                int e = edit.getSpanEnd(indent);
-                                if (s >= start && e <= end)
-                                    edit.removeSpan(indent);
+                        Context context = etBody.getContext();
+                        int intentSize = context.getResources().getDimensionPixelSize(R.dimen.indent_size);
+
+                        QuoteSpan[] quotes = edit.getSpans(start, end, QuoteSpan.class);
+                        for (QuoteSpan quote : quotes)
+                            edit.removeSpan(quote);
+
+                        int prev = paragraph.first;
+                        int next = paragraph.first;
+                        while (next < paragraph.second) {
+                            while (next < paragraph.second && edit.charAt(next) != '\n')
+                                next++;
+
+                            if (item.getItemId() == R.id.menu_style_indentation_decrease) {
+                                IndentSpan[] indents = edit.getSpans(prev, prev, IndentSpan.class);
+                                if (indents.length > 0)
+                                    edit.removeSpan(indents[0]);
+                            } else {
+                                IndentSpan is = new IndentSpan(intentSize);
+                                edit.setSpan(is, prev, next + 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
                             }
-                        } else {
-                            Context context = etBody.getContext();
-                            int intentSize = context.getResources().getDimensionPixelSize(R.dimen.indent_size);
 
-                            QuoteSpan[] quotes = edit.getSpans(start, end, QuoteSpan.class);
-                            for (QuoteSpan quote : quotes)
-                                edit.removeSpan(quote);
-
-                            IndentSpan is = new IndentSpan(intentSize);
-                            edit.setSpan(is, paragraph.first, paragraph.second, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                            next++;
+                            prev = next;
                         }
 
                         etBody.setText(edit);
