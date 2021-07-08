@@ -2745,11 +2745,13 @@ public class HtmlHelper {
                                     level--;
 
                                 if (type == null || "ul".equals(type.tagName())) {
+                                    Object ul;
                                     String ltype = element.attr("x-list-style");
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, level, ltype), start, ssb.length());
+                                        ul = new BulletSpanEx(bulletIndent, bulletGap, colorAccent, level, ltype);
                                     else
-                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, bulletRadius, level, ltype), start, ssb.length());
+                                        ul = new BulletSpanEx(bulletIndent, bulletGap, colorAccent, bulletRadius, level, ltype);
+                                    setSpan(ssb, ul, start, ssb.length());
                                 } else {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
                                     int index = 0;
