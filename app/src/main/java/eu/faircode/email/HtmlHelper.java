@@ -1751,7 +1751,9 @@ public class HtmlHelper {
                 while (line.startsWith(">")) {
                     tlevel++;
                     if (tlevel > level)
-                        sb.append("<blockquote>");
+                        sb.append("<blockquote style=\"")
+                                .append(getQuoteStyle(line, 0, line.length()))
+                                .append("\">");
 
                     line = line.substring(1); // >
 
