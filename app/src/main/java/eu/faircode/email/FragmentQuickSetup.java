@@ -70,9 +70,9 @@ public class FragmentQuickSetup extends FragmentBase {
 
     private TextView tvError;
     private TextView tvErrorHint;
+    private TextView tvInstructions;
     private Button btnHelp;
     private Button btnSupport;
-    private TextView tvInstructions;
 
     private TextView tvImap;
     private TextView tvImapFingerprint;
@@ -107,9 +107,9 @@ public class FragmentQuickSetup extends FragmentBase {
 
         tvError = view.findViewById(R.id.tvError);
         tvErrorHint = view.findViewById(R.id.tvErrorHint);
+        tvInstructions = view.findViewById(R.id.tvInstructions);
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
-        tvInstructions = view.findViewById(R.id.tvInstructions);
 
         tvImap = view.findViewById(R.id.tvImap);
         tvImapFingerprint = view.findViewById(R.id.tvImapFingerprint);
@@ -202,9 +202,9 @@ public class FragmentQuickSetup extends FragmentBase {
         pbCheck.setVisibility(View.GONE);
         tvPatience.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-        btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        btnHelp.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         grpSetup.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
@@ -231,8 +231,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 tvPatience.setVisibility(check ? View.VISIBLE : View.GONE);
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpError.setVisibility(View.GONE);
-                btnHelp.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
+                btnHelp.setVisibility(View.GONE);
                 btnSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
             }
@@ -515,10 +515,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     getMainHandler().post(new Runnable() {
                         @Override
                         public void run() {
-                            if (provider != null && provider.documentation != null)
-                                scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                            else
-                                scroll.smoothScrollTo(0, btnSupport.getBottom());
+                            scroll.smoothScrollTo(0, btnSupport.getBottom());
                         }
                     });
                 }
