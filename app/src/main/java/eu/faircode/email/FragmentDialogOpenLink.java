@@ -576,14 +576,15 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                             index, index + host.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
-            for (String name : uri.getQueryParameterNames()) {
-                Pattern pattern = Pattern.compile("[?&]" + Pattern.quote(name) + "=");
-                Matcher matcher = pattern.matcher(text);
-                while (matcher.find()) {
-                    ssb.setSpan(new ForegroundColorSpan(textColorLink),
-                            matcher.start() + 1, matcher.end() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            if (uri.isHierarchical())
+                for (String name : uri.getQueryParameterNames()) {
+                    Pattern pattern = Pattern.compile("[?&]" + Pattern.quote(name) + "=");
+                    Matcher matcher = pattern.matcher(text);
+                    while (matcher.find()) {
+                        ssb.setSpan(new ForegroundColorSpan(textColorLink),
+                                matcher.start() + 1, matcher.end() - 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
                 }
-            }
         } catch (Throwable ex) {
             Log.e(ex);
         }
