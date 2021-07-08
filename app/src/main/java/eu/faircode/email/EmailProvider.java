@@ -161,6 +161,9 @@ public class EmailProvider implements Parcelable {
                         provider.useip = xml.getAttributeBooleanValue(null, "useip", true);
                         provider.appPassword = xml.getAttributeBooleanValue(null, "appPassword", false);
                         provider.link = xml.getAttributeValue(null, "link");
+                        String documentation = xml.getAttributeValue(null, "documentation");
+                        if (documentation != null)
+                            provider.documentation = new StringBuilder(documentation);
                         provider.type = xml.getAttributeValue(null, "type");
                         String user = xml.getAttributeValue(null, "user");
                         if ("local".equals(user))
