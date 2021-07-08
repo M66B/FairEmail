@@ -111,7 +111,7 @@ public class BulletSpanEx extends BulletSpan {
             }
 
             final float yPosition = (top + bottom) / 2f;
-            final float xPosition = x + dir * mBulletRadius;
+            final float xPosition = x + dir * (mBulletRadius + indentWidth * (level + 1));
 
             if ("square".equals(ltype))
                 canvas.drawRect(
