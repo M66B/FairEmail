@@ -178,7 +178,6 @@
     <string name="title_setup_configuring">Konfigurerar konto &#8230;</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
-    <string name="title_setup_export_do">Lösenordet används för att kryptera inställningarna och krävs för att importera inställningarna igen</string>
     <string name="title_setup_import_do">Importerade konton kommer att läggas till utan att skriva över några befintliga</string>
     <string name="title_setup_password">Lösenord</string>
     <string name="title_setup_password_chars">Lösenordet innehåller CTRL- eller blanksteg</string>

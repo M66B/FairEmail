@@ -179,7 +179,6 @@
     <string name="title_setup_close">Đóng cài đặt</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
-    <string name="title_setup_export_do">Mật khẩu này được sử dụng để mã hoá cài đặt và được yêu cầu để nhập cài đặt lại</string>
     <string name="title_setup_import_do">Các tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
     <string name="title_setup_password">Mật khẩu</string>
     <string name="title_setup_password_chars">Mật khẩu chứa ký tự điều khiển hoặc không gian trắng</string>

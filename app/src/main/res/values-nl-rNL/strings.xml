@@ -191,7 +191,9 @@
     <string name="title_setup_close">Sluit instellingen</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
-    <string name="title_setup_export_do">Het wachtwoord wordt gebruikt om de instellingen te versleutelen en is vereist om de instellingen opnieuw te importeren</string>
+    <string name="title_setup_export_remark">        Omdat het instellingenbestand alle instellingen en accountinformatie bevat, is het versleuteld met een wachtwoord.
+        Het wachtwoord is vereist om de instellingen opnieuw te importeren, dus vergeet het niet!
+    </string>
     <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
     <string name="title_setup_password">Wachtwoord</string>
     <string name="title_setup_password_chars">Wachtwoord bevat controle of witruimte tekens</string>
@@ -962,7 +964,7 @@
     <string name="title_style_font">Lettertype</string>
     <string name="title_style_font_default">Standaard</string>
     <string name="title_style_blockquote">Blokcitaat</string>
-    <string name="title_style_indentation" comment="title_style_indentation&#10;Title for style menu item to ident text">Inspringing</string>
+    <string name="title_style_indentation">Inspringing</string>
     <string name="title_style_strikethrough">Doorhalen</string>
     <string name="title_style_clear">Opmaak wissen</string>
     <string name="title_style_link">Koppeling invoegen</string>

@@ -185,7 +185,6 @@
     <string name="title_setup_close">Fechar configurações</string>
     <string name="title_setup_export">Exportar configurações</string>
     <string name="title_setup_import">Importar configurações</string>
-    <string name="title_setup_export_do">A senha é usada para criptografar as configurações e é necessária para importar as configurações novamente</string>
     <string name="title_setup_import_do">As contas importadas serão adicionadas sem sobrescrever as existentes</string>
     <string name="title_setup_password">Senha</string>
     <string name="title_setup_password_chars">A senha contém caracteres de controle ou espaço em branco</string>

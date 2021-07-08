@@ -171,7 +171,6 @@
     <string name="title_setup_close">Tutup pengaturan</string>
     <string name="title_setup_export">Ekspor Pengaturan</string>
     <string name="title_setup_import">Impor Pengaturan</string>
-    <string name="title_setup_export_do">Kata sandi digunakan untuk mengenkripsi pengaturan dan diperlukan untuk mengimpor pengaturan lagi</string>
     <string name="title_setup_import_do">Akun yang diimpor akan ditambahkan tanpa menimpa akun yang sudah ada</string>
     <string name="title_setup_password">Kata Sandi</string>
     <string name="title_setup_password_chars">Kata sandi mengandung karakter kontrol atau spasi</string>

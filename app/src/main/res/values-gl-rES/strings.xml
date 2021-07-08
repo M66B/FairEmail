@@ -179,7 +179,6 @@
     <string name="title_setup_close">Pechar configuración</string>
     <string name="title_setup_export">Exportar axustes</string>
     <string name="title_setup_import">Importar axustes</string>
-    <string name="title_setup_export_do">O contrasinal úsase para cifrar a configuración e necesítase para importala de novo</string>
     <string name="title_setup_import_do">As contas importadas engadiranse sen sobrescribir as existentes</string>
     <string name="title_setup_password">Contrasinal</string>
     <string name="title_setup_password_chars">O contrasinal contén caracteres de control ou espazos</string>

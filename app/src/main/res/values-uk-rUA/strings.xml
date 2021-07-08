@@ -138,6 +138,8 @@
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
     <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
     <string name="title_setup_manual">Налаштування вручну та параметри облікового запису</string>
+    <string name="title_setup_classic">Класична конфігурація</string>
+    <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
     <string name="title_setup_account_remark">Отримання email</string>
     <string name="title_setup_identity_remark">Надсилання email</string>
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір і свайп дії в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях ідентифікації</string>
@@ -197,7 +199,6 @@
     <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
-    <string name="title_setup_export_do">Пароль використовується для шифрування налаштувань і він потрібен для повторного імпорту налаштувань</string>
     <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
@@ -967,6 +968,7 @@
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">За замовчанням</string>
     <string name="title_style_blockquote">Цитата</string>
+    <string name="title_style_indentation">Відступ</string>
     <string name="title_style_strikethrough">Закреслений</string>
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>

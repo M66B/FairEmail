@@ -206,7 +206,6 @@
     <string name="title_setup_close">Zavrieť nastavenia</string>
     <string name="title_setup_export">Exportovať nastavenia</string>
     <string name="title_setup_import">Importovať nastavenia</string>
-    <string name="title_setup_export_do">Heslo sa použije na zašifrovanie nastavení a bude opäť vyžadované počas importu</string>
     <string name="title_setup_import_do">Importované účty budú pridané bez prepísania existujúcich účtov</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje riadiace alebo prázdne znaky</string>

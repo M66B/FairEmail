@@ -185,7 +185,6 @@
     <string name="title_setup_close">Sulje asetukset</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
-    <string name="title_setup_export_do">Salasanaa käytetään asetusten salaukseen, ja sitä tarvitaan asetusten tuomiseen uudelleen</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>

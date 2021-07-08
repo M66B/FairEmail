@@ -180,7 +180,6 @@
     <string name="title_setup_close">Slut ynstellings</string>
     <string name="title_setup_export">Ynstellings eksportearje</string>
     <string name="title_setup_import">Ynstellings ymportearje</string>
-    <string name="title_setup_export_do">It kaaiwurd wurdt brûkt om de ynstellings te fersiferjen en is nedich om de ynstellings wer te ûntsiferjen</string>
     <string name="title_setup_import_do">Ymporteare akkounts sille tafoege wurde sûnder besteande oerskriuwe</string>
     <string name="title_setup_password">Wachtwurd</string>
     <string name="title_setup_password_chars">Wachtwurd befettet karakters foar kontrôle as spaasjes</string>

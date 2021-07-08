@@ -174,7 +174,6 @@
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
-    <string name="title_setup_export_do">A senha é usada para encriptar as configurações e é necessária para importar as configurações novamente</string>
     <string name="title_setup_import_do">Contas importadas serão adicionadas sem sobrescrever as já existentes</string>
     <string name="title_setup_password">Palavra-passe</string>
     <string name="title_setup_password_chars">A senha contém caractéres de controle ou espaços em branco</string>

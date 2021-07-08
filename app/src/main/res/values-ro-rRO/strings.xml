@@ -201,7 +201,6 @@
     <string name="title_setup_close">Închideți setările</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
-    <string name="title_setup_export_do">Parola este folosită pentru a cripta setările și este necesară pentru a importa din nou setările</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
@@ -972,7 +971,7 @@
     <string name="title_style_font">Font</string>
     <string name="title_style_font_default">Implicit</string>
     <string name="title_style_blockquote">Bloc citat</string>
-    <string name="title_style_indentation" comment="title_style_indentation&#10;Title for style menu item to ident text">Indentare</string>
+    <string name="title_style_indentation">Indentare</string>
     <string name="title_style_strikethrough">Tăiat</string>
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
