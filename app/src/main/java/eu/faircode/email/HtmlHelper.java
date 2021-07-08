@@ -2509,6 +2509,7 @@ public class HtmlHelper {
             public void head(Node node, int depth) {
                 if (node instanceof Element) {
                     element = (Element) node;
+                    Element prev = element.previousElementSibling();
 
                     if ("true".equals(element.attr("x-block")))
                         if (ssb.length() > 0 && ssb.charAt(ssb.length() - 1) != '\n')
@@ -2522,6 +2523,7 @@ public class HtmlHelper {
                             ssb.append('\n');
 
                     if ("true".equals(element.attr("x-line-before")) &&
+                            (prev == null || !"true".equals(prev.attr("x-line-after"))) &&
                             ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
                         ssb.append('\n');
 
