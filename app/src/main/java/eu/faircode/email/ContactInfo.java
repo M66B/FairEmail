@@ -559,18 +559,20 @@ public class ContactInfo {
                     try {
                         String json = Helper.readStream(m.getInputStream());
                         JSONObject jroot = new JSONObject(json);
-                        JSONArray jicons = jroot.getJSONArray("icons");
-                        for (int i = 0; i < jicons.length(); i++) {
-                            JSONObject jicon = jicons.getJSONObject(i);
-                            String src = jicon.getString("src");
-                            String sizes = jicon.optString("sizes", "");
-                            String type = jicon.optString("type", "");
-                            if (!TextUtils.isEmpty(src)) {
-                                Element img = doc.createElement("link")
-                                        .attr("href", src)
-                                        .attr("sizes", sizes)
-                                        .attr("type", type);
-                                imgs.add(img);
+                        if (jroot.has("icons")) {
+                            JSONArray jicons = jroot.getJSONArray("icons");
+                            for (int i = 0; i < jicons.length(); i++) {
+                                JSONObject jicon = jicons.getJSONObject(i);
+                                String src = jicon.optString("src");
+                                String sizes = jicon.optString("sizes", "");
+                                String type = jicon.optString("type", "");
+                                if (!TextUtils.isEmpty(src)) {
+                                    Element img = doc.createElement("link")
+                                            .attr("href", src)
+                                            .attr("sizes", sizes)
+                                            .attr("type", type);
+                                    imgs.add(img);
+                                }
                             }
                         }
                     } finally {
