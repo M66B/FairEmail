@@ -249,22 +249,29 @@ public class MessageHelper {
 
         // Addresses
         if (message.from != null && message.from.length > 0) {
-            String email = ((InternetAddress) message.from[0]).getAddress();
-            String name = ((InternetAddress) message.from[0]).getPersonal();
+            InternetAddress from = ((InternetAddress) message.from[0]);
+            String email = from.getAddress();
+            String name = from.getPersonal();
+
             if (identity != null && identity.sender_extra &&
                     email != null && message.extra != null) {
                 int at = email.indexOf('@');
-                String username = identity.email.split("@")[0];
+                String username = UriHelper.getEmailUser(identity.email);
                 if (at > 0 && !message.extra.equals(username)) {
                     if (message.extra.length() > 1 && message.extra.startsWith("+"))
                         email = email.substring(0, at) + message.extra + email.substring(at);
+                    else if (message.extra.length() > 1 && message.extra.startsWith("@"))
+                        email = email.substring(0, at) + message.extra + '.' + email.substring(at + 1);
                     else
                         email = message.extra + email.substring(at);
+
                     if (!identity.sender_extra_name)
                         name = null;
-                    Log.i("extra=" + email);
+
+                    Log.i("extra=\"" + name + "\" <" + email + ">");
                 }
             }
+
             imessage.setFrom(new InternetAddress(email, name, StandardCharsets.UTF_8.name()));
         }
 
