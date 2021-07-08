@@ -3005,8 +3005,6 @@ public class HtmlHelper {
                 last.remove();
         }
 
-        Log.i("MMM " + doc.html());
-
         return doc.html();
     }
 
