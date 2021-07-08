@@ -262,6 +262,29 @@ public class FragmentOptions extends FragmentBase {
                     FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
                     fragment.scrollTo(resid);
                     menuSearch.collapseActionView();
+
+                    // Blink found text
+                    View view = fragment.getView();
+                    if (view != null) {
+                        View child = view.findViewById(resid);
+                        if (child != null) {
+                            int c = Helper.resolveColor(view.getContext(), R.attr.colorHighlight);
+                            Drawable b = child.getBackground();
+                            child.post(new Runnable() {
+                                private int count = 0;
+
+                                @Override
+                                public void run() {
+                                    if (count % 2 == 1)
+                                        child.setBackground(b);
+                                    else
+                                        child.setBackgroundColor(c);
+                                    if (++count <= 7)
+                                        child.postDelayed(this, 250);
+                                }
+                            });
+                        }
+                    }
                 }
 
                 return true;
