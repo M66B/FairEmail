@@ -4518,7 +4518,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Opening uri=" + uri + " title=" + title);
             uri = Uri.parse(uri.toString().replaceAll("\\s+", ""));
 
-            if ("email.faircode.eu".equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
+            try {
+                String url = uri.getQueryParameter("url");
+                if (!TextUtils.isEmpty(url)) {
+                    Uri alt = Uri.parse(url);
+                    if (isActivate(alt))
+                        uri = alt;
+                }
+            } catch (Throwable ignored) {
+            }
+
+            if (isActivate(uri)) {
                 try {
                     if (ActivityBilling.activatePro(context, uri))
                         ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
@@ -4558,6 +4568,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             return true;
+        }
+
+        private boolean isActivate(Uri uri) {
+            return ("email.faircode.eu".equals(uri.getHost()) &&
+                    "/activate/".equals(uri.getPath()));
         }
 
         private void onOpenImage(long id, @NonNull String source) {
