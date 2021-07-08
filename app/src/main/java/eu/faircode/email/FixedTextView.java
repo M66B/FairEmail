@@ -196,6 +196,16 @@ public class FixedTextView extends AppCompatTextView {
     }
 
     @Override
+    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
+        try {
+            return super.onKeyPreIme(keyCode, event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
     protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
         try {
             super.onFocusChanged(focused, direction, previouslyFocusedRect);

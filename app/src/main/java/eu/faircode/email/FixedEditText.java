@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.textclassifier.TextClassifier;
 
@@ -175,6 +176,48 @@ public class FixedEditText extends AppCompatEditText {
             return super.onTouchEvent(event);
         } catch (Throwable ex) {
             Log.w(ex);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
+        try {
+            return super.onKeyPreIme(keyCode, event);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            /*
+                java.lang.IndexOutOfBoundsException: setSpan (-1 ... -1) starts before 0
+                        at android.text.SpannableStringInternal.checkRange(SpannableStringInternal.java:434)
+                        at android.text.SpannableStringInternal.setSpan(SpannableStringInternal.java:155)
+                        at android.text.SpannableString.setSpan(SpannableString.java:46)
+                        at android.text.Selection.setSelection(Selection.java:76)
+                        at android.widget.TextView.semSetSelection(TextView.java:11458)
+                        at android.widget.TextView.semSetSelection(TextView.java:11472)
+                        at android.widget.Editor$TextActionModeCallback.onDestroyActionMode(Editor.java:4268)
+                        at com.android.internal.policy.DecorView$ActionModeCallback2Wrapper.onDestroyActionMode(DecorView.java:2957)
+                        at com.android.internal.view.FloatingActionMode.finish(FloatingActionMode.java:307)
+                        at android.widget.Editor.stopTextActionMode(Editor.java:2356)
+                        at android.widget.TextView.stopTextActionMode(TextView.java:11253)
+                        at android.widget.TextView.handleBackInTextActionModeIfNeeded(TextView.java:7099)
+                        at android.widget.TextView.onKeyPreIme(TextView.java:7052)
+                        at android.view.View.dispatchKeyEventPreIme(View.java:10527)
+                        at android.view.ViewGroup.dispatchKeyEventPreIme(ViewGroup.java:1679)
+                        at android.view.ViewRootImpl$ViewPreImeInputStage.processKeyEvent(ViewRootImpl.java:4801)
+                        at android.view.ViewRootImpl$ViewPreImeInputStage.onProcess(ViewRootImpl.java:4787)
+                        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4493)
+                        at android.view.ViewRootImpl$InputStage.onDeliverToNext(ViewRootImpl.java:4546)
+                        at android.view.ViewRootImpl$InputStage.forward(ViewRootImpl.java:4512)
+                        at android.view.ViewRootImpl$AsyncInputStage.forward(ViewRootImpl.java:4645)
+                        at android.view.ViewRootImpl$InputStage.apply(ViewRootImpl.java:4520)
+                        at android.view.ViewRootImpl$AsyncInputStage.apply(ViewRootImpl.java:4702)
+                        at android.view.ViewRootImpl$InputStage.deliver(ViewRootImpl.java:4493)
+                        at android.view.ViewRootImpl.deliverInputEvent(ViewRootImpl.java:7000)
+                        at android.view.ViewRootImpl.doProcessInputEvents(ViewRootImpl.java:6929)
+                        at android.view.ViewRootImpl.enqueueInputEvent(ViewRootImpl.java:6890)
+                        at android.view.ViewRootImpl$WindowInputEventReceiver.onInputEvent(ViewRootImpl.java:7110)
+                        at android.view.InputEventReceiver.dispatchInputEvent(InputEventReceiver.java:185)
+             */
             return false;
         }
     }
