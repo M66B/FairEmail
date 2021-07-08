@@ -826,6 +826,7 @@ public class HtmlHelper {
                             break;
 
                         case "list-style-type":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
                             element.attr("x-list-style", value);
                             break;
                     }
@@ -2731,22 +2732,25 @@ public class HtmlHelper {
                                     ssb.append("\n");
 
                                 int level = 0;
-                                Element type = null;
+                                Element list = null;
+                                String ltype = element.attr("x-list-style");
                                 Element parent = element.parent();
                                 while (parent != null) {
                                     if ("ol".equals(parent.tagName()) || "ul".equals(parent.tagName())) {
                                         level++;
-                                        if (type == null)
-                                            type = parent;
+                                        if (list == null)
+                                            list = parent;
+                                        if (TextUtils.isEmpty(ltype))
+                                            ltype = parent.attr("x-list-style");
                                     }
                                     parent = parent.parent();
                                 }
                                 if (level > 0)
                                     level--;
 
-                                if (type == null || "ul".equals(type.tagName())) {
+                                if (list == null || "ul".equals(list.tagName())) {
+                                    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
                                     Object ul;
-                                    String ltype = element.attr("x-list-style");
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                                         ul = new BulletSpanEx(bulletIndent, bulletGap, colorAccent, level, ltype);
                                     else
@@ -2755,10 +2759,10 @@ public class HtmlHelper {
                                 } else {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
                                     int index = 0;
-                                    String s = type.attr("start");
+                                    String s = list.attr("start");
                                     if (!TextUtils.isEmpty(s) && TextUtils.isDigitsOnly(s))
                                         index = Integer.parseInt(s) - 1;
-                                    for (Node child : type.childNodes()) {
+                                    for (Node child : list.childNodes()) {
                                         if (child instanceof Element &&
                                                 child.nodeName().equals(element.tagName())) {
                                             index++;
