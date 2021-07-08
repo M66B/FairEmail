@@ -570,10 +570,13 @@ public class HtmlHelper {
                     int colon = param.indexOf(':');
                     if (colon <= 0)
                         continue;
-                    String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
-                    String value = param.substring(colon + 1).toLowerCase(Locale.ROOT)
-                            .replace("!important", "")
+                    String key = param.substring(0, colon)
                             .trim()
+                            .toLowerCase(Locale.ROOT);
+                    String value = param.substring(colon + 1)
+                            .trim()
+                            .toLowerCase(Locale.ROOT)
+                            .replace("!important", "")
                             .replaceAll("\\s+", " ");
                     kv.put(key, value);
                 }
