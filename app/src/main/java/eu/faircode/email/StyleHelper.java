@@ -173,18 +173,8 @@ public class StyleHelper {
                 popupMenu.getMenu().findItem(R.id.menu_style_list_increase).setVisible(level >= 0);
                 popupMenu.getMenu().findItem(R.id.menu_style_list_decrease).setVisible(level > 0);
 
-                boolean decrease = false;
                 IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
-                for (IndentSpan indent : indents) {
-                    int s = edit.getSpanStart(indent);
-                    int e = edit.getSpanEnd(indent);
-                    if (s >= start && e <= end) {
-                        decrease = true;
-                        break;
-                    }
-                }
-
-                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(decrease);
+                popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
                 popupMenu.insertIcons(context);
 
