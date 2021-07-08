@@ -1328,7 +1328,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             TextView tvCaption = dview.findViewById(R.id.tvCaption);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             etPassword2 = dview.findViewById(R.id.tilPassword2);
-            TextView tvExportHint = dview.findViewById(R.id.tvExportHint);
             TextView tvImportHint = dview.findViewById(R.id.tvImportHint);
 
             tvCaption.setText(export ? R.string.title_setup_export : R.string.title_setup_import);
@@ -1339,7 +1338,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
 
             etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
-            tvExportHint.setVisibility(export ? View.VISIBLE : View.GONE);
             tvImportHint.setVisibility(export ? View.GONE : View.VISIBLE);
 
             return new AlertDialog.Builder(getContext())
