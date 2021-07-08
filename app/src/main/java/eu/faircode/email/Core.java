@@ -2415,7 +2415,7 @@ class Core {
                         if (received == null)
                             received = 0L;
 
-                        boolean seen = (!_new || received <= account.created);
+                        boolean seen = (received <= account.created);
                         Log.i(folder.name + " POP sync=" + uidl + "/" + msgid +
                                 " new=" + _new + " seen=" + seen);
 
@@ -2468,7 +2468,7 @@ class Core {
                         message.ui_flagged = false;
                         message.ui_hide = false;
                         message.ui_found = false;
-                        message.ui_ignored = false;
+                        message.ui_ignored = !_new;
                         message.ui_browsed = false;
 
                         if (message.deliveredto != null)
