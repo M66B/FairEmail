@@ -42,6 +42,7 @@ For authorizing:
 * Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
 * Apple iCloud, see [question 148](#user-content-faq148)
 * Free.fr, see [question 157](#user-content-faq157)
+* Posteo: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) isn't enabled
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
@@ -1088,6 +1089,12 @@ Some providers require using an app password instead of the account password, so
 Sometimes it is necessary to enable external access (IMAP/SMTP) on the website of the provider first.
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to login from certain networks / IP addresses only.
+
+* **Free.fr**: please see [this FAQ](#user-content-faq157)
+* **Gmail / G suite**: please see [this FAQ](#user-content-faq6)
+* **iCloud**: please see [this FAQ](#user-content-faq148)
+* **Posteo**: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) isn't enabled.
+* **Yahoo, AOL and Sky**: please see [this FAQ](#user-content-faq88)
 
 If needed, you can update a password in the account settings:
 navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account.
