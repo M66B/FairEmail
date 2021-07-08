@@ -824,6 +824,10 @@ public class HtmlHelper {
                                 }
                             }
                             break;
+
+                        case "list-style-type":
+                            element.attr("x-list-style", value);
+                            break;
                     }
                 }
 
@@ -2741,10 +2745,11 @@ public class HtmlHelper {
                                     level--;
 
                                 if (type == null || "ul".equals(type.tagName())) {
+                                    String ltype = element.attr("x-list-style");
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, level), start, ssb.length());
+                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, level, ltype), start, ssb.length());
                                     else
-                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, bulletRadius, level), start, ssb.length());
+                                        setSpan(ssb, new BulletSpanEx(bulletIndent, bulletGap, colorAccent, bulletRadius, level, ltype), start, ssb.length());
                                 } else {
                                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
                                     int index = 0;
@@ -2934,7 +2939,8 @@ public class HtmlHelper {
                 .removeAttr("x-column")
                 .removeAttr("x-dashed")
                 .removeAttr("x-tracking")
-                .removeAttr("x-border");
+                .removeAttr("x-border")
+                .removeAttr("x-list-style");
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {

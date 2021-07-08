@@ -32,18 +32,30 @@ import androidx.annotation.RequiresApi;
 public class BulletSpanEx extends BulletSpan {
     private int indentWidth;
     private int level;
+    private String ltype;
 
     public BulletSpanEx(int indentWidth, int gapWidth, int color, int level) {
-        super(gapWidth, color);
-        this.indentWidth = indentWidth;
-        this.level = level;
+        this(indentWidth, gapWidth, color, level, null);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     public BulletSpanEx(int indentWidth, int gapWidth, int color, int bulletRadius, int level) {
+        this(indentWidth, gapWidth, color, bulletRadius, level, null);
+    }
+
+    public BulletSpanEx(int indentWidth, int gapWidth, int color, int level, String ltype) {
+        super(gapWidth, color);
+        this.indentWidth = indentWidth;
+        this.level = level;
+        this.ltype = ltype;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.P)
+    public BulletSpanEx(int indentWidth, int gapWidth, int color, int bulletRadius, int level, String ltype) {
         super(gapWidth, color, bulletRadius);
         this.indentWidth = indentWidth;
         this.level = level;
+        this.ltype = ltype;
     }
 
     int getLevel() {
@@ -63,6 +75,8 @@ public class BulletSpanEx extends BulletSpan {
 
     @Override
     public void drawLeadingMargin(@NonNull Canvas canvas, @NonNull Paint paint, int x, int dir, int top, int baseline, int bottom, @NonNull CharSequence text, int start, int end, boolean first, @Nullable Layout layout) {
+        if ("none".equals(ltype))
+            return;
         super.drawLeadingMargin(canvas, paint, x + indentWidth * (level + 1) * dir, dir, top, baseline, bottom, text, start, end, first, layout);
     }
 }
