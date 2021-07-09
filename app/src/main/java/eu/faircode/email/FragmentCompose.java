@@ -1343,9 +1343,7 @@ public class FragmentCompose extends FragmentBase {
                             Element b = d.body();
                             b.tagName("div");
                             document.body().appendChild(b);
-
-                            Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                            return HtmlHelper.toHtml(spanned, context);
+                            return document.body().html();
                         }
                     }
 
