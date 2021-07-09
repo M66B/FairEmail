@@ -831,6 +831,8 @@ public class HtmlHelper {
                         case "list-style-type":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
                             element.attr("x-list-style", value);
+                            if (!view)
+                                sb.append(key).append(':').append(value).append(';');
                             break;
                     }
                 }
