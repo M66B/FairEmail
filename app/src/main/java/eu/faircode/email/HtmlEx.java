@@ -137,7 +137,9 @@ public class HtmlEx {
                                   int option) {
         int next;
         for (int i = start; i < end; i = next) {
-            next = text.nextSpanTransition(i, end, LeadingMarginSpan.class);
+            int n1 = text.nextSpanTransition(i, end, QuoteSpan.class);
+            int n2 = text.nextSpanTransition(i, end, eu.faircode.email.IndentSpan.class);
+            next = Math.min(n1, n2);
             List<Object> spans = new ArrayList<>();
             for (Object span : text.getSpans(i, next, LeadingMarginSpan.class))
                 if (span instanceof QuoteSpan ||
