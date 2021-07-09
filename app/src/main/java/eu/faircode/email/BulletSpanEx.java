@@ -67,6 +67,10 @@ public class BulletSpanEx extends BulletSpan {
         this.level = level;
     }
 
+    String getLType() {
+        return this.ltype;
+    }
+
     @Override
     public int getLeadingMargin(boolean first) {
         // https://issuetracker.google.com/issues/36956124

@@ -2164,15 +2164,19 @@ public class HtmlHelper {
                 ssb.insert(start, ns.getIndex() + ". ");
                 int level = ns.getLevel();
                 for (int l = 1; l <= level; l++)
-                    ssb.insert(start, "\t");
+                    ssb.insert(start, "  ");
             } else {
-                ssb.insert(start, "* ");
                 if (span instanceof BulletSpanEx) {
                     BulletSpanEx bs = (BulletSpanEx) span;
+
+                    if (!"none".equals(bs.getLType()))
+                        ssb.insert(start, "* ");
+
                     int level = bs.getLevel();
                     for (int l = 1; l <= level; l++)
-                        ssb.insert(start, "\t");
-                }
+                        ssb.insert(start, "  ");
+                } else
+                    ssb.insert(start, "* ");
             }
         }
 
