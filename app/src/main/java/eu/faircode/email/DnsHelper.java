@@ -66,7 +66,6 @@ public class DnsHelper {
             if (domain == null)
                 continue;
 
-            boolean found = true;
             try {
                 SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
                 resolver.setTimeout(CHECK_TIMEOUT);
@@ -75,17 +74,20 @@ public class DnsHelper {
                 lookup.run();
                 Log.i("Check name=" + domain + " @" + resolver.getAddress() + " result=" + lookup.getResult());
 
+                if (lookup.getResult() == Lookup.SUCCESSFUL)
+                    continue;
+
+                String error = "Error " + lookup.getResult() + ": " + lookup.getErrorString();
                 if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
                         lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                    found = false;
-                else if (lookup.getResult() != Lookup.SUCCESSFUL)
-                    throw new UnknownHostException("DNS error=" + lookup.getErrorString());
+                    throw new UnknownHostException(error);
+                else
+                    Log.e(error);
+            } catch (UnknownHostException ex) {
+                throw ex;
             } catch (Throwable ex) {
                 Log.e(ex);
             }
-
-            if (!found)
-                throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
         }
     }
 
