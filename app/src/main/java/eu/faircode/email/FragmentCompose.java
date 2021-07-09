@@ -654,7 +654,7 @@ public class FragmentCompose extends FragmentBase {
                             int s = text.getSpanStart(indent);
                             int e = text.getSpanEnd(indent);
                             int f = text.getSpanFlags(indent);
-                            if (e - 1 > s && added + 2 == e) {
+                            if (e - 1 > s && added + 1 == e) {
                                 text.removeSpan(indent);
                                 text.setSpan(new IndentSpan(indent.getLeadingMargin(true)), s, e - 1, f);
                             }
