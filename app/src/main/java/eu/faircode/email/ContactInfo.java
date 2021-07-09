@@ -663,6 +663,7 @@ public class ContactInfo {
                     if (x < min)
                         min = x;
                 } catch (NumberFormatException ex) {
+                    // "any"
                     Log.w(ex);
                 }
             }
