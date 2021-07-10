@@ -2582,7 +2582,7 @@ public class HtmlHelper {
                                             else
                                                 span = new BackgroundColorSpan(color);
                                             setSpan(ssb, span, start, ssb.length());
-                                        } catch (NumberFormatException ex) {
+                                        } catch (Throwable ex) {
                                             Log.i(ex);
                                         }
                                     break;
