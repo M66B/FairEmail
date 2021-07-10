@@ -105,7 +105,7 @@
     <string name="title_notification_waiting">Waiting for suitable connection</string>
     <string name="title_notification_idle">Idle</string>
     <string name="title_notification_failed">\'%1$s\' failed</string>
-    <string name="title_notification_alert">\'%1$s\' server alert</string>
+    <string name="title_notification_alert">Server alert: \'%1$s\'</string>
     <string name="title_notification_sending_left">Attempts left: %1$d</string>
     <string name="title_notification_sending_retry">Sending will be retried on internet connection changes or pulling down on the outbox</string>
     <string name="title_notification_sending_failed">Sending to %1$s failed</string>
