@@ -1785,12 +1785,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibHeaders.setVisibility(tools && button_headers && headers ? View.VISIBLE : View.GONE);
-                    ibPrint.setVisibility(tools && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
-                    ibPin.setVisibility(tools && button_pin && pin ? View.VISIBLE : View.GONE);
-                    ibShare.setVisibility(tools && button_share && message.content ? View.VISIBLE : View.GONE);
-                    ibEvent.setVisibility(tools && button_event && message.content ? View.VISIBLE : View.GONE);
-                    ibSearchText.setVisibility(tools && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
-                    ibSearch.setVisibility(tools && button_search && (froms > 0 || tos > 0) && !outbox ? View.VISIBLE : View.GONE);
+                    ibPrint.setVisibility(tools && !outbox && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
+                    ibPin.setVisibility(tools && !outbox && button_pin && pin ? View.VISIBLE : View.GONE);
+                    ibShare.setVisibility(tools && !outbox && button_share && message.content ? View.VISIBLE : View.GONE);
+                    ibEvent.setVisibility(tools && !outbox && button_event && message.content ? View.VISIBLE : View.GONE);
+                    ibSearchText.setVisibility(tools && !outbox && button_search_text && message.content && !full ? View.VISIBLE : View.GONE);
+                    ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
