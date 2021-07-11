@@ -3904,8 +3904,8 @@ public class FragmentCompose extends FragmentBase {
                     if (iid >= 0)
                         for (EntityIdentity identity : data.identities)
                             if (identity.id.equals(iid)) {
-                                Log.i("Selected requested identity=" + iid);
                                 selected = identity;
+                                EntityLog.log(context, "Selected requested identity=" + iid);
                                 break;
                             }
 
@@ -3918,7 +3918,7 @@ public class FragmentCompose extends FragmentBase {
                                     if (identity.account.equals(aid) &&
                                             identity.sameAddress(sender)) {
                                         selected = identity;
-                                        Log.i("Selected same account/identity");
+                                        EntityLog.log(context, "Selected same account/identity");
                                         break;
                                     }
 
@@ -3928,7 +3928,7 @@ public class FragmentCompose extends FragmentBase {
                                     if (identity.account.equals(aid) &&
                                             identity.similarAddress(sender)) {
                                         selected = identity;
-                                        Log.i("Selected similar account/identity");
+                                        EntityLog.log(context, "Selected similar account/identity");
                                         break;
                                     }
 
@@ -3937,7 +3937,7 @@ public class FragmentCompose extends FragmentBase {
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.sameAddress(sender)) {
                                         selected = identity;
-                                        Log.i("Selected same */identity");
+                                        EntityLog.log(context, "Selected same */identity");
                                         break;
                                     }
 
@@ -3946,7 +3946,7 @@ public class FragmentCompose extends FragmentBase {
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.similarAddress(sender)) {
                                         selected = identity;
-                                        Log.i("Selected similer */identity");
+                                        EntityLog.log(context, "Selected similer */identity");
                                         break;
                                     }
                     }
@@ -3955,7 +3955,7 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityIdentity identity : data.identities)
                             if (identity.account.equals(aid) && identity.primary) {
                                 selected = identity;
-                                Log.i("Selected primary account/identity");
+                                EntityLog.log(context, "Selected primary account/identity");
                                 break;
                             }
 
@@ -3963,27 +3963,29 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityIdentity identity : data.identities)
                             if (identity.account.equals(aid)) {
                                 selected = identity;
-                                Log.i("Selected account/identity");
+                                EntityLog.log(context, "Selected account/identity");
                                 break;
                             }
 
                     if (selected == null)
                         for (EntityIdentity identity : data.identities)
                             if (identity.primary) {
-                                Log.i("Selected primary */identity");
                                 selected = identity;
+                                EntityLog.log(context, "Selected primary */identity");
                                 break;
                             }
 
                     if (selected == null)
                         for (EntityIdentity identity : data.identities) {
-                            Log.i("Selected */identity");
                             selected = identity;
+                            EntityLog.log(context, "Selected */identity");
                             break;
                         }
 
                     if (selected == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_composable));
+
+                    EntityLog.log(context, "Selected=" + selected.email);
 
                     if (plain_only)
                         data.draft.plain_only = true;
@@ -4100,6 +4102,8 @@ public class FragmentCompose extends FragmentBase {
                                     Address preferred = null;
                                     if (ref.identity != null) {
                                         EntityIdentity recognized = db.identity().getIdentity(ref.identity);
+                                        EntityLog.log(context, "Recognized=" + (recognized == null ? null : recognized.email));
+
                                         if (recognized != null) {
                                             Address same = null;
                                             Address similar = null;
@@ -4122,13 +4126,22 @@ public class FragmentCompose extends FragmentBase {
                                                     Log.w(ex);
                                                 }
 
+                                            EntityLog.log(context, "From=" + MessageHelper.formatAddresses(data.draft.from) +
+                                                    " delivered-to=" + ref.deliveredto +
+                                                    " same=" + (same == null ? null : ((InternetAddress) same).getAddress()) +
+                                                    " similar=" + (similar == null ? null : ((InternetAddress) similar).getAddress()));
+
                                             preferred = (same == null ? similar : same);
                                         }
-                                    }
+                                    } else
+                                        EntityLog.log(context, "Recognized=null");
+
                                     if (preferred != null) {
                                         String from = ((InternetAddress) preferred).getAddress();
+                                        EntityLog.log(context, "preferred=" + from);
                                         data.draft.extra = UriHelper.getEmailUser(from);
-                                    }
+                                    } else
+                                        EntityLog.log(context, "preferred=null");
                                 }
                             }
 
