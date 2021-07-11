@@ -6338,7 +6338,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                            .putExtra("manual", true));
+                            .putExtra("target", "accounts"));
                 }
             });
 
