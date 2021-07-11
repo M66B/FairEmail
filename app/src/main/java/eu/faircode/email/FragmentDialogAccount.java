@@ -52,6 +52,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         final TextView tvInbox = dview.findViewById(R.id.tvInbox);
         final TextView tvDrafts = dview.findViewById(R.id.tvDrafts);
         final TextView tvSent = dview.findViewById(R.id.tvSent);
+        final TextView tvSentWarning = dview.findViewById(R.id.tvSentWarning);
         final TextView tvTrash = dview.findViewById(R.id.tvTrash);
         final TextView tvJunk = dview.findViewById(R.id.tvJunk);
         final TextView tvArchive = dview.findViewById(R.id.tvArchive);
@@ -75,6 +76,8 @@ public class FragmentDialogAccount extends FragmentDialogBase {
         tvName.setText(null);
         tvLeft.setText(null);
         tvRight.setText(null);
+
+        tvSentWarning.setVisibility(View.GONE);
 
         Bundle args = getArguments();
         final long account = args.getLong("account");
@@ -132,6 +135,7 @@ public class FragmentDialogAccount extends FragmentDialogBase {
                         types.contains(EntityFolder.DRAFTS) ? check : close, null, null, null);
                 tvSent.setCompoundDrawablesRelative(
                         types.contains(EntityFolder.SENT) ? check : close, null, null, null);
+                tvSentWarning.setVisibility(types.contains(EntityFolder.SENT) ? View.GONE : View.VISIBLE);
                 tvTrash.setCompoundDrawablesRelative(
                         types.contains(EntityFolder.TRASH) ? check : close, null, null, null);
                 tvJunk.setCompoundDrawablesRelative(

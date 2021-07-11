@@ -792,6 +792,18 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/tvDraftsRemark" />
 
+        <eu.faircode.email.FixedTextView
+            android:id="@+id/tvSentWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_setup_quick_no_sent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spSent" />
+
         <Spinner
             android:id="@+id/spArchive"
             android:layout_width="0dp"
@@ -800,7 +812,7 @@
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
-            app:layout_constraintTop_toBottomOf="@id/spSent" />
+            app:layout_constraintTop_toBottomOf="@id/tvSentWarning" />
 
         <Spinner
             android:id="@+id/spTrash"
@@ -1024,7 +1036,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
                 tvDrafts,spDrafts,tvDraftsRemark,
-                tvSent,spSent,
+                tvSent,spSent,tvSentWarning,
                 tvArchive,spArchive,
                 tvTrash,spTrash,
                 tvJunk,spJunk,
