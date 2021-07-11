@@ -85,6 +85,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -5200,6 +5201,10 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.identity == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
+                            EntityFolder sent = db.folder().getFolderByType(draft.account, EntityFolder.SENT);
+                            if (sent == null)
+                                args.putBoolean("sent_missing", true);
+
                             try {
                                 checkAddress(ato, context);
                                 checkAddress(acc, context);
@@ -5564,6 +5569,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean send_reminders = prefs.getBoolean("send_reminders", true);
 
                 boolean force_dialog = extras.getBoolean("force_dialog", false);
+                boolean sent_missing = args.getBoolean("sent_missing", false);
                 String address_error = args.getString("address_error");
                 String mx_error = args.getString("mx_error");
                 boolean remind_dsn = args.getBoolean("remind_dsn", false);
@@ -5582,7 +5588,7 @@ public class FragmentCompose extends FragmentBase {
                         (draft.cc == null ? 0 : draft.cc.length) +
                         (draft.bcc == null ? 0 : draft.bcc.length);
                 if (send_dialog || force_dialog ||
-                        address_error != null || mx_error != null ||
+                        sent_missing || address_error != null || mx_error != null ||
                         remind_dsn || remind_size || remind_pgp || remind_smime || remind_to || remind_external ||
                         recipients > RECIPIENTS_WARNING ||
                         (formatted && (draft.plain_only != null && draft.plain_only)) ||
@@ -6261,8 +6267,9 @@ public class FragmentCompose extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             Bundle args = getArguments();
             long id = args.getLong("id");
-            String address_error = args.getString("address_error");
-            String mx_error = args.getString("mx_error");
+            final boolean sent_missing = args.getBoolean("sent_missing", false);
+            final String address_error = args.getString("address_error");
+            final String mx_error = args.getString("mx_error");
             final boolean remind_dsn = args.getBoolean("remind_dsn", false);
             final boolean remind_size = args.getBoolean("remind_size", false);
             final boolean remind_pgp = args.getBoolean("remind_pgp", false);
@@ -6291,6 +6298,7 @@ public class FragmentCompose extends FragmentBase {
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_send, null);
+            final Button btnFixSent = dview.findViewById(R.id.btnFixSent);
             final TextView tvAddressError = dview.findViewById(R.id.tvAddressError);
             final TextView tvRemindDsn = dview.findViewById(R.id.tvRemindDsn);
             final TextView tvRemindSize = dview.findViewById(R.id.tvRemindSize);
@@ -6319,7 +6327,18 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
+            final Group grpSentMissing = dview.findViewById(R.id.grpSentMissing);
             final Group grpDsn = dview.findViewById(R.id.grpDsn);
+
+            btnFixSent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                            .putExtra("manual", true));
+                }
+            });
+
+            grpSentMissing.setVisibility(sent_missing ? View.VISIBLE : View.GONE);
 
             tvAddressError.setText(address_error == null ? mx_error : address_error);
             tvAddressError.setVisibility(address_error == null && mx_error == null ? View.GONE : View.VISIBLE);
