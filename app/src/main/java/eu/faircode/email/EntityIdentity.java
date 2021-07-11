@@ -168,7 +168,13 @@ public class EntityIdentity {
             if (user.equalsIgnoreCase(cemail[0]))
                 return true;
         } else {
-            String input = (sender_extra_regex.contains("@") ? other.toLowerCase(Locale.ROOT) : cother[0]);
+            // Domain
+            boolean at = sender_extra_regex.contains("@");
+            if (!at && !cother[1].equalsIgnoreCase(cemail[1]))
+                return false;
+
+            // User
+            String input = (at ? other.toLowerCase(Locale.ROOT) : cother[0]);
             if (Pattern.matches(sender_extra_regex, input))
                 return true;
         }
