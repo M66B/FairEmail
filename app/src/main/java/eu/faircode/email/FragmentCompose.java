@@ -4119,16 +4119,16 @@ public class FragmentCompose extends FragmentBase {
                                                     similar = from;
                                             }
 
-                                            if (ref.deliveredto != null)
-                                                try {
-                                                    Address deliveredto = new InternetAddress(ref.deliveredto);
-                                                    if (same == null && recognized.sameAddress(deliveredto))
-                                                        same = deliveredto;
-                                                    if (similar == null && recognized.similarAddress(deliveredto))
-                                                        similar = deliveredto;
-                                                } catch (AddressException ex) {
-                                                    Log.w(ex);
-                                                }
+                                            //if (ref.deliveredto != null)
+                                            //    try {
+                                            //        Address deliveredto = new InternetAddress(ref.deliveredto);
+                                            //        if (same == null && recognized.sameAddress(deliveredto))
+                                            //            same = deliveredto;
+                                            //        if (similar == null && recognized.similarAddress(deliveredto))
+                                            //            similar = deliveredto;
+                                            //    } catch (AddressException ex) {
+                                            //        Log.w(ex);
+                                            //    }
 
                                             EntityLog.log(context, "From=" + MessageHelper.formatAddresses(data.draft.from) +
                                                     " delivered-to=" + ref.deliveredto +
