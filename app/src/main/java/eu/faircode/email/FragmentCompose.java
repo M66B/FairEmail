@@ -5204,10 +5204,12 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.identity == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
-                            EntityAccount account = db.account().getAccount(draft.account);
-                            EntityFolder sent = db.folder().getFolderByType(draft.account, EntityFolder.SENT);
-                            if (account != null && account.protocol == EntityAccount.TYPE_IMAP && sent == null)
-                                args.putBoolean("sent_missing", true);
+                            if (false) {
+                                EntityAccount account = db.account().getAccount(draft.account);
+                                EntityFolder sent = db.folder().getFolderByType(draft.account, EntityFolder.SENT);
+                                if (account != null && account.protocol == EntityAccount.TYPE_IMAP && sent == null)
+                                    args.putBoolean("sent_missing", true);
+                            }
 
                             try {
                                 checkAddress(ato, context);
