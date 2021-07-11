@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvPrimaryHint" />
 
         <eu.faircode.email.FixedTextView
-            android:id="@+id/tvNoIdenties"
+            android:id="@+id/tvNoIdentities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -75,6 +75,7 @@
 
         <Button
             android:id="@+id/btnFix"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -82,7 +83,7 @@
             android:drawablePadding="6dp"
             android:text="@string/title_fix"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNoIdenties" />
+            app:layout_constraintTop_toBottomOf="@id/tvNoIdentities" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpIdentities"
@@ -94,6 +95,6 @@
             android:id="@+id/grpNoIdentities"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvNoIdenties,btnFix" />
+            app:constraint_referenced_ids="tvNoIdentities,btnFix" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
