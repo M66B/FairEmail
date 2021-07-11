@@ -4092,6 +4092,9 @@ public class FragmentCompose extends FragmentBase {
                             } else {
                                 // Prevent replying to self
                                 if (ref.replySelf(data.identities, ref.account)) {
+                                    EntityLog.log(context, "Reply self ref" +
+                                            " from=" + MessageHelper.formatAddresses(ref.from) +
+                                            " to=" + MessageHelper.formatAddresses(ref.to));
                                     data.draft.from = ref.from;
                                     data.draft.to = ref.to;
                                 } else {
@@ -4139,10 +4142,10 @@ public class FragmentCompose extends FragmentBase {
 
                                     if (preferred != null) {
                                         String from = ((InternetAddress) preferred).getAddress();
-                                        EntityLog.log(context, "preferred=" + from);
+                                        EntityLog.log(context, "Preferred=" + from);
                                         data.draft.extra = UriHelper.getEmailUser(from);
                                     } else
-                                        EntityLog.log(context, "preferred=null");
+                                        EntityLog.log(context, "Preferred=null");
                                 }
                             }
 
