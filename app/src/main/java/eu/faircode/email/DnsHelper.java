@@ -80,7 +80,7 @@ public class DnsHelper {
                 String error = "Error " + lookup.getResult() + ": " + lookup.getErrorString();
                 if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
                         lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                    throw new UnknownHostException(error);
+                    throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
                 else
                     Log.e(error);
             } catch (UnknownHostException ex) {
