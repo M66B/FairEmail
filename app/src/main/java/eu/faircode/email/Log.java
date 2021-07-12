@@ -1695,9 +1695,7 @@ public class Log {
         int uiMode = context.getResources().getConfiguration().uiMode;
         sb.append(String.format("UI mode: 0x"))
                 .append(Integer.toHexString(uiMode))
-                .append(" night")
-                .append(" no=").append((uiMode & Configuration.UI_MODE_NIGHT_NO) != 0)
-                .append(" yes=").append((uiMode & Configuration.UI_MODE_NIGHT_YES) != 0)
+                .append(" night=").append(Helper.isNight(context))
                 .append("\r\n");
 
         sb.append("Transliterate: ")
