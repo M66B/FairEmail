@@ -82,7 +82,6 @@
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\"%1$s\" misslyckades</string>
-    <string name="title_notification_alert">\"%1$s\" servermeddelande</string>
     <string name="title_notification_sending_left">Försök kvar: %1$d</string>
     <string name="title_notification_sending_failed">Det gick inte att skicka till %1$s</string>
     <string name="title_notification_redacted">Redigering: biometrisk autentisering eller PIN-kod aktiverad</string>

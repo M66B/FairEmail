@@ -103,7 +103,6 @@
     <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" zlyhalo</string>
-    <string name="title_notification_alert">\"%1$s\" varovanie zo servera</string>
     <string name="title_notification_sending_left">Počet zostávajúcich pokusov: %1$d</string>
     <string name="title_notification_sending_failed">Nepodarilo sa odoslať príjemcovi %1$s</string>
     <string name="title_notification_redacted">Obmedzené: Povolené biometrické overenie, alebo overenie pinom</string>

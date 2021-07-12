@@ -83,7 +83,7 @@
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
-    <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
+    <string name="title_notification_alert">Alerte serveur : \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentatives restantes : %1$d</string>
     <string name="title_notification_sending_retry">Une nouvelle tentative d\'envoi sera effectuée suite à un changement de connexion internet ou à un rafraîchissement de la boîte d\'envoi</string>
     <string name="title_notification_sending_failed">L\'envoi à %1$s a échoué</string>
@@ -159,6 +159,7 @@
     <string name="title_setup_no_inbox">Boîte de réception introuvable</string>
     <string name="title_setup_advanced_protection">Une fois inscrit au programme de protection avancée, il n’est plus possible d’utiliser une application de messagerie tierce. Il s’agit d’une restriction imposée par Google.</string>
     <string name="title_setup_quick_success">Un compte a été ajouté avec succès</string>
+    <string name="title_setup_quick_no_sent">Aucun dossier de messages envoyés n\'a été sélectionné. Les messages envoyés peuvent ne pas être stockés.</string>
     <string name="title_setup_quick_configure">Pour modifier le nom, la couleur, les actions de balayage, etc.</string>
     <string name="title_setup_manage">Gérer</string>
     <string name="title_setup_grant">Autoriser</string>
@@ -363,7 +364,7 @@
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
     <string name="title_advanced_monospaced_pre">Utiliser une police à espacement fixe pour le texte préformaté</string>
-    <string name="title_advanced_background_color">Utiliser les couleurs d\'arrière-plan</string>
+    <string name="title_advanced_background_color">Afficher les couleurs d\'arrière-plan</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_text_size">Utiliser la taille du texte</string>
     <string name="title_advanced_text_font">Utiliser les polices de caractères</string>

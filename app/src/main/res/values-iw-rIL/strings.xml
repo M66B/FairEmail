@@ -84,7 +84,6 @@
     <string name="title_notification_waiting">ממתין לחיבור רשת</string>
     <string name="title_notification_idle">לא פעיל</string>
     <string name="title_notification_failed">\'%1$s\' נכשלה</string>
-    <string name="title_notification_alert">\'%1$s\' התראת שרת</string>
     <string name="title_factor_minutes">%1$d דקות</string>
     <string name="menu_answers">תבניות</string>
     <string name="menu_operations">פעולות</string>

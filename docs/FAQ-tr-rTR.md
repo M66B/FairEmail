@@ -4,7 +4,7 @@
 
 Sorunuzun olması halinde, öncelikle aşağıda yer alan sıkça sorulan soruları kontrol ediniz. [Sayfanın altında](#user-content-get-support) diğer soruları sormayı, özellikleri talep etmeyi ve hata bildirmeyi nasıl yapacağınızı öğrenebilirsiniz.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). Nasıl daha fazla soru sorabileceğiniz, özellik talep edebileceğiniz ve hataları nasıl bildirebileceğinizi [aşağıdan öğrenebilirsiniz.](#user-content-get-support)
+Eğer bir sorunuz varsa, lütfen önce sıkça sorulan soruları kontrol edin (SSS). Nasıl daha fazla soru sorabileceğiniz, özellik talep edebileceğiniz ve hataları nasıl bildirebileceğinizi [aşağıdan öğrenebilirsiniz.](#user-content-get-support)
 
 ## Dizin
 
@@ -70,18 +70,18 @@ Yaygın hata mesajları ve çözümleri için lütfen [burayı](#user-content-fa
 * ~~ Google Drive'daki bir [ hata ](https://issuetracker.google.com/issues/126362828), Google Drive'a dışa aktarılan dosyaların boş olmasına neden oluyor. Google bunu düzeltti. ~~
 * ~~ AndroidX'teki bir [ hata ](https://issuetracker.google.com/issues/78495471), FairEmail'in bazen uzun basma veya kaydırma sırasında çökmesine neden oluyor. Google bunu düzeltti. ~~
 * ~~ AndroidX ROOM'daki bir [ hatası ](https://issuetracker.google.com/issues/138441698), bazen çökmeye sebep oluyor "*... Veritabanı canlı verilerini hesaplarken istisna ... Satır okunamadı ... * ". Bir geçici çözüm eklendi. ~~
-* Bir [Android'deki bir hata](https://issuetracker.google.com/issues/119872129) FairEmail'in "* ile çökmesine neden oluyor... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
+* Bir [Android'deki bir hata](https://issuetracker.google.com/issues/119872129) FairEmail'in "* ile çökmesine neden oluyor... FairEmail'i güncelledikten ve bir bildirime dokunduktan sonra bazı cihazlarda bir kez hatalı bildirim gönderildi...*".
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) yeniden yükleme sorunu çözebilir.
 * A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
-* A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
-* ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
-* ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* Scrolling to an internally linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
-* A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
-* Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
+* Android 5.x'te Nova Launcher'daki bir hata, Nova Launcher'ın erişilebilirlik hizmetine erişimi olduğunda FairEmail'in bir *java.lang.StackOverflowError* ile çökmesine neden oluyor.
+* ~~Klasör seçici bazen henüz bilinmeyen nedenlerle klasör göstermez. Bu düzeltilmiş görünüyor.~~
+* ~~[AndroidX'te bir hata](https://issuetracker.google.com/issues/64729576), hızlı kaydırma çubuğunu yakalamayı zorlaştırıyor. Bir geçici çözüm eklendi.~~
+* ~~YubiKey ile şifreleme, sonsuz bir döngüye neden oluyor. Bu, [OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507)'deki bir hatadan kaynaklanıyor gibi görünüyor.~~
+* Orijinal mesajlarda dahili olarak bağlantılı bir konuma kaydırma çalışmıyor. Orijinal mesaj görünümü kayan bir görünümde yer aldığından bu düzeltilemez.
+* [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) yok sayıldığı için Samsung saatlerinde bir mesaj metninin önizlemesi (her zaman) görünmez. Mesaj önizleme metinlerinin Pebble 2, Fitbit Charge 3, Mi band 3 ve Xiaomi Amazfit BIP giyilebilir cihazlarda doğru görüntülendiği biliniyor. Ayrıca [bu SSS](#user-content-faq126)'e bakın.
+* [Android 6.0'daki bir hata](https://issuetracker.google.com/issues/37068143), * ile kilitlenmeye neden oluyor... Geçersiz ofset: ... Geçerli aralık ...* metin seçildiğinde ve seçilen metnin dışına dokunulduğunda. Bu hata Android 6.0.1'de düzeltildi.
+* Orijinal mesajlar, kayan bir görünümde (konuşma listesi) katıştırılmış bir Web Görünümünde gösterildiğinden, dahili (sabit) bağlantılar çalışmayacaktır. Bu, düzeltilemeyen veya çözülemeyen bir Android sınırlamasıdır.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 

@@ -91,7 +91,7 @@
     <string name="title_notification_waiting">Очікування з\'єднання з інтернетом</string>
     <string name="title_notification_idle">Бездіяльність</string>
     <string name="title_notification_failed">\'%1$s\' не вдалося</string>
-    <string name="title_notification_alert">\'%1$s\' Попередження від сервера</string>
+    <string name="title_notification_alert">Сповіщення сервера: \'%1$s\'</string>
     <string name="title_notification_sending_left">Залишилось спроб: %1$d</string>
     <string name="title_notification_sending_retry">Буде повторна спроба відправлення при зміні підключення до Інтернету або при перевірці пошти</string>
     <string name="title_notification_sending_failed">Відправлення до %1$s не вдалося</string>
@@ -199,6 +199,9 @@
     <string name="title_setup_close">Закрити налаштування</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
+    <string name="title_setup_export_remark">        Оскільки файл налаштувань містить усі налаштування і інформацію про обліковий запис, він зашифрований паролем.
+        Необхідно ввести пароль для повторного імпортування налаштувань, тому не забувайте про це!
+    </string>
     <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>

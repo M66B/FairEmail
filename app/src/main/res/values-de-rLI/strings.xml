@@ -84,7 +84,7 @@
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
-    <string name="title_notification_alert">Server-Warnung von \'%1$s\'</string>
+    <string name="title_notification_alert">Serverwarnung: \'%1$s\'</string>
     <string name="title_notification_sending_left">Verbleibende Versuche: %1$d</string>
     <string name="title_notification_sending_retry">Das Senden wird erneut versucht, wenn sich die Internetverbindung ändert oder der Ausgangskorb heruntergezogen wird</string>
     <string name="title_notification_sending_failed">Senden an %1$s fehlgeschlagen</string>
@@ -132,7 +132,7 @@
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
     <string name="title_setup_manual">Manuelle Einrichtung und Kontooptionen</string>
     <string name="title_setup_classic">Klassische Konfiguration</string>
-    <string name="title_setup_documentation">Bitte lesen Sie die Dokumentation Ihres E-Mail-Providers für die korrekte Konfiguration des E-Mail-Servers</string>
+    <string name="title_setup_documentation">Bitte lesen Sie die Dokumentation Ihres E-Mail-Anbieters für die korrekte Konfiguration des E-Mail-Servers</string>
     <string name="title_setup_account_remark">E-Mail empfangen</string>
     <string name="title_setup_identity_remark">E-Mail senden</string>
     <string name="title_setup_account_identity_hint">Sie können Namen, Farbe und Wischen in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
@@ -160,6 +160,7 @@
     <string name="title_setup_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Schutzprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-Anwendung von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
     <string name="title_setup_quick_success">Ein Konto wurde erfolgreich hinzugefügt</string>
+    <string name="title_setup_quick_no_sent">Es wurde kein Ordner für gesendete Nachrichten ausgewählt. Gesendete Nachrichten werden möglicherweise nicht gespeichert.</string>
     <string name="title_setup_quick_configure">Zum Bearbeiten des Namens, der Farbe, der Wischaktionen usw.</string>
     <string name="title_setup_manage">Verwalten</string>
     <string name="title_setup_grant">Zulassen</string>

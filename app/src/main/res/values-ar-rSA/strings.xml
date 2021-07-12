@@ -121,7 +121,6 @@
     <string name="title_notification_waiting">في انتظار اتصال مناسب</string>
     <string name="title_notification_idle">خامل</string>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
-    <string name="title_notification_alert">تنبيه الخادم \'%1$s\'</string>
     <string name="title_notification_sending_left">المحاولات المتبقية: %1$d</string>
     <string name="title_notification_sending_retry">سيتم إعادة الإرسال عند تغيير الاتصال بالإنترنت أو السحب للأسفل على صندوق الصادر</string>
     <string name="title_notification_sending_failed">فشل الإرسال إلى %1$s</string>

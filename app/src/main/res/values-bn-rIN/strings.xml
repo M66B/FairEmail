@@ -64,7 +64,6 @@
     <string name="title_notification_waiting">উপযুক্ত সংযোগের জন্য অপেক্ষা করা হচ্ছে</string>
     <string name="title_notification_idle">নিষ্ক্রিয়</string>
     <string name="title_notification_failed">\'%1$s\' ব্যর্থ</string>
-    <string name="title_notification_alert">\'%1$s\' সার্ভার সতর্কতা</string>
     <string name="title_notification_sending_left">চেষ্টা বাকিঃ %1$d</string>
     <string name="title_notification_sending_failed">%1$s এর কাছে প্রেরণ ব্যর্থ হয়েছে</string>
     <string name="title_notification_redacted">পুনঃনির্মাণঃ বায়োমেট্রিক বা পিন প্রমাণীকরণ চালু</string>

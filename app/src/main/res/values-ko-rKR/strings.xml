@@ -57,7 +57,6 @@
     <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
     <string name="title_notification_idle">유휴</string>
     <string name="title_notification_failed">\'%1$s\' 실패</string>
-    <string name="title_notification_alert">서버 경고: \'%1$s\'</string>
     <string name="title_notification_sending_left">남은 시도 횟수: %1$d</string>
     <string name="title_notification_sending_failed">%1$s에게 전송 실패</string>
     <string name="title_notification_redacted">수정됨: 생체 및 PIN 인증 활성화됨</string>

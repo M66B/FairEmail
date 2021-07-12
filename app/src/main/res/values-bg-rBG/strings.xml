@@ -69,7 +69,6 @@
     <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
     <string name="title_notification_idle">Празен</string>
     <string name="title_notification_failed">%1$s се провали</string>
-    <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_notification_sending_failed">Изпращането до %1$s неуспешно</string>
     <string name="title_factor_minutes">%1$d минути</string>
     <string name="menu_answers">Шаблони</string>

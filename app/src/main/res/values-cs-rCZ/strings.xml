@@ -103,7 +103,7 @@
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">„%1$s“ selhalo</string>
-    <string name="title_notification_alert">„%1$s“ upozornění serveru</string>
+    <string name="title_notification_alert">Upozornění serveru: \'%1$s\'</string>
     <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
     <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
     <string name="title_notification_redacted">Revidováno: zapnuto biometrické či PIN ověření</string>
@@ -142,12 +142,14 @@
     <string name="title_setup_quick_accounts">Přidat nebo upravit účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Rychlé nastavení načte konfigurační údaje z autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Vyčkejte prosím &#8230;</string>
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce lze použít vícekrát, pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_manual">Ruční nastavení a možnosti účtu</string>
+    <string name="title_setup_classic">Klasická konfigurace</string>
     <string name="title_setup_account_remark">Příjem e-mailů</string>
     <string name="title_setup_identity_remark">Odesílání e-mailů</string>
     <string name="title_setup_account_identity_hint">Jméno, barvu a akce přejetím nakonfigurujete v nastavení účtu, a podpis v nastavení identity</string>
@@ -192,6 +194,7 @@
     <string name="title_setup_doze_instructions">V následujícím Android dialogu změňte \"Neoptimalizováno\" na \"Všechny aplikace\", nalistujte tuto aplikaci a zvolte u ní \"Neoptimalizovat\"</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
+    <string name="title_setup_doze_device">Pravděpodobně vyžadováno pro toto zařízení</string>
     <string name="title_setup_doze_android">Vyžadováno pro tuto verzi Androidu</string>
     <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
@@ -206,6 +209,9 @@
     <string name="title_setup_close">Zavřít nastavení</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
+    <string name="title_setup_export_remark">        Protože soubor s nastavením obsahuje všechna nastavení a informace účtů, je proto zašifrován heslem.
+        Heslo je vyžadováno pro zpětný import nastavení, nezapomeňte jej tedy prosím!
+    </string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
@@ -328,6 +334,8 @@
     <string name="title_advanced_landscape3">Automaticky zobrazit navigační menu v režimu na šířku</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
+    <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>
+    <string name="title_advanced_tabular_background">Použít barvu karty jako pozadí při zobrazení stylem tabulky</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
@@ -372,6 +380,7 @@
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_monospaced_pre">Použít neproporcionální písmo pro předformátovaný text</string>
+    <string name="title_advanced_background_color">Použít barvy pozadí</string>
     <string name="title_advanced_text_color">Použít barvy textu</string>
     <string name="title_advanced_text_size">Použít velikost textu</string>
     <string name="title_advanced_text_font">Použít fonty písma</string>
@@ -610,6 +619,7 @@
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžité zprávy nebo četnost kontroly nových zpráv</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
     <string name="title_color">Barva</string>
+    <string name="title_background">Pozadí</string>
     <string name="title_transparent">Průhledný</string>
     <string name="title_account_ondemand">Synchronizovat ručně</string>
     <string name="title_account_notify">Samostatná oznámení</string>
@@ -969,6 +979,7 @@
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Výchozí</string>
     <string name="title_style_blockquote">Bloková citace</string>
+    <string name="title_style_indentation">Odsazení</string>
     <string name="title_style_strikethrough">Přeškrtnutí</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>

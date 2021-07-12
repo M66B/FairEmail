@@ -93,7 +93,7 @@
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_idle">Inactiv</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
-    <string name="title_notification_alert">Alertă server %1$s</string>
+    <string name="title_notification_alert">Alertă server: \'%1$s\'</string>
     <string name="title_notification_sending_left">Încercări rămase: %1$d</string>
     <string name="title_notification_sending_retry">Trimiterea va fi reîncercată la modificările conexiunii la internet sau la tragerea în jos în mesaje de trimis</string>
     <string name="title_notification_sending_failed">Trimiterea către %1$s a eșuat</string>
@@ -201,6 +201,9 @@
     <string name="title_setup_close">Închideți setările</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
+    <string name="title_setup_export_remark">        Deoarece fișierul de setări conține toate setările și informațiile despre cont, acesta este criptat cu o parolă.
+        Parola este necesară pentru a importa din nou setările, așa că vă rugăm să nu o uitați!
+    </string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>

@@ -71,7 +71,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_idle">Inactiu</string>
     <string name="title_notification_failed">%1$s ha fallat</string>
-    <string name="title_notification_alert">%1$s alerta del servidor</string>
     <string name="title_notification_sending_left">Intents restants: %1$d</string>
     <string name="title_notification_sending_failed">Falla l\'enviament a %1$s</string>
     <string name="title_factor_minutes">%1$d minuts</string>

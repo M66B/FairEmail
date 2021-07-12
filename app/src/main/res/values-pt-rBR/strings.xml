@@ -82,7 +82,6 @@
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_idle">Ocioso</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
-    <string name="title_notification_alert">\'%1$s\' alerta de servidor</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
     <string name="title_notification_redacted">Reformulado: autenticação biométrica ou PIN habilitado</string>

@@ -83,7 +83,7 @@
     <string name="title_notification_waiting">Αναμονή για κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>
     <string name="title_notification_failed">\'%1$s\' απέτυχε</string>
-    <string name="title_notification_alert">\'%1$s\' ειδοποίηση διακομιστή</string>
+    <string name="title_notification_alert">Ειδοποίηση διακομιστή: \'%1$s\'</string>
     <string name="title_notification_sending_left">Προσπάθειες που απομένουν: %1$d</string>
     <string name="title_notification_sending_retry">Η αποστολή θα επιχειρηθεί εκ νέου όταν μεταβληθεί η σύνδεση στο διαδίκτυο ή όταν τραβήξετε προς τα κάτω στα εξερχόμενα</string>
     <string name="title_notification_sending_failed">Η αποστολή σε %1$s απέτυχε</string>
@@ -159,6 +159,7 @@
     <string name="title_setup_no_inbox">Δεν βρέθηκαν εισερχόμενα</string>
     <string name="title_setup_advanced_protection">Δεν επιτρέπεται η χρήση ανεξάρτητων εφαρμογών ηλεκτρονικού ταχυδρομείου σε χρήστες εγγεγραμμένους/-ες σε πρόγραμμα αυξημένης ασφάλειας. Ο περιορισμός αυτός έχει επιβληθεί από την Google.</string>
     <string name="title_setup_quick_success">Ένας λογαριασμός έχει προστεθεί με επιτυχία</string>
+    <string name="title_setup_quick_no_sent">Δεν έχει επιλεγεί φάκελος απεσταλμένων μηνυμάτων. Τα απεσταλμένα μήνυμα ενδέχεται να μην αποθηκεύονται.</string>
     <string name="title_setup_quick_configure">Για να επεξεργαστείτε το όνομα, το χρώμα, τις ενέργειες σάρωσης κλπ</string>
     <string name="title_setup_manage">Διαχείριση</string>
     <string name="title_setup_grant">Παραχώρηση δικαιώματος</string>
@@ -191,6 +192,9 @@
     <string name="title_setup_close">Κλείσιμο ρυθμίσεων</string>
     <string name="title_setup_export">Εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_import">Εισαγωγή ρυθμίσεων</string>
+    <string name="title_setup_export_remark">        Δεδομένου ότι το αρχείο ρυθμίσεων περιέχει όλες τις ρυθμίσεις και πληροφορίες λογαριασμού, είναι κρυπτογραφημένο με κωδικό πρόσβασης.
+        Ο κωδικός πρόσβασης απαιτείται για να εισαγάγετε ξανά τις ρυθμίσεις, οπότε, παρακαλούμε, μην τον ξεχάσετε!
+    </string>
     <string name="title_setup_import_do">Οι εισαγόμενοι λογαριασμοί θα προστεθούν χωρίς να αντικατασταθεί κάποιος από τους ήδη υπάρχοντες</string>
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
     <string name="title_setup_password_chars">Ο κωδικός πρόσβασης περιέχει χαρακτήρες ελέγχου ή διαστήματα</string>

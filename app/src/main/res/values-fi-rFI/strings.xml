@@ -82,8 +82,9 @@
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_idle">Toimeton</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
-    <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
+    <string name="title_notification_alert">Palvelimen hälytys: \'%1$s\'</string>
     <string name="title_notification_sending_left">Yrityksiä jäljellä: %1$d</string>
+    <string name="title_notification_sending_retry">Lähettämistä yritetään uudestaan internetyhteyden muuttuessa tai vetämällä alaspäin lähtevät-kansiossa</string>
     <string name="title_notification_sending_failed">Lähettäminen vastaanottajalle %1$s epäonnistui</string>
     <string name="title_notification_redacted">Muokattu: biometrinen tai PIN-tunnistautuminen on käytössä</string>
     <string name="title_factor_minutes">%1$d minuuttia</string>
@@ -107,6 +108,7 @@
     <string name="title_agree">Hyväksyn</string>
     <string name="title_disagree">En hyväksy</string>
     <string name="title_version">Versio %1$s</string>
+    <string name="title_privacy_policy">Tietosuojakäytäntö</string>
     <string name="title_list_accounts">Tilit</string>
     <string name="title_list_identities">Identiteetit</string>
     <string name="title_edit_account">Muokkaa tiliä</string>
@@ -120,12 +122,15 @@
     <string name="title_setup_quick_accounts">Lisää tai muuta tilejä</string>
     <string name="title_setup_quick_support">Jotkin palveluntarjoajat tekevät tilin lisäämisestä vaikeaa. Älä syytä tästä FairEmailia, vaan kysy sen sijaan tukea.</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Ole kärsivällinen &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_wizard_multiple">Asetusvelholla voidaan asettaa monta tiliä käyttämällä sitä useamman kerran</string>
     <string name="title_setup_wizard_new">Tarvitsen uuden sähköpostiosoitteen</string>
     <string name="title_setup_manual">Manuaalinen asettaminen ja tiliasetukset</string>
+    <string name="title_setup_classic">Asetukset</string>
+    <string name="title_setup_documentation">Ole hyvä ja katso sähköpostipalveluntarjoajan dokumentaatiosta palvelinasetukset</string>
     <string name="title_setup_account_remark">Vastaanota sähköpostia</string>
     <string name="title_setup_identity_remark">Lähetä sähköpostia</string>
     <string name="title_setup_account_identity_hint">Voit määrittää nimen, värin ja pyyhkäisytoiminnot tilin asetuksissa ja allekirjoituksen identiteettiasetuksissa</string>
@@ -185,6 +190,9 @@
     <string name="title_setup_close">Sulje asetukset</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
+    <string name="title_setup_export_remark">        Koska asetustiedosto sisältää kaikki asetukset ja tilitiedot, se on salattu salasanalla.
+        Salasana tarvitaan asetusten tuomiseksi, joten älä unohda sitä!
+    </string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
@@ -308,6 +316,8 @@
     <string name="title_advanced_landscape3">Näytä navigointivalikko vaakatilassa oletusarvoisesti</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
+    <string name="title_advanced_cards_beige">Käytä beigeä taustaa, kun käytät korttityyliä (vain vaaleat teemat)</string>
+    <string name="title_advanced_tabular_background">Käytä kortin väriä taulukkotyylin taustavärinä</string>
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_date_bold">Näytä päivämäärä lihavoituna</string>
@@ -352,6 +362,7 @@
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjasinta oletuksena viestien tekstille</string>
     <string name="title_advanced_monospaced_pre">Käytä tasavälistä kirjasinta esimuotoillulle tekstille</string>
+    <string name="title_advanced_background_color">Käytä taustavärejä</string>
     <string name="title_advanced_text_color">Käytä tekstin värejä</string>
     <string name="title_advanced_text_size">Käytä tekstin kokoja</string>
     <string name="title_advanced_text_font">Käytä kirjasimia</string>
@@ -429,6 +440,7 @@
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
+    <string name="title_advanced_notify_screen_on">Laita näyttö hetkeksi päälle uusia ilmoituksia varten</string>
     <string name="title_advanced_confirm_links">Vahvista linkkien avaaminen</string>
     <string name="title_advanced_browse_links">Anna linkkien avaaminen Androidille hoidettavaksi</string>
     <string name="title_advanced_confirm_images">Vahvista kuvien näyttäminen</string>
@@ -470,6 +482,7 @@
     <string name="title_advanced_class_min_difference">Luokkien välinen vähimmäisero: %1$s %%</string>
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
+    <string name="title_advanced_deepl">DeepL-integraatio</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
     <string name="title_advanced_check_weekly">Tarkista viikoittain päivittäisen sijaan</string>
@@ -588,6 +601,7 @@
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
     <string name="title_color">Väri</string>
+    <string name="title_background">Tausta</string>
     <string name="title_transparent">Läpinäkyvä</string>
     <string name="title_account_ondemand">Synkronoi manuaalisesti</string>
     <string name="title_account_notify">Erilliset ilmoitukset</string>
@@ -948,6 +962,7 @@
     <string name="title_style_font">Kirjasin</string>
     <string name="title_style_font_default">Oletus</string>
     <string name="title_style_blockquote">Kappalelainaus</string>
+    <string name="title_style_indentation">Sisennys</string>
     <string name="title_style_strikethrough">Yliviivattu</string>
     <string name="title_style_clear">Poista muotoilu</string>
     <string name="title_style_link">Lisää linkki</string>
@@ -977,6 +992,7 @@
     <string name="title_translating">Käännetään &#8230;</string>
     <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Napauta käännettävää tekstiä</string>
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>

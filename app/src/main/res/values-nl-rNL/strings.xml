@@ -83,7 +83,7 @@
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_idle">Inactief</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
-    <string name="title_notification_alert">\'%1$s\' servermelding</string>
+    <string name="title_notification_alert">Serverwaarschuwing: \'%1$s\'</string>
     <string name="title_notification_sending_left">Resterende pogingen: %1$d</string>
     <string name="title_notification_sending_retry">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de internetverbinding of het naar beneden trekken van de outbox</string>
     <string name="title_notification_sending_failed">Verzenden naar %1$s mislukt</string>
@@ -159,6 +159,7 @@
     <string name="title_setup_no_inbox">Postvak in niet gevonden</string>
     <string name="title_setup_advanced_protection">Wanneer u bent ingeschreven voor het geavanceerde beveiligingsprogramma, is het niet mogelijk om een e-mailapp van derden te gebruiken. Dit is een door Google opgelegde beperking.</string>
     <string name="title_setup_quick_success">Een account is succesvol toegevoegd</string>
+    <string name="title_setup_quick_no_sent">Er is geen map voor verzonden berichten geselecteerd. Verzonden berichten worden mogelijk niet opgeslagen.</string>
     <string name="title_setup_quick_configure">Om de naam, kleur, veeg acties, etc te bewerken</string>
     <string name="title_setup_manage">Beheer</string>
     <string name="title_setup_grant">Verlenen</string>

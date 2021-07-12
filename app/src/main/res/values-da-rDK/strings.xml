@@ -83,7 +83,7 @@
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
-    <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
+    <string name="title_notification_alert">Serveradvarsel: \'%1$s\'</string>
     <string name="title_notification_sending_left">Forsøg resterer: %1$d</string>
     <string name="title_notification_sending_retry">Afsendelse gentages ved Internetforbindelsesændringer eller et træk nedad på udbakken</string>
     <string name="title_notification_sending_failed">Afsendelse til %1$s mislykkedes</string>
@@ -158,6 +158,7 @@
     <string name="title_setup_no_inbox">Indbakke ikke fundet</string>
     <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
     <string name="title_setup_quick_success">En konto er blevet tilføjet</string>
+    <string name="title_setup_quick_no_sent">Ingen Sendt-beskedmappe er valgt. Afsendte breve lagres muligvis ikke.</string>
     <string name="title_setup_quick_configure">For at redigere navn, farve, strygehandlinger mv.</string>
     <string name="title_setup_manage">Administrér</string>
     <string name="title_setup_grant">Tillad</string>
@@ -186,6 +187,9 @@
     <string name="title_setup_close">Luk indstillinger</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
+    <string name="title_setup_export_remark">        Da indstillingsfilen indeholder alle indstillinger og kontooplysninger, krypteres den vha. en adgangskode.
+        Adgangskoden kræves for at importere indstillingerne igen, så glem den ikke!
+    </string>
     <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
     <string name="title_setup_password">Adgangskode</string>
     <string name="title_setup_password_chars">Adgangskode indeholder kontrol- eller mellemrumstegn</string>

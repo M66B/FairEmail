@@ -67,7 +67,6 @@
     <string name="title_notification_waiting">درحال انتظار برای اتصال مناسب</string>
     <string name="title_notification_idle">بیکار</string>
     <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
-    <string name="title_notification_alert">\'%1$s\' هشدار سرور</string>
     <string name="title_notification_sending_left">تلاش‌های باقی‌مانده: %1$d</string>
     <string name="title_notification_sending_failed">ارسال به %1$s ناموفق بود</string>
     <string name="title_factor_minutes">%1$d دقیقه</string>

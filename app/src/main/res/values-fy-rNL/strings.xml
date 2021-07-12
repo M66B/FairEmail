@@ -82,7 +82,6 @@
     <string name="title_notification_waiting">Wachtsje op geskikte ferbining</string>
     <string name="title_notification_idle">Ynaktyf</string>
     <string name="title_notification_failed">\'%1$s\' mislearre</string>
-    <string name="title_notification_alert">\'%1$s\' tsjinner warskôging</string>
     <string name="title_notification_sending_left">Pogingen lofts: %1$d</string>
     <string name="title_notification_sending_failed">Stjoeren nei %1$s is mislearre</string>
     <string name="title_notification_redacted">Redacted: biometrysk as PIN-autentikaasje ynskeakele</string>

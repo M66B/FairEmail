@@ -76,7 +76,6 @@
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_idle">Inaktiv</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
-    <string name="title_notification_alert">\'%1$s\' servervarsling</string>
     <string name="title_notification_sending_left">Forsøk igjen: %1$d</string>
     <string name="title_notification_sending_failed">Sending til %1$s mislyktes</string>
     <string name="title_notification_redacted">Redigert: biometrisk eller PIN-autentisering aktivert</string>

@@ -102,7 +102,7 @@
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_idle">Bezczynny</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
-    <string name="title_notification_alert">Alert serwera \'%1$s\'</string>
+    <string name="title_notification_alert">Alert serwera: \'%1$s\'</string>
     <string name="title_notification_sending_left">Pozostało prób: %1$d</string>
     <string name="title_notification_sending_retry">Wysyłanie zostanie ponowione po zmianie połączenia internetowego lub pociągnięciu w dół skrzynki nadawczej</string>
     <string name="title_notification_sending_failed">Wysyłanie do %1$s nie powiodło się</string>
@@ -210,6 +210,9 @@
     <string name="title_setup_close">Zamknij ustawienia</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
+    <string name="title_setup_export_remark">        Ponieważ plik ustawień zawiera wszystkie ustawienia i informacje o koncie, jest zaszyfrowany hasłem.
+         Hasło jest wymagane do ponownego zaimportowania ustawień, więc nie zapomnij go!
+    </string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_chars">Hasło zawiera znaki kontrolne lub znaki spacji</string>

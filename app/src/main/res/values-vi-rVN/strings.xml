@@ -73,7 +73,6 @@
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_idle">Rảnh</string>
     <string name="title_notification_failed">\'%1$s\' thất bại</string>
-    <string name="title_notification_alert">\'%1$s\' cảnh báo của máy chủ</string>
     <string name="title_notification_sending_left">Lần thử còn lại: %1$d</string>
     <string name="title_notification_sending_retry">Việc gửi sẽ được thử lại khi có thay đổi về kết nối internet hoặc khi kéo xuống trong hộp thư đi</string>
     <string name="title_notification_sending_failed">Gửi đến %1$s thất bại</string>

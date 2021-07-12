@@ -72,7 +72,6 @@
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
-    <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
     <string name="title_notification_sending_left">剩余尝试次数: %1$d</string>
     <string name="title_notification_sending_retry">发送将在网络连接更改时或在下拉发件箱时重试</string>
     <string name="title_notification_sending_failed">发送至 %1$s 失败</string>
@@ -112,12 +111,15 @@
     <string name="title_setup_quick_accounts">添加或更改账户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要责怪 FairEmail，而应向提供商寻求支持。</string>
     <string name="title_setup_quick_hint">快速设置将从 autoconfig.thunderbird.net 获取配置信息</string>
+    <string name="title_setup_quick_patience">请耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个帐户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
     <string name="title_setup_manual">手动设置和更多账户选项</string>
+    <string name="title_setup_classic">经典配置</string>
+    <string name="title_setup_documentation">请查看您的电子邮件提供商的文档以获取正确的电子邮件服务器配置</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
     <string name="title_setup_account_identity_hint">你可以在帐户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
@@ -177,6 +179,9 @@
     <string name="title_setup_close">关闭设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
+    <string name="title_setup_export_remark">        因设置文件包含所有的设置和帐户信息，它受到密码加密保护。
+        导入该设置将需要密码，所以请不要忘记！
+    </string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
@@ -586,6 +591,7 @@
     <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
     <string name="title_color">颜色</string>
+    <string name="title_background">背景</string>
     <string name="title_transparent">透明</string>
     <string name="title_account_ondemand">手动同步</string>
     <string name="title_account_notify">单独的通知</string>
@@ -946,6 +952,7 @@
     <string name="title_style_font">字体</string>
     <string name="title_style_font_default">默认</string>
     <string name="title_style_blockquote">引用块</string>
+    <string name="title_style_indentation">缩进</string>
     <string name="title_style_strikethrough">删除线</string>
     <string name="title_style_clear">清除格式</string>
     <string name="title_style_link">插入链接</string>

@@ -92,27 +92,27 @@
 * ~~各文件夹有不同的通知设置~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~显示规则匹配的消息~~
-* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
-* ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~（没有许可协议适合且在维护而无依赖性的 Java 程序库，FairEmail 有自己的过滤规则）
+* ~~~搜索含有/没有附件的邮件~~（无法添加，IMAP 不支持搜索附件）
 * ~~搜索一个文件夹~~（过滤一个有层次的文件夹列表目前有问题）
 * ~~搜索建议~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~通用统一文件夹~~
 * ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
 * ~~复制帐户和身份~~
-* ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
+* ~~捏合缩放~~（可滚动的列表中并不可靠；完整消息视图中可以缩放）
 * ~~更紧凑的文件夹视图~~
-* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
+* ~~撰写列表和表格~~（这需要一个文本编辑器，另见[这条 FAQ](#user-content-faq99)）
 * ~~捏合手势缩放文字大小~~
 * ~~显示GIF~~
-* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
+* ~~主题~~（已增加一个灰色和一个暗色主题，大多数人似乎想要这些）
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~作为附件发送~~
 * ~~呈现选定账户的小部件~~
 * ~~~~提醒附加文件~~
-* ~~Select domains to show images for~~ (this will be too complicated to use)
+* ~~选择可显示图像的域~~（这将过于复杂，难以使用）
 * ~~统一的已加星标邮件视图~~（已有专用的搜索）
-* ~~Move notification action~~
+* ~~移动通知操作~~
 * ~~支持S/MIME~~
 * ~~搜索“设置”~~
 
@@ -120,185 +120,185 @@
 
 <h2><a name="frequently-requested-features"></a>常见请求添加的功能</h2>
 
-The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
+本软件的设计基于[论坛](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)中的众多讨论，欢迎参与。 总体设计目标是简约（没有不必要的菜单、按钮）、不分散注意力（没有花哨的颜色、动画等）。 显示的所有组件都应有用，并仔细考虑怎样便于使用。 字体、大小、颜色等都应尽量遵循“材质设计”（material design）风格。
 
 <h2><a name="frequently-asked-questions"></a>常见问题解答</h2>
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
+* [(1) 需要哪些权限及为什么？](#user-content-faq1)
+* [(2) 为什么显示了一个持久通知？](#user-content-faq2)
+* [(3) 在执行什么操作及原因？](#user-content-faq3)
+* [(4) 如何建立连接而忽视安全证书无效、空密码或纯文本连接的问题？](#user-content-faq4)
+* [(5) 如何定制消息视图？](#user-content-faq5)
+* [(6) 如何登录 Gmail / G suite?](#user-content-faq6)
+* [(7) 为什么发送的邮件没有（立即）在发件箱中出现？](#user-content-faq7)
+* [(8) 如何使用 Microsoft Exchange 账户？](#user-content-faq8)
+* [(9) “身份”是什么？怎么添加邮箱别名？](#user-content-faq9)
+* [~~(11) 为何不支持 POP？~~](#user-content-faq11)
+* [~~(10) 'UIDPLUS 不支持' 是什么意思？~~](#user-content-faq10)
+* [(12) 加密和解密是怎样运行的？](#user-content-faq12)
+* [(13) 在设备/服务器上的搜索怎样运作？](#user-content-faq13)
+* [(14) 我该如何设置 Outlook / Live / Hotmail 账户？](#user-content-faq14)
+* [(15) 为什么邮件内容一直在加载？](#user-content-faq15)
+* [(16) 为什么邮件没被同步？](#user-content-faq16)
+* [~~(17) 为什么手动同步没用？~~](#user-content-faq17)
+* [(18) 为什么消息预览有时不显示？](#user-content-faq18)
+* [(19) 为什么专业版功能这么贵？](#user-content-faq19)
+* [(20) 购买后能退款吗？](#user-content-faq20)
+* [(21) 如何启用呼吸灯通知？](#user-content-faq21)
+* [(22) 账户/文件夹错误是怎么回事？](#user-content-faq22)
 * [(23) Why do I get alert .. ? ?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
-* [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
-* [(36) How are settings files encrypted?](#user-content-faq36)
-* [(37) How are passwords stored?](#user-content-faq37)
-* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
-* [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
-* [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
+* [(24) 什么是浏览服务器上的消息？](#user-content-faq24)
+* [(25) 为什么我不能选择/打开/保存图片、附件或者文件？](#user-content-faq25)
+* [(26) 我能否帮忙翻译我所用语言的 FairEmail？](#user-content-faq26)
+* [(27) 我该如何区分嵌入图像和外部图像？](#user-content-faq27)
+* [(28) 我怎样能管理状态栏通知？](#user-content-faq28)
+* [(29) 我该如何使其他文件夹获得新消息通知？](#user-content-faq29)
+* [(30) 如何使用软件提供的快速设置？](#user-content-faq30)
+* [(31) 如何使用软件提供的快捷键？](#user-content-faq31)
+* [(32) 我该如何检查阅读电子邮件是否真的安全？](#user-content-faq32)
+* [(33) 为什么编辑发件人地址不起作用？](#user-content-faq33)
+* [(34) 身份如何匹配？](#user-content-faq34)
+* [(35) 我为什么要小心浏览图像、附件、原始信息和打开链接？](#user-content-faq35)
+* [(36) 设置文件会如何加密？](#user-content-faq36)
+* [(37) 密码被如何存储？](#user-content-faq37)
+* [(39) 怎样能减少 FairEmail 的用电量？](#user-content-faq39)
+* [(40) 怎样能减少 FairEmail 使用的流量？](#user-content-faq40)
+* [(41) 如何解决“握手失败”错误？](#user-content-faq41)
+* [(42) 作者您能在提供商列表中新增一个提供商吗？](#user-content-faq42)
 * [(43) Can you show the original ... ?](#user-content-faq43)
-* [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
+* [(44) 能在发件箱中显示联系人照片/身份吗？](#user-content-faq44)
 * [(45) How can I fix 'This key is not available. (45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ? ?](#user-content-faq45)
-* [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [~~(48) How do I solve the error 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
-* [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
-* [(51) How are folders sorted?](#user-content-faq51)
-* [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
-* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
-* [(56) Can you add support for JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
-* [(58) What does an open/closed email icon mean?](#user-content-faq58)
-* [(59) Can original messages be opened in the browser?](#user-content-faq59)
+* [(46) 为什么消息列表一直在刷新？](#user-content-faq46)
+* [(47) 如何解决错误“没有主要帐户或没有草稿文件夹”？](#user-content-faq47)
+* [~~(48) 如何解决错误“没有主要帐户或没有草稿文件夹”？~~](#user-content-faq48)
+* [(49) 如何解决“过时的应用发送了文件路径而不是文件流”？](#user-content-faq49)
+* [(50) 作者您能加一个同步所有邮件的选项吗？](#user-content-faq50)
+* [(51) 如何排序文件夹？](#user-content-faq51)
+* [(52) 为什么重新连接账户有点慢？](#user-content-faq52)
+* [(53) 能把消息操作栏放在顶部或底部吗？](#user-content-faq53)
+* [~~(54) 如何使用命名空间前缀？~~](#user-content-faq54)
+* [(55) 该如何标记所有消息为已读，或者移动或删除所有消息？](#user-content-faq55)
+* [(56) 您能添加 JMAP 的支持吗？](#user-content-faq56)
+* [(57) 我可以在签名中使用 HTML 吗？](#user-content-faq57)
+* [(58) 开启/关闭的电子邮件图标意味着什么？](#user-content-faq58)
+* [(59) 可以在浏览器中打开原始消息吗？](#user-content-faq59)
 * [(60) Did you known ...?](#user-content-faq60)
-* [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Which authentication methods are supported?](#user-content-faq62)
-* [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
-* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo, AOL or Sky account?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup' ?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq158)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) Can you help me restore my purchase?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync not supported?](#user-content-faq133)
-* [(134) Can you add deleting local messages?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder or sender?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore of messages?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
+* [(61) 为什么有些消息变暗？](#user-content-faq61)
+* [(62) 都支持哪些身份认证方法？](#user-content-faq62)
+* [(63) 如何调整图像大小以适合在屏幕上显示？](#user-content-faq63)
+* [~~(64) 能否支持自定义向左/向右滑动时的操作？~~](#user-content-faq64)
+* [(65) 为什么一些附件变暗？](#user-content-faq65)
+* [(66) Google Play Family Library 里有 FairEmail 吗？](#user-content-faq66)
+* [(67) 如何进行会话打盹？](#user-content-faq67)
+* [~~(68) Adobe Acrobat 阅读器为什么打不开 PDF 附件 / 微软应用程序打不开附件文档？~~](#user-content-faq68)
+* [(69) 可以支持自动滚动到新邮件吗？](#user-content-faq69)
+* [(70) 消息什么时候被自动展开？](#user-content-faq70)
+* [(71) 如何使用过滤规则？](#user-content-faq71)
+* [(72) 什么是主要账户/身份？](#user-content-faq72)
+* [(73) 在账户之间移动消息是否安全/有效？](#user-content-faq73)
+* [(74) 为什么我看到了重复的消息？](#user-content-faq74)
+* [(75) 您能制作一个 iOS、Windows、Linux 等系统的版本吗？](#user-content-faq75)
+* [(76) “清除本地消息”是什么？](#user-content-faq76)
+* [(77) 为什么有时消息显示稍有延迟？](#user-content-faq77)
+* [(78) 我该如何使用日程？](#user-content-faq78)
+* [(79) 如何使用手动的按需同步？](#user-content-faq79)
+* [~~(80) 如何解决 'Unable to load BODYSTRUCTURE' 错误？~~](#user-content-faq80)
+* [~~(81) 能否将原始消息的背景色在暗色主题中变暗？~~](#user-content-faq81)
+* [(82) 什么是跟踪图像？](#user-content-faq82)
+* [(84) 什么是本地联系人？](#user-content-faq84)
+* [(85) 为什么有身份不可用？](#user-content-faq85)
+* [~~(86) 什么是额外的隐私功能？~~](#user-content-faq86)
+* [(87) “无效证书”是什么？](#user-content-faq87)
+* [(88) 如何使用雅虎、AOL 或 Sky 账户？](#user-content-faq88)
+* [(89) 如何发送纯文本邮件？](#user-content-faq89)
+* [(90) 为什么有些文本中的网址没有形成链接？](#user-content-faq90)
+* [~~(91) 能添加定期同步用以节省电量吗？~~](#user-content-faq91)
+* [(92) 能否添加垃圾邮件过滤、DKIM 签名验证和 SPF 身份验证功能？](#user-content-faq92)
+* [(93) 能否支持安装和存储数据于外部存储设备（SD 卡）？](#user-content-faq93)
+* [(94) 报头结尾的红色/橙色条纹是什么？](#user-content-faq94)
+* [(95) 为什么选择附件或图像时没有显示所有的应用？](#user-content-faq95)
+* [(96) 我在哪可以找到 IMAP 和 SMTP 设置？](#user-content-faq96)
+* [(97) 什么是“清理”？](#user-content-faq97)
+* [(98) 为什么取消联系人权限后我仍然可以挑选联系人？](#user-content-faq98)
+* [(99) 您可以添加富文本或 Markdown 编辑器吗？](#user-content-faq99)
+* [(100) 我该如何同步 Gmail 类别？](#user-content-faq100)
+* [(101) 会话底部的蓝色/橙色点意味着什么？](#user-content-faq101)
+* [(102) 如何启用图像自动旋转？](#user-content-faq102)
+* [(103) 如何录制音频？](#user-content-faq158)
+* [(104) 错误报告的细节？](#user-content-faq104)
+* [(105) 欧盟 Roam Like at Home 选项的运作方式？](#user-content-faq105)
+* [(106) 哪些启动器可以显示未读消息数角标？](#user-content-faq106)
+* [(107) 如何使用多彩星标？](#user-content-faq107)
+* [~~(108) 能否添加从文件夹永久删除邮件的功能？~~](#user-content-faq108)
+* [~~(109) 为什么只有官方版本提供“选择账户”功能？~~](#user-content-faq109)
+* [(110) 为什么部分消息是空的或者附件损坏？](#user-content-faq110)
+* [(111) 支持 OAuth 吗？](#user-content-faq111)
+* [(112) 您推荐哪个电子邮件提供商？](#user-content-faq112)
+* [(113) 生物身份识别的运作原理？](#user-content-faq113)
+* [(114) 能否添加从其他电子邮件应用导入设置的功能？](#user-content-faq114)
+* [(115) 能支持邮件地址简洁块（chips）吗？](#user-content-faq115)
+* [~~(116) 如何来默认显示来自可信发件人的电子邮件中的图像？~~](#user-content-faq116)
+* [(117) 能帮忙还原我的购买记录吗？](#user-content-faq117)
+* [(118) 什么是“移除跟踪参数”？](#user-content-faq118)
+* [~~(119) 能为聚合收件箱小部件增加颜色吗？~~](#user-content-faq119)
+* [(120) 为什么打开此应用时没有移除新邮件通知？](#user-content-faq120)
+* [(121) 如何将邮件按会话分组显示？](#user-content-faq121)
+* [~~(122) 为什么收件人名称/邮件地址附有一个警告色？~~](#user-content-faq122)
+* [(123) 当 FairEmail 无法连接到某个电子邮件服务器时会怎样？](#user-content-faq123)
+* [(124) 为什么我看到“消息太大或太复杂而无法显示”？](#user-content-faq124)
+* [(125) 当前有什么实验性功能？](#user-content-faq125)
+* [(126) 可以将消息预览发到我的可穿戴设备吗？](#user-content-faq126)
+* [(127) 如何解决 '语法上无效的 HELO 参数'？](#user-content-faq127)
+* [(128) 如何重置某些询问窗口，如是否显示图像？](#user-content-faq128)
+* [(129) 是否支持 ProtonMail、Tutanota？](#user-content-faq129)
+* [(130) ... 错误是什么意思？](#user-content-faq130)
+* [(131) 我能更改滑动切换到上一条/下一条消息的方向吗？](#user-content-faq131)
+* [(132) 为什么新邮件通知没有声音？](#user-content-faq132)
+* [(133) 为什么不支持 ActiveSync？](#user-content-faq133)
+* [(134) 能支持删除本地消息吗？](#user-content-faq134)
+* [(135) 为什么会话中显示有垃圾邮件和草稿？](#user-content-faq135)
+* [(136) 我该如何删除一个账户/身份/文件夹？](#user-content-faq136)
+* [(137) 如何重置“不再询问”设置？](#user-content-faq137)
+* [(138) 能添加日历/联系人/任务/笔记管理功能吗？](#user-content-faq138)
+* [(139) 如何解决 '用户已通过验证但未连接'？](#user-content-faq139)
+* [(140) 为什么消息文本包含奇怪的字符？](#user-content-faq140)
+* [(141) 如何解决“需要草稿文件夹才能发送消息”？](#user-content-faq141)
+* [(142) 我该如何在收件箱中存储已发送的消息？](#user-content-faq142)
+* [~~(143) 您可以为 POP3 账户添加回收站吗？~~](#user-content-faq143)
+* [(144) 我可以录制语音笔记吗？](#user-content-faq144)
+* [(145) 如何设置一个账户、文件夹或发件人的通知声音？](#user-content-faq145)
+* [(146) 我该如何纠正有误的消息时间？](#user-content-faq146)
+* [(147) 关于第三方版本我该了解什么？](#user-content-faq147)
+* [(148) 如何使用苹果 iCloud 账户？](#user-content-faq148)
+* [(149) 未读消息计数小部件如何运作？](#user-content-faq149)
+* [(150) 可以支持取消日历邀请吗？](#user-content-faq150)
+* [(151) 能支持备份/还原邮件的功能吗？](#user-content-faq151)
+* [(152) 如何插入一个联系群组？](#user-content-faq152)
+* [(153) 为什么没法永久删除 Gmail 邮件？](#user-content-faq153)
+* [~~(154) 可以支持网站小图标（Favicon）作为联系人照片吗？~~](#user-content-faq154)
+* [(155) winmail.dat 文件是什么？](#user-content-faq155)
+* [(156) 如何设置一个 Office 365 账户？](#user-content-faq156)
+* [(157) 如何设置一个 Free.fr 账户？](#user-content-faq157)
+* [(158) 您推荐哪个录视频/录音的应用？](#user-content-faq158)
+* [(159) “Disconnect 的跟踪保护列表”是什么？](#user-content-faq159)
+* [(160) 能添加永久删除邮件且无需确认的功能吗？](#user-content-faq160)
+* [(161) 能新增设置来更改主题色和强调色吗？](#user-content-faq161)
+* [(162) 支持 IMAP NOTIFY 吗？](#user-content-faq162)
+* [(163) 什么是消息分类？](#user-content-faq163)
+* [(164) 您能添加可自定义的主题吗？](#user-content-faq164)
+* [(165) 支持 Android Auto（汽车系统）吗？](#user-content-faq165)
+* [(166) 我可以在多台设备上打盹一条消息吗？](#user-content-faq166)
 
-[I have another question.](#user-content-support)
+[我还有一个问题。](#user-content-support)
 
 <a name="faq1"></a>
-**(1) Which permissions are needed and why?**
+**(1) 需要哪些权限及为什么？**
 
-The following Android permissions are needed:
+需要下列 Android 权限：
 
-* *have full network access* (INTERNET): to send and receive email
-* *view network connections* (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* *run at startup* (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
+* *完全访问网络* (INTERNET)：发送和接收电子邮件
+* *查看网络连接* (ACCESS_NETWORK_STATE)：监测互联网连接的变化
+* *启动时运行* (RECEIVE_BOOT_COMPLETED)：设备启动时开始监测
 * *foreground service* (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while synchronizing messages
 * *in-app billing* (BILLING): to allow in-app purchases
@@ -796,15 +796,15 @@ For setting up an Office 365 account, please see [this FAQ](#user-content-faq156
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
 
-The message header and message body are fetched separately from the server. The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message. The message text will keep loading if there is no connection to the account, see also the next question, or if there other operations, like synchronizing messages, are being executed.
+从服务器获取邮件标头与获取邮件正文是单独的一组操作。 体积较大的邮件正文将不会在按量计费的连接上预取，将在展开消息时按需获取。 邮件正文会表现为正在加载，如果尚未连接到账户（另见下一问题）或有其他操作正在进行（如同步消息）。
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons) and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+如果由于之前的连接问题使 FairEmail 处在暂停状态，参考[这条常见问题](#user-content-faq123)，您可以通过三点菜单来“强制同步”。
 
-In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
+您可以在接收设置中设定计量连接上自动下载的邮件最大大小。
 
-Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+大部分移动网络是计量连接，部分付费制 Wi-Fi 也是。
 
 <br />
 
@@ -845,40 +845,40 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+如果消息内容尚未下载，则无法显示消息内容的预览。 另见[这条常见问题](#user-content-faq15)。
 
 <br />
 
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
-First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
+首先，**FairEmail 基本上可以免费使用**，仅部分高级功能需要购买。
 
 Zuerst, **FairEmail ist grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
 
 Tout d'abord, **FairEmail est au fond gratuit** et seulement quelques fonctionnalités avancées doivent être achetés.
 
-Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
+专业版功能的完整列表另见本应用在 Play 商店中的描述，或者[这里](https://email.faircode.eu/#pro)。
 
-The right question is "*why are there so many taxes and fees?*":
+真正的问题是“*为什么税收和手续费那么多*”：
 
-* VAT: 25 % (depending on your country)
-* Google fee: 30 %
-* Income tax: 50 %
-* <sub>Paypal fee: 5-10 % depending on the country/amount</sub>
+* 增值税：25 %（取决于所在国家）
+* Google 手续费：30 %
+* 所得税：50 %
+* <sub>Paypal 手续费：5-10 %，取决于国家和金额</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+所以，开发者只收取了您支付金额的一小部分。
 
-Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet. There are no privacy violating ads in the app either.
+也请注意绝大多数的免费应用都因难以为继而不可持续，而 FairEmail 得到了妥善的维护和提供客户服务，并且免费应用更有可能加入偷窃信息的功能。 本应用中也不含违背隐私权的广告。
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+我几乎每天处理有关 FairEmail 的问题，已超过两年，所以我认为这个费用是合理的。 因此，没有打折。
 
 <br />
 
 <a name="faq20"></a>
 **(20) Can I get a refund?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+如果您购买的专业版功能无法正常运作、问题不是由免费功能所引起，且我无法及时地解决问题，您可以得到退款。 而其他情况下，没有退款。 任何情况下不会为免费功能相关的问题提供退款，因为用户没有为此付费，且可以不受限制的评估功能。 我承担卖方责任并兑现承诺，买方也应负起责任了解自己购买了什么。
 
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
@@ -1047,7 +1047,7 @@ Note that it will take the email server a while to discover broken connections, 
 <a name="faq24"></a>
 **(24) What is browse messages on the server?**
 
-Browse messages on the server will fetch messages from the email server in real time when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize. You can disable this feature in the advanced account settings.
+浏览服务器上的消息是在您到达已同步消息的末尾时，实时地从邮件服务器上获取消息，即使文件夹已设置该范围为不同步。 您可以在账户的高级功能中禁用此功能。
 
 <br />
 
@@ -1152,32 +1152,32 @@ It is also possible to create shortcuts to folders by long pressing a folder in 
 <br />
 
 <a name="faq32"></a>
-**(32) How can I check if reading email is really safe?**
+**(32) 我该如何检查阅读电子邮件是否真的安全？**
 
-You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+为此您可以使用[电子邮件隐私测试工具](https://www.emailprivacytester.com/)。
 
 <br />
 
 <a name="faq33"></a>
-**(33) Why are edited sender addresses not working?**
+**(33) 为何没法编辑发件人地址？**
 
-Most providers accept validated addresses only when sending messages to prevent spam.
+大多数提供商仅允许有权使用的地址用来发送邮件以防止垃圾邮件。
 
-For example Google modifies the message headers like this for *unverified* addresses:
+例如 Google 会为*未验证的地址*修改消息标头：
 
 ```
 From: Somebody <somebody@example.org>
 X-Google-Original-From: Somebody <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically replaced by a verified address before sending the message.
+因此即便编辑了发件人地址，发送该消息时它也会被已验证的地址自动取代。
 
-Note that this is independent of receiving messages.
+请注意，这与消息的接收无关。
 
 <br />
 
 <a name="faq34"></a>
-**(34) How are identities matched?**
+**(34) 身份如何匹配？**
 
 Identities are as expected matched by account. For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked. Equal addresses have precedence over partially matching addresses, except for *delivered-to* addresses.
 
@@ -1231,9 +1231,9 @@ If you want to reset the default *Open with* apps, please [see here](https://www
 <a name="faq36"></a>
 **(36) How are settings files encrypted?**
 
-Short version: AES 256 bit
+简而言之：AES 256 位
 
-Long version:
+详细来说：
 
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
@@ -1243,9 +1243,9 @@ Long version:
 <a name="faq37"></a>
 **(37) How are passwords stored?**
 
-All supported Android versions [encrypt all user data](https://source.android.com/security/encryption), so all data, including usernames, passwords, messages, etc, is stored encrypted.
+所有受支持的 Android 版本都[加密所有的用户数据](https://source.android.com/security/encryption)，因此所有数据，包括用户名、密码、邮件等都被加密存储。
 
-If the device is secured with a PIN, pattern or password, you can make the account and identity passwords visible. If this is a problem because you are sharing the device with other people, consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
+如果设备受到 PIN 码、手势图案或者密码的保护，账户和身份的密码得以保障。 如果因与他人共享设备而影响安全，请使用[用户资料配置](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/)。
 
 <br />
 
@@ -1346,9 +1346,9 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 <a name="faq42"></a>
 **(42) Can you add a new provider to the list of providers?**
 
-If the provider is used by more than a few people, yes, with pleasure.
+如果提供商已被一定数量的用户使用，我很高兴添加。
 
-The following information is needed:
+需要下列信息：
 
 ```
 <provider
@@ -1368,11 +1368,11 @@ The following information is needed:
 
 The EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery): "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
 
-So, pure SSL connections are safer than using [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) and therefore preferred.
+因此，纯 SSL 连接比 [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) 更安全，更推荐使用。
 
-Please make sure receiving and sending messages works properly before contacting me to add a provider.
+请先确保其发送和接收邮件正常，然后联系我请求添加提供商。
 
-See below about how to contact me.
+联系方式见下文。
 
 <br />
 
@@ -1454,9 +1454,9 @@ The navigation (hamburger) menu item *Order folders* in the settings can be used
 <a name="faq52"></a>
 **(52) Why does it take some time to reconnect to an account?**
 
-There is no reliable way to know if an account connection was terminated gracefully or forcefully. Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems like [too many simultaneous connections](#user-content-faq23) or even the account being blocked. To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
+没有可靠的方法了解账户连接是被意外还是强迫中止。 如果账户连接被强迫中止，频繁尝试重连账户可能导致[太多并发连接](#user-content-faq23)等错误，乃至账户被封禁。 为避免此类问题，FairEmail 会在尝试重连前等待 90 秒。
 
-You can long press *Settings* in the navigation menu to reconnect immediately.
+您可以长按导航菜单中的*设置*来立即重连。
 
 <br />
 
@@ -1496,7 +1496,7 @@ You can use multiple select for this. Long press the first message, don't lift y
 <a name="faq56"></a>
 **(56) Can you add support for JMAP?**
 
-There are almost no providers offering the [JMAP](https://jmap.io/) protocol, so it is not worth a lot of effort to add support for this to FairEmail.
+几乎没有提供商支持 [JMAP](https://jmap.io/) 协议，因此不值得大动干戈使 FairEmail 支持该协议。
 
 <br />
 
@@ -1539,7 +1539,7 @@ Message bodies and attachments are downloaded by default.
 <a name="faq59"></a>
 **(59) Can original messages be opened in the browser?**
 
-For security reasons the files with the original message texts are not accessible to other apps, so this is not possible. In theory the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) could be used to share these files, but even Google's Chrome cannot handle this.
+出于安全原因，其他应用不能访问包含原始消息文本的文件，因此不能。 理论上，[存储访问框架](https://developer.android.com/guide/topics/providers/document-provider) 可能用于共享这些文件， 但即使是 Google Chrome 也无法处理该问题。
 
 <br />
 
@@ -1572,32 +1572,32 @@ For security reasons the files with the original message texts are not accessibl
 <a name="faq61"></a>
 **(61) Why are some messages shown dimmed?**
 
-Messages shown dimmed (grayed) are locally moved messages for which the move is not confirmed by the server yet. This can happen when there is no connection to the server or the account (yet). These messages will be synchronized after a connection to the server and the account has been made or, if this never happens, will be deleted if they are too old to be synchronized.
+变暗（灰色）的消息是本地已移动的消息，服务器尚未确认完成此移动。 尚未连接到服务器或账户时可能发生此情况。 这些消息将在连接到服务器和账户后同步，如果这一直未完成以致太旧，则移动操作会被删除。
 
-You might need to manually synchronize the folder, for example by pulling down.
+您可能需要手动同步文件夹，例如通过下拉手势。
 
-You can view these messages, but you cannot move these messages again until the previous move has been confirmed.
+您可以查看这些消息，但在上次的移动被确认前，您不能再次移动这些消息。
 
-Pending [operations](#user-content-faq3) are shown in the operations view accessible from the main navigation menu.
+在主导航菜单的操作视图中显示有待定的[操作](#user-content-faq3)。
 
 <br />
 
 <a name="faq62"></a>
 **(62) Which authentication methods are supported?**
 
-The following authentication methods are supported and used in this order:
+支持下列身份验证方法并按如下顺序使用：
 
 * CRAM-MD5
 * LOGIN
 * PLAIN
-* NTLM (untested)
+* NTLM（缺乏测试）
 * XOAUTH2 ([Gmail](https://developers.google.com/gmail/imap/xoauth2-protocol), [Yandex](https://tech.yandex.com/oauth/))
 
 SASL authentication methods, besides CRAM-MD5, are not supported because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
 
-If your provider requires an unsupported authentication method, you'll likely get the error message *authentication failed*.
+如果您的提供商需要特定的不支持的身份验证方法，您大概会收到错误消息 *身份验证失败*。
 
-[Client certificates](https://en.wikipedia.org/wiki/Client_certificate) can be selected in the account and identity settings.
+可以在账户和身份设置中选择[客户端证书](https://en.wikipedia.org/wiki/Client_certificate)。
 
 [Server Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication) is supported by [all supported Android versions](https://developer.android.com/training/articles/security-ssl).
 
@@ -1782,9 +1782,9 @@ There can be just one primary account and there can be just one primary identity
 <a name="faq73"></a>
 **(73) Is moving messages across accounts safe/efficient?**
 
-Moving messages across accounts is safe because the raw, original messages will be downloaded and moved and because the source messages will be deleted only after the target messages have been added
+在账户间移动消息是安全的，原始消息将被下载并移动，目标消息被添加后才会删除原始消息。
 
-Batch moving messages across accounts is efficient if both the source folder and target folder are set to synchronize, else FairEmail needs to connect to the folder(s) for each message.
+当源文件夹和目标文件夹都设定了同步，批量移动账户中的消息最有效率， 否则 FairEmail 需要为每条消息连接文件夹。
 
 <br />
 
@@ -1800,14 +1800,14 @@ Gmail allows one message to have multiple labels, which are presented to FairEma
 <a name="faq75"></a>
 **(75) Can you make an iOS, Windows, Linux, etc version?**
 
-A lot of knowledge and experience is required to successfully develop an app for a specific platform, which is why I develop apps for Android only.
+成功开发特定平台的应用需要大量的知识和经验。 因此，我只为 Android 开发应用。
 
 <br />
 
 <a name="faq76"></a>
 **(76) What does 'Clear local messages' do?**
 
-The folder menu *Clear local messages* removes messages from the device which are present on the server too. It does not delete messages from the server. This can be useful after changing the folder settings to not download the message content (text and attachments), for example to save space.
+文件夹菜单中的*清除本地消息*用来删除设备和服务器上都存在的消息。 它不会删除服务器上的消息。 更改文件夹设置以不下载消息内容（文本和附件）来节省空间后，这可能有用。
 
 <br />
 
@@ -2180,14 +2180,14 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <a name="faq104"></a>
 **(104) What do I need to know about error reporting?**
 
-* Error reports will help improve FairEmail
-* Error reporting is optional and opt-in
-* Error reporting can be enabled/disabled in the settings, section miscellaneous
-* Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
-* Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
-* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
-* See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
-* Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
+* 错误报告将有助于改进 FairEmail
+* 错误报告是可选且可退出的
+* 错误报告可以在设置-杂项设置中启用/禁用
+* 错误报告将自动的匿名发送到 [Bugsnag](https://www.bugsnag.com/)
+* Android 的 Bugsnag 是[开源](https://github.com/bugsnag/bugsnag-android)的
+* 查看[这里](https://docs.bugsnag.com/platforms/android/automatically-captured-data/)了解错误报告中包含的数据
+* 查看[这里](https://docs.bugsnag.com/legal/privacy-policy/)了解 Bugsnag 的隐私政策
+* 错误报告将发送到 *sessions.bugsnag.com:443* 和 *notify.bugsnag.com:443*
 
 <br />
 
@@ -2203,9 +2203,9 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers) for a list of launchers which can show the number of unread messages.
+详见[这里](https://github.com/leolin310148/ShortcutBadger#supported-launchers)了解可以显示未读邮件数的启动器名单。
 
-Note that Nova Launcher requires Tesla Unread, which is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
+注意，Nova Launcher 需要 Tesla Unread，这已[不再支持](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415)。
 
 Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
 
@@ -2284,24 +2284,24 @@ OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the qui
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
+FairEmail 只是一个电子邮件客户端，所以您要先拥有自己的电子邮件地址。 应用描述中已经明确提到这一点。
 
-There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+目前有大量的电子邮件提供商可供选择。 哪个电子邮件提供商最适合您，取决于您的愿望/要求。 请查看[找回隐私](https://restoreprivacy.com/secure-email/)与[隐私工具](https://www.privacytools.io/providers/email/)的网站，了解以隐私为导向的电子邮件提供商列表，及其优缺点。
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
+如 ProtonMail、Tutanota 等邮件服务提供商使用专有的电子邮件协议，因此无法使用第三方的电子邮件应用程序。 详见[这条常见问题](#user-content-faq129)
 
-Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
+许多电子邮件提供商支持使用您自定义的邮箱域名，这会让您切换到另一个电子邮件提供商变得更容易。
 
 <br />
 
 <a name="faq113"></a>
 **(113) How does biometric authentication work?**
 
-If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen. When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
+如果您的设备有生物识别传感器，例如指纹传感器， 您可以在设置画面的导航菜单中启用/禁用生物识别认证。 When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running. Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period duration can be configured in the miscellaneous settings. When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
 
-Biometric authentication is meant to prevent others from seeing your messages only. FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+生物识别认证只为防止他人看到您的消息。 FairEmail 依赖设备加密进行数据加密，另见[这条常见问题](#user-content-faq37)。
 
-Biometric authentication is a pro feature.
+生物识别认证是一项专业版功能。
 
 <br />
 
@@ -2486,11 +2486,11 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 <br />
 
 <a name="faq129"></a>
-**(129) Are ProtonMail, Tutanota supported?**
+**(129) 是否支持 ProtonMail、Tutanota？**
 
-ProtonMail uses a proprietary email protocol and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/), so you cannot use FairEmail to access ProtonMail.
+ProtonMail 使用专有的电子邮件协议 且[不直接支持 IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/)， 因此您不能使用 FairEmail 访问 ProtonMail。
 
-Tutanota uses a proprietary email protocol and [does not support IMAP](https://tutanota.com/faq/#imap), so you cannot use FairEmail to access Tutanota.
+Tutanota 使用专有的电子邮件协议 且[不直接支持 IMAP](https://tutanota.com/faq/#imap)， 因此您不能使用 FairEmail 访问 Tutanota。
 
 <br />
 
@@ -2536,7 +2536,7 @@ Android might rate limit the notification sound, which can cause some new messag
 <a name="faq133"></a>
 **(133) Why is ActiveSync not supported?**
 
-The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported. For this reason you won't find many, if any, other email clients supporting ActiveSync.
+Microsoft Exchange ActiveSync 协议[是有专利的](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) ，因此不能支持。 出于此原因，您也找不到其他支持 ActiveSync 的电子邮件客户端。
 
 Note that the desciption of FairEmail starts with the remark that non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync are not supported.
 
@@ -2586,7 +2586,7 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 <a name="faq137"></a>
 **(137) How can I reset 'Don't ask again'?**
 
-You can reset all questions set to be not asked again in the miscellaneous settings.
+您可以在杂项设置中重置所有提示框的“不再询问”。
 
 <br />
 
@@ -2679,15 +2679,15 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 <a name="faq144"></a>
 **(144) How can I record voice notes?**
 
-To record voice notes you can press this icon in the bottom action bar of the message composer:
+要录制语音笔记，您可以按消息撰写器底部操作栏的此图标：
 
 ![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
-This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
+这需要安装兼容的录音应用。 尤其需要支持[这个通用的 intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)。
 
-For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.
+例如，[这款录音机应用](https://f-droid.org/app/com.github.axet.audiorecorder)与此功能兼容。
 
-Voice notes will automatically be attached.
+语音笔记将自动附加到邮件。
 
 <br />
 
@@ -2732,30 +2732,30 @@ This will not change the time of already synchronized messages. To solve this, l
 <a name="faq147"></a>
 **(147) What should I know about third party versions?**
 
-You likely came here because you are using a third party build of FairEmail.
+查阅这里可能是因为您在使用第三方构建的 FairEmail。
 
-There is **only support** on the latest Play store version, the latest GitHub release and the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+仅为最新的 Play 商店版本、最新的 GitHub release 版本及特定的 F-Droid 构建**提供支持**。F-Droid 构建**仅限**其构建版本号与最新的 GitHub release 版本版本号相同时。
 
-F-Droid builds irregularly, which can be problematic when there is an important update. Therefore you are advised to switch to the GitHub release.
+F-Droid 会不定期地构建，如果有重要的更新，这可能会产生问题。 因此建议您切换到 GitHub 版本。
 
-The F-Droid version is built from the same source code, but signed differently. This means that all features are available in the F-Droid version too, except for using the Gmail quick setup wizard because Google approved (and allows) one app signature only. For all other email providers, OAuth access is only available in Play Store versions and Github releases, as the email providers only permit the use of OAuth for official builds.
+F-Droid 版本是从相同的源代码生成，但数字签名不同。 因此 F-Droid 版本中提供了相同的所有功能，但 Gmail 快速设置向导除外，因为 Google 仅允许和批准一个应用签名。 对列出的其他邮件服务提供商来说，OAuth 访问仅在 Play 商店版本和 Github 版本中可用，因为电子邮箱提供者仅允许官方版本使用 OAuth 。
 
-Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install the same app with a different signature for security reasons.
+请注意，您需要先卸载 F-Droid 构建的版本才能安装 GitHub 版本， 因为 Android 基于安全原因拒绝安装不同签名的同一应用程序。
 
-Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.
+GitHub 版本将自动检查更新。 可以在设置中关闭此功能。
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download options.
+完整的下载选项[详见这里](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads)。
 
-If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
+如果您的 F-Droid 构建版本遇到问题，请先检查是否有更新的 GitHub 版本。
 
 <br />
 
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
+有内置一个苹果 iCloud 的配置文件，所以您应该能使用快速设置向导（其它提供者）。 If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
 
-When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
+当使用双重认证时，您可能需要使用一个[应用专用密码](https://support.apple.com/en-us/HT204397)。
 
 <br />
 
@@ -2786,15 +2786,15 @@ Inserting new calendar events can be done without permissions with special [inte
 <a name="faq151"></a>
 **(151) Can you add backup/restore of messages?**
 
-An email client is meant to read and write messages, not to backup and restore messages. Note that breaking or losing your device, means losing your messages!
+电子邮件客户端意在阅读和撰写邮件，而不是备份和还原邮件。 Note that breaking or losing your device, means losing your messages!
 
-Instead, the email provider/server is responsible for backups.
+因此，电子邮件提供商/服务器负责备份。
 
-If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
+如果您自行备份，可以尝试类似 [imapsync](https://imapsync.lamiral.info/) 的工具。
 
 Since version 1.1556 it is possible to export all messages of a POP3 folder in mbox format according to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt), which might be useful to save sent messages if the email server doesn't.
 
-If you want to import an mbox file to an existing email account, you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
+如果您想导入一个 mbox 文件到一个现有的电子邮件账户， 可以在桌面电脑上使用 Thunderbird 和 [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) 附加组件。
 
 <br />
 
@@ -2810,22 +2810,22 @@ You can define contact groups with the Android contacts app, please see [here](h
 <a name="faq153"></a>
 **(153) Why does permanently deleting Gmail message not work?**
 
-You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
+您可能需要在桌面浏览器上更改 [Gmail IMAP 设置](https://mail.google.com/mail/u/0/#settings/fwdandpop) ，这样就能正常运转：
 
 * When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
 * When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
 
-Note that archived messages can be deleted only by moving them to the trash folder first.
+请注意，已存档的消息先移动到回收站文件夹，之后才能删除。
 
-Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
+背景故事： Gmail 似乎有一个额外的 IMAP 消息视图，这可能不同于主要的消息视图。
 
-Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command
+另一个奇妙之处，无法通过 IMAP 命令移除通过网页界面设置的星标
 
 ```
 STORE <message number> -FLAGS (\Flagged)
 ```
 
-On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.
+另一方面，通过 IMAP 设置的星标在网页界面中正常显示且可以通过 IMAP 移除。
 
 <br />
 
@@ -2839,11 +2839,11 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 <a name="faq155"></a>
 **(155) What is a winmail.dat file?**
 
-A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
+*winmail.dat* 文件是由配置不正确的 Outlook 客户端所发送。 它是一个 微软定制的文件格式（[TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)），包含一条消息，并可能有附件。
 
 You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
 
-You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+您可以使用 Android 应用程序 [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener) 查看它。
 
 <br />
 
@@ -2909,7 +2909,7 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 <a name="faq160"></a>
 **(160) Can you add permanent deletion of messages without confirmation?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+永久删除意味着消息将*不可逆转*地丢失。为防止意外发生，始终需要确认。 即使有确认，也有一些因自己的失误而丢失某些邮件的非常愤怒的人联系了我。 这是一个相当不爽的体验 :-(
 
 Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
 
@@ -2927,20 +2927,20 @@ If I could, I would add a setting to select the primary and accent color right a
 <a name="faq162"></a>
 **(162) Is IMAP NOTIFY supported?***
 
-Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+是的，[IMAP NotIFY](https://tools.ietf.org/html/rfc5465) 自版本 1.1413 以来一直支持。
 
 IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
 
 **Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**重要**：大多数电子邮件服务器都不支持它！ 如果电子邮件服务器支持 NOTIFY 功能，您可以通过导航菜单检查其日志。
 
 <br />
 
 <a name="faq163"></a>
 **(163) What is message classification?**
 
-*This is an experimental feature!*
+*这是一个实验性功能！*
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
@@ -3021,29 +3021,29 @@ To prevent these issues, snoozing is done locally on the device by hiding the me
 
 <br />
 
-<h2><a name="get-support"></a>Get support</h2>
+<h2><a name="get-support"></a>获取帮助（客户支持）</h2>
 
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
+FairMail 仅支持 Android 智能手机、平板电脑和 ChromeOS。
 
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
+仅支持最新的 Play 商店版本和最新的 GitHub 版本。 只有版本号与最新的 GitHub 版本号相同时，F-Droid 版本才受支持。 这也意味着不支持降级。
 
-There is no support on things that are not directly related to FairEmail.
+对于与 FairEmail 没有直接关联的事情，没有任何支持。
 
-There is no support on building and developing things by yourself.
+您自行构建和开发的东西不提供支持。
 
-Requested features should:
+功能请求应该：
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
+* 对大多数人有用
+* 不使 FairEmail 的使用复杂化
+* 符合 FairEmail 的哲学（着眼隐私、安全导向）
+* 遵守通用标准（IMAP、SMTP 等）
 
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
+不符合上述要求的功能请求很可能会被拒绝。 这是为了长期维护和提供支持而着想。
 
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
+如果您有疑问，想要请求某个功能或报告错误，**请使用 [此表单](https://contact.faircode.eu/?product=fairemailsupport)**。
 
-GitHub issues are disabled due to frequent misusage.
+由于频繁误用，GitHub issue 功能已禁用。
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+版权所有 &copy; 2018-2021 Marcel Bokhorst.

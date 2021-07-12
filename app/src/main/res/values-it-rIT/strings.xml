@@ -83,7 +83,6 @@
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
-    <string name="title_notification_alert">\'%1$s\' avvisi sul server</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
     <string name="title_notification_sending_retry">L\'invio sarà riprovato in caso di modifiche alla connessione Internet o aggiornando la posta in uscita</string>
     <string name="title_notification_sending_failed">Invio a %1$s fallito</string>
@@ -191,6 +190,9 @@
     <string name="title_setup_close">Chiudi le impostazioni</string>
     <string name="title_setup_export">Impostazioni di esportazione</string>
     <string name="title_setup_import">Importa impostazioni</string>
+    <string name="title_setup_export_remark">        Poiché il file delle impostazioni contiene tutte le impostazioni e informazioni del profilo, è crittografato con una password.
+        La password è necessaria per importare di nuovo le impostazioni, sei quindi pregato di non dimenticarla!
+    </string>
     <string name="title_setup_import_do">I profili importati saranno aggiunti senza sovrascriverne alcuno esistente</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>

@@ -70,7 +70,6 @@
     <string name="title_notification_waiting">Menunggu koneksi yang sesuai</string>
     <string name="title_notification_idle">Siaga</string>
     <string name="title_notification_failed">Gagal \'%1$s\'</string>
-    <string name="title_notification_alert">Peringatan server \'%1$s\'</string>
     <string name="title_notification_sending_left">Percobaan tersisa: %1$d</string>
     <string name="title_notification_sending_failed">Gagal mengirim ke %1$s</string>
     <string name="title_notification_redacted">Menyusun: otentikasi sidik jari atau PIN diaktifkan</string>

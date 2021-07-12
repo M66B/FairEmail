@@ -83,7 +83,6 @@
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
-    <string name="title_notification_alert">\'%1$s\' sunucu uyarısı</string>
     <string name="title_notification_sending_left">%1$d deneme kaldı</string>
     <string name="title_notification_sending_failed">%1$s adresine gönderim başarısız oldu</string>
     <string name="title_notification_redacted">Düzeltildi: biyometrik veya PIN kimlik doğrulaması etkin</string>

@@ -4,12 +4,12 @@
 
 Si tienes alguna pregunta, por favor comprueba primero las preguntas frecuentes siguientes. [En la parte inferior](#user-content-get-support), puede averiguar cómo hacer otras preguntas, solicitar características, y reportar errores.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [En la parte inferior](#user-content-get-support) encontrará cómo hacer preguntas, solicitar funciones y notificar errores.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
 * [Autorizando cuentas](#user-content-authorizing-accounts)
-* [¿Cómo ...?](#user-content-howto)
+* [¿Cómo...?](#user-content-howto)
 * [Problemas conocidos](#user-content-known-problems)
 * [Características planificadas](#user-content-planned-features)
 * [Características solicitadas con frecuencia](#user-content-frequently-requested-features)
@@ -20,7 +20,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden ha�
 
 En la mayoría de los casos, el asistente de configuración rápida podrá identificar automáticamente la configuración correcta.
 
-Si el asistente de configuración rápida falla, necesitará configurar manualmente una cuenta (para recibir correo electrónico) y una identidad (para enviar correo electrónico). Para esto necesitará las direcciones de los servidores IMAP y SMTP y números de puerto, si SSL/TLS o STARTTLS deben ser usados y su nombre de usuario (generalmente, pero no siempre, su dirección de correo electrónico) y su contraseña.
+Si el asistente de configuración rápida falla, necesitará configurar manualmente una cuenta (para recibir correo electrónico) y una identidad (para enviar correo electrónico). Para esto necesitarás las direcciones de los servidores IMAP y SMTP y números de puerto, ya sea SSL/TLS o STARTTLS deberían usarse y su nombre de usuario (generalmente, pero no siempre, su dirección de correo electrónico) y su contraseña.
 
 Buscar *IMAP* y el nombre del proveedor es generalmente suficiente para encontrar la documentación correcta.
 
@@ -399,7 +399,7 @@ Las operaciones sólo se procesan cuando hay una conexión al servidor de correo
 <br />
 *... Certificado de seguridad inválido (no se puede verificar la identidad del servidor) ...*
 
-Esto puede ser causado por el uso de un nombre de host incorrecto, así que primero compruebe el nombre de host en la configuración avanzada de la identidad/cuenta (pulse Configuración manual). Please see the documentation of the email provider about the right host name.
+Esto puede ser causado por el uso de un nombre de host incorrecto, así que primero compruebe el nombre de host en la configuración avanzada de la identidad/cuenta (pulse Configuración manual). Por favor mire la documentación del proveedor de correo electrónico acerca del nombre de dominio correcto.
 
 You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
 

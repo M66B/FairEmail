@@ -81,7 +81,6 @@
     <string name="title_notification_waiting">Megfelelő kapcsolatra várakozás</string>
     <string name="title_notification_idle">Tétlen</string>
     <string name="title_notification_failed">\'%1$s\' sikertelen</string>
-    <string name="title_notification_alert">\'%1$s\' szerver figyelmeztetés</string>
     <string name="title_notification_sending_left">Hátralévő próbálkozások: %1$d</string>
     <string name="title_notification_sending_failed">Küldés nem sikerül erre a címre: %1$s</string>
     <string name="title_notification_redacted">A Biometrikus vagy PIN authentikáció aktiválva van</string>

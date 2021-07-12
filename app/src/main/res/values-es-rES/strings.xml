@@ -83,7 +83,6 @@
     <string name="title_notification_waiting">Esperando conexión adecuada</string>
     <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
-    <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_retry">El envío se reintentará en los cambios de conexión a Internet o tirando hacia abajo en la bandeja de salida</string>
     <string name="title_notification_sending_failed">El envío a %1$s falló</string>
@@ -191,6 +190,9 @@
     <string name="title_setup_close">Cerrar ajustes</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
+    <string name="title_setup_export_remark">        Dado que el archivo de configuración contiene toda la configuración y la información de la cuenta, se cifra con una contraseña.
+        La contraseña es necesaria para importar la configuración de nuevo, ¡así que por favor no la olvide!
+    </string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>

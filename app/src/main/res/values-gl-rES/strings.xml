@@ -82,7 +82,6 @@
     <string name="title_notification_waiting">Agardando por unha conexión axeitada</string>
     <string name="title_notification_idle">Inactivo</string>
     <string name="title_notification_failed">\'%1$s\' fallou</string>
-    <string name="title_notification_alert">Alerta do servidor \'%1$s\'</string>
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_failed">O envío a %1$s fallou</string>
     <string name="title_factor_minutes">%1$d minutos</string>

@@ -67,7 +67,6 @@
     <string name="title_notification_waiting">தகுந்த இணைப்பிற்காகக் காத்திருக்கிறது</string>
     <string name="title_notification_idle">செயலற்ற</string>
     <string name="title_notification_failed">\'%1$s\' தோல்வியுற்றது</string>
-    <string name="title_notification_alert">\'%1$s\' சேவையக எச்சரிக்கை</string>
     <string name="title_notification_sending_left">மீதமுள்ள முயற்சிகள்: %1$d</string>
     <string name="title_notification_sending_failed">%1$s-க்கு அனுப்புதல் தோல்வியுற்றது</string>
     <string name="menu_setup">அமைப்புகள்</string>
