@@ -818,7 +818,8 @@ public class FragmentCompose extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex, false);
+                        Throwable exex = new Throwable("DeepL", ex);
+                        Log.unexpectedError(getParentFragmentManager(), exex, false);
                     }
                 }.execute(FragmentCompose.this, args, "compose:translate");
             }

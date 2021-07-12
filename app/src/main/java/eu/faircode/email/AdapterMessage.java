@@ -6732,7 +6732,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    tvText.setText(ex.toString());
+                                    Throwable exex = new Throwable("DeepL", ex);
+                                    ToastEx.makeText(context, Log.formatThrowable(exex), Toast.LENGTH_LONG).show();
                                 }
                             }.execute(FragmentDialogTranslate.this, args, "paragraph:translate");
                         }
