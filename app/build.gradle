@@ -302,6 +302,7 @@ dependencies {
     def apache_poi = "3.17" // Do not update
     def reactivestreams_version = "1.0.3"
     def rxjava2_version = "2.2.21"
+    def svg_version = "1.4"
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
@@ -483,4 +484,7 @@ dependencies {
     // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
     implementation "org.reactivestreams:reactive-streams:$reactivestreams_version"
     implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+
+    // http://bigbadaboom.github.io/androidsvg/
+    implementation "com.caverock:androidsvg:$svg_version"
 }

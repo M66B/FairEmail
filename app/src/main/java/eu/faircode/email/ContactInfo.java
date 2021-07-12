@@ -38,6 +38,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import com.caverock.androidsvg.SVG;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
@@ -701,7 +703,25 @@ public class ContactInfo {
                 throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
 
             if ("image/svg+xml".equals(type) || url.getPath().endsWith(".svg"))
-                ; // Android does not support SVG
+                try {
+                    SVG svg = SVG.getFromInputStream(connection.getInputStream());
+                    float w = svg.getDocumentWidth();
+                    float h = svg.getDocumentHeight();
+                    if (w < 0 || h < 0) {
+                        w = 1;
+                        h = 1;
+                    }
+                    Bitmap favicon = Bitmap.createBitmap(
+                            scaleToPixels,
+                            Math.round(scaleToPixels * h / w),
+                            Bitmap.Config.ARGB_8888);
+                    favicon.eraseColor(Color.WHITE);
+                    Canvas canvas = new Canvas(favicon);
+                    svg.renderToCanvas(canvas);
+                    return favicon;
+                } catch (Throwable ex) {
+                    throw new IOException("SVG", ex);
+                }
 
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), scaleToPixels);
             if (bitmap == null)
