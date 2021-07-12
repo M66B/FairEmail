@@ -219,6 +219,7 @@ import java.util.concurrent.Future;
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -6741,6 +6742,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             } catch (Throwable ex) {
                                                 Log.e(ex);
                                             }
+                                        }
+
+                                        boolean debug = prefs.getBoolean("debug", false);
+                                        if (debug) {
+                                            EntityAttachment eml = new EntityAttachment();
+                                            eml.message = id;
+                                            eml.sequence = remotes.size() + 1;
+                                            eml.name = "body.eml";
+                                            eml.type = "message/rfc822";
+                                            eml.disposition = Part.ATTACHMENT;
+                                            eml.size = null;
+                                            eml.progress = 0;
+                                            eml.id = db.attachment().insertAttachment(eml);
+                                            File file = eml.getFile(context);
+                                            Helper.copy(plain, file);
+                                            db.attachment().setDownloaded(eml.id, file.length());
                                         }
 
                                         checkPep(message, remotes, context);
