@@ -1956,6 +1956,19 @@ public class MessageHelper {
 
                     if ("flowed".equalsIgnoreCase(h.contentType.getParameter("format")))
                         result = HtmlHelper.flow(result);
+
+                    // https://www.w3.org/QA/2002/04/valid-dtd-list.html
+                    final String DOCTYPE = "<!DOCTYPE";
+                    if (result.length() > DOCTYPE.length()) {
+                        String doctype = result.substring(0, DOCTYPE.length()).toUpperCase(Locale.ROOT);
+                        if (doctype.startsWith(DOCTYPE)) {
+                            String[] words = result.split("\\s+");
+                            if (words.length > 1 &&
+                                    "HTML".equals(words[1].toUpperCase(Locale.ROOT)))
+                                return result;
+                        }
+                    }
+
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (h.isHtml()) {
                     // Conditionally upgrade to UTF8
