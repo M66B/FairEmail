@@ -153,18 +153,21 @@
 
         <activity
             android:name=".ActivitySetup"
+            android:configChanges="uiMode"
             android:exported="false"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivitySignature"
+            android:configChanges="uiMode"
             android:exported="false"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivitySetup" />
 
         <activity
             android:name=".ActivityWidget"
+            android:configChanges="uiMode"
             android:exported="true">
 
             <intent-filter>
@@ -174,6 +177,7 @@
 
         <activity
             android:name=".ActivityWidgetSync"
+            android:configChanges="uiMode"
             android:exported="true">
 
             <intent-filter>
@@ -183,6 +187,7 @@
 
         <activity
             android:name=".ActivityWidgetUnified"
+            android:configChanges="uiMode"
             android:exported="true">
 
             <intent-filter>
@@ -192,6 +197,7 @@
 
         <activity
             android:name=".ActivityView"
+            android:configChanges="uiMode"
             android:exported="false"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain" />
@@ -215,6 +221,7 @@
 
         <activity
             android:name=".ActivityCompose"
+            android:configChanges="uiMode"
             android:exported="true"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityView">
@@ -244,6 +251,7 @@
 
         <activity
             android:name=".ActivityEML"
+            android:configChanges="uiMode"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask">
@@ -278,6 +286,7 @@
 
         <activity
             android:name=".ActivityDSN"
+            android:configChanges="uiMode"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask">
@@ -298,6 +307,7 @@
 
         <activity
             android:name=".ActivityBilling"
+            android:configChanges="uiMode"
             android:exported="false"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTask" />
