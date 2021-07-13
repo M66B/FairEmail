@@ -670,8 +670,8 @@ public class ContactInfo {
                 if (i != 0)
                     return -i;
 
-                int t1 = (img1.attr("href").toLowerCase(Locale.ROOT).endsWith("ico") ? 1 : -1);
-                int t2 = (img2.attr("href").toLowerCase(Locale.ROOT).endsWith("ico") ? 1 : -1);
+                int t1 = getOrder(img1.attr("href"), img1.attr("type"));
+                int t2 = getOrder(img2.attr("href"), img2.attr("type"));
                 int t = Integer.compare(t1, t2);
                 if (t != 0)
                     return t;
@@ -720,6 +720,17 @@ public class ContactInfo {
             }
 
         return null;
+    }
+
+    private static int getOrder(String href, String type) {
+        int order = -1;
+        String h = (href == null ? "" : href.toLowerCase(Locale.ROOT));
+        if (h.endsWith(".ico"))
+            order = 2;
+        else if (h.endsWith(".svg") || "image/svg+xml".equals(type))
+            order = 1;
+
+        return order;
     }
 
     private static int getSize(String sizes) {
