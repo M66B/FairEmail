@@ -251,6 +251,133 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                 .create();
     }
 
+    static int getTheme(ActivityBase activity) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        String theme = prefs.getString("theme", "blue_orange_system");
+
+        boolean night = Helper.isNight(activity);
+        EntityLog.log(activity, "Activity theme=" + theme + " night=" + night);
+
+        switch (theme) {
+            // Light
+            case "light":
+            case "blue_orange_light":
+                return R.style.AppThemeBlueOrangeLight;
+            case "orange_blue_light":
+                return R.style.AppThemeOrangeBlueLight;
+
+            case "yellow_purple_light":
+                return R.style.AppThemeYellowPurpleLight;
+            case "purple_yellow_light":
+                return R.style.AppThemePurpleYellowLight;
+
+            case "red_green_light":
+                return R.style.AppThemeRedGreenLight;
+            case "green_red_light":
+                return R.style.AppThemeGreenRedLight;
+
+            // Dark
+            case "dark":
+            case "blue_orange_dark":
+                return R.style.AppThemeBlueOrangeDark;
+            case "orange_blue_dark":
+                return R.style.AppThemeOrangeBlueDark;
+
+            case "yellow_purple_dark":
+                return R.style.AppThemeYellowPurpleDark;
+            case "purple_yellow_dark":
+                return R.style.AppThemePurpleYellowDark;
+
+            case "red_green_dark":
+                return R.style.AppThemeRedGreenDark;
+            case "green_red_dark":
+                return R.style.AppThemeGreenRedDark;
+
+            // Black
+            case "blue_orange_black":
+                return R.style.AppThemeBlueOrangeBlack;
+            case "orange_blue_black":
+                return R.style.AppThemeOrangeBlueBlack;
+            case "yellow_purple_black":
+                return R.style.AppThemeYellowPurpleBlack;
+            case "purple_yellow_black":
+                return R.style.AppThemePurpleYellowBlack;
+            case "red_green_black":
+                return R.style.AppThemeRedGreenBlack;
+            case "green_red_black":
+                return R.style.AppThemeGreenRedBlack;
+
+            // Grey
+            case "grey_light":
+                return R.style.AppThemeGreySteelBlueLight;
+            case "grey_dark":
+                return R.style.AppThemeGreySteelBlueDark;
+
+            // Solarized
+            case "solarized_light":
+                return R.style.AppThemeSolarizedLight;
+            case "solarized":
+            case "solarized_dark":
+                return R.style.AppThemeSolarizedDark;
+
+            // Black
+            case "black":
+                return R.style.AppThemeBlack;
+
+            case "black_and_white":
+                return R.style.AppThemeBlackAndWhite;
+
+            // System
+            case "system":
+            case "blue_orange_system":
+                return (night
+                        ? R.style.AppThemeBlueOrangeDark : R.style.AppThemeBlueOrangeLight);
+            case "blue_orange_system_black":
+                return (night
+                        ? R.style.AppThemeBlueOrangeBlack : R.style.AppThemeBlueOrangeLight);
+            case "orange_blue_system":
+                return (night
+                        ? R.style.AppThemeOrangeBlueDark : R.style.AppThemeOrangeBlueLight);
+            case "orange_blue_system_black":
+                return (night
+                        ? R.style.AppThemeOrangeBlueBlack : R.style.AppThemeOrangeBlueLight);
+            case "yellow_purple_system":
+                return (night
+                        ? R.style.AppThemeYellowPurpleDark : R.style.AppThemeYellowPurpleLight);
+            case "yellow_purple_system_black":
+                return (night
+                        ? R.style.AppThemeYellowPurpleBlack : R.style.AppThemeYellowPurpleLight);
+            case "purple_yellow_system":
+                return (night
+                        ? R.style.AppThemePurpleYellowDark : R.style.AppThemePurpleYellowLight);
+            case "purple_yellow_system_black":
+                return (night
+                        ? R.style.AppThemePurpleYellowBlack : R.style.AppThemePurpleYellowLight);
+            case "red_green_system":
+                return (night
+                        ? R.style.AppThemeRedGreenDark : R.style.AppThemeRedGreenLight);
+            case "red_green_system_black":
+                return (night
+                        ? R.style.AppThemeRedGreenBlack : R.style.AppThemeRedGreenLight);
+            case "green_red_system":
+                return (night
+                        ? R.style.AppThemeGreenRedDark : R.style.AppThemeGreenRedLight);
+            case "green_red_system_black":
+                return (night
+                        ? R.style.AppThemeGreenRedBlack : R.style.AppThemeGreenRedLight);
+            case "grey_system":
+                return (night
+                        ? R.style.AppThemeGreySteelBlueDark : R.style.AppThemeGreySteelBlueLight);
+            case "solarized_system":
+                return (night
+                        ? R.style.AppThemeSolarizedDark : R.style.AppThemeSolarizedLight);
+
+            default:
+                Log.e("Unknown theme=" + theme);
+                return R.style.AppThemeBlueOrangeLight;
+        }
+    }
+
     static void setBackground(Context context, View view, boolean compose) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean cards = prefs.getBoolean("cards", true);
