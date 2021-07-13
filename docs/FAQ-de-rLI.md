@@ -1388,7 +1388,7 @@ Sehen Sie weiter unten, wie Sie mich kontaktieren können.
 <a name="faq44"></a>
 **~~(44) Können Sie Kontaktfotos / Identicons im Gesendet-Ordner anzeigen?~~**
 
-~~Kontaktfotos und Identicons werden immer für den Absender angezeigt, da dies für Unterhaltungshinweise notwendig ist. ~ ~~Kontaktfotos für Absender und Empfänger zu erhalten ist keine wirkliche Option, da das Kontakt-Foto eine teure Operation ist.~~
+~~Kontaktfotos und Identicons werden immer für den Absender angezeigt, da dies für Unterhaltungshinweise notwendig ist.~~ ~~Kontaktfotos für Absender und Empfänger zu erhalten ist keine wirkliche Option, da das Kontakt-Foto eine teure Operation ist.~~
 
 <br />
 
@@ -1923,7 +1923,7 @@ Vermutlich möchten Sie auch [den Server](#user-content-faq24) nicht mehr durchs
 <a name="faq81"></a>
 **~~(81) Kann der Hintergrund der ursprünglichen Nachricht im dunklen Modus dunkel gemacht werden?~~**
 
-~~Die ursprüngliche Nachricht wird so, wie es der Absender gesendet hat angezeigt, einschließlich aller Farben. ~ ~~~Das Ändern der Hintergrundfarbe würde nicht nur die ursprüngliche Ansicht nicht mehr original machen, sondern kann auch unlesbare Nachrichten verursachen.~~
+~~Die ursprüngliche Nachricht wird so, wie es der Absender gesendet hat angezeigt, einschließlich aller Farben.~~ ~~Das Ändern der Hintergrundfarbe würde nicht nur die ursprüngliche Ansicht nicht mehr original machen, sondern kann auch unlesbare Nachrichten verursachen.~~
 
 <br />
 

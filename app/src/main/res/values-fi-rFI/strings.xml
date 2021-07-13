@@ -158,6 +158,7 @@
     <string name="title_setup_no_inbox">Saapuneet-kansiota ei löydy</string>
     <string name="title_setup_advanced_protection">Lisäsuojaus-ohjelmaan kirjautuneena ei ole mahdollista käyttää kolmannen osapuolen sähköpostisovellusta. Tämä on Googlen asettama rajoite.</string>
     <string name="title_setup_quick_success">Tili on onnistuneesti lisätty</string>
+    <string name="title_setup_quick_no_sent">Lähetettyjen viestien kansiota ei ole valittu. Lähetettyjä viestejä ei ehkä tallenneta.</string>
     <string name="title_setup_quick_configure">Nimen, värin, pyyhkäisyeleiden, jne. muokkaamiseksi</string>
     <string name="title_setup_manage">Muokkaa</string>
     <string name="title_setup_grant">Myönnä</string>
@@ -339,7 +340,7 @@
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_replace_name">Käytä ensisijaisesti yhteystiedon nimeä lähettäjän nimen sijaan</string>
     <string name="title_advanced_only_name">Näytä vain yhteystietojen nimet</string>
-    <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä tämän ollessa paikallisesti tunnettu vastaanottaja</string>
+    <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä, kun tämä on paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_show_recipients">Näytä vastaanottajat viestin tunnistetiedoissa</string>
     <string name="title_advanced_font_size_sender">Lähettäjä-tekstin koko</string>
     <string name="title_advanced_font_size_subject">Aihe-tekstin koko</string>
@@ -398,7 +399,7 @@
     <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
-    <string name="title_advanced_undo">Kumoamisajan kesto</string>
+    <string name="title_advanced_undo">Toiminnon kumoamisaika</string>
     <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
@@ -415,7 +416,7 @@
     <string name="title_advanced_notifications_background_hint">Android voi lopettaa taustapalvelun koska tahansa, mutta taustapalvelu ei tarvitse tilapalkki-ilmoitusta</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
-    <string name="title_advanced_notify_background">Näytä ilmoitukset vain taustalla ollessa</string>
+    <string name="title_advanced_notify_background">Näytä ilmoitukset vain, kun sovellus on taustalla</string>
     <string name="title_advanced_notify_known">Näytä ilmoitukset vain yhteystiedoille</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
@@ -460,7 +461,7 @@
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
-    <string name="title_advanced_auto_undo_decrypt">Kumoa salauksen purku keskustelua suljettaessa</string>
+    <string name="title_advanced_auto_undo_decrypt">Kumoa salauksen purku, kun keskustelu suljetaan</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_autocrypt">Käytä Autocryptiä</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt molemminpuolinen tila</string>
@@ -534,7 +535,7 @@
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_highlight_hint">Teeman korostusväriä käytetään korostamiseen</string>
     <string name="title_advanced_gravatars_hint">Mahdollinen uhka yksityisyydelle</string>
-    <string name="title_advanced_name_email_hint">Nimet näytetään vain niiden ollessa saatavilla</string>
+    <string name="title_advanced_name_email_hint">Nimet näytetään vain, kun ne ovat saatavilla</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_preview_lines_hint">Enintään %s merkkiä</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
@@ -577,7 +578,7 @@
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
     <string name="title_advanced_edit_name">Muokkaa nimeä</string>
     <string name="title_advanced_swipe_actions">Aseta pyyhkäisytoiminnot</string>
-    <string name="title_advanced_swipe_actions_hint">Tämä asettaa vasemmalle ja oikealle pyyhkäisytoiminnot kaikille IMAP-tileille</string>
+    <string name="title_advanced_swipe_actions_hint">Tämä asettaa vasemmalle ja oikealle pyyhkäisyn toiminnot kaikille IMAP-tileille</string>
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>

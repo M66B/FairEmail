@@ -595,7 +595,7 @@ Voir [cette FAQ](#user-content-faq33) sur la modification du nom d'utilisateur d
 
 ~~Voir aussi [ce que Google écrit à ce sujet](https://support.google.com/mail/answer/7104828).~~
 
-~~Par exemple [Gmail peut importer des messages](https://support.google.com/mail/answer/21289) depuis un autre compte POP ~ ~~ ce qui peut être utilisé comme solution de contournement lorsque votre fournisseur ne supporte pas IMAP.~~
+~~Par exemple [Gmail peut importer des messages](https://support.google.com/mail/answer/21289) depuis un autre compte POP~~ ~~ce qui peut être utilisé comme solution de contournement lorsque votre fournisseur ne supporte pas IMAP.~~
 
 ~~tl;dr; pensez à passer à IMAP.~~
 

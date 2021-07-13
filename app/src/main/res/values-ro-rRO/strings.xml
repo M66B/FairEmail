@@ -169,6 +169,7 @@
     <string name="title_setup_no_inbox">Dosarul Primite nu a fost găsit</string>
     <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
     <string name="title_setup_quick_success">Un cont a fost adăugat cu succes</string>
+    <string name="title_setup_quick_no_sent">Nu a fost selectat niciun dosar pentru mesajele trimise. Mesajele trimise s-ar putea să nu fie stocate.</string>
     <string name="title_setup_quick_configure">Pentru a edita numele, culoarea, acțiunile de glisare, etc</string>
     <string name="title_setup_manage">Gestionează</string>
     <string name="title_setup_grant">Acordă</string>

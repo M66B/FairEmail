@@ -103,7 +103,9 @@
     <string name="title_notification_waiting">Čaká sa na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
     <string name="title_notification_failed">\"%1$s\" zlyhalo</string>
+    <string name="title_notification_alert">Upozornenie zo servera: \'%1$s\'</string>
     <string name="title_notification_sending_left">Počet zostávajúcich pokusov: %1$d</string>
+    <string name="title_notification_sending_retry">Opätovné odosielanie sa spustí pri zmene parametrov pripojenia na internet alebo potiahnutím dolu v priečinku pošta na odoslanie</string>
     <string name="title_notification_sending_failed">Nepodarilo sa odoslať príjemcovi %1$s</string>
     <string name="title_notification_redacted">Obmedzené: Povolené biometrické overenie, alebo overenie pinom</string>
     <string name="title_factor_minutes">%1$d minút</string>
@@ -127,6 +129,7 @@
     <string name="title_agree">Súhlasím</string>
     <string name="title_disagree">Nesúhlasím</string>
     <string name="title_version">Verzia %1$s</string>
+    <string name="title_privacy_policy">Pravidlá ochrany súkromia</string>
     <string name="title_list_accounts">Účty</string>
     <string name="title_list_identities">Totožnosti</string>
     <string name="title_edit_account">Upraviť účet</string>
@@ -140,12 +143,15 @@
     <string name="title_setup_quick_accounts">Pridať alebo zmeniť účty</string>
     <string name="title_setup_quick_support">Niektorí poskitovatelia.</string>
     <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Prosím, trpezlivosť&#8230;</string>
     <string name="title_setup_quick_imap">IMAP server na prijímanie správ</string>
     <string name="title_setup_quick_smtp">SMTP server na odosielanie správ</string>
     <string name="title_setup_wizard">Sprievodca</string>
     <string name="title_setup_wizard_multiple">Sprievodca môže byť použitý viac krát pre nastavenie viacerých účtov</string>
     <string name="title_setup_wizard_new">Potrebujem novú emailovú adresu</string>
     <string name="title_setup_manual">Manuálne nastavenie a možnosti účtu</string>
+    <string name="title_setup_classic">Ručné nastavenie</string>
+    <string name="title_setup_documentation">Správne nastavenia servera získate v dokumentácii poskytovateľa služieb elektronickej pošty</string>
     <string name="title_setup_account_remark">Obdržať email</string>
     <string name="title_setup_identity_remark">Poslať email</string>
     <string name="title_setup_account_identity_hint">Môžete nastaviť meno, farbu a akcie pre potiahnutie v nastaveniach konta, a nastaviť podpis v nastaveniach totožnosti</string>
@@ -173,6 +179,7 @@
     <string name="title_setup_no_inbox">Priečinok s doručenou poštou nebol nájdený</string>
     <string name="title_setup_advanced_protection">Ak využívate program rozšírenej ochrany Google, nie je možné používať emailových klientov tretích strán. Toto je obmedzenie stanovené samotným Googlom.</string>
     <string name="title_setup_quick_success">Účet bol úspešne pridaný</string>
+    <string name="title_setup_quick_no_sent">Nie je vybratý priečinok s odoslanou poštou. Odoslané správy nemusia byť uchované na servery.</string>
     <string name="title_setup_quick_configure">Môžete upraviť názov, farbu, akcie pri potiahnutí a pod</string>
     <string name="title_setup_manage">Spravovať</string>
     <string name="title_setup_grant">Udeliť</string>
@@ -205,6 +212,9 @@
     <string name="title_setup_close">Zavrieť nastavenia</string>
     <string name="title_setup_export">Exportovať nastavenia</string>
     <string name="title_setup_import">Importovať nastavenia</string>
+    <string name="title_setup_export_remark">        Keďže súbor s nastaveniami obsahuje všetky vaše nastavenia vrátane prihlasovacích údajov k účtu, je zašifrovaný heslom.
+        Toto heslo je potrebné zadať aj pri importe nastavení, prosím, bezpečne si ho uchovajte!
+    </string>
     <string name="title_setup_import_do">Importované účty budú pridané bez prepísania existujúcich účtov</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje riadiace alebo prázdne znaky</string>
@@ -328,6 +338,8 @@
     <string name="title_advanced_landscape3">Predvolene zobrazovať navigačné menu v režime na šírku</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>
+    <string name="title_advanced_cards_beige">Béžové pozadie pri štýle na kartách (len svetlý vzhľad)</string>
+    <string name="title_advanced_tabular_background">Použiť rovnakú farbu pozadia ako farbu karty v tabuľkovom štýle</string>
     <string name="title_advanced_cards_shadow">Zatieniť neprečítané správy v štýle kariet</string>
     <string name="title_advanced_date_header">Zoradiť podľa dátumu</string>
     <string name="title_advanced_date_bold">Dátum zobraziť tučným písmom</string>
@@ -372,6 +384,7 @@
     <string name="title_advanced_contrast">Vysoký kontrast pre text správy</string>
     <string name="title_advanced_monospaced">Text správy písmom s pevnou šírkou</string>
     <string name="title_advanced_monospaced_pre">Používať písmo s pevnou šírkou pre predformátovaný text</string>
+    <string name="title_advanced_background_color">Používať farby pozadia</string>
     <string name="title_advanced_text_color">Farby textu</string>
     <string name="title_advanced_text_size">Veľkosti textu</string>
     <string name="title_advanced_text_font">Písma</string>
@@ -449,6 +462,7 @@
     <string name="title_advanced_biometrics_notify">Zobraziť obsah správy pri použití biometrického overenia</string>
     <string name="title_advanced_light">Zobrazovať LED oznámenia</string>
     <string name="title_advanced_sound">Vybrať zvuk oznámenia</string>
+    <string name="title_advanced_notify_screen_on">Rozsvietiť obrazovku pri zobrazení upozornenia na novú správu</string>
     <string name="title_advanced_confirm_links">Potvrdzovať otváranie odkazov</string>
     <string name="title_advanced_browse_links">Prenechať otváranie odkazov Androidu</string>
     <string name="title_advanced_confirm_images">Potvrdzovať zobrazenie obrázkov</string>
@@ -491,6 +505,7 @@
     <string name="title_advanced_class_min_difference">Minimálny rozdiel: %1$s %%</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
+    <string name="title_advanced_deepl">Integrácia DeepL</string>
     <string name="title_advanced_watchdog">Pravidelne kontrolovať, či je FairEmail stále aktívny</string>
     <string name="title_advanced_updates">Kontrolovať aktualizácie na GitHub</string>
     <string name="title_advanced_check_weekly">Skontrolovať každý týždeň, nie každý deň</string>
@@ -609,6 +624,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_account_interval_hint">Frekvencia obnovenia spojenia pre oznámenia push alebo frekvencia kontroly nových správ</string>
     <string name="title_account_partial_fetch_hint">Vypnite len pre prázdne správy alebo správy s poškodenými prílohami</string>
     <string name="title_color">Farba</string>
+    <string name="title_background">Pozadie</string>
     <string name="title_transparent">Priehľadná</string>
     <string name="title_account_ondemand">Synchronizovať ručne</string>
     <string name="title_account_notify">Oddelené oznámenia</string>
@@ -966,6 +982,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_font">Písmo</string>
     <string name="title_style_font_default">Predvolené</string>
     <string name="title_style_blockquote">Citácia</string>
+    <string name="title_style_indentation">Odsadenie</string>
     <string name="title_style_strikethrough">Prečiarknutie</string>
     <string name="title_style_clear">Vymazať formátovanie</string>
     <string name="title_style_link">Vložiť odkaz</string>
@@ -995,6 +1012,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_small">Zdrojový text malým písmom</string>
     <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Klepnite na text, ktorý si želáte preložiť</string>
     <string name="title_edit_plain_text">Upraviť ako obyčajný text</string>
     <string name="title_edit_formatted_text">Upraviť ako preformátovaný text</string>
     <string name="title_select_certificate">Vybrať verejný kľúč</string>
