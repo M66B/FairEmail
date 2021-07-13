@@ -1522,8 +1522,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibAvatar.setTag(lookupUri);
                     ibAvatar.setEnabled(lookupUri != null);
                 }
-                ivVerified.setVisibility(main == null || !main.isVerified() ? View.GONE : View.VISIBLE);
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
+
+                boolean verified = (main != null && main.isVerified() &&
+                        Boolean.TRUE.equals(message.spf) &&
+                        Boolean.TRUE.equals(message.dkim) &&
+                        Boolean.TRUE.equals(message.dmarc));
+                ivVerified.setVisibility(verified ? View.VISIBLE : View.GONE);
             }
 
             if (distinguish_contacts) {
