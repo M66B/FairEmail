@@ -68,7 +68,7 @@ public class ApplicationEx extends Application
         if (language != null) {
             Locale locale = Locale.forLanguageTag(language);
             Locale.setDefault(locale);
-            Configuration config = new Configuration(context.getResources().getConfiguration());
+            Configuration config = new Configuration();
             config.setLocale(locale);
             return context.createConfigurationContext(config);
         }
