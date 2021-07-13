@@ -57,7 +57,6 @@ import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.preference.PreferenceManager;
 
-import com.caverock.androidsvg.RenderOptions;
 import com.caverock.androidsvg.SVG;
 
 import java.io.BufferedInputStream;

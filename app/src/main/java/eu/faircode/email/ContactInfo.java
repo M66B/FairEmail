@@ -360,7 +360,7 @@ public class ContactInfo {
                         "googlemail.com".equals(domain))
                     domain = "support.google.com";
 
-                // https://yahoo.fr redirect unsafely to http://fr.yahoo.com/favicon.ico
+                // https://yahoo.fr redirects unsafely to http://fr.yahoo.com/favicon.ico
                 String[] d = domain.split("\\.");
                 if (d.length > 1 && "yahoo".equals(d[d.length - 2]))
                     domain = "yahoo.com";
