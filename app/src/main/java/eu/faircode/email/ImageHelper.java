@@ -57,6 +57,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.preference.PreferenceManager;
 
+import com.caverock.androidsvg.RenderOptions;
 import com.caverock.androidsvg.SVG;
 
 import java.io.BufferedInputStream;
@@ -251,13 +252,11 @@ class ImageHelper {
             float w = svg.getDocumentWidth();
             float h = svg.getDocumentHeight();
             if (w < 0 || h < 0) {
-                w = 1;
-                h = 1;
+                w = scaleToPixels;
+                h = scaleToPixels;
             }
-            Bitmap bm = Bitmap.createBitmap(
-                    scaleToPixels,
-                    Math.round(scaleToPixels * h / w),
-                    Bitmap.Config.ARGB_8888);
+
+            Bitmap bm = Bitmap.createBitmap((int) w, (int) h, Bitmap.Config.ARGB_8888);
             bm.eraseColor(fillColor);
             Canvas canvas = new Canvas(bm);
             svg.renderToCanvas(canvas);
