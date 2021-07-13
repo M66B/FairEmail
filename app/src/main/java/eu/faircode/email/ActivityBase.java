@@ -65,7 +65,6 @@ import java.util.Map;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Context originalContext;
-    private int themeId;
     private boolean visible;
     private boolean contacts;
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
@@ -99,8 +98,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
         if (!this.getClass().equals(ActivityMain.class)) {
-            themeId = FragmentDialogTheme.getTheme(this);
-            setTheme(themeId);
+            setTheme(FragmentDialogTheme.getTheme(this));
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 boolean dark = Helper.isDarkTheme(this);
@@ -194,10 +192,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void onConfigurationChanged(Configuration newConfig) {
         Log.d("Config " + this.getClass().getName());
         super.onConfigurationChanged(newConfig);
-
-        if (!this.getClass().equals(ActivityMain.class) &&
-                themeId != FragmentDialogTheme.getTheme(this))
-            recreate();
     }
 
     @Override
