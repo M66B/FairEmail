@@ -57,6 +57,8 @@ import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.preference.PreferenceManager;
 
+import com.caverock.androidsvg.SVG;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -240,6 +242,29 @@ class ImageHelper {
 
         bitmap.recycle();
         return round;
+    }
+
+    @NonNull
+    static Bitmap renderSvg(InputStream is, int fillColor, int scaleToPixels) throws IOException {
+        try {
+            SVG svg = SVG.getFromInputStream(is);
+            float w = svg.getDocumentWidth();
+            float h = svg.getDocumentHeight();
+            if (w < 0 || h < 0) {
+                w = 1;
+                h = 1;
+            }
+            Bitmap bm = Bitmap.createBitmap(
+                    scaleToPixels,
+                    Math.round(scaleToPixels * h / w),
+                    Bitmap.Config.ARGB_8888);
+            bm.eraseColor(fillColor);
+            Canvas canvas = new Canvas(bm);
+            svg.renderToCanvas(canvas);
+            return bm;
+        } catch (Throwable ex) {
+            throw new IOException("SVG, ex");
+        }
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, int zoom, final float scale, final TextView view) {

@@ -315,6 +315,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View vwColor;
         private ImageButton ibExpander;
         private ImageView ibFlagged;
+        private ImageView ivVerified;
         private ImageButton ibAvatar;
         private ImageButton ibAuth;
         private ImageButton ibPriority;
@@ -487,6 +488,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vwColor = itemView.findViewById(R.id.vwColor);
             ibExpander = itemView.findViewById(R.id.ibExpander);
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
+            ivVerified = itemView.findViewById(R.id.ivVerified);
             ibAvatar = itemView.findViewById(R.id.ibAvatar);
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ibPriority = itemView.findViewById(R.id.ibPriority);
@@ -970,6 +972,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (viewType == ViewType.THREAD) {
                 boolean dim = (message.duplicate || EntityFolder.TRASH.equals(message.folderType));
                 ibFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivVerified.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAvatar.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -1020,6 +1023,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpander.setVisibility(View.GONE);
 
             // Photo
+            ivVerified.setVisibility(View.GONE);
             ibAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
 
             // Line 1
@@ -1518,6 +1522,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibAvatar.setTag(lookupUri);
                     ibAvatar.setEnabled(lookupUri != null);
                 }
+                ivVerified.setVisibility(main == null || !main.isVerified() ? View.GONE : View.VISIBLE);
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
             }
 

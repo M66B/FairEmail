@@ -56,6 +56,17 @@
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
         app:srcCompat="@drawable/twotone_person_24" />
 
+    <ImageView
+        android:id="@+id/ivVerified"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/twotone_check_24"
+        app:tint="?attr/colorAccent" />
+
     <ImageButton
         android:id="@+id/ibAuth"
         android:layout_width="21dp"
@@ -64,7 +75,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_auth"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/ivVerified"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/twotone_flag_24"
         app:tint="?attr/colorWarning" />

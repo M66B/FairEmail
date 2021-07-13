@@ -35,6 +35,7 @@ import org.xbill.DNS.Message;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.SimpleResolver;
+import org.xbill.DNS.TXTRecord;
 import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Type;
 
@@ -112,6 +113,9 @@ public class DnsHelper {
                 break;
             case "srv":
                 rtype = Type.SRV;
+                break;
+            case "txt":
+                rtype = Type.TXT;
                 break;
             default:
                 throw new IllegalArgumentException(type);
@@ -214,6 +218,10 @@ public class DnsHelper {
                     } else if (record instanceof SRVRecord) {
                         SRVRecord srv = (SRVRecord) record;
                         result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
+                    } else if (record instanceof TXTRecord) {
+                        TXTRecord txt = (TXTRecord) record;
+                        for (Object content : txt.getStrings())
+                            result.add(new DnsRecord(content.toString(), 0));
                     } else
                         throw new IllegalArgumentException(record.getClass().getName());
                 }

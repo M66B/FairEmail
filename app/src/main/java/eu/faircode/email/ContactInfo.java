@@ -38,8 +38,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
-import com.caverock.androidsvg.SVG;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
@@ -90,6 +88,7 @@ import javax.net.ssl.SSLSession;
 public class ContactInfo {
     private String email;
     private Bitmap bitmap;
+    private boolean verified;
     private String displayName;
     private Uri lookupUri;
     private boolean known;
@@ -123,6 +122,10 @@ public class ContactInfo {
     ));
 
     private ContactInfo() {
+    }
+
+    boolean isVerified() {
+        return (bitmap != null && verified);
     }
 
     boolean hasPhoto() {
@@ -248,6 +251,7 @@ public class ContactInfo {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean gravatars = prefs.getBoolean("gravatars", false);
+        boolean bimi = prefs.getBoolean("bimi", false);
         boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
@@ -345,10 +349,9 @@ public class ContactInfo {
         }
 
         // Favicon
-        if (info.bitmap == null && favicons &&
+        if (info.bitmap == null && (bimi || favicons) &&
                 !EntityFolder.JUNK.equals(folderType)) {
-            int at = (info.email == null ? -1 : info.email.indexOf('@'));
-            String domain = (at < 0 ? null : info.email.substring(at + 1).toLowerCase(Locale.ROOT));
+            String domain = UriHelper.getEmailDomain(info.email);
 
             if (domain != null) {
                 if ("google.com".equals(domain) ||
@@ -366,56 +369,120 @@ public class ContactInfo {
                     if (file.exists())
                         if (file.length() == 0)
                             Log.i("Favicon blacklisted domain=" + domain);
-                        else
+                        else {
                             info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            info.verified = new File(dir, domain + "-verified").exists();
+                        }
                     else {
                         final int scaleToPixels = Helper.dp2pixels(context, FAVICON_ICON_SIZE);
 
-                        List<Future<Bitmap>> futures = new ArrayList<>();
+                        List<Future<Favicon>> futures = new ArrayList<>();
 
-                        String host = domain;
-                        while (host.indexOf('.') > 0) {
-                            final URL base = new URL("https://" + host);
-                            final URL www = new URL("https://www." + host);
-
-                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+                        if (bimi) {
+                            final String txt = "default._bimi." + domain;
+                            futures.add(executorFavicon.submit(new Callable<Favicon>() {
                                 @Override
-                                public Bitmap call() throws Exception {
-                                    return parseFavicon(base, scaleToPixels, context);
+                                public Favicon call() throws Exception {
+                                    Log.i("BIMI fetch TXT=" + txt);
+                                    DnsHelper.DnsRecord[] bimi = DnsHelper.lookup(context, txt, "txt");
+                                    if (bimi.length == 0)
+                                        return null;
+                                    Log.i("BIMI got TXT=" + bimi[0].name);
+
+                                    Bitmap bitmap = null;
+                                    boolean verified = true;
+                                    String[] params = bimi[0].name.split(";");
+                                    for (String param : params) {
+                                        String[] kv = param.split("=");
+                                        if (kv.length != 2)
+                                            continue;
+
+                                        switch (kv[0].trim().toLowerCase()) {
+                                            case "v":
+                                                break;
+
+                                            case "l": {
+                                                URL url = new URL(kv[1].trim());
+
+                                                Log.i("BIMI favicon " + url);
+                                                HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                                                connection.setRequestMethod("GET");
+                                                connection.setReadTimeout(FAVICON_READ_TIMEOUT);
+                                                connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
+                                                connection.setInstanceFollowRedirects(true);
+                                                connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                                                connection.connect();
+
+                                                try {
+                                                    bitmap = ImageHelper.renderSvg(
+                                                            connection.getInputStream(),
+                                                            Color.WHITE, scaleToPixels);
+                                                } finally {
+                                                    connection.disconnect();
+                                                }
+
+                                                break;
+                                            }
+
+                                            case "a":
+                                                verified = true;
+                                                break;
+                                        }
+                                    }
+
+                                    return (bitmap == null ? null : new Favicon(bitmap, verified));
                                 }
                             }));
+                        }
 
-                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                                @Override
-                                public Bitmap call() throws Exception {
-                                    return parseFavicon(www, scaleToPixels, context);
-                                }
-                            }));
+                        if (favicons) {
+                            String host = domain;
+                            while (host.indexOf('.') > 0) {
+                                final URL base = new URL("https://" + host);
+                                final URL www = new URL("https://www." + host);
 
-                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                                @Override
-                                public Bitmap call() throws Exception {
-                                    return getFavicon(new URL(base, "favicon.ico"), null, scaleToPixels, context);
-                                }
-                            }));
+                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
+                                    @Override
+                                    public Favicon call() throws Exception {
+                                        return parseFavicon(base, scaleToPixels, context);
+                                    }
+                                }));
 
-                            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
-                                @Override
-                                public Bitmap call() throws Exception {
-                                    return getFavicon(new URL(www, "favicon.ico"), null, scaleToPixels, context);
-                                }
-                            }));
+                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
+                                    @Override
+                                    public Favicon call() throws Exception {
+                                        return parseFavicon(www, scaleToPixels, context);
+                                    }
+                                }));
 
-                            int dot = host.indexOf('.');
-                            host = host.substring(dot + 1);
+                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
+                                    @Override
+                                    public Favicon call() throws Exception {
+                                        return getFavicon(new URL(base, "favicon.ico"), null, scaleToPixels, context);
+                                    }
+                                }));
+
+                                futures.add(executorFavicon.submit(new Callable<Favicon>() {
+                                    @Override
+                                    public Favicon call() throws Exception {
+                                        return getFavicon(new URL(www, "favicon.ico"), null, scaleToPixels, context);
+                                    }
+                                }));
+
+                                int dot = host.indexOf('.');
+                                host = host.substring(dot + 1);
+                            }
                         }
 
                         Throwable ex = null;
-                        for (Future<Bitmap> future : futures)
+                        for (Future<Favicon> future : futures)
                             try {
-                                info.bitmap = future.get();
-                                if (info.bitmap != null)
+                                Favicon favicon = future.get();
+                                if (favicon != null) {
+                                    info.bitmap = favicon.bitmap;
+                                    info.verified = favicon.verified;
                                     break;
+                                }
                             } catch (ExecutionException exex) {
                                 ex = exex.getCause();
                             } catch (Throwable exex) {
@@ -429,6 +496,8 @@ public class ContactInfo {
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                             info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
                         }
+                        if (info.verified)
+                            new File(dir, domain + "-verified").createNewFile();
                     }
                 } catch (Throwable ex) {
                     if (isRecoverable(ex, context))
@@ -484,7 +553,7 @@ public class ContactInfo {
         return info;
     }
 
-    private static Bitmap parseFavicon(URL base, int scaleToPixels, Context context) throws IOException {
+    private static Favicon parseFavicon(URL base, int scaleToPixels, Context context) throws IOException {
         Log.i("PARSE favicon " + base);
         HttpsURLConnection connection = (HttpsURLConnection) base.openConnection();
         connection.setRequestMethod("GET");
@@ -618,7 +687,7 @@ public class ContactInfo {
         for (int i = 0; i < imgs.size(); i++)
             Log.i("Favicon " + i + "=" + imgs.get(i) + " @" + base);
 
-        List<Future<Bitmap>> futures = new ArrayList<>();
+        List<Future<Favicon>> futures = new ArrayList<>();
         for (Element img : imgs) {
             String rel = img.attr("rel").trim().toLowerCase(Locale.ROOT);
             if (REL_EXCLUDE.contains(rel)) // dns-prefetch: gmx.net
@@ -631,15 +700,15 @@ public class ContactInfo {
                 continue;
 
             final URL url = new URL(base, favicon);
-            futures.add(executorFavicon.submit(new Callable<Bitmap>() {
+            futures.add(executorFavicon.submit(new Callable<Favicon>() {
                 @Override
-                public Bitmap call() throws Exception {
+                public Favicon call() throws Exception {
                     return getFavicon(url, img.attr("type"), scaleToPixels, context);
                 }
             }));
         }
 
-        for (Future<Bitmap> future : futures)
+        for (Future<Favicon> future : futures)
             try {
                 return future.get();
             } catch (Throwable ex) {
@@ -677,7 +746,7 @@ public class ContactInfo {
     }
 
     @NonNull
-    private static Bitmap getFavicon(URL url, String type, int scaleToPixels, Context context) throws IOException {
+    private static Favicon getFavicon(URL url, String type, int scaleToPixels, Context context) throws IOException {
         Log.i("GET favicon " + url);
 
         if (!"https".equals(url.getProtocol()))
@@ -702,26 +771,10 @@ public class ContactInfo {
             if (status != HttpURLConnection.HTTP_OK)
                 throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
 
-            if ("image/svg+xml".equals(type) || url.getPath().endsWith(".svg"))
-                try {
-                    SVG svg = SVG.getFromInputStream(connection.getInputStream());
-                    float w = svg.getDocumentWidth();
-                    float h = svg.getDocumentHeight();
-                    if (w < 0 || h < 0) {
-                        w = 1;
-                        h = 1;
-                    }
-                    Bitmap favicon = Bitmap.createBitmap(
-                            scaleToPixels,
-                            Math.round(scaleToPixels * h / w),
-                            Bitmap.Config.ARGB_8888);
-                    favicon.eraseColor(Color.WHITE);
-                    Canvas canvas = new Canvas(favicon);
-                    svg.renderToCanvas(canvas);
-                    return favicon;
-                } catch (Throwable ex) {
-                    throw new IOException("SVG", ex);
-                }
+            if ("image/svg+xml".equals(type) || url.getPath().endsWith(".svg")) {
+                Bitmap bitmap = ImageHelper.renderSvg(connection.getInputStream(), Color.WHITE, scaleToPixels);
+                return new Favicon(bitmap);
+            }
 
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), scaleToPixels);
             if (bitmap == null)
@@ -732,7 +785,7 @@ public class ContactInfo {
                 Canvas canvas = new Canvas(favicon);
                 canvas.drawBitmap(bitmap, 0, 0, null);
                 bitmap.recycle();
-                return favicon;
+                return new Favicon(favicon);
             }
         } finally {
             connection.disconnect();
@@ -999,6 +1052,20 @@ public class ContactInfo {
     private static class Lookup {
         Uri uri;
         String displayName;
+    }
+
+    private static class Favicon {
+        private Bitmap bitmap;
+        private boolean verified;
+
+        private Favicon(@NonNull Bitmap bitmap) {
+            this(bitmap, false);
+        }
+
+        private Favicon(@NonNull Bitmap bitmap, boolean verified) {
+            this.bitmap = bitmap;
+            this.verified = verified;
+        }
     }
 
     private static class Avatar {
