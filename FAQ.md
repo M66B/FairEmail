@@ -306,7 +306,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(169) Why does the app not start automatically?](#user-content-faq169)
 * [(170) Why can't folders be created with POP3?](#user-content-faq170)
 
-[I have another question.](#user-content-support)
+[I have another question.](#user-content-get-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
@@ -1238,7 +1238,7 @@ see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=92
 
 The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
 
-When in doubt, you can ask for [support](#user-content-support).
+When in doubt, you can ask for [support](#user-content-get-support).
 
 <br />
 
