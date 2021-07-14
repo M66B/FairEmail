@@ -408,7 +408,11 @@ public class ContactInfo {
                                                 break;
 
                                             case "l": {
-                                                URL url = new URL(kv[1].trim());
+                                                String svg = kv[1].trim();
+                                                if (TextUtils.isEmpty(svg))
+                                                    continue;
+
+                                                URL url = new URL(svg);
 
                                                 Log.i("BIMI favicon " + url);
                                                 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
