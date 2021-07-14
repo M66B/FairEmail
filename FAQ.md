@@ -348,6 +348,7 @@ The following permissions are needed to show the count of unread messages as a b
 * *com.oppo.launcher.permission.WRITE_SETTINGS*
 * *me.everything.badger.permission.BADGE_COUNT_READ*
 * *me.everything.badger.permission.BADGE_COUNT_WRITE*
+* *com.vivo.notification.permission.BADGE_ICON*
 
 FairEmail will keep a list of addresses you receive messages from and send messages to
 and will use this list for contact suggestions when no contacts permissions is granted to FairEmail.
