@@ -96,7 +96,7 @@ public class ContactInfo {
 
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
-    private static final Map<String, Avatar> emailGravatar = new HashMap<>();
+    private static final Map<String, Gravatar> emailGravatar = new HashMap<>();
 
     private static final ExecutorService executorLookup =
             Helper.getBackgroundExecutor(1, "contact");
@@ -304,7 +304,7 @@ public class ContactInfo {
                 String gkey = info.email.toLowerCase(Locale.ROOT);
                 boolean lookup;
                 synchronized (emailGravatar) {
-                    Avatar avatar = emailGravatar.get(gkey);
+                    Gravatar avatar = emailGravatar.get(gkey);
                     lookup = (avatar == null || avatar.isExpired() || avatar.isAvailable());
                 }
 
@@ -328,12 +328,12 @@ public class ContactInfo {
                             info.bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream());
                             // Positive reply
                             synchronized (emailGravatar) {
-                                emailGravatar.put(gkey, new Avatar(true));
+                                emailGravatar.put(gkey, new Gravatar(true));
                             }
                         } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
                             // Negative reply
                             synchronized (emailGravatar) {
-                                emailGravatar.put(gkey, new Avatar(false));
+                                emailGravatar.put(gkey, new Gravatar(false));
                             }
                         } else
                             throw new IOException("HTTP status=" + status);
@@ -1089,11 +1089,11 @@ public class ContactInfo {
         }
     }
 
-    private static class Avatar {
+    private static class Gravatar {
         private boolean available;
         private long time;
 
-        Avatar(boolean available) {
+        Gravatar(boolean available) {
             this.available = available;
             this.time = new Date().getTime();
         }
