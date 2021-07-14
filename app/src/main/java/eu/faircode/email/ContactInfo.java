@@ -38,6 +38,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import org.bouncycastle.asn1.x509.Extension;
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemReader;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
@@ -45,11 +48,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.ConnectException;
@@ -58,17 +63,30 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.security.cert.CertPathBuilder;
+import java.security.cert.CertPathBuilderResult;
+import java.security.cert.CertPathValidator;
 import java.security.cert.CertPathValidatorException;
+import java.security.cert.CertStore;
+import java.security.cert.CertStoreParameters;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CollectionCertStoreParameters;
+import java.security.cert.PKIXBuilderParameters;
+import java.security.cert.TrustAnchor;
+import java.security.cert.X509CertSelector;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
@@ -385,10 +403,11 @@ public class ContactInfo {
                         List<Future<Favicon>> futures = new ArrayList<>();
 
                         if (bimi) {
-                            final String txt = "default._bimi." + domain;
+                            final String _domain = domain;
                             futures.add(executorFavicon.submit(new Callable<Favicon>() {
                                 @Override
                                 public Favicon call() throws Exception {
+                                    final String txt = "default._bimi." + _domain;
                                     Log.i("BIMI fetch TXT=" + txt);
                                     DnsHelper.DnsRecord[] bimi = DnsHelper.lookup(context, txt, "txt");
                                     if (bimi.length == 0)
@@ -396,7 +415,7 @@ public class ContactInfo {
                                     Log.i("BIMI got TXT=" + bimi[0].name);
 
                                     Bitmap bitmap = null;
-                                    boolean verified = true;
+                                    boolean verified = false;
                                     String[] params = bimi[0].name.split(";");
                                     for (String param : params) {
                                         String[] kv = param.split("=");
@@ -404,10 +423,11 @@ public class ContactInfo {
                                             continue;
 
                                         switch (kv[0].trim().toLowerCase()) {
-                                            case "v":
+                                            case "v": // Version
+                                                // TODO: check version
                                                 break;
 
-                                            case "l": {
+                                            case "l": { // Image link
                                                 String svg = kv[1].trim();
                                                 if (TextUtils.isEmpty(svg))
                                                     continue;
@@ -434,8 +454,103 @@ public class ContactInfo {
                                                 break;
                                             }
 
-                                            case "a":
-                                                verified = true;
+                                            case "a": // Certificate link
+                                                String a = kv[1].trim();
+                                                if (TextUtils.isEmpty(a))
+                                                    continue;
+
+                                                URL url = new URL(a);
+
+                                                try {
+                                                    Log.i("BIMI PEM " + url);
+                                                    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                                                    connection.setRequestMethod("GET");
+                                                    connection.setReadTimeout(FAVICON_READ_TIMEOUT);
+                                                    connection.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
+                                                    connection.setInstanceFollowRedirects(true);
+                                                    connection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
+                                                    connection.connect();
+
+                                                    // Fetch PEM objects
+                                                    List<PemObject> pems = new ArrayList<>();
+                                                    try {
+                                                        InputStreamReader isr = new InputStreamReader(connection.getInputStream());
+                                                        PemReader reader = new PemReader(isr);
+                                                        while (true) {
+                                                            PemObject pem = reader.readPemObject();
+                                                            if (pem == null)
+                                                                break;
+                                                            else
+                                                                pems.add(pem);
+                                                        }
+                                                    } finally {
+                                                        connection.disconnect();
+                                                    }
+
+                                                    if (pems.size() == 0)
+                                                        throw new IllegalArgumentException("No PEM objects");
+
+                                                    // Convert to X.509 certificates
+                                                    List<X509Certificate> certs = new ArrayList<>();
+                                                    CertificateFactory fact = CertificateFactory.getInstance("X.509");
+                                                    for (PemObject pem : pems) {
+                                                        ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
+                                                        certs.add((X509Certificate) fact.generateCertificate(bis));
+                                                    }
+
+                                                    // Get first certificate
+                                                    // https://datatracker.ietf.org/doc/draft-fetch-validation-vmc-wchuang/
+                                                    X509Certificate cert = certs.remove(0);
+
+                                                    // Check certificate type
+                                                    List<String> ku = cert.getExtendedKeyUsage();
+                                                    if (!ku.contains(EntityCertificate.OID_BrandIndicatorforMessageIdentification))
+                                                        throw new IllegalArgumentException("Invalid certificate type");
+
+                                                    // Check subject
+                                                    if (!EntityCertificate.getDnsNames(cert).contains(_domain))
+                                                        throw new IllegalArgumentException("Invalid certificate domain");
+
+                                                    // Get trust anchors
+                                                    Set<TrustAnchor> trustAnchors = new HashSet<>();
+                                                    for (String ca : context.getAssets().list(""))
+                                                        if (ca.endsWith(".pem")) {
+                                                            Log.i("Reading ca=" + ca);
+                                                            try (InputStream is = context.getAssets().open(ca)) {
+                                                                X509Certificate c = (X509Certificate) fact.generateCertificate(is);
+                                                                trustAnchors.add(new TrustAnchor(c, null));
+                                                            }
+                                                        }
+
+                                                    // https://datatracker.ietf.org/doc/html/rfc3709#page-6
+                                                    byte[] logoType = cert.getExtensionValue(Extension.logoType.getId());
+                                                    // TODO: decode
+
+
+                                                    //KeyStore ks = KeyStore.getInstance("AndroidCAStore");
+                                                    //ks.load(null, null);
+
+                                                    // Validate certificate
+                                                    X509CertSelector target = new X509CertSelector();
+                                                    target.setCertificate(cert);
+
+                                                    PKIXBuilderParameters pparams = new PKIXBuilderParameters(trustAnchors, target);
+                                                    CertStoreParameters intermediates = new CollectionCertStoreParameters(certs);
+                                                    pparams.addCertStore(CertStore.getInstance("Collection", intermediates));
+                                                    pparams.setRevocationEnabled(false);
+                                                    pparams.setDate(null);
+
+                                                    CertPathBuilder builder = CertPathBuilder.getInstance("PKIX");
+                                                    CertPathBuilderResult path = builder.build(pparams);
+
+                                                    CertPathValidator cpv = CertPathValidator.getInstance("PKIX");
+                                                    cpv.validate(path.getCertPath(), pparams);
+
+                                                    Log.i("BIMI valid domain=" + _domain);
+                                                    verified = true;
+                                                } catch (Throwable ex) {
+                                                    Log.w(new Throwable("BIMI", ex));
+                                                }
                                                 break;
                                         }
                                     }

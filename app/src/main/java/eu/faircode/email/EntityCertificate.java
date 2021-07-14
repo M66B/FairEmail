@@ -79,6 +79,8 @@ public class EntityCertificate {
     @NonNull
     public String data;
 
+    static final String OID_BrandIndicatorforMessageIdentification = "1.3.6.1.5.5.7.3.31";
+
     static EntityCertificate from(X509Certificate certificate, String email) throws CertificateEncodingException, NoSuchAlgorithmException {
         return from(certificate, false, email);
     }
@@ -166,6 +168,21 @@ public class EntityCertificate {
 
         return result;
     }
+
+    static List<String> getDnsNames(X509Certificate certificate) throws CertificateParsingException {
+        List<String> result = new ArrayList<>();
+
+        Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
+        if (altNames == null)
+            return result;
+
+        for (List altName : altNames)
+            if (altName.get(0).equals(GeneralName.dNSName))
+                result.add((String) altName.get(1));
+
+        return result;
+    }
+
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();

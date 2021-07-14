@@ -832,7 +832,7 @@ public class EmailService implements AutoCloseable {
                             }
 
                             // Check host name
-                            List<String> names = ConnectionHelper.getDnsNames(certificate);
+                            List<String> names = EntityCertificate.getDnsNames(certificate);
                             if (ConnectionHelper.matches(server, names))
                                 return;
 

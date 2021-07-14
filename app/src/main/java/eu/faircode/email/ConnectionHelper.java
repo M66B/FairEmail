@@ -37,14 +37,8 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
-import org.bouncycastle.asn1.x509.GeneralName;
-
 import java.io.IOException;
-import java.security.cert.CertificateParsingException;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -463,21 +457,7 @@ public class ConnectionHelper {
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
     }
 
-    static List<String> getDnsNames(X509Certificate certificate) throws CertificateParsingException {
-        List<String> result = new ArrayList<>();
-
-        Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
-        if (altNames == null)
-            return result;
-
-        for (List altName : altNames)
-            if (altName.get(0).equals(GeneralName.dNSName))
-                result.add((String) altName.get(1));
-
-        return result;
-    }
-
-     static boolean matches(String server, List<String> names) {
+    static boolean matches(String server, List<String> names) {
         for (String name : names)
             if (matches(server, name)) {
                 Log.i("Trusted server=" + server + " name=" + name);
