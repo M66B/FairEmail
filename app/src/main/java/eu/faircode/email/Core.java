@@ -4275,21 +4275,28 @@ class Core {
                     builder.setSound(null);
             }
 
-            if (group != 0 && messages.size() > 0) {
-                TupleMessageEx amessage = messages.get(0);
-                Integer color = getColor(amessage);
-                if (pro && color != null) {
+            if (pro) {
+                Integer color = null;
+                for (TupleMessageEx message : messages) {
+                    Integer mcolor = getColor(message);
+                    if (mcolor == null) {
+                        color = null;
+                        break;
+                    } else if (color == null)
+                        color = mcolor;
+                    else if (!color.equals(mcolor)) {
+                        color = null;
+                        break;
+                    }
+                }
+
+                if (color != null) {
                     builder.setColor(color);
                     builder.setColorized(true);
                 }
-
-                // Disabled to show number of new messages
-                if (notify_subtext && false)
-                    if (group < 0) // folder
-                        builder.setSubText(amessage.accountName + " - " + amessage.getFolderName(context));
-                    else if (group > 0) // account
-                        builder.setSubText(amessage.accountName);
             }
+
+            // Subtext should not be set, to show number of new messages
 
             Notification pub = builder.build();
             builder
@@ -4716,8 +4723,8 @@ class Core {
                 mbuilder.addPerson(you.build());
             }
 
-            Integer color = getColor(message);
-            if (pro && color != null) {
+            if (pro) {
+                Integer color = getColor(message);
                 mbuilder.setColor(color);
                 mbuilder.setColorized(true);
             }
