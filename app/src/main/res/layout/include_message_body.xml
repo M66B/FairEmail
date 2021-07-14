@@ -141,6 +141,20 @@
         app:tint="?attr/colorSeparator" />
 
     <ImageButton
+        android:id="@+id/ibMoveBottom"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="3dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_move"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@id/ibArchiveBottom"
+        app:layout_constraintTop_toBottomOf="@id/wvBody"
+        app:srcCompat="@drawable/twotone_drive_file_move_24"
+        app:tint="?attr/colorSeparator" />
+
+    <ImageButton
         android:id="@+id/ibSeenBottom"
         android:layout_width="36dp"
         android:layout_height="36dp"

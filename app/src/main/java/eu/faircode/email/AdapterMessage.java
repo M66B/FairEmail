@@ -443,6 +443,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Group grpDownloading;
         private ImageButton ibTrashBottom;
         private ImageButton ibArchiveBottom;
+        private ImageButton ibMoveBottom;
         private ImageButton ibSeenBottom;
         private Flow flow;
 
@@ -677,6 +678,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
             ibTrashBottom = vsBody.findViewById(R.id.ibTrashBottom);
             ibArchiveBottom = vsBody.findViewById(R.id.ibArchiveBottom);
+            ibMoveBottom = vsBody.findViewById(R.id.ibMoveBottom);
             ibSeenBottom = vsBody.findViewById(R.id.ibSeenBottom);
             flow = vsBody.findViewById(R.id.flow);
 
@@ -785,6 +787,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrashBottom.setOnClickListener(this);
                 ibTrashBottom.setOnLongClickListener(this);
                 ibArchiveBottom.setOnClickListener(this);
+                ibMoveBottom.setOnClickListener(this);
                 ibSeenBottom.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(this);
@@ -909,6 +912,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrashBottom.setOnClickListener(null);
                 ibTrashBottom.setOnLongClickListener(null);
                 ibArchiveBottom.setOnClickListener(null);
+                ibMoveBottom.setOnClickListener(null);
                 ibSeenBottom.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
@@ -1402,6 +1406,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             clearActions();
             ibTrashBottom.setVisibility(View.GONE);
             ibArchiveBottom.setVisibility(View.GONE);
+            ibMoveBottom.setVisibility(View.GONE);
             ibSeenBottom.setVisibility(View.GONE);
         }
 
@@ -1635,6 +1640,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             clearActions();
             ibTrashBottom.setVisibility(View.GONE);
             ibArchiveBottom.setVisibility(View.GONE);
+            ibMoveBottom.setVisibility(View.GONE);
             ibSeenBottom.setVisibility(View.GONE);
 
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
@@ -1820,6 +1826,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ibTrashBottom.setVisibility(button_extra && button_trash && trash ? View.VISIBLE : View.GONE);
                     ibArchiveBottom.setVisibility(button_extra && button_archive && archive ? View.VISIBLE : View.GONE);
+                    ibMoveBottom.setVisibility(button_extra && button_move && move ? View.VISIBLE : View.GONE);
 
                     if (bind)
                         bindBody(message, scroll);
@@ -3199,7 +3206,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onMenuManageKeywords(message);
                 } else if (id == R.id.ibCopy) {
                     onActionMove(message, true);
-                } else if (id == R.id.ibMove) {
+                } else if (id == R.id.ibMove || id == R.id.ibMoveBottom) {
                     onActionMove(message, false);
                 } else if (id == R.id.ibArchive || id == R.id.ibArchiveBottom) {
                     onActionArchive(message);
