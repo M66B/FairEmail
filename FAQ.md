@@ -304,6 +304,7 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 * [(167) How can I use DeepL?](#user-content-faq167)
 * [(168) What is a spam block list?](#user-content-faq168)
 * [(169) Why does the app not start automatically?](#user-content-faq169)
+* [(170) Why can't folders be created with POP3?](#user-content-faq170)
 
 [I have another question.](#user-content-support)
 
@@ -3782,6 +3783,23 @@ Some Android versions, such as EMUI, have settings to enable or disable auto sta
 So, if the app isn't started automatically, please check the Android settings.
 
 For example for Huawei/EMUI, please [see here](https://dontkillmyapp.com/huawei) for a guide.
+
+<br>
+
+<a name="faq170"></a>
+**(170) Why can't folders be created with POP3?**
+
+The POP3 protocol has commands to download and delete messages from the inbox only.
+There are no commands to access any other folder.
+
+Creating a local folder only and storing messages on your device only is a bad idea
+because losing or breaking your device would mean losing your messages.
+Therefore this isn't supportable.
+
+Please note that FairEmail doesn't store a copy of your messages in the cloud for privacy reasons.
+
+If you want to store messages in folders, please use IMAP,
+so that there is always a copy of the messages on the email server.
 
 <br />
 

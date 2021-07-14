@@ -212,7 +212,8 @@ public class FragmentFolders extends FragmentBase {
             public void onClick(View v) {
                 Boolean pop = (Boolean) v.getTag();
                 if (pop != null && pop) {
-                    ToastEx.makeText(v.getContext(), R.string.title_pop_folders, Toast.LENGTH_LONG).show();
+                    Helper.viewFAQ(v.getContext(), 170, true);
+                    //ToastEx.makeText(v.getContext(), R.string.title_pop_folders, Toast.LENGTH_LONG).show();
                     return;
                 }
 
