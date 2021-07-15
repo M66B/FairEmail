@@ -52,9 +52,8 @@ public class AlarmManagerCompatEx {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R)
             return true;
         else {
-            //AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            //return am.canScheduleExactAlarms();
-            return true;
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            return am.canScheduleExactAlarms();
         }
     }
 }

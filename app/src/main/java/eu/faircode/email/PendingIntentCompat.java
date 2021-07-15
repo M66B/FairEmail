@@ -30,8 +30,6 @@ public class PendingIntentCompat {
     private PendingIntentCompat() {
     }
 
-    public static int FLAG_MUTABLE = 0x02000000;
-
     public static PendingIntent getActivity(Context context, int requestCode, Intent intent, int flags) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return PendingIntent.getActivity(context, requestCode, intent, flags);
