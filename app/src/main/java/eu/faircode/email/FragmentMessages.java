@@ -8037,7 +8037,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     try {
                                         int status = connection.getResponseCode();
                                         if (status != HttpURLConnection.HTTP_OK)
-                                            throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+                                            throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
 
                                         Helper.copy(connection.getInputStream(), os);
                                     } finally {

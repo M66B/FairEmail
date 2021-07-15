@@ -123,7 +123,7 @@ public class DisconnectBlacklist {
         try {
             int status = connection.getResponseCode();
             if (status != HttpsURLConnection.HTTP_OK)
-                throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+                throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
 
             String response = Helper.readStream(connection.getInputStream());
             Helper.writeText(file, response);

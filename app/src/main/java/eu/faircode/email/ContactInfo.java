@@ -354,7 +354,7 @@ public class ContactInfo {
                                 emailGravatar.put(gkey, new Gravatar(false));
                             }
                         } else
-                            throw new IOException("HTTP status=" + status);
+                            throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
 
                     } catch (Throwable ex) {
                         Log.w(ex);
@@ -907,7 +907,7 @@ public class ContactInfo {
         try {
             int status = connection.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK)
-                throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+                throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
 
             if ("image/svg+xml".equals(type) || url.getPath().endsWith(".svg")) {
                 Bitmap bitmap = ImageHelper.renderSvg(connection.getInputStream(), Color.WHITE, scaleToPixels);

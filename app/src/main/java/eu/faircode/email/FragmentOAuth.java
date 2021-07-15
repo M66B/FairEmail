@@ -598,7 +598,7 @@ public class FragmentOAuth extends FragmentBase {
                     try {
                         int status = connection.getResponseCode();
                         if (status != HttpsURLConnection.HTTP_OK)
-                            throw new FileNotFoundException("Error " + status + ":" + connection.getResponseMessage());
+                            throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
 
                         String json = Helper.readStream(connection.getInputStream());
                         Log.i("json=" + json);

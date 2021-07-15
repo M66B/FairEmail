@@ -639,30 +639,35 @@ class ImageHelper {
                 urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                 urlConnection.connect();
 
-                int status = urlConnection.getResponseCode();
+                try {
+                    int status = urlConnection.getResponseCode();
 
-                if (status == HttpURLConnection.HTTP_MOVED_PERM ||
-                        status == HttpURLConnection.HTTP_MOVED_TEMP ||
-                        status == HttpURLConnection.HTTP_SEE_OTHER ||
-                        status == 307 /* Temporary redirect */ ||
-                        status == 308 /* Permanent redirect */) {
-                    if (++redirects > MAX_REDIRECTS)
-                        throw new IOException("Too many redirects");
+                    if (status == HttpURLConnection.HTTP_MOVED_PERM ||
+                            status == HttpURLConnection.HTTP_MOVED_TEMP ||
+                            status == HttpURLConnection.HTTP_SEE_OTHER ||
+                            status == 307 /* Temporary redirect */ ||
+                            status == 308 /* Permanent redirect */) {
+                        if (++redirects > MAX_REDIRECTS)
+                            throw new IOException("Too many redirects");
 
-                    String header = urlConnection.getHeaderField("Location");
-                    if (header == null)
-                        throw new IOException("Location header missing");
+                        String header = urlConnection.getHeaderField("Location");
+                        if (header == null)
+                            throw new IOException("Location header missing");
 
-                    String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
-                    url = new URL(url, location);
-                    Log.i("Redirect #" + redirects + " to " + url);
+                        String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
+                        url = new URL(url, location);
+                        Log.i("Redirect #" + redirects + " to " + url);
 
+                        urlConnection.disconnect();
+                        continue;
+                    }
+
+                    if (status != HttpURLConnection.HTTP_OK)
+                        throw new IOException("Error " + status + ": " + urlConnection.getResponseMessage());
+                } catch (IOException ex) {
                     urlConnection.disconnect();
-                    continue;
+                    throw ex;
                 }
-
-                if (status != HttpURLConnection.HTTP_OK)
-                    throw new IOException("HTTP status=" + status);
 
                 break;
             }

@@ -391,7 +391,7 @@ public class EmailProvider implements Parcelable {
 
             int status = request.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK)
-                throw new FileNotFoundException("Error " + status + ":" + request.getResponseMessage());
+                throw new FileNotFoundException("Error " + status + ": " + request.getResponseMessage());
 
             // https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
