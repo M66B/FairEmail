@@ -409,6 +409,7 @@ public class ContactInfo {
                             futures.add(executorFavicon.submit(new Callable<Favicon>() {
                                 @Override
                                 public Favicon call() throws Exception {
+                                    // TODO: BIMI selector
                                     final String txt = "default._bimi." + _domain;
                                     Log.i("BIMI fetch TXT=" + txt);
                                     DnsHelper.DnsRecord[] bimi = DnsHelper.lookup(context, txt, "txt");
@@ -425,9 +426,12 @@ public class ContactInfo {
                                             continue;
 
                                         switch (kv[0].trim().toLowerCase()) {
-                                            case "v": // Version
-                                                // TODO: check version
+                                            case "v": { // Version
+                                                String version = kv[1].trim();
+                                                if (!"BIMI1".equalsIgnoreCase(version))
+                                                    Log.w("BIMI unsupported version=" + version);
                                                 break;
+                                            }
 
                                             case "l": { // Image link
                                                 if (!bimi_vmc)
@@ -459,7 +463,7 @@ public class ContactInfo {
                                                 break;
                                             }
 
-                                            case "a": // Certificate link
+                                            case "a": { // Certificate link
                                                 String a = kv[1].trim();
                                                 if (TextUtils.isEmpty(a))
                                                     continue;
@@ -557,6 +561,7 @@ public class ContactInfo {
                                                     Log.w(new Throwable("BIMI", ex));
                                                 }
                                                 break;
+                                            }
                                         }
                                     }
 
