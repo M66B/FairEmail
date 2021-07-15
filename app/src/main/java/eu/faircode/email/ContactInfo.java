@@ -387,16 +387,17 @@ public class ContactInfo {
                 File dir = new File(context.getCacheDir(), "favicons");
                 if (!dir.exists())
                     dir.mkdir();
-                File file = new File(dir, domain);
 
                 try {
                     // check cache
-                    if (file.exists())
-                        if (file.length() == 0)
+                    File verified = new File(dir, domain + "_verified");
+                    File input = (verified.exists() ? verified : new File(dir, domain));
+                    if (input.exists())
+                        if (input.length() == 0)
                             Log.i("Favicon blacklisted domain=" + domain);
                         else {
-                            info.bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-                            info.verified = new File(dir, domain + "-verified").exists();
+                            info.bitmap = BitmapFactory.decodeFile(input.getAbsolutePath());
+                            info.verified = input.getName().endsWith("_verified");
                         }
                     else {
                         final int scaleToPixels = Helper.dp2pixels(context, FAVICON_ICON_SIZE);
@@ -622,11 +623,10 @@ public class ContactInfo {
                             throw ex;
 
                         // Add to cache
-                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                        File output = new File(dir, domain + (info.verified ? "_verified" : ""));
+                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(output))) {
                             info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
                         }
-                        if (info.verified)
-                            new File(dir, domain + "-verified").createNewFile();
                     }
                 } catch (Throwable ex) {
                     if (isRecoverable(ex, context))
@@ -638,7 +638,7 @@ public class ContactInfo {
                         else
                             Log.e(ex);
                         try {
-                            file.createNewFile();
+                            new File(dir, domain).createNewFile();
                         } catch (IOException ex1) {
                             Log.e(ex1);
                         }
