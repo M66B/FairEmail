@@ -800,6 +800,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
     }
 
+    static void stop(Context context) {
+        context.stopService(new Intent(context, ServiceSend.class));
+    }
+
     static void schedule(Context context, long delay) {
         Intent intent = new Intent(context, ServiceSend.class);
         PendingIntent pi = PendingIntentCompat.getForegroundService(

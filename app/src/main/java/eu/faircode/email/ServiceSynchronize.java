@@ -2710,8 +2710,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         .setAction("watchdog"));
     }
 
-    static void restart(Context context) {
+    static void stop(Context context) {
         context.stopService(new Intent(context, ServiceSynchronize.class));
+    }
+
+    static void restart(Context context) {
+        stop(context);
         eval(context, "restart");
     }
 
