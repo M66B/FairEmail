@@ -2579,6 +2579,8 @@ If the app is not listed, you might need to ask the developer of the app to add 
 Android Q will make it harder and maybe even impossible to directly access files,
 see [here](https://developer.android.com/preview/privacy/scoped-storage) and [here](https://www.xda-developers.com/android-q-storage-access-framework-scoped-storage/) for more details.
 
+If you use MIUI, please make sure [MIUI optimization](https://android.stackexchange.com/questions/191228/what-is-miui-optimization) is enabled in the developer settings.
+
 <br />
 
 <a name="faq96"></a>
