@@ -336,7 +336,6 @@ public class ContactInfo {
 
                         urlConnection = (HttpURLConnection) url.openConnection();
                         urlConnection.setRequestMethod("GET");
-                        urlConnection.setDoOutput(false);
                         urlConnection.setReadTimeout(GRAVATAR_TIMEOUT);
                         urlConnection.setConnectTimeout(GRAVATAR_TIMEOUT);
                         urlConnection.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
@@ -752,12 +751,6 @@ public class ContactInfo {
                     m.setReadTimeout(FAVICON_READ_TIMEOUT);
                     m.setConnectTimeout(FAVICON_CONNECT_TIMEOUT);
                     m.setInstanceFollowRedirects(true);
-                    m.setHostnameVerifier(new HostnameVerifier() {
-                        @Override
-                        public boolean verify(String hostname, SSLSession session) {
-                            return true;
-                        }
-                    });
                     m.setRequestProperty("User-Agent", WebViewEx.getUserAgent(context));
                     m.connect();
 
