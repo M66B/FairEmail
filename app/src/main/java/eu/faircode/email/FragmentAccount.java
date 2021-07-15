@@ -1266,8 +1266,8 @@ public class FragmentAccount extends FragmentBase {
 
                 if (!synchronize) {
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.cancel("receive:" + account.id, 10);
-                    nm.cancel("alert:" + account.id, 10);
+                    nm.cancel("receive:" + account.id, NotificationHelper.NOTIFICATION_TAGGED);
+                    nm.cancel("alert:" + account.id, NotificationHelper.NOTIFICATION_TAGGED);
                 }
 
                 args.putBoolean("saved", true);

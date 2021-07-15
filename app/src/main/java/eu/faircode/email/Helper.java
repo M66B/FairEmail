@@ -144,11 +144,6 @@ public class Helper {
     private static Boolean hasPlayStore = null;
     private static Boolean hasValidFingerprint = null;
 
-    static final int NOTIFICATION_SYNCHRONIZE = 1;
-    static final int NOTIFICATION_SEND = 2;
-    static final int NOTIFICATION_EXTERNAL = 3;
-    static final int NOTIFICATION_UPDATE = 4;
-
     static final float LOW_LIGHT = 0.6f;
 
     static final int BUFFER_SIZE = 8192; // Same as in Files class

@@ -1081,8 +1081,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
 
                 try {
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(Helper.NOTIFICATION_UPDATE, builder.build());
+                    NotificationManager nm =
+                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(NotificationHelper.NOTIFICATION_UPDATE,
+                            builder.build());
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }

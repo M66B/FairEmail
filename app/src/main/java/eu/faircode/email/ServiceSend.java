@@ -83,7 +83,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     public void onCreate() {
         EntityLog.log(this, "Service send create");
         super.onCreate();
-        startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
+        startForeground(NotificationHelper.NOTIFICATION_SEND,
+                getNotificationService().build());
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
@@ -98,8 +99,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     EntityLog.log(ServiceSend.this, "Unsent=" + (unsent == null ? null : unsent.count));
 
                     try {
-                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+                        NotificationManager nm =
+                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.notify(NotificationHelper.NOTIFICATION_SEND,
+                                getNotificationService().build());
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
@@ -177,8 +180,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         stopForeground(true);
 
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel(Helper.NOTIFICATION_SEND);
+        NotificationManager nm =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(NotificationHelper.NOTIFICATION_SEND);
 
         super.onDestroy();
     }
@@ -192,7 +196,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
+        startForeground(NotificationHelper.NOTIFICATION_SEND,
+                getNotificationService().build());
 
         Log.i("Send intent=" + intent);
         Log.logExtras(intent);
@@ -319,8 +324,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
 
                 try {
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+                    NotificationManager nm =
+                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(NotificationHelper.NOTIFICATION_SEND,
+                            getNotificationService().build());
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
@@ -419,8 +426,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             try {
                                 int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("send:" + message.id, 10, getNotificationError(
-                                        MessageHelper.formatAddressesShort(message.to), ex, tries_left).build());
+                                nm.notify("send:" + message.id,
+                                        NotificationHelper.NOTIFICATION_TAGGED,
+                                        getNotificationError(
+                                                MessageHelper.formatAddressesShort(message.to), ex, tries_left).build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
                             }
@@ -473,7 +482,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 }
 
                 db.message().setMessageError(message.id, null);
-                nm.cancel("send:" + message.id, 10);
+                nm.cancel("send:" + message.id, NotificationHelper.NOTIFICATION_TAGGED);
 
                 if (message.ui_snoozed == null)
                     EntityOperation.queue(this, message, EntityOperation.SEND);
@@ -734,8 +743,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             db.endTransaction();
         }
 
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel("send:" + message.id, 10);
+        NotificationManager nm =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel("send:" + message.id, NotificationHelper.NOTIFICATION_TAGGED);
 
         // Check sent message
         if (sid != null) {

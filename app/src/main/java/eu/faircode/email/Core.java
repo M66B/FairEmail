@@ -207,7 +207,7 @@ class Core {
 
                     if (EntityOperation.HEADERS.equals(op.name) ||
                             EntityOperation.RAW.equals(op.name))
-                        nm.cancel(op.name + ":" + op.message, 10);
+                        nm.cancel(op.name + ":" + op.message, NotificationHelper.NOTIFICATION_TAGGED);
 
                     if (!Objects.equals(folder.id, op.folder))
                         throw new IllegalArgumentException("Invalid folder=" + folder.id + "/" + op.folder);
@@ -628,7 +628,9 @@ class Core {
                             if (title != null) {
                                 NotificationCompat.Builder builder =
                                         getNotificationError(context, "warning", title, ex);
-                                nm.notify(op.name + ":" + op.message, 10, builder.build());
+                                nm.notify(op.name + ":" + op.message,
+                                        NotificationHelper.NOTIFICATION_TAGGED,
+                                        builder.build());
                             }
 
                         } else {
@@ -4075,7 +4077,7 @@ class Core {
             for (Long id : remove) {
                 String tag = "unseen." + group + "." + Math.abs(id);
                 EntityLog.log(context, "Notify cancel tag=" + tag + " id=" + id);
-                nm.cancel(tag, 10);
+                nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
 
                 data.groupNotifying.get(group).remove(id);
                 db.message().setMessageNotifying(Math.abs(id), 0);
@@ -4084,7 +4086,7 @@ class Core {
             if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;
                 EntityLog.log(context, "Notify cancel tag=" + tag);
-                nm.cancel(tag, 10);
+                nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
             }
 
             for (Long id : add) {
@@ -4114,7 +4116,7 @@ class Core {
                                     : " channel=" + notification.getChannelId()) +
                             " sort=" + notification.getSortKey());
                     try {
-                        nm.notify(tag, 10, notification);
+                        nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
                         if (id == 0 && badge && Helper.isXiaomi())
                             ShortcutBadger.applyNotification(context, notification, current);

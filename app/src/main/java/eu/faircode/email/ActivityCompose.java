@@ -312,8 +312,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
         ServiceSynchronize.eval(context, "outbox/drafts");
 
-        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel("send:" + id, 10);
+        NotificationManager nm =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel("send:" + id, NotificationHelper.NOTIFICATION_TAGGED);
 
         return message.id;
     }

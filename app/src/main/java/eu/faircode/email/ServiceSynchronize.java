@@ -171,7 +171,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (isBackgroundService(this))
             stopForeground(true);
         else
-            startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null, null).build());
+            startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                    getNotificationService(null, null).build());
 
         // Listen for network changes
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -367,8 +368,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         if (!isBackgroundService(ServiceSynchronize.this))
                             try {
-                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
+                                NotificationManager nm =
+                                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                                        getNotificationService(lastAccounts, lastOperations).build());
                             } catch (Throwable ex) {
 /*
                             java.lang.NullPointerException: Attempt to invoke interface method 'java.util.Iterator java.lang.Iterable.iterator()' on a null object reference
@@ -774,8 +777,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 */
         }
 
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel(Helper.NOTIFICATION_SYNCHRONIZE);
+        NotificationManager nm =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(NotificationHelper.NOTIFICATION_SYNCHRONIZE);
 
         super.onDestroy();
     }
@@ -799,7 +803,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (isBackgroundService(this))
             stopForeground(true);
         else
-            startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null, null).build());
+            startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                    getNotificationService(null, null).build());
 
         if (action != null)
             try {
@@ -1240,7 +1245,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (!ConnectionHelper.isMaxConnections(message))
                                     try {
                                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                        nm.notify("alert:" + account.id, 10,
+                                        nm.notify("alert:" + account.id,
+                                                NotificationHelper.NOTIFICATION_TAGGED,
                                                 getNotificationAlert(account.name, message).build());
                                     } catch (Throwable ex) {
                                         Log.w(ex);
@@ -1272,7 +1278,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 try {
                                     state.setBackoff(2 * CONNECT_BACKOFF_ALARM_MAX * 60);
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                    nm.notify("receive:" + account.id, 10,
+                                    nm.notify("receive:" + account.id,
+                                            NotificationHelper.NOTIFICATION_TAGGED,
                                             Core.getNotificationError(this, "error", account.name, ex)
                                                     .build());
                                 } catch (Throwable ex1) {
@@ -1932,9 +1939,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         db.account().setAccountConnected(account.id, account.last_connected);
                         db.account().setAccountWarning(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
-                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.cancel("receive:" + account.id, 10);
-                        nm.cancel("alert:" + account.id, 10);
+                        NotificationManager nm =
+                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.cancel("receive:" + account.id, NotificationHelper.NOTIFICATION_TAGGED);
+                        nm.cancel("alert:" + account.id, NotificationHelper.NOTIFICATION_TAGGED);
 
                         // Schedule keep alive alarm
                         Intent intent = new Intent(this, ServiceSynchronize.class);
@@ -1992,7 +2000,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     .format(account.last_connected)), ex);
                             try {
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("receive:" + account.id, 10,
+                                nm.notify("receive:" + account.id,
+                                        NotificationHelper.NOTIFICATION_TAGGED,
                                         Core.getNotificationError(this, "warning", account.name, warning)
                                                 .build());
                             } catch (Throwable ex1) {
@@ -2351,8 +2360,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         if (!isBackgroundService(ServiceSynchronize.this))
                             try {
-                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
+                                NotificationManager nm =
+                                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                                        getNotificationService(lastAccounts, lastOperations).build());
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }

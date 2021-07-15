@@ -448,8 +448,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("updates", checked).apply();
                 swCheckWeekly.setEnabled(checked);
                 if (!checked) {
-                    NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.cancel(Helper.NOTIFICATION_UPDATE);
+                    NotificationManager nm =
+                            (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.cancel(NotificationHelper.NOTIFICATION_UPDATE);
                 }
             }
         });

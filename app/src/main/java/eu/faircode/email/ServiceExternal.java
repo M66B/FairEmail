@@ -58,7 +58,8 @@ public class ServiceExternal extends Service {
     public void onCreate() {
         Log.i("Service external create");
         super.onCreate();
-        startForeground(Helper.NOTIFICATION_EXTERNAL, getNotification().build());
+        startForeground(NotificationHelper.NOTIFICATION_EXTERNAL,
+                getNotification().build());
     }
 
     @Override
@@ -75,7 +76,8 @@ public class ServiceExternal extends Service {
             Log.logExtras(intent);
 
             super.onStartCommand(intent, flags, startId);
-            startForeground(Helper.NOTIFICATION_EXTERNAL, getNotification().build());
+            startForeground(NotificationHelper.NOTIFICATION_EXTERNAL,
+                    getNotification().build());
 
             if (intent == null)
                 return START_NOT_STICKY;

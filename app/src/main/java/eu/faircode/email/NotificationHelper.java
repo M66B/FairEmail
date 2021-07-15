@@ -37,6 +37,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 class NotificationHelper {
+    static final int NOTIFICATION_SYNCHRONIZE = 100;
+    static final int NOTIFICATION_SEND = 200;
+    static final int NOTIFICATION_EXTERNAL = 300;
+    static final int NOTIFICATION_UPDATE = 400;
+    static final int NOTIFICATION_TAGGED = 500;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     static void createNotificationChannels(Context context) {
         // https://issuetracker.google.com/issues/65108694

@@ -193,8 +193,9 @@ public class ServiceUI extends IntentService {
         // https://issuetracker.google.com/issues/159152393
         String tag = "unseen." + group + ":" + id;
 
-        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel(tag, 10);
+        NotificationManager nm =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
     }
 
     private void onMove(long id, String folderType) {
