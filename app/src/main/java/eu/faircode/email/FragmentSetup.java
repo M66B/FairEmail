@@ -88,6 +88,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvDozeDone;
     private Button btnDoze;
 
+    private Button btnInexactAlarms;
     private Button btnBackgroundRestricted;
     private Button btnDataSaver;
 
@@ -96,6 +97,7 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnInbox;
 
+    private Group grpInexactAlarms;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
 
@@ -146,6 +148,7 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
 
+        btnInexactAlarms = view.findViewById(R.id.btnInexactAlarms);
         btnBackgroundRestricted = view.findViewById(R.id.btnBackgroundRestricted);
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
 
@@ -154,6 +157,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
+        grpInexactAlarms = view.findViewById(R.id.grpInexactAlarms);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
@@ -396,6 +400,20 @@ public class FragmentSetup extends FragmentBase {
 
         PackageManager pm = getContext().getPackageManager();
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            final Intent settings = new Intent(
+                    Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,
+                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+
+            btnInexactAlarms.setEnabled(settings.resolveActivity(pm) != null); // system whitelisted
+            btnInexactAlarms.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(settings);
+                }
+            });
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             final Intent settings = new Intent(
                     Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
@@ -447,6 +465,7 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox.setEnabled(false);
 
+        grpInexactAlarms.setVisibility(View.GONE);
         grpBackgroundRestricted.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
 
@@ -548,6 +567,10 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setTextColor(ignoring == null || ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setTypeface(null, ignoring == null || ignoring ? Typeface.NORMAL : Typeface.BOLD);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring == null || ignoring ? check : null, null, null, null);
+
+        grpInexactAlarms.setVisibility(
+                !AlarmManagerCompatEx.canScheduleExactAlarms(getContext())
+                        ? View.VISIBLE : View.GONE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             ActivityManager am =

@@ -632,6 +632,29 @@
                     app:layout_constraintTop_toBottomOf="@id/btnDoze" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvInexactAlarms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_setup_inexact"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDozeHint" />
+
+                <Button
+                    android:id="@+id/btnInexactAlarms"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/twotone_settings_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_setup_manage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvInexactAlarms" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBackgroundRestricted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -641,7 +664,7 @@
                     android:textColor="?attr/colorWarning"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDozeHint" />
+                    app:layout_constraintTop_toBottomOf="@id/btnInexactAlarms" />
 
                 <Button
                     android:id="@+id/btnBackgroundRestricted"
@@ -704,6 +727,12 @@
                     android:textColor="?android:attr/textColorLink"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBatteryUsage" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpInexactAlarms"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="tvInexactAlarms,btnInexactAlarms" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpBackgroundRestricted"
