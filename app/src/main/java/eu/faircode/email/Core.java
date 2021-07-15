@@ -2393,13 +2393,13 @@ class Core {
                     }
 
                     if (TextUtils.isEmpty(msgid)) {
-                        EntityLog.log(context, folder.name + " POP no msgid");
+                        EntityLog.log(context, folder.name + " POP no msgid uidl=" + uidl);
                         continue;
                     }
 
                     if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
                         _new = false;
-                        Log.i(folder.name + " POP having msgid=" + msgid + " uidl=" + uidl);
+                        EntityLog.log(context, folder.name + " POP having " + msgid + "/" + uidl);
                         continue;
                     }
 
@@ -2412,7 +2412,7 @@ class Core {
                             received = 0L;
 
                         boolean seen = (received <= account.created);
-                        Log.i(folder.name + " POP sync=" + uidl + "/" + msgid +
+                        EntityLog.log(context, folder.name + " POP sync=" + uidl + "/" + msgid +
                                 " new=" + _new + " seen=" + seen);
 
                         String[] authentication = helper.getAuthentication();
@@ -2497,7 +2497,7 @@ class Core {
                             db.beginTransaction();
 
                             message.id = db.message().insertMessage(message);
-                            Log.i(folder.name + " added id=" + message.id +
+                            EntityLog.log(context, folder.name + " added id=" + message.id +
                                     " uidl/msgid=" + message.uidl + "/" + message.msgid);
 
                             int sequence = 1;
