@@ -7546,7 +7546,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 ServiceSynchronize.eval(context, "delete");
 
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.cancel("send:" + id, 1);
+                nm.cancel("send:" + id, 10);
 
                 return null;
             }

@@ -917,7 +917,7 @@ public class FragmentFolders extends FragmentBase {
                             if (now - last > EXPORT_PROGRESS_INTERVAL) {
                                 last = now;
                                 builder.setProgress(ids.size(), i, false);
-                                nm.notify("export", 1, builder.build());
+                                nm.notify("export", 10, builder.build());
                             }
 
                             long id = ids.get(i);
@@ -990,7 +990,7 @@ public class FragmentFolders extends FragmentBase {
                             Log.e(ex);
                         }
                 } finally {
-                    nm.cancel("export", 1);
+                    nm.cancel("export", 10);
                 }
 
                 return null;

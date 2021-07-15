@@ -419,7 +419,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             try {
                                 int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("send:" + message.id, 1, getNotificationError(
+                                nm.notify("send:" + message.id, 10, getNotificationError(
                                         MessageHelper.formatAddressesShort(message.to), ex, tries_left).build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
@@ -473,7 +473,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 }
 
                 db.message().setMessageError(message.id, null);
-                nm.cancel("send:" + message.id, 1);
+                nm.cancel("send:" + message.id, 10);
 
                 if (message.ui_snoozed == null)
                     EntityOperation.queue(this, message, EntityOperation.SEND);
@@ -735,7 +735,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         }
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        nm.cancel("send:" + message.id, 1);
+        nm.cancel("send:" + message.id, 10);
 
         // Check sent message
         if (sid != null) {

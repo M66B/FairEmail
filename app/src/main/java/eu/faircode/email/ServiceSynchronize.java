@@ -1240,7 +1240,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (!ConnectionHelper.isMaxConnections(message))
                                     try {
                                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                        nm.notify("alert:" + account.id, 1,
+                                        nm.notify("alert:" + account.id, 10,
                                                 getNotificationAlert(account.name, message).build());
                                     } catch (Throwable ex) {
                                         Log.w(ex);
@@ -1272,7 +1272,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 try {
                                     state.setBackoff(2 * CONNECT_BACKOFF_ALARM_MAX * 60);
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                    nm.notify("receive:" + account.id, 1,
+                                    nm.notify("receive:" + account.id, 10,
                                             Core.getNotificationError(this, "error", account.name, ex)
                                                     .build());
                                 } catch (Throwable ex1) {
@@ -1933,8 +1933,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         db.account().setAccountWarning(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.cancel("receive:" + account.id, 1);
-                        nm.cancel("alert:" + account.id, 1);
+                        nm.cancel("receive:" + account.id, 10);
+                        nm.cancel("alert:" + account.id, 10);
 
                         // Schedule keep alive alarm
                         Intent intent = new Intent(this, ServiceSynchronize.class);
@@ -1992,7 +1992,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     .format(account.last_connected)), ex);
                             try {
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("receive:" + account.id, 1,
+                                nm.notify("receive:" + account.id, 10,
                                         Core.getNotificationError(this, "warning", account.name, warning)
                                                 .build());
                             } catch (Throwable ex1) {
