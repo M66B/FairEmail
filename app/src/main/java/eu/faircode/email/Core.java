@@ -2401,7 +2401,7 @@ class Core {
 
                     if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
                         _new = false;
-                        EntityLog.log(context, folder.name + " POP having " + msgid + "/" + uidl);
+                        Log.i(folder.name + " POP having " + msgid + "/" + uidl);
                         continue;
                     }
 
