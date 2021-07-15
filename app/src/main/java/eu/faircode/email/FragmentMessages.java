@@ -4026,10 +4026,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     grpOutbox.setVisibility(count == 0 ? View.GONE : View.VISIBLE);
                 }
             });
-
-        if (!checkReporting())
-            if (!checkReview())
-                checkFingerprint();
     }
 
     @Override
@@ -4059,6 +4055,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Restart spinner
         swipeRefresh.resetRefreshing();
+
+        if (!checkDoze())
+            if (!checkReporting())
+                if (!checkReview())
+                    checkFingerprint();
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "pro");
@@ -4142,6 +4143,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             });
         }
     };
+
+    private boolean checkDoze() {
+        if (viewType != AdapterMessage.ViewType.UNIFIED)
+            return false;
+
+        if (!Helper.isDozeRequired())
+            return false;
+
+        final Context context = getContext();
+        Boolean isIgnoring = Helper.isIgnoringOptimizations(context);
+        if (isIgnoring == null || isIgnoring)
+            return false;
+
+        final Snackbar snackbar = Snackbar.make(view, R.string.title_setup_doze, Snackbar.LENGTH_INDEFINITE)
+                .setGestureInsetBottomIgnored(true);
+        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, ActivitySetup.class));
+            }
+        });
+        snackbar.show();
+
+        return true;
+    }
 
     private boolean checkReporting() {
         if (viewType != AdapterMessage.ViewType.UNIFIED)
