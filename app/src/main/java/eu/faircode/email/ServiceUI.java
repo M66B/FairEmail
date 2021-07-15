@@ -150,8 +150,7 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "ignore":
-                    boolean view = intent.getBooleanExtra("view", false);
-                    onIgnore(id, view);
+                    onIgnore(id);
                     break;
 
                 case "wakeup":
@@ -427,7 +426,7 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onIgnore(long id, boolean open) {
+    private void onIgnore(long id) {
         EntityMessage message;
         EntityFolder folder;
 
@@ -448,17 +447,6 @@ public class ServiceUI extends IntentService {
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
-        }
-
-        if (open) {
-            Intent thread = new Intent(this, ActivityView.class);
-            thread.setAction("thread:" + message.id);
-            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            thread.putExtra("account", message.account);
-            thread.putExtra("folder", message.folder);
-            thread.putExtra("thread", message.thread);
-            thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(folder.type));
-            startActivity(thread);
         }
     }
 
@@ -484,8 +472,9 @@ public class ServiceUI extends IntentService {
 
     static void sync(Context context, Long account) {
         try {
-            context.startService(new Intent(context, ServiceUI.class)
-                    .setAction(account == null ? "sync" : "sync:" + account));
+            Intent sync = new Intent(context, ServiceUI.class)
+                    .setAction(account == null ? "sync" : "sync:" + account);
+            context.startService(sync);
         } catch (Throwable ex) {
             Log.e(ex);
             /*
@@ -497,6 +486,16 @@ public class ServiceUI extends IntentService {
                         at eu.faircode.email.ServiceTileUnseen.onClick(ServiceTileUnseen:103)
                         at android.service.quicksettings.TileService$H.handleMessage(TileService.java:449)
              */
+        }
+    }
+
+    static void ignore(Context context, long id) {
+        try {
+            Intent ignore = new Intent(context, ServiceUI.class)
+                    .setAction("ignore:" + id);
+            context.startService(ignore);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 }

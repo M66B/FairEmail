@@ -4341,24 +4341,16 @@ class Core {
             args.putLong("id", id);
 
             // Build pending intents
-            PendingIntent piContent;
-            if (notify_remove) {
-                Intent thread = new Intent(context, ServiceUI.class);
-                thread.setAction("ignore:" + message.id);
-                thread.putExtra("view", true);
-                piContent = PendingIntentCompat.getService(
-                        context, ServiceUI.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
-            } else {
-                Intent thread = new Intent(context, ActivityView.class);
-                thread.setAction("thread:" + message.id);
-                thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                thread.putExtra("account", message.account);
-                thread.putExtra("folder", message.folder);
-                thread.putExtra("thread", message.thread);
-                thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
-                piContent = PendingIntentCompat.getActivity(
-                        context, ActivityView.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
-            }
+            Intent thread = new Intent(context, ActivityView.class);
+            thread.setAction("thread:" + message.id);
+            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            thread.putExtra("account", message.account);
+            thread.putExtra("folder", message.folder);
+            thread.putExtra("thread", message.thread);
+            thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
+            thread.putExtra("ignore", notify_remove);
+            PendingIntent piContent = PendingIntentCompat.getActivity(
+                    context, ActivityView.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent ignore = new Intent(context, ServiceUI.class).setAction("ignore:" + message.id);
             PendingIntent piIgnore = PendingIntentCompat.getService(
