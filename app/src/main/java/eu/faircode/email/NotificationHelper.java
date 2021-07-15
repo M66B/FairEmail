@@ -74,6 +74,7 @@ class NotificationHelper {
         notification.enableLights(true);
         notification.setLightColor(Color.YELLOW);
         notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        notification.setBypassDnd(true);
         nm.createNotificationChannel(notification);
 
         NotificationChannel progress = new NotificationChannel(
@@ -99,6 +100,7 @@ class NotificationHelper {
                 "warning", context.getString(R.string.channel_warning),
                 NotificationManager.IMPORTANCE_HIGH);
         warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        warning.setBypassDnd(true);
         nm.createNotificationChannel(warning);
 
         // Errors
@@ -107,6 +109,7 @@ class NotificationHelper {
                 context.getString(R.string.channel_error),
                 NotificationManager.IMPORTANCE_HIGH);
         error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        error.setBypassDnd(true);
         nm.createNotificationChannel(error);
 
         // Server alerts
@@ -115,6 +118,7 @@ class NotificationHelper {
                 context.getString(R.string.channel_alert),
                 NotificationManager.IMPORTANCE_HIGH);
         alerts.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        alerts.setBypassDnd(true);
         nm.createNotificationChannel(alerts);
 
         // Contacts grouping
