@@ -63,12 +63,14 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.security.cert.CertPathBuilder;
 import java.security.cert.CertPathBuilderResult;
 import java.security.cert.CertPathValidator;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertStore;
 import java.security.cert.CertStoreParameters;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CollectionCertStoreParameters;
@@ -81,6 +83,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -530,13 +533,19 @@ public class ContactInfo {
                                                             }
                                                         }
 
+                                                    KeyStore ks = KeyStore.getInstance("AndroidCAStore");
+                                                    ks.load(null, null);
+                                                    Enumeration<String> aliases = ks.aliases();
+                                                    while (aliases.hasMoreElements()) {
+                                                        String alias = aliases.nextElement();
+                                                        Certificate c = ks.getCertificate(alias);
+                                                        if (c instanceof X509Certificate)
+                                                            trustAnchors.add(new TrustAnchor((X509Certificate) c, null));
+                                                    }
+
                                                     // https://datatracker.ietf.org/doc/html/rfc3709#page-6
                                                     byte[] logoType = cert.getExtensionValue(Extension.logoType.getId());
                                                     // TODO: decode
-
-
-                                                    //KeyStore ks = KeyStore.getInstance("AndroidCAStore");
-                                                    //ks.load(null, null);
 
                                                     // Validate certificate
                                                     X509CertSelector target = new X509CertSelector();
