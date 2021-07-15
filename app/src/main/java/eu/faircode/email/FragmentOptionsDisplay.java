@@ -88,6 +88,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvGravatarsHint;
     private SwitchCompat swGravatars;
     private SwitchCompat swBimi;
+    private SwitchCompat swBimiVmc;
     private ImageButton ibBimi;
     private SwitchCompat swFavicons;
     private TextView tvFaviconsHint;
@@ -155,7 +156,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "date", "date_bold", "navbar_colorize", "portrait2", "landscape", "landscape3",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe",
-            "avatars", "gravatars", "bimi", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
+            "avatars", "gravatars", "bimi", "bimi_vmc", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
@@ -204,6 +205,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swGravatars = view.findViewById(R.id.swGravatars);
         tvGravatarsHint = view.findViewById(R.id.tvGravatarsHint);
         swBimi = view.findViewById(R.id.swBimi);
+        swBimiVmc = view.findViewById(R.id.swBimiVmc);
         ibBimi = view.findViewById(R.id.ibBimi);
         swFavicons = view.findViewById(R.id.swFavicons);
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
@@ -488,6 +490,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("bimi", checked).apply();
+                swBimiVmc.setEnabled(checked);
+                ContactInfo.clearCache(getContext());
+            }
+        });
+
+        swBimiVmc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("bimi_vmc", checked).apply();
                 ContactInfo.clearCache(getContext());
             }
         });
@@ -1018,6 +1029,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGravatars.setChecked(prefs.getBoolean("gravatars", false));
         swBimi.setChecked(prefs.getBoolean("bimi", false));
+        swBimiVmc.setChecked(prefs.getBoolean("bimi_vmc", false));
+        swBimiVmc.setEnabled(swBimi.isChecked());
         swFavicons.setChecked(prefs.getBoolean("favicons", false));
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));

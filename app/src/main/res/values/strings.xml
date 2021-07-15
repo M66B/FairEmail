@@ -397,6 +397,7 @@
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_gravatars">Show Gravatars</string>
     <string name="title_advanced_bimi" translatable="false">Show Brand Indicators for Message Identification (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Check security certificate</string>
     <string name="title_advanced_favicons">Show favicons</string>
     <string name="title_advanced_generated_icons">Show generated icons</string>
     <string name="title_advanced_identicons">Show identicons</string>

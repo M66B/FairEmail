@@ -270,6 +270,7 @@ public class ContactInfo {
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean gravatars = prefs.getBoolean("gravatars", false);
         boolean bimi = prefs.getBoolean("bimi", false);
+        boolean bimi_vmc = prefs.getBoolean("bimi_vmc", false);
         boolean favicons = prefs.getBoolean("favicons", false);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
@@ -415,7 +416,7 @@ public class ContactInfo {
                                     Log.i("BIMI got TXT=" + bimi[0].name);
 
                                     Bitmap bitmap = null;
-                                    boolean verified = false;
+                                    boolean verified = !bimi_vmc;
                                     String[] params = bimi[0].name.split(";");
                                     for (String param : params) {
                                         String[] kv = param.split("=");
@@ -428,6 +429,9 @@ public class ContactInfo {
                                                 break;
 
                                             case "l": { // Image link
+                                                if (!bimi_vmc)
+                                                    continue;
+
                                                 String svg = kv[1].trim();
                                                 if (TextUtils.isEmpty(svg))
                                                     continue;
