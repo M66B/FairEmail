@@ -274,6 +274,10 @@ public class StyleHelper {
                                     }
                                 });
 
+                        BackgroundColorSpan[] spans = edit.getSpans(start, end, BackgroundColorSpan.class);
+                        if (spans != null && spans.length == 1)
+                            builder.initialColor(spans[0].getBackgroundColor());
+
                         builder.build().show();
 
                         return true;
@@ -326,6 +330,10 @@ public class StyleHelper {
                                         _setColor(null);
                                     }
                                 });
+
+                        ForegroundColorSpan[] spans = edit.getSpans(start, end, ForegroundColorSpan.class);
+                        if (spans != null && spans.length == 1)
+                            builder.initialColor(spans[0].getForegroundColor());
 
                         builder.build().show();
 
