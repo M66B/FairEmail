@@ -4715,8 +4715,10 @@ class Core {
 
             if (pro) {
                 Integer color = getColor(message);
-                mbuilder.setColor(color);
-                mbuilder.setColorized(true);
+                if (color != null) {
+                    mbuilder.setColor(color);
+                    mbuilder.setColorized(true);
+                }
             }
 
             // https://developer.android.com/training/wearables/notifications
