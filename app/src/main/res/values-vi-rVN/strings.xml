@@ -73,6 +73,7 @@
     <string name="title_notification_waiting">Đang đợi kết nối phù hợp</string>
     <string name="title_notification_idle">Rảnh</string>
     <string name="title_notification_failed">\'%1$s\' thất bại</string>
+    <string name="title_notification_alert">Báo động của máy chủ: \'%1$s\'</string>
     <string name="title_notification_sending_left">Lần thử còn lại: %1$d</string>
     <string name="title_notification_sending_retry">Việc gửi sẽ được thử lại khi có thay đổi về kết nối internet hoặc khi kéo xuống trong hộp thư đi</string>
     <string name="title_notification_sending_failed">Gửi đến %1$s thất bại</string>
@@ -119,6 +120,8 @@
     <string name="title_setup_wizard_multiple">Trình hướng dẫn có thể được sử dụng nhiều lần để thiết lập nhiều tài khoản</string>
     <string name="title_setup_wizard_new">Tôi cần một địa chỉ email mới</string>
     <string name="title_setup_manual">Thiết lập thủ công và các tùy chọn tài khoản</string>
+    <string name="title_setup_classic">Thiết lập cổ điển</string>
+    <string name="title_setup_documentation">Vui lòng đọc tài liệu của nhà cung cấp email của bạn để tìm thiết lập máy chủ email đúng</string>
     <string name="title_setup_account_remark">Nhận email</string>
     <string name="title_setup_identity_remark">Gửi email</string>
     <string name="title_setup_account_identity_hint">Bạn có thể thiết lập tên, màu sắc và các tuỳ chọn vuốt trong cài đặt tài khoản, và thiết lập một chữ ký trong cài đặt danh tính</string>
@@ -146,6 +149,7 @@
     <string name="title_setup_no_inbox">Không tìm thấy hộp thư đến</string>
     <string name="title_setup_advanced_protection">Khi đã tham gia vào chương trình bảo vệ nâng cao, không thể dùng ứng dụng email bên thứ ba. Đây là sự hạn chế bị áp đặt bởi Google.</string>
     <string name="title_setup_quick_success">Một tài khoản đã được thêm thành công</string>
+    <string name="title_setup_quick_no_sent">Không có thư mục đã gửi nào đã được chọn. Các thư đã gửi có thể không được lưu trữ.</string>
     <string name="title_setup_quick_configure">Để chỉnh sửa tên, màu sắc, hành động vuốt, v.v.</string>
     <string name="title_setup_manage">Quản lý</string>
     <string name="title_setup_grant">Cấp</string>
@@ -178,6 +182,9 @@
     <string name="title_setup_close">Đóng cài đặt</string>
     <string name="title_setup_export">Xuất cài đặt</string>
     <string name="title_setup_import">Nhập cài đặt</string>
+    <string name="title_setup_export_remark">        Vì tệp cài đặt chứa tất cả cài đặt và thông tin tài khoản, nó được mã hóa bằng một mật khẩu.
+        Mật khẩu đó là bắt buộc để nhập lại cài đặt, nên vui lòng đừng quên nó!
+    </string>
     <string name="title_setup_import_do">Các tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
     <string name="title_setup_password">Mật khẩu</string>
     <string name="title_setup_password_chars">Mật khẩu chứa ký tự điều khiển hoặc không gian trắng</string>
@@ -314,6 +321,7 @@
     <string name="title_advanced_color_stripe">Hiện dải màu</string>
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_gravatars">Hiện Gravatar</string>
+    <string name="title_advanced_bimi_vmc">Kiểm tra chứng chỉ bảo mật</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>
     <string name="title_advanced_identicons">Hiện biểu tượng danh tính</string>
@@ -947,6 +955,7 @@
     <string name="title_style_font">Phông chữ</string>
     <string name="title_style_font_default">Mặc định</string>
     <string name="title_style_blockquote">Trích dẫn khối</string>
+    <string name="title_style_indentation">Thụt lề</string>
     <string name="title_style_strikethrough">Gạch bỏ</string>
     <string name="title_style_clear">Xóa định dạng</string>
     <string name="title_style_link">Chèn liên kết</string>

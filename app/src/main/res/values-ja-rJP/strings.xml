@@ -148,6 +148,7 @@
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
     <string name="title_setup_advanced_protection">強度な保護機能を利用している場合、サードパーティのメールクライアントを使用することはできません。これはGoogleによって課せられている制限です。</string>
     <string name="title_setup_quick_success">アカウントが追加されました</string>
+    <string name="title_setup_quick_no_sent">送信済メッセージフォルダが選択されていません。送信済メッセージは保存されない可能性があります。</string>
     <string name="title_setup_quick_configure">名前、色、スワイプアクションなどを編集する</string>
     <string name="title_setup_manage">管理する</string>
     <string name="title_setup_grant">付与</string>
@@ -319,6 +320,7 @@
     <string name="title_advanced_color_stripe">カラーストライプを表示</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_gravatars">Gravatar(アバター)を表示</string>
+    <string name="title_advanced_bimi_vmc">セキュリティ証明書を確認</string>
     <string name="title_advanced_favicons">Faviconsを表示</string>
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>

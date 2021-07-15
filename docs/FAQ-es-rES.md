@@ -4,7 +4,7 @@
 
 Si tienes alguna pregunta, por favor comprueba primero las preguntas frecuentes siguientes. [En la parte inferior](#user-content-get-support), puede averiguar cómo hacer otras preguntas, solicitar características, y reportar errores.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
+Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
 ## Índice
 
@@ -401,47 +401,47 @@ Las operaciones sólo se procesan cuando hay una conexión al servidor de correo
 
 Esto puede ser causado por el uso de un nombre de host incorrecto, así que primero compruebe el nombre de host en la configuración avanzada de la identidad/cuenta (pulse Configuración manual). Por favor mire la documentación del proveedor de correo electrónico acerca del nombre de dominio correcto.
 
-You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+Debería intentar arreglar esto poniéndose en contacto con su proveedor u obteniendo un certificado de seguridad válido porque los certificados de seguridad inválidos no son seguros y permiten [ataques de intermediario](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). Si el dinero es un obstáculo, puede obtener certificados de seguridad gratuitos de [Let’s Encrypt](https://letsencrypt.org).
 
-The quick, but unsafe solution (not advised), is to enable *Insecure connections* in the advanced identity settings (navigation menu, tap *Settings*, tap *Manual setup*, tap *Identities*, tap the identity, tap *Advanced*).
+La solución rápida, pero insegura (no recomendada), es habilitar *Conexiones inseguras* en la configuración de identidad avanzada (menú de navegación, toque *Ajustes*, toque *Configuración manual*, pulsa *Identidades*, toque la identidad, toque *Avanzado*).
 
-Alternatively, you can accept the fingerprint of invalid server certificates like this:
+Como alternativa, puede aceptar la huella digital de certificados de servidor inválidos así:
 
 1. Asegúrese de estar usando una conexión a internet de confianza (no redes Wi-Fi publicas, etc.)
 1. Ve a la pantalla de configuración a través del menú de navegación (deslice desde el lado izquierdo hacia adentro)
-1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
+1. Toque Configuración manual y más opciones, toque Cuentas/Identidades y toque la cuenta e identidad defectuosa
 1. Comprobar/guardar la cuenta y la identidad
 1. Marque la casilla debajo del mensaje de error y guarde de nuevo
 
-This will "pin" the server certificate to prevent man-in-the-middle attacks.
+Esto "fijará" el certificado del servidor para prevenir ataques de intermerdiario.
 
-Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure, see also [here](https://developer.android.com/training/articles/security-ssl).
+Tenga en cuenta que las versiones antiguas de Android podrían no reconocer las nuevas autoridades de certificación como Let’s Encrypt que causan que las conexiones se consideren inseguras, ver también [aquí](https://developer.android.com/training/articles/security-ssl).
 
 <br />
 
 *Trust anchor for certification path not found*
 
-*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* means that the default Android trust manager was not able to verify the server certificate chain.
+*... java.security.cert.CertPathValidatorException: Trust anchor for certification path not found ...* significa que el administrador de confianza por defecto de Android no pudo verificar la cadena de certificados del servidor.
 
-This could be due to the root certificate not being installed on your device or because intermediate certificates are missing, for example because the email server didn't send them.
+Esto podría deberse a que el certificado raíz no está instalado en su dispositivo o faltan certificados intermedios, por ejemplo porque el servidor de correo electrónico no los ha enviado.
 
-You can fix the first problem by downloading and installing the root certificate from the website of the provider of the certificate.
+Puede solucionar el primer problema descargando e instalando el certificado raíz desde el sitio web del proveedor del certificado.
 
-The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
+El segundo problema debería solucionarse cambiando la configuración del servidor o importando los certificados intermedios en su dispositivo.
 
-You can pin the certificate too, see above.
+También puede fijar el certificado, ver arriba.
 
 <br />
 
-*Empty password*
+*Contraseña vacía*
 
-Your username is likely easily guessed, so this is pretty insecure, unless the SMTP server is available via a restricted local network or a VPN only.
+Su nombre de usuario probablemente sea fácilmente adivinado, por lo que esto es bastante inseguro, a menos que el servidor SMTP esté disponible sólo a través de una red local restringida o una VPN.
 
-*Plain text connection*
+*Conexión de texto plano*
 
-Your username and password and all messages will be sent and received unencrypted, which is **very insecure** because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
+Su nombre de usuario y contraseña y todos los mensajes serán enviados y recibidos sin cifrar, lo que es **muy inseguro** porque un [ataque de intermediario](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) es muy simple en una conexión no cifrada.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection you'll need to enable insecure connections in the account and/or identity settings. STARTTLS should be selected for plain text connections. If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+Si todavía desea utilizar un certificado de seguridad no válido, una contraseña vacía o una conexión de texto plano necesitará habilitar conexiones insecuras en la cuenta y/o configuración de identidad. STARTTLS debería ser seleccionado para conexiones de texto plano. Si activa conexiones insecuras, sólo debe conectarse a través de redes privadas y confiables y nunca a través de redes públicas, como las ofrecidas en hoteles, aeropuertos, etc.
 
 <br />
 

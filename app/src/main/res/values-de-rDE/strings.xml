@@ -332,6 +332,7 @@
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
+    <string name="title_advanced_bimi_vmc">Sicherheitszertifikat überprüfen</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
