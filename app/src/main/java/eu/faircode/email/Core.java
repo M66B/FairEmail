@@ -4072,12 +4072,6 @@ class Core {
                     " update=" + update.size() +
                     " remove=" + remove.size());
 
-            if (notifications.size() == 0) {
-                String tag = "unseen." + group + "." + 0;
-                EntityLog.log(context, "Notify cancel tag=" + tag);
-                nm.cancel(tag, 1);
-            }
-
             for (Long id : remove) {
                 String tag = "unseen." + group + "." + Math.abs(id);
                 EntityLog.log(context, "Notify cancel tag=" + tag + " id=" + id);
@@ -4085,6 +4079,12 @@ class Core {
 
                 data.groupNotifying.get(group).remove(id);
                 db.message().setMessageNotifying(Math.abs(id), 0);
+            }
+
+            if (notifications.size() == 0) {
+                String tag = "unseen." + group + "." + 0;
+                EntityLog.log(context, "Notify cancel tag=" + tag);
+                nm.cancel(tag, 1);
             }
 
             for (Long id : add) {
