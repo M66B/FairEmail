@@ -576,7 +576,7 @@ public class Helper {
     }
 
     static void _share(Context context, File file, String type, String name) {
-        // https://developer.android.com/reference/android/support/v4/content/FileProvider
+        // https://developer.android.com/reference/androidx/core/content/FileProvider
         Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
         Log.i("uri=" + uri + " type=" + type);
 
