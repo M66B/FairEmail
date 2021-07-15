@@ -2378,10 +2378,6 @@ class Core {
                             msgid = helper.getMessageID();
                             if (TextUtils.isEmpty(msgid))
                                 msgid = uidl;
-                        } else {
-                            _new = false;
-                            Log.i(folder.name + " POP having uidl=" + uidl);
-                            continue;
                         }
                     } else {
                         uidl = null;
@@ -2394,16 +2390,16 @@ class Core {
                             if (time != null)
                                 msgid = Long.toString(time);
                         }
-
-                        if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
-                            _new = false;
-                            Log.i(folder.name + " POP having msgid=" + msgid);
-                            continue;
-                        }
                     }
 
                     if (TextUtils.isEmpty(msgid)) {
                         EntityLog.log(context, folder.name + " POP no msgid");
+                        continue;
+                    }
+
+                    if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
+                        _new = false;
+                        Log.i(folder.name + " POP having msgid=" + msgid + " uidl=" + uidl);
                         continue;
                     }
 
