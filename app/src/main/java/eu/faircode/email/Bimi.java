@@ -64,12 +64,13 @@ public class Bimi {
     private static final int READ_TIMEOUT = 15 * 1000; // milliseconds
     private static final String OID_BrandIndicatorforMessageIdentification = "1.3.6.1.5.5.7.3.31";
 
-    static Pair<Bitmap, Boolean> get(Context context, String domain, String selector, int scaleToPixels)
+    static Pair<Bitmap, Boolean> get(
+            Context context, String domain, String selector, int scaleToPixels)
             throws IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean bimi_vmc = prefs.getBoolean("bimi_vmc", false);
 
-        final String txt = selector + "._bimi." + domain;
+        String txt = selector + "._bimi." + domain;
         Log.i("BIMI fetch TXT=" + txt);
         DnsHelper.DnsRecord[] bimi = DnsHelper.lookup(context, txt, "txt");
         if (bimi.length == 0)
@@ -84,25 +85,25 @@ public class Bimi {
             if (kv.length != 2)
                 continue;
 
-            switch (kv[0].trim().toLowerCase()) {
-                case "v": { // Version
+            String tag = kv[0].trim().toLowerCase();
+            switch (tag) {
+                // Version
+                case "v": {
                     String version = kv[1].trim();
                     if (!"BIMI1".equalsIgnoreCase(version))
                         Log.w("BIMI unsupported version=" + version);
                     break;
                 }
 
-                case "l": { // Image link
-                    if (!bimi_vmc)
-                        continue;
-
+                // Image link
+                case "l": {
                     String svg = kv[1].trim();
                     if (TextUtils.isEmpty(svg))
                         continue;
 
                     URL url = new URL(svg);
-
                     Log.i("BIMI favicon " + url);
+
                     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setReadTimeout(READ_TIMEOUT);
@@ -112,8 +113,7 @@ public class Bimi {
                     connection.connect();
 
                     try {
-                        bitmap = ImageHelper.renderSvg(
-                                connection.getInputStream(),
+                        bitmap = ImageHelper.renderSvg(connection.getInputStream(),
                                 Color.WHITE, scaleToPixels);
                     } finally {
                         connection.disconnect();
@@ -122,15 +122,19 @@ public class Bimi {
                     break;
                 }
 
-                case "a": { // Certificate link
+                // Certificate link
+                case "a": {
+                    if (!bimi_vmc)
+                        continue;
+
                     String a = kv[1].trim();
                     if (TextUtils.isEmpty(a))
                         continue;
 
-                    URL url = new URL(a);
-
                     try {
+                        URL url = new URL(a);
                         Log.i("BIMI PEM " + url);
+
                         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                         connection.setRequestMethod("GET");
                         connection.setReadTimeout(READ_TIMEOUT);
@@ -171,8 +175,8 @@ public class Bimi {
                         X509Certificate cert = certs.remove(0);
 
                         // Check certificate type
-                        List<String> ku = cert.getExtendedKeyUsage();
-                        if (!ku.contains(OID_BrandIndicatorforMessageIdentification))
+                        List<String> eku = cert.getExtendedKeyUsage();
+                        if (!eku.contains(OID_BrandIndicatorforMessageIdentification))
                             throw new IllegalArgumentException("Invalid certificate type");
 
                         // Check subject
@@ -225,8 +229,12 @@ public class Bimi {
                     } catch (Throwable ex) {
                         Log.w(new Throwable("BIMI", ex));
                     }
+
                     break;
                 }
+
+                default:
+                    Log.w("Unknown BIMI tag=" + tag);
             }
         }
 
