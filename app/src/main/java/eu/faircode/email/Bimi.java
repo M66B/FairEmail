@@ -65,6 +65,9 @@ import java.util.Set;
 
 import javax.net.ssl.HttpsURLConnection;
 
+// Brand Indicators for Message Identification (BIMI)
+// https://bimigroup.org/
+
 public class Bimi {
     // Beam me up, Scotty
     private static final int CONNECT_TIMEOUT = 10 * 1000; // milliseconds
@@ -77,6 +80,10 @@ public class Bimi {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean bimi_vmc = prefs.getBoolean("bimi_vmc", false);
 
+        Bitmap bitmap = null;
+        boolean verified = !bimi_vmc;
+
+        // Get DNS record
         String txt = selector + "._bimi." + domain;
         Log.i("BIMI fetch TXT=" + txt);
         DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
@@ -84,9 +91,7 @@ public class Bimi {
             return null;
         Log.i("BIMI got TXT=" + records[0].name);
 
-        Bitmap bitmap = null;
-        boolean verified = !bimi_vmc;
-
+        // Decode DNS record
         Map<String, String> values = new HashMap<>();
         String[] params = records[0].name.split(";");
         for (String param : params) {
@@ -96,9 +101,9 @@ public class Bimi {
             values.put(kv[0].trim().toLowerCase(), kv[1].trim());
         }
 
+        // Process DNS record
         List<String> tags = new ArrayList<>(values.keySet());
         Collections.sort(tags); // process certificate first
-
         for (String tag : tags) {
             switch (tag) {
                 // Version
@@ -225,10 +230,16 @@ public class Bimi {
                                         ASN1Sequence logotypeData = (ASN1Sequence) logotypeInfo.getObject();
                                         ASN1Sequence logotypeImage = (ASN1Sequence) logotypeData.getObjectAt(0);
                                         ASN1Sequence logotypeDetails = (ASN1Sequence) logotypeImage.getObjectAt(0);
-                                        DERIA5String mime = (DERIA5String) logotypeDetails.getObjectAt(0);
+
+                                        DERIA5String mediaType = (DERIA5String) logotypeDetails.getObjectAt(0);
+                                        Log.i("BIMI media type=" + mediaType.getString());
+
                                         ASN1Sequence logotypeURI = (ASN1Sequence) logotypeDetails.getObjectAt(2);
-                                        if ("image/svg+xml".equalsIgnoreCase(mime.getString())) {
-                                            DERIA5String uri = (DERIA5String) logotypeURI.getObjectAt(0);
+                                        DERIA5String uri = (DERIA5String) logotypeURI.getObjectAt(0);
+                                        Log.i("BIMI log uri=" + uri.getString());
+
+                                        String mimeType = ImageHelper.getDataUriType(uri.getString());
+                                        if ("image/svg+xml".equalsIgnoreCase(mimeType)) {
                                             InputStream is = ImageHelper.getDataUriStream(uri.getString());
                                             bitmap = ImageHelper.renderSvg(is, Color.WHITE, scaleToPixels);
                                             Log.i("BIMI URI image=" + bitmap.getWidth() + "x" + bitmap.getHeight());
@@ -243,6 +254,8 @@ public class Bimi {
 
                         // Get trust anchors
                         Set<TrustAnchor> trustAnchors = new HashSet<>();
+
+                        // Get root certificates from assets
                         for (String ca : context.getAssets().list(""))
                             if (ca.endsWith(".pem")) {
                                 Log.i("Reading ca=" + ca);
@@ -252,6 +265,7 @@ public class Bimi {
                                 }
                             }
 
+                        // Get root certificates from key store
                         KeyStore ks = KeyStore.getInstance("AndroidCAStore");
                         ks.load(null, null);
                         Enumeration<String> aliases = ks.aliases();
