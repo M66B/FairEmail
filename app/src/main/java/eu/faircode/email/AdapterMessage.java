@@ -315,8 +315,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View vwColor;
         private ImageButton ibExpander;
         private ImageView ibFlagged;
-        private ImageView ivVerified;
         private ImageButton ibAvatar;
+        private ImageButton ibVerified;
         private ImageButton ibAuth;
         private ImageButton ibPriority;
         private ImageView ivImportance;
@@ -489,8 +489,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             vwColor = itemView.findViewById(R.id.vwColor);
             ibExpander = itemView.findViewById(R.id.ibExpander);
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
-            ivVerified = itemView.findViewById(R.id.ivVerified);
             ibAvatar = itemView.findViewById(R.id.ibAvatar);
+            ibVerified = itemView.findViewById(R.id.ibVerified);
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ibPriority = itemView.findViewById(R.id.ibPriority);
             ivImportance = itemView.findViewById(R.id.ivImportance);
@@ -727,6 +727,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
             ibAvatar.setOnClickListener(this);
+            ibVerified.setOnClickListener(this);
             ibAuth.setOnClickListener(this);
             ibPriority.setOnClickListener(this);
             ibSnoozed.setOnClickListener(this);
@@ -852,6 +853,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             touch.setOnClickListener(null);
 
             ibAvatar.setOnClickListener(null);
+            ibVerified.setOnClickListener(null);
             ibAuth.setOnClickListener(null);
             ibPriority.setOnClickListener(null);
             ibSnoozed.setOnClickListener(null);
@@ -976,8 +978,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (viewType == ViewType.THREAD) {
                 boolean dim = (message.duplicate || EntityFolder.TRASH.equals(message.folderType));
                 ibFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivVerified.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAvatar.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibVerified.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivImportance.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -1027,10 +1029,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpander.setVisibility(View.GONE);
 
             // Photo
-            ivVerified.setVisibility(View.GONE);
             ibAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
 
             // Line 1
+            ibVerified.setVisibility(View.GONE);
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
 
             if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)) {
@@ -1533,7 +1535,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Boolean.TRUE.equals(message.spf) &&
                         Boolean.TRUE.equals(message.dkim) &&
                         Boolean.TRUE.equals(message.dmarc));
-                ivVerified.setVisibility(verified ? View.VISIBLE : View.GONE);
+                ibVerified.setImageLevel(verified ? 1 : 0);
+                ibVerified.setImageTintList(ColorStateList.valueOf(verified
+                        ? colorAccent : colorSeparator));
+                ibVerified.setContentDescription(context.getString(verified
+                        ? R.string.title_advanced_bimi_verified : R.string.title_advanced_bimi_unverified));
+                ibVerified.setVisibility(
+                        main != null && "vmc".endsWith(main.getType())
+                                ? View.VISIBLE : View.GONE);
             }
 
             if (distinguish_contacts) {
@@ -3116,6 +3125,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (view.getId() == R.id.ibAvatar)
                 onViewContact(message);
+            else if (view.getId() == R.id.ibVerified)
+                onShowVerified(message);
             else if (view.getId() == R.id.ibAuth)
                 onShowAuth(message);
             else if (view.getId() == R.id.ibPriority)
@@ -3438,6 +3449,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.reportNoViewer(context, intent);
                 }
             }
+        }
+
+        private void onShowVerified(TupleMessageEx message) {
+            ToastEx.makeText(context, ibVerified.getContentDescription(), Toast.LENGTH_LONG).show();
         }
 
         private void onShowAuth(TupleMessageEx message) {

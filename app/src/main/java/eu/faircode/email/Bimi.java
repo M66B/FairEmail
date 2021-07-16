@@ -20,13 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.Pair;
-
-import androidx.preference.PreferenceManager;
 
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
@@ -77,11 +74,8 @@ public class Bimi {
     static Pair<Bitmap, Boolean> get(
             Context context, String domain, String selector, int scaleToPixels)
             throws IOException {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean bimi_vmc = prefs.getBoolean("bimi_vmc", false);
-
         Bitmap bitmap = null;
-        boolean verified = !bimi_vmc;
+        boolean verified = false;
 
         // Get DNS record
         String txt = selector + "._bimi." + domain;
@@ -146,7 +140,7 @@ public class Bimi {
 
                 // Certificate link
                 case "a": {
-                    if (!bimi_vmc)
+                    if (verified)
                         continue;
 
                     String a = values.get(tag);
