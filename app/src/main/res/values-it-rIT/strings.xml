@@ -83,6 +83,7 @@
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
+    <string name="title_notification_alert">Avviso server: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
     <string name="title_notification_sending_retry">L\'invio sarà riprovato in caso di modifiche alla connessione Internet o aggiornando la posta in uscita</string>
     <string name="title_notification_sending_failed">Invio a %1$s fallito</string>
@@ -178,6 +179,7 @@
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_doze_device">Questo è probabilmente necessario per questo dispositivo</string>
     <string name="title_setup_doze_android">Questo è necessario per questa versione di Android</string>
+    <string name="title_setup_inexact">Allarmi e promemoria disabilitati</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
     <string name="title_setup_data">Risparmio dati abilitato</string>
     <string name="title_setup_advanced_options">Mostra le opzioni avanzate</string>
@@ -330,6 +332,8 @@
     <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_gravatars">Mostra Gravatar</string>
+    <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
+    <string name="title_advanced_bimi_verified">Mittente verificato</string>
     <string name="title_advanced_favicons">Mostra favicon</string>
     <string name="title_advanced_generated_icons">Mostra le icone generate</string>
     <string name="title_advanced_identicons">Mostra identicon</string>

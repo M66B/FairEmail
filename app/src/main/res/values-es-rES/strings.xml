@@ -332,6 +332,8 @@
     <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
+    <string name="title_advanced_bimi_unverified">Remitente no verificado</string>
+    <string name="title_advanced_bimi_verified">Remitente verificado</string>
     <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
