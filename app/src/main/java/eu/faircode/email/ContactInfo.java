@@ -501,7 +501,7 @@ public class ContactInfo {
                 } else {
                     info.bitmap = ImageHelper.generateLetterIcon(
                             info.email, address.getPersonal(), dp, context);
-                    info.type = "generated";
+                    info.type = "letter";
                 }
             }
         }
