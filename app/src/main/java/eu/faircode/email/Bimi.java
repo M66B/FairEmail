@@ -28,7 +28,6 @@ import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
-import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
 import org.bouncycastle.asn1.DERIA5String;
@@ -201,6 +200,47 @@ public class Bimi {
                         if (!EntityCertificate.getDnsNames(cert).contains(domain))
                             throw new IllegalArgumentException("Invalid certificate domain");
 
+                        // https://datatracker.ietf.org/doc/html/rfc3709#page-6
+                        // LogotypeExtn ::= SEQUENCE {
+                        //   subjectLogo     [2] EXPLICIT LogotypeInfo OPTIONAL,
+                        //     LogotypeInfo ::= CHOICE {
+                        //       direct          [0] LogotypeData,
+                        //         LogotypeData ::= SEQUENCE {
+                        //           image           SEQUENCE OF LogotypeImage OPTIONAL,
+                        //             LogotypeImage ::= SEQUENCE {
+                        //               imageDetails    LogotypeDetails,
+                        //                 LogotypeDetails ::= SEQUENCE {
+                        //                   mediaType       IA5String,
+                        //                   logotypeHash    SEQUENCE SIZE (1..MAX) OF HashAlgAndValue,
+                        //                   logotypeURI     SEQUENCE SIZE (1..MAX) OF IA5String }
+                        try {
+                            byte[] logoType = cert.getExtensionValue(Extension.logoType.getId());
+                            ASN1Sequence logotypeExtn =
+                                    (ASN1Sequence) (ASN1Sequence) JcaX509ExtensionUtils.parseExtensionValue(logoType);
+                            for (int i = 0; i != logotypeExtn.size(); i++) {
+                                ASN1TaggedObject subjectLogo = ASN1TaggedObject.getInstance(logotypeExtn.getObjectAt(i));
+                                if (subjectLogo.getTagNo() == 2) {
+                                    ASN1TaggedObject logotypeInfo = (ASN1TaggedObject) subjectLogo.getObject();
+                                    if (logotypeInfo.getTagNo() == 0) {
+                                        ASN1Sequence logotypeData = (ASN1Sequence) logotypeInfo.getObject();
+                                        ASN1Sequence logotypeImage = (ASN1Sequence) logotypeData.getObjectAt(0);
+                                        ASN1Sequence logotypeDetails = (ASN1Sequence) logotypeImage.getObjectAt(0);
+                                        DERIA5String mime = (DERIA5String) logotypeDetails.getObjectAt(0);
+                                        ASN1Sequence logotypeURI = (ASN1Sequence) logotypeDetails.getObjectAt(2);
+                                        if ("image/svg+xml".equalsIgnoreCase(mime.getString())) {
+                                            DERIA5String uri = (DERIA5String) logotypeURI.getObjectAt(0);
+                                            InputStream is = ImageHelper.getDataUriStream(uri.getString());
+                                            bitmap = ImageHelper.renderSvg(is, Color.WHITE, scaleToPixels);
+                                            Log.i("BIMI URI image=" + bitmap.getWidth() + "x" + bitmap.getHeight());
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+
                         // Get trust anchors
                         Set<TrustAnchor> trustAnchors = new HashSet<>();
                         for (String ca : context.getAssets().list(""))
@@ -240,45 +280,6 @@ public class Bimi {
 
                         Log.i("BIMI valid domain=" + domain);
                         verified = true;
-
-                        // https://datatracker.ietf.org/doc/html/rfc3709#page-6
-                        // LogotypeExtn ::= SEQUENCE {
-                        //   subjectLogo     [2] EXPLICIT LogotypeInfo OPTIONAL,
-                        //     LogotypeInfo ::= CHOICE {
-                        //       direct          [0] LogotypeData,
-                        //         LogotypeData ::= SEQUENCE {
-                        //           image           SEQUENCE OF LogotypeImage OPTIONAL,
-                        //             LogotypeImage ::= SEQUENCE {
-                        //               imageDetails    LogotypeDetails,
-                        //                 LogotypeDetails ::= SEQUENCE {
-                        //                   mediaType       IA5String,
-                        //                   logotypeHash    SEQUENCE SIZE (1..MAX) OF HashAlgAndValue,
-                        //                   logotypeURI     SEQUENCE SIZE (1..MAX) OF IA5String }
-                        byte[] logoType = cert.getExtensionValue(Extension.logoType.getId());
-                        ASN1Primitive a1p = JcaX509ExtensionUtils.parseExtensionValue(logoType);
-                        if (a1p instanceof ASN1Sequence) {
-                            ASN1Sequence logotypeExtn = (ASN1Sequence) a1p;
-                            for (int i = 0; i != logotypeExtn.size(); i++) {
-                                ASN1TaggedObject subjectLogo = ASN1TaggedObject.getInstance(logotypeExtn.getObjectAt(i));
-                                if (subjectLogo.getTagNo() == 2) {
-                                    ASN1TaggedObject logotypeInfo = (ASN1TaggedObject) subjectLogo.getObject();
-                                    if (logotypeInfo.getTagNo() == 0) {
-                                        ASN1Sequence logotypeData = (ASN1Sequence) logotypeInfo.getObject();
-                                        ASN1Sequence logotypeImage = (ASN1Sequence) logotypeData.getObjectAt(0);
-                                        ASN1Sequence logotypeDetails = (ASN1Sequence) logotypeImage.getObjectAt(0);
-                                        DERIA5String mime = (DERIA5String) logotypeDetails.getObjectAt(0);
-                                        ASN1Sequence logotypeURI = (ASN1Sequence) logotypeDetails.getObjectAt(2);
-                                        if ("image/svg+xml".equalsIgnoreCase(mime.getString())) {
-                                            DERIA5String uri = (DERIA5String) logotypeURI.getObjectAt(0);
-                                            InputStream is = ImageHelper.getDataUriStream(uri.getString());
-                                            bitmap = ImageHelper.renderSvg(is, Color.WHITE, scaleToPixels);
-                                            Log.i("BIMI URI image=" + bitmap.getWidth() + "x" + bitmap.getHeight());
-                                        }
-                                    }
-                                    break;
-                                }
-                            }
-                        }
                     } catch (Throwable ex) {
                         Log.w(new Throwable("BIMI", ex));
                     }
