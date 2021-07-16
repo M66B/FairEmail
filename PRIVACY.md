@@ -30,7 +30,9 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Thunderbird autoconfiguration](https://developer.mozilla.org/docs/Mozilla/Thunderbird/Autoconfiguration) &#8211; [Privacy policy](https://www.mozilla.org/privacy/)
 
 FairEmail **can access** the websites at the domain names of email addresses
-if [favicons](https://en.wikipedia.org/wiki/Favicon) are explicitly enabled (off by default).
+if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
+or [favicons](https://en.wikipedia.org/wiki/Favicon)
+are explicitly enabled (off by default).
 
 FairEmail **will** obvously access the configured email servers.
 

@@ -498,10 +498,23 @@
                     app:switchPadding="12dp" />
 
                 <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvBimiHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorWarning"
+                    android:text="@string/title_advanced_gravatars_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swBimi" />
+
+                <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBimiUnverified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:drawableStart="@drawable/twotone_check_24"
                     android:drawablePadding="6dp"
@@ -510,13 +523,12 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swBimi" />
+                    app:layout_constraintTop_toBottomOf="@id/tvBimiHint" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvBimiVerified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:drawableStart="@drawable/twotone_done_all_24"
                     android:drawablePadding="6dp"
@@ -531,7 +543,6 @@
                     android:id="@+id/ibBimi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
                     android:layout_marginTop="6dp"
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
@@ -554,6 +565,7 @@
                     android:id="@+id/tvGravatarsHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
                     android:drawableTint="?attr/colorWarning"
@@ -578,6 +590,7 @@
                     android:id="@+id/tvFaviconsHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:drawableEnd="@drawable/twotone_open_in_new_12"
                     android:drawablePadding="6dp"
                     android:drawableTint="?attr/colorWarning"

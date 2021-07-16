@@ -85,10 +85,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private ViewButtonColor btnHighlightColor;
     private SwitchCompat swColorStripe;
     private SwitchCompat swAvatars;
-    private SwitchCompat swBimi;
     private ImageButton ibBimi;
-    private TextView tvGravatarsHint;
+    private TextView tvBimiHint;
+    private SwitchCompat swBimi;
     private SwitchCompat swGravatars;
+    private TextView tvGravatarsHint;
     private SwitchCompat swFavicons;
     private TextView tvFaviconsHint;
     private SwitchCompat swGeneratedIcons;
@@ -202,6 +203,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripe = view.findViewById(R.id.swColorStripe);
         swAvatars = view.findViewById(R.id.swAvatars);
         swBimi = view.findViewById(R.id.swBimi);
+        tvBimiHint = view.findViewById(R.id.tvBimiHint);
         ibBimi = view.findViewById(R.id.ibBimi);
         swGravatars = view.findViewById(R.id.swGravatars);
         tvGravatarsHint = view.findViewById(R.id.tvGravatarsHint);
@@ -473,6 +475,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("bimi", checked).apply();
                 ContactInfo.clearCache(getContext());
+            }
+        });
+
+        tvBimiHint.getPaint().setUnderlineText(true);
+        tvBimiHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.BIMI_PRIVACY_URI), true);
             }
         });
 
