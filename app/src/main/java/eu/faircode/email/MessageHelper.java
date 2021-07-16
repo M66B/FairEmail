@@ -966,6 +966,7 @@ public class MessageHelper {
         ensureEnvelope();
 
         // Outlook outbox -> sent
+        //   x-microsoft-original-message-id
         String header = imessage.getHeader(HEADER_CORRELATION_ID, null);
         if (header == null)
             header = imessage.getHeader("Message-ID", null);
