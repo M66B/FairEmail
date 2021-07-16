@@ -289,7 +289,7 @@ public class Bimi {
                         Log.i("BIMI valid domain=" + domain);
                         verified = true;
                     } catch (Throwable ex) {
-                        Log.w(new Throwable("BIMI", ex));
+                        Log.w(new Throwable("BIMI " + domain, ex));
                     }
 
                     break;
