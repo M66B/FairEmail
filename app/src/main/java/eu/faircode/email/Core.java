@@ -2435,6 +2435,7 @@ class Core {
                         message.auto_submitted = helper.getAutoSubmitted();
                         message.receipt_request = helper.getReceiptRequested();
                         message.receipt_to = helper.getReceiptTo();
+                        message.bimi_selector = helper.getBimiSelector();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
                         message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
@@ -3276,6 +3277,7 @@ class Core {
             message.auto_submitted = helper.getAutoSubmitted();
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
+            message.bimi_selector = helper.getBimiSelector();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
@@ -4188,7 +4190,9 @@ class Core {
         Map<Long, ContactInfo[]> messageInfo = new HashMap<>();
         for (int m = 0; m < messages.size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
             TupleMessageEx message = messages.get(m);
-            ContactInfo[] info = ContactInfo.get(context, message.account, message.folderType, message.from);
+            ContactInfo[] info = ContactInfo.get(context,
+                    message.account, message.folderType,
+                    message.bimi_selector, message.from);
 
             Address[] modified = (message.from == null
                     ? new InternetAddress[0]

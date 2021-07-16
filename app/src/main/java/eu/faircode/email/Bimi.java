@@ -77,6 +77,9 @@ public class Bimi {
         Bitmap bitmap = null;
         boolean verified = false;
 
+        if (TextUtils.isEmpty(selector))
+            selector = "default";
+
         // Get DNS record
         String txt = selector + "._bimi." + domain;
         Log.i("BIMI fetch TXT=" + txt);

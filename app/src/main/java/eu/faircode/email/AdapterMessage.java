@@ -942,6 +942,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outgoing = isOutgoing(message);
             boolean reverse = (outgoing && viewType != ViewType.THREAD &&
                     (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH));
+            String selector = (reverse ? null : message.bimi_selector);
             Address[] addresses = (reverse ? message.to : message.from);
             Address[] senders = ContactInfo.fillIn(
                     reverse && !show_recipients ? message.to : message.senders, prefer_contact, only_contact);
@@ -1226,7 +1227,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Contact info
-            ContactInfo[] info = ContactInfo.getCached(context, message.account, message.folderType, addresses);
+            ContactInfo[] info = ContactInfo.getCached(context,
+                    message.account, message.folderType, selector, addresses);
             if (info == null) {
                 if (taskContactInfo != null)
                     taskContactInfo.cancel(context);
@@ -1235,6 +1237,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 aargs.putLong("id", message.id);
                 aargs.putLong("account", message.account);
                 aargs.putString("folderType", message.folderType);
+                aargs.putString("selector", selector);
                 aargs.putSerializable("addresses", addresses);
 
                 taskContactInfo = new SimpleTask<ContactInfo[]>() {
@@ -1242,8 +1245,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected ContactInfo[] onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
                         String folderType = args.getString("folderType");
+                        String selector = args.getString("selector");
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
-                        return ContactInfo.get(context, account, folderType, addresses);
+                        return ContactInfo.get(context, account, folderType, selector, addresses);
                     }
 
                     @Override
@@ -5045,6 +5049,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("id", message.id);
             args.putLong("account", message.account);
             args.putString("folderType", message.folderType);
+            args.putString("selector", message.bimi_selector);
             args.putSerializable("addresses", message.from);
 
             new SimpleTask<ContactInfo[]>() {
@@ -5052,8 +5057,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected ContactInfo[] onExecute(Context context, Bundle args) {
                     long account = args.getLong("account");
                     String folderType = args.getString("folderType");
+                    String selector = args.getString("selector");
                     Address[] addresses = (Address[]) args.getSerializable("addresses");
-                    return ContactInfo.get(context, account, folderType, addresses);
+                    return ContactInfo.get(context, account, folderType, selector, addresses);
                 }
 
                 @Override
@@ -5703,6 +5709,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!MessageHelper.equal(prev.receipt_to, next.receipt_to)) {
                     same = false;
                     log("receipt_to changed", next.id);
+                }
+                if (!Objects.equals(prev.bimi_selector, next.bimi_selector)) {
+                    same = false;
+                    log("bimi_selector changed", next.id);
                 }
                 if (!Objects.equals(prev.dkim, next.dkim)) {
                     same = false;

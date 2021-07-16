@@ -1217,6 +1217,32 @@ public class MessageHelper {
         return getAddressHeader("Disposition-Notification-To");
     }
 
+    String getBimiSelector() throws MessagingException {
+        ensureHeaders();
+
+        // BIMI-Selector: v=BIMI1; s=selector;
+        String header = imessage.getHeader("BIMI-Selector", null);
+        if (header == null)
+            return null;
+
+        header = header.toLowerCase(Locale.ROOT);
+
+        int s = header.indexOf("s=");
+        if (s < 0)
+            return null;
+
+        int e = header.indexOf(';', s + 2);
+        if (e < 0)
+            e = header.length();
+
+        String selector = header.substring(s + 2, e);
+        if (TextUtils.isEmpty(selector))
+            return null;
+
+        Log.i("BIMI selector=" + selector);
+        return selector;
+    }
+
     String[] getAuthentication() throws MessagingException {
         ensureHeaders();
 

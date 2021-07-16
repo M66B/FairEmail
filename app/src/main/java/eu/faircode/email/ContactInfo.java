@@ -214,21 +214,21 @@ public class ContactInfo {
     }
 
     @NonNull
-    static ContactInfo[] get(Context context, long account, String folderType, Address[] addresses) {
-        return get(context, account, folderType, addresses, false);
+    static ContactInfo[] get(Context context, long account, String folderType, String selector, Address[] addresses) {
+        return get(context, account, folderType, selector, addresses, false);
     }
 
-    static ContactInfo[] getCached(Context context, long account, String folderType, Address[] addresses) {
-        return get(context, account, folderType, addresses, true);
+    static ContactInfo[] getCached(Context context, long account, String folderType, String selector, Address[] addresses) {
+        return get(context, account, folderType, selector, addresses, true);
     }
 
-    private static ContactInfo[] get(Context context, long account, String folderType, Address[] addresses, boolean cacheOnly) {
+    private static ContactInfo[] get(Context context, long account, String folderType, String selector, Address[] addresses, boolean cacheOnly) {
         if (addresses == null || addresses.length == 0)
             return new ContactInfo[]{new ContactInfo()};
 
         ContactInfo[] result = new ContactInfo[addresses.length];
         for (int i = 0; i < addresses.length; i++) {
-            result[i] = _get(context, account, folderType, (InternetAddress) addresses[i], cacheOnly);
+            result[i] = _get(context, account, folderType, selector, (InternetAddress) addresses[i], cacheOnly);
             if (result[i] == null)
                 return null;
         }
@@ -236,7 +236,10 @@ public class ContactInfo {
         return result;
     }
 
-    private static ContactInfo _get(Context context, long account, String folderType, InternetAddress address, boolean cacheOnly) {
+    private static ContactInfo _get(
+            Context context,
+            long account, String folderType,
+            String selector, InternetAddress address, boolean cacheOnly) {
         String key = MessageHelper.formatAddresses(new Address[]{address});
         synchronized (emailContactInfo) {
             ContactInfo info = emailContactInfo.get(key);
@@ -362,9 +365,8 @@ public class ContactInfo {
                             futures.add(executorFavicon.submit(new Callable<Favicon>() {
                                 @Override
                                 public Favicon call() throws Exception {
-                                    // TODO: BIMI selector
                                     Pair<Bitmap, Boolean> bimi =
-                                            Bimi.get(context, domain, "default", scaleToPixels);
+                                            Bimi.get(context, domain, selector, scaleToPixels);
                                     return (bimi == null ? null : new Favicon(bimi.first, "vmc", bimi.second));
                                 }
                             }));
