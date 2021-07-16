@@ -937,7 +937,7 @@ public class Helper {
     }
 
     static boolean isDozeRequired() {
-        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.R);
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.R && false);
     }
 
     static void reportNoViewer(Context context, Uri uri) {
