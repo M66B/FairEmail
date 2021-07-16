@@ -79,8 +79,6 @@ public class EntityCertificate {
     @NonNull
     public String data;
 
-    static final String OID_BrandIndicatorforMessageIdentification = "1.3.6.1.5.5.7.3.31";
-
     static EntityCertificate from(X509Certificate certificate, String email) throws CertificateEncodingException, NoSuchAlgorithmException {
         return from(certificate, false, email);
     }
