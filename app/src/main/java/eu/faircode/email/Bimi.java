@@ -28,7 +28,12 @@ import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
+import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.ASN1TaggedObject;
+import org.bouncycastle.asn1.DERIA5String;
 import org.bouncycastle.asn1.x509.Extension;
+import org.bouncycastle.cert.jcajce.JcaX509ExtensionUtils;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 
@@ -51,9 +56,12 @@ import java.security.cert.TrustAnchor;
 import java.security.cert.X509CertSelector;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -72,24 +80,31 @@ public class Bimi {
 
         String txt = selector + "._bimi." + domain;
         Log.i("BIMI fetch TXT=" + txt);
-        DnsHelper.DnsRecord[] bimi = DnsHelper.lookup(context, txt, "txt");
-        if (bimi.length == 0)
+        DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
+        if (records.length == 0)
             return null;
-        Log.i("BIMI got TXT=" + bimi[0].name);
+        Log.i("BIMI got TXT=" + records[0].name);
 
         Bitmap bitmap = null;
         boolean verified = !bimi_vmc;
-        String[] params = bimi[0].name.split(";");
+
+        Map<String, String> values = new HashMap<>();
+        String[] params = records[0].name.split(";");
         for (String param : params) {
             String[] kv = param.split("=");
             if (kv.length != 2)
                 continue;
+            values.put(kv[0].trim().toLowerCase(), kv[1].trim());
+        }
 
-            String tag = kv[0].trim().toLowerCase();
+        List<String> tags = new ArrayList<>(values.keySet());
+        Collections.sort(tags); // process certificate first
+
+        for (String tag : tags) {
             switch (tag) {
                 // Version
                 case "v": {
-                    String version = kv[1].trim();
+                    String version = values.get(tag);
                     if (!"BIMI1".equalsIgnoreCase(version))
                         Log.w("BIMI unsupported version=" + version);
                     break;
@@ -97,11 +112,14 @@ public class Bimi {
 
                 // Image link
                 case "l": {
-                    String svg = kv[1].trim();
-                    if (TextUtils.isEmpty(svg))
+                    if (bitmap != null)
                         continue;
 
-                    URL url = new URL(svg);
+                    String l = values.get(tag);
+                    if (TextUtils.isEmpty(l))
+                        continue;
+
+                    URL url = new URL(l);
                     Log.i("BIMI favicon " + url);
 
                     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -127,7 +145,7 @@ public class Bimi {
                     if (!bimi_vmc)
                         continue;
 
-                    String a = kv[1].trim();
+                    String a = values.get(tag);
                     if (TextUtils.isEmpty(a))
                         continue;
 
@@ -204,10 +222,6 @@ public class Bimi {
                                 trustAnchors.add(new TrustAnchor((X509Certificate) c, null));
                         }
 
-                        // https://datatracker.ietf.org/doc/html/rfc3709#page-6
-                        // TODO: logoType
-                        byte[] logoType = cert.getExtensionValue(Extension.logoType.getId());
-
                         // Validate certificate
                         X509CertSelector target = new X509CertSelector();
                         target.setCertificate(cert);
@@ -226,6 +240,45 @@ public class Bimi {
 
                         Log.i("BIMI valid domain=" + domain);
                         verified = true;
+
+                        // https://datatracker.ietf.org/doc/html/rfc3709#page-6
+                        // LogotypeExtn ::= SEQUENCE {
+                        //   subjectLogo     [2] EXPLICIT LogotypeInfo OPTIONAL,
+                        //     LogotypeInfo ::= CHOICE {
+                        //       direct          [0] LogotypeData,
+                        //         LogotypeData ::= SEQUENCE {
+                        //           image           SEQUENCE OF LogotypeImage OPTIONAL,
+                        //             LogotypeImage ::= SEQUENCE {
+                        //               imageDetails    LogotypeDetails,
+                        //                 LogotypeDetails ::= SEQUENCE {
+                        //                   mediaType       IA5String,
+                        //                   logotypeHash    SEQUENCE SIZE (1..MAX) OF HashAlgAndValue,
+                        //                   logotypeURI     SEQUENCE SIZE (1..MAX) OF IA5String }
+                        byte[] logoType = cert.getExtensionValue(Extension.logoType.getId());
+                        ASN1Primitive a1p = JcaX509ExtensionUtils.parseExtensionValue(logoType);
+                        if (a1p instanceof ASN1Sequence) {
+                            ASN1Sequence logotypeExtn = (ASN1Sequence) a1p;
+                            for (int i = 0; i != logotypeExtn.size(); i++) {
+                                ASN1TaggedObject subjectLogo = ASN1TaggedObject.getInstance(logotypeExtn.getObjectAt(i));
+                                if (subjectLogo.getTagNo() == 2) {
+                                    ASN1TaggedObject logotypeInfo = (ASN1TaggedObject) subjectLogo.getObject();
+                                    if (logotypeInfo.getTagNo() == 0) {
+                                        ASN1Sequence logotypeData = (ASN1Sequence) logotypeInfo.getObject();
+                                        ASN1Sequence logotypeImage = (ASN1Sequence) logotypeData.getObjectAt(0);
+                                        ASN1Sequence logotypeDetails = (ASN1Sequence) logotypeImage.getObjectAt(0);
+                                        DERIA5String mime = (DERIA5String) logotypeDetails.getObjectAt(0);
+                                        ASN1Sequence logotypeURI = (ASN1Sequence) logotypeDetails.getObjectAt(2);
+                                        if ("image/svg+xml".equalsIgnoreCase(mime.getString())) {
+                                            DERIA5String uri = (DERIA5String) logotypeURI.getObjectAt(0);
+                                            InputStream is = ImageHelper.getDataUriStream(uri.getString());
+                                            bitmap = ImageHelper.renderSvg(is, Color.WHITE, scaleToPixels);
+                                            Log.i("BIMI URI image=" + bitmap.getWidth() + "x" + bitmap.getHeight());
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
                     } catch (Throwable ex) {
                         Log.w(new Throwable("BIMI", ex));
                     }
