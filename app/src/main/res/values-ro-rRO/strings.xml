@@ -189,7 +189,7 @@
     <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
     <string name="title_setup_doze_device">Acest lucru este probabil necesar pentru acest dispozitiv</string>
     <string name="title_setup_doze_android">Acest lucru este necesar pentru această versiune Android</string>
-    <string name="title_setup_inexact" comment="title_setup_inexact&#10;https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission&#10;">Alarme &amp; memento-urile sunt dezactivate</string>
+    <string name="title_setup_inexact">Alarme &amp; memento-urile sunt dezactivate</string>
     <string name="title_setup_background">Restricțiile de fundal sunt activate</string>
     <string name="title_setup_data">Economizorul de date este activat</string>
     <string name="title_setup_advanced_options">Arată opțiuni avansate</string>
@@ -342,7 +342,8 @@
     <string name="title_advanced_color_stripe">Arată banda de culori</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_gravatars">Arată iconițe de pe Gravatar</string>
-    <string name="title_advanced_bimi_vmc">Verificați certificatul de securitate</string>
+    <string name="title_advanced_bimi_unverified">Expeditor neverificat</string>
+    <string name="title_advanced_bimi_verified">Expeditor verificat</string>
     <string name="title_advanced_favicons">Arată iconițe siteuri</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>

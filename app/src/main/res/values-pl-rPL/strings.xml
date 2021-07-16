@@ -178,6 +178,7 @@
     <string name="title_setup_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_setup_advanced_protection">Po zarejestrowaniu się w programie ochrony zaawansowanej nie można korzystać z aplikacji poczty e-mail innej firmy. Jest to ograniczenie nałożone przez Google.</string>
     <string name="title_setup_quick_success">Konto zostało pomyślnie dodane</string>
+    <string name="title_setup_quick_no_sent">Nie wybrano folderu wysłanych wiadomości. Może wystąpić problem z ich przechowywaniem.</string>
     <string name="title_setup_quick_configure">Aby edytować nazwę, kolor, akcje przesuwania itp</string>
     <string name="title_setup_manage">Zarządzaj</string>
     <string name="title_setup_grant">Zezwól</string>
@@ -197,6 +198,7 @@
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
     <string name="title_setup_doze_device">Prawdopodobnie jest to wymagane dla tego urządzenia</string>
     <string name="title_setup_doze_android">To jest wymagane dla tej wersji Androida</string>
+    <string name="title_setup_inexact">Alarmy &amp; przypomnienia są wyłączone</string>
     <string name="title_setup_background">Ograniczenia w tle są włączone</string>
     <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
     <string name="title_setup_advanced_options">Pokaż opcje zaawansowane</string>

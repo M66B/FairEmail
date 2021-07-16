@@ -321,7 +321,6 @@
     <string name="title_advanced_color_stripe">Hiện dải màu</string>
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_gravatars">Hiện Gravatar</string>
-    <string name="title_advanced_bimi_vmc">Kiểm tra chứng chỉ bảo mật</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>
     <string name="title_advanced_identicons">Hiện biểu tượng danh tính</string>

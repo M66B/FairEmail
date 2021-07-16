@@ -179,7 +179,7 @@
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
     <string name="title_setup_doze_device">Dit is waarschijnlijk nodig voor dit apparaat</string>
     <string name="title_setup_doze_android">Dit is vereist voor deze Android-versie</string>
-    <string name="title_setup_inexact" comment="title_setup_inexact&#10;https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission&#10;">Alarmen &amp; herinneringen zijn uitgeschakeld</string>
+    <string name="title_setup_inexact">Alarmen &amp; herinneringen zijn uitgeschakeld</string>
     <string name="title_setup_background">Achtergrondbeperkingen zijn ingeschakeld</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
     <string name="title_setup_advanced_options">Toon geavanceerde opties</string>
@@ -332,7 +332,8 @@
     <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_gravatars">Gravatars weergeven</string>
-    <string name="title_advanced_bimi_vmc">Controleer beveiligingscertificaat</string>
+    <string name="title_advanced_bimi_unverified">Niet-geverifieerde afzender</string>
+    <string name="title_advanced_bimi_verified">Geverifieerde afzender</string>
     <string name="title_advanced_favicons">Toon favicons</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>

@@ -179,6 +179,7 @@
     <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
     <string name="title_setup_doze_device">Esto probablemente sea necesario para este dispositivo</string>
     <string name="title_setup_doze_android">Esto es necesario para esta versión de Android</string>
+    <string name="title_setup_inexact">Alarmas &amp; recordatorios están deshabilitados</string>
     <string name="title_setup_background">Restricciones en segundo plano habilitadas</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
     <string name="title_setup_advanced_options">Mostrar opciones avanzadas</string>
@@ -331,7 +332,6 @@
     <string name="title_advanced_color_stripe">Mostrar raya de color</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
-    <string name="title_advanced_bimi_vmc">Comprobar certificado de seguridad</string>
     <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>

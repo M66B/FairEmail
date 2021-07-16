@@ -174,7 +174,7 @@
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
-    <string name="title_setup_inexact" comment="title_setup_inexact&#10;https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission&#10;">Alarmer og påmindelser er deaktiveret</string>
+    <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
     <string name="title_setup_background">Baggrundsbegrænsninger er aktive</string>
     <string name="title_setup_data">Datasparer er aktiveret</string>
     <string name="title_setup_advanced_options">Vis avancerede indstillinger</string>
@@ -324,7 +324,6 @@
     <string name="title_advanced_color_stripe">Vis farvestripe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_gravatars">Vis Gravatarer</string>
-    <string name="title_advanced_bimi_vmc">Tjek sikkerhedscertifikat</string>
     <string name="title_advanced_favicons">Vis favoritkoner</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>

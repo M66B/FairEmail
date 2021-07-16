@@ -168,6 +168,7 @@
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">これはおそらくこのデバイスに必要です</string>
     <string name="title_setup_doze_android">このAndroidバージョンには必須です</string>
+    <string name="title_setup_inexact">アラーム &amp; リマインダーは無効です</string>
     <string name="title_setup_background">バックグラウンドの制限は有効です</string>
     <string name="title_setup_data">データセーバーが有効になっています</string>
     <string name="title_setup_advanced_options">上級者向けオプションを表示</string>
@@ -320,7 +321,8 @@
     <string name="title_advanced_color_stripe">カラーストライプを表示</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_gravatars">Gravatar(アバター)を表示</string>
-    <string name="title_advanced_bimi_vmc">セキュリティ証明書を確認</string>
+    <string name="title_advanced_bimi_unverified">未確認の送信者</string>
+    <string name="title_advanced_bimi_verified">確認済みの送信者</string>
     <string name="title_advanced_favicons">Faviconsを表示</string>
     <string name="title_advanced_generated_icons">生成されたアイコンを表示</string>
     <string name="title_advanced_identicons">識別アイコンを表示</string>

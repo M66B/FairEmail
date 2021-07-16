@@ -750,7 +750,7 @@ Searching local messages is case insensitive and on partial text. The message te
 
 Some servers cannot handle searching in the message text when there are a large number of messages. For this case there is an option to disable searching in the message text.
 
-It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. For example:
+It is possible to use Gmail search operators by prefixing a search command with *raw:*. If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox. If you configured multiple Gmail accounts, you'll first need to navigate to the folder list or the archive (all messages) folder of the Gmail account you want to search in. Please [see here](https://support.google.com/mail/answer/7190) for the possible search operators. Например:
 
 `
 raw:larger:10M`
@@ -847,12 +847,12 @@ In case of successive connection errors, FairEmail will hold off increasingly lo
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
-The preview of the message text cannot be shown if the message body has not been downloaded yet. See also [this FAQ](#user-content-faq15).
+The preview of the message text cannot be shown if the message body has not been downloaded yet. См. также [этот FAQ](#user-content-faq15).
 
 <br />
 
 <a name="faq19"></a>
-**(19) Why are the pro features so expensive?**
+**(19) Почему Pro функции такие дорогие?**
 
 First of all, **FairEmail is basically free to use** and only some advanced features need to be purchased.
 
@@ -865,29 +865,29 @@ Please see the Play store description of the app or [see here](https://email.fai
 The right question is "*why are there so many taxes and fees?*":
 
 * VAT: 25 % (depending on your country)
-* Google fee: 30 %
-* Income tax: 50 %
-* <sub>Paypal fee: 5-10 % depending on the country/amount</sub>
+* Комиссия Google: 30%
+* Подоходный налог: 50%
+* <sub>Комиссия Paypal: 5-10% в зависимости от страны и суммы</sub>
 
-So, what is left for the developer is just a fraction of what you pay.
+В итоге разработчику достается лишь малая часть от того, что вы платите.
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported, and that free apps may have a catch, like sending privacy sensitive information to the internet. There are no privacy violating ads in the app either.
 
-I have been working on FairEmail almost every day for more than two years, so I think the price is more than reasonable. For this reason there won't be discounts either.
+Я работаю над FairEmail почти каждый день более двух лет, поэтому я думаю, что цена более чем разумна. По этой же причине я не предлагаю скидок.
 
 <br />
 
 <a name="faq20"></a>
-**(20) Can I get a refund?**
+**(20) Могу ли я получить возврат средств?**
 
-If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. In all other cases there is no refund possible. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
+If a purchased pro feature doesn't work as intended and this isn't caused by a problem in the free features and I cannot fix the problem in a timely manner, you can get a refund. Во всех остальных случаях возврат средств невозможен. In no circumstances there is a refund possible for any problem related to the free features, since there wasn't paid anything for them and because they can be evaluated without any limitation. I take my responsibility as seller to deliver what has been promised and I expect that you take responsibility for informing yourself of what you are buying.
 
 <a name="faq21"></a>
-**(21) How do I enable the notification light?**
+**(21) Как включить индикатор уведомлений?**
 
 Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
-Android 8 Oreo and later: please see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels. You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
+Версии Android 8 Oreo и более поздние: пожалуйста, смотрите [здесь](https://developer.android.com/training/notify-user/channels) как настроить каналы уведомлений. You can use the button *Default channel* in the notification settings of the app to directly go to the right Android notification channel settings.
 
 Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
 

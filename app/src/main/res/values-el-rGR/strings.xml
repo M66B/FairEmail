@@ -179,7 +179,7 @@
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
     <string name="title_setup_doze_device">Αυτό πιθανόν απαιτείται για αυτήν τη συσκευή</string>
     <string name="title_setup_doze_android">Αυτό απαιτείται για αυτήν την έκδοση Android</string>
-    <string name="title_setup_inexact" comment="title_setup_inexact&#10;https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission&#10;">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
+    <string name="title_setup_inexact">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
     <string name="title_setup_data">Η εξοικονόμηση δεδομένων είναι ενεργή</string>
     <string name="title_setup_advanced_options">Εμφάνιση προηγμένων επιλογών</string>
@@ -332,7 +332,6 @@
     <string name="title_advanced_color_stripe">Προβολή χρωματιστής λωρίδας</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_gravatars">Προβολή Gravatar</string>
-    <string name="title_advanced_bimi_vmc">Έλεγχος πιστοποιητικού ασφαλείας</string>
     <string name="title_advanced_favicons">Προβολή favicon</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>
     <string name="title_advanced_identicons">Προβολή identicon</string>
