@@ -199,6 +199,7 @@
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
     <string name="title_setup_doze_android">Це потрібно для даної версії Android</string>
+    <string name="title_setup_inexact" comment="title_setup_inexact&#10;https://developer.android.com/about/versions/12/behavior-changes-12#exact-alarm-permission&#10;">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
     <string name="title_setup_advanced_options">Показати додаткові налаштування</string>
@@ -1470,6 +1471,12 @@
     <string name="title_accessibility_expanded">Розгорнуто</string>
     <string name="title_accessibility_seen">Прочитано</string>
     <string name="title_accessibility_unseen">Не прочитано</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$d повідомлення</item>
+        <item quantity="few">%1$d повідомлень</item>
+        <item quantity="many">%1$d повідомлень</item>
+        <item quantity="other">%1$d повідомлення</item>
+    </plurals>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важливо</string>
     <string name="title_keyword_label2">Службовий</string>

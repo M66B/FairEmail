@@ -66,13 +66,13 @@
 
 <h2><a name="known-problems"></a>Відома проблема</h2>
 
-* ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
-* ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) causes FairEmail to occasionally crash on long pressing or swiping. Google has fixed this.~~
-* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
-* A [bug in Android](https://issuetracker.google.com/issues/119872129) causes FairEmail to crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
-* A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
-* A [bug in Android](https://issuetracker.google.com/issues/37018931) sometimes causes a crash with *... InputChannel is not initialized ...* on some devices.
+* ~~~Помилка [в Android 5.1 і 6](https://issuetracker.google.com/issues/37054851) змушує додатки іноді показувати неправильний формат часу. Перемикання Android налаштувань на *Використовувати 24-годинний формат* може тимчасово вирішити цю проблему. Було додано певну роботу.~~
+* ~~Помилка [в Диску Google](https://issuetracker.google.com/issues/126362828) спонукає експортовані файли до Google Диска бути пустими. Google виправив це.~~
+* ~ ~~A [помилка в AndroidX](https://issuetracker.google.com/issues/78495471) приводить до завершення роботи FairEmail при довгому натисканні або гортанні пальцем. Google виправив це.~~
+* ~~~Ця [помилка в AndroidX ROOM](https://issuetracker.google.com/issues/138441698) викликає завершення роботи з "*... Виключення при обчисленні баз даних в реальному часі ... Не вдалося прочитати рядок ...*". Було додано певну роботу.~~
+* ~~~Ця [помилка в Android](https://issuetracker.google.com/issues/119872129) викликає завершення роботи FairEmail з "*... Опубліковане невірне сповіщення ...*" на деяких пристроях при оновленні FairEmail та натисканні на сповіщення.
+* Помилка [в Android](https://issuetracker.google.com/issues/62427912) іноді призводить до аварії з "*... Активність запису не знайдено...*після оновлення FairEmail. Повторне встановлення ([джерело](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) може вирішити проблему.
+* Помилка [в Android](https://issuetracker.google.com/issues/37018931) іноді викликає помилку з *... Вхідний канал не ініціалізовано...* на деяких пристроях.
 * ~~A [bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) sometimes causes a crash with *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * A bug in Nova Launcher on Android 5.x causes FairEmail to crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
