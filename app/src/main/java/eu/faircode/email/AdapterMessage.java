@@ -1541,7 +1541,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibVerified.setContentDescription(context.getString(verified
                         ? R.string.title_advanced_bimi_verified : R.string.title_advanced_bimi_unverified));
                 ibVerified.setVisibility(
-                        main != null && "vmc".endsWith(main.getType())
+                        main != null && "vmc".equals(main.getType())
                                 ? View.VISIBLE : View.GONE);
             }
 
