@@ -102,6 +102,8 @@ public class ServiceAuthenticator extends Authenticator {
             return authState.getAccessToken();
         } else if (auth == AUTH_TYPE_OAUTH) {
             AuthState authState = AuthState.jsonDeserialize(password);
+            if (expire)
+                authState.setNeedsTokenRefresh(true);
             OAuthRefresh(context, provider, authState);
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null)
