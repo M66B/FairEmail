@@ -44,8 +44,8 @@ public class TupleAccountNetworkState {
         this.accountState = accountState;
     }
 
-    public boolean canRun(boolean force) {
-        return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled || force));
+    public boolean canRun() {
+        return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled));
     }
 
     @Override
