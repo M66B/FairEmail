@@ -82,8 +82,6 @@ public class DnsHelper {
                 if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
                         lookup.getResult() == Lookup.TYPE_NOT_FOUND)
                     throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
-                else
-                    Log.e(error);
             } catch (UnknownHostException ex) {
                 throw ex;
             } catch (Throwable ex) {
