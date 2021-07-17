@@ -203,7 +203,7 @@ public class DnsHelper {
                     lookup.getResult() == Lookup.TYPE_NOT_FOUND)
                 throw new UnknownHostException(name);
             else if (lookup.getResult() != Lookup.SUCCESSFUL)
-                Log.e("DNS error=" + lookup.getErrorString());
+                Log.i("DNS error=" + lookup.getErrorString());
 
             List<DnsRecord> result = new ArrayList<>();
 
