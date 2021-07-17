@@ -325,7 +325,7 @@ public class FragmentAccounts extends FragmentBase {
     }
 
     private void onMenuForceSync() {
-        ServiceSynchronize.reload(getContext(), null, true, "force sync");
+        refresh(true);
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 
@@ -339,7 +339,12 @@ public class FragmentAccounts extends FragmentBase {
     }
 
     private void onSwipeRefresh() {
+        refresh(false);
+    }
+
+    private void refresh(boolean force) {
         Bundle args = new Bundle();
+        args.putBoolean("force", force);
 
         new SimpleTask<Void>() {
             @Override
@@ -353,7 +358,7 @@ public class FragmentAccounts extends FragmentBase {
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
-                boolean force = false;
+                boolean force = args.getBoolean("force");
                 boolean outbox = false;
 
                 DB db = DB.getInstance(context);

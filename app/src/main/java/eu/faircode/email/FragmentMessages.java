@@ -1541,10 +1541,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onSwipeRefresh() {
         swipeRefresh.onRefresh();
+        refresh(false);
+    }
 
+    private void refresh(boolean force) {
         Bundle args = new Bundle();
         args.putLong("folder", folder);
         args.putString("type", type);
+        args.putBoolean("force", force);
 
         new SimpleTask<Void>() {
             @Override
@@ -1556,7 +1560,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
-                boolean force = false;
+                boolean force = args.getBoolean("force");
 
                 DB db = DB.getInstance(context);
                 try {
@@ -4851,7 +4855,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuForceSync() {
-        ServiceSynchronize.reload(getContext(), null, true, "force sync");
+        refresh(true);
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 
