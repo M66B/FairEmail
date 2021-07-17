@@ -2,7 +2,7 @@
 
 # FairEmail 지원
 
-문의사항이 있으면, 먼저 하단의 자주 묻는 질문들을 확인해 주세요. [At the bottom](#user-content-get-support), you can find out how to ask other questions, request features, and report bugs.
+문의사항이 있으면, 먼저 하단의 자주 묻는 질문들을 확인해 주세요. [하단](#user-content-get-support)에서 기타 질문, 지능 요청 및 버그 신고 방법을 확인할 수 있습니다.
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häufig gestellten Fragen (FAQ). [Ganz unten erfahren Sie](#user-content-get-support), wie Sie weitere Fragen stellen, Funktionen anfordern und Fehler melden können.
 
@@ -47,10 +47,10 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 
 ## 어떻게 하나요...?
 
-* Change the account name: Settings, tap Manual setup, tap Accounts, tap account
-* Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
-* Change password: Settings, tap Manual setup, tap Accounts, tap account, change password
-* Set a signature: Settings, tap Manual setup, tap Identities, tap identity, Edit signature.
+* 계정 이름 바꾸기: 설정에 들어가 수동 설정을 누른 뒤 계정들 그리고 계정을 선택하세요.
+* 왼쪽/ 오른쪽으로 스와이트 대상 변경: 설정에 들어가 페이지 동작을 누른 뒤 스와이프 동작 설정을 선택하세요.
+* 비밀번호 바꾸기: 설정에 들어가 수동 설정을 누른 뒤 계정들 그리고 계정을 선택한 후 비밀번호를 바꾸세요.
+* 서명 설정: 설정에 들어가 수동 설정을 누른 뒤 아이디를 눌러 서명을 편집하세요.
 * Add CC and BCC addresses: tap the people's icon at the end of the subject
 * Go to the next/previous message on archive/delete: in the behavior settings disable *Automatically close conversations* and select *Go to next/previous conversation* for *On closing a conversation*
 * Add a folder to the unified inbox: long press the folder in the folder list and tick *Show in unified inbox*
@@ -64,7 +64,7 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die nachstehenden häuf
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>자주 묻는 문제</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~

@@ -73,7 +73,9 @@
     <string name="title_notification_waiting">正在等待合適的網路連線</string>
     <string name="title_notification_idle">閒置</string>
     <string name="title_notification_failed">\'%1$s\' 失敗</string>
+    <string name="title_notification_alert">伺服器警報： \'%1$s\'</string>
     <string name="title_notification_sending_left">剩餘嘗試： %1$d</string>
+    <string name="title_notification_sending_retry">將在互聯網連接變更或於寄件匣執行下拉操作後重試發送動作</string>
     <string name="title_notification_sending_failed">傳送給 %1$s 失敗。</string>
     <string name="title_notification_redacted">已編輯： 生物識別或者PIN認證已啟用。</string>
     <string name="title_factor_minutes">%1$d 分鐘</string>
@@ -111,12 +113,14 @@
     <string name="title_setup_quick_accounts">新增或移除帳戶</string>
     <string name="title_setup_quick_support">有些提供者讓新增一個帳號變得困難。請不要將此怪罪於 FairEmail 而是向你的提供商請求支援。</string>
     <string name="title_setup_quick_hint">快速設定將會透過 autoconfig.thunderbird.net 取得設定資訊</string>
+    <string name="title_setup_quick_patience">請耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">IMAP 伺服器用於接收訊息</string>
     <string name="title_setup_quick_smtp">SMTP 伺服器用於傳送訊息</string>
     <string name="title_setup_wizard">精靈</string>
     <string name="title_setup_wizard_multiple">這個安裝精靈可以讓您新增多個帳號</string>
     <string name="title_setup_wizard_new">我需要一個新的 email 地址。</string>
     <string name="title_setup_manual">手動設置及帳戶選項</string>
+    <string name="title_setup_classic">典型配置</string>
     <string name="title_setup_documentation">請參閱您的電子郵件供應商文件，以瞭解正確的電子郵件伺服器配置</string>
     <string name="title_setup_account_remark">接收電郵</string>
     <string name="title_setup_identity_remark">發送電子郵件</string>
@@ -145,6 +149,7 @@
     <string name="title_setup_no_inbox">收件箱未找到</string>
     <string name="title_setup_advanced_protection">當參與進階保護項目時，使用第三方email應用是不可能的。這是Google設置的一項限制。</string>
     <string name="title_setup_quick_success">成功新增一個帳號</string>
+    <string name="title_setup_quick_no_sent">未選擇寄信資料夾。發送的信件可能無法存儲。</string>
     <string name="title_setup_quick_configure">編輯名稱、顏色、滑動操作等</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">獲取</string>
@@ -164,6 +169,7 @@
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_doze_device">這可能是此設備所必需的</string>
     <string name="title_setup_doze_android">這是此 Android 版本所必需的</string>
+    <string name="title_setup_inexact">闹钟 &amp; 提醒權限已被禁用</string>
     <string name="title_setup_background">限制背景運行已啟用</string>
     <string name="title_setup_data">已啟用節省流量</string>
     <string name="title_setup_advanced_options">顯示進階選項</string>
@@ -177,6 +183,9 @@
     <string name="title_setup_close">關閉設定</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
+    <string name="title_setup_export_remark">        由於設置檔包含所有設置和帳戶資訊，因此使用密碼對其進行加密。
+        密碼需要再次導入設置，所以勿要忘記它！
+    </string>
     <string name="title_setup_import_do">匯入的帳號不會覆蓋任何現有帳號</string>
     <string name="title_setup_password">密碼</string>
     <string name="title_setup_password_chars">密碼包含空白字元</string>
@@ -227,6 +236,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">其他</string>
+    <string name="title_advanced_default">所有選項都有常用的標準值，無須特別改動以使用本程式</string>
     <string name="title_advanced_receive">接收所有帳號訊息</string>
     <string name="title_advanced_when">何時</string>
     <string name="title_advanced_optimize">自動最佳化</string>
@@ -245,6 +255,7 @@
     <string name="title_advanced_check_authentication">檢查訊息驗證</string>
     <string name="title_advanced_check_reply_domain">在同步訊息時檢查回覆 email 的地址。</string>
     <string name="title_advanced_check_mx">在同步訊息時檢查發送者的email地址。</string>
+    <string name="title_advanced_check_blocklist">檢查寄件人域名是否存在於垃圾郵件阻止清單中</string>
     <string name="title_advanced_tune_keep_alive">自動調整保持活躍的間隔</string>
     <string name="title_advanced_keyboard">預設顯示鍵盤</string>
     <string name="title_advanced_keyboard_no_fullscreen">避免全螢幕鍵盤</string>
@@ -255,6 +266,7 @@
     <string name="title_advanced_suggest_frequently">建議經常使用的郵件地址</string>
     <string name="title_advanced_send_reminders">顯示提醒</string>
     <string name="title_advanced_send_delayed">延遲寄送訊息</string>
+    <string name="title_advanced_send_pending">顯示舒適不扎眼的發送延遲圖示</string>
     <string name="title_advanced_compose_font">預設字體</string>
     <string name="title_advanced_prefix_once">在回覆或轉發郵件時，前綴只出現一次</string>
     <string name="title_advanced_separate_reply">在 回覆/轉寄 標題前加入水平線</string>
@@ -267,6 +279,8 @@
     <string name="title_advanced_signature_reply">當回覆時使用簽名</string>
     <string name="title_advanced_signature_forward">當轉寄時使用簽名</string>
     <string name="title_advanced_discard_delete">當放棄草稿時永久刪除草稿</string>
+    <string name="title_advanced_reply_move">在使用者資料夾中回信時，將回覆保存在同一資料夾中</string>
+    <string name="title_advanced_auto_link">自動建立連結</string>
     <string name="title_advanced_plain_only">預設傳送純文字</string>
     <string name="title_advanced_flow">對純文字使用 \'形式轉換\'</string>
     <string name="title_advanced_usenet_signature">遵從 Usene 的簽名習慣</string>
@@ -277,6 +291,9 @@
     <string name="title_advanced_download">在行動網路下自動下載訊息及附件</string>
     <string name="title_advanced_roaming">漫遊時下載訊息及附件</string>
     <string name="title_advanced_rlah">像在家一樣漫遊</string>
+    <string name="title_advanced_download_headers">下載全部信件標頭</string>
+    <string name="title_advanced_download_eml">下載原始信件檔案</string>
+    <string name="title_advanced_validated">需要經過驗證 (核對) 的連接</string>
     <string name="title_advanced_timeout">連線超時（秒）</string>
     <string name="title_advanced_prefer_ip4">偏好使用IPv4而不是IPv6</string>
     <string name="title_advanced_ssl_harden">嚴格的 SSL 連線</string>
@@ -292,7 +309,11 @@
     <string name="title_advanced_landscape3">在螢幕橫向時預設顯示導航選單</string>
     <string name="title_advanced_startup">起使畫面</string>
     <string name="title_advanced_cards">使用卡片樣式而不是表格樣式</string>
+    <string name="title_advanced_cards_beige">使用卡片樣式時使用米黃色背景 (僅亮色主題)</string>
+    <string name="title_advanced_tabular_background">使用表狀樣式時，以卡片色為背景顏色</string>
+    <string name="title_advanced_cards_shadow">使用卡片樣式時，應用陰影於未讀信件上</string>
     <string name="title_advanced_date_header">以日期分組</string>
+    <string name="title_advanced_date_bold">以粗體顯示日期</string>
     <string name="title_advanced_threading">將會話串起</string>
     <string name="title_advanced_threading_unread">在會話中顯示未讀訊息的數量</string>
     <string name="title_advanced_indentation">在接受/發送的對話中使用 左/右 縮進</string>
@@ -301,6 +322,8 @@
     <string name="title_advanced_color_stripe">展示顏色條紋</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_gravatars">顯示 Gravatars</string>
+    <string name="title_advanced_bimi_unverified">未經驗證的寄件人</string>
+    <string name="title_advanced_bimi_verified">已驗證寄件人</string>
     <string name="title_advanced_favicons">展示網站圖標</string>
     <string name="title_advanced_generated_icons">顯示設定的圖示</string>
     <string name="title_advanced_identicons">顯示身份</string>
@@ -333,6 +356,8 @@
     <string name="title_advanced_overview_mode">縮放原始訊息以符合螢幕</string>
     <string name="title_advanced_contrast">訊息內容高對比</string>
     <string name="title_advanced_monospaced">訊息內容預設使用等寬字體</string>
+    <string name="title_advanced_monospaced_pre">於預格文本上使用等寬字型</string>
+    <string name="title_advanced_background_color">使用背景色</string>
     <string name="title_advanced_text_color">使用文字顏色</string>
     <string name="title_advanced_text_size">使用文字大小</string>
     <string name="title_advanced_text_font">使用字體</string>
@@ -341,6 +366,7 @@
     <string name="title_advanced_collapse_quotes">折疊引用的文字</string>
     <string name="title_advanced_image_placeholders">顯示圖片替代物</string>
     <string name="title_advanced_images_inline">自動顯示行內圖片</string>
+    <string name="title_advanced_button_extra">在信件底部顯示額外的按鈕</string>
     <string name="title_advanced_seekbar">使用點點顯示目前對話的相對位置</string>
     <string name="title_advanced_actionbar">顯示會話控制列</string>
     <string name="title_advanced_actionbar_color">使用帳戶顏色作為會話控制列的顏色</string>
@@ -361,6 +387,7 @@
     <string name="title_advanced_swipe_close">往下滑關閉對話</string>
     <string name="title_advanced_swipe_move">往上滑移動對話</string>
     <string name="title_advanced_autoexpand">自動展開訊息</string>
+    <string name="title_advanced_expand_first">在讀取會話時自動展開第一封信件</string>
     <string name="title_advanced_expand_all">自動展開所有已讀訊息</string>
     <string name="title_advanced_expand_one">一次只展開一則訊息</string>
     <string name="title_advanced_collapse_multiple">按返回時折疊同一個會話中的所有消息。</string>
@@ -402,22 +429,27 @@
     <string name="title_advanced_notify_action_snooze">延後</string>
     <string name="title_advanced_notify_remove">點擊通知後移除新郵件通知</string>
     <string name="title_advanced_notify_clear">察看郵件列表後移除新郵件通知</string>
+    <string name="title_advanced_notify_subtext">顯示帳戶或資料夾名稱為附屬文本</string>
     <string name="title_advanced_wearable_preview">只向穿戴式裝置發送有預覽的通知</string>
     <string name="title_advanced_notify_messaging">使用Android「訊息樣式」通知格式</string>
     <string name="title_advanced_biometrics_notify">在使用生物識別認證時顯示通知內容</string>
     <string name="title_advanced_light">使用通知燈</string>
     <string name="title_advanced_sound">選擇通知音效</string>
+    <string name="title_advanced_notify_screen_on">為新信件通知而短時間開啟螢幕</string>
     <string name="title_advanced_confirm_links">開啟超連結前確認</string>
     <string name="title_advanced_browse_links">將打開的連結轉向 Android</string>
     <string name="title_advanced_confirm_images">顯示圖片前確認</string>
     <string name="title_advanced_confirm_html">預設顯示重新格式化的郵件</string>
     <string name="title_advanced_tracking">嘗試辨識和禁止追蹤器圖片</string>
     <string name="title_advanced_hide_timezone">傳送沒有時區資料的郵件</string>
+    <string name="title_advanced_client_id">將應用名稱和版本發送到電子郵件伺服器</string>
     <string name="title_advanced_display_hidden">顯示隱藏的訊息內文</string>
     <string name="title_advanced_incognito_keyboard">使用無痕鍵盤（Android 8+）</string>
     <string name="title_advanced_secure">從最近的應用程式中移除並防止截圖</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">生物認證超時設定</string>
+    <string name="title_advanced_generic_user_agent">使用通用瀏覽器使用者代理</string>
+    <string name="title_advanced_disconnect_auto_update">每周自動更新清單</string>
     <string name="title_advanced_disconnect_links">使用清單來警告可追蹤的超連結</string>
     <string name="title_advanced_disconnect_images">使用清單來辨識可追蹤的圖像</string>
     <string name="title_advanced_sign_default">預設數位簽章</string>
@@ -434,6 +466,7 @@
     <string name="title_advanced_ca">安裝 CA 憑證</string>
     <string name="title_advanced_manage_keys_hint">這將打開 Android 安全性設定。
 金鑰和證書通常可以在 “進階-加密和憑證” 內找到。    </string>
+    <string name="title_advanced_power_menu">添加活動至 Android 電源選單</string>
     <string name="title_advanced_external_search">允許其他應用程式搜尋訊息</string>
     <string name="title_advanced_shortcuts">在 Adnroid 分享選單中顯示常用的聯絡人</string>
     <string name="title_advanced_fts">建立搜尋索引</string>
@@ -441,6 +474,7 @@
     <string name="title_advanced_classification">分類訊息</string>
     <string name="title_advanced_language">語言</string>
     <string name="title_advanced_language_system">系統</string>
+    <string name="title_advanced_deepl">DeepL 整合</string>
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
     <string name="title_advanced_updates">檢查GitHub上的更新</string>
     <string name="title_advanced_check_weekly">每周檢查而非每日檢查</string>
@@ -467,6 +501,7 @@
     <string name="title_advanced_check_reply_hint">這將檢查寄件人的域名和回覆地址是否相同</string>
     <string name="title_advanced_lookup_mx_hint">這將檢查 DNS MX 記錄是否存在</string>
     <string name="title_advanced_sync_delay_hint">這將會減緩同步訊息的速度</string>
+    <string name="title_advanced_suggest_names_hint">如果禁用，則在選擇聯絡人時僅使用電子郵件地址</string>
     <string name="title_advanced_suggest_local_hint">除了 Android 提供的聯絡人。 僅在啟用後，聯絡人資料將被儲存以用於新寄送或接收的郵件。</string>
     <string name="title_advanced_usenet_hint">在文字和簽名之間插入 “--”</string>
     <string name="title_advanced_send_reminders_hint">當郵件內文或主旨為空或可能缺少附件時顯示警告</string>
@@ -474,7 +509,9 @@
     <string name="title_advanced_metered_hint">計量網路通常是行動網路或付費 Wi-Fi 熱點</string>
     <string name="title_advanced_metered_warning">停用這個選項將停用在行動網路下接收和寄送郵件。</string>
     <string name="title_advanced_rlah_hint">假設在歐盟境內不漫遊</string>
+    <string name="title_advanced_usage_hint">這將增加電池、數據和儲存空間的使用</string>
     <string name="title_advanced_tcp_keep_alive_hint">開啟此選項可能在某些裝置導致連線問題</string>
+    <string name="title_advanced_validate_hint">這可能導致訊息不同步，例如在使用 VPN 的時候，其他情況下也可能會發生</string>
     <string name="title_advanced_timeout_hint">讀/寫時限將會被設置為連接時限的兩倍。更高的設置將導致更多的電力消耗。</string>
     <string name="title_advanced_ssl_harden_hint">啟用此功能將禁止弱 SSL 協議和加密方式，這可能導致連接問題</string>
     <string name="title_advanced_roaming_hint">漫遊時始終會擷取郵件標頭。 您可以在裝置中設定於漫遊時停用網際網路。</string>

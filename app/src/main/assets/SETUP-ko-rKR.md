@@ -32,10 +32,10 @@ FairEmail을 설정하는 것은 꽤 간단합니다. 이메일을 받으려면 
 
 이메일 주소를 조회하고 연락처 사진을 표시하려면 FairEmail 에 연락처 정보를 볼 수 있는 권한을 부여해야 합니다. *승인*을 누르고 *허용*을 선택하세요.
 
-## Setup battery optimizations - to continuously receive emails
+## 배터리 최적화 설정 - 이메일을 지속적으로 수신
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+최신 안드로이드 버전에서 안드로이드는 배터리 사용량을 줄이기 위해 잠시 화면이 꺼져 있을때 앱을 절전 모드로 전향합니다. 새 이메일을 지체없이 받으려면 FairEmail 에 대한 배터리 최적화를 비활성화 해야합니다. *Manage*를 누르고 지침을 따르세요.
 
 ## 질문 또는 문제
 
-질문이나 문제가 있는 경우, [여기를 참조하여](https://github.com/M66B/FairEmail/blob/master/FAQ.md)도움을 받으세요.
+질문이나 문제가 있는 경우, [여기를 참조하여](https://github.com/M66B/FairEmail/blob/master/FAQ.md) 도움을 받으세요.
