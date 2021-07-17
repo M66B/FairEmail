@@ -1607,7 +1607,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 else
                     ServiceSynchronize.eval(context, "refresh");
 
-                if (!now)
+                if (!now && !args.getBoolean("force"))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
                 return null;

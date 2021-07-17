@@ -421,7 +421,7 @@ public class FragmentFolders extends FragmentBase {
                 if (outbox)
                     ServiceSend.start(context);
 
-                if (!now)
+                if (!now && !args.getBoolean("force"))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
                 return null;
