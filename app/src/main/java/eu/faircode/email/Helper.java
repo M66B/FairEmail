@@ -1579,7 +1579,7 @@ public class Helper {
             byte[] bytes = digest.digest(cert);
             StringBuilder sb = new StringBuilder();
             for (byte b : bytes)
-                sb.append(Integer.toString(b & 0xff, 16).toUpperCase(Locale.ROOT));
+                sb.append(String.format("%02X", b));
             return sb.toString();
         } catch (Throwable ex) {
             Log.e(ex);
