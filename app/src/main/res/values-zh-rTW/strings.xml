@@ -117,6 +117,7 @@
     <string name="title_setup_wizard_multiple">這個安裝精靈可以讓您新增多個帳號</string>
     <string name="title_setup_wizard_new">我需要一個新的 email 地址。</string>
     <string name="title_setup_manual">手動設置及帳戶選項</string>
+    <string name="title_setup_documentation">請參閱您的電子郵件供應商文件，以瞭解正確的電子郵件伺服器配置</string>
     <string name="title_setup_account_remark">接收電郵</string>
     <string name="title_setup_identity_remark">發送電子郵件</string>
     <string name="title_setup_account_identity_hint">您可以在帳戶設置中設定名稱、顏色和滑動操作方式，並在身份設置中設置簽名</string>
