@@ -81,12 +81,18 @@ public class Bimi {
             selector = "default";
 
         // Get DNS record
-        String txt = selector + "._bimi." + domain;
-        Log.i("BIMI fetch TXT=" + txt);
-        DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
-        if (records.length == 0)
+        DnsHelper.DnsRecord[] records;
+        try {
+            String txt = selector + "._bimi." + domain;
+            Log.i("BIMI fetch TXT=" + txt);
+            records = DnsHelper.lookup(context, txt, "txt");
+            if (records.length == 0)
+                return null;
+            Log.i("BIMI got TXT=" + records[0].name);
+        } catch (Throwable ex) {
+            Log.i(ex);
             return null;
-        Log.i("BIMI got TXT=" + records[0].name);
+        }
 
         // Decode DNS record
         Map<String, String> values = new HashMap<>();
