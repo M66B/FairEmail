@@ -776,7 +776,7 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.reload(context, folder.account, false, "delete folder");
+                ServiceSynchronize.reload(context, folder.account, true, "delete folder");
 
                 return null;
             }

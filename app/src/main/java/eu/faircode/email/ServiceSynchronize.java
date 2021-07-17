@@ -1350,7 +1350,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 int count = db.folder().renameFolder(account.id, old, name);
                                 Log.i("Renamed to " + name + " count=" + count);
-                                if (count == 0)
+                                if (count != 0)
                                     reload(ServiceSynchronize.this, account.id, false, "folder renamed");
                             } finally {
                                 wlFolder.release();
