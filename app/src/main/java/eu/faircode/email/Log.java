@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -1630,8 +1631,16 @@ public class Log {
     private static StringBuilder getAppInfo(Context context) {
         StringBuilder sb = new StringBuilder();
 
+        PackageManager pm = context.getPackageManager();
+        String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        int targetSdk = -1;
+        try {
+            ApplicationInfo ai = pm.getApplicationInfo(BuildConfig.APPLICATION_ID, 0);
+            targetSdk = ai.targetSdkVersion;
+        } catch (PackageManager.NameNotFoundException ignore) {
+        }
+
         // Get version info
-        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
         sb.append(String.format("%s: %s/%s %s/%s%s%s%s%s\r\n",
                 context.getString(R.string.app_name),
                 BuildConfig.APPLICATION_ID,
@@ -1642,7 +1651,8 @@ public class Log {
                 Helper.hasPlayStore(context) ? "s" : "",
                 BuildConfig.DEBUG ? "d" : "",
                 ActivityBilling.isPro(context) ? "+" : ""));
-        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+        sb.append(String.format("Android: %s (SDK %d/%d)\r\n",
+                Build.VERSION.RELEASE, Build.VERSION.SDK_INT, targetSdk));
         sb.append("\r\n");
 
         // Get device info
@@ -1713,10 +1723,10 @@ public class Log {
             sb.append(ex.toString()).append("\r\n");
         }
 
-        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        PowerManager power = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         boolean ignoring = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+            ignoring = power.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
         sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
         sb.append(String.format("Charging: %b\r\n", Helper.isCharging(context)));
 
