@@ -60,8 +60,17 @@ public class GmailState {
             return acquired + TOKEN_LIFETIME;
     }
 
-    void refresh(@NonNull Context context, @NonNull String user, boolean expire) throws AuthenticatorException, OperationCanceledException, IOException {
-        if (expire || acquired + TOKEN_LIFETIME < new Date().getTime())
+    void refresh(@NonNull Context context, @NonNull String user, boolean expire, long keep_alive)
+            throws AuthenticatorException, OperationCanceledException, IOException {
+        Long expiration = getAccessTokenExpirationTime();
+        if (expiration != null && expiration - keep_alive < new Date().getTime()) {
+            EntityLog.log(context, "Force invalidation" +
+                    " expiration=" + new Date(expiration) +
+                    " keep-alive=" + (keep_alive / 60 / 1000) + "m");
+            expire = true;
+        }
+
+        if (expire)
             try {
                 if (token != null) {
                     EntityLog.log(context, "Invalidating token user=" + user);
