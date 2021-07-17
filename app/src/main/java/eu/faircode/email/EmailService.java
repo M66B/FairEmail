@@ -306,9 +306,8 @@ public class EmailService implements AutoCloseable {
         this.listener = listener;
     }
 
-    @NonNull
-    public ServiceAuthenticator connect(EntityAccount account) throws MessagingException {
-        return connect(
+    public void connect(EntityAccount account) throws MessagingException {
+        connect(
                 account.host, account.port,
                 account.auth_type, account.provider,
                 account.user, account.password,
@@ -324,9 +323,8 @@ public class EmailService implements AutoCloseable {
                 account.certificate_alias, account.fingerprint);
     }
 
-    @NonNull
-    public ServiceAuthenticator connect(EntityIdentity identity) throws MessagingException {
-        return connect(
+    public void connect(EntityIdentity identity) throws MessagingException {
+        connect(
                 identity.host, identity.port,
                 identity.auth_type, identity.provider,
                 identity.user, identity.password,
@@ -342,16 +340,14 @@ public class EmailService implements AutoCloseable {
                 identity.certificate_alias, identity.fingerprint);
     }
 
-    @NonNull
-    public ServiceAuthenticator connect(
+    public void connect(
             String host, int port,
             int auth, String provider, String user, String password,
             String certificate, String fingerprint) throws MessagingException {
-        return connect(host, port, auth, provider, user, password, null, certificate, fingerprint);
+        connect(host, port, auth, provider, user, password, null, certificate, fingerprint);
     }
 
-    @NonNull
-    private ServiceAuthenticator connect(
+    private void connect(
             String host, int port,
             int auth, String provider, String user, String password,
             ServiceAuthenticator.IAuthenticated intf,
@@ -395,13 +391,11 @@ public class EmailService implements AutoCloseable {
                 properties.put("mail." + protocol + ".yahoo.guid", "FAIRMAIL_V1");
 
             connect(host, port, auth, user, authenticator, factory);
-            return authenticator;
         } catch (AuthenticationFailedException ex) {
             if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OAUTH) {
                 try {
                     authenticator.refreshToken(true);
                     connect(host, port, auth, user, authenticator, factory);
-                    return authenticator;
                 } catch (Exception ex1) {
                     Log.e(ex1);
                     throw new AuthenticationFailedException(

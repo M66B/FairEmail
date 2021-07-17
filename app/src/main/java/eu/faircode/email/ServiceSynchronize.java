@@ -1268,9 +1268,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     db.folder().setFolderStates(account.id, null);
                     db.account().setAccountState(account.id, "connecting");
 
-                    ServiceAuthenticator authenticator;
                     try {
-                        authenticator = iservice.connect(account);
+                        iservice.connect(account);
                     } catch (Throwable ex) {
                         // Immediately report auth errors
                         if (ex instanceof AuthenticationFailedException) {
@@ -1858,9 +1857,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         iservice.getStore(),
                                         "Unrecoverable",
                                         new Exception(state.getUnrecoverable()));
-
-                            if (!authenticator.isTokenValid(account.poll_interval))
-                                throw new StoreClosedException(iservice.getStore(), "Token invalidation");
 
                             // Sends store NOOP
                             if (EmailService.SEPARATE_STORE_CONNECTION) {

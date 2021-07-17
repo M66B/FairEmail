@@ -84,8 +84,7 @@ public class ServiceAuthenticator extends Authenticator {
         return new PasswordAuthentication(user, token);
     }
 
-    String refreshToken(boolean expire)
-            throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
+    String refreshToken(boolean expire) throws AuthenticatorException, OperationCanceledException, IOException, JSONException, MessagingException {
         if (auth == AUTH_TYPE_GMAIL) {
             GmailState authState = GmailState.jsonDeserialize(password);
             authState.refresh(context, user, expire);
@@ -118,34 +117,6 @@ public class ServiceAuthenticator extends Authenticator {
             return authState.getAccessToken();
         } else
             return password;
-    }
-
-    boolean isTokenValid(int minValidity) {
-        Long expiration = null;
-        long validUntil = new Date().getTime() +
-                Math.round(minValidity * 60 * 1000L * 1.1f);
-
-        try {
-            if (auth == AUTH_TYPE_GMAIL) {
-                GmailState authState = GmailState.jsonDeserialize(password);
-                expiration = authState.getAccessTokenExpirationTime();
-            } else if (auth == AUTH_TYPE_OAUTH) {
-                AuthState authState = AuthState.jsonDeserialize(password);
-                expiration = authState.getAccessTokenExpirationTime();
-            }
-        } catch (JSONException ex) {
-            Log.e(ex);
-        }
-
-        if (expiration != null && expiration < validUntil) {
-            EntityLog.log(context, user + " token" +
-                    " expiration=" + new Date(expiration) +
-                    " valid until" + new Date(validUntil) +
-                    " min valid=" + minValidity + "m");
-            return false;
-        }
-
-        return true;
     }
 
     interface IAuthenticated {
