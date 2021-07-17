@@ -1526,12 +1526,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (main == null || !main.hasPhoto()) {
                     ibAvatar.setImageDrawable(null);
                     ibAvatar.setTag(null);
+                    ibAvatar.setEnabled(false);
                 } else {
                     ibAvatar.setImageBitmap(main.getPhotoBitmap());
 
                     Uri lookupUri = main.getLookupUri();
                     ibAvatar.setTag(lookupUri);
-                    ibAvatar.setEnabled(lookupUri != null);
+
+                    if (BuildConfig.DEBUG)
+                        ibAvatar.setContentDescription(main.getEmailAddress() + "=" + main.getType());
+
+                    ibAvatar.setEnabled(lookupUri != null || BuildConfig.DEBUG);
                 }
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
 
@@ -3444,7 +3449,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onViewContact(TupleMessageEx message) {
             Uri lookupUri = (Uri) ibAvatar.getTag();
-            if (lookupUri != null) {
+            if (lookupUri == null) {
+                if (BuildConfig.DEBUG) {
+                    CharSequence type = ibAvatar.getContentDescription();
+                    ToastEx.makeText(context, type, Toast.LENGTH_LONG).show();
+                }
+            } else {
                 Intent intent = new Intent(Intent.ACTION_VIEW, lookupUri);
                 try {
                     context.startActivity(intent);
