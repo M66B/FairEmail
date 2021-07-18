@@ -726,7 +726,7 @@ public class ContactInfo {
     }
 
     @NonNull
-    private static Favicon getFavicon(URL url, String type, int scaleToPixels, Context context) throws IOException {
+    private static Favicon getFavicon(URL url, String mimeType, int scaleToPixels, Context context) throws IOException {
         Log.i("GET favicon " + url);
 
         if (!"https".equals(url.getProtocol()))
@@ -751,12 +751,7 @@ public class ContactInfo {
             if (status != HttpURLConnection.HTTP_OK)
                 throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
 
-            if ("image/svg+xml".equals(type) || url.getPath().endsWith(".svg")) {
-                Bitmap bitmap = ImageHelper.renderSvg(connection.getInputStream(), Color.WHITE, scaleToPixels);
-                return new Favicon(bitmap);
-            }
-
-            Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), scaleToPixels);
+            Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), mimeType, scaleToPixels);
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");
             else {
