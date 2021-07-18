@@ -1631,6 +1631,8 @@ public class Log {
     private static StringBuilder getAppInfo(Context context) {
         StringBuilder sb = new StringBuilder();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         PackageManager pm = context.getPackageManager();
         String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
         int targetSdk = -1;
@@ -1668,7 +1670,9 @@ public class Log {
         sb.append("\r\n");
 
         Locale slocale = Resources.getSystem().getConfiguration().locale;
-        sb.append(String.format("Locale: %s/%s\r\n", Locale.getDefault(), slocale));
+        String language = prefs.getString("language", null);
+        sb.append(String.format("Locale: def=%s sys=%s lang=%s\r\n",
+                Locale.getDefault(), slocale, language));
 
         sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
 
@@ -1745,7 +1749,6 @@ public class Log {
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean reporting = prefs.getBoolean("crash_reports", false);
         if (reporting) {
             String uuid = prefs.getString("uuid", null);
