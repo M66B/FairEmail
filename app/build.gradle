@@ -261,7 +261,7 @@ dependencies {
     def annotation_version = "1.1.0"
     def core_version = "1.6.0"
     def appcompat_version = "1.3.0"
-    def activity_version = "1.2.3"
+    def activity_version = "1.3.0-rc02"
     def fragment_version = "1.3.5"
     def webkit_version = "1.4.0"
     def recyclerview_version = "1.2.1"
