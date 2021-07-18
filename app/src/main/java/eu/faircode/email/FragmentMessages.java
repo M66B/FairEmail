@@ -6652,11 +6652,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         // https://autocrypt.org/level1.html#the-autocrypt-header
                         Map<String, String> kv = MessageHelper.getKeyValues(message.autocrypt);
                         for (String key : kv.keySet()) {
-                            String value = kv.get(key).toLowerCase(Locale.ROOT);
+                            String value = kv.get(key);
                             Log.i("Autocrypt " + key + "=" + value);
+                            if (value == null)
+                                continue;
                             switch (key) {
                                 case "addr":
-                                    addr = value;
+                                    addr = value.toLowerCase(Locale.ROOT);
                                     break;
                                 case "prefer-encrypt":
                                     mutual = value.trim().toLowerCase(Locale.ROOT).equals("mutual");
