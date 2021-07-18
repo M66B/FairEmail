@@ -20,20 +20,31 @@ package eu.faircode.email;
 */
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 
 public class ActivitySearch extends ActivityBase {
+    private static final String SEARCH_SCHEME = "eu.faircode.email.search";
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        CharSequence query;
+
+        Uri uri = getIntent().getData();
+        if (uri == null || !SEARCH_SCHEME.equals(uri.getScheme()))
+            query = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+        else
+            query = uri.toString().substring(SEARCH_SCHEME.length() + 1);
+
+        Log.i("External search query=" + query);
         Intent view = new Intent(this, ActivityView.class);
-        view.putExtra(Intent.EXTRA_PROCESS_TEXT, getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT));
+        view.putExtra(Intent.EXTRA_PROCESS_TEXT, query);
         startActivity(view);
 
         finish();
