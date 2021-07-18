@@ -1263,20 +1263,16 @@ public class MessageHelper {
         // https://tools.ietf.org/html/rfc7601
         Boolean result = null;
         for (String header : headers) {
-            String[] part = header.split(";");
-            for (int i = 1; i < part.length; i++) {
-                String[] kv = part[i].split("=");
-                if (kv.length > 1) {
-                    String key = kv[0].trim();
-                    String[] val = kv[1].trim().split(" ");
-                    if (val.length > 0 && type.equals(key)) {
-                        if ("fail".equals(val[0]))
-                            result = false;
-                        else if ("pass".equals(val[0]))
-                            if (result == null)
-                                result = true;
-                    }
-                }
+            String v = getKeyValues(header).get(type);
+            if (v == null)
+                continue;
+            String[] val = v.split("\\s+");
+            if (val.length > 0) {
+                if ("fail".equals(val[0]))
+                    result = false;
+                else if ("pass".equals(val[0]))
+                    if (result == null)
+                        result = true;
             }
         }
 
@@ -3009,10 +3005,16 @@ public class MessageHelper {
 
         String[] params = value.split(";");
         for (String param : params) {
-            String[] kv = param.split("=");
-            if (kv.length != 2)
-                continue;
-            values.put(kv[0].trim().toLowerCase(), kv[1].trim());
+            String k, v;
+            int eq = param.indexOf('=');
+            if (eq < 0) {
+                k = param.trim().toLowerCase(Locale.ROOT);
+                v = "";
+            } else {
+                k = param.substring(0, eq).trim().toLowerCase(Locale.ROOT);
+                v = param.substring(eq + 1).trim();
+            }
+            values.put(k, v);
         }
 
         return values;
