@@ -1206,13 +1206,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         context.getString(R.string.title_advanced_debug) + "/" +
                         context.getString(R.string.title_advanced_section_misc) + " !!!" +
                         "\nerror=" + error +
-                        "\nuid=" + message.uid + " id=" + message.id + " " + DTF.format(new Date(message.received)) +
+                        "\nuid=" + message.uid + " id=" + message.id +
+                        " fid=" + message.folder + " aid=" + message.account +
+                        " " + DTF.format(new Date(message.received)) +
                         "\n" + (message.ui_hide ? "HIDDEN " : "") +
                         "seen=" + message.seen + "/" + message.ui_seen +
                         " unseen=" + message.unseen +
                         " ignored=" + message.ui_ignored +
                         " found=" + message.ui_found +
-                        "\nbusy=" + (message.ui_busy == null ? null : new Date(message.ui_busy)) +
+                        " busy=" + (message.ui_busy == null ? null : new Date(message.ui_busy)) +
                         "\nhash=" + message.hash +
                         "\nmsgid=" + message.msgid + "/" + message.uidl +
                         "\nthread=" + message.thread +
