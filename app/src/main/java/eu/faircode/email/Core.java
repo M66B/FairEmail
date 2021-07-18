@@ -3392,8 +3392,17 @@ class Core {
                     !EntityFolder.JUNK.equals(folder.type) &&
                     !Arrays.asList(message.keywords).contains(MessageHelper.FLAG_NOT_JUNK))
                 try {
-                    message.blocklist = DnsBlockList.isJunk(
-                            context, imessage.getHeader("Received"));
+                    message.blocklist = DnsBlockList.isJunk(context,
+                            imessage.getHeader("Received"));
+
+                    if (message.blocklist == null || !message.blocklist) {
+                        List<Address> senders = new ArrayList<>();
+                        if (message.reply != null)
+                            senders.addAll(Arrays.asList(message.reply));
+                        if (message.from != null)
+                            senders.addAll(Arrays.asList(message.from));
+                        message.blocklist = DnsBlockList.isJunk(context, senders);
+                    }
                 } catch (Throwable ex) {
                     Log.w(folder.name, ex);
                 }
