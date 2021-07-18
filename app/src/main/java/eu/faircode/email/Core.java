@@ -2273,7 +2273,7 @@ class Core {
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean pro = ActivityBilling.isPro(context);
 
-        EntityLog.log(context, folder.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
+        EntityLog.log(context, account.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
 
         if (!EntityFolder.INBOX.equals(folder.type)) {
             db.folder().setFolderSyncState(folder.id, null);
@@ -2288,7 +2288,7 @@ class Core {
             // Get capabilities
             Map<String, String> caps = istore.capabilities();
             boolean hasUidl = caps.containsKey("UIDL");
-            EntityLog.log(context, folder.name + " POP capabilities= " + caps.keySet());
+            EntityLog.log(context, account.name + " POP capabilities= " + caps.keySet());
 
             // Get messages
             Message[] imessages = ifolder.getMessages();
@@ -2297,7 +2297,7 @@ class Core {
                     ? imessages.length
                     : Math.min(imessages.length, account.max_messages));
 
-            EntityLog.log(context, folder.name + " POP" +
+            EntityLog.log(context, account.name + " POP" +
                     " device=" + ids.size() +
                     " server=" + imessages.length +
                     " max=" + max + "/" + account.max_messages +
@@ -2333,7 +2333,7 @@ class Core {
                     }
 
                     for (TupleUidl uidl : known.values()) {
-                        EntityLog.log(context, folder.name + " POP purging uidl=" + uidl.uidl);
+                        EntityLog.log(context, account.name + " POP purging uidl=" + uidl.uidl);
                         db.message().deleteMessage(uidl.id);
                     }
                 } else {
@@ -2351,7 +2351,7 @@ class Core {
                     }
 
                     for (TupleUidl uidl : known.values()) {
-                        EntityLog.log(context, folder.name + " POP purging msgid=" + uidl.msgid);
+                        EntityLog.log(context, account.name + " POP purging msgid=" + uidl.msgid);
                         db.message().deleteMessage(uidl.id);
                     }
                 }
@@ -2371,7 +2371,7 @@ class Core {
                     if (hasUidl) {
                         uidl = ifolder.getUID(imessage);
                         if (TextUtils.isEmpty(uidl)) {
-                            EntityLog.log(context, folder.name + " POP no uidl");
+                            EntityLog.log(context, account.name + " POP no uidl");
                             continue;
                         }
 
@@ -2395,13 +2395,13 @@ class Core {
                     }
 
                     if (TextUtils.isEmpty(msgid)) {
-                        EntityLog.log(context, folder.name + " POP no msgid uidl=" + uidl);
+                        EntityLog.log(context, account.name + " POP no msgid uidl=" + uidl);
                         continue;
                     }
 
                     if (db.message().countMessageByMsgId(folder.id, msgid) > 0) {
                         _new = false;
-                        Log.i(folder.name + " POP having " + msgid + "/" + uidl);
+                        Log.i(account.name + " POP having " + msgid + "/" + uidl);
                         continue;
                     }
 
@@ -2414,7 +2414,7 @@ class Core {
                             received = 0L;
 
                         boolean seen = (received <= account.created);
-                        EntityLog.log(context, folder.name + " POP sync=" + uidl + "/" + msgid +
+                        EntityLog.log(context, account.name + " POP sync=" + uidl + "/" + msgid +
                                 " new=" + _new + " seen=" + seen);
 
                         String[] authentication = helper.getAuthentication();
@@ -2500,12 +2500,12 @@ class Core {
                             db.beginTransaction();
 
                             message.id = db.message().insertMessage(message);
-                            EntityLog.log(context, folder.name + " added id=" + message.id +
+                            EntityLog.log(context, account.name + " POP added id=" + message.id +
                                     " uidl/msgid=" + message.uidl + "/" + message.msgid);
 
                             int sequence = 1;
                             for (EntityAttachment attachment : parts.getAttachments()) {
-                                Log.i(folder.name + " attachment seq=" + sequence +
+                                Log.i(account.name + " POP attachment seq=" + sequence +
                                         " name=" + attachment.name + " type=" + attachment.type +
                                         " cid=" + attachment.cid + " pgp=" + attachment.encryption +
                                         " size=" + attachment.size);
@@ -2550,7 +2550,7 @@ class Core {
             }
 
             db.folder().setFolderLastSync(folder.id, new Date().getTime());
-            EntityLog.log(context, folder.name + " POP done");
+            EntityLog.log(context, account.name + " POP done");
         } finally {
             db.folder().setFolderSyncState(folder.id, null);
         }
