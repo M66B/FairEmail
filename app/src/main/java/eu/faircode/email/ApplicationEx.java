@@ -73,6 +73,8 @@ public class ApplicationEx extends Application
             EntityLog.log(context, "Set language=" + language + " locale=" + locale);
             Locale.setDefault(locale);
             Configuration config = new Configuration();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+                config.setTo(context.getResources().getConfiguration());
             config.setLocale(locale);
             return context.createConfigurationContext(config);
         }
