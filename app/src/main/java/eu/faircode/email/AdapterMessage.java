@@ -3506,13 +3506,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
             else {
                 sb.append("DKIM: ")
-                        .append(message.dkim == null ? "-" : (message.dkim ? "pass" : "fail"))
+                        .append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
                         .append('\n');
                 sb.append("SPF: ")
-                        .append(message.spf == null ? "-" : (message.spf ? "pass" : "fail"))
+                        .append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
                         .append('\n');
                 sb.append("DMARC: ")
-                        .append(message.dmarc == null ? "-" : (message.dmarc ? "pass" : "fail"));
+                        .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"));
             }
 
             if (Boolean.TRUE.equals(message.blocklist)) {
