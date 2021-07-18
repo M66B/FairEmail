@@ -146,6 +146,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swParseClasses;
     private SwitchCompat swAuthentication;
+    private SwitchCompat swAuthenticationIndicator;
 
     private Group grpGravatars;
 
@@ -165,7 +166,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "message_zoom", "overview_mode", "contrast", "monospaced", "monospaced_pre",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra", "attachments_alt", "thumbnails",
-            "parse_classes", "authentication"
+            "parse_classes",
+            "authentication", "authentication_indicator"
     };
 
     @Override
@@ -260,6 +262,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swThumbnails = view.findViewById(R.id.swThumbnails);
         swParseClasses = view.findViewById(R.id.swParseClasses);
         swAuthentication = view.findViewById(R.id.swAuthentication);
+        swAuthenticationIndicator = view.findViewById(R.id.swAuthenticationIndicator);
 
         grpGravatars = view.findViewById(R.id.grpGravatars);
 
@@ -931,6 +934,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("authentication", checked).apply();
+                swAuthenticationIndicator.setEnabled(checked);
+            }
+        });
+
+        swAuthenticationIndicator.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("authentication_indicator", checked).apply();
             }
         });
 
@@ -1118,6 +1129,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swParseClasses.setChecked(prefs.getBoolean("parse_classes", true));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
+        swAuthenticationIndicator.setChecked(prefs.getBoolean("authentication_indicator", false));
+        swAuthenticationIndicator.setEnabled(swAuthentication.isChecked());
 
         updateColor();
     }

@@ -449,6 +449,7 @@
     <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
     <string name="title_advanced_parse_classes">Parse style sheets</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
+    <string name="title_advanced_authentication_indicator">Show authentication status indicator</string>
 
     <string name="title_advanced_sync_on_launch">Synchronize on start</string>
     <string name="title_advanced_double_back">Double \'back\' to exit</string>

@@ -105,14 +105,16 @@ public class FragmentOptions extends FragmentBase {
 
     static String[] OPTIONS_RESTART = new String[]{
             "first", "app_support", "notify_archive", "message_swipe", "message_select", "folder_actions", "folder_sync",
-            "subscriptions", "check_authentication", "check_reply_domain",
+            "subscriptions",
+            "check_authentication", "check_reply_domain", "check_mx", "check_blocklist",
             "send_pending",
             "portrait2", "landscape", "landscape3", "startup",
             "cards", "beige", "tabular_card_bg", "shadow_unread",
             "indentation", "date", "date_bold", "threading", "threading_unread",
             "highlight_unread", "highlight_color", "color_stripe",
             "avatars", "bimi", "gravatars", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
-            "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "authentication",
+            "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
+            "authentication", "authentication_indicator",
             "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "highlight_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background", "preview", "preview_italic", "preview_lines",
             "message_zoom", "overview_mode", "addresses", "button_extra", "attachments_alt", "thumbnails",

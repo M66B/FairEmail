@@ -95,7 +95,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             "enabled", "poll_interval", "auto_optimize", "schedule", "schedule_start", "schedule_end",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "gmail_thread_id",
             "sync_folders", "sync_shared_folders", "subscriptions",
-            "check_authentication", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist", "tune_keep_alive"
+            "check_authentication", "check_reply_domain", "check_mx", "check_blocklist", "use_blocklist",
+            "tune_keep_alive"
     };
 
     @Override

@@ -227,6 +227,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorSubject;
     private int colorEncrypt;
     private int colorSeparator;
+    private int colorWarning;
     private int colorError;
     private int colorControlNormal;
 
@@ -244,9 +245,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean avatars;
     private boolean color_stripe;
     private boolean check_authentication;
+    private boolean check_reply_domain;
     private boolean check_mx;
     private boolean check_blocklist;
-    private boolean check_reply_domain;
 
     private MessageHelper.AddressFormat email_format;
     private boolean prefer_contact;
@@ -274,6 +275,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean inline;
     private boolean collapse_quotes;
     private boolean authentication;
+    private boolean authentication_indicator;
+
     private boolean language_detection;
     private List<String> languages;
     private static boolean debug;
@@ -952,9 +955,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !((Boolean.FALSE.equals(message.dkim) && check_authentication) ||
                             (Boolean.FALSE.equals(message.spf) && check_authentication) ||
                             (Boolean.FALSE.equals(message.dmarc) && check_authentication) ||
+                            (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain) ||
                             (Boolean.FALSE.equals(message.mx) && check_mx) ||
-                            (Boolean.TRUE.equals(message.blocklist) && check_blocklist) ||
-                            (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain));
+                            (Boolean.TRUE.equals(message.blocklist) && check_blocklist));
+            int auths = (check_authentication &&
+                    Boolean.TRUE.equals(message.dkim) ? 1 : 0) +
+                    (Boolean.TRUE.equals(message.spf) ? 1 : 0) +
+                    (Boolean.TRUE.equals(message.dmarc) ? 1 : 0);
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
             // Text size
@@ -1034,7 +1041,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Line 1
             ibVerified.setVisibility(View.GONE);
-            ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
+
+            if (authentication && !authenticated) {
+                ibAuth.setImageLevel(0);
+                ibAuth.setImageTintList(ColorStateList.valueOf(colorWarning));
+                ibAuth.setVisibility(View.VISIBLE);
+            } else if (authentication_indicator && auths > 0) {
+                ibAuth.setImageLevel(auths);
+                ibAuth.setImageTintList(ColorStateList.valueOf(colorControlNormal));
+                ibAuth.setVisibility(View.VISIBLE);
+            } else
+                ibAuth.setVisibility(View.GONE);
 
             if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)) {
                 ibPriority.setImageLevel(0);
@@ -1542,18 +1559,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
 
+                boolean vmc = (main != null && "vmc".equals(main.getType()));
                 boolean verified = (main != null && main.isVerified() &&
-                        Boolean.TRUE.equals(message.spf) &&
                         Boolean.TRUE.equals(message.dkim) &&
+                        Boolean.TRUE.equals(message.spf) &&
                         Boolean.TRUE.equals(message.dmarc));
                 ibVerified.setImageLevel(verified ? 1 : 0);
                 ibVerified.setImageTintList(ColorStateList.valueOf(verified
                         ? colorAccent : colorSeparator));
                 ibVerified.setContentDescription(context.getString(verified
                         ? R.string.title_advanced_bimi_verified : R.string.title_advanced_bimi_unverified));
-                ibVerified.setVisibility(
-                        main != null && "vmc".equals(main.getType())
-                                ? View.VISIBLE : View.GONE);
+                ibVerified.setVisibility(vmc ? View.VISIBLE : View.GONE);
+                if (authentication_indicator && vmc)
+                    ibAuth.setVisibility(View.GONE);
             }
 
             if (distinguish_contacts) {
@@ -3486,6 +3504,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (result.size() > 0)
                 sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
+            else {
+                sb.append("DKIM: ")
+                        .append(message.dkim == null ? "-" : (message.dkim ? "pass" : "fail"))
+                        .append('\n');
+                sb.append("SPF: ")
+                        .append(message.spf == null ? "-" : (message.spf ? "pass" : "fail"))
+                        .append('\n');
+                sb.append("DMARC: ")
+                        .append(message.dmarc == null ? "-" : (message.dmarc ? "pass" : "fail"));
+            }
 
             if (Boolean.TRUE.equals(message.blocklist)) {
                 if (sb.length() > 0)
@@ -5591,6 +5619,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         this.colorError = Helper.resolveColor(context, R.attr.colorError);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
 
         this.hasWebView = Helper.hasWebView(context);
@@ -5614,9 +5643,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (contacts && avatars) || (gravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.check_authentication = prefs.getBoolean("check_authentication", true);
+        this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
         this.check_mx = prefs.getBoolean("check_mx", false);
         this.check_blocklist = prefs.getBoolean("check_blocklist", false);
-        this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
 
         this.email_format = MessageHelper.getAddressFormat(context);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
@@ -5651,6 +5680,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.inline = prefs.getBoolean("inline_images", false);
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
+        this.authentication_indicator = (this.authentication &&
+                prefs.getBoolean("authentication_indicator", false));
         this.language_detection = prefs.getBoolean("language_detection", false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
