@@ -65,8 +65,12 @@ public class ApplicationEx extends Application
         }
 
         String language = prefs.getString("language", null);
+        if ("de-AT".equals(language) || "de-LI)".equals(language))
+            language = "de-DE";
+
         if (language != null) {
             Locale locale = Locale.forLanguageTag(language);
+            EntityLog.log(context, "Set language=" + language + " locale=" + locale);
             Locale.setDefault(locale);
             Configuration config = new Configuration();
             config.setLocale(locale);
