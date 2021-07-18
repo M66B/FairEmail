@@ -53,11 +53,12 @@ import java.security.cert.TrustAnchor;
 import java.security.cert.X509CertSelector;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -72,6 +73,10 @@ public class Bimi {
     private static final int READ_TIMEOUT = 15 * 1000; // milliseconds
     private static final String OID_BrandIndicatorforMessageIdentification = "1.3.6.1.5.5.7.3.31";
 
+    private static final List<String> DMARC_POLICIES = Collections.unmodifiableList(Arrays.asList(
+            "quarantine", "reject"
+    ));
+
     static Pair<Bitmap, Boolean> get(
             Context context, String domain, String selector, int scaleToPixels)
             throws IOException {
@@ -85,27 +90,18 @@ public class Bimi {
         DnsHelper.DnsRecord[] records;
         try {
             String txt = selector + "._bimi." + domain;
-            Log.i("BIMI fetch TXT=" + txt);
+            Log.i("BIMI fetch TXT " + txt);
             records = DnsHelper.lookup(context, txt, "txt");
             if (records.length == 0)
                 return null;
-            Log.i("BIMI got TXT=" + records[0].name);
+            Log.i("BIMI got TXT " + records[0].name);
         } catch (Throwable ex) {
             Log.i(ex);
             return null;
         }
 
-        // Decode DNS record
-        Map<String, String> values = new HashMap<>();
-        String[] params = records[0].name.split(";");
-        for (String param : params) {
-            String[] kv = param.split("=");
-            if (kv.length != 2)
-                continue;
-            values.put(kv[0].trim().toLowerCase(), kv[1].trim());
-        }
-
         // Process DNS record
+        Map<String, String> values = MessageHelper.getKeyValues(records[0].name);
         List<String> tags = new ArrayList<>(values.keySet());
         Collections.sort(tags); // process certificate first
         for (String tag : tags) {
@@ -297,6 +293,21 @@ public class Bimi {
                         cpv.validate(path.getCertPath(), pparams);
 
                         Log.i("BIMI valid domain=" + domain);
+
+                        // Get DMARC record
+                        String txt = "_dmarc." + domain;
+                        Log.i("BIMI fetch TXT " + txt);
+                        records = DnsHelper.lookup(context, txt, "txt");
+                        if (records.length == 0)
+                            throw new IllegalArgumentException("DMARC missing");
+                        Log.i("BIMI got TXT " + records[0].name);
+
+                        Map<String, String> dmarc = MessageHelper.getKeyValues(records[0].name);
+                        String policy = dmarc.get("p");
+                        if (policy == null ||
+                                !DMARC_POLICIES.contains(policy.toLowerCase(Locale.ROOT)))
+                            throw new IllegalArgumentException("DMARC invalid policy=" + policy);
+
                         verified = true;
                     } catch (MalformedURLException ex) {
                         Log.i(ex);

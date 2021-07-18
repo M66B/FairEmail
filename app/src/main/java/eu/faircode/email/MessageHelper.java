@@ -3001,4 +3001,20 @@ public class MessageHelper {
 
         return true;
     }
+
+    static Map<String, String> getKeyValues(String value) {
+        Map<String, String> values = new HashMap<>();
+        if (TextUtils.isEmpty(value))
+            return values;
+
+        String[] params = value.split(";");
+        for (String param : params) {
+            String[] kv = param.split("=");
+            if (kv.length != 2)
+                continue;
+            values.put(kv[0].trim().toLowerCase(), kv[1].trim());
+        }
+
+        return values;
+    }
 }
