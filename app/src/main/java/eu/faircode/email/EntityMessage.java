@@ -416,13 +416,12 @@ public class EntityMessage implements Serializable {
         } else
             p.text(DF.format(new Date(received)) + " " + MessageHelper.formatAddresses(from) + ":");
 
-        if (separate) {
-            Element div = document.createElement("div");
+        Element div = document.createElement("div")
+                .attr("fairemail", "reply");
+        if (separate)
             div.appendElement("hr");
-            div.appendChild(p);
-            return div;
-        } else
-            return p;
+        div.appendChild(p);
+        return div;
     }
 
     String getNotificationChannelId() {

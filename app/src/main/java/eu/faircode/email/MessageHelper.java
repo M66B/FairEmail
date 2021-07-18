@@ -41,6 +41,7 @@ import com.sun.mail.util.MessageRemovedIOException;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -697,6 +698,11 @@ public class MessageHelper {
 
             document.select("div[fairemail=signature]").removeAttr("fairemail");
             document.select("div[fairemail=reference]").removeAttr("fairemail");
+
+            Elements reply = document.select("div[fairemail=reply]");
+            if (message.plain_only != null && message.plain_only)
+                reply.select("strong").tagName("span");
+            reply.removeAttr("fairemail");
 
             DB db = DB.getInstance(context);
             try {
