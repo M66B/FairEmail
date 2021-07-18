@@ -64,11 +64,13 @@ public class ApplicationEx extends Application
                         .commit(); // apply won't work here
         }
 
-        String language = prefs.getString("language", null);
-        if ("de-AT".equals(language) || "de-LI)".equals(language))
-            language = "de-DE";
-
+        String tag = Locale.getDefault().toLanguageTag();
+        if (!("de-AT".equals(tag) || "de-LI".equals(tag)))
+            tag = null;
+        String language = prefs.getString("language", tag);
         if (language != null) {
+            if ("de-AT".equals(language) || "de-LI".equals(language))
+                language = "de-DE";
             Locale locale = Locale.forLanguageTag(language);
             EntityLog.log(context, "Set language=" + language + " locale=" + locale);
             Locale.setDefault(locale);
