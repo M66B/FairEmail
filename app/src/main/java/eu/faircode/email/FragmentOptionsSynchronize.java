@@ -71,6 +71,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvScheduleEnd;
     private CheckBox[] cbDay;
     private ImageButton ibSchedules;
+
     private SwitchCompat swNodate;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
@@ -80,13 +81,15 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swSyncFolders;
     private SwitchCompat swSyncSharedFolders;
     private SwitchCompat swSubscriptions;
+    private SwitchCompat swTuneKeepAlive;
+
     private SwitchCompat swCheckAuthentication;
     private SwitchCompat swCheckReply;
     private SwitchCompat swCheckMx;
     private SwitchCompat swCheckBlocklist;
     private SwitchCompat swUseBlocklist;
     private RecyclerView rvBlocklist;
-    private SwitchCompat swTuneKeepAlive;
+
     private Group grpExempted;
 
     private AdapterAccountExempted adapter;
@@ -139,13 +142,15 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
         swSyncSharedFolders = view.findViewById(R.id.swSyncSharedFolders);
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
+        swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
+
         swCheckAuthentication = view.findViewById(R.id.swCheckAuthentication);
         swCheckReply = view.findViewById(R.id.swCheckReply);
         swCheckMx = view.findViewById(R.id.swCheckMx);
         swCheckBlocklist = view.findViewById(R.id.swCheckBlocklist);
         swUseBlocklist = view.findViewById(R.id.swUseBlocklist);
         rvBlocklist = view.findViewById(R.id.rvBlocklist);
-        swTuneKeepAlive = view.findViewById(R.id.swTuneKeepAlive);
+
         grpExempted = view.findViewById(R.id.grpExempted);
 
         setOptions();
@@ -319,6 +324,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swTuneKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("tune_keep_alive", checked).apply();
+            }
+        });
+
         swCheckAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
@@ -359,13 +371,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         rvBlocklist.setLayoutManager(new LinearLayoutManager(getContext()));
         AdapterBlocklist badapter = new AdapterBlocklist(getContext(), DnsBlockList.getListsAvailable());
         rvBlocklist.setAdapter(badapter);
-
-        swTuneKeepAlive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("tune_keep_alive", checked).apply();
-            }
-        });
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
@@ -453,13 +458,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swSyncSharedFolders.setChecked(prefs.getBoolean("sync_shared_folders", false));
         swSyncSharedFolders.setEnabled(swSyncFolders.isChecked());
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
+        swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
         swCheckAuthentication.setChecked(prefs.getBoolean("check_authentication", true));
         swCheckReply.setChecked(prefs.getBoolean("check_reply_domain", true));
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
         swCheckBlocklist.setChecked(prefs.getBoolean("check_blocklist", false));
         swUseBlocklist.setChecked(prefs.getBoolean("use_blocklist", false));
         swUseBlocklist.setEnabled(swCheckBlocklist.isChecked());
-        swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
     }
 
     private String formatHour(Context context, int minutes) {

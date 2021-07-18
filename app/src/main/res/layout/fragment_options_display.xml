@@ -1429,6 +1429,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvParseClassesHint"
                     app:switchPadding="12dp" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAuthenticationHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_authentication_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAuthentication" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAuthenticationIndicator"
                     android:layout_width="0dp"
@@ -1441,7 +1453,7 @@
                     android:text="@string/title_advanced_authentication_indicator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAuthentication"
+                    app:layout_constraintTop_toBottomOf="@id/tvAuthenticationHint"
                     app:switchPadding="12dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

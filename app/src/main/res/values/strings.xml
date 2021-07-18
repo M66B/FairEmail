@@ -322,6 +322,7 @@
     <string name="title_advanced_check_reply_domain">Check reply address on synchronizing messages</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
     <string name="title_advanced_check_blocklist">Check if the sender\'s domain name is on a spam block list</string>
+    <string name="title_advanced_use_blocklist">Move messages from domains on a block list to the spam folder</string>
     <string name="title_advanced_tune_keep_alive">Automatically tune the keep-alive interval</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
@@ -372,6 +373,7 @@
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
     <string name="title_advanced_caption_general">General</string>
+    <string name="title_advanced_caption_checks">Checks</string>
     <string name="title_advanced_caption_list">List</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
     <string name="title_advanced_caption_message">Message</string>
@@ -448,7 +450,8 @@
     <string name="title_advanced_actionbar_color">Use account color as background color for conversation action bar</string>
     <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
     <string name="title_advanced_parse_classes">Parse style sheets</string>
-    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
+    <string name="title_advanced_authentication">Show authentication warnings</string>
+    <string name="title_advanced_authentication_hint">The underlying checks can be configured in the receive settings</string>
     <string name="title_advanced_authentication_indicator">Show authentication status indicator</string>
 
     <string name="title_advanced_sync_on_launch">Synchronize on start</string>
