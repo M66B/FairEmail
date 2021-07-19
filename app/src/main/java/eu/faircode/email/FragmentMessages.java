@@ -337,6 +337,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Long prev = null;
     private Long next = null;
     private Long closeId = null;
+    private boolean closeForward;
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
 
@@ -913,10 +914,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     onActionMove(EntityFolder.ARCHIVE);
                     return true;
                 } else if (itemId == R.id.action_prev) {
-                    navigate(prev, true);
+                    navigate(prev, true, false);
                     return true;
                 } else if (itemId == R.id.action_next) {
-                    navigate(next, false);
+                    navigate(next, false, true);
                     return true;
                 }
                 return false;
@@ -1296,7 +1297,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
                             view.startAnimation(bounce);
                         } else
-                            navigate(prev, true);
+                            navigate(prev, true, false);
 
                         return (prev != null);
                     }
@@ -1307,7 +1308,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
                             view.startAnimation(bounce);
                         } else
-                            navigate(next, false);
+                            navigate(next, false, true);
 
                         return (next != null);
                     }
@@ -4957,6 +4958,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if ((next ? "next" : "previous").equals(onclose))
                         if (!exists || id != null) {
                             closeId = id;
+                            closeForward = next;
                             if (!once) {
                                 once = true;
                                 loadMessagesNext(top);
@@ -5481,7 +5483,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean reversed = prefs.getBoolean("reversed", false);
-                navigate(closeId, "previous".equals(onclose) ^ reversed);
+                navigate(closeId, "previous".equals(onclose) ^ reversed, closeForward);
             }
         }
     }
@@ -5525,12 +5527,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
-    private void navigate(long id, final boolean left) {
+    private void navigate(long id, final boolean left, final boolean forward) {
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
         if (navigating)
             return;
         navigating = true;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final boolean reversed = prefs.getBoolean("reversed", false);
 
         Bundle result = new Bundle();
         result.putLong("id", id);
@@ -5563,6 +5568,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 nargs.putLong("folder", message.folder);
                 nargs.putString("thread", message.thread);
                 nargs.putLong("id", message.id);
+                if (lpos != NO_POSITION)
+                    nargs.putInt("lpos", forward ^ reversed ? lpos - 1 : lpos + 1);
                 nargs.putBoolean("found", found);
                 nargs.putBoolean("pane", pane);
                 nargs.putLong("primary", primary);
@@ -6117,7 +6124,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Animation bounce = AnimationUtils.loadAnimation(context, R.anim.bounce_left);
                 view.startAnimation(bounce);
             } else
-                navigate(next, false);
+                navigate(next, false, true);
             return true;
         }
 
@@ -6126,7 +6133,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Animation bounce = AnimationUtils.loadAnimation(context, R.anim.bounce_right);
                 view.startAnimation(bounce);
             } else
-                navigate(prev, true);
+                navigate(prev, true, false);
             return true;
         }
 
