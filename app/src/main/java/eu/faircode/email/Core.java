@@ -620,17 +620,19 @@ class Core {
 
                             ops.remove(op);
 
-                            int resid = context.getResources().getIdentifier(
-                                    "title_op_title_" + op.name,
-                                    "string",
-                                    context.getPackageName());
-                            String title = (resid == 0 ? null : context.getString(resid));
-                            if (title != null) {
-                                NotificationCompat.Builder builder =
-                                        getNotificationError(context, "warning", title, ex);
-                                nm.notify(op.name + ":" + op.message,
-                                        NotificationHelper.NOTIFICATION_TAGGED,
-                                        builder.build());
+                            if (!MessageHelper.isRemoved(ex)) {
+                                int resid = context.getResources().getIdentifier(
+                                        "title_op_title_" + op.name,
+                                        "string",
+                                        context.getPackageName());
+                                String title = (resid == 0 ? null : context.getString(resid));
+                                if (title != null) {
+                                    NotificationCompat.Builder builder =
+                                            getNotificationError(context, "warning", title, ex);
+                                    nm.notify(op.name + ":" + op.message,
+                                            NotificationHelper.NOTIFICATION_TAGGED,
+                                            builder.build());
+                                }
                             }
 
                         } else {
