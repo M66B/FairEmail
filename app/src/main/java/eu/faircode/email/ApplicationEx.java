@@ -64,21 +64,24 @@ public class ApplicationEx extends Application
                         .commit(); // apply won't work here
         }
 
-        String tag = Locale.getDefault().toLanguageTag();
-        if (!("de-AT".equals(tag) || "de-LI".equals(tag)))
-            tag = null;
-        String language = prefs.getString("language", tag);
-        if (language != null) {
-            if ("de-AT".equals(language) || "de-LI".equals(language))
-                language = "de-DE";
-            Locale locale = Locale.forLanguageTag(language);
-            EntityLog.log(context, "Set language=" + language + " locale=" + locale);
-            Locale.setDefault(locale);
-            Configuration config = new Configuration();
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-                config.setTo(context.getResources().getConfiguration());
-            config.setLocale(locale);
-            return context.createConfigurationContext(config);
+        try {
+            String language = prefs.getString("language", null);
+            if (language != null) {
+                if ("de-AT".equals(language) || "de-LI".equals(language))
+                    language = "de-DE";
+                Locale locale = Locale.forLanguageTag(language);
+                Log.i("Set language=" + language + " locale=" + locale);
+                Locale.setDefault(locale);
+                Configuration config;
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+                    config = new Configuration(context.getResources().getConfiguration());
+                else
+                    config = new Configuration();
+                config.setLocale(locale);
+                return context.createConfigurationContext(config);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
 
         return context;
