@@ -1566,7 +1566,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Boolean.TRUE.equals(message.dmarc)) {
                     ibVerified.setImageLevel(main.isVerified() ? 1 : 0);
                     ibVerified.setImageTintList(ColorStateList.valueOf(main.isVerified()
-                            ? colorAccent : colorControlNormal));
+                            ? colorAccent : colorSeparator));
                     ibVerified.setContentDescription(context.getString(main.isVerified()
                             ? R.string.title_advanced_bimi_verified
                             : R.string.title_advanced_bimi_unverified));
