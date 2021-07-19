@@ -318,6 +318,7 @@ public class ViewModelMessages extends ViewModel {
                         LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) plist.getDataSource();
                         int count = ds.countItems();
                         for (int i = 0; i < count; i += 100) {
+                            Log.i("Observe previous/next load range=" + i + "/" + count);
                             List<TupleMessageEx> messages = ds.loadRange(i, Math.min(100, count - i));
                             for (int j = 0; j < messages.size(); j++)
                                 if (messages.get(j).id == id) {
