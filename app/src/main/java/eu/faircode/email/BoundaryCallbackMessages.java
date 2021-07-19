@@ -37,6 +37,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 import com.sun.mail.imap.protocol.SearchSequence;
+import com.sun.mail.util.MessageRemovedIOException;
 
 import java.io.File;
 import java.io.IOException;
@@ -590,7 +591,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         else
                             found += db.message().setMessageFound(message.id);
                     Log.i("Boundary matched=" + (message == null ? null : message.id) + " found=" + found);
-                } catch (MessageRemovedException ex) {
+                } catch (MessageRemovedException | MessageRemovedIOException ex) {
                     Log.w(browsable.name + " boundary server", ex);
                 } catch (FolderClosedException ex) {
                     throw ex;
