@@ -927,6 +927,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (folder == null)
                             return;
 
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null)
+                            return;
+
                         if (EntityFolder.OUTBOX.equals(folder.type)) {
                             Log.i("Delayed send id=" + message.id);
                             if (message.ui_snoozed != null) {
@@ -934,6 +938,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEND);
                             }
                         } else {
+                            EntityLog.log(ServiceSynchronize.this, folder.name + " Unsnooze" +
+                                    " id=" + message.id +
+                                    " ui_seen=" + message.ui_seen + "" +
+                                    " ui_ignored=" + message.ui_ignored +
+                                    " ui_hide=" + message.ui_hide +
+                                    " notifying=" + message.notifying +
+                                    " silent=" + message.ui_silent +
+                                    " received=" + new Date(message.received) +
+                                    " sent=" + (message.sent == null ? null : new Date(message.sent)) +
+                                    " created=" + (account.created == null ? null : new Date(account.created)) +
+                                    " notify=" + folder.notify +
+                                    " sync=" + account.synchronize);
+
                             if (folder.notify) {
                                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
 
@@ -942,6 +959,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                 message.id = null;
                                 message.fts = false;
+                                message.ui_silent = false;
+                                message.notifying = 0;
                                 message.stored = new Date().getTime();
                                 message.id = db.message().insertMessage(message);
 
