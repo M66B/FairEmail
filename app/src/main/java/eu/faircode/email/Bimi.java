@@ -209,8 +209,10 @@ public class Bimi {
                             throw new IllegalArgumentException("Invalid certificate type");
 
                         // Check subject
-                        if (!EntityCertificate.getDnsNames(cert).contains(domain))
-                            throw new IllegalArgumentException("Invalid certificate domain");
+                        List<String> names = EntityCertificate.getDnsNames(cert);
+                        if (!names.contains(domain))
+                            throw new IllegalArgumentException("Invalid certificate domain" +
+                                    " names=" + TextUtils.join(", ", names));
 
                         // https://datatracker.ietf.org/doc/html/rfc3709#page-6
                         // LogotypeExtn ::= SEQUENCE {
