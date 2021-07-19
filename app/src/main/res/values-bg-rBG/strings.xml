@@ -283,7 +283,6 @@
     <string name="title_advanced_actionbar_color">Използвайте цвета на профила като цвят на фона за панела за действие на разговора</string>
     <string name="title_advanced_navbar_colorize">Цветна лентата за навигация на Android</string>
     <string name="title_advanced_parse_classes">Листове за избор на стилове</string>
-    <string name="title_advanced_authentication">Покажи предупреждение, когато получаващият сървър не може да удостовери съобщението</string>
     <string name="title_advanced_double_back">Двойно назад за изход</string>
     <string name="title_advanced_language_detection">Разпознаване езика на текста на съобщението</string>
     <string name="title_advanced_pull_refresh">Плъзни надолу за опресняване</string>

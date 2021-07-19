@@ -286,6 +286,7 @@
     <string name="title_advanced_check_reply_domain">Перевіряти адреси електронної пошти для відповіді при синхронізації повідомлень</string>
     <string name="title_advanced_check_mx">Перевіряти адреси електронної пошти відправника при синхронізації повідомлень</string>
     <string name="title_advanced_check_blocklist">Перевірте, чи ім\'я домену відправника знаходиться у списку спаму</string>
+    <string name="title_advanced_use_blocklist">Перенести повідомлення з доменів що є у списку з блокування у теку зі спамом</string>
     <string name="title_advanced_tune_keep_alive">Автоматично налаштовувати інтервал активності</string>
     <string name="title_advanced_keyboard">Показувати клавіатуру за замовчуванням</string>
     <string name="title_advanced_keyboard_no_fullscreen">Заборонити повноекранну клавіатуру</string>
@@ -329,6 +330,7 @@
     <string name="title_advanced_ssl_harden">Посилене SSL з\'єднання</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
+    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Перевірки</string>
     <string name="title_advanced_caption_list">Список</string>
     <string name="title_advanced_caption_conversation">Розмова</string>
     <string name="title_advanced_caption_message">Повідомлення</string>
@@ -402,7 +404,9 @@
     <string name="title_advanced_actionbar_color">Використовувати колір аккаунта як тло у панелі дій для розмови</string>
     <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
     <string name="title_advanced_parse_classes">Аналіз таблиці стилів</string>
-    <string name="title_advanced_authentication">Показувати попередження, коли сервер при отриманні повідомлень не зміг авторизуватись</string>
+    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Показати попередження про авторизацію</string>
+    <string name="title_advanced_authentication_hint">Налаштування основних перевірок можливо в параметрах з приймання</string>
+    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Показувати індикатор стану автентифікації</string>
     <string name="title_advanced_sync_on_launch">Синхронізувати при старті</string>
     <string name="title_advanced_double_back">Подвійне натискання \'назад\' для виходу</string>
     <string name="title_advanced_conversation_actions">Запропонувати дії (Android 10+)</string>

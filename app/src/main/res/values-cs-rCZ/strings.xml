@@ -105,6 +105,7 @@
     <string name="title_notification_failed">„%1$s“ selhalo</string>
     <string name="title_notification_alert">Upozornění serveru: \'%1$s\'</string>
     <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
+    <string name="title_notification_sending_retry">Pokus o odeslání bude proveden znovu při změně internetového připojení nebo při tažení dolů ve složce odeslaných</string>
     <string name="title_notification_sending_failed">Odesílání na %1$s se nezdařilo</string>
     <string name="title_notification_redacted">Revidováno: zapnuto biometrické či PIN ověření</string>
     <string name="title_factor_minutes">%1$d minut</string>
@@ -150,6 +151,7 @@
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_manual">Ruční nastavení a možnosti účtu</string>
     <string name="title_setup_classic">Klasická konfigurace</string>
+    <string name="title_setup_documentation">Pro správné nastavení e-mailového serveru si prosím přečtěte dokumentaci svého poskytovatele e-mailu</string>
     <string name="title_setup_account_remark">Příjem e-mailů</string>
     <string name="title_setup_identity_remark">Odesílání e-mailů</string>
     <string name="title_setup_account_identity_hint">Jméno, barvu a akce přejetím nakonfigurujete v nastavení účtu, a podpis v nastavení identity</string>
@@ -177,6 +179,7 @@
     <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
     <string name="title_setup_quick_success">Účet byl úspěšně přidán</string>
+    <string name="title_setup_quick_no_sent">Nebyla vybrána složka odeslaných zpráv. Odeslané zprávy nemusí být uloženy.</string>
     <string name="title_setup_quick_configure">Pro úpravu názvu, barvy, akcí přejetím atd.</string>
     <string name="title_setup_manage">Spravovat</string>
     <string name="title_setup_grant">Udělit</string>
@@ -196,6 +199,7 @@
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
     <string name="title_setup_doze_device">Pravděpodobně vyžadováno pro toto zařízení</string>
     <string name="title_setup_doze_android">Vyžadováno pro tuto verzi Androidu</string>
+    <string name="title_setup_inexact">Budíky &amp; připomenutí jsou zakázány</string>
     <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
     <string name="title_setup_advanced_options">Zobrazit rozšířené možnosti</string>
@@ -281,6 +285,7 @@
     <string name="title_advanced_check_authentication">Zkontrolovat ověření zprávy</string>
     <string name="title_advanced_check_reply_domain">Kontrolovat adresu pro odpověď při synchronizaci zpráv</string>
     <string name="title_advanced_check_mx">Kontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
+    <string name="title_advanced_use_blocklist">Přesunout zprávy z domén na seznamu blokovaných do složky nevyžádané pošty</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabránit zobrazení klávesnice na celou obrazovku</string>
@@ -324,6 +329,7 @@
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
+    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Kontroly</string>
     <string name="title_advanced_caption_list">Seznam</string>
     <string name="title_advanced_caption_conversation">Konverzace</string>
     <string name="title_advanced_caption_message">Zpráva</string>
@@ -347,6 +353,8 @@
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
+    <string name="title_advanced_bimi_unverified">Neověřený odesílatel</string>
+    <string name="title_advanced_bimi_verified">Ověřený odesílatel</string>
     <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
@@ -395,7 +403,7 @@
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
-    <string name="title_advanced_authentication">Zobrazit upozornění, nemůže-li přijímající server zprávu ověřit</string>
+    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Zobrazit indikátor stavu ověření</string>
     <string name="title_advanced_sync_on_launch">Synchronizovat při spuštění</string>
     <string name="title_advanced_double_back">Dvakrát „zpět“ pro ukončení</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>
@@ -1009,6 +1017,7 @@
     <string name="title_translating">Překládání &#8230;</string>
     <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
     <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Stiskněte text, který má být přeložen</string>
     <string name="title_edit_plain_text">Upravit jako prostý text</string>
     <string name="title_edit_formatted_text">Upravit jako přeformátovaný text</string>
     <string name="title_select_certificate">Vybrat veřejný klíč</string>

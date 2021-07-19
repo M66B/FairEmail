@@ -356,7 +356,6 @@
     <string name="title_advanced_actionbar_color">Usar a cor da conta coma a cor de fondo para a barra de acción de conversa</string>
     <string name="title_advanced_navbar_colorize">Dar cor á barra de navegación de Android</string>
     <string name="title_advanced_parse_classes">Interpretar as follas de estilo</string>
-    <string name="title_advanced_authentication">Mostrar un aviso cando o servidor de recepción non poida autenticar a mensaxe</string>
     <string name="title_advanced_sync_on_launch">Sincronizar ao arrinque</string>
     <string name="title_advanced_double_back">Dobre \'atrás\' para saír</string>
     <string name="title_advanced_conversation_actions">Suxerir accións (Android 10 e superior)</string>

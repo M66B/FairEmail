@@ -64,7 +64,7 @@
 * 更改系統文件夾：設置，點按手動設置，點按帳戶，點按底部的帳戶
 * 導出/導入設置：設置、導航（左側）菜單
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>已知的問題</h2>
 
 * ~~ [Android 5.1和6中的錯誤](https://issuetracker.google.com/issues/37054851)導致app在顯示時間格式時偶爾會出錯。 將Android切換為*使用24小時格式*可能會暫時解決此問題。 解決方法已添加。~~
 * ~~ [Google雲端的bug](https://issuetracker.google.com/issues/126362828)  造成檔案無法順利輸出到Google 雲端。 Google已修正這個問題~~

@@ -298,7 +298,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_advanced_actionbar_color">Utilitzeu el color del compte com a color de fons per a la barra d’acció de conversa</string>
     <string name="title_advanced_navbar_colorize">Coloreja la barra de navegació d\'Android</string>
     <string name="title_advanced_parse_classes">Analitza els fulls d\'estil</string>
-    <string name="title_advanced_authentication">Mostra un avís quan el servidor receptor no ha pogut autenticar el missatge</string>
     <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
     <string name="title_advanced_language_detection">Detecta el llenguatge de text del missatge</string>
     <string name="title_advanced_pull_refresh">Arrossegueu avall per actualitzar</string>

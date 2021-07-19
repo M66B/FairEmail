@@ -350,7 +350,6 @@
     <string name="title_advanced_actionbar_color">Fiókszín használata háttérszínnek a beszélgetés művelet sávjánál</string>
     <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
     <string name="title_advanced_parse_classes">Stílus lapok beolvasása</string>
-    <string name="title_advanced_authentication">Figyelmeztessen, ha a fogadó szerver nem tudta igazolni az üzenet hitelességét</string>
     <string name="title_advanced_sync_on_launch">Szinkronizálás az alkalmazás indításakor</string>
     <string name="title_advanced_double_back">Használja a \'vissza\'-t kétszer a kilépéshez</string>
     <string name="title_advanced_conversation_actions">Műveletek felajánlása (Android 10+)</string>

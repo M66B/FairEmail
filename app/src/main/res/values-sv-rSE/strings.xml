@@ -354,7 +354,6 @@
     <string name="title_advanced_actionbar_color">Använd kontofärg som bakgrundsfärg för konversationsfältet</string>
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
     <string name="title_advanced_parse_classes">Tolka stilmallar</string>
-    <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_sync_on_launch">Synkronisera vid start</string>
     <string name="title_advanced_double_back">Dubbel \"tillbaka\" för att avsluta</string>
     <string name="title_advanced_conversation_actions">Föreslå åtgärder (Android 10+)</string>

@@ -378,7 +378,6 @@
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_parse_classes">Jäsennä tyylisäännöstöt</string>
-    <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_sync_on_launch">Synkronoi käynnistettäessä</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_conversation_actions">Ehdota toimintoja (Android 10+)</string>

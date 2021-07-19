@@ -272,7 +272,6 @@
     <string name="title_advanced_actionbar_color">Erabili kontuaren kolorea elkarrizketaren tresna barrako atzeko planoaren kolore gisa</string>
     <string name="title_advanced_navbar_colorize">Koloreztatu Android-en nabigazio barra</string>
     <string name="title_advanced_parse_classes">Erabili estilo orria</string>
-    <string name="title_advanced_authentication">Erakutsi abisua zerbitzari jasotzaileak ezin izan badu mezua autentifikatu</string>
     <string name="title_advanced_double_back">\'Atzera\' birritan irteteko</string>
     <string name="title_advanced_language_detection">Detektatu mezuen testuaren hizkuntza</string>
     <string name="title_advanced_pull_refresh">Tiratu behera berritzeko</string>

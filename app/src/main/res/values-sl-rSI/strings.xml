@@ -268,7 +268,6 @@
     <string name="title_advanced_actionbar_color">Za barvo ozadja vrstice z dejanji pogovorov uporabi barvo računa</string>
     <string name="title_advanced_navbar_colorize">Obarvaj Androidovo vrstico za krmarjenje</string>
     <string name="title_advanced_parse_classes">Razčleni slogovne predloge</string>
-    <string name="title_advanced_authentication">Prikaži opozorilo, kadar dohodni strežnik ne more overiti sporočila</string>
     <string name="title_advanced_double_back">Dvojni \'Nazaj\' za izhod</string>
     <string name="title_advanced_language_detection">Zaznaj jezik besedila sporočila</string>
     <string name="title_advanced_pull_refresh">Povleci dol za osvežitev</string>

@@ -358,7 +358,6 @@
     <string name="title_advanced_actionbar_color">Brûk akkountkleur as eftergrûnkleur foar petearbalke foar petearen</string>
     <string name="title_advanced_navbar_colorize">Kleurje de navigaasjebalke fan Android yn</string>
     <string name="title_advanced_parse_classes">Untwerp stylblêden</string>
-    <string name="title_advanced_authentication">Lit in warskôging sjen doe\'t de ûntfangende server it berjocht net koe autentisearje</string>
     <string name="title_advanced_sync_on_launch">Syngronisearje by opstarten</string>
     <string name="title_advanced_double_back">Dûbel \'werom\' om út te gean</string>
     <string name="title_advanced_conversation_actions">Aksjes foarstelle (Android 10+)</string>

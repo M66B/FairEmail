@@ -285,6 +285,7 @@
     <string name="title_advanced_check_reply_domain">Sprawdź adres odpowiedzi podczas synchronizacji wiadomości</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_check_blocklist">Sprawdź, czy nazwa domeny nadawcy znajduje się na liście spamu</string>
+    <string name="title_advanced_use_blocklist">Przenieś wiadomości z listy domen zablokowanych do folderu spam</string>
     <string name="title_advanced_tune_keep_alive">Automatycznie dostosuj interwał zachowania aktywności</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_keyboard_no_fullscreen">Blokuj klawiaturę pełnoekranową</string>
@@ -328,6 +329,7 @@
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
+    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Kontrole</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Wątek</string>
     <string name="title_advanced_caption_message">Wiadomość</string>
@@ -351,6 +353,8 @@
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
+    <string name="title_advanced_bimi_unverified">Niezweryfikowany nadawca</string>
+    <string name="title_advanced_bimi_verified">Zweryfikowany nadawca</string>
     <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
@@ -399,7 +403,9 @@
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
     <string name="title_advanced_parse_classes">Parsowanie arkuszy stylów</string>
-    <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
+    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Pokaż ostrzeżenia o uwierzytelnieniu</string>
+    <string name="title_advanced_authentication_hint">Podstawowe kontrole można skonfigurować w ustawieniach odbioru</string>
+    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Pokaż wskaźnik statusu uwierzytelniania</string>
     <string name="title_advanced_sync_on_launch">Synchronizuj podczas włączania aplikacji</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
     <string name="title_advanced_conversation_actions">Sugeruj akcje (Android 10+)</string>

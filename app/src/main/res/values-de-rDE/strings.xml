@@ -267,6 +267,7 @@
     <string name="title_advanced_check_reply_domain">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
     <string name="title_advanced_check_blocklist">Prüfen, ob die Domain des Absenders auf einer Spam-Sperrliste enthalten ist</string>
+    <string name="title_advanced_use_blocklist">Nachrichten, deren Domains in einer Sperrliste enthalten sind, in den Spam-Ordner verschieben</string>
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
     <string name="title_advanced_keyboard">Tastatur standardmäßig anzeigen</string>
     <string name="title_advanced_keyboard_no_fullscreen">Vollbild-Tastatur verhindern</string>
@@ -310,6 +311,7 @@
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
+    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Prüfen</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Unterhaltung</string>
     <string name="title_advanced_caption_message">Nachricht</string>
@@ -383,7 +385,9 @@
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
-    <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
+    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Authentifizierungswarnhinweise anzeigen</string>
+    <string name="title_advanced_authentication_hint">Die zugrunde liegenden Prüfungen können in den Empfangseinstellungen konfiguriert werden</string>
+    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Statusmeldung der Authentifizierung anzeigen</string>
     <string name="title_advanced_sync_on_launch">Beim Start synchronisieren</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen (Android 10+)</string>
@@ -850,7 +854,7 @@
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
     <string name="title_no_undo">Ich verstehe, dass dies nicht widerrufen werden kann</string>
-    <string name="title_snooze">Zurückstellen &#8230;</string>
+    <string name="title_snooze">Zurückstellen bis &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Dem Absender antworten</string>

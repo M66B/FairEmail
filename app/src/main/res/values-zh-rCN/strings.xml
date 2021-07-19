@@ -369,7 +369,6 @@
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_parse_classes">解析样式表</string>
-    <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_sync_on_launch">应用启动时同步</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>

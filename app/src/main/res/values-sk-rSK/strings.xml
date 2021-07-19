@@ -399,7 +399,6 @@
     <string name="title_advanced_actionbar_color">Použiť farbu účtu ako farbu pozadia panela akcií konverzácie</string>
     <string name="title_advanced_navbar_colorize">Zafarbiť navigačný panel Androidu</string>
     <string name="title_advanced_parse_classes">Spracovať štýly CSS</string>
-    <string name="title_advanced_authentication">Zobraziť varovanie, ak server príjemcu nemohol overiť správu</string>
     <string name="title_advanced_sync_on_launch">Synchronizovať pri spustení</string>
     <string name="title_advanced_double_back">Ukončiť dvojitým stlačením tlačidla \'Späť\'</string>
     <string name="title_advanced_conversation_actions">Odporúčať akcie (Android 10+)</string>

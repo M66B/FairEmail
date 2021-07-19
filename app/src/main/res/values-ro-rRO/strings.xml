@@ -276,6 +276,7 @@
     <string name="title_advanced_check_reply_domain">Verifică adresa de răspuns la sincronizarea mesajelor</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
     <string name="title_advanced_check_blocklist">Verificați dacă numele de domeniu al expeditorului se află pe o listă de blocare a spam-ului</string>
+    <string name="title_advanced_use_blocklist">Mutarea mesajelor de la domeniile de pe o listă de blocare în dosarul de spam</string>
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
     <string name="title_advanced_keyboard_no_fullscreen">Dezactivare tastatură pe tot ecranul</string>
@@ -319,6 +320,7 @@
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
+    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Verificări</string>
     <string name="title_advanced_caption_list">Listă</string>
     <string name="title_advanced_caption_conversation">Conversație</string>
     <string name="title_advanced_caption_message">Mesaj</string>
@@ -392,7 +394,9 @@
     <string name="title_advanced_actionbar_color">Folosește culoarea contului pentru culoarea de fundal a barei de acțiuni a conversației</string>
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
     <string name="title_advanced_parse_classes">Utilizează foile de stil</string>
-    <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
+    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Afișați avertismentele de autentificare</string>
+    <string name="title_advanced_authentication_hint">Verificările subiacente pot fi configurate în setările de recepție</string>
+    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Afișați indicatorul de stare de autentificare</string>
     <string name="title_advanced_sync_on_launch">Sincronizare la pornire</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_conversation_actions">Sugerare acțiuni (Android 10+)</string>

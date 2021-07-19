@@ -282,10 +282,11 @@
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_sync_shared_folders">Синхронизировать списки общих папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
-    <string name="title_advanced_check_authentication">Проверять подлинность сообщения</string>
+    <string name="title_advanced_check_authentication">Проверять аутентификацию сообщения</string>
     <string name="title_advanced_check_reply_domain">Проверять адрес для ответа при синхронизации сообщений</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
     <string name="title_advanced_check_blocklist">Проверять наличие домена отправителя в списке распространителей спама</string>
+    <string name="title_advanced_use_blocklist">Перемещать сообщения с доменов из списка блокировки в \"Спам\"</string>
     <string name="title_advanced_tune_keep_alive">Автоматически настраивать интервал keep-alive</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_keyboard_no_fullscreen">Не показывать клавиатуру в полноэкранном режиме</string>
@@ -329,6 +330,7 @@
     <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
+    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Проверки</string>
     <string name="title_advanced_caption_list">Список</string>
     <string name="title_advanced_caption_conversation">Диалог</string>
     <string name="title_advanced_caption_message">Сообщение</string>
@@ -402,7 +404,9 @@
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_parse_classes">Анализировать таблицы стилей</string>
-    <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
+    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Показывать предупреждения аутентификации</string>
+    <string name="title_advanced_authentication_hint">Соответствующие проверки могут быть настроены в параметрах получения</string>
+    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Показывать индикатор состояния аутенфикации</string>
     <string name="title_advanced_sync_on_launch">Синхронизация при запуске</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>
@@ -1490,7 +1494,7 @@
     <string name="title_accessibility_collapse">Свернуть</string>
     <string name="title_accessibility_expand">Развернуть</string>
     <string name="title_accessibility_view_contact">Просмотр контакта</string>
-    <string name="title_accessibility_show_authentication_result">Показать результат аутентификации</string>
+    <string name="title_accessibility_show_authentication_result">Показывать результат аутентификации</string>
     <string name="title_accessibility_show_snooze_time">Показывать время повтора</string>
     <string name="title_accessibility_view_help">Посмотреть справку</string>
     <string name="title_accessibility_selected">Выбранные</string>

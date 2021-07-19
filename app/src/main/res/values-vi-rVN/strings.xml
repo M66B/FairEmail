@@ -369,7 +369,6 @@
     <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
     <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
     <string name="title_advanced_parse_classes">Xử lý các trang phong cách</string>
-    <string name="title_advanced_authentication">Hiện cảnh báo khi máy chủ nhận không thể xác thực thư</string>
     <string name="title_advanced_sync_on_launch">Đồng bộ hóa khi mở</string>
     <string name="title_advanced_double_back">\'Quay lại\' hai lần để thoát</string>
     <string name="title_advanced_conversation_actions">Đề xuất các hành động (Android 10+)</string>

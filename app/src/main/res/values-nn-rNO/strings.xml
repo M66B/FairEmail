@@ -313,7 +313,6 @@
     <string name="title_advanced_actionbar_color">Bruke kontofarge som bakgrunnsfarge for samtalelinjen</string>
     <string name="title_advanced_navbar_colorize">Fargelegg Android-navigasjonslinjen</string>
     <string name="title_advanced_parse_classes">Analyser stilark</string>
-    <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_sync_on_launch">Synkroniser ved start</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_language_detection">Oppdag meldings tekstspråk</string>
