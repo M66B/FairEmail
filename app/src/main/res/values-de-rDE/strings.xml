@@ -311,7 +311,7 @@
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Prüfen</string>
+    <string name="title_advanced_caption_checks">Prüfen</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Unterhaltung</string>
     <string name="title_advanced_caption_message">Nachricht</string>
@@ -385,9 +385,12 @@
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Authentifizierungswarnhinweise anzeigen</string>
+    <string name="title_advanced_authentication">Authentifizierungswarnhinweise anzeigen</string>
     <string name="title_advanced_authentication_hint">Die zugrunde liegenden Prüfungen können in den Empfangseinstellungen konfiguriert werden</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Statusmeldung der Authentifizierung anzeigen</string>
+    <string name="title_advanced_authentication_indicator">Statusmeldung der Authentifizierung anzeigen</string>
+    <string name="title_advanced_authentication_none">Keine Authentifizierung</string>
+    <string name="title_advanced_authentication_some">Teilweise Authentifizierung</string>
+    <string name="title_advanced_authentication_all">Vollständige Authentifizierung</string>
     <string name="title_advanced_sync_on_launch">Beim Start synchronisieren</string>
     <string name="title_advanced_double_back">Zweifaches „Zurück” zum Beenden</string>
     <string name="title_advanced_conversation_actions">Aktionen vorschlagen (Android 10+)</string>

@@ -310,7 +310,7 @@
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Controles</string>
+    <string name="title_advanced_caption_checks">Controles</string>
     <string name="title_advanced_caption_list">Lijst</string>
     <string name="title_advanced_caption_conversation">Gesprek</string>
     <string name="title_advanced_caption_message">Bericht</string>
@@ -384,9 +384,12 @@
     <string name="title_advanced_actionbar_color">Gebruik de accountkleur als achtergrond voor de gespreksactiebalk</string>
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_parse_classes">Stijlbladen parsen</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Toon authenticatiewaarschuwingen</string>
+    <string name="title_advanced_authentication">Toon authenticatiewaarschuwingen</string>
     <string name="title_advanced_authentication_hint">De onderliggende controles kunnen worden geconfigureerd in de ontvangstinstellingen</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Toon authenticatie statusindicator</string>
+    <string name="title_advanced_authentication_indicator">Toon authenticatie statusindicator</string>
+    <string name="title_advanced_authentication_none">Geen authenticatie</string>
+    <string name="title_advanced_authentication_some">Gedeeltelijke authenticatie</string>
+    <string name="title_advanced_authentication_all">Volledige authenticatie</string>
     <string name="title_advanced_sync_on_launch">Synchroniseren bij start</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_conversation_actions">Acties voorstellen (Android 10+)</string>

@@ -310,7 +310,7 @@
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_caption_general">Général</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Vérifications</string>
+    <string name="title_advanced_caption_checks">Vérifications</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
     <string name="title_advanced_caption_message">Message</string>
@@ -384,9 +384,12 @@
     <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur de fond de la barre d’action de conversation</string>
     <string name="title_advanced_navbar_colorize">Coloriser la barre de navigation d’Android</string>
     <string name="title_advanced_parse_classes">Utiliser les feuilles de style</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Afficher les avertissements d\'authentification</string>
+    <string name="title_advanced_authentication">Afficher les avertissements d\'authentification</string>
     <string name="title_advanced_authentication_hint">Les contrôles sous-jacents peuvent être configurés dans les paramètres de réception</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Afficher l\'indicateur de statut d\'authentification</string>
+    <string name="title_advanced_authentication_indicator">Afficher l\'indicateur de statut d\'authentification</string>
+    <string name="title_advanced_authentication_none">Pas d\'authentification</string>
+    <string name="title_advanced_authentication_some">Authentification partielle</string>
+    <string name="title_advanced_authentication_all">Authentification complète</string>
     <string name="title_advanced_sync_on_launch">Synchroniser au lancement de l\'application</string>
     <string name="title_advanced_double_back">Faire deux fois « Retour » pour quitter</string>
     <string name="title_advanced_conversation_actions">Suggérer des actions (Android 10+)</string>

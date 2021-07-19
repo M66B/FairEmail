@@ -330,7 +330,7 @@
     <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Проверки</string>
+    <string name="title_advanced_caption_checks">Проверки</string>
     <string name="title_advanced_caption_list">Список</string>
     <string name="title_advanced_caption_conversation">Диалог</string>
     <string name="title_advanced_caption_message">Сообщение</string>
@@ -404,9 +404,12 @@
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_parse_classes">Анализировать таблицы стилей</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Показывать предупреждения аутентификации</string>
+    <string name="title_advanced_authentication">Показывать предупреждения аутентификации</string>
     <string name="title_advanced_authentication_hint">Соответствующие проверки могут быть настроены в параметрах получения</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Показывать индикатор состояния аутенфикации</string>
+    <string name="title_advanced_authentication_indicator">Показывать индикатор состояния аутенфикации</string>
+    <string name="title_advanced_authentication_none">Без аутентификации</string>
+    <string name="title_advanced_authentication_some">Частичная аутентификация</string>
+    <string name="title_advanced_authentication_all">Полная аутентификация</string>
     <string name="title_advanced_sync_on_launch">Синхронизация при запуске</string>
     <string name="title_advanced_double_back">Двойное нажатие \"Назад\" для выхода</string>
     <string name="title_advanced_conversation_actions">Предлагать действия (Android 10+)</string>

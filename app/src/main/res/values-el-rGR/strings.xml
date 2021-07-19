@@ -310,7 +310,7 @@
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Έλεγχοι</string>
+    <string name="title_advanced_caption_checks">Έλεγχοι</string>
     <string name="title_advanced_caption_list">Λίστα</string>
     <string name="title_advanced_caption_conversation">Συζήτηση</string>
     <string name="title_advanced_caption_message">Μήνυμα</string>
@@ -384,9 +384,12 @@
     <string name="title_advanced_actionbar_color">Χρήση του χρώματος του λογαριασμού ως χρωματικό υπόβαθρο για τη γραμμή ενεργειών της συζήτησης</string>
     <string name="title_advanced_navbar_colorize">Να χρωματίζεται η γραμμή πλοήγησης του Android</string>
     <string name="title_advanced_parse_classes">Χρήση φύλλων στιλ</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Να προβάλλονται προειδοποιήσεις ταυτοποίησης</string>
+    <string name="title_advanced_authentication">Να προβάλλονται προειδοποιήσεις ταυτοποίησης</string>
     <string name="title_advanced_authentication_hint">Οι υποκείμενοι έλεγχοι μπορούν να ρυθμιστούν στις ρυθμίσεις λήψης</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Να προβάλλεται ένδειξη για την κατάσταση του ελέγχου ταυτοποίησης</string>
+    <string name="title_advanced_authentication_indicator">Να προβάλλεται ένδειξη για την κατάσταση του ελέγχου ταυτοποίησης</string>
+    <string name="title_advanced_authentication_none">Χωρίς ταυτοποίηση</string>
+    <string name="title_advanced_authentication_some">Μερική ταυτοποίηση</string>
+    <string name="title_advanced_authentication_all">Πλήρης ταυτοποίηση</string>
     <string name="title_advanced_sync_on_launch">Συγχρονισμός κατά την εκκίνηση της εφαρμογής</string>
     <string name="title_advanced_double_back">Δύο φορές \"πίσω\" για έξοδο</string>
     <string name="title_advanced_conversation_actions">Να προτείνονται ενέργειες (Android 10+)</string>

@@ -159,7 +159,7 @@
     <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando iscritto al programma di protezione avanzata è impossibile usare un\'app email di terze parti. Questa è una restrizione imposta da Google.</string>
     <string name="title_setup_quick_success">Un profilo è stato aggiunto correttamente</string>
-    <string name="title_setup_quick_no_sent">Non è stata selezionata nessuna cartella di messaggi inviati. I messaggi inviati potrebbero non essere memorizzati.</string>
+    <string name="title_setup_quick_no_sent">Nessuna cartella dei messaggi inviati sono stati selezionati. I messaggi inviati potrebbero non esser memorizzati.</string>
     <string name="title_setup_quick_configure">Per modificare il nome, il colore, le azioni di scorrimento, ecc.</string>
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
@@ -179,7 +179,7 @@
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_doze_device">Questo è probabilmente necessario per questo dispositivo</string>
     <string name="title_setup_doze_android">Questo è necessario per questa versione di Android</string>
-    <string name="title_setup_inexact">Allarmi e promemoria disabilitati</string>
+    <string name="title_setup_inexact">Sveglie e promemoria sono disabilitati</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
     <string name="title_setup_data">Risparmio dati abilitato</string>
     <string name="title_setup_advanced_options">Mostra le opzioni avanzate</string>
@@ -266,6 +266,7 @@
     <string name="title_advanced_check_reply_domain">Controlla l\'indirizzo di risposta alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email del mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_check_blocklist">Controlla se il nome del dominio del mittente è in una lista di blocco dello spam</string>
+    <string name="title_advanced_use_blocklist">Sposta i messaggi dai domini su un elenco di blocchi nella cartella di spam</string>
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo mantieni-in-vita</string>
     <string name="title_advanced_keyboard">Mostra la tastiera di default</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
@@ -309,6 +310,7 @@
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
+    <string name="title_advanced_caption_checks">Controlli</string>
     <string name="title_advanced_caption_list">Elenco</string>
     <string name="title_advanced_caption_conversation">Conversazione</string>
     <string name="title_advanced_caption_message">Messaggio</string>
@@ -382,6 +384,12 @@
     <string name="title_advanced_actionbar_color">Usa il colore del profilo come colore di sfondo per la barra d\'azione della conversazione</string>
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_parse_classes">Analizza fogli di stile</string>
+    <string name="title_advanced_authentication">Mostra avvisi d\'autenticazione</string>
+    <string name="title_advanced_authentication_hint">I controlli sottostanti sono configurabili nelle impostazioni di ricezione</string>
+    <string name="title_advanced_authentication_indicator">Mostra indicatore di stato d\'autenticazione</string>
+    <string name="title_advanced_authentication_none">Nessun\'autenticazione</string>
+    <string name="title_advanced_authentication_some">Autenticazione parziale</string>
+    <string name="title_advanced_authentication_all">Autenticazione completa</string>
     <string name="title_advanced_sync_on_launch">Sincronizza all\'avvio</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_conversation_actions">Suggerisci azioni (Android 10+)</string>

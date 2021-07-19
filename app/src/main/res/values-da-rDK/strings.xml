@@ -303,7 +303,7 @@
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Tjek</string>
+    <string name="title_advanced_caption_checks">Tjek</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Samtale</string>
     <string name="title_advanced_caption_message">Besked</string>
@@ -374,9 +374,12 @@
     <string name="title_advanced_actionbar_color">Benyt kontofarve som baggrundsfarve til samtalens handlingsbjælke</string>
     <string name="title_advanced_navbar_colorize">Farvelæg Android-navigeringsbjælken</string>
     <string name="title_advanced_parse_classes">CSS-fortolkning</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">Vis godkendelsesadvarsler</string>
+    <string name="title_advanced_authentication">Vis godkendelsesadvarsler</string>
     <string name="title_advanced_authentication_hint">De underliggende tjek kan opsættes i modtagelsesindstillingerne</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Vis indikator for godkendelsesstatus</string>
+    <string name="title_advanced_authentication_indicator">Vis indikator for godkendelsesstatus</string>
+    <string name="title_advanced_authentication_none">Ingen godkendelse</string>
+    <string name="title_advanced_authentication_some">Delvis godkendelse</string>
+    <string name="title_advanced_authentication_all">Komplet godkendelse</string>
     <string name="title_advanced_sync_on_launch">Synkronisér ved opstart</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_conversation_actions">Foreslå handlinger (Android 10+)</string>

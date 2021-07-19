@@ -78,11 +78,14 @@
     </string>
     <string name="title_junk_filter">Lokale spamfilter brûke</string>
     <string name="title_junk_filter_hint">Dit kin batterijgebrûk ferheegje en berjochten ferkeard markearje as spam</string>
+    <string name="title_junk_blocklist">Brûk list mei spamblokken</string>
     <string name="title_notification_sending">Ferstjoere berjochten</string>
     <string name="title_notification_waiting">Wachtsje op geskikte ferbining</string>
     <string name="title_notification_idle">Ynaktyf</string>
     <string name="title_notification_failed">\'%1$s\' mislearre</string>
+    <string name="title_notification_alert">Server warskoching: \'%1$s\'</string>
     <string name="title_notification_sending_left">Pogingen lofts: %1$d</string>
+    <string name="title_notification_sending_retry">Ferstjoeren wurdt opnij besocht op feroaringen fan ynternetferbining as it útbox nei ûnderen lûke</string>
     <string name="title_notification_sending_failed">Stjoeren nei %1$s is mislearre</string>
     <string name="title_notification_redacted">Redacted: biometrysk as PIN-autentikaasje ynskeakele</string>
     <string name="title_factor_minutes">%1$d minuten</string>
@@ -106,6 +109,7 @@
     <string name="title_agree">Ik bin it iens</string>
     <string name="title_disagree">Ik bin it der net mei iens</string>
     <string name="title_version">Ferzje: %1$s</string>
+    <string name="title_privacy_policy">Privacy belied</string>
     <string name="title_list_accounts">Akkounts</string>
     <string name="title_list_identities">Identiteiten</string>
     <string name="title_edit_account">Bewrukje akkount</string>
@@ -119,12 +123,14 @@
     <string name="title_setup_quick_accounts">Akkounts tafoegje of feroarje</string>
     <string name="title_setup_quick_support">Guon oanbieders meitsje it dreech om in akkount ta te foegjen. Doch asjebleaft FairEmail hjir gjin skuld foar, mar freegje ynstee om stipe.</string>
     <string name="title_setup_quick_hint">De rappe opset sil konfiguraasje-ynformaasje ophelje fan autoconfig.thunderbird.net</string>
+    <string name="title_setup_quick_patience">Haw asjebleaft geduld &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-tsjinner om berjochten te ûntfangen</string>
     <string name="title_setup_quick_smtp">SMTP-tsjinner om berjochten te ferstjoeren</string>
     <string name="title_setup_wizard">Tsjoender</string>
     <string name="title_setup_wizard_multiple">De assistint kin meardere kearen brûkt wurde om meardere akkounts yn te stellen</string>
     <string name="title_setup_wizard_new">Ik haw in nij emailadres nedich</string>
     <string name="title_setup_manual">Sels ynstelle en akkountopsjes</string>
+    <string name="title_setup_classic">Klassike konfiguraasje</string>
     <string name="title_setup_account_remark">E-mail ûntfange</string>
     <string name="title_setup_identity_remark">Email ferstjoere</string>
     <string name="title_setup_account_identity_hint">Do kinst de namme, kleur en fei-aksjes ynstelle yn \'e akkountynstellings en in hântekening ynstelle yn\' e identiteitsynstellings</string>
@@ -358,6 +364,9 @@
     <string name="title_advanced_actionbar_color">Brûk akkountkleur as eftergrûnkleur foar petearbalke foar petearen</string>
     <string name="title_advanced_navbar_colorize">Kleurje de navigaasjebalke fan Android yn</string>
     <string name="title_advanced_parse_classes">Untwerp stylblêden</string>
+    <string name="title_advanced_authentication_none">Gjin autentikaasje</string>
+    <string name="title_advanced_authentication_some">Parsjele ferifikaasje</string>
+    <string name="title_advanced_authentication_all">Folsleine ferifikaasje</string>
     <string name="title_advanced_sync_on_launch">Syngronisearje by opstarten</string>
     <string name="title_advanced_double_back">Dûbel \'werom\' om út te gean</string>
     <string name="title_advanced_conversation_actions">Aksjes foarstelle (Android 10+)</string>

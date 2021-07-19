@@ -329,7 +329,7 @@
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_caption_general">Obecné</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">Kontroly</string>
+    <string name="title_advanced_caption_checks">Kontroly</string>
     <string name="title_advanced_caption_list">Seznam</string>
     <string name="title_advanced_caption_conversation">Konverzace</string>
     <string name="title_advanced_caption_message">Zpráva</string>
@@ -403,7 +403,7 @@
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">Zobrazit indikátor stavu ověření</string>
+    <string name="title_advanced_authentication_indicator">Zobrazit indikátor stavu ověření</string>
     <string name="title_advanced_sync_on_launch">Synchronizovat při spuštění</string>
     <string name="title_advanced_double_back">Dvakrát „zpět“ pro ukončení</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>

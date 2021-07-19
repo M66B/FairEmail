@@ -255,6 +255,7 @@
     <string name="title_advanced_check_reply_domain">メッセージの同期時に返信アドレスを確認</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>
     <string name="title_advanced_check_blocklist">送信者のドメイン名が迷惑メールブロックリストにあるかどうかを確認します</string>
+    <string name="title_advanced_use_blocklist">ブロックリスト上のドメインからスパムフォルダにメッセージを移動します</string>
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動的に調整します</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
@@ -298,6 +299,7 @@
     <string name="title_advanced_ssl_harden">SSL接続を有効</string>
     <string name="title_advanced_manage_connectivity">接続の管理</string>
     <string name="title_advanced_caption_general">全般</string>
+    <string name="title_advanced_caption_checks">確認</string>
     <string name="title_advanced_caption_list">リスト</string>
     <string name="title_advanced_caption_conversation">会話</string>
     <string name="title_advanced_caption_message">メッセージ</string>
@@ -371,6 +373,12 @@
     <string name="title_advanced_actionbar_color">会話アクションバーの背景色としてアカウントの色を使用</string>
     <string name="title_advanced_navbar_colorize">Androidナビゲーションバーの色付け</string>
     <string name="title_advanced_parse_classes">スタイルシートの解析</string>
+    <string name="title_advanced_authentication">認証警告を表示</string>
+    <string name="title_advanced_authentication_hint">受信設定で基礎となるチェックを構成することができます</string>
+    <string name="title_advanced_authentication_indicator">認証ステータスインジケーターを表示</string>
+    <string name="title_advanced_authentication_none">認証なし</string>
+    <string name="title_advanced_authentication_some">部分認証</string>
+    <string name="title_advanced_authentication_all">認証を完了</string>
     <string name="title_advanced_sync_on_launch">起動時に同期</string>
     <string name="title_advanced_double_back">\"戻る\"をダブルタップして終了</string>
     <string name="title_advanced_conversation_actions">アクションを提案 (Android 10以上)</string>

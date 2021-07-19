@@ -66,7 +66,7 @@
     <string name="title_block_sender_hint">        封鎖寄件者將會建立規則，自動地把往後接收到的訊息移動至垃圾郵件夾。
         建立與執行規則是專業版功能。
     </string>
-    <string name="title_junk_filter">使用本機垃圾信過濾器</string>
+    <string name="title_junk_filter">使用本地垃圾郵件過濾器</string>
     <string name="title_junk_filter_hint">這可能增加電池使用量且不正確地將某些訊息標示為垃圾信</string>
     <string name="title_junk_blocklist">開啟垃圾郵件封鎖清單</string>
     <string name="title_notification_sending">寄送訊息中</string>
@@ -243,7 +243,7 @@
     <string name="title_advanced_always">這些帳號隨時都接受訊息</string>
     <string name="title_advanced_schedule">規劃時間</string>
     <string name="title_advanced_advanced">進階</string>
-    <string name="title_advanced_no_date">沒有時間的訊息</string>
+    <string name="title_advanced_no_date">未含日期的訊息</string>
     <string name="title_advanced_unseen">所有未讀訊息</string>
     <string name="title_advanced_flagged">所有加星號訊息</string>
     <string name="title_advanced_delete_unseen">刪除舊的未讀訊息</string>
@@ -300,7 +300,7 @@
     <string name="title_advanced_ssl_harden">嚴格的 SSL 連線</string>
     <string name="title_advanced_manage_connectivity">管理連線方式</string>
     <string name="title_advanced_caption_general">一般</string>
-    <string name="title_advanced_caption_checks" comment="title_advanced_caption_checks&#10;Title for card with options for checking received messages">檢查</string>
+    <string name="title_advanced_caption_checks">檢查</string>
     <string name="title_advanced_caption_list">清單</string>
     <string name="title_advanced_caption_conversation">會話</string>
     <string name="title_advanced_caption_message">訊息</string>
@@ -326,7 +326,7 @@
     <string name="title_advanced_gravatars">顯示 Gravatars</string>
     <string name="title_advanced_bimi_unverified">未經驗證的寄件者</string>
     <string name="title_advanced_bimi_verified">已經驗證的寄件者</string>
-    <string name="title_advanced_favicons">展示網站圖標</string>
+    <string name="title_advanced_favicons">顯示網站圖示</string>
     <string name="title_advanced_generated_icons">顯示設定的圖示</string>
     <string name="title_advanced_identicons">顯示身份</string>
     <string name="title_advanced_circular">顯示圓形圖示</string>
@@ -336,7 +336,7 @@
     <string name="title_advanced_name_email">顯示名字及郵件地址</string>
     <string name="title_advanced_replace_name">偏好顯示聯絡人名字而不是寄件人名字</string>
     <string name="title_advanced_only_name">僅顯示聯繫人姓名</string>
-    <string name="title_advanced_distinguish_contacts">當寄件人為本機聯絡人時將名字加註底線</string>
+    <string name="title_advanced_distinguish_contacts">當寄件者為本機聯絡人時將名字加註底線</string>
     <string name="title_advanced_show_recipients">在訊息標頭中顯示收件者</string>
     <string name="title_advanced_font_size_sender">寄件人字體大小</string>
     <string name="title_advanced_font_size_subject">主旨字體大小</string>
@@ -344,8 +344,8 @@
     <string name="title_advanced_subject_italic">把主旨斜體</string>
     <string name="title_advanced_subject_elipsed">當必須縮短主旨時</string>
     <string name="title_advanced_highlight_color">醒目標記顏色</string>
-    <string name="title_advanced_keywords">在郵件標頭中顯示關鍵字</string>
-    <string name="title_advanced_labels">在郵件標頭顯示 Gmail 標籤</string>
+    <string name="title_advanced_keywords">在訊息標頭中顯示關鍵字</string>
+    <string name="title_advanced_labels">在訊息標頭顯示 Gmail 標籤</string>
     <string name="title_advanced_flags">顯示星號</string>
     <string name="title_advanced_flags_background">以背景顏色替代星號顏色</string>
     <string name="title_advanced_preview">顯示訊息預覽</string>
@@ -374,9 +374,12 @@
     <string name="title_advanced_actionbar_color">使用帳戶顏色作為會話控制列的顏色</string>
     <string name="title_advanced_navbar_colorize">將 Android 導航列上色</string>
     <string name="title_advanced_parse_classes">解析樣式表</string>
-    <string name="title_advanced_authentication" comment="title_advanced_authentication&#10;Title for switch to enable/disable all authentication warnings.">顯示驗證警告</string>
+    <string name="title_advanced_authentication">顯示驗證警告</string>
     <string name="title_advanced_authentication_hint">下層檢查可在接收設定中配置</string>
-    <string name="title_advanced_authentication_indicator" comment="title_advanced_authentication_indicator&#10;Title for switch to show DKIM, SPF, DMARC authentication results with an icon">顯示驗證狀態指示圖標</string>
+    <string name="title_advanced_authentication_indicator">顯示驗證狀態指示圖標</string>
+    <string name="title_advanced_authentication_none">未驗證</string>
+    <string name="title_advanced_authentication_some">部分驗證</string>
+    <string name="title_advanced_authentication_all">完整驗證</string>
     <string name="title_advanced_sync_on_launch">在應用程式啟動時同步。</string>
     <string name="title_advanced_double_back">兩次「返回」離開程式</string>
     <string name="title_advanced_conversation_actions">建議行動(Android 10+)</string>
@@ -399,7 +402,7 @@
     <string name="title_advanced_onclose">當關閉一個會話時</string>
     <string name="title_advanced_undo">撤銷時限</string>
     <string name="title_advanced_quick_filter">顯示不顯眼的快速過濾圖示</string>
-    <string name="title_advanced_quick_scroll">展示不起眼的快速向上/下滾動圖標</string>
+    <string name="title_advanced_quick_scroll">顯示不起眼的快速向上/下滾動圖示</string>
     <string name="title_advanced_autoread">當移動訊息自動標記為已讀</string>
     <string name="title_advanced_star_snoozed">當延後提醒時自動加星號</string>
     <string name="title_advanced_autounstar">當移動一則訊息時自動移除星號</string>
@@ -436,7 +439,7 @@
     <string name="title_advanced_notify_subtext">帳戶或資料夾名稱顯示為從屬文本</string>
     <string name="title_advanced_wearable_preview">只向穿戴式裝置發送有預覽的通知</string>
     <string name="title_advanced_notify_messaging">使用Android「訊息樣式」通知格式</string>
-    <string name="title_advanced_biometrics_notify">在使用生物識別認證時顯示通知內容</string>
+    <string name="title_advanced_biometrics_notify">在使用生物特徵辨識驗證時顯示通知內容</string>
     <string name="title_advanced_light">使用通知燈</string>
     <string name="title_advanced_sound">選擇通知音效</string>
     <string name="title_advanced_notify_screen_on">為新訊息通知而短時間開啟螢幕</string>
@@ -569,7 +572,7 @@
     <string name="title_advanced_english_hint">這將會重起應用程式</string>
     <string name="title_advanced_experiments_hint">當前實驗功能列表</string>
     <string name="title_advanced_protocol_hint">開啟此選項將增加電池以及儲存空間使用量!</string>
-    <string name="title_advanced_debug_hint">這將會在各種不同地方展示惱人的除錯信息</string>
+    <string name="title_advanced_debug_hint">這將會在各種不同地方顯示惱人的除錯信息</string>
     <string name="title_advanced_cleanup_attachments_hint">手動清除時，這將從不再同步的郵件中刪除附件</string>
     <string name="title_advanced_cleanup_hint">這將刪除所有臨時文件</string>
     <string name="title_advanced_never_favorite">從不喜歡</string>
@@ -782,7 +785,7 @@
     <string name="title_unseen">標記為未讀</string>
     <string name="title_toggle_seen">切換閱讀</string>
     <string name="title_hide">隱藏</string>
-    <string name="title_unhide">展示</string>
+    <string name="title_unhide">顯示</string>
     <string name="title_toggle_hide">訊息隱藏開關</string>
     <string name="title_flag">加星號</string>
     <string name="title_flag_color">彩色的星星 &#8230;</string>
@@ -794,8 +797,8 @@
     <string name="title_search_in_text">搜尋文字 &#8230;</string>
     <string name="title_forward">轉寄</string>
     <string name="title_new_message">新訊息</string>
-    <string name="title_editasnew">編輯為新</string>
-    <string name="title_edit_notes">編輯自己的註釋</string>
+    <string name="title_editasnew">當作新訊息編輯</string>
+    <string name="title_edit_notes">編輯本地附註</string>
     <string name="title_create_rule">建立規則 &#8230;</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日曆</string>
