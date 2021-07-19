@@ -1559,19 +1559,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
 
-                boolean vmc = (main != null && "vmc".equals(main.getType()));
-                boolean verified = (main != null && main.isVerified() &&
+                if (main != null && "vmc".equals(main.getType()) &&
                         Boolean.TRUE.equals(message.dkim) &&
                         Boolean.TRUE.equals(message.spf) &&
-                        Boolean.TRUE.equals(message.dmarc));
-                ibVerified.setImageLevel(verified ? 1 : 0);
-                ibVerified.setImageTintList(ColorStateList.valueOf(verified
-                        ? colorAccent : colorControlNormal));
-                ibVerified.setContentDescription(context.getString(verified
-                        ? R.string.title_advanced_bimi_verified : R.string.title_advanced_bimi_unverified));
-                ibVerified.setVisibility(vmc ? View.VISIBLE : View.GONE);
-                if (authentication_indicator && vmc)
-                    ibAuth.setVisibility(View.GONE);
+                        Boolean.TRUE.equals(message.dmarc)) {
+                    ibVerified.setImageLevel(main.isVerified() ? 1 : 0);
+                    ibVerified.setImageTintList(ColorStateList.valueOf(main.isVerified()
+                            ? colorAccent : colorControlNormal));
+                    ibVerified.setContentDescription(context.getString(main.isVerified()
+                            ? R.string.title_advanced_bimi_verified
+                            : R.string.title_advanced_bimi_unverified));
+                    ibVerified.setVisibility(View.VISIBLE);
+
+                    if (authentication_indicator)
+                        ibAuth.setVisibility(View.GONE);
+                }
             }
 
             if (distinguish_contacts) {
