@@ -1048,7 +1048,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setVisibility(View.VISIBLE);
             } else if (authentication_indicator) {
                 ibAuth.setImageLevel(auths + 1);
-                ibAuth.setImageTintList(ColorStateList.valueOf(colorControlNormal));
+                ibAuth.setImageTintList(ColorStateList.valueOf(
+                        auths < 3 ? colorSeparator : colorControlNormal));
                 ibAuth.setVisibility(View.VISIBLE);
             } else
                 ibAuth.setVisibility(View.GONE);
