@@ -250,8 +250,8 @@ public class ViewModelMessages extends ViewModel {
             models.remove(viewType);
     }
 
-    void observePrevNext(Context context, LifecycleOwner owner, final long id, final IPrevNext intf) {
-        Log.i("Observe prev/next model=" + last);
+    void observePrevNext(Context context, LifecycleOwner owner, final long id, int lpos, final IPrevNext intf) {
+        Log.i("Observe prev/next model=" + last + " id=" + id + " lpos=" + lpos);
 
         final Model model = models.get(last);
         if (model == null) {
@@ -263,6 +263,7 @@ public class ViewModelMessages extends ViewModel {
         }
 
         Log.i("Observe previous/next id=" + id);
+        //model.list.getValue().loadAround(lpos);
         model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
             private boolean fallback = false;
 
@@ -305,11 +306,13 @@ public class ViewModelMessages extends ViewModel {
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
+                args.putInt("lpos", lpos);
 
                 new SimpleTask<Pair<Long, Long>>() {
                     @Override
                     protected Pair<Long, Long> onExecute(Context context, Bundle args) {
                         long id = args.getLong("id");
+                        int lpos = args.getInt("lpos");
 
                         PagedList<TupleMessageEx> plist = model.list.getValue();
                         if (plist == null)
@@ -317,36 +320,53 @@ public class ViewModelMessages extends ViewModel {
 
                         LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) plist.getDataSource();
                         int count = ds.countItems();
+
+                        if (lpos >= 0) {
+                            int from = Math.max(0, lpos - 10);
+                            int load = Math.min(20, count - from);
+                            Log.i("Observe previous/next load lpos=" + lpos +
+                                    " range=" + from + "/#" + load);
+                            List<TupleMessageEx> messages = ds.loadRange(from, load);
+                            for (int j = 0; j < messages.size(); j++)
+                                if (messages.get(j).id == id)
+                                    return getPair(plist, ds, count, from + j);
+                        }
+
                         for (int i = 0; i < count; i += 100) {
-                            Log.i("Observe previous/next load range=" + i + "/" + count);
+                            Log.i("Observe previous/next load" +
+                                    " range=" + i + "/#" + count);
                             List<TupleMessageEx> messages = ds.loadRange(i, Math.min(100, count - i));
                             for (int j = 0; j < messages.size(); j++)
-                                if (messages.get(j).id == id) {
-                                    int pos = i + j;
-
-                                    if (pos < plist.size())
-                                        plist.loadAround(pos);
-
-                                    List<TupleMessageEx> lprev = null;
-                                    if (pos - 1 >= 0)
-                                        lprev = ds.loadRange(pos - 1, 1);
-
-                                    List<TupleMessageEx> lnext = null;
-                                    if (pos + 1 < count)
-                                        lnext = ds.loadRange(pos + 1, 1);
-
-                                    TupleMessageEx prev = (lprev != null && lprev.size() > 0 ? lprev.get(0) : null);
-                                    TupleMessageEx next = (lnext != null && lnext.size() > 0 ? lnext.get(0) : null);
-
-                                    Pair<Long, Long> result = new Pair<>(
-                                            prev == null ? null : prev.id,
-                                            next == null ? null : next.id);
-                                    Log.i("Observe previous/next fallback=" + result);
-                                    return result;
-                                }
+                                if (messages.get(j).id == id)
+                                    return getPair(plist, ds, count, i + j);
                         }
 
                         return null;
+                    }
+
+                    private Pair<Long, Long> getPair(
+                            PagedList<TupleMessageEx> plist,
+                            LimitOffsetDataSource<TupleMessageEx> ds,
+                            int count, int pos) {
+                        if (pos < plist.size())
+                            plist.loadAround(pos);
+
+                        List<TupleMessageEx> lprev = null;
+                        if (pos - 1 >= 0)
+                            lprev = ds.loadRange(pos - 1, 1);
+
+                        List<TupleMessageEx> lnext = null;
+                        if (pos + 1 < count)
+                            lnext = ds.loadRange(pos + 1, 1);
+
+                        TupleMessageEx prev = (lprev != null && lprev.size() > 0 ? lprev.get(0) : null);
+                        TupleMessageEx next = (lnext != null && lnext.size() > 0 ? lnext.get(0) : null);
+
+                        Pair<Long, Long> result = new Pair<>(
+                                prev == null ? null : prev.id,
+                                next == null ? null : next.id);
+                        Log.i("Observe previous/next fallback=" + result);
+                        return result;
                     }
 
                     @Override

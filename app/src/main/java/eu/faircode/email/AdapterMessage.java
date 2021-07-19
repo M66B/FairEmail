@@ -3307,6 +3307,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("folder", message.folder)
                             .putExtra("thread", message.thread)
                             .putExtra("id", message.id)
+                            .putExtra("lpos", getAdapterPosition())
                             .putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType))
                             .putExtra("found", viewType == ViewType.SEARCH);
 

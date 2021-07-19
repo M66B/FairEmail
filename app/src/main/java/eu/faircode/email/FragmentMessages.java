@@ -285,6 +285,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean server;
     private String thread;
     private long id;
+    private int lpos;
     private boolean filter_archive;
     private boolean found;
     private boolean pinned;
@@ -404,6 +405,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         server = args.getBoolean("server", false);
         thread = args.getString("thread");
         id = args.getLong("id", -1);
+        lpos = args.getInt("lpos", RecyclerView.NO_POSITION);
         filter_archive = args.getBoolean("filter_archive", true);
         found = args.getBoolean("found", false);
         pinned = args.getBoolean("pinned", false);
@@ -1247,7 +1249,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getContext(), getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getContext(), getViewLifecycleOwner(), id, lpos, new ViewModelMessages.IPrevNext() {
                 @Override
                 public void onPrevious(boolean exists, Long id) {
                     boolean reversed = prefs.getBoolean("reversed", false);
@@ -4933,7 +4935,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void loadMessages(final boolean top) {
         if (viewType == AdapterMessage.ViewType.THREAD && onclose != null) {
             ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
-            model.observePrevNext(getContext(), getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
+            model.observePrevNext(getContext(), getViewLifecycleOwner(), id, lpos, new ViewModelMessages.IPrevNext() {
                 boolean once = false;
 
                 @Override
