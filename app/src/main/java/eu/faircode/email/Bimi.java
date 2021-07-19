@@ -189,7 +189,14 @@ public class Bimi {
                         CertificateFactory fact = CertificateFactory.getInstance("X.509");
                         for (PemObject pem : pems) {
                             ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
-                            certs.add((X509Certificate) fact.generateCertificate(bis));
+                            X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
+                            Log.i("BIMI cert" +
+                                    " serial=" + cert.getSerialNumber() +
+                                    " issuer=" + cert.getIssuerDN() +
+                                    " subject=" + cert.getSubjectDN() +
+                                    " not before=" + cert.getNotBefore() +
+                                    " not after=" + cert.getNotAfter());
+                            certs.add(cert);
                         }
 
                         // Get first certificate
