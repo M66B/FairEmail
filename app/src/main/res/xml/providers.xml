@@ -23,7 +23,8 @@
         domain="outlook\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="2"
-        partial="false">
+        partial="false"
+        useip="false">
         <imap
             host="outlook.office365.com"
             port="993"
@@ -38,7 +39,8 @@
         domain="live\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="3"
-        partial="false">
+        partial="false"
+        useip="false">
         <imap
             host="outlook.office365.com"
             port="993"
@@ -53,7 +55,8 @@
         domain="hotmail\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="4"
-        partial="false">
+        partial="false"
+        useip="false">
         <imap
             host="outlook.office365.com"
             port="993"
@@ -82,7 +85,8 @@
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="5"
-        partial="false">
+        partial="false"
+        useip="false">
         <imap
             host="outlook.office365.com"
             port="993"
