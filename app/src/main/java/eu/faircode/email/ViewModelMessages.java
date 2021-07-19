@@ -279,6 +279,8 @@ public class ViewModelMessages extends ViewModel {
 
                         if (pos - 1 >= 0) {
                             TupleMessageEx next = messages.get(pos - 1);
+                            if (next == null)
+                                fallback = false;
                             Log.i("Observe previous/next found id=" + id + " next=" + (next == null ? null : next.id));
                             intf.onNext(true, next == null ? null : next.id);
                         } else
@@ -286,6 +288,8 @@ public class ViewModelMessages extends ViewModel {
 
                         if (pos + 1 < messages.size()) {
                             TupleMessageEx prev = messages.get(pos + 1);
+                            if (prev == null)
+                                fallback = false;
                             Log.i("Observe previous/next found id=" + id + " prev=" + (prev == null ? null : prev.id));
                             intf.onPrevious(true, prev == null ? null : prev.id);
                         } else
@@ -293,7 +297,8 @@ public class ViewModelMessages extends ViewModel {
 
                         intf.onFound(pos, messages.size());
 
-                        return;
+                        if (fallback)
+                            return;
                     }
                 }
 
