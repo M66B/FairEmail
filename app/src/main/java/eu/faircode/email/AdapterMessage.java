@@ -1046,8 +1046,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setImageLevel(0);
                 ibAuth.setImageTintList(ColorStateList.valueOf(colorWarning));
                 ibAuth.setVisibility(View.VISIBLE);
-            } else if (authentication_indicator && auths > 0) {
-                ibAuth.setImageLevel(auths);
+            } else if (authentication_indicator) {
+                ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(colorControlNormal));
                 ibAuth.setVisibility(View.VISIBLE);
             } else
@@ -1566,7 +1566,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Boolean.TRUE.equals(message.dmarc));
                 ibVerified.setImageLevel(verified ? 1 : 0);
                 ibVerified.setImageTintList(ColorStateList.valueOf(verified
-                        ? colorAccent : colorSeparator));
+                        ? colorAccent : colorControlNormal));
                 ibVerified.setContentDescription(context.getString(verified
                         ? R.string.title_advanced_bimi_verified : R.string.title_advanced_bimi_unverified));
                 ibVerified.setVisibility(vmc ? View.VISIBLE : View.GONE);
@@ -3525,6 +3525,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (sb.length() > 0)
                     sb.append('\n');
                 sb.append(message.checkReplyDomain(context));
+            }
+
+            if (message.from != null && message.from.length > 0) {
+                sb.insert(0, '\n');
+                sb.insert(0, MessageHelper.formatAddresses(
+                        message.from, MessageHelper.AddressFormat.EMAIL_ONLY, false));
             }
 
             ToastEx.makeText(context, sb.toString(), Toast.LENGTH_LONG).show();

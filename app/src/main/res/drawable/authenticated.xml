@@ -4,12 +4,15 @@
         android:drawable="@drawable/twotone_flag_24"
         android:maxLevel="0" />
     <item
-        android:drawable="@drawable/twotone_shield_warning_24"
+        android:drawable="@drawable/twotone_shield_cross_24"
         android:maxLevel="1" />
     <item
         android:drawable="@drawable/twotone_shield_warning_24"
         android:maxLevel="2" />
     <item
-        android:drawable="@drawable/twotone_shield_24"
+        android:drawable="@drawable/twotone_shield_warning_24"
         android:maxLevel="3" />
+    <item
+        android:drawable="@drawable/twotone_shield_check_24"
+        android:maxLevel="4" />
 </level-list>
