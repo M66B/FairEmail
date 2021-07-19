@@ -138,7 +138,7 @@ public class EditTextCompose extends FixedEditText {
                 ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
 
                 final String html;
-                String h = item.getHtmlText();
+                String h = (raw ? null : item.getHtmlText());
                 if (h == null) {
                     CharSequence text = item.getText();
                     if (text == null)
