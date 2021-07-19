@@ -1036,7 +1036,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
                 tvDrafts,spDrafts,tvDraftsRemark,
-                tvSent,spSent,tvSentWarning,
+                tvSent,spSent,
                 tvArchive,spArchive,
                 tvTrash,spTrash,
                 tvJunk,spJunk,

@@ -295,6 +295,7 @@ public class FragmentAccount extends FragmentBase {
                 etInterval.setText(provider.keepalive > 0 ? Integer.toString(provider.keepalive) : null);
                 cbPartialFetch.setChecked(provider.partial);
 
+                tvSentWarning.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
                 cbIdentity.setVisibility(View.GONE);
@@ -640,6 +641,7 @@ public class FragmentAccount extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbCheck.setVisibility(View.VISIBLE);
                 tvIdle.setVisibility(View.GONE);
+                tvSentWarning.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
@@ -766,6 +768,7 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                tvSentWarning.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
                 cbIdentity.setVisibility(View.GONE);
