@@ -1675,7 +1675,7 @@ public class HtmlHelper {
     static String encodeWebColor(int color) {
         int alpha = Color.alpha(color);
         int rgb = 0xFFFFFF & color;
-        if (alpha == 0)
+        if (alpha == 255)
             return String.format("#%06X", rgb);
         else
             return String.format("#%06X%02X", rgb, alpha);
