@@ -846,7 +846,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        grpDeepL.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpDeepL.setVisibility(DeepL.canTranslate(getContext()) ? View.VISIBLE : View.GONE);
 
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
