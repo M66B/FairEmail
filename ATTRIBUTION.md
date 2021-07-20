@@ -33,3 +33,4 @@ FairEmail uses:
 * [GoSquared's Flag Icon Set](https://github.com/gosquared/flags). Copyright (c) 2017 Go Squared Ltd. [MIT License](https://github.com/gosquared/flags/blob/master/LICENSE.txt).
 * [OpenDyslexic](https://github.com/antijingoist/opendyslexic). Copyright (c) 12/2012 - 2019. Copyright (c) 2019-07-29, Abbie Gonzalez. [SIL Open Font License 1.1](https://github.com/antijingoist/opendyslexic/blob/master/OFL.txt).
 * [AndroidSVG](https://github.com/BigBadaboom/androidsvg). Copyright 2013 Paul LeBeau, Cave Rock Software Ltd. [Apache License 2.0](https://github.com/BigBadaboom/androidsvg/blob/master/LICENSE).
+* [Public Suffix List](https://publicsuffix.org/). Copyright © 2007–20 Mozilla Foundation. [Mozilla Public License, v. 2.0](https://mozilla.org/MPL/2.0/).

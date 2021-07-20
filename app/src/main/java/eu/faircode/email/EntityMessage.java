@@ -316,14 +316,14 @@ public class EntityMessage implements Serializable {
             int rat = (r == null ? -1 : r.indexOf('@'));
             if (rat < 0)
                 continue;
-            String rdomain = UriHelper.getParentDomain(r.substring(rat + 1));
+            String rdomain = UriHelper.getParentDomain(context, r.substring(rat + 1));
 
             for (Address _from : from) {
                 String f = ((InternetAddress) _from).getAddress();
                 int fat = (f == null ? -1 : f.indexOf('@'));
                 if (fat < 0)
                     continue;
-                String fdomain = UriHelper.getParentDomain(f.substring(fat + 1));
+                String fdomain = UriHelper.getParentDomain(context, f.substring(fat + 1));
 
                 if (!rdomain.equalsIgnoreCase(fdomain))
                     return context.getString(R.string.title_reply_domain, fdomain, rdomain);

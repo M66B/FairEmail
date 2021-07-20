@@ -867,7 +867,7 @@ public class EntityRule {
             int at = sender.indexOf('@');
             if (at > 0) {
                 boolean whitelisted = false;
-                String domain = UriHelper.getParentDomain(sender.substring(at + 1));
+                String domain = UriHelper.getParentDomain(context, sender.substring(at + 1));
                 for (String d : whitelist)
                     if (domain.matches(d)) {
                         whitelisted = true;

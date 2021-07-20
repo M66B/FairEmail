@@ -19,16 +19,47 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.text.TextUtils;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.zip.ZipInputStream;
+
 public class UriHelper {
-    static String getParentDomain(String host) {
+    // https://publicsuffix.org/
+    private static final HashSet<String> suffixList = new HashSet<>();
+
+    private static final String SUFFIX_LIST_NAME = "effective_tld_names.dat.txt";
+
+    static String getParentDomain(Context context, String host) {
         if (host == null)
             return null;
 
-        String[] h = host.split("\\.");
-        if (h.length >= 2)
-            return h[h.length - 2] + "." + h[h.length - 1];
+        ensureSuffixList(context);
 
-        return host;
+        String h = host;
+        while (true) {
+            int dot = h.indexOf('.');
+            if (dot < 0)
+                return host;
+            String prefix = h.substring(0, dot);
+            h = h.substring(dot + 1);
+
+            int d = h.indexOf('.');
+            String w = (d < 0 ? null : '*' + h.substring(d));
+
+            synchronized (suffixList) {
+                if ((suffixList.contains(h) || suffixList.contains(w)) &&
+                        !suffixList.contains('!' + h)) {
+                    String parent = prefix + "." + h;
+                    Log.i("Host=" + host + " parent=" + parent);
+                    return parent;
+                }
+            }
+        }
     }
 
     static String getEmailUser(String address) {
@@ -51,5 +82,29 @@ public class UriHelper {
             return address.substring(at + 1);
 
         return null;
+    }
+
+    static void ensureSuffixList(Context context) {
+        synchronized (suffixList) {
+            if (suffixList.size() > 0)
+                return;
+
+            Log.i("Reading " + SUFFIX_LIST_NAME);
+            try (InputStream is = context.getAssets().open(SUFFIX_LIST_NAME)) {
+                BufferedReader br = new BufferedReader(new InputStreamReader((is)));
+                String line;
+                while ((line = br.readLine()) != null) {
+                    line = line.trim();
+                    if (TextUtils.isEmpty(line))
+                        continue;
+                    if (line.startsWith("//"))
+                        continue;
+                    suffixList.add(line);
+                }
+                Log.i(SUFFIX_LIST_NAME + "=" + suffixList.size());
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
     }
 }
