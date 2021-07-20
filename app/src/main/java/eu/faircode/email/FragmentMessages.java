@@ -337,7 +337,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Long prev = null;
     private Long next = null;
     private Long closeId = null;
-    private boolean closeForward;
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
 
@@ -4958,7 +4957,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if ((next ? "next" : "previous").equals(onclose))
                         if (!exists || id != null) {
                             closeId = id;
-                            closeForward = next;
                             if (!once) {
                                 once = true;
                                 loadMessagesNext(top);
@@ -5483,7 +5481,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean reversed = prefs.getBoolean("reversed", false);
-                navigate(closeId, "previous".equals(onclose) ^ reversed, closeForward);
+                navigate(closeId, "previous".equals(onclose) ^ reversed, null);
             }
         }
     }
@@ -5527,7 +5525,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
-    private void navigate(long id, final boolean left, final boolean forward) {
+    private void navigate(long id, final boolean left, final Boolean forward) {
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
         if (navigating)
@@ -5569,7 +5567,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 nargs.putString("thread", message.thread);
                 nargs.putLong("id", message.id);
                 if (lpos != NO_POSITION)
-                    nargs.putInt("lpos", forward ^ reversed ? lpos - 1 : lpos + 1);
+                    if (forward == null)
+                        nargs.putInt("lpos", lpos);
+                    else
+                        nargs.putInt("lpos", forward ^ reversed ? lpos + 1 : lpos - 1);
                 nargs.putBoolean("found", found);
                 nargs.putBoolean("pane", pane);
                 nargs.putLong("primary", primary);
