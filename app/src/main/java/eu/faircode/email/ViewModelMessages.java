@@ -265,49 +265,55 @@ public class ViewModelMessages extends ViewModel {
         Log.i("Observe previous/next id=" + id);
         //model.list.getValue().loadAround(lpos);
         model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
-            private boolean fallback = false;
+            private final Pair<Long, Integer>[] lastState = new Pair[3];
 
             @Override
             public void onChanged(PagedList<TupleMessageEx> messages) {
-                Log.d("Observe previous/next id=" + id + " messages=" + messages.size());
+                Log.i("Observe previous/next id=" + id +
+                        " lpos=" + lpos +
+                        " messages=" + messages.size());
 
+                Pair<Long, Integer>[] curState = new Pair[3];
                 for (int pos = 0; pos < messages.size(); pos++) {
                     TupleMessageEx item = messages.get(pos);
                     if (item != null && id == item.id) {
-                        fallback = true;
+                        curState[1] = new Pair<>(id, pos);
                         Log.i("Observe previous/next found id=" + id + " pos=" + pos);
 
                         if (pos - 1 >= 0) {
                             TupleMessageEx next = messages.get(pos - 1);
-                            if (next == null)
-                                fallback = false;
-                            Log.i("Observe previous/next found id=" + id + " next=" + (next == null ? null : next.id));
-                            intf.onNext(true, next == null ? null : next.id);
-                        } else
-                            intf.onNext(false, null);
+                            curState[0] = new Pair<>(next == null ? null : next.id, pos - 1);
+                        }
 
                         if (pos + 1 < messages.size()) {
                             TupleMessageEx prev = messages.get(pos + 1);
-                            if (prev == null)
-                                fallback = false;
-                            Log.i("Observe previous/next found id=" + id + " prev=" + (prev == null ? null : prev.id));
-                            intf.onPrevious(true, prev == null ? null : prev.id);
-                        } else
-                            intf.onPrevious(false, null);
+                            curState[2] = new Pair<>(prev == null ? null : prev.id, pos + 1);
+                        }
 
-                        intf.onFound(pos, messages.size());
-
-                        if (fallback)
-                            return;
+                        break;
                     }
                 }
 
-                Log.w("Observe previous/next gone id=" + id + " fallback=" + fallback);
-
-                if (fallback)
+                if (Objects.equals(lastState[0], curState[0]) &&
+                        Objects.equals(lastState[1], curState[1]) &&
+                        Objects.equals(lastState[2], curState[2])) {
+                    Log.i("Observe previous/next unchanged");
                     return;
+                }
 
-                fallback = true;
+                lastState[0] = curState[0];
+                lastState[1] = curState[1];
+                lastState[2] = curState[2];
+
+                if (curState[1] != null)
+                    intf.onFound(curState[1].second, messages.size());
+                intf.onPrevious(curState[0] != null, curState[0] == null ? null : curState[0].first);
+                intf.onNext(curState[2] != null, curState[2] == null ? null : curState[2].first);
+
+                if (curState[1] != null &&
+                        (curState[0] == null || curState[0].first != null) &&
+                        (curState[2] == null || curState[2].first != null))
+                    return;
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
