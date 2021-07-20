@@ -266,6 +266,7 @@
     <string name="title_advanced_check_reply_domain">Comprobar direcciones de respuesta al sincronizar mensajes</string>
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
     <string name="title_advanced_check_blocklist">Comprobar si el nombre de dominio del remitente está en una lista de bloqueo de spam</string>
+    <string name="title_advanced_use_blocklist">Mover mensajes de dominios en lista de bloqueo a la carpeta de spam</string>
     <string name="title_advanced_tune_keep_alive">Ajustar automáticamente el intervalo de keep-alive</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
     <string name="title_advanced_keyboard_no_fullscreen">Evitar teclado de pantalla completa</string>
@@ -309,6 +310,7 @@
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
+    <string name="title_advanced_caption_checks">Comprobaciones</string>
     <string name="title_advanced_caption_list">Lista</string>
     <string name="title_advanced_caption_conversation">Conversación</string>
     <string name="title_advanced_caption_message">Mensaje</string>
@@ -382,6 +384,12 @@
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
     <string name="title_advanced_parse_classes">Analizar hojas de estilo</string>
+    <string name="title_advanced_authentication">Mostrar advertencias de autenticación</string>
+    <string name="title_advanced_authentication_hint">Las comprobaciones subyacentes se pueden configurar en la configuración de recepción</string>
+    <string name="title_advanced_authentication_indicator">Mostrar indicador de estado de autenticación</string>
+    <string name="title_advanced_authentication_none">Sin autenticación</string>
+    <string name="title_advanced_authentication_some">Autenticación parcial</string>
+    <string name="title_advanced_authentication_all">Autenticación completa</string>
     <string name="title_advanced_sync_on_launch">Sincronizar al inicio</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_conversation_actions">Sugerir acciones (Android 10+)</string>

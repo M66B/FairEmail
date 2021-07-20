@@ -87,7 +87,7 @@
 
 <h2><a name="planned-features"></a>Запланированные возможности</h2>
 
-* ~~Синхронизировать по требованию (вручную)~~
+* ~~Синхронизирование по требованию (вручную)~~
 * ~~Полуавтоматическое шифрование~~
 * ~~Копировать сообщение~~
 * ~~Цветные звезды~~
@@ -811,7 +811,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <br />
 
 <a name="faq16"></a>
-**(16) Why are messages not being synchronized?**
+**(16) Почему сообщения не синхронизируются?**
 
 Possible causes of messages not being synchronized (sent or received) are:
 
@@ -1073,11 +1073,11 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 <br />
 
 <a name="faq26"></a>
-**(26) Can I help to translate FairEmail in my own language?**
+**(26) Могу ли я помочь перевести FairEmail на мой родной язык?**
 
-Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email). Registration is free.
+Да, вы можете перевести тексты FairEmail на свой собственный язык [на Crowdin](https://crowdin.com/project/open-source-email). Регистрация бесплатна.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+Если вы хотите, чтобы ваше имя или псевдоним были включены в список авторов в *О* приложении, пожалуйста, [свяжитесь со мной](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
 
@@ -2861,13 +2861,13 @@ If you've enabled *security defaults* in your organization, you might need to en
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Как мне создать учетную запись Free.fr?**
 
-Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+Инструкции доступны [здесь](https://free.fr/assistance/597.html).
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**По умолчанию протокол SMTP не активирован**, инструкции по активированию [смотрите здесь](https://free.fr/assistance/2406.html).
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Подробное руководство [смотрите здесь](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr).
 
 <br />
 
@@ -2995,11 +2995,11 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) Поддерживается ли Android Auto?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Да, Android Auto поддерживается, но только в версии приложения на GitHub. Почему так - [смотрите здесь](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249).
 
-For notification (messaging) support you'll need to enable the following notification options:
+Для поддержки уведомлений (сообщения) вам нужно включить следующие опции уведомления:
 
 * *Use Android 'messaging style' notification format*
 * Notification actions: *Direct reply* and (mark as) *Read*
