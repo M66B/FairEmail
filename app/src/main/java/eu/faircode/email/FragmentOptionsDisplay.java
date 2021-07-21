@@ -87,6 +87,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAvatars;
     private ImageButton ibBimi;
     private TextView tvBimiHint;
+    private TextView tvBimiUnverified;
     private SwitchCompat swBimi;
     private SwitchCompat swGravatars;
     private TextView tvGravatarsHint;
@@ -206,6 +207,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAvatars = view.findViewById(R.id.swAvatars);
         swBimi = view.findViewById(R.id.swBimi);
         tvBimiHint = view.findViewById(R.id.tvBimiHint);
+        tvBimiUnverified = view.findViewById(R.id.tvBimiUnverified);
         ibBimi = view.findViewById(R.id.ibBimi);
         swGravatars = view.findViewById(R.id.swGravatars);
         tvGravatarsHint = view.findViewById(R.id.tvGravatarsHint);
@@ -948,6 +950,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
         grpGravatars.setVisibility(ContactInfo.canGravatars() ? View.VISIBLE : View.GONE);
+        tvBimiUnverified.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

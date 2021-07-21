@@ -1570,10 +1570,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibVerified.setContentDescription(context.getString(main.isVerified()
                             ? R.string.title_advanced_bimi_verified
                             : R.string.title_advanced_bimi_unverified));
-                    ibVerified.setVisibility(View.VISIBLE);
+                    if (main.isVerified() || BuildConfig.DEBUG) {
+                        ibVerified.setVisibility(View.VISIBLE);
 
-                    if (authentication_indicator)
-                        ibAuth.setVisibility(View.GONE);
+                        if (authentication_indicator)
+                            ibAuth.setVisibility(View.GONE);
+                    }
                 }
             }
 
