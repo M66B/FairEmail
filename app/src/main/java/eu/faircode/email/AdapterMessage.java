@@ -3534,9 +3534,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (message.from != null && message.from.length > 0) {
-                sb.insert(0, '\n');
-                sb.insert(0, MessageHelper.formatAddresses(
-                        message.from, MessageHelper.AddressFormat.EMAIL_ONLY, false));
+                String email = ((InternetAddress) message.from[0]).getAddress();
+                String domain = UriHelper.getEmailDomain(email);
+                if (!TextUtils.isEmpty(domain))
+                    sb.insert(0, '\n').insert(0, domain);
             }
 
             ToastEx.makeText(context, sb.toString(), Toast.LENGTH_LONG).show();
