@@ -1046,7 +1046,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setImageLevel(0);
                 ibAuth.setImageTintList(ColorStateList.valueOf(colorWarning));
                 ibAuth.setVisibility(View.VISIBLE);
-            } else if (authentication_indicator) {
+            } else if (authentication_indicator &&
+                    !EntityFolder.DRAFTS.equals(message.folderType) &&
+                    !EntityFolder.OUTBOX.equals(message.folderType)) {
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         auths < 3 ? colorSeparator : colorControlNormal));
