@@ -282,12 +282,12 @@ public class ViewModelMessages extends ViewModel {
 
                         if (pos - 1 >= 0) {
                             TupleMessageEx next = messages.get(pos - 1);
-                            curState[0] = new Pair<>(next == null ? null : next.id, pos - 1);
+                            curState[2] = new Pair<>(next == null ? null : next.id, pos - 1);
                         }
 
                         if (pos + 1 < messages.size()) {
                             TupleMessageEx prev = messages.get(pos + 1);
-                            curState[2] = new Pair<>(prev == null ? null : prev.id, pos + 1);
+                            curState[0] = new Pair<>(prev == null ? null : prev.id, pos + 1);
                         }
 
                         break;
