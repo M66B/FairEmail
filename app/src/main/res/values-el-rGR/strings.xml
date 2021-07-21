@@ -647,7 +647,8 @@
     <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον εξυπηρετητή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
-    <string name="title_keep_alive_interval">Μεσοδιάστημα διατήρησης της σύνδεσης (λεπτά)</string>
+    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Χρονικό διάστημα μεταξύ συγχρονισμών (λεπτά)</string>
+    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Μεσοδιάστημα διατήρησης ενεργούς σύνδεσης (λεπτά)</string>
     <string name="title_server_time">Χρήση της ώρας λήψης (διακομιστής)</string>
     <string name="title_received_header">Χρήση της κεφαλίδας \"Λήφθηκε\"</string>
     <string name="title_date_header">Χρήση κεφαλίδας \"Ημερομηνία\" (ώρα αποστολής)</string>

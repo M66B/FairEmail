@@ -658,7 +658,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_leave_deleted">Ponechať vymazané správy na servery</string>
     <string name="title_leave_on_device">Ponechať správy v zariadení</string>
     <string name="title_max_messages">Maximálny počet správ na prevzatie (nechajte prázdne pre všetky)</string>
-    <string name="title_keep_alive_interval">Interval udržania spojenia (minúty)</string>
     <string name="title_server_time">Použiť čas prijatia (server)</string>
     <string name="title_received_header">Použiť hlavičku \'Received\'</string>
     <string name="title_date_header">Použiť hlavičku \'Date\' (čas odoslania)</string>

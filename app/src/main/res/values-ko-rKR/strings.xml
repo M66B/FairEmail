@@ -293,6 +293,8 @@
     <string name="title_password">비밀번호</string>
     <string name="title_realm">NTML 인증 도메인</string>
     <string name="title_primary">최상</string>
+    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">여론조사 시간 (분)</string>
+    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">유지 간격 (분)</string>
     <string name="title_check">확인</string>
     <string name="title_no_name">이름 없음</string>
     <string name="title_no_account">계정 누락</string>

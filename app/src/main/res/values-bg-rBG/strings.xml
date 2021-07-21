@@ -475,7 +475,6 @@
     <string name="title_leave_deleted">Оставете изтритите съобщения на сървъра</string>
     <string name="title_leave_on_device">Запази съобщенията на устройството</string>
     <string name="title_max_messages">Максимален брой съобщения за изтегляне (празно за всички)</string>
-    <string name="title_keep_alive_interval">Активен/poll интервал (минути)</string>
     <string name="title_check">Проверка</string>
     <string name="title_trust">Доверете се на сървърния сертификат с пръстов отпечатък %1$s</string>
     <string name="title_no_name">Липсва име</string>

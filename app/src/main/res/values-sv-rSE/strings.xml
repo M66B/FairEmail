@@ -600,7 +600,7 @@
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
-    <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
+    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Avsökningsintervall (minuter)</string>
     <string name="title_server_time">Använd mottagen tid (server)</string>
     <string name="title_received_header">Använd \'Mottagen\' i header</string>
     <string name="title_date_header">Använd \'Datum\' i header (skickad tid)</string>

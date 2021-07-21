@@ -600,7 +600,6 @@
     <string name="title_leave_deleted">Tinggalkan pesan yang dihapus di server</string>
     <string name="title_leave_on_device">Tinggalkan pesan di perangkat</string>
     <string name="title_max_messages">Jumlah maksimum pesan untuk diunduh (kosong untuk semua)</string>
-    <string name="title_keep_alive_interval">Selalu aktifkan / interval polling (menit)</string>
     <string name="title_server_time">Gunakan tanggal diterima (server)</string>
     <string name="title_received_header">Gunakan header \'Received\'</string>
     <string name="title_date_header">Gunakan header \'Date\' (waktu pengiriman)</string>

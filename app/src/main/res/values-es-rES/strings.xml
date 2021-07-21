@@ -649,7 +649,7 @@
     <string name="title_leave_deleted">Dejar mensajes borrados en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
     <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
-    <string name="title_keep_alive_interval">Intervalo de comprobación (minutos)</string>
+    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Intervalo de espera (minutos)</string>
     <string name="title_server_time">Usar hora de recepción (servidor)</string>
     <string name="title_received_header">Usar encabezado \'Received\'</string>
     <string name="title_date_header">Usar encabezado \'Date\' (fecha de envío)</string>

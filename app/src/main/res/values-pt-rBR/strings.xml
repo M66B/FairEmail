@@ -631,7 +631,6 @@
     <string name="title_leave_deleted">Deixar as mensagens apagadas no servidor</string>
     <string name="title_leave_on_device">Deixar mensagens no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens para baixar (em branco para todas)</string>
-    <string name="title_keep_alive_interval">Intervalo de manutenção da conexão (minutos)</string>
     <string name="title_server_time">Usar horário de recebimento (servidor)</string>
     <string name="title_received_header">Usar cabeçalho de \'recebimento\'</string>
     <string name="title_date_header">Usar cabeçalho de \'Data\' (horário de envio)</string>

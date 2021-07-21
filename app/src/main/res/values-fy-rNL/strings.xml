@@ -616,7 +616,6 @@
     <string name="title_leave_deleted">Wiskje berjochten op de server litte</string>
     <string name="title_leave_on_device">Berjochten litte op apparaat</string>
     <string name="title_max_messages">Maksimum oantal te downloaden berjochten (leech foar allegear)</string>
-    <string name="title_keep_alive_interval">Ynhâld hâlde/poll ynterval (minuten)</string>
     <string name="title_server_time">Untfongen tiid brûke (server)</string>
     <string name="title_received_header">Brûk \'Untfongen\' koptekst</string>
     <string name="title_date_header">Brûk \'Datum\' koptekst (ferstjoerde tiid)</string>

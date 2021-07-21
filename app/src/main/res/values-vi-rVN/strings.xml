@@ -169,6 +169,7 @@
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_doze_device">Điều này có thể là bắt buộc đối với thiết bị này</string>
     <string name="title_setup_doze_android">Điều này là bắt buộc đối với phiên bản Android này</string>
+    <string name="title_setup_inexact">Các báo thức &amp; lời nhắc đang tắt</string>
     <string name="title_setup_background">Hạn chế trong nền đang bật</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>
     <string name="title_setup_advanced_options">Hiện tùy chọn nâng cao</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_check_reply_domain">Kiểm tra địa chỉ trả lời khi đồng bộ hoá thư</string>
     <string name="title_advanced_check_mx">Kiểm tra địa chỉ email người gửi khi đồng bộ thư</string>
     <string name="title_advanced_check_blocklist">Kiểm tra xem tên miền của người gửi có ở trong một danh sách chặn thư rác không</string>
+    <string name="title_advanced_use_blocklist">Di chuyển các thư từ các miền trong một danh sách chặn vào thư mục thư rác</string>
     <string name="title_advanced_tune_keep_alive">Tự động điều chỉnh khoảng thời gian giữa mỗi lần giữ cho ứng dụng hoạt động</string>
     <string name="title_advanced_keyboard">Hiện bàn phím theo mặc định</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ngăn chặn bàn phím toàn màn hình</string>
@@ -298,6 +300,7 @@
     <string name="title_advanced_ssl_harden">Tăng bảo mật cho các kết nối SSL</string>
     <string name="title_advanced_manage_connectivity">Quản lý sự kết nối</string>
     <string name="title_advanced_caption_general">Cài đặt chung</string>
+    <string name="title_advanced_caption_checks">Kiểm tra</string>
     <string name="title_advanced_caption_list">Danh sách</string>
     <string name="title_advanced_caption_conversation">Hội thoại</string>
     <string name="title_advanced_caption_message">Thư</string>
@@ -321,6 +324,8 @@
     <string name="title_advanced_color_stripe">Hiện dải màu</string>
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_gravatars">Hiện Gravatar</string>
+    <string name="title_advanced_bimi_unverified">Người gửi chưa được xác minh</string>
+    <string name="title_advanced_bimi_verified">Người gửi đã được xác minh</string>
     <string name="title_advanced_favicons">Hiện biểu tượng yêu thích</string>
     <string name="title_advanced_generated_icons">Hiện biểu tượng được tự động tạo</string>
     <string name="title_advanced_identicons">Hiện biểu tượng danh tính</string>
@@ -369,6 +374,12 @@
     <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
     <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
     <string name="title_advanced_parse_classes">Xử lý các trang phong cách</string>
+    <string name="title_advanced_authentication">Hiện cảnh báo xác thực</string>
+    <string name="title_advanced_authentication_hint">Các lần kiểm tra đằng sau đó có thể được thiết lập trong cài đặt nhận</string>
+    <string name="title_advanced_authentication_indicator">Hiện dấu chỉ trạng thái xác thực</string>
+    <string name="title_advanced_authentication_none">Không có xác thực</string>
+    <string name="title_advanced_authentication_some">Xác thực một phần</string>
+    <string name="title_advanced_authentication_all">Xác thực hoàn thiện</string>
     <string name="title_advanced_sync_on_launch">Đồng bộ hóa khi mở</string>
     <string name="title_advanced_double_back">\'Quay lại\' hai lần để thoát</string>
     <string name="title_advanced_conversation_actions">Đề xuất các hành động (Android 10+)</string>
@@ -627,7 +638,8 @@
     <string name="title_leave_deleted">Để lại thư đã xoá trên máy chủ</string>
     <string name="title_leave_on_device">Để lại thư trên thiết bị</string>
     <string name="title_max_messages">Số lượng lớn nhất các thư sẽ tải xuống (để trống để chọn tất cả)</string>
-    <string name="title_keep_alive_interval">Khoảng thời gian giữa hai lần giữ cho ứng dụng hoạt động (phút)</string>
+    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Khoảng thời gian kiểm tra (phút)</string>
+    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Khoảng thời gian giữa hai lần giữ cho ứng dụng hoạt động (phút)</string>
     <string name="title_server_time">Sử dụng thời gian đã nhận (máy chủ)</string>
     <string name="title_received_header">Sử dụng tiêu đề \'Received\'</string>
     <string name="title_date_header">Sử dụng tiêu đề \'Date\' (thời gian gửi)</string>

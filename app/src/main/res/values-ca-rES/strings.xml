@@ -490,7 +490,6 @@ La creació i l\'ús de regles és una característica professional.    </string
     <string name="title_leave_deleted">Deixa els missatges eliminats al servidor</string>
     <string name="title_leave_on_device">Deixa els missatges al dispositiu</string>
     <string name="title_max_messages">Nombre màxim de missatges a descarregar (en blanc per a tots)</string>
-    <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>
     <string name="title_check">Comprovar</string>
     <string name="title_trust">Confia en el certificat del servidor amb empremta digital %1$s</string>
     <string name="title_no_name">Falta nom</string>

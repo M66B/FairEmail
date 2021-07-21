@@ -636,7 +636,6 @@
     <string name="title_leave_deleted">Jätä poistetut viestit palvelimelle</string>
     <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
     <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
-    <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
     <string name="title_server_time">Käytä vastaanottoaikaa (palvelin)</string>
     <string name="title_received_header">Käytä \'Received\'-tunnistetta</string>
     <string name="title_date_header">Käytä \'Date\'-tunnistetta (lähetysaika)</string>

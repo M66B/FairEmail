@@ -606,7 +606,6 @@
     <string name="title_leave_deleted">Deixar as mensaxes borradas no servidor</string>
     <string name="title_leave_on_device">Deixar as mensaxes no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensaxes para baixar (baleiro son todas)</string>
-    <string name="title_keep_alive_interval">Intervalo de manter conexión/comprobación (minutos)</string>
     <string name="title_server_time">Usar a data de recepción (servidor)</string>
     <string name="title_received_header">Usar a cabeceira de \'Recibido\'</string>
     <string name="title_date_header">Usar a cabeceira de \'Data\' (data de envío)</string>

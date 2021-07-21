@@ -467,7 +467,6 @@
     <string name="title_leave_deleted">Utzi ezabatutako mezuak zerbitzarian</string>
     <string name="title_leave_on_device">Utzi mezuak gailuan</string>
     <string name="title_max_messages">Deskargatzeko gehienezko mezuen kopurua (guztientzako hutsik)</string>
-    <string name="title_keep_alive_interval">Mantendu-bizirik/eskaera tartea (minutuak)</string>
     <string name="title_received_header">Erabili \'Jasota\' goiburua</string>
     <string name="title_date_header">Erabili \'Data\' goiburua (Bidaltze unea)</string>
     <string name="title_date_remark">Aldaketak mezu berriei aplikatuko zaizkie soilik</string>

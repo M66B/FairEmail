@@ -281,7 +281,6 @@
     <string name="title_password">الكلمة السرية</string>
     <string name="title_primary_account">الرئيسي (الحساب الافتراضي)</string>
     <string name="title_primary_identity">الرئيسية (الهوية الافتراضية)</string>
-    <string name="title_keep_alive_interval">تبقى على قيد الحياة/استطلاع الفاصل الزمني (بالدقائق)</string>
     <string name="title_check">تحقق</string>
     <string name="title_no_name">الاسم مفقود</string>
     <string name="title_no_email">عنوان البريد الإلكتروني مفقود</string>

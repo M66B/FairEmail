@@ -537,7 +537,6 @@
     <string name="title_leave_deleted">Legg igjen slettede meldinger på serveren</string>
     <string name="title_leave_on_device">Legg igjen meldinger på enheten</string>
     <string name="title_max_messages">Maksimalt antall meldinger du vil laste ned (tomt for alle)</string>
-    <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
     <string name="title_server_time">Brukt mottatt tid (tjener)</string>
     <string name="title_received_header">Bruk \'Mottatt\' overskrift</string>
     <string name="title_date_header">Bruk \'Dato\' overskrift (sendt tid)</string>

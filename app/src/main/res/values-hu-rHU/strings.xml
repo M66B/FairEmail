@@ -592,7 +592,6 @@
     <string name="title_leave_deleted">Törölt üzenetek a szerveren hagyás</string>
     <string name="title_leave_on_device">Üzenetek megőrzése a készüléken</string>
     <string name="title_max_messages">Letöltendő üzenetek maximális száma (összes ha üres)</string>
-    <string name="title_keep_alive_interval">Keep-alive/lekérdezési időköz (Perc)</string>
     <string name="title_server_time">Levélfogadás időpontja (a Kiszolgálón)</string>
     <string name="title_received_header">\'Received\' fejléc használata</string>
     <string name="title_date_header">\'Date\' fejléc használata (küldés időpontja)</string>
