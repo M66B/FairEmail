@@ -465,14 +465,17 @@ public class FastScrollerEx extends RecyclerView.ItemDecoration implements Recyc
             float percentage = (scrollbarLength == 0 ? 0 : y / (float) scrollbarLength);
             int pos = Math.round(count * percentage);
             scrollTo = pos;
-            mRecyclerView.removeCallbacks(scroll);
-            mRecyclerView.postDelayed(scroll, 100);
+            if (handler == null)
+                handler = new android.os.Handler(android.os.Looper.getMainLooper());
+            handler.removeCallbacks(scroll);
+            handler.postDelayed(scroll, 100);
         }
 
         mVerticalDragY = y;
     }
 
     private int scrollTo;
+    private android.os.Handler handler;
 
     private final Runnable scroll = new Runnable() {
         @Override
