@@ -1048,7 +1048,7 @@ public class FragmentFolders extends FragmentBase {
                             new SimpleTask<Void>() {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                    long account = args.getLong("account");
+                                    long aid = args.getLong("account");
                                     Boolean enable = null;
                                     if (args.containsKey("enable"))
                                         enable = args.getBoolean("enable");
@@ -1066,7 +1066,14 @@ public class FragmentFolders extends FragmentBase {
                                     try {
                                         db.beginTransaction();
 
-                                        List<EntityFolder> folders = db.folder().getFolders(account, false, true);
+                                        EntityAccount account = db.account().getAccount(aid);
+                                        if (account == null)
+                                            return null;
+
+                                        if (system && account.poll_interval > 15)
+                                            db.account().setAccountKeepAliveInterval(account.id, 15);
+
+                                        List<EntityFolder> folders = db.folder().getFolders(aid, false, true);
                                         if (folders == null)
                                             return null;
 
@@ -1095,7 +1102,7 @@ public class FragmentFolders extends FragmentBase {
                                         db.endTransaction();
                                     }
 
-                                    ServiceSynchronize.reload(context, account, false, "Apply");
+                                    ServiceSynchronize.reload(context, aid, false, "Apply");
 
                                     return null;
                                 }
