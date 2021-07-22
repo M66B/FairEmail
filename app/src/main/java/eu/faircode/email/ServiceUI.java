@@ -180,6 +180,10 @@ public class ServiceUI extends IntentService {
     }
 
     private void onClear(long group) {
+        // Group
+        // < 0: folder
+        // = 0: unified
+        // > 0: account
         DB db = DB.getInstance(this);
         int cleared;
         if (group < 0)
