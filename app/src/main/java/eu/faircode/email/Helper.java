@@ -778,6 +778,15 @@ public class Helper {
         return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
     }
 
+    static Uri getPrivacyUri(Context context) {
+        // https://translate.google.com/translate?sl=auto&tl=<language>&u=<url>
+        return Uri.parse(PRIVACY_URI)
+                .buildUpon()
+                .appendQueryParameter("language", Locale.getDefault().getLanguage())
+                .appendQueryParameter("tag", Locale.getDefault().toLanguageTag())
+                .build();
+    }
+
     static Uri getSupportUri(Context context) {
         return Uri.parse(SUPPORT_URI)
                 .buildUpon()

@@ -1332,7 +1332,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, Uri.parse(Helper.PRIVACY_URI), false);
+        Helper.view(this, Helper.getPrivacyUri(this), false);
     }
 
     private void onMenuAbout() {

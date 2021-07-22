@@ -522,7 +522,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, Uri.parse(Helper.PRIVACY_URI), false);
+        Helper.view(this, Helper.getPrivacyUri(this), false);
     }
 
     private void onMenuAbout() {

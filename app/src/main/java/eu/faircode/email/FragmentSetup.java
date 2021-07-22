@@ -167,7 +167,7 @@ public class FragmentSetup extends FragmentBase {
         tvPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.PRIVACY_URI), false);
+                Helper.view(v.getContext(), Helper.getPrivacyUri(v.getContext()), false);
             }
         });
 
