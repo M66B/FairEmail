@@ -66,6 +66,7 @@ import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
@@ -6824,8 +6825,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     ssb = ssb.replace(start, end, translation.translated_text);
                                     end = start + translation.translated_text.length();
 
-                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, end, 0);
-                                    ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, end, 0);
+                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                                    Locale source = Locale.forLanguageTag(translation.detected_language);
+                                    Locale target = Locale.forLanguageTag(args.getString("target"));
+
+                                    String lang = "[" + source.getDisplayLanguage(target) + "] ";
+                                    ssb.insert(start, lang);
+
+                                    ssb.setSpan(new StyleSpan(Typeface.ITALIC), start, start + lang.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, start + lang.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                                     tvText.setText(ssb);
                                 }
