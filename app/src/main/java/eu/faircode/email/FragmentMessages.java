@@ -6668,7 +6668,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 continue;
                             switch (key) {
                                 case "addr":
-                                    addr = value.toLowerCase(Locale.ROOT);
+                                    addr = value;
                                     break;
                                 case "prefer-encrypt":
                                     mutual = value.trim().toLowerCase(Locale.ROOT).equals("mutual");
