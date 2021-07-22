@@ -38,7 +38,7 @@ if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/B
 or [favicons](https://en.wikipedia.org/wiki/Favicon)
 are explicitly enabled (off by default).
 
-FairEmail **will** obvously access the configured email servers.
+FairEmail obvously **will access** the configured email servers.
 
 <br />
 
