@@ -353,6 +353,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id AND NOT (last_sync IS :last_sync)")
     int setFolderLastSync(long id, long last_sync);
 
+    @Query("UPDATE folder SET last_sync_count = :last_sync_count WHERE id = :id AND NOT (last_sync_count IS :last_sync_count)")
+    int setFolderLastSyncCount(long id, Integer last_sync_count);
+
     @Query("UPDATE folder SET read_only = :read_only WHERE id = :id AND NOT (read_only IS :read_only)")
     int setFolderReadOnly(long id, boolean read_only);
 
