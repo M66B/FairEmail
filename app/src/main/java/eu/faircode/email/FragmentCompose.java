@@ -1865,6 +1865,8 @@ public class FragmentCompose extends FragmentBase {
 
         args.putInt("focussed", focussed);
 
+        Helper.hideKeyboard(view);
+
         FragmentDialogContactGroup fragment = new FragmentDialogContactGroup();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_CONTACT_GROUP);
@@ -2094,10 +2096,13 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
         if (image_dialog) {
+            Helper.hideKeyboard(view);
+
             Bundle args = new Bundle();
             args.putInt("title", photo
                     ? R.string.title_attachment_photo
                     : R.string.title_add_image_select);
+
             FragmentDialogAddImage fragment = new FragmentDialogAddImage();
             fragment.setArguments(args);
             fragment.setTargetFragment(this, REQUEST_IMAGE);
@@ -3370,6 +3375,8 @@ public class FragmentCompose extends FragmentBase {
                                     public boolean onMenuItemClick(MenuItem item) {
                                         int itemId = item.getItemId();
                                         if (itemId == R.string.title_send_dialog) {
+                                            Helper.hideKeyboard(view);
+
                                             FragmentDialogSend fragment = new FragmentDialogSend();
                                             fragment.setArguments(args);
                                             fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
@@ -4816,6 +4823,8 @@ public class FragmentCompose extends FragmentBase {
                 ArrayList<Uri> images = args.getParcelableArrayList("images");
                 boolean image_dialog = prefs.getBoolean("image_dialog", true);
                 if (image_dialog) {
+                    Helper.hideKeyboard(view);
+
                     Bundle aargs = new Bundle();
                     aargs.putInt("title", android.R.string.ok);
                     aargs.putParcelableArrayList("images", images);
@@ -5602,6 +5611,8 @@ public class FragmentCompose extends FragmentBase {
                         (send_reminders &&
                                 (remind_extra || remind_subject || remind_text || remind_attachment))) {
                     setBusy(false);
+
+                    Helper.hideKeyboard(view);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
                     fragment.setArguments(args);
