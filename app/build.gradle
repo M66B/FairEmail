@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 
-def getVersionCode = { -> return 1658 }
+def getVersionCode = { -> return 1659 }
 def getReleaseName = { -> return "\"Ubirajara\"" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
