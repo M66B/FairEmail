@@ -19,8 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Objects;
+
 public class NavMenuItem {
     private int icon;
+    private Integer color;
     private int title;
     private String subtitle = null;
     private Integer count = null;
@@ -41,6 +44,11 @@ public class NavMenuItem {
         this.title = title;
         this.click = click;
         this.longClick = longClick;
+    }
+
+    NavMenuItem setColor(Integer color) {
+        this.color = color;
+        return this;
     }
 
     NavMenuItem setSubtitle(String subtitle) {
@@ -70,6 +78,10 @@ public class NavMenuItem {
 
     int getIcon() {
         return this.icon;
+    }
+
+    Integer getColor() {
+        return this.color;
     }
 
     int getTitle() {
@@ -113,5 +125,26 @@ public class NavMenuItem {
             Log.e(ex);
             return false;
         }
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof NavMenuItem) {
+            NavMenuItem other = (NavMenuItem) object;
+            return (this.icon == other.icon &&
+                    Objects.equals(this.color, other.color) &&
+                    this.title == other.title &&
+                    Objects.equals(this.subtitle, other.subtitle) &&
+                    Objects.equals(this.count, other.count) &&
+                    this.external == other.external &&
+                    this.warning == other.warning &&
+                    this.separated == other.separated);
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(icon, color, title, subtitle, count, external, warning, separated);
     }
 }

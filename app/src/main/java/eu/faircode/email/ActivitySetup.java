@@ -189,13 +189,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         final List<NavMenuItem> menus = new ArrayList<>();
 
+        int colorWarning = Helper.resolveColor(this, R.attr.colorWarning);
         menus.add(new NavMenuItem(R.drawable.twotone_close_24, R.string.title_setup_close, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer, false);
                 onBackPressed();
             }
-        }).setSeparated());
+        }).setColor(colorWarning).setSeparated());
 
         menus.add(new NavMenuItem(R.drawable.twotone_archive_24, R.string.title_setup_export, new Runnable() {
             @Override
