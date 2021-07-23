@@ -2041,7 +2041,25 @@ public class HtmlHelper {
     }
 
     static boolean hasBorder(Element e) {
-        return "true".equals(e.attr("x-border"));
+        if ("true".equals(e.attr("x-border")))
+            return true;
+
+        String style = e.attr("style");
+        String[] params = style.split(";");
+        for (String param : params) {
+            int colon = param.indexOf(':');
+            if (colon < 0)
+                continue;
+            String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+            String value = param.substring(colon + 1);
+            if ("border-left".equals(key) || "border-right".equals(key)) {
+                Float border = getFontSize(value.trim().split("\\s+")[0], 1.0f);
+                if (border != null && border > 0)
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     static void collapseQuotes(Document document) {
