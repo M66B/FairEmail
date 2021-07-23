@@ -185,6 +185,7 @@
     <string name="title_setup_export_remark">        因设置文件包含所有的设置和帐户信息，它受到密码加密保护。
         导入该设置将需要密码，所以请不要忘记！
     </string>
+    <string name="title_setup_export_do">导出文件将包含所有设置和数据，但不包含消息</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_check_reply_domain">同步消息时检查回复地址</string>
     <string name="title_advanced_check_mx">同步消息时检查发件人电子邮件地址</string>
     <string name="title_advanced_check_blocklist">检查发送者的域名是否在垃圾邮件拦截列表中</string>
+    <string name="title_advanced_use_blocklist">将发送自拦截列表上域名的消息移至垃圾箱</string>
     <string name="title_advanced_tune_keep_alive">自动调谐保活的时间间隔</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
@@ -298,6 +300,7 @@
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
+    <string name="title_advanced_caption_checks">检查</string>
     <string name="title_advanced_caption_list">列表</string>
     <string name="title_advanced_caption_conversation">会话</string>
     <string name="title_advanced_caption_message">消息</string>
@@ -321,6 +324,8 @@
     <string name="title_advanced_color_stripe">头像前显示一条色带</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
+    <string name="title_advanced_bimi_unverified">未验证的发送者</string>
+    <string name="title_advanced_bimi_verified">已验证的发送者</string>
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -369,6 +374,12 @@
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_parse_classes">解析样式表</string>
+    <string name="title_advanced_authentication">显示身份验证警告</string>
+    <string name="title_advanced_authentication_hint">可以在接收设置中配置底层检查</string>
+    <string name="title_advanced_authentication_indicator">显示身份认证状态指示器</string>
+    <string name="title_advanced_authentication_none">无身份验证</string>
+    <string name="title_advanced_authentication_some">部分身份验证</string>
+    <string name="title_advanced_authentication_all">完成身份验证</string>
     <string name="title_advanced_sync_on_launch">应用启动时同步</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
@@ -628,7 +639,8 @@
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
     <string name="title_leave_on_device">把消息留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">间隔（分钟）</string>
+    <string name="title_keep_poll_interval">轮询间隔(分钟)</string>
+    <string name="title_keep_alive_interval">间隔（分钟）</string>
     <string name="title_server_time">使用接收时间 (服务器)</string>
     <string name="title_received_header">使用“已接收”标头</string>
     <string name="title_date_header">使用“日期”标头 (发送时间)</string>

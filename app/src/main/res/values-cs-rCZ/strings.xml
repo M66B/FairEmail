@@ -404,6 +404,9 @@
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
     <string name="title_advanced_authentication_indicator">Zobrazit indikátor stavu ověření</string>
+    <string name="title_advanced_authentication_none">Žádné ověření</string>
+    <string name="title_advanced_authentication_some">Částečné ověření</string>
+    <string name="title_advanced_authentication_all">Kompletní ověření</string>
     <string name="title_advanced_sync_on_launch">Synchronizovat při spuštění</string>
     <string name="title_advanced_double_back">Dvakrát „zpět“ pro ukončení</string>
     <string name="title_advanced_conversation_actions">Navrhovat akce (Android 10+)</string>
@@ -662,6 +665,8 @@
     <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
+    <string name="title_keep_poll_interval">Interval dotazování (minuty)</string>
+    <string name="title_keep_alive_interval">Interval udržování spojení (minuty)</string>
     <string name="title_server_time">Použít čas přijetí (server)</string>
     <string name="title_received_header">Použít hlavičku „přijato“</string>
     <string name="title_date_header">Použít hlavičku „datum“ (čas odeslání)</string>

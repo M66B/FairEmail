@@ -196,6 +196,7 @@
     <string name="title_setup_export_remark">        Dado que el archivo de configuración contiene toda la configuración y la información de la cuenta, se cifra con una contraseña.
         La contraseña es necesaria para importar la configuración de nuevo, ¡así que por favor no la olvide!
     </string>
+    <string name="title_setup_export_do">El archivo de exportación contendrá todos los ajustes y datos, pero no contendrá mensajes</string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
@@ -649,7 +650,8 @@
     <string name="title_leave_deleted">Dejar mensajes borrados en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
     <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Intervalo de espera (minutos)</string>
+    <string name="title_keep_poll_interval">Intervalo de espera (minutos)</string>
+    <string name="title_keep_alive_interval">Intervalo de keep-alive (minutos)</string>
     <string name="title_server_time">Usar hora de recepción (servidor)</string>
     <string name="title_received_header">Usar encabezado \'Received\'</string>
     <string name="title_date_header">Usar encabezado \'Date\' (fecha de envío)</string>

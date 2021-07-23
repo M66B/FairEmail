@@ -186,6 +186,7 @@
     <string name="title_setup_export_remark">        Vì tệp cài đặt chứa tất cả cài đặt và thông tin tài khoản, nó được mã hóa bằng một mật khẩu.
         Mật khẩu đó là bắt buộc để nhập lại cài đặt, nên vui lòng đừng quên nó!
     </string>
+    <string name="title_setup_export_do">Tệp xuất sẽ chứa tất cả cài đặt và dữ liệu, nhưng sẽ không chứa các thư</string>
     <string name="title_setup_import_do">Các tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
     <string name="title_setup_password">Mật khẩu</string>
     <string name="title_setup_password_chars">Mật khẩu chứa ký tự điều khiển hoặc không gian trắng</string>
@@ -638,8 +639,8 @@
     <string name="title_leave_deleted">Để lại thư đã xoá trên máy chủ</string>
     <string name="title_leave_on_device">Để lại thư trên thiết bị</string>
     <string name="title_max_messages">Số lượng lớn nhất các thư sẽ tải xuống (để trống để chọn tất cả)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Khoảng thời gian kiểm tra (phút)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Khoảng thời gian giữa hai lần giữ cho ứng dụng hoạt động (phút)</string>
+    <string name="title_keep_poll_interval">Khoảng thời gian kiểm tra (phút)</string>
+    <string name="title_keep_alive_interval">Khoảng thời gian giữa hai lần giữ cho ứng dụng hoạt động (phút)</string>
     <string name="title_server_time">Sử dụng thời gian đã nhận (máy chủ)</string>
     <string name="title_received_header">Sử dụng tiêu đề \'Received\'</string>
     <string name="title_date_header">Sử dụng tiêu đề \'Date\' (thời gian gửi)</string>

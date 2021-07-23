@@ -196,6 +196,7 @@
     <string name="title_setup_export_remark">        Δεδομένου ότι το αρχείο ρυθμίσεων περιέχει όλες τις ρυθμίσεις και πληροφορίες λογαριασμού, είναι κρυπτογραφημένο με κωδικό πρόσβασης.
         Ο κωδικός πρόσβασης απαιτείται για να εισαγάγετε ξανά τις ρυθμίσεις, οπότε, παρακαλούμε, μην τον ξεχάσετε!
     </string>
+    <string name="title_setup_export_do">Το αρχείο εξαγωγής θα περιέχει όλες τις ρυθμίσεις και τα δεδομένα, αλλά δεν θα περιλαμβάνει μηνύματα</string>
     <string name="title_setup_import_do">Οι εισαγόμενοι λογαριασμοί θα προστεθούν χωρίς να αντικατασταθεί κάποιος από τους ήδη υπάρχοντες</string>
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
     <string name="title_setup_password_chars">Ο κωδικός πρόσβασης περιέχει χαρακτήρες ελέγχου ή διαστήματα</string>
@@ -647,8 +648,8 @@
     <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον εξυπηρετητή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Χρονικό διάστημα μεταξύ συγχρονισμών (λεπτά)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Μεσοδιάστημα διατήρησης ενεργούς σύνδεσης (λεπτά)</string>
+    <string name="title_keep_poll_interval">Χρονικό διάστημα μεταξύ συγχρονισμών (λεπτά)</string>
+    <string name="title_keep_alive_interval">Μεσοδιάστημα διατήρησης ενεργούς σύνδεσης (λεπτά)</string>
     <string name="title_server_time">Χρήση της ώρας λήψης (διακομιστής)</string>
     <string name="title_received_header">Χρήση της κεφαλίδας \"Λήφθηκε\"</string>
     <string name="title_date_header">Χρήση κεφαλίδας \"Ημερομηνία\" (ώρα αποστολής)</string>

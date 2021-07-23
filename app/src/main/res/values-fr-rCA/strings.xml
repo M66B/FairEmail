@@ -196,6 +196,7 @@
     <string name="title_setup_export_remark">        Comme le fichier de paramètres contient tous les réglages et les informations des comptes, il est chiffré avec un mot de passe.
         Le mot de passe est requis pour importer les paramètres à nouveau donc s\'il vous plaît, ne l\'oubliez pas !
     </string>
+    <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais il ne contiendra pas de messages</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
     <string name="title_setup_password">Mot de passe</string>
     <string name="title_setup_password_chars">Le mot de passe contient des caractères de contrôle ou des espaces</string>
@@ -649,8 +650,8 @@
     <string name="title_leave_deleted">Laisser les messages supprimés sur le serveur</string>
     <string name="title_leave_on_device">Laisser les messages sur l’appareil</string>
     <string name="title_max_messages">Nombre maximum de messages à télécharger (laisser vide pour tous)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Intervalle de synchronisation (minutes)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Intervalle de maintien de connexion (minutes)</string>
+    <string name="title_keep_poll_interval">Intervalle de synchronisation (minutes)</string>
+    <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
     <string name="title_server_time">Utiliser l\'heure de réception (serveur)</string>
     <string name="title_received_header">Utiliser l\'en-tête « Reçu »</string>
     <string name="title_date_header">Utiliser l\'en-tête « Date » (heure d\'envoi)</string>

@@ -196,6 +196,7 @@
     <string name="title_setup_export_remark">        Poiché il file delle impostazioni contiene tutte le impostazioni e informazioni del profilo, è crittografato con una password.
         La password è necessaria per importare di nuovo le impostazioni, sei quindi pregato di non dimenticarla!
     </string>
+    <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma non conterrà i messaggi</string>
     <string name="title_setup_import_do">I profili importati saranno aggiunti senza sovrascriverne alcuno esistente</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
@@ -649,8 +650,8 @@
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Intervallo di controllo (minuti)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Intervallo di mantenimento attivo (minuti)</string>
+    <string name="title_keep_poll_interval">Intervallo di controllo (minuti)</string>
+    <string name="title_keep_alive_interval">Intervallo di mantenimento attivo (minuti)</string>
     <string name="title_server_time">Usa orario di ricezione (server)</string>
     <string name="title_received_header">Usa intestazione \'Ricevuto\'</string>
     <string name="title_date_header">Usa intestazione \'Data\' (ora di invio)</string>

@@ -206,6 +206,7 @@
     <string name="title_setup_export_remark">        Deoarece fișierul de setări conține toate setările și informațiile despre cont, acesta este criptat cu o parolă.
         Parola este necesară pentru a importa din nou setările, așa că vă rugăm să nu o uitați!
     </string>
+    <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu va conține mesaje</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
@@ -659,8 +660,8 @@
     <string name="title_leave_deleted">Păstrează pe server mesajele șterse</string>
     <string name="title_leave_on_device">Păstrează mesajele pe dispozitiv</string>
     <string name="title_max_messages">Numărul maxim de mesaje de descărcat (liber pentru toate)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Interval verificare (minute)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Interval menținere conexiune (minute)</string>
+    <string name="title_keep_poll_interval">Interval verificare (minute)</string>
+    <string name="title_keep_alive_interval">Interval menținere conexiune (minute)</string>
     <string name="title_server_time">Utilizează ora primită (server)</string>
     <string name="title_received_header">Folosește antetul \"Primit\"</string>
     <string name="title_date_header">Folosește antetul \'Dată\' (ora trimisă)</string>

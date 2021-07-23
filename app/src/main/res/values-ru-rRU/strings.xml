@@ -216,6 +216,7 @@
     <string name="title_setup_export_remark">        Поскольку файл резервной копии содержит все настройки и информацию об учётной записи, он шифруется и защищается паролем.
         Пароль потребуется при импорте настроек, поэтому не забудьте его!
     </string>
+    <string name="title_setup_export_do">Экспортируемый файл будет содержать все настройки и данные, но в нём не будет сообщений</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль содержит управляющие символы или пробелы</string>
@@ -669,8 +670,8 @@
     <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Интервал опроса (мин.)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Интервал поддержания активности (мин.)</string>
+    <string name="title_keep_poll_interval">Интервал опроса (мин.)</string>
+    <string name="title_keep_alive_interval">Интервал поддержания активности (мин.)</string>
     <string name="title_server_time">Использовать время получения (сервер)</string>
     <string name="title_received_header">Использовать заголовок \"Received\"</string>
     <string name="title_date_header">Использовать заголовок \"Date\" (время отправки)</string>

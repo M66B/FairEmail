@@ -216,6 +216,7 @@
     <string name="title_setup_export_remark">        Оскільки файл налаштувань містить усі налаштування і інформацію про обліковий запис, він зашифрований паролем.
         Необхідно ввести пароль для повторного імпортування налаштувань, тому не забувайте про це!
     </string>
+    <string name="title_setup_export_do">Експортований файл буде містити всі налаштування і дані, але не буде містити повідомлень</string>
     <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
@@ -668,8 +669,8 @@
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
     <string name="title_leave_on_device">Залишати повідомлення на пристрої</string>
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
-    <string name="title_keep_poll_interval" comment="title_keep_poll_interval&#10;POP3 interval for checking for new messages">Інтервал опитування (хвилини)</string>
-    <string name="title_keep_alive_interval" comment="title_keep_alive_interval&#10;IMAP connection refresh interval">Інтервал підтримування каналу (хв.)</string>
+    <string name="title_keep_poll_interval">Інтервал опитування (хвилини)</string>
+    <string name="title_keep_alive_interval">Інтервал підтримування каналу (хв.)</string>
     <string name="title_server_time">Використовувати отриманий час (сервер)</string>
     <string name="title_received_header">Використовувати заголовок \'Received\'</string>
     <string name="title_date_header">Використовувати заголовок \'Date\' (час відправлення)</string>
