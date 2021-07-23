@@ -226,6 +226,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorUnread;
     private int colorRead;
     private int colorSubject;
+    private int colorVerified;
     private int colorEncrypt;
     private int colorSeparator;
     private int colorWarning;
@@ -1052,7 +1053,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !EntityFolder.OUTBOX.equals(message.folderType)) {
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
-                        auths < 3 ? colorSeparator : colorControlNormal));
+                        auths < 3 ? colorControlNormal : colorVerified));
                 ibAuth.setVisibility(View.VISIBLE);
             } else
                 ibAuth.setVisibility(View.GONE);
@@ -1569,7 +1570,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Boolean.TRUE.equals(message.dmarc)) {
                     ibVerified.setImageLevel(main.isVerified() ? 1 : 0);
                     ibVerified.setImageTintList(ColorStateList.valueOf(main.isVerified()
-                            ? colorAccent : colorSeparator));
+                            ? colorVerified : colorControlNormal));
                     ibVerified.setContentDescription(context.getString(main.isVerified()
                             ? R.string.title_advanced_bimi_verified
                             : R.string.title_advanced_bimi_unverified));
@@ -5632,6 +5633,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorRead = Helper.resolveColor(context, R.attr.colorRead);
         this.colorSubject = Helper.resolveColor(context, highlight_subject ? R.attr.colorUnreadHighlight : R.attr.colorRead);
+        this.colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
         this.colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         this.colorError = Helper.resolveColor(context, R.attr.colorError);

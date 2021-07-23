@@ -15,6 +15,9 @@
     <color name="colorHighlightLight">#7fffe000</color>
     <color name="colorHighlightDark">#7fffe000</color>
 
+    <color name="colorVerifiedLight">#ff00e000</color>
+    <color name="colorVerifiedDark">#ff00ff00</color>
+
     <color name="colorEncryptLight">#ff00ff00</color>
     <color name="colorEncryptDark">#ff00e000</color>
 
