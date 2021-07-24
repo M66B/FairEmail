@@ -186,6 +186,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.regex.Pattern;
 
@@ -2298,6 +2299,7 @@ public class FragmentCompose extends FragmentBase {
 
                     Bundle largs = new Bundle();
                     largs.putLong("id", working);
+                    largs.putString("session", UUID.randomUUID().toString());
                     largs.putInt("action", action);
                     largs.putBundle("extras", extras);
                     largs.putBoolean("interactive", interactive);
@@ -2710,6 +2712,7 @@ public class FragmentCompose extends FragmentBase {
                 Intent data = args.getParcelable("data");
                 Bundle largs = data.getBundleExtra(BuildConfig.APPLICATION_ID);
                 long id = largs.getLong("id", -1);
+                String session = largs.getString("session");
 
                 DB db = DB.getInstance(context);
 
@@ -2727,8 +2730,8 @@ public class FragmentCompose extends FragmentBase {
                 File tmp = new File(context.getFilesDir(), "encryption");
                 if (!tmp.exists())
                     tmp.mkdir();
-                File input = new File(tmp, draft.id + ".pgp_input");
-                File output = new File(tmp, draft.id + ".pgp_output");
+                File input = new File(tmp, draft.id + "_" + session + ".pgp_input");
+                File output = new File(tmp, draft.id + "_" + session + ".pgp_output");
 
                 // Serializing messages is NOT reproducible
                 if ((EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) &&
