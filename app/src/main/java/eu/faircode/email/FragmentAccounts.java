@@ -334,8 +334,10 @@ public class FragmentAccounts extends FragmentBase {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == REQUEST_IMPORT_OAUTH)
-            if (Helper.hasPermissions(getContext(), permissions))
+            if (Helper.hasPermissions(getContext(), permissions)) {
+                btnGrant.setVisibility(View.GONE);
                 ServiceSynchronize.reload(getContext(), null, false, "Permissions regranted");
+            }
     }
 
     private void onSwipeRefresh() {
