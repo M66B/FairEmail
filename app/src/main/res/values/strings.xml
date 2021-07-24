@@ -241,7 +241,10 @@
     </string>
     <string name="title_setup_export_do">The export file will contain all settings and data, but no messages and no images referenced in signatures</string>
     <string name="title_setup_import_do">Imported accounts will be added without overwriting any existing ones</string>
-    <string name="title_setup_import_gmail">Gmail accounts set up with the quick setup wizard will only be imported if the corresponding account is present on the device</string>
+    <string name="title_setup_import_gmail">
+        Since Android 8.0 Oreo, Gmail accounts can no longer be imported, as each account must be selected to grant access to the account.
+        You can easily reconfigure Gmail accounts with the quick setup wizard.
+    </string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">Password contains control or whitespace characters</string>
     <string name="title_setup_password_repeat">Repeat password</string>

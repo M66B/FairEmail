@@ -1330,6 +1330,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             TextView tvCaption = dview.findViewById(R.id.tvCaption);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             etPassword2 = dview.findViewById(R.id.tilPassword2);
+            TextView tvImportGmail = dview.findViewById(R.id.tvImportGmail);
             Group grpExport = dview.findViewById(R.id.grpExport);
             Group grpImport = dview.findViewById(R.id.grpImport);
 
@@ -1341,6 +1342,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
 
             etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
+            tvImportGmail.setVisibility(
+                    export || Build.VERSION.SDK_INT < Build.VERSION_CODES.O
+                            ? View.GONE : View.VISIBLE);
             grpExport.setVisibility(export ? View.VISIBLE : View.GONE);
             grpImport.setVisibility(export ? View.GONE : View.VISIBLE);
 
