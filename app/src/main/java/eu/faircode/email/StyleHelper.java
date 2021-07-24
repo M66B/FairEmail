@@ -176,6 +176,8 @@ public class StyleHelper {
                 IndentSpan[] indents = edit.getSpans(start, end, IndentSpan.class);
                 popupMenu.getMenu().findItem(R.id.menu_style_indentation_decrease).setEnabled(indents.length > 0);
 
+                popupMenu.getMenu().findItem(R.id.menu_style_code).setEnabled(BuildConfig.DEBUG);
+
                 popupMenu.insertIcons(context);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -206,6 +208,8 @@ public class StyleHelper {
                                 return setIndentation(item);
                             } else if (groupId == R.id.group_style_strikethrough) {
                                 return setStrikeThrough(item);
+                            } else if (groupId == R.id.group_style_code) {
+                                return setCode(item);
                             } else if (groupId == R.id.group_style_clear) {
                                 return clear(item);
                             }
@@ -221,12 +225,16 @@ public class StyleHelper {
 
                         Float size;
                         if (item.getItemId() == R.id.menu_style_size_small)
-                            size = 0.8f;
+                            size = HtmlHelper.FONT_SMALL;
                         else if (item.getItemId() == R.id.menu_style_size_large)
-                            size = 1.25f;
+                            size = HtmlHelper.FONT_LARGE;
                         else
                             size = null;
 
+                        return _setSize(size);
+                    }
+
+                    private boolean _setSize(Float size) {
                         RelativeSizeSpan[] spans = edit.getSpans(start, end, RelativeSizeSpan.class);
                         for (RelativeSizeSpan span : spans) {
                             int s = edit.getSpanStart(span);
@@ -483,6 +491,10 @@ public class StyleHelper {
                         String[] names = anchor.getResources().getStringArray(R.array.fontNameValues);
                         String face = (id < names.length ? names[id] : null);
 
+                        return _setFont(face);
+                    }
+
+                    private boolean _setFont(String face) {
                         TypefaceSpan[] spans = edit.getSpans(start, end, TypefaceSpan.class);
                         for (TypefaceSpan span : spans) {
                             int s = edit.getSpanStart(span);
@@ -601,6 +613,12 @@ public class StyleHelper {
                         etBody.setText(edit);
                         etBody.setSelection(start, end);
 
+                        return true;
+                    }
+
+                    private boolean setCode(MenuItem item) {
+                        _setSize(HtmlHelper.FONT_SMALL);
+                        _setFont("monospace");
                         return true;
                     }
 

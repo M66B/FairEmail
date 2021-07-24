@@ -142,8 +142,17 @@
     </group>
 
     <group
-        android:id="@+id/group_style_clear"
+        android:id="@+id/group_style_code"
         android:orderInCategory="10">
+        <item
+            android:id="@+id/menu_style_code"
+            android:icon="@drawable/baseline_code_24"
+            android:title="@string/title_style_code" />
+    </group>
+
+    <group
+        android:id="@+id/group_style_clear"
+        android:orderInCategory="11">
         <item
             android:id="@+id/menu_style_clear"
             android:icon="@drawable/twotone_format_clear_24"
