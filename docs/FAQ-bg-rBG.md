@@ -26,7 +26,7 @@ Searching for *IMAP* and the name of the provider is mostly sufficient to find t
 
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password, for instance when two-factor authentication is enabled.
 
-For authorizing:
+За удостоверяване:
 
 * Gmail / G suite, see [question 6](#user-content-faq6)
 * Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
@@ -38,14 +38,14 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages and solutions.
 
-Related questions:
+Сродни въпроси:
 
 * [Is OAuth supported?](#user-content-faq111)
 * [Why is ActiveSync not supported?](#user-content-faq133)
 
 <a name="howto">
 
-## How to ...?
+## Как да ...?
 
 * Change the account name: Settings, tap Manual setup, tap Accounts, tap account
 * Change the swipe left/right target: Settings, tab page Behavior, Set swipe actions
@@ -64,7 +64,7 @@ Related questions:
 * Change system folders: Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: Settings, navigation (left side) menu
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<h2><a name="known-problems"></a>Известен проблем</h2>
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -85,7 +85,7 @@ Related questions:
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 
-<h2><a name="planned-features"></a>Planned features</h2>
+<h2><a name="planned-features"></a>Планирани възможности</h2>
 
 * ~~Synchronize on demand (manual)~~
 * ~~Semi-automatic encryption~~
@@ -120,11 +120,11 @@ Related questions:
 
 Anything on this list is in random order and *might* be added in the near future.
 
-<h2><a name="frequently-requested-features"></a>Frequently requested features</h2>
+<h2><a name="frequently-requested-features"></a>Често искани функции</h2>
 
 The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc). All displayed things should be useful in one or another way and should be carefully positioned for easy usage. Fonts, sizes, colors, etc should be material design whenever possible.
 
-<h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
+<h2><a name="frequently-asked-questions"></a>Често задавани въпроси</h2>
 
 * [(1) Which permissions are needed and why?](#user-content-faq1)
 * [(2) Why is there a permanent notification shown?](#user-content-faq2)
@@ -3048,4 +3048,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+Авторско право &copy; 2018-2021 Марсел Бокхорст.

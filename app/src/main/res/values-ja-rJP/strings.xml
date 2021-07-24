@@ -185,6 +185,7 @@
     <string name="title_setup_export_remark">        設定ファイルにはすべての設定とアカウント情報が含まれているためパスワードで暗号化されています。
         設定を再度インポートするにはパスワードが必要ですので忘れないでください！
     </string>
+    <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字又は空白が含まれています</string>

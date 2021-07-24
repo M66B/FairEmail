@@ -35,7 +35,7 @@
     <string name="shortcut_compose">撰寫</string>
     <string name="shortcut_setup">設定</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="other">正在監視 %1$d 個帳號</item>
+        <item quantity="other">正在監視 %1$d 個帳戶</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="other">%1$d 個操作等待中</item>
@@ -100,9 +100,9 @@
     <string name="title_disagree">我不同意</string>
     <string name="title_version">版本 %1$s</string>
     <string name="title_privacy_policy">隱私權政策</string>
-    <string name="title_list_accounts">帳號</string>
+    <string name="title_list_accounts">帳戶</string>
     <string name="title_list_identities">身分</string>
-    <string name="title_edit_account">編輯帳號</string>
+    <string name="title_edit_account">編輯帳戶</string>
     <string name="title_edit_identity">編輯身分</string>
     <string name="title_edit_folder">編輯資料夾</string>
     <string name="title_setup">設定</string>
@@ -111,7 +111,7 @@
     <string name="title_setup_intro">僅需三步即可建立帳戶，創建帳戶後即可收發郵件</string>
     <string name="title_setup_simple">不需要修改任何選項</string>
     <string name="title_setup_quick_accounts">新增或移除帳戶</string>
-    <string name="title_setup_quick_support">有些提供者讓新增一個帳號變得困難。請不要將此怪罪於 FairEmail 而是向你的提供商請求支援。</string>
+    <string name="title_setup_quick_support">某些電子郵件供應商讓新增帳戶變得困難。請不要因此 責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">快速設定將會透過 autoconfig.thunderbird.net 取得設定資訊</string>
     <string name="title_setup_quick_patience">請耐心等待 &#8230;</string>
     <string name="title_setup_quick_imap">IMAP 伺服器用於接收訊息</string>
@@ -125,30 +125,30 @@
     <string name="title_setup_account_remark">接收電郵</string>
     <string name="title_setup_identity_remark">傳送電子郵件</string>
     <string name="title_setup_account_identity_hint">您可在帳戶設定中配置名稱、顏色和滑動操作，並在身分設定中配置簽名</string>
-    <string name="title_setup_accounts">帳號</string>
+    <string name="title_setup_accounts">帳戶</string>
     <string name="title_setup_identities">身分</string>
     <string name="title_setup_other">其他服務商</string>
-    <string name="title_setup_pop3">POP3 帳號</string>
+    <string name="title_setup_pop3">POP3 帳戶</string>
     <string name="title_setup_oauth_permission">此電子郵件提供者僅在官方應用程式版本中同意OAuth</string>
     <string name="title_setup_gmail_support">授權使用谷歌帳戶功能僅工作在官方發布版本中，因為 Android 會檢查程式簽名</string>
     <string name="title_setup_gmail_rationale">請給予權限來選擇一個帳號並且讀取你的名字。</string>
     <string name="title_setup_gmail_permissions">Google 會請求權限以讀取、撰寫、傳送及永久刪除您的電子郵件。FairEmail 永遠不會在您未予明確同意的前提下刪除您的訊息。</string>
     <string name="title_setup_gmail_drafts">如果草稿文件夾不能被IMAP伺服器讀取，此項設置可在Gmail 標籤設置裡面找到並修復。</string>
-    <string name="title_setup_gmail_password">我想要使用密碼授權帳號</string>
+    <string name="title_setup_gmail_password">我想要使用密碼來授權帳戶</string>
     <string name="title_setup_office_auth">\"認證失敗\"的錯誤可能是由於 IMAP 或者 SMTP 被系統管理員關閉導致。</string>
-    <string name="title_setup_oauth_rationale">認證存取您的 %1$s 帳號</string>
-    <string name="title_setup_oauth_update">再次授權已存在帳號</string>
-    <string name="title_setup_oauth_updated">帳號授權已更新</string>
+    <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
+    <string name="title_setup_oauth_update">再次授權現有帳戶</string>
+    <string name="title_setup_oauth_updated">帳戶授權已更新</string>
     <string name="title_setup_oauth_authorize">認證</string>
-    <string name="title_setup_select_account">選擇帳號</string>
+    <string name="title_setup_select_account">選擇帳戶</string>
     <string name="title_setup_instructions">設定說明</string>
     <string name="title_setup_no_settings">無法從 \'%1$s\' 獲得設定</string>
     <string name="title_setup_no_settings_hint">嘗試使用電子郵件提供商提供的設置來手動設置帳戶</string>
     <string name="title_setup_no_auth_hint">請仔細檢查您的電子郵件地址和密碼，並確保為您的帳戶啟用外部存取 (IMAP/SMTP)</string>
-    <string name="title_setup_app_password_hint">此提供者需要應用密碼而非帳戶密碼，請檢查提供者的說明</string>
+    <string name="title_setup_app_password_hint">此郵件供應商需要應用密碼而非帳戶密碼，請檢查供應商的說明</string>
     <string name="title_setup_no_inbox">未發現收件匣</string>
     <string name="title_setup_advanced_protection">註冊高級保護計畫時，無法使用第三方電子郵件應用程式。這是由 Google 所施加的限制。</string>
-    <string name="title_setup_quick_success">成功新增一個帳號</string>
+    <string name="title_setup_quick_success">帳戶新增成功</string>
     <string name="title_setup_quick_no_sent">未選擇送信資料夾。傳送的訊息可能無法儲存。</string>
     <string name="title_setup_quick_configure">編輯名稱、顏色、滑動操作等</string>
     <string name="title_setup_manage">管理</string>
@@ -179,15 +179,15 @@
     <string name="title_setup_done">已完成</string>
     <string name="title_setup_still">仍待處理</string>
     <string name="title_setup_error">錯誤</string>
-    <string name="title_setup_configuring">設置帳號 &#8230; 中</string>
+    <string name="title_setup_configuring">正在配置帳戶 &#8230;</string>
     <string name="title_setup_close">關閉設定</string>
     <string name="title_setup_export">匯出設定</string>
     <string name="title_setup_import">匯入設定</string>
     <string name="title_setup_export_remark">        由於設定檔包含所有設定和帳戶資訊，因此使用密碼對其進行加密。
         再次導入設定時需要密碼，所以勿要忘記它！
     </string>
-    <string name="title_setup_export_do">匯出的檔案包含所有設定和數據，但不會包含訊息</string>
-    <string name="title_setup_import_do">匯入的帳號不會覆蓋任何現有帳號</string>
+    <string name="title_setup_export_do">匯出的檔案包含所有設定和數據，但不包含簽名檔所引用的訊息和圖片</string>
+    <string name="title_setup_import_do">匯入的帳戶不會覆蓋任何現有帳戶</string>
     <string name="title_setup_password">密碼</string>
     <string name="title_setup_password_chars">密碼包含空白字元</string>
     <string name="title_setup_password_repeat">重複確認密碼</string>
@@ -237,7 +237,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">其他</string>
-    <string name="title_advanced_default">所有選項都有常用的標準值，無須特別改動以使用本程式</string>
+    <string name="title_advanced_default">所有選項均有常用標準值，無須為使用本程式而特別改動</string>
     <string name="title_advanced_receive">接收所有帳號訊息</string>
     <string name="title_advanced_when">何時</string>
     <string name="title_advanced_optimize">自動最佳化</string>
@@ -443,7 +443,7 @@
     <string name="title_advanced_biometrics_notify">在使用生物特徵辨識驗證時顯示通知內容</string>
     <string name="title_advanced_light">使用通知燈</string>
     <string name="title_advanced_sound">選擇通知音效</string>
-    <string name="title_advanced_notify_screen_on">為新訊息通知而短時間開啟螢幕</string>
+    <string name="title_advanced_notify_screen_on">為新訊息通知而暫時開啟螢幕</string>
     <string name="title_advanced_confirm_links">開啟超連結前確認</string>
     <string name="title_advanced_browse_links">將打開的連結轉向 Android</string>
     <string name="title_advanced_confirm_images">顯示圖片前確認</string>
@@ -565,7 +565,7 @@
     <string name="title_advanced_notify_preview_only_hint">這會延遲通知的顯示，直至訊息文字被下載</string>
     <string name="title_advanced_wearable_hint">通知僅在訊息文字下載後才會被發送至穿戴式裝置</string>
     <string name="title_advanced_messaging_hint">需要開啟此選項以取得 Android Auto 支援</string>
-    <string name="title_advanced_move_hint">可以在帳戶設置中配置目標文件夾</string>
+    <string name="title_advanced_move_hint">目標資料夾可在帳戶設定中配置</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分組</string>
     <string name="title_advanced_notify_no_channels">這個Android版本不支援通知頻道</string>
     <string name="title_advanced_queries_hint">啟用這個將會減少效能，然而在某些設備上啟用是必須的。</string>

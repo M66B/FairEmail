@@ -197,7 +197,7 @@
     <string name="title_setup_export_remark">        Da die Einstellungsdatei alle Einstellungen und Kontoinformationen enthält, wird sie mit einem Passwort verschlüsselt.
         Das Passwort wird benötigt, um die Einstellungen erneut zu importieren. Bitte vergessen Sie es daher nicht!
     </string>
-    <string name="title_setup_export_do">Die Exportdatei enthält alle Einstellungen und Daten, enthält aber keine Nachrichten</string>
+    <string name="title_setup_export_do">Die Exportdatei enthält alle Einstellungen und Daten, aber keine Nachrichten und keine in Signaturen eingebettete Grafiken.</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
     <string name="title_setup_password">Passwort</string>
     <string name="title_setup_password_chars">Passwort enthält Steuer- oder Leerzeichen</string>

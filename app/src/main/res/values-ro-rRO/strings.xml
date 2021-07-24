@@ -206,7 +206,7 @@
     <string name="title_setup_export_remark">        Deoarece fișierul de setări conține toate setările și informațiile despre cont, acesta este criptat cu o parolă.
         Parola este necesară pentru a importa din nou setările, așa că vă rugăm să nu o uitați!
     </string>
-    <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu va conține mesaje</string>
+    <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu și mesajele și nici imaginile la care se face referire în semnături</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>

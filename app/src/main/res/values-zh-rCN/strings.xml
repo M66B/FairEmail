@@ -185,7 +185,6 @@
     <string name="title_setup_export_remark">        因设置文件包含所有的设置和帐户信息，它受到密码加密保护。
         导入该设置将需要密码，所以请不要忘记！
     </string>
-    <string name="title_setup_export_do">导出文件将包含所有设置和数据，但不包含消息</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>

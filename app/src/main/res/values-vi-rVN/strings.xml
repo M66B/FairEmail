@@ -186,7 +186,6 @@
     <string name="title_setup_export_remark">        Vì tệp cài đặt chứa tất cả cài đặt và thông tin tài khoản, nó được mã hóa bằng một mật khẩu.
         Mật khẩu đó là bắt buộc để nhập lại cài đặt, nên vui lòng đừng quên nó!
     </string>
-    <string name="title_setup_export_do">Tệp xuất sẽ chứa tất cả cài đặt và dữ liệu, nhưng sẽ không chứa các thư</string>
     <string name="title_setup_import_do">Các tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
     <string name="title_setup_password">Mật khẩu</string>
     <string name="title_setup_password_chars">Mật khẩu chứa ký tự điều khiển hoặc không gian trắng</string>
