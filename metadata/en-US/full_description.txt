@@ -55,7 +55,7 @@ This app starts a foreground service with a low priority status bar notification
 * Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
-* No analytics and no tracking (error reporting is opt-in)
+* No analytics and no tracking (error reporting via Bugsnag is opt-in)
 * No Google backup
 * No Firebase Cloud Messaging
 * FairEmail is an original work, not a fork or a clone
