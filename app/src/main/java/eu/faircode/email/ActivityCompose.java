@@ -98,27 +98,31 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 MailTo mailto = MailTo.parse(uri.toString());
 
                 List<String> to = sanitize(new String[]{mailto.getTo()});
-                if (to.size() == 1)
+                if (to.size() > 0)
                     args.putString("to", to.get(0));
 
                 List<String> cc = sanitize(new String[]{mailto.getCc()});
-                if (cc.size() == 1)
+                if (cc.size() > 0)
                     args.putString("cc", cc.get(0));
 
                 String subject = mailto.getSubject();
-                if (subject != null)
+                if (!TextUtils.isEmpty(subject))
                     args.putString("subject", subject);
 
                 Map<String, String> headers = mailto.getHeaders();
                 if (headers != null)
-                    for (String key : headers.keySet())
+                    for (String key : headers.keySet()) {
+                        List<String> address = sanitize(new String[]{headers.get(key)});
+                        if (address.size() == 0)
+                            continue;
                         if ("bcc".equalsIgnoreCase(key))
-                            args.putString("bcc", headers.get(key));
+                            args.putString("bcc", address.get(0));
                         else if ("in-reply-to".equalsIgnoreCase(key))
-                            args.putString("inreplyto", headers.get(key));
+                            args.putString("inreplyto", address.get(0));
+                    }
 
                 String body = mailto.getBody();
-                if (body != null) {
+                if (!TextUtils.isEmpty(body)) {
                     StringBuilder sb = new StringBuilder();
                     for (String line : body.split("\\r?\\n"))
                         sb.append("<span>").append(Html.escapeHtml(line)).append("<span><br>");
@@ -127,9 +131,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             }
 
             if (intent.hasExtra(Intent.EXTRA_SHORTCUT_ID)) {
-                String to = intent.getStringExtra(Intent.EXTRA_SHORTCUT_ID);
-                if (to != null)
-                    args.putString("to", to);
+                List<String> to = sanitize(new String[]{intent.getStringExtra(Intent.EXTRA_SHORTCUT_ID)});
+                if (to.size() > 0)
+                    args.putString("to", to.get(0));
             }
 
             if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
@@ -152,27 +156,30 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
             if (intent.hasExtra(Intent.EXTRA_SUBJECT)) {
                 String subject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
-                if (subject != null)
+                if (!TextUtils.isEmpty(subject))
                     args.putString("subject", subject);
             }
 
-            if (intent.hasExtra(Intent.EXTRA_HTML_TEXT)) {
-                String html = intent.getStringExtra(Intent.EXTRA_HTML_TEXT);
-                if (!TextUtils.isEmpty(html))
-                    args.putString("body", html);
-            } else if (intent.hasExtra(Intent.EXTRA_TEXT)) {
+            String html = null;
+
+            if (intent.hasExtra(Intent.EXTRA_HTML_TEXT))
+                html = intent.getStringExtra(Intent.EXTRA_HTML_TEXT);
+
+            if (TextUtils.isEmpty(html) &&
+                    intent.hasExtra(Intent.EXTRA_TEXT)) {
                 CharSequence body = intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
                 if (body != null)
                     if (body instanceof Spanned)
-                        args.putString("body", HtmlHelper.toHtml((Spanned) body, this));
+                        html = HtmlHelper.toHtml((Spanned) body, this);
                     else {
                         String text = body.toString();
-                        if (!TextUtils.isEmpty(text)) {
-                            String html = "<span>" + text.replaceAll("\\r?\\n", "<br>") + "</span>";
-                            args.putString("body", html);
-                        }
+                        if (!TextUtils.isEmpty(text))
+                            html = "<span>" + text.replaceAll("\\r?\\n", "<br>") + "</span>";
                     }
             }
+
+            if (!TextUtils.isEmpty(html))
+                args.putString("body", html);
 
             if (intent.hasExtra(Intent.EXTRA_STREAM))
                 if (Intent.ACTION_SEND_MULTIPLE.equals(action)) {
