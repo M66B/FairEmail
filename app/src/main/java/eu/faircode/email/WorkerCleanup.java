@@ -92,6 +92,8 @@ public class WorkerCleanup extends Worker {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean fts = prefs.getBoolean("fts", true);
         boolean cleanup_attachments = prefs.getBoolean("cleanup_attachments", false);
+        boolean download_headers = prefs.getBoolean("download_headers", false);
+        boolean download_eml = prefs.getBoolean("download_eml", false);
 
         long start = new Date().getTime();
         DB db = DB.getInstance(context);
@@ -133,8 +135,10 @@ public class WorkerCleanup extends Worker {
                     Log.i("Attachments purged=" + purged);
 
                     // Clear raw headers
-                    int headers = db.message().clearMessageHeaders();
-                    Log.i("Cleared message headers=" + headers);
+                    if (!download_headers) {
+                        int headers = db.message().clearMessageHeaders();
+                        Log.i("Cleared message headers=" + headers);
+                    }
                 }
 
                 // Restore alarms
@@ -225,19 +229,21 @@ public class WorkerCleanup extends Worker {
                 }
 
             // Cleanup message files
-            Log.i("Cleanup raw message files");
-            File[] raws = new File(context.getFilesDir(), "raw").listFiles();
-            if (raws != null)
-                for (File file : raws)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                        long id = Long.parseLong(file.getName().split("\\.")[0]);
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null || message.raw == null || !message.raw) {
-                            Log.i("Deleting " + file);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
+            if (!download_eml) {
+                Log.i("Cleanup raw message files");
+                File[] raws = new File(context.getFilesDir(), "raw").listFiles();
+                if (raws != null)
+                    for (File file : raws)
+                        if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                            long id = Long.parseLong(file.getName().split("\\.")[0]);
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message == null || message.raw == null || !message.raw) {
+                                Log.i("Deleting " + file);
+                                if (!file.delete())
+                                    Log.w("Error deleting " + file);
+                            }
                         }
-                    }
+            }
 
             // Cleanup attachment files
             Log.i("Cleanup attachment files");
