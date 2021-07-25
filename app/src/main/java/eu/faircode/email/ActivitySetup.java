@@ -448,11 +448,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         }
 
         try {
-            Bundle args = new Bundle();
-            args.putBoolean("export", export);
-
-            FragmentDialogPassword fragment = new FragmentDialogPassword();
-            fragment.setArguments(args);
+            FragmentDialogBase fragment =
+                    (export ? new FragmentDialogExport() : new FragmentDialogImport());
             fragment.show(getSupportFragmentManager(), "password");
         } catch (Throwable ex) {
             Log.unexpectedError(getSupportFragmentManager(), ex);
@@ -1313,7 +1310,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         return intent;
     }
 
-    public static class FragmentDialogPassword extends FragmentDialogBase {
+    public static class FragmentDialogExport extends FragmentDialogBase {
         private TextInputLayout etPassword1;
         private TextInputLayout etPassword2;
 
@@ -1327,31 +1324,17 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final boolean export = getArguments().getBoolean("export");
-
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
-            TextView tvCaption = dview.findViewById(R.id.tvCaption);
+            Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             etPassword2 = dview.findViewById(R.id.tilPassword2);
-            TextView tvImportGmail = dview.findViewById(R.id.tvImportGmail);
-            Group grpExport = dview.findViewById(R.id.grpExport);
-            Group grpImport = dview.findViewById(R.id.grpImport);
-
-            tvCaption.setText(export ? R.string.title_setup_export : R.string.title_setup_import);
 
             if (savedInstanceState != null) {
                 etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
                 etPassword2.getEditText().setText(savedInstanceState.getString("fair:password2"));
             }
 
-            etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
-            tvImportGmail.setVisibility(
-                    export || Build.VERSION.SDK_INT < Build.VERSION_CODES.O
-                            ? View.GONE : View.VISIBLE);
-            grpExport.setVisibility(export ? View.VISIBLE : View.GONE);
-            grpImport.setVisibility(export ? View.GONE : View.VISIBLE);
-
-            return new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -1359,17 +1342,55 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             String password1 = etPassword1.getEditText().getText().toString();
                             String password2 = etPassword2.getEditText().getText().toString();
 
-                            if (!BuildConfig.DEBUG && TextUtils.isEmpty(password1))
-                                ToastEx.makeText(getContext(), R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
+                            if (TextUtils.isEmpty(password1) && !BuildConfig.DEBUG)
+                                ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
                             else {
-                                if (!export || password1.equals(password2)) {
+                                if (password1.equals(password2)) {
                                     ((ActivitySetup) getActivity()).password = password1;
                                     getActivity().startActivityForResult(
-                                            Helper.getChooser(getContext(),
-                                                    export ? getIntentExport() : getIntentImport()),
-                                            export ? REQUEST_EXPORT : REQUEST_IMPORT);
+                                            Helper.getChooser(context, getIntentExport()), REQUEST_EXPORT);
                                 } else
-                                    ToastEx.makeText(getContext(), R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(context, R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogImport extends FragmentDialogBase {
+        private TextInputLayout etPassword1;
+
+        @Override
+        public void onSaveInstanceState(@NonNull Bundle outState) {
+            outState.putString("fair:password1", etPassword1.getEditText().getText().toString());
+            super.onSaveInstanceState(outState);
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Context context = getContext();
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_import, null);
+            etPassword1 = dview.findViewById(R.id.tilPassword1);
+
+            if (savedInstanceState != null)
+                etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
+
+            return new AlertDialog.Builder(context)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String password1 = etPassword1.getEditText().getText().toString();
+
+                            if (TextUtils.isEmpty(password1) && !BuildConfig.DEBUG)
+                                ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
+                            else {
+                                ((ActivitySetup) getActivity()).password = password1;
+                                getActivity().startActivityForResult(
+                                        Helper.getChooser(context, getIntentImport()), REQUEST_IMPORT);
                             }
                         }
                     })
