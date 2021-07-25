@@ -306,8 +306,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }
 
-        if (savedInstanceState != null)
+        if (savedInstanceState != null) {
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
+            password = savedInstanceState.getString("fair:password");
+        }
 
         DB.getInstance(this).account().liveSynchronizingAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
@@ -320,6 +322,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
+        outState.putString("fair:password", password);
         super.onSaveInstanceState(outState);
     }
 
