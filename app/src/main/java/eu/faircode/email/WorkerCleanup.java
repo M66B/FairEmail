@@ -211,7 +211,11 @@ public class WorkerCleanup extends Worker {
             Log.i("Cleanup message files");
             for (File file : files)
                 if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                    long id = Long.parseLong(file.getName().split("\\.")[0]);
+                    String name = file.getName().split("\\.")[0];
+                    int us = name.indexOf('_');
+                    if (us > 0)
+                        name = name.substring(0, us);
+                    long id = Long.parseLong(name);
                     EntityMessage message = db.message().getMessage(id);
                     if (message == null || !message.content) {
                         Log.i("Deleting " + file);
