@@ -41,8 +41,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -50,7 +50,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Group;
 import androidx.core.view.GravityCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -1361,7 +1360,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 etPassword2.getEditText().setText(savedInstanceState.getString("fair:password2"));
             }
 
-            return new AlertDialog.Builder(context)
+            Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -1383,6 +1382,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+            return dialog;
         }
     }
 
@@ -1408,7 +1411,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             if (savedInstanceState != null)
                 etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
 
-            return new AlertDialog.Builder(context)
+            Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -1430,6 +1433,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+            return dialog;
         }
     }
 
