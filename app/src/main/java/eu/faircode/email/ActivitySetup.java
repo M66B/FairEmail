@@ -311,7 +311,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             password = savedInstanceState.getString("fair:password");
         }
 
-        DB.getInstance(this).account().liveSynchronizingAccounts().observe(this, new Observer<List<EntityAccount>>() {
+        DB db = DB.getInstance(this);
+
+        db.account().liveSynchronizingAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(List<EntityAccount> accounts) {
                 hasAccount = (accounts != null && accounts.size() > 0);
