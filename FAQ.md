@@ -873,6 +873,7 @@ searching in the folder list will search in the associated account only
 and searching in a folder will search in that folder only.
 
 Messages will be searched for on the device first.
+You can download more messages on the device via the three-dots overflow menu in the start screen.
 There will be an action button with a search again icon at the bottom to continue searching on the server.
 You can select in which folder to continue the search.
 
