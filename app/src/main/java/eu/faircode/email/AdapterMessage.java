@@ -3026,7 +3026,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (to == null)
                                 to = (InternetAddress) message.to[0];
 
-                            Attendee attendee = new Attendee(to.getPersonal(), to.getAddress());
+                            String email = to.getAddress();
+                            String name = to.getPersonal();
+
+                            /*
+                                java.lang.IllegalArgumentException:
+                                Property "ATTENDEE" has a parameter named "CN" whose value contains one or more invalid characters.
+                                The following characters are not permitted: [ \n \r " ]
+                                  at b.b.a.a.f.h.k(SourceFile:17)
+                                  at b.b.a.a.f.h.o(SourceFile:1)
+                                  at biweekly.io.text.ICalWriter.writeProperty(SourceFile:9)
+                                  at biweekly.io.text.ICalWriter.writeComponent(SourceFile:13)
+                                  at biweekly.io.text.ICalWriter.writeComponent(SourceFile:21)
+                                  at biweekly.io.text.ICalWriter._write(SourceFile:1)
+                                  at biweekly.io.StreamWriter.write(SourceFile:9)
+                                  at biweekly.io.chain.ChainingTextWriter.go(SourceFile:18)
+                                  at biweekly.io.chain.ChainingTextWriter.go(SourceFile:3)
+                                  at biweekly.io.chain.ChainingTextWriter.go(SourceFile:1)
+                                  at biweekly.ICalendar.write(SourceFile:2)
+                             */
+                            if (!TextUtils.isEmpty(name))
+                                name = name.replaceAll("\\r?\\n", " ");
+
+                            Attendee attendee = new Attendee(name, email);
 
                             if (action == R.id.btnCalendarAccept) {
                                 attendee.setParticipationStatus(ParticipationStatus.ACCEPTED);
