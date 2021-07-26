@@ -654,6 +654,7 @@
     </provider>
     <provider
         name="Bluewin.ch/own domain"
+        appPassword="true"
         link="https://emailsetup.swisscom.ch/guide/#step=emailSettingsMobileAppSelection">
         <imap
             host="mail.hostcenter.com"
