@@ -783,7 +783,7 @@ public class EmailProvider implements Parcelable {
     @NonNull
     @Override
     public String toString() {
-        return name;
+        return description;
     }
 
     public static class Server {
