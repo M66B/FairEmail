@@ -1983,6 +1983,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         };
 
         @Override
+        public float getSwipeEscapeVelocity(float defaultValue) {
+            int swipe_sensitivity = 10;
+            Context context = getContext();
+            if (context != null) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                swipe_sensitivity = prefs.getInt("swipe_sensitivity", 10);
+            }
+            return super.getSwipeEscapeVelocity(defaultValue) * (10 - swipe_sensitivity + 1);
+        }
+
+        @Override
         public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             int pos = viewHolder.getAdapterPosition();
             if (pos == NO_POSITION)

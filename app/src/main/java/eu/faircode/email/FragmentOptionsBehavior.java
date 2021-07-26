@@ -40,6 +40,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,6 +68,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swQuickFilter;
     private SwitchCompat swQuickScroll;
     private Button btnSwipes;
+    private SeekBar sbSwipeSensitivity;
     private SwitchCompat swDoubleTap;
     private SwitchCompat swSwipeNav;
     private SwitchCompat swVolumeNav;
@@ -92,7 +94,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private final static String[] RESET_OPTIONS = new String[]{
             "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "default_snooze",
-            "pull", "autoscroll", "quick_filter", "quick_scroll",
+            "pull", "autoscroll", "quick_filter", "quick_scroll", "swipe_sensitivity",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "undo_timeout",
@@ -120,6 +122,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swQuickFilter = view.findViewById(R.id.swQuickFilter);
         swQuickScroll = view.findViewById(R.id.swQuickScroll);
         btnSwipes = view.findViewById(R.id.btnSwipes);
+        sbSwipeSensitivity = view.findViewById(R.id.sbSwipeSensitivity);
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
         swVolumeNav = view.findViewById(R.id.swVolumeNav);
@@ -243,6 +246,23 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onClick(View v) {
                 new FragmentDialogSwipes().show(getParentFragmentManager(), "setup:swipe");
+            }
+        });
+
+        sbSwipeSensitivity.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("swipe_sensitivity", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
             }
         });
 
@@ -466,6 +486,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
         swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
         swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
+
+        int swipe_sensitivity = prefs.getInt("swipe_sensitivity", 10);
+        sbSwipeSensitivity.setProgress(swipe_sensitivity);
 
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", true));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
