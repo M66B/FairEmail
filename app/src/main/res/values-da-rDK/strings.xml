@@ -193,12 +193,16 @@
     </string>
     <string name="title_setup_export_do">Eksportfilen vil indeholde alle indstillinger og data, men hverken meddelelser eller signaturrefererede billeder</string>
     <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
+    <string name="title_setup_import_gmail">        Fra og med Android 8. Oreo kan Gmail-konti ikke længere importeres, da hver konto skal vælges for at give adgang til den.
+        Opsætningen af Gmail-konti kan let ændres vis guiden hurtig opsætning.
+    </string>
     <string name="title_setup_password">Adgangskode</string>
     <string name="title_setup_password_chars">Adgangskode indeholder kontrol- eller mellemrumstegn</string>
     <string name="title_setup_password_repeat">Gentag adgangskode</string>
     <string name="title_setup_password_missing">Adgangskode mangler</string>
     <string name="title_setup_password_different">Adgangskoder matcher ikke</string>
     <string name="title_setup_password_invalid">Ugyldig adgangskode</string>
+    <string name="title_setup_import_answers">Importér svarskabeloner</string>
     <string name="title_setup_exported">Indstillinger eksporteret</string>
     <string name="title_setup_imported">Indstillinger importeret</string>
     <string name="title_setup_import_invalid">Ugyldig indstillingsfil</string>

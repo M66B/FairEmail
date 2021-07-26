@@ -208,6 +208,9 @@
     </string>
     <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu și mesajele și nici imaginile la care se face referire în semnături</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
+    <string name="title_setup_import_gmail">        Începând cu Android 8.0 Oreo, conturile Gmail nu mai pot fi importate, deoarece fiecare cont trebuie să fie selectat pentru a acorda acces la contul respectiv.
+        Puteți reconfigura cu ușurință conturile Gmail cu ajutorul asistentului de configurare rapidă.
+    </string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
     <string name="title_setup_password_repeat">Repetă parola</string>

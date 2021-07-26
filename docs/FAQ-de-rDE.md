@@ -2215,49 +2215,49 @@ Nur *neue* ungelesene Nachrichten in Ordnern, die für die Anzeige neuer Nachric
 
 Je nachdem, was Sie wollen, muss die Benachrichtigungseinstellungen *Lassen Sie die Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen* übereinstimmen (Standard deaktiviert) gesetzt werden. Wenn diese Funktion aktiviert ist, entspricht die Zahl der Kennzeichnung der Anzahl der Benachrichtigungen über neue Nachrichten. Wenn diese Funktion deaktiviert ist, wird die Anzahl der ungelesenen Nachrichten angezeigt, unabhängig davon, ob sie in einer Benachrichtigung angezeigt werden oder neu sind.
 
-This feature depends on support of your launcher. FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library. If it doesn't work, this cannot be fixed by changes in FairEmail.
+Diese Funktion hängt von der Unterstützung Ihres Launchers ab. FairEmail sendet lediglich die Anzahl ungelesener Nachrichten mit Hilfe der ShortcutBadger-Bibliothek. Sollte es nicht funktionieren, kann es nicht durch Änderungen in FairEmail behoben werden.
 
-Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2), despite FairEmail explicitly requesting not to show a *badge* for this notification. This could be caused by a bug in the launcher app or in your Android version. Please double check if the notification dot (badge) is disabled for the receive (service) notification channel. You can go to the right notification channel settings via the notification settings of FairEmail. This might not be obvious, but you can tap on the channel name for more settings.
+Einige Launcher zeigen einen Punkt oder eine '1' für [die Überwachungsbenachrichtigung](#user-content-faq2) an, obwohl FairEmail ausdrücklich fordert, für diese Benachrichtigung kein *Abzeichen* anzuzeigen. Dies kann durch einen Fehler in der Launcher-App oder in Ihrer Android-Version verursacht werden. Bitte überprüfen Sie, ob der Benachrichtigungspunkt (Abzeichen) für den Empfangskanal (Service) deaktiviert ist. Sie können über die Benachrichtigungseinstellungen von FairEmail zu den richtigen Benachrichtigungskanälen wechseln. Dies ist vielleicht nicht offensichtlich, aber für weitere Einstellungen können Sie auf den Kanalnamen tippen.
 
-FairEmail does send a new message count intent as well:
+FairEmail sendet auch eine neue Nachricht mit Zählabsicht:
 
 ```
 eu.faircode.email.NEW_MESSAGE_COUNT
 ```
 
-The number of new, unread messages will be in an integer "*count*" parameter.
+Die Anzahl der neuen, ungelesenen Nachrichten wird in einem Integer-Parameter "*count*" angegeben.
 
 <br />
 
 <a name="faq107"></a>
-**(107) How do I use colored stars?**
+**(107) Wie verwende ich farbige Sterne?**
 
-You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message), by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
+Sie können einen farbigen Stern über das Nachrichtenmenü *mehr*, über Mehrfachauswahl (gestartet durch langes Drücken einer Nachricht) setzen, durch langes Drücken eines Sterns in einer Konversation oder automatisch über [Regeln](#user-content-faq71).
 
-You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server. This means that colored stars will not be visible in other email clients and will be lost on downloading messages again. However, the stars (without color) will be synchronized and will be visible in other email clients, when supported.
+Sie müssen wissen, dass farbige Sterne nicht vom IMAP-Protokoll unterstützt werden und daher nicht mit einem E-Mail-Server synchronisiert werden können. Das bedeutet, dass farbige Sterne bei anderen E-Mail-Clients nicht sichtbar sind und beim erneuten Herunterladen der Nachrichten verloren gehen. Die Sterne (ohne Farbe) werden jedoch synchronisiert und werden in anderen E-Mail-Clients angezeigt, wenn sie unterstützt werden.
 
-Some email clients use IMAP keywords for colors. However, not all servers support IMAP keywords and besides that there are no standard keywords for colors.
+Einige E-Mail-Clients verwenden IMAP-Schlüsselwörter für Farben. Allerdings unterstützen nicht alle Server IMAP-Schlüsselwörter und außerdem gibt es keine Standardschlüsselwörter für Farben.
 
 <br />
 
 <a name="faq108"></a>
-**~~(108) Can you add permanently delete messages from any folder?~~**
+**~~(108) Können Sie Nachrichten aus einem beliebigen Ordner dauerhaft löschen?~~**
 
-~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~ ~~You can permanently delete messages from the trash folder.~~ ~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
+~~Wenn Sie Nachrichten aus einem Ordner löschen, werden die Nachrichten in den Papierkorbordner verschoben, so dass Sie die Möglichkeit haben, die Nachrichten wiederherzustellen.~~ ~~Sie können Nachrichten dauerhaft aus dem Papierkorbordner löschen. ~~Das dauerhafte Löschen von Nachrichten aus anderen Ordnern würde den Zweck des Papierkorbordners zunichte machen, daher wird dieser nicht hinzugefügt.~~
 
 <br />
 
 <a name="faq109"></a>
-**~~(109) Why is 'select account' available in official versions only?~~**
+**~~(109) Warum ist "Konto auswählen" nur in offiziellen Versionen verfügbar?~~**
 
-~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~ ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~ ~~Third party builds, like the F-Droid builds, are managed by third parties and are the responsibility of these third parties.~~ ~~So, only these third parties can acquire the required permission from Google.~~ ~~Since these third parties do not actually support FairEmail, they are most likely not going to request the required permission.~~
+~~Die Verwendung von *Konto auswählen* zur Auswahl und Autorisierung von Google-Konten erfordert aus Sicherheits- und Datenschutzgründen eine spezielle Erlaubnis von Google.~~ ~~Diese spezielle Erlaubnis kann nur für Apps erworben werden, die ein Entwickler verwaltet und für die er verantwortlich ist. ~~Drittanbieter-Builds, wie die F-Droid-Builds, werden von Dritten verwaltet und liegen in der Verantwortung dieser Dritten. ~~Daher können nur diese Drittanbieter die erforderliche Genehmigung von Google erhalten. ~~Da diese Drittanbieter FairEmail nicht wirklich unterstützen, werden sie höchstwahrscheinlich die erforderliche Genehmigung nicht beantragen.~~
 
-~~You can solve this in two ways:~~
+~~Sie können das auf zwei Arten lösen:~~
 
 * ~~Wechseln Sie zur offiziellen Version von FairEmail, siehe [hier](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) für die Optionen~~
 * ~~App-spezifische Passwörter verwenden, siehe [diese FAQ](#user-content-faq6)~~
 
-~~Using *select account* in third party builds is not possible in recent versions anymore.~~ ~~In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.~~
+~~Die Verwendung von *Konto wählen* in Drittanbieter-Builds ist in neueren Versionen nicht mehr möglich.~~ ~~In älteren Versionen war dies möglich, aber es führt jetzt zu dem Fehler *UNREGISTERED_ON_API_CONSOLE*.~~
 
 <br />
 
@@ -2909,18 +2909,18 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Können Sie das permanente Löschen von Nachrichten ohne Bestätigung hinzufügen?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+Dauerhaftes Löschen bedeutet, dass Nachrichten *irreversibel* verloren gehen, und um zu verhindern, dass dies versehentlich geschieht, muss dies immer bestätigt werden. Sogar mit einer Bestätigung meldeten sich einige sehr verärgerte Leute, die einige ihrer Nachrichten durch eigenes Verschulden verloren hatten, was eine eher unangenehme Erfahrung war :-(
 
-Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
+Erweitert: Das IMAP-Löschkennzeichen in Kombination mit dem EXPUNGE-Befehl ist nicht unterstützenswert da sowohl E-Mail-Server als auch nicht alle Personen damit umgehen können, was zu einem unerwarteten Verlust von Nachrichten führen kann. Ein erschwerender Faktor ist, dass nicht alle E-Mail-Server [UID EXPUNGE](https://tools.ietf.org/html/rfc4315) unterstützen.
 
-From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+Ab Version 1.1485 ist es möglich, den Debug-Modus in den diversen Einstellungen vorübergehend zu aktivieren, um das Löschen von Meldungen zu deaktivieren. Beachten Sie, dass Nachrichten mit einem *Löschkennzeichen* in FairEmail nicht angezeigt werden.
 
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Können Sie eine Einstellung hinzufügen, um die Primär- und Akzentfarbe zu ändern?***
 
 If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 

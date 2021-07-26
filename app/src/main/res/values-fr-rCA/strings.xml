@@ -198,7 +198,7 @@
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
-    <string name="title_setup_import_gmail">        Depuis Android 8. Oreo, les comptes Gmail ne peuvent plus être importés, car chaque compte doit être sélectionné pour donner accès au compte.
+    <string name="title_setup_import_gmail">        Depuis Android 8.0 Oreo, les comptes Gmail ne peuvent plus être importés car chaque compte doit être sélectionné pour donner accès au compte.
         Vous pouvez facilement reconfigurer les comptes Gmail avec l\'assistant d\'installation rapide.
     </string>
     <string name="title_setup_password">Mot de passe</string>
@@ -207,6 +207,11 @@
     <string name="title_setup_password_missing">Mot de passe manquant</string>
     <string name="title_setup_password_different">Les mots de passe ne correspondent pas</string>
     <string name="title_setup_password_invalid">Mot de passe invalide</string>
+    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Importer les comptes et identités</string>
+    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Importer les règles de filtrage</string>
+    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Importer les contacts locaux</string>
+    <string name="title_setup_import_answers">Importer les modèles de réponse</string>
+    <string name="title_setup_import_settings">Importer les paramètres</string>
     <string name="title_setup_exported">Paramètres exportés</string>
     <string name="title_setup_imported">Paramètres importés</string>
     <string name="title_setup_import_invalid">Fichier de paramètres invalide</string>

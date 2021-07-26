@@ -218,12 +218,20 @@
     </string>
     <string name="title_setup_export_do">Файл експорту буде містити всі налаштування і дані, але ніяких повідомлень і зображень, на які посилаються в підписах</string>
     <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
+    <string name="title_setup_import_gmail">      Починаючи з Android 8 (Oreo), облікові записи Gmail більше не можна імпортувати, тому що кожен обліковий запис повинен бути обраний для надання доступу до облікового запису.
+        Можна легко переналаштувати обліковий запис Gmail за допомогою майстра швидкого налаштування.
+    </string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
     <string name="title_setup_password_repeat">Повторіть пароль</string>
     <string name="title_setup_password_missing">Пароль відсутній</string>
     <string name="title_setup_password_different">Паролі не збігаються</string>
     <string name="title_setup_password_invalid">Пароль не є дійсним</string>
+    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Імпортувати облікові записи та особисті дані</string>
+    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Імпортувати правила фільтрів</string>
+    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Імпортувати локальні контакти</string>
+    <string name="title_setup_import_answers">Імпортувати шаблони відповідей</string>
+    <string name="title_setup_import_settings">Імпортувати налаштування</string>
     <string name="title_setup_exported">Налаштування експортовано</string>
     <string name="title_setup_imported">Налаштування імпортовано</string>
     <string name="title_setup_import_invalid">Хибний файл налаштувань</string>

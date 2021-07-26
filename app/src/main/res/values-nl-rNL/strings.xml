@@ -207,6 +207,11 @@
     <string name="title_setup_password_missing">Wachtwoord ontbreekt</string>
     <string name="title_setup_password_different">De wachtwoorden komen niet overeen</string>
     <string name="title_setup_password_invalid">Wachtwoord ongeldig</string>
+    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Importeer accounts en identiteiten</string>
+    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Importeer filterregels</string>
+    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Importeer lokale contacten</string>
+    <string name="title_setup_import_answers">Importeer antwoordsjablonen</string>
+    <string name="title_setup_import_settings">Importeer opties</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_import_invalid">Ongeldig instellingenbestand</string>
