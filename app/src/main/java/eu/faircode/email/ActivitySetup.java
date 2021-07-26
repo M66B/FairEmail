@@ -569,6 +569,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
+                EntityLog.log(context, "Exporting " + uri);
 
                 if (!"content".equals(uri.getScheme())) {
                     Log.w("Export uri=" + uri);
@@ -771,6 +772,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 boolean import_contacts = args.getBoolean("import_contacts");
                 boolean import_answers = args.getBoolean("import_answers");
                 boolean import_settings = args.getBoolean("import_settings");
+                EntityLog.log(context, "Importing " + uri +
+                        " accounts=" + import_accounts +
+                        " rules=" + import_rules +
+                        " contacts=" + import_contacts +
+                        " answers=" + import_answers +
+                        " settings=" + import_settings);
 
                 if (!"content".equals(uri.getScheme()) &&
                         !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
