@@ -43,6 +43,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -115,6 +116,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private boolean hasAccount;
     private String password;
     private boolean import_accounts;
+    private boolean import_rules;
+    private boolean import_contacts;
     private boolean import_answers;
     private boolean import_settings;
 
@@ -313,6 +316,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
             password = savedInstanceState.getString("fair:password");
             import_accounts = savedInstanceState.getBoolean("fair:import_accounts");
+            import_rules = savedInstanceState.getBoolean("fair:import_rules");
+            import_contacts = savedInstanceState.getBoolean("fair:import_contacts");
             import_answers = savedInstanceState.getBoolean("fair:import_answers");
             import_settings = savedInstanceState.getBoolean("fair:import_settings");
         }
@@ -332,6 +337,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
         outState.putString("fair:password", password);
         outState.putBoolean("fair:import_accounts", import_accounts);
+        outState.putBoolean("fair:import_rules", import_rules);
+        outState.putBoolean("fair:import_contacts", import_contacts);
         outState.putBoolean("fair:import_answers", import_answers);
         outState.putBoolean("fair:import_settings", import_settings);
         super.onSaveInstanceState(outState);
@@ -744,6 +751,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putParcelable("uri", data.getData());
         args.putString("password", this.password);
         args.putBoolean("import_accounts", this.import_accounts);
+        args.putBoolean("import_rules", this.import_rules);
+        args.putBoolean("import_contacts", this.import_contacts);
         args.putBoolean("import_answers", this.import_answers);
         args.putBoolean("import_settings", this.import_settings);
 
@@ -758,6 +767,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
                 boolean import_accounts = args.getBoolean("import_accounts");
+                boolean import_rules = args.getBoolean("import_rules");
+                boolean import_contacts = args.getBoolean("import_contacts");
                 boolean import_answers = args.getBoolean("import_answers");
                 boolean import_settings = args.getBoolean("import_settings");
 
@@ -947,52 +958,55 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 Log.i("Imported folder=" + folder.name + " id=" + folder.id + " (" + id + ")");
                             }
 
-                            // Contacts
-                            if (jaccount.has("contacts")) {
-                                JSONArray jcontacts = jaccount.getJSONArray("contacts");
-                                for (int c = 0; c < jcontacts.length(); c++) {
-                                    JSONObject jcontact = (JSONObject) jcontacts.get(c);
-                                    EntityContact contact = EntityContact.fromJSON(jcontact);
-                                    contact.account = account.id;
-                                    if (db.contact().getContact(contact.account, contact.type, contact.email) == null)
-                                        contact.id = db.contact().insertContact(contact);
+                            if (import_contacts) {
+                                // Contacts
+                                if (jaccount.has("contacts")) {
+                                    JSONArray jcontacts = jaccount.getJSONArray("contacts");
+                                    for (int c = 0; c < jcontacts.length(); c++) {
+                                        JSONObject jcontact = (JSONObject) jcontacts.get(c);
+                                        EntityContact contact = EntityContact.fromJSON(jcontact);
+                                        contact.account = account.id;
+                                        if (db.contact().getContact(contact.account, contact.type, contact.email) == null)
+                                            contact.id = db.contact().insertContact(contact);
+                                    }
+                                    Log.i("Imported contacts=" + jcontacts.length());
                                 }
-                                Log.i("Imported contacts=" + jcontacts.length());
                             }
 
                             // Update swipe left/right
                             db.account().updateAccount(account);
                         }
 
-                        for (EntityRule rule : rules) {
-                            try {
-                                JSONObject jaction = new JSONObject(rule.action);
+                        if (import_rules)
+                            for (EntityRule rule : rules) {
+                                try {
+                                    JSONObject jaction = new JSONObject(rule.action);
 
-                                int type = jaction.getInt("type");
-                                switch (type) {
-                                    case EntityRule.TYPE_MOVE:
-                                    case EntityRule.TYPE_COPY:
-                                        long target = jaction.getLong("target");
-                                        Log.i("XLAT target " + target + " > " + xFolder.get(target));
-                                        jaction.put("target", xFolder.get(target));
-                                        break;
-                                    case EntityRule.TYPE_ANSWER:
-                                        long identity = jaction.getLong("identity");
-                                        long answer = jaction.getLong("answer");
-                                        Log.i("XLAT identity " + identity + " > " + xIdentity.get(identity));
-                                        Log.i("XLAT answer " + answer + " > " + xAnswer.get(answer));
-                                        jaction.put("identity", xIdentity.get(identity));
-                                        jaction.put("answer", xAnswer.get(answer));
-                                        break;
+                                    int type = jaction.getInt("type");
+                                    switch (type) {
+                                        case EntityRule.TYPE_MOVE:
+                                        case EntityRule.TYPE_COPY:
+                                            long target = jaction.getLong("target");
+                                            Log.i("XLAT target " + target + " > " + xFolder.get(target));
+                                            jaction.put("target", xFolder.get(target));
+                                            break;
+                                        case EntityRule.TYPE_ANSWER:
+                                            long identity = jaction.getLong("identity");
+                                            long answer = jaction.getLong("answer");
+                                            Log.i("XLAT identity " + identity + " > " + xIdentity.get(identity));
+                                            Log.i("XLAT answer " + answer + " > " + xAnswer.get(answer));
+                                            jaction.put("identity", xIdentity.get(identity));
+                                            jaction.put("answer", xAnswer.get(answer));
+                                            break;
+                                    }
+
+                                    rule.action = jaction.toString();
+                                } catch (JSONException ex) {
+                                    Log.e(ex);
                                 }
 
-                                rule.action = jaction.toString();
-                            } catch (JSONException ex) {
-                                Log.e(ex);
+                                db.rule().insertRule(rule);
                             }
-
-                            db.rule().insertRule(rule);
-                        }
                     }
 
                     if (import_settings) {
@@ -1405,8 +1419,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             View dview = LayoutInflater.from(context).inflate(R.layout.dialog_import, null);
             etPassword1 = dview.findViewById(R.id.tilPassword1);
             CheckBox cbAccounts = dview.findViewById(R.id.cbAccounts);
+            CheckBox cbRules = dview.findViewById(R.id.cbRules);
+            CheckBox cbContacts = dview.findViewById(R.id.cbContacts);
             CheckBox cbAnswers = dview.findViewById(R.id.cbAnswers);
             CheckBox cbSettings = dview.findViewById(R.id.cbSettings);
+
+            cbAccounts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    cbRules.setEnabled(checked);
+                    cbContacts.setEnabled(checked);
+                }
+            });
 
             if (savedInstanceState != null)
                 etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
@@ -1424,6 +1448,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 ActivitySetup activity = (ActivitySetup) getActivity();
                                 activity.password = password1;
                                 activity.import_accounts = cbAccounts.isChecked();
+                                activity.import_rules = cbRules.isChecked();
+                                activity.import_contacts = cbContacts.isChecked();
                                 activity.import_answers = cbAnswers.isChecked();
                                 activity.import_settings = cbSettings.isChecked();
                                 getActivity().startActivityForResult(

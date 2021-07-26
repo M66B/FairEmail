@@ -88,6 +88,28 @@
             app:layout_constraintTop_toBottomOf="@id/tvImportHint" />
 
         <CheckBox
+            android:id="@+id/cbRules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_setup_import_contacts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImportGmail" />
+
+        <CheckBox
+            android:id="@+id/cbContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_setup_import_rules"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbRules" />
+
+        <CheckBox
             android:id="@+id/cbAnswers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,7 +117,7 @@
             android:checked="true"
             android:text="@string/title_setup_import_answers"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImportGmail" />
+            app:layout_constraintTop_toBottomOf="@id/cbContacts" />
 
         <CheckBox
             android:id="@+id/cbSettings"
