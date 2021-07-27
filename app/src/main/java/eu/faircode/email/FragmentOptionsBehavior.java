@@ -91,6 +91,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
 
+    final static int MAX_SWIPE_SENSITIVITY = 10;
+    final static int DEFAULT_SWIPE_SENSITIVITY = 7;
+
     private final static String[] RESET_OPTIONS = new String[]{
             "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "default_snooze",
@@ -248,6 +251,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
                 new FragmentDialogSwipes().show(getParentFragmentManager(), "setup:swipe");
             }
         });
+
+        sbSwipeSensitivity.setMax(MAX_SWIPE_SENSITIVITY);
 
         sbSwipeSensitivity.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -487,7 +492,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
         swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
 
-        int swipe_sensitivity = prefs.getInt("swipe_sensitivity", 10);
+        int swipe_sensitivity = prefs.getInt("swipe_sensitivity", DEFAULT_SWIPE_SENSITIVITY);
         sbSwipeSensitivity.setProgress(swipe_sensitivity);
 
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", true));

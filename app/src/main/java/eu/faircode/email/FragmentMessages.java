@@ -1984,13 +1984,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public float getSwipeEscapeVelocity(float defaultValue) {
-            int swipe_sensitivity = 10;
+            int swipe_sensitivity = FragmentOptionsBehavior.DEFAULT_SWIPE_SENSITIVITY;
             Context context = getContext();
             if (context != null) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                swipe_sensitivity = prefs.getInt("swipe_sensitivity", 10);
+                swipe_sensitivity = prefs.getInt("swipe_sensitivity", swipe_sensitivity);
             }
-            return super.getSwipeEscapeVelocity(defaultValue) * (10 - swipe_sensitivity + 1);
+            return super.getSwipeEscapeVelocity(defaultValue) *
+                    (FragmentOptionsBehavior.MAX_SWIPE_SENSITIVITY - swipe_sensitivity + 1);
         }
 
         @Override
