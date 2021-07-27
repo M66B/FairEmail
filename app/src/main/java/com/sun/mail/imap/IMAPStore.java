@@ -662,6 +662,14 @@ public class IMAPStore extends Store
 	}
 	
 	try {
+		synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("protocolConnect", crumb);
+		}
+
             boolean poolEmpty;
             synchronized (pool) {
                 poolEmpty = pool.authenticatedConnections.isEmpty();
@@ -1144,8 +1152,17 @@ public class IMAPStore extends Store
      *         releaseStoreProtocol(p);
      *     }
      */
-    private IMAPProtocol getStoreProtocol() throws ProtocolException {
+    private IMAPProtocol getStoreProtocol(String reason) throws ProtocolException {
         IMAPProtocol p = null;
+
+        synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("reason", reason);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("getStoreProtocol", crumb);
+		}
 
 	while (p == null) {
         synchronized (pool) {
@@ -1230,7 +1247,7 @@ public class IMAPStore extends Store
      * Get a store protocol object for use by a folder.
      */
     IMAPProtocol getFolderStoreProtocol() throws ProtocolException {
-	IMAPProtocol p = getStoreProtocol();
+	IMAPProtocol p = getStoreProtocol("getFolderStoreProtocol");
 	p.removeResponseHandler(this);
 	p.addResponseHandler(nonStoreResponseHandler);
 	return p;
@@ -1317,6 +1334,14 @@ public class IMAPStore extends Store
      * Release the protocol object back to the connection pool.
      */
     void releaseProtocol(IMAPFolder folder, IMAPProtocol protocol) {
+		synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("folder", folder.fullName);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("releaseProtocol", crumb);
+		}
 
         synchronized (pool) {
             if (protocol != null) {
@@ -1350,6 +1375,13 @@ public class IMAPStore extends Store
      * Release the store connection.
      */
     private void releaseStoreProtocol(IMAPProtocol protocol) {
+		synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("releaseStoreProtocol", crumb);
+		}
 
 	// will be called from idle() without the Store lock held,
 	// but cleanup is synchronized and will acquire the Store lock
@@ -1393,6 +1425,14 @@ public class IMAPStore extends Store
      * Release a store protocol object that was being used by a folder.
      */
     void releaseFolderStoreProtocol(IMAPProtocol protocol) {
+		synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("releaseFolderStoreProtocol", crumb);
+		}
+
 	if (protocol == null)
 	    return;		// should never happen
 	protocol.removeResponseHandler(nonStoreResponseHandler);
@@ -1411,6 +1451,13 @@ public class IMAPStore extends Store
      * Empty the connection pool.
      */ 
     public void emptyConnectionPool(boolean force) {
+		synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("emptyConnectionPool", crumb);
+		}
 
         synchronized (pool) {
             for (int index = pool.authenticatedConnections.size() - 1;
@@ -1553,7 +1600,7 @@ public class IMAPStore extends Store
 				throws MessagingException {
         IMAPProtocol p = null;
 	try {
-	    p = getStoreProtocol();
+	    p = getStoreProtocol("hasCapability");
             return p.hasCapability(capability);
 	} catch (ProtocolException pex) {
 	    throw new MessagingException(pex.getMessage(), pex);
@@ -1566,7 +1613,7 @@ public class IMAPStore extends Store
             throws MessagingException {
         IMAPProtocol p = null;
         try {
-            p = getStoreProtocol();
+            p = getStoreProtocol("getCapability");
             Map<String, String> caps = p.getCapabilities();
             if (caps != null)
                 for (String cap : caps.values()) {
@@ -1590,7 +1637,7 @@ public class IMAPStore extends Store
 			throws MessagingException {
 		IMAPProtocol p = null;
 		try {
-			p = getStoreProtocol();
+			p = getStoreProtocol("getCapabilities");
 			return p.getCapabilities();
 		} catch (ProtocolException pex) {
 			throw new MessagingException(pex.getMessage(), pex);
@@ -1652,7 +1699,7 @@ public class IMAPStore extends Store
    
         IMAPProtocol p = null;
 	try {
-	    p = getStoreProtocol();
+	    p = getStoreProtocol("isConnected");
             p.noop();
 	} catch (ProtocolException pex) {
 	    // will return false below
@@ -1741,6 +1788,13 @@ public class IMAPStore extends Store
         List<IMAPFolder> foldersCopy = null;
         boolean done = true;
 
+		synchronized (pool) {
+			Map<String, String> crumb = new HashMap<>();
+			crumb.put("host", host);
+			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
+			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			eu.faircode.email.Log.breadcrumb("closeAllFolders", crumb);
+		}
 	// To avoid violating the locking hierarchy, there's no lock we
 	// can hold that prevents another thread from trying to open a
 	// folder at the same time we're trying to close all the folders.
@@ -1924,7 +1978,7 @@ public class IMAPStore extends Store
 
 	if (namespaces == null) {
 	    try {
-                p = getStoreProtocol();
+                p = getStoreProtocol("getNameSpaces");
 		namespaces = p.namespace();
 	    } catch (BadCommandException bex) { 
 		// NAMESPACE not supported, ignore it
@@ -1983,7 +2037,7 @@ public class IMAPStore extends Store
 
         IMAPProtocol p = null;
 	try {
-	    p = getStoreProtocol();
+	    p = getStoreProtocol("getQuota");
 	    qa = p.getQuotaRoot(root);
 	} catch (BadCommandException bex) {
 	    throw new MessagingException("QUOTA not supported", bex);
@@ -2011,7 +2065,7 @@ public class IMAPStore extends Store
 	checkConnected();
         IMAPProtocol p = null;
 	try {
-	    p = getStoreProtocol();
+	    p = getStoreProtocol("setQuota");
 	    p.setQuota(quota);
 	} catch (BadCommandException bex) {
 	    throw new MessagingException("QUOTA not supported", bex);
@@ -2098,7 +2152,7 @@ public class IMAPStore extends Store
 	boolean needNotification = false;
 	try {
 	    synchronized (pool) {
-		p = getStoreProtocol();
+		p = getStoreProtocol("idle");
 		if (pool.idleState != ConnectionPool.RUNNING) {
 		    // some other thread must be running the IDLE
 		    // command, we'll just wait for it to finish
@@ -2238,7 +2292,7 @@ public class IMAPStore extends Store
 
         IMAPProtocol p = null;
 	try {
-	    p = getStoreProtocol();
+	    p = getStoreProtocol("id");
 	    serverParams = p.id(clientParams);
 	} catch (BadCommandException bex) {
 	    throw new MessagingException("ID not supported", bex);
