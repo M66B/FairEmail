@@ -2269,7 +2269,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
+            POP3Folder ifolder, POP3Store istore, State state) throws Throwable {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_known = prefs.getBoolean("notify_known", false);
@@ -2382,11 +2382,10 @@ class Core {
 
                 boolean _new = true;
                 for (int i = imessages.length - 1; i >= imessages.length - max; i--) {
+                    state.ensureRunning("Sync/POP3");
+
                     Message imessage = imessages[i];
                     try {
-                        if (!state.isRunning())
-                            return;
-
                         MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
 
                         String uidl;
@@ -2583,7 +2582,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            IMAPStore istore, final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+            IMAPStore istore, final IMAPFolder ifolder, State state) throws Throwable {
         final DB db = DB.getInstance(context);
         try {
             SyncStats stats = new SyncStats();
@@ -2741,7 +2740,9 @@ class Core {
                 Log.i(folder.name + " remote fetched=" + stats.flags_ms + " ms");
 
                 try {
-                    for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++) {
+                    for (int i = 0; i < imessages.length; i++) {
+                        state.ensureRunning("Sync/IMAP");
+
                         long uid = ifolder.getUID(imessages[i]);
                         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                         ids[i] = (message == null ? null : message.id);
@@ -2794,7 +2795,9 @@ class Core {
                 });
 
                 int expunge = 0;
-                for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++)
+                for (int i = 0; i < imessages.length; i++) {
+                    state.ensureRunning("Sync/IMAP");
+
                     try {
                         if (perform_expunge && imessages[i].isSet(Flags.Flag.DELETED))
                             expunge++;
@@ -2809,6 +2812,7 @@ class Core {
                         EntityLog.log(context, folder.name + " expunge " + Log.formatThrowable(ex, false));
                         db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                     }
+                }
 
                 if (expunge > 0)
                     try {
@@ -2965,7 +2969,9 @@ class Core {
                 // Add/update local messages
                 int synced = 0;
                 Log.i(folder.name + " add=" + imessages.length);
-                for (int i = imessages.length - 1; i >= 0 && state.isRunning() && state.isRecoverable(); i -= SYNC_BATCH_SIZE) {
+                for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
+                    state.ensureRunning("Sync/IMAP");
+
                     int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
 
@@ -2996,7 +3002,9 @@ class Core {
                     Log.breadcrumb("sync", crumb);
                     Log.i("Sync " + from + ".." + i + " free=" + free);
 
-                    for (int j = isub.length - 1; j >= 0 && state.isRunning() && state.isRecoverable(); j--)
+                    for (int j = isub.length - 1; j >= 0; j--) {
+                        state.ensureRunning("Sync/IMAP");
+
                         try {
                             // Some providers erroneously return old messages
                             if (full.contains(isub[j]))
@@ -3047,6 +3055,7 @@ class Core {
                             // Free memory
                             isub[j] = null;
                         }
+                    }
                 }
             }
 
@@ -3072,9 +3081,10 @@ class Core {
                 // Download messages/attachments
                 int downloaded = 0;
                 Log.i(folder.name + " download=" + imessages.length);
-                for (int i = imessages.length - 1; i >= 0 && state.isRunning() && state.isRecoverable(); i -= DOWNLOAD_BATCH_SIZE) {
-                    int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
+                for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
+                    state.ensureRunning("Sync/IMAP");
 
+                    int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
                     Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                     Arrays.fill(imessages, from, i + 1, null);
                     // Fetch on demand
@@ -3090,7 +3100,9 @@ class Core {
                     Log.breadcrumb("download", crumb);
                     Log.i("Download " + from + ".." + i + " free=" + free);
 
-                    for (int j = isub.length - 1; j >= 0 && state.isRunning() && state.isRecoverable(); j--)
+                    for (int j = isub.length - 1; j >= 0; j--) {
+                        state.ensureRunning("Sync/IMAP");
+
                         try {
                             if (ids[from + j] != null) {
                                 boolean fetched = downloadMessage(
@@ -3116,6 +3128,7 @@ class Core {
                             // Free memory
                             isub[j] = null;
                         }
+                    }
                 }
             }
 
@@ -4974,6 +4987,13 @@ class Core {
 
         void join() {
             join(thread);
+        }
+
+        void ensureRunning(String reason) throws Throwable {
+            if (!recoverable && unrecoverable != null)
+                throw unrecoverable;
+            if (!running)
+                throw new OperationCanceledException(reason);
         }
 
         boolean isRunning() {

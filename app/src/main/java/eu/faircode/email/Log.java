@@ -47,6 +47,7 @@ import android.os.Bundle;
 import android.os.DeadObjectException;
 import android.os.DeadSystemException;
 import android.os.Debug;
+import android.os.OperationCanceledException;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
@@ -1464,7 +1465,9 @@ public class Log {
                 return null;
 
             if (ex instanceof StoreClosedException ||
-                    ex instanceof FolderClosedException || ex instanceof FolderClosedIOException)
+                    ex instanceof FolderClosedException ||
+                    ex instanceof FolderClosedIOException ||
+                    ex instanceof OperationCanceledException)
                 return null;
 
             if (ex instanceof IllegalStateException &&
