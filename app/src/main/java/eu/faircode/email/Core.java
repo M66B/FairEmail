@@ -2269,7 +2269,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            POP3Folder ifolder, POP3Store istore, State state) throws Throwable {
+            POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_known = prefs.getBoolean("notify_known", false);
@@ -2582,7 +2582,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            IMAPStore istore, final IMAPFolder ifolder, State state) throws Throwable {
+            IMAPStore istore, final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             SyncStats stats = new SyncStats();
@@ -4989,9 +4989,9 @@ class Core {
             join(thread);
         }
 
-        void ensureRunning(String reason) throws Throwable {
+        void ensureRunning(String reason) {
             if (!recoverable && unrecoverable != null)
-                throw unrecoverable;
+                throw new OperationCanceledExceptionEx(reason, unrecoverable);
             if (!running)
                 throw new OperationCanceledException(reason);
         }
@@ -5119,6 +5119,21 @@ class Core {
                 } else
                     return false;
             }
+        }
+    }
+
+    static class OperationCanceledExceptionEx extends OperationCanceledException {
+        private Throwable cause;
+
+        OperationCanceledExceptionEx(String message, Throwable cause) {
+            super(message);
+            this.cause = cause;
+        }
+
+        @Nullable
+        @Override
+        public Throwable getCause() {
+            return this.cause;
         }
     }
 
