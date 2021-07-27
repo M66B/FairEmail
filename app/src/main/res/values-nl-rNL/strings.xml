@@ -207,9 +207,9 @@
     <string name="title_setup_password_missing">Wachtwoord ontbreekt</string>
     <string name="title_setup_password_different">De wachtwoorden komen niet overeen</string>
     <string name="title_setup_password_invalid">Wachtwoord ongeldig</string>
-    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Importeer accounts en identiteiten</string>
-    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Importeer filterregels</string>
-    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Importeer lokale contacten</string>
+    <string name="title_setup_import_accounts">Importeer accounts en identiteiten</string>
+    <string name="title_setup_import_rules">Importeer filterregels</string>
+    <string name="title_setup_import_contacts">Importeer lokale contacten</string>
     <string name="title_setup_import_answers">Importeer antwoordsjablonen</string>
     <string name="title_setup_import_settings">Importeer opties</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
@@ -328,6 +328,7 @@
     <string name="title_advanced_portrait2">Gebruik twee rijen in portretmodus</string>
     <string name="title_advanced_landscape">Twee kolommen gebruiken in liggende modus</string>
     <string name="title_advanced_landscape3">Navigatiemenu standaard in liggende modus weergeven</string>
+    <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
@@ -600,6 +601,7 @@
     <string name="title_advanced_edit_name">Naam wijzigen</string>
     <string name="title_advanced_swipe_actions">Stel veegacties in</string>
     <string name="title_advanced_swipe_actions_hint">Dit stelt de veeg naar links en rechts actie voor alle IMAP accounts in</string>
+    <string name="title_advanced_swipe_sensitivity">Links/rechts veeggevoeligheid</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>

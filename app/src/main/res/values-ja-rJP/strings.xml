@@ -187,12 +187,20 @@
     </string>
     <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
     <string name="title_setup_import_do">インポートされたアカウントは既存のアカウントを上書きせずに追加されます</string>
+    <string name="title_setup_import_gmail">        Android 8.0 Oreo以降、アカウントへのアクセスを許可するには各アカウントを選択する必要があるため、Gmailアカウントをインポートできなくなりました。
+        クイックセットアップウィザードを使用して、Gmailアカウントを簡単に再構成できます。
+    </string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字又は空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードの再入力</string>
     <string name="title_setup_password_missing">パスワードを入力して下さい</string>
     <string name="title_setup_password_different">パスワードが間違っています</string>
     <string name="title_setup_password_invalid">無効なパスワードです</string>
+    <string name="title_setup_import_accounts">アカウントとIDをインポート</string>
+    <string name="title_setup_import_rules">フィルタールールをインポート</string>
+    <string name="title_setup_import_contacts">ローカルの連絡先をインポート</string>
+    <string name="title_setup_import_answers">返信テンプレートをインポート</string>
+    <string name="title_setup_import_settings">インポートオプション</string>
     <string name="title_setup_exported">エクスポートされた設定</string>
     <string name="title_setup_imported">インポートされた設定</string>
     <string name="title_setup_import_invalid">無効な設定ファイル</string>
@@ -309,6 +317,7 @@
     <string name="title_advanced_portrait2">ポートレートモードで2つの行を使用</string>
     <string name="title_advanced_landscape">横向きモードで2列を使用</string>
     <string name="title_advanced_landscape3">デフォルトでランドスケープモードでナビゲーションメニューを表示する</string>
+    <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示する</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式では無くカード形式を使用</string>
     <string name="title_advanced_cards_beige">カードスタイルを使用するときはベージュの背景を使用します（ライトテーマのみ）</string>
@@ -580,6 +589,7 @@
     <string name="title_advanced_edit_name">名前を編集</string>
     <string name="title_advanced_swipe_actions">スワイプの動作</string>
     <string name="title_advanced_swipe_actions_hint">全てのIMAPアカウントの左右のスワイプ操作を設定</string>
+    <string name="title_advanced_swipe_sensitivity">左/右スワイプ感度</string>
     <string name="title_select">選択 &#8230;</string>
     <string name="title_identity_name">名前</string>
     <string name="title_identity_email">メールアドレス</string>

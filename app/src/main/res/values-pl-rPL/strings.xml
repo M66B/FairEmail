@@ -215,13 +215,22 @@
     <string name="title_setup_export_remark">        Ponieważ plik ustawień zawiera wszystkie ustawienia i informacje o koncie, jest zaszyfrowany hasłem.
          Hasło jest wymagane do ponownego zaimportowania ustawień, więc nie zapomnij go!
     </string>
+    <string name="title_setup_export_do">Plik będzie zawierał wszystkie ustawienia i dane, bez żadnych komunikatów i obrazów w odniesieniu do podpisów</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
+    <string name="title_setup_import_gmail">        Od Androida 8. Oreo, konta Gmail nie mogą być już zaimportowane, ponieważ każde konto musi być wybrane w celu udzielenia dostępu do konta.
+        Możesz z łatwością skonfigurować konta Gmail z szybkim kreatorem konfiguracji.
+    </string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_chars">Hasło zawiera znaki kontrolne lub znaki spacji</string>
     <string name="title_setup_password_repeat">Powtórz hasło</string>
     <string name="title_setup_password_missing">Brak hasła</string>
     <string name="title_setup_password_different">Hasła nie są identyczne</string>
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
+    <string name="title_setup_import_accounts">Importuj konta i tożsamości</string>
+    <string name="title_setup_import_rules">Importuj reguły filtrowania</string>
+    <string name="title_setup_import_contacts">Importuj kontakty lokalne</string>
+    <string name="title_setup_import_answers">Importuj szablony odpowiedzi</string>
+    <string name="title_setup_import_settings">Opcje importowania</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
     <string name="title_setup_import_invalid">Nieprawidłowy plik ustawień</string>
@@ -610,6 +619,7 @@
     <string name="title_advanced_edit_name">Zmień nazwę</string>
     <string name="title_advanced_swipe_actions">Ustaw akcje przesuwania</string>
     <string name="title_advanced_swipe_actions_hint">Spowoduje to ustawienie akcji przesuwania w lewo i w prawo dla wszystkich kont IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Czułość przesunięcia w lewo/prawo</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoje imię</string>
     <string name="title_identity_email">Twój adres e-mail</string>

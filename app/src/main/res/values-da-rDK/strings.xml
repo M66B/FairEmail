@@ -202,7 +202,11 @@
     <string name="title_setup_password_missing">Adgangskode mangler</string>
     <string name="title_setup_password_different">Adgangskoder matcher ikke</string>
     <string name="title_setup_password_invalid">Ugyldig adgangskode</string>
+    <string name="title_setup_import_accounts">Import af konti og identiteter</string>
+    <string name="title_setup_import_rules">Import af filterregler</string>
+    <string name="title_setup_import_contacts">Import af lokale kontakter</string>
     <string name="title_setup_import_answers">Importér svarskabeloner</string>
+    <string name="title_setup_import_settings">Importindstillinger</string>
     <string name="title_setup_exported">Indstillinger eksporteret</string>
     <string name="title_setup_imported">Indstillinger importeret</string>
     <string name="title_setup_import_invalid">Ugyldig indstillingsfil</string>
@@ -583,6 +587,7 @@
     <string name="title_advanced_edit_name">Redigér navn</string>
     <string name="title_advanced_swipe_actions">Indstil strygehandlinger</string>
     <string name="title_advanced_swipe_actions_hint">Dette opsætter handlinger for venstre- og højrestrygning for alle IMAP-konti</string>
+    <string name="title_advanced_swipe_sensitivity">Venstre/højren strygefølsomhed</string>
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>

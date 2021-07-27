@@ -186,13 +186,22 @@
     <string name="title_setup_export_remark">        Vì tệp cài đặt chứa tất cả cài đặt và thông tin tài khoản, nó được mã hóa bằng một mật khẩu.
         Mật khẩu đó là bắt buộc để nhập lại cài đặt, nên vui lòng đừng quên nó!
     </string>
+    <string name="title_setup_export_do">Tệp xuất sẽ chứa tất cả cài đặt và dữ liệu, nhưng không có thư và không có hình ảnh được nhắc đến trong chữ ký</string>
     <string name="title_setup_import_do">Các tài khoản được nhập sẽ được thêm mà không ghi đè lên bất kỳ tài khoản đang tồn tại nào</string>
+    <string name="title_setup_import_gmail">        Từ Android 8.0 Oreo trở đi, các tài khoản Gmail không thể được nhập nữa, vì mỗi tài khoản phải được chọn để cấp quyền truy cập vào tài khoản.
+        Bạn có thể dễ dàng thiết lập lại các tài khoản Gmail bằng trình hướng dẫn nhanh.
+    </string>
     <string name="title_setup_password">Mật khẩu</string>
     <string name="title_setup_password_chars">Mật khẩu chứa ký tự điều khiển hoặc không gian trắng</string>
     <string name="title_setup_password_repeat">Nhập lại mật khẩu</string>
     <string name="title_setup_password_missing">Thiếu mật khẩu</string>
     <string name="title_setup_password_different">Mật khẩu không khớp</string>
     <string name="title_setup_password_invalid">Mật khẩu không hợp lệ</string>
+    <string name="title_setup_import_accounts">Nhập các tài khoản và danh tính</string>
+    <string name="title_setup_import_rules">Nhập các quy tắc bộ lọc</string>
+    <string name="title_setup_import_contacts">Nhập các liên hệ cục bộ</string>
+    <string name="title_setup_import_answers">Nhập các mẫu để tạo câu trả lời</string>
+    <string name="title_setup_import_settings">Nhập các tùy chọn</string>
     <string name="title_setup_exported">Đã xuất cài đặt</string>
     <string name="title_setup_imported">Đã nhập cài đặt</string>
     <string name="title_setup_import_invalid">Tệp cài đặt không hợp lệ</string>

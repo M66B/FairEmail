@@ -227,9 +227,9 @@
     <string name="title_setup_password_missing">Пароль відсутній</string>
     <string name="title_setup_password_different">Паролі не збігаються</string>
     <string name="title_setup_password_invalid">Пароль не є дійсним</string>
-    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Імпортувати облікові записи та особисті дані</string>
-    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Імпортувати правила фільтрів</string>
-    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Імпортувати локальні контакти</string>
+    <string name="title_setup_import_accounts">Імпортувати облікові записи та особисті дані</string>
+    <string name="title_setup_import_rules">Імпортувати правила фільтрів</string>
+    <string name="title_setup_import_contacts">Імпортувати локальні контакти</string>
     <string name="title_setup_import_answers">Імпортувати шаблони відповідей</string>
     <string name="title_setup_import_settings">Імпортувати налаштування</string>
     <string name="title_setup_exported">Налаштування експортовано</string>
@@ -348,6 +348,7 @@
     <string name="title_advanced_portrait2">Використовувати два рядки в портретному режимі</string>
     <string name="title_advanced_landscape">Використовувати дві колонки в ландшафтному режимі</string>
     <string name="title_advanced_landscape3">Показувати меню навігації в ландшафтному режимі за замовчуванням</string>
+    <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
     <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання стилю карт (тільки для світлої теми)</string>
@@ -619,6 +620,7 @@
     <string name="title_advanced_edit_name">Змінити ім\'я</string>
     <string name="title_advanced_swipe_actions">Установити дії на свайп</string>
     <string name="title_advanced_swipe_actions_hint">Це дозволить встановити свайп вліво та вправо для всіх облікових записів IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Чутливість для свайпу вліво або вправо</string>
     <string name="title_select">Обрати &#8230;</string>
     <string name="title_identity_name">Ваше ім’я</string>
     <string name="title_identity_email">Ваша електронна адреса</string>

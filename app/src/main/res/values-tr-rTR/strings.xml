@@ -83,7 +83,9 @@
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
+    <string name="title_notification_alert">Sunucu uyarısı \'%1$s\'</string>
     <string name="title_notification_sending_left">%1$d deneme kaldı</string>
+    <string name="title_notification_sending_retry">Gönderme, internet bağlantısı değişikliklerinde veya giden kutusu aşağı çekildiğinde yeniden denenecek</string>
     <string name="title_notification_sending_failed">%1$s adresine gönderim başarısız oldu</string>
     <string name="title_notification_redacted">Düzeltildi: biyometrik veya PIN kimlik doğrulaması etkin</string>
     <string name="title_factor_minutes">%1$d dakika</string>
@@ -128,6 +130,8 @@
     <string name="title_setup_wizard_multiple">Kurulum sihirbazı, birden fazla hesabı ayarlamak için birden çok kez kullanılabilir</string>
     <string name="title_setup_wizard_new">Yeni bir e-posta adresi istiyorum</string>
     <string name="title_setup_manual">Elle kurulum ve hesap ayarları</string>
+    <string name="title_setup_classic">Klasik yapılandırma</string>
+    <string name="title_setup_documentation">Doğru e-posta sunucusu yapılandırması için lütfen e-posta sağlayıcınızın belgelerine bakın</string>
     <string name="title_setup_account_remark">E-posta al</string>
     <string name="title_setup_identity_remark">E-posta gönder</string>
     <string name="title_setup_account_identity_hint">Hesap ayarlarında adı, rengi ve kaydırma eylemlerini yapılandırabilir ve kimlik ayarlarında bir imza yapılandırabilirsiniz</string>
@@ -155,6 +159,7 @@
     <string name="title_setup_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_setup_advanced_protection">Gelişmiş koruma programına dahil olduğunuzda, üçüncü parti bir e-posta istemcisi kullanamazsınız. Bu, Google\'ın bir kısıtlamasıdır.</string>
     <string name="title_setup_quick_success">Bir hesap başarıyla eklendi</string>
+    <string name="title_setup_quick_no_sent">Gönderilmiş mesaj klasörü seçilmedi. Gönderilen mesajlar saklanmayabilir.</string>
     <string name="title_setup_quick_configure">Adı, rengi, kaydırma işlemlerini vb. düzenlemek için</string>
     <string name="title_setup_manage">Yönet</string>
     <string name="title_setup_grant">İzin</string>
@@ -174,6 +179,7 @@
     <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
     <string name="title_setup_doze_device">Bu muhtemelen bu cihaz için gereklidir</string>
     <string name="title_setup_doze_android">Bu, bu Android sürümü için gereklidir</string>
+    <string name="title_setup_inexact">Alarmlar &amp; hatırlatıcılar devre dışı bırakıldı</string>
     <string name="title_setup_background">Arka plan kısıtlamaları etkinleştirildi</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
     <string name="title_setup_advanced_options">Gelişmiş seçenekleri göster</string>
@@ -187,13 +193,25 @@
     <string name="title_setup_close">Ayarları kapat</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
+    <string name="title_setup_export_remark">        Ayarlar dosyası tüm ayarları ve hesap bilgilerini içerdiğinden bir parola ile şifrelenir.
+        Ayarları tekrar içe aktarmak için parola gereklidir, bu yüzden lütfen bunu unutmayın!
+    </string>
+    <string name="title_setup_export_do">Dışa aktarma dosyası tüm ayarları ve verileri içerecek, ancak imzalarda atıfta bulunulan hiçbir mesaj ve resim olmayacak</string>
     <string name="title_setup_import_do">İçe aktarılan hesaplar varolan hesapların üzerine yazılmadan eklenecek</string>
+    <string name="title_setup_import_gmail">        Android 8.0 Oreo\'dan bu yana, hesaba erişim izni vermek için her hesabın seçilmesi gerektiğinden Gmail hesapları artık içe aktarılamaz.
+        Hızlı kurulum sihirbazı ile Gmail hesaplarını kolayca yeniden yapılandırabilirsiniz.
+    </string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_chars">Parola, kontrol veya boşluk karakterleri içeriyor</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
     <string name="title_setup_password_missing">Parola eksik</string>
     <string name="title_setup_password_different">Parolalar eşleşmiyor</string>
     <string name="title_setup_password_invalid">Parola geçersiz</string>
+    <string name="title_setup_import_accounts">Hesapları ve kimlikleri içe aktarın</string>
+    <string name="title_setup_import_rules">Filtre kurallarını içe aktar</string>
+    <string name="title_setup_import_contacts">Yerel kişileri içe aktar</string>
+    <string name="title_setup_import_answers">Yanıt şablonlarını içe aktar</string>
+    <string name="title_setup_import_settings">İçe aktarma seçenekleri</string>
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_import_invalid">Geçersiz ayarlar dosyası</string>
@@ -257,6 +275,7 @@
     <string name="title_advanced_check_reply_domain">Mesajları senkronize ederken yanıt adresini kontrol edin</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_check_blocklist">Gönderenin alan adının spam engelleme listesinde olup olmadığını kontrol et</string>
+    <string name="title_advanced_use_blocklist">Engellenenler listesindeki alanlardan gelen iletileri spam klasörüne taşıyın</string>
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klavyeyi önleyin, gizleyin</string>
@@ -300,6 +319,7 @@
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_caption_general">Genel</string>
+    <string name="title_advanced_caption_checks">Kontroller</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Söyleşi</string>
     <string name="title_advanced_caption_message">İleti</string>
@@ -308,6 +328,7 @@
     <string name="title_advanced_portrait2">Dikey modda iki satır kullan</string>
     <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
     <string name="title_advanced_landscape3">Yatay modda varsayılan olarak menüyü göster</string>
+    <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
@@ -323,6 +344,8 @@
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
+    <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
+    <string name="title_advanced_bimi_verified">Doğrulanmış gönderen</string>
     <string name="title_advanced_favicons">Faviconları göster</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
@@ -356,6 +379,7 @@
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
     <string name="title_advanced_monospaced_pre">Önceden biçimlendirilmiş metin için tek aralıklı yazı tipi kullanın</string>
+    <string name="title_advanced_background_color">Arka plan renklerini kullan</string>
     <string name="title_advanced_text_color">Metinde renk kullan</string>
     <string name="title_advanced_text_size">Metin boyutunu kullan</string>
     <string name="title_advanced_text_font">Yazı tiplerini kullan</string>
@@ -370,6 +394,12 @@
     <string name="title_advanced_actionbar_color">Hesap rengini konuşma eylem çubuğu için arka plan rengi olarak kullan</string>
     <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
     <string name="title_advanced_parse_classes">CSS\'i çözümle</string>
+    <string name="title_advanced_authentication">Kimlik doğrulama uyarılarını göster</string>
+    <string name="title_advanced_authentication_hint">Temel kontroller, alma ayarlarında yapılandırılabilir</string>
+    <string name="title_advanced_authentication_indicator">Kimlik doğrulama durumu göstergesini göster</string>
+    <string name="title_advanced_authentication_none">Kimlik doğrulama yok</string>
+    <string name="title_advanced_authentication_some">Kısmi kimlik doğrulama</string>
+    <string name="title_advanced_authentication_all">Tam kimlik doğrulama</string>
     <string name="title_advanced_sync_on_launch">Uygulama açıldığında eşitle</string>
     <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
     <string name="title_advanced_conversation_actions">Eylem öner (Android 10+)</string>
@@ -475,6 +505,7 @@
     <string name="title_advanced_class_min_difference">En düşük sınıflandırma farkı: %1$s %%</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
+    <string name="title_advanced_deepl">DeepL entegrasyonu</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
     <string name="title_advanced_check_weekly">Günlük yerine haftalık kontrol edin</string>
@@ -570,6 +601,7 @@
     <string name="title_advanced_edit_name">Adı düzenle</string>
     <string name="title_advanced_swipe_actions">Kaydırma eylemlerini ayarlayın</string>
     <string name="title_advanced_swipe_actions_hint">Bu, tüm IMAP hesapları için sola ve sağa kaydırma işlemini ayarlayacaktır.</string>
+    <string name="title_advanced_swipe_sensitivity">Sol/sağ kaydırma hassasiyeti</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
@@ -628,6 +660,7 @@
     <string name="title_leave_deleted">Silinen mesajları sunucuda bırak</string>
     <string name="title_leave_on_device">Mesajları cihazda bırak</string>
     <string name="title_max_messages">İndirilecek mesajların maksimum sayısı (hepsi için boş)</string>
+    <string name="title_keep_poll_interval">Anket aralığı (dakika)</string>
     <string name="title_keep_alive_interval">Canlı tutma aralığı (dakika)</string>
     <string name="title_server_time">Alınan zamanı kullan (sunucu)</string>
     <string name="title_received_header">\'Recieved\' başlığını kullan</string>
@@ -953,6 +986,7 @@
     <string name="title_style_font">Yazı tipi</string>
     <string name="title_style_font_default">Varsayılan</string>
     <string name="title_style_blockquote">Alıntıyı Engelle/Blokla</string>
+    <string name="title_style_indentation">Girinti</string>
     <string name="title_style_strikethrough">Üstü Çizili</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
     <string name="title_style_link">Bağlantı ekle</string>
@@ -982,6 +1016,7 @@
     <string name="title_translating">Tercüme ediliyor&#8230;</string>
     <string name="title_translate_small">Kaynak metin için küçük bir yazı tipi kullan</string>
     <string name="title_translate_usage">Kullanım: %1$s/%2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Çevrilecek metne dokunun</string>
     <string name="title_edit_plain_text">Düz metin olarak düzenle</string>
     <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
     <string name="title_select_certificate">Genel anahtar seç</string>

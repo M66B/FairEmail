@@ -207,7 +207,11 @@
     <string name="title_setup_password_missing">Λείπει ο κωδικός πρόσβασης</string>
     <string name="title_setup_password_different">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
     <string name="title_setup_password_invalid">Μη έγκυρος κωδικός πρόσβασης</string>
+    <string name="title_setup_import_accounts">Εισαγωγή λογαριασμών και ταυτοτήτων</string>
+    <string name="title_setup_import_rules">Εισαγωγή κανόνων φίλτρων</string>
+    <string name="title_setup_import_contacts">Εισαγωγή τοπικών επαφών</string>
     <string name="title_setup_import_answers">Εισαγωγή προτύπων απάντησης</string>
+    <string name="title_setup_import_settings">Εισαγωγή επιλογών</string>
     <string name="title_setup_exported">Επιτυχής εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_imported">Επιτυχής εισαγωγή ρυθμίσεων</string>
     <string name="title_setup_import_invalid">Λάθος αρχείο ρυθμίσεων</string>
@@ -594,6 +598,7 @@
     <string name="title_advanced_edit_name">Επεξεργασία ονόματος</string>
     <string name="title_advanced_swipe_actions">Ορίστε τις ενέργειες σάρωσης</string>
     <string name="title_advanced_swipe_actions_hint">Θα ορίσει τις ενέργειες σάρωσης αριστερά και δεξιά για όλους τους λογαριασμούς IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Ευαισθησία σάρωσης προς αριστερά/δεξιά</string>
     <string name="title_select">Επιλέξτε &#8230;</string>
     <string name="title_identity_name">Το όνομα σας</string>
     <string name="title_identity_email">Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας</string>

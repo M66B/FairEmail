@@ -227,9 +227,9 @@
     <string name="title_setup_password_missing">Отсутствует пароль</string>
     <string name="title_setup_password_different">Пароли не совпадают</string>
     <string name="title_setup_password_invalid">Пароль неверный</string>
-    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Импорт учётных записей и идентификаторов</string>
-    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Импорт правил фильтров</string>
-    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Импорт локальных контактов</string>
+    <string name="title_setup_import_accounts">Импорт учётных записей и идентификаторов</string>
+    <string name="title_setup_import_rules">Импорт правил фильтров</string>
+    <string name="title_setup_import_contacts">Импорт локальных контактов</string>
     <string name="title_setup_import_answers">Импорт шаблонов ответов</string>
     <string name="title_setup_import_settings">Импорт настроек</string>
     <string name="title_setup_exported">Настройки экспортированы</string>
@@ -620,6 +620,7 @@
     <string name="title_advanced_edit_name">Переименовать</string>
     <string name="title_advanced_swipe_actions">Настройка жестов</string>
     <string name="title_advanced_swipe_actions_hint">Данная настройка определяет действия жестов вправо и влево для всех учётных записей IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Чувствительность жеста влево/вправо</string>
     <string name="title_select">Выбор&#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш адрес электронной почты</string>

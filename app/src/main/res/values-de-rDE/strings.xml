@@ -209,10 +209,10 @@
     <string name="title_setup_password_missing">Passwort fehlt</string>
     <string name="title_setup_password_different">Passwörter stimmen nicht überein</string>
     <string name="title_setup_password_invalid">Passwort ungültig</string>
-    <string name="title_setup_import_accounts" comment="title_setup_import_accounts&#10;Title for checkbox to select to import accounts and identities from a export file">Konten und Identitäten importieren</string>
-    <string name="title_setup_import_rules" comment="title_setup_import_rules&#10;Title for checkbox to select to import filter rules from a export file">Filterregeln importieren</string>
-    <string name="title_setup_import_contacts" comment="title_setup_import_contacts&#10;Title for checkbox to select to import local contacts from a export file">Lokale Kontakte importieren</string>
-    <string name="title_setup_import_answers">Vorlagen importieren</string>
+    <string name="title_setup_import_accounts">Konten und Identitäten importieren</string>
+    <string name="title_setup_import_rules">Filterregeln importieren</string>
+    <string name="title_setup_import_contacts">Lokale Kontakte importieren</string>
+    <string name="title_setup_import_answers">Antwortvorlagen importieren</string>
     <string name="title_setup_import_settings">Importoptionen</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
@@ -330,6 +330,7 @@
     <string name="title_advanced_portrait2">Zwei-Fenster-Darstellung im Hochformat verwenden</string>
     <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_landscape3">Navigationsmenü standardmäßig im Querformat anzeigen</string>
+    <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Ordner und Unterhaltungen mit Rahmen (breit) statt in Tabellendesign (schmal) zeigen</string>
     <string name="title_advanced_cards_beige">Beigefarbenen Hintergrund verwenden, wenn Kartenstil genutzt wird (nur bei hellen Farbschemen)</string>
@@ -602,6 +603,7 @@
     <string name="title_advanced_edit_name">Namen bearbeiten</string>
     <string name="title_advanced_swipe_actions">Wischgesten festlegen</string>
     <string name="title_advanced_swipe_actions_hint">Das wird die Aktion fürs Links- und Rechtswischen aller IMAP-Konten festlegen</string>
+    <string name="title_advanced_swipe_sensitivity">Empfindlichkeit für das Links-/Rechts-Wischen</string>
     <string name="title_select">Auswählen &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>

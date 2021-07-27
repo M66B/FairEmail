@@ -320,6 +320,7 @@
     <string name="title_advanced_portrait2">Usa due righe in modalità verticale</string>
     <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_landscape3">Mostra il menu di navigazione in modalità orizzontale di default</string>
+    <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
     <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile della carta (solo per temi chiari)</string>

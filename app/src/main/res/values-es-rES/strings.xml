@@ -207,7 +207,11 @@
     <string name="title_setup_password_missing">Falta contraseña</string>
     <string name="title_setup_password_different">Las contraseñas no coinciden</string>
     <string name="title_setup_password_invalid">Contraseña inválida</string>
+    <string name="title_setup_import_accounts">Importar cuentas e identidades</string>
+    <string name="title_setup_import_rules">Importar reglas de filtro</string>
+    <string name="title_setup_import_contacts">Importar contactos locales</string>
     <string name="title_setup_import_answers">Importar plantillas de respuesta</string>
+    <string name="title_setup_import_settings">Importar opciones</string>
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_import_invalid">Archivo de configuración inválido</string>
@@ -324,6 +328,7 @@
     <string name="title_advanced_portrait2">Usar dos filas en modo vertical</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
     <string name="title_advanced_landscape3">Mostrar el menú de navegación en modo apaisado por defecto</string>
+    <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
     <string name="title_advanced_cards_beige">Usar fondo beige al utilizar el estilo de la tarjeta (solo temas claros)</string>
@@ -596,6 +601,7 @@
     <string name="title_advanced_edit_name">Editar nombre</string>
     <string name="title_advanced_swipe_actions">Establecer acciones de deslizamiento</string>
     <string name="title_advanced_swipe_actions_hint">Esto establecerá las acciones al deslizar a izquierda o derecha para todas las cuentas IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Sensibilidad del deslizado a izquierda/derecha</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>

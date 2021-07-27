@@ -929,20 +929,20 @@ L'erreur *... L'hôte n'est pas résolu ...*, *... Impossible de résoudre l'hô
 
 L'erreur *... Arrêt de la connexion dû à un logiciel...* signifie que le serveur de messagerie ou quelque chose entre FairEmail et le serveur de messagerie a mis fin activement à une connexion existante. Cela peut se produire par exemple lorsque la connectivité a été brusquement perdue. Un exemple typique est d'activer le mode avion.
 
-The errors *... BYE Logging out ...*, *... Connexion refusée...* signifie que le serveur de messagerie ou quelque chose entre le serveur de messagerie et l'application, comme un pare-feu, a activement refusé la connexion.
+Les erreurs *... BYE Déconnexion ...*, *... Connexion refusée...* signifie que le serveur de messagerie ou quelque chose entre le serveur de messagerie et l'application, comme un pare-feu, a activement refusé la connexion.
 
 L'erreur *... Connexion fermée par le pair ...* peut être causée par un serveur Exchange non mis à jour, voir [ici](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) pour plus d'informations.
 
-L'erreur *... Read error ...*, *... Write error ...*, *... La lecture a expiré ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+L'erreur *... Erreur de lecture...*, *... Erreur d'écriture ...*, *... La lecture a expiré ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 <a name="connectiondropped"></a>
 L'erreur *... Connexion interrompue par le serveur? ...* signifie que le serveur de messagerie a interrompu la connexion de façon inattendue. Cela se produit lorsqu'il y a trop de tentatives de connexion dans un court laps de temps ou quand un mauvais mot de passe est utilisé trop de fois. Vérifiez que votre mot de passe est correct et désactivez la réception de message dans l'onglet "réception" des paramètres pendant 30 minutes puis réessayez. Si besoin, reportez-vous [à cette FAQ](#user-content-faq23) sur comment réduire le nombre de connexions.
 
-The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
+L'erreur *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
 The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
 
-The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+L'avertissement *... Unsupported encoding ...* means that the character set of the message is unknown or not supported. FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
 The error *... Login Rate Limit Hit ...* means that there were too many login attempts with an incorrect password. Please double check your password or authenticate the account again with the quick setup wizard (OAuth only).
 
@@ -982,7 +982,7 @@ SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia
 * *550 Spam message rejected because IP is listed by ...* means that the email server rejected to send a message from the current (public) network address because it was misused to send spam by (hopefully) somebody else before. Please try to enable flight mode for 10 minutes to acquire a new network address.
 * *550 We're sorry, but we can't send your email. Soit l'objet, un lien ou une pièce jointe contiennent potentiellement de l'indésirable, du hameçonnage ou un logiciel malveillant.* signifie que le fournisseur de messagerie considère qu'un message sortant est dangereux.
 * *571 5.7.1 Message contains spam or virus or sender is blocked ...* means that the email server considered an outgoing message as spam. This probably means that the spam filters of the email server are too strict. You'll need to contact the email provider for support on this.
-* *451 4.7.0 Temporary server error. Please try again later. PRX4 ...* : veuillez [voir ici](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) ou [voir ici](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
+* *451 4.7.0 Temporary server error. Veuillez réessayer plus tard. PRX4 ...* : veuillez [voir ici](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) ou [voir ici](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 * *571 5.7.1 Relay access denied*: veuillez vérifier le nom d'utilisateur et l'adresse courriel dans les paramètres avancés d'identité (via la configuration manuelle).
 
 If you want to use the Gmail SMTP server to workaround a too strict outgoing spam filter or to improve delivery of messages:

@@ -1,6 +1,6 @@
-# Quraşdırma üzrə Kömək
+# Quraşdırma köməyi
 
-FairEmail-i quraşdırma olduqca sadədir. E-poçt almaq üçün ən azı bir hesab və e-poçt göndərmək istəsəniz ən azı bir kimlik əlavə etməyiniz lazımdır. The quick setup will add an account and an identity in one go for most major providers.
+FairEmail-i quraşdırmaq olduqca sadədir. E-poçt almaq üçün ən azı bir hesab və e-poçt göndərmək istəsəniz ən azı bir kimlik əlavə etməyiniz lazımdır. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Tələblər
 
