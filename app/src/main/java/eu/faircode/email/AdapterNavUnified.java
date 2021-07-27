@@ -48,6 +48,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private boolean nav_count;
     private int colorUnread;
     private int textColorSecondary;
 
@@ -103,7 +104,9 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
-            tvItemExtra.setVisibility(View.GONE);
+            tvItemExtra.setText(NF.format(folder.messages));
+            tvItemExtra.setVisibility(nav_count ? View.VISIBLE : View.GONE);
+
             ivExternal.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);
         }
@@ -131,6 +134,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.nav_count = prefs.getBoolean("nav_count", false);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));

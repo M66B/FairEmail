@@ -49,7 +49,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private boolean debug;
+    private boolean nav_count;
     private int colorUnread;
     private int textColorSecondary;
 
@@ -127,8 +127,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
-            tvItemExtra.setText(folder.last_sync == null ? null : TF.format(folder.last_sync));
-            tvItemExtra.setVisibility(debug ? View.VISIBLE : View.GONE);
+            tvItemExtra.setText(NF.format(folder.messages));
+            tvItemExtra.setVisibility(nav_count ? View.VISIBLE : View.GONE);
 
             ivExternal.setVisibility(View.GONE);
             ivWarning.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
@@ -159,8 +159,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.nav_count = prefs.getBoolean("nav_count", false);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
-        this.debug = prefs.getBoolean("debug", false);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
