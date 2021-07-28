@@ -141,6 +141,51 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 window.setNavigationBarColor(colorPrimaryDark);
         }
 
+        Fragment bfragment = getSupportFragmentManager()
+                .findFragmentByTag("androidx.biometric.BiometricFragment");
+        if (bfragment != null) {
+            Log.e("Orphan BiometricFragment");
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(bfragment)
+                    .commitNowAllowingStateLoss();
+            /*
+                java.lang.RuntimeException: Unable to start activity ComponentInfo{eu.faircode.email/eu.faircode.email.ActivitySetup}: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment androidx.biometric.FingerprintDialogFragment: could not find Fragment constructor
+                  at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2957)
+                  at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:3032)
+                  at android.app.ActivityThread.handleRelaunchActivity(ActivityThread.java:4921)
+                  at android.app.ActivityThread.-wrap19(Unknown Source:0)
+                  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1702)
+                  at android.os.Handler.dispatchMessage(Handler.java:105)
+                  at android.os.Looper.loop(Looper.java:164)
+                  at android.app.ActivityThread.main(ActivityThread.java:6944)
+                  at java.lang.reflect.Method.invoke(Native Method)
+                  at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:327)
+                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1374)
+                Caused by: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment androidx.biometric.FingerprintDialogFragment: could not find Fragment constructor
+                  at androidx.fragment.app.Fragment.instantiate(SourceFile:8)
+                  at androidx.fragment.app.FragmentContainer.instantiate(SourceFile:1)
+                  at androidx.fragment.app.FragmentManager$3.instantiate(SourceFile:1)
+                  at androidx.fragment.app.FragmentStateManager.<init>(SourceFile:12)
+                  at androidx.fragment.app.FragmentManager.restoreSaveState(SourceFile:11)
+                  at androidx.fragment.app.FragmentController.restoreSaveState(SourceFile:2)
+                  at androidx.fragment.app.FragmentActivity$2.onContextAvailable(SourceFile:5)
+                  at androidx.activity.contextaware.ContextAwareHelper.dispatchOnContextAvailable(SourceFile:3)
+                  at androidx.activity.ComponentActivity.onCreate(SourceFile:2)
+                  at androidx.fragment.app.FragmentActivity.onCreate(SourceFile:1)
+                  at eu.faircode.email.ActivityBase.onCreate(SourceFile:37)
+                  at eu.faircode.email.ActivitySetup.onCreate(SourceFile:1)
+                  at android.app.Activity.performCreate(Activity.java:7183)
+                  at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1220)
+                  at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2910)
+                  ... 10 more
+                Caused by: java.lang.NoSuchMethodException: <init> []
+                  at java.lang.Class.getConstructor0(Class.java:2320)
+                  at java.lang.Class.getConstructor(Class.java:1725)
+                  at androidx.fragment.app.Fragment.instantiate(SourceFile:4)
+             */
+        }
+
         checkAuthentication();
 
         super.onCreate(savedInstanceState);
