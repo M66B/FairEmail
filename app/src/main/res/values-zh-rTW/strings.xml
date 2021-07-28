@@ -343,10 +343,10 @@
     <string name="title_advanced_color_saturation">飽和度: %1$s %%</string>
     <string name="title_advanced_color_value">亮度: %1$s %%</string>
     <string name="title_advanced_color_threshold">字母顏色閾值: %1$s %%</string>
-    <string name="title_advanced_name_email">顯示名字及郵件地址</string>
-    <string name="title_advanced_replace_name">偏好顯示聯絡人名字而不是寄件者名字</string>
-    <string name="title_advanced_only_name">僅顯示聯繫人姓名</string>
-    <string name="title_advanced_distinguish_contacts">當寄件者為本地聯絡人時將名字加註底線</string>
+    <string name="title_advanced_name_email">顯示姓名及郵件地址</string>
+    <string name="title_advanced_replace_name">偏好顯示聯絡人姓名而非寄件者姓名</string>
+    <string name="title_advanced_only_name">僅顯示聯絡人姓名</string>
+    <string name="title_advanced_distinguish_contacts">當寄件者作為收件聯絡人是本地已知時為其加註底線</string>
     <string name="title_advanced_show_recipients">在訊息標頭中顯示收件者</string>
     <string name="title_advanced_font_size_sender">寄件者字段文字大小</string>
     <string name="title_advanced_font_size_subject">主旨文字大小</string>
@@ -509,7 +509,7 @@
     <string name="title_advanced_debug">除錯模式</string>
     <string name="title_advanced_query_threads">限制資料庫平行存取</string>
     <string name="title_advanced_manual_hint">如果停用了接收郵件，仍然可以下拉郵件列表來手動接收郵件</string>
-    <string name="title_advanced_poll_hint">定期檢查新消息將每次都比較本地消息和遠程消息，這是一項昂貴的操作，可能導致額外的電池消耗，尤其是在有很多消息的情況下。 始終接收將通過不斷跟踪更改來防止這種情況。</string>
+    <string name="title_advanced_poll_hint">定期檢查新訊息操作的代價很高，因為每次都會比較本地和遠端的訊息，而這可能會導致額外的電量消耗，特別是如果有很多訊息需要處理。始終接收將通過持續跟進變化來防止這種情況發生。</string>
     <string name="title_advanced_optimize_hint">這可能會更改同步頻率，以節省電池電量，具體取決於電子郵件服務器的能力和行為</string>
     <string name="title_advanced_schedule_hint">點擊時間以設置時間</string>
     <string name="title_advanced_no_date_hint">一些提供商將具有未知，無效或將來日期的消息存儲為沒有日期的消息</string>

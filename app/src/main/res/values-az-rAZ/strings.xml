@@ -370,7 +370,7 @@
     <string name="title_advanced_navbar_colorize_hint">Bunun işləməsi Android versiyası və variantından asılıdır</string>
     <string name="title_advanced_split_hint">Bu, ekranı hissələrə ayıracaq</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
-    <string name="title_advanced_highlight_hint">Temanın vurğu rəngi vurğulamaq üçün istifadə olunacaq</string>
+    <string name="title_advanced_highlight_hint">Temanın vurğu rəngi, vurğulamaq üçün istifadə olunacaq</string>
     <string name="title_advanced_gravatars_hint">Bir gizlilik riski ola bilər</string>
     <string name="title_advanced_name_email_hint">Adlar, yalnız mövcud olanda göstəriləcək</string>
     <string name="title_advanced_preview_hint">Yalnız mesaj mətni endiriləndə əlçatandır</string>
