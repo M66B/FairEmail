@@ -49,11 +49,11 @@
             android:text="Extra"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ivExternal"
+            app:layout_constraintEnd_toStartOf="@+id/ivExtra"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivExternal"
+            android:id="@+id/ivExtra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"

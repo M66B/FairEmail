@@ -612,7 +612,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                 startActivity(new Intent(ActivityView.this, ActivityBilling.class));
             }
-        }));
+        }).setExtraIcon(ActivityBilling.isPro(this) ? R.drawable.twotone_check_24 : 0));
 
         if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG))
             extra.add(new NavMenuItem(R.drawable.twotone_star_24, R.string.menu_rate, new Runnable() {

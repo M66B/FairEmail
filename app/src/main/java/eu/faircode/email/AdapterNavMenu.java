@@ -39,7 +39,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHolder> {
     private Context context;
@@ -59,7 +58,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         private ImageView ivItem;
         private TextView tvItem;
         private TextView tvItemExtra;
-        private ImageView ivExternal;
+        private ImageView ivExtra;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -69,7 +68,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
-            ivExternal = itemView.findViewById(R.id.ivExternal);
+            ivExtra = itemView.findViewById(R.id.ivExtra);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -101,7 +100,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             tvItemExtra.setText(menu.getSubtitle());
             tvItemExtra.setVisibility(menu.getSubtitle() == null ? View.GONE : View.VISIBLE);
 
-            ivExternal.setVisibility(menu.isExternal() ? View.VISIBLE : View.GONE);
+            ivExtra.setImageResource(menu.getExtraIcon());
+            ivExtra.setVisibility(menu.getExtraIcon() == 0 ? View.GONE : View.VISIBLE);
             ivWarning.setVisibility(menu.hasWarning() ? View.VISIBLE : View.GONE);
         }
 

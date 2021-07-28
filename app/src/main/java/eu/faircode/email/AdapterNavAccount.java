@@ -67,7 +67,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         private ImageView ivItem;
         private TextView tvItem;
         private TextView tvItemExtra;
-        private ImageView ivExternal;
+        private ImageView ivExtra;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -77,7 +77,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
-            ivExternal = itemView.findViewById(R.id.ivExternal);
+            ivExtra = itemView.findViewById(R.id.ivExtra);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -119,7 +119,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
             tvItemExtra.setText(account.last_connected == null ? null : TF.format(account.last_connected));
 
-            ivExternal.setVisibility(View.GONE);
+            ivExtra.setVisibility(View.GONE);
 
             Integer percent = account.getQuotaPercentage();
 

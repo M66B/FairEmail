@@ -61,7 +61,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         private ImageView ivItem;
         private TextView tvItem;
         private TextView tvItemExtra;
-        private ImageView ivExternal;
+        private ImageView ivExtra;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -71,7 +71,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
-            ivExternal = itemView.findViewById(R.id.ivExternal);
+            ivExtra = itemView.findViewById(R.id.ivExtra);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -107,7 +107,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             tvItemExtra.setText(NF.format(folder.messages));
             tvItemExtra.setVisibility(nav_count ? View.VISIBLE : View.GONE);
 
-            ivExternal.setVisibility(View.GONE);
+            ivExtra.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);
         }
 

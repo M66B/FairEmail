@@ -26,8 +26,8 @@ public class NavMenuItem {
     private Integer color;
     private int title;
     private String subtitle = null;
+    private int extraicon;
     private Integer count = null;
-    private boolean external = false;
     private boolean warning = false;
     private boolean separated = false;
     private Runnable click;
@@ -56,6 +56,11 @@ public class NavMenuItem {
         return this;
     }
 
+    NavMenuItem setExtraIcon(int icon) {
+        this.extraicon = icon;
+        return this;
+    }
+
     void setCount(Integer count) {
         if (count != null && count == 0)
             count = null;
@@ -63,7 +68,7 @@ public class NavMenuItem {
     }
 
     NavMenuItem setExternal(boolean external) {
-        this.external = external;
+        setExtraIcon(external ? R.drawable.twotone_open_in_new_24 : 0);
         return this;
     }
 
@@ -92,16 +97,16 @@ public class NavMenuItem {
         return this.subtitle;
     }
 
+    int getExtraIcon() {
+        return this.extraicon;
+    }
+
     Integer getCount() {
         return this.count;
     }
 
     boolean isSeparated() {
         return this.separated;
-    }
-
-    boolean isExternal() {
-        return this.external;
     }
 
     boolean hasWarning() {
@@ -135,8 +140,8 @@ public class NavMenuItem {
                     Objects.equals(this.color, other.color) &&
                     this.title == other.title &&
                     Objects.equals(this.subtitle, other.subtitle) &&
+                    this.extraicon == other.extraicon &&
                     Objects.equals(this.count, other.count) &&
-                    this.external == other.external &&
                     this.warning == other.warning &&
                     this.separated == other.separated);
         } else
@@ -145,6 +150,6 @@ public class NavMenuItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(icon, color, title, subtitle, count, external, warning, separated);
+        return Objects.hash(icon, color, title, subtitle, extraicon, count, warning, separated);
     }
 }
