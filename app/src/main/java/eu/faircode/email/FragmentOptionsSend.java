@@ -449,13 +449,17 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         String re2 = getString(R.string.title_subject_reply_alt, "");
         ((RadioButton) view.findViewById(R.id.rbRe1)).setText(re1);
         ((RadioButton) view.findViewById(R.id.rbRe2)).setText(re2);
-        rgRe.setVisibility(Objects.equals(re1, re2) ? View.GONE : View.VISIBLE);
+        boolean re = !Objects.equals(re1, re2);
+        for (int i = 0; i < rgRe.getChildCount(); i++)
+            rgRe.getChildAt(i).setEnabled(re);
 
         String fwd1 = getString(R.string.title_subject_forward, "");
         String fwd2 = getString(R.string.title_subject_forward_alt, "");
         ((RadioButton) view.findViewById(R.id.rbFwd1)).setText(fwd1);
         ((RadioButton) view.findViewById(R.id.rbFwd2)).setText(fwd2);
-        rgFwd.setVisibility(Objects.equals(fwd1, fwd2) ? View.GONE : View.VISIBLE);
+        boolean fwd = !Objects.equals(fwd1, fwd2);
+        for (int i = 0; i < rgFwd.getChildCount(); i++)
+            rgFwd.getChildAt(i).setEnabled(fwd);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

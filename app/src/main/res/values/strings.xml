@@ -342,6 +342,7 @@
     <string name="title_advanced_suggest_sent">Suggest addresses found in sent messages</string>
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
     <string name="title_advanced_suggest_frequently">Sort suggested addresses on frequency of use</string>
+    <string name="title_advanced_alt_re_fwd">Alternative reply/forward prefix</string>
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>

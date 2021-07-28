@@ -183,6 +183,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swSuggestFrequently" />
 
+                <eu.faircode.email.FixedTextView
+                    android:id="@+id/tvAltReFws"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_alt_re_fwd"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLocalContacts" />
+
                 <RadioGroup
                     android:id="@+id/rgRe"
                     android:layout_width="0dp"
@@ -191,7 +202,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnLocalContacts">
+                    app:layout_constraintTop_toBottomOf="@id/tvAltReFws">
 
                     <RadioButton
                         android:id="@+id/rbRe1"
