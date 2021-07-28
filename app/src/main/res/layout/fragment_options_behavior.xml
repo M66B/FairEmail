@@ -484,7 +484,7 @@
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAutoClose"
                     android:layout_width="0dp"
-                    android:layout_height="22dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:checked="true"
                     android:text="@string/title_advanced_autoclose"
