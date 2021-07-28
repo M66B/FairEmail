@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,14 +28,17 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.StrictMode;
+import android.os.SystemClock;
 import android.os.strictmode.Violation;
 import android.util.Printer;
 import android.webkit.CookieManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 import androidx.work.WorkManager;
 
@@ -96,6 +100,8 @@ public class ApplicationEx extends Application
                 " version=" + BuildConfig.VERSION_NAME +
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
+
+        registerActivityLifecycleCallbacks(lifecycleCallbacks);
 
         getMainLooper().setMessageLogging(new Printer() {
             @Override
@@ -510,6 +516,122 @@ public class ApplicationEx extends Application
 
         editor.apply();
     }
+
+    private final ActivityLifecycleCallbacks lifecycleCallbacks = new ActivityLifecycleCallbacks() {
+        private long last = 0;
+
+        @Override
+        public void onActivityPreCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+            log(activity, "onActivityPreCreated");
+        }
+
+        @Override
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+            log(activity, "onActivityCreated");
+        }
+
+        @Override
+        public void onActivityPostCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+            log(activity, "onActivityPostCreated");
+        }
+
+        @Override
+        public void onActivityPreStarted(@NonNull Activity activity) {
+            log(activity, "onActivityPreStarted");
+        }
+
+        @Override
+        public void onActivityStarted(@NonNull Activity activity) {
+            log(activity, "onActivityStarted");
+        }
+
+        @Override
+        public void onActivityPostStarted(@NonNull Activity activity) {
+            log(activity, "onActivityPostStarted");
+        }
+
+        @Override
+        public void onActivityPreResumed(@NonNull Activity activity) {
+            log(activity, "onActivityPreResumed");
+        }
+
+        @Override
+        public void onActivityResumed(@NonNull Activity activity) {
+            log(activity, "onActivityResumed");
+        }
+
+        @Override
+        public void onActivityPostResumed(@NonNull Activity activity) {
+            log(activity, "onActivityPostResumed");
+        }
+
+        @Override
+        public void onActivityPrePaused(@NonNull Activity activity) {
+            log(activity, "onActivityPrePaused");
+        }
+
+        @Override
+        public void onActivityPaused(@NonNull Activity activity) {
+            log(activity, "onActivityPaused");
+        }
+
+        @Override
+        public void onActivityPostPaused(@NonNull Activity activity) {
+            log(activity, "onActivityPostPaused");
+        }
+
+        @Override
+        public void onActivityPreStopped(@NonNull Activity activity) {
+            log(activity, "onActivityPreStopped");
+        }
+
+        @Override
+        public void onActivityStopped(@NonNull Activity activity) {
+            log(activity, "onActivityStopped");
+        }
+
+        @Override
+        public void onActivityPostStopped(@NonNull Activity activity) {
+            log(activity, "onActivityPostStopped");
+        }
+
+        @Override
+        public void onActivityPreSaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+            log(activity, "onActivityPreSaveInstanceState");
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+            log(activity, "onActivitySaveInstanceState");
+        }
+
+        @Override
+        public void onActivityPostSaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+            log(activity, "onActivityPostSaveInstanceState");
+        }
+
+        @Override
+        public void onActivityPreDestroyed(@NonNull Activity activity) {
+            log(activity, "onActivityPreDestroyed");
+        }
+
+        @Override
+        public void onActivityDestroyed(@NonNull Activity activity) {
+            log(activity, "onActivityDestroyed");
+        }
+
+        @Override
+        public void onActivityPostDestroyed(@NonNull Activity activity) {
+            log(activity, "onActivityPostDestroyed");
+        }
+
+        private void log(@NonNull Activity activity, @NonNull String what) {
+            long start = last;
+            last = SystemClock.elapsedRealtime();
+            long elapsed = (start == 0 ? 0 : last - start);
+            Log.i(activity.getClass().getSimpleName() + " " + what + " " + elapsed + " ms");
+        }
+    };
 
     private final BroadcastReceiver onScreenOff = new BroadcastReceiver() {
         @Override

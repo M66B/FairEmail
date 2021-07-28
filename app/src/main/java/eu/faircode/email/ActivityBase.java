@@ -35,6 +35,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -49,6 +50,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.documentfile.provider.DocumentFile;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -88,6 +91,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (intent != null)
             EntityLog.log(this, intent +
                     " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
+
+        getSupportFragmentManager().registerFragmentLifecycleCallbacks(lifecycleCallbacks, true);
 
         this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
@@ -638,6 +643,87 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     Handler getMainHandler() {
         return ApplicationEx.getMainHandler();
     }
+
+    private final FragmentManager.FragmentLifecycleCallbacks lifecycleCallbacks = new FragmentManager.FragmentLifecycleCallbacks() {
+        private long last = 0;
+
+        @Override
+        public void onFragmentPreAttached(@NonNull FragmentManager fm, @NonNull Fragment f, @NonNull Context context) {
+            log(fm, f, "onFragmentPreAttached");
+        }
+
+        @Override
+        public void onFragmentAttached(@NonNull FragmentManager fm, @NonNull Fragment f, @NonNull Context context) {
+            log(fm, f, "onFragmentAttached");
+        }
+
+        @Override
+        public void onFragmentPreCreated(@NonNull FragmentManager fm, @NonNull Fragment f, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+            log(fm, f, "onFragmentPreCreated");
+        }
+
+        @Override
+        public void onFragmentCreated(@NonNull FragmentManager fm, @NonNull Fragment f, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+            log(fm, f, "onFragmentCreated");
+        }
+
+        @Override
+        public void onFragmentActivityCreated(@NonNull FragmentManager fm, @NonNull Fragment f, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+            log(fm, f, "onFragmentActivityCreated");
+        }
+
+        @Override
+        public void onFragmentViewCreated(@NonNull FragmentManager fm, @NonNull Fragment f, @NonNull View v, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+            log(fm, f, "onFragmentViewCreated");
+        }
+
+        @Override
+        public void onFragmentStarted(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentStarted");
+        }
+
+        @Override
+        public void onFragmentResumed(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentResumed");
+        }
+
+        @Override
+        public void onFragmentPaused(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentPaused");
+        }
+
+        @Override
+        public void onFragmentStopped(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentStopped");
+        }
+
+        @Override
+        public void onFragmentSaveInstanceState(@NonNull FragmentManager fm, @NonNull Fragment f, @NonNull Bundle outState) {
+            log(fm, f, "onFragmentSaveInstanceState");
+        }
+
+        @Override
+        public void onFragmentViewDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentViewDestroyed");
+        }
+
+        @Override
+        public void onFragmentDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentDestroyed");
+        }
+
+        @Override
+        public void onFragmentDetached(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            log(fm, f, "onFragmentDetached");
+        }
+
+        private void log(@NonNull FragmentManager fm, @NonNull Fragment f, @NonNull String what) {
+            long start = last;
+            last = SystemClock.elapsedRealtime();
+            long elapsed = (start == 0 ? 0 : last - start);
+            Log.i(f.getClass().getSimpleName() + " " + what + " " + elapsed + " ms");
+        }
+    };
 
     public interface IKeyPressedListener {
         boolean onKeyPressed(KeyEvent event);
