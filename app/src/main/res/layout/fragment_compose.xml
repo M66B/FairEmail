@@ -307,18 +307,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPlainTextOnly" />
 
-                <ImageButton
-                    android:id="@+id/ibTranslate"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginEnd="6dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:padding="3dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etBody"
-                    app:srcCompat="@drawable/outline_translate_24"
-                    app:tint="?attr/colorSeparator" />
-
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvNoInternet"
                     android:layout_width="wrap_content"
@@ -340,7 +328,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ibTranslate" />
+                    app:layout_constraintTop_toBottomOf="@+id/etBody" />
 
                 <eu.faircode.email.FixedTextView
                     android:id="@+id/tvSignature"
@@ -511,6 +499,21 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/style_bar"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabTranslate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/fab_padding"
+            android:contentDescription="@string/title_translate"
+            app:backgroundTint="?attr/colorActionBackground"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/style_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/outline_translate_24"
+            app:tint="@color/action_foreground"
+            app:tooltipText="@string/title_translate" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"
