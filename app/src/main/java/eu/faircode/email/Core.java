@@ -478,7 +478,11 @@ class Core {
                         for (TupleOperationEx s : similar.keySet())
                             ops.remove(s);
                     } catch (Throwable ex) {
-                        Log.e(folder.name, ex);
+                        if (ex instanceof OperationCanceledException)
+                            Log.w(folder.name, ex);
+                        else
+                            Log.e(folder.name, ex);
+
                         EntityLog.log(context, folder.name +
                                 " op=" + op.name +
                                 " try=" + op.tries +
