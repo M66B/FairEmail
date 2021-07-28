@@ -2262,13 +2262,13 @@ Einige E-Mail-Clients verwenden IMAP-Schlüsselwörter für Farben. Allerdings u
 <br />
 
 <a name="faq110"></a>
-**(110) Why are (some) messages empty and/or attachments corrupt?**
+**(110) Warum sind (einige) Nachrichten leer und/oder Anhänge beschädigt?**
 
-Empty messages and/or corrupt attachments are probably being caused by a bug in the server software. Older Microsoft Exchange software is known to cause this problem. Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
+Leere Nachrichten und/oder beschädigte Anhänge werden wahrscheinlich durch einen Fehler in der Server-Software verursacht. Ältere Microsoft Exchange-Software ist bekannt dafür, dieses Problem zu verursachen. Meistens können Sie dies umgehen, indem Sie *'Partial fetch'* in den erweiterten Kontoeinstellungen deaktivieren:
 
-Settings > Manual setup > Accounts > tap account > tap advanced > Partial fetch > uncheck
+Einstellungen > Manuelle Einrichtung > Konten > Tippen Sie auf Konto > Tippen Sie auf erweiterte > 'Partial fetch' > deaktivieren
 
-After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
+Nach dem Deaktivieren dieser Einstellung können Sie das 'mehr' (drei Punkte) -Menü 'resync' für ein erneutes Synchronisieren von leeren Nachrichten verwenden. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
 Deaktivieren von *Teilabruf* führt zu mehr Speicherverbrauch.
 

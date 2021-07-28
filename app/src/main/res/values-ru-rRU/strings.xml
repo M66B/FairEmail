@@ -348,6 +348,7 @@
     <string name="title_advanced_portrait2">Использовать два ряда в портретном режиме</string>
     <string name="title_advanced_landscape">Использовать две колонки в альбомном режиме</string>
     <string name="title_advanced_landscape3">Показывать меню навигации в альбомном режиме по умолчанию</string>
+    <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля (только для светлых тем)</string>

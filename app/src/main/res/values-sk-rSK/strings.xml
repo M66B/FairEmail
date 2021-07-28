@@ -140,8 +140,8 @@
     <string name="title_setup_quick">Rýchle nastavenie</string>
     <string name="title_setup_intro">Nastavenie účtu má len tri kroky a hneď potom môžete prijímať a posielať emaily</string>
     <string name="title_setup_simple">Nie je potrebné meniť žiadne ďalšie nastavenia</string>
-    <string name="title_setup_quick_accounts">Pridať alebo zmeniť účty</string>
-    <string name="title_setup_quick_support">Niektorí poskitovatelia.</string>
+    <string name="title_setup_quick_accounts">Pridať alebo upraviť účty</string>
+    <string name="title_setup_quick_support">Účty niektorých poskytovateľov môže byť náročné nastaviť. Neobviňujte z tohto nedostatku FairEmail a požiadajte o pomoc, ak ju potrebujete prosím.</string>
     <string name="title_setup_quick_hint">Rýchle nastavenie načíta informácie konfigurácie z autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_patience">Prosím, trpezlivosť&#8230;</string>
     <string name="title_setup_quick_imap">IMAP server na prijímanie správ</string>
@@ -199,6 +199,7 @@
     <string name="title_setup_doze_stopped">Zastavila sa synchronizácia?</string>
     <string name="title_setup_doze_device">Je to vyžadované pre toto zariadenie</string>
     <string name="title_setup_doze_android">Je to vyžadované pre túto verziu systému android</string>
+    <string name="title_setup_inexact">Budíky a pripomienky nie sú povolené</string>
     <string name="title_setup_background">Obmedzenia spustenia na pozadí sú aktívne</string>
     <string name="title_setup_data">Šetrenie údajov je povolené</string>
     <string name="title_setup_advanced_options">Zobraziť rozšírené možnosti</string>
@@ -215,13 +216,22 @@
     <string name="title_setup_export_remark">        Keďže súbor s nastaveniami obsahuje všetky vaše nastavenia vrátane prihlasovacích údajov k účtu, je zašifrovaný heslom.
         Toto heslo je potrebné zadať aj pri importe nastavení, prosím, bezpečne si ho uchovajte!
     </string>
+    <string name="title_setup_export_do">Exportovaný súbor bude obsahovať všetky nastavenia a údaje okrem emailových správ a obrázkov odkazovaných vo vašich podpisoch</string>
     <string name="title_setup_import_do">Importované účty budú pridané bez prepísania existujúcich účtov</string>
+    <string name="title_setup_import_gmail">        Od verzie Android 8.0 Oreo, nie je možné importovať účty Gmail, pretože je potrebné povoliť prístup do účtu Google pre každý účet zvlášť.
+        Gmail účty si znovu ľahko nastavíte použitím rýchleho nastavenia.
+    </string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje riadiace alebo prázdne znaky</string>
     <string name="title_setup_password_repeat">Zopakovať heslo</string>
     <string name="title_setup_password_missing">Chýba heslo</string>
     <string name="title_setup_password_different">Heslá sa nezhodujú</string>
     <string name="title_setup_password_invalid">Heslo je nesprávne</string>
+    <string name="title_setup_import_accounts">Importovať účty a totožnosti</string>
+    <string name="title_setup_import_rules">Importovať pravidlá filtrovania</string>
+    <string name="title_setup_import_contacts">Importovať lokálne kontakty</string>
+    <string name="title_setup_import_answers">Importovať šablóny odpovedí</string>
+    <string name="title_setup_import_settings">Importovať nastavenia</string>
     <string name="title_setup_exported">Nastavenia boli exportované</string>
     <string name="title_setup_imported">Nastavenia boli importované</string>
     <string name="title_setup_import_invalid">Chybný súbor nastavení</string>
@@ -285,6 +295,7 @@
     <string name="title_advanced_check_reply_domain">Skontrolovať adresu pre odpoveď počas synchronizácie správ</string>
     <string name="title_advanced_check_mx">Kontrolovať e-mailové adresy odosielateľov pri synchronizácii správ</string>
     <string name="title_advanced_check_blocklist">Skontrolovať, či doména odosielateľa je na zozname blokovaných podozrivích z rozosielania nevižiadanej pošty</string>
+    <string name="title_advanced_use_blocklist">Presunúť správy od adresátov z domén na zozname blokovaných do priečinka spam</string>
     <string name="title_advanced_tune_keep_alive">Automaticky upravovať interval udržania spojenia</string>
     <string name="title_advanced_keyboard">Predvolene zobrazovať klávesnicu</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabrániť zobrazeniu klávesnice na celú obrazovku</string>
@@ -328,6 +339,7 @@
     <string name="title_advanced_ssl_harden">Obrniť SSL pripojenia</string>
     <string name="title_advanced_manage_connectivity">Spravovať pripojenie</string>
     <string name="title_advanced_caption_general">Všeobecné</string>
+    <string name="title_advanced_caption_checks">Kontroly</string>
     <string name="title_advanced_caption_list">Zoznam</string>
     <string name="title_advanced_caption_conversation">Konverzácia</string>
     <string name="title_advanced_caption_message">Správa</string>
@@ -336,6 +348,7 @@
     <string name="title_advanced_portrait2">Používať dva riadky v režime na výšku</string>
     <string name="title_advanced_landscape">Používať dva stĺpce v režime na šírku</string>
     <string name="title_advanced_landscape3">Predvolene zobrazovať navigačné menu v režime na šírku</string>
+    <string name="title_advanced_nav_message_count">Zobraziť počet lokálne uložených správ v navigačnej ponuke</string>
     <string name="title_advanced_startup">Zobraziť na úvodnej obrazovke</string>
     <string name="title_advanced_cards">Použiť štýl kariet namiesto tabuľkového štýlu</string>
     <string name="title_advanced_cards_beige">Béžové pozadie pri štýle na kartách (len svetlý vzhľad)</string>
@@ -351,6 +364,8 @@
     <string name="title_advanced_color_stripe">Zobraziť farebný prúžok</string>
     <string name="title_advanced_avatars">Zobraziť fotografie kontaktov</string>
     <string name="title_advanced_gravatars">Zobraziť Gravatary</string>
+    <string name="title_advanced_bimi_unverified">Neoverený odosielateľ</string>
+    <string name="title_advanced_bimi_verified">Overený odosielateľ</string>
     <string name="title_advanced_favicons">Zobraziť favikony</string>
     <string name="title_advanced_generated_icons">Zobraziť generované ikonky</string>
     <string name="title_advanced_identicons">Zobraziť identikony</string>
@@ -399,6 +414,12 @@
     <string name="title_advanced_actionbar_color">Použiť farbu účtu ako farbu pozadia panela akcií konverzácie</string>
     <string name="title_advanced_navbar_colorize">Zafarbiť navigačný panel Androidu</string>
     <string name="title_advanced_parse_classes">Spracovať štýly CSS</string>
+    <string name="title_advanced_authentication">Zobrazovať varovania overenia</string>
+    <string name="title_advanced_authentication_hint">Jednotlivé kontroly môžete nastaviť v nastaveniach prijímania</string>
+    <string name="title_advanced_authentication_indicator">Zobrazovať stavový indikátor overenia</string>
+    <string name="title_advanced_authentication_none">Žiadne overenie</string>
+    <string name="title_advanced_authentication_some">Čiastočné overenie</string>
+    <string name="title_advanced_authentication_all">Úplné overenie</string>
     <string name="title_advanced_sync_on_launch">Synchronizovať pri spustení</string>
     <string name="title_advanced_double_back">Ukončiť dvojitým stlačením tlačidla \'Späť\'</string>
     <string name="title_advanced_conversation_actions">Odporúčať akcie (Android 10+)</string>
@@ -407,7 +428,7 @@
     <string name="title_advanced_pull_refresh">Obnoviť stiahnutím</string>
     <string name="title_advanced_autoscroll">Po prijatí nových správ posunúť zoznam na začiatok</string>
     <string name="title_advanced_double_tap">Dvojitým klepnutím označiť správu ako prečítanú/neprečítanú</string>
-    <string name="title_advanced_swipenav">Prejsť na nasledujúcu/predchádzajúcu konverzáciu potiahnutím vľavo/vpravo</string>
+    <string name="title_advanced_swipenav">Prejsť na nasledujúcu/predchádzajúcu konverzáciu potiahnutím do strán</string>
     <string name="title_advanced_volumenav">Prejsť na nasledujúcu/predchádzajúcu konverzáciu tlačidlami pridať/ubrať hlasitosť</string>
     <string name="title_advanced_reversed">Obrátiť smer navigácie</string>
     <string name="title_advanced_swipe_close">Zatvoriť konverzáciu potiahnutím dolu</string>
@@ -598,8 +619,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_cleanup_hint">Toto odstráni všetky dočasné súbory</string>
     <string name="title_advanced_never_favorite">Nikdy nepovažovať za obľúbený</string>
     <string name="title_advanced_edit_name">Zmeniť meno</string>
-    <string name="title_advanced_swipe_actions">Nastaviť akcie švihnutí</string>
-    <string name="title_advanced_swipe_actions_hint">Toto nastaví akcie pre švihnutia vľavo a vpravo všetkým IMAP účtom</string>
+    <string name="title_advanced_swipe_actions">Nastaviť akcie pri potiahnutí</string>
+    <string name="title_advanced_swipe_actions_hint">Toto nastaví akcie pri potiahnutí do strán pre všetky IMAP účty</string>
+    <string name="title_advanced_swipe_sensitivity">Citlivosť potiahnutia do strán</string>
     <string name="title_select">Vybrať &#8230;</string>
     <string name="title_identity_name">Vaše meno</string>
     <string name="title_identity_email">Vaša emailová adresa</string>
@@ -658,6 +680,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_leave_deleted">Ponechať vymazané správy na servery</string>
     <string name="title_leave_on_device">Ponechať správy v zariadení</string>
     <string name="title_max_messages">Maximálny počet správ na prevzatie (nechajte prázdne pre všetky)</string>
+    <string name="title_keep_poll_interval">Interval zisťovania (v minútach)</string>
+    <string name="title_keep_alive_interval">Interval udržania spojenia (v minútach)</string>
     <string name="title_server_time">Použiť čas prijatia (server)</string>
     <string name="title_received_header">Použiť hlavičku \'Received\'</string>
     <string name="title_date_header">Použiť hlavičku \'Date\' (čas odoslania)</string>

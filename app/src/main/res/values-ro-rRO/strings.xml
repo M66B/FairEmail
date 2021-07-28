@@ -217,6 +217,11 @@
     <string name="title_setup_password_missing">Lipsește parola</string>
     <string name="title_setup_password_different">Parolele nu corespund</string>
     <string name="title_setup_password_invalid">Parolă incorectă</string>
+    <string name="title_setup_import_accounts">Importați conturi și identități</string>
+    <string name="title_setup_import_rules">Importarea regulilor de filtrare</string>
+    <string name="title_setup_import_contacts">Importați contacte locale</string>
+    <string name="title_setup_import_answers">Importați șabloane de răspuns</string>
+    <string name="title_setup_import_settings">Opțiuni de import</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_import_invalid">Fișier de setări invalid</string>
@@ -333,6 +338,7 @@
     <string name="title_advanced_portrait2">Utilizați două rânduri în modul portret</string>
     <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
     <string name="title_advanced_landscape3">Afișează implicit meniul de navigare în modul peisaj</string>
+    <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
     <string name="title_advanced_cards_beige">Utilizați un fundal bej atunci când folosiți stilul de card (numai pentru teme luminoase)</string>
@@ -605,6 +611,7 @@
     <string name="title_advanced_edit_name">Editare nume</string>
     <string name="title_advanced_swipe_actions">Setare acțiuni glisare</string>
     <string name="title_advanced_swipe_actions_hint">Acesta va seta acțiunea glisare la stânga și la dreapta pentru toate conturile IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Sensibilitatea de glisare stânga/dreapta</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>

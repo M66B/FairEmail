@@ -198,7 +198,7 @@
     </string>
     <string name="title_setup_export_do">Το αρχείο εξαγωγής θα περιέχει όλες τις ρυθμίσεις και τα δεδομένα, αλλά όχι μηνύματα, ούτε και εικόνες ενσωματωμένες σε υπογραφές</string>
     <string name="title_setup_import_do">Οι εισαγόμενοι λογαριασμοί θα προστεθούν χωρίς να αντικατασταθεί κάποιος από τους ήδη υπάρχοντες</string>
-    <string name="title_setup_import_gmail">Από το Android 8.0 Oreo και εξής, οι λογαριασμοί Gmail δεν μπορούν πλέον να εισαχθούν, καθώς κάθε λογαριασμός πρέπει να επιλεγεί για να χορηγηθεί πρόσβαση σε κάθε λογαριασμό.
+    <string name="title_setup_import_gmail">        Από το Android 8.0 Oreo και εξής, οι λογαριασμοί Gmail δεν μπορούν πλέον να εισαχθούν, καθώς κάθε λογαριασμός πρέπει να επιλεγεί, για να χορηγηθεί πρόσβαση στον λογαριασμό.
         Μπορείτε εύκολα να επαναρρυθμίσετε τους λογαριασμούς Gmail με τον οδηγό γρήγορης ρύθμισης.
     </string>
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
@@ -328,6 +328,7 @@
     <string name="title_advanced_portrait2">Χρήση δύο σειρών στον κάθετο προσανατολισμό</string>
     <string name="title_advanced_landscape">Χρήση δύο στηλών στον οριζόντιο προσανατολισμό</string>
     <string name="title_advanced_landscape3">Προβολή μενού πλοήγησης κατά τον οριζόντιο προσανατολισμό από προεπιλογή</string>
+    <string name="title_advanced_nav_message_count">Να εμφανίζεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
     <string name="title_advanced_cards_beige">Μπεζ φόντο κατά τη χρήση του στιλ κάρτας (ανοιχτόχρωμα θέματα μόνο)</string>

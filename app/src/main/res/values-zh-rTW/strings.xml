@@ -63,8 +63,8 @@
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_domain">封鎖寄件者網域</string>
-    <string name="title_block_sender_hint">        封鎖寄件者將會建立規則，自動地把往後接收到的訊息移至垃圾郵件資料夾。
-        建立與執行規則是專業版的功能。
+    <string name="title_block_sender_hint">        勾選“封鎖寄件者”將會建立規則，自動把此寄件者今後的所有來信移至垃圾郵件資料夾。
+        建立與執行規則是專業版中的功能。
     </string>
     <string name="title_junk_filter">使用本地垃圾郵件過濾器</string>
     <string name="title_junk_filter_hint">這可能會增加電池的用量，並將訊息錯誤地標記為垃圾郵件</string>
@@ -247,11 +247,11 @@
     <string name="title_advanced_section_misc">其他</string>
     <string name="title_advanced_default">所有選項均有常用標準值，無須為使用本程式而特別改動</string>
     <string name="title_advanced_receive">接收所有帳戶訊息</string>
-    <string name="title_advanced_when">時間頻次設定</string>
+    <string name="title_advanced_when">頻次</string>
     <string name="title_advanced_optimize">自動最佳化</string>
     <string name="title_advanced_always">始終接收這些帳戶的訊息</string>
     <string name="title_advanced_schedule">預定時間</string>
-    <string name="title_advanced_advanced">進階設定</string>
+    <string name="title_advanced_advanced">進階</string>
     <string name="title_advanced_no_date">未含日期的訊息</string>
     <string name="title_advanced_unseen">所有未讀訊息</string>
     <string name="title_advanced_flagged">所有標記星標的訊息</string>
@@ -303,7 +303,7 @@
     <string name="title_advanced_rlah">像在家一樣漫遊</string>
     <string name="title_advanced_download_headers">下載全部的訊息標頭</string>
     <string name="title_advanced_download_eml">下載原始訊息檔案</string>
-    <string name="title_advanced_validated">需要經過驗證 (核對) 的連線</string>
+    <string name="title_advanced_validated">需要經過驗證 (檢查) 的連線</string>
     <string name="title_advanced_timeout">連線超時 (秒)</string>
     <string name="title_advanced_prefer_ip4">偏好使用 IPv4 而非 IPv6</string>
     <string name="title_advanced_ssl_harden">加固 SSL 連線</string>
@@ -318,16 +318,17 @@
     <string name="title_advanced_portrait2">縱向螢幕模式下使用雙排顯示</string>
     <string name="title_advanced_landscape">橫向螢幕模式下使用雙列顯示</string>
     <string name="title_advanced_landscape3">預設於橫向螢幕模式下顯示導航功能表</string>
-    <string name="title_advanced_startup">起使畫面</string>
-    <string name="title_advanced_cards">使用卡片樣式而不是表格樣式</string>
-    <string name="title_advanced_cards_beige">使用卡片樣式時使用米黃色背景 (僅亮色主題)</string>
-    <string name="title_advanced_tabular_background">使用表狀樣式時，以卡片色為背景顏色</string>
-    <string name="title_advanced_cards_shadow">使用卡片樣式時，應用陰影於未讀訊息上</string>
+    <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
+    <string name="title_advanced_startup">顯示於開始螢幕</string>
+    <string name="title_advanced_cards">使用卡片式樣替代表狀式樣</string>
+    <string name="title_advanced_cards_beige">使用卡片式樣時采用米黃色背景 (僅亮色主題)</string>
+    <string name="title_advanced_tabular_background">使用表狀式樣時，以卡片色為背景顏色</string>
+    <string name="title_advanced_cards_shadow">使用卡片式樣時，應用陰影於未讀訊息上</string>
     <string name="title_advanced_date_header">以日期分組</string>
     <string name="title_advanced_date_bold">以粗體顯示日期</string>
-    <string name="title_advanced_threading">將會話串起</string>
-    <string name="title_advanced_threading_unread">在會話中顯示未讀訊息的數量</string>
-    <string name="title_advanced_indentation">使用左/右縮進風格來表示會話中的已接收/傳送訊息</string>
+    <string name="title_advanced_threading">會話串</string>
+    <string name="title_advanced_threading_unread">顯示會話中的未讀訊息數</string>
+    <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
     <string name="title_advanced_highlight_subject">標亮主旨</string>
     <string name="title_advanced_color_stripe">顯示彩色條紋</string>
@@ -336,8 +337,8 @@
     <string name="title_advanced_bimi_unverified">未經驗證的寄件者</string>
     <string name="title_advanced_bimi_verified">已經驗證的寄件者</string>
     <string name="title_advanced_favicons">顯示網站圖示</string>
-    <string name="title_advanced_generated_icons">顯示設定的圖示</string>
-    <string name="title_advanced_identicons">顯示身分</string>
+    <string name="title_advanced_generated_icons">顯示依程式設定生成的圖示</string>
+    <string name="title_advanced_identicons">顯示 identicons</string>
     <string name="title_advanced_circular">顯示圓形圖示</string>
     <string name="title_advanced_color_saturation">飽和度: %1$s %%</string>
     <string name="title_advanced_color_value">亮度: %1$s %%</string>
@@ -531,7 +532,7 @@
     <string name="title_advanced_rlah_hint">假設在歐盟境內不漫遊</string>
     <string name="title_advanced_usage_hint">這將增加電池、數據和儲存空間的使用</string>
     <string name="title_advanced_tcp_keep_alive_hint">開啟此選項可能在某些裝置導致連線問題</string>
-    <string name="title_advanced_validate_hint">這可能導致訊息不同步，例如在使用 VPN 的時候，其他情況下也可能會發生</string>
+    <string name="title_advanced_validate_hint">這可能導致訊息不同步，例如在使用 VPN 時，或是在其他情況下</string>
     <string name="title_advanced_timeout_hint">讀/寫時限將會被設置為連接時限的兩倍。更高的設置將導致更多的電力消耗。</string>
     <string name="title_advanced_ssl_harden_hint">啟用此功能將禁止弱 SSL 協議和加密方式，這可能導致連接問題</string>
     <string name="title_advanced_roaming_hint">漫遊時始終會擷取郵件標頭。 您可以在裝置中設定於漫遊時停用網際網路。</string>
@@ -693,7 +694,7 @@
     <string name="title_review">檢查</string>
     <string name="title_hint_alias">長按身分以顯示選項，像是複製以創建身分別名</string>
     <string name="title_service_auth">電子郵件伺服器回應: \'%1$s\'</string>
-    <string name="title_service_vpn">這可能是由於使用了VPN</string>
+    <string name="title_service_vpn">這可能要歸因於使用中的 VPN</string>
     <string name="title_service_port">請仔細檢查端口號</string>
     <string name="title_service_protocol">請仔細檢查所用的加密協定 (SSL/TLS 或 STARTTLS)</string>
     <string name="title_advanced_browse">瀏覽服務器上的消息</string>
@@ -1400,26 +1401,26 @@
     <string name="title_icalendar_decline">下降</string>
     <string name="title_icalendar_maybe">也許</string>
     <string name="title_icalendar_calendar">日曆</string>
-    <string name="title_pro_feature">這是一個專業版功能</string>
+    <string name="title_pro_feature">這是專業版中的功能</string>
     <string name="title_pro_list">專業版功能列表</string>
     <string name="title_pro_purchase">購買</string>
     <string name="title_pro_one_time">%1$s (一次購買)</string>
     <string name="title_pro_no_play">未找到 Play Store 程式</string>
-    <string name="title_pro_info">        開發 FairEmail 實際上花費了數千個小時，儘管如此，大多數功能仍可供免費使用。
-        FairEmail 認真對待您的私隱，不會展示廣告，也不會使用追踪或分析來賺錢。
+    <string name="title_pro_info">        開發 FairEmail 實際上花費了數千小時，儘管如此，大多數功能仍可供免費使用。
+        FairEmail 認真對待您的隱私，不會展示廣告，也不會使用追踪或分析來賺錢。
         為了提供 FairEmail 的長期維護和支援，一些便利和高級功能不提供免費使用。
-        為助您瞭解以上資訊，FairEmail 會顯示一條簡短的消息。此條消息會於您購買專業功能後移除。
+        為助您瞭解以上資訊，FairEmail 會顯示一則簡短的信息。一旦您購買專業版功能，即會令其關閉。
     </string>
     <string name="title_pro_hide">隱藏%1$d週的小消息</string>
-    <string name="title_pro_hint">購買專業功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
-    <string name="title_pro_price">為什麼專業功能如此昂貴？</string>
+    <string name="title_pro_hint">購買完整專業版功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
+    <string name="title_pro_price">為什麼專業版功能如此昂貴？</string>
     <string name="title_pro_family">我可以利用 Google Play 家庭媒體庫嗎？</string>
     <string name="title_pro_restore">如何恢復購買？</string>
     <string name="title_pro_pending">購買待處理</string>
-    <string name="title_pro_activated">所有專業功能均已激活</string>
-    <string name="title_pro_valid">所有專業功能已激活</string>
+    <string name="title_pro_activated">所有專業版功能均已激活</string>
+    <string name="title_pro_valid">已激活所有專業版功能</string>
     <string name="title_pro_invalid">無效的回應</string>
-    <string name="title_pro_support">FairEmail需要您的支持。 點按即可購買專業功能，以使項目繼續進行或關閉此消息。</string>
+    <string name="title_pro_support">FairEmail 需要您的協助。 輕觸即可購買專業版功能幫助專案繼續走下去，或者選擇關閉此信息。</string>
     <string name="title_boundary_error">從郵件服務器下載消息時出錯</string>
     <string name="title_boundary_retry">再試一次</string>
     <string name="title_unexpected_error">意外的錯誤</string>

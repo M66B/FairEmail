@@ -321,6 +321,7 @@
     <string name="title_advanced_portrait2">Benyt to rækker i stående tilstand</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
     <string name="title_advanced_landscape3">Vis som standard navigeringsmenu i liggende tilstand</string>
+    <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_cards_beige">Brug beige baggrund ifm. kortstil (kun lyse temaer)</string>
@@ -587,7 +588,7 @@
     <string name="title_advanced_edit_name">Redigér navn</string>
     <string name="title_advanced_swipe_actions">Indstil strygehandlinger</string>
     <string name="title_advanced_swipe_actions_hint">Dette opsætter handlinger for venstre- og højrestrygning for alle IMAP-konti</string>
-    <string name="title_advanced_swipe_sensitivity">Venstre/højren strygefølsomhed</string>
+    <string name="title_advanced_swipe_sensitivity">Venstre/højre strygefølsomhed</string>
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
