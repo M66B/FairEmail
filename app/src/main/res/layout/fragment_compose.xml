@@ -506,13 +506,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/fab_padding"
+            android:alpha="0.5"
             android:contentDescription="@string/title_translate"
-            app:backgroundTint="?attr/colorActionBackground"
+            app:backgroundTint="?attr/colorFabBackground"
             app:fabSize="mini"
             app:layout_constraintBottom_toTopOf="@+id/style_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/twotone_translate_24"
-            app:tint="@color/action_foreground"
+            app:tint="?attr/colorFabForeground"
             app:tooltipText="@string/title_translate" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
