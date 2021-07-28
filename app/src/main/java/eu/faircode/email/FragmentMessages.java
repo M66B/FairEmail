@@ -6196,8 +6196,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private boolean onScroll(Context context, boolean up) {
-            rvMessage.scrollBy(0, (up ? -1 : 1) *
-                    context.getResources().getDisplayMetrics().heightPixels / 2);
+            int h = context.getResources().getDisplayMetrics().heightPixels;
+            h = h / (viewType == AdapterMessage.ViewType.THREAD ? 8 : 2);
+            rvMessage.scrollBy(0, (up ? -1 : 1) * h);
             return true;
         }
     };
