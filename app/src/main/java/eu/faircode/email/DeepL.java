@@ -187,6 +187,7 @@ public class DeepL {
     }
 
     public static Translation translate(String text, String target, Context context) throws IOException, JSONException {
+        // https://www.deepl.com/docs-api/translating-text/request/
         String request =
                 "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8.name()) +
                         "&target_lang=" + URLEncoder.encode(target, StandardCharsets.UTF_8.name());
@@ -242,6 +243,7 @@ public class DeepL {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String key = prefs.getString("deepl_key", null);
 
+        // https://www.deepl.com/docs-api/other-functions/monitoring-usage/
         URL url = new URL(getBaseUri(context) + "usage?auth_key=" + key);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setReadTimeout(DEEPL_TIMEOUT * 1000);
