@@ -210,7 +210,7 @@
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_translate"
-        app:srcCompat="@drawable/outline_translate_24"
+        app:srcCompat="@drawable/twotone_translate_24"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
