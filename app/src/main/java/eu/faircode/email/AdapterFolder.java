@@ -67,6 +67,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -127,7 +128,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private TextView tvType;
         private TextView tvTotal;
         private TextView tvAfter;
-        private ImageView ivSync;
+        private ImageButton ibSync;
 
         private TextView tvKeywords;
         private TextView tvFlagged;
@@ -165,7 +166,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvType = itemView.findViewById(R.id.tvType);
             tvTotal = itemView.findViewById(R.id.tvTotal);
             tvAfter = itemView.findViewById(R.id.tvAfter);
-            ivSync = itemView.findViewById(R.id.ivSync);
+            ibSync = itemView.findViewById(R.id.ibSync);
 
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvFlagged = itemView.findViewById(R.id.tvFlagged);
@@ -185,6 +186,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvFlagged.setOnClickListener(this);
             if (ibFlagged != null)
                 ibFlagged.setOnClickListener(this);
+            if (ibSync != null)
+                ibSync.setOnClickListener(this);
             if (listener == null)
                 view.setOnLongClickListener(this);
             if (btnHelp != null)
@@ -198,6 +201,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvFlagged.setOnClickListener(null);
             if (ibFlagged != null)
                 ibFlagged.setOnClickListener(null);
+            if (ibSync != null)
+                ibSync.setOnClickListener(null);
             if (listener == null)
                 view.setOnLongClickListener(null);
             if (btnHelp != null)
@@ -321,8 +326,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 if (folder.account == null) {
                     tvAfter.setText(null);
-                    ivSync.setImageResource(R.drawable.twotone_sync_24);
-                    ivSync.setContentDescription(context.getString(R.string.title_legend_synchronize_on));
+                    ibSync.setImageResource(R.drawable.twotone_sync_24);
+                    ibSync.setContentDescription(context.getString(R.string.title_legend_synchronize_on));
                 } else {
                     StringBuilder a = new StringBuilder();
 
@@ -340,22 +345,23 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     tvAfter.setText(a.toString());
                     if (folder.synchronize) {
-                        ivSync.setImageResource(folder.poll
+                        ibSync.setImageResource(folder.poll
                                 ? R.drawable.twotone_hourglass_top_24
                                 : R.drawable.twotone_sync_24);
-                        ivSync.setContentDescription(context.getString(folder.poll
+                        ibSync.setContentDescription(context.getString(folder.poll
                                 ? R.string.title_legend_synchronize_poll
                                 : R.string.title_legend_synchronize_on));
                     } else {
-                        ivSync.setImageResource(R.drawable.twotone_sync_disabled_24);
-                        ivSync.setContentDescription(context.getString(R.string.title_legend_synchronize_off));
+                        ibSync.setImageResource(R.drawable.twotone_sync_disabled_24);
+                        ibSync.setContentDescription(context.getString(R.string.title_legend_synchronize_off));
                     }
                 }
-                ivSync.setImageTintList(ColorStateList.valueOf(
+                ibSync.setImageTintList(ColorStateList.valueOf(
                         folder.synchronize && folder.initialize != 0 &&
                                 !EntityFolder.OUTBOX.equals(folder.type) &&
                                 folder.accountProtocol == EntityAccount.TYPE_IMAP
                                 ? textColorPrimary : textColorSecondary));
+                ibSync.setEnabled(folder.last_sync != null);
 
                 tvKeywords.setText(BuildConfig.DEBUG ? TextUtils.join(" ", folder.keywords) : null);
                 tvKeywords.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
@@ -394,6 +400,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     onCollapse(folder, pos);
                 } else if (id == R.id.tvFlagged || id == R.id.ibFlagged) {
                     onFlagged(folder);
+                } else if (id == R.id.ibSync) {
+                    onLastSync(folder);
                 } else {
                     if (listener == null) {
                         if (!folder.selectable)
@@ -461,6 +469,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             FragmentMessages.search(
                     context, owner, parentFragment.getParentFragmentManager(),
                     folder.account, folder.id, false, criteria);
+        }
+
+        private void onLastSync(TupleFolderEx folder) {
+            if (folder.last_sync == null)
+                return;
+            DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+            ToastEx.makeText(context, DTF.format(folder.last_sync), Toast.LENGTH_LONG).show();
         }
 
         @Override

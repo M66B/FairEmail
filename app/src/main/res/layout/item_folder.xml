@@ -197,14 +197,15 @@
                 android:text="30"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
-                app:layout_constraintEnd_toStartOf="@+id/ivSync"
+                app:layout_constraintEnd_toStartOf="@+id/ibSync"
                 app:layout_constraintTop_toTopOf="@+id/tvType" />
 
-            <ImageView
-                android:id="@+id/ivSync"
+            <ImageButton
+                android:id="@+id/ibSync"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
@@ -287,7 +288,7 @@
                 android:id="@+id/grpExtended"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="ivType,tvType,tvTotal,tvAfter,ivSync" />
+                app:constraint_referenced_ids="ivType,tvType,tvTotal,tvAfter,ibSync" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
 </FrameLayout>
