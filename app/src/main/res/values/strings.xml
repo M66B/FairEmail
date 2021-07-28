@@ -1546,6 +1546,7 @@
     <string name="title_check_owner">Check owner</string>
     <string name="title_remark_owner">Information will be retrieved from <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Owner IP address</string>
+    <string name="title_reset_open">Set or clear default apps</string>
     <string name="title_select_app">Select app</string>
     <string name="title_updated">There is an update to version %1$s available</string>
     <string name="title_issue">Do you have a question or problem?</string>

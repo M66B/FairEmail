@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -68,6 +69,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FragmentDialogOpenLink extends FragmentDialogBase {
+    private static final String URI_RESET_OPEN = "https://support.google.com/pixelphone/answer/6271667";
+
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             // https://en.wikipedia.org/wiki/UTM_parameters
@@ -109,6 +112,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
     private TextView tvOwner;
     private Group grpOwner;
     private Button btnSettings;
+    private TextView tvReset;
 
     @NonNull
     @Override
@@ -168,6 +172,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvOwner = dview.findViewById(R.id.tvOwner);
         grpOwner = dview.findViewById(R.id.grpOwner);
         btnSettings = dview.findViewById(R.id.btnSettings);
+        tvReset = dview.findViewById(R.id.tvReset);
 
         final Group grpDifferent = dview.findViewById(R.id.grpDifferent);
 
@@ -363,6 +368,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             }
         });
 
+        tvReset.setPaintFlags(tvReset.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(view.getContext(), Uri.parse(URI_RESET_OPEN), true);
+            }
+        });
+
         // Initialize
 
         tvTitle.setText(title);
@@ -447,6 +460,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         tvOwnerRemark.setVisibility(show ? View.VISIBLE : View.GONE);
         grpOwner.setVisibility(View.GONE);
         btnSettings.setVisibility(show ? View.VISIBLE : View.GONE);
+        tvReset.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     private static Uri sanitize(Uri uri) {
