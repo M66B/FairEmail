@@ -72,6 +72,8 @@ import org.bouncycastle.util.io.pem.PemReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -748,8 +750,25 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void handleImport(Intent data) {
+        Uri uri = data.getData();
+
+        if (uri != null)
+            try {
+                DocumentFile df = DocumentFile.fromSingleUri(this, uri);
+                if (df != null) {
+                    String name = df.getName();
+                    String ext = Helper.getExtension(name);
+                    if ("k9s".equals(ext)) {
+                        handleK9Import(uri);
+                        return;
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+
         Bundle args = new Bundle();
-        args.putParcelable("uri", data.getData());
+        args.putParcelable("uri", uri);
         args.putString("password", this.password);
         args.putBoolean("import_accounts", this.import_accounts);
         args.putBoolean("import_rules", this.import_rules);
@@ -1163,6 +1182,154 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 }
             }
         }.execute(this, args, "setup:import");
+    }
+
+    private void handleK9Import(Uri uri) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                DB db = DB.getInstance(context);
+                ContentResolver resolver = context.getContentResolver();
+                try (InputStream is = new BufferedInputStream(resolver.openInputStream(uri))) {
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    XmlPullParser xml = factory.newPullParser();
+                    xml.setInput(new InputStreamReader(is));
+
+                    EntityAccount account = null;
+                    EntityIdentity identity = null;
+
+                    int eventType = xml.getEventType();
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG) {
+                            String name = xml.getName();
+                            switch (name) {
+                                case "incoming-server":
+                                    String itype = xml.getAttributeValue(null, "type");
+                                    if ("IMAP".equals(itype)) {
+                                        account = new EntityAccount();
+                                        account.protocol = EntityAccount.TYPE_IMAP;
+                                        account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+                                        account.password = "";
+                                        account.synchronize = false;
+                                        account.primary = false;
+                                    } else if ("POP3".equals(itype)) {
+                                        account = new EntityAccount();
+                                        account.protocol = EntityAccount.TYPE_POP;
+                                        account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+                                        account.password = "";
+                                        account.synchronize = false;
+                                        account.primary = false;
+                                    }
+                                    break;
+                                case "outgoing-server":
+                                    String otype = xml.getAttributeValue(null, "type");
+                                    if ("SMTP".equals(otype)) {
+                                        identity = new EntityIdentity();
+                                        identity.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+                                        identity.password = "";
+                                        identity.synchronize = false;
+                                        identity.primary = false;
+                                    }
+                                    break;
+                                case "host":
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String host = xml.getText();
+                                        if (identity != null)
+                                            identity.host = host;
+                                        else if (account != null)
+                                            account.host = host;
+                                    }
+                                    break;
+                                case "port":
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        int port = Integer.parseInt(xml.getText());
+                                        if (identity != null)
+                                            identity.port = port;
+                                        else if (account != null)
+                                            account.port = port;
+                                    }
+                                    break;
+                                case "connection-security":
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String etype = xml.getText();
+
+                                        int encryption;
+                                        if ("STARTTLS_REQUIRED".equals(etype))
+                                            encryption = EmailService.ENCRYPTION_STARTTLS;
+                                        else if ("SSL_TLS_REQUIRED".equals(etype))
+                                            encryption = EmailService.ENCRYPTION_SSL;
+                                        else
+                                            encryption = EmailService.ENCRYPTION_NONE;
+
+                                        if (identity != null)
+                                            identity.encryption = encryption;
+                                        else if (account != null)
+                                            account.encryption = encryption;
+                                    }
+                                    break;
+                                case "username":
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String user = xml.getText();
+                                        if (identity != null) {
+                                            identity.name = "K9/" + user;
+                                            identity.email = user;
+                                            identity.user = user;
+                                        } else if (account != null) {
+                                            account.name = "K9/" + user;
+                                            account.user = user;
+                                        }
+                                    }
+                                    break;
+                            }
+
+                        } else if (eventType == XmlPullParser.END_TAG) {
+                            String name = xml.getName();
+                            if ("account".equals(name)) {
+                                if (account != null && identity != null) {
+                                    try {
+                                        db.beginTransaction();
+
+                                        account.id = db.account().insertAccount(account);
+                                        identity.account = account.id;
+                                        identity.id = db.identity().insertIdentity(identity);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        account = null;
+                                        identity = null;
+                                        db.endTransaction();
+                                    }
+                                }
+                            }
+                        }
+
+                        eventType = xml.next();
+                    }
+
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "setup:k9");
     }
 
     private void handleImportCertificate(Intent data) {
