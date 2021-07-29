@@ -98,8 +98,10 @@ public class EntityContact implements Serializable {
             @NonNull EntityAccount account,
             @NonNull EntityFolder folder,
             @NonNull EntityMessage message) {
-        long sync_time = (folder.sync_days == Integer.MAX_VALUE ? 0 : folder.sync_days) * 24 * 3600 * 1000L;
-        if (message.received < account.created - sync_time)
+        int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
+        if (days == Integer.MAX_VALUE)
+            days = EntityFolder.DEFAULT_KEEP;
+        if (message.received < account.created - days * 24 * 3600 * 1000L)
             return;
 
         if (EntityFolder.DRAFTS.equals(folder.type) ||
