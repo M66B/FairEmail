@@ -33,6 +33,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
@@ -65,7 +66,7 @@ import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 203,
+        version = 204,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2057,6 +2058,26 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `last_sync_count` INTEGER");
+                    }
+                }).addMigrations(new Migration(203, 204) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `uuid` TEXT NOT NULL DEFAULT ''");
+                        Cursor cursor = null;
+                        try {
+                            cursor = db.query("SELECT id FROM account");
+                            while (cursor != null && cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String uuid = UUID.randomUUID().toString();
+                                Log.i("MMM account=" + id + " uuid=" + uuid);
+                                db.execSQL("UPDATE account SET uuid = ? WHERE id = ?",
+                                        new Object[]{uuid, id});
+                            }
+                        } catch (Throwable ex) {
+                            if (cursor != null)
+                                cursor.close();
+                        }
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

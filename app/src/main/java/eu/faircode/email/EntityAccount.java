@@ -42,6 +42,7 @@ import java.text.Collator;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity(
         tableName = EntityAccount.TABLE_NAME,
@@ -61,6 +62,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+
+    @NonNull
+    public String uuid = UUID.randomUUID().toString();
 
     @NonNull
     @ColumnInfo(name = "pop")
@@ -221,6 +225,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
+        json.put("uuid", uuid);
         json.put("order", order);
         json.put("protocol", protocol);
         json.put("host", host);
@@ -275,6 +280,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
         EntityAccount account = new EntityAccount();
         if (json.has("id"))
             account.id = json.getLong("id");
+
+        if (json.has("uuid"))
+            account.uuid = json.getString("uuid");
 
         if (json.has("order"))
             account.order = json.getInt("order");
@@ -352,7 +360,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public boolean equals(Object obj) {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
-            return (Objects.equals(this.order, other.order) &&
+            return (Objects.equals(this.uuid, other.uuid) &&
+                    Objects.equals(this.order, other.order) &&
                     this.protocol.equals(other.protocol) &&
                     this.host.equals(other.host) &&
                     this.encryption.equals(other.encryption) &&
