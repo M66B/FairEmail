@@ -479,7 +479,7 @@ class Core {
                             ops.remove(s);
                     } catch (Throwable ex) {
                         if (ex instanceof OperationCanceledException)
-                            Log.w(folder.name, ex);
+                            Log.i(folder.name, ex);
                         else
                             Log.e(folder.name, ex);
 
