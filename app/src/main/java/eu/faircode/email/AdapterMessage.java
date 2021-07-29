@@ -1048,13 +1048,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setImageLevel(0);
                 ibAuth.setImageTintList(ColorStateList.valueOf(colorWarning));
                 ibAuth.setVisibility(View.VISIBLE);
-            } else if (authentication_indicator &&
-                    !EntityFolder.DRAFTS.equals(message.folderType) &&
-                    !EntityFolder.OUTBOX.equals(message.folderType)) {
+            } else if (authentication_indicator) {
                 ibAuth.setImageLevel(auths + 1);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
                         auths < 3 ? colorControlNormal : colorVerified));
-                ibAuth.setVisibility(View.VISIBLE);
+                ibAuth.setVisibility(auths > 0 ? View.VISIBLE : View.GONE);
             } else
                 ibAuth.setVisibility(View.GONE);
 
