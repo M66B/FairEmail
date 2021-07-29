@@ -38,6 +38,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -1202,28 +1203,32 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                     EntityAccount account = null;
                     EntityIdentity identity = null;
+                    boolean inIdentity = false;
+                    String iname = null;
+                    String iemail = null;
+                    List<Pair<String, String>> identities = new ArrayList<>();
 
                     int eventType = xml.getEventType();
                     while (eventType != XmlPullParser.END_DOCUMENT) {
                         if (eventType == XmlPullParser.START_TAG) {
                             String name = xml.getName();
                             switch (name) {
+                                case "account":
+                                    account = new EntityAccount();
+                                    account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+                                    account.password = "";
+                                    account.synchronize = false;
+                                    account.primary = false;
+                                    break;
                                 case "incoming-server":
-                                    String itype = xml.getAttributeValue(null, "type");
-                                    if ("IMAP".equals(itype)) {
-                                        account = new EntityAccount();
-                                        account.protocol = EntityAccount.TYPE_IMAP;
-                                        account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-                                        account.password = "";
-                                        account.synchronize = false;
-                                        account.primary = false;
-                                    } else if ("POP3".equals(itype)) {
-                                        account = new EntityAccount();
-                                        account.protocol = EntityAccount.TYPE_POP;
-                                        account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
-                                        account.password = "";
-                                        account.synchronize = false;
-                                        account.primary = false;
+                                    if (account != null) {
+                                        String itype = xml.getAttributeValue(null, "type");
+                                        if ("IMAP".equals(itype))
+                                            account.protocol = EntityAccount.TYPE_IMAP;
+                                        else if ("POP3".equals(itype))
+                                            account.protocol = EntityAccount.TYPE_POP;
+                                        else
+                                            account = null;
                                     }
                                     break;
                                 case "outgoing-server":
@@ -1275,46 +1280,92 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                             account.encryption = encryption;
                                     }
                                     break;
+                                case "authentication-type":
+                                    eventType = xml.next();
+                                    if (eventType != XmlPullParser.TEXT || !"PLAIN".equals(xml.getText())) {
+                                        account = null;
+                                        identity = null;
+                                    }
+                                    break;
                                 case "username":
                                     eventType = xml.next();
                                     if (eventType == XmlPullParser.TEXT) {
                                         String user = xml.getText();
-                                        if (identity != null) {
-                                            identity.name = "K9/" + user;
-                                            identity.email = user;
+                                        if (identity != null)
                                             identity.user = user;
-                                        } else if (account != null) {
-                                            account.name = "K9/" + user;
+                                        else if (account != null)
                                             account.user = user;
+                                    }
+                                    break;
+                                case "name":
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        if (inIdentity)
+                                            iname = xml.getText();
+                                        else {
+                                            if (account != null)
+                                                account.name = xml.getText();
                                         }
                                     }
+                                    break;
+                                case "email":
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        if (inIdentity)
+                                            iemail = xml.getText();
+                                    }
+                                    break;
+                                case "identity":
+                                    inIdentity = true;
                                     break;
                             }
 
                         } else if (eventType == XmlPullParser.END_TAG) {
                             String name = xml.getName();
-                            if ("account".equals(name)) {
-                                if (account != null && identity != null) {
-                                    try {
-                                        db.beginTransaction();
+                            switch (name) {
+                                case "account":
+                                    if (account != null && identity != null) {
+                                        if (TextUtils.isEmpty(account.name))
+                                            account.name = account.user;
+                                        if (BuildConfig.DEBUG)
+                                            account.name = "K9/" + account.name;
 
-                                        account.id = db.account().insertAccount(account);
-                                        identity.account = account.id;
-                                        identity.id = db.identity().insertIdentity(identity);
+                                        try {
+                                            db.beginTransaction();
 
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        account = null;
-                                        identity = null;
-                                        db.endTransaction();
+                                            account.id = db.account().insertAccount(account);
+                                            identity.account = account.id;
+                                            for (Pair<String, String> i : identities) {
+                                                identity.id = null;
+                                                identity.name = i.first;
+                                                identity.email = i.second;
+                                                if (TextUtils.isEmpty(identity.name))
+                                                    identity.name = identity.user;
+                                                if (TextUtils.isEmpty(identity.email))
+                                                    identity.email = identity.user;
+                                                identity.id = db.identity().insertIdentity(identity);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            account = null;
+                                            identity = null;
+                                            identities.clear();
+                                            db.endTransaction();
+                                        }
                                     }
-                                }
+                                    break;
+                                case "identity":
+                                    identities.add(new Pair<>(iname, iemail));
+                                    iname = null;
+                                    iemail = null;
+                                    inIdentity = false;
+                                    break;
                             }
                         }
 
                         eventType = xml.next();
                     }
-
                 }
 
                 return null;
