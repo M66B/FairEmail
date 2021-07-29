@@ -879,6 +879,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             JSONObject jaccount = (JSONObject) jaccounts.get(a);
                             EntityAccount account = EntityAccount.fromJSON(jaccount);
 
+                            EntityAccount existing = db.account().getAccountByUUID(account.uuid);
+                            if (existing != null)
+                                continue;
+
                             if (account.auth_type == AUTH_TYPE_GMAIL) {
                                 if (GmailState.getAccount(context, account.user) == null) {
                                     Log.i("Google account not found user=" + account.user);
