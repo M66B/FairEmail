@@ -392,7 +392,7 @@ public class EntityRule {
             case TYPE_IMPORTANCE:
                 return;
             case TYPE_KEYWORD:
-                String keyword = jargs.getString("keyword");
+                String keyword = jargs.optString("keyword");
                 if (TextUtils.isEmpty(keyword))
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_keyword_missing));
                 return;
