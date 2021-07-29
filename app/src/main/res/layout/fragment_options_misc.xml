@@ -544,12 +544,6 @@
                     app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
                 <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpDeepL"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:constraint_referenced_ids="swDeepL,ibDeepL" />
-
-                <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"
                     android:layout_width="0dp"
                     android:layout_height="0dp"

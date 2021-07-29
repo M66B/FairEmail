@@ -134,7 +134,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnCiphers;
     private Button btnFiles;
 
-    private Group grpDeepL;
     private Group grpUpdates;
     private CardView cardDebug;
 
@@ -245,7 +244,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCiphers = view.findViewById(R.id.btnCiphers);
         btnFiles = view.findViewById(R.id.btnFiles);
 
-        grpDeepL = view.findViewById(R.id.grpDeepL);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         cardDebug = view.findViewById(R.id.cardDebug);
 
@@ -845,8 +843,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 last = stats;
             }
         });
-
-        grpDeepL.setVisibility(DeepL.canTranslate(getContext()) ? View.VISIBLE : View.GONE);
 
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
