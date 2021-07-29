@@ -1177,4 +1177,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Xfinity/Comcast"
+        domain="comcast\\.net"
+        link="https://www.xfinity.com/support/articles/email-client-programs-with-xfinity-email">
+        <imap
+            host="imap.comcast.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.comcast.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
