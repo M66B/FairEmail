@@ -303,6 +303,7 @@
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
+    <string name="title_advanced_alt_re_fwd">Alternatywny prefiks odpowiedzi/przekazywania</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
@@ -347,6 +348,7 @@
     <string name="title_advanced_portrait2">Użyj dwóch rzędów w trybie pionowym</string>
     <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_landscape3">Domyślnie pokaż menu nawigacji w trybie poziomym</string>
+    <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
     <string name="title_advanced_cards_beige">Użyj beżowego tła podczas używania stylu karty (tylko jasne motywy)</string>
@@ -1384,6 +1386,7 @@
     <string name="title_check_owner">Sprawdź właściciela</string>
     <string name="title_remark_owner">Informacje będą pobierane z <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adres IP właściciela</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Ustaw lub wyczyść domyślne aplikacje</string>
     <string name="title_select_app">Wybierz aplikację</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
     <string name="title_issue">Masz pytanie lub problem?</string>

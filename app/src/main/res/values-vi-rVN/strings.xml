@@ -274,6 +274,7 @@
     <string name="title_advanced_suggest_sent">Đề xuất các địa chỉ được tìm thấy trong các thư đã gửi</string>
     <string name="title_advanced_suggest_received">Đề xuất các địa chỉ được tìm thấy trong các thư đã nhận</string>
     <string name="title_advanced_suggest_frequently">Sắp xếp các địa chỉ được đề xuất theo tần số sử dụng</string>
+    <string name="title_advanced_alt_re_fwd">Tiền tố trả lời/chuyển tiếp thay thế</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
@@ -318,6 +319,7 @@
     <string name="title_advanced_portrait2">Sử dụng hai dòng ở chế độ hướng dọc</string>
     <string name="title_advanced_landscape">Sử dụng hai cột ở chế độ hướng ngang</string>
     <string name="title_advanced_landscape3">Hiện menu điều hướng ở chế độ hướng ngang theo mặc định</string>
+    <string name="title_advanced_nav_message_count">Hiện số thư được lưu trữ cục bộ trong menu điều hướng</string>
     <string name="title_advanced_startup">Hiện trên màn hình bắt đầu</string>
     <string name="title_advanced_cards">Sử dụng kiểu thẻ thay vì kiểu tab</string>
     <string name="title_advanced_cards_beige">Sử dụng nền màu be khi dùng kiểu thẻ (chỉ chủ đề sáng)</string>
@@ -589,6 +591,7 @@
     <string name="title_advanced_edit_name">Chỉnh sửa tên</string>
     <string name="title_advanced_swipe_actions">Đặt các hành động vuốt</string>
     <string name="title_advanced_swipe_actions_hint">Cái này sẽ đặt hành động vuốt trái và phải cho tất cả tài khoản IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Độ nhạy vuốt trái/phải</string>
     <string name="title_select">Chọn &#8230;</string>
     <string name="title_identity_name">Tên của bạn</string>
     <string name="title_identity_email">Địa chỉ email của bạn</string>
@@ -1353,6 +1356,7 @@
     <string name="title_check_owner">Kiểm tra chủ sở hữu</string>
     <string name="title_remark_owner">Thông tin sẽ được lấy từ <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Địa chỉ IP của chủ sở hữu</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Đặt hoặc xóa các ứng dụng mặc định</string>
     <string name="title_select_app">Chọn ứng dụng</string>
     <string name="title_updated">Có bản cập nhật lên phiên bản %1$s</string>
     <string name="title_issue">Bạn có câu hỏi hoặc vấn đề không?</string>

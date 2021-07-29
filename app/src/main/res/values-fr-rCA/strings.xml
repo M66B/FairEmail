@@ -284,6 +284,7 @@
     <string name="title_advanced_suggest_sent">Suggérer les adresses trouvées dans les messages envoyés</string>
     <string name="title_advanced_suggest_received">Suggérer les adresses trouvées dans les messages reçus</string>
     <string name="title_advanced_suggest_frequently">Trier les adresses suggérées par fréquence d’utilisation</string>
+    <string name="title_advanced_alt_re_fwd">Préfixe alternatif de réponse/transfert</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l’envoi des messages</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
@@ -1366,6 +1367,7 @@
     <string name="title_check_owner">Vérifier le propriétaire</string>
     <string name="title_remark_owner">Les informations seront récupérées depuis <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adresse IP du propriétaire</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Définir ou effacer les applications par défaut</string>
     <string name="title_select_app">Sélectionner une appli</string>
     <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
     <string name="title_issue">Avez-vous une question ou un problème?</string>

@@ -277,6 +277,7 @@
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
+    <string name="title_advanced_alt_re_fwd">Alternativt besvarelses-/videresendelsespræfiks</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
@@ -1339,6 +1340,7 @@
     <string name="title_check_owner">Tjek ejer</string>
     <string name="title_remark_owner">Oplysninger hentes fra <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Ejers IP-adresse</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Sæt eller ryd standard-apps</string>
     <string name="title_select_app">Vælg app</string>
     <string name="title_updated">En opdatering til version %1$s er tilgængelig</string>
     <string name="title_issue">Har du et spørgsmål eller problem?</string>

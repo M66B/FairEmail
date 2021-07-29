@@ -284,6 +284,7 @@
     <string name="title_advanced_suggest_sent">Προτείνονται διευθύνσεις που βρέθηκαν σε απεσταλμένα μηνύματα</string>
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
+    <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση στην αποστολή μηνυμάτων</string>
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
@@ -1364,6 +1365,7 @@
     <string name="title_check_owner">Επαλήθευση κατόχου</string>
     <string name="title_remark_owner">Θα ανακτηθούν πληροφορίες από <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Διεύθυνση IP κατόχου</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Ορισμός ή εκκαθάριση προεπιλεγμένων εφαρμογών</string>
     <string name="title_select_app">Επιλογή εφαρμογής</string>
     <string name="title_updated">Υπάρχει διαθέσιμη μια ενημέρωση για την έκδοση %1$s</string>
     <string name="title_issue">Έχετε μία ερώτηση ή κάποιο πρόβλημα;</string>

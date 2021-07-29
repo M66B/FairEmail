@@ -284,6 +284,7 @@
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
     <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
+    <string name="title_advanced_alt_re_fwd">Alternatief antwoord/doorsturen voorvoegsel</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_send_pending">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
@@ -1364,6 +1365,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_check_owner">Controleer eigenaar</string>
     <string name="title_remark_owner">Informatie wordt opgehaald van <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Eigenaar IP-adres</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Standaardapps instellen of wissen</string>
     <string name="title_select_app">Selecteer app</string>
     <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>
     <string name="title_issue">Heeft u een vraag of probleem?</string>

@@ -304,6 +304,7 @@
     <string name="title_advanced_suggest_sent">Пропонувати адреси, що були знайдені у надісланих повідомленнях</string>
     <string name="title_advanced_suggest_received">Пропонувати адреси, що були знайдені в отриманих повідомленнях</string>
     <string name="title_advanced_suggest_frequently">Сортувати запропоновані адреси за частотою використання</string>
+    <string name="title_advanced_alt_re_fwd">Альтернативний префікс для відповіді/пересилання</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
@@ -1385,6 +1386,7 @@
     <string name="title_check_owner">Перевірити власника</string>
     <string name="title_remark_owner">Інформація буде надана <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-адреса власника</string>
+    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Встановлення або очищення додатків за замовчуванням</string>
     <string name="title_select_app">Оберіть додаток</string>
     <string name="title_updated">Оновлення до версії %1$s доступне</string>
     <string name="title_issue">У вас є питання або проблема?</string>
