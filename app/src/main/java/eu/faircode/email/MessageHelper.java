@@ -129,6 +129,10 @@ public class MessageHelper {
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72;
 
+    private static final String DOCTYPE = "<!DOCTYPE";
+    private static final String HTML_START = "<html>";
+    private static final String HTML_END = "</html>";
+
     private static final List<Charset> CHARSET16 = Collections.unmodifiableList(Arrays.asList(
             StandardCharsets.UTF_16,
             StandardCharsets.UTF_16BE,
@@ -1990,7 +1994,6 @@ public class MessageHelper {
                         result = HtmlHelper.flow(result);
 
                     // https://www.w3.org/QA/2002/04/valid-dtd-list.html
-                    final String DOCTYPE = "<!DOCTYPE";
                     if (result.length() > DOCTYPE.length()) {
                         String doctype = result.substring(0, DOCTYPE.length()).toUpperCase(Locale.ROOT);
                         if (doctype.startsWith(DOCTYPE)) {
@@ -2000,6 +2003,17 @@ public class MessageHelper {
                                 return result;
                         }
                     }
+
+                    int s = 0;
+                    while (s < result.length() && Character.isWhitespace(result.charAt(s)))
+                        s++;
+                    int e = result.length();
+                    while (e > 0 && Character.isWhitespace(result.charAt(e - 1)))
+                        e--;
+                    if (s + HTML_START.length() < result.length() && e - HTML_END.length() >= 0 &&
+                            result.substring(s, s + HTML_START.length()).equalsIgnoreCase(HTML_START) &&
+                            result.substring(e - HTML_END.length(), e).equalsIgnoreCase(HTML_END))
+                        return result;
 
                     result = "<div x-plain=\"true\">" + HtmlHelper.formatPre(result) + "</div>";
                 } else if (h.isHtml()) {
