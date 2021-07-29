@@ -19,8 +19,14 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -30,7 +36,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -80,6 +92,112 @@ public class EntityContact implements Serializable {
     public Long last_contacted;
     @NonNull
     public Integer state = STATE_DEFAULT;
+
+    static void update(
+            @NonNull Context context,
+            @NonNull EntityAccount account,
+            @NonNull EntityFolder folder,
+            @NonNull EntityMessage message) {
+        long sync_time = (folder.sync_days == Integer.MAX_VALUE ? 0 : folder.sync_days) * 24 * 3600 * 1000L;
+        if (message.received < account.created - sync_time)
+            return;
+
+        if (EntityFolder.DRAFTS.equals(folder.type) ||
+                EntityFolder.ARCHIVE.equals(folder.type) ||
+                EntityFolder.TRASH.equals(folder.type) ||
+                EntityFolder.JUNK.equals(folder.type))
+            return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+        boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        if (!suggest_sent && !suggest_received)
+            return;
+
+        DB db = DB.getInstance(context);
+
+        int type = (folder.isOutgoing() ? TYPE_TO : TYPE_FROM);
+
+        // Check if from self
+        if (type == TYPE_FROM) {
+            if (message.from != null) {
+                List<EntityIdentity> identities = Core.getIdentities(folder.account, context);
+                if (identities != null) {
+                    for (Address sender : message.from) {
+                        for (EntityIdentity identity : identities)
+                            if (identity.similarAddress(sender)) {
+                                type = TYPE_TO;
+                                break;
+                            }
+                        if (type == TYPE_TO)
+                            break;
+                    }
+                }
+            }
+        }
+
+        if (type == TYPE_TO && !suggest_sent)
+            return;
+        if (type == TYPE_FROM && !suggest_received)
+            return;
+
+        List<Address> addresses = new ArrayList<>();
+        if (type == TYPE_FROM) {
+            if (message.reply == null || message.reply.length == 0) {
+                if (message.from != null)
+                    addresses.addAll(Arrays.asList(message.from));
+            } else
+                addresses.addAll(Arrays.asList(message.reply));
+        } else if (type == TYPE_TO) {
+            if (message.to != null)
+                addresses.addAll(Arrays.asList(message.to));
+            if (message.cc != null)
+                addresses.addAll(Arrays.asList(message.cc));
+        }
+
+        for (Address address : addresses) {
+            String email = ((InternetAddress) address).getAddress();
+            String name = ((InternetAddress) address).getPersonal();
+            Uri avatar = ContactInfo.getLookupUri(new Address[]{address});
+
+            if (TextUtils.isEmpty(email))
+                continue;
+            if (TextUtils.isEmpty(name))
+                name = null;
+
+            try {
+                db.beginTransaction();
+
+                EntityContact contact = db.contact().getContact(folder.account, type, email);
+                if (contact == null) {
+                    contact = new EntityContact();
+                    contact.account = folder.account;
+                    contact.type = type;
+                    contact.email = email;
+                    contact.name = name;
+                    contact.avatar = (avatar == null ? null : avatar.toString());
+                    contact.times_contacted = 1;
+                    contact.first_contacted = message.received;
+                    contact.last_contacted = message.received;
+                    contact.id = db.contact().insertContact(contact);
+                    Log.i("Inserted contact=" + contact + " type=" + type);
+                } else {
+                    if (contact.name == null && name != null)
+                        contact.name = name;
+                    contact.avatar = (avatar == null ? null : avatar.toString());
+                    contact.times_contacted++;
+                    contact.first_contacted = Math.min(contact.first_contacted, message.received);
+                    contact.last_contacted = message.received;
+                    db.contact().updateContact(contact);
+                    Log.i("Updated contact=" + contact + " type=" + type);
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+        }
+    }
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();

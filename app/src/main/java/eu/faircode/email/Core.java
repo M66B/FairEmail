@@ -2571,7 +2571,7 @@ class Core {
                                     parts.downloadAttachment(context, attachment);
 
 
-                            ContactInfo.update(context, account, folder, message);
+                            EntityContact.update(context, account, folder, message);
                         } catch (Throwable ex) {
                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                         }
@@ -3507,7 +3507,7 @@ class Core {
             }
 
             try {
-                ContactInfo.update(context, account, folder, message);
+                EntityContact.update(context, account, folder, message);
 
                 // Download small messages inline
                 if (download && !message.ui_hide) {
@@ -3682,7 +3682,7 @@ class Core {
                 }
 
             if (process) {
-                ContactInfo.update(context, account, folder, message);
+                EntityContact.update(context, account, folder, message);
                 MessageClassifier.classify(message, folder, null, context);
             } else
                 Log.d(folder.name + " unchanged uid=" + uid);
