@@ -590,6 +590,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 submenu.add(Menu.FIRST, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
                 submenu.add(Menu.FIRST, R.string.title_synchronize_batch_enable, 2, R.string.title_synchronize_batch_enable);
                 submenu.add(Menu.FIRST, R.string.title_synchronize_batch_disable, 3, R.string.title_synchronize_batch_disable);
+                submenu.add(Menu.FIRST, R.string.title_notify_batch_enable, 4, R.string.title_notify_batch_enable);
+                submenu.add(Menu.FIRST, R.string.title_notify_batch_disable, 5, R.string.title_notify_batch_disable);
             }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
@@ -612,10 +614,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             onActionSync(true);
                             return true;
                         } else if (itemId == R.string.title_synchronize_batch_enable) {
-                            onActionEnable(true);
+                            onActionEnableSync(true);
                             return true;
                         } else if (itemId == R.string.title_synchronize_batch_disable) {
-                            onActionEnable(false);
+                            onActionEnableSync(false);
+                            return true;
+                        } else if (itemId == R.string.title_notify_batch_enable) {
+                            onActionEnableNotify(true);
+                            return true;
+                        } else if (itemId == R.string.title_notify_batch_disable) {
+                            onActionEnableNotify(false);
                             return true;
                         }
                         return false;
@@ -764,7 +772,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }.execute(context, owner, args, "folder:sync");
                 }
 
-                private void onActionEnable(boolean enabled) {
+                private void onActionEnableSync(boolean enabled) {
                     Bundle args = new Bundle();
                     args.putLong("id", folder.id);
                     args.putLong("account", folder.account);
@@ -793,6 +801,42 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             }
 
                             ServiceSynchronize.reload(context, aid, false, "child sync=" + enabled);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "enable");
+                }
+
+                private void onActionEnableNotify(boolean enabled) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putBoolean("enabled", enabled);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            boolean enabled = args.getBoolean("enabled");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+                                List<EntityFolder> childs = db.folder().getChildFolders(id);
+                                if (childs == null)
+                                    return null;
+
+                                for (EntityFolder child : childs)
+                                    db.folder().setFolderNotify(child.id, enabled);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
 
                             return null;
                         }
