@@ -1580,7 +1580,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                     for (EntityFolder folder : folders) {
-                        EntityOperation.sync(context, folder.id, true);
+                        EntityOperation.sync(context, folder.id, true, force);
 
                         if (folder.account != null) {
                             EntityAccount account = db.account().getAccount(folder.account);

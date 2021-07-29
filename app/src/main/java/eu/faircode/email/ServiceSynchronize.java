@@ -1904,8 +1904,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         } else {
                                             if (folder.poll_count == 0) {
                                                 // Cancel pending sync, for example when the folder is not set to poll
-                                                db.operation().deleteOperation(folder.id, EntityOperation.SYNC);
-                                                EntityOperation.sync(this, folder.id, false);
+                                                List<EntityOperation> ops = db.operation().getOperations(folder.account, EntityOperation.SYNC);
+                                                if (ops.size() == 0)
+                                                    EntityOperation.sync(this, folder.id, false);
+                                                else
+                                                    for (EntityOperation op : ops) {
+                                                        db.operation().deleteOperation(op.id);
+                                                        op.id = null;
+                                                        op.id = db.operation().insertOperation(op);
+                                                    }
                                             }
                                             folder.poll_count = (folder.poll_count + 1) % folder.poll_factor;
                                             db.folder().setFolderPollCount(folder.id, folder.poll_count);

@@ -394,7 +394,7 @@ public class FragmentFolders extends FragmentBase {
                         Collections.sort(folders, folders.get(0).getComparator(context));
 
                     for (EntityFolder folder : folders) {
-                        EntityOperation.sync(context, folder.id, true);
+                        EntityOperation.sync(context, folder.id, true, force);
 
                         if (folder.account == null)
                             outbox = true;

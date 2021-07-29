@@ -2279,7 +2279,11 @@ class Core {
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean pro = ActivityBilling.isPro(context);
 
-        EntityLog.log(context, account.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
+        boolean force = jargs.optBoolean(5, false);
+
+        EntityLog.log(context, account.name + " POP sync type=" + folder.type +
+                " force=" + force +
+                " connected=" + (ifolder != null));
 
         if (!EntityFolder.INBOX.equals(folder.type)) {
             db.folder().setFolderSyncState(folder.id, null);
@@ -2304,7 +2308,8 @@ class Core {
                     : Math.min(imessages.length, account.max_messages));
 
             boolean sync = true;
-            if (imessages.length > 0 && folder.last_sync_count != null &&
+            if (!force &&
+                    imessages.length > 0 && folder.last_sync_count != null &&
                     imessages.length == folder.last_sync_count) {
                 // Check if last message known as new messages indicator
                 MessageHelper helper = new MessageHelper((MimeMessage) imessages[imessages.length - 1], context);
