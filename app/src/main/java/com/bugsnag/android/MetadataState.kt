@@ -28,8 +28,8 @@ internal data class MetadataState(val metadata: Metadata = Metadata()) :
 
     private fun notifyClear(section: String, key: String?) {
         when (key) {
-            null -> notifyObservers(StateEvent.ClearMetadataSection(section))
-            else -> notifyObservers(StateEvent.ClearMetadataValue(section, key))
+            null -> updateState { StateEvent.ClearMetadataSection(section) }
+            else -> updateState { StateEvent.ClearMetadataValue(section, key) }
         }
     }
 
@@ -55,13 +55,13 @@ internal data class MetadataState(val metadata: Metadata = Metadata()) :
     private fun notifyMetadataAdded(section: String, key: String, value: Any?) {
         when (value) {
             null -> notifyClear(section, key)
-            else -> notifyObservers(AddMetadata(section, key, metadata.getMetadata(section, key)))
+            else -> updateState { AddMetadata(section, key, metadata.getMetadata(section, key)) }
         }
     }
 
     private fun notifyMetadataAdded(section: String, value: Map<String, Any?>) {
         value.entries.forEach {
-            notifyObservers(AddMetadata(section, it.key, metadata.getMetadata(it.key)))
+            updateState { AddMetadata(section, it.key, metadata.getMetadata(it.key)) }
         }
     }
 }

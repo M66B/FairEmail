@@ -9,11 +9,11 @@ import java.util.Date
  * attached to a crash to help diagnose what events lead to the error.
  */
 internal class BreadcrumbInternal internal constructor(
-    var message: String,
-    var type: BreadcrumbType,
-    var metadata: MutableMap<String, Any?>?,
-    val timestamp: Date = Date()
-) : JsonStream.Streamable {
+    @JvmField var message: String,
+    @JvmField var type: BreadcrumbType,
+    @JvmField var metadata: MutableMap<String, Any?>?,
+    @JvmField val timestamp: Date = Date()
+) : JsonStream.Streamable { // JvmField allows direct field access optimizations
 
     internal constructor(message: String) : this(
         message,

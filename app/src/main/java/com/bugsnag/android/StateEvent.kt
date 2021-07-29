@@ -1,47 +1,66 @@
 package com.bugsnag.android
 
-sealed class StateEvent {
+sealed class StateEvent { // JvmField allows direct field access optimizations
+
     class Install(
-        val apiKey: String,
-        val autoDetectNdkCrashes: Boolean,
-        val appVersion: String?,
-        val buildUuid: String?,
-        val releaseStage: String?,
-        val lastRunInfoPath: String,
-        val consecutiveLaunchCrashes: Int
+        @JvmField val apiKey: String,
+        @JvmField val autoDetectNdkCrashes: Boolean,
+        @JvmField val appVersion: String?,
+        @JvmField val buildUuid: String?,
+        @JvmField val releaseStage: String?,
+        @JvmField val lastRunInfoPath: String,
+        @JvmField val consecutiveLaunchCrashes: Int
     ) : StateEvent()
 
     object DeliverPending : StateEvent()
 
-    class AddMetadata(val section: String, val key: String?, val value: Any?) : StateEvent()
-    class ClearMetadataSection(val section: String) : StateEvent()
-    class ClearMetadataValue(val section: String, val key: String?) : StateEvent()
+    class AddMetadata(
+        @JvmField val section: String,
+        @JvmField val key: String?,
+        @JvmField val value: Any?
+    ) : StateEvent()
+
+    class ClearMetadataSection(@JvmField val section: String) : StateEvent()
+
+    class ClearMetadataValue(
+        @JvmField val section: String,
+        @JvmField val key: String?
+    ) : StateEvent()
 
     class AddBreadcrumb(
-        val message: String,
-        val type: BreadcrumbType,
-        val timestamp: String,
-        val metadata: MutableMap<String, Any?>
+        @JvmField val message: String,
+        @JvmField val type: BreadcrumbType,
+        @JvmField val timestamp: String,
+        @JvmField val metadata: MutableMap<String, Any?>
     ) : StateEvent()
 
     object NotifyHandled : StateEvent()
+
     object NotifyUnhandled : StateEvent()
 
     object PauseSession : StateEvent()
+
     class StartSession(
-        val id: String,
-        val startedAt: String,
-        val handledCount: Int,
+        @JvmField val id: String,
+        @JvmField val startedAt: String,
+        @JvmField val handledCount: Int,
         val unhandledCount: Int
     ) : StateEvent()
 
-    class UpdateContext(val context: String?) : StateEvent()
-    class UpdateInForeground(val inForeground: Boolean, val contextActivity: String?) : StateEvent()
-    class UpdateLastRunInfo(val consecutiveLaunchCrashes: Int) : StateEvent()
-    class UpdateIsLaunching(val isLaunching: Boolean) : StateEvent()
-    class UpdateOrientation(val orientation: String?) : StateEvent()
+    class UpdateContext(@JvmField val context: String?) : StateEvent()
 
-    class UpdateUser(val user: User) : StateEvent()
+    class UpdateInForeground(
+        @JvmField val inForeground: Boolean,
+        val contextActivity: String?
+    ) : StateEvent()
 
-    class UpdateMemoryTrimEvent(val isLowMemory: Boolean) : StateEvent()
+    class UpdateLastRunInfo(@JvmField val consecutiveLaunchCrashes: Int) : StateEvent()
+
+    class UpdateIsLaunching(@JvmField val isLaunching: Boolean) : StateEvent()
+
+    class UpdateOrientation(@JvmField val orientation: String?) : StateEvent()
+
+    class UpdateUser(@JvmField val user: User) : StateEvent()
+
+    class UpdateMemoryTrimEvent(@JvmField val isLowMemory: Boolean) : StateEvent()
 }

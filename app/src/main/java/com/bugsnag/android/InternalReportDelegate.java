@@ -3,6 +3,8 @@ package com.bugsnag.android;
 import static com.bugsnag.android.DeliveryHeadersKt.HEADER_INTERNAL_ERROR;
 import static com.bugsnag.android.SeverityReason.REASON_UNHANDLED_EXCEPTION;
 
+import com.bugsnag.android.internal.ImmutableConfig;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;

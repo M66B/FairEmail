@@ -16,13 +16,14 @@ import java.util.Locale
 import java.util.concurrent.Callable
 import java.util.concurrent.Future
 import java.util.concurrent.RejectedExecutionException
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.math.max
 import kotlin.math.min
 
 internal class DeviceDataCollector(
     private val connectivity: Connectivity,
     private val appContext: Context,
-    private val resources: Resources?,
+    resources: Resources,
     private val deviceId: String?,
     private val buildInfo: DeviceBuildInfo,
     private val dataDirectory: File,
@@ -31,7 +32,7 @@ internal class DeviceDataCollector(
     private val logger: Logger
 ) {
 
-    private val displayMetrics = resources?.displayMetrics
+    private val displayMetrics = resources.displayMetrics
     private val emulator = isEmulator()
     private val screenDensity = getScreenDensity()
     private val dpi = getScreenDensityDpi()
@@ -40,6 +41,7 @@ internal class DeviceDataCollector(
     private val cpuAbi = getCpuAbi()
     private val runtimeVersions: MutableMap<String, Any>
     private val rootedFuture: Future<Boolean>?
+    private var orientation = AtomicInteger(resources.configuration.orientation)
 
     init {
         val map = mutableMapOf<String, Any>()
@@ -79,7 +81,7 @@ internal class DeviceDataCollector(
         runtimeVersions.toMutableMap(),
         calculateFreeDisk(),
         calculateFreeMemory(),
-        calculateOrientation(),
+        getOrientationAsString(),
         Date(now)
     )
 
@@ -187,7 +189,7 @@ internal class DeviceDataCollector(
         return if (displayMetrics != null) {
             val max = max(displayMetrics.widthPixels, displayMetrics.heightPixels)
             val min = min(displayMetrics.widthPixels, displayMetrics.heightPixels)
-            String.format(Locale.US, "%dx%d", max, min)
+            "${max}x$min"
         } else {
             null
         }
@@ -235,12 +237,21 @@ internal class DeviceDataCollector(
     }
 
     /**
-     * Get the device orientation, eg. "landscape"
+     * Get the current device orientation, eg. "landscape"
      */
-    internal fun calculateOrientation() = when (resources?.configuration?.orientation) {
+    internal fun getOrientationAsString(): String? = when (orientation.get()) {
         ORIENTATION_LANDSCAPE -> "landscape"
         ORIENTATION_PORTRAIT -> "portrait"
         else -> null
+    }
+
+    /**
+     * Called whenever the orientation is updated so that the device information is accurate.
+     * Currently this is only invoked by [ClientComponentCallbacks]. Returns true if the
+     * orientation has changed, otherwise false.
+     */
+    internal fun updateOrientation(newOrientation: Int): Boolean {
+        return orientation.getAndSet(newOrientation) != newOrientation
     }
 
     fun addRuntimeVersionInfo(key: String, value: String) {

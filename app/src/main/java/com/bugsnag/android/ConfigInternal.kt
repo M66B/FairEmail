@@ -37,19 +37,19 @@ internal class ConfigInternal(var apiKey: String) : CallbackAware, MetadataAware
     var maxPersistedSessions: Int = DEFAULT_MAX_PERSISTED_SESSIONS
     var context: String? = null
 
-    var redactedKeys: Set<String> = metadataState.metadata.redactedKeys
+    var redactedKeys: Set<String>
+        get() = metadataState.metadata.redactedKeys
         set(value) {
             metadataState.metadata.redactedKeys = value
-            field = value
         }
 
     var discardClasses: Set<String> = emptySet()
     var enabledReleaseStages: Set<String>? = null
-    var enabledBreadcrumbTypes: Set<BreadcrumbType>? = BreadcrumbType.values().toSet()
+    var enabledBreadcrumbTypes: Set<BreadcrumbType>? = null
     var projectPackages: Set<String> = emptySet()
     var persistenceDirectory: File? = null
 
-    protected val plugins = mutableSetOf<Plugin>()
+    protected val plugins = HashSet<Plugin>()
 
     override fun addOnError(onError: OnErrorCallback) = callbackState.addOnError(onError)
     override fun removeOnError(onError: OnErrorCallback) = callbackState.removeOnError(onError)

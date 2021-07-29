@@ -69,8 +69,7 @@ final class SeverityReason implements JsonStream.Streamable {
             case REASON_LOG:
                 return new SeverityReason(severityReasonType, severity, false, attrVal);
             default:
-                String msg = String.format("Invalid argument '%s' for severityReason",
-                    severityReasonType);
+                String msg = "Invalid argument for severityReason: '" + severityReasonType + '\'';
                 throw new IllegalArgumentException(msg);
         }
     }

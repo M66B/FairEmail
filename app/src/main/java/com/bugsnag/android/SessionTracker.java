@@ -1,5 +1,7 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.ImmutableConfig;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -79,6 +81,9 @@ class SessionTracker extends BaseObservable {
     @VisibleForTesting
     Session startNewSession(@NonNull Date date, @Nullable User user,
                             boolean autoCaptured) {
+        if (client.getConfig().shouldDiscardSession(autoCaptured)) {
+            return null;
+        }
         String id = UUID.randomUUID().toString();
         Session session = new Session(id, date, user, autoCaptured, client.getNotifier(), logger);
         currentSession.set(session);
@@ -87,6 +92,9 @@ class SessionTracker extends BaseObservable {
     }
 
     Session startSession(boolean autoCaptured) {
+        if (client.getConfig().shouldDiscardSession(autoCaptured)) {
+            return null;
+        }
         return startNewSession(new Date(), client.getUser(), autoCaptured);
     }
 
@@ -95,7 +103,7 @@ class SessionTracker extends BaseObservable {
 
         if (session != null) {
             session.isPaused.set(true);
-            notifyObservers(StateEvent.PauseSession.INSTANCE);
+            updateState(StateEvent.PauseSession.INSTANCE);
         }
     }
 
@@ -116,10 +124,10 @@ class SessionTracker extends BaseObservable {
         return resumed;
     }
 
-    private void notifySessionStartObserver(Session session) {
-        String startedAt = DateUtils.toIso8601(session.getStartedAt());
-        notifyObservers(new StateEvent.StartSession(session.getId(), startedAt,
-                session.getHandledCount(), session.getUnhandledCount()));
+    private void notifySessionStartObserver(final Session session) {
+        final String startedAt = DateUtils.toIso8601(session.getStartedAt());
+        updateState(new StateEvent.StartSession(session.getId(), startedAt,
+                        session.getHandledCount(), session.getUnhandledCount()));
     }
 
     /**
@@ -137,13 +145,16 @@ class SessionTracker extends BaseObservable {
     Session registerExistingSession(@Nullable Date date, @Nullable String sessionId,
                                     @Nullable User user, int unhandledCount,
                                     int handledCount) {
+        if (client.getConfig().shouldDiscardSession(false)) {
+            return null;
+        }
         Session session = null;
         if (date != null && sessionId != null) {
             session = new Session(sessionId, date, user, unhandledCount, handledCount,
                     client.getNotifier(), logger);
             notifySessionStartObserver(session);
         } else {
-            notifyObservers(StateEvent.PauseSession.INSTANCE);
+            updateState(StateEvent.PauseSession.INSTANCE);
         }
         currentSession.set(session);
         return session;
@@ -157,18 +168,12 @@ class SessionTracker extends BaseObservable {
      */
     private void trackSessionIfNeeded(final Session session) {
         logger.d("SessionTracker#trackSessionIfNeeded() - session captured by Client");
-
-        boolean notifyForRelease = configuration.shouldNotifyForReleaseStage();
-
         session.setApp(client.getAppDataCollector().generateApp());
         session.setDevice(client.getDeviceDataCollector().generateDevice());
         boolean deliverSession = callbackState.runOnSessionTasks(session, logger);
 
-        if (deliverSession && notifyForRelease
-                && (configuration.getAutoTrackSessions() || !session.isAutoCaptured())
-                && session.isTracked().compareAndSet(false, true)) {
+        if (deliverSession && session.isTracked().compareAndSet(false, true)) {
             notifySessionStartObserver(session);
-
             flushAsync();
             flushInMemorySession(session);
         }
@@ -355,13 +360,14 @@ class SessionTracker extends BaseObservable {
                 lastExitedForegroundMs.set(nowMs);
             }
         }
+        client.getContextState().setAutomaticContext(getContextActivity());
         notifyNdkInForeground();
     }
 
     private void notifyNdkInForeground() {
         Boolean inForeground = isInForeground();
-        boolean foreground = inForeground != null ? inForeground : false;
-        notifyObservers(new StateEvent.UpdateInForeground(foreground, getContextActivity()));
+        final boolean foreground = inForeground != null ? inForeground : false;
+        updateState(new StateEvent.UpdateInForeground(foreground, getContextActivity()));
     }
 
     @Nullable

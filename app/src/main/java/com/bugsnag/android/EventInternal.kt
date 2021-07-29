@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.ImmutableConfig
 import java.io.IOException
 
 internal class EventInternal @JvmOverloads internal constructor(

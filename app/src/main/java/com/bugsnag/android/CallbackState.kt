@@ -33,6 +33,10 @@ internal data class CallbackState(
     }
 
     fun runOnErrorTasks(event: Event, logger: Logger): Boolean {
+        // optimization to avoid construction of iterator when no callbacks set
+        if (onErrorTasks.isEmpty()) {
+            return true
+        }
         onErrorTasks.forEach {
             try {
                 if (!it.onError(event)) {
@@ -46,6 +50,10 @@ internal data class CallbackState(
     }
 
     fun runOnBreadcrumbTasks(breadcrumb: Breadcrumb, logger: Logger): Boolean {
+        // optimization to avoid construction of iterator when no callbacks set
+        if (onBreadcrumbTasks.isEmpty()) {
+            return true
+        }
         onBreadcrumbTasks.forEach {
             try {
                 if (!it.onBreadcrumb(breadcrumb)) {
@@ -59,6 +67,10 @@ internal data class CallbackState(
     }
 
     fun runOnSessionTasks(session: Session, logger: Logger): Boolean {
+        // optimization to avoid construction of iterator when no callbacks set
+        if (onSessionTasks.isEmpty()) {
+            return true
+        }
         onSessionTasks.forEach {
             try {
                 if (!it.onSession(session)) {

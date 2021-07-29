@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.ImmutableConfig
 import java.io.IOException
 
 /**
@@ -11,7 +12,7 @@ internal class ThreadState @Suppress("LongParameterList") @JvmOverloads construc
     sendThreads: ThreadSendPolicy,
     projectPackages: Collection<String>,
     logger: Logger,
-    currentThread: java.lang.Thread = java.lang.Thread.currentThread(),
+    currentThread: java.lang.Thread? = null,
     stackTraces: MutableMap<java.lang.Thread, Array<StackTraceElement>>? = null
 ) : JsonStream.Streamable {
 
@@ -30,7 +31,7 @@ internal class ThreadState @Suppress("LongParameterList") @JvmOverloads construc
         threads = when {
             recordThreads -> captureThreadTrace(
                 stackTraces ?: java.lang.Thread.getAllStackTraces(),
-                currentThread,
+                currentThread ?: java.lang.Thread.currentThread(),
                 exc,
                 isUnhandled,
                 projectPackages,
@@ -64,7 +65,7 @@ internal class ThreadState @Suppress("LongParameterList") @JvmOverloads construc
                 val trace = stackTraces[thread]
 
                 if (trace != null) {
-                    val stacktrace = Stacktrace.stacktraceFromJavaTrace(trace, projectPackages, logger)
+                    val stacktrace = Stacktrace(trace, projectPackages, logger)
                     val errorThread = thread.id == currentThreadId
                     Thread(thread.id, thread.name, ThreadType.ANDROID, errorThread, stacktrace, logger)
                 } else {

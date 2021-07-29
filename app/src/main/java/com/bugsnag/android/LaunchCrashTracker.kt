@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.ImmutableConfig
 import java.util.concurrent.RejectedExecutionException
 import java.util.concurrent.ScheduledThreadPoolExecutor
 import java.util.concurrent.TimeUnit
@@ -34,7 +35,7 @@ internal class LaunchCrashTracker @JvmOverloads constructor(
     fun markLaunchCompleted() {
         executor.shutdown()
         launching.set(false)
-        notifyObservers(StateEvent.UpdateIsLaunching(false))
+        updateState { StateEvent.UpdateIsLaunching(false) }
         logger.d("App launch period marked as complete")
     }
 

@@ -1,11 +1,30 @@
-package com.bugsnag.android
+package com.bugsnag.android.internal
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import androidx.annotation.VisibleForTesting
+import com.bugsnag.android.BreadcrumbType
+import com.bugsnag.android.Configuration
+import com.bugsnag.android.Connectivity
+import com.bugsnag.android.DebugLogger
+import com.bugsnag.android.DefaultDelivery
+import com.bugsnag.android.Delivery
+import com.bugsnag.android.DeliveryParams
+import com.bugsnag.android.EndpointConfiguration
+import com.bugsnag.android.ErrorTypes
+import com.bugsnag.android.EventPayload
+import com.bugsnag.android.Logger
+import com.bugsnag.android.ManifestConfigLoader
+import com.bugsnag.android.NoopLogger
+import com.bugsnag.android.ThreadSendPolicy
+import com.bugsnag.android.errorApiHeaders
+import com.bugsnag.android.safeUnrollCauses
+import com.bugsnag.android.sessionApiHeaders
 import java.io.File
 
-internal data class ImmutableConfig(
+data class ImmutableConfig(
     val apiKey: String,
     val autoDetectErrors: Boolean,
     val enabledErrorTypes: ErrorTypes,
@@ -29,21 +48,12 @@ internal data class ImmutableConfig(
     val maxPersistedEvents: Int,
     val maxPersistedSessions: Int,
     val persistenceDirectory: File,
-    val sendLaunchCrashesSynchronously: Boolean
+    val sendLaunchCrashesSynchronously: Boolean,
+
+    // results cached here to avoid unnecessary lookups in Client.
+    val packageInfo: PackageInfo?,
+    val appInfo: ApplicationInfo?
 ) {
-
-    /**
-     * Checks if the given release stage should be notified or not
-     *
-     * @return true if the release state should be notified else false
-     */
-    @JvmName("shouldNotifyForReleaseStage")
-    internal fun shouldNotifyForReleaseStage() =
-        enabledReleaseStages == null || enabledReleaseStages.contains(releaseStage)
-
-    @JvmName("shouldRecordBreadcrumbType")
-    internal fun shouldRecordBreadcrumbType(type: BreadcrumbType) =
-        enabledBreadcrumbTypes == null || enabledBreadcrumbTypes.contains(type)
 
     @JvmName("getErrorApiDeliveryParams")
     internal fun getErrorApiDeliveryParams(payload: EventPayload) =
@@ -52,11 +62,73 @@ internal data class ImmutableConfig(
     @JvmName("getSessionApiDeliveryParams")
     internal fun getSessionApiDeliveryParams() =
         DeliveryParams(endpoints.sessions, sessionApiHeaders(apiKey))
+
+    /**
+     * Returns whether the given throwable should be discarded
+     * based on the automatic data capture settings in [Configuration].
+     */
+    fun shouldDiscardError(exc: Throwable): Boolean {
+        return shouldDiscardByReleaseStage() || shouldDiscardByErrorClass(exc)
+    }
+
+    /**
+     * Returns whether the given error should be discarded
+     * based on the automatic data capture settings in [Configuration].
+     */
+    fun shouldDiscardError(errorClass: String?): Boolean {
+        return shouldDiscardByReleaseStage() || shouldDiscardByErrorClass(errorClass)
+    }
+
+    /**
+     * Returns whether a session should be discarded based on the
+     * automatic data capture settings in [Configuration].
+     */
+    fun shouldDiscardSession(autoCaptured: Boolean): Boolean {
+        return shouldDiscardByReleaseStage() || (autoCaptured && !autoTrackSessions)
+    }
+
+    /**
+     * Returns whether breadcrumbs with the given type should be discarded or not.
+     */
+    fun shouldDiscardBreadcrumb(type: BreadcrumbType): Boolean {
+        return enabledBreadcrumbTypes != null && !enabledBreadcrumbTypes.contains(type)
+    }
+
+    /**
+     * Returns whether errors/sessions should be discarded or not based on the enabled
+     * release stages.
+     */
+    fun shouldDiscardByReleaseStage(): Boolean {
+        return enabledReleaseStages != null && !enabledReleaseStages.contains(releaseStage)
+    }
+
+    /**
+     * Returns whether errors with the given errorClass should be discarded or not.
+     */
+    @VisibleForTesting
+    internal fun shouldDiscardByErrorClass(errorClass: String?): Boolean {
+        return discardClasses.contains(errorClass)
+    }
+
+    /**
+     * Returns whether errors should be discarded or not based on the errorClass, as deduced
+     * by the Throwable's class name.
+     */
+    @VisibleForTesting
+    internal fun shouldDiscardByErrorClass(exc: Throwable): Boolean {
+        return exc.safeUnrollCauses().any { throwable ->
+            val errorClass = throwable.javaClass.name
+            shouldDiscardByErrorClass(errorClass)
+        }
+    }
 }
 
+@JvmOverloads
 internal fun convertToImmutableConfig(
     config: Configuration,
-    buildUuid: String? = null
+    buildUuid: String? = null,
+    packageInfo: PackageInfo? = null,
+    appInfo: ApplicationInfo? = null
 ): ImmutableConfig {
     val errorTypes = when {
         config.autoDetectErrors -> config.enabledErrorTypes.copy()
@@ -87,7 +159,9 @@ internal fun convertToImmutableConfig(
         maxPersistedSessions = config.maxPersistedSessions,
         enabledBreadcrumbTypes = config.enabledBreadcrumbTypes?.toSet(),
         persistenceDirectory = config.persistenceDirectory!!,
-        sendLaunchCrashesSynchronously = config.sendLaunchCrashesSynchronously
+        sendLaunchCrashesSynchronously = config.sendLaunchCrashesSynchronously,
+        packageInfo = packageInfo,
+        appInfo = appInfo
     )
 }
 
@@ -144,7 +218,7 @@ internal fun sanitiseConfiguration(
     if (configuration.persistenceDirectory == null) {
         configuration.persistenceDirectory = appContext.cacheDir
     }
-    return convertToImmutableConfig(configuration, buildUuid)
+    return convertToImmutableConfig(configuration, buildUuid, packageInfo, appInfo)
 }
 
 internal const val RELEASE_STAGE_DEVELOPMENT = "development"

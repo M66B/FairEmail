@@ -1,11 +1,14 @@
 package com.bugsnag.android
 
+import android.annotation.SuppressLint
 import android.app.ActivityManager
+import android.app.Application
 import android.content.Context
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
-import android.os.Build
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.os.SystemClock
+import com.bugsnag.android.internal.ImmutableConfig
 
 /**
  * Collects various data on the application state
@@ -22,13 +25,13 @@ internal class AppDataCollector(
     var codeBundleId: String? = null
 
     private val packageName: String = appContext.packageName
-    private var packageInfo = packageManager?.getPackageInfo(packageName, 0)
-    private var appInfo: ApplicationInfo? = packageManager?.getApplicationInfo(packageName, 0)
+    private val bgWorkRestricted = isBackgroundWorkRestricted()
 
     private var binaryArch: String? = null
     private val appName = getAppName()
+    private val processName = findProcessName()
     private val releaseStage = config.releaseStage
-    private val versionName = config.appVersion ?: packageInfo?.versionName
+    private val versionName = config.appVersion ?: config.packageInfo?.versionName
 
     fun generateApp(): App =
         App(config, binaryArch, packageName, releaseStage, versionName, codeBundleId)
@@ -47,17 +50,18 @@ internal class AppDataCollector(
     fun getAppDataMetadata(): MutableMap<String, Any?> {
         val map = HashMap<String, Any?>()
         map["name"] = appName
-        map["activeScreen"] = getActiveScreenClass()
+        map["activeScreen"] = sessionTracker.contextActivity
         map["memoryUsage"] = getMemoryUsage()
         map["lowMemory"] = isLowMemory()
 
-        isBackgroundWorkRestricted()?.let {
-            map["backgroundWorkRestricted"] = it
+        bgWorkRestricted?.let {
+            map["backgroundWorkRestricted"] = bgWorkRestricted
+        }
+        processName?.let {
+            map["processName"] = it
         }
         return map
     }
-
-    fun getActiveScreenClass(): String? = sessionTracker.contextActivity
 
     /**
      * Get the actual memory used by the VM (which may not be the total used
@@ -73,7 +77,7 @@ internal class AppDataCollector(
      * https://developer.android.com/reference/android/app/ActivityManager#isBackgroundRestricted()
      */
     private fun isBackgroundWorkRestricted(): Boolean? {
-        return if (activityManager == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+        return if (activityManager == null || VERSION.SDK_INT < VERSION_CODES.P) {
             null
         } else if (activityManager.isBackgroundRestricted) {
             true // only return non-null value if true to avoid noise in error reports
@@ -129,13 +133,38 @@ internal class AppDataCollector(
      * AndroidManifest.xml
      */
     private fun getAppName(): String? {
-        val copy = appInfo
+        val copy = config.appInfo
         return when {
             packageManager != null && copy != null -> {
                 packageManager.getApplicationLabel(copy).toString()
             }
             else -> null
         }
+    }
+
+    /**
+     * Finds the name of the current process, or null if this cannot be found.
+     */
+    @SuppressLint("PrivateApi")
+    private fun findProcessName(): String? {
+        return runCatching {
+            when {
+                VERSION.SDK_INT >= VERSION_CODES.P -> {
+                    Application.getProcessName()
+                }
+                else -> {
+                    // see https://stackoverflow.com/questions/19631894
+                    val clz = Class.forName("android.app.ActivityThread")
+                    val methodName = when {
+                        VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR2 -> "currentProcessName"
+                        else -> "currentPackageName"
+                    }
+
+                    val getProcessName = clz.getDeclaredMethod(methodName)
+                    getProcessName.invoke(null) as String
+                }
+            }
+        }.getOrNull()
     }
 
     companion object {

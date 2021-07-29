@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import java.io.File;
 import java.util.Locale;
@@ -19,7 +20,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
 
     private static final int MIN_BREADCRUMBS = 0;
     private static final int MAX_BREADCRUMBS = 100;
-    private static final String API_KEY_REGEX = "[A-Fa-f0-9]{32}";
+    private static final int VALID_API_KEY_LEN = 32;
     private static final long MIN_LAUNCH_CRASH_THRESHOLD_MS = 0;
 
     final ConfigInternal impl;
@@ -47,14 +48,29 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
     }
 
     private void validateApiKey(String value) {
-        if (Intrinsics.isEmpty(value)) {
+        if (isInvalidApiKey(value)) {
+            DebugLogger.INSTANCE.w("Invalid configuration. "
+                    + "apiKey should be a 32-character hexademical string, got " + value);
+        }
+    }
+
+    @VisibleForTesting
+    static boolean isInvalidApiKey(String apiKey) {
+        if (Intrinsics.isEmpty(apiKey)) {
             throw new IllegalArgumentException("No Bugsnag API Key set");
         }
-
-        if (!value.matches(API_KEY_REGEX)) {
-            DebugLogger.INSTANCE.w(String.format("Invalid configuration. apiKey should be a "
-                    + "32-character hexademical string, got \"%s\"", value));
+        if (apiKey.length() != VALID_API_KEY_LEN) {
+            return true;
         }
+        // check whether each character is hexadecimal (either a digit or a-f).
+        // this avoids using a regex to improve startup performance.
+        for (int k = 0; k < VALID_API_KEY_LEN; k++) {
+            char chr = apiKey.charAt(k);
+            if (!Character.isDigit(chr) && (chr < 'a' || chr > 'f')) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void logNull(String property) {
@@ -294,9 +310,9 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
         if (launchDurationMillis >= MIN_LAUNCH_CRASH_THRESHOLD_MS) {
             impl.setLaunchDurationMillis(launchDurationMillis);
         } else {
-            getLogger().e(String.format(Locale.US, "Invalid configuration value detected. "
+            getLogger().e("Invalid configuration value detected. "
                     + "Option launchDurationMillis should be a positive long value."
-                    + "Supplied value is %d", launchDurationMillis));
+                    + "Supplied value is " + launchDurationMillis);
         }
     }
 
@@ -513,9 +529,9 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
         if (maxBreadcrumbs >= MIN_BREADCRUMBS && maxBreadcrumbs <= MAX_BREADCRUMBS) {
             impl.setMaxBreadcrumbs(maxBreadcrumbs);
         } else {
-            getLogger().e(String.format(Locale.US, "Invalid configuration value detected. "
+            getLogger().e("Invalid configuration value detected. "
                     + "Option maxBreadcrumbs should be an integer between 0-100. "
-                    + "Supplied value is %d", maxBreadcrumbs));
+                    + "Supplied value is " + maxBreadcrumbs);
         }
     }
 
@@ -539,9 +555,9 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
         if (maxPersistedEvents >= 0) {
             impl.setMaxPersistedEvents(maxPersistedEvents);
         } else {
-            getLogger().e(String.format(Locale.US, "Invalid configuration value detected. "
+            getLogger().e("Invalid configuration value detected. "
                     + "Option maxPersistedEvents should be a positive integer."
-                    + "Supplied value is %d", maxPersistedEvents));
+                    + "Supplied value is " + maxPersistedEvents);
         }
     }
 
@@ -565,9 +581,9 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware {
         if (maxPersistedSessions >= 0) {
             impl.setMaxPersistedSessions(maxPersistedSessions);
         } else {
-            getLogger().e(String.format(Locale.US, "Invalid configuration value detected. "
+            getLogger().e("Invalid configuration value detected. "
                     + "Option maxPersistedSessions should be a positive integer."
-                    + "Supplied value is %d", maxPersistedSessions));
+                    + "Supplied value is " + maxPersistedSessions);
         }
     }
 

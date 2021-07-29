@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap
  * Diagnostic information is presented on your Bugsnag dashboard in tabs.
  */
 internal data class Metadata @JvmOverloads constructor(
-    internal val store: ConcurrentHashMap<String, Any> = ConcurrentHashMap()
+    internal val store: MutableMap<String, MutableMap<String, Any>> = ConcurrentHashMap()
 ) : JsonStream.Streamable, MetadataAware {
 
     val jsonStreamer: ObjectJsonStreamer = ObjectJsonStreamer()
@@ -38,12 +38,9 @@ internal data class Metadata @JvmOverloads constructor(
         if (value == null) {
             clearMetadata(section, key)
         } else {
-            var tab = store[section]
-            if (tab !is MutableMap<*, *>) {
-                tab = ConcurrentHashMap<Any, Any>()
-                store[section] = tab
-            }
-            insertValue(tab as MutableMap<String, Any>, key, value)
+            val tab = store[section] ?: ConcurrentHashMap()
+            store[section] = tab
+            insertValue(tab, key, value)
         }
     }
 
@@ -52,7 +49,7 @@ internal data class Metadata @JvmOverloads constructor(
 
         // only merge if both the existing and new value are maps
         val existingValue = map[key]
-        if (obj is MutableMap<*, *> && existingValue is MutableMap<*, *>) {
+        if (existingValue != null && obj is Map<*, *>) {
             val maps = listOf(existingValue as Map<String, Any>, newValue as Map<String, Any>)
             obj = mergeMaps(maps)
         }
@@ -65,49 +62,41 @@ internal data class Metadata @JvmOverloads constructor(
 
     override fun clearMetadata(section: String, key: String) {
         val tab = store[section]
+        tab?.remove(key)
 
-        if (tab is MutableMap<*, *>) {
-            tab.remove(key)
-
-            if (tab.isEmpty()) {
-                store.remove(section)
-            }
+        if (tab.isNullOrEmpty()) {
+            store.remove(section)
         }
     }
 
     override fun getMetadata(section: String): Map<String, Any>? {
-        return store[section] as (Map<String, Any>?)
+        return store[section]
     }
 
     override fun getMetadata(section: String, key: String): Any? {
-        return when (val tab = store[section]) {
-            is Map<*, *> -> (tab as Map<String, Any>?)!![key]
-            else -> tab
-        }
+        return getMetadata(section)?.get(key)
     }
 
-    fun toMap(): ConcurrentHashMap<String, Any> {
-        val hashMap = ConcurrentHashMap(store)
+    fun toMap(): MutableMap<String, MutableMap<String, Any>> {
+        val copy = ConcurrentHashMap(store)
 
         // deep copy each section
         store.entries.forEach {
-            if (it.value is ConcurrentHashMap<*, *>) {
-                hashMap[it.key] = ConcurrentHashMap(it.value as ConcurrentHashMap<*, *>)
-            }
+            copy[it.key] = ConcurrentHashMap(it.value)
         }
-        return hashMap
+        return copy
     }
 
     companion object {
         fun merge(vararg data: Metadata): Metadata {
             val stores = data.map { it.toMap() }
             val redactKeys = data.flatMap { it.jsonStreamer.redactedKeys }
-            val newMeta = Metadata(mergeMaps(stores))
+            val newMeta = Metadata(mergeMaps(stores) as MutableMap<String, MutableMap<String, Any>>)
             newMeta.redactedKeys = redactKeys.toSet()
             return newMeta
         }
 
-        internal fun mergeMaps(data: List<Map<String, Any>>): ConcurrentHashMap<String, Any> {
+        internal fun mergeMaps(data: List<Map<String, Any>>): MutableMap<String, Any> {
             val keys = data.flatMap { it.keys }.toSet()
             val result = ConcurrentHashMap<String, Any>()
 
@@ -120,7 +109,7 @@ internal data class Metadata @JvmOverloads constructor(
         }
 
         private fun getMergeValue(
-            result: ConcurrentHashMap<String, Any>,
+            result: MutableMap<String, Any>,
             key: String,
             map: Map<String, Any>
         ) {

@@ -61,6 +61,14 @@ internal class ConnectivityLegacy(
 
     private val changeReceiver = ConnectivityChangeReceiver(callback)
 
+    private val activeNetworkInfo: android.net.NetworkInfo?
+        get() = try {
+            cm.activeNetworkInfo
+        } catch (e: NullPointerException) {
+            // in some rare cases we get a remote NullPointerException via Parcel.readException
+            null
+        }
+
     override fun registerForNetworkChanges() {
         val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         context.registerReceiverSafe(changeReceiver, intentFilter)
@@ -69,11 +77,11 @@ internal class ConnectivityLegacy(
     override fun unregisterForNetworkChanges() = context.unregisterReceiverSafe(changeReceiver)
 
     override fun hasNetworkConnection(): Boolean {
-        return cm.activeNetworkInfo?.isConnectedOrConnecting ?: false
+        return activeNetworkInfo?.isConnectedOrConnecting ?: false
     }
 
     override fun retrieveNetworkAccessState(): String {
-        return when (cm.activeNetworkInfo?.type) {
+        return when (activeNetworkInfo?.type) {
             null -> "none"
             ConnectivityManager.TYPE_WIFI -> "wifi"
             ConnectivityManager.TYPE_ETHERNET -> "ethernet"

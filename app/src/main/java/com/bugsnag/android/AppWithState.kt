@@ -1,5 +1,7 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.ImmutableConfig
+
 /**
  * Stateful information set by the notifier about your app can be found on this class. These values
  * can be accessed and amended if necessary.

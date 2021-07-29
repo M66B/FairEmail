@@ -1,5 +1,7 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.ImmutableConfig;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -148,8 +150,8 @@ class EventStore extends FileStore {
 
     void flushReports(Collection<File> storedReports) {
         if (!storedReports.isEmpty()) {
-            logger.i(String.format(Locale.US,
-                    "Sending %d saved error(s) to Bugsnag", storedReports.size()));
+            int size = storedReports.size();
+            logger.i("Sending " + size + " saved error(s) to Bugsnag");
 
             for (File eventFile : storedReports) {
                 flushEventFile(eventFile);
@@ -200,14 +202,12 @@ class EventStore extends FileStore {
     String getFilename(Object object) {
         EventFilenameInfo eventInfo
                 = EventFilenameInfo.Companion.fromEvent(object, null, config);
-        String encodedInfo = eventInfo.encode();
-        return String.format(Locale.US, "%s", encodedInfo);
+        return eventInfo.encode();
     }
 
     String getNdkFilename(Object object, String apiKey) {
         EventFilenameInfo eventInfo
                 = EventFilenameInfo.Companion.fromEvent(object, apiKey, config);
-        String encodedInfo = eventInfo.encode();
-        return String.format(Locale.US, "%s", encodedInfo);
+        return eventInfo.encode();
     }
 }

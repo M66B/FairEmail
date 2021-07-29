@@ -2,6 +2,8 @@ package com.bugsnag.android;
 
 import static com.bugsnag.android.SeverityReason.REASON_PROMISE_REJECTION;
 
+import com.bugsnag.android.internal.ImmutableConfig;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
@@ -44,10 +46,10 @@ class DeliveryDelegate extends BaseObservable {
         if (session != null) {
             if (event.isUnhandled()) {
                 event.setSession(session.incrementUnhandledAndCopy());
-                notifyObservers(StateEvent.NotifyUnhandled.INSTANCE);
+                updateState(StateEvent.NotifyUnhandled.INSTANCE);
             } else {
                 event.setSession(session.incrementHandledAndCopy());
-                notifyObservers(StateEvent.NotifyHandled.INSTANCE);
+                updateState(StateEvent.NotifyHandled.INSTANCE);
             }
         }
 

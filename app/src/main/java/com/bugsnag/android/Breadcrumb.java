@@ -10,7 +10,8 @@ import java.util.Map;
 @SuppressWarnings("ConstantConditions")
 public class Breadcrumb implements JsonStream.Streamable {
 
-    private final BreadcrumbInternal impl;
+    // non-private to allow direct field access optimizations
+    final BreadcrumbInternal impl;
     private final Logger logger;
 
     Breadcrumb(@NonNull String message, @NonNull Logger logger) {
@@ -36,7 +37,7 @@ public class Breadcrumb implements JsonStream.Streamable {
      */
     public void setMessage(@NonNull String message) {
         if (message != null) {
-            impl.setMessage(message);
+            impl.message = message;
         } else {
             logNull("message");
         }
@@ -47,7 +48,7 @@ public class Breadcrumb implements JsonStream.Streamable {
      */
     @NonNull
     public String getMessage() {
-        return impl.getMessage();
+        return impl.message;
     }
 
     /**
@@ -56,7 +57,7 @@ public class Breadcrumb implements JsonStream.Streamable {
      */
     public void setType(@NonNull BreadcrumbType type) {
         if (type != null) {
-            impl.setType(type);
+            impl.type = type;
         } else {
             logNull("type");
         }
@@ -68,14 +69,14 @@ public class Breadcrumb implements JsonStream.Streamable {
      */
     @NonNull
     public BreadcrumbType getType() {
-        return impl.getType();
+        return impl.type;
     }
 
     /**
      * Sets diagnostic data relating to the breadcrumb
      */
     public void setMetadata(@Nullable Map<String, Object> metadata) {
-        impl.setMetadata(metadata);
+        impl.metadata = metadata;
     }
 
     /**
@@ -83,7 +84,7 @@ public class Breadcrumb implements JsonStream.Streamable {
      */
     @Nullable
     public Map<String, Object> getMetadata() {
-        return impl.getMetadata();
+        return impl.metadata;
     }
 
     /**
@@ -91,12 +92,12 @@ public class Breadcrumb implements JsonStream.Streamable {
      */
     @NonNull
     public Date getTimestamp() {
-        return impl.getTimestamp();
+        return impl.timestamp;
     }
 
     @NonNull
     String getStringTimestamp() {
-        return DateUtils.toIso8601(impl.getTimestamp());
+        return DateUtils.toIso8601(impl.timestamp);
     }
 
     @Override

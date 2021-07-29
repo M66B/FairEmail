@@ -164,11 +164,20 @@ internal class BackgroundTaskService(
         // shutdown the IO executor last.
         errorExecutor.shutdown()
         sessionExecutor.shutdown()
-        errorExecutor.awaitTermination(SHUTDOWN_WAIT_MS, TimeUnit.MILLISECONDS)
-        sessionExecutor.awaitTermination(SHUTDOWN_WAIT_MS, TimeUnit.MILLISECONDS)
+
+        errorExecutor.awaitTerminationSafe()
+        sessionExecutor.awaitTerminationSafe()
 
         // shutdown the IO executor last, waiting for any existing tasks to complete
         ioExecutor.shutdown()
-        ioExecutor.awaitTermination(SHUTDOWN_WAIT_MS, TimeUnit.MILLISECONDS)
+        ioExecutor.awaitTerminationSafe()
+    }
+
+    private fun ThreadPoolExecutor.awaitTerminationSafe() {
+        try {
+            awaitTermination(SHUTDOWN_WAIT_MS, TimeUnit.MILLISECONDS)
+        } catch (ignored: InterruptedException) {
+            // ignore interrupted exception as the JVM is shutting down
+        }
     }
 }

@@ -15,8 +15,7 @@ internal class ErrorInternal @JvmOverloads internal constructor(
                 .mapTo(mutableListOf()) { currentEx ->
                     // Somehow it's possible for stackTrace to be null in rare cases
                     val stacktrace = currentEx.stackTrace ?: arrayOf<StackTraceElement>()
-                    val trace =
-                        Stacktrace.stacktraceFromJavaTrace(stacktrace, projectPackages, logger)
+                    val trace = Stacktrace(stacktrace, projectPackages, logger)
                     val errorInternal =
                         ErrorInternal(currentEx.javaClass.name, currentEx.localizedMessage, trace)
 

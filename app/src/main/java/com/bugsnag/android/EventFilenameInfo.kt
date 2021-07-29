@@ -1,7 +1,7 @@
 package com.bugsnag.android
 
+import com.bugsnag.android.internal.ImmutableConfig
 import java.io.File
-import java.util.Locale
 import java.util.UUID
 
 /**
@@ -27,15 +27,7 @@ internal data class EventFilenameInfo(
      * "[timestamp]_[apiKey]_[errorTypes]_[UUID]_[startupcrash|not-jvm].json"
      */
     fun encode(): String {
-        return String.format(
-            Locale.US,
-            "%d_%s_%s_%s_%s.json",
-            timestamp,
-            apiKey,
-            serializeErrorTypeHeader(errorTypes),
-            uuid,
-            suffix
-        )
+        return "${timestamp}_${apiKey}_${serializeErrorTypeHeader(errorTypes)}_${uuid}_$suffix.json"
     }
 
     fun isLaunchCrashReport(): Boolean = suffix == STARTUP_CRASH
