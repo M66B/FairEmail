@@ -3786,12 +3786,16 @@ class Core {
 
         DB db = DB.getInstance(context);
         try {
+            boolean executed = false;
             for (EntityRule rule : rules)
                 if (rule.matches(context, message, imessage)) {
                     rule.execute(context, message);
+                    executed = true;
                     if (rule.stop)
                         break;
                 }
+            if (executed)
+                EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_FILTERED, true);
         } catch (Throwable ex) {
             Log.e(ex);
             db.message().setMessageError(message.id, Log.formatThrowable(ex));
