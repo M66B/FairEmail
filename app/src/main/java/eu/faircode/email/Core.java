@@ -3794,7 +3794,8 @@ class Core {
                     if (rule.stop)
                         break;
                 }
-            if (executed)
+            if (executed &&
+                    !message.hasKeyword(MessageHelper.FLAG_FILTERED))
                 EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_FILTERED, true);
         } catch (Throwable ex) {
             Log.e(ex);
