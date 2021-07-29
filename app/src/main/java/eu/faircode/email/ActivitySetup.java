@@ -880,8 +880,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             EntityAccount account = EntityAccount.fromJSON(jaccount);
 
                             EntityAccount existing = db.account().getAccountByUUID(account.uuid);
-                            if (existing != null)
+                            if (existing != null) {
+                                EntityLog.log(context, "Existing account=" + account.name +
+                                        "id=" + account.id);
                                 continue;
+                            }
 
                             if (account.auth_type == AUTH_TYPE_GMAIL) {
                                 if (GmailState.getAccount(context, account.user) == null) {
@@ -908,7 +911,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                             account.created = new Date().getTime();
                             account.id = db.account().insertAccount(account);
-                            Log.i("Imported account=" + account.name + " id=" + account.id + " (" + aid + ")");
+                            EntityLog.log(context, "Imported account=" + account.name +
+                                    " id=" + account.id + " (" + aid + ")");
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 account.deleteNotificationChannel(context);
