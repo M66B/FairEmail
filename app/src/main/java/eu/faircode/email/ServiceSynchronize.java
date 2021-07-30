@@ -1907,19 +1907,23 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         } else {
                                             if (folder.poll_count == 0) {
                                                 // Cancel pending sync, for example when the folder is not set to poll
+                                                boolean fforce = false;
                                                 List<EntityOperation> ops = db.operation().getOperations(folder.account, EntityOperation.SYNC);
-                                                if (ops.size() == 0)
-                                                    EntityOperation.sync(this, folder.id, false);
-                                                else
-                                                    for (EntityOperation op : ops) {
-                                                        db.operation().deleteOperation(op.id);
-                                                        op.id = null;
-                                                        op.id = db.operation().insertOperation(op);
+                                                for (EntityOperation op : ops)
+                                                    if (EntityFolder.isSyncForced(op.args)) {
+                                                        fforce = true;
+                                                        break;
                                                     }
+                                                db.operation().deleteOperation(folder.id, EntityOperation.SYNC);
+
+                                                EntityLog.log(this, folder.name + " queue sync poll");
+                                                EntityOperation.sync(this, folder.id, false, fforce);
                                             }
                                             folder.poll_count = (folder.poll_count + 1) % folder.poll_factor;
                                             db.folder().setFolderPollCount(folder.id, folder.poll_count);
-                                            Log.i(folder.name + " poll count=" + folder.poll_count);
+                                            EntityLog.log(this, folder.name +
+                                                    " poll count=" + folder.poll_count +
+                                                    " factor=" + folder.poll_factor);
                                         }
                             }
                         } catch (Throwable ex) {

@@ -324,6 +324,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return jargs;
     }
 
+    static boolean isSyncForced(String args) throws JSONException {
+        JSONArray jargs = new JSONArray(args);
+        return jargs.optBoolean(5, false);
+    }
+
     static int getIcon(String type) {
         if (EntityFolder.INBOX.equals(type))
             return R.drawable.twotone_inbox_24;
