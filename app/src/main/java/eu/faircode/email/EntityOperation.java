@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
@@ -43,8 +45,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
-import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityOperation.TABLE_NAME,
@@ -423,6 +423,22 @@ public class EntityOperation {
             crumb.put("message", Long.toString(op.message));
         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         Log.breadcrumb("queued", crumb);
+    }
+
+    static void poll(Context context, long fid) throws JSONException {
+        DB db = DB.getInstance(context);
+
+        boolean force = false;
+        List<EntityOperation> ops = db.operation().getOperationsByFolder(fid, EntityOperation.SYNC);
+        if (ops != null)
+            for (EntityOperation op : ops)
+                if (EntityFolder.isSyncForced(op.args)) {
+                    force = true;
+                    break;
+                }
+
+        db.operation().deleteOperation(fid, EntityOperation.SYNC);
+        sync(context, fid, false, force);
     }
 
     static void sync(Context context, long fid, boolean foreground) {

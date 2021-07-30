@@ -1075,7 +1075,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (folders.size() > 0)
                                 Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
                             for (EntityFolder folder : folders)
-                                EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                EntityOperation.poll(ServiceSynchronize.this, folder.id);
                         }
 
                         db.setTransactionSuccessful();
@@ -1906,18 +1906,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 throw new StoreClosedException(iservice.getStore(), "NOOP " + folder.name);
                                         } else {
                                             if (folder.poll_count == 0) {
-                                                // Cancel pending sync, for example when the folder is not set to poll
-                                                boolean fforce = false;
-                                                List<EntityOperation> ops = db.operation().getOperations(folder.account, EntityOperation.SYNC);
-                                                for (EntityOperation op : ops)
-                                                    if (EntityFolder.isSyncForced(op.args)) {
-                                                        fforce = true;
-                                                        break;
-                                                    }
-                                                db.operation().deleteOperation(folder.id, EntityOperation.SYNC);
-
                                                 EntityLog.log(this, folder.name + " queue sync poll");
-                                                EntityOperation.sync(this, folder.id, false, fforce);
+                                                EntityOperation.poll(this, folder.id);
                                             }
                                             folder.poll_count = (folder.poll_count + 1) % folder.poll_factor;
                                             db.folder().setFolderPollCount(folder.id, folder.poll_count);

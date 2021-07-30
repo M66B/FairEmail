@@ -103,6 +103,9 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE account = :account AND name = :name")
     List<EntityOperation> getOperations(long account, String name);
 
+    @Query("SELECT * FROM operation WHERE folder = :folder AND name = :name")
+    List<EntityOperation> getOperationsByFolder(long folder, String name);
+
     @Query("SELECT * FROM operation WHERE id = :id")
     EntityOperation getOperation(long id);
 
