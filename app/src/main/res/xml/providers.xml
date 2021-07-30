@@ -1099,7 +1099,8 @@
         <smtp
             host="mobile.charter.net"
             port="587"
-            starttls="true" />
+            starttls="false" />
+        <!-- Unusual, but no STARTTLS at port 587 -->
     </provider>
     <provider
         name="Tin.it"
