@@ -138,6 +138,7 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_still">Да направя още</string>
     <string name="title_setup_error">Грешка</string>
+    <string name="title_setup_configuring">Конфигуриране на акаунта &#8230;</string>
     <string name="title_setup_close">Затваряне на настройките</string>
     <string name="title_setup_export">Експортиране на настройките</string>
     <string name="title_setup_import">Импортиране на настройки</string>
@@ -236,6 +237,7 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
     <string name="title_advanced_caption_general">Общи</string>
+    <string name="title_advanced_caption_checks">Проверки</string>
     <string name="title_advanced_caption_list">Списък</string>
     <string name="title_advanced_caption_conversation">Разговор</string>
     <string name="title_advanced_caption_message">Съобщение</string>
@@ -286,6 +288,7 @@
     <string name="title_advanced_text_size">Размер на текст</string>
     <string name="title_advanced_text_font">Използвай шрифтове</string>
     <string name="title_advanced_text_align">Подравняване на такст</string>
+    <string name="title_advanced_text_separators">Употребявайте разделителни линии</string>
     <string name="title_advanced_collapse_quotes">Свиване на цитирания текст</string>
     <string name="title_advanced_images_inline">Автоматично показване на вградени изображения</string>
     <string name="title_advanced_seekbar">Покажи позицията на разговора с точка</string>
@@ -722,9 +725,11 @@
     <string name="title_subject">Тема:</string>
     <string name="title_attachment">Прикачено:</string>
     <string name="title_body_hint">Вашето съобщение</string>
+    <string name="title_body_hint_style">Може да изберете текст, за да го форматирате</string>
     <string name="title_discard">Откажи</string>
     <string name="title_save">Запази</string>
     <string name="title_send">Изпращане</string>
+    <string name="title_sending">Изпращане &#8230;</string>
     <string name="title_send_now">Изпращане сега</string>
     <string name="title_send_via">Изпращане чрез</string>
     <string name="title_send_at">Изпрати като &#8230;</string>
@@ -765,6 +770,7 @@
     <string name="title_insert_template">Вмъкни шаблон</string>
     <string name="title_create_template">Създаване на шаблон</string>
     <string name="title_translate">Превод</string>
+    <string name="title_translate_configure">Конфигуриране &#8230;</string>
     <string name="title_translate_key">Въведете ключ</string>
     <string name="title_translating">Превод &#8230;</string>
     <string name="title_edit_plain_text">Редактирай като обикновен текст</string>
@@ -932,7 +938,9 @@
     <string name="title_rule_thread">Всички съобщения в един и същи разговор и папка</string>
     <string name="title_rule_identity">Идентичност</string>
     <string name="title_rule_template">Отговор с шаблон</string>
+    <string name="title_rule_forward_to">Препращане до</string>
     <string name="title_rule_cc">Отговори на CC адрес</string>
+    <string name="title_rule_with_attachments">С прикачвания</string>
     <string name="title_rule_answer_remark">Само един отговор ще бъде изпратен за всеки разговор, за да се избегне цикъл на отговоряне</string>
     <string name="title_rule_name_missing">Няма име на правило</string>
     <string name="title_rule_condition_missing">Липсва условие</string>
@@ -1008,6 +1016,8 @@
     <string name="title_legend_view">Преглед на съдържание</string>
     <string name="title_legend_hide">Скриване на съдържание</string>
     <string name="title_legend_download">Изтегляне на съдържание</string>
+    <string name="title_legend_original">Преглед на първообразното съобщение</string>
+    <string name="title_legend_reformatted">Преглед на преформатираното съобщение</string>
     <string name="title_legend_external_image">Заместител на външно изображение</string>
     <string name="title_legend_embedded_image">Заместител на вградено изображение</string>
     <string name="title_legend_tracking_pixel">Проследяващо изображение</string>
@@ -1077,6 +1087,7 @@
     <string name="title_check_owner">Проверка на собственика</string>
     <string name="title_remark_owner">Информацията ще бъде извлечена от <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP адрес на собственика</string>
+    <string name="title_reset_open">Задаване или изчистване на приложенията по подразбиране</string>
     <string name="title_select_app">Изберете приложение</string>
     <string name="title_updated">Налична е актуализация до версия %1$s</string>
     <string name="title_issue">Имате ли въпрос или проблем?</string>
@@ -1149,10 +1160,12 @@
     <string name="title_auto_scroll">Автоматично превъртане</string>
     <string name="title_log_clear">Изчисти</string>
     <string name="title_rules_delete_all">Изтривате ли всички правила</string>
+    <string name="title_rules_delete_junk">Изтриване на правилата за спам</string>
     <string name="title_rules_delete_all_confirm">Изтривате ли всички правила?</string>
     <string name="title_debug_info">Инфо за отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>
+    <string name="title_unexpected_info_remark">Опишете какво правехте, получавайки грешката:</string>
     <string name="title_widget_title_count">Брой нови съобщения</string>
     <string name="title_widget_title_list">Списък на съобщенията</string>
     <string name="title_widget_title_sync">Синхр. вкл./изкл.</string>

@@ -240,7 +240,7 @@ Dizayn bir çox müzakirələrə əsaslanır və istəsəniz bu barədə [ bu fo
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
 * [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
+* [(112) Hansı e-poçt təchizatçısını tövsiyə edirsiniz?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq115)
@@ -2351,15 +2351,15 @@ OAuth for Outlook/Office 365, Yahoo, Mail.ru and Yandex is supported via the qui
 <br />
 
 <a name="faq112"></a>
-**(112) Which email provider do you recommend?**
+**(112) Hansı e-poçt təchizatçısını tövsiyə edirsiniz?**
 
-FairEmail is an email client only, so you need to bring your own email address. Note that this is clearly mentioned in the app description.
+FairEmail sadəcə bir e-poçt müştərisidir, ona görə də öz e-poçt ünvanınızı gətirməyiniz lazımdır. Bunun tətbiq açıqlamasında daha dəqiq qeyd edildiyini unutmayın.
 
-There are plenty of email providers to choose from. Which email provider is best for you depends on your wishes/requirements. Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/) for a list of privacy oriented email providers with advantages and disadvantages.
+Aralarından seçim edə biləcəyiniz çoxlu e-poçt təchizatçısı var. Hansı e-poçt təchizatçısının sizin üçün daha yaxşı olduğu istək/tələblərinizdən asılıdır. Üstünlükləri və çatışmazlıqları olan gizlilik yönümlü e-poçt təchizatçılarının bir siyahısı üçün zəhmət olmasa [Gizliliyin bərpası](https://restoreprivacy.com/secure-email/) və ya [Gizlilik alətləri](https://www.privacytools.io/providers/email/) veb saytlarına baxın.
 
-Some providers, like ProtonMail, Tutanota, use proprietary email protocols, which make it impossible to use third party email apps. Please see [this FAQ](#user-content-faq129) for more information.
+ProtonMail, Tutanota kimi bəzi təchizatçılar, üçüncü tərəf e-poçt tətbiqlərinin istifadəsini mümkünsüz edən xüsusi e-poçt protokolları istifadə edir. Daha ətraflı məlumat üçün zəhmət olmasa [TSS-a](#user-content-faq129) baxın.
 
-Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
+Əksər e-poçt təchizatçısı tərəfindən dəstəklənən öz (özəl) domen adınızı istifadə etmək, başqa e-poçt təchizatçısına keçməyi də asanlaşdıracaq.
 
 <br />
 
@@ -2880,98 +2880,98 @@ You can define contact groups with the Android contacts app, please see [here](h
 <br />
 
 <a name="faq153"></a>
-**(153) Why does permanently deleting Gmail message not work?**
+**(153) Gmail mesajını birdəfəlik silmək nə üçün işləmir?**
 
-You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
+İşləməsi üçün masaüstü səyyahda [Gmail IMAP tənzimləmələrini](https://mail.google.com/mail/u/0/#settings/fwdandpop) dəyişdirməlisiniz:
 
-* When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
-* When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
+* IMAP-da bir mesajı silindi olaraq işarələyəndə: Avto-silmə bağlıdır - Müştərinin serveri yeniləməsini gözləyin.
+* Bir mesajı silindi olaraq işarələyəndə və son görünən IMAP qovluğundan silinəndə: Dərhal mesajı birdəfəlik silin
 
-Note that archived messages can be deleted only by moving them to the trash folder first.
+Unutmayın ki, arxivlənən mesajlar yalnız əvvəlcə tullantı qovluğuna köçürülərək silinə bilir.
 
-Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
+Bəzi arxaplan: Gmail, IMAP üçün əsas mesaj görünüşündən fərqli ola bilən əlavə mesaj görünüşə sahibdir kimi görünür.
 
-Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command
+Başqa bir qəribəlik də odur ki, veb interfeys üzərindən tənzimlənən bir ulduz (sevimli mesaj) IMAP əmri ilə çıxarıla bilmir
 
 
 
 ```
-STORE <message number> -FLAGS (\Flagged)
+STORE <message number> -FLAGS (\Bayraqlı)
 ```
 
 
-On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.
+Digər tərəfdən, IMAP üzərindən tənzimlənən bir ulduz veb interfeysdə görünür və IMAP üzərindən çıxarıla bilir.
 
 <br />
 
 <a name="faq154"></a>
-**~~(154) Can you add favicons as contact photos?~~**
+**~~(154) "Favicon"ları əlaqə fotoları kimi əlavə edə bilərsiniz?~~**
 
-~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~ ~~and therefore is not directly related to an email address, favicons can be used to track you.~~
+~~Bundan əlavə bir [favicon](https://en.wikipedia.org/wiki/Favicon) eyni domen adına sahib bir neçə e-poçt ünvanı tərəfindən paylaşıla bilər~~ ~~və buna görə də birbaşa e-poçt ünvanı ilə əlaqəli deyil, "favicon"lar sizi izləmək üçün istifadə edilə bilər.~~
 
 <br />
 
 <a name="faq155"></a>
-**(155) What is a winmail.dat file?**
+**(155) winmail.dat faylı nədir?**
 
-A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
+*winmail.dat* faylı, yanlış konfiqurasiya edilmiş Outlook müştərisi tərəfindən göndərilir. Bu xüsusi Microsoft fayl formatı ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)), bir mesajı və bəlkə də qoşmaları ehtiva edir.
 
-You can find some more information about this file [here](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment).
+Bu fayl haqqında daha çox məlumatı [buradan](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment) tapa bilərsiniz.
 
-You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
+Nümunə üçün [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener) Android tətbiqi ilə baxa bilərsiniz.
 
 <br />
 
 <a name="faq156"></a>
-**(156) How can I set up an Office 365 account?**
+**(156) Bir Office 365 hesabını necə quraşdıra bilərəm?**
 
-An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
+Cəld quraşdırma sehrbazı ilə *Office 365 (OAuth)* seçilərək bir Office 365 hesabı quraşdırıla bilər.
 
-If the wizard ends with *AUTHENTICATE failed*, IMAP and/or SMTP might be disabled for the account. In this case you should ask the administrator to enable IMAP and SMTP. The procedure is documented [here](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365).
+Əgər sehrbaz *uğursuz KİMLİK TƏSDİQLƏMƏ* ilə nəticələnsə, IMAP və/və ya SMTP, hesab üçün sıradan çıxarıla bilər. Bu halda, administratordan IMAP və SMTP-ni fəallaşdırmağı xahiş etməlisiniz. Prosedur [burada](https://docs.microsoft.com/en-in/exchange/troubleshoot/configure-mailboxes/pop3-imap-owa-activesync-office-365) sənədləşdirilib.
 
-If you've enabled *security defaults* in your organization, you might need to enable the SMTP AUTH protocol. Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how to.
+Təşkilatınızda *ilkin təhlükəsizlik tənzimləmələrini* fəallaşdırmısınızsa, SMTP AUTH protokolunu fəallaşdırmalısınız. Bunun necə edildiyinə [burada](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) baxa bilərsiniz.
 
 <br />
 
 <a name="faq157"></a>
-**(157) How can I set up an Free.fr account?**
+**(157) Bir Free.fr hesabını necə quraşdıra bilərəm?**
 
-Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
+Təlimatlar üçün zəhmət olmasa [bura](https://free.fr/assistance/597.html) baxın.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP ilkin olaraq sıradan çıxarılıb**, necə fəallaşdırılacağına [buradan](https://free.fr/assistance/2406.html) baxa bilərsiniz.
 
-Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
+Ətraflı bələdçi üçün zəhmət olmasa [bura](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) baxın.
 
 <br />
 
 <a name="faq103"></a>
 <a name="faq158"></a>
-**(158) Which camera / audio recorder do you recommend?**
+**(158) Hansı kamera/səsyazanı tövsiyə edirsiniz?**
 
-To take photos and to record audio a camera and an audio recorder app are needed. The following apps are open source cameras and audio recorders:
+Foto çəkmək və səs yazmaq üçün bir kamera və səsyazan tətbiq lazımdır. Aşağıdakı tətbiqlər, açıq mənbəli kamera və səsyazanlardır:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
-* [Audio Recorder version 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
+* [Audio Recorder versiya 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))
 
-To record voice notes, etc, the audio recorder needs to support [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Oddly, most audio recorders seem not to support this standard Android action.
+Səsli qeydləri yazmaq üçün, səsyazan bunları dəstəkləməlidir: [MediaStore.Audio.Media.RECORD_SOUND_ACTION](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media#RECORD_SOUND_ACTION). Qəribəlik odur ki, əksər səsyazanlar, bu standart Android əməliyyatını dəstəkləyir kimi görünür.
 
 <br />
 
 <a name="faq159"></a>
-**(159) What are Disconnect's tracker protection lists?**
+**(159) "Disconnect"in izləyici qoruma siyahısı nələrdir?**
 
-Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
+"Disconnect"in izləyici qoruma siyahısı haqqında daha ətraflı məlumat üçün zəhmət olmasa [bura](https://disconnect.me/trackerprotection) baxın.
 
-After downloading the lists in the privacy settings, the lists can optionally be used:
+Siyahılar gizlilik tənzimləmələrində endirildikdən sonra, ixtiyari olaraq istifadə edilə bilər:
 
-* to warn about tracking links on opening links
-* to recognize tracking images in messages
+* açılış bağlantılarında izləmə bağlantıları haqqında xəbərdarlıq etmək üçün
+* mesajlardakı izləmə təsvirlərini tanımaq üçün
 
-Tracking images will be disabled only if the corresponding main 'disable' option is enabled.
+İzləmə təsvirləri, yalnız əlaqəli əsas "sıradan çıxart"ma seçimi fəal olarsa, sıradan çıxarılacaq.
 
-Tracking images will not be recognized when the domain is classified as '*Content*', see [here](https://disconnect.me/trackerprotection#trackers-we-dont-block) for more information.
+Domen adı "*Məzmun*" kimi sinifləşdiriləndə izləmə təsvirləri tanınmayacaq, daha ətraflı məlumata [buradan](https://disconnect.me/trackerprotection#trackers-we-dont-block) baxa bilərsiniz.
 
-This command can be sent to FairEmail from an automation app to update the protection lists:
+Bu əmr, qoruma siyahılarını yeniləmək üçün bir avtomatlaşdırma tətbiqindən "FairEmail"ə göndərilə bilər:
 
 
 
@@ -2980,89 +2980,89 @@ This command can be sent to FairEmail from an automation app to update the prote
 ```
 
 
-Updating once a week will probably be sufficient, please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
+Həftəlik yeniləmə böyük ehtimal yetərli olacaq, son siyahı dəyişikləri üçün zəhmət olmasa [bura](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) baxın.
 
 <br />
 
 <a name="faq160"></a>
-**(160) Can you add permanent deletion of messages without confirmation?**
+**(160) Təsdiq olmadan mesajların birdəfəlik silinməsini əlavə edə bilərsiniz?**
 
-Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed. Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
+Birdəfəlik silmə, *geri dönüşü olmadan* mesajların itməsi deməkdir və bunu təsadüfən baş verməsinin qarşısını almaq üçün, bu həmişə təsdiqlənməlidir. Hətta bir təsdiqlə belə, mesajlarının bir qismini öz səhvi üzündən silən bəzi əsəbi insanlar mənimlə əlaqə saxladı, bu olduqca xoşagəlməz bir təcrübə idi :-(
 
-Advanced: the IMAP delete flag in combination with the EXPUNGE command is not supportable because both email servers and not all people can handle this, risking unexpected loss of messages. A complicating factor is that not all email servers support [UID EXPUNGE](https://tools.ietf.org/html/rfc4315).
+Qabaqcıl: EXPUNGE əmri ilə birgə IMAP silmə bayrağı dəstəklənmir, çünki həm e-poçt serverləri və həm də heç kim bunu ələ ala bilməz və mesajların gözlənilməz itkisi riski ilə üzləşər. Mürəkkəb bir faktor, bütün e-poçt serverlərinin [UID EXPUNGE-i](https://tools.ietf.org/html/rfc4315) dəstəkləməməsidir.
 
-From version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable expunging messages. Note that messages with a *\Deleted* flag will not be shown in FairEmail.
+1.1485 versiyasından etibarən mesajların silinməsini sıradan çıxartmaq üçün "Qarışıq" tənzimləmələrdə sazlama rejimini müvəqqəti olaraq fəallaşdırmaq mümkündür. *\Silindi* olaraq bayraqlanmış mesajların "FairEmail"də göstərilməyəcəyini unutmayın.
 
 <br />
 
 <a name="faq161"></a>
-**(161) Can you add a setting to change the primary and accent color?***
+**(161) Əsas və vurğu rəngini dəyişdirmək üçün bir tənzimləmə əlavə edə bilərsiniz?***
 
-If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
+Edə bilsəydim, dərhal əsas və vurğu rəngini seçmək üçün bir tənzimləmə əlavə edərdim, ancaq təəssüf ki, Android temaları düzəldildi, nümunə üçün [bura](https://stackoverflow.com/a/26511725/1794097) baxın, yəni, bu mümkün deyil.
 
 <br />
 
 <a name="faq162"></a>
-**(162) Is IMAP NOTIFY supported?***
+**(162) IMAP NOTIFY dəstəklənir?***
 
-Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
+Bəli, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) 1.1413 versiyasından etibarən dəstəklənir.
 
-IMAP NOTIFY support means that notifications for added, changed or deleted messages of all *subscribed* folders will be requested and if a notification is received for a subscribed folder, that the folder will be synchronized. Synchronization for subscribed folders can therefore be disable, saving folder connections to the email server.
+IMAP NOTIFY dəstəyi, bütün *abunə olunan* qovluqların əlavə edilən, dəyişdirilən və ya silinən mesajlar üçün bildiriş tələb olunacağı və abunə olunan bir qovluq üçün bir bildiriş alınarsa, həmin qovluğun eyniləşdiriləcəyini mənasına gəlir. Buna görə də, abunə olunan qovluqlar üçün eyniləşdirmə ləğv edilə bilər, qovluq bağlantıları e-poçt serverində saxlanılır.
 
-**Important**: push messages (=always sync) for the inbox and subscription management (receive settings) need to be enabled.
+**Vacib**: gələn qutusu və abunəlik idarəetməsi (alma tənzimləmələri) üçün ani mesajlar (=həmişə eyniləşdirmə) fəallaşdırılmalıdır.
 
-**Important**: most email servers do not support this! You can check the log via the navigation menu if an email server supports the NOTIFY capability.
+**Vacib**: əksər e-poçt serverləri bunu dəstəkləmir! Əgər bir e-poçt serveri NOTIFY özəlliyini dəstəkləyirsə, jurnalı naviqasiya menyusu ilə yoxlaya bilərsiniz.
 
 <br />
 
 <a name="faq163"></a>
-**(163) What is message classification?**
+**(163) Mesajların sinifləşdirilməsi nədir?**
 
-*This is an experimental feature!*
+*Bu bir təcrübi özəllikdir!*
 
-Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
+Mesaj sinifləşdirilməsi, [Bayes statistikalarını](https://en.wikipedia.org/wiki/Bayesian_statistics) istifadə edərək e-poçtları, onların məzmunlarına görə avtomatik olaraq siniflərə qruplaşdırmağa çalışacaq. FairEmail konteksində bir qovluq, bir sinifdir. Məsələn, gələn qutusu, spam qovluğu, bir "marketinq" qovluğu və s.
 
-You can enable message classification in the miscellaneous settings. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+"Qarışıq" tənzimləmələrində mesaj sinifləşdirməsini fəallaşdıra bilərsiniz. Bu, yalnız "öyrənmə" rejimini fəallaşdıracaq. Sinifləşdirici, ilkin olaraq gələn qutusu və spam qovluğundakı yeni mesajlardan "öyrənəcək". *Yeni mesajları bu qovluqda sinifləşdir* qovluq özəlliyi, bir qovluq üçün "öyrənmə" rejimini fəallaşdıracaq və ya sıradan çıxardacaq. Yerli mesajları təmizləyə (bir hesabın qovluq siyahısındakı bir qovluğa uzun basaraq) və mövcud mesajları sinifləşdirmək mesajları üçün təkrar eyniləşdirə bilərsiniz.
 
-Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
+Hər bir qovluğun *Sinifləşdirilmiş mesajları avtomatik olaraq bu qovluğa köçürt* seçimi var (qısaca "avto-sinifləşdirmə"). Bu seçim işə salınanda, sinifləşdiricinin o qovluğa aid olduğunu düşündüyü digər qovluqlardakı yeni mesajlar, avtomatik olaraq köçürüləcək.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). See also [this FAQ](#user-content-faq92).
+Spam bildirmə dialoq pəncərəsindəki *Yerli spam filtrini istifadə et* seçimi, "Qarışıq" tənzimləmələrindəki mesaj sinifləşdirməsini və spam qovluğu üçün avto-sinifləşdirməni işə salacaq. Zəhmət olmasa bunun e-poçt serverinin spam filtrini əvəz etmədiyini və [yanlış pozitiv və neqativlər](https://en.wikipedia.org/wiki/False_positives_and_false_negatives) ilə nəticələnə biləcəyini anlayın. Həmçinin [TSS-a](#user-content-faq92) baxın.
 
-A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
+Praktik bir nümunə: fərz edək ki, bir "marketinq" qovluğu var və bu qovluq üçün mesajların avto-sinifləşdirilməsi fəaldır. Hər dəfə bir mesajı bu qovluğa köçürəndə, "FairEmail"ə, oxşar mesajların bu qovluğa aid olduğunu öyrədəcəksiniz. Hər dəfə bir mesajı bu qovluqdan çıxaranda, "FairEmail"ə, oxşar mesajların bu qovluğa aid olmadığını öyrədəcəksiniz. Bəzi mesajları "marketinq" qovluğuna köçürdükdən sonra, FairEmail, oxşar mesajları avtomatik olaraq bu qovluğa köçürməyə başlayacaq. Və ya tam tərsi, bəzi mesajları "marketinq" qovluğundan çıxaranda, FairEmail, oxşar mesajları avtomatik olaraq bu qovluğa köçürməyi dayandıracaq. Bu, oxşar məzmunlu (e-poçt ünvanları, mövzu və mesaj mətni) mesajlar üçün yaxşı nəticə verəcək.
 
-Classification should be considered as a best guess - it might be a wrong guess, or the classifier might not be confident enough to make any guess. If the classifier is unsure, it will simply leave an email where it is.
+Sinifləşdirmə ən yaxşı təxmin kimi düşünülməlidir - yanlış təxmin də ola bilər və ya sinifləşdirmə, hər hansısa təxmin üçün yetəri qədər əmin olmaya bilər. Əgər sinifləşdirmə əmin deyilsə, sadəcə olduğu yerdə bir e-poçt buraxacaq.
 
-To prevent the email server from moving a message into the spam folder again and again, auto classification out of the spam folder will not be done.
+E-poçt serverinin bir mesajı təkrar olaraq spam qovluğuna köçürməsinin qarşısını almaq üçün, spam qovluğunda avto-sinifləşdirmə edilməyəcək.
 
-The message classifier calculates the probability a message belongs in a folder (class). There are two options in the miscellaneous settings which control if a message will be automatically moved into a folder, provided that auto classification is enabled for the folder:
+Mesaj sinifləşdirici, bir mesajın bir qovluğa (sinif) aid olma ehtimalını hesablayır. "Qarışıq" tənzimləmələrdə bir mesajın avtomatik olaraq bir qovluğa köçürülüb-köçürülməyəcəyinə nəzarət edən iki seçim var - qovluq üçün avto-sinifləşdirmənin fəal olması halında:
 
-* *Minimum class probability*: a message will only be moved when the confidence it belongs in a folder is greater than this value (default 15 %)
-* *Minimum class difference*: a message will only be moved when the difference in confidence between one class and the next most likely class is greater than this value (default 50 %)
+* *Minimum sinif ehtimalı*: yalnız bir mesajın bir qovluğa aid olduğunu hesablayan güvən dəyəri bu dəyərdən böyük olanda mesaj köçürüləcək (ilkin 15%)
+* *Minimum sinif fərqi*: bir sinif ilə digər ehtimal olunan sinif arasındakı güvən fərqi bu dəyərdən böyük olanda mesaj köçürüləcək (ilkin 50%)
 
-Both conditions must be satisfied before a message will be moved.
+Bir mesajın köçürülməsi üçün hər iki şərt də ödənilməlidir.
 
-Considering the default option values:
+İlkin seçim dəyərləri nəzərə alınanda:
 
-* Apples 40 % and bananas 30 % would be disregarded because the difference of 25 % is below the minimum of 50 %
-* Apples 10 % and bananas 5 % would be disregarded because the probability for apples is below the minimum of 15 %
-* Apples 50 % and bananas 20 % would result in selecting apples
+* Almalar 40% və bananlar 30% nəzərə alınmır, çünki 25%-lik fərq, minimum 50%-in altındadır
+* Almalar 10% və bananlar 5% nəzərə alınmır, çünki alma ehtimalı minimum 15%-in altındadır
+* Almalar 50% və bananlar 20%-dirsə, almalar seçilir
 
-Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power.
+Sinifləşdirmə mümkün olduğu qədər az mənbə istifadə etməsi üçün optimallaşdırılıb, ancaq istər-istəməz əlavə batareya enerji istifadəsi mümkündür.
 
-You can delete all classification data by turning classification in the miscellaneous settings three times off.
+"Qarışıq" tənzimləmələrdə sinifləşdirməni üç dəfə bağlayaraq, bütün sinifləşdirmə verilənlərini silə bilərsiniz.
 
-[Filter rules](#user-content-faq71) will be executed before classification.
+[Filtr qaydaları](#user-content-faq71) sinifləşdirmədən əvvəl icra edilir.
 
-Message classification is a pro feature, except for the spam folder.
+Mesajlar sinifləşdirmə, spam qovluğu istisna olmaqla bir Pro özəllikdir.
 
 <br />
 
 <a name="faq164"></a>
-**(164) Can you add customizable themes?**
+**(164) Özəlləşdirilə bilən temalar əlavə edə bilərsiniz?**
 
-Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes, which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
+Təəssüf ki, Android dinamik temaları [dəstəkləmir](https://stackoverflow.com/a/26511725/1794097), bu da o deməkdir ki, bütün temalar [əvvəlcədən təyin edilməlidir](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
 
-Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
+Hər tema üçün açıq, tünd və qara variant olmasına ehtiyac yarandığı üçün hər bir rəng kombinasiyası üçün (sözün əsl mənasında milyonlarla) əvvəlcədən təyin edilmiş tema əlavə etmək mümkün deyil.
 
 Həmçinin, bir tema, bir neçə rəngdən daha çoxudur. Misal üçün, sarı vurğu rənginə sahib temalar yetərli ziddiyyət üçün daha tünd bağlantılı rəng istifadə edir.
 
@@ -3095,7 +3095,7 @@ Gmail kimi bəzi e-poçt təchizatçıları, ertələnən mesajları xüsusi bir
 
 Bir mesajı başqa bir qovluğa köçürmə və geri qaytarma prosesi uğursuz ola bilər və internet bağlantısı olmadıqda mümkün olmaya bilər. Bu problemlidir, çünki bir mesaj, ancaq mesaj köçürüldükən sonra ertələnə bilər.
 
-Bu problemlərin qarşısını almaq üçün, ertələmə zamanı mesaj gizlədilərək cihazın yaddaşında həyata keçirilir. Təəssüflər olsun ki, e-poçt serverində də mesajları gizlətmək mümkün deyil.
+Bu problemlərin qarşısını almaq üçün, ertələmə, ertələmə zamanı mesaj gizlədilərək cihazın yaddaşında həyata keçirilir. Təəssüflər olsun ki, e-poçt serverində də mesajları gizlətmək mümkün deyil.
 
 <br />
 

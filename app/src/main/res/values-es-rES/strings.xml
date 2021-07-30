@@ -421,6 +421,7 @@
     <string name="title_advanced_collapse_multiple">Colapsar mensajes en una conversación con varios mensajes al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
+    <string name="title_advanced_autoclose_unread">Cerrar conversaciones al marcar mensajes como no leídos</string>
     <string name="title_advanced_undo">Tiempo de espera para deshacer</string>
     <string name="title_advanced_quick_filter">Mostrar iconos de filtro rápido no intrusivos</string>
     <string name="title_advanced_quick_scroll">Mostrar iconos rápidos de arriba/abajo no intrusivos</string>
@@ -719,6 +720,8 @@
     <string name="title_synchronize_enabled">Sincronizar</string>
     <string name="title_synchronize_batch_enable">Activar sincronización</string>
     <string name="title_synchronize_batch_disable">Desactivar sincronización</string>
+    <string name="title_notify_batch_enable">Activar notificaciones de mensajes nuevos</string>
+    <string name="title_notify_batch_disable">Desactivar notificaciones de mensajes nuevos</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
     <string name="title_empty_trash">Vaciar papelera</string>

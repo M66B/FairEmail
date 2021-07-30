@@ -411,6 +411,7 @@
     <string name="title_advanced_collapse_multiple">Thu gọn các thư trong một cuộc hội thoại có nhiều thư khi \'quay lại\'</string>
     <string name="title_advanced_autoclose">Tự động đóng các cuộc hội thoại</string>
     <string name="title_advanced_onclose">Khi đóng cuộc hội thoại</string>
+    <string name="title_advanced_autoclose_unread">Đóng cuộc hội thoại khi đánh dấu thư là chưa đọc</string>
     <string name="title_advanced_undo">Thời gian chờ hoàn tác</string>
     <string name="title_advanced_quick_filter">Hiện biểu tượng bộ lọc nhanh không gây phiền</string>
     <string name="title_advanced_quick_scroll">Hiện biểu tượng cuộn lên/xuống nhanh không gây phiền</string>
@@ -708,6 +709,8 @@
     <string name="title_synchronize_enabled">Đồng bộ hoá</string>
     <string name="title_synchronize_batch_enable">Bật đồng bộ hoá</string>
     <string name="title_synchronize_batch_disable">Tắt đồng bộ hoá</string>
+    <string name="title_notify_batch_enable">Bật thông báo thư mới</string>
+    <string name="title_notify_batch_disable">Tắt thông báo thư mới</string>
     <string name="title_delete_local">Xóa các thư cục bộ</string>
     <string name="title_delete_browsed">Xoá các thư đã duyệt/đã tìm kiếm</string>
     <string name="title_empty_trash">Dọn sạch thùng rác</string>

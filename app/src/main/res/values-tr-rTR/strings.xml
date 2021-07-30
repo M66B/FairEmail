@@ -284,6 +284,7 @@
     <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
+    <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
@@ -420,6 +421,7 @@
     <string name="title_advanced_collapse_multiple">Birden fazla mesaj içeren sohbetlerdeki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
+    <string name="title_advanced_autoclose_unread">İletileri okunmadı olarak işaretlemeyle ilgili görüşmeleri kapatın</string>
     <string name="title_advanced_undo">Zaman aşımını geri al</string>
     <string name="title_advanced_quick_filter">Rahatsız edici olmayan hızlı filtre simgelerini göster</string>
     <string name="title_advanced_quick_scroll">Rahatsız edici olmayan hızlı yukarı/aşağı kaydırma simgelerini göster</string>
@@ -718,6 +720,8 @@
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_synchronize_batch_enable">Senkronizasyonunu Etkinleştir</string>
     <string name="title_synchronize_batch_disable">Senkronizasyonunu Devre Dışı Bırak</string>
+    <string name="title_notify_batch_enable">Yeni mesaj bildirimlerini etkinleştir</string>
+    <string name="title_notify_batch_disable">Yeni mesaj bildirimlerini devre dışı bırak</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
     <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
     <string name="title_empty_trash">Çöp kutusunu temizle</string>
@@ -1365,6 +1369,7 @@
     <string name="title_check_owner">Sahibini denetle</string>
     <string name="title_remark_owner">Bilgi <a href="https://ipinfo.io/">ipinfo.io</a>\'dan alınacak</string>
     <string name="title_ip_owner">Sahibinin İP adresi</string>
+    <string name="title_reset_open">Varsayılan uygulamaları ayarlayın veya temizleyin</string>
     <string name="title_select_app">Uygulama seçin</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>

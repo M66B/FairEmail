@@ -423,6 +423,7 @@
     <string name="title_advanced_collapse_multiple">Nachrichten, in einer Unterhaltung mit mehreren Nachrichten, bei »Zurück« zusammenfassen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
+    <string name="title_advanced_autoclose_unread">Themen schließen, wenn Nachrichten als ungelesen gekennzeichnet werden</string>
     <string name="title_advanced_undo">Anzeigedauer von »Rückgängig«</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Nicht aufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>

@@ -502,7 +502,7 @@
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
     <string name="title_advanced_fts">Axtarış indeksini quraşdır</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d mesaj indeksləndi (%3$s)</string>
-    <string name="title_advanced_classification">Mesajları təsnifləşdir</string>
+    <string name="title_advanced_classification">Mesajları sinifləşdir</string>
     <string name="title_advanced_class_min_chance">Minimum sinif ehtimalı: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimum sinif fərqi: %1$s %%</string>
     <string name="title_advanced_language">Dil</string>
@@ -766,8 +766,8 @@
     <string name="title_poll_folder_remark">Əksər e-poçt serverləri, ani mesajlara yalnız bir neçə qovluq üçün icazə verir!</string>
     <string name="title_download_folder">Mesaj mətn və qoşmalarını avtomatik endir</string>
     <string name="title_notify_folder">Yeni mesajları bildir</string>
-    <string name="title_auto_classify_source">Bu qovluqdakı yeni mesajları təsnifləşdir</string>
-    <string name="title_auto_classify_target">Təsnifləşdirilmiş mesajları bu qovluğa avtomatik köçürt</string>
+    <string name="title_auto_classify_source">Bu qovluqdakı yeni mesajları sinifləşdir</string>
+    <string name="title_auto_classify_target">Sinifləşdirilmiş mesajları bu qovluğa avtomatik köçürt</string>
     <string name="title_sync_days">Eyniləşdirilmiş mesajlar (gün)</string>
     <string name="title_sync_days_remark">Bu dəyəri artırmaq batareya və verilənlər istifadəsini də artırar</string>
     <string name="title_keep_days">Saxlanılmış mesajlar (gün)</string>
@@ -1280,7 +1280,7 @@
     <string name="title_legend_encrypted">Şifrələnib</string>
     <string name="title_legend_auth">Kimlik təsdiqləmə uğursuz oldu</string>
     <string name="title_legend_found">Tapılmadı</string>
-    <string name="title_legend_classified">Avtomatik olaraq təsnifləşdirildi</string>
+    <string name="title_legend_classified">Avtomatik olaraq sinifləşdirildi</string>
     <string name="title_legend_snoozed">Ertələndi</string>
     <string name="title_legend_browsed">Nəzər yetirildi və ya axtarıldı</string>
     <string name="title_legend_answered">Cavablandırıldı</string>

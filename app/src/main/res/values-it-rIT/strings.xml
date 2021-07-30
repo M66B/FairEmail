@@ -421,6 +421,7 @@
     <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi tornando \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
+    <string name="title_advanced_autoclose_unread">Chiudi le conversazioni al momento di contrassegnare i messaggi come non letti</string>
     <string name="title_advanced_undo">Annulla timeout</string>
     <string name="title_advanced_quick_filter">Mostra icone rapide del filtro non vistose</string>
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido in su/giù non vistose</string>
