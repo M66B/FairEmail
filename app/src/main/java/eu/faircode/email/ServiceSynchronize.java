@@ -1871,11 +1871,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     " Tune interval=" + account.poll_interval +
                                     " idle=" + idleTime + "/" + tune);
                         try {
-                            if (!state.isRecoverable())
-                                throw new StoreClosedException(
-                                        iservice.getStore(),
-                                        "Unrecoverable",
-                                        new Exception(state.getUnrecoverable()));
+                            if (!state.isRecoverable()) {
+                                Throwable unrecoverable = state.getUnrecoverable();
+                                Exception cause =
+                                        (unrecoverable instanceof Exception
+                                                ? (Exception) unrecoverable
+                                                : new Exception(unrecoverable));
+                                throw new StoreClosedException(iservice.getStore(), "Unrecoverable", cause);
+                            }
 
                             // Sends store NOOP
                             if (EmailService.SEPARATE_STORE_CONNECTION) {
