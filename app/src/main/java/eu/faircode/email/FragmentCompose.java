@@ -19,6 +19,13 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_FIRST_USER;
+import static android.app.Activity.RESULT_OK;
+import static android.system.OsConstants.ENOSPC;
+import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
+import static android.widget.AdapterView.INVALID_POSITION;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
@@ -214,13 +221,6 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Organizer;
-
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_FIRST_USER;
-import static android.app.Activity.RESULT_OK;
-import static android.system.OsConstants.ENOSPC;
-import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
-import static android.widget.AdapterView.INVALID_POSITION;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -1916,12 +1916,10 @@ public class FragmentCompose extends FragmentBase {
                                     etBody.getText().replace(start, end, spanned);
                                 else {
                                     if (start < 0) {
-                                        start = etBody.length() - 1;
-                                        if (start < 0)
-                                            start = 0;
-                                    }
-
-                                    etBody.getText().insert(start, spanned);
+                                        start = etBody.length();
+                                        etBody.getText().append(spanned);
+                                    } else
+                                        etBody.getText().insert(start, spanned);
 
                                     int pos = getAutoPos(start, spanned.length());
                                     if (pos >= 0)
