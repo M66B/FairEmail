@@ -421,6 +421,7 @@
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
+    <string name="title_advanced_autoclose_unread">Fermer les conversations en marquant les messages comme non lus</string>
     <string name="title_advanced_undo">Délai d\'expiration de l\'annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
@@ -719,6 +720,8 @@
     <string name="title_synchronize_enabled">Synchroniser</string>
     <string name="title_synchronize_batch_enable">Activer la synchronisation</string>
     <string name="title_synchronize_batch_disable">Désactiver la synchronisation</string>
+    <string name="title_notify_batch_enable">Activer les notifications de nouveau message</string>
+    <string name="title_notify_batch_disable">Désactiver les notifications de nouveau message</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
     <string name="title_empty_trash">Vider la corbeille</string>
@@ -1367,7 +1370,7 @@
     <string name="title_check_owner">Vérifier le propriétaire</string>
     <string name="title_remark_owner">Les informations seront récupérées depuis <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adresse IP du propriétaire</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Définir ou effacer les applications par défaut</string>
+    <string name="title_reset_open">Définir ou effacer les applications par défaut</string>
     <string name="title_select_app">Sélectionner une application</string>
     <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
     <string name="title_issue">Avez-vous une question ou un problème ?</string>

@@ -441,6 +441,7 @@
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
+    <string name="title_advanced_autoclose_unread">Закрывать диалоги при пометке сообщений как непрочитанные</string>
     <string name="title_advanced_undo">Время ожидания отмены</string>
     <string name="title_advanced_quick_filter">Показывать ненавязчивые значки быстрого фильтра</string>
     <string name="title_advanced_quick_scroll">Показывать ненавязчивые значки быстрой прокрутки вверх/вниз</string>
@@ -739,6 +740,8 @@
     <string name="title_synchronize_enabled">Синхронизировать</string>
     <string name="title_synchronize_batch_enable">Включить синхронизацию</string>
     <string name="title_synchronize_batch_disable">Отключить синхронизацию</string>
+    <string name="title_notify_batch_enable">Включить уведомления о новых сообщениях</string>
+    <string name="title_notify_batch_disable">Отключить уведомления о новых сообщениях</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>
@@ -1387,7 +1390,7 @@
     <string name="title_check_owner">Проверить владельца</string>
     <string name="title_remark_owner">Информация будет получена с <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-адрес владельца</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Задать или сбросить приложения по умолчанию</string>
+    <string name="title_reset_open">Задать или сбросить приложения по умолчанию</string>
     <string name="title_select_app">Выбор приложения</string>
     <string name="title_updated">Доступно обновление до версии %1$s</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>

@@ -284,6 +284,7 @@
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti per frequenza d\'uso</string>
+    <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta/inoltro</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
@@ -1366,6 +1367,7 @@
     <string name="title_check_owner">Verifica proprietario</string>
     <string name="title_remark_owner">Le informazioni saranno recuperate da <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Indirizzo IP del proprietario</string>
+    <string name="title_reset_open">Imposta o cancella le app predefinite</string>
     <string name="title_select_app">Seleziona app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
     <string name="title_issue">Hai una domanda o un problema?</string>

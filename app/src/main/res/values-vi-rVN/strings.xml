@@ -1356,7 +1356,7 @@
     <string name="title_check_owner">Kiểm tra chủ sở hữu</string>
     <string name="title_remark_owner">Thông tin sẽ được lấy từ <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Địa chỉ IP của chủ sở hữu</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Đặt hoặc xóa các ứng dụng mặc định</string>
+    <string name="title_reset_open">Đặt hoặc xóa các ứng dụng mặc định</string>
     <string name="title_select_app">Chọn ứng dụng</string>
     <string name="title_updated">Có bản cập nhật lên phiên bản %1$s</string>
     <string name="title_issue">Bạn có câu hỏi hoặc vấn đề không?</string>

@@ -1367,7 +1367,7 @@
     <string name="title_check_owner">Comprobar propietario</string>
     <string name="title_remark_owner">La información se obtendrá de <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Dirección IP del propietario</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Establecer o limpiar aplicaciones por defecto</string>
+    <string name="title_reset_open">Establecer o limpiar aplicaciones por defecto</string>
     <string name="title_select_app">Seleccionar app</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>
     <string name="title_issue">¿Tiene una pregunta o problema?</string>

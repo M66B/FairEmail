@@ -703,6 +703,8 @@
     <string name="title_synchronize_enabled">Synkroniserer</string>
     <string name="title_synchronize_batch_enable">Aktivér synkronisering</string>
     <string name="title_synchronize_batch_disable">Deaktivér synkronisering</string>
+    <string name="title_notify_batch_enable">Aktivér ny besked notifikation</string>
+    <string name="title_notify_batch_disable">Deaktivér ny besked notifikation</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
     <string name="title_empty_trash">Tøm papirkurv</string>
@@ -1340,7 +1342,7 @@
     <string name="title_check_owner">Tjek ejer</string>
     <string name="title_remark_owner">Oplysninger hentes fra <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Ejers IP-adresse</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Sæt eller ryd standard-apps</string>
+    <string name="title_reset_open">Sæt eller ryd standard-apps</string>
     <string name="title_select_app">Vælg app</string>
     <string name="title_updated">En opdatering til version %1$s er tilgængelig</string>
     <string name="title_issue">Har du et spørgsmål eller problem?</string>

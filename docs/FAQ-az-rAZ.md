@@ -1,28 +1,28 @@
 <a name="top"></a>
 
-# FairEmail texniki dəstək
+# FairEmail Dəstək
 
-Bir sualınız varsa, əvvəlcə tez-tez verilən aşağıdakı sualları yoxlayın. Altında, digər suallarınızı necə verəcəyinizi, xüsusiyyətləri istəməyinizi və hataları necə bildirəcəyinizi tapa bilərsiniz.
+Əgər sualınız varsa, zəhmət olmasa aşağıdakı tez-tez soruşulan sualları yoxlayın. [Aşağıda](#user-content-get-support), sualları necə soruşacağınızı, özəllikləri necə tələb edəcəyinizi və xətaları necə bildirəcəyənizi tapa bilərsiniz.
 
-Bir sualınız varsa, əvvəlcə aşağıda verilən Tez-tez Verilən Sualları (FAQ) yoxlayın. Altında, digər suallarınızı necə verəcəyinizi, xüsusiyyətləri istəməyinizi və hataları necə bildirəcəyinizi tapa bilərsiniz.
+Əgər bir sualınız varsa, zəhmət olmasa əvvəlcə aşağıdakı tez-tez soruşulan sualları (TSS) yoxlayın. [Aşağıda](#user-content-get-support), sualları necə soruşacağınızı, özəllikləri necə tələb edəcəyinizi və xətaları necə bildirəcəyənizi tapa bilərsiniz.
 
-## İndeksi
+## İndeks
 
-* [Hesabların avtorizasiyası](#user-content-authorizing-accounts)
+* [Hesablara səlahiyyət vermə](#user-content-authorizing-accounts)
 * [Necə ...?](#user-content-howto)
-* [Mə`lum problemlər](#user-content-known-problems)
-* [Planlaşdırılan yeniliklər](#user-content-planned-features)
-* [Tez-tez sorğu edilən funksiyalar](#user-content-frequently-requested-features)
-* [Tez-tez verilən suallar](#user-content-frequently-asked-questions)
-* [Dəstək almaq](#user-content-get-support)
+* [Bilinən problemlər](#user-content-known-problems)
+* [Planlı özəlliklər](#user-content-planned-features)
+* [Tez-tez tələb edilən özəlliklər](#user-content-frequently-requested-features)
+* [Tez-tez Soruşulan Suallar](#user-content-frequently-asked-questions)
+* [Dəstək al](#user-content-get-support)
 
-<h2><a name="authorizing-accounts"></a>Hesabların avtorizasiyası</h2>
+<h2><a name="authorizing-accounts"></a>Hesablara səlahiyyət vermə</h2>
 
-Əksər hallarda, sürətli quraşdırma sihirbazı avtomatik olaraq düzgün konfiqurasiyanı təyin edə biləcəkdir.
+Əksər hallarda, cəld quraşdırma sehrbazı doğru konfiqurasiyanı avtomatik olaraq müəyyənləşdirə biləcək.
 
-Bunun üçün SSL / TLS və ya STARTTLS istifadə olunmalıdır, IMAP və SMTP server ünvanlarına və port nömrələrinə ehtiyacınız olacaq. və istifadəçi adınız (əksər hallarda, lakin daha çox deyil) və parolunuz. Bunun üçün SSL / TLS və ya STARTTLS istifadə olunmalıdır, IMAP və SMTP server ünvanlarına və port nömrələrinə ehtiyacınız olacaq. və istifadəçi adınız (əksər hallarda, lakin həmişə deyil) və parolunuz.
+Cəld quraşdırma sehrbazı uğursuz olsa, əllə bir hesab (e-poçt almaq üçün) və bir kimlik (e-poçt göndərmək üçün) yaratmalı olacaqsınız. Bunun üçün IMAP və SMTP server ünvanlarına və port nömrələrinə, SSL/TSL və ya STARTTLS istifadə etməyə ehtiyac olub-olmadığına, istifadəçi adınıza (əksər hallarda e-poçt ünvanınız, ancaq həmişə yox) və şifrənizə ehtiyac olacaq.
 
-* IMAP * və provayderin adını axtarmaq düzgün sənədləri tapmaq üçün kifayətdir.
+*IMAP* və təchizatçının adını axtarmaq düzgün sənədləri tapmaq üçün adətən kifayət edir.
 
 Bəzi hallarda hesabınıza xarici girişi təmin etməli və / və ya xüsusi (tətbiqetmə) parol istifadə etməlisiniz, məsələn, iki faktorlu identifikasiya effektiv olduqda.
 
@@ -1108,15 +1108,15 @@ If you would like your name or alias to be included in the list of contributors 
 
 External image:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
+![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png)
 
 Embedded image:
 
-![Embedded image](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
+![Pərçimlənmiş təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png)
 
 Broken image:
 
-![Broken image](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
+![Zədəli təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -1565,11 +1565,11 @@ If you want to use preformatted text, like [ASCII art](https://en.wikipedia.org/
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
+![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png)
 
 Message bodies and attachments are not downloaded by default.
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
+![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
 
@@ -1992,7 +1992,7 @@ Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a trackin
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
+![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -2753,7 +2753,7 @@ Version 1.1082 added a local trash folder. Note that trashing a message will per
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-![External image](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
+![Xarici təsvir](https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png)
 
 This requires a compatible audio recorder app to be installed. In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION) needs to be supported.
 
@@ -3064,64 +3064,64 @@ Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1
 
 Since for each theme there needs to be a light, dark and black variant, it is not feasible to add for each color combination (literally millions) a predefined theme.
 
-Moreover, a theme is more than just a few colors. For example themes with a yellow accent color use a darker link color for enough contrast.
+Həmçinin, bir tema, bir neçə rəngdən daha çoxudur. Misal üçün, sarı vurğu rənginə sahib temalar yetərli ziddiyyət üçün daha tünd bağlantılı rəng istifadə edir.
 
-The theme colors are based on the color circle of [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten).
+Tema rəngləri, [Johannes Itten](https://en.wikipedia.org/wiki/Johannes_Itten)-in rəng dairəsinə əsaslanır.
 
 <br />
 
 <a name="faq165"></a>
-**(165) Is Android Auto supported?**
+**(165) Android Avto dəstəklənir?**
 
-Yes, Android Auto is supported, but only with the GitHub version, please [see here](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) about why.
+Bəli, Android Avto dəstəklənir, ancaq yalnız GitHub versiyası ilə, səbəbi üçün zəhmət olmasa [bura baxın](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249).
 
-For notification (messaging) support you'll need to enable the following notification options:
+Bildiriş (mesajlaşma) dəstəyi üçün aşağıdakı bildiriş seçimlərini fəallaşdırmalısınız:
 
-* *Use Android 'messaging style' notification format*
-* Notification actions: *Direct reply* and (mark as) *Read*
+* *Android "mesajlaşma stili" bildiriş formatını istifadə edin*
+* Bildiriş əməliyyatları: *Birbaşa cavab* və (işarələ) *Oxundu*
 
-You can enable other notification actions too, if you like, but they are not supported by Android Auto.
+İstəsəniz digər bildiriş əməliyyatlarını da fəallaşdıra bilərsiniz, ancaq onlar Android Avto tərəfindən dəstəklənmir.
 
-The developers guide is [here](https://developer.android.com/training/cars/messaging).
+Tərtibatçıların bələdçisi [buradadır](https://developer.android.com/training/cars/messaging).
 
 <br />
 
 <a name="faq166"></a>
-**(166) Can I snooze a message across multiple devices?**
+**(166) Bir mesajı bir neçə cihazda ertələyə bilərəm?**
 
-First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
+Hər şeydən əvvəl, mesajları ertələmək üçün heç bir standart yoxdur, ona görə də ertələmə tətbiqləri özəl həll yollarıdır.
 
-Some email providers, like Gmail, move snoozed messages to a special folder. Unfortunately, third party apps have no access to this special folder.
+Gmail kimi bəzi e-poçt təchizatçıları, ertələnən mesajları xüsusi bir qovluğa köçürdür. Təəssüflər olsun ki, üçüncü tərəf tətbiqlərin bu xüsusi qovluğa müraciəti yoxdur.
 
-Moving a message to another folder and back might fail and might not be possible if there is no internet connection. This is problematic because a message can be snoozed only after moving the message.
+Bir mesajı başqa bir qovluğa köçürmə və geri qaytarma prosesi uğursuz ola bilər və internet bağlantısı olmadıqda mümkün olmaya bilər. Bu problemlidir, çünki bir mesaj, ancaq mesaj köçürüldükən sonra ertələnə bilər.
 
-To prevent these issues, snoozing is done locally on the device by hiding the message while it is snoozing. Unfortunately, it is not possible to hide messages on the email server too.
-
-<br />
-
-<h2><a name="get-support"></a>Get support</h2>
-
-FairEmail is supported on Android smartphones and tablets and ChromeOS only.
-
-Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.
-
-There is no support on things that are not directly related to FairEmail.
-
-There is no support on building and developing things by yourself.
-
-Requested features should:
-
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy oriented, security minded)
-* comply with common standards (IMAP, SMTP, etc)
-
-Features not fulfilling these requirements will likely be rejected. This is also to keep maintenance and support in the long term feasible.
-
-If you have a question, want to request a feature or report a bug, **please use [this form](https://contact.faircode.eu/?product=fairemailsupport)**.
-
-GitHub issues are disabled due to frequent misusage.
+Bu problemlərin qarşısını almaq üçün, ertələmə zamanı mesaj gizlədilərək cihazın yaddaşında həyata keçirilir. Təəssüflər olsun ki, e-poçt serverində də mesajları gizlətmək mümkün deyil.
 
 <br />
 
-Copyright &copy; 2018-2021 Marcel Bokhorst.
+<h2><a name="get-support"></a>Dəstək al</h2>
+
+FairEmail, yalnız Android ağıllı telefonlarında, planşetlərində və ChromeOS-da dəstəklənir.
+
+Yalnız ən son Play Store versiyası və ən son GitHub buraxılışı dəstəklənir. F-Droid quruluşu, yalnız versiya nömrəsi ən son GitHub buraxılışının versiya nömrəsi ilə eynidirsə dəstəklənir. Bu da versiyanı aşağı salmanın dəstəklənməməsi deməkdir.
+
+"FairEmail" ilə birbaşa əlaqədə olmayan şeylər üçün dəstək yoxdur.
+
+Özünüz üçün quruluş və tərtibat prosesini icra etməkdə heç bir dəstək yoxdur.
+
+Tələb edilən özəlliklər:
+
+* əksər insan üçün faydalı olması
+* "FairEmail"in istifadəsini mürəkkəbləşdirməməsi
+* "FairEmail"in fəlsəfəsinə uyğun olması (gizlilik yönümlü, təhlükəsizliyə fokuslanmış)
+* ortaq standartlara uyğun gəlməsi (IMAP, SMTP və s.)
+
+Bu tələbləri qarşılamayan özəlliklər böyük ehtimalla rədd ediləcək. Bu da eyni zamanda uzunmüddətli qulluğu və dəstəyi davam etdirmək üçündür.
+
+Bir sualınız varsa, bir özəllik tələb etmək və ya bir xəta bildirmək istəyirsinizsə **zəhmət olmasa [bu formu](https://contact.faircode.eu/?product=fairemailsupport) istifadə edin**.
+
+GitHub problemləri, tez-tez yanlış istifadə edildiyinə görə sıradan çıxarıldı.
+
+<br />
+
+Müəllif hüququ &copy; 2018-2021 Marcel Bokhorst.

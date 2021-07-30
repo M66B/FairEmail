@@ -2264,13 +2264,13 @@ Einige E-Mail-Clients verwenden IMAP-Schlüsselwörter für Farben. Allerdings u
 <a name="faq110"></a>
 **(110) Warum sind (einige) Nachrichten leer und/oder Anhänge beschädigt?**
 
-Leere Nachrichten und/oder beschädigte Anhänge werden wahrscheinlich durch einen Fehler in der Server-Software verursacht. Ältere Microsoft Exchange-Software ist bekannt dafür, dieses Problem zu verursachen. Meistens können Sie dies umgehen, indem Sie *'Partial fetch'* in den erweiterten Kontoeinstellungen deaktivieren:
+Leere Nachrichten und/oder beschädigte Anhänge werden wahrscheinlich durch einen Fehler in der Server-Anwendung verursacht. Ältere Microsoft-Exchange-Programme sind dafür bekannt, dass sie dieses Problem verursachen. Meistens können Sie das umgehen, indem Sie *»Partial fetch«* in den erweiterten Kontoeinstellungen deaktivieren:
 
-Einstellungen > Manuelle Einrichtung > Konten > Tippen Sie auf Konto > Tippen Sie auf erweiterte > 'Partial fetch' > deaktivieren
+Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → Erweitert → »Partial fetch« (Teilweise abrufen) deaktivieren
 
-Nach dem Deaktivieren dieser Einstellung können Sie das 'mehr' (drei Punkte) -Menü 'resync' für ein erneutes Synchronisieren von leeren Nachrichten verwenden. Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
+Nachdem Sie diese Einstellung deaktiviert haben, können Sie die Meldung »Mehr« im Drei-Punkte-Menü verwenden, um leere Nachrichten erneut zu synchronisieren. Alternativ können Sie *lokale Nachrichten löschen*, indem Sie den/die Ordner in der Ordnerliste lange drücken und alle Nachrichten erneut synchronisieren.
 
-Deaktivieren von *Teilabruf* führt zu mehr Speicherverbrauch.
+Deaktivieren von *»Partial fetch« (Teilabruf)* führt zu mehr Speicherverbrauch.
 
 <br />
 

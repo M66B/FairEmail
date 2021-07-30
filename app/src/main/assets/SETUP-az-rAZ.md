@@ -1,6 +1,6 @@
-# Quraşdırma köməyi
+# Quraşdırma üzrə kömək
 
-FairEmail-i quraşdırmaq olduqca sadədir. E-poçt almaq üçün ən azı bir hesab və e-poçt göndərmək istəsəniz ən azı bir kimlik əlavə etməyiniz lazımdır. The quick setup will add an account and an identity in one go for most major providers.
+"FairEmail"i quraşdırmaq olduqca sadədir. E-poçt almaq üçün ən azı bir hesab və e-poçt göndərmək istəsəniz ən azı bir kimlik əlavə etməyiniz lazımdır. Cəld quraşdırma, ən böyük təchizatçılar üçün bir dəfəyə bir hesab və bir kimlik əlavə edəcəkdir.
 
 ## Tələblər
 
@@ -8,34 +8,34 @@ Hesabları və kimlikləri qurmaq üçün bir internet bağlantısı tələb olu
 
 ## Cəld quraşdırma
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Sadəcə uyğun təchizatçını və ya *Digər təchizatçını* seçin, daha sonra adınızı, e-poçt ünvanınızı və şifrənizi yazın, sonra *Yoxla* düyməsinə toxunun.
 
-This will work for most email providers.
+Bu, əksər e-poçt təchizatçıları üçün işləyir.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Əgər cəld quraşdırma işləməsə, əllə hesab və kimliyi quraşdırmaq lazım olacaq, təlimatlar üçün aşağı baxın.
 
-## Hesabın quraşdırılması - e-poçt almaq
+## Hesabın quraşdırılması - e-poçt almaq üçün
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Siyahıdan bir təchizatçı seçin, əsasən e-poçt ünvanınız olan olan istifadəçi adınızı və şifrənizi daxil edin. FairEmail ilə e-poçt serveri arasında bağlantı qurulması və sistem qovluqlarının bir siyahısının alınması üçün *Yoxla* düyməsinə toxunun. Sistem qovluq seçiminə nəzər saldıqdan sonra *Saxla* düyməsinə toxunaraq hesab əlavə edə bilərsiniz.
+Bir hesab əlavə etmək üçün, *Əllə quraşdırma və daha çox seçim*lərə, ardından *Hesablar*a toxunun və altdakı "+" düyməsinə toxunaraq IMAP (və ya POP3) seçin. Siyahıdan bir təchizatçı seçin, əsasən e-poçt ünvanınız olan istifadəçi adınızı və şifrənizi daxil edin. "FairEmail"in e-poçt serverinə bağlanmasına və sistem qovluqlarının bir siyahısını almasına icazə vermək üçün *Yoxla* düyməsinə toxunun. Sistem qovluq seçiminə nəzər saldıqdan sonra *Saxla* düyməsinə toxunaraq hesab əlavə edə bilərsiniz.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Domen adını daxil edin, məsələn *gmail.com* və *Tənzimləmələri al* düyməsinə toxunun. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). Daha ətraflı, zəhmət olmasa [bura](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) baxın.
+Əgər təchizatçınız təchizatçılar siyahısında yoxdursa, minlərlə təchizatçı var, *Özəl* düyməsinə toxunun. Domen adını daxil edin, məsələn *gmail.com* və *Tənzimləmələri al* düyməsinə toxunun. Əgər təchizatçınız [avtomatik kəşf et](https://tools.ietf.org/html/rfc6186)məni dəstəkləyirsə, FairEmail, host adını və port nömrəsini dolduracaq. Həmçinin doğru IMAP host adı, port nömrəsi və şifrələmə protokol (SSL/TLS və ya STARTTLS) üçün təchizatçınızın quraşdırma təlimatlarını nəzərdən keçirin. Daha ətraflı, zəhmət olmasa [bura](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) baxın.
 
-## Kimlik quraşdırma - e-poçt göndərmə
+## Kimlik quraşdırma - e-poçt göndərmək üçün
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Eynilə, bir kimlik əlavə etmək üçün *Əllə quraşdırma və daha çox seçim* > *Kimliklər* və altdakı "+" düyməsinə toxunun. Göndərdiyiniz e-poçtlardakı ünvan sahəsində görünməsini istədiyiniz adı daxil edin və bağlantılı bir hesab seçin. Kimlik əlavə etmək üçün *Saxla*ya toxunun.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+Hesab əllə konfiqurasiya edilibsə, böyük ehtimalla kimliyi də əllə konfiqurasiya etməli olacaqsınız. Domen adını daxil edin, məsələn *gmail.com* və *Tənzimləmələri al* düyməsinə toxunun. Əgər təchizatçınız [avtomatik kəşf et](https://tools.ietf.org/html/rfc6186)məni dəstəkləyirsə, FairEmail, host adını və port nömrəsini dolduracaq. Həmçinin doğru SMTP host adı, port nömrəsi və şifrələmə protokol (SSL/TLS və ya STARTTLS) üçün təchizatçınızın quraşdırma təlimatlarını nəzərdən keçirin.
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Ləqəb istifadəsi haqqında [TSS](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9)-a baxın.
 
-## Grant permissions - to access contact information
+## Verilən icazələr - əlaqə məlumatlarına müraciət etmək üçün
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+E-poçt ünvanlarını axtarmaq, əlaqə fotolarının göstərilməsini və s. istəyirsinizsə, "FairEmail"ə əlaqə məlumatlarını oxumaq üçün icazə verməlisiniz. Sadəcə *Verilən icazələr* toxunun və *İcazə ver*i seçin.
 
-## Setup battery optimizations - to continuously receive emails
+## Batareya optimallaşdırmasını quraşdırma - davamlı e-poçtları almaq üçün
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+Son Android versiyalarında, Android, batareya istifadəsini azaltmaq üçün ekran bir müddət sönülü olanda tətbiqləri yuxu rejiminə keçirir. Yeni e-poçtları gecikməsiz almaq istəyirsinizsə, FairEmail üçün batareya optimallaşdırmalarını sıradan çıxartmalısınız. *İdarə et*ə toxunun və təlimatları izləyin.
 
-## Questions or problems
+## Suallar və ya problemlər
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Əgər sualınız varsa və ya problem yaşayırsınızsa, zəhmət olmasa kömək üçün [bura baxın](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

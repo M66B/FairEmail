@@ -1365,7 +1365,7 @@
     <string name="title_check_owner">Επαλήθευση κατόχου</string>
     <string name="title_remark_owner">Θα ανακτηθούν πληροφορίες από <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Διεύθυνση IP κατόχου</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Ορισμός ή εκκαθάριση προεπιλεγμένων εφαρμογών</string>
+    <string name="title_reset_open">Ορισμός ή εκκαθάριση προεπιλεγμένων εφαρμογών</string>
     <string name="title_select_app">Επιλογή εφαρμογής</string>
     <string name="title_updated">Υπάρχει διαθέσιμη μια ενημέρωση για την έκδοση %1$s</string>
     <string name="title_issue">Έχετε μία ερώτηση ή κάποιο πρόβλημα;</string>

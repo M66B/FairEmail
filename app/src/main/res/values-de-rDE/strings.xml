@@ -721,6 +721,8 @@
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_synchronize_batch_enable">Synchronisation aktivieren</string>
     <string name="title_synchronize_batch_disable">Synchronisierung deaktivieren</string>
+    <string name="title_notify_batch_enable">Benachrichtigung über neue Nachrichten aktivieren</string>
+    <string name="title_notify_batch_disable">Benachrichtigung über neue Nachrichten deaktivieren</string>
     <string name="title_delete_local">Lokale Nachrichten löschen</string>
     <string name="title_delete_browsed">Durchsuchte Nachrichten löschen</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
@@ -1369,7 +1371,7 @@
     <string name="title_check_owner">Eigentümer prüfen</string>
     <string name="title_remark_owner">Informationen werden abgerufen von <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-Adresse des Eigentümers</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Standard-Apps setzen oder löschen</string>
+    <string name="title_reset_open">Standardanwendungen festlegen oder löschen</string>
     <string name="title_select_app">App auswählen</string>
     <string name="title_updated">Es ist eine Aktualisierung auf Version %1$s verfügbar</string>
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>

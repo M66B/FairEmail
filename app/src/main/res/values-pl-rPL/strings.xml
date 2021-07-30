@@ -440,6 +440,7 @@
     <string name="title_advanced_collapse_multiple">Zwiń wiadomości w rozmowie z wieloma wiadomościami przy \'wstecz\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
+    <string name="title_advanced_autoclose_unread">Zamknij rozmowy przy oznaczaniu wiadomości jako nieprzeczytane</string>
     <string name="title_advanced_undo">Ustaw limit czasu dla \"Cofnij\"</string>
     <string name="title_advanced_quick_filter">Pokaż nienatarczywe ikony szybkiego filtrowania</string>
     <string name="title_advanced_quick_scroll">Pokaż nienatarczywe ikony szybkiego przewijania w górę/w dół</string>
@@ -738,6 +739,8 @@
     <string name="title_synchronize_enabled">Synchronizuj</string>
     <string name="title_synchronize_batch_enable">Włącz synchronizację</string>
     <string name="title_synchronize_batch_disable">Wyłącz synchronizację</string>
+    <string name="title_notify_batch_enable">Włącz powiadomienia o nowej wiadomości</string>
+    <string name="title_notify_batch_disable">Wyłącz powiadomienia o nowej wiadomości</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
@@ -1386,7 +1389,7 @@
     <string name="title_check_owner">Sprawdź właściciela</string>
     <string name="title_remark_owner">Informacje będą pobierane z <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adres IP właściciela</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Ustaw lub wyczyść domyślne aplikacje</string>
+    <string name="title_reset_open">Ustaw lub wyczyść domyślne aplikacje</string>
     <string name="title_select_app">Wybierz aplikację</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
     <string name="title_issue">Masz pytanie lub problem?</string>

@@ -81,6 +81,7 @@
     <string name="title_junk_blocklist">Spam əngəlləmə siyahılarını istifadə et</string>
     <string name="title_notification_sending">Mesaj göndərilir</string>
     <string name="title_notification_waiting">Əlverişli bağlantı gözlənilir</string>
+    <string name="title_notification_idle">Aktiv deyil</string>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="title_notification_alert">Server xəbərdarlığı: \'%1$s\'</string>
     <string name="title_notification_sending_left">%1$d cəhd qaldı</string>
@@ -173,6 +174,7 @@
     <string name="title_setup_doze_remark">E-poçtların güvənlə göndərilməsi və alınması üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
     <string name="title_setup_doze_hint">Bu bir az ziddiyyətli görünsə də, bu tətbiq üçün batareya optimallaşdırmasını bağlamaq daha az batareya istifadəsinə səbəb olacaq</string>
+    <string name="title_setup_doze_instructions">Növbəti Android dialoq pəncərəsində \"Optimallaşdırılmamış\"ı (və ya Enerjiyə qənaət etmir) \"Bütün tətbiqlər\" olaraq dəyişdirin, bu tətbiqi seçin və \"Optimallaşdırmayın\"ı seçin</string>
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Eyniləşdirmə dayandırılsın?</string>
     <string name="title_setup_doze_device">Bu, çox güman ki, bu cihaz üçün tələb olunur</string>
@@ -347,7 +349,7 @@
     <string name="title_advanced_bimi_verified">Təsdiqlənmiş göndərən</string>
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>
-    <string name="title_advanced_identicons">İdentikon-ları göstər</string>
+    <string name="title_advanced_identicons">Kimlikləri göstər</string>
     <string name="title_advanced_circular">Dairəvi nişanları göstər</string>
     <string name="title_advanced_color_saturation">Doydurma: %1$s %%</string>
     <string name="title_advanced_color_value">Parlaqlıq: %1$s %%</string>
@@ -382,6 +384,7 @@
     <string name="title_advanced_text_color">Mətn rənglərini istifadə et</string>
     <string name="title_advanced_text_size">Mətn ölçülərini istifadə et</string>
     <string name="title_advanced_text_font">Şriftləri istifadə et</string>
+    <string name="title_advanced_text_align">Mətn düzləşdirməsini istifadə et</string>
     <string name="title_advanced_text_separators">Ayırıcı xəttləri istifadə et</string>
     <string name="title_advanced_collapse_quotes">Sitat gətirilən mətni yığcamlaşdır</string>
     <string name="title_advanced_image_placeholders">Təsvir yertutanlarını göstər</string>
@@ -418,6 +421,7 @@
     <string name="title_advanced_collapse_multiple">Bir neçə mesajlı danışıqlardakı mesajları \"geri\" seçimində yığcamlaşdır</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_onclose">Bir danışığı bağlayanda</string>
+    <string name="title_advanced_autoclose_unread">Mesajları oxunmamış kimi işarələyəndə danışıqları bağla</string>
     <string name="title_advanced_undo">Bitmə vaxtını geri al</string>
     <string name="title_advanced_quick_filter">Narahat edici olmayan cəld filtr nişanlarını göstər</string>
     <string name="title_advanced_quick_scroll">Narahat edici olmayan cəld yuxarı/aşağı sürüşdürmə nişanlarını göstər</string>
@@ -715,6 +719,8 @@
     <string name="title_synchronize_enabled">Eyniləşdirmə</string>
     <string name="title_synchronize_batch_enable">Eyniləşdirməni fəallaşdır</string>
     <string name="title_synchronize_batch_disable">Eyniləşdirməni sıradan çıxart</string>
+    <string name="title_notify_batch_enable">Yeni mesaj bildirişlərini fəallaşdır</string>
+    <string name="title_notify_batch_disable">Yeni mesaj bildirişlərini sıradan çıxart</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_delete_browsed">Nəzər yetirilmiş/axtarılmış mesajları sil</string>
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
@@ -773,6 +779,9 @@
     <string name="title_auto_delete">Köhnə mesajları avtomatik olaraq birdəfəlik sil</string>
     <string name="title_auto_delete_hint">Köhnə mesajlar, artıq cihazda saxlanılmayan mesajlardır</string>
     <string name="title_auto_delete_archive_hint">Arxiv qovluğundan silməyə, həmişə e-poçt serveri tərəfindən icazə verilmir</string>
+    <string name="title_inbox_root_hint">        Bəzi təchizatçılar, gələn qutusunun altında yeni qovluqların yaradılmasını tələb edir.
+        Bu hallarda, qovluq siyahısındakı gələn qutusuna uzun basaraq \"Alt qovluq yarat\"ı seçə bilərsiniz.
+    </string>
     <string name="title_folder_name_missing">Qovluq adı əskikdir</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
     <string name="title_folder_delete">Bu qovluq və onu ehtiva edən mesajlar birdəfəlik silinsin?</string>
@@ -1040,6 +1049,7 @@
     <string name="title_dsn_reminder">Sərt sıçrayışlar, orijinal göndərənin e-poçt nüfuzuna zərər verir!</string>
     <string name="title_size_reminder">Mesaj (%1$s) server limitindən (%2$s) böyükdür</string>
     <string name="title_attachments_missing">Bütün qoşmalar endirilmədi</string>
+    <string name="title_dialog_hint">Bu dialoq pəncərəsi, üst əməliyyat sətrindəki üç nöqtə menyusu ilə təkrar fəallaşdırıla bilər</string>
     <string name="title_draft_deleted">Qaralama silindi</string>
     <string name="title_draft_saved">Qaralama saxlanıldı</string>
     <string name="title_ask_send_via">Mesaj %2$s vasitəsilə %1$s göndərilsin?</string>
@@ -1359,7 +1369,7 @@
     <string name="title_check_owner">Sahibini yoxla</string>
     <string name="title_remark_owner">Məlumat <a href="https://ipinfo.io/">ipinfo.io</a> saytından alınacaq</string>
     <string name="title_ip_owner">Sahibin IP ünvanı</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">İlkin tətbiqləri tənzimlə və təmizlə</string>
+    <string name="title_reset_open">İlkin tətbiqləri tənzimlə və təmizlə</string>
     <string name="title_select_app">Tətbiq seç</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
@@ -1413,6 +1423,11 @@
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_one_time">%1$s (birdəfəlik satın alma)</string>
     <string name="title_pro_no_play">Play Store tapılmadı</string>
+    <string name="title_pro_info">        \"FairEmail\"in təkmilləşdirilməsi sözün əsl mənasında minlərlə saat vaxt apardı və buna baxmayaraq, xüsusiyyətlərin əskəriyyəti ödənişsizdir.
+        FairEmail gizliliyinizi ciddiyə alır, reklamlar göstərmir və pul qazanmaq üçün izləmə və ya analitikanı istifadə etmir.
+        \"FairEmail\"i uzun müddət qorumaq və dəstəkləmək üçün bəzi rahatlığa yönələn və qabaqcıl özəlliklərdən istifadə ödənişsiz deyil.
+        FairEmail bunu xatırlatmaq üçün kiçik bir mesaj göstərir və Pro özəllikləri satın alsanız bu mesaj görünməyəcək.
+    </string>
     <string name="title_pro_hide">Kiçik mesajı %1$d həftəlik gizlət</string>
     <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
     <string name="title_pro_price">Pro xüsusiyyətlər niyə bu qədər bahalıdır?</string>

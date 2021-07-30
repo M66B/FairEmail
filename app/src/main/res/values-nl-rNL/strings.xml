@@ -421,6 +421,7 @@
     <string name="title_advanced_collapse_multiple">Vouw berichten in een gesprek met meerdere berichten bij \'terug\' samen</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
+    <string name="title_advanced_autoclose_unread">Sluit gesprekken bij het markeren van berichten als ongelezen</string>
     <string name="title_advanced_undo">Herstel time-out</string>
     <string name="title_advanced_quick_filter">Toon niet-opdringerige snelle filterpictogrammen</string>
     <string name="title_advanced_quick_scroll">Toon niet-opdringerige snelle scroll omhoog/omlaag pictogrammen</string>
@@ -719,6 +720,8 @@
     <string name="title_synchronize_enabled">Synchroniseren</string>
     <string name="title_synchronize_batch_enable">Synchronisatie inschakelen</string>
     <string name="title_synchronize_batch_disable">Synchronisatie uitschakelen</string>
+    <string name="title_notify_batch_enable">Schakel meldingen voor nieuwe berichten in</string>
+    <string name="title_notify_batch_disable">Schakel meldingen voor nieuwe berichten uit</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
@@ -1365,7 +1368,7 @@ Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
     <string name="title_check_owner">Controleer eigenaar</string>
     <string name="title_remark_owner">Informatie wordt opgehaald van <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Eigenaar IP-adres</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Standaardapps instellen of wissen</string>
+    <string name="title_reset_open">Standaardapps instellen of wissen</string>
     <string name="title_select_app">Selecteer app</string>
     <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>
     <string name="title_issue">Heeft u een vraag of probleem?</string>

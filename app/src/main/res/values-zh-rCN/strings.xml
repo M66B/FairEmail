@@ -185,13 +185,22 @@
     <string name="title_setup_export_remark">        因设置文件包含所有的设置和帐户信息，它受到密码加密保护。
         导入该设置将需要密码，所以请不要忘记！
     </string>
+    <string name="title_setup_export_do">导出文件将包含所有的设置和数据，但是没有在签名中引用的消息和图像</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
+    <string name="title_setup_import_gmail">        从 Android 8.0 Oreo 起，Gmail 帐户不能再被导入，因为必须选择每个帐户才能授予该帐户的访问权限。
+        您可以轻松地通过快速设置向导重新配置 Gmail 帐户。
+    </string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
     <string name="title_setup_password_repeat">再次输入密码</string>
     <string name="title_setup_password_missing">密码缺失</string>
     <string name="title_setup_password_different">密码不匹配</string>
     <string name="title_setup_password_invalid">密码无效</string>
+    <string name="title_setup_import_accounts">导入帐户和身份</string>
+    <string name="title_setup_import_rules">导入过滤规则</string>
+    <string name="title_setup_import_contacts">导入本地联系人</string>
+    <string name="title_setup_import_answers">导入回复模板</string>
+    <string name="title_setup_import_settings">导入选项</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_import_invalid">无效的设置文件</string>
@@ -264,6 +273,7 @@
     <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
+    <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_send_pending">显示不显眼的 \"延迟发送\" 图标 (页面左下角)</string>
@@ -308,6 +318,7 @@
     <string name="title_advanced_portrait2">点击会话时分屏显示消息列表</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_landscape3">默认在横屏模式下显示导航菜单</string>
+    <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储消息的数量</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
@@ -580,6 +591,7 @@
     <string name="title_advanced_edit_name">编辑名称</string>
     <string name="title_advanced_swipe_actions">设置滑动操作</string>
     <string name="title_advanced_swipe_actions_hint">这将为所有 IMAP 账户设置左右滑动操作</string>
+    <string name="title_advanced_swipe_sensitivity">左/右滑动灵敏度</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">邮箱地址</string>
@@ -696,6 +708,8 @@
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_synchronize_batch_enable">启用同步</string>
     <string name="title_synchronize_batch_disable">禁用同步</string>
+    <string name="title_notify_batch_enable">启用新消息通知</string>
+    <string name="title_notify_batch_disable">禁用新消息通知</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
     <string name="title_empty_trash">清空回收站</string>
@@ -1343,6 +1357,7 @@
     <string name="title_check_owner">检查所有者</string>
     <string name="title_remark_owner">将从 <a href="https://ipinfo.io/">ipinfo.io</a> 获取信息</string>
     <string name="title_ip_owner">所有者 IP 地址</string>
+    <string name="title_reset_open">设置或清除默认应用</string>
     <string name="title_select_app">选择应用</string>
     <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有疑问吗？</string>

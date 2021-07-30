@@ -738,6 +738,8 @@
     <string name="title_synchronize_enabled">Синхронізація</string>
     <string name="title_synchronize_batch_enable">Увімкнути синхронізацію</string>
     <string name="title_synchronize_batch_disable">Вимкнути синхронізацію</string>
+    <string name="title_notify_batch_enable">Дозволити сповіщення про нові повідомлення</string>
+    <string name="title_notify_batch_disable">Вимкнути сповіщення про нові повідомлення</string>
     <string name="title_delete_local">Видалити локальні повідомлення</string>
     <string name="title_delete_browsed">Видалити переглянуті/знайденні повідомлення</string>
     <string name="title_empty_trash">Очистити кошик</string>
@@ -1386,7 +1388,7 @@
     <string name="title_check_owner">Перевірити власника</string>
     <string name="title_remark_owner">Інформація буде надана <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">IP-адреса власника</string>
-    <string name="title_reset_open" comment="title_reset_open&#10;https://support.google.com/pixelphone/answer/6271667">Встановлення або очищення додатків за замовчуванням</string>
+    <string name="title_reset_open">Встановлення або очищення додатків за замовчуванням</string>
     <string name="title_select_app">Оберіть додаток</string>
     <string name="title_updated">Оновлення до версії %1$s доступне</string>
     <string name="title_issue">У вас є питання або проблема?</string>
