@@ -466,7 +466,7 @@ public class ServiceUI extends IntentService {
                 if (folders.size() > 0)
                     Collections.sort(folders, folders.get(0).getComparator(this));
                 for (EntityFolder folder : folders)
-                    EntityOperation.sync(this, folder.id, false);
+                    EntityOperation.sync(this, folder.id, true);
             }
 
             db.setTransactionSuccessful();
