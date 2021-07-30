@@ -19,12 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.system.OsConstants.ENOSPC;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.system.ErrnoException;
 import android.text.TextUtils;
 
+import androidx.annotation.Nullable;
 import androidx.core.net.MailTo;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.PreferenceManager;
@@ -108,8 +111,6 @@ import javax.mail.internet.ParseException;
 
 import biweekly.Biweekly;
 import biweekly.ICalendar;
-
-import static android.system.OsConstants.ENOSPC;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
@@ -2509,11 +2510,8 @@ public class MessageHelper {
                                 break;
                             }
                         }
-                    } else {
-                        String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
-                        Log.e(msg);
-                        throw new MessagingException(msg);
-                    }
+                    } else
+                        throw new MessagingStructureException(content);
                 }
 
                 if (part.isMimeType("multipart/signed")) {
@@ -2557,11 +2555,8 @@ public class MessageHelper {
                                     sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                                 Log.e(sb.toString());
                             }
-                        } else {
-                            String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
-                            Log.e(msg);
-                            throw new MessagingException(msg);
-                        }
+                        } else
+                            throw new MessagingStructureException(content);
                     } else
                         Log.e(ct.toString());
                 } else if (part.isMimeType("multipart/encrypted")) {
@@ -2582,11 +2577,8 @@ public class MessageHelper {
                                     sb.append(' ').append(i).append('=').append(multipart.getBodyPart(i).getContentType());
                                 Log.e(sb.toString());
                             }
-                        } else {
-                            String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
-                            Log.e(msg);
-                            throw new MessagingException(msg);
-                        }
+                        } else
+                            throw new MessagingStructureException(content);
                     } else
                         Log.e(ct.toString());
                 } else if (part.isMimeType("application/pkcs7-mime") ||
@@ -2661,11 +2653,8 @@ public class MessageHelper {
                 Object content = part.getContent(); // Should always be Multipart
                 if (content instanceof Multipart)
                     multipart = (Multipart) part.getContent();
-                else {
-                    String msg = "Multipart=" + (content == null ? null : content.getClass().getName());
-                    Log.e(msg);
-                    throw new MessagingException(msg);
-                }
+                else
+                    throw new MessagingStructureException(content);
 
                 boolean other = false;
                 List<Part> plain = new ArrayList<>();
@@ -3048,5 +3037,21 @@ public class MessageHelper {
         }
 
         return values;
+    }
+
+    static class MessagingStructureException extends MessagingException {
+        private String className;
+
+        MessagingStructureException(Object content) {
+            super();
+            if (content != null)
+                this.className = content.getClass().getName();
+        }
+
+        @Nullable
+        @Override
+        public String getMessage() {
+            return className;
+        }
     }
 }
