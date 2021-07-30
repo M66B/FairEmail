@@ -76,6 +76,7 @@ import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.LogPrinter;
 import android.util.Pair;
@@ -1849,6 +1850,64 @@ public class FragmentCompose extends FragmentBase {
                     main.add(Menu.NONE, order, order++, answer.toString())
                             .setIntent(new Intent().putExtra("id", answer.id));
 
+                if (BuildConfig.DEBUG) {
+                    SubMenu profiles = main.addSubMenu(Menu.NONE, order, order++, "Profiles");
+                    for (EmailProvider p : EmailProvider.loadProfiles(getContext())) {
+                        SpannableStringBuilder ssb = new SpannableStringBuilder();
+                        int start;
+                        ssb.append("IMAP (account, receive)");
+
+                        ssb.append(" host ");
+                        start = ssb.length();
+                        ssb.append(p.imap.host);
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        ssb.append(" port ");
+                        start = ssb.length();
+                        ssb.append(Integer.toString(p.imap.port));
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        ssb.append(" encryption ");
+                        start = ssb.length();
+                        ssb.append(p.imap.starttls ? "STARTTLS" : "SSL/TLS");
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        ssb.append("\n\n");
+
+                        ssb.append("SMTP (identity, send)");
+
+                        ssb.append(" host ");
+                        start = ssb.length();
+                        ssb.append(p.smtp.host);
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        ssb.append(" port ");
+                        start = ssb.length();
+                        ssb.append(Integer.toString(p.smtp.port));
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        ssb.append(" encryption ");
+                        start = ssb.length();
+                        ssb.append(p.smtp.starttls ? "STARTTLS" : "SSL/TLS");
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD),
+                                start, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        ssb.append("\n\n");
+
+                        if (!TextUtils.isEmpty(p.link))
+                            ssb.append(p.link).append("\n\n");
+
+                        profiles.add(999, order, order++, p.name +
+                                (p.appPassword ? "+" : ""))
+                                .setIntent(new Intent().putExtra("config", ssb));
+                    }
+                }
+
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
@@ -1858,6 +1917,13 @@ public class FragmentCompose extends FragmentBase {
 
                         if (!ActivityBilling.isPro(getContext())) {
                             startActivity(new Intent(getContext(), ActivityBilling.class));
+                            return true;
+                        }
+
+                        if (target.getGroupId() == 999) {
+                            CharSequence config = intent.getCharSequenceExtra("config");
+                            int start = etBody.getSelectionStart();
+                            etBody.getText().insert(start, config);
                             return true;
                         }
 
