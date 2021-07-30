@@ -207,10 +207,13 @@ public class Log {
     public static int w(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
+                final StackTraceElement[] ste = new Throwable().getStackTrace();
                 Bugsnag.notify(ex, new OnErrorCallback() {
                     @Override
                     public boolean onError(@NonNull Event event) {
                         event.setSeverity(Severity.INFO);
+                        if (ste.length > 1)
+                            event.addMetadata("extra", "caller", ste[1].toString());
                         return true;
                     }
                 });
@@ -223,10 +226,13 @@ public class Log {
     public static int e(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
+                final StackTraceElement[] ste = new Throwable().getStackTrace();
                 Bugsnag.notify(ex, new OnErrorCallback() {
                     @Override
                     public boolean onError(@NonNull Event event) {
                         event.setSeverity(Severity.WARNING);
+                        if (ste.length > 1)
+                            event.addMetadata("extra", "caller", ste[1].toString());
                         return true;
                     }
                 });
