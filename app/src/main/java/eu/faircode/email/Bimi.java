@@ -78,32 +78,29 @@ public class Bimi {
     ));
 
     static Pair<Bitmap, Boolean> get(
-            Context context, String domain, String selector, int scaleToPixels)
+            Context context, String _domain, String selector, int scaleToPixels)
             throws IOException {
         Bitmap bitmap = null;
         boolean verified = false;
 
         if (TextUtils.isEmpty(selector))
             selector = "default";
-        String parent = UriHelper.getParentDomain(context, domain);
-        Log.i("BIMI domain=" + domain + " parent=" + parent);
 
         // Get DNS record
-        DnsHelper.DnsRecord[] records;
-        try {
-            String txt = selector + "._bimi." + parent;
-            Log.i("BIMI fetch TXT " + txt);
-            records = DnsHelper.lookup(context, txt, "txt");
-            if (records.length == 0)
+        String domain = _domain;
+        DnsHelper.DnsRecord record = lookupBimi(context, selector, domain);
+        if (record == null) {
+            String parent = UriHelper.getParentDomain(context, domain);
+            if (domain.equals(parent))
                 return null;
-            Log.i("BIMI got TXT " + records[0].name);
-        } catch (Throwable ex) {
-            Log.i(ex);
-            return null;
+            domain = parent;
+            record = lookupBimi(context, selector, domain);
+            if (record == null)
+                return null;
         }
 
         // Process DNS record
-        Map<String, String> values = MessageHelper.getKeyValues(records[0].name);
+        Map<String, String> values = MessageHelper.getKeyValues(record.name);
         List<String> tags = new ArrayList<>(values.keySet());
         Collections.sort(tags); // process certificate first
         for (String tag : tags) {
@@ -212,7 +209,7 @@ public class Bimi {
 
                         // Check subject
                         List<String> names = EntityCertificate.getDnsNames(cert);
-                        if (!names.contains(parent))
+                        if (!names.contains(domain))
                             throw new IllegalArgumentException("Invalid certificate domain" +
                                     " names=" + TextUtils.join(", ", names));
 
@@ -303,12 +300,12 @@ public class Bimi {
                         CertPathValidator cpv = CertPathValidator.getInstance("PKIX");
                         cpv.validate(path.getCertPath(), pparams);
 
-                        Log.i("BIMI valid domain=" + parent);
+                        Log.i("BIMI valid domain=" + domain);
 
                         // Get DMARC record
-                        String txt = "_dmarc." + parent;
+                        String txt = "_dmarc." + domain;
                         Log.i("BIMI fetch TXT " + txt);
-                        records = DnsHelper.lookup(context, txt, "txt");
+                        DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
                         if (records.length == 0)
                             throw new IllegalArgumentException("DMARC missing");
                         Log.i("BIMI got TXT " + records[0].name);
@@ -323,7 +320,7 @@ public class Bimi {
                     } catch (MalformedURLException ex) {
                         Log.i(ex);
                     } catch (Throwable ex) {
-                        Log.w(new Throwable("BIMI " + parent, ex));
+                        Log.w(new Throwable("BIMI " + _domain, ex));
                     }
 
                     break;
@@ -335,5 +332,20 @@ public class Bimi {
         }
 
         return (bitmap == null ? null : new Pair<>(bitmap, verified));
+    }
+
+    private static DnsHelper.DnsRecord lookupBimi(Context context, String selector, String domain) {
+        try {
+            String txt = selector + "._bimi." + domain;
+            Log.i("BIMI fetch TXT " + txt);
+            DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
+            if (records.length == 0)
+                return null;
+            Log.i("BIMI got TXT " + records[0].name);
+            return records[0];
+        } catch (Throwable ex) {
+            Log.i(ex);
+            return null;
+        }
     }
 }
