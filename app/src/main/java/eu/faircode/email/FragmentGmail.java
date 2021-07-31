@@ -19,6 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.accounts.AccountManager.newChooseAccountIntent;
+import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.GmailState.TYPE_GOOGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+
 import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -55,12 +60,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.accounts.AccountManager.newChooseAccountIntent;
-import static android.app.Activity.RESULT_OK;
-import static eu.faircode.email.GmailState.TYPE_GOOGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
-
 public class FragmentGmail extends FragmentBase {
+    private String personal;
+    private String address;
+    private boolean update;
+
     private ViewGroup view;
     private ScrollView scroll;
 
@@ -81,6 +85,18 @@ public class FragmentGmail extends FragmentBase {
     private Group grpError;
 
     private static final String PRIVACY_URI = "https://policies.google.com/privacy";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            personal = args.getString("personal");
+            address = args.getString("address");
+            update = args.getBoolean("update");
+        }
+    }
 
     @Override
     @Nullable
@@ -139,7 +155,6 @@ public class FragmentGmail extends FragmentBase {
                     if (TextUtils.isEmpty(name))
                         throw new IllegalArgumentException(getString(R.string.title_no_name));
 
-
                     Intent intent = newChooseAccountIntent(
                             null,
                             null,
@@ -183,6 +198,8 @@ public class FragmentGmail extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, "Gmail"));
+        etName.setText(personal);
+        cbUpdate.setChecked(update);
         pbSelect.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
@@ -226,7 +243,8 @@ public class FragmentGmail extends FragmentBase {
         btnGrant.setEnabled(!granted);
         tvGranted.setVisibility(granted ? View.VISIBLE : View.GONE);
 
-        if (granted) {
+        boolean hasName = (etName.getText() != null && etName.getText().length() > 0);
+        if (granted && !hasName) {
             try (Cursor cursor = getContext().getContentResolver().query(
                     ContactsContract.Profile.CONTENT_URI,
                     new String[]{ContactsContract.Profile.DISPLAY_NAME}, null, null, null)) {

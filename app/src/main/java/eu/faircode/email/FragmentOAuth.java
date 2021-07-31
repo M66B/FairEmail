@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -84,14 +87,15 @@ import java.util.Map;
 import javax.mail.AuthenticationFailedException;
 import javax.net.ssl.HttpsURLConnection;
 
-import static android.app.Activity.RESULT_OK;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
-
 public class FragmentOAuth extends FragmentBase {
     private String id;
     private String name;
     private String privacy;
     private boolean askAccount;
+
+    private String personal;
+    private String address;
+    private boolean update;
 
     private ViewGroup view;
     private ScrollView scroll;
@@ -124,6 +128,10 @@ public class FragmentOAuth extends FragmentBase {
         name = args.getString("name");
         privacy = args.getString("privacy");
         askAccount = args.getBoolean("askAccount", false);
+
+        personal = args.getString("personal");
+        address = args.getString("address");
+        update = args.getBoolean("update");
     }
 
     @Override
@@ -186,6 +194,10 @@ public class FragmentOAuth extends FragmentBase {
         tvConfiguring.setVisibility(View.GONE);
         tvGmailHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         hideError();
+
+        etName.setText(personal);
+        etEmail.setText(address);
+        cbUpdate.setChecked(update);
 
         return view;
     }

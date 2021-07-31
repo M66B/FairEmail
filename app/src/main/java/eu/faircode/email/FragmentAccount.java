@@ -19,6 +19,13 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -52,6 +59,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
@@ -67,12 +75,6 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.mail.Folder;
-
-import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
@@ -1394,6 +1396,11 @@ public class FragmentAccount extends FragmentBase {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
+
+                List<EntityIdentity> identities = db.identity().getIdentities(id);
+                if (identities != null && identities.size() == 1)
+                    args.putString("personal", identities.get(0).name);
+
                 return db.account().getAccount(id);
             }
 
@@ -1517,8 +1524,51 @@ public class FragmentAccount extends FragmentBase {
 
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);
-                    tilPassword.setEnabled(false);
+                    tilPassword.getEditText().setEnabled(false);
                     btnCertificate.setEnabled(false);
+
+                    tilPassword.setEndIconDrawable(R.drawable.twotone_edit_24);
+                    tilPassword.setEndIconOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Fragment fragment;
+                            if (auth == AUTH_TYPE_GMAIL)
+                                fragment = new FragmentGmail();
+                            else if (auth == AUTH_TYPE_OAUTH)
+                                fragment = new FragmentOAuth();
+                            else {
+                                Log.e("Unknown auth=" + auth);
+                                return;
+                            }
+
+                            try {
+                                Bundle aargs = new Bundle();
+                                if (auth == AUTH_TYPE_OAUTH) {
+                                    if (account == null)
+                                        throw new IllegalArgumentException("Account missing");
+
+                                    EmailProvider provider =
+                                            EmailProvider.getProvider(view.getContext(), account.provider);
+                                    aargs.putString("id", provider.id);
+                                    aargs.putString("name", provider.description);
+                                    aargs.putString("privacy", provider.oauth.privacy);
+                                    aargs.putBoolean("askAccount", provider.oauth.askAccount);
+                                }
+                                aargs.putString("personal", args.getString("personal"));
+                                aargs.putString("address", etUser.getText().toString());
+                                aargs.putBoolean("update", true);
+
+                                fragment.setArguments(aargs);
+
+                                getParentFragmentManager().popBackStack();
+                                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("quick");
+                                fragmentTransaction.commit();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    });
                 }
 
                 cbOnDemand.setEnabled(cbSynchronize.isChecked());
