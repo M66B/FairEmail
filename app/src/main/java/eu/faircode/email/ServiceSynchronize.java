@@ -1241,7 +1241,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 if (account.protocol != EntityAccount.TYPE_IMAP)
                     iservice.setLeaveOnServer(account.leave_on_server);
 
-                final long start = new Date().getTime();
+                final Date lastStillHere = new Date(0);
 
                 iservice.setListener(new StoreListener() {
                     @Override
@@ -1254,10 +1254,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             if ("Still here".equals(message) &&
                                     !account.isTransient(ServiceSynchronize.this)) {
-                                long elapsed = new Date().getTime() - start;
-                                if (elapsed < STILL_THERE_THRESHOLD)
-                                    optimizeAccount(account, "'" + message + "'" +
-                                            " elapsed=" + elapsed + " ms");
+                                long now = new Date().getTime();
+                                long last = lastStillHere.getTime();
+                                if (last > 0) {
+                                    long elapsed = now - last;
+                                    if (elapsed < STILL_THERE_THRESHOLD)
+                                        optimizeAccount(account, "'" + message + "'" +
+                                                " elapsed=" + elapsed + " ms");
+                                }
+                                lastStillHere.setTime(now);
                             }
                         } else
                             try {
@@ -1290,6 +1295,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     try {
                         iservice.connect(account);
+                        lastStillHere.setTime(0);
                     } catch (Throwable ex) {
                         // Immediately report auth errors
                         if (ex instanceof AuthenticationFailedException) {
