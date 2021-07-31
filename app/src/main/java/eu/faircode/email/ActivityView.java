@@ -123,10 +123,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int PI_WHY = 2;
     static final int PI_THREAD = 3;
     static final int PI_OUTBOX = 4;
-    static final int PI_ERROR = 5;
-    static final int PI_UPDATE = 6;
-    static final int PI_WIDGET = 7;
-    static final int PI_POWER = 8;
+    static final int PI_UPDATE = 5;
+    static final int PI_WIDGET = 6;
+    static final int PI_POWER = 7;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
@@ -1164,12 +1163,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     prefs.edit().putBoolean("why", true).apply();
                     Helper.viewFAQ(this, 2);
                 }
-
-            } else if ("error".equals(action)) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getSupportFragmentManager().popBackStack("unified", 0);
-
-                Helper.viewFAQ(this, 22);
 
             } else if ("outbox".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
