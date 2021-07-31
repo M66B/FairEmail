@@ -1219,8 +1219,8 @@ public class IMAPStore extends Store
 		    p = null;
 		    pool.wait(pool.clientTimeoutInterval);
 		    if (pool.storeConnectionInUse) {
-				eu.faircode.email.Log.e("getStoreProtocol timeout");
-				throw new InterruptedException("getStoreProtocol timeout");
+				eu.faircode.email.Log.e("getStoreProtocol timeout " + reason);
+				throw new InterruptedException("getStoreProtocol timeout" + reason);
 			}
 		} catch (InterruptedException ex) {
 		    // restore the interrupted state, which callers might
@@ -1456,6 +1456,7 @@ public class IMAPStore extends Store
 			crumb.put("host", host);
 			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			crumb.put("force", Boolean.toString(force));
 			eu.faircode.email.Log.breadcrumb("emptyConnectionPool", crumb);
 		}
 
@@ -1793,6 +1794,7 @@ public class IMAPStore extends Store
 			crumb.put("host", host);
 			crumb.put("connections", Integer.toString(pool.authenticatedConnections.size()));
 			crumb.put("inuse", Boolean.toString(pool.storeConnectionInUse));
+			crumb.put("force", Boolean.toString(force));
 			eu.faircode.email.Log.breadcrumb("closeAllFolders", crumb);
 		}
 	// To avoid violating the locking hierarchy, there's no lock we
