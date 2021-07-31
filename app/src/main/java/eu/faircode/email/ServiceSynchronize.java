@@ -1254,9 +1254,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             if ("Still here".equals(message) &&
                                     !account.isTransient(ServiceSynchronize.this)) {
-                                long now = new Date().getTime();
-                                if (now - start < STILL_THERE_THRESHOLD)
-                                    optimizeAccount(account, message);
+                                long elapsed = new Date().getTime() - start;
+                                if (elapsed < STILL_THERE_THRESHOLD)
+                                    optimizeAccount(account, "'" + message + "'" +
+                                            " elapsed=" + elapsed + " ms");
                             }
                         } else
                             try {
@@ -2248,7 +2249,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         DB db = DB.getInstance(this);
 
         int pollInterval = getPollInterval(this);
-        EntityLog.log(this, "Auto optimize account=" + account.name + " poll interval=" + pollInterval);
+        EntityLog.log(this, account.name + " auto optimize" +
+                " reason=" + reason +
+                " poll interval=" + pollInterval);
         if (pollInterval == 0) {
             try {
                 db.beginTransaction();
