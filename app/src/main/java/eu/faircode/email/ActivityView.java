@@ -19,6 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2021 by Marcel Bokhorst (M66B)
 */
 
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
+import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_OPEN;
+import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.NotificationManager;
@@ -81,10 +85,6 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
-import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_OPEN;
-import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED;
-
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private String startup;
 
@@ -121,13 +121,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final int PI_UNIFIED = 1;
     static final int PI_WHY = 2;
-    static final int PI_ALERT = 3;
-    static final int PI_THREAD = 4;
-    static final int PI_OUTBOX = 5;
-    static final int PI_ERROR = 6;
-    static final int PI_UPDATE = 7;
-    static final int PI_WIDGET = 8;
-    static final int PI_POWER = 9;
+    static final int PI_THREAD = 3;
+    static final int PI_OUTBOX = 4;
+    static final int PI_ERROR = 5;
+    static final int PI_UPDATE = 6;
+    static final int PI_WIDGET = 7;
+    static final int PI_POWER = 8;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
@@ -1166,11 +1165,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Helper.viewFAQ(this, 2);
                 }
 
-            } else if ("alert".equals(action) || "error".equals(action)) {
+            } else if ("error".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
-                Helper.viewFAQ(this, "alert".equals(action) ? 23 : 22);
+                Helper.viewFAQ(this, 22);
 
             } else if ("outbox".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))

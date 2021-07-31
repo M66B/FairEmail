@@ -1160,19 +1160,25 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return builder;
     }
 
-    private NotificationCompat.Builder getNotificationAlert(String account, String message) {
+    private NotificationCompat.Builder getNotificationAlert(EntityAccount account, String message) {
+        String title = getString(R.string.title_notification_alert, account.name);
+
         // Build pending intent
-        Intent alert = new Intent(this, ActivityView.class);
-        alert.setAction("alert");
-        alert.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(this, ActivityError.class);
+        intent.setAction("alert:" + account.id);
+        intent.putExtra("type", "alert");
+        intent.putExtra("title", title);
+        intent.putExtra("message", message);
+        intent.putExtra("faq", 23);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent piAlert = PendingIntentCompat.getActivity(
-                this, ActivityView.PI_ALERT, alert, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivityError.PI_ALERT, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "alerts")
                         .setSmallIcon(R.drawable.baseline_warning_white_24)
-                        .setContentTitle(getString(R.string.title_notification_alert, account))
+                        .setContentTitle(title)
                         .setContentText(message)
                         .setContentIntent(piAlert)
                         .setAutoCancel(false)
@@ -1275,7 +1281,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                         nm.notify("alert:" + account.id,
                                                 NotificationHelper.NOTIFICATION_TAGGED,
-                                                getNotificationAlert(account.name, message).build());
+                                                getNotificationAlert(account, message).build());
                                     } catch (Throwable ex) {
                                         Log.w(ex);
                                     }
@@ -1309,7 +1315,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                     nm.notify("receive:" + account.id,
                                             NotificationHelper.NOTIFICATION_TAGGED,
-                                            Core.getNotificationError(this, "error", account.name, ex)
+                                            Core.getNotificationError(this, "error", account, 0, ex)
                                                     .build());
                                 } catch (Throwable ex1) {
                                     Log.w(ex1);
@@ -2035,7 +2041,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive:" + account.id,
                                         NotificationHelper.NOTIFICATION_TAGGED,
-                                        Core.getNotificationError(this, "warning", account.name, warning)
+                                        Core.getNotificationError(this, "warning", account, 0, warning)
                                                 .build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);

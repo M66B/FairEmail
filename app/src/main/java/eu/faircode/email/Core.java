@@ -632,7 +632,7 @@ class Core {
                                 String title = (resid == 0 ? null : context.getString(resid));
                                 if (title != null) {
                                     NotificationCompat.Builder builder =
-                                            getNotificationError(context, "warning", title, ex);
+                                            getNotificationError(context, "warning", account, message.id, new Throwable(title, ex));
                                     nm.notify(op.name + ":" + op.message,
                                             NotificationHelper.NOTIFICATION_TAGGED,
                                             builder.build());
@@ -4852,19 +4852,26 @@ class Core {
     // MailConnectException
     // - on connectivity problems when connecting to store
 
-    static NotificationCompat.Builder getNotificationError(Context context, String channel, String title, Throwable ex) {
+    static NotificationCompat.Builder getNotificationError(Context context, String channel, EntityAccount account, long id, Throwable ex) {
+        String title = context.getString(R.string.title_notification_failed, account.name);
+        String message = Log.formatThrowable(ex, "\n", false);
+
         // Build pending intent
-        Intent intent = new Intent(context, ActivityView.class);
-        intent.setAction("error");
+        Intent intent = new Intent(context, ActivityError.class);
+        intent.setAction(channel + ":" + account.id + ":" + id);
+        intent.putExtra("type", channel);
+        intent.putExtra("title", title);
+        intent.putExtra("message", message);
+        intent.putExtra("faq", 22);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntentCompat.getActivity(
-                context, ActivityView.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, ActivityError.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, channel)
                         .setSmallIcon(R.drawable.baseline_warning_white_24)
-                        .setContentTitle(context.getString(R.string.title_notification_failed, title))
+                        .setContentTitle(title)
                         .setContentText(Log.formatThrowable(ex, false))
                         .setContentIntent(pi)
                         .setAutoCancel(false)
@@ -4873,8 +4880,7 @@ class Core {
                         .setOnlyAlertOnce(true)
                         .setCategory(NotificationCompat.CATEGORY_ERROR)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
-                        .setStyle(new NotificationCompat.BigTextStyle()
-                                .bigText(Log.formatThrowable(ex, "\n", false)));
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(message));
 
         return builder;
     }
