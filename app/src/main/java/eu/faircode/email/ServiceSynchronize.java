@@ -2058,24 +2058,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     state.resetBatches();
                     ((ThreadPoolExecutor) executor).getQueue().clear();
 
-                    // Close folders
-                    for (EntityFolder folder : mapFolders.keySet()) {
-                        if (folder.selectable && folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
-                            db.folder().setFolderState(folder.id, "closing");
-                            try {
-                                if (iservice.getStore().isConnected())
-                                    mapFolders.get(folder).forceClose();
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                            }
-                        }
-
-                        db.folder().setFolderState(folder.id, null);
-                    }
-
                     // Close store
                     try {
                         db.account().setAccountState(account.id, "closing");
+                        for (EntityFolder folder : mapFolders.keySet())
+                            if (folder.selectable && folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
+                                db.folder().setFolderState(folder.id, "closing");
                         EntityLog.log(this, account.name + " store closing");
                         iservice.close();
                         EntityLog.log(this, account.name + " store closed");
@@ -2084,6 +2072,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     } finally {
                         EntityLog.log(this, account.name + " closed");
                         db.account().setAccountState(account.id, null);
+                        for (EntityFolder folder : mapFolders.keySet())
+                            db.folder().setFolderState(folder.id, null);
                     }
 
                     // Stop idlers
