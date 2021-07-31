@@ -2930,7 +2930,8 @@ public class MessageHelper {
             sb.append(kar);
         }
 
-        return sb.toString();
+        return Normalizer.normalize(sb.toString(), Normalizer.Form.NFKD)
+                .replaceAll("[^\\p{ASCII}]", "");
     }
 
     static String sanitizeEmail(String email) {
