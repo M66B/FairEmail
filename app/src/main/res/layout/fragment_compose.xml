@@ -500,21 +500,6 @@
             app:layout_constraintBottom_toTopOf="@+id/style_bar"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabTranslate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_padding"
-            android:alpha="0.5"
-            android:contentDescription="@string/title_translate"
-            app:backgroundTint="?attr/colorFabBackground"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toTopOf="@+id/style_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/twotone_translate_24"
-            app:tint="?attr/colorFabForeground"
-            app:tooltipText="@string/title_translate" />
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/style_bar"
             android:layout_width="0dp"

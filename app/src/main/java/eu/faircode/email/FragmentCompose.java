@@ -227,6 +227,7 @@ public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
 
     private ViewGroup view;
+    private View vwAnchorMenu;
     private Spinner spIdentity;
     private EditText etExtra;
     private TextView tvDomain;
@@ -251,7 +252,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCloseRefHint;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
-    private FloatingActionButton fabTranslate;
+    private View vwAnchor;
     private BottomNavigationView style_bar;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
@@ -344,6 +345,7 @@ public class FragmentCompose extends FragmentBase {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_compose, container, false);
 
         // Get controls
+        vwAnchorMenu = view.findViewById(R.id.vwAnchorMenu);
         spIdentity = view.findViewById(R.id.spIdentity);
         etExtra = view.findViewById(R.id.etExtra);
         tvDomain = view.findViewById(R.id.tvDomain);
@@ -368,7 +370,7 @@ public class FragmentCompose extends FragmentBase {
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
-        fabTranslate = view.findViewById(R.id.fabTranslate);
+        vwAnchor = view.findViewById(R.id.vwAnchor);
         style_bar = view.findViewById(R.id.style_bar);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -816,13 +818,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        fabTranslate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onTranslate(v);
-            }
-        });
-
         style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -910,8 +905,6 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
-        fabTranslate.setVisibility(
-                DeepL.isAvailable(getContext()) ? View.VISIBLE : View.GONE);
         style_bar.setVisibility(View.GONE);
         media_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -1487,6 +1480,26 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        menu.findItem(R.id.menu_translate).setActionView(R.layout.action_button);
+        ImageButton ibTranslate = (ImageButton)menu.findItem(R.id.menu_translate).getActionView();
+        ibTranslate.setImageResource(R.drawable.twotone_translate_24);
+        ibTranslate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onTranslate(vwAnchorMenu);
+            }
+        });
+
+        menu.findItem(R.id.menu_zoom).setActionView(R.layout.action_button);
+        ImageButton ibZoom = (ImageButton)menu.findItem(R.id.menu_zoom).getActionView();
+        ibZoom.setImageResource(R.drawable.twotone_format_size_24);
+        ibZoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMenuZoom();
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -1495,6 +1508,8 @@ public class FragmentCompose extends FragmentBase {
         super.onPrepareOptionsMenu(menu);
 
         menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(getContext()));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
@@ -1563,6 +1578,9 @@ public class FragmentCompose extends FragmentBase {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_encrypt) {
             onMenuEncrypt();
+            return true;
+        } else if (itemId == R.id.menu_translate) {
+            onTranslate(vwAnchorMenu);
             return true;
         } else if (itemId == R.id.menu_zoom) {
             onMenuZoom();
@@ -1788,7 +1806,6 @@ public class FragmentCompose extends FragmentBase {
                     return;
                 }
 
-                View vwAnchorMenu = view.findViewById(R.id.vwAnchorMenu);
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchorMenu);
                 Menu main = popupMenu.getMenu();
 
@@ -3437,7 +3454,6 @@ public class FragmentCompose extends FragmentBase {
                                         new Intent(getContext(), ActivitySetup.class)
                                                 .putExtra("tab", "encryption"));
                             else {
-                                View vwAnchor = view.findViewById(R.id.vwAnchor);
                                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
                                 popupMenu.getMenu().add(Menu.NONE, R.string.title_send_dialog, 1, R.string.title_send_dialog);
                                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_manage_certificates, 2, R.string.title_advanced_manage_certificates);

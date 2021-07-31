@@ -115,19 +115,16 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
     }
 
     private static void insertIcon(Context context, MenuItem menuItem) {
-        if (menuItem.getItemId() == R.id.menu_zoom)
-            return;
         Drawable icon = menuItem.getIcon();
 
         if (icon == null)
             icon = new ColorDrawable(Color.TRANSPARENT);
         else {
+            icon = icon.getConstantState().newDrawable().mutate();
             int color = Helper.resolveColor(context, R.attr.colorAccent);
             icon.setTint(color);
-            if (!menuItem.isEnabled()) {
-                icon.mutate();
+            if (!menuItem.isEnabled())
                 icon.setAlpha(Math.round(Helper.LOW_LIGHT * 255));
-            }
         }
 
         int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);

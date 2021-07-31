@@ -8,6 +8,12 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_translate"
+        android:icon="@drawable/twotone_translate_24"
+        android:title="@string/title_translate"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_zoom"
         android:icon="@drawable/twotone_format_size_24"
         android:title="@string/title_zoom"
